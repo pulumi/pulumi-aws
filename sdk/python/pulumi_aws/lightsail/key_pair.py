@@ -55,9 +55,11 @@ class KeyPair(pulumi.CustomResource):
         Provides a Lightsail Key Pair, for use with Lightsail Instances. These key pairs
         are separate from EC2 Key Pairs, and must be created or imported for use with
         Lightsail.
-        
+
         > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_key_pair.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Lightsail Key Pair. If omitted, a unique
@@ -66,8 +68,6 @@ class KeyPair(pulumi.CustomResource):
                key material. Only used when creating a new key pair
         :param pulumi.Input[str] public_key: The public key material. This public key will be
                imported into Lightsail
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_key_pair.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -106,7 +106,7 @@ class KeyPair(pulumi.CustomResource):
         """
         Get an existing KeyPair resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,12 +125,11 @@ class KeyPair(pulumi.CustomResource):
                when creating a new key, and when no `pgp_key` is provided
         :param pulumi.Input[str] public_key: The public key material. This public key will be
                imported into Lightsail
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_key_pair.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["encrypted_fingerprint"] = encrypted_fingerprint
         __props__["encrypted_private_key"] = encrypted_private_key

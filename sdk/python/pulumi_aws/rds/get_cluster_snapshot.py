@@ -13,7 +13,7 @@ class GetClusterSnapshotResult:
     """
     A collection of values returned by getClusterSnapshot.
     """
-    def __init__(__self__, allocated_storage=None, availability_zones=None, db_cluster_identifier=None, db_cluster_snapshot_arn=None, db_cluster_snapshot_identifier=None, engine=None, engine_version=None, include_public=None, include_shared=None, kms_key_id=None, license_model=None, most_recent=None, port=None, snapshot_create_time=None, snapshot_type=None, source_db_cluster_snapshot_arn=None, status=None, storage_encrypted=None, tags=None, vpc_id=None, id=None):
+    def __init__(__self__, allocated_storage=None, availability_zones=None, db_cluster_identifier=None, db_cluster_snapshot_arn=None, db_cluster_snapshot_identifier=None, engine=None, engine_version=None, id=None, include_public=None, include_shared=None, kms_key_id=None, license_model=None, most_recent=None, port=None, snapshot_create_time=None, snapshot_type=None, source_db_cluster_snapshot_arn=None, status=None, storage_encrypted=None, tags=None, vpc_id=None):
         if allocated_storage and not isinstance(allocated_storage, float):
             raise TypeError("Expected argument 'allocated_storage' to be a float")
         __self__.allocated_storage = allocated_storage
@@ -52,6 +52,12 @@ class GetClusterSnapshotResult:
         __self__.engine_version = engine_version
         """
         Version of the database engine for this DB cluster snapshot.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if include_public and not isinstance(include_public, bool):
             raise TypeError("Expected argument 'include_public' to be a bool")
@@ -116,12 +122,6 @@ class GetClusterSnapshotResult:
         """
         The VPC ID associated with the DB cluster snapshot.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetClusterSnapshotResult(GetClusterSnapshotResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -135,6 +135,7 @@ class AwaitableGetClusterSnapshotResult(GetClusterSnapshotResult):
             db_cluster_snapshot_identifier=self.db_cluster_snapshot_identifier,
             engine=self.engine,
             engine_version=self.engine_version,
+            id=self.id,
             include_public=self.include_public,
             include_shared=self.include_shared,
             kms_key_id=self.kms_key_id,
@@ -147,16 +148,18 @@ class AwaitableGetClusterSnapshotResult(GetClusterSnapshotResult):
             status=self.status,
             storage_encrypted=self.storage_encrypted,
             tags=self.tags,
-            vpc_id=self.vpc_id,
-            id=self.id)
+            vpc_id=self.vpc_id)
 
 def get_cluster_snapshot(db_cluster_identifier=None,db_cluster_snapshot_identifier=None,include_public=None,include_shared=None,most_recent=None,snapshot_type=None,tags=None,opts=None):
     """
     Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
-    
+
     > **NOTE:** This data source does not apply to snapshots created on DB Instances. 
     See the [`rds.Snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_snapshot.html) for DB Instance snapshots.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_cluster_snapshot.html.markdown.
+
+
     :param str db_cluster_identifier: Returns the list of snapshots created by the specific db_cluster
     :param str db_cluster_snapshot_identifier: Returns information on a specific snapshot_id.
     :param bool include_public: Set this value to true to include manual DB Cluster Snapshots that are public and can be
@@ -168,10 +171,9 @@ def get_cluster_snapshot(db_cluster_identifier=None,db_cluster_snapshot_identifi
     :param str snapshot_type: The type of snapshots to be returned. If you don't specify a SnapshotType
            value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
            included in the returned results by default. Possible values are, `automated`, `manual`, `shared` and `public`.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_cluster_snapshot.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['dbClusterIdentifier'] = db_cluster_identifier
     __args__['dbClusterSnapshotIdentifier'] = db_cluster_snapshot_identifier
@@ -194,6 +196,7 @@ def get_cluster_snapshot(db_cluster_identifier=None,db_cluster_snapshot_identifi
         db_cluster_snapshot_identifier=__ret__.get('dbClusterSnapshotIdentifier'),
         engine=__ret__.get('engine'),
         engine_version=__ret__.get('engineVersion'),
+        id=__ret__.get('id'),
         include_public=__ret__.get('includePublic'),
         include_shared=__ret__.get('includeShared'),
         kms_key_id=__ret__.get('kmsKeyId'),
@@ -206,5 +209,4 @@ def get_cluster_snapshot(db_cluster_identifier=None,db_cluster_snapshot_identifi
         status=__ret__.get('status'),
         storage_encrypted=__ret__.get('storageEncrypted'),
         tags=__ret__.get('tags'),
-        vpc_id=__ret__.get('vpcId'),
-        id=__ret__.get('id'))
+        vpc_id=__ret__.get('vpcId'))

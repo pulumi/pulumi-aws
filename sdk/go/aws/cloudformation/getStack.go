@@ -10,7 +10,7 @@ import (
 
 // The CloudFormation Stack data source allows access to stack
 // outputs and other useful data including the template body.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudformation_stack.html.markdown.
 func LookupStack(ctx *pulumi.Context, args *LookupStackArgs, opts ...pulumi.InvokeOption) (*LookupStackResult, error) {
 	var rv LookupStackResult
@@ -24,10 +24,9 @@ func LookupStack(ctx *pulumi.Context, args *LookupStackArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getStack.
 type LookupStackArgs struct {
 	// The name of the stack
-	Name string `pulumi:"name"`
+	Name string                 `pulumi:"name"`
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getStack.
 type LookupStackResult struct {
@@ -40,7 +39,7 @@ type LookupStackResult struct {
 	// The ARN of the IAM role used to create the stack.
 	IamRoleArn string `pulumi:"iamRoleArn"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// A list of SNS topic ARNs to publish stack related events
 	NotificationArns []string `pulumi:"notificationArns"`
@@ -55,4 +54,3 @@ type LookupStackResult struct {
 	// The amount of time that can pass before the stack status becomes `CREATE_FAILED`
 	TimeoutInMinutes int `pulumi:"timeoutInMinutes"`
 }
-

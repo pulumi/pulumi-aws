@@ -38,7 +38,7 @@ class Zone(pulumi.CustomResource):
     vpcs: pulumi.Output[list]
     """
     Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
-    
+
       * `vpc_id` (`str`) - ID of the VPC to associate.
       * `vpc_region` (`str`) - Region of the VPC to associate. Defaults to AWS provider region.
     """
@@ -49,7 +49,9 @@ class Zone(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, comment=None, delegation_set_id=None, force_destroy=None, name=None, tags=None, vpcs=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Route53 Hosted Zone.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
@@ -58,13 +60,11 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[str] name: This is the name of the hosted zone.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the zone.
         :param pulumi.Input[list] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
-        
+
         The **vpcs** object supports the following:
-        
+
           * `vpc_id` (`pulumi.Input[str]`) - ID of the VPC to associate.
           * `vpc_region` (`pulumi.Input[str]`) - Region of the VPC to associate. Defaults to AWS provider region.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -104,7 +104,7 @@ class Zone(pulumi.CustomResource):
         """
         Get an existing Zone resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,17 +117,16 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the zone.
         :param pulumi.Input[list] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
         :param pulumi.Input[str] zone_id: The Hosted Zone ID. This can be referenced by zone records.
-        
+
         The **vpcs** object supports the following:
-        
+
           * `vpc_id` (`pulumi.Input[str]`) - ID of the VPC to associate.
           * `vpc_region` (`pulumi.Input[str]`) - Region of the VPC to associate. Defaults to AWS provider region.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["comment"] = comment
         __props__["delegation_set_id"] = delegation_set_id
         __props__["force_destroy"] = force_destroy

@@ -18,6 +18,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
     """
     The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
     """
+    amazon_side_asn: pulumi.Output[str]
     arn: pulumi.Output[str]
     """
     The ARN of the virtual interface.
@@ -74,7 +75,9 @@ class PrivateVirtualInterface(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, address_family=None, amazon_address=None, bgp_asn=None, bgp_auth_key=None, connection_id=None, customer_address=None, dx_gateway_id=None, mtu=None, name=None, tags=None, vlan=None, vpn_gateway_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Direct Connect private virtual interface resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_private_virtual_interface.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -90,8 +93,6 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] vlan: The VLAN ID.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway to which to connect the virtual interface.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_private_virtual_interface.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -130,6 +131,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vlan'")
             __props__['vlan'] = vlan
             __props__['vpn_gateway_id'] = vpn_gateway_id
+            __props__['amazon_side_asn'] = None
             __props__['arn'] = None
             __props__['aws_device'] = None
             __props__['jumbo_frame_capable'] = None
@@ -140,11 +142,11 @@ class PrivateVirtualInterface(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, address_family=None, amazon_address=None, arn=None, aws_device=None, bgp_asn=None, bgp_auth_key=None, connection_id=None, customer_address=None, dx_gateway_id=None, jumbo_frame_capable=None, mtu=None, name=None, tags=None, vlan=None, vpn_gateway_id=None):
+    def get(resource_name, id, opts=None, address_family=None, amazon_address=None, amazon_side_asn=None, arn=None, aws_device=None, bgp_asn=None, bgp_auth_key=None, connection_id=None, customer_address=None, dx_gateway_id=None, jumbo_frame_capable=None, mtu=None, name=None, tags=None, vlan=None, vpn_gateway_id=None):
         """
         Get an existing PrivateVirtualInterface resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,14 +166,14 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] vlan: The VLAN ID.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway to which to connect the virtual interface.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_private_virtual_interface.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["address_family"] = address_family
         __props__["amazon_address"] = amazon_address
+        __props__["amazon_side_asn"] = amazon_side_asn
         __props__["arn"] = arn
         __props__["aws_device"] = aws_device
         __props__["bgp_asn"] = bgp_asn

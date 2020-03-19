@@ -12,11 +12,9 @@ import (
 )
 
 // Manages a RDS Global Cluster, which is an Aurora global database spread across multiple regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
-// 
+//
 // More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
-// 
-// > **NOTE:** RDS only supports the `aurora` engine (MySQL 5.6 compatible) for Global Clusters at this time.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_global_cluster.html.markdown.
 type GlobalCluster struct {
 	pulumi.CustomResourceState
@@ -27,9 +25,10 @@ type GlobalCluster struct {
 	DatabaseName pulumi.StringPtrOutput `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
-	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`. Defaults to `aurora`.
+	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// Engine version of the Aurora global database.
+	// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// The global cluster identifier.
 	GlobalClusterIdentifier pulumi.StringOutput `pulumi:"globalClusterIdentifier"`
@@ -76,9 +75,10 @@ type globalClusterState struct {
 	DatabaseName *string `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
-	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`. Defaults to `aurora`.
+	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
 	Engine *string `pulumi:"engine"`
 	// Engine version of the Aurora global database.
+	// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The global cluster identifier.
 	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
@@ -95,9 +95,10 @@ type GlobalClusterState struct {
 	DatabaseName pulumi.StringPtrInput
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrInput
-	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`. Defaults to `aurora`.
+	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
 	Engine pulumi.StringPtrInput
 	// Engine version of the Aurora global database.
+	// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
 	EngineVersion pulumi.StringPtrInput
 	// The global cluster identifier.
 	GlobalClusterIdentifier pulumi.StringPtrInput
@@ -116,9 +117,10 @@ type globalClusterArgs struct {
 	DatabaseName *string `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
-	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`. Defaults to `aurora`.
+	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
 	Engine *string `pulumi:"engine"`
 	// Engine version of the Aurora global database.
+	// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The global cluster identifier.
 	GlobalClusterIdentifier string `pulumi:"globalClusterIdentifier"`
@@ -132,9 +134,10 @@ type GlobalClusterArgs struct {
 	DatabaseName pulumi.StringPtrInput
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrInput
-	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`. Defaults to `aurora`.
+	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
 	Engine pulumi.StringPtrInput
 	// Engine version of the Aurora global database.
+	// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
 	EngineVersion pulumi.StringPtrInput
 	// The global cluster identifier.
 	GlobalClusterIdentifier pulumi.StringInput
@@ -145,4 +148,3 @@ type GlobalClusterArgs struct {
 func (GlobalClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalClusterArgs)(nil)).Elem()
 }
-

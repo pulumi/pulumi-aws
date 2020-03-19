@@ -18,6 +18,10 @@ class Gateway(pulumi.CustomResource):
     """
     Amazon Resource Name (ARN) of the gateway.
     """
+    cloudwatch_log_group_arn: pulumi.Output[str]
+    """
+    The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+    """
     gateway_id: pulumi.Output[str]
     """
     Identifier of the gateway.
@@ -42,7 +46,7 @@ class Gateway(pulumi.CustomResource):
     smb_active_directory_settings: pulumi.Output[dict]
     """
     Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
-    
+
       * `domain_name` (`str`) - The name of the domain that you want the gateway to join.
       * `password` (`str`) - The password of the user who has permission to add the gateway to the Active Directory domain.
       * `username` (`str`) - The user name of user who has permission to add the gateway to the Active Directory domain.
@@ -59,15 +63,18 @@ class Gateway(pulumi.CustomResource):
     """
     Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
     """
-    def __init__(__self__, resource_name, opts=None, activation_key=None, gateway_ip_address=None, gateway_name=None, gateway_timezone=None, gateway_type=None, medium_changer_type=None, smb_active_directory_settings=None, smb_guest_password=None, tags=None, tape_drive_type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, activation_key=None, cloudwatch_log_group_arn=None, gateway_ip_address=None, gateway_name=None, gateway_timezone=None, gateway_type=None, medium_changer_type=None, smb_active_directory_settings=None, smb_guest_password=None, tags=None, tape_drive_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an AWS Storage Gateway file, tape, or volume gateway in the provider region.
-        
+
         > NOTE: The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_gateway.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] activation_key: Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
+        :param pulumi.Input[str] cloudwatch_log_group_arn: The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
         :param pulumi.Input[str] gateway_ip_address: Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         :param pulumi.Input[str] gateway_name: Name of the gateway.
         :param pulumi.Input[str] gateway_timezone: Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
@@ -76,14 +83,12 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] tape_drive_type: Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
-        
+
         The **smb_active_directory_settings** object supports the following:
-        
+
           * `domain_name` (`pulumi.Input[str]`) - The name of the domain that you want the gateway to join.
           * `password` (`pulumi.Input[str]`) - The password of the user who has permission to add the gateway to the Active Directory domain.
           * `username` (`pulumi.Input[str]`) - The user name of user who has permission to add the gateway to the Active Directory domain.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_gateway.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -103,6 +108,7 @@ class Gateway(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['activation_key'] = activation_key
+            __props__['cloudwatch_log_group_arn'] = cloudwatch_log_group_arn
             __props__['gateway_ip_address'] = gateway_ip_address
             if gateway_name is None:
                 raise TypeError("Missing required property 'gateway_name'")
@@ -125,16 +131,17 @@ class Gateway(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, activation_key=None, arn=None, gateway_id=None, gateway_ip_address=None, gateway_name=None, gateway_timezone=None, gateway_type=None, medium_changer_type=None, smb_active_directory_settings=None, smb_guest_password=None, tags=None, tape_drive_type=None):
+    def get(resource_name, id, opts=None, activation_key=None, arn=None, cloudwatch_log_group_arn=None, gateway_id=None, gateway_ip_address=None, gateway_name=None, gateway_timezone=None, gateway_type=None, medium_changer_type=None, smb_active_directory_settings=None, smb_guest_password=None, tags=None, tape_drive_type=None):
         """
         Get an existing Gateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] activation_key: Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[str] cloudwatch_log_group_arn: The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
         :param pulumi.Input[str] gateway_id: Identifier of the gateway.
         :param pulumi.Input[str] gateway_ip_address: Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         :param pulumi.Input[str] gateway_name: Name of the gateway.
@@ -144,20 +151,20 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] tape_drive_type: Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
-        
+
         The **smb_active_directory_settings** object supports the following:
-        
+
           * `domain_name` (`pulumi.Input[str]`) - The name of the domain that you want the gateway to join.
           * `password` (`pulumi.Input[str]`) - The password of the user who has permission to add the gateway to the Active Directory domain.
           * `username` (`pulumi.Input[str]`) - The user name of user who has permission to add the gateway to the Active Directory domain.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_gateway.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["activation_key"] = activation_key
         __props__["arn"] = arn
+        __props__["cloudwatch_log_group_arn"] = cloudwatch_log_group_arn
         __props__["gateway_id"] = gateway_id
         __props__["gateway_ip_address"] = gateway_ip_address
         __props__["gateway_name"] = gateway_name

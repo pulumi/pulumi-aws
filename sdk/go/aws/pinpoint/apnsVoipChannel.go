@@ -12,11 +12,11 @@ import (
 )
 
 // Provides a Pinpoint APNs VoIP Channel resource.
-// 
+//
 // > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_apns_voip_channel.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_apns_voip_channel.markdown.
 type ApnsVoipChannel struct {
 	pulumi.CustomResourceState
 
@@ -26,7 +26,7 @@ type ApnsVoipChannel struct {
 	BundleId pulumi.StringPtrOutput `pulumi:"bundleId"`
 	// The pem encoded TLS Certificate from Apple.
 	Certificate pulumi.StringPtrOutput `pulumi:"certificate"`
-	// The default authentication method used for APNs. 
+	// The default authentication method used for APNs.
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
@@ -37,7 +37,7 @@ type ApnsVoipChannel struct {
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId pulumi.StringPtrOutput `pulumi:"teamId"`
-	// The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+	// The `.p8` file that you download from your Apple developer account when you create an authentication key.
 	TokenKey pulumi.StringPtrOutput `pulumi:"tokenKey"`
 	// The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
 	TokenKeyId pulumi.StringPtrOutput `pulumi:"tokenKeyId"`
@@ -80,7 +80,7 @@ type apnsVoipChannelState struct {
 	BundleId *string `pulumi:"bundleId"`
 	// The pem encoded TLS Certificate from Apple.
 	Certificate *string `pulumi:"certificate"`
-	// The default authentication method used for APNs. 
+	// The default authentication method used for APNs.
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
@@ -91,7 +91,7 @@ type apnsVoipChannelState struct {
 	PrivateKey *string `pulumi:"privateKey"`
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId *string `pulumi:"teamId"`
-	// The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+	// The `.p8` file that you download from your Apple developer account when you create an authentication key.
 	TokenKey *string `pulumi:"tokenKey"`
 	// The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
 	TokenKeyId *string `pulumi:"tokenKeyId"`
@@ -104,7 +104,7 @@ type ApnsVoipChannelState struct {
 	BundleId pulumi.StringPtrInput
 	// The pem encoded TLS Certificate from Apple.
 	Certificate pulumi.StringPtrInput
-	// The default authentication method used for APNs. 
+	// The default authentication method used for APNs.
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
@@ -115,7 +115,7 @@ type ApnsVoipChannelState struct {
 	PrivateKey pulumi.StringPtrInput
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId pulumi.StringPtrInput
-	// The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+	// The `.p8` file that you download from your Apple developer account when you create an authentication key.
 	TokenKey pulumi.StringPtrInput
 	// The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
 	TokenKeyId pulumi.StringPtrInput
@@ -132,7 +132,7 @@ type apnsVoipChannelArgs struct {
 	BundleId *string `pulumi:"bundleId"`
 	// The pem encoded TLS Certificate from Apple.
 	Certificate *string `pulumi:"certificate"`
-	// The default authentication method used for APNs. 
+	// The default authentication method used for APNs.
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
@@ -143,7 +143,7 @@ type apnsVoipChannelArgs struct {
 	PrivateKey *string `pulumi:"privateKey"`
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId *string `pulumi:"teamId"`
-	// The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+	// The `.p8` file that you download from your Apple developer account when you create an authentication key.
 	TokenKey *string `pulumi:"tokenKey"`
 	// The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
 	TokenKeyId *string `pulumi:"tokenKeyId"`
@@ -157,7 +157,7 @@ type ApnsVoipChannelArgs struct {
 	BundleId pulumi.StringPtrInput
 	// The pem encoded TLS Certificate from Apple.
 	Certificate pulumi.StringPtrInput
-	// The default authentication method used for APNs. 
+	// The default authentication method used for APNs.
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
@@ -168,7 +168,7 @@ type ApnsVoipChannelArgs struct {
 	PrivateKey pulumi.StringPtrInput
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId pulumi.StringPtrInput
-	// The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+	// The `.p8` file that you download from your Apple developer account when you create an authentication key.
 	TokenKey pulumi.StringPtrInput
 	// The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
 	TokenKeyId pulumi.StringPtrInput
@@ -177,4 +177,3 @@ type ApnsVoipChannelArgs struct {
 func (ApnsVoipChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apnsVoipChannelArgs)(nil)).Elem()
 }
-

@@ -13,13 +13,19 @@ class GetAvailabilityZonesResult:
     """
     A collection of values returned by getAvailabilityZones.
     """
-    def __init__(__self__, blacklisted_names=None, blacklisted_zone_ids=None, names=None, state=None, zone_ids=None, id=None):
+    def __init__(__self__, blacklisted_names=None, blacklisted_zone_ids=None, id=None, names=None, state=None, zone_ids=None):
         if blacklisted_names and not isinstance(blacklisted_names, list):
             raise TypeError("Expected argument 'blacklisted_names' to be a list")
         __self__.blacklisted_names = blacklisted_names
         if blacklisted_zone_ids and not isinstance(blacklisted_zone_ids, list):
             raise TypeError("Expected argument 'blacklisted_zone_ids' to be a list")
         __self__.blacklisted_zone_ids = blacklisted_zone_ids
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if names and not isinstance(names, list):
             raise TypeError("Expected argument 'names' to be a list")
         __self__.names = names
@@ -35,12 +41,6 @@ class GetAvailabilityZonesResult:
         """
         A list of the Availability Zone IDs available to the account.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAvailabilityZonesResult(GetAvailabilityZonesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -49,30 +49,32 @@ class AwaitableGetAvailabilityZonesResult(GetAvailabilityZonesResult):
         return GetAvailabilityZonesResult(
             blacklisted_names=self.blacklisted_names,
             blacklisted_zone_ids=self.blacklisted_zone_ids,
+            id=self.id,
             names=self.names,
             state=self.state,
-            zone_ids=self.zone_ids,
-            id=self.id)
+            zone_ids=self.zone_ids)
 
 def get_availability_zones(blacklisted_names=None,blacklisted_zone_ids=None,state=None,opts=None):
     """
     The Availability Zones data source allows access to the list of AWS
     Availability Zones which can be accessed by an AWS account within the region
     configured in the provider.
-    
+
     This is different from the `.getAvailabilityZone` (singular) data source,
     which provides some details about a specific availability zone.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
+
+
     :param list blacklisted_names: List of blacklisted Availability Zone names.
     :param list blacklisted_zone_ids: List of blacklisted Availability Zone IDs.
     :param str state: Allows to filter list of Availability Zones based on their
            current state. Can be either `"available"`, `"information"`, `"impaired"` or
            `"unavailable"`. By default the list includes a complete set of Availability Zones
            to which the underlying AWS account has access, regardless of their state.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['blacklistedNames'] = blacklisted_names
     __args__['blacklistedZoneIds'] = blacklisted_zone_ids
@@ -86,7 +88,7 @@ def get_availability_zones(blacklisted_names=None,blacklisted_zone_ids=None,stat
     return AwaitableGetAvailabilityZonesResult(
         blacklisted_names=__ret__.get('blacklistedNames'),
         blacklisted_zone_ids=__ret__.get('blacklistedZoneIds'),
+        id=__ret__.get('id'),
         names=__ret__.get('names'),
         state=__ret__.get('state'),
-        zone_ids=__ret__.get('zoneIds'),
-        id=__ret__.get('id'))
+        zone_ids=__ret__.get('zoneIds'))

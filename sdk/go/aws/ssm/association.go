@@ -11,7 +11,7 @@ import (
 )
 
 // Associates an SSM Document to an instance or EC2 tag.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_association.html.markdown.
 type Association struct {
 	pulumi.CustomResourceState
@@ -20,6 +20,8 @@ type Association struct {
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
 	// The descriptive name for the association.
 	AssociationName pulumi.StringPtrOutput `pulumi:"associationName"`
+	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+	AutomationTargetParameterName pulumi.StringPtrOutput `pulumi:"automationTargetParameterName"`
 	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
 	ComplianceSeverity pulumi.StringPtrOutput `pulumi:"complianceSeverity"`
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
@@ -74,6 +76,8 @@ type associationState struct {
 	AssociationId *string `pulumi:"associationId"`
 	// The descriptive name for the association.
 	AssociationName *string `pulumi:"associationName"`
+	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+	AutomationTargetParameterName *string `pulumi:"automationTargetParameterName"`
 	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
 	ComplianceSeverity *string `pulumi:"complianceSeverity"`
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
@@ -101,6 +105,8 @@ type AssociationState struct {
 	AssociationId pulumi.StringPtrInput
 	// The descriptive name for the association.
 	AssociationName pulumi.StringPtrInput
+	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+	AutomationTargetParameterName pulumi.StringPtrInput
 	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
 	ComplianceSeverity pulumi.StringPtrInput
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
@@ -130,6 +136,8 @@ func (AssociationState) ElementType() reflect.Type {
 type associationArgs struct {
 	// The descriptive name for the association.
 	AssociationName *string `pulumi:"associationName"`
+	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+	AutomationTargetParameterName *string `pulumi:"automationTargetParameterName"`
 	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
 	ComplianceSeverity *string `pulumi:"complianceSeverity"`
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
@@ -156,6 +164,8 @@ type associationArgs struct {
 type AssociationArgs struct {
 	// The descriptive name for the association.
 	AssociationName pulumi.StringPtrInput
+	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+	AutomationTargetParameterName pulumi.StringPtrInput
 	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
 	ComplianceSeverity pulumi.StringPtrInput
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
@@ -181,4 +191,3 @@ type AssociationArgs struct {
 func (AssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*associationArgs)(nil)).Elem()
 }
-

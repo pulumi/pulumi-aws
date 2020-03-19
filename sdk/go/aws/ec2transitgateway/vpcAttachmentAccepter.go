@@ -12,13 +12,13 @@ import (
 )
 
 // Manages the accepter's side of an EC2 Transit Gateway VPC Attachment.
-// 
+//
 // When a cross-account (requester's AWS account differs from the accepter's AWS account) EC2 Transit Gateway VPC Attachment
 // is created, an EC2 Transit Gateway VPC Attachment resource is automatically created in the accepter's account.
 // The requester can use the `ec2transitgateway.VpcAttachment` resource to manage its side of the connection
 // and the accepter can use the `ec2transitgateway.VpcAttachmentAccepter` resource to "adopt" its side of the
 // connection into management.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_vpc_attachment_accepter.html.markdown.
 type VpcAttachmentAccepter struct {
 	pulumi.CustomResourceState
@@ -151,4 +151,3 @@ type VpcAttachmentAccepterArgs struct {
 func (VpcAttachmentAccepterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcAttachmentAccepterArgs)(nil)).Elem()
 }
-

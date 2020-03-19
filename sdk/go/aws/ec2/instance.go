@@ -13,7 +13,7 @@ import (
 
 // Provides an EC2 instance resource. This allows instances to be created, updated,
 // and deleted. Instances also support [provisioning](https://www.terraform.io/docs/provisioners/index.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/instance.html.markdown.
 type Instance struct {
 	pulumi.CustomResourceState
@@ -51,6 +51,8 @@ type Instance struct {
 	EphemeralBlockDevices InstanceEphemeralBlockDeviceArrayOutput `pulumi:"ephemeralBlockDevices"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrOutput `pulumi:"getPasswordData"`
+	// If true, the launched EC2 instance will support hibernation.
+	Hibernation pulumi.BoolPtrOutput `pulumi:"hibernation"`
 	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId pulumi.StringOutput `pulumi:"hostId"`
 	// The IAM Instance Profile to
@@ -65,8 +67,8 @@ type Instance struct {
 	// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
 	InstanceState pulumi.StringOutput `pulumi:"instanceState"`
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
-	Ipv6AddressCount pulumi.IntOutput `pulumi:"ipv6AddressCount"`
+	InstanceType     pulumi.StringOutput `pulumi:"instanceType"`
+	Ipv6AddressCount pulumi.IntOutput    `pulumi:"ipv6AddressCount"`
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
 	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
@@ -188,6 +190,8 @@ type instanceState struct {
 	EphemeralBlockDevices []InstanceEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData *bool `pulumi:"getPasswordData"`
+	// If true, the launched EC2 instance will support hibernation.
+	Hibernation *bool `pulumi:"hibernation"`
 	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId *string `pulumi:"hostId"`
 	// The IAM Instance Profile to
@@ -202,8 +206,8 @@ type instanceState struct {
 	// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
 	InstanceState *string `pulumi:"instanceState"`
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType *string `pulumi:"instanceType"`
-	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
+	InstanceType     *string `pulumi:"instanceType"`
+	Ipv6AddressCount *int    `pulumi:"ipv6AddressCount"`
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
@@ -292,6 +296,8 @@ type InstanceState struct {
 	EphemeralBlockDevices InstanceEphemeralBlockDeviceArrayInput
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrInput
+	// If true, the launched EC2 instance will support hibernation.
+	Hibernation pulumi.BoolPtrInput
 	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId pulumi.StringPtrInput
 	// The IAM Instance Profile to
@@ -306,7 +312,7 @@ type InstanceState struct {
 	// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
 	InstanceState pulumi.StringPtrInput
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType pulumi.StringPtrInput
+	InstanceType     pulumi.StringPtrInput
 	Ipv6AddressCount pulumi.IntPtrInput
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses pulumi.StringArrayInput
@@ -398,6 +404,8 @@ type instanceArgs struct {
 	EphemeralBlockDevices []InstanceEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData *bool `pulumi:"getPasswordData"`
+	// If true, the launched EC2 instance will support hibernation.
+	Hibernation *bool `pulumi:"hibernation"`
 	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId *string `pulumi:"hostId"`
 	// The IAM Instance Profile to
@@ -410,8 +418,8 @@ type instanceArgs struct {
 	// instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType string `pulumi:"instanceType"`
-	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
+	InstanceType     string `pulumi:"instanceType"`
+	Ipv6AddressCount *int   `pulumi:"ipv6AddressCount"`
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
@@ -482,6 +490,8 @@ type InstanceArgs struct {
 	EphemeralBlockDevices InstanceEphemeralBlockDeviceArrayInput
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrInput
+	// If true, the launched EC2 instance will support hibernation.
+	Hibernation pulumi.BoolPtrInput
 	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId pulumi.StringPtrInput
 	// The IAM Instance Profile to
@@ -494,7 +504,7 @@ type InstanceArgs struct {
 	// instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType pulumi.StringInput
+	InstanceType     pulumi.StringInput
 	Ipv6AddressCount pulumi.IntPtrInput
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses pulumi.StringArrayInput
@@ -536,4 +546,3 @@ type InstanceArgs struct {
 func (InstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceArgs)(nil)).Elem()
 }
-

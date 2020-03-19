@@ -174,6 +174,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly dbSubnetGroupName!: pulumi.Output<string>;
     /**
+     * Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
+     */
+    public readonly deleteAutomatedBackups!: pulumi.Output<boolean | undefined>;
+    /**
      * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
@@ -186,7 +190,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly domainIamRoleName!: pulumi.Output<string | undefined>;
     /**
-     * List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
+     * List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `agent` (MSSQL), `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
      */
     public readonly enabledCloudwatchLogsExports!: pulumi.Output<string[] | undefined>;
     /**
@@ -431,6 +435,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["characterSetName"] = state ? state.characterSetName : undefined;
             inputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
             inputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
+            inputs["deleteAutomatedBackups"] = state ? state.deleteAutomatedBackups : undefined;
             inputs["deletionProtection"] = state ? state.deletionProtection : undefined;
             inputs["domain"] = state ? state.domain : undefined;
             inputs["domainIamRoleName"] = state ? state.domainIamRoleName : undefined;
@@ -491,6 +496,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["characterSetName"] = args ? args.characterSetName : undefined;
             inputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
             inputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
+            inputs["deleteAutomatedBackups"] = args ? args.deleteAutomatedBackups : undefined;
             inputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             inputs["domain"] = args ? args.domain : undefined;
             inputs["domainIamRoleName"] = args ? args.domainIamRoleName : undefined;
@@ -626,6 +632,10 @@ export interface InstanceState {
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
+     * Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
+     */
+    readonly deleteAutomatedBackups?: pulumi.Input<boolean>;
+    /**
      * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
     readonly deletionProtection?: pulumi.Input<boolean>;
@@ -638,7 +648,7 @@ export interface InstanceState {
      */
     readonly domainIamRoleName?: pulumi.Input<string>;
     /**
-     * List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
+     * List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `agent` (MSSQL), `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
      */
     readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -928,6 +938,10 @@ export interface InstanceArgs {
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
+     * Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
+     */
+    readonly deleteAutomatedBackups?: pulumi.Input<boolean>;
+    /**
      * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
     readonly deletionProtection?: pulumi.Input<boolean>;
@@ -940,7 +954,7 @@ export interface InstanceArgs {
      */
     readonly domainIamRoleName?: pulumi.Input<string>;
     /**
-     * List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
+     * List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `agent` (MSSQL), `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
      */
     readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**

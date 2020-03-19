@@ -13,7 +13,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, certificate_authority=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, identities=None, name=None, platform_version=None, role_arn=None, status=None, tags=None, version=None, vpc_config=None, id=None):
+    def __init__(__self__, arn=None, certificate_authority=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, name=None, platform_version=None, role_arn=None, status=None, tags=None, version=None, vpc_config=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -43,6 +43,12 @@ class GetClusterResult:
         __self__.endpoint = endpoint
         """
         The endpoint for your Kubernetes API server.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if identities and not isinstance(identities, list):
             raise TypeError("Expected argument 'identities' to be a list")
@@ -89,12 +95,6 @@ class GetClusterResult:
         """
         Nested list containing VPC configuration for the cluster.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -106,6 +106,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             created_at=self.created_at,
             enabled_cluster_log_types=self.enabled_cluster_log_types,
             endpoint=self.endpoint,
+            id=self.id,
             identities=self.identities,
             name=self.name,
             platform_version=self.platform_version,
@@ -113,18 +114,19 @@ class AwaitableGetClusterResult(GetClusterResult):
             status=self.status,
             tags=self.tags,
             version=self.version,
-            vpc_config=self.vpc_config,
-            id=self.id)
+            vpc_config=self.vpc_config)
 
 def get_cluster(name=None,tags=None,opts=None):
     """
     Retrieve information about an EKS Cluster.
-    
-    :param str name: The name of the cluster
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eks_cluster.html.markdown.
+
+
+    :param str name: The name of the cluster
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['tags'] = tags
@@ -140,6 +142,7 @@ def get_cluster(name=None,tags=None,opts=None):
         created_at=__ret__.get('createdAt'),
         enabled_cluster_log_types=__ret__.get('enabledClusterLogTypes'),
         endpoint=__ret__.get('endpoint'),
+        id=__ret__.get('id'),
         identities=__ret__.get('identities'),
         name=__ret__.get('name'),
         platform_version=__ret__.get('platformVersion'),
@@ -147,5 +150,4 @@ def get_cluster(name=None,tags=None,opts=None):
         status=__ret__.get('status'),
         tags=__ret__.get('tags'),
         version=__ret__.get('version'),
-        vpc_config=__ret__.get('vpcConfig'),
-        id=__ret__.get('id'))
+        vpc_config=__ret__.get('vpcConfig'))

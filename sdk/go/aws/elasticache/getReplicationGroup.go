@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to get information about an Elasticache Replication Group.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_replication_group.html.markdown.
 func LookupReplicationGroup(ctx *pulumi.Context, args *LookupReplicationGroupArgs, opts ...pulumi.InvokeOption) (*LookupReplicationGroupResult, error) {
 	var rv LookupReplicationGroupResult
@@ -25,7 +25,6 @@ type LookupReplicationGroupArgs struct {
 	// The identifier for the replication group.
 	ReplicationGroupId string `pulumi:"replicationGroupId"`
 }
-
 
 // A collection of values returned by getReplicationGroup.
 type LookupReplicationGroupResult struct {
@@ -56,4 +55,3 @@ type LookupReplicationGroupResult struct {
 	// The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
 	SnapshotWindow string `pulumi:"snapshotWindow"`
 }
-

@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an OpsWorks User Profile resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_user_profile.html.markdown.
 type UserProfile struct {
 	pulumi.CustomResourceState
@@ -112,4 +112,3 @@ type UserProfileArgs struct {
 func (UserProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userProfileArgs)(nil)).Elem()
 }
-

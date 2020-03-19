@@ -12,13 +12,13 @@ import (
 
 // The AMI resource allows the creation and management of a completely-custom
 // *Amazon Machine Image* (AMI).
-// 
+//
 // If you just want to duplicate an existing AMI, possibly copying it to another
 // region, it's better to use `ec2.AmiCopy` instead.
-// 
+//
 // If you just want to share an existing AMI with another AWS account,
 // it's better to use `ec2.AmiLaunchPermission` instead.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami.html.markdown.
 type Ami struct {
 	pulumi.CustomResourceState
@@ -40,8 +40,8 @@ type Ami struct {
 	ImageLocation pulumi.StringOutput `pulumi:"imageLocation"`
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
-	KernelId pulumi.StringPtrOutput `pulumi:"kernelId"`
-	ManageEbsSnapshots pulumi.BoolOutput `pulumi:"manageEbsSnapshots"`
+	KernelId           pulumi.StringPtrOutput `pulumi:"kernelId"`
+	ManageEbsSnapshots pulumi.BoolOutput      `pulumi:"manageEbsSnapshots"`
 	// A region-unique name for the AMI.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The id of an initrd image (ARI) that will be used when booting the
@@ -107,8 +107,8 @@ type amiState struct {
 	ImageLocation *string `pulumi:"imageLocation"`
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
-	KernelId *string `pulumi:"kernelId"`
-	ManageEbsSnapshots *bool `pulumi:"manageEbsSnapshots"`
+	KernelId           *string `pulumi:"kernelId"`
+	ManageEbsSnapshots *bool   `pulumi:"manageEbsSnapshots"`
 	// A region-unique name for the AMI.
 	Name *string `pulumi:"name"`
 	// The id of an initrd image (ARI) that will be used when booting the
@@ -147,7 +147,7 @@ type AmiState struct {
 	ImageLocation pulumi.StringPtrInput
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
-	KernelId pulumi.StringPtrInput
+	KernelId           pulumi.StringPtrInput
 	ManageEbsSnapshots pulumi.BoolPtrInput
 	// A region-unique name for the AMI.
 	Name pulumi.StringPtrInput
@@ -251,4 +251,3 @@ type AmiArgs struct {
 func (AmiArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*amiArgs)(nil)).Elem()
 }
-

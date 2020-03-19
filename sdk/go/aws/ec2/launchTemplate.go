@@ -11,7 +11,7 @@ import (
 )
 
 // Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_template.html.markdown.
 type LaunchTemplate struct {
 	pulumi.CustomResourceState
@@ -23,6 +23,8 @@ type LaunchTemplate struct {
 	BlockDeviceMappings LaunchTemplateBlockDeviceMappingArrayOutput `pulumi:"blockDeviceMappings"`
 	// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
 	CapacityReservationSpecification LaunchTemplateCapacityReservationSpecificationPtrOutput `pulumi:"capacityReservationSpecification"`
+	// The CPU options for the instance. See CPU Options below for more details.
+	CpuOptions LaunchTemplateCpuOptionsPtrOutput `pulumi:"cpuOptions"`
 	// Customize the credit specification of the instance. See Credit
 	// Specification below for more details.
 	CreditSpecification LaunchTemplateCreditSpecificationPtrOutput `pulumi:"creditSpecification"`
@@ -122,6 +124,8 @@ type launchTemplateState struct {
 	BlockDeviceMappings []LaunchTemplateBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
 	CapacityReservationSpecification *LaunchTemplateCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
+	// The CPU options for the instance. See CPU Options below for more details.
+	CpuOptions *LaunchTemplateCpuOptions `pulumi:"cpuOptions"`
 	// Customize the credit specification of the instance. See Credit
 	// Specification below for more details.
 	CreditSpecification *LaunchTemplateCreditSpecification `pulumi:"creditSpecification"`
@@ -194,6 +198,8 @@ type LaunchTemplateState struct {
 	BlockDeviceMappings LaunchTemplateBlockDeviceMappingArrayInput
 	// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
 	CapacityReservationSpecification LaunchTemplateCapacityReservationSpecificationPtrInput
+	// The CPU options for the instance. See CPU Options below for more details.
+	CpuOptions LaunchTemplateCpuOptionsPtrInput
 	// Customize the credit specification of the instance. See Credit
 	// Specification below for more details.
 	CreditSpecification LaunchTemplateCreditSpecificationPtrInput
@@ -268,6 +274,8 @@ type launchTemplateArgs struct {
 	BlockDeviceMappings []LaunchTemplateBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
 	CapacityReservationSpecification *LaunchTemplateCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
+	// The CPU options for the instance. See CPU Options below for more details.
+	CpuOptions *LaunchTemplateCpuOptions `pulumi:"cpuOptions"`
 	// Customize the credit specification of the instance. See Credit
 	// Specification below for more details.
 	CreditSpecification *LaunchTemplateCreditSpecification `pulumi:"creditSpecification"`
@@ -335,6 +343,8 @@ type LaunchTemplateArgs struct {
 	BlockDeviceMappings LaunchTemplateBlockDeviceMappingArrayInput
 	// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
 	CapacityReservationSpecification LaunchTemplateCapacityReservationSpecificationPtrInput
+	// The CPU options for the instance. See CPU Options below for more details.
+	CpuOptions LaunchTemplateCpuOptionsPtrInput
 	// Customize the credit specification of the instance. See Credit
 	// Specification below for more details.
 	CreditSpecification LaunchTemplateCreditSpecificationPtrInput
@@ -398,4 +408,3 @@ type LaunchTemplateArgs struct {
 func (LaunchTemplateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchTemplateArgs)(nil)).Elem()
 }
-

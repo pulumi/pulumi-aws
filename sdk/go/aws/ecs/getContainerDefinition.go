@@ -10,7 +10,7 @@ import (
 
 // The ECS container definition data source allows access to details of
 // a specific container within an AWS ECS service.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_container_definition.html.markdown.
 func GetContainerDefinition(ctx *pulumi.Context, args *GetContainerDefinitionArgs, opts ...pulumi.InvokeOption) (*GetContainerDefinitionResult, error) {
 	var rv GetContainerDefinitionResult
@@ -28,7 +28,6 @@ type GetContainerDefinitionArgs struct {
 	// The ARN of the task definition which contains the container
 	TaskDefinition string `pulumi:"taskDefinition"`
 }
-
 
 // A collection of values returned by getContainerDefinition.
 type GetContainerDefinitionResult struct {
@@ -50,7 +49,6 @@ type GetContainerDefinitionResult struct {
 	// The memory limit for this container definition
 	Memory int `pulumi:"memory"`
 	// The soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
-	MemoryReservation int `pulumi:"memoryReservation"`
-	TaskDefinition string `pulumi:"taskDefinition"`
+	MemoryReservation int    `pulumi:"memoryReservation"`
+	TaskDefinition    string `pulumi:"taskDefinition"`
 }
-

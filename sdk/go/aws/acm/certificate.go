@@ -12,28 +12,28 @@ import (
 
 // The ACM certificate resource allows requesting and management of certificates
 // from the Amazon Certificate Manager.
-// 
+//
 // It deals with requesting certificates and managing their attributes and life-cycle.
 // This resource does not deal with validation of a certificate but can provide inputs
 // for other resources implementing the validation. It does not wait for a certificate to be issued.
 // Use a `acm.CertificateValidation` resource for this.
-// 
+//
 // Most commonly, this resource is used to together with `route53.Record` and
 // `acm.CertificateValidation` to request a DNS validated certificate,
 // deploy the required validation records and wait for validation to complete.
-// 
+//
 // Domain validation through E-Mail is also supported but should be avoided as it requires a manual step outside
 // of this provider.
-// 
+//
 // It's recommended to specify `createBeforeDestroy = true` in a [lifecycle][1] block to replace a certificate
 // which is currently in use (eg, by `lb.Listener`).
-// 
+//
 // ## options Configuration Block
-// 
+//
 // Supported nested arguments for the `options` configuration block:
-// 
+//
 // * `certificateTransparencyLoggingPreference` - (Optional) Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate.html.markdown.
 type Certificate struct {
 	pulumi.CustomResourceState
@@ -51,7 +51,7 @@ type Certificate struct {
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions CertificateDomainValidationOptionArrayOutput `pulumi:"domainValidationOptions"`
-	Options CertificateOptionsPtrOutput `pulumi:"options"`
+	Options                 CertificateOptionsPtrOutput                  `pulumi:"options"`
 	// The certificate's PEM-formatted private key
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
 	// A list of domains that should be SANs in the issued certificate
@@ -106,7 +106,7 @@ type certificateState struct {
 	DomainName *string `pulumi:"domainName"`
 	// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions []CertificateDomainValidationOption `pulumi:"domainValidationOptions"`
-	Options *CertificateOptions `pulumi:"options"`
+	Options                 *CertificateOptions                 `pulumi:"options"`
 	// The certificate's PEM-formatted private key
 	PrivateKey *string `pulumi:"privateKey"`
 	// A list of domains that should be SANs in the issued certificate
@@ -134,7 +134,7 @@ type CertificateState struct {
 	DomainName pulumi.StringPtrInput
 	// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions CertificateDomainValidationOptionArrayInput
-	Options CertificateOptionsPtrInput
+	Options                 CertificateOptionsPtrInput
 	// The certificate's PEM-formatted private key
 	PrivateKey pulumi.StringPtrInput
 	// A list of domains that should be SANs in the issued certificate
@@ -161,8 +161,8 @@ type certificateArgs struct {
 	// * Creating a private CA issued certificate
 	CertificateChain *string `pulumi:"certificateChain"`
 	// A domain name for which the certificate should be issued
-	DomainName *string `pulumi:"domainName"`
-	Options *CertificateOptions `pulumi:"options"`
+	DomainName *string             `pulumi:"domainName"`
+	Options    *CertificateOptions `pulumi:"options"`
 	// The certificate's PEM-formatted private key
 	PrivateKey *string `pulumi:"privateKey"`
 	// A list of domains that should be SANs in the issued certificate
@@ -185,7 +185,7 @@ type CertificateArgs struct {
 	CertificateChain pulumi.StringPtrInput
 	// A domain name for which the certificate should be issued
 	DomainName pulumi.StringPtrInput
-	Options CertificateOptionsPtrInput
+	Options    CertificateOptionsPtrInput
 	// The certificate's PEM-formatted private key
 	PrivateKey pulumi.StringPtrInput
 	// A list of domains that should be SANs in the issued certificate
@@ -200,4 +200,3 @@ type CertificateArgs struct {
 func (CertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateArgs)(nil)).Elem()
 }
-

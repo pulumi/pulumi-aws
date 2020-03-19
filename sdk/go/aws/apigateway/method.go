@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a HTTP Method for an API Gateway Resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method.html.markdown.
 type Method struct {
 	pulumi.CustomResourceState
@@ -160,7 +160,7 @@ type methodArgs struct {
 	// The API resource ID
 	ResourceId string `pulumi:"resourceId"`
 	// The ID of the associated REST API
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 }
 
 // The set of arguments for constructing a Method resource.
@@ -187,10 +187,9 @@ type MethodArgs struct {
 	// The API resource ID
 	ResourceId pulumi.StringInput
 	// The ID of the associated REST API
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 }
 
 func (MethodArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*methodArgs)(nil)).Elem()
 }
-

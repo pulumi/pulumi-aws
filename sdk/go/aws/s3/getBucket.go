@@ -9,10 +9,10 @@ import (
 )
 
 // Provides details about a specific S3 bucket.
-// 
+//
 // This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
 // Distribution.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket.html.markdown.
 func LookupBucket(ctx *pulumi.Context, args *LookupBucketArgs, opts ...pulumi.InvokeOption) (*LookupBucketResult, error) {
 	var rv LookupBucketResult
@@ -29,11 +29,10 @@ type LookupBucketArgs struct {
 	Bucket string `pulumi:"bucket"`
 }
 
-
 // A collection of values returned by getBucket.
 type LookupBucketResult struct {
 	// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
-	Arn string `pulumi:"arn"`
+	Arn    string `pulumi:"arn"`
 	Bucket string `pulumi:"bucket"`
 	// The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
 	BucketDomainName string `pulumi:"bucketDomainName"`
@@ -50,4 +49,3 @@ type LookupBucketResult struct {
 	// The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
 	WebsiteEndpoint string `pulumi:"websiteEndpoint"`
 }
-

@@ -12,17 +12,17 @@ import (
 )
 
 // Provides a SSM resource data sync.
-// 
+//
 // ## s3Destination
-// 
+//
 // `s3Destination` supports the following:
-// 
+//
 // * `bucketName` - (Required) Name of S3 bucket where the aggregated data is stored.
 // * `region` - (Required) Region with the bucket targeted by the Resource Data Sync.
 // * `kmsKeyArn` - (Optional) ARN of an encryption key for a destination in Amazon S3.
 // * `prefix` - (Optional) Prefix for the bucket.
 // * `syncFormat` - (Optional) A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_resource_data_sync.html.markdown.
 type ResourceDataSync struct {
 	pulumi.CustomResourceState
@@ -99,4 +99,3 @@ type ResourceDataSyncArgs struct {
 func (ResourceDataSyncArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceDataSyncArgs)(nil)).Elem()
 }
-

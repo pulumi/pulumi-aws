@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an EKS Fargate Profile.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_fargate_profile.html.markdown.
 type FargateProfile struct {
 	pulumi.CustomResourceState
@@ -147,4 +147,3 @@ type FargateProfileArgs struct {
 func (FargateProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*fargateProfileArgs)(nil)).Elem()
 }
-

@@ -8,10 +8,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `ec2.getSubnetIds` provides a list of ids for a vpcId
-// 
+// `ec2.getSubnetIds` provides a set of ids for a vpcId
+//
 // This resource can be useful for getting back a set of subnet ids for a vpc.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet_ids.html.markdown.
 func GetSubnetIds(ctx *pulumi.Context, args *GetSubnetIdsArgs, opts ...pulumi.InvokeOption) (*GetSubnetIdsResult, error) {
 	var rv GetSubnetIdsResult
@@ -33,15 +33,13 @@ type GetSubnetIdsArgs struct {
 	VpcId string `pulumi:"vpcId"`
 }
 
-
 // A collection of values returned by getSubnetIds.
 type GetSubnetIdsResult struct {
 	Filters []GetSubnetIdsFilter `pulumi:"filters"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A set of all the subnet ids found. This data source will fail if none are found.
-	Ids []string `pulumi:"ids"`
-	Tags map[string]interface{} `pulumi:"tags"`
-	VpcId string `pulumi:"vpcId"`
+	Ids   []string               `pulumi:"ids"`
+	Tags  map[string]interface{} `pulumi:"tags"`
+	VpcId string                 `pulumi:"vpcId"`
 }
-

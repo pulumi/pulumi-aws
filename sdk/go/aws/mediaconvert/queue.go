@@ -11,7 +11,7 @@ import (
 )
 
 // Provides an AWS Elemental MediaConvert Queue.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/media_convert_queue.html.markdown.
 type Queue struct {
 	pulumi.CustomResourceState
@@ -131,4 +131,3 @@ type QueueArgs struct {
 func (QueueArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueArgs)(nil)).Elem()
 }
-

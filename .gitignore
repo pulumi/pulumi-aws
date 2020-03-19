@@ -10,3 +10,5 @@ Pulumi.*.yaml
 *.iml
 
 yarn.lock
+
+**/pulumiManifest.go

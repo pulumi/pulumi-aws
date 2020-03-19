@@ -11,7 +11,7 @@ import (
 )
 
 // Provides a way to set SNS SMS preferences.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_sms_preferences.html.markdown.
 type SmsPreferences struct {
 	pulumi.CustomResourceState
@@ -125,4 +125,3 @@ type SmsPreferencesArgs struct {
 func (SmsPreferencesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*smsPreferencesArgs)(nil)).Elem()
 }
-

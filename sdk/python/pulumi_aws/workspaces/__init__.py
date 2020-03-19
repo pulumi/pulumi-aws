@@ -4,5 +4,5 @@
 
 # Export this package's modules as members:
 from .directory import *
-from .ip_group import *
 from .get_bundle import *
+from .ip_group import *

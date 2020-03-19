@@ -566,7 +566,7 @@ export namespace alb {
          */
         field: string;
         /**
-         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+         * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader: outputs.alb.ListenerRuleConditionHostHeader;
         /**
@@ -574,11 +574,11 @@ export namespace alb {
          */
         httpHeader?: outputs.alb.ListenerRuleConditionHttpHeader;
         /**
-         * Contains a single `value` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+         * Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
          */
         httpRequestMethod?: outputs.alb.ListenerRuleConditionHttpRequestMethod;
         /**
-         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern: outputs.alb.ListenerRuleConditionPathPattern;
         /**
@@ -586,7 +586,7 @@ export namespace alb {
          */
         queryStrings?: outputs.alb.ListenerRuleConditionQueryString[];
         /**
-         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
         sourceIp?: outputs.alb.ListenerRuleConditionSourceIp;
         /**
@@ -764,6 +764,11 @@ export namespace apigateway {
          * A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
          */
         types: string;
+    }
+
+    export interface GetRestApiEndpointConfiguration {
+        types: string[];
+        vpcEndpointIds: string[];
     }
 
     export interface MethodSettingsSettings {
@@ -1314,7 +1319,7 @@ export namespace applicationloadbalancing {
          */
         field: string;
         /**
-         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+         * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader: outputs.applicationloadbalancing.ListenerRuleConditionHostHeader;
         /**
@@ -1322,11 +1327,11 @@ export namespace applicationloadbalancing {
          */
         httpHeader?: outputs.applicationloadbalancing.ListenerRuleConditionHttpHeader;
         /**
-         * Contains a single `value` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+         * Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
          */
         httpRequestMethod?: outputs.applicationloadbalancing.ListenerRuleConditionHttpRequestMethod;
         /**
-         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern: outputs.applicationloadbalancing.ListenerRuleConditionPathPattern;
         /**
@@ -1334,7 +1339,7 @@ export namespace applicationloadbalancing {
          */
         queryStrings?: outputs.applicationloadbalancing.ListenerRuleConditionQueryString[];
         /**
-         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
         sourceIp?: outputs.applicationloadbalancing.ListenerRuleConditionSourceIp;
         /**
@@ -1491,6 +1496,11 @@ export namespace appmesh {
          */
         httpRoute?: outputs.appmesh.RouteSpecHttpRoute;
         /**
+         * The priority for the route, between `0` and `1000`.
+         * Routes are matched based on the specified value, where `0` is the highest priority.
+         */
+        priority?: number;
+        /**
          * The TCP routing information for the route.
          */
         tcpRoute?: outputs.appmesh.RouteSpecTcpRoute;
@@ -1502,7 +1512,7 @@ export namespace appmesh {
          */
         action: outputs.appmesh.RouteSpecHttpRouteAction;
         /**
-         * The criteria for determining an HTTP request match.
+         * The method and value to match the header value sent with a request. Specify one match method.
          */
         match: outputs.appmesh.RouteSpecHttpRouteMatch;
     }
@@ -1528,10 +1538,69 @@ export namespace appmesh {
 
     export interface RouteSpecHttpRouteMatch {
         /**
-         * Specifies the path with which to match requests.
-         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+         * The client request headers to match on.
+         */
+        headers?: outputs.appmesh.RouteSpecHttpRouteMatchHeader[];
+        /**
+         * The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+         */
+        method?: string;
+        /**
+         * The header value sent by the client must begin with the specified characters.
+         * * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
          */
         prefix: string;
+        /**
+         * The client request header scheme to match on. Valid values: `http`, `https`.
+         */
+        scheme?: string;
+    }
+
+    export interface RouteSpecHttpRouteMatchHeader {
+        /**
+         * If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+         */
+        invert?: boolean;
+        /**
+         * The method and value to match the header value sent with a request. Specify one match method.
+         */
+        match?: outputs.appmesh.RouteSpecHttpRouteMatchHeaderMatch;
+        /**
+         * A name for the HTTP header in the client request that will be matched on.
+         */
+        name: string;
+    }
+
+    export interface RouteSpecHttpRouteMatchHeaderMatch {
+        /**
+         * The header value sent by the client must match the specified value exactly.
+         */
+        exact?: string;
+        /**
+         * The header value sent by the client must begin with the specified characters.
+         * * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
+         */
+        prefix?: string;
+        range?: outputs.appmesh.RouteSpecHttpRouteMatchHeaderMatchRange;
+        /**
+         * The header value sent by the client must include the specified characters.
+         */
+        regex?: string;
+        /**
+         * The header value sent by the client must end with the specified characters.
+         */
+        suffix?: string;
+    }
+
+    export interface RouteSpecHttpRouteMatchHeaderMatchRange {
+        /**
+         * The end of the range.
+         */
+        end: number;
+        /**
+         * The start of the range.
+         */
+        start: number;
     }
 
     export interface RouteSpecTcpRoute {
@@ -3020,7 +3089,7 @@ export namespace cloudtrail {
 
     export interface TrailEventSelectorDataResource {
         /**
-         * The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
+         * The resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function"
          */
         type: string;
         /**
@@ -3417,6 +3486,10 @@ export namespace codebuild {
          */
         gitCloneDepth?: number;
         /**
+         * Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+         */
+        gitSubmodulesConfig?: outputs.codebuild.ProjectSecondarySourceGitSubmodulesConfig;
+        /**
          * Ignore SSL warnings when connecting to source control.
          */
         insecureSsl?: boolean;
@@ -3449,6 +3522,13 @@ export namespace codebuild {
         type: string;
     }
 
+    export interface ProjectSecondarySourceGitSubmodulesConfig {
+        /**
+         * If set to true, fetches Git submodules for the AWS CodeBuild build project.
+         */
+        fetchSubmodules: boolean;
+    }
+
     export interface ProjectSource {
         /**
          * Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
@@ -3462,6 +3542,10 @@ export namespace codebuild {
          * Truncate git history to this many commits.
          */
         gitCloneDepth?: number;
+        /**
+         * Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+         */
+        gitSubmodulesConfig?: outputs.codebuild.ProjectSourceGitSubmodulesConfig;
         /**
          * Ignore SSL warnings when connecting to source control.
          */
@@ -3489,6 +3573,13 @@ export namespace codebuild {
          * The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
          */
         type: string;
+    }
+
+    export interface ProjectSourceGitSubmodulesConfig {
+        /**
+         * If set to true, fetches Git submodules for the AWS CodeBuild build project.
+         */
+        fetchSubmodules: boolean;
     }
 
     export interface ProjectVpcConfig {
@@ -3656,11 +3747,11 @@ export namespace codedeploy {
 
     export interface DeploymentGroupDeploymentStyle {
         /**
-         * Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`.
+         * Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
          */
         deploymentOption?: string;
         /**
-         * Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`.
+         * Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
          */
         deploymentType?: string;
     }
@@ -3862,6 +3953,17 @@ export namespace codepipeline {
     }
 }
 
+export namespace codestarnotifications {
+    export interface NotificationRuleTarget {
+        address: string;
+        /**
+         * The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
+         */
+        status: string;
+        type?: string;
+    }
+}
+
 export namespace cognito {
     export interface IdentityPoolCognitoIdentityProvider {
         /**
@@ -3942,9 +4044,9 @@ export namespace cognito {
          */
         inviteMessageTemplate?: outputs.cognito.UserPoolAdminCreateUserConfigInviteMessageTemplate;
         /**
-         * The user account expiration limit, in days, after which the account is no longer usable.
+         * **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
          */
-        unusedAccountValidityDays?: number;
+        unusedAccountValidityDays: number;
     }
 
     export interface UserPoolAdminCreateUserConfigInviteMessageTemplate {
@@ -4052,6 +4154,10 @@ export namespace cognito {
          * Whether you have required users to use at least one uppercase letter in their password.
          */
         requireUppercase?: boolean;
+        /**
+         * In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
+         */
+        temporaryPasswordValidityDays?: number;
     }
 
     export interface UserPoolSchema {
@@ -4163,6 +4269,13 @@ export namespace datasync {
          * Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
          */
         subnetArn: string;
+    }
+
+    export interface LocationSmbMountOptions {
+        /**
+         * The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+         */
+        version?: string;
     }
 
     export interface NfsLocationOnPremConfig {
@@ -4446,6 +4559,7 @@ export namespace dynamodb {
 
     export interface GetTableServerSideEncryption {
         enabled: boolean;
+        kmsKeyArn: string;
     }
 
     export interface GetTableTtl {
@@ -4546,6 +4660,11 @@ export namespace dynamodb {
          * Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
          */
         enabled: boolean;
+        /**
+         * The ARN of the CMK that should be used for the AWS KMS encryption.
+         * This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+         */
+        kmsKeyArn: string;
     }
 
     export interface TableTtl {
@@ -4956,6 +5075,28 @@ export namespace ec2 {
          * The type of the volume.
          */
         volumeType: string;
+    }
+
+    export interface GetInstanceTypeOfferingFilter {
+        /**
+         * Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
+         */
+        name: string;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: string[];
+    }
+
+    export interface GetInstanceTypeOfferingsFilter {
+        /**
+         * Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
+         */
+        name: string;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: string[];
     }
 
     export interface GetInstancesFilter {
@@ -5491,7 +5632,7 @@ export namespace ec2 {
         volumeSize: number;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
-         * or `"io1"`. (Default: `"standard"`).
+         * or `"io1"`. (Default: `"gp2"`).
          */
         volumeType: string;
     }
@@ -5552,7 +5693,7 @@ export namespace ec2 {
         volumeSize: number;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
-         * or `"io1"`. (Default: `"standard"`).
+         * or `"io1"`. (Default: `"gp2"`).
          */
         volumeType: string;
     }
@@ -5619,6 +5760,11 @@ export namespace ec2 {
 
     export interface LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
         capacityReservationId?: string;
+    }
+
+    export interface LaunchTemplateCpuOptions {
+        coreCount?: number;
+        threadsPerCore?: number;
     }
 
     export interface LaunchTemplateCreditSpecification {
@@ -6004,7 +6150,7 @@ export namespace ec2 {
         volumeSize: number;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
-         * or `"io1"`. (Default: `"standard"`).
+         * or `"io1"`. (Default: `"gp2"`).
          */
         volumeType: string;
     }
@@ -6065,9 +6211,31 @@ export namespace ec2 {
         volumeSize: number;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
-         * or `"io1"`. (Default: `"standard"`).
+         * or `"io1"`. (Default: `"gp2"`).
          */
         volumeType: string;
+    }
+
+    export interface TrafficMirrorFilterRuleDestinationPortRange {
+        /**
+         * Starting port of the range
+         */
+        fromPort?: number;
+        /**
+         * Ending port of the range
+         */
+        toPort?: number;
+    }
+
+    export interface TrafficMirrorFilterRuleSourcePortRange {
+        /**
+         * Starting port of the range
+         */
+        fromPort?: number;
+        /**
+         * Ending port of the range
+         */
+        toPort?: number;
     }
 
     export interface VpcEndpointDnsEntry {
@@ -6416,6 +6584,10 @@ export namespace efs {
          */
         transitionToIa?: string;
     }
+
+    export interface GetFileSystemLifecyclePolicy {
+        transitionToIa: string;
+    }
 }
 
 export namespace eks {
@@ -6424,6 +6596,24 @@ export namespace eks {
          * The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
          */
         data: string;
+    }
+
+    export interface ClusterEncryptionConfig {
+        /**
+         * Configuration block with provider for encryption. Detailed below.
+         */
+        provider: outputs.eks.ClusterEncryptionConfigProvider;
+        /**
+         * List of strings with resources to be encrypted. Valid values: `secrets`
+         */
+        resources: string[];
+    }
+
+    export interface ClusterEncryptionConfigProvider {
+        /**
+         * Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+         */
+        keyArn: string;
     }
 
     export interface ClusterIdentity {
@@ -6453,9 +6643,6 @@ export namespace eks {
          * Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
          */
         endpointPublicAccess?: boolean;
-        /**
-         * <elided>
-         */
         publicAccessCidrs: string[];
         /**
          * List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
@@ -6637,11 +6824,11 @@ export namespace elasticbeanstalk {
          */
         deleteSourceFromS3?: boolean;
         /**
-         * The number of days to retain an application version.
+         * The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
          */
         maxAgeInDays?: number;
         /**
-         * The maximum number of application versions to retain.
+         * The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
          */
         maxCount?: number;
         /**
@@ -7201,7 +7388,7 @@ export namespace elasticloadbalancingv2 {
          */
         field: string;
         /**
-         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+         * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader: outputs.elasticloadbalancingv2.ListenerRuleConditionHostHeader;
         /**
@@ -7209,11 +7396,11 @@ export namespace elasticloadbalancingv2 {
          */
         httpHeader?: outputs.elasticloadbalancingv2.ListenerRuleConditionHttpHeader;
         /**
-         * Contains a single `value` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+         * Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
          */
         httpRequestMethod?: outputs.elasticloadbalancingv2.ListenerRuleConditionHttpRequestMethod;
         /**
-         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern: outputs.elasticloadbalancingv2.ListenerRuleConditionPathPattern;
         /**
@@ -7221,7 +7408,7 @@ export namespace elasticloadbalancingv2 {
          */
         queryStrings?: outputs.elasticloadbalancingv2.ListenerRuleConditionQueryString[];
         /**
-         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
         sourceIp?: outputs.elasticloadbalancingv2.ListenerRuleConditionSourceIp;
         /**
@@ -7415,6 +7602,14 @@ export namespace elasticsearch {
          * ID of the Cognito User Pool to use
          */
         userPoolId: string;
+    }
+
+    export interface DomainDomainEndpointOptions {
+        /**
+         * Whether or not to require HTTPS
+         */
+        enforceHttps: boolean;
+        tlsSecurityPolicy: string;
     }
 
     export interface DomainEbsOptions {
@@ -8287,7 +8482,7 @@ export namespace globalaccelerator {
 
     export interface AcceleratorIpSet {
         /**
-         * The array of IP addresses in the IP address set.
+         * A list of IP addresses in the IP address set.
          */
         ipAddresses: string[];
         /**
@@ -8623,7 +8818,7 @@ export namespace glue {
 
     export interface JobCommand {
         /**
-         * The name of the job command. Defaults to `glueetl`
+         * The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
          */
         name?: string;
         /**
@@ -8641,6 +8836,13 @@ export namespace glue {
          * The maximum number of concurrent runs allowed for a job. The default is 1.
          */
         maxConcurrentRuns?: number;
+    }
+
+    export interface JobNotificationProperty {
+        /**
+         * After a job run starts, the number of minutes to wait before sending a job run delay notification.
+         */
+        notifyDelayAfter?: number;
     }
 
     export interface SecurityConfigurationEncryptionConfiguration {
@@ -9271,7 +9473,7 @@ export namespace kinesis {
          */
         processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration;
         /**
-         * After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+         * After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
          */
         retryDuration?: number;
         /**
@@ -9708,7 +9910,7 @@ export namespace kinesis {
          */
         processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration;
         /**
-         * After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+         * After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
          */
         retryDuration?: number;
         /**
@@ -9914,7 +10116,7 @@ export namespace kinesis {
          */
         processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration;
         /**
-         * After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+         * After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
          */
         retryDuration?: number;
         /**
@@ -10011,6 +10213,20 @@ export namespace lambda {
          * A map that defines the proportion of events that should be sent to different versions of a lambda function.
          */
         additionalVersionWeights?: {[key: string]: number};
+    }
+
+    export interface EventSourceMappingDestinationConfig {
+        /**
+         * The destination configuration for failed invocations. Detailed below.
+         */
+        onFailure?: outputs.lambda.EventSourceMappingDestinationConfigOnFailure;
+    }
+
+    export interface EventSourceMappingDestinationConfigOnFailure {
+        /**
+         * The Amazon Resource Name (ARN) of the destination resource.
+         */
+        destinationArn: string;
     }
 
     export interface FunctionDeadLetterConfig {
@@ -10484,7 +10700,7 @@ export namespace lb {
          */
         field: string;
         /**
-         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+         * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader: outputs.lb.ListenerRuleConditionHostHeader;
         /**
@@ -10492,11 +10708,11 @@ export namespace lb {
          */
         httpHeader?: outputs.lb.ListenerRuleConditionHttpHeader;
         /**
-         * Contains a single `value` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+         * Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
          */
         httpRequestMethod?: outputs.lb.ListenerRuleConditionHttpRequestMethod;
         /**
-         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern: outputs.lb.ListenerRuleConditionPathPattern;
         /**
@@ -10504,7 +10720,7 @@ export namespace lb {
          */
         queryStrings?: outputs.lb.ListenerRuleConditionQueryString[];
         /**
-         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
         sourceIp?: outputs.lb.ListenerRuleConditionSourceIp;
         /**
@@ -10868,13 +11084,45 @@ export namespace msk {
 
     export interface ClusterEncryptionInfoEncryptionInTransit {
         /**
-         * Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value: `TLS_PLAINTEXT`.
+         * Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS_PLAINTEXT` when `encryptionInTransit` block defined, but `TLS` when `encryptionInTransit` block omitted.
          */
         clientBroker?: string;
         /**
          * Whether data communication among broker nodes is encrypted. Default value: `true`.
          */
         inCluster?: boolean;
+    }
+
+    export interface ClusterOpenMonitoring {
+        /**
+         * Configuration block for Prometheus settings for open monitoring. See below.
+         */
+        prometheus: outputs.msk.ClusterOpenMonitoringPrometheus;
+    }
+
+    export interface ClusterOpenMonitoringPrometheus {
+        /**
+         * Configuration block for JMX Exporter. See below.
+         */
+        jmxExporter?: outputs.msk.ClusterOpenMonitoringPrometheusJmxExporter;
+        /**
+         * Configuration block for Node Exporter. See below.
+         */
+        nodeExporter?: outputs.msk.ClusterOpenMonitoringPrometheusNodeExporter;
+    }
+
+    export interface ClusterOpenMonitoringPrometheusJmxExporter {
+        /**
+         * Indicates whether you want to enable or disable the Node Exporter.
+         */
+        enabledInBroker: boolean;
+    }
+
+    export interface ClusterOpenMonitoringPrometheusNodeExporter {
+        /**
+         * Indicates whether you want to enable or disable the Node Exporter.
+         */
+        enabledInBroker: boolean;
     }
 }
 
@@ -10912,17 +11160,11 @@ export namespace neptune {
 
 export namespace opsworks {
     export interface ApplicationAppSource {
-        /**
-         * <elided>
-         */
         password?: string;
         /**
          * For sources that are version-aware, the revision to use.
          */
         revision?: string;
-        /**
-         * <elided>
-         */
         sshKey?: string;
         /**
          * The type of source to use. For example, "archive".
@@ -11654,6 +11896,63 @@ export namespace route53 {
 }
 
 export namespace s3 {
+    export interface AccessPointPublicAccessBlockConfiguration {
+        /**
+         * Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+         * * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+         * * PUT Object calls fail if the request includes a public ACL.
+         * * PUT Bucket calls fail if the request includes a public ACL.
+         */
+        blockPublicAcls?: boolean;
+        /**
+         * Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+         * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+         */
+        blockPublicPolicy?: boolean;
+        /**
+         * Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+         * * Ignore all public ACLs on buckets in this account and any objects that they contain.
+         */
+        ignorePublicAcls?: boolean;
+        /**
+         * Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+         * * Only the bucket owner and AWS Services can access buckets with public policies.
+         */
+        restrictPublicBuckets?: boolean;
+    }
+
+    export interface AccessPointVpcConfiguration {
+        /**
+         * This access point will only allow connections from the specified VPC ID.
+         */
+        vpcId: string;
+    }
+
+    export interface AnalyticsConfigurationFilter {
+        prefix?: string;
+        tags?: {[key: string]: any};
+    }
+
+    export interface AnalyticsConfigurationStorageClassAnalysis {
+        dataExport: outputs.s3.AnalyticsConfigurationStorageClassAnalysisDataExport;
+    }
+
+    export interface AnalyticsConfigurationStorageClassAnalysisDataExport {
+        destination: outputs.s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestination;
+        outputSchemaVersion?: string;
+    }
+
+    export interface AnalyticsConfigurationStorageClassAnalysisDataExportDestination {
+        s3BucketDestination: outputs.s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination;
+    }
+
+    export interface AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination {
+        bucketAccountId?: string;
+        bucketArn: string;
+        format?: string;
+        prefix?: string;
+    }
+
     export interface BucketCorsRule {
         /**
          * Specifies which headers are allowed.
@@ -11677,6 +11976,25 @@ export namespace s3 {
         maxAgeSeconds?: number;
     }
 
+    export interface BucketGrant {
+        /**
+         * Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+         */
+        id?: string;
+        /**
+         * List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+         */
+        permissions: string[];
+        /**
+         * - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+         */
+        type: string;
+        /**
+         * Uri address to grant for. Used only when `type` is `Group`.
+         */
+        uri?: string;
+    }
+
     export interface BucketLifecycleRule {
         /**
          * Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
@@ -11691,7 +12009,7 @@ export namespace s3 {
          */
         expiration?: outputs.s3.BucketLifecycleRuleExpiration;
         /**
-         * Unique identifier for the rule.
+         * Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
          */
         id: string;
         /**
@@ -11910,7 +12228,7 @@ export namespace s3 {
          */
         filter?: outputs.s3.BucketReplicationConfigurationRuleFilter;
         /**
-         * Unique identifier for the rule.
+         * Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
          */
         id?: string;
         /**

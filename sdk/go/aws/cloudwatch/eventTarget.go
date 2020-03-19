@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a CloudWatch Event Target resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_event_target.html.markdown.
 type EventTarget struct {
 	pulumi.CustomResourceState
@@ -197,4 +197,3 @@ type EventTargetArgs struct {
 func (EventTargetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventTargetArgs)(nil)).Elem()
 }
-

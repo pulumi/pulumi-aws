@@ -10,7 +10,7 @@ import (
 
 // Use this data source to get the ARN of an AWS Transfer Server for use in other
 // resources.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/transfer_server.html.markdown.
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
 	var rv LookupServerResult
@@ -27,7 +27,6 @@ type LookupServerArgs struct {
 	ServerId string `pulumi:"serverId"`
 }
 
-
 // A collection of values returned by getServer.
 type LookupServerResult struct {
 	// Amazon Resource Name (ARN) of Transfer Server
@@ -42,8 +41,7 @@ type LookupServerResult struct {
 	InvocationRole string `pulumi:"invocationRole"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole string `pulumi:"loggingRole"`
-	ServerId string `pulumi:"serverId"`
+	ServerId    string `pulumi:"serverId"`
 	// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url string `pulumi:"url"`
 }
-

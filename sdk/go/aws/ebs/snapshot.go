@@ -12,7 +12,7 @@ import (
 )
 
 // Creates a Snapshot of an EBS Volume.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_snapshot.html.markdown.
 type Snapshot struct {
 	pulumi.CustomResourceState
@@ -135,4 +135,3 @@ type SnapshotArgs struct {
 func (SnapshotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotArgs)(nil)).Elem()
 }
-

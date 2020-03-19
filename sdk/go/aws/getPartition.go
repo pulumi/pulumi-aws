@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to lookup current AWS partition in which this provider is working
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/partition.html.markdown.
 func GetPartition(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetPartitionResult, error) {
 	var rv GetPartitionResult
@@ -24,7 +24,6 @@ func GetPartition(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetPartiti
 type GetPartitionResult struct {
 	DnsSuffix string `pulumi:"dnsSuffix"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id        string `pulumi:"id"`
 	Partition string `pulumi:"partition"`
 }
-

@@ -10,7 +10,7 @@ import (
 
 // The ECS Cluster data source allows access to details of a specific
 // cluster within an AWS ECS service.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_cluster.html.markdown.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
@@ -27,11 +27,10 @@ type LookupClusterArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 }
 
-
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
 	// The ARN of the ECS Cluster
-	Arn string `pulumi:"arn"`
+	Arn         string `pulumi:"arn"`
 	ClusterName string `pulumi:"clusterName"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -46,4 +45,3 @@ type LookupClusterResult struct {
 	// The status of the ECS Cluster
 	Status string `pulumi:"status"`
 }
-

@@ -9,7 +9,7 @@ import (
 )
 
 // Provides information about a Lambda Function.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_function.html.markdown.
 func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulumi.InvokeOption) (*LookupFunctionResult, error) {
 	var rv LookupFunctionResult
@@ -25,10 +25,9 @@ type LookupFunctionArgs struct {
 	// Name of the lambda function.
 	FunctionName string `pulumi:"functionName"`
 	// Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
-	Qualifier *string `pulumi:"qualifier"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	Qualifier *string                `pulumi:"qualifier"`
+	Tags      map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getFunction.
 type LookupFunctionResult struct {
@@ -39,8 +38,8 @@ type LookupFunctionResult struct {
 	// Description of what your Lambda Function does.
 	Description string `pulumi:"description"`
 	// The Lambda environment's configuration settings.
-	Environment GetFunctionEnvironment `pulumi:"environment"`
-	FunctionName string `pulumi:"functionName"`
+	Environment  GetFunctionEnvironment `pulumi:"environment"`
+	FunctionName string                 `pulumi:"functionName"`
 	// The function entrypoint in your code.
 	Handler string `pulumi:"handler"`
 	// id is the provider-assigned unique ID for this managed resource.
@@ -56,8 +55,8 @@ type LookupFunctionResult struct {
 	// Amount of memory in MB your Lambda Function can use at runtime.
 	MemorySize int `pulumi:"memorySize"`
 	// Qualified (`:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `arn`.
-	QualifiedArn string `pulumi:"qualifiedArn"`
-	Qualifier *string `pulumi:"qualifier"`
+	QualifiedArn string  `pulumi:"qualifiedArn"`
+	Qualifier    *string `pulumi:"qualifier"`
 	// The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
 	ReservedConcurrentExecutions int `pulumi:"reservedConcurrentExecutions"`
 	// IAM role attached to the Lambda Function.
@@ -67,8 +66,8 @@ type LookupFunctionResult struct {
 	// Base64-encoded representation of raw SHA-256 sum of the zip file.
 	SourceCodeHash string `pulumi:"sourceCodeHash"`
 	// The size in bytes of the function .zip file.
-	SourceCodeSize int `pulumi:"sourceCodeSize"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	SourceCodeSize int                    `pulumi:"sourceCodeSize"`
+	Tags           map[string]interface{} `pulumi:"tags"`
 	// The function execution time at which Lambda should terminate the function.
 	Timeout int `pulumi:"timeout"`
 	// Tracing settings of the function.
@@ -78,4 +77,3 @@ type LookupFunctionResult struct {
 	// VPC configuration associated with your Lambda function.
 	VpcConfig GetFunctionVpcConfig `pulumi:"vpcConfig"`
 }
-

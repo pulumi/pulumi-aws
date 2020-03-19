@@ -116,7 +116,7 @@ export class IntegrationResponse extends pulumi.CustomResource {
     /**
      * The ID of the associated REST API
      */
-    public readonly restApi!: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<string>;
     /**
      * Specifies the regular expression pattern used to choose
      * an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.
@@ -211,7 +211,7 @@ export interface IntegrationResponseState {
     /**
      * The ID of the associated REST API
      */
-    readonly restApi?: pulumi.Input<RestApi>;
+    readonly restApi?: pulumi.Input<string | RestApi>;
     /**
      * Specifies the regular expression pattern used to choose
      * an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.
@@ -253,7 +253,7 @@ export interface IntegrationResponseArgs {
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: pulumi.Input<RestApi>;
+    readonly restApi: pulumi.Input<string | RestApi>;
     /**
      * Specifies the regular expression pattern used to choose
      * an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.

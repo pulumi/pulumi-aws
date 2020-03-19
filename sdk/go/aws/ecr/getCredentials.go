@@ -22,14 +22,12 @@ type GetCredentialsArgs struct {
 	RegistryId string `pulumi:"registryId"`
 }
 
-
 // A collection of values returned by getCredentials.
 type GetCredentialsResult struct {
 	AuthorizationToken string `pulumi:"authorizationToken"`
-	ExpiresAt string `pulumi:"expiresAt"`
+	ExpiresAt          string `pulumi:"expiresAt"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id            string `pulumi:"id"`
 	ProxyEndpoint string `pulumi:"proxyEndpoint"`
-	RegistryId string `pulumi:"registryId"`
+	RegistryId    string `pulumi:"registryId"`
 }
-

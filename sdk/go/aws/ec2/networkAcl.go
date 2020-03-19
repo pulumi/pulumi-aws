@@ -13,13 +13,13 @@ import (
 
 // Provides an network ACL resource. You might set up network ACLs with rules similar
 // to your security groups in order to add an additional layer of security to your VPC.
-// 
+//
 // > **NOTE on Network ACLs and Network ACL Rules:** This provider currently
 // provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
 // defined in-line. At this time you cannot use a Network ACL with in-line rules
 // in conjunction with any Network ACL Rule resources. Doing so will cause
 // a conflict of rule settings and will overwrite rules.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_acl.html.markdown.
 type NetworkAcl struct {
 	pulumi.CustomResourceState
@@ -142,4 +142,3 @@ type NetworkAclArgs struct {
 func (NetworkAclArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkAclArgs)(nil)).Elem()
 }
-

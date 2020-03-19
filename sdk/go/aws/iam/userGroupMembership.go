@@ -14,10 +14,10 @@ import (
 // Provides a resource for adding an [IAM User][2] to [IAM Groups][1]. This
 // resource can be used multiple times with the same user for non-overlapping
 // groups.
-// 
+//
 // To exclusively manage the users in a group, see the
 // [`iam.GroupMembership` resource][3].
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_group_membership.html.markdown.
 type UserGroupMembership struct {
 	pulumi.CustomResourceState
@@ -97,4 +97,3 @@ type UserGroupMembershipArgs struct {
 func (UserGroupMembershipArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userGroupMembershipArgs)(nil)).Elem()
 }
-

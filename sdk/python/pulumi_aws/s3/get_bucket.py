@@ -13,7 +13,7 @@ class GetBucketResult:
     """
     A collection of values returned by getBucket.
     """
-    def __init__(__self__, arn=None, bucket=None, bucket_domain_name=None, bucket_regional_domain_name=None, hosted_zone_id=None, region=None, website_domain=None, website_endpoint=None, id=None):
+    def __init__(__self__, arn=None, bucket=None, bucket_domain_name=None, bucket_regional_domain_name=None, hosted_zone_id=None, id=None, region=None, website_domain=None, website_endpoint=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -41,6 +41,12 @@ class GetBucketResult:
         """
         The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         __self__.region = region
@@ -59,12 +65,6 @@ class GetBucketResult:
         """
         The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetBucketResult(GetBucketResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -76,23 +76,25 @@ class AwaitableGetBucketResult(GetBucketResult):
             bucket_domain_name=self.bucket_domain_name,
             bucket_regional_domain_name=self.bucket_regional_domain_name,
             hosted_zone_id=self.hosted_zone_id,
+            id=self.id,
             region=self.region,
             website_domain=self.website_domain,
-            website_endpoint=self.website_endpoint,
-            id=self.id)
+            website_endpoint=self.website_endpoint)
 
 def get_bucket(bucket=None,opts=None):
     """
     Provides details about a specific S3 bucket.
-    
+
     This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
     Distribution.
-    
-    :param str bucket: The name of the bucket
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket.html.markdown.
+
+
+    :param str bucket: The name of the bucket
     """
     __args__ = dict()
+
 
     __args__['bucket'] = bucket
     if opts is None:
@@ -107,7 +109,7 @@ def get_bucket(bucket=None,opts=None):
         bucket_domain_name=__ret__.get('bucketDomainName'),
         bucket_regional_domain_name=__ret__.get('bucketRegionalDomainName'),
         hosted_zone_id=__ret__.get('hostedZoneId'),
+        id=__ret__.get('id'),
         region=__ret__.get('region'),
         website_domain=__ret__.get('websiteDomain'),
-        website_endpoint=__ret__.get('websiteEndpoint'),
-        id=__ret__.get('id'))
+        website_endpoint=__ret__.get('websiteEndpoint'))

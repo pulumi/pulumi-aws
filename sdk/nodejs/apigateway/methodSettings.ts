@@ -99,7 +99,7 @@ export class MethodSettings extends pulumi.CustomResource {
     /**
      * The ID of the REST API
      */
-    public readonly restApi!: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<string>;
     /**
      * The settings block, see below.
      */
@@ -166,7 +166,7 @@ export interface MethodSettingsState {
     /**
      * The ID of the REST API
      */
-    readonly restApi?: pulumi.Input<RestApi>;
+    readonly restApi?: pulumi.Input<string | RestApi>;
     /**
      * The settings block, see below.
      */
@@ -188,7 +188,7 @@ export interface MethodSettingsArgs {
     /**
      * The ID of the REST API
      */
-    readonly restApi: pulumi.Input<RestApi>;
+    readonly restApi: pulumi.Input<string | RestApi>;
     /**
      * The settings block, see below.
      */

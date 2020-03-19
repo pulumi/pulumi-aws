@@ -13,7 +13,7 @@ class GetStackResult:
     """
     A collection of values returned by getStack.
     """
-    def __init__(__self__, capabilities=None, description=None, disable_rollback=None, iam_role_arn=None, name=None, notification_arns=None, outputs=None, parameters=None, tags=None, template_body=None, timeout_in_minutes=None, id=None):
+    def __init__(__self__, capabilities=None, description=None, disable_rollback=None, iam_role_arn=None, id=None, name=None, notification_arns=None, outputs=None, parameters=None, tags=None, template_body=None, timeout_in_minutes=None):
         if capabilities and not isinstance(capabilities, list):
             raise TypeError("Expected argument 'capabilities' to be a list")
         __self__.capabilities = capabilities
@@ -37,6 +37,12 @@ class GetStackResult:
         __self__.iam_role_arn = iam_role_arn
         """
         The ARN of the IAM role used to create the stack.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -77,12 +83,6 @@ class GetStackResult:
         """
         The amount of time that can pass before the stack status becomes `CREATE_FAILED`
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetStackResult(GetStackResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -93,25 +93,27 @@ class AwaitableGetStackResult(GetStackResult):
             description=self.description,
             disable_rollback=self.disable_rollback,
             iam_role_arn=self.iam_role_arn,
+            id=self.id,
             name=self.name,
             notification_arns=self.notification_arns,
             outputs=self.outputs,
             parameters=self.parameters,
             tags=self.tags,
             template_body=self.template_body,
-            timeout_in_minutes=self.timeout_in_minutes,
-            id=self.id)
+            timeout_in_minutes=self.timeout_in_minutes)
 
 def get_stack(name=None,tags=None,opts=None):
     """
     The CloudFormation Stack data source allows access to stack
     outputs and other useful data including the template body.
-    
-    :param str name: The name of the stack
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudformation_stack.html.markdown.
+
+
+    :param str name: The name of the stack
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['tags'] = tags
@@ -126,11 +128,11 @@ def get_stack(name=None,tags=None,opts=None):
         description=__ret__.get('description'),
         disable_rollback=__ret__.get('disableRollback'),
         iam_role_arn=__ret__.get('iamRoleArn'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         notification_arns=__ret__.get('notificationArns'),
         outputs=__ret__.get('outputs'),
         parameters=__ret__.get('parameters'),
         tags=__ret__.get('tags'),
         template_body=__ret__.get('templateBody'),
-        timeout_in_minutes=__ret__.get('timeoutInMinutes'),
-        id=__ret__.get('id'))
+        timeout_in_minutes=__ret__.get('timeoutInMinutes'))

@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to get the name of a elastic beanstalk solution stack.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_solution_stack.html.markdown.
 func GetSolutionStack(ctx *pulumi.Context, args *GetSolutionStackArgs, opts ...pulumi.InvokeOption) (*GetSolutionStackResult, error) {
 	var rv GetSolutionStackResult
@@ -31,14 +31,12 @@ type GetSolutionStackArgs struct {
 	NameRegex string `pulumi:"nameRegex"`
 }
 
-
 // A collection of values returned by getSolutionStack.
 type GetSolutionStackResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	MostRecent *bool `pulumi:"mostRecent"`
+	Id         string `pulumi:"id"`
+	MostRecent *bool  `pulumi:"mostRecent"`
 	// The name of the solution stack.
-	Name string `pulumi:"name"`
+	Name      string `pulumi:"name"`
 	NameRegex string `pulumi:"nameRegex"`
 }
-

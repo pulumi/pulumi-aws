@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a DocumentDB Cluster Parameter Group
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster_parameter_group.html.markdown.
 type ClusterParameterGroup struct {
 	pulumi.CustomResourceState
@@ -135,4 +135,3 @@ type ClusterParameterGroupArgs struct {
 func (ClusterParameterGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterParameterGroupArgs)(nil)).Elem()
 }
-

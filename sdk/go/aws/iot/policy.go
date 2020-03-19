@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an IoT policy.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_policy.html.markdown.
 type Policy struct {
 	pulumi.CustomResourceState
@@ -23,6 +23,7 @@ type Policy struct {
 	DefaultVersionId pulumi.StringOutput `pulumi:"defaultVersionId"`
 	// The name of the policy.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The policy document.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
@@ -63,6 +64,7 @@ type policyState struct {
 	DefaultVersionId *string `pulumi:"defaultVersionId"`
 	// The name of the policy.
 	Name *string `pulumi:"name"`
+	// The policy document.
 	Policy *string `pulumi:"policy"`
 }
 
@@ -73,6 +75,7 @@ type PolicyState struct {
 	DefaultVersionId pulumi.StringPtrInput
 	// The name of the policy.
 	Name pulumi.StringPtrInput
+	// The policy document.
 	Policy pulumi.StringPtrInput
 }
 
@@ -83,6 +86,7 @@ func (PolicyState) ElementType() reflect.Type {
 type policyArgs struct {
 	// The name of the policy.
 	Name *string `pulumi:"name"`
+	// The policy document.
 	Policy string `pulumi:"policy"`
 }
 
@@ -90,10 +94,10 @@ type policyArgs struct {
 type PolicyArgs struct {
 	// The name of the policy.
 	Name pulumi.StringPtrInput
+	// The policy document.
 	Policy pulumi.StringInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyArgs)(nil)).Elem()
 }
-

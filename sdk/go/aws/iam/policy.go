@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an IAM policy.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_policy.html.markdown.
 type Policy struct {
 	pulumi.CustomResourceState
@@ -28,6 +28,7 @@ type Policy struct {
 	// Path in which to create the policy.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
+	// The policy document.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
@@ -73,6 +74,7 @@ type policyState struct {
 	// Path in which to create the policy.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path *string `pulumi:"path"`
+	// The policy document.
 	Policy *string `pulumi:"policy"`
 }
 
@@ -88,6 +90,7 @@ type PolicyState struct {
 	// Path in which to create the policy.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path pulumi.StringPtrInput
+	// The policy document.
 	Policy pulumi.StringPtrInput
 }
 
@@ -105,6 +108,7 @@ type policyArgs struct {
 	// Path in which to create the policy.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path *string `pulumi:"path"`
+	// The policy document.
 	Policy interface{} `pulumi:"policy"`
 }
 
@@ -119,10 +123,10 @@ type PolicyArgs struct {
 	// Path in which to create the policy.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path pulumi.StringPtrInput
+	// The policy document.
 	Policy pulumi.Input
 }
 
 func (PolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyArgs)(nil)).Elem()
 }
-

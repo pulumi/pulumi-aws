@@ -14,7 +14,7 @@ import (
 // Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases & keys,
 // but API (hence this provider too) allows you to create as many aliases as
 // the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_alias.html.markdown.
 type Alias struct {
 	pulumi.CustomResourceState
@@ -118,4 +118,3 @@ type AliasArgs struct {
 func (AliasArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*aliasArgs)(nil)).Elem()
 }
-

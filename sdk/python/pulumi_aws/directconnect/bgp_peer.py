@@ -51,7 +51,9 @@ class BgpPeer(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, address_family=None, amazon_address=None, bgp_asn=None, bgp_auth_key=None, customer_address=None, virtual_interface_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Direct Connect BGP peer resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_bgp_peer.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -62,8 +64,6 @@ class BgpPeer(pulumi.CustomResource):
         :param pulumi.Input[str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic.
                Required for IPv4 BGP peers on public virtual interfaces.
         :param pulumi.Input[str] virtual_interface_id: The ID of the Direct Connect virtual interface on which to create the BGP peer.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_bgp_peer.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -108,7 +108,7 @@ class BgpPeer(pulumi.CustomResource):
         """
         Get an existing BgpPeer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,12 +123,11 @@ class BgpPeer(pulumi.CustomResource):
         :param pulumi.Input[str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic.
                Required for IPv4 BGP peers on public virtual interfaces.
         :param pulumi.Input[str] virtual_interface_id: The ID of the Direct Connect virtual interface on which to create the BGP peer.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_bgp_peer.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["address_family"] = address_family
         __props__["amazon_address"] = amazon_address
         __props__["aws_device"] = aws_device

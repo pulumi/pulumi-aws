@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an EC2 Transit Gateway Route.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_route.html.markdown.
 type Route struct {
 	pulumi.CustomResourceState
@@ -112,4 +112,3 @@ type RouteArgs struct {
 func (RouteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeArgs)(nil)).Elem()
 }
-

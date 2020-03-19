@@ -11,12 +11,12 @@ import (
 )
 
 // Provides a resource to create a Service Catalog Portfolio.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/servicecatalog_portfolio.html.markdown.
 type Portfolio struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn         pulumi.StringOutput `pulumi:"arn"`
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// Description of the portfolio
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -56,7 +56,7 @@ func GetPortfolio(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Portfolio resources.
 type portfolioState struct {
-	Arn *string `pulumi:"arn"`
+	Arn         *string `pulumi:"arn"`
 	CreatedTime *string `pulumi:"createdTime"`
 	// Description of the portfolio
 	Description *string `pulumi:"description"`
@@ -69,7 +69,7 @@ type portfolioState struct {
 }
 
 type PortfolioState struct {
-	Arn pulumi.StringPtrInput
+	Arn         pulumi.StringPtrInput
 	CreatedTime pulumi.StringPtrInput
 	// Description of the portfolio
 	Description pulumi.StringPtrInput
@@ -111,4 +111,3 @@ type PortfolioArgs struct {
 func (PortfolioArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*portfolioArgs)(nil)).Elem()
 }
-

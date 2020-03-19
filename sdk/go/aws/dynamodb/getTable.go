@@ -9,7 +9,7 @@ import (
 )
 
 // Provides information about a DynamoDB table.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dynamodb_table.html.markdown.
 func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.InvokeOption) (*LookupTableResult, error) {
 	var rv LookupTableResult
@@ -23,33 +23,31 @@ func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getTable.
 type LookupTableArgs struct {
 	// The name of the DynamoDB table.
-	Name string `pulumi:"name"`
+	Name                 string                        `pulumi:"name"`
 	ServerSideEncryption *GetTableServerSideEncryption `pulumi:"serverSideEncryption"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags                 map[string]interface{}        `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getTable.
 type LookupTableResult struct {
-	Arn string `pulumi:"arn"`
-	Attributes []GetTableAttribute `pulumi:"attributes"`
-	BillingMode string `pulumi:"billingMode"`
+	Arn                    string                         `pulumi:"arn"`
+	Attributes             []GetTableAttribute            `pulumi:"attributes"`
+	BillingMode            string                         `pulumi:"billingMode"`
 	GlobalSecondaryIndexes []GetTableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
-	HashKey string `pulumi:"hashKey"`
+	HashKey                string                         `pulumi:"hashKey"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id                    string                        `pulumi:"id"`
 	LocalSecondaryIndexes []GetTableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
-	Name string `pulumi:"name"`
-	PointInTimeRecovery GetTablePointInTimeRecovery `pulumi:"pointInTimeRecovery"`
-	RangeKey string `pulumi:"rangeKey"`
-	ReadCapacity int `pulumi:"readCapacity"`
-	ServerSideEncryption GetTableServerSideEncryption `pulumi:"serverSideEncryption"`
-	StreamArn string `pulumi:"streamArn"`
-	StreamEnabled bool `pulumi:"streamEnabled"`
-	StreamLabel string `pulumi:"streamLabel"`
-	StreamViewType string `pulumi:"streamViewType"`
-	Tags map[string]interface{} `pulumi:"tags"`
-	Ttl GetTableTtl `pulumi:"ttl"`
-	WriteCapacity int `pulumi:"writeCapacity"`
+	Name                  string                        `pulumi:"name"`
+	PointInTimeRecovery   GetTablePointInTimeRecovery   `pulumi:"pointInTimeRecovery"`
+	RangeKey              string                        `pulumi:"rangeKey"`
+	ReadCapacity          int                           `pulumi:"readCapacity"`
+	ServerSideEncryption  GetTableServerSideEncryption  `pulumi:"serverSideEncryption"`
+	StreamArn             string                        `pulumi:"streamArn"`
+	StreamEnabled         bool                          `pulumi:"streamEnabled"`
+	StreamLabel           string                        `pulumi:"streamLabel"`
+	StreamViewType        string                        `pulumi:"streamViewType"`
+	Tags                  map[string]interface{}        `pulumi:"tags"`
+	Ttl                   GetTableTtl                   `pulumi:"ttl"`
+	WriteCapacity         int                           `pulumi:"writeCapacity"`
 }
-

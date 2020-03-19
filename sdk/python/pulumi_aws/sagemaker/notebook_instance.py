@@ -14,6 +14,10 @@ class NotebookInstance(pulumi.CustomResource):
     """
     The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
     """
+    direct_internet_access: pulumi.Output[str]
+    """
+    Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+    """
     instance_type: pulumi.Output[str]
     """
     The name of ML compute instance type.
@@ -46,12 +50,15 @@ class NotebookInstance(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, instance_type=None, kms_key_id=None, lifecycle_config_name=None, name=None, role_arn=None, security_groups=None, subnet_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, direct_internet_access=None, instance_type=None, kms_key_id=None, lifecycle_config_name=None, name=None, role_arn=None, security_groups=None, subnet_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Sagemaker Notebook Instance resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_notebook_instance.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] direct_internet_access: Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
         :param pulumi.Input[str] instance_type: The name of ML compute instance type.
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         :param pulumi.Input[str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.
@@ -60,8 +67,6 @@ class NotebookInstance(pulumi.CustomResource):
         :param pulumi.Input[list] security_groups: The associated security groups.
         :param pulumi.Input[str] subnet_id: The VPC subnet ID.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_notebook_instance.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -80,6 +85,7 @@ class NotebookInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['direct_internet_access'] = direct_internet_access
             if instance_type is None:
                 raise TypeError("Missing required property 'instance_type'")
             __props__['instance_type'] = instance_type
@@ -100,15 +106,16 @@ class NotebookInstance(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, instance_type=None, kms_key_id=None, lifecycle_config_name=None, name=None, role_arn=None, security_groups=None, subnet_id=None, tags=None):
+    def get(resource_name, id, opts=None, arn=None, direct_internet_access=None, instance_type=None, kms_key_id=None, lifecycle_config_name=None, name=None, role_arn=None, security_groups=None, subnet_id=None, tags=None):
         """
         Get an existing NotebookInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
+        :param pulumi.Input[str] direct_internet_access: Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
         :param pulumi.Input[str] instance_type: The name of ML compute instance type.
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         :param pulumi.Input[str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.
@@ -117,13 +124,13 @@ class NotebookInstance(pulumi.CustomResource):
         :param pulumi.Input[list] security_groups: The associated security groups.
         :param pulumi.Input[str] subnet_id: The VPC subnet ID.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_notebook_instance.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
+        __props__["direct_internet_access"] = direct_internet_access
         __props__["instance_type"] = instance_type
         __props__["kms_key_id"] = kms_key_id
         __props__["lifecycle_config_name"] = lifecycle_config_name

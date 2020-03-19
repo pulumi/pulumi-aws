@@ -73,7 +73,8 @@ type DirectorySelfServicePermissionsPtrInput interface {
 
 type directorySelfServicePermissionsPtrType DirectorySelfServicePermissionsArgs
 
-func DirectorySelfServicePermissionsPtr(v *DirectorySelfServicePermissionsArgs) DirectorySelfServicePermissionsPtrInput {	return (*directorySelfServicePermissionsPtrType)(v)
+func DirectorySelfServicePermissionsPtr(v *DirectorySelfServicePermissionsArgs) DirectorySelfServicePermissionsPtrInput {
+	return (*directorySelfServicePermissionsPtrType)(v)
 }
 
 func (*directorySelfServicePermissionsPtrType) ElementType() reflect.Type {
@@ -88,7 +89,7 @@ func (i *directorySelfServicePermissionsPtrType) ToDirectorySelfServicePermissio
 	return pulumi.ToOutputWithContext(ctx, i).(DirectorySelfServicePermissionsPtrOutput)
 }
 
-type DirectorySelfServicePermissionsOutput struct { *pulumi.OutputState }
+type DirectorySelfServicePermissionsOutput struct{ *pulumi.OutputState }
 
 func (DirectorySelfServicePermissionsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DirectorySelfServicePermissions)(nil)).Elem()
@@ -111,32 +112,33 @@ func (o DirectorySelfServicePermissionsOutput) ToDirectorySelfServicePermissions
 		return &v
 	}).(DirectorySelfServicePermissionsPtrOutput)
 }
+
 // Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
 func (o DirectorySelfServicePermissionsOutput) ChangeComputeType() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DirectorySelfServicePermissions) *bool { return v.ChangeComputeType }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DirectorySelfServicePermissions) *bool { return v.ChangeComputeType }).(pulumi.BoolPtrOutput)
 }
 
 // Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
 func (o DirectorySelfServicePermissionsOutput) IncreaseVolumeSize() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DirectorySelfServicePermissions) *bool { return v.IncreaseVolumeSize }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DirectorySelfServicePermissions) *bool { return v.IncreaseVolumeSize }).(pulumi.BoolPtrOutput)
 }
 
 // Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
 func (o DirectorySelfServicePermissionsOutput) RebuildWorkspace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DirectorySelfServicePermissions) *bool { return v.RebuildWorkspace }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DirectorySelfServicePermissions) *bool { return v.RebuildWorkspace }).(pulumi.BoolPtrOutput)
 }
 
 // Whether WorkSpaces directory users can restart their workspace. Default `true`.
 func (o DirectorySelfServicePermissionsOutput) RestartWorkspace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DirectorySelfServicePermissions) *bool { return v.RestartWorkspace }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DirectorySelfServicePermissions) *bool { return v.RestartWorkspace }).(pulumi.BoolPtrOutput)
 }
 
 // Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
 func (o DirectorySelfServicePermissionsOutput) SwitchRunningMode() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DirectorySelfServicePermissions) *bool { return v.SwitchRunningMode }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DirectorySelfServicePermissions) *bool { return v.SwitchRunningMode }).(pulumi.BoolPtrOutput)
 }
 
-type DirectorySelfServicePermissionsPtrOutput struct { *pulumi.OutputState}
+type DirectorySelfServicePermissionsPtrOutput struct{ *pulumi.OutputState }
 
 func (DirectorySelfServicePermissionsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DirectorySelfServicePermissions)(nil)).Elem()
@@ -151,32 +153,32 @@ func (o DirectorySelfServicePermissionsPtrOutput) ToDirectorySelfServicePermissi
 }
 
 func (o DirectorySelfServicePermissionsPtrOutput) Elem() DirectorySelfServicePermissionsOutput {
-	return o.ApplyT(func (v *DirectorySelfServicePermissions) DirectorySelfServicePermissions { return *v }).(DirectorySelfServicePermissionsOutput)
+	return o.ApplyT(func(v *DirectorySelfServicePermissions) DirectorySelfServicePermissions { return *v }).(DirectorySelfServicePermissionsOutput)
 }
 
 // Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
 func (o DirectorySelfServicePermissionsPtrOutput) ChangeComputeType() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DirectorySelfServicePermissions) *bool { return v.ChangeComputeType }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DirectorySelfServicePermissions) *bool { return v.ChangeComputeType }).(pulumi.BoolPtrOutput)
 }
 
 // Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
 func (o DirectorySelfServicePermissionsPtrOutput) IncreaseVolumeSize() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DirectorySelfServicePermissions) *bool { return v.IncreaseVolumeSize }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DirectorySelfServicePermissions) *bool { return v.IncreaseVolumeSize }).(pulumi.BoolPtrOutput)
 }
 
 // Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
 func (o DirectorySelfServicePermissionsPtrOutput) RebuildWorkspace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DirectorySelfServicePermissions) *bool { return v.RebuildWorkspace }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DirectorySelfServicePermissions) *bool { return v.RebuildWorkspace }).(pulumi.BoolPtrOutput)
 }
 
 // Whether WorkSpaces directory users can restart their workspace. Default `true`.
 func (o DirectorySelfServicePermissionsPtrOutput) RestartWorkspace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DirectorySelfServicePermissions) *bool { return v.RestartWorkspace }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DirectorySelfServicePermissions) *bool { return v.RestartWorkspace }).(pulumi.BoolPtrOutput)
 }
 
 // Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
 func (o DirectorySelfServicePermissionsPtrOutput) SwitchRunningMode() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DirectorySelfServicePermissions) *bool { return v.SwitchRunningMode }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DirectorySelfServicePermissions) *bool { return v.SwitchRunningMode }).(pulumi.BoolPtrOutput)
 }
 
 type IpGroupRule struct {
@@ -233,7 +235,7 @@ func (i IpGroupRuleArray) ToIpGroupRuleArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(IpGroupRuleArrayOutput)
 }
 
-type IpGroupRuleOutput struct { *pulumi.OutputState }
+type IpGroupRuleOutput struct{ *pulumi.OutputState }
 
 func (IpGroupRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IpGroupRule)(nil)).Elem()
@@ -249,15 +251,15 @@ func (o IpGroupRuleOutput) ToIpGroupRuleOutputWithContext(ctx context.Context) I
 
 // The description.
 func (o IpGroupRuleOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v IpGroupRule) *string { return v.Description }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v IpGroupRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The IP address range, in CIDR notation, e.g. `10.0.0.0/16`
 func (o IpGroupRuleOutput) Source() pulumi.StringOutput {
-	return o.ApplyT(func (v IpGroupRule) string { return v.Source }).(pulumi.StringOutput)
+	return o.ApplyT(func(v IpGroupRule) string { return v.Source }).(pulumi.StringOutput)
 }
 
-type IpGroupRuleArrayOutput struct { *pulumi.OutputState}
+type IpGroupRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (IpGroupRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]IpGroupRule)(nil)).Elem()
@@ -272,7 +274,7 @@ func (o IpGroupRuleArrayOutput) ToIpGroupRuleArrayOutputWithContext(ctx context.
 }
 
 func (o IpGroupRuleArrayOutput) Index(i pulumi.IntInput) IpGroupRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) IpGroupRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpGroupRule {
 		return vs[0].([]IpGroupRule)[vs[1].(int)]
 	}).(IpGroupRuleOutput)
 }
@@ -327,7 +329,7 @@ func (i GetBundleComputeTypeArray) ToGetBundleComputeTypeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetBundleComputeTypeArrayOutput)
 }
 
-type GetBundleComputeTypeOutput struct { *pulumi.OutputState }
+type GetBundleComputeTypeOutput struct{ *pulumi.OutputState }
 
 func (GetBundleComputeTypeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetBundleComputeType)(nil)).Elem()
@@ -343,10 +345,10 @@ func (o GetBundleComputeTypeOutput) ToGetBundleComputeTypeOutputWithContext(ctx 
 
 // The name of the compute type.
 func (o GetBundleComputeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetBundleComputeType) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetBundleComputeType) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type GetBundleComputeTypeArrayOutput struct { *pulumi.OutputState}
+type GetBundleComputeTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (GetBundleComputeTypeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetBundleComputeType)(nil)).Elem()
@@ -361,7 +363,7 @@ func (o GetBundleComputeTypeArrayOutput) ToGetBundleComputeTypeArrayOutputWithCo
 }
 
 func (o GetBundleComputeTypeArrayOutput) Index(i pulumi.IntInput) GetBundleComputeTypeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetBundleComputeType {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBundleComputeType {
 		return vs[0].([]GetBundleComputeType)[vs[1].(int)]
 	}).(GetBundleComputeTypeOutput)
 }
@@ -416,7 +418,7 @@ func (i GetBundleRootStorageArray) ToGetBundleRootStorageArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetBundleRootStorageArrayOutput)
 }
 
-type GetBundleRootStorageOutput struct { *pulumi.OutputState }
+type GetBundleRootStorageOutput struct{ *pulumi.OutputState }
 
 func (GetBundleRootStorageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetBundleRootStorage)(nil)).Elem()
@@ -432,10 +434,10 @@ func (o GetBundleRootStorageOutput) ToGetBundleRootStorageOutputWithContext(ctx 
 
 // The size of the user storage.
 func (o GetBundleRootStorageOutput) Capacity() pulumi.StringOutput {
-	return o.ApplyT(func (v GetBundleRootStorage) string { return v.Capacity }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetBundleRootStorage) string { return v.Capacity }).(pulumi.StringOutput)
 }
 
-type GetBundleRootStorageArrayOutput struct { *pulumi.OutputState}
+type GetBundleRootStorageArrayOutput struct{ *pulumi.OutputState }
 
 func (GetBundleRootStorageArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetBundleRootStorage)(nil)).Elem()
@@ -450,7 +452,7 @@ func (o GetBundleRootStorageArrayOutput) ToGetBundleRootStorageArrayOutputWithCo
 }
 
 func (o GetBundleRootStorageArrayOutput) Index(i pulumi.IntInput) GetBundleRootStorageOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetBundleRootStorage {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBundleRootStorage {
 		return vs[0].([]GetBundleRootStorage)[vs[1].(int)]
 	}).(GetBundleRootStorageOutput)
 }
@@ -505,7 +507,7 @@ func (i GetBundleUserStorageArray) ToGetBundleUserStorageArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetBundleUserStorageArrayOutput)
 }
 
-type GetBundleUserStorageOutput struct { *pulumi.OutputState }
+type GetBundleUserStorageOutput struct{ *pulumi.OutputState }
 
 func (GetBundleUserStorageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetBundleUserStorage)(nil)).Elem()
@@ -521,10 +523,10 @@ func (o GetBundleUserStorageOutput) ToGetBundleUserStorageOutputWithContext(ctx 
 
 // The size of the user storage.
 func (o GetBundleUserStorageOutput) Capacity() pulumi.StringOutput {
-	return o.ApplyT(func (v GetBundleUserStorage) string { return v.Capacity }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetBundleUserStorage) string { return v.Capacity }).(pulumi.StringOutput)
 }
 
-type GetBundleUserStorageArrayOutput struct { *pulumi.OutputState}
+type GetBundleUserStorageArrayOutput struct{ *pulumi.OutputState }
 
 func (GetBundleUserStorageArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetBundleUserStorage)(nil)).Elem()
@@ -539,7 +541,7 @@ func (o GetBundleUserStorageArrayOutput) ToGetBundleUserStorageArrayOutputWithCo
 }
 
 func (o GetBundleUserStorageArrayOutput) Index(i pulumi.IntInput) GetBundleUserStorageOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetBundleUserStorage {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBundleUserStorage {
 		return vs[0].([]GetBundleUserStorage)[vs[1].(int)]
 	}).(GetBundleUserStorageOutput)
 }

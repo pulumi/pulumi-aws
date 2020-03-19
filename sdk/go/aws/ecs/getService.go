@@ -10,7 +10,7 @@ import (
 
 // The ECS Service data source allows access to details of a specific
 // Service within a AWS ECS Cluster.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_service.html.markdown.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
@@ -29,11 +29,10 @@ type LookupServiceArgs struct {
 	ServiceName string `pulumi:"serviceName"`
 }
 
-
 // A collection of values returned by getService.
 type LookupServiceResult struct {
 	// The ARN of the ECS Service
-	Arn string `pulumi:"arn"`
+	Arn        string `pulumi:"arn"`
 	ClusterArn string `pulumi:"clusterArn"`
 	// The number of tasks for the ECS Service
 	DesiredCount int `pulumi:"desiredCount"`
@@ -43,8 +42,7 @@ type LookupServiceResult struct {
 	LaunchType string `pulumi:"launchType"`
 	// The scheduling strategy for the ECS Service
 	SchedulingStrategy string `pulumi:"schedulingStrategy"`
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName        string `pulumi:"serviceName"`
 	// The family for the latest ACTIVE revision
 	TaskDefinition string `pulumi:"taskDefinition"`
 }
-

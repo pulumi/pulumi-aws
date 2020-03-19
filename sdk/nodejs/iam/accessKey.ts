@@ -6,39 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const lbUser = new aws.iam.User("lb", {
- *     path: "/system/",
- * });
- * const lbAccessKey = new aws.iam.AccessKey("lb", {
- *     pgpKey: "keybase:some_person_that_exists",
- *     user: lbUser.name,
- * });
- * const lbRo = new aws.iam.UserPolicy("lbRo", {
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "ec2:Describe*"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "*"
- *     }
- *   ]
- * }
- * `,
- *     user: lbUser.name,
- * });
- * 
- * export const secret = lbAccessKey.encryptedSecret;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_access_key.html.markdown.
  */
@@ -72,7 +39,6 @@ export class AccessKey extends pulumi.CustomResource {
     /**
      * The encrypted secret, base64 encoded, if `pgpKey` was specified.
      * > **NOTE:** The encrypted secret may be decrypted using the command line,
-     * for example: `... | base64 --decode | keybase pgp decrypt`.
      */
     public /*out*/ readonly encryptedSecret!: pulumi.Output<string>;
     /**
@@ -95,11 +61,17 @@ export class AccessKey extends pulumi.CustomResource {
      */
     public /*out*/ readonly secret!: pulumi.Output<string>;
     /**
-     * The secret access key converted into an SES SMTP
+     * **DEPRECATED** The secret access key converted into an SES SMTP
      * password by applying [AWS's documented conversion
-     * algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
      */
     public /*out*/ readonly sesSmtpPassword!: pulumi.Output<string>;
+    /**
+     * The secret access key converted into an SES SMTP
+     * password by applying [AWS's documented Sigv4 conversion
+     * algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
+     * As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region)
+     */
+    public /*out*/ readonly sesSmtpPasswordV4!: pulumi.Output<string>;
     /**
      * The access key status to apply. Defaults to `Active`.
      * Valid values are `Active` and `Inactive`.
@@ -127,6 +99,7 @@ export class AccessKey extends pulumi.CustomResource {
             inputs["pgpKey"] = state ? state.pgpKey : undefined;
             inputs["secret"] = state ? state.secret : undefined;
             inputs["sesSmtpPassword"] = state ? state.sesSmtpPassword : undefined;
+            inputs["sesSmtpPasswordV4"] = state ? state.sesSmtpPasswordV4 : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["user"] = state ? state.user : undefined;
         } else {
@@ -141,6 +114,7 @@ export class AccessKey extends pulumi.CustomResource {
             inputs["keyFingerprint"] = undefined /*out*/;
             inputs["secret"] = undefined /*out*/;
             inputs["sesSmtpPassword"] = undefined /*out*/;
+            inputs["sesSmtpPasswordV4"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -160,7 +134,6 @@ export interface AccessKeyState {
     /**
      * The encrypted secret, base64 encoded, if `pgpKey` was specified.
      * > **NOTE:** The encrypted secret may be decrypted using the command line,
-     * for example: `... | base64 --decode | keybase pgp decrypt`.
      */
     readonly encryptedSecret?: pulumi.Input<string>;
     /**
@@ -183,11 +156,20 @@ export interface AccessKeyState {
      */
     readonly secret?: pulumi.Input<string>;
     /**
-     * The secret access key converted into an SES SMTP
+     * **DEPRECATED** The secret access key converted into an SES SMTP
      * password by applying [AWS's documented conversion
-     * algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
+     * 
+     * @deprecated AWS SigV2 for SES SMTP passwords isy deprecated.
+Use 'ses_smtp_password_v4' for region-specific AWS SigV4 signed SES SMTP password instead.
      */
     readonly sesSmtpPassword?: pulumi.Input<string>;
+    /**
+     * The secret access key converted into an SES SMTP
+     * password by applying [AWS's documented Sigv4 conversion
+     * algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
+     * As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region)
+     */
+    readonly sesSmtpPasswordV4?: pulumi.Input<string>;
     /**
      * The access key status to apply. Defaults to `Active`.
      * Valid values are `Active` and `Inactive`.

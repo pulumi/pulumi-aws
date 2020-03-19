@@ -11,18 +11,18 @@ import (
 )
 
 // Manages a DocDB Cluster.
-// 
+//
 // Changes to a DocDB Cluster can occur when you manually change a
 // parameter, such as `port`, and are reflected in the next maintenance
 // window. Because of this, this provider may report a difference in its planning
 // phase because a modification has not yet taken place. You can use the
 // `applyImmediately` flag to instruct the service to apply the change immediately
 // (see documentation below).
-// 
+//
 // > **Note:** using `applyImmediately` can result in a brief downtime as the server reboots.
 // > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster.html.markdown.
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -70,13 +70,13 @@ type Cluster struct {
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
 	MasterPassword pulumi.StringPtrOutput `pulumi:"masterPassword"`
-	// Username for the master DB user. 
+	// Username for the master DB user.
 	MasterUsername pulumi.StringOutput `pulumi:"masterUsername"`
 	// The port on which the DB accepts connections
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
 	// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
-	PreferredBackupWindow pulumi.StringOutput `pulumi:"preferredBackupWindow"`
+	PreferredBackupWindow      pulumi.StringOutput `pulumi:"preferredBackupWindow"`
 	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
 	// A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
 	ReaderEndpoint pulumi.StringOutput `pulumi:"readerEndpoint"`
@@ -164,13 +164,13 @@ type clusterState struct {
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
 	MasterPassword *string `pulumi:"masterPassword"`
-	// Username for the master DB user. 
+	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
 	// The port on which the DB accepts connections
 	Port *int `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
 	// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
-	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
+	PreferredBackupWindow      *string `pulumi:"preferredBackupWindow"`
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
 	ReaderEndpoint *string `pulumi:"readerEndpoint"`
@@ -231,13 +231,13 @@ type ClusterState struct {
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
 	MasterPassword pulumi.StringPtrInput
-	// Username for the master DB user. 
+	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
 	// The port on which the DB accepts connections
 	Port pulumi.IntPtrInput
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
 	// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
-	PreferredBackupWindow pulumi.StringPtrInput
+	PreferredBackupWindow      pulumi.StringPtrInput
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
 	ReaderEndpoint pulumi.StringPtrInput
@@ -294,13 +294,13 @@ type clusterArgs struct {
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
 	MasterPassword *string `pulumi:"masterPassword"`
-	// Username for the master DB user. 
+	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
 	// The port on which the DB accepts connections
 	Port *int `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
 	// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
-	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
+	PreferredBackupWindow      *string `pulumi:"preferredBackupWindow"`
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
@@ -352,13 +352,13 @@ type ClusterArgs struct {
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
 	MasterPassword pulumi.StringPtrInput
-	// Username for the master DB user. 
+	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
 	// The port on which the DB accepts connections
 	Port pulumi.IntPtrInput
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
 	// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
-	PreferredBackupWindow pulumi.StringPtrInput
+	PreferredBackupWindow      pulumi.StringPtrInput
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot pulumi.BoolPtrInput
@@ -376,4 +376,3 @@ type ClusterArgs struct {
 func (ClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterArgs)(nil)).Elem()
 }
-

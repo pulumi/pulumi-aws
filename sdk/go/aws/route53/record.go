@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a Route53 record resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_record.html.markdown.
 type Record struct {
 	pulumi.CustomResourceState
@@ -226,4 +226,3 @@ type RecordArgs struct {
 func (RecordArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*recordArgs)(nil)).Elem()
 }
-

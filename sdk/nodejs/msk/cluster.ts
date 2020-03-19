@@ -59,6 +59,16 @@ import * as utilities from "../utilities";
  *     },
  *     kafkaVersion: "2.1.0",
  *     numberOfBrokerNodes: 3,
+ *     openMonitoring: {
+ *         prometheus: {
+ *             jmxExporter: {
+ *                 enabledInBroker: true,
+ *             },
+ *             nodeExporter: {
+ *                 enabledInBroker: true,
+ *             },
+ *         },
+ *     },
  *     tags: {
  *         foo: "bar",
  *     },
@@ -148,11 +158,15 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly numberOfBrokerNodes!: pulumi.Output<number>;
     /**
+     * Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+     */
+    public readonly openMonitoring!: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
+    /**
      * A mapping of tags to assign to the resource
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
-     * A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
+     * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
      */
     public /*out*/ readonly zookeeperConnectString!: pulumi.Output<string>;
 
@@ -180,6 +194,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["enhancedMonitoring"] = state ? state.enhancedMonitoring : undefined;
             inputs["kafkaVersion"] = state ? state.kafkaVersion : undefined;
             inputs["numberOfBrokerNodes"] = state ? state.numberOfBrokerNodes : undefined;
+            inputs["openMonitoring"] = state ? state.openMonitoring : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["zookeeperConnectString"] = state ? state.zookeeperConnectString : undefined;
         } else {
@@ -204,6 +219,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["enhancedMonitoring"] = args ? args.enhancedMonitoring : undefined;
             inputs["kafkaVersion"] = args ? args.kafkaVersion : undefined;
             inputs["numberOfBrokerNodes"] = args ? args.numberOfBrokerNodes : undefined;
+            inputs["openMonitoring"] = args ? args.openMonitoring : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["bootstrapBrokers"] = undefined /*out*/;
@@ -276,11 +292,15 @@ export interface ClusterState {
      */
     readonly numberOfBrokerNodes?: pulumi.Input<number>;
     /**
+     * Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+     */
+    readonly openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
+    /**
      * A mapping of tags to assign to the resource
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
+     * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
      */
     readonly zookeeperConnectString?: pulumi.Input<string>;
 }
@@ -321,6 +341,10 @@ export interface ClusterArgs {
      * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
      */
     readonly numberOfBrokerNodes: pulumi.Input<number>;
+    /**
+     * Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+     */
+    readonly openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
     /**
      * A mapping of tags to assign to the resource
      */

@@ -13,22 +13,22 @@ import (
 
 // The "AMI from instance" resource allows the creation of an Amazon Machine
 // Image (AMI) modelled after an existing EBS-backed EC2 instance.
-// 
+//
 // The created AMI will refer to implicitly-created snapshots of the instance's
 // EBS volumes and mimick its assigned block device configuration at the time
 // the resource is created.
-// 
+//
 // This resource is best applied to an instance that is stopped when this instance
 // is created, so that the contents of the created image are predictable. When
 // applied to an instance that is running, *the instance will be stopped before taking
 // the snapshots and then started back up again*, resulting in a period of
 // downtime.
-// 
+//
 // Note that the source instance is inspected only at the initial creation of this
 // resource. Ongoing updates to the referenced instance will not be propagated into
 // the generated AMI. Users may taint or otherwise recreate the resource in order
 // to produce a fresh snapshot.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_from_instance.html.markdown.
 type AmiFromInstance struct {
 	pulumi.CustomResourceState
@@ -50,8 +50,8 @@ type AmiFromInstance struct {
 	ImageLocation pulumi.StringOutput `pulumi:"imageLocation"`
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
-	KernelId pulumi.StringOutput `pulumi:"kernelId"`
-	ManageEbsSnapshots pulumi.BoolOutput `pulumi:"manageEbsSnapshots"`
+	KernelId           pulumi.StringOutput `pulumi:"kernelId"`
+	ManageEbsSnapshots pulumi.BoolOutput   `pulumi:"manageEbsSnapshots"`
 	// A region-unique name for the AMI.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The id of an initrd image (ARI) that will be used when booting the
@@ -126,8 +126,8 @@ type amiFromInstanceState struct {
 	ImageLocation *string `pulumi:"imageLocation"`
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
-	KernelId *string `pulumi:"kernelId"`
-	ManageEbsSnapshots *bool `pulumi:"manageEbsSnapshots"`
+	KernelId           *string `pulumi:"kernelId"`
+	ManageEbsSnapshots *bool   `pulumi:"manageEbsSnapshots"`
 	// A region-unique name for the AMI.
 	Name *string `pulumi:"name"`
 	// The id of an initrd image (ARI) that will be used when booting the
@@ -172,7 +172,7 @@ type AmiFromInstanceState struct {
 	ImageLocation pulumi.StringPtrInput
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
-	KernelId pulumi.StringPtrInput
+	KernelId           pulumi.StringPtrInput
 	ManageEbsSnapshots pulumi.BoolPtrInput
 	// A region-unique name for the AMI.
 	Name pulumi.StringPtrInput
@@ -252,4 +252,3 @@ type AmiFromInstanceArgs struct {
 func (AmiFromInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*amiFromInstanceArgs)(nil)).Elem()
 }
-

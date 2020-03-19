@@ -12,7 +12,7 @@ import (
 )
 
 // Attach an Elastic network interface (ENI) resource with EC2 instance.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_interface_attachment.html.markdown.
 type NetworkInterfaceAttachment struct {
 	pulumi.CustomResourceState
@@ -117,4 +117,3 @@ type NetworkInterfaceAttachmentArgs struct {
 func (NetworkInterfaceAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceAttachmentArgs)(nil)).Elem()
 }
-

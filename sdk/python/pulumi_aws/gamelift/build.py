@@ -25,7 +25,7 @@ class Build(pulumi.CustomResource):
     storage_location: pulumi.Output[dict]
     """
     Information indicating where your game build files are stored. See below.
-    
+
       * `bucket` (`str`) - Name of your S3 bucket.
       * `key` (`str`) - Name of the zip file containing your build files.
       * `role_arn` (`str`) - ARN of the access role that allows Amazon GameLift to access your S3 bucket.
@@ -41,7 +41,9 @@ class Build(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, name=None, operating_system=None, storage_location=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Gamelift Build resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_build.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the build
@@ -49,14 +51,12 @@ class Build(pulumi.CustomResource):
         :param pulumi.Input[dict] storage_location: Information indicating where your game build files are stored. See below.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] version: Version that is associated with this build.
-        
+
         The **storage_location** object supports the following:
-        
+
           * `bucket` (`pulumi.Input[str]`) - Name of your S3 bucket.
           * `key` (`pulumi.Input[str]`) - Name of the zip file containing your build files.
           * `role_arn` (`pulumi.Input[str]`) - ARN of the access role that allows Amazon GameLift to access your S3 bucket.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_build.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -96,7 +96,7 @@ class Build(pulumi.CustomResource):
         """
         Get an existing Build resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -106,18 +106,17 @@ class Build(pulumi.CustomResource):
         :param pulumi.Input[dict] storage_location: Information indicating where your game build files are stored. See below.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] version: Version that is associated with this build.
-        
+
         The **storage_location** object supports the following:
-        
+
           * `bucket` (`pulumi.Input[str]`) - Name of your S3 bucket.
           * `key` (`pulumi.Input[str]`) - Name of the zip file containing your build files.
           * `role_arn` (`pulumi.Input[str]`) - ARN of the access role that allows Amazon GameLift to access your S3 bucket.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_build.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["name"] = name
         __props__["operating_system"] = operating_system

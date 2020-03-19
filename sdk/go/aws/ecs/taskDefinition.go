@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a revision of an ECS task definition to be used in `ecs.Service`.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_task_definition.html.markdown.
 type TaskDefinition struct {
 	pulumi.CustomResourceState
@@ -249,4 +249,3 @@ type TaskDefinitionArgs struct {
 func (TaskDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*taskDefinitionArgs)(nil)).Elem()
 }
-

@@ -18,6 +18,7 @@ import (
 	"errors"
 	"fmt"
 	"math/rand"
+	"os"
 	"strings"
 	"unicode"
 
@@ -37,113 +38,114 @@ const (
 	// packages:
 	awsPkg = "aws"
 	// modules:
-	awsMod               = "index"             // the root index.
-	acmMod               = "Acm"               // AWS Certificate Manager
-	acmpcaMod            = "Acmpca"            // AWS Private Certificate Authority
-	accessAnalyzerMod    = "AccessAnalyzer"    // Access Analyzer
-	appsyncMod           = "AppSync"           // AppSync
-	appmeshMod           = "AppMesh"           // AppMesh
-	apigatewayMod        = "ApiGateway"        // API Gateway
-	appautoscalingMod    = "AppAutoScaling"    // Application Auto Scaling
-	athenaMod            = "Athena"            // Athena
-	autoscalingMod       = "AutoScaling"       // Auto Scaling
-	backupMod            = "Backup"            // Backup
-	batchMod             = "Batch"             // Batch
-	budgetsMod           = "Budgets"           // Budgets
-	cloud9Mod            = "Cloud9"            // Cloud9
-	cloudformationMod    = "CloudFormation"    // Cloud Formation
-	cloudhsmv2Mod        = "CloudHsmV2"        // Cloud HSM
-	cloudfrontMod        = "CloudFront"        // Cloud Front
-	cloudtrailMod        = "CloudTrail"        // Cloud Trail
-	cloudwatchMod        = "CloudWatch"        // Cloud Watch
-	codebuildMod         = "CodeBuild"         // Code Build
-	codecommitMod        = "CodeCommit"        // Code Commit
-	codedeployMod        = "CodeDeploy"        // Code Deploy
-	codepipelineMod      = "CodePipeline"      // Code Pipeline
-	cognitoMod           = "Cognito"           // Cognito
-	curMod               = "Cur"               // Cost and Usage Report
-	cfgMod               = "Cfg"               // Resource Config
-	datapipelineMod      = "DataPipeline"      // Data Pipeline
-	datasyncMod          = "DataSync"          // DataSync
-	daxMod               = "Dax"               // DynamoDB Accelerator
-	dlmMod               = "Dlm"               // Data Lifecycle Manager
-	devicefarmMod        = "DeviceFarm"        // Device Farm
-	directoryserviceMod  = "DirectoryService"  // Directory Services
-	docdbMod             = "DocDB"             // Document DB
-	dynamodbMod          = "DynamoDB"          // DynamoDB
-	dxMod                = "DirectConnect"     // Direct Connect
-	dmsMod               = "Dms"               // Data Migraiton Services
-	ebsMod               = "Ebs"               // Elastic Block Store
-	ec2Mod               = "Ec2"               // EC2
-	ec2ClientVpnMod      = "Ec2ClientVpn"      // EC2 Client VPN
-	ec2TransitGatewayMod = "Ec2TransitGateway" // EC2 Transit Gateway
-	ecrMod               = "Ecr"               // Elastic Container Registry
-	ecsMod               = "Ecs"               // Elastic Container Service
-	efsMod               = "Efs"               // Elastic Filesystem
-	eksMod               = "Eks"               // ECS for Kubernetes
-	elasticacheMod       = "ElastiCache"       // ElastiCache
-	elasticbeanstalkMod  = "ElasticBeanstalk"  // Elastic Beanstalk
-	elasticsearchMod     = "ElasticSearch"     // ElasticSearch
-	elastictranscoderMod = "ElasticTranscoder" // Elastic Transcoder
-	elbMod               = "Elb"               // Elastic Load Balancing
-	albMod               = "Alb"               // Elastic Load Balancing (V2: Application)
-	lbMod                = "LB"                // Elastic Load Balancing (V2: Application and Network)
-	emrMod               = "Emr"               // Elastic MapReduce
-	fmsMod               = "Fms"               // FMS
-	fsxMod               = "Fsx"               // FSX
-	gameliftMod          = "GameLift"          // Gamelift
-	glacierMod           = "Glacier"           // Glacier
-	globalacceleratorMod = "GlobalAccelerator" // Global Accelerator
-	glueMod              = "Glue"              // Glue
-	guarddutyMod         = "GuardDuty"         // Guard Duty
-	iamMod               = "Iam"               // Identity and Access Management (IAM)
-	inspectorMod         = "Inspector"         // Inspector
-	iotMod               = "Iot"               // Internet of Things (IoT)
-	kinesisMod           = "Kinesis"           // Kinesis
-	kmsMod               = "Kms"               // Key Management Service (KMS)
-	lambdaMod            = "Lambda"            // Lambda
-	licensemanagerMod    = "LicenseManager"    // License Manager
-	lightsailMod         = "LightSail"         // LightSail
-	macieMod             = "Macie"             // Macie
-	mediaconvertMod      = "MediaConvert"      // Media Convert
-	mediapackageMod      = "MediaPackage"      // Elemental MediaPackage
-	mediastoreMod        = "MediaStore"        // Elemental MediaStore
-	mqMod                = "Mq"                // MQ
-	mskMod               = "Msk"               // MSK
-	neptuneMod           = "Neptune"           // Neptune
-	opsworksMod          = "OpsWorks"          // OpsWorks
-	organizationsMod     = "Organizations"     // Organizations
-	pinpointMod          = "Pinpoint"          // Pinpoint
-	pricingMod           = "Pricing"           // Pricing
-	qldbMod              = "Qldb"              // QLDB
-	quicksightMod        = "Quicksight"        // Quicksight
-	ramMod               = "Ram"               // Resource Access Manager
-	rdsMod               = "Rds"               // Relational Database Service (RDS)
-	redshiftMod          = "RedShift"          // RedShift
-	resourcegroupsMod    = "ResourceGroups"    // Resource Groups
-	route53Mod           = "Route53"           // Route 53 (DNS)
-	sagemakerMod         = "Sagemaker"         // Sagemaker
-	securityhubMod       = "SecurityHub"       // SecurityHub
-	sesMod               = "Ses"               // Simple Email Service (SES)
-	s3Mod                = "S3"                // Simple Storage (S3)
-	ssmMod               = "Ssm"               // System Manager
-	secretsmanagerMod    = "SecretsManager"    // Secrets Manager
-	servicecatalogMod    = "ServiceCatalog"    // Service Catalog
-	servicediscoveryMod  = "ServiceDiscovery"  // Service Discovery
-	servicequotasMod     = "ServiceQuotas"     // Service Quotas
-	sfnMod               = "Sfn"               // Step Functions (SFN)
-	shieldMod            = "Shield"            // Shield
-	simpledbMod          = "SimpleDB"          // Simple DB
-	snsMod               = "Sns"               // Simple Notification Service (SNS)
-	sqsMod               = "Sqs"               // Simple Queueing Service (SQS)
-	storagegatewayMod    = "StorageGateway"    // Storage Gateway
-	swfMod               = "Swf"               // Simple Workflow Service (SWF)
-	transferMod          = "Transfer"          // Transfer Service
-	wafMod               = "Waf"               // Web Application Firewall (WAF)
-	wafregionalMod       = "WafRegional"       // Web Application Firewall (WAF) Regional
-	worklinkMod          = "WorkLink"          // Worklink
-	workspacesMod        = "Workspaces"        // Workspaces
-	xrayMod              = "Xray"              // X-Ray
+	awsMod                    = "index"                 // the root index.
+	acmMod                    = "Acm"                   // AWS Certificate Manager
+	acmpcaMod                 = "Acmpca"                // AWS Private Certificate Authority
+	accessAnalyzerMod         = "AccessAnalyzer"        // Access Analyzer
+	appsyncMod                = "AppSync"               // AppSync
+	appmeshMod                = "AppMesh"               // AppMesh
+	apigatewayMod             = "ApiGateway"            // API Gateway
+	appautoscalingMod         = "AppAutoScaling"        // Application Auto Scaling
+	athenaMod                 = "Athena"                // Athena
+	autoscalingMod            = "AutoScaling"           // Auto Scaling
+	backupMod                 = "Backup"                // Backup
+	batchMod                  = "Batch"                 // Batch
+	budgetsMod                = "Budgets"               // Budgets
+	cloud9Mod                 = "Cloud9"                // Cloud9
+	cloudformationMod         = "CloudFormation"        // Cloud Formation
+	cloudhsmv2Mod             = "CloudHsmV2"            // Cloud HSM
+	cloudfrontMod             = "CloudFront"            // Cloud Front
+	cloudtrailMod             = "CloudTrail"            // Cloud Trail
+	cloudwatchMod             = "CloudWatch"            // Cloud Watch
+	codebuildMod              = "CodeBuild"             // Code Build
+	codecommitMod             = "CodeCommit"            // Code Commit
+	codedeployMod             = "CodeDeploy"            // Code Deploy
+	codepipelineMod           = "CodePipeline"          // Code Pipeline
+	codestarNotificiationsMod = "CodeStarNotifications" // CodeStar Notificiations
+	cognitoMod                = "Cognito"               // Cognito
+	curMod                    = "Cur"                   // Cost and Usage Report
+	cfgMod                    = "Cfg"                   // Resource Config
+	datapipelineMod           = "DataPipeline"          // Data Pipeline
+	datasyncMod               = "DataSync"              // DataSync
+	daxMod                    = "Dax"                   // DynamoDB Accelerator
+	dlmMod                    = "Dlm"                   // Data Lifecycle Manager
+	devicefarmMod             = "DeviceFarm"            // Device Farm
+	directoryserviceMod       = "DirectoryService"      // Directory Services
+	docdbMod                  = "DocDB"                 // Document DB
+	dynamodbMod               = "DynamoDB"              // DynamoDB
+	dxMod                     = "DirectConnect"         // Direct Connect
+	dmsMod                    = "Dms"                   // Data Migraiton Services
+	ebsMod                    = "Ebs"                   // Elastic Block Store
+	ec2Mod                    = "Ec2"                   // EC2
+	ec2ClientVpnMod           = "Ec2ClientVpn"          // EC2 Client VPN
+	ec2TransitGatewayMod      = "Ec2TransitGateway"     // EC2 Transit Gateway
+	ecrMod                    = "Ecr"                   // Elastic Container Registry
+	ecsMod                    = "Ecs"                   // Elastic Container Service
+	efsMod                    = "Efs"                   // Elastic Filesystem
+	eksMod                    = "Eks"                   // ECS for Kubernetes
+	elasticacheMod            = "ElastiCache"           // ElastiCache
+	elasticbeanstalkMod       = "ElasticBeanstalk"      // Elastic Beanstalk
+	elasticsearchMod          = "ElasticSearch"         // ElasticSearch
+	elastictranscoderMod      = "ElasticTranscoder"     // Elastic Transcoder
+	elbMod                    = "Elb"                   // Elastic Load Balancing
+	albMod                    = "Alb"                   // Elastic Load Balancing (V2: Application)
+	lbMod                     = "LB"                    // Elastic Load Balancing (V2: Application and Network)
+	emrMod                    = "Emr"                   // Elastic MapReduce
+	fmsMod                    = "Fms"                   // FMS
+	fsxMod                    = "Fsx"                   // FSX
+	gameliftMod               = "GameLift"              // Gamelift
+	glacierMod                = "Glacier"               // Glacier
+	globalacceleratorMod      = "GlobalAccelerator"     // Global Accelerator
+	glueMod                   = "Glue"                  // Glue
+	guarddutyMod              = "GuardDuty"             // Guard Duty
+	iamMod                    = "Iam"                   // Identity and Access Management (IAM)
+	inspectorMod              = "Inspector"             // Inspector
+	iotMod                    = "Iot"                   // Internet of Things (IoT)
+	kinesisMod                = "Kinesis"               // Kinesis
+	kmsMod                    = "Kms"                   // Key Management Service (KMS)
+	lambdaMod                 = "Lambda"                // Lambda
+	licensemanagerMod         = "LicenseManager"        // License Manager
+	lightsailMod              = "LightSail"             // LightSail
+	macieMod                  = "Macie"                 // Macie
+	mediaconvertMod           = "MediaConvert"          // Media Convert
+	mediapackageMod           = "MediaPackage"          // Elemental MediaPackage
+	mediastoreMod             = "MediaStore"            // Elemental MediaStore
+	mqMod                     = "Mq"                    // MQ
+	mskMod                    = "Msk"                   // MSK
+	neptuneMod                = "Neptune"               // Neptune
+	opsworksMod               = "OpsWorks"              // OpsWorks
+	organizationsMod          = "Organizations"         // Organizations
+	pinpointMod               = "Pinpoint"              // Pinpoint
+	pricingMod                = "Pricing"               // Pricing
+	qldbMod                   = "Qldb"                  // QLDB
+	quicksightMod             = "Quicksight"            // Quicksight
+	ramMod                    = "Ram"                   // Resource Access Manager
+	rdsMod                    = "Rds"                   // Relational Database Service (RDS)
+	redshiftMod               = "RedShift"              // RedShift
+	resourcegroupsMod         = "ResourceGroups"        // Resource Groups
+	route53Mod                = "Route53"               // Route 53 (DNS)
+	sagemakerMod              = "Sagemaker"             // Sagemaker
+	securityhubMod            = "SecurityHub"           // SecurityHub
+	sesMod                    = "Ses"                   // Simple Email Service (SES)
+	s3Mod                     = "S3"                    // Simple Storage (S3)
+	ssmMod                    = "Ssm"                   // System Manager
+	secretsmanagerMod         = "SecretsManager"        // Secrets Manager
+	servicecatalogMod         = "ServiceCatalog"        // Service Catalog
+	servicediscoveryMod       = "ServiceDiscovery"      // Service Discovery
+	servicequotasMod          = "ServiceQuotas"         // Service Quotas
+	sfnMod                    = "Sfn"                   // Step Functions (SFN)
+	shieldMod                 = "Shield"                // Shield
+	simpledbMod               = "SimpleDB"              // Simple DB
+	snsMod                    = "Sns"                   // Simple Notification Service (SNS)
+	sqsMod                    = "Sqs"                   // Simple Queueing Service (SQS)
+	storagegatewayMod         = "StorageGateway"        // Storage Gateway
+	swfMod                    = "Swf"                   // Simple Workflow Service (SWF)
+	transferMod               = "Transfer"              // Transfer Service
+	wafMod                    = "Waf"                   // Web Application Firewall (WAF)
+	wafregionalMod            = "WafRegional"           // Web Application Firewall (WAF) Regional
+	worklinkMod               = "WorkLink"              // Worklink
+	workspacesMod             = "Workspaces"            // Workspaces
+	xrayMod                   = "Xray"                  // X-Ray
 
 	// Legacy Mods
 	legacyElbMod   = "ElasticLoadBalancing"
@@ -201,10 +203,16 @@ func boolRef(b bool) *bool {
 }
 
 // stringValue gets a string value from a property map if present, else ""
-func stringValue(vars resource.PropertyMap, prop resource.PropertyKey) string {
+func stringValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) string {
 	val, ok := vars[prop]
 	if ok && val.IsString() {
 		return val.StringValue()
+	}
+	for _, env := range envs {
+		val, ok := os.LookupEnv(env)
+		if ok {
+			return val
+		}
 	}
 	return ""
 }
@@ -214,14 +222,15 @@ func stringValue(vars resource.PropertyMap, prop resource.PropertyKey) string {
 // before passing control to the TF provider to ensure we can report actionable errors.
 func preConfigureCallback(vars resource.PropertyMap, c *terraform.ResourceConfig) error {
 	config := &awsbase.Config{
-		AccessKey: stringValue(vars, "accessKey"),
-		SecretKey: stringValue(vars, "secretKey"),
-		Profile:   stringValue(vars, "profile"),
-		Token:     stringValue(vars, "token"),
-		Region:    stringValue(vars, "region"),
+		AccessKey: stringValue(vars, "accessKey", []string{"AWS_ACCESS_KEY_ID"}),
+		SecretKey: stringValue(vars, "secretKey", []string{"AWS_SECRET_ACCESS_KEY"}),
+		Profile:   stringValue(vars, "profile", []string{"AWS_PROFILE"}),
+		Token:     stringValue(vars, "token", []string{"AWS_SESSION_TOKEN"}),
+		Region:    stringValue(vars, "region", []string{"AWS_REGION", "AWS_DEFAULT_REGION"}),
 	}
 
-	credsPath, err := homedir.Expand(stringValue(vars, "sharedCredentialsFile"))
+	sharedCredentialsFile := stringValue(vars, "sharedCredentialsFile", []string{"AWS_SHARED_CREDENTIALS_FILE"})
+	credsPath, err := homedir.Expand(sharedCredentialsFile)
 	if err != nil {
 		return err
 	}
@@ -316,8 +325,9 @@ func Provider() tfbridge.ProviderInfo {
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
 								"rest_api_id": {
-									Name: "restApi",
-									Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+									Name:     "restApi",
+									Type:     "string",
+									AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 								},
 							},
 						},
@@ -328,8 +338,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "Authorizer"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -337,8 +348,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "BasePathMapping"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -347,8 +359,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "Deployment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -366,8 +379,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "Integration"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -375,8 +389,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "IntegrationResponse"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -384,8 +399,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "Method"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -393,32 +409,36 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "MethodResponse"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				}},
 			"aws_api_gateway_method_settings": {
 				Tok: awsResource(apigatewayMod, "MethodSettings"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				}},
 			"aws_api_gateway_model": {
 				Tok: awsResource(apigatewayMod, "Model"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				}},
 			"aws_api_gateway_request_validator": {
 				Tok: awsResource(apigatewayMod, "RequestValidator"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -431,8 +451,9 @@ func Provider() tfbridge.ProviderInfo {
 					// 	Type: awsTypeDefaultFile(apigatewayMod, "Resource"),
 					// },
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -442,12 +463,14 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "Stage"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"deployment_id": {
-						Name: "deployment",
-						Type: awsTypeDefaultFile(apigatewayMod, "Deployment"),
+						Name:     "deployment",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "Deployment")},
 					},
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -593,8 +616,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(cloudwatchMod, "LogSubscriptionFilter"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"log_group_name": {
-						Name: "logGroup",
-						Type: awsResource(cloudwatchMod, "LogGroup"),
+						Name:     "logGroup",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(cloudwatchMod, "LogGroup")},
 					},
 				},
 				DeleteBeforeReplace: true, // only 1 active filter is legal at once
@@ -690,6 +714,7 @@ func Provider() tfbridge.ProviderInfo {
 					"cloudwatch_log_group_arn": {Type: awsTypeNoFile(awsMod, "ARN")},
 				},
 			},
+			"aws_datasync_location_smb": {Tok: awsResource(datasyncMod, "LocationSmb")},
 			// Data Lifecycle Manager
 			"aws_dlm_lifecycle_policy": {Tok: awsResource(dlmMod, "LifecyclePolicy")},
 			// Data Migration Service
@@ -760,7 +785,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_elastic_beanstalk_application_version": {
 				Tok: awsResource(elasticbeanstalkMod, "ApplicationVersion"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"application": {Type: awsResource(elasticbeanstalkMod, "Application")},
+					"application": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(elasticbeanstalkMod, "Application")},
+					},
 					"bucket": {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
@@ -771,8 +799,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_elastic_beanstalk_environment": {
 				Tok: awsResource(elasticbeanstalkMod, "Environment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"name":        tfbridge.AutoName("name", 40),
-					"application": {Type: awsResource(elasticbeanstalkMod, "Application")},
+					"name": tfbridge.AutoName("name", 40),
+					"application": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(elasticbeanstalkMod, "Application")},
+					},
 					"version_label": {
 						Name: "version",
 						Type: awsResource(elasticbeanstalkMod, "ApplicationVersion"),
@@ -999,6 +1030,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_vpn_gateway":                            {Tok: awsResource(ec2Mod, "VpnGateway")},
 			"aws_vpn_gateway_attachment":                 {Tok: awsResource(ec2Mod, "VpnGatewayAttachment")},
 			"aws_vpn_gateway_route_propagation":          {Tok: awsResource(ec2Mod, "VpnGatewayRoutePropagation")},
+			"aws_ec2_traffic_mirror_filter":              {Tok: awsResource(ec2Mod, "TrafficMirrorFilter")},
+			"aws_ec2_traffic_mirror_filter_rule":         {Tok: awsResource(ec2Mod, "TrafficMirrorFilterRule")},
+			"aws_ec2_traffic_mirror_session":             {Tok: awsResource(ec2Mod, "TrafficMirrorSession")},
+			"aws_ec2_traffic_mirror_target":              {Tok: awsResource(ec2Mod, "TrafficMirrorTarget")},
 			// EC2 Client VPN
 			"aws_ec2_client_vpn_endpoint":            {Tok: awsResource(ec2ClientVpnMod, "Endpoint")},
 			"aws_ec2_client_vpn_network_association": {Tok: awsResource(ec2ClientVpnMod, "NetworkAssociation")},
@@ -1408,6 +1443,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iot_topic_rule": {
 				Tok: awsResource(iotMod, "TopicRule"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": tfbridge.AutoNameWithCustomOptions("name",
+						tfbridge.AutoNameOptions{
+							Separator: "_",
+						}),
 					"cloudwatch_alarm":  {Name: "cloudwatchAlarm", MaxItemsOne: boolRef(true)},
 					"cloudwatch_metric": {Name: "cloudwatchMetric", MaxItemsOne: boolRef(true)},
 					"dynamodb":          {Name: "dynamodb", MaxItemsOne: boolRef(true)},
@@ -1847,7 +1886,9 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_s3_bucket_public_access_block": {Tok: awsResource(s3Mod, "BucketPublicAccessBlock")},
+			"aws_s3_bucket_public_access_block":     {Tok: awsResource(s3Mod, "BucketPublicAccessBlock")},
+			"aws_s3_bucket_analytics_configuration": {Tok: awsResource(s3Mod, "AnalyticsConfiguration")},
+			"aws_s3_access_point":                   {Tok: awsResource(s3Mod, "AccessPoint")},
 			// Systems Manager (SSM)
 			"aws_ssm_activation":                {Tok: awsResource(ssmMod, "Activation")},
 			"aws_ssm_association":               {Tok: awsResource(ssmMod, "Association")},
@@ -1905,8 +1946,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(snsMod, "TopicSubscription"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"topic_arn": {
-						Name: "topic",
-						Type: awsResource(snsMod, "Topic"),
+						Name:     "topic",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(snsMod, "Topic")},
 					},
 				},
 			},
@@ -1983,6 +2025,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_workspaces_directory": {Tok: awsResource(workspacesMod, "Directory")},
 			// Access Analyzer
 			"aws_accessanalyzer_analyzer": {Tok: awsResource(accessAnalyzerMod, "Analyzer")},
+			// CodeStar Notifications
+			"aws_codestarnotifications_notification_rule": {Tok: awsResource(codestarNotificiationsMod, "NotificationRule")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// AWS
@@ -2040,30 +2084,32 @@ func Provider() tfbridge.ProviderInfo {
 			// DX
 			"aws_dx_gateway": {Tok: awsDataSource(dxMod, "getGateway")},
 			// EC2
-			"aws_customer_gateway":       {Tok: awsDataSource(ec2Mod, "getCustomerGateway")},
-			"aws_instance":               {Tok: awsDataSource(ec2Mod, "getInstance")},
-			"aws_instances":              {Tok: awsDataSource(ec2Mod, "getInstances")},
-			"aws_internet_gateway":       {Tok: awsDataSource(ec2Mod, "getInternetGateway")},
-			"aws_launch_configuration":   {Tok: awsDataSource(ec2Mod, "getLaunchConfiguration")},
-			"aws_launch_template":        {Tok: awsDataSource(ec2Mod, "getLaunchTemplate")},
-			"aws_nat_gateway":            {Tok: awsDataSource(ec2Mod, "getNatGateway")},
-			"aws_network_acls":           {Tok: awsDataSource(ec2Mod, "getNetworkAcls")},
-			"aws_network_interface":      {Tok: awsDataSource(ec2Mod, "getNetworkInterface")},
-			"aws_network_interfaces":     {Tok: awsDataSource(ec2Mod, "getNetworkInterfaces")},
-			"aws_route":                  {Tok: awsDataSource(ec2Mod, "getRoute")},
-			"aws_route_table":            {Tok: awsDataSource(ec2Mod, "getRouteTable")},
-			"aws_route_tables":           {Tok: awsDataSource(ec2Mod, "getRouteTables")},
-			"aws_security_group":         {Tok: awsDataSource(ec2Mod, "getSecurityGroup")},
-			"aws_security_groups":        {Tok: awsDataSource(ec2Mod, "getSecurityGroups")},
-			"aws_subnet":                 {Tok: awsDataSource(ec2Mod, "getSubnet")},
-			"aws_subnet_ids":             {Tok: awsDataSource(ec2Mod, "getSubnetIds")},
-			"aws_vpc":                    {Tok: awsDataSource(ec2Mod, "getVpc")},
-			"aws_vpc_dhcp_options":       {Tok: awsDataSource(ec2Mod, "getVpcDhcpOptions")},
-			"aws_vpc_endpoint":           {Tok: awsDataSource(ec2Mod, "getVpcEndpoint")},
-			"aws_vpc_endpoint_service":   {Tok: awsDataSource(ec2Mod, "getVpcEndpointService")},
-			"aws_vpc_peering_connection": {Tok: awsDataSource(ec2Mod, "getVpcPeeringConnection")},
-			"aws_vpcs":                   {Tok: awsDataSource(ec2Mod, "getVpcs")},
-			"aws_vpn_gateway":            {Tok: awsDataSource(ec2Mod, "getVpnGateway")},
+			"aws_customer_gateway":            {Tok: awsDataSource(ec2Mod, "getCustomerGateway")},
+			"aws_instance":                    {Tok: awsDataSource(ec2Mod, "getInstance")},
+			"aws_instances":                   {Tok: awsDataSource(ec2Mod, "getInstances")},
+			"aws_internet_gateway":            {Tok: awsDataSource(ec2Mod, "getInternetGateway")},
+			"aws_launch_configuration":        {Tok: awsDataSource(ec2Mod, "getLaunchConfiguration")},
+			"aws_launch_template":             {Tok: awsDataSource(ec2Mod, "getLaunchTemplate")},
+			"aws_nat_gateway":                 {Tok: awsDataSource(ec2Mod, "getNatGateway")},
+			"aws_network_acls":                {Tok: awsDataSource(ec2Mod, "getNetworkAcls")},
+			"aws_network_interface":           {Tok: awsDataSource(ec2Mod, "getNetworkInterface")},
+			"aws_network_interfaces":          {Tok: awsDataSource(ec2Mod, "getNetworkInterfaces")},
+			"aws_route":                       {Tok: awsDataSource(ec2Mod, "getRoute")},
+			"aws_route_table":                 {Tok: awsDataSource(ec2Mod, "getRouteTable")},
+			"aws_route_tables":                {Tok: awsDataSource(ec2Mod, "getRouteTables")},
+			"aws_security_group":              {Tok: awsDataSource(ec2Mod, "getSecurityGroup")},
+			"aws_security_groups":             {Tok: awsDataSource(ec2Mod, "getSecurityGroups")},
+			"aws_subnet":                      {Tok: awsDataSource(ec2Mod, "getSubnet")},
+			"aws_subnet_ids":                  {Tok: awsDataSource(ec2Mod, "getSubnetIds")},
+			"aws_vpc":                         {Tok: awsDataSource(ec2Mod, "getVpc")},
+			"aws_vpc_dhcp_options":            {Tok: awsDataSource(ec2Mod, "getVpcDhcpOptions")},
+			"aws_vpc_endpoint":                {Tok: awsDataSource(ec2Mod, "getVpcEndpoint")},
+			"aws_vpc_endpoint_service":        {Tok: awsDataSource(ec2Mod, "getVpcEndpointService")},
+			"aws_vpc_peering_connection":      {Tok: awsDataSource(ec2Mod, "getVpcPeeringConnection")},
+			"aws_vpcs":                        {Tok: awsDataSource(ec2Mod, "getVpcs")},
+			"aws_vpn_gateway":                 {Tok: awsDataSource(ec2Mod, "getVpnGateway")},
+			"aws_ec2_instance_type_offering":  {Tok: awsDataSource(ec2Mod, "getInstanceTypeOffering")},
+			"aws_ec2_instance_type_offerings": {Tok: awsDataSource(ec2Mod, "getInstanceTypeOfferings")},
 			// EC2 Transit Gateway
 			"aws_ec2_transit_gateway": {Tok: awsDataSource(ec2TransitGatewayMod, "getTransitGateway")},
 			"aws_ec2_transit_gateway_dx_gateway_attachment": {
@@ -2109,6 +2155,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lambda_function":      {Tok: awsDataSource(lambdaMod, "getFunction")},
 			"aws_lambda_invocation":    {Tok: awsDataSource(lambdaMod, "getInvocation")},
 			"aws_lambda_layer_version": {Tok: awsDataSource(lambdaMod, "getLayerVersion")},
+			"aws_lambda_alias":         {Tok: awsDataSource(lambdaMod, "getAlias")},
 			// MQ
 			"aws_mq_broker": {Tok: awsDataSource(mqMod, "getBroker")},
 			// IAM
@@ -2160,8 +2207,9 @@ func Provider() tfbridge.ProviderInfo {
 			// SQS
 			"aws_sqs_queue": {Tok: awsDataSource(sqsMod, "getQueue")},
 			// SSM
-			"aws_ssm_document":  {Tok: awsDataSource(ssmMod, "getDocument")},
-			"aws_ssm_parameter": {Tok: awsDataSource(ssmMod, "getParameter")},
+			"aws_ssm_document":       {Tok: awsDataSource(ssmMod, "getDocument")},
+			"aws_ssm_parameter":      {Tok: awsDataSource(ssmMod, "getParameter")},
+			"aws_ssm_patch_baseline": {Tok: awsDataSource(ssmMod, "getPatchBaseline")},
 			// Storage Gateway
 			"aws_storagegateway_local_disk": {Tok: awsDataSource(storagegatewayMod, "getLocalDisk")},
 			// Transfer
@@ -2196,6 +2244,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_guardduty_detector": {Tok: awsDataSource(guarddutyMod, "getDetector")},
 			// Directory Service
 			"aws_directory_service_directory": {Tok: awsDataSource(directoryserviceMod, "getDirectory")},
+			// SFN
+			"aws_sfn_activity":      {Tok: awsDataSource(sfnMod, "getActivity")},
+			"aws_sfn_state_machine": {Tok: awsDataSource(sfnMod, "getStateMachine")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			AsyncDataSources: true,
@@ -2342,7 +2393,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "1.9.1-preview",
+				"Pulumi":                       "1.12.1-preview",
 				"System.Collections.Immutable": "1.6.0",
 			},
 			Namespaces: namespaceMap,

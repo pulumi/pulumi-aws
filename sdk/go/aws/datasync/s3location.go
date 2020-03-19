@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an S3 Location within AWS DataSync.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_s3.html.markdown.
 type S3Location struct {
 	pulumi.CustomResourceState
@@ -26,8 +26,8 @@ type S3Location struct {
 	// Prefix to perform actions as source or destination.
 	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags pulumi.MapOutput `pulumi:"tags"`
-	Uri pulumi.StringOutput `pulumi:"uri"`
+	Tags pulumi.MapOutput    `pulumi:"tags"`
+	Uri  pulumi.StringOutput `pulumi:"uri"`
 }
 
 // NewS3Location registers a new resource with the given unique name, arguments, and options.
@@ -77,7 +77,7 @@ type s3locationState struct {
 	Subdirectory *string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location.
 	Tags map[string]interface{} `pulumi:"tags"`
-	Uri *string `pulumi:"uri"`
+	Uri  *string                `pulumi:"uri"`
 }
 
 type S3LocationState struct {
@@ -91,7 +91,7 @@ type S3LocationState struct {
 	Subdirectory pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Location.
 	Tags pulumi.MapInput
-	Uri pulumi.StringPtrInput
+	Uri  pulumi.StringPtrInput
 }
 
 func (S3LocationState) ElementType() reflect.Type {
@@ -124,4 +124,3 @@ type S3LocationArgs struct {
 func (S3LocationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*s3locationArgs)(nil)).Elem()
 }
-

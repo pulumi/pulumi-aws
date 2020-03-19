@@ -9,11 +9,11 @@ import (
 )
 
 // Use this data source to get information on an AWS Cost and Usage Report Definition.
-// 
+//
 // > *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
-// 
+//
 // > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cur_report_definition.html.markdown.
 func LookupReportDefinition(ctx *pulumi.Context, args *LookupReportDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupReportDefinitionResult, error) {
 	var rv LookupReportDefinitionResult
@@ -30,7 +30,6 @@ type LookupReportDefinitionArgs struct {
 	ReportName string `pulumi:"reportName"`
 }
 
-
 // A collection of values returned by getReportDefinition.
 type LookupReportDefinitionResult struct {
 	// A list of additional artifacts.
@@ -42,7 +41,7 @@ type LookupReportDefinitionResult struct {
 	// Preferred compression format for report.
 	Format string `pulumi:"format"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id         string `pulumi:"id"`
 	ReportName string `pulumi:"reportName"`
 	// Name of customer S3 bucket.
 	S3Bucket string `pulumi:"s3Bucket"`
@@ -53,4 +52,3 @@ type LookupReportDefinitionResult struct {
 	// The frequency on which report data are measured and displayed.
 	TimeUnit string `pulumi:"timeUnit"`
 }
-

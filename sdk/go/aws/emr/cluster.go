@@ -14,26 +14,26 @@ import (
 // Provides an Elastic MapReduce Cluster, a web service that makes it easy to
 // process large amounts of data efficiently. See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/elastic-mapreduce/)
 // for more information.
-// 
+//
 // To configure [Instance Groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for [task nodes](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-task), see the [`emr.InstanceGroup` resource](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html).
-// 
+//
 // > Support for [Instance Fleets](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-fleets) will be made available in an upcoming release.
-// 
+//
 // ## coreInstanceGroup Configuration Block
-// 
+//
 // Supported arguments for the `coreInstanceGroup` configuration block:
-// 
+//
 // * `instanceType` - (Required) EC2 instance type for all instances in the instance group.
 // * `autoscalingPolicy` - (Optional) String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
 // * `bidPrice` - (Optional) Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
 // * `ebsConfig` - (Optional) Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 // * `instanceCount` - (Optional) Target number of instances for the instance group. Must be at least 1. Defaults to 1.
 // * `name` - (Optional) Friendly name given to the instance group.
-// 
+//
 // ## ec2Attributes
-// 
+//
 // Attributes for the Amazon EC2 instances running the job flow
-// 
+//
 // * `keyName` - (Optional) Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`
 // * `subnetId` - (Optional) VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in a Amazon VPC
 // * `additionalMasterSecurityGroups` - (Optional) String containing a comma separated list of additional Amazon EC2 security group IDs for the master node
@@ -42,7 +42,7 @@ import (
 // * `emrManagedSlaveSecurityGroup` - (Optional) Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes
 // * `serviceAccessSecurityGroup` - (Optional) Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet
 // * `instanceProfile` - (Required) Instance Profile for EC2 instances of the cluster assume this role
-// 
+//
 // > **NOTE on EMR-Managed security groups:** These security groups will have any
 // missing inbound or outbound access rules added and maintained by AWS, to ensure
 // proper communication between instances in a cluster. The EMR service will
@@ -57,21 +57,21 @@ import (
 // `emrManagedSlaveSecurityGroup`. See [Amazon EMR-Managed Security
 // Groups](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html)
 // for more information about the EMR-managed security group rules.
-// 
+//
 // ## kerberosAttributes
-// 
+//
 // Attributes for Kerberos configuration
-// 
+//
 // * `adDomainJoinPassword` - (Optional) The Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
 // * `adDomainJoinUser` - (Optional) Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
 // * `crossRealmTrustPrincipalPassword` - (Optional) Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
 // * `kdcAdminPassword` - (Required) The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
 // * `realm` - (Required) The name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
-// 
+//
 // ## instanceGroup
-// 
+//
 // Attributes for each task instance group in the cluster
-// 
+//
 // * `instanceRole` - (Required) The role of the instance group in the cluster. Valid values are: `MASTER`, `CORE`, and `TASK`.
 // * `instanceType` - (Required) The EC2 instance type for all instances in the instance group
 // * `instanceCount` - (Optional) Target number of instances for the instance group
@@ -79,49 +79,49 @@ import (
 // * `bidPrice` - (Optional) If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
 // * `ebsConfig` - (Optional) A list of attributes for the EBS volumes attached to each instance in the instance group. Each `ebsConfig` defined will result in additional EBS volumes being attached to _each_ instance in the instance group. Defined below
 // * `autoscalingPolicy` - (Optional) The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-// 
+//
 // ## masterInstanceGroup Configuration Block
-// 
+//
 // Supported nested arguments for the `masterInstanceGroup` configuration block:
-// 
+//
 // * `instanceType` - (Required) EC2 instance type for all instances in the instance group.
 // * `bidPrice` - (Optional) Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
 // * `ebsConfig` - (Optional) Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 // * `instanceCount` - (Optional) Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 // * `name` - (Optional) Friendly name given to the instance group.
-// 
+//
 // ## ebsConfig
-// 
+//
 // Attributes for the EBS volumes attached to each EC2 instance in the `instanceGroup`
-// 
+//
 // * `size` - (Required) The volume size, in gibibytes (GiB).
 // * `type` - (Required) The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 // * `iops` - (Optional) The number of I/O operations per second (IOPS) that the volume supports
 // * `volumesPerInstance` - (Optional) The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
-// 
+//
 // ## bootstrapAction
-// 
+//
 // * `name` - (Required) Name of the bootstrap action
 // * `path` - (Required) Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system
 // * `args` - (Optional) List of command line arguments to pass to the bootstrap action script
-// 
+//
 // ## step
-// 
+//
 // Attributes for step configuration
-// 
+//
 // * `actionOnFailure` - (Required) The action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
 // * `hadoopJarStep` - (Required) The JAR file used for the step. Defined below.
 // * `name` - (Required) The name of the step.
-// 
+//
 // ### hadoopJarStep
-// 
+//
 // Attributes for Hadoop job step configuration
-// 
+//
 // * `args` - (Optional) List of command line arguments passed to the JAR file's main function when executed.
 // * `jar` - (Required) Path to a JAR file run during the step.
 // * `mainClass` - (Optional) Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
 // * `properties` - (Optional) Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/emr_cluster.html.markdown.
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -130,12 +130,12 @@ type Cluster struct {
 	AdditionalInfo pulumi.StringPtrOutput `pulumi:"additionalInfo"`
 	// A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
 	Applications pulumi.StringArrayOutput `pulumi:"applications"`
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn          pulumi.StringOutput      `pulumi:"arn"`
 	// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole pulumi.StringPtrOutput `pulumi:"autoscalingRole"`
 	// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
 	BootstrapActions ClusterBootstrapActionArrayOutput `pulumi:"bootstrapActions"`
-	ClusterState pulumi.StringOutput `pulumi:"clusterState"`
+	ClusterState     pulumi.StringOutput               `pulumi:"clusterState"`
 	// List of configurations supplied for the EMR cluster you are creating
 	Configurations pulumi.StringPtrOutput `pulumi:"configurations"`
 	// A JSON string for supplying list of configurations for the EMR cluster.
@@ -227,12 +227,12 @@ type clusterState struct {
 	AdditionalInfo *string `pulumi:"additionalInfo"`
 	// A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
 	Applications []string `pulumi:"applications"`
-	Arn *string `pulumi:"arn"`
+	Arn          *string  `pulumi:"arn"`
 	// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole *string `pulumi:"autoscalingRole"`
 	// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
 	BootstrapActions []ClusterBootstrapAction `pulumi:"bootstrapActions"`
-	ClusterState *string `pulumi:"clusterState"`
+	ClusterState     *string                  `pulumi:"clusterState"`
 	// List of configurations supplied for the EMR cluster you are creating
 	Configurations *string `pulumi:"configurations"`
 	// A JSON string for supplying list of configurations for the EMR cluster.
@@ -291,12 +291,12 @@ type ClusterState struct {
 	AdditionalInfo pulumi.StringPtrInput
 	// A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
 	Applications pulumi.StringArrayInput
-	Arn pulumi.StringPtrInput
+	Arn          pulumi.StringPtrInput
 	// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole pulumi.StringPtrInput
 	// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
 	BootstrapActions ClusterBootstrapActionArrayInput
-	ClusterState pulumi.StringPtrInput
+	ClusterState     pulumi.StringPtrInput
 	// List of configurations supplied for the EMR cluster you are creating
 	Configurations pulumi.StringPtrInput
 	// A JSON string for supplying list of configurations for the EMR cluster.
@@ -476,4 +476,3 @@ type ClusterArgs struct {
 func (ClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterArgs)(nil)).Elem()
 }
-

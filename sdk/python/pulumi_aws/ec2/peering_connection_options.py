@@ -15,7 +15,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
     An optional configuration block that allows for [VPC Peering Connection]
     (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
     the peering connection (a maximum of one).
-    
+
       * `allowClassicLinkToRemoteVpc` (`bool`) - Allow a local linked EC2-Classic instance to communicate
         with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
         to the remote VPC. This option is not supported for inter-region VPC peering.
@@ -30,7 +30,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
     A optional configuration block that allows for [VPC Peering Connection]
     (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
     the peering connection (a maximum of one).
-    
+
       * `allowClassicLinkToRemoteVpc` (`bool`) - Allow a local linked EC2-Classic instance to communicate
         with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
         to the remote VPC. This option is not supported for inter-region VPC peering.
@@ -47,7 +47,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, accepter=None, requester=None, vpc_peering_connection_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to manage VPC peering connection options.
-        
+
         > **NOTE on VPC Peering Connections and VPC Peering Connection Options:** This provider provides
         both a standalone VPC Peering Connection Options and a VPC Peering Connection
         resource with `accepter` and `requester` attributes. Do not manage options for the same VPC peering
@@ -56,12 +56,14 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         Using a VPC Peering Connection Options resource decouples management of the connection options from
         management of the VPC Peering Connection and allows options to be set correctly in cross-region and
         cross-account scenarios.
-        
+
         Basic usage:
-        
-        
+
+
         Basic cross-account usage:
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_options.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] accepter: An optional configuration block that allows for [VPC Peering Connection]
@@ -71,20 +73,9 @@ class PeeringConnectionOptions(pulumi.CustomResource):
                (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
                the peering connection (a maximum of one).
         :param pulumi.Input[str] vpc_peering_connection_id: The ID of the requester VPC peering connection.
-        
+
         The **accepter** object supports the following:
-        
-          * `allowClassicLinkToRemoteVpc` (`pulumi.Input[bool]`) - Allow a local linked EC2-Classic instance to communicate
-            with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-            to the remote VPC. This option is not supported for inter-region VPC peering.
-          * `allowRemoteVpcDnsResolution` (`pulumi.Input[bool]`) - Allow a local VPC to resolve public DNS hostnames to
-            private IP addresses when queried from instances in the peer VPC.
-          * `allowVpcToRemoteClassicLink` (`pulumi.Input[bool]`) - Allow a local VPC to communicate with a linked EC2-Classic
-            instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-            connection. This option is not supported for inter-region VPC peering.
-        
-        The **requester** object supports the following:
-        
+
           * `allowClassicLinkToRemoteVpc` (`pulumi.Input[bool]`) - Allow a local linked EC2-Classic instance to communicate
             with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
             to the remote VPC. This option is not supported for inter-region VPC peering.
@@ -94,7 +85,16 @@ class PeeringConnectionOptions(pulumi.CustomResource):
             instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
             connection. This option is not supported for inter-region VPC peering.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_options.html.markdown.
+        The **requester** object supports the following:
+
+          * `allowClassicLinkToRemoteVpc` (`pulumi.Input[bool]`) - Allow a local linked EC2-Classic instance to communicate
+            with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
+            to the remote VPC. This option is not supported for inter-region VPC peering.
+          * `allowRemoteVpcDnsResolution` (`pulumi.Input[bool]`) - Allow a local VPC to resolve public DNS hostnames to
+            private IP addresses when queried from instances in the peer VPC.
+          * `allowVpcToRemoteClassicLink` (`pulumi.Input[bool]`) - Allow a local VPC to communicate with a linked EC2-Classic
+            instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
+            connection. This option is not supported for inter-region VPC peering.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -129,7 +129,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         """
         Get an existing PeeringConnectionOptions resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,20 +140,9 @@ class PeeringConnectionOptions(pulumi.CustomResource):
                (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
                the peering connection (a maximum of one).
         :param pulumi.Input[str] vpc_peering_connection_id: The ID of the requester VPC peering connection.
-        
+
         The **accepter** object supports the following:
-        
-          * `allowClassicLinkToRemoteVpc` (`pulumi.Input[bool]`) - Allow a local linked EC2-Classic instance to communicate
-            with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-            to the remote VPC. This option is not supported for inter-region VPC peering.
-          * `allowRemoteVpcDnsResolution` (`pulumi.Input[bool]`) - Allow a local VPC to resolve public DNS hostnames to
-            private IP addresses when queried from instances in the peer VPC.
-          * `allowVpcToRemoteClassicLink` (`pulumi.Input[bool]`) - Allow a local VPC to communicate with a linked EC2-Classic
-            instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-            connection. This option is not supported for inter-region VPC peering.
-        
-        The **requester** object supports the following:
-        
+
           * `allowClassicLinkToRemoteVpc` (`pulumi.Input[bool]`) - Allow a local linked EC2-Classic instance to communicate
             with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
             to the remote VPC. This option is not supported for inter-region VPC peering.
@@ -163,11 +152,21 @@ class PeeringConnectionOptions(pulumi.CustomResource):
             instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
             connection. This option is not supported for inter-region VPC peering.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_options.html.markdown.
+        The **requester** object supports the following:
+
+          * `allowClassicLinkToRemoteVpc` (`pulumi.Input[bool]`) - Allow a local linked EC2-Classic instance to communicate
+            with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
+            to the remote VPC. This option is not supported for inter-region VPC peering.
+          * `allowRemoteVpcDnsResolution` (`pulumi.Input[bool]`) - Allow a local VPC to resolve public DNS hostnames to
+            private IP addresses when queried from instances in the peer VPC.
+          * `allowVpcToRemoteClassicLink` (`pulumi.Input[bool]`) - Allow a local VPC to communicate with a linked EC2-Classic
+            instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
+            connection. This option is not supported for inter-region VPC peering.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["accepter"] = accepter
         __props__["requester"] = requester
         __props__["vpc_peering_connection_id"] = vpc_peering_connection_id

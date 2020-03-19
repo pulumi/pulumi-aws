@@ -100,6 +100,7 @@ import {PolicyDocument} from "../iam/documents";
  *     }],
  * });
  * ```
+ * 
  * ### VPC based ES
  * 
  * ```typescript
@@ -222,6 +223,10 @@ export class Domain extends pulumi.CustomResource {
     public readonly clusterConfig!: pulumi.Output<outputs.elasticsearch.DomainClusterConfig>;
     public readonly cognitoOptions!: pulumi.Output<outputs.elasticsearch.DomainCognitoOptions | undefined>;
     /**
+     * Domain endpoint HTTP(S) related options. See below.
+     */
+    public readonly domainEndpointOptions!: pulumi.Output<outputs.elasticsearch.DomainDomainEndpointOptions>;
+    /**
      * Unique identifier for the domain.
      */
     public /*out*/ readonly domainId!: pulumi.Output<string>;
@@ -289,6 +294,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["clusterConfig"] = state ? state.clusterConfig : undefined;
             inputs["cognitoOptions"] = state ? state.cognitoOptions : undefined;
+            inputs["domainEndpointOptions"] = state ? state.domainEndpointOptions : undefined;
             inputs["domainId"] = state ? state.domainId : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
             inputs["ebsOptions"] = state ? state.ebsOptions : undefined;
@@ -307,6 +313,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["advancedOptions"] = args ? args.advancedOptions : undefined;
             inputs["clusterConfig"] = args ? args.clusterConfig : undefined;
             inputs["cognitoOptions"] = args ? args.cognitoOptions : undefined;
+            inputs["domainEndpointOptions"] = args ? args.domainEndpointOptions : undefined;
             inputs["domainName"] = args ? args.domainName : undefined;
             inputs["ebsOptions"] = args ? args.ebsOptions : undefined;
             inputs["elasticsearchVersion"] = args ? args.elasticsearchVersion : undefined;
@@ -356,6 +363,10 @@ export interface DomainState {
      */
     readonly clusterConfig?: pulumi.Input<inputs.elasticsearch.DomainClusterConfig>;
     readonly cognitoOptions?: pulumi.Input<inputs.elasticsearch.DomainCognitoOptions>;
+    /**
+     * Domain endpoint HTTP(S) related options. See below.
+     */
+    readonly domainEndpointOptions?: pulumi.Input<inputs.elasticsearch.DomainDomainEndpointOptions>;
     /**
      * Unique identifier for the domain.
      */
@@ -428,6 +439,10 @@ export interface DomainArgs {
      */
     readonly clusterConfig?: pulumi.Input<inputs.elasticsearch.DomainClusterConfig>;
     readonly cognitoOptions?: pulumi.Input<inputs.elasticsearch.DomainCognitoOptions>;
+    /**
+     * Domain endpoint HTTP(S) related options. See below.
+     */
+    readonly domainEndpointOptions?: pulumi.Input<inputs.elasticsearch.DomainDomainEndpointOptions>;
     /**
      * Name of the domain.
      */

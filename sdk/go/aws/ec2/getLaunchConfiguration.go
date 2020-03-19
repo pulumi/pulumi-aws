@@ -9,7 +9,7 @@ import (
 )
 
 // Provides information about a Launch Configuration.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_configuration.html.markdown.
 func LookupLaunchConfiguration(ctx *pulumi.Context, args *LookupLaunchConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupLaunchConfigurationResult, error) {
 	var rv LookupLaunchConfigurationResult
@@ -25,7 +25,6 @@ type LookupLaunchConfigurationArgs struct {
 	// The name of the launch configuration.
 	Name string `pulumi:"name"`
 }
-
 
 // A collection of values returned by getLaunchConfiguration.
 type LookupLaunchConfigurationResult struct {
@@ -68,4 +67,3 @@ type LookupLaunchConfigurationResult struct {
 	// The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
 	VpcClassicLinkSecurityGroups []string `pulumi:"vpcClassicLinkSecurityGroups"`
 }
-

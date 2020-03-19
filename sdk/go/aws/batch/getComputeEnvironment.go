@@ -10,7 +10,7 @@ import (
 
 // The Batch Compute Environment data source allows access to details of a specific
 // compute environment within AWS Batch.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_compute_environment.html.markdown.
 func LookupComputeEnvironment(ctx *pulumi.Context, args *LookupComputeEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupComputeEnvironmentResult, error) {
 	var rv LookupComputeEnvironmentResult
@@ -27,11 +27,10 @@ type LookupComputeEnvironmentArgs struct {
 	ComputeEnvironmentName string `pulumi:"computeEnvironmentName"`
 }
 
-
 // A collection of values returned by getComputeEnvironment.
 type LookupComputeEnvironmentResult struct {
 	// The ARN of the compute environment.
-	Arn string `pulumi:"arn"`
+	Arn                    string `pulumi:"arn"`
 	ComputeEnvironmentName string `pulumi:"computeEnvironmentName"`
 	// The ARN of the underlying Amazon ECS cluster used by the compute environment.
 	EcsClusterArn string `pulumi:"ecsClusterArn"`
@@ -48,4 +47,3 @@ type LookupComputeEnvironmentResult struct {
 	// The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
 	Type string `pulumi:"type"`
 }
-

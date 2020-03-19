@@ -11,7 +11,7 @@ import (
 // Use this data source to get the ARN of a KMS key alias.
 // By using this data source, you can reference key alias
 // without having to hard code the ARN as input.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_alias.html.markdown.
 func LookupAlias(ctx *pulumi.Context, args *LookupAliasArgs, opts ...pulumi.InvokeOption) (*LookupAliasResult, error) {
 	var rv LookupAliasResult
@@ -28,17 +28,15 @@ type LookupAliasArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getAlias.
 type LookupAliasResult struct {
 	// The Amazon Resource Name(ARN) of the key alias.
 	Arn string `pulumi:"arn"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// ARN pointed to by the alias.
 	TargetKeyArn string `pulumi:"targetKeyArn"`
 	// Key identifier pointed to by the alias.
 	TargetKeyId string `pulumi:"targetKeyId"`
 }
-

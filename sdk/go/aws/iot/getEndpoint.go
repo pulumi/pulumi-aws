@@ -9,7 +9,7 @@ import (
 )
 
 // Returns a unique endpoint specific to the AWS account making the call.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iot_endpoint.html.markdown.
 func GetEndpoint(ctx *pulumi.Context, args *GetEndpointArgs, opts ...pulumi.InvokeOption) (*GetEndpointResult, error) {
 	var rv GetEndpointResult
@@ -26,7 +26,6 @@ type GetEndpointArgs struct {
 	EndpointType *string `pulumi:"endpointType"`
 }
 
-
 // A collection of values returned by getEndpoint.
 type GetEndpointResult struct {
 	// The endpoint based on `endpointType`:
@@ -35,9 +34,8 @@ type GetEndpointResult struct {
 	// * `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`
 	// * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
 	// * `iot:Job`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
-	EndpointAddress string `pulumi:"endpointAddress"`
-	EndpointType *string `pulumi:"endpointType"`
+	EndpointAddress string  `pulumi:"endpointAddress"`
+	EndpointType    *string `pulumi:"endpointType"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }
-

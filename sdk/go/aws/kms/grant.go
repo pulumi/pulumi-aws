@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a resource-based access control mechanism for a KMS customer master key.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_grant.html.markdown.
 type Grant struct {
 	pulumi.CustomResourceState
@@ -34,8 +34,8 @@ type Grant struct {
 	// A friendly name for identifying the grant.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
-	Operations pulumi.StringArrayOutput `pulumi:"operations"`
-	RetireOnDelete pulumi.BoolPtrOutput `pulumi:"retireOnDelete"`
+	Operations     pulumi.StringArrayOutput `pulumi:"operations"`
+	RetireOnDelete pulumi.BoolPtrOutput     `pulumi:"retireOnDelete"`
 	// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 	RetiringPrincipal pulumi.StringPtrOutput `pulumi:"retiringPrincipal"`
 }
@@ -94,8 +94,8 @@ type grantState struct {
 	// A friendly name for identifying the grant.
 	Name *string `pulumi:"name"`
 	// A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
-	Operations []string `pulumi:"operations"`
-	RetireOnDelete *bool `pulumi:"retireOnDelete"`
+	Operations     []string `pulumi:"operations"`
+	RetireOnDelete *bool    `pulumi:"retireOnDelete"`
 	// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 	RetiringPrincipal *string `pulumi:"retiringPrincipal"`
 }
@@ -118,7 +118,7 @@ type GrantState struct {
 	// A friendly name for identifying the grant.
 	Name pulumi.StringPtrInput
 	// A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
-	Operations pulumi.StringArrayInput
+	Operations     pulumi.StringArrayInput
 	RetireOnDelete pulumi.BoolPtrInput
 	// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 	RetiringPrincipal pulumi.StringPtrInput
@@ -142,8 +142,8 @@ type grantArgs struct {
 	// A friendly name for identifying the grant.
 	Name *string `pulumi:"name"`
 	// A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
-	Operations []string `pulumi:"operations"`
-	RetireOnDelete *bool `pulumi:"retireOnDelete"`
+	Operations     []string `pulumi:"operations"`
+	RetireOnDelete *bool    `pulumi:"retireOnDelete"`
 	// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 	RetiringPrincipal *string `pulumi:"retiringPrincipal"`
 }
@@ -163,7 +163,7 @@ type GrantArgs struct {
 	// A friendly name for identifying the grant.
 	Name pulumi.StringPtrInput
 	// A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
-	Operations pulumi.StringArrayInput
+	Operations     pulumi.StringArrayInput
 	RetireOnDelete pulumi.BoolPtrInput
 	// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 	RetiringPrincipal pulumi.StringPtrInput
@@ -172,4 +172,3 @@ type GrantArgs struct {
 func (GrantArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*grantArgs)(nil)).Elem()
 }
-

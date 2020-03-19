@@ -59,6 +59,7 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      */
     public readonly amazonAddress!: pulumi.Output<string>;
+    public /*out*/ readonly amazonSideAsn!: pulumi.Output<string>;
     /**
      * The ARN of the virtual interface.
      */
@@ -118,6 +119,7 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
             const state = argsOrState as HostedPrivateVirtualInterfaceState | undefined;
             inputs["addressFamily"] = state ? state.addressFamily : undefined;
             inputs["amazonAddress"] = state ? state.amazonAddress : undefined;
+            inputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["awsDevice"] = state ? state.awsDevice : undefined;
             inputs["bgpAsn"] = state ? state.bgpAsn : undefined;
@@ -156,6 +158,7 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["ownerAccountId"] = args ? args.ownerAccountId : undefined;
             inputs["vlan"] = args ? args.vlan : undefined;
+            inputs["amazonSideAsn"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
             inputs["awsDevice"] = undefined /*out*/;
             inputs["jumboFrameCapable"] = undefined /*out*/;
@@ -183,6 +186,7 @@ export interface HostedPrivateVirtualInterfaceState {
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      */
     readonly amazonAddress?: pulumi.Input<string>;
+    readonly amazonSideAsn?: pulumi.Input<string>;
     /**
      * The ARN of the virtual interface.
      */

@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * `propagatingVgws`. Omit this argument when defining route propagation using
  * the separate resource.
  * 
- * ## Example usage with tags:
+ * ## Example Usage
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

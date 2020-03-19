@@ -49,7 +49,7 @@ class NfsFileShare(pulumi.CustomResource):
     nfs_file_share_defaults: pulumi.Output[dict]
     """
     Nested argument with file share default values. More information below.
-    
+
       * `directoryMode` (`str`) - The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
       * `fileMode` (`str`) - The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
       * `groupId` (`float`) - The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
@@ -82,7 +82,9 @@ class NfsFileShare(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, client_lists=None, default_storage_class=None, gateway_arn=None, guess_mime_type_enabled=None, kms_encrypted=None, kms_key_arn=None, location_arn=None, nfs_file_share_defaults=None, object_acl=None, read_only=None, requester_pays=None, role_arn=None, squash=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an AWS Storage Gateway NFS File Share.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_nfs_file_share.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
@@ -99,15 +101,13 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[str] squash: Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-        
+
         The **nfs_file_share_defaults** object supports the following:
-        
+
           * `directoryMode` (`pulumi.Input[str]`) - The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
           * `fileMode` (`pulumi.Input[str]`) - The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
           * `groupId` (`pulumi.Input[float]`) - The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
           * `owner_id` (`pulumi.Input[float]`) - The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_nfs_file_share.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -161,7 +161,7 @@ class NfsFileShare(pulumi.CustomResource):
         """
         Get an existing NfsFileShare resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,19 +181,18 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[str] squash: Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-        
+
         The **nfs_file_share_defaults** object supports the following:
-        
+
           * `directoryMode` (`pulumi.Input[str]`) - The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
           * `fileMode` (`pulumi.Input[str]`) - The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
           * `groupId` (`pulumi.Input[float]`) - The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
           * `owner_id` (`pulumi.Input[float]`) - The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_nfs_file_share.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["client_lists"] = client_lists
         __props__["default_storage_class"] = default_storage_class

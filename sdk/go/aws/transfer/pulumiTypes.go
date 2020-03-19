@@ -57,7 +57,8 @@ type ServerEndpointDetailsPtrInput interface {
 
 type serverEndpointDetailsPtrType ServerEndpointDetailsArgs
 
-func ServerEndpointDetailsPtr(v *ServerEndpointDetailsArgs) ServerEndpointDetailsPtrInput {	return (*serverEndpointDetailsPtrType)(v)
+func ServerEndpointDetailsPtr(v *ServerEndpointDetailsArgs) ServerEndpointDetailsPtrInput {
+	return (*serverEndpointDetailsPtrType)(v)
 }
 
 func (*serverEndpointDetailsPtrType) ElementType() reflect.Type {
@@ -72,7 +73,7 @@ func (i *serverEndpointDetailsPtrType) ToServerEndpointDetailsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointDetailsPtrOutput)
 }
 
-type ServerEndpointDetailsOutput struct { *pulumi.OutputState }
+type ServerEndpointDetailsOutput struct{ *pulumi.OutputState }
 
 func (ServerEndpointDetailsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerEndpointDetails)(nil)).Elem()
@@ -95,12 +96,13 @@ func (o ServerEndpointDetailsOutput) ToServerEndpointDetailsPtrOutputWithContext
 		return &v
 	}).(ServerEndpointDetailsPtrOutput)
 }
+
 // The ID of the VPC endpoint.
 func (o ServerEndpointDetailsOutput) VpcEndpointId() pulumi.StringOutput {
-	return o.ApplyT(func (v ServerEndpointDetails) string { return v.VpcEndpointId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ServerEndpointDetails) string { return v.VpcEndpointId }).(pulumi.StringOutput)
 }
 
-type ServerEndpointDetailsPtrOutput struct { *pulumi.OutputState}
+type ServerEndpointDetailsPtrOutput struct{ *pulumi.OutputState }
 
 func (ServerEndpointDetailsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServerEndpointDetails)(nil)).Elem()
@@ -115,12 +117,12 @@ func (o ServerEndpointDetailsPtrOutput) ToServerEndpointDetailsPtrOutputWithCont
 }
 
 func (o ServerEndpointDetailsPtrOutput) Elem() ServerEndpointDetailsOutput {
-	return o.ApplyT(func (v *ServerEndpointDetails) ServerEndpointDetails { return *v }).(ServerEndpointDetailsOutput)
+	return o.ApplyT(func(v *ServerEndpointDetails) ServerEndpointDetails { return *v }).(ServerEndpointDetailsOutput)
 }
 
 // The ID of the VPC endpoint.
 func (o ServerEndpointDetailsPtrOutput) VpcEndpointId() pulumi.StringOutput {
-	return o.ApplyT(func (v ServerEndpointDetails) string { return v.VpcEndpointId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ServerEndpointDetails) string { return v.VpcEndpointId }).(pulumi.StringOutput)
 }
 
 func init() {

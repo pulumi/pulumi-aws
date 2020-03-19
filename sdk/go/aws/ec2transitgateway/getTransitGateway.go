@@ -9,7 +9,7 @@ import (
 )
 
 // Get information on an EC2 Transit Gateway.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway.html.markdown.
 func LookupTransitGateway(ctx *pulumi.Context, args *LookupTransitGatewayArgs, opts ...pulumi.InvokeOption) (*LookupTransitGatewayResult, error) {
 	var rv LookupTransitGatewayResult
@@ -25,10 +25,9 @@ type LookupTransitGatewayArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetTransitGatewayFilter `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway.
-	Id *string `pulumi:"id"`
+	Id   *string                `pulumi:"id"`
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getTransitGateway.
 type LookupTransitGatewayResult struct {
@@ -47,8 +46,8 @@ type LookupTransitGatewayResult struct {
 	// Description of the EC2 Transit Gateway
 	Description string `pulumi:"description"`
 	// Whether DNS support is enabled.
-	DnsSupport string `pulumi:"dnsSupport"`
-	Filters []GetTransitGatewayFilter `pulumi:"filters"`
+	DnsSupport string                    `pulumi:"dnsSupport"`
+	Filters    []GetTransitGatewayFilter `pulumi:"filters"`
 	// EC2 Transit Gateway identifier
 	Id *string `pulumi:"id"`
 	// Identifier of the AWS account that owns the EC2 Transit Gateway
@@ -60,4 +59,3 @@ type LookupTransitGatewayResult struct {
 	// Whether VPN Equal Cost Multipath Protocol support is enabled.
 	VpnEcmpSupport string `pulumi:"vpnEcmpSupport"`
 }
-

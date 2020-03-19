@@ -13,7 +13,7 @@ import (
 
 // Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
 // instances to be requested on the Spot market.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_fleet_request.html.markdown.
 type SpotFleetRequest struct {
 	pulumi.CustomResourceState
@@ -22,7 +22,7 @@ type SpotFleetRequest struct {
 	// the Spot pools specified by the Spot fleet request. The default is
 	// `lowestPrice`.
 	AllocationStrategy pulumi.StringPtrOutput `pulumi:"allocationStrategy"`
-	ClientToken pulumi.StringOutput `pulumi:"clientToken"`
+	ClientToken        pulumi.StringOutput    `pulumi:"clientToken"`
 	// Indicates whether running Spot
 	// instances should be terminated if the target capacity of the Spot fleet
 	// request is decreased below the current size of the Spot fleet.
@@ -39,7 +39,7 @@ type SpotFleetRequest struct {
 	// instance stops or terminates when it is interrupted. Default is
 	// `terminate`.
 	InstanceInterruptionBehaviour pulumi.StringPtrOutput `pulumi:"instanceInterruptionBehaviour"`
-	// 
+	//
 	// The number of Spot pools across which to allocate your target Spot capacity.
 	// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
 	// the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -117,7 +117,7 @@ type spotFleetRequestState struct {
 	// the Spot pools specified by the Spot fleet request. The default is
 	// `lowestPrice`.
 	AllocationStrategy *string `pulumi:"allocationStrategy"`
-	ClientToken *string `pulumi:"clientToken"`
+	ClientToken        *string `pulumi:"clientToken"`
 	// Indicates whether running Spot
 	// instances should be terminated if the target capacity of the Spot fleet
 	// request is decreased below the current size of the Spot fleet.
@@ -134,7 +134,7 @@ type spotFleetRequestState struct {
 	// instance stops or terminates when it is interrupted. Default is
 	// `terminate`.
 	InstanceInterruptionBehaviour *string `pulumi:"instanceInterruptionBehaviour"`
-	// 
+	//
 	// The number of Spot pools across which to allocate your target Spot capacity.
 	// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
 	// the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -176,7 +176,7 @@ type SpotFleetRequestState struct {
 	// the Spot pools specified by the Spot fleet request. The default is
 	// `lowestPrice`.
 	AllocationStrategy pulumi.StringPtrInput
-	ClientToken pulumi.StringPtrInput
+	ClientToken        pulumi.StringPtrInput
 	// Indicates whether running Spot
 	// instances should be terminated if the target capacity of the Spot fleet
 	// request is decreased below the current size of the Spot fleet.
@@ -193,7 +193,7 @@ type SpotFleetRequestState struct {
 	// instance stops or terminates when it is interrupted. Default is
 	// `terminate`.
 	InstanceInterruptionBehaviour pulumi.StringPtrInput
-	// 
+	//
 	// The number of Spot pools across which to allocate your target Spot capacity.
 	// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
 	// the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -255,7 +255,7 @@ type spotFleetRequestArgs struct {
 	// instance stops or terminates when it is interrupted. Default is
 	// `terminate`.
 	InstanceInterruptionBehaviour *string `pulumi:"instanceInterruptionBehaviour"`
-	// 
+	//
 	// The number of Spot pools across which to allocate your target Spot capacity.
 	// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
 	// the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -312,7 +312,7 @@ type SpotFleetRequestArgs struct {
 	// instance stops or terminates when it is interrupted. Default is
 	// `terminate`.
 	InstanceInterruptionBehaviour pulumi.StringPtrInput
-	// 
+	//
 	// The number of Spot pools across which to allocate your target Spot capacity.
 	// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
 	// the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -350,4 +350,3 @@ type SpotFleetRequestArgs struct {
 func (SpotFleetRequestArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*spotFleetRequestArgs)(nil)).Elem()
 }
-

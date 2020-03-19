@@ -13,14 +13,14 @@ import (
 // Provides an ElastiCache Cluster resource, which manages a Memcached cluster or Redis instance.
 // For working with Redis (Cluster Mode Enabled) replication groups, see the
 // [`elasticache.ReplicationGroup` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group.html).
-// 
+//
 // > **Note:** When you change an attribute, such as `nodeType`, by default
 // it is applied in the next maintenance window. Because of this, this provider may report
 // a difference in its planning phase because the actual modification has not yet taken
 // place. You can use the `applyImmediately` flag to instruct the service to apply the
 // change immediately. Using `applyImmediately` can result in a brief downtime as the server reboots.
 // See the AWS Docs on [Modifying an ElastiCache Cache Cluster][2] for more information.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_cluster.html.markdown.
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -29,8 +29,8 @@ type Cluster struct {
 	// are applied immediately, or during the next maintenance window. Default is
 	// `false`. See [Amazon ElastiCache Documentation for more information.][1]
 	// (Available since v0.6.0)
-	ApplyImmediately pulumi.BoolOutput `pulumi:"applyImmediately"`
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	ApplyImmediately pulumi.BoolOutput   `pulumi:"applyImmediately"`
+	Arn              pulumi.StringOutput `pulumi:"arn"`
 	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `numCacheNodes` must be greater than `1`
@@ -73,7 +73,7 @@ type Cluster struct {
 	// with this cache cluster
 	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
 	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`.
-	Port pulumi.IntPtrOutput `pulumi:"port"`
+	Port pulumi.IntOutput `pulumi:"port"`
 	// A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `numCacheNodes`. If you want all the nodes in the same Availability Zone, use `availabilityZone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
 	PreferredAvailabilityZones pulumi.StringArrayOutput `pulumi:"preferredAvailabilityZones"`
 	// The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
@@ -138,8 +138,8 @@ type clusterState struct {
 	// are applied immediately, or during the next maintenance window. Default is
 	// `false`. See [Amazon ElastiCache Documentation for more information.][1]
 	// (Available since v0.6.0)
-	ApplyImmediately *bool `pulumi:"applyImmediately"`
-	Arn *string `pulumi:"arn"`
+	ApplyImmediately *bool   `pulumi:"applyImmediately"`
+	Arn              *string `pulumi:"arn"`
 	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `numCacheNodes` must be greater than `1`
@@ -221,7 +221,7 @@ type ClusterState struct {
 	// `false`. See [Amazon ElastiCache Documentation for more information.][1]
 	// (Available since v0.6.0)
 	ApplyImmediately pulumi.BoolPtrInput
-	Arn pulumi.StringPtrInput
+	Arn              pulumi.StringPtrInput
 	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.
 	AvailabilityZone pulumi.StringPtrInput
 	// Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `numCacheNodes` must be greater than `1`
@@ -453,4 +453,3 @@ type ClusterArgs struct {
 func (ClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterArgs)(nil)).Elem()
 }
-

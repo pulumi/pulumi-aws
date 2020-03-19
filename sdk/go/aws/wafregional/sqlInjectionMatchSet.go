@@ -11,7 +11,7 @@ import (
 )
 
 // Provides a WAF Regional SQL Injection Match Set Resource for use with Application Load Balancer.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_sql_injection_match_set.html.markdown.
 type SqlInjectionMatchSet struct {
 	pulumi.CustomResourceState
@@ -85,4 +85,3 @@ type SqlInjectionMatchSetArgs struct {
 func (SqlInjectionMatchSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlInjectionMatchSetArgs)(nil)).Elem()
 }
-

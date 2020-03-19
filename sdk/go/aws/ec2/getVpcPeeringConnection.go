@@ -10,7 +10,7 @@ import (
 
 // The VPC Peering Connection data source provides details about
 // a specific VPC peering connection.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_peering_connection.html.markdown.
 func LookupVpcPeeringConnection(ctx *pulumi.Context, args *LookupVpcPeeringConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVpcPeeringConnectionResult, error) {
 	var rv LookupVpcPeeringConnectionResult
@@ -50,26 +50,24 @@ type LookupVpcPeeringConnectionArgs struct {
 	VpcId *string `pulumi:"vpcId"`
 }
 
-
 // A collection of values returned by getVpcPeeringConnection.
 type LookupVpcPeeringConnectionResult struct {
 	// A configuration block that describes [VPC Peering Connection]
 	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
-	Accepter map[string]bool `pulumi:"accepter"`
-	CidrBlock string `pulumi:"cidrBlock"`
-	Filters []GetVpcPeeringConnectionFilter `pulumi:"filters"`
-	Id string `pulumi:"id"`
-	OwnerId string `pulumi:"ownerId"`
-	PeerCidrBlock string `pulumi:"peerCidrBlock"`
-	PeerOwnerId string `pulumi:"peerOwnerId"`
-	PeerRegion string `pulumi:"peerRegion"`
-	PeerVpcId string `pulumi:"peerVpcId"`
-	Region string `pulumi:"region"`
+	Accepter      map[string]bool                 `pulumi:"accepter"`
+	CidrBlock     string                          `pulumi:"cidrBlock"`
+	Filters       []GetVpcPeeringConnectionFilter `pulumi:"filters"`
+	Id            string                          `pulumi:"id"`
+	OwnerId       string                          `pulumi:"ownerId"`
+	PeerCidrBlock string                          `pulumi:"peerCidrBlock"`
+	PeerOwnerId   string                          `pulumi:"peerOwnerId"`
+	PeerRegion    string                          `pulumi:"peerRegion"`
+	PeerVpcId     string                          `pulumi:"peerVpcId"`
+	Region        string                          `pulumi:"region"`
 	// A configuration block that describes [VPC Peering Connection]
 	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
-	Requester map[string]bool `pulumi:"requester"`
-	Status string `pulumi:"status"`
-	Tags map[string]interface{} `pulumi:"tags"`
-	VpcId string `pulumi:"vpcId"`
+	Requester map[string]bool        `pulumi:"requester"`
+	Status    string                 `pulumi:"status"`
+	Tags      map[string]interface{} `pulumi:"tags"`
+	VpcId     string                 `pulumi:"vpcId"`
 }
-

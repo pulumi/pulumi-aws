@@ -7,6 +7,7 @@ export * from "./association";
 export * from "./document";
 export * from "./getDocument";
 export * from "./getParameter";
+export * from "./getPatchBaseline";
 export * from "./maintenanceWindow";
 export * from "./maintenanceWindowTarget";
 export * from "./maintenanceWindowTask";

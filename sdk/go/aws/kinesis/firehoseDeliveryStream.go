@@ -12,9 +12,9 @@ import (
 )
 
 // Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 and Amazon Redshift.
-// 
+//
 // For more details, see the [Amazon Kinesis Firehose Documentation][1].
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_firehose_delivery_stream.html.markdown.
 type FirehoseDeliveryStream struct {
 	pulumi.CustomResourceState
@@ -22,7 +22,7 @@ type FirehoseDeliveryStream struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, and `splunk`.
-	Destination pulumi.StringOutput `pulumi:"destination"`
+	Destination   pulumi.StringOutput `pulumi:"destination"`
 	DestinationId pulumi.StringOutput `pulumi:"destinationId"`
 	// Configuration options if elasticsearch is the destination. More details are given below.
 	ElasticsearchConfiguration FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput `pulumi:"elasticsearchConfiguration"`
@@ -43,7 +43,7 @@ type FirehoseDeliveryStream struct {
 	// Encrypt at rest options.
 	// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrOutput `pulumi:"serverSideEncryption"`
-	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrOutput `pulumi:"splunkConfiguration"`
+	SplunkConfiguration  FirehoseDeliveryStreamSplunkConfigurationPtrOutput  `pulumi:"splunkConfiguration"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
@@ -84,7 +84,7 @@ type firehoseDeliveryStreamState struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn *string `pulumi:"arn"`
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, and `splunk`.
-	Destination *string `pulumi:"destination"`
+	Destination   *string `pulumi:"destination"`
 	DestinationId *string `pulumi:"destinationId"`
 	// Configuration options if elasticsearch is the destination. More details are given below.
 	ElasticsearchConfiguration *FirehoseDeliveryStreamElasticsearchConfiguration `pulumi:"elasticsearchConfiguration"`
@@ -105,7 +105,7 @@ type firehoseDeliveryStreamState struct {
 	// Encrypt at rest options.
 	// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption *FirehoseDeliveryStreamServerSideEncryption `pulumi:"serverSideEncryption"`
-	SplunkConfiguration *FirehoseDeliveryStreamSplunkConfiguration `pulumi:"splunkConfiguration"`
+	SplunkConfiguration  *FirehoseDeliveryStreamSplunkConfiguration  `pulumi:"splunkConfiguration"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
@@ -116,7 +116,7 @@ type FirehoseDeliveryStreamState struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn pulumi.StringPtrInput
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, and `splunk`.
-	Destination pulumi.StringPtrInput
+	Destination   pulumi.StringPtrInput
 	DestinationId pulumi.StringPtrInput
 	// Configuration options if elasticsearch is the destination. More details are given below.
 	ElasticsearchConfiguration FirehoseDeliveryStreamElasticsearchConfigurationPtrInput
@@ -137,7 +137,7 @@ type FirehoseDeliveryStreamState struct {
 	// Encrypt at rest options.
 	// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrInput
-	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrInput
+	SplunkConfiguration  FirehoseDeliveryStreamSplunkConfigurationPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
@@ -152,7 +152,7 @@ type firehoseDeliveryStreamArgs struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn *string `pulumi:"arn"`
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, and `splunk`.
-	Destination string `pulumi:"destination"`
+	Destination   string  `pulumi:"destination"`
 	DestinationId *string `pulumi:"destinationId"`
 	// Configuration options if elasticsearch is the destination. More details are given below.
 	ElasticsearchConfiguration *FirehoseDeliveryStreamElasticsearchConfiguration `pulumi:"elasticsearchConfiguration"`
@@ -173,7 +173,7 @@ type firehoseDeliveryStreamArgs struct {
 	// Encrypt at rest options.
 	// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption *FirehoseDeliveryStreamServerSideEncryption `pulumi:"serverSideEncryption"`
-	SplunkConfiguration *FirehoseDeliveryStreamSplunkConfiguration `pulumi:"splunkConfiguration"`
+	SplunkConfiguration  *FirehoseDeliveryStreamSplunkConfiguration  `pulumi:"splunkConfiguration"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
@@ -185,7 +185,7 @@ type FirehoseDeliveryStreamArgs struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn pulumi.StringPtrInput
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, and `splunk`.
-	Destination pulumi.StringInput
+	Destination   pulumi.StringInput
 	DestinationId pulumi.StringPtrInput
 	// Configuration options if elasticsearch is the destination. More details are given below.
 	ElasticsearchConfiguration FirehoseDeliveryStreamElasticsearchConfigurationPtrInput
@@ -206,7 +206,7 @@ type FirehoseDeliveryStreamArgs struct {
 	// Encrypt at rest options.
 	// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrInput
-	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrInput
+	SplunkConfiguration  FirehoseDeliveryStreamSplunkConfigurationPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
@@ -216,4 +216,3 @@ type FirehoseDeliveryStreamArgs struct {
 func (FirehoseDeliveryStreamArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*firehoseDeliveryStreamArgs)(nil)).Elem()
 }
-

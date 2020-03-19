@@ -13,7 +13,7 @@ class GetListenerResult:
     """
     A collection of values returned by getListener.
     """
-    def __init__(__self__, arn=None, certificate_arn=None, default_actions=None, load_balancer_arn=None, port=None, protocol=None, ssl_policy=None, id=None):
+    def __init__(__self__, arn=None, certificate_arn=None, default_actions=None, id=None, load_balancer_arn=None, port=None, protocol=None, ssl_policy=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -23,6 +23,12 @@ class GetListenerResult:
         if default_actions and not isinstance(default_actions, list):
             raise TypeError("Expected argument 'default_actions' to be a list")
         __self__.default_actions = default_actions
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if load_balancer_arn and not isinstance(load_balancer_arn, str):
             raise TypeError("Expected argument 'load_balancer_arn' to be a str")
         __self__.load_balancer_arn = load_balancer_arn
@@ -35,12 +41,6 @@ class GetListenerResult:
         if ssl_policy and not isinstance(ssl_policy, str):
             raise TypeError("Expected argument 'ssl_policy' to be a str")
         __self__.ssl_policy = ssl_policy
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetListenerResult(GetListenerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -50,29 +50,31 @@ class AwaitableGetListenerResult(GetListenerResult):
             arn=self.arn,
             certificate_arn=self.certificate_arn,
             default_actions=self.default_actions,
+            id=self.id,
             load_balancer_arn=self.load_balancer_arn,
             port=self.port,
             protocol=self.protocol,
-            ssl_policy=self.ssl_policy,
-            id=self.id)
+            ssl_policy=self.ssl_policy)
 
 def get_listener(arn=None,load_balancer_arn=None,port=None,opts=None):
     """
     > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
-    
+
     Provides information about a Load Balancer Listener.
-    
+
     This data source can prove useful when a module accepts an LB Listener as an
     input variable and needs to know the LB it is attached to, or other
     information specific to the listener in question.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_listener.html.markdown.
+
+
     :param str arn: The arn of the listener. Required if `load_balancer_arn` and `port` is not set.
     :param str load_balancer_arn: The arn of the load balancer. Required if `arn` is not set.
     :param float port: The port of the listener. Required if `arn` is not set.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_listener_legacy.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['arn'] = arn
     __args__['loadBalancerArn'] = load_balancer_arn
@@ -87,8 +89,8 @@ def get_listener(arn=None,load_balancer_arn=None,port=None,opts=None):
         arn=__ret__.get('arn'),
         certificate_arn=__ret__.get('certificateArn'),
         default_actions=__ret__.get('defaultActions'),
+        id=__ret__.get('id'),
         load_balancer_arn=__ret__.get('loadBalancerArn'),
         port=__ret__.get('port'),
         protocol=__ret__.get('protocol'),
-        ssl_policy=__ret__.get('sslPolicy'),
-        id=__ret__.get('id'))
+        ssl_policy=__ret__.get('sslPolicy'))

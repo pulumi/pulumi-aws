@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an IAM role policy.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role_policy.html.markdown.
 type RolePolicy struct {
 	pulumi.CustomResourceState
@@ -23,6 +23,7 @@ type RolePolicy struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
+	// The policy document attached to the role.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The IAM role to attach to the policy.
 	Role pulumi.StringOutput `pulumi:"role"`
@@ -68,6 +69,7 @@ type rolePolicyState struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// The policy document attached to the role.
 	Policy *string `pulumi:"policy"`
 	// The IAM role to attach to the policy.
 	Role *string `pulumi:"role"`
@@ -80,6 +82,7 @@ type RolePolicyState struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// The policy document attached to the role.
 	Policy pulumi.StringPtrInput
 	// The IAM role to attach to the policy.
 	Role pulumi.StringPtrInput
@@ -96,6 +99,7 @@ type rolePolicyArgs struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// The policy document attached to the role.
 	Policy interface{} `pulumi:"policy"`
 	// The IAM role to attach to the policy.
 	Role interface{} `pulumi:"role"`
@@ -109,6 +113,7 @@ type RolePolicyArgs struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// The policy document attached to the role.
 	Policy pulumi.Input
 	// The IAM role to attach to the policy.
 	Role pulumi.Input
@@ -117,4 +122,3 @@ type RolePolicyArgs struct {
 func (RolePolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*rolePolicyArgs)(nil)).Elem()
 }
-

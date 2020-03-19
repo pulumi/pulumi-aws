@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an individual Service Quota.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/servicequotas_service_quota.html.markdown.
 type ServiceQuota struct {
 	pulumi.CustomResourceState
@@ -26,8 +26,8 @@ type ServiceQuota struct {
 	// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
 	QuotaCode pulumi.StringOutput `pulumi:"quotaCode"`
 	// Name of the quota.
-	QuotaName pulumi.StringOutput `pulumi:"quotaName"`
-	RequestId pulumi.StringOutput `pulumi:"requestId"`
+	QuotaName     pulumi.StringOutput `pulumi:"quotaName"`
+	RequestId     pulumi.StringOutput `pulumi:"requestId"`
 	RequestStatus pulumi.StringOutput `pulumi:"requestStatus"`
 	// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
 	ServiceCode pulumi.StringOutput `pulumi:"serviceCode"`
@@ -83,8 +83,8 @@ type serviceQuotaState struct {
 	// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
 	QuotaCode *string `pulumi:"quotaCode"`
 	// Name of the quota.
-	QuotaName *string `pulumi:"quotaName"`
-	RequestId *string `pulumi:"requestId"`
+	QuotaName     *string `pulumi:"quotaName"`
+	RequestId     *string `pulumi:"requestId"`
 	RequestStatus *string `pulumi:"requestStatus"`
 	// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
 	ServiceCode *string `pulumi:"serviceCode"`
@@ -104,8 +104,8 @@ type ServiceQuotaState struct {
 	// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
 	QuotaCode pulumi.StringPtrInput
 	// Name of the quota.
-	QuotaName pulumi.StringPtrInput
-	RequestId pulumi.StringPtrInput
+	QuotaName     pulumi.StringPtrInput
+	RequestId     pulumi.StringPtrInput
 	RequestStatus pulumi.StringPtrInput
 	// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
 	ServiceCode pulumi.StringPtrInput
@@ -141,4 +141,3 @@ type ServiceQuotaArgs struct {
 func (ServiceQuotaArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceQuotaArgs)(nil)).Elem()
 }
-

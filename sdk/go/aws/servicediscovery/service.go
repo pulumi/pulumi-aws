@@ -11,7 +11,7 @@ import (
 )
 
 // Provides a Service Discovery Service resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/service_discovery_service.html.markdown.
 type Service struct {
 	pulumi.CustomResourceState
@@ -131,4 +131,3 @@ type ServiceArgs struct {
 func (ServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceArgs)(nil)).Elem()
 }
-

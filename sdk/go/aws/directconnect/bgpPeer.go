@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a Direct Connect BGP peer resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_bgp_peer.html.markdown.
 type BgpPeer struct {
 	pulumi.CustomResourceState
@@ -163,4 +163,3 @@ type BgpPeerArgs struct {
 func (BgpPeerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bgpPeerArgs)(nil)).Elem()
 }
-

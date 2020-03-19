@@ -12,9 +12,9 @@ import (
 )
 
 // Provides a resource to manage a DynamoDB Global Table. These are layered on top of existing DynamoDB Tables.
-// 
+//
 // > Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_global_table.html.markdown.
 type GlobalTable struct {
 	pulumi.CustomResourceState
@@ -97,4 +97,3 @@ type GlobalTableArgs struct {
 func (GlobalTableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalTableArgs)(nil)).Elem()
 }
-

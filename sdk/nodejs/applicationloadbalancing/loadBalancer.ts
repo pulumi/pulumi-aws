@@ -77,7 +77,7 @@ import {LoadBalancerType} from "../alb/loadBalancerType";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb.html.markdown.
  */
 export class LoadBalancer extends pulumi.CustomResource {
     /**

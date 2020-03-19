@@ -11,7 +11,7 @@ import (
 )
 
 // Provides a WAF Regional Size Constraint Set Resource for use with Application Load Balancer.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_size_constraint_set.html.markdown.
 type SizeConstraintSet struct {
 	pulumi.CustomResourceState
@@ -88,4 +88,3 @@ type SizeConstraintSetArgs struct {
 func (SizeConstraintSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sizeConstraintSetArgs)(nil)).Elem()
 }
-

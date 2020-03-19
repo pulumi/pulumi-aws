@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a Service Discovery Private DNS Namespace resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/service_discovery_private_dns_namespace.html.markdown.
 type PrivateDnsNamespace struct {
 	pulumi.CustomResourceState
@@ -111,4 +111,3 @@ type PrivateDnsNamespaceArgs struct {
 func (PrivateDnsNamespaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateDnsNamespaceArgs)(nil)).Elem()
 }
-

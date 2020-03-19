@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to get a list of AMI IDs matching the specified criteria.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami_ids.html.markdown.
 func GetAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs, opts ...pulumi.InvokeOption) (*GetAmiIdsResult, error) {
 	var rv GetAmiIdsResult
@@ -41,16 +41,14 @@ type GetAmiIdsArgs struct {
 	SortAscending *bool `pulumi:"sortAscending"`
 }
 
-
 // A collection of values returned by getAmiIds.
 type GetAmiIdsResult struct {
-	ExecutableUsers []string `pulumi:"executableUsers"`
-	Filters []GetAmiIdsFilter `pulumi:"filters"`
+	ExecutableUsers []string          `pulumi:"executableUsers"`
+	Filters         []GetAmiIdsFilter `pulumi:"filters"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Ids []string `pulumi:"ids"`
-	NameRegex *string `pulumi:"nameRegex"`
-	Owners []string `pulumi:"owners"`
-	SortAscending *bool `pulumi:"sortAscending"`
+	Id            string   `pulumi:"id"`
+	Ids           []string `pulumi:"ids"`
+	NameRegex     *string  `pulumi:"nameRegex"`
+	Owners        []string `pulumi:"owners"`
+	SortAscending *bool    `pulumi:"sortAscending"`
 }
-

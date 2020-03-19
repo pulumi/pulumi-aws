@@ -12,10 +12,10 @@ import (
 )
 
 // Creates a Lambda function alias. Creates an alias that points to the specified Lambda function version.
-// 
+//
 // For information about Lambda and how to use it, see [What is AWS Lambda?][1]
 // For information about function aliases, see [CreateAlias][2] and [AliasRoutingConfiguration][3] in the API docs.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_alias.html.markdown.
 type Alias struct {
 	pulumi.CustomResourceState
@@ -137,4 +137,3 @@ type AliasArgs struct {
 func (AliasArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*aliasArgs)(nil)).Elem()
 }
-

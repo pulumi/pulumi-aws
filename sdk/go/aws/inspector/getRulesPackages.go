@@ -11,7 +11,7 @@ import (
 // The AWS Inspector Rules Packages data source allows access to the list of AWS
 // Inspector Rules Packages which can be used by AWS Inspector within the region
 // configured in the provider.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/inspector_rules_packages.html.markdown.
 func GetRulesPackages(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRulesPackagesResult, error) {
 	var rv GetRulesPackagesResult
@@ -29,4 +29,3 @@ type GetRulesPackagesResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }
-

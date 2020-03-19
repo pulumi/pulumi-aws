@@ -11,7 +11,7 @@ import (
 )
 
 // Provides a WAF Regional Regex Pattern Set Resource
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_regex_pattern_set.html.markdown.
 type RegexPatternSet struct {
 	pulumi.CustomResourceState
@@ -85,4 +85,3 @@ type RegexPatternSetArgs struct {
 func (RegexPatternSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*regexPatternSetArgs)(nil)).Elem()
 }
-

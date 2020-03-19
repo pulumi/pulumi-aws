@@ -13,7 +13,7 @@ class GetOrganizationResult:
     """
     A collection of values returned by getOrganization.
     """
-    def __init__(__self__, accounts=None, arn=None, aws_service_access_principals=None, enabled_policy_types=None, feature_set=None, master_account_arn=None, master_account_email=None, master_account_id=None, non_master_accounts=None, roots=None, id=None):
+    def __init__(__self__, accounts=None, arn=None, aws_service_access_principals=None, enabled_policy_types=None, feature_set=None, id=None, master_account_arn=None, master_account_email=None, master_account_id=None, non_master_accounts=None, roots=None):
         if accounts and not isinstance(accounts, list):
             raise TypeError("Expected argument 'accounts' to be a list")
         __self__.accounts = accounts
@@ -43,6 +43,12 @@ class GetOrganizationResult:
         __self__.feature_set = feature_set
         """
         The FeatureSet of the organization.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if master_account_arn and not isinstance(master_account_arn, str):
             raise TypeError("Expected argument 'master_account_arn' to be a str")
@@ -74,12 +80,6 @@ class GetOrganizationResult:
         """
         List of organization roots. All elements have these attributes:
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetOrganizationResult(GetOrganizationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -91,12 +91,12 @@ class AwaitableGetOrganizationResult(GetOrganizationResult):
             aws_service_access_principals=self.aws_service_access_principals,
             enabled_policy_types=self.enabled_policy_types,
             feature_set=self.feature_set,
+            id=self.id,
             master_account_arn=self.master_account_arn,
             master_account_email=self.master_account_email,
             master_account_id=self.master_account_id,
             non_master_accounts=self.non_master_accounts,
-            roots=self.roots,
-            id=self.id)
+            roots=self.roots)
 
 def get_organization(opts=None):
     """
@@ -105,6 +105,7 @@ def get_organization(opts=None):
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organization.html.markdown.
     """
     __args__ = dict()
+
 
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -118,9 +119,9 @@ def get_organization(opts=None):
         aws_service_access_principals=__ret__.get('awsServiceAccessPrincipals'),
         enabled_policy_types=__ret__.get('enabledPolicyTypes'),
         feature_set=__ret__.get('featureSet'),
+        id=__ret__.get('id'),
         master_account_arn=__ret__.get('masterAccountArn'),
         master_account_email=__ret__.get('masterAccountEmail'),
         master_account_id=__ret__.get('masterAccountId'),
         non_master_accounts=__ret__.get('nonMasterAccounts'),
-        roots=__ret__.get('roots'),
-        id=__ret__.get('id'))
+        roots=__ret__.get('roots'))

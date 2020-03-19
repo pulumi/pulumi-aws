@@ -134,9 +134,13 @@ import * as utilities from "../utilities";
  *     serviceRole: exampleRole.arn,
  *     source: {
  *         gitCloneDepth: 1,
+ *         gitSubmodulesConfig: {
+ *             fetchSubmodules: true,
+ *         },
  *         location: "https://github.com/mitchellh/packer.git",
  *         type: "GITHUB",
  *     },
+ *     sourceVersion: "master",
  *     tags: {
  *         Environment: "Test",
  *     },
@@ -282,6 +286,10 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<outputs.codebuild.ProjectSource>;
     /**
+     * A version of the build input to be built for this project. If not specified, the latest version is used.
+     */
+    public readonly sourceVersion!: pulumi.Output<string | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
@@ -318,6 +326,7 @@ export class Project extends pulumi.CustomResource {
             inputs["secondarySources"] = state ? state.secondarySources : undefined;
             inputs["serviceRole"] = state ? state.serviceRole : undefined;
             inputs["source"] = state ? state.source : undefined;
+            inputs["sourceVersion"] = state ? state.sourceVersion : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
@@ -348,6 +357,7 @@ export class Project extends pulumi.CustomResource {
             inputs["secondarySources"] = args ? args.secondarySources : undefined;
             inputs["serviceRole"] = args ? args.serviceRole : undefined;
             inputs["source"] = args ? args.source : undefined;
+            inputs["sourceVersion"] = args ? args.sourceVersion : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -433,6 +443,10 @@ export interface ProjectState {
      */
     readonly source?: pulumi.Input<inputs.codebuild.ProjectSource>;
     /**
+     * A version of the build input to be built for this project. If not specified, the latest version is used.
+     */
+    readonly sourceVersion?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
@@ -502,6 +516,10 @@ export interface ProjectArgs {
      * Information about the project's input source code. Source blocks are documented below.
      */
     readonly source: pulumi.Input<inputs.codebuild.ProjectSource>;
+    /**
+     * A version of the build input to be built for this project. If not specified, the latest version is used.
+     */
+    readonly sourceVersion?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

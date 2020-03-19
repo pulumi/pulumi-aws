@@ -9,7 +9,7 @@ import (
 )
 
 // Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/storagegateway_local_disk.html.markdown.
 func GetLocalDisk(ctx *pulumi.Context, args *GetLocalDiskArgs, opts ...pulumi.InvokeOption) (*GetLocalDiskResult, error) {
 	var rv GetLocalDiskResult
@@ -30,15 +30,13 @@ type GetLocalDiskArgs struct {
 	GatewayArn string `pulumi:"gatewayArn"`
 }
 
-
 // A collection of values returned by getLocalDisk.
 type GetLocalDiskResult struct {
 	// The disk identifier. e.g. `pci-0000:03:00.0-scsi-0:0:0:0`
-	DiskId string `pulumi:"diskId"`
-	DiskNode *string `pulumi:"diskNode"`
-	DiskPath *string `pulumi:"diskPath"`
-	GatewayArn string `pulumi:"gatewayArn"`
+	DiskId     string  `pulumi:"diskId"`
+	DiskNode   *string `pulumi:"diskNode"`
+	DiskPath   *string `pulumi:"diskPath"`
+	GatewayArn string  `pulumi:"gatewayArn"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }
-

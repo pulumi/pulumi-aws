@@ -13,7 +13,7 @@ import (
 
 // Provides a Direct Connect transit virtual interface resource.
 // A transit virtual interface is a VLAN that transports traffic from a Direct Connect gateway to one or more transit gateways.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_transit_virtual_interface.html.markdown.
 type TransitVirtualInterface struct {
 	pulumi.CustomResourceState
@@ -22,6 +22,7 @@ type TransitVirtualInterface struct {
 	AddressFamily pulumi.StringOutput `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress pulumi.StringOutput `pulumi:"amazonAddress"`
+	AmazonSideAsn pulumi.StringOutput `pulumi:"amazonSideAsn"`
 	// The ARN of the virtual interface.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Direct Connect endpoint on which the virtual interface terminates.
@@ -96,6 +97,7 @@ type transitVirtualInterfaceState struct {
 	AddressFamily *string `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress *string `pulumi:"amazonAddress"`
+	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
 	// The ARN of the virtual interface.
 	Arn *string `pulumi:"arn"`
 	// The Direct Connect endpoint on which the virtual interface terminates.
@@ -128,6 +130,7 @@ type TransitVirtualInterfaceState struct {
 	AddressFamily pulumi.StringPtrInput
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress pulumi.StringPtrInput
+	AmazonSideAsn pulumi.StringPtrInput
 	// The ARN of the virtual interface.
 	Arn pulumi.StringPtrInput
 	// The Direct Connect endpoint on which the virtual interface terminates.
@@ -215,4 +218,3 @@ type TransitVirtualInterfaceArgs struct {
 func (TransitVirtualInterfaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitVirtualInterfaceArgs)(nil)).Elem()
 }
-

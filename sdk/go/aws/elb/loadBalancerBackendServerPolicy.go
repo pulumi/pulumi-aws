@@ -12,7 +12,7 @@ import (
 )
 
 // Attaches a load balancer policy to an ELB backend server.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/load_balancer_backend_server_policy.html.markdown.
 type LoadBalancerBackendServerPolicy struct {
 	pulumi.CustomResourceState
@@ -102,4 +102,3 @@ type LoadBalancerBackendServerPolicyArgs struct {
 func (LoadBalancerBackendServerPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerBackendServerPolicyArgs)(nil)).Elem()
 }
-

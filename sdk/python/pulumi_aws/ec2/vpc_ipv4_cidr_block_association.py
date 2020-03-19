@@ -21,16 +21,16 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, cidr_block=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to associate additional IPv4 CIDR blocks with a VPC.
-        
+
         When a VPC is created, a primary IPv4 CIDR block for the VPC must be specified.
         The `ec2.VpcIpv4CidrBlockAssociation` resource allows further IPv4 CIDR blocks to be added to the VPC.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_ipv4_cidr_block_association.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr_block: The additional IPv4 CIDR block to associate with the VPC.
         :param pulumi.Input[str] vpc_id: The ID of the VPC to make the association with.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_ipv4_cidr_block_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -66,18 +66,17 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
         """
         Get an existing VpcIpv4CidrBlockAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr_block: The additional IPv4 CIDR block to associate with the VPC.
         :param pulumi.Input[str] vpc_id: The ID of the VPC to make the association with.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_ipv4_cidr_block_association.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["cidr_block"] = cidr_block
         __props__["vpc_id"] = vpc_id
         return VpcIpv4CidrBlockAssociation(resource_name, opts=opts, __props__=__props__)

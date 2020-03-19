@@ -3,8 +3,8 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_export import *
+from .get_stack import *
 from .stack import *
 from .stack_set import *
 from .stack_set_instance import *
-from .get_export import *
-from .get_stack import *

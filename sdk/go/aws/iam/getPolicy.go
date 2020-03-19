@@ -10,7 +10,7 @@ import (
 
 // This data source can be used to fetch information about a specific
 // IAM policy.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy.html.markdown.
 func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupPolicyResult, error) {
 	var rv LookupPolicyResult
@@ -27,7 +27,6 @@ type LookupPolicyArgs struct {
 	Arn string `pulumi:"arn"`
 }
 
-
 // A collection of values returned by getPolicy.
 type LookupPolicyResult struct {
 	// The Amazon Resource Name (ARN) specifying the policy.
@@ -43,4 +42,3 @@ type LookupPolicyResult struct {
 	// The policy document of the policy.
 	Policy string `pulumi:"policy"`
 }
-

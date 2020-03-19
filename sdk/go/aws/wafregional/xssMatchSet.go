@@ -11,7 +11,7 @@ import (
 )
 
 // Provides a WAF Regional XSS Match Set Resource for use with Application Load Balancer.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_xss_match_set.html.markdown.
 type XssMatchSet struct {
 	pulumi.CustomResourceState
@@ -85,4 +85,3 @@ type XssMatchSetArgs struct {
 func (XssMatchSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*xssMatchSetArgs)(nil)).Elem()
 }
-

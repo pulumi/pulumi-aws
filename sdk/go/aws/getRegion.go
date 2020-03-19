@@ -9,12 +9,12 @@ import (
 )
 
 // `.getRegion` provides details about a specific AWS region.
-// 
+//
 // As well as validating a given region name this resource can be used to
 // discover the name of the region configured within the provider. The latter
 // can be useful in a child module which is inheriting an AWS provider
 // configuration from its parent module.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/region.html.markdown.
 func GetRegion(ctx *pulumi.Context, args *GetRegionArgs, opts ...pulumi.InvokeOption) (*GetRegionResult, error) {
 	var rv GetRegionResult
@@ -33,7 +33,6 @@ type GetRegionArgs struct {
 	Name *string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getRegion.
 type GetRegionResult struct {
 	// The region's description in this format: "Location (Region name)".
@@ -45,4 +44,3 @@ type GetRegionResult struct {
 	// The name of the selected region.
 	Name string `pulumi:"name"`
 }
-

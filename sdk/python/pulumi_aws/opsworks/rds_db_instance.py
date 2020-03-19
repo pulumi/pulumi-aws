@@ -29,18 +29,18 @@ class RdsDbInstance(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, db_password=None, db_user=None, rds_db_instance_arn=None, stack_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an OpsWorks RDS DB Instance resource.
-        
+
         > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_rds_db_instance.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_password: A db password
         :param pulumi.Input[str] db_user: A db username
         :param pulumi.Input[str] rds_db_instance_arn: The db instance to register for this stack. Changing this will force a new resource.
         :param pulumi.Input[str] stack_id: The stack to register a db instance for. Changing this will force a new resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_rds_db_instance.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -82,7 +82,7 @@ class RdsDbInstance(pulumi.CustomResource):
         """
         Get an existing RdsDbInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -90,12 +90,11 @@ class RdsDbInstance(pulumi.CustomResource):
         :param pulumi.Input[str] db_user: A db username
         :param pulumi.Input[str] rds_db_instance_arn: The db instance to register for this stack. Changing this will force a new resource.
         :param pulumi.Input[str] stack_id: The stack to register a db instance for. Changing this will force a new resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_rds_db_instance.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["db_password"] = db_password
         __props__["db_user"] = db_user
         __props__["rds_db_instance_arn"] = rds_db_instance_arn

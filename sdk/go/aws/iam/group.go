@@ -11,7 +11,7 @@ import (
 )
 
 // Provides an IAM group.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group.html.markdown.
 type Group struct {
 	pulumi.CustomResourceState
@@ -97,4 +97,3 @@ type GroupArgs struct {
 func (GroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupArgs)(nil)).Elem()
 }
-

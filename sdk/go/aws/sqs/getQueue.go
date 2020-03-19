@@ -11,7 +11,7 @@ import (
 // Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
 // By using this data source, you can reference SQS queues without having to hardcode
 // the ARNs as input.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sqs_queue.html.markdown.
 func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.InvokeOption) (*LookupQueueResult, error) {
 	var rv LookupQueueResult
@@ -25,21 +25,19 @@ func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getQueue.
 type LookupQueueArgs struct {
 	// The name of the queue to match.
-	Name string `pulumi:"name"`
+	Name string                 `pulumi:"name"`
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getQueue.
 type LookupQueueResult struct {
 	// The Amazon Resource Name (ARN) of the queue.
 	Arn string `pulumi:"arn"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// A mapping of tags for the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The URL of the queue.
 	Url string `pulumi:"url"`
 }
-

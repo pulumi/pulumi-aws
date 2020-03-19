@@ -10,7 +10,7 @@ import (
 
 // Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
 // in a given region for the purpose of whitelisting in S3 bucket policy.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_service_account.html.markdown.
 func GetServiceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs, opts ...pulumi.InvokeOption) (*GetServiceAccountResult, error) {
 	var rv GetServiceAccountResult
@@ -28,13 +28,11 @@ type GetServiceAccountArgs struct {
 	Region *string `pulumi:"region"`
 }
 
-
 // A collection of values returned by getServiceAccount.
 type GetServiceAccountResult struct {
 	// The ARN of the AWS ELB service account in the selected region.
 	Arn string `pulumi:"arn"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string  `pulumi:"id"`
 	Region *string `pulumi:"region"`
 }
-

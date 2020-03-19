@@ -13,7 +13,7 @@ class GetStreamResult:
     """
     A collection of values returned by getStream.
     """
-    def __init__(__self__, arn=None, closed_shards=None, creation_timestamp=None, name=None, open_shards=None, retention_period=None, shard_level_metrics=None, status=None, tags=None, id=None):
+    def __init__(__self__, arn=None, closed_shards=None, creation_timestamp=None, id=None, name=None, open_shards=None, retention_period=None, shard_level_metrics=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -31,6 +31,12 @@ class GetStreamResult:
         __self__.creation_timestamp = creation_timestamp
         """
         The approximate UNIX timestamp that the stream was created.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -68,12 +74,6 @@ class GetStreamResult:
         """
         A mapping of tags to assigned to the stream.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetStreamResult(GetStreamResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -83,26 +83,28 @@ class AwaitableGetStreamResult(GetStreamResult):
             arn=self.arn,
             closed_shards=self.closed_shards,
             creation_timestamp=self.creation_timestamp,
+            id=self.id,
             name=self.name,
             open_shards=self.open_shards,
             retention_period=self.retention_period,
             shard_level_metrics=self.shard_level_metrics,
             status=self.status,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_stream(name=None,tags=None,opts=None):
     """
     Use this data source to get information about a Kinesis Stream for use in other
     resources.
-    
+
     For more details, see the [Amazon Kinesis Documentation][1].
-    
-    :param str name: The name of the Kinesis Stream.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kinesis_stream.html.markdown.
+
+
+    :param str name: The name of the Kinesis Stream.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['tags'] = tags
@@ -116,10 +118,10 @@ def get_stream(name=None,tags=None,opts=None):
         arn=__ret__.get('arn'),
         closed_shards=__ret__.get('closedShards'),
         creation_timestamp=__ret__.get('creationTimestamp'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         open_shards=__ret__.get('openShards'),
         retention_period=__ret__.get('retentionPeriod'),
         shard_level_metrics=__ret__.get('shardLevelMetrics'),
         status=__ret__.get('status'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

@@ -7,9 +7,9 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get detailed information about 
- * the specified KMS Key with flexible key id input. 
- * This can be useful to reference key alias 
+ * Use this data source to get detailed information about
+ * the specified KMS Key with flexible key id input.
+ * This can be useful to reference key alias
  * without having to hard code the ARN as input.
  * 
  * ## Example Usage
@@ -64,6 +64,7 @@ export interface GetKeyResult {
     readonly arn: string;
     readonly awsAccountId: string;
     readonly creationDate: string;
+    readonly customerMasterKeySpec: string;
     readonly deletionDate: string;
     readonly description: string;
     readonly enabled: boolean;

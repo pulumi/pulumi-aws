@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an AppSync API Key.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_api_key.html.markdown.
 type ApiKey struct {
 	pulumi.CustomResourceState
@@ -108,4 +108,3 @@ type ApiKeyArgs struct {
 func (ApiKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiKeyArgs)(nil)).Elem()
 }
-

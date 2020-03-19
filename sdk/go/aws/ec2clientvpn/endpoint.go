@@ -13,7 +13,7 @@ import (
 
 // Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
 // [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_client_vpn_endpoint.html.markdown.
 type Endpoint struct {
 	pulumi.CustomResourceState
@@ -181,4 +181,3 @@ type EndpointArgs struct {
 func (EndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointArgs)(nil)).Elem()
 }
-

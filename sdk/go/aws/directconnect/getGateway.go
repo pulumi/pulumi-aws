@@ -9,7 +9,7 @@ import (
 )
 
 // Retrieve information about a Direct Connect Gateway.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dx_gateway.html.markdown.
 func LookupGateway(ctx *pulumi.Context, args *LookupGatewayArgs, opts ...pulumi.InvokeOption) (*LookupGatewayResult, error) {
 	var rv LookupGatewayResult
@@ -26,15 +26,13 @@ type LookupGatewayArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getGateway.
 type LookupGatewayResult struct {
 	// The ASN on the Amazon side of the connection.
 	AmazonSideAsn string `pulumi:"amazonSideAsn"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// AWS Account ID of the gateway.
 	OwnerAccountId string `pulumi:"ownerAccountId"`
 }
-

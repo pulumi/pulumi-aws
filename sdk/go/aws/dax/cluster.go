@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a DAX Cluster resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_cluster.html.markdown.
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -322,4 +322,3 @@ type ClusterArgs struct {
 func (ClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterArgs)(nil)).Elem()
 }
-

@@ -12,18 +12,18 @@ import (
 )
 
 // ## Attributes
-// 
+//
 // The following additional atttributes are provided:
-// 
+//
 // * `id` - The name of the Neptune event notification subscription.
 // * `arn` - The Amazon Resource Name of the Neptune event notification subscription.
 // * `customerAwsId` - The AWS customer account associated with the Neptune event notification subscription.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_event_subscription.html.markdown.
 type EventSubscription struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn           pulumi.StringOutput `pulumi:"arn"`
 	CustomerAwsId pulumi.StringOutput `pulumi:"customerAwsId"`
 	// A boolean flag to enable/disable the subscription. Defaults to true.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
@@ -74,7 +74,7 @@ func GetEventSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventSubscription resources.
 type eventSubscriptionState struct {
-	Arn *string `pulumi:"arn"`
+	Arn           *string `pulumi:"arn"`
 	CustomerAwsId *string `pulumi:"customerAwsId"`
 	// A boolean flag to enable/disable the subscription. Defaults to true.
 	Enabled *bool `pulumi:"enabled"`
@@ -95,7 +95,7 @@ type eventSubscriptionState struct {
 }
 
 type EventSubscriptionState struct {
-	Arn pulumi.StringPtrInput
+	Arn           pulumi.StringPtrInput
 	CustomerAwsId pulumi.StringPtrInput
 	// A boolean flag to enable/disable the subscription. Defaults to true.
 	Enabled pulumi.BoolPtrInput
@@ -161,4 +161,3 @@ type EventSubscriptionArgs struct {
 func (EventSubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventSubscriptionArgs)(nil)).Elem()
 }
-

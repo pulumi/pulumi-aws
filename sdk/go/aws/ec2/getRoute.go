@@ -9,11 +9,11 @@ import (
 )
 
 // `ec2.Route` provides details about a specific Route.
-// 
+//
 // This resource can prove useful when finding the resource
 // associated with a CIDR. For example, finding the peering
 // connection associated with a CIDR value.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route.html.markdown.
 func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.InvokeOption) (*LookupRouteResult, error) {
 	var rv LookupRouteResult
@@ -48,20 +48,18 @@ type LookupRouteArgs struct {
 	VpcPeeringConnectionId *string `pulumi:"vpcPeeringConnectionId"`
 }
 
-
 // A collection of values returned by getRoute.
 type LookupRouteResult struct {
-	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
+	DestinationCidrBlock     string `pulumi:"destinationCidrBlock"`
 	DestinationIpv6CidrBlock string `pulumi:"destinationIpv6CidrBlock"`
-	EgressOnlyGatewayId string `pulumi:"egressOnlyGatewayId"`
-	GatewayId string `pulumi:"gatewayId"`
+	EgressOnlyGatewayId      string `pulumi:"egressOnlyGatewayId"`
+	GatewayId                string `pulumi:"gatewayId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	InstanceId string `pulumi:"instanceId"`
-	NatGatewayId string `pulumi:"natGatewayId"`
-	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
-	RouteTableId string `pulumi:"routeTableId"`
-	TransitGatewayId string `pulumi:"transitGatewayId"`
+	Id                     string `pulumi:"id"`
+	InstanceId             string `pulumi:"instanceId"`
+	NatGatewayId           string `pulumi:"natGatewayId"`
+	NetworkInterfaceId     string `pulumi:"networkInterfaceId"`
+	RouteTableId           string `pulumi:"routeTableId"`
+	TransitGatewayId       string `pulumi:"transitGatewayId"`
 	VpcPeeringConnectionId string `pulumi:"vpcPeeringConnectionId"`
 }
-

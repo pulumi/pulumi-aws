@@ -12,13 +12,13 @@ import (
 )
 
 // Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_crawler.html.markdown.
 type Crawler struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the crawler 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ARN of the crawler
+	Arn            pulumi.StringOutput             `pulumi:"arn"`
 	CatalogTargets CrawlerCatalogTargetArrayOutput `pulumi:"catalogTargets"`
 	// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
 	Classifiers pulumi.StringArrayOutput `pulumi:"classifiers"`
@@ -84,8 +84,8 @@ func GetCrawler(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Crawler resources.
 type crawlerState struct {
-	// The ARN of the crawler 
-	Arn *string `pulumi:"arn"`
+	// The ARN of the crawler
+	Arn            *string                `pulumi:"arn"`
 	CatalogTargets []CrawlerCatalogTarget `pulumi:"catalogTargets"`
 	// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
 	Classifiers []string `pulumi:"classifiers"`
@@ -118,8 +118,8 @@ type crawlerState struct {
 }
 
 type CrawlerState struct {
-	// The ARN of the crawler 
-	Arn pulumi.StringPtrInput
+	// The ARN of the crawler
+	Arn            pulumi.StringPtrInput
 	CatalogTargets CrawlerCatalogTargetArrayInput
 	// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
 	Classifiers pulumi.StringArrayInput
@@ -223,4 +223,3 @@ type CrawlerArgs struct {
 func (CrawlerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*crawlerArgs)(nil)).Elem()
 }
-

@@ -12,9 +12,9 @@ import (
 )
 
 // Manages an AWS Storage Gateway file, tape, or volume gateway in the provider region.
-// 
+//
 // > NOTE: The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_gateway.html.markdown.
 type Gateway struct {
 	pulumi.CustomResourceState
@@ -23,6 +23,8 @@ type Gateway struct {
 	ActivationKey pulumi.StringOutput `pulumi:"activationKey"`
 	// Amazon Resource Name (ARN) of the gateway.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+	CloudwatchLogGroupArn pulumi.StringPtrOutput `pulumi:"cloudwatchLogGroupArn"`
 	// Identifier of the gateway.
 	GatewayId pulumi.StringOutput `pulumi:"gatewayId"`
 	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
@@ -32,7 +34,7 @@ type Gateway struct {
 	// Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
 	GatewayTimezone pulumi.StringOutput `pulumi:"gatewayTimezone"`
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
-	GatewayType pulumi.StringPtrOutput `pulumi:"gatewayType"`
+	GatewayType       pulumi.StringPtrOutput `pulumi:"gatewayType"`
 	MediumChangerType pulumi.StringPtrOutput `pulumi:"mediumChangerType"`
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings GatewaySmbActiveDirectorySettingsPtrOutput `pulumi:"smbActiveDirectorySettings"`
@@ -82,6 +84,8 @@ type gatewayState struct {
 	ActivationKey *string `pulumi:"activationKey"`
 	// Amazon Resource Name (ARN) of the gateway.
 	Arn *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+	CloudwatchLogGroupArn *string `pulumi:"cloudwatchLogGroupArn"`
 	// Identifier of the gateway.
 	GatewayId *string `pulumi:"gatewayId"`
 	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
@@ -91,7 +95,7 @@ type gatewayState struct {
 	// Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
 	GatewayTimezone *string `pulumi:"gatewayTimezone"`
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
-	GatewayType *string `pulumi:"gatewayType"`
+	GatewayType       *string `pulumi:"gatewayType"`
 	MediumChangerType *string `pulumi:"mediumChangerType"`
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings *GatewaySmbActiveDirectorySettings `pulumi:"smbActiveDirectorySettings"`
@@ -108,6 +112,8 @@ type GatewayState struct {
 	ActivationKey pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the gateway.
 	Arn pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+	CloudwatchLogGroupArn pulumi.StringPtrInput
 	// Identifier of the gateway.
 	GatewayId pulumi.StringPtrInput
 	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
@@ -117,7 +123,7 @@ type GatewayState struct {
 	// Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
 	GatewayTimezone pulumi.StringPtrInput
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
-	GatewayType pulumi.StringPtrInput
+	GatewayType       pulumi.StringPtrInput
 	MediumChangerType pulumi.StringPtrInput
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings GatewaySmbActiveDirectorySettingsPtrInput
@@ -136,6 +142,8 @@ func (GatewayState) ElementType() reflect.Type {
 type gatewayArgs struct {
 	// Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	ActivationKey *string `pulumi:"activationKey"`
+	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+	CloudwatchLogGroupArn *string `pulumi:"cloudwatchLogGroupArn"`
 	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	GatewayIpAddress *string `pulumi:"gatewayIpAddress"`
 	// Name of the gateway.
@@ -143,7 +151,7 @@ type gatewayArgs struct {
 	// Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
 	GatewayTimezone string `pulumi:"gatewayTimezone"`
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
-	GatewayType *string `pulumi:"gatewayType"`
+	GatewayType       *string `pulumi:"gatewayType"`
 	MediumChangerType *string `pulumi:"mediumChangerType"`
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings *GatewaySmbActiveDirectorySettings `pulumi:"smbActiveDirectorySettings"`
@@ -159,6 +167,8 @@ type gatewayArgs struct {
 type GatewayArgs struct {
 	// Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	ActivationKey pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+	CloudwatchLogGroupArn pulumi.StringPtrInput
 	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	GatewayIpAddress pulumi.StringPtrInput
 	// Name of the gateway.
@@ -166,7 +176,7 @@ type GatewayArgs struct {
 	// Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
 	GatewayTimezone pulumi.StringInput
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
-	GatewayType pulumi.StringPtrInput
+	GatewayType       pulumi.StringPtrInput
 	MediumChangerType pulumi.StringPtrInput
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings GatewaySmbActiveDirectorySettingsPtrInput
@@ -181,4 +191,3 @@ type GatewayArgs struct {
 func (GatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayArgs)(nil)).Elem()
 }
-

@@ -14,7 +14,7 @@ import (
 // Provides an ElastiCache Replication Group resource.
 // For working with Memcached or single primary Redis instances (Cluster Mode Disabled), see the
 // [`elasticache.Cluster` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_cluster.html).
-// 
+//
 // > **Note:** When you change an attribute, such as `engineVersion`, by
 // default the ElastiCache API applies it in the next maintenance window. Because
 // of this, this provider may report a difference in its planning phase because the
@@ -22,7 +22,7 @@ import (
 // `applyImmediately` flag to instruct the service to apply the change
 // immediately. Using `applyImmediately` can result in a brief downtime as
 // servers reboots.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_replication_group.html.markdown.
 type ReplicationGroup struct {
 	pulumi.CustomResourceState
@@ -422,4 +422,3 @@ type ReplicationGroupArgs struct {
 func (ReplicationGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationGroupArgs)(nil)).Elem()
 }
-

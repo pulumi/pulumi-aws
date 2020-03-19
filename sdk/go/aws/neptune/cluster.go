@@ -12,14 +12,14 @@ import (
 
 // Provides an Neptune Cluster Resource. A Cluster Resource defines attributes that are
 // applied to the entire cluster of Neptune Cluster Instances.
-// 
+//
 // Changes to a Neptune Cluster can occur when you manually change a
 // parameter, such as `backupRetentionPeriod`, and are reflected in the next maintenance
 // window. Because of this, this provider may report a difference in its planning
 // phase because a modification has not yet taken place. You can use the
 // `applyImmediately` flag to instruct the service to apply the change immediately
 // (see documentation below).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster.html.markdown.
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -39,7 +39,10 @@ type Cluster struct {
 	// List of Neptune Instances that are a part of this cluster
 	ClusterMembers pulumi.StringArrayOutput `pulumi:"clusterMembers"`
 	// The Neptune Cluster Resource ID
-	ClusterResourceId pulumi.StringOutput `pulumi:"clusterResourceId"`
+	ClusterResourceId  pulumi.StringOutput  `pulumi:"clusterResourceId"`
+	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
+	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+	EnableCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enableCloudwatchLogsExports"`
 	// The DNS address of the Neptune instance
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
@@ -125,7 +128,10 @@ type clusterState struct {
 	// List of Neptune Instances that are a part of this cluster
 	ClusterMembers []string `pulumi:"clusterMembers"`
 	// The Neptune Cluster Resource ID
-	ClusterResourceId *string `pulumi:"clusterResourceId"`
+	ClusterResourceId  *string `pulumi:"clusterResourceId"`
+	DeletionProtection *bool   `pulumi:"deletionProtection"`
+	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
 	// The DNS address of the Neptune instance
 	Endpoint *string `pulumi:"endpoint"`
 	// The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
@@ -184,7 +190,10 @@ type ClusterState struct {
 	// List of Neptune Instances that are a part of this cluster
 	ClusterMembers pulumi.StringArrayInput
 	// The Neptune Cluster Resource ID
-	ClusterResourceId pulumi.StringPtrInput
+	ClusterResourceId  pulumi.StringPtrInput
+	DeletionProtection pulumi.BoolPtrInput
+	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+	EnableCloudwatchLogsExports pulumi.StringArrayInput
 	// The DNS address of the Neptune instance
 	Endpoint pulumi.StringPtrInput
 	// The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
@@ -242,6 +251,9 @@ type clusterArgs struct {
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix *string `pulumi:"clusterIdentifierPrefix"`
+	DeletionProtection      *bool   `pulumi:"deletionProtection"`
+	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
 	// The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
 	Engine *string `pulumi:"engine"`
 	// The database engine version.
@@ -290,6 +302,9 @@ type ClusterArgs struct {
 	ClusterIdentifier pulumi.StringPtrInput
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix pulumi.StringPtrInput
+	DeletionProtection      pulumi.BoolPtrInput
+	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+	EnableCloudwatchLogsExports pulumi.StringArrayInput
 	// The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
 	Engine pulumi.StringPtrInput
 	// The database engine version.
@@ -329,4 +344,3 @@ type ClusterArgs struct {
 func (ClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterArgs)(nil)).Elem()
 }
-

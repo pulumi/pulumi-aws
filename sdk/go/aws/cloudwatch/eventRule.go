@@ -11,7 +11,7 @@ import (
 )
 
 // Provides a CloudWatch Event Rule resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_event_rule.html.markdown.
 type EventRule struct {
 	pulumi.CustomResourceState
@@ -166,4 +166,3 @@ type EventRuleArgs struct {
 func (EventRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventRuleArgs)(nil)).Elem()
 }
-

@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a single EBS volume.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_volume.html.markdown.
 type Volume struct {
 	pulumi.CustomResourceState
@@ -33,7 +33,7 @@ type Volume struct {
 	SnapshotId pulumi.StringOutput `pulumi:"snapshotId"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
-	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
+	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -84,7 +84,7 @@ type volumeState struct {
 	SnapshotId *string `pulumi:"snapshotId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
-	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
+	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
 	Type *string `pulumi:"type"`
 }
 
@@ -105,7 +105,7 @@ type VolumeState struct {
 	SnapshotId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
-	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
+	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
 	Type pulumi.StringPtrInput
 }
 
@@ -128,7 +128,7 @@ type volumeArgs struct {
 	SnapshotId *string `pulumi:"snapshotId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
-	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
+	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
 	Type *string `pulumi:"type"`
 }
 
@@ -148,11 +148,10 @@ type VolumeArgs struct {
 	SnapshotId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
-	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
+	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
 	Type pulumi.StringPtrInput
 }
 
 func (VolumeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*volumeArgs)(nil)).Elem()
 }
-

@@ -10,7 +10,7 @@ import (
 
 // Use this data source to get the pricing information of all products in AWS.
 // This data source is only available in a us-east-1 or ap-south-1 provider.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/pricing_product.html.markdown.
 func GetProduct(ctx *pulumi.Context, args *GetProductArgs, opts ...pulumi.InvokeOption) (*GetProductResult, error) {
 	var rv GetProductResult
@@ -29,14 +29,12 @@ type GetProductArgs struct {
 	ServiceCode string `pulumi:"serviceCode"`
 }
 
-
 // A collection of values returned by getProduct.
 type GetProductResult struct {
 	Filters []GetProductFilter `pulumi:"filters"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set to the product returned from the API.
-	Result string `pulumi:"result"`
+	Result      string `pulumi:"result"`
 	ServiceCode string `pulumi:"serviceCode"`
 }
-

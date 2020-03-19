@@ -12,8 +12,8 @@ import (
 )
 
 // Provides a Cognito User Pool Domain resource.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_domain.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_domain.markdown.
 type UserPoolDomain struct {
 	pulumi.CustomResourceState
 
@@ -126,4 +126,3 @@ type UserPoolDomainArgs struct {
 func (UserPoolDomainArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolDomainArgs)(nil)).Elem()
 }
-

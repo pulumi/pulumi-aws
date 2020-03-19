@@ -11,7 +11,7 @@ import (
 )
 
 // Provides a WAF Size Constraint Set Resource
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_size_constraint_set.html.markdown.
 type SizeConstraintSet struct {
 	pulumi.CustomResourceState
@@ -91,4 +91,3 @@ type SizeConstraintSetArgs struct {
 func (SizeConstraintSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sizeConstraintSetArgs)(nil)).Elem()
 }
-

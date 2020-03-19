@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a DocDB database cluster snapshot for DocDB clusters.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster_snapshot.html.markdown.
 type ClusterSnapshot struct {
 	pulumi.CustomResourceState
@@ -32,8 +32,8 @@ type ClusterSnapshot struct {
 	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Port that the DocDB cluster was listening on at the time of the snapshot.
-	Port pulumi.IntOutput `pulumi:"port"`
-	SnapshotType pulumi.StringOutput `pulumi:"snapshotType"`
+	Port                       pulumi.IntOutput    `pulumi:"port"`
+	SnapshotType               pulumi.StringOutput `pulumi:"snapshotType"`
 	SourceDbClusterSnapshotArn pulumi.StringOutput `pulumi:"sourceDbClusterSnapshotArn"`
 	// The status of this DocDB Cluster Snapshot.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -92,8 +92,8 @@ type clusterSnapshotState struct {
 	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Port that the DocDB cluster was listening on at the time of the snapshot.
-	Port *int `pulumi:"port"`
-	SnapshotType *string `pulumi:"snapshotType"`
+	Port                       *int    `pulumi:"port"`
+	SnapshotType               *string `pulumi:"snapshotType"`
 	SourceDbClusterSnapshotArn *string `pulumi:"sourceDbClusterSnapshotArn"`
 	// The status of this DocDB Cluster Snapshot.
 	Status *string `pulumi:"status"`
@@ -119,8 +119,8 @@ type ClusterSnapshotState struct {
 	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
 	KmsKeyId pulumi.StringPtrInput
 	// Port that the DocDB cluster was listening on at the time of the snapshot.
-	Port pulumi.IntPtrInput
-	SnapshotType pulumi.StringPtrInput
+	Port                       pulumi.IntPtrInput
+	SnapshotType               pulumi.StringPtrInput
 	SourceDbClusterSnapshotArn pulumi.StringPtrInput
 	// The status of this DocDB Cluster Snapshot.
 	Status pulumi.StringPtrInput
@@ -152,4 +152,3 @@ type ClusterSnapshotArgs struct {
 func (ClusterSnapshotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterSnapshotArgs)(nil)).Elem()
 }
-

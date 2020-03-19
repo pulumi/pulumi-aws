@@ -84,6 +84,9 @@ export class Policy extends pulumi.CustomResource {
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
     public readonly path!: pulumi.Output<string | undefined>;
+    /**
+     * The policy document.
+     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -152,6 +155,9 @@ export interface PolicyState {
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
     readonly path?: pulumi.Input<string>;
+    /**
+     * The policy document.
+     */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
 }
 
@@ -176,5 +182,8 @@ export interface PolicyArgs {
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
     readonly path?: pulumi.Input<string>;
+    /**
+     * The policy document.
+     */
     readonly policy: pulumi.Input<string | PolicyDocument>;
 }

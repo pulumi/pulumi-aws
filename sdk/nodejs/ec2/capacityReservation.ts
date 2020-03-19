@@ -27,7 +27,7 @@ import {Tenancy} from "./tenancy";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_capacity_reservation.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_capacity_reservation.markdown.
  */
 export class CapacityReservation extends pulumi.CustomResource {
     /**

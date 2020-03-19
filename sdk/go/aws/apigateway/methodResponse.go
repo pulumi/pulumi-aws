@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an HTTP Method Response for an API Gateway Resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method_response.html.markdown.
 type MethodResponse struct {
 	pulumi.CustomResourceState
@@ -122,7 +122,7 @@ type methodResponseArgs struct {
 	// would define that the header `X-Some-Header` can be provided on the response.
 	ResponseParameters map[string]bool `pulumi:"responseParameters"`
 	// The ID of the associated REST API
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// The HTTP status code
 	StatusCode string `pulumi:"statusCode"`
 }
@@ -140,7 +140,7 @@ type MethodResponseArgs struct {
 	// would define that the header `X-Some-Header` can be provided on the response.
 	ResponseParameters pulumi.BoolMapInput
 	// The ID of the associated REST API
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 	// The HTTP status code
 	StatusCode pulumi.StringInput
 }
@@ -148,4 +148,3 @@ type MethodResponseArgs struct {
 func (MethodResponseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*methodResponseArgs)(nil)).Elem()
 }
-

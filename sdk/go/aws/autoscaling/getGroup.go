@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to get information on an existing autoscaling group.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_group.html.markdown.
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	var rv LookupGroupResult
@@ -26,14 +26,13 @@ type LookupGroupArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getGroup.
 type LookupGroupResult struct {
 	// The Amazon Resource Name (ARN) of the Auto Scaling group.
 	Arn string `pulumi:"arn"`
 	// One or more Availability Zones for the group.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	DefaultCooldown int `pulumi:"defaultCooldown"`
+	DefaultCooldown   int      `pulumi:"defaultCooldown"`
 	// The desired size of the group.
 	DesiredCapacity int `pulumi:"desiredCapacity"`
 	// The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
@@ -51,8 +50,8 @@ type LookupGroupResult struct {
 	// The minimum size of the group.
 	MinSize int `pulumi:"minSize"`
 	// The name of the Auto Scaling group.
-	Name string `pulumi:"name"`
-	NewInstancesProtectedFromScaleIn bool `pulumi:"newInstancesProtectedFromScaleIn"`
+	Name                             string `pulumi:"name"`
+	NewInstancesProtectedFromScaleIn bool   `pulumi:"newInstancesProtectedFromScaleIn"`
 	// The name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
 	PlacementGroup string `pulumi:"placementGroup"`
 	// The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
@@ -66,4 +65,3 @@ type LookupGroupResult struct {
 	// VPC ID for the group.
 	VpcZoneIdentifier string `pulumi:"vpcZoneIdentifier"`
 }
-

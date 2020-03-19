@@ -9,7 +9,7 @@ import (
 )
 
 // Provides information about a Lambda Layer Version.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_layer_version.html.markdown.
 func LookupLayerVersion(ctx *pulumi.Context, args *LookupLayerVersionArgs, opts ...pulumi.InvokeOption) (*LookupLayerVersionResult, error) {
 	var rv LookupLayerVersionResult
@@ -30,11 +30,10 @@ type LookupLayerVersionArgs struct {
 	Version *int `pulumi:"version"`
 }
 
-
 // A collection of values returned by getLayerVersion.
 type LookupLayerVersionResult struct {
 	// The Amazon Resource Name (ARN) of the Lambda Layer with version.
-	Arn string `pulumi:"arn"`
+	Arn               string  `pulumi:"arn"`
 	CompatibleRuntime *string `pulumi:"compatibleRuntime"`
 	// A list of [Runtimes][1] the specific Lambda Layer version is compatible with.
 	CompatibleRuntimes []string `pulumi:"compatibleRuntimes"`
@@ -45,7 +44,7 @@ type LookupLayerVersionResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Amazon Resource Name (ARN) of the Lambda Layer without version.
-	LayerArn string `pulumi:"layerArn"`
+	LayerArn  string `pulumi:"layerArn"`
 	LayerName string `pulumi:"layerName"`
 	// License info associated with the specific Lambda Layer version.
 	LicenseInfo string `pulumi:"licenseInfo"`
@@ -56,4 +55,3 @@ type LookupLayerVersionResult struct {
 	// This Lamba Layer version.
 	Version int `pulumi:"version"`
 }
-

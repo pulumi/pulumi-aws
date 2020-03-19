@@ -6,6 +6,37 @@ _(none)_
 
 ---
 
+## 1.27.0 (2020-03-13)
+* Upgrade to Pulumi v1.12.1
+* Upgrade to pulumi-terraform-bridge v1.8.2
+
+## 1.26.0 (2020-03-11)
+* Avoid storing config from the environment into the state.
+  [#894](https://github.com/pulumi/pulumi-aws/pull/894)
+
+## 1.25.0 (2020-03-09)
+* Upgrade to v2.52.0 of the AWS Terraform Provider
+* Ensure that resource types are primitive types and move any
+  existing direct type references to be AltTypes 
+
+## 1.24.0 (2020-03-03)
+* Upgrade to v2.51.0 of the AWS Terraform Provider
+
+## 1.23.0 (2020-02-21)
+* Add support for Ruby 2.7 Lambda Runtime
+* Upgrade to v2.50.0 of the AWS Terraform Provider
+
+## 1.22.0 (2020-02-14)
+* Read standard AWS environment variables for configuration
+* Upgrade to v2.49.0 of the AWS Terraform Provider
+
+## 1.21.0 (2020-02-07)
+* Upgrade to v2.48.0 of the AWS Terraform Provider
+* Changing the autonaming prefix of `aws.iot.TopicRule` name parameter
+
+## 1.20.0 (2020-01-31)
+* Upgrade to v2.47.0 of the AWS Terraform Provider
+
 ## 1.19.0 (2020-01-29)
 * Support `awsfirelens` in `ecs.Container`
 * Upgrade to v2.46.0 of the AWS Terraform Provider

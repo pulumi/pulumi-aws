@@ -11,7 +11,7 @@ import (
 )
 
 // Provides a Data Pipeline resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datapipeline_pipeline.html.markdown.
 type Pipeline struct {
 	pulumi.CustomResourceState
@@ -95,4 +95,3 @@ type PipelineArgs struct {
 func (PipelineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*pipelineArgs)(nil)).Elem()
 }
-

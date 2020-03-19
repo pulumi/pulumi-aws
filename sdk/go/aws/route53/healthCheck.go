@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a Route53 health check.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_health_check.html.markdown.
 type HealthCheck struct {
 	pulumi.CustomResourceState
@@ -264,4 +264,3 @@ type HealthCheckArgs struct {
 func (HealthCheckArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*healthCheckArgs)(nil)).Elem()
 }
-

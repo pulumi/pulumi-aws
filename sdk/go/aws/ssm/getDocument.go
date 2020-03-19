@@ -9,7 +9,7 @@ import (
 )
 
 // Gets the contents of the specified Systems Manager document.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_document.html.markdown.
 func LookupDocument(ctx *pulumi.Context, args *LookupDocumentArgs, opts ...pulumi.InvokeOption) (*LookupDocumentResult, error) {
 	var rv LookupDocumentResult
@@ -30,19 +30,17 @@ type LookupDocumentArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getDocument.
 type LookupDocumentResult struct {
 	// The ARN of the document.
 	Arn string `pulumi:"arn"`
 	// The contents of the document.
-	Content string `pulumi:"content"`
+	Content        string  `pulumi:"content"`
 	DocumentFormat *string `pulumi:"documentFormat"`
 	// The type of the document.
-	DocumentType string `pulumi:"documentType"`
+	DocumentType    string  `pulumi:"documentType"`
 	DocumentVersion *string `pulumi:"documentVersion"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
-

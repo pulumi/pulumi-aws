@@ -9,7 +9,7 @@ import (
 )
 
 // `waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rate_based_rule.html.markdown.
 func LookupRateBasedRule(ctx *pulumi.Context, args *LookupRateBasedRuleArgs, opts ...pulumi.InvokeOption) (*LookupRateBasedRuleResult, error) {
 	var rv LookupRateBasedRuleResult
@@ -26,11 +26,9 @@ type LookupRateBasedRuleArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getRateBasedRule.
 type LookupRateBasedRuleResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
-

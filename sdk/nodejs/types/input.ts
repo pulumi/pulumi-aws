@@ -174,6 +174,7 @@ export interface ProviderEndpoint {
     wafregional?: pulumi.Input<string>;
     wafv2?: pulumi.Input<string>;
     worklink?: pulumi.Input<string>;
+    workmail?: pulumi.Input<string>;
     workspaces?: pulumi.Input<string>;
     xray?: pulumi.Input<string>;
 }
@@ -617,7 +618,7 @@ export namespace alb {
          */
         field?: pulumi.Input<string>;
         /**
-         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+         * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader?: pulumi.Input<inputs.alb.ListenerRuleConditionHostHeader>;
         /**
@@ -625,11 +626,11 @@ export namespace alb {
          */
         httpHeader?: pulumi.Input<inputs.alb.ListenerRuleConditionHttpHeader>;
         /**
-         * Contains a single `value` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+         * Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
          */
         httpRequestMethod?: pulumi.Input<inputs.alb.ListenerRuleConditionHttpRequestMethod>;
         /**
-         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern?: pulumi.Input<inputs.alb.ListenerRuleConditionPathPattern>;
         /**
@@ -637,7 +638,7 @@ export namespace alb {
          */
         queryStrings?: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleConditionQueryString>[]>;
         /**
-         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
         sourceIp?: pulumi.Input<inputs.alb.ListenerRuleConditionSourceIp>;
         /**
@@ -1283,7 +1284,7 @@ export namespace applicationloadbalancing {
          */
         field?: pulumi.Input<string>;
         /**
-         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+         * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader?: pulumi.Input<inputs.applicationloadbalancing.ListenerRuleConditionHostHeader>;
         /**
@@ -1291,11 +1292,11 @@ export namespace applicationloadbalancing {
          */
         httpHeader?: pulumi.Input<inputs.applicationloadbalancing.ListenerRuleConditionHttpHeader>;
         /**
-         * Contains a single `value` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+         * Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
          */
         httpRequestMethod?: pulumi.Input<inputs.applicationloadbalancing.ListenerRuleConditionHttpRequestMethod>;
         /**
-         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern?: pulumi.Input<inputs.applicationloadbalancing.ListenerRuleConditionPathPattern>;
         /**
@@ -1303,7 +1304,7 @@ export namespace applicationloadbalancing {
          */
         queryStrings?: pulumi.Input<pulumi.Input<inputs.applicationloadbalancing.ListenerRuleConditionQueryString>[]>;
         /**
-         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
         sourceIp?: pulumi.Input<inputs.applicationloadbalancing.ListenerRuleConditionSourceIp>;
         /**
@@ -1460,6 +1461,11 @@ export namespace appmesh {
          */
         httpRoute?: pulumi.Input<inputs.appmesh.RouteSpecHttpRoute>;
         /**
+         * The priority for the route, between `0` and `1000`.
+         * Routes are matched based on the specified value, where `0` is the highest priority.
+         */
+        priority?: pulumi.Input<number>;
+        /**
          * The TCP routing information for the route.
          */
         tcpRoute?: pulumi.Input<inputs.appmesh.RouteSpecTcpRoute>;
@@ -1471,7 +1477,7 @@ export namespace appmesh {
          */
         action: pulumi.Input<inputs.appmesh.RouteSpecHttpRouteAction>;
         /**
-         * The criteria for determining an HTTP request match.
+         * The method and value to match the header value sent with a request. Specify one match method.
          */
         match: pulumi.Input<inputs.appmesh.RouteSpecHttpRouteMatch>;
     }
@@ -1497,10 +1503,69 @@ export namespace appmesh {
 
     export interface RouteSpecHttpRouteMatch {
         /**
-         * Specifies the path with which to match requests.
-         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+         * The client request headers to match on.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.appmesh.RouteSpecHttpRouteMatchHeader>[]>;
+        /**
+         * The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+         */
+        method?: pulumi.Input<string>;
+        /**
+         * The header value sent by the client must begin with the specified characters.
+         * * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
          */
         prefix: pulumi.Input<string>;
+        /**
+         * The client request header scheme to match on. Valid values: `http`, `https`.
+         */
+        scheme?: pulumi.Input<string>;
+    }
+
+    export interface RouteSpecHttpRouteMatchHeader {
+        /**
+         * If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+         */
+        invert?: pulumi.Input<boolean>;
+        /**
+         * The method and value to match the header value sent with a request. Specify one match method.
+         */
+        match?: pulumi.Input<inputs.appmesh.RouteSpecHttpRouteMatchHeaderMatch>;
+        /**
+         * A name for the HTTP header in the client request that will be matched on.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RouteSpecHttpRouteMatchHeaderMatch {
+        /**
+         * The header value sent by the client must match the specified value exactly.
+         */
+        exact?: pulumi.Input<string>;
+        /**
+         * The header value sent by the client must begin with the specified characters.
+         * * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
+         */
+        prefix?: pulumi.Input<string>;
+        range?: pulumi.Input<inputs.appmesh.RouteSpecHttpRouteMatchHeaderMatchRange>;
+        /**
+         * The header value sent by the client must include the specified characters.
+         */
+        regex?: pulumi.Input<string>;
+        /**
+         * The header value sent by the client must end with the specified characters.
+         */
+        suffix?: pulumi.Input<string>;
+    }
+
+    export interface RouteSpecHttpRouteMatchHeaderMatchRange {
+        /**
+         * The end of the range.
+         */
+        end: pulumi.Input<number>;
+        /**
+         * The start of the range.
+         */
+        start: pulumi.Input<number>;
     }
 
     export interface RouteSpecTcpRoute {
@@ -2976,7 +3041,7 @@ export namespace cloudtrail {
 
     export interface TrailEventSelectorDataResource {
         /**
-         * The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
+         * The resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function"
          */
         type: pulumi.Input<string>;
         /**
@@ -3373,6 +3438,10 @@ export namespace codebuild {
          */
         gitCloneDepth?: pulumi.Input<number>;
         /**
+         * Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+         */
+        gitSubmodulesConfig?: pulumi.Input<inputs.codebuild.ProjectSecondarySourceGitSubmodulesConfig>;
+        /**
          * Ignore SSL warnings when connecting to source control.
          */
         insecureSsl?: pulumi.Input<boolean>;
@@ -3405,6 +3474,13 @@ export namespace codebuild {
         type: pulumi.Input<string>;
     }
 
+    export interface ProjectSecondarySourceGitSubmodulesConfig {
+        /**
+         * If set to true, fetches Git submodules for the AWS CodeBuild build project.
+         */
+        fetchSubmodules: pulumi.Input<boolean>;
+    }
+
     export interface ProjectSource {
         /**
          * Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
@@ -3418,6 +3494,10 @@ export namespace codebuild {
          * Truncate git history to this many commits.
          */
         gitCloneDepth?: pulumi.Input<number>;
+        /**
+         * Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+         */
+        gitSubmodulesConfig?: pulumi.Input<inputs.codebuild.ProjectSourceGitSubmodulesConfig>;
         /**
          * Ignore SSL warnings when connecting to source control.
          */
@@ -3445,6 +3525,13 @@ export namespace codebuild {
          * The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface ProjectSourceGitSubmodulesConfig {
+        /**
+         * If set to true, fetches Git submodules for the AWS CodeBuild build project.
+         */
+        fetchSubmodules: pulumi.Input<boolean>;
     }
 
     export interface ProjectVpcConfig {
@@ -3612,11 +3699,11 @@ export namespace codedeploy {
 
     export interface DeploymentGroupDeploymentStyle {
         /**
-         * Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`.
+         * Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
          */
         deploymentOption?: pulumi.Input<string>;
         /**
-         * Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`.
+         * Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
          */
         deploymentType?: pulumi.Input<string>;
     }
@@ -3818,6 +3905,17 @@ export namespace codepipeline {
     }
 }
 
+export namespace codestarnotifications {
+    export interface NotificationRuleTarget {
+        address: pulumi.Input<string>;
+        /**
+         * The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
+         */
+        status?: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
+    }
+}
+
 export namespace cognito {
     export interface IdentityPoolCognitoIdentityProvider {
         /**
@@ -3898,7 +3996,7 @@ export namespace cognito {
          */
         inviteMessageTemplate?: pulumi.Input<inputs.cognito.UserPoolAdminCreateUserConfigInviteMessageTemplate>;
         /**
-         * The user account expiration limit, in days, after which the account is no longer usable.
+         * **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
          */
         unusedAccountValidityDays?: pulumi.Input<number>;
     }
@@ -4008,6 +4106,10 @@ export namespace cognito {
          * Whether you have required users to use at least one uppercase letter in their password.
          */
         requireUppercase?: pulumi.Input<boolean>;
+        /**
+         * In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
+         */
+        temporaryPasswordValidityDays?: pulumi.Input<number>;
     }
 
     export interface UserPoolSchema {
@@ -4119,6 +4221,13 @@ export namespace datasync {
          * Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
          */
         subnetArn: pulumi.Input<string>;
+    }
+
+    export interface LocationSmbMountOptions {
+        /**
+         * The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+         */
+        version?: pulumi.Input<string>;
     }
 
     export interface NfsLocationOnPremConfig {
@@ -4337,6 +4446,7 @@ export namespace docdb {
 export namespace dynamodb {
     export interface GetTableServerSideEncryption {
         enabled?: boolean;
+        kmsKeyArn?: string;
     }
 
     export interface GlobalTableReplica {
@@ -4432,6 +4542,11 @@ export namespace dynamodb {
          * Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
          */
         enabled: pulumi.Input<boolean>;
+        /**
+         * The ARN of the CMK that should be used for the AWS KMS encryption.
+         * This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+         */
+        kmsKeyArn?: pulumi.Input<string>;
     }
 
     export interface TableTtl {
@@ -4767,6 +4882,28 @@ export namespace ec2 {
         values: string[];
     }
 
+    export interface GetInstanceTypeOfferingFilter {
+        /**
+         * Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
+         */
+        name: string;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: string[];
+    }
+
+    export interface GetInstanceTypeOfferingsFilter {
+        /**
+         * Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
+         */
+        name: string;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: string[];
+    }
+
     export interface GetInstancesFilter {
         name: string;
         values: string[];
@@ -5017,7 +5154,7 @@ export namespace ec2 {
         volumeSize?: pulumi.Input<number>;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
-         * or `"io1"`. (Default: `"standard"`).
+         * or `"io1"`. (Default: `"gp2"`).
          */
         volumeType?: pulumi.Input<string>;
     }
@@ -5078,7 +5215,7 @@ export namespace ec2 {
         volumeSize?: pulumi.Input<number>;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
-         * or `"io1"`. (Default: `"standard"`).
+         * or `"io1"`. (Default: `"gp2"`).
          */
         volumeType?: pulumi.Input<string>;
     }
@@ -5145,6 +5282,11 @@ export namespace ec2 {
 
     export interface LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
         capacityReservationId?: pulumi.Input<string>;
+    }
+
+    export interface LaunchTemplateCpuOptions {
+        coreCount?: pulumi.Input<number>;
+        threadsPerCore?: pulumi.Input<number>;
     }
 
     export interface LaunchTemplateCreditSpecification {
@@ -5530,7 +5672,7 @@ export namespace ec2 {
         volumeSize?: pulumi.Input<number>;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
-         * or `"io1"`. (Default: `"standard"`).
+         * or `"io1"`. (Default: `"gp2"`).
          */
         volumeType?: pulumi.Input<string>;
     }
@@ -5591,9 +5733,31 @@ export namespace ec2 {
         volumeSize?: pulumi.Input<number>;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
-         * or `"io1"`. (Default: `"standard"`).
+         * or `"io1"`. (Default: `"gp2"`).
          */
         volumeType?: pulumi.Input<string>;
+    }
+
+    export interface TrafficMirrorFilterRuleDestinationPortRange {
+        /**
+         * Starting port of the range
+         */
+        fromPort?: pulumi.Input<number>;
+        /**
+         * Ending port of the range
+         */
+        toPort?: pulumi.Input<number>;
+    }
+
+    export interface TrafficMirrorFilterRuleSourcePortRange {
+        /**
+         * Starting port of the range
+         */
+        fromPort?: pulumi.Input<number>;
+        /**
+         * Ending port of the range
+         */
+        toPort?: pulumi.Input<number>;
     }
 
     export interface VpcEndpointDnsEntry {
@@ -5947,6 +6111,24 @@ export namespace eks {
         data?: pulumi.Input<string>;
     }
 
+    export interface ClusterEncryptionConfig {
+        /**
+         * Configuration block with provider for encryption. Detailed below.
+         */
+        provider: pulumi.Input<inputs.eks.ClusterEncryptionConfigProvider>;
+        /**
+         * List of strings with resources to be encrypted. Valid values: `secrets`
+         */
+        resources: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ClusterEncryptionConfigProvider {
+        /**
+         * Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+         */
+        keyArn: pulumi.Input<string>;
+    }
+
     export interface ClusterIdentity {
         /**
          * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
@@ -5974,9 +6156,6 @@ export namespace eks {
          * Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
          */
         endpointPublicAccess?: pulumi.Input<boolean>;
-        /**
-         * <elided>
-         */
         publicAccessCidrs?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
@@ -6092,11 +6271,11 @@ export namespace elasticbeanstalk {
          */
         deleteSourceFromS3?: pulumi.Input<boolean>;
         /**
-         * The number of days to retain an application version.
+         * The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
          */
         maxAgeInDays?: pulumi.Input<number>;
         /**
-         * The maximum number of application versions to retain.
+         * The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
          */
         maxCount?: pulumi.Input<number>;
         /**
@@ -6532,7 +6711,7 @@ export namespace elasticloadbalancingv2 {
          */
         field?: pulumi.Input<string>;
         /**
-         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+         * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleConditionHostHeader>;
         /**
@@ -6540,11 +6719,11 @@ export namespace elasticloadbalancingv2 {
          */
         httpHeader?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleConditionHttpHeader>;
         /**
-         * Contains a single `value` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+         * Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
          */
         httpRequestMethod?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleConditionHttpRequestMethod>;
         /**
-         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleConditionPathPattern>;
         /**
@@ -6552,7 +6731,7 @@ export namespace elasticloadbalancingv2 {
          */
         queryStrings?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleConditionQueryString>[]>;
         /**
-         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
         sourceIp?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleConditionSourceIp>;
         /**
@@ -6746,6 +6925,14 @@ export namespace elasticsearch {
          * ID of the Cognito User Pool to use
          */
         userPoolId: pulumi.Input<string>;
+    }
+
+    export interface DomainDomainEndpointOptions {
+        /**
+         * Whether or not to require HTTPS
+         */
+        enforceHttps: pulumi.Input<boolean>;
+        tlsSecurityPolicy?: pulumi.Input<string>;
     }
 
     export interface DomainEbsOptions {
@@ -7458,7 +7645,7 @@ export namespace globalaccelerator {
 
     export interface AcceleratorIpSet {
         /**
-         * The array of IP addresses in the IP address set.
+         * A list of IP addresses in the IP address set.
          */
         ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -7794,7 +7981,7 @@ export namespace glue {
 
     export interface JobCommand {
         /**
-         * The name of the job command. Defaults to `glueetl`
+         * The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
          */
         name?: pulumi.Input<string>;
         /**
@@ -7812,6 +7999,13 @@ export namespace glue {
          * The maximum number of concurrent runs allowed for a job. The default is 1.
          */
         maxConcurrentRuns?: pulumi.Input<number>;
+    }
+
+    export interface JobNotificationProperty {
+        /**
+         * After a job run starts, the number of minutes to wait before sending a job run delay notification.
+         */
+        notifyDelayAfter?: pulumi.Input<number>;
     }
 
     export interface SecurityConfigurationEncryptionConfiguration {
@@ -8423,7 +8617,7 @@ export namespace kinesis {
          */
         processingConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration>;
         /**
-         * After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+         * After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
          */
         retryDuration?: pulumi.Input<number>;
         /**
@@ -8860,7 +9054,7 @@ export namespace kinesis {
          */
         processingConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration>;
         /**
-         * After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+         * After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
          */
         retryDuration?: pulumi.Input<number>;
         /**
@@ -9066,7 +9260,7 @@ export namespace kinesis {
          */
         processingConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration>;
         /**
-         * After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+         * After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
          */
         retryDuration?: pulumi.Input<number>;
         /**
@@ -9163,6 +9357,20 @@ export namespace lambda {
          * A map that defines the proportion of events that should be sent to different versions of a lambda function.
          */
         additionalVersionWeights?: pulumi.Input<{[key: string]: pulumi.Input<number>}>;
+    }
+
+    export interface EventSourceMappingDestinationConfig {
+        /**
+         * The destination configuration for failed invocations. Detailed below.
+         */
+        onFailure?: pulumi.Input<inputs.lambda.EventSourceMappingDestinationConfigOnFailure>;
+    }
+
+    export interface EventSourceMappingDestinationConfigOnFailure {
+        /**
+         * The Amazon Resource Name (ARN) of the destination resource.
+         */
+        destinationArn: pulumi.Input<string>;
     }
 
     export interface FunctionDeadLetterConfig {
@@ -9536,7 +9744,7 @@ export namespace lb {
          */
         field?: pulumi.Input<string>;
         /**
-         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+         * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader?: pulumi.Input<inputs.lb.ListenerRuleConditionHostHeader>;
         /**
@@ -9544,11 +9752,11 @@ export namespace lb {
          */
         httpHeader?: pulumi.Input<inputs.lb.ListenerRuleConditionHttpHeader>;
         /**
-         * Contains a single `value` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+         * Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
          */
         httpRequestMethod?: pulumi.Input<inputs.lb.ListenerRuleConditionHttpRequestMethod>;
         /**
-         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern?: pulumi.Input<inputs.lb.ListenerRuleConditionPathPattern>;
         /**
@@ -9556,7 +9764,7 @@ export namespace lb {
          */
         queryStrings?: pulumi.Input<pulumi.Input<inputs.lb.ListenerRuleConditionQueryString>[]>;
         /**
-         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
         sourceIp?: pulumi.Input<inputs.lb.ListenerRuleConditionSourceIp>;
         /**
@@ -9892,13 +10100,45 @@ export namespace msk {
 
     export interface ClusterEncryptionInfoEncryptionInTransit {
         /**
-         * Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value: `TLS_PLAINTEXT`.
+         * Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS_PLAINTEXT` when `encryptionInTransit` block defined, but `TLS` when `encryptionInTransit` block omitted.
          */
         clientBroker?: pulumi.Input<string>;
         /**
          * Whether data communication among broker nodes is encrypted. Default value: `true`.
          */
         inCluster?: pulumi.Input<boolean>;
+    }
+
+    export interface ClusterOpenMonitoring {
+        /**
+         * Configuration block for Prometheus settings for open monitoring. See below.
+         */
+        prometheus: pulumi.Input<inputs.msk.ClusterOpenMonitoringPrometheus>;
+    }
+
+    export interface ClusterOpenMonitoringPrometheus {
+        /**
+         * Configuration block for JMX Exporter. See below.
+         */
+        jmxExporter?: pulumi.Input<inputs.msk.ClusterOpenMonitoringPrometheusJmxExporter>;
+        /**
+         * Configuration block for Node Exporter. See below.
+         */
+        nodeExporter?: pulumi.Input<inputs.msk.ClusterOpenMonitoringPrometheusNodeExporter>;
+    }
+
+    export interface ClusterOpenMonitoringPrometheusJmxExporter {
+        /**
+         * Indicates whether you want to enable or disable the Node Exporter.
+         */
+        enabledInBroker: pulumi.Input<boolean>;
+    }
+
+    export interface ClusterOpenMonitoringPrometheusNodeExporter {
+        /**
+         * Indicates whether you want to enable or disable the Node Exporter.
+         */
+        enabledInBroker: pulumi.Input<boolean>;
     }
 }
 
@@ -9936,17 +10176,11 @@ export namespace neptune {
 
 export namespace opsworks {
     export interface ApplicationAppSource {
-        /**
-         * <elided>
-         */
         password?: pulumi.Input<string>;
         /**
          * For sources that are version-aware, the revision to use.
          */
         revision?: pulumi.Input<string>;
-        /**
-         * <elided>
-         */
         sshKey?: pulumi.Input<string>;
         /**
          * The type of source to use. For example, "archive".
@@ -10590,6 +10824,63 @@ export namespace route53 {
 }
 
 export namespace s3 {
+    export interface AccessPointPublicAccessBlockConfiguration {
+        /**
+         * Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+         * * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+         * * PUT Object calls fail if the request includes a public ACL.
+         * * PUT Bucket calls fail if the request includes a public ACL.
+         */
+        blockPublicAcls?: pulumi.Input<boolean>;
+        /**
+         * Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+         * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+         */
+        blockPublicPolicy?: pulumi.Input<boolean>;
+        /**
+         * Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+         * * Ignore all public ACLs on buckets in this account and any objects that they contain.
+         */
+        ignorePublicAcls?: pulumi.Input<boolean>;
+        /**
+         * Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+         * * Only the bucket owner and AWS Services can access buckets with public policies.
+         */
+        restrictPublicBuckets?: pulumi.Input<boolean>;
+    }
+
+    export interface AccessPointVpcConfiguration {
+        /**
+         * This access point will only allow connections from the specified VPC ID.
+         */
+        vpcId: pulumi.Input<string>;
+    }
+
+    export interface AnalyticsConfigurationFilter {
+        prefix?: pulumi.Input<string>;
+        tags?: pulumi.Input<{[key: string]: any}>;
+    }
+
+    export interface AnalyticsConfigurationStorageClassAnalysis {
+        dataExport: pulumi.Input<inputs.s3.AnalyticsConfigurationStorageClassAnalysisDataExport>;
+    }
+
+    export interface AnalyticsConfigurationStorageClassAnalysisDataExport {
+        destination: pulumi.Input<inputs.s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestination>;
+        outputSchemaVersion?: pulumi.Input<string>;
+    }
+
+    export interface AnalyticsConfigurationStorageClassAnalysisDataExportDestination {
+        s3BucketDestination: pulumi.Input<inputs.s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination>;
+    }
+
+    export interface AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination {
+        bucketAccountId?: pulumi.Input<string>;
+        bucketArn: pulumi.Input<string>;
+        format?: pulumi.Input<string>;
+        prefix?: pulumi.Input<string>;
+    }
+
     export interface BucketCorsRule {
         /**
          * Specifies which headers are allowed.
@@ -10613,6 +10904,25 @@ export namespace s3 {
         maxAgeSeconds?: pulumi.Input<number>;
     }
 
+    export interface BucketGrant {
+        /**
+         * Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+         */
+        permissions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * Uri address to grant for. Used only when `type` is `Group`.
+         */
+        uri?: pulumi.Input<string>;
+    }
+
     export interface BucketLifecycleRule {
         /**
          * Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
@@ -10627,7 +10937,7 @@ export namespace s3 {
          */
         expiration?: pulumi.Input<inputs.s3.BucketLifecycleRuleExpiration>;
         /**
-         * Unique identifier for the rule.
+         * Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
          */
         id?: pulumi.Input<string>;
         /**
@@ -10846,7 +11156,7 @@ export namespace s3 {
          */
         filter?: pulumi.Input<inputs.s3.BucketReplicationConfigurationRuleFilter>;
         /**
-         * Unique identifier for the rule.
+         * Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
          */
         id?: pulumi.Input<string>;
         /**

@@ -11,7 +11,7 @@ import (
 // Use this data source to invoke custom lambda functions as data source.
 // The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
 // invocation type.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_invocation.html.markdown.
 func GetInvocation(ctx *pulumi.Context, args *GetInvocationArgs, opts ...pulumi.InvokeOption) (*GetInvocationResult, error) {
 	var rv GetInvocationResult
@@ -33,17 +33,15 @@ type GetInvocationArgs struct {
 	Qualifier *string `pulumi:"qualifier"`
 }
 
-
 // A collection of values returned by getInvocation.
 type GetInvocationResult struct {
 	FunctionName string `pulumi:"functionName"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Input string `pulumi:"input"`
+	Id        string  `pulumi:"id"`
+	Input     string  `pulumi:"input"`
 	Qualifier *string `pulumi:"qualifier"`
 	// String result of the lambda function invocation.
 	Result string `pulumi:"result"`
 	// This field is set only if result is a map of primitive types, where the map is string keys and string values.
 	ResultMap map[string]string `pulumi:"resultMap"`
 }
-

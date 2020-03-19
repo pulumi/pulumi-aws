@@ -12,11 +12,11 @@ import (
 )
 
 // Provides a resource to create a member account in the current organization.
-// 
+//
 // > **Note:** Account management must be done from the organization's master account.
-// 
+//
 // !> **WARNING:** Deleting this resource will only remove an AWS account from an organization. This provider will not close the account. The member account must be prepared to be a standalone account beforehand. See the [AWS Organizations documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html) for more information.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_account.html.markdown.
 type Account struct {
 	pulumi.CustomResourceState
@@ -27,15 +27,15 @@ type Account struct {
 	Email pulumi.StringOutput `pulumi:"email"`
 	// If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
 	IamUserAccessToBilling pulumi.StringPtrOutput `pulumi:"iamUserAccessToBilling"`
-	JoinedMethod pulumi.StringOutput `pulumi:"joinedMethod"`
-	JoinedTimestamp pulumi.StringOutput `pulumi:"joinedTimestamp"`
+	JoinedMethod           pulumi.StringOutput    `pulumi:"joinedMethod"`
+	JoinedTimestamp        pulumi.StringOutput    `pulumi:"joinedTimestamp"`
 	// A friendly name for the member account.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
 	ParentId pulumi.StringOutput `pulumi:"parentId"`
 	// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so this provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless [`ignoreChanges`](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) is used.
 	RoleName pulumi.StringPtrOutput `pulumi:"roleName"`
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status   pulumi.StringOutput    `pulumi:"status"`
 	// Key-value mapping of resource tags.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
@@ -77,15 +77,15 @@ type accountState struct {
 	Email *string `pulumi:"email"`
 	// If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
 	IamUserAccessToBilling *string `pulumi:"iamUserAccessToBilling"`
-	JoinedMethod *string `pulumi:"joinedMethod"`
-	JoinedTimestamp *string `pulumi:"joinedTimestamp"`
+	JoinedMethod           *string `pulumi:"joinedMethod"`
+	JoinedTimestamp        *string `pulumi:"joinedTimestamp"`
 	// A friendly name for the member account.
 	Name *string `pulumi:"name"`
 	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
 	ParentId *string `pulumi:"parentId"`
 	// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so this provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless [`ignoreChanges`](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) is used.
 	RoleName *string `pulumi:"roleName"`
-	Status *string `pulumi:"status"`
+	Status   *string `pulumi:"status"`
 	// Key-value mapping of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
@@ -97,15 +97,15 @@ type AccountState struct {
 	Email pulumi.StringPtrInput
 	// If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
 	IamUserAccessToBilling pulumi.StringPtrInput
-	JoinedMethod pulumi.StringPtrInput
-	JoinedTimestamp pulumi.StringPtrInput
+	JoinedMethod           pulumi.StringPtrInput
+	JoinedTimestamp        pulumi.StringPtrInput
 	// A friendly name for the member account.
 	Name pulumi.StringPtrInput
 	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
 	ParentId pulumi.StringPtrInput
 	// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so this provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless [`ignoreChanges`](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) is used.
 	RoleName pulumi.StringPtrInput
-	Status pulumi.StringPtrInput
+	Status   pulumi.StringPtrInput
 	// Key-value mapping of resource tags.
 	Tags pulumi.MapInput
 }
@@ -148,4 +148,3 @@ type AccountArgs struct {
 func (AccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountArgs)(nil)).Elem()
 }
-

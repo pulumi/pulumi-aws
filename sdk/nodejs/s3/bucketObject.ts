@@ -128,7 +128,7 @@ export class BucketObject extends pulumi.CustomResource {
      */
     public readonly acl!: pulumi.Output<string | undefined>;
     /**
-     * The name of the bucket to put the file in.
+     * The name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
@@ -307,7 +307,7 @@ export interface BucketObjectState {
      */
     readonly acl?: pulumi.Input<string>;
     /**
-     * The name of the bucket to put the file in.
+     * The name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      */
     readonly bucket?: pulumi.Input<string | Bucket>;
     /**
@@ -412,7 +412,7 @@ export interface BucketObjectArgs {
      */
     readonly acl?: pulumi.Input<string>;
     /**
-     * The name of the bucket to put the file in.
+     * The name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      */
     readonly bucket: pulumi.Input<string | Bucket>;
     /**

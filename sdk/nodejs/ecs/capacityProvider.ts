@@ -6,9 +6,6 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-/**
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_capacity_provider.html.markdown.
- */
 export class CapacityProvider extends pulumi.CustomResource {
     /**
      * Get an existing CapacityProvider resource's state with the given name, ID, and optional extra

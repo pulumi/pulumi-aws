@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a resource to manage a CloudWatch log resource policy.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_resource_policy.html.markdown.
 type LogResourcePolicy struct {
 	pulumi.CustomResourceState
@@ -92,4 +92,3 @@ type LogResourcePolicyArgs struct {
 func (LogResourcePolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logResourcePolicyArgs)(nil)).Elem()
 }
-

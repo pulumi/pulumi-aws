@@ -12,15 +12,15 @@ import (
 
 // Provides a resource to manage the [default AWS VPC](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html)
 // in the current region.
-// 
+//
 // For AWS accounts created after 2013-12-04, each region comes with a Default VPC.
 // **This is an advanced resource**, and has special caveats to be aware of when
 // using it. Please read this document in its entirety before using this resource.
-// 
+//
 // The `ec2.DefaultVpc` behaves differently from normal resources, in that
 // this provider does not _create_ this resource, but instead "adopts" it
 // into management.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_vpc.html.markdown.
 type DefaultVpc struct {
 	pulumi.CustomResourceState
@@ -38,11 +38,11 @@ type DefaultVpc struct {
 	DefaultRouteTableId pulumi.StringOutput `pulumi:"defaultRouteTableId"`
 	// The ID of the security group created by default on VPC creation
 	DefaultSecurityGroupId pulumi.StringOutput `pulumi:"defaultSecurityGroupId"`
-	DhcpOptionsId pulumi.StringOutput `pulumi:"dhcpOptionsId"`
+	DhcpOptionsId          pulumi.StringOutput `pulumi:"dhcpOptionsId"`
 	// A boolean flag to enable/disable ClassicLink
 	// for the VPC. Only valid in regions and accounts that support EC2 Classic.
 	// See the [ClassicLink documentation][1] for more information. Defaults false.
-	EnableClassiclink pulumi.BoolOutput `pulumi:"enableClassiclink"`
+	EnableClassiclink           pulumi.BoolOutput `pulumi:"enableClassiclink"`
 	EnableClassiclinkDnsSupport pulumi.BoolOutput `pulumi:"enableClassiclinkDnsSupport"`
 	// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
 	EnableDnsHostnames pulumi.BoolOutput `pulumi:"enableDnsHostnames"`
@@ -105,11 +105,11 @@ type defaultVpcState struct {
 	DefaultRouteTableId *string `pulumi:"defaultRouteTableId"`
 	// The ID of the security group created by default on VPC creation
 	DefaultSecurityGroupId *string `pulumi:"defaultSecurityGroupId"`
-	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
+	DhcpOptionsId          *string `pulumi:"dhcpOptionsId"`
 	// A boolean flag to enable/disable ClassicLink
 	// for the VPC. Only valid in regions and accounts that support EC2 Classic.
 	// See the [ClassicLink documentation][1] for more information. Defaults false.
-	EnableClassiclink *bool `pulumi:"enableClassiclink"`
+	EnableClassiclink           *bool `pulumi:"enableClassiclink"`
 	EnableClassiclinkDnsSupport *bool `pulumi:"enableClassiclinkDnsSupport"`
 	// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
 	EnableDnsHostnames *bool `pulumi:"enableDnsHostnames"`
@@ -145,11 +145,11 @@ type DefaultVpcState struct {
 	DefaultRouteTableId pulumi.StringPtrInput
 	// The ID of the security group created by default on VPC creation
 	DefaultSecurityGroupId pulumi.StringPtrInput
-	DhcpOptionsId pulumi.StringPtrInput
+	DhcpOptionsId          pulumi.StringPtrInput
 	// A boolean flag to enable/disable ClassicLink
 	// for the VPC. Only valid in regions and accounts that support EC2 Classic.
 	// See the [ClassicLink documentation][1] for more information. Defaults false.
-	EnableClassiclink pulumi.BoolPtrInput
+	EnableClassiclink           pulumi.BoolPtrInput
 	EnableClassiclinkDnsSupport pulumi.BoolPtrInput
 	// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
 	EnableDnsHostnames pulumi.BoolPtrInput
@@ -179,7 +179,7 @@ type defaultVpcArgs struct {
 	// A boolean flag to enable/disable ClassicLink
 	// for the VPC. Only valid in regions and accounts that support EC2 Classic.
 	// See the [ClassicLink documentation][1] for more information. Defaults false.
-	EnableClassiclink *bool `pulumi:"enableClassiclink"`
+	EnableClassiclink           *bool `pulumi:"enableClassiclink"`
 	EnableClassiclinkDnsSupport *bool `pulumi:"enableClassiclinkDnsSupport"`
 	// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
 	EnableDnsHostnames *bool `pulumi:"enableDnsHostnames"`
@@ -194,7 +194,7 @@ type DefaultVpcArgs struct {
 	// A boolean flag to enable/disable ClassicLink
 	// for the VPC. Only valid in regions and accounts that support EC2 Classic.
 	// See the [ClassicLink documentation][1] for more information. Defaults false.
-	EnableClassiclink pulumi.BoolPtrInput
+	EnableClassiclink           pulumi.BoolPtrInput
 	EnableClassiclinkDnsSupport pulumi.BoolPtrInput
 	// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
 	EnableDnsHostnames pulumi.BoolPtrInput
@@ -207,4 +207,3 @@ type DefaultVpcArgs struct {
 func (DefaultVpcArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultVpcArgs)(nil)).Elem()
 }
-

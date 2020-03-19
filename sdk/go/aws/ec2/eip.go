@@ -11,11 +11,11 @@ import (
 )
 
 // Provides an Elastic IP resource.
-// 
+//
 // > **Note:** EIP may require IGW to exist prior to association. Use `dependsOn` to set an explicit dependency on the IGW.
-// 
+//
 // > **Note:** Do not use `networkInterface` to associate the EIP to `lb.LoadBalancer` or `ec2.NatGateway` resources. Instead use the `allocationId` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eip.html.markdown.
 type Eip struct {
 	pulumi.CustomResourceState
@@ -25,8 +25,8 @@ type Eip struct {
 	// associate with the Elastic IP address. If no private IP address is specified,
 	// the Elastic IP address is associated with the primary private IP address.
 	AssociateWithPrivateIp pulumi.StringPtrOutput `pulumi:"associateWithPrivateIp"`
-	AssociationId pulumi.StringOutput `pulumi:"associationId"`
-	Domain pulumi.StringOutput `pulumi:"domain"`
+	AssociationId          pulumi.StringOutput    `pulumi:"associationId"`
+	Domain                 pulumi.StringOutput    `pulumi:"domain"`
 	// EC2 instance ID.
 	Instance pulumi.StringOutput `pulumi:"instance"`
 	// Network interface ID to associate with.
@@ -80,8 +80,8 @@ type eipState struct {
 	// associate with the Elastic IP address. If no private IP address is specified,
 	// the Elastic IP address is associated with the primary private IP address.
 	AssociateWithPrivateIp *string `pulumi:"associateWithPrivateIp"`
-	AssociationId *string `pulumi:"associationId"`
-	Domain *string `pulumi:"domain"`
+	AssociationId          *string `pulumi:"associationId"`
+	Domain                 *string `pulumi:"domain"`
 	// EC2 instance ID.
 	Instance *string `pulumi:"instance"`
 	// Network interface ID to associate with.
@@ -108,8 +108,8 @@ type EipState struct {
 	// associate with the Elastic IP address. If no private IP address is specified,
 	// the Elastic IP address is associated with the primary private IP address.
 	AssociateWithPrivateIp pulumi.StringPtrInput
-	AssociationId pulumi.StringPtrInput
-	Domain pulumi.StringPtrInput
+	AssociationId          pulumi.StringPtrInput
+	Domain                 pulumi.StringPtrInput
 	// EC2 instance ID.
 	Instance pulumi.StringPtrInput
 	// Network interface ID to associate with.
@@ -172,4 +172,3 @@ type EipArgs struct {
 func (EipArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eipArgs)(nil)).Elem()
 }
-

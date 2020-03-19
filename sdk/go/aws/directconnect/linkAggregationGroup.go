@@ -12,9 +12,9 @@ import (
 )
 
 // Provides a Direct Connect LAG. Connections can be added to the LAG via the [`directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) and [`directconnect.ConnectionAssociation`](https://www.terraform.io/docs/providers/aws/r/dx_connection_association.html) resources.
-// 
+//
 // > *NOTE:* When creating a LAG, Direct Connect requires creating a Connection. This provider will remove this unmanaged connection during resource creation.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_lag.html.markdown.
 type LinkAggregationGroup struct {
 	pulumi.CustomResourceState
@@ -28,7 +28,7 @@ type LinkAggregationGroup struct {
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
 	HasLogicalRedundancy pulumi.StringOutput `pulumi:"hasLogicalRedundancy"`
-	JumboFrameCapable pulumi.BoolOutput `pulumi:"jumboFrameCapable"`
+	JumboFrameCapable    pulumi.BoolOutput   `pulumi:"jumboFrameCapable"`
 	// The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the LAG.
@@ -80,7 +80,7 @@ type linkAggregationGroupState struct {
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
 	HasLogicalRedundancy *string `pulumi:"hasLogicalRedundancy"`
-	JumboFrameCapable *bool `pulumi:"jumboFrameCapable"`
+	JumboFrameCapable    *bool   `pulumi:"jumboFrameCapable"`
 	// The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
 	Location *string `pulumi:"location"`
 	// The name of the LAG.
@@ -99,7 +99,7 @@ type LinkAggregationGroupState struct {
 	ForceDestroy pulumi.BoolPtrInput
 	// Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
 	HasLogicalRedundancy pulumi.StringPtrInput
-	JumboFrameCapable pulumi.BoolPtrInput
+	JumboFrameCapable    pulumi.BoolPtrInput
 	// The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
 	Location pulumi.StringPtrInput
 	// The name of the LAG.
@@ -142,4 +142,3 @@ type LinkAggregationGroupArgs struct {
 func (LinkAggregationGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkAggregationGroupArgs)(nil)).Elem()
 }
-

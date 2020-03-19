@@ -12,8 +12,8 @@ import (
 )
 
 // Resource for managing SES Identity Notification Topics
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_identity_notification_topic.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_identity_notification_topic.markdown.
 type IdentityNotificationTopic struct {
 	pulumi.CustomResourceState
 
@@ -112,4 +112,3 @@ type IdentityNotificationTopicArgs struct {
 func (IdentityNotificationTopicArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityNotificationTopicArgs)(nil)).Elem()
 }
-

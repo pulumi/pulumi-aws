@@ -291,260 +291,6 @@ import * as utilities from "../utilities";
  * * `jar` - (Required) Path to a JAR file run during the step.
  * * `mainClass` - (Optional) Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
  * * `properties` - (Optional) Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
- * 
- * ## Example bootable config
- * 
- * **NOTE:** This configuration demonstrates a minimal configuration needed to
- * boot an example EMR Cluster. It is not meant to display best practices. Please
- * use at your own risk.
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const mainVpc = new aws.ec2.Vpc("main", {
- *     cidrBlock: "168.31.0.0/16",
- *     enableDnsHostnames: true,
- *     tags: {
- *         name: "emrTest",
- *     },
- * });
- * const mainSubnet = new aws.ec2.Subnet("main", {
- *     cidrBlock: "168.31.0.0/20",
- *     tags: {
- *         name: "emrTest",
- *     },
- *     vpcId: mainVpc.id,
- * });
- * // IAM role for EMR Service
- * const iamEmrServiceRole = new aws.iam.Role("iamEmrServiceRole", {
- *     assumeRolePolicy: `{
- *   "Version": "2008-10-17",
- *   "Statement": [
- *     {
- *       "Sid": "",
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "elasticmapreduce.amazonaws.com"
- *       },
- *       "Action": "sts:AssumeRole"
- *     }
- *   ]
- * }
- * `,
- * });
- * // IAM Role for EC2 Instance Profile
- * const iamEmrProfileRole = new aws.iam.Role("iamEmrProfileRole", {
- *     assumeRolePolicy: `{
- *   "Version": "2008-10-17",
- *   "Statement": [
- *     {
- *       "Sid": "",
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "ec2.amazonaws.com"
- *       },
- *       "Action": "sts:AssumeRole"
- *     }
- *   ]
- * }
- * `,
- * });
- * const emrProfile = new aws.iam.InstanceProfile("emrProfile", {
- *     roles: [iamEmrProfileRole.name],
- * });
- * const cluster = new aws.emr.Cluster("cluster", {
- *     applications: ["Spark"],
- *     bootstrapActions: [{
- *         args: [
- *             "instance.isMaster=true",
- *             "echo running on master node",
- *         ],
- *         name: "runif",
- *         path: "s3://elasticmapreduce/bootstrap-actions/run-if",
- *     }],
- *     configurationsJson: `  [
- *     {
- *       "Classification": "hadoop-env",
- *       "Configurations": [
- *         {
- *           "Classification": "export",
- *           "Properties": {
- *             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
- *           }
- *         }
- *       ],
- *       "Properties": {}
- *     },
- *     {
- *       "Classification": "spark-env",
- *       "Configurations": [
- *         {
- *           "Classification": "export",
- *           "Properties": {
- *             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
- *           }
- *         }
- *       ],
- *       "Properties": {}
- *     }
- *   ]
- * `,
- *     coreInstanceCount: 1,
- *     coreInstanceType: "m5.xlarge",
- *     ec2Attributes: {
- *         emrManagedMasterSecurityGroup: aws_security_group_allow_all.id,
- *         emrManagedSlaveSecurityGroup: aws_security_group_allow_all.id,
- *         instanceProfile: emrProfile.arn,
- *         subnetId: mainSubnet.id,
- *     },
- *     masterInstanceType: "m5.xlarge",
- *     releaseLabel: "emr-4.6.0",
- *     serviceRole: iamEmrServiceRole.arn,
- *     tags: {
- *         dns_zone: "envZone",
- *         env: "env",
- *         name: "name-env",
- *         role: "rolename",
- *     },
- * });
- * const allowAccess = new aws.ec2.SecurityGroup("allowAccess", {
- *     description: "Allow inbound traffic",
- *     egress: [{
- *         cidrBlocks: ["0.0.0.0/0"],
- *         fromPort: 0,
- *         protocol: "-1",
- *         toPort: 0,
- *     }],
- *     ingress: [{
- *         // we do not recommend opening your cluster to 0.0.0.0/0
- *         cidrBlocks: "", // add your IP address here
- *         // these ports should be locked down
- *         fromPort: 0,
- *         protocol: "-1",
- *         toPort: 0,
- *     }],
- *     tags: {
- *         name: "emrTest",
- *     },
- *     vpcId: mainVpc.id,
- * }, {dependsOn: [mainSubnet],ignoreChanges: ["egresses", "ingresses"]});
- * const gw = new aws.ec2.InternetGateway("gw", {
- *     vpcId: mainVpc.id,
- * });
- * const routeTable = new aws.ec2.RouteTable("r", {
- *     routes: [{
- *         cidrBlock: "0.0.0.0/0",
- *         gatewayId: gw.id,
- *     }],
- *     vpcId: mainVpc.id,
- * });
- * const mainRouteTableAssociation = new aws.ec2.MainRouteTableAssociation("a", {
- *     routeTableId: routeTable.id,
- *     vpcId: mainVpc.id,
- * });
- * const iamEmrServicePolicy = new aws.iam.RolePolicy("iamEmrServicePolicy", {
- *     policy: `{
- *     "Version": "2012-10-17",
- *     "Statement": [{
- *         "Effect": "Allow",
- *         "Resource": "*",
- *         "Action": [
- *             "ec2:AuthorizeSecurityGroupEgress",
- *             "ec2:AuthorizeSecurityGroupIngress",
- *             "ec2:CancelSpotInstanceRequests",
- *             "ec2:CreateNetworkInterface",
- *             "ec2:CreateSecurityGroup",
- *             "ec2:CreateTags",
- *             "ec2:DeleteNetworkInterface",
- *             "ec2:DeleteSecurityGroup",
- *             "ec2:DeleteTags",
- *             "ec2:DescribeAvailabilityZones",
- *             "ec2:DescribeAccountAttributes",
- *             "ec2:DescribeDhcpOptions",
- *             "ec2:DescribeInstanceStatus",
- *             "ec2:DescribeInstances",
- *             "ec2:DescribeKeyPairs",
- *             "ec2:DescribeNetworkAcls",
- *             "ec2:DescribeNetworkInterfaces",
- *             "ec2:DescribePrefixLists",
- *             "ec2:DescribeRouteTables",
- *             "ec2:DescribeSecurityGroups",
- *             "ec2:DescribeSpotInstanceRequests",
- *             "ec2:DescribeSpotPriceHistory",
- *             "ec2:DescribeSubnets",
- *             "ec2:DescribeVpcAttribute",
- *             "ec2:DescribeVpcEndpoints",
- *             "ec2:DescribeVpcEndpointServices",
- *             "ec2:DescribeVpcs",
- *             "ec2:DetachNetworkInterface",
- *             "ec2:ModifyImageAttribute",
- *             "ec2:ModifyInstanceAttribute",
- *             "ec2:RequestSpotInstances",
- *             "ec2:RevokeSecurityGroupEgress",
- *             "ec2:RunInstances",
- *             "ec2:TerminateInstances",
- *             "ec2:DeleteVolume",
- *             "ec2:DescribeVolumeStatus",
- *             "ec2:DescribeVolumes",
- *             "ec2:DetachVolume",
- *             "iam:GetRole",
- *             "iam:GetRolePolicy",
- *             "iam:ListInstanceProfiles",
- *             "iam:ListRolePolicies",
- *             "iam:PassRole",
- *             "s3:CreateBucket",
- *             "s3:Get*",
- *             "s3:List*",
- *             "sdb:BatchPutAttributes",
- *             "sdb:Select",
- *             "sqs:CreateQueue",
- *             "sqs:Delete*",
- *             "sqs:GetQueue*",
- *             "sqs:PurgeQueue",
- *             "sqs:ReceiveMessage"
- *         ]
- *     }]
- * }
- * `,
- *     role: iamEmrServiceRole.id,
- * });
- * const iamEmrProfilePolicy = new aws.iam.RolePolicy("iamEmrProfilePolicy", {
- *     policy: `{
- *     "Version": "2012-10-17",
- *     "Statement": [{
- *         "Effect": "Allow",
- *         "Resource": "*",
- *         "Action": [
- *             "cloudwatch:*",
- *             "dynamodb:*",
- *             "ec2:Describe*",
- *             "elasticmapreduce:Describe*",
- *             "elasticmapreduce:ListBootstrapActions",
- *             "elasticmapreduce:ListClusters",
- *             "elasticmapreduce:ListInstanceGroups",
- *             "elasticmapreduce:ListInstances",
- *             "elasticmapreduce:ListSteps",
- *             "kinesis:CreateStream",
- *             "kinesis:DeleteStream",
- *             "kinesis:DescribeStream",
- *             "kinesis:GetRecords",
- *             "kinesis:GetShardIterator",
- *             "kinesis:MergeShards",
- *             "kinesis:PutRecord",
- *             "kinesis:SplitShard",
- *             "rds:Describe*",
- *             "s3:*",
- *             "sdb:*",
- *             "sns:*",
- *             "sqs:*"
- *         ]
- *     }]
- * }
- * `,
- *     role: iamEmrProfileRole.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/emr_cluster.html.markdown.
  */
@@ -821,6 +567,8 @@ export interface ClusterState {
     readonly configurationsJson?: pulumi.Input<string>;
     /**
      * Use the `coreInstanceGroup` configuration block `instanceCount` argument instead. Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`coreInstanceCount`-1) as core nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set. Default `1`
+     * 
+     * @deprecated use `core_instance_group` configuration block `instance_count` argument instead
      */
     readonly coreInstanceCount?: pulumi.Input<number>;
     /**
@@ -829,6 +577,8 @@ export interface ClusterState {
     readonly coreInstanceGroup?: pulumi.Input<inputs.emr.ClusterCoreInstanceGroup>;
     /**
      * Use the `coreInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the slave nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set.
+     * 
+     * @deprecated use `core_instance_group` configuration block `instance_type` argument instead
      */
     readonly coreInstanceType?: pulumi.Input<string>;
     /**
@@ -845,6 +595,8 @@ export interface ClusterState {
     readonly ec2Attributes?: pulumi.Input<inputs.emr.ClusterEc2Attributes>;
     /**
      * Use the `masterInstanceGroup` configuration block, `coreInstanceGroup` configuration block and [`aws.emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instanceGroup` objects for each instance group in the cluster. Exactly one of `masterInstanceType` and `instanceGroup` must be specified. If `instanceGroup` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `masterInstanceGroup` or `coreInstanceGroup` configuration blocks are set. Defined below
+     * 
+     * @deprecated use `master_instance_group` configuration block, `core_instance_group` configuration block, and `aws_emr_instance_group` resource(s) instead
      */
     readonly instanceGroups?: pulumi.Input<pulumi.Input<inputs.emr.ClusterInstanceGroup>[]>;
     /**
@@ -865,6 +617,8 @@ export interface ClusterState {
     readonly masterInstanceGroup?: pulumi.Input<inputs.emr.ClusterMasterInstanceGroup>;
     /**
      * Use the `masterInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the master node. Cannot be specified if `masterInstanceGroup` or `instanceGroup` configuration blocks are set.
+     * 
+     * @deprecated use `master_instance_group` configuration block `instance_type` argument instead
      */
     readonly masterInstanceType?: pulumi.Input<string>;
     /**
@@ -944,6 +698,8 @@ export interface ClusterArgs {
     readonly configurationsJson?: pulumi.Input<string>;
     /**
      * Use the `coreInstanceGroup` configuration block `instanceCount` argument instead. Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`coreInstanceCount`-1) as core nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set. Default `1`
+     * 
+     * @deprecated use `core_instance_group` configuration block `instance_count` argument instead
      */
     readonly coreInstanceCount?: pulumi.Input<number>;
     /**
@@ -952,6 +708,8 @@ export interface ClusterArgs {
     readonly coreInstanceGroup?: pulumi.Input<inputs.emr.ClusterCoreInstanceGroup>;
     /**
      * Use the `coreInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the slave nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set.
+     * 
+     * @deprecated use `core_instance_group` configuration block `instance_type` argument instead
      */
     readonly coreInstanceType?: pulumi.Input<string>;
     /**
@@ -968,6 +726,8 @@ export interface ClusterArgs {
     readonly ec2Attributes?: pulumi.Input<inputs.emr.ClusterEc2Attributes>;
     /**
      * Use the `masterInstanceGroup` configuration block, `coreInstanceGroup` configuration block and [`aws.emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instanceGroup` objects for each instance group in the cluster. Exactly one of `masterInstanceType` and `instanceGroup` must be specified. If `instanceGroup` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `masterInstanceGroup` or `coreInstanceGroup` configuration blocks are set. Defined below
+     * 
+     * @deprecated use `master_instance_group` configuration block, `core_instance_group` configuration block, and `aws_emr_instance_group` resource(s) instead
      */
     readonly instanceGroups?: pulumi.Input<pulumi.Input<inputs.emr.ClusterInstanceGroup>[]>;
     /**
@@ -988,6 +748,8 @@ export interface ClusterArgs {
     readonly masterInstanceGroup?: pulumi.Input<inputs.emr.ClusterMasterInstanceGroup>;
     /**
      * Use the `masterInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the master node. Cannot be specified if `masterInstanceGroup` or `instanceGroup` configuration blocks are set.
+     * 
+     * @deprecated use `master_instance_group` configuration block `instance_type` argument instead
      */
     readonly masterInstanceType?: pulumi.Input<string>;
     /**

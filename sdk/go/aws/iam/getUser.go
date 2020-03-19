@@ -11,7 +11,7 @@ import (
 // This data source can be used to fetch information about a specific
 // IAM user. By using this data source, you can reference IAM user
 // properties without having to hard code ARNs or unique IDs as input.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_user.html.markdown.
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	var rv LookupUserResult
@@ -28,7 +28,6 @@ type LookupUserArgs struct {
 	UserName string `pulumi:"userName"`
 }
 
-
 // A collection of values returned by getUser.
 type LookupUserResult struct {
 	// The Amazon Resource Name (ARN) assigned by AWS for this user.
@@ -44,4 +43,3 @@ type LookupUserResult struct {
 	// The name associated to this User
 	UserName string `pulumi:"userName"`
 }
-

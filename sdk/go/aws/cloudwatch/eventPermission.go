@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a resource to create a CloudWatch Events permission to support cross-account events in the current account default event bus.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_event_permission.html.markdown.
 type EventPermission struct {
 	pulumi.CustomResourceState
@@ -112,4 +112,3 @@ type EventPermissionArgs struct {
 func (EventPermissionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventPermissionArgs)(nil)).Elem()
 }
-

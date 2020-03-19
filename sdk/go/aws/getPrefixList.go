@@ -10,12 +10,12 @@ import (
 
 // `.getPrefixList` provides details about a specific prefix list (PL)
 // in the current region.
-// 
+//
 // This can be used both to validate a prefix list given in a variable
 // and to obtain the CIDR blocks (IP address ranges) for the associated
 // AWS service. The latter may be useful e.g. for adding network ACL
 // rules.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/prefix_list.html.markdown.
 func GetPrefixList(ctx *pulumi.Context, args *GetPrefixListArgs, opts ...pulumi.InvokeOption) (*GetPrefixListResult, error) {
 	var rv GetPrefixListResult
@@ -34,7 +34,6 @@ type GetPrefixListArgs struct {
 	PrefixListId *string `pulumi:"prefixListId"`
 }
 
-
 // A collection of values returned by getPrefixList.
 type GetPrefixListResult struct {
 	// The list of CIDR blocks for the AWS service associated
@@ -43,7 +42,6 @@ type GetPrefixListResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the selected prefix list.
-	Name string `pulumi:"name"`
+	Name         string  `pulumi:"name"`
 	PrefixListId *string `pulumi:"prefixListId"`
 }
-

@@ -12,10 +12,10 @@ import (
 )
 
 // A Cluster Instance Resource defines attributes that are specific to a single instance in a Neptune Cluster.
-// 
+//
 // You can simply add neptune instances and Neptune manages the replication. You can use the [count][1]
 // meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instanceClass` sizes.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster_instance.html.markdown.
 type ClusterInstance struct {
 	pulumi.CustomResourceState
@@ -297,4 +297,3 @@ type ClusterInstanceArgs struct {
 func (ClusterInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterInstanceArgs)(nil)).Elem()
 }
-

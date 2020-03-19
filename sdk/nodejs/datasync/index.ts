@@ -4,6 +4,7 @@
 // Export members:
 export * from "./agent";
 export * from "./efsLocation";
+export * from "./locationSmb";
 export * from "./nfsLocation";
 export * from "./s3Location";
 export * from "./task";

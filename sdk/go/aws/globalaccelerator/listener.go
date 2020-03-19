@@ -12,8 +12,8 @@ import (
 )
 
 // Provides a Global Accelerator listener.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_listener.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_listener.markdown.
 type Listener struct {
 	pulumi.CustomResourceState
 
@@ -115,4 +115,3 @@ type ListenerArgs struct {
 func (ListenerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*listenerArgs)(nil)).Elem()
 }
-

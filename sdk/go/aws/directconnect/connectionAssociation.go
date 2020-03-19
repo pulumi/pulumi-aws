@@ -12,7 +12,7 @@ import (
 )
 
 // Associates a Direct Connect Connection with a LAG.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_connection_association.html.markdown.
 type ConnectionAssociation struct {
 	pulumi.CustomResourceState
@@ -92,4 +92,3 @@ type ConnectionAssociationArgs struct {
 func (ConnectionAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionAssociationArgs)(nil)).Elem()
 }
-

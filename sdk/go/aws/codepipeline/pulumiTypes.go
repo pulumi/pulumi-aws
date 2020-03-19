@@ -13,8 +13,8 @@ import (
 
 type PipelineArtifactStore struct {
 	EncryptionKey *PipelineArtifactStoreEncryptionKey `pulumi:"encryptionKey"`
-	Location string `pulumi:"location"`
-	Type string `pulumi:"type"`
+	Location      string                              `pulumi:"location"`
+	Type          string                              `pulumi:"type"`
 }
 
 type PipelineArtifactStoreInput interface {
@@ -26,8 +26,8 @@ type PipelineArtifactStoreInput interface {
 
 type PipelineArtifactStoreArgs struct {
 	EncryptionKey PipelineArtifactStoreEncryptionKeyPtrInput `pulumi:"encryptionKey"`
-	Location pulumi.StringInput `pulumi:"location"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Location      pulumi.StringInput                         `pulumi:"location"`
+	Type          pulumi.StringInput                         `pulumi:"type"`
 }
 
 func (PipelineArtifactStoreArgs) ElementType() reflect.Type {
@@ -59,7 +59,8 @@ type PipelineArtifactStorePtrInput interface {
 
 type pipelineArtifactStorePtrType PipelineArtifactStoreArgs
 
-func PipelineArtifactStorePtr(v *PipelineArtifactStoreArgs) PipelineArtifactStorePtrInput {	return (*pipelineArtifactStorePtrType)(v)
+func PipelineArtifactStorePtr(v *PipelineArtifactStoreArgs) PipelineArtifactStorePtrInput {
+	return (*pipelineArtifactStorePtrType)(v)
 }
 
 func (*pipelineArtifactStorePtrType) ElementType() reflect.Type {
@@ -74,7 +75,7 @@ func (i *pipelineArtifactStorePtrType) ToPipelineArtifactStorePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineArtifactStorePtrOutput)
 }
 
-type PipelineArtifactStoreOutput struct { *pulumi.OutputState }
+type PipelineArtifactStoreOutput struct{ *pulumi.OutputState }
 
 func (PipelineArtifactStoreOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipelineArtifactStore)(nil)).Elem()
@@ -98,18 +99,18 @@ func (o PipelineArtifactStoreOutput) ToPipelineArtifactStorePtrOutputWithContext
 	}).(PipelineArtifactStorePtrOutput)
 }
 func (o PipelineArtifactStoreOutput) EncryptionKey() PipelineArtifactStoreEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v PipelineArtifactStore) *PipelineArtifactStoreEncryptionKey { return v.EncryptionKey }).(PipelineArtifactStoreEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v PipelineArtifactStore) *PipelineArtifactStoreEncryptionKey { return v.EncryptionKey }).(PipelineArtifactStoreEncryptionKeyPtrOutput)
 }
 
 func (o PipelineArtifactStoreOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineArtifactStore) string { return v.Location }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineArtifactStore) string { return v.Location }).(pulumi.StringOutput)
 }
 
 func (o PipelineArtifactStoreOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineArtifactStore) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineArtifactStore) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type PipelineArtifactStorePtrOutput struct { *pulumi.OutputState}
+type PipelineArtifactStorePtrOutput struct{ *pulumi.OutputState }
 
 func (PipelineArtifactStorePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PipelineArtifactStore)(nil)).Elem()
@@ -124,24 +125,24 @@ func (o PipelineArtifactStorePtrOutput) ToPipelineArtifactStorePtrOutputWithCont
 }
 
 func (o PipelineArtifactStorePtrOutput) Elem() PipelineArtifactStoreOutput {
-	return o.ApplyT(func (v *PipelineArtifactStore) PipelineArtifactStore { return *v }).(PipelineArtifactStoreOutput)
+	return o.ApplyT(func(v *PipelineArtifactStore) PipelineArtifactStore { return *v }).(PipelineArtifactStoreOutput)
 }
 
 func (o PipelineArtifactStorePtrOutput) EncryptionKey() PipelineArtifactStoreEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v PipelineArtifactStore) *PipelineArtifactStoreEncryptionKey { return v.EncryptionKey }).(PipelineArtifactStoreEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v PipelineArtifactStore) *PipelineArtifactStoreEncryptionKey { return v.EncryptionKey }).(PipelineArtifactStoreEncryptionKeyPtrOutput)
 }
 
 func (o PipelineArtifactStorePtrOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineArtifactStore) string { return v.Location }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineArtifactStore) string { return v.Location }).(pulumi.StringOutput)
 }
 
 func (o PipelineArtifactStorePtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineArtifactStore) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineArtifactStore) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type PipelineArtifactStoreEncryptionKey struct {
 	// The codepipeline ID.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Type string `pulumi:"type"`
 }
 
@@ -154,7 +155,7 @@ type PipelineArtifactStoreEncryptionKeyInput interface {
 
 type PipelineArtifactStoreEncryptionKeyArgs struct {
 	// The codepipeline ID.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id   pulumi.StringInput `pulumi:"id"`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -187,7 +188,8 @@ type PipelineArtifactStoreEncryptionKeyPtrInput interface {
 
 type pipelineArtifactStoreEncryptionKeyPtrType PipelineArtifactStoreEncryptionKeyArgs
 
-func PipelineArtifactStoreEncryptionKeyPtr(v *PipelineArtifactStoreEncryptionKeyArgs) PipelineArtifactStoreEncryptionKeyPtrInput {	return (*pipelineArtifactStoreEncryptionKeyPtrType)(v)
+func PipelineArtifactStoreEncryptionKeyPtr(v *PipelineArtifactStoreEncryptionKeyArgs) PipelineArtifactStoreEncryptionKeyPtrInput {
+	return (*pipelineArtifactStoreEncryptionKeyPtrType)(v)
 }
 
 func (*pipelineArtifactStoreEncryptionKeyPtrType) ElementType() reflect.Type {
@@ -202,7 +204,7 @@ func (i *pipelineArtifactStoreEncryptionKeyPtrType) ToPipelineArtifactStoreEncry
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineArtifactStoreEncryptionKeyPtrOutput)
 }
 
-type PipelineArtifactStoreEncryptionKeyOutput struct { *pulumi.OutputState }
+type PipelineArtifactStoreEncryptionKeyOutput struct{ *pulumi.OutputState }
 
 func (PipelineArtifactStoreEncryptionKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipelineArtifactStoreEncryptionKey)(nil)).Elem()
@@ -225,16 +227,17 @@ func (o PipelineArtifactStoreEncryptionKeyOutput) ToPipelineArtifactStoreEncrypt
 		return &v
 	}).(PipelineArtifactStoreEncryptionKeyPtrOutput)
 }
+
 // The codepipeline ID.
 func (o PipelineArtifactStoreEncryptionKeyOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineArtifactStoreEncryptionKey) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineArtifactStoreEncryptionKey) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o PipelineArtifactStoreEncryptionKeyOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineArtifactStoreEncryptionKey) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineArtifactStoreEncryptionKey) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type PipelineArtifactStoreEncryptionKeyPtrOutput struct { *pulumi.OutputState}
+type PipelineArtifactStoreEncryptionKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (PipelineArtifactStoreEncryptionKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PipelineArtifactStoreEncryptionKey)(nil)).Elem()
@@ -249,16 +252,16 @@ func (o PipelineArtifactStoreEncryptionKeyPtrOutput) ToPipelineArtifactStoreEncr
 }
 
 func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Elem() PipelineArtifactStoreEncryptionKeyOutput {
-	return o.ApplyT(func (v *PipelineArtifactStoreEncryptionKey) PipelineArtifactStoreEncryptionKey { return *v }).(PipelineArtifactStoreEncryptionKeyOutput)
+	return o.ApplyT(func(v *PipelineArtifactStoreEncryptionKey) PipelineArtifactStoreEncryptionKey { return *v }).(PipelineArtifactStoreEncryptionKeyOutput)
 }
 
 // The codepipeline ID.
 func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineArtifactStoreEncryptionKey) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineArtifactStoreEncryptionKey) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineArtifactStoreEncryptionKey) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineArtifactStoreEncryptionKey) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type PipelineStage struct {
@@ -313,7 +316,7 @@ func (i PipelineStageArray) ToPipelineStageArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageArrayOutput)
 }
 
-type PipelineStageOutput struct { *pulumi.OutputState }
+type PipelineStageOutput struct{ *pulumi.OutputState }
 
 func (PipelineStageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipelineStage)(nil)).Elem()
@@ -328,15 +331,15 @@ func (o PipelineStageOutput) ToPipelineStageOutputWithContext(ctx context.Contex
 }
 
 func (o PipelineStageOutput) Actions() PipelineStageActionArrayOutput {
-	return o.ApplyT(func (v PipelineStage) []PipelineStageAction { return v.Actions }).(PipelineStageActionArrayOutput)
+	return o.ApplyT(func(v PipelineStage) []PipelineStageAction { return v.Actions }).(PipelineStageActionArrayOutput)
 }
 
 // The name of the pipeline.
 func (o PipelineStageOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineStage) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineStage) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type PipelineStageArrayOutput struct { *pulumi.OutputState}
+type PipelineStageArrayOutput struct{ *pulumi.OutputState }
 
 func (PipelineStageArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PipelineStage)(nil)).Elem()
@@ -351,24 +354,24 @@ func (o PipelineStageArrayOutput) ToPipelineStageArrayOutputWithContext(ctx cont
 }
 
 func (o PipelineStageArrayOutput) Index(i pulumi.IntInput) PipelineStageOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PipelineStage {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineStage {
 		return vs[0].([]PipelineStage)[vs[1].(int)]
 	}).(PipelineStageOutput)
 }
 
 type PipelineStageAction struct {
-	Category string `pulumi:"category"`
-	Configuration map[string]interface{} `pulumi:"configuration"`
-	InputArtifacts []string `pulumi:"inputArtifacts"`
+	Category       string                 `pulumi:"category"`
+	Configuration  map[string]interface{} `pulumi:"configuration"`
+	InputArtifacts []string               `pulumi:"inputArtifacts"`
 	// The name of the pipeline.
-	Name string `pulumi:"name"`
+	Name            string   `pulumi:"name"`
 	OutputArtifacts []string `pulumi:"outputArtifacts"`
-	Owner string `pulumi:"owner"`
-	Provider string `pulumi:"provider"`
+	Owner           string   `pulumi:"owner"`
+	Provider        string   `pulumi:"provider"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-	RoleArn *string `pulumi:"roleArn"`
-	RunOrder *int `pulumi:"runOrder"`
-	Version string `pulumi:"version"`
+	RoleArn  *string `pulumi:"roleArn"`
+	RunOrder *int    `pulumi:"runOrder"`
+	Version  string  `pulumi:"version"`
 }
 
 type PipelineStageActionInput interface {
@@ -379,18 +382,18 @@ type PipelineStageActionInput interface {
 }
 
 type PipelineStageActionArgs struct {
-	Category pulumi.StringInput `pulumi:"category"`
-	Configuration pulumi.MapInput `pulumi:"configuration"`
+	Category       pulumi.StringInput      `pulumi:"category"`
+	Configuration  pulumi.MapInput         `pulumi:"configuration"`
 	InputArtifacts pulumi.StringArrayInput `pulumi:"inputArtifacts"`
 	// The name of the pipeline.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name            pulumi.StringInput      `pulumi:"name"`
 	OutputArtifacts pulumi.StringArrayInput `pulumi:"outputArtifacts"`
-	Owner pulumi.StringInput `pulumi:"owner"`
-	Provider pulumi.StringInput `pulumi:"provider"`
+	Owner           pulumi.StringInput      `pulumi:"owner"`
+	Provider        pulumi.StringInput      `pulumi:"provider"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	RunOrder pulumi.IntPtrInput `pulumi:"runOrder"`
-	Version pulumi.StringInput `pulumi:"version"`
+	RoleArn  pulumi.StringPtrInput `pulumi:"roleArn"`
+	RunOrder pulumi.IntPtrInput    `pulumi:"runOrder"`
+	Version  pulumi.StringInput    `pulumi:"version"`
 }
 
 func (PipelineStageActionArgs) ElementType() reflect.Type {
@@ -426,7 +429,7 @@ func (i PipelineStageActionArray) ToPipelineStageActionArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageActionArrayOutput)
 }
 
-type PipelineStageActionOutput struct { *pulumi.OutputState }
+type PipelineStageActionOutput struct{ *pulumi.OutputState }
 
 func (PipelineStageActionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipelineStageAction)(nil)).Elem()
@@ -441,48 +444,48 @@ func (o PipelineStageActionOutput) ToPipelineStageActionOutputWithContext(ctx co
 }
 
 func (o PipelineStageActionOutput) Category() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineStageAction) string { return v.Category }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineStageAction) string { return v.Category }).(pulumi.StringOutput)
 }
 
 func (o PipelineStageActionOutput) Configuration() pulumi.MapOutput {
-	return o.ApplyT(func (v PipelineStageAction) map[string]interface{} { return v.Configuration }).(pulumi.MapOutput)
+	return o.ApplyT(func(v PipelineStageAction) map[string]interface{} { return v.Configuration }).(pulumi.MapOutput)
 }
 
 func (o PipelineStageActionOutput) InputArtifacts() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PipelineStageAction) []string { return v.InputArtifacts }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PipelineStageAction) []string { return v.InputArtifacts }).(pulumi.StringArrayOutput)
 }
 
 // The name of the pipeline.
 func (o PipelineStageActionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineStageAction) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineStageAction) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o PipelineStageActionOutput) OutputArtifacts() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PipelineStageAction) []string { return v.OutputArtifacts }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PipelineStageAction) []string { return v.OutputArtifacts }).(pulumi.StringArrayOutput)
 }
 
 func (o PipelineStageActionOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineStageAction) string { return v.Owner }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineStageAction) string { return v.Owner }).(pulumi.StringOutput)
 }
 
 func (o PipelineStageActionOutput) Provider() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineStageAction) string { return v.Provider }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineStageAction) string { return v.Provider }).(pulumi.StringOutput)
 }
 
 // A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 func (o PipelineStageActionOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineStageAction) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineStageAction) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 func (o PipelineStageActionOutput) RunOrder() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PipelineStageAction) *int { return v.RunOrder }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PipelineStageAction) *int { return v.RunOrder }).(pulumi.IntPtrOutput)
 }
 
 func (o PipelineStageActionOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineStageAction) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineStageAction) string { return v.Version }).(pulumi.StringOutput)
 }
 
-type PipelineStageActionArrayOutput struct { *pulumi.OutputState}
+type PipelineStageActionArrayOutput struct{ *pulumi.OutputState }
 
 func (PipelineStageActionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PipelineStageAction)(nil)).Elem()
@@ -497,14 +500,14 @@ func (o PipelineStageActionArrayOutput) ToPipelineStageActionArrayOutputWithCont
 }
 
 func (o PipelineStageActionArrayOutput) Index(i pulumi.IntInput) PipelineStageActionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PipelineStageAction {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineStageAction {
 		return vs[0].([]PipelineStageAction)[vs[1].(int)]
 	}).(PipelineStageActionOutput)
 }
 
 type WebhookAuthenticationConfiguration struct {
 	AllowedIpRange *string `pulumi:"allowedIpRange"`
-	SecretToken *string `pulumi:"secretToken"`
+	SecretToken    *string `pulumi:"secretToken"`
 }
 
 type WebhookAuthenticationConfigurationInput interface {
@@ -516,7 +519,7 @@ type WebhookAuthenticationConfigurationInput interface {
 
 type WebhookAuthenticationConfigurationArgs struct {
 	AllowedIpRange pulumi.StringPtrInput `pulumi:"allowedIpRange"`
-	SecretToken pulumi.StringPtrInput `pulumi:"secretToken"`
+	SecretToken    pulumi.StringPtrInput `pulumi:"secretToken"`
 }
 
 func (WebhookAuthenticationConfigurationArgs) ElementType() reflect.Type {
@@ -548,7 +551,8 @@ type WebhookAuthenticationConfigurationPtrInput interface {
 
 type webhookAuthenticationConfigurationPtrType WebhookAuthenticationConfigurationArgs
 
-func WebhookAuthenticationConfigurationPtr(v *WebhookAuthenticationConfigurationArgs) WebhookAuthenticationConfigurationPtrInput {	return (*webhookAuthenticationConfigurationPtrType)(v)
+func WebhookAuthenticationConfigurationPtr(v *WebhookAuthenticationConfigurationArgs) WebhookAuthenticationConfigurationPtrInput {
+	return (*webhookAuthenticationConfigurationPtrType)(v)
 }
 
 func (*webhookAuthenticationConfigurationPtrType) ElementType() reflect.Type {
@@ -563,7 +567,7 @@ func (i *webhookAuthenticationConfigurationPtrType) ToWebhookAuthenticationConfi
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookAuthenticationConfigurationPtrOutput)
 }
 
-type WebhookAuthenticationConfigurationOutput struct { *pulumi.OutputState }
+type WebhookAuthenticationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WebhookAuthenticationConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebhookAuthenticationConfiguration)(nil)).Elem()
@@ -587,14 +591,14 @@ func (o WebhookAuthenticationConfigurationOutput) ToWebhookAuthenticationConfigu
 	}).(WebhookAuthenticationConfigurationPtrOutput)
 }
 func (o WebhookAuthenticationConfigurationOutput) AllowedIpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WebhookAuthenticationConfiguration) *string { return v.AllowedIpRange }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WebhookAuthenticationConfiguration) *string { return v.AllowedIpRange }).(pulumi.StringPtrOutput)
 }
 
 func (o WebhookAuthenticationConfigurationOutput) SecretToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WebhookAuthenticationConfiguration) *string { return v.SecretToken }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WebhookAuthenticationConfiguration) *string { return v.SecretToken }).(pulumi.StringPtrOutput)
 }
 
-type WebhookAuthenticationConfigurationPtrOutput struct { *pulumi.OutputState}
+type WebhookAuthenticationConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (WebhookAuthenticationConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WebhookAuthenticationConfiguration)(nil)).Elem()
@@ -609,19 +613,19 @@ func (o WebhookAuthenticationConfigurationPtrOutput) ToWebhookAuthenticationConf
 }
 
 func (o WebhookAuthenticationConfigurationPtrOutput) Elem() WebhookAuthenticationConfigurationOutput {
-	return o.ApplyT(func (v *WebhookAuthenticationConfiguration) WebhookAuthenticationConfiguration { return *v }).(WebhookAuthenticationConfigurationOutput)
+	return o.ApplyT(func(v *WebhookAuthenticationConfiguration) WebhookAuthenticationConfiguration { return *v }).(WebhookAuthenticationConfigurationOutput)
 }
 
 func (o WebhookAuthenticationConfigurationPtrOutput) AllowedIpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WebhookAuthenticationConfiguration) *string { return v.AllowedIpRange }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WebhookAuthenticationConfiguration) *string { return v.AllowedIpRange }).(pulumi.StringPtrOutput)
 }
 
 func (o WebhookAuthenticationConfigurationPtrOutput) SecretToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WebhookAuthenticationConfiguration) *string { return v.SecretToken }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WebhookAuthenticationConfiguration) *string { return v.SecretToken }).(pulumi.StringPtrOutput)
 }
 
 type WebhookFilter struct {
-	JsonPath string `pulumi:"jsonPath"`
+	JsonPath    string `pulumi:"jsonPath"`
 	MatchEquals string `pulumi:"matchEquals"`
 }
 
@@ -633,7 +637,7 @@ type WebhookFilterInput interface {
 }
 
 type WebhookFilterArgs struct {
-	JsonPath pulumi.StringInput `pulumi:"jsonPath"`
+	JsonPath    pulumi.StringInput `pulumi:"jsonPath"`
 	MatchEquals pulumi.StringInput `pulumi:"matchEquals"`
 }
 
@@ -670,7 +674,7 @@ func (i WebhookFilterArray) ToWebhookFilterArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookFilterArrayOutput)
 }
 
-type WebhookFilterOutput struct { *pulumi.OutputState }
+type WebhookFilterOutput struct{ *pulumi.OutputState }
 
 func (WebhookFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebhookFilter)(nil)).Elem()
@@ -685,14 +689,14 @@ func (o WebhookFilterOutput) ToWebhookFilterOutputWithContext(ctx context.Contex
 }
 
 func (o WebhookFilterOutput) JsonPath() pulumi.StringOutput {
-	return o.ApplyT(func (v WebhookFilter) string { return v.JsonPath }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WebhookFilter) string { return v.JsonPath }).(pulumi.StringOutput)
 }
 
 func (o WebhookFilterOutput) MatchEquals() pulumi.StringOutput {
-	return o.ApplyT(func (v WebhookFilter) string { return v.MatchEquals }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WebhookFilter) string { return v.MatchEquals }).(pulumi.StringOutput)
 }
 
-type WebhookFilterArrayOutput struct { *pulumi.OutputState}
+type WebhookFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (WebhookFilterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]WebhookFilter)(nil)).Elem()
@@ -707,7 +711,7 @@ func (o WebhookFilterArrayOutput) ToWebhookFilterArrayOutputWithContext(ctx cont
 }
 
 func (o WebhookFilterArrayOutput) Index(i pulumi.IntInput) WebhookFilterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) WebhookFilter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebhookFilter {
 		return vs[0].([]WebhookFilter)[vs[1].(int)]
 	}).(WebhookFilterOutput)
 }

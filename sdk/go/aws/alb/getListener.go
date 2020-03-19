@@ -9,14 +9,14 @@ import (
 )
 
 // > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
-// 
+//
 // Provides information about a Load Balancer Listener.
-// 
+//
 // This data source can prove useful when a module accepts an LB Listener as an
 // input variable and needs to know the LB it is attached to, or other
 // information specific to the listener in question.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb_listener.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_listener.html.markdown.
 func LookupListener(ctx *pulumi.Context, args *LookupListenerArgs, opts ...pulumi.InvokeOption) (*LookupListenerResult, error) {
 	var rv LookupListenerResult
 	err := ctx.Invoke("aws:alb/getListener:getListener", args, &rv, opts...)
@@ -36,17 +36,15 @@ type LookupListenerArgs struct {
 	Port *int `pulumi:"port"`
 }
 
-
 // A collection of values returned by getListener.
 type LookupListenerResult struct {
-	Arn string `pulumi:"arn"`
-	CertificateArn string `pulumi:"certificateArn"`
+	Arn            string                     `pulumi:"arn"`
+	CertificateArn string                     `pulumi:"certificateArn"`
 	DefaultActions []GetListenerDefaultAction `pulumi:"defaultActions"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id              string `pulumi:"id"`
 	LoadBalancerArn string `pulumi:"loadBalancerArn"`
-	Port int `pulumi:"port"`
-	Protocol string `pulumi:"protocol"`
-	SslPolicy string `pulumi:"sslPolicy"`
+	Port            int    `pulumi:"port"`
+	Protocol        string `pulumi:"protocol"`
+	SslPolicy       string `pulumi:"sslPolicy"`
 }
-

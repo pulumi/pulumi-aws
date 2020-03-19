@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an AutoScaling Lifecycle Hook resource.
-// 
+//
 // > **NOTE:** This provider has two types of ways you can add lifecycle hooks - via
 // the `initialLifecycleHook` attribute from the
 // [`autoscaling.Group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html)
@@ -24,7 +24,7 @@ import (
 // `initialLifecycleHook` in
 // [`autoscaling.Group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
 // but take care to not duplicate those hooks with this resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_lifecycle_hook.html.markdown.
 type LifecycleHook struct {
 	pulumi.CustomResourceState
@@ -164,4 +164,3 @@ type LifecycleHookArgs struct {
 func (LifecycleHookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*lifecycleHookArgs)(nil)).Elem()
 }
-

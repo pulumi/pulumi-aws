@@ -14,22 +14,22 @@ import (
 // Provides an Elastic Beanstalk Environment Resource. Elastic Beanstalk allows
 // you to deploy and manage applications in the AWS cloud without worrying about
 // the infrastructure that runs those applications.
-// 
+//
 // Environments are often things such as `development`, `integration`, or
 // `production`.
-// 
+//
 // ## Option Settings
-// 
+//
 // Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
 // for supported options and examples.
-// 
+//
 // The `setting` and `allSettings` mappings support the following format:
-// 
+//
 // * `namespace` - unique namespace identifying the option's associated AWS resource
 // * `name` - name of the configuration option
 // * `value` - value for the configuration option
 // * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_environment.html.markdown.
 type Environment struct {
 	pulumi.CustomResourceState
@@ -41,7 +41,7 @@ type Environment struct {
 	// Name of the application that contains the version
 	// to be deployed
 	Application pulumi.StringOutput `pulumi:"application"`
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn         pulumi.StringOutput `pulumi:"arn"`
 	// The autoscaling groups used by this Environment.
 	AutoscalingGroups pulumi.StringArrayOutput `pulumi:"autoscalingGroups"`
 	// Fully qualified DNS name for this Environment.
@@ -137,7 +137,7 @@ type environmentState struct {
 	// Name of the application that contains the version
 	// to be deployed
 	Application *string `pulumi:"application"`
-	Arn *string `pulumi:"arn"`
+	Arn         *string `pulumi:"arn"`
 	// The autoscaling groups used by this Environment.
 	AutoscalingGroups []string `pulumi:"autoscalingGroups"`
 	// Fully qualified DNS name for this Environment.
@@ -203,7 +203,7 @@ type EnvironmentState struct {
 	// Name of the application that contains the version
 	// to be deployed
 	Application pulumi.StringPtrInput
-	Arn pulumi.StringPtrInput
+	Arn         pulumi.StringPtrInput
 	// The autoscaling groups used by this Environment.
 	AutoscalingGroups pulumi.StringArrayInput
 	// Fully qualified DNS name for this Environment.
@@ -268,7 +268,7 @@ func (EnvironmentState) ElementType() reflect.Type {
 type environmentArgs struct {
 	// Name of the application that contains the version
 	// to be deployed
-	Application string `pulumi:"application"`
+	Application interface{} `pulumi:"application"`
 	// Prefix to use for the fully qualified DNS name of
 	// the Environment.
 	CnamePrefix *string `pulumi:"cnamePrefix"`
@@ -314,7 +314,7 @@ type environmentArgs struct {
 type EnvironmentArgs struct {
 	// Name of the application that contains the version
 	// to be deployed
-	Application pulumi.StringInput
+	Application pulumi.Input
 	// Prefix to use for the fully qualified DNS name of
 	// the Environment.
 	CnamePrefix pulumi.StringPtrInput
@@ -359,4 +359,3 @@ type EnvironmentArgs struct {
 func (EnvironmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentArgs)(nil)).Elem()
 }
-

@@ -10,7 +10,7 @@ import (
 
 // Use this data source to get information about an EBS volume for use in other
 // resources.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.
 func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.InvokeOption) (*LookupVolumeResult, error) {
 	var rv LookupVolumeResult
@@ -29,10 +29,9 @@ type LookupVolumeArgs struct {
 	Filters []GetVolumeFilter `pulumi:"filters"`
 	// If more than one result is returned, use the most
 	// recent Volume.
-	MostRecent *bool `pulumi:"mostRecent"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	MostRecent *bool                  `pulumi:"mostRecent"`
+	Tags       map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getVolume.
 type LookupVolumeResult struct {
@@ -41,15 +40,15 @@ type LookupVolumeResult struct {
 	// The AZ where the EBS volume exists.
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// Whether the disk is encrypted.
-	Encrypted bool `pulumi:"encrypted"`
-	Filters []GetVolumeFilter `pulumi:"filters"`
+	Encrypted bool              `pulumi:"encrypted"`
+	Filters   []GetVolumeFilter `pulumi:"filters"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The amount of IOPS for the disk.
 	Iops int `pulumi:"iops"`
 	// The ARN for the KMS encryption key.
-	KmsKeyId string `pulumi:"kmsKeyId"`
-	MostRecent *bool `pulumi:"mostRecent"`
+	KmsKeyId   string `pulumi:"kmsKeyId"`
+	MostRecent *bool  `pulumi:"mostRecent"`
 	// The size of the drive in GiBs.
 	Size int `pulumi:"size"`
 	// The snapshotId the EBS volume is based off.
@@ -61,4 +60,3 @@ type LookupVolumeResult struct {
 	// The type of EBS volume.
 	VolumeType string `pulumi:"volumeType"`
 }
-

@@ -29,14 +29,14 @@ class RoleAlias(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, alias=None, credential_duration=None, role_arn=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an IoT role alias.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_role_alias.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The name of the role alias.
         :param pulumi.Input[float] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
         :param pulumi.Input[str] role_arn: The identity of the role to which the alias refers.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_role_alias.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -74,7 +74,7 @@ class RoleAlias(pulumi.CustomResource):
         """
         Get an existing RoleAlias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -82,12 +82,11 @@ class RoleAlias(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN assigned by AWS to this role alias.
         :param pulumi.Input[float] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
         :param pulumi.Input[str] role_arn: The identity of the role to which the alias refers.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_role_alias.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["alias"] = alias
         __props__["arn"] = arn
         __props__["credential_duration"] = credential_duration

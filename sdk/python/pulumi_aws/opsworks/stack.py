@@ -35,7 +35,7 @@ class Stack(pulumi.CustomResource):
     """
     When `use_custom_cookbooks` is set, provide this sub-object as
     described below.
-    
+
       * `password` (`str`)
       * `revision` (`str`)
       * `sshKey` (`str`)
@@ -117,7 +117,9 @@ class Stack(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, agent_version=None, berkshelf_version=None, color=None, configuration_manager_name=None, configuration_manager_version=None, custom_cookbooks_sources=None, custom_json=None, default_availability_zone=None, default_instance_profile_arn=None, default_os=None, default_root_device_type=None, default_ssh_key_name=None, default_subnet_id=None, hostname_theme=None, manage_berkshelf=None, name=None, region=None, service_role_arn=None, tags=None, use_custom_cookbooks=None, use_opsworks_security_groups=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an OpsWorks stack resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_stack.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_version: If set to `"LATEST"`, OpsWorks will automatically install the latest version.
@@ -149,17 +151,15 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
                security groups apply to created instances.
         :param pulumi.Input[str] vpc_id: The id of the VPC that this stack belongs to.
-        
+
         The **custom_cookbooks_sources** object supports the following:
-        
+
           * `password` (`pulumi.Input[str]`)
           * `revision` (`pulumi.Input[str]`)
           * `sshKey` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
           * `url` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_stack.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -219,7 +219,7 @@ class Stack(pulumi.CustomResource):
         """
         Get an existing Stack resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -252,21 +252,20 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
                security groups apply to created instances.
         :param pulumi.Input[str] vpc_id: The id of the VPC that this stack belongs to.
-        
+
         The **custom_cookbooks_sources** object supports the following:
-        
+
           * `password` (`pulumi.Input[str]`)
           * `revision` (`pulumi.Input[str]`)
           * `sshKey` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
           * `url` (`pulumi.Input[str]`)
           * `username` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_stack.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["agent_version"] = agent_version
         __props__["arn"] = arn
         __props__["berkshelf_version"] = berkshelf_version

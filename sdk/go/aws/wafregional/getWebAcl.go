@@ -9,7 +9,7 @@ import (
 )
 
 // `wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_web_acl.html.markdown.
 func LookupWebAcl(ctx *pulumi.Context, args *LookupWebAclArgs, opts ...pulumi.InvokeOption) (*LookupWebAclResult, error) {
 	var rv LookupWebAclResult
@@ -26,11 +26,9 @@ type LookupWebAclArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getWebAcl.
 type LookupWebAclResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
-

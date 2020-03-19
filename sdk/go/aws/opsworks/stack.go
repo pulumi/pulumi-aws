@@ -12,14 +12,14 @@ import (
 )
 
 // Provides an OpsWorks stack resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_stack.html.markdown.
 type Stack struct {
 	pulumi.CustomResourceState
 
 	// If set to `"LATEST"`, OpsWorks will automatically install the latest version.
 	AgentVersion pulumi.StringOutput `pulumi:"agentVersion"`
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn          pulumi.StringOutput `pulumi:"arn"`
 	// If `manageBerkshelf` is enabled, the version of Berkshelf to use.
 	BerkshelfVersion pulumi.StringPtrOutput `pulumi:"berkshelfVersion"`
 	// Color to paint next to the stack's resources in the OpsWorks console.
@@ -59,7 +59,7 @@ type Stack struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of an IAM role that the OpsWorks service will act as.
 	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
-	StackEndpoint pulumi.StringOutput `pulumi:"stackEndpoint"`
+	StackEndpoint  pulumi.StringOutput `pulumi:"stackEndpoint"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Boolean value controlling whether the custom cookbook settings are
@@ -111,7 +111,7 @@ func GetStack(ctx *pulumi.Context,
 type stackState struct {
 	// If set to `"LATEST"`, OpsWorks will automatically install the latest version.
 	AgentVersion *string `pulumi:"agentVersion"`
-	Arn *string `pulumi:"arn"`
+	Arn          *string `pulumi:"arn"`
 	// If `manageBerkshelf` is enabled, the version of Berkshelf to use.
 	BerkshelfVersion *string `pulumi:"berkshelfVersion"`
 	// Color to paint next to the stack's resources in the OpsWorks console.
@@ -151,7 +151,7 @@ type stackState struct {
 	Region *string `pulumi:"region"`
 	// The ARN of an IAM role that the OpsWorks service will act as.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
-	StackEndpoint *string `pulumi:"stackEndpoint"`
+	StackEndpoint  *string `pulumi:"stackEndpoint"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Boolean value controlling whether the custom cookbook settings are
@@ -167,7 +167,7 @@ type stackState struct {
 type StackState struct {
 	// If set to `"LATEST"`, OpsWorks will automatically install the latest version.
 	AgentVersion pulumi.StringPtrInput
-	Arn pulumi.StringPtrInput
+	Arn          pulumi.StringPtrInput
 	// If `manageBerkshelf` is enabled, the version of Berkshelf to use.
 	BerkshelfVersion pulumi.StringPtrInput
 	// Color to paint next to the stack's resources in the OpsWorks console.
@@ -207,7 +207,7 @@ type StackState struct {
 	Region pulumi.StringPtrInput
 	// The ARN of an IAM role that the OpsWorks service will act as.
 	ServiceRoleArn pulumi.StringPtrInput
-	StackEndpoint pulumi.StringPtrInput
+	StackEndpoint  pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// Boolean value controlling whether the custom cookbook settings are
@@ -336,4 +336,3 @@ type StackArgs struct {
 func (StackArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackArgs)(nil)).Elem()
 }
-

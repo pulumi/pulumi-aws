@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an OpsWorks permission resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_permission.html.markdown.
 type Permission struct {
 	pulumi.CustomResourceState
@@ -119,4 +119,3 @@ type PermissionArgs struct {
 func (PermissionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*permissionArgs)(nil)).Elem()
 }
-

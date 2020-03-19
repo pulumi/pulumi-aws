@@ -11,7 +11,7 @@ import (
 )
 
 // Provides an AWS App Mesh service mesh resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_mesh.html.markdown.
 type Mesh struct {
 	pulumi.CustomResourceState
@@ -113,4 +113,3 @@ type MeshArgs struct {
 func (MeshArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*meshArgs)(nil)).Elem()
 }
-

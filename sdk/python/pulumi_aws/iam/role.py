@@ -62,12 +62,14 @@ class Role(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, assume_role_policy=None, description=None, force_detach_policies=None, max_session_duration=None, name=None, name_prefix=None, path=None, permissions_boundary=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an IAM role.
-        
+
         > *NOTE:* If policies are attached to the role via the [`iam.PolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html) and you are modifying the role `name` or `path`, the `force_detach_policies` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The [`iam.RolePolicyAttachment` resource (recommended)](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html) does not have this requirement.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] assume_role_policy: The policy that grants an entity permission to assume the role.
+        :param pulumi.Input[dict] assume_role_policy: The policy that grants an entity permission to assume the role.
         :param pulumi.Input[str] description: The description of the role.
         :param pulumi.Input[bool] force_detach_policies: Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
         :param pulumi.Input[float] max_session_duration: The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
@@ -77,8 +79,6 @@ class Role(pulumi.CustomResource):
                See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         :param pulumi.Input[str] permissions_boundary: The ARN of the policy that is used to set the permissions boundary for the role.
         :param pulumi.Input[dict] tags: Key-value mapping of tags for the IAM role
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -122,12 +122,12 @@ class Role(pulumi.CustomResource):
         """
         Get an existing Role resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the role.
-        :param pulumi.Input[str] assume_role_policy: The policy that grants an entity permission to assume the role.
+        :param pulumi.Input[dict] assume_role_policy: The policy that grants an entity permission to assume the role.
         :param pulumi.Input[str] create_date: The creation date of the IAM role.
         :param pulumi.Input[str] description: The description of the role.
         :param pulumi.Input[bool] force_detach_policies: Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
@@ -139,12 +139,11 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[str] permissions_boundary: The ARN of the policy that is used to set the permissions boundary for the role.
         :param pulumi.Input[dict] tags: Key-value mapping of tags for the IAM role
         :param pulumi.Input[str] unique_id: The stable and unique string identifying the role.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["assume_role_policy"] = assume_role_policy
         __props__["create_date"] = create_date

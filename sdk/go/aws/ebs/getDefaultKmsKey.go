@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to get the default EBS encryption KMS key in the current region.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_default_kms_key.html.markdown.
 func LookupDefaultKmsKey(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupDefaultKmsKeyResult, error) {
 	var rv LookupDefaultKmsKeyResult
@@ -27,4 +27,3 @@ type LookupDefaultKmsKeyResult struct {
 	// Amazon Resource Name (ARN) of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
 	KeyArn string `pulumi:"keyArn"`
 }
-

@@ -16,9 +16,9 @@ import (
 // a domain name using Amazon Route 53 or another domain name registrar.
 // If you have already registered your domain, you can enter its name in
 // this parameter to manage the DNS records for that domain.
-// 
+//
 // > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_domain.html.markdown.
 type Domain struct {
 	pulumi.CustomResourceState
@@ -91,4 +91,3 @@ type DomainArgs struct {
 func (DomainArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainArgs)(nil)).Elem()
 }
-

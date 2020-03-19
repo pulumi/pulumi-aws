@@ -12,8 +12,8 @@ import (
 )
 
 // Provides a CodePipeline Webhook.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline_webhook.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline_webhook.markdown.
 type Webhook struct {
 	pulumi.CustomResourceState
 
@@ -154,4 +154,3 @@ type WebhookArgs struct {
 func (WebhookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webhookArgs)(nil)).Elem()
 }
-

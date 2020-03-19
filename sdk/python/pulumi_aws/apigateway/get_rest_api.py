@@ -13,15 +13,42 @@ class GetRestApiResult:
     """
     A collection of values returned by getRestApi.
     """
-    def __init__(__self__, name=None, root_resource_id=None, id=None):
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if root_resource_id and not isinstance(root_resource_id, str):
-            raise TypeError("Expected argument 'root_resource_id' to be a str")
-        __self__.root_resource_id = root_resource_id
+    def __init__(__self__, api_key_source=None, arn=None, binary_media_types=None, description=None, endpoint_configurations=None, execution_arn=None, id=None, minimum_compression_size=None, name=None, policy=None, root_resource_id=None, tags=None):
+        if api_key_source and not isinstance(api_key_source, str):
+            raise TypeError("Expected argument 'api_key_source' to be a str")
+        __self__.api_key_source = api_key_source
         """
-        Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
+        The source of the API key for requests.
+        """
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        __self__.arn = arn
+        """
+        The ARN of the REST API.
+        """
+        if binary_media_types and not isinstance(binary_media_types, list):
+            raise TypeError("Expected argument 'binary_media_types' to be a list")
+        __self__.binary_media_types = binary_media_types
+        """
+        The list of binary media types supported by the REST API.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description of the REST API.
+        """
+        if endpoint_configurations and not isinstance(endpoint_configurations, list):
+            raise TypeError("Expected argument 'endpoint_configurations' to be a list")
+        __self__.endpoint_configurations = endpoint_configurations
+        """
+        The endpoint configuration of this RestApi showing the endpoint types of the API.
+        """
+        if execution_arn and not isinstance(execution_arn, str):
+            raise TypeError("Expected argument 'execution_arn' to be a str")
+        __self__.execution_arn = execution_arn
+        """
+        The execution ARN part to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn` when allowing API Gateway to invoke a Lambda function, e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
         """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -29,31 +56,69 @@ class GetRestApiResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
+        if minimum_compression_size and not isinstance(minimum_compression_size, float):
+            raise TypeError("Expected argument 'minimum_compression_size' to be a float")
+        __self__.minimum_compression_size = minimum_compression_size
+        """
+        Minimum response size to compress for the REST API.
+        """
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        __self__.name = name
+        if policy and not isinstance(policy, str):
+            raise TypeError("Expected argument 'policy' to be a str")
+        __self__.policy = policy
+        """
+        JSON formatted policy document that controls access to the API Gateway.
+        """
+        if root_resource_id and not isinstance(root_resource_id, str):
+            raise TypeError("Expected argument 'root_resource_id' to be a str")
+        __self__.root_resource_id = root_resource_id
+        """
+        Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
+        """
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        __self__.tags = tags
+        """
+        Key-value mapping of resource tags.
+        """
 class AwaitableGetRestApiResult(GetRestApiResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetRestApiResult(
+            api_key_source=self.api_key_source,
+            arn=self.arn,
+            binary_media_types=self.binary_media_types,
+            description=self.description,
+            endpoint_configurations=self.endpoint_configurations,
+            execution_arn=self.execution_arn,
+            id=self.id,
+            minimum_compression_size=self.minimum_compression_size,
             name=self.name,
+            policy=self.policy,
             root_resource_id=self.root_resource_id,
-            id=self.id)
+            tags=self.tags)
 
-def get_rest_api(name=None,opts=None):
+def get_rest_api(name=None,tags=None,opts=None):
     """
     Use this data source to get the id and root_resource_id of a REST API in
     API Gateway. To fetch the REST API you must provide a name to match against. 
     As there is no unique name constraint on REST APIs this data source will 
     error if there is more than one match.
-    
-    :param str name: The name of the REST API to look up. If no REST API is found with this name, an error will be returned. 
-           If multiple REST APIs are found with this name, an error will be returned.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_rest_api.html.markdown.
+
+
+    :param str name: The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
     """
     __args__ = dict()
 
+
     __args__['name'] = name
+    __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -61,6 +126,15 @@ def get_rest_api(name=None,opts=None):
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getRestApi:getRestApi', __args__, opts=opts).value
 
     return AwaitableGetRestApiResult(
+        api_key_source=__ret__.get('apiKeySource'),
+        arn=__ret__.get('arn'),
+        binary_media_types=__ret__.get('binaryMediaTypes'),
+        description=__ret__.get('description'),
+        endpoint_configurations=__ret__.get('endpointConfigurations'),
+        execution_arn=__ret__.get('executionArn'),
+        id=__ret__.get('id'),
+        minimum_compression_size=__ret__.get('minimumCompressionSize'),
         name=__ret__.get('name'),
+        policy=__ret__.get('policy'),
         root_resource_id=__ret__.get('rootResourceId'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

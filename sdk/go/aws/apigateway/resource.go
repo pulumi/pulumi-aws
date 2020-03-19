@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an API Gateway Resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_resource.html.markdown.
 type Resource struct {
 	pulumi.CustomResourceState
@@ -95,7 +95,7 @@ type resourceArgs struct {
 	// The last path segment of this API resource.
 	PathPart string `pulumi:"pathPart"`
 	// The ID of the associated REST API
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 }
 
 // The set of arguments for constructing a Resource resource.
@@ -105,10 +105,9 @@ type ResourceArgs struct {
 	// The last path segment of this API resource.
 	PathPart pulumi.StringInput
 	// The ID of the associated REST API
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 }
 
 func (ResourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceArgs)(nil)).Elem()
 }
-

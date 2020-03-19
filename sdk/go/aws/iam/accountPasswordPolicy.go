@@ -11,11 +11,11 @@ import (
 )
 
 // > **Note:** There is only a single policy allowed per AWS account. An existing policy will be lost when using this resource as an effect of this limitation.
-// 
+//
 // Manages Password Policy for the AWS Account.
 // See more about [Account Password Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html)
 // in the official AWS docs.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_account_password_policy.html.markdown.
 type AccountPasswordPolicy struct {
 	pulumi.CustomResourceState
@@ -176,4 +176,3 @@ type AccountPasswordPolicyArgs struct {
 func (AccountPasswordPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountPasswordPolicyArgs)(nil)).Elem()
 }
-

@@ -13,13 +13,13 @@ import (
 
 // This resource represents a successful validation of an ACM certificate in concert
 // with other resources.
-// 
+//
 // Most commonly, this resource is used together with `route53.Record` and
 // `acm.Certificate` to request a DNS validated certificate,
 // deploy the required validation records and wait for validation to complete.
-// 
+//
 // > **WARNING:** This resource implements a part of the validation workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate_validation.html.markdown.
 type CertificateValidation struct {
 	pulumi.CustomResourceState
@@ -96,4 +96,3 @@ type CertificateValidationArgs struct {
 func (CertificateValidationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateValidationArgs)(nil)).Elem()
 }
-

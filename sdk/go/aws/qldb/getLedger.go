@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to fetch information about a Quantum Ledger Database.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/qldb_ledger.html.markdown.
 func LookupLedger(ctx *pulumi.Context, args *LookupLedgerArgs, opts ...pulumi.InvokeOption) (*LookupLedgerResult, error) {
 	var rv LookupLedgerResult
@@ -26,15 +26,13 @@ type LookupLedgerArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getLedger.
 type LookupLedgerResult struct {
 	// Amazon Resource Name (ARN) of the ledger.
 	Arn string `pulumi:"arn"`
-	// Deletion protection on the QLDB Ledger instance. Set to `true` by default. 
+	// Deletion protection on the QLDB Ledger instance. Set to `true` by default.
 	DeletionProtection bool `pulumi:"deletionProtection"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
-

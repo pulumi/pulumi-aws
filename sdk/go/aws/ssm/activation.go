@@ -12,7 +12,7 @@ import (
 )
 
 // Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_activation.html.markdown.
 type Activation struct {
 	pulumi.CustomResourceState
@@ -21,6 +21,7 @@ type Activation struct {
 	ActivationCode pulumi.StringOutput `pulumi:"activationCode"`
 	// The description of the resource that you want to register.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The date by which this activation request should expire. The default value is 24 hours.
 	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
 	// If the current activation has expired.
 	Expired pulumi.StringOutput `pulumi:"expired"`
@@ -71,6 +72,7 @@ type activationState struct {
 	ActivationCode *string `pulumi:"activationCode"`
 	// The description of the resource that you want to register.
 	Description *string `pulumi:"description"`
+	// The date by which this activation request should expire. The default value is 24 hours.
 	ExpirationDate *string `pulumi:"expirationDate"`
 	// If the current activation has expired.
 	Expired *string `pulumi:"expired"`
@@ -91,6 +93,7 @@ type ActivationState struct {
 	ActivationCode pulumi.StringPtrInput
 	// The description of the resource that you want to register.
 	Description pulumi.StringPtrInput
+	// The date by which this activation request should expire. The default value is 24 hours.
 	ExpirationDate pulumi.StringPtrInput
 	// If the current activation has expired.
 	Expired pulumi.StringPtrInput
@@ -113,6 +116,7 @@ func (ActivationState) ElementType() reflect.Type {
 type activationArgs struct {
 	// The description of the resource that you want to register.
 	Description *string `pulumi:"description"`
+	// The date by which this activation request should expire. The default value is 24 hours.
 	ExpirationDate *string `pulumi:"expirationDate"`
 	// The IAM Role to attach to the managed instance.
 	IamRole string `pulumi:"iamRole"`
@@ -128,6 +132,7 @@ type activationArgs struct {
 type ActivationArgs struct {
 	// The description of the resource that you want to register.
 	Description pulumi.StringPtrInput
+	// The date by which this activation request should expire. The default value is 24 hours.
 	ExpirationDate pulumi.StringPtrInput
 	// The IAM Role to attach to the managed instance.
 	IamRole pulumi.StringInput
@@ -142,4 +147,3 @@ type ActivationArgs struct {
 func (ActivationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*activationArgs)(nil)).Elem()
 }
-

@@ -13,19 +13,19 @@ import (
 
 // Provides an EC2 Spot Instance Request resource. This allows instances to be
 // requested on the spot market.
-// 
+//
 // By default this provider creates Spot Instance Requests with a `persistent` type,
 // which means that for the duration of their lifetime, AWS will launch an
 // instance with the configured details if and when the spot market will accept
 // the requested price.
-// 
+//
 // On destruction, this provider will make an attempt to terminate the associated Spot
 // Instance if there is one present.
-// 
+//
 // Spot Instances requests with a `one-time` type will close the spot request
 // when the instance is terminated either by the request being below the current spot
 // price availability or by a user.
-// 
+//
 // > **NOTE:** Because their behavior depends on the live status of the spot
 // market, Spot Instance Requests have a unique lifecycle that makes them behave
 // differently than other resources. Most importantly: there is __no
@@ -33,7 +33,7 @@ import (
 // point in time. See the [AWS Spot Instance
 // documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
 // for more information.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_instance_request.html.markdown.
 type SpotInstanceRequest struct {
 	pulumi.CustomResourceState
@@ -74,6 +74,8 @@ type SpotInstanceRequest struct {
 	EphemeralBlockDevices SpotInstanceRequestEphemeralBlockDeviceArrayOutput `pulumi:"ephemeralBlockDevices"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrOutput `pulumi:"getPasswordData"`
+	// If true, the launched EC2 instance will support hibernation.
+	Hibernation pulumi.BoolPtrOutput `pulumi:"hibernation"`
 	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId pulumi.StringOutput `pulumi:"hostId"`
 	// The IAM Instance Profile to
@@ -87,10 +89,10 @@ type SpotInstanceRequest struct {
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrOutput `pulumi:"instanceInitiatedShutdownBehavior"`
 	// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
 	InstanceInterruptionBehaviour pulumi.StringPtrOutput `pulumi:"instanceInterruptionBehaviour"`
-	InstanceState pulumi.StringOutput `pulumi:"instanceState"`
+	InstanceState                 pulumi.StringOutput    `pulumi:"instanceState"`
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
-	Ipv6AddressCount pulumi.IntOutput `pulumi:"ipv6AddressCount"`
+	InstanceType     pulumi.StringOutput `pulumi:"instanceType"`
+	Ipv6AddressCount pulumi.IntOutput    `pulumi:"ipv6AddressCount"`
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
 	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
@@ -102,9 +104,9 @@ type SpotInstanceRequest struct {
 	Monitoring pulumi.BoolPtrOutput `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces SpotInstanceRequestNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
-	PasswordData pulumi.StringOutput `pulumi:"passwordData"`
+	PasswordData      pulumi.StringOutput                            `pulumi:"passwordData"`
 	// The Placement Group to start the instance in.
-	PlacementGroup pulumi.StringOutput `pulumi:"placementGroup"`
+	PlacementGroup            pulumi.StringOutput `pulumi:"placementGroup"`
 	PrimaryNetworkInterfaceId pulumi.StringOutput `pulumi:"primaryNetworkInterfaceId"`
 	// The private DNS name assigned to the instance. Can only be
 	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
@@ -137,8 +139,8 @@ type SpotInstanceRequest struct {
 	// the Spot Instance request.
 	SpotInstanceId pulumi.StringOutput `pulumi:"spotInstanceId"`
 	// The maximum price to request on the spot market.
-	SpotPrice pulumi.StringPtrOutput `pulumi:"spotPrice"`
-	SpotRequestState pulumi.StringOutput `pulumi:"spotRequestState"`
+	SpotPrice        pulumi.StringPtrOutput `pulumi:"spotPrice"`
+	SpotRequestState pulumi.StringOutput    `pulumi:"spotRequestState"`
 	// If set to `one-time`, after
 	// the instance is terminated, the spot request will be closed.
 	SpotType pulumi.StringPtrOutput `pulumi:"spotType"`
@@ -236,6 +238,8 @@ type spotInstanceRequestState struct {
 	EphemeralBlockDevices []SpotInstanceRequestEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData *bool `pulumi:"getPasswordData"`
+	// If true, the launched EC2 instance will support hibernation.
+	Hibernation *bool `pulumi:"hibernation"`
 	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId *string `pulumi:"hostId"`
 	// The IAM Instance Profile to
@@ -249,10 +253,10 @@ type spotInstanceRequestState struct {
 	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
 	// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
 	InstanceInterruptionBehaviour *string `pulumi:"instanceInterruptionBehaviour"`
-	InstanceState *string `pulumi:"instanceState"`
+	InstanceState                 *string `pulumi:"instanceState"`
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType *string `pulumi:"instanceType"`
-	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
+	InstanceType     *string `pulumi:"instanceType"`
+	Ipv6AddressCount *int    `pulumi:"ipv6AddressCount"`
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
@@ -264,9 +268,9 @@ type spotInstanceRequestState struct {
 	Monitoring *bool `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces []SpotInstanceRequestNetworkInterface `pulumi:"networkInterfaces"`
-	PasswordData *string `pulumi:"passwordData"`
+	PasswordData      *string                               `pulumi:"passwordData"`
 	// The Placement Group to start the instance in.
-	PlacementGroup *string `pulumi:"placementGroup"`
+	PlacementGroup            *string `pulumi:"placementGroup"`
 	PrimaryNetworkInterfaceId *string `pulumi:"primaryNetworkInterfaceId"`
 	// The private DNS name assigned to the instance. Can only be
 	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
@@ -299,7 +303,7 @@ type spotInstanceRequestState struct {
 	// the Spot Instance request.
 	SpotInstanceId *string `pulumi:"spotInstanceId"`
 	// The maximum price to request on the spot market.
-	SpotPrice *string `pulumi:"spotPrice"`
+	SpotPrice        *string `pulumi:"spotPrice"`
 	SpotRequestState *string `pulumi:"spotRequestState"`
 	// If set to `one-time`, after
 	// the instance is terminated, the spot request will be closed.
@@ -365,6 +369,8 @@ type SpotInstanceRequestState struct {
 	EphemeralBlockDevices SpotInstanceRequestEphemeralBlockDeviceArrayInput
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrInput
+	// If true, the launched EC2 instance will support hibernation.
+	Hibernation pulumi.BoolPtrInput
 	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId pulumi.StringPtrInput
 	// The IAM Instance Profile to
@@ -378,9 +384,9 @@ type SpotInstanceRequestState struct {
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
 	// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
 	InstanceInterruptionBehaviour pulumi.StringPtrInput
-	InstanceState pulumi.StringPtrInput
+	InstanceState                 pulumi.StringPtrInput
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType pulumi.StringPtrInput
+	InstanceType     pulumi.StringPtrInput
 	Ipv6AddressCount pulumi.IntPtrInput
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses pulumi.StringArrayInput
@@ -393,9 +399,9 @@ type SpotInstanceRequestState struct {
 	Monitoring pulumi.BoolPtrInput
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces SpotInstanceRequestNetworkInterfaceArrayInput
-	PasswordData pulumi.StringPtrInput
+	PasswordData      pulumi.StringPtrInput
 	// The Placement Group to start the instance in.
-	PlacementGroup pulumi.StringPtrInput
+	PlacementGroup            pulumi.StringPtrInput
 	PrimaryNetworkInterfaceId pulumi.StringPtrInput
 	// The private DNS name assigned to the instance. Can only be
 	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
@@ -428,7 +434,7 @@ type SpotInstanceRequestState struct {
 	// the Spot Instance request.
 	SpotInstanceId pulumi.StringPtrInput
 	// The maximum price to request on the spot market.
-	SpotPrice pulumi.StringPtrInput
+	SpotPrice        pulumi.StringPtrInput
 	SpotRequestState pulumi.StringPtrInput
 	// If set to `one-time`, after
 	// the instance is terminated, the spot request will be closed.
@@ -497,6 +503,8 @@ type spotInstanceRequestArgs struct {
 	EphemeralBlockDevices []SpotInstanceRequestEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData *bool `pulumi:"getPasswordData"`
+	// If true, the launched EC2 instance will support hibernation.
+	Hibernation *bool `pulumi:"hibernation"`
 	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId *string `pulumi:"hostId"`
 	// The IAM Instance Profile to
@@ -511,8 +519,8 @@ type spotInstanceRequestArgs struct {
 	// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
 	InstanceInterruptionBehaviour *string `pulumi:"instanceInterruptionBehaviour"`
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType string `pulumi:"instanceType"`
-	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
+	InstanceType     string `pulumi:"instanceType"`
+	Ipv6AddressCount *int   `pulumi:"ipv6AddressCount"`
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
@@ -603,6 +611,8 @@ type SpotInstanceRequestArgs struct {
 	EphemeralBlockDevices SpotInstanceRequestEphemeralBlockDeviceArrayInput
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrInput
+	// If true, the launched EC2 instance will support hibernation.
+	Hibernation pulumi.BoolPtrInput
 	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId pulumi.StringPtrInput
 	// The IAM Instance Profile to
@@ -617,7 +627,7 @@ type SpotInstanceRequestArgs struct {
 	// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
 	InstanceInterruptionBehaviour pulumi.StringPtrInput
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType pulumi.StringInput
+	InstanceType     pulumi.StringInput
 	Ipv6AddressCount pulumi.IntPtrInput
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses pulumi.StringArrayInput
@@ -675,4 +685,3 @@ type SpotInstanceRequestArgs struct {
 func (SpotInstanceRequestArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*spotInstanceRequestArgs)(nil)).Elem()
 }
-

@@ -9,7 +9,7 @@ import (
 )
 
 // Provides details about a specific Nat Gateway.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/nat_gateway.html.markdown.
 func LookupNatGateway(ctx *pulumi.Context, args *LookupNatGatewayArgs, opts ...pulumi.InvokeOption) (*LookupNatGatewayResult, error) {
 	var rv LookupNatGatewayResult
@@ -37,22 +37,20 @@ type LookupNatGatewayArgs struct {
 	VpcId *string `pulumi:"vpcId"`
 }
 
-
 // A collection of values returned by getNatGateway.
 type LookupNatGatewayResult struct {
 	// The Id of the EIP allocated to the selected Nat Gateway.
-	AllocationId string `pulumi:"allocationId"`
-	Filters []GetNatGatewayFilter `pulumi:"filters"`
-	Id string `pulumi:"id"`
+	AllocationId string                `pulumi:"allocationId"`
+	Filters      []GetNatGatewayFilter `pulumi:"filters"`
+	Id           string                `pulumi:"id"`
 	// The Id of the ENI allocated to the selected Nat Gateway.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 	// The private Ip address of the selected Nat Gateway.
 	PrivateIp string `pulumi:"privateIp"`
 	// The public Ip (EIP) address of the selected Nat Gateway.
-	PublicIp string `pulumi:"publicIp"`
-	State string `pulumi:"state"`
-	SubnetId string `pulumi:"subnetId"`
-	Tags map[string]interface{} `pulumi:"tags"`
-	VpcId string `pulumi:"vpcId"`
+	PublicIp string                 `pulumi:"publicIp"`
+	State    string                 `pulumi:"state"`
+	SubnetId string                 `pulumi:"subnetId"`
+	Tags     map[string]interface{} `pulumi:"tags"`
+	VpcId    string                 `pulumi:"vpcId"`
 }
-

@@ -12,10 +12,10 @@ import (
 )
 
 // Provides an API Gateway Deployment.
-// 
+//
 // > **Note:** Depends on having `apigateway.Integration` inside your rest api (which in turn depends on `apigateway.Method`). To avoid race conditions
 // you might need to add an explicit `dependsOn = ["aws_api_gateway_integration.name"]`.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_deployment.html.markdown.
 type Deployment struct {
 	pulumi.CustomResourceState
@@ -123,7 +123,7 @@ type deploymentArgs struct {
 	// The description of the deployment
 	Description *string `pulumi:"description"`
 	// The ID of the associated REST API
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// The description of the stage
 	StageDescription *string `pulumi:"stageDescription"`
 	// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
@@ -137,7 +137,7 @@ type DeploymentArgs struct {
 	// The description of the deployment
 	Description pulumi.StringPtrInput
 	// The ID of the associated REST API
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 	// The description of the stage
 	StageDescription pulumi.StringPtrInput
 	// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
@@ -149,4 +149,3 @@ type DeploymentArgs struct {
 func (DeploymentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentArgs)(nil)).Elem()
 }
-

@@ -109,6 +109,10 @@ export class Gateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+     */
+    public readonly cloudwatchLogGroupArn!: pulumi.Output<string | undefined>;
+    /**
      * Identifier of the gateway.
      */
     public /*out*/ readonly gatewayId!: pulumi.Output<string>;
@@ -160,6 +164,7 @@ export class Gateway extends pulumi.CustomResource {
             const state = argsOrState as GatewayState | undefined;
             inputs["activationKey"] = state ? state.activationKey : undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["cloudwatchLogGroupArn"] = state ? state.cloudwatchLogGroupArn : undefined;
             inputs["gatewayId"] = state ? state.gatewayId : undefined;
             inputs["gatewayIpAddress"] = state ? state.gatewayIpAddress : undefined;
             inputs["gatewayName"] = state ? state.gatewayName : undefined;
@@ -179,6 +184,7 @@ export class Gateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'gatewayTimezone'");
             }
             inputs["activationKey"] = args ? args.activationKey : undefined;
+            inputs["cloudwatchLogGroupArn"] = args ? args.cloudwatchLogGroupArn : undefined;
             inputs["gatewayIpAddress"] = args ? args.gatewayIpAddress : undefined;
             inputs["gatewayName"] = args ? args.gatewayName : undefined;
             inputs["gatewayTimezone"] = args ? args.gatewayTimezone : undefined;
@@ -214,6 +220,10 @@ export interface GatewayState {
      * Amazon Resource Name (ARN) of the gateway.
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+     */
+    readonly cloudwatchLogGroupArn?: pulumi.Input<string>;
     /**
      * Identifier of the gateway.
      */
@@ -261,6 +271,10 @@ export interface GatewayArgs {
      * Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      */
     readonly activationKey?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+     */
+    readonly cloudwatchLogGroupArn?: pulumi.Input<string>;
     /**
      * Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      */

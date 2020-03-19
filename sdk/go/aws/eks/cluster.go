@@ -12,7 +12,7 @@ import (
 )
 
 // Manages an EKS Cluster.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_cluster.html.markdown.
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -21,9 +21,11 @@ type Cluster struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Nested attribute containing `certificate-authority-data` for your cluster.
 	CertificateAuthority ClusterCertificateAuthorityOutput `pulumi:"certificateAuthority"`
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt            pulumi.StringOutput               `pulumi:"createdAt"`
 	// A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
 	EnabledClusterLogTypes pulumi.StringArrayOutput `pulumi:"enabledClusterLogTypes"`
+	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+	EncryptionConfig ClusterEncryptionConfigPtrOutput `pulumi:"encryptionConfig"`
 	// The endpoint for your Kubernetes API server.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
@@ -34,7 +36,7 @@ type Cluster struct {
 	PlatformVersion pulumi.StringOutput `pulumi:"platformVersion"`
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding [`dependsOn`](https://www.terraform.io/docs/configuration/resources.html#depends_on-explicit-resource-dependencies) if using the [`iam.RolePolicy` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html) or [`iam.RolePolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html), otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
+	// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value mapping of resource tags.
 	Tags pulumi.MapOutput `pulumi:"tags"`
@@ -82,9 +84,11 @@ type clusterState struct {
 	Arn *string `pulumi:"arn"`
 	// Nested attribute containing `certificate-authority-data` for your cluster.
 	CertificateAuthority *ClusterCertificateAuthority `pulumi:"certificateAuthority"`
-	CreatedAt *string `pulumi:"createdAt"`
+	CreatedAt            *string                      `pulumi:"createdAt"`
 	// A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
+	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+	EncryptionConfig *ClusterEncryptionConfig `pulumi:"encryptionConfig"`
 	// The endpoint for your Kubernetes API server.
 	Endpoint *string `pulumi:"endpoint"`
 	// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
@@ -95,7 +99,7 @@ type clusterState struct {
 	PlatformVersion *string `pulumi:"platformVersion"`
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding [`dependsOn`](https://www.terraform.io/docs/configuration/resources.html#depends_on-explicit-resource-dependencies) if using the [`iam.RolePolicy` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html) or [`iam.RolePolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html), otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
 	RoleArn *string `pulumi:"roleArn"`
-	// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
+	// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
 	Status *string `pulumi:"status"`
 	// Key-value mapping of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -110,9 +114,11 @@ type ClusterState struct {
 	Arn pulumi.StringPtrInput
 	// Nested attribute containing `certificate-authority-data` for your cluster.
 	CertificateAuthority ClusterCertificateAuthorityPtrInput
-	CreatedAt pulumi.StringPtrInput
+	CreatedAt            pulumi.StringPtrInput
 	// A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
 	EnabledClusterLogTypes pulumi.StringArrayInput
+	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+	EncryptionConfig ClusterEncryptionConfigPtrInput
 	// The endpoint for your Kubernetes API server.
 	Endpoint pulumi.StringPtrInput
 	// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
@@ -123,7 +129,7 @@ type ClusterState struct {
 	PlatformVersion pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding [`dependsOn`](https://www.terraform.io/docs/configuration/resources.html#depends_on-explicit-resource-dependencies) if using the [`iam.RolePolicy` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html) or [`iam.RolePolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html), otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
 	RoleArn pulumi.StringPtrInput
-	// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
+	// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
 	Status pulumi.StringPtrInput
 	// Key-value mapping of resource tags.
 	Tags pulumi.MapInput
@@ -140,6 +146,8 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
+	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+	EncryptionConfig *ClusterEncryptionConfig `pulumi:"encryptionConfig"`
 	// Name of the cluster.
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding [`dependsOn`](https://www.terraform.io/docs/configuration/resources.html#depends_on-explicit-resource-dependencies) if using the [`iam.RolePolicy` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html) or [`iam.RolePolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html), otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
@@ -156,6 +164,8 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	// A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
 	EnabledClusterLogTypes pulumi.StringArrayInput
+	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+	EncryptionConfig ClusterEncryptionConfigPtrInput
 	// Name of the cluster.
 	Name pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding [`dependsOn`](https://www.terraform.io/docs/configuration/resources.html#depends_on-explicit-resource-dependencies) if using the [`iam.RolePolicy` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html) or [`iam.RolePolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html), otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
@@ -171,4 +181,3 @@ type ClusterArgs struct {
 func (ClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterArgs)(nil)).Elem()
 }
-

@@ -9,11 +9,11 @@ import (
 )
 
 // `ec2.RouteTable` provides details about a specific Route Table.
-// 
+//
 // This resource can prove useful when a module accepts a Subnet id as
 // an input variable and needs to, for example, add a route in
 // the Route Table.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_table.html.markdown.
 func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupRouteTableResult, error) {
 	var rv LookupRouteTableResult
@@ -41,11 +41,10 @@ type LookupRouteTableArgs struct {
 	VpcId *string `pulumi:"vpcId"`
 }
 
-
 // A collection of values returned by getRouteTable.
 type LookupRouteTableResult struct {
 	Associations []GetRouteTableAssociationType `pulumi:"associations"`
-	Filters []GetRouteTableFilter `pulumi:"filters"`
+	Filters      []GetRouteTableFilter          `pulumi:"filters"`
 	// The Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
 	GatewayId string `pulumi:"gatewayId"`
 	// id is the provider-assigned unique ID for this managed resource.
@@ -53,11 +52,10 @@ type LookupRouteTableResult struct {
 	// The ID of the AWS account that owns the route table
 	OwnerId string `pulumi:"ownerId"`
 	// The Route Table ID.
-	RouteTableId string `pulumi:"routeTableId"`
-	Routes []GetRouteTableRoute `pulumi:"routes"`
+	RouteTableId string               `pulumi:"routeTableId"`
+	Routes       []GetRouteTableRoute `pulumi:"routes"`
 	// The Subnet ID. Only set when associated with a Subnet.
-	SubnetId string `pulumi:"subnetId"`
-	Tags map[string]interface{} `pulumi:"tags"`
-	VpcId string `pulumi:"vpcId"`
+	SubnetId string                 `pulumi:"subnetId"`
+	Tags     map[string]interface{} `pulumi:"tags"`
+	VpcId    string                 `pulumi:"vpcId"`
 }
-

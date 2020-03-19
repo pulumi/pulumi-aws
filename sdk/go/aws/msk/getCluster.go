@@ -9,7 +9,7 @@ import (
 )
 
 // Get information on an Amazon MSK Cluster.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_cluster.html.markdown.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
@@ -23,10 +23,9 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
 	// Name of the cluster.
-	ClusterName string `pulumi:"clusterName"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	ClusterName string                 `pulumi:"clusterName"`
+	Tags        map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
@@ -36,7 +35,7 @@ type LookupClusterResult struct {
 	BootstrapBrokers string `pulumi:"bootstrapBrokers"`
 	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster.
 	BootstrapBrokersTls string `pulumi:"bootstrapBrokersTls"`
-	ClusterName string `pulumi:"clusterName"`
+	ClusterName         string `pulumi:"clusterName"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Apache Kafka version.
@@ -45,7 +44,6 @@ type LookupClusterResult struct {
 	NumberOfBrokerNodes int `pulumi:"numberOfBrokerNodes"`
 	// Map of key-value pairs assigned to the cluster.
 	Tags map[string]interface{} `pulumi:"tags"`
-	// A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
+	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
 	ZookeeperConnectString string `pulumi:"zookeeperConnectString"`
 }
-

@@ -8,7 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instances.html.markdown.
 func GetInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.InvokeOption) (*GetInstancesResult, error) {
 	var rv GetInstancesResult
 	err := ctx.Invoke("aws:ec2/getInstances:getInstances", args, &rv, opts...)
@@ -31,19 +30,17 @@ type GetInstancesArgs struct {
 	InstanceTags map[string]interface{} `pulumi:"instanceTags"`
 }
 
-
 // A collection of values returned by getInstances.
 type GetInstancesResult struct {
 	Filters []GetInstancesFilter `pulumi:"filters"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// IDs of instances found through the filter
-	Ids []string `pulumi:"ids"`
-	InstanceStateNames []string `pulumi:"instanceStateNames"`
-	InstanceTags map[string]interface{} `pulumi:"instanceTags"`
+	Ids                []string               `pulumi:"ids"`
+	InstanceStateNames []string               `pulumi:"instanceStateNames"`
+	InstanceTags       map[string]interface{} `pulumi:"instanceTags"`
 	// Private IP addresses of instances found through the filter
 	PrivateIps []string `pulumi:"privateIps"`
 	// Public IP addresses of instances found through the filter
 	PublicIps []string `pulumi:"publicIps"`
 }
-

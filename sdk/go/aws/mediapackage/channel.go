@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an AWS Elemental MediaPackage Channel.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/media_package_channel.html.markdown.
 type Channel struct {
 	pulumi.CustomResourceState
@@ -114,4 +114,3 @@ type ChannelArgs struct {
 func (ChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelArgs)(nil)).Elem()
 }
-

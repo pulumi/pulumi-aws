@@ -79,6 +79,9 @@ export class GroupPolicy extends pulumi.CustomResource {
      * prefix. Conflicts with `name`.
      */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
+    /**
+     * The policy document attached to the group.
+     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -139,6 +142,9 @@ export interface GroupPolicyState {
      * prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
+    /**
+     * The policy document attached to the group.
+     */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
 }
 
@@ -160,5 +166,8 @@ export interface GroupPolicyArgs {
      * prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
+    /**
+     * The policy document attached to the group.
+     */
     readonly policy: pulumi.Input<string | PolicyDocument>;
 }

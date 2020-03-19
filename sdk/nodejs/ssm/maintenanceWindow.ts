@@ -60,6 +60,10 @@ export class MaintenanceWindow extends pulumi.CustomResource {
      */
     public readonly cutoff!: pulumi.Output<number>;
     /**
+     * A description for the maintenance window.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * The duration of the Maintenance Window in hours.
      */
     public readonly duration!: pulumi.Output<number>;
@@ -106,6 +110,7 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             const state = argsOrState as MaintenanceWindowState | undefined;
             inputs["allowUnassociatedTargets"] = state ? state.allowUnassociatedTargets : undefined;
             inputs["cutoff"] = state ? state.cutoff : undefined;
+            inputs["description"] = state ? state.description : undefined;
             inputs["duration"] = state ? state.duration : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["endDate"] = state ? state.endDate : undefined;
@@ -127,6 +132,7 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             }
             inputs["allowUnassociatedTargets"] = args ? args.allowUnassociatedTargets : undefined;
             inputs["cutoff"] = args ? args.cutoff : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["duration"] = args ? args.duration : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["endDate"] = args ? args.endDate : undefined;
@@ -159,6 +165,10 @@ export interface MaintenanceWindowState {
      * The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
      */
     readonly cutoff?: pulumi.Input<number>;
+    /**
+     * A description for the maintenance window.
+     */
+    readonly description?: pulumi.Input<string>;
     /**
      * The duration of the Maintenance Window in hours.
      */
@@ -205,6 +215,10 @@ export interface MaintenanceWindowArgs {
      * The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
      */
     readonly cutoff: pulumi.Input<number>;
+    /**
+     * A description for the maintenance window.
+     */
+    readonly description?: pulumi.Input<string>;
     /**
      * The duration of the Maintenance Window in hours.
      */

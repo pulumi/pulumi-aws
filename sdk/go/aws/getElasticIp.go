@@ -9,7 +9,7 @@ import (
 )
 
 // `ec2.Eip` provides details about a specific Elastic IP.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eip.html.markdown.
 func GetElasticIp(ctx *pulumi.Context, args *GetElasticIpArgs, opts ...pulumi.InvokeOption) (*GetElasticIpResult, error) {
 	var rv GetElasticIpResult
@@ -32,13 +32,12 @@ type GetElasticIpArgs struct {
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
-
 // A collection of values returned by getElasticIp.
 type GetElasticIpResult struct {
 	// The ID representing the association of the address with an instance in a VPC.
 	AssociationId string `pulumi:"associationId"`
 	// Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
-	Domain string `pulumi:"domain"`
+	Domain  string               `pulumi:"domain"`
 	Filters []GetElasticIpFilter `pulumi:"filters"`
 	// If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.
 	Id string `pulumi:"id"`
@@ -61,4 +60,3 @@ type GetElasticIpResult struct {
 	// Key-value map of tags associated with Elastic IP.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-

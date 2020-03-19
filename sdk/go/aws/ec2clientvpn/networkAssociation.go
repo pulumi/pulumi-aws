@@ -11,9 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the 
+// Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
 // [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_client_vpn_network_association.html.markdown.
 type NetworkAssociation struct {
 	pulumi.CustomResourceState
@@ -26,7 +26,7 @@ type NetworkAssociation struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The ID of the subnet to associate with the Client VPN endpoint.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// The ID of the VPC in which the target network (subnet) is located. 
+	// The ID of the VPC in which the target network (subnet) is located.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -72,7 +72,7 @@ type networkAssociationState struct {
 	Status *string `pulumi:"status"`
 	// The ID of the subnet to associate with the Client VPN endpoint.
 	SubnetId *string `pulumi:"subnetId"`
-	// The ID of the VPC in which the target network (subnet) is located. 
+	// The ID of the VPC in which the target network (subnet) is located.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -85,7 +85,7 @@ type NetworkAssociationState struct {
 	Status pulumi.StringPtrInput
 	// The ID of the subnet to associate with the Client VPN endpoint.
 	SubnetId pulumi.StringPtrInput
-	// The ID of the VPC in which the target network (subnet) is located. 
+	// The ID of the VPC in which the target network (subnet) is located.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -111,4 +111,3 @@ type NetworkAssociationArgs struct {
 func (NetworkAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkAssociationArgs)(nil)).Elem()
 }
-

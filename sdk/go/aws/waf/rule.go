@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a WAF Rule Resource
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_rule.html.markdown.
 type Rule struct {
 	pulumi.CustomResourceState
@@ -115,4 +115,3 @@ type RuleArgs struct {
 func (RuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleArgs)(nil)).Elem()
 }
-

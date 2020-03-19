@@ -34,7 +34,7 @@ class Certificate(pulumi.CustomResource):
     domain_validation_options: pulumi.Output[list]
     """
     A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
-    
+
       * `domain_name` (`str`) - A domain name for which the certificate should be issued
       * `resourceRecordName` (`str`) - The name of the DNS record to create to validate the certificate
       * `resourceRecordType` (`str`) - The type of DNS record to create
@@ -66,28 +66,30 @@ class Certificate(pulumi.CustomResource):
         """
         The ACM certificate resource allows requesting and management of certificates
         from the Amazon Certificate Manager.
-        
+
         It deals with requesting certificates and managing their attributes and life-cycle.
         This resource does not deal with validation of a certificate but can provide inputs
         for other resources implementing the validation. It does not wait for a certificate to be issued.
         Use a `acm.CertificateValidation` resource for this.
-        
+
         Most commonly, this resource is used to together with `route53.Record` and
         `acm.CertificateValidation` to request a DNS validated certificate,
         deploy the required validation records and wait for validation to complete.
-        
+
         Domain validation through E-Mail is also supported but should be avoided as it requires a manual step outside
         of this provider.
-        
+
         It's recommended to specify `create_before_destroy = true` in a [lifecycle][1] block to replace a certificate
         which is currently in use (eg, by `lb.Listener`).
-        
+
         ## options Configuration Block
-        
+
         Supported nested arguments for the `options` configuration block:
-        
+
         * `certificate_transparency_logging_preference` - (Optional) Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_authority_arn: ARN of an ACMPCA
@@ -100,12 +102,10 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
                * Importing an existing certificate
-        
-        The **options** object supports the following:
-        
-          * `certificateTransparencyLoggingPreference` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate.html.markdown.
+        The **options** object supports the following:
+
+          * `certificateTransparencyLoggingPreference` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -147,7 +147,7 @@ class Certificate(pulumi.CustomResource):
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,23 +164,22 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[list] validation_emails: A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
         :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
                * Importing an existing certificate
-        
+
         The **domain_validation_options** object supports the following:
-        
+
           * `domain_name` (`pulumi.Input[str]`) - A domain name for which the certificate should be issued
           * `resourceRecordName` (`pulumi.Input[str]`) - The name of the DNS record to create to validate the certificate
           * `resourceRecordType` (`pulumi.Input[str]`) - The type of DNS record to create
           * `resourceRecordValue` (`pulumi.Input[str]`) - The value the DNS record needs to have
-        
-        The **options** object supports the following:
-        
-          * `certificateTransparencyLoggingPreference` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate.html.markdown.
+        The **options** object supports the following:
+
+          * `certificateTransparencyLoggingPreference` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["certificate_authority_arn"] = certificate_authority_arn
         __props__["certificate_body"] = certificate_body

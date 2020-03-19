@@ -12,11 +12,11 @@ import (
 )
 
 // Manages a Route53 Hosted Zone VPC association. VPC associations can only be made on private zones.
-// 
+//
 // > **NOTE:** Unless explicit association ordering is required (e.g. a separate cross-account association authorization), usage of this resource is not recommended. Use the `vpc` configuration blocks available within the [`route53.Zone` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone.html) instead.
-// 
+//
 // > **NOTE:** This provider provides both this standalone Zone VPC Association resource and exclusive VPC associations defined in-line in the [`route53.Zone` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone.html) via `vpc` configuration blocks. At this time, you cannot use those in-line VPC associations in conjunction with this resource and the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use the generic this provider resource [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html#lifecycle) with `ignoreChanges` in the `route53.Zone` resource to manage additional associations via this resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone_association.html.markdown.
 type ZoneAssociation struct {
 	pulumi.CustomResourceState
@@ -106,4 +106,3 @@ type ZoneAssociationArgs struct {
 func (ZoneAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*zoneAssociationArgs)(nil)).Elem()
 }
-

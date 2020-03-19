@@ -9,7 +9,7 @@ import (
 )
 
 // `wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_rule.html.markdown.
 func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.InvokeOption) (*LookupRuleResult, error) {
 	var rv LookupRuleResult
@@ -26,11 +26,9 @@ type LookupRuleArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getRule.
 type LookupRuleResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
-

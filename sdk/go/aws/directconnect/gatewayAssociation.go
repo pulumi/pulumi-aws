@@ -12,11 +12,11 @@ import (
 )
 
 // Associates a Direct Connect Gateway with a VGW or transit gateway.
-// 
+//
 // To create a cross-account association, create an [`directconnect.GatewayAssociationProposal` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal.html)
 // in the AWS account that owns the VGW or transit gateway and then accept the proposal in the AWS account that owns the Direct Connect Gateway
 // by creating an `directconnect.GatewayAssociation` resource with the `proposalId` and `associatedGatewayOwnerAccountId` attributes set.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_gateway_association.html.markdown.
 type GatewayAssociation struct {
 	pulumi.CustomResourceState
@@ -171,4 +171,3 @@ type GatewayAssociationArgs struct {
 func (GatewayAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayAssociationArgs)(nil)).Elem()
 }
-

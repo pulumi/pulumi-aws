@@ -11,9 +11,9 @@ import (
 )
 
 // Provides a Glue Classifier resource.
-// 
+//
 // > **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_classifier.html.markdown.
 type Classifier struct {
 	pulumi.CustomResourceState
@@ -117,4 +117,3 @@ type ClassifierArgs struct {
 func (ClassifierArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*classifierArgs)(nil)).Elem()
 }
-

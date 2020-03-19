@@ -21,19 +21,19 @@ class QueryLog(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, cloudwatch_log_group_arn=None, zone_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Route53 query logging configuration resource.
-        
+
         > **NOTE:** There are restrictions on the configuration of query logging. Notably,
         the CloudWatch log group must be in the `us-east-1` region,
         a permissive CloudWatch log resource policy must be in place, and
         the Route53 hosted zone must be public.
         See [Configuring Logging for DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html?console_help=true#query-logs-configuring) for additional details.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_query_log.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloudwatch_log_group_arn: CloudWatch log group ARN to send query logs.
         :param pulumi.Input[str] zone_id: Route53 hosted zone ID to enable query logs.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_query_log.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -69,18 +69,17 @@ class QueryLog(pulumi.CustomResource):
         """
         Get an existing QueryLog resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloudwatch_log_group_arn: CloudWatch log group ARN to send query logs.
         :param pulumi.Input[str] zone_id: Route53 hosted zone ID to enable query logs.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_query_log.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["cloudwatch_log_group_arn"] = cloudwatch_log_group_arn
         __props__["zone_id"] = zone_id
         return QueryLog(resource_name, opts=opts, __props__=__props__)

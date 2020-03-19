@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an SES email identity resource
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_email_identity.html.markdown.
 type EmailIdentity struct {
 	pulumi.CustomResourceState
@@ -85,4 +85,3 @@ type EmailIdentityArgs struct {
 func (EmailIdentityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailIdentityArgs)(nil)).Elem()
 }
-

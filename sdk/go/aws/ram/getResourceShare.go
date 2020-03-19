@@ -9,7 +9,7 @@ import (
 )
 
 // `ram.ResourceShare` Retrieve information about a RAM Resource Share.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ram_resource_share.html.markdown.
 func LookupResourceShare(ctx *pulumi.Context, args *LookupResourceShareArgs, opts ...pulumi.InvokeOption) (*LookupResourceShareResult, error) {
 	var rv LookupResourceShareResult
@@ -27,23 +27,21 @@ type LookupResourceShareArgs struct {
 	// The name of the tag key to filter on.
 	Name string `pulumi:"name"`
 	// The owner of the resource share. Valid values are SELF or OTHER-ACCOUNTS
-	ResourceOwner string `pulumi:"resourceOwner"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	ResourceOwner string                 `pulumi:"resourceOwner"`
+	Tags          map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getResourceShare.
 type LookupResourceShareResult struct {
 	// The Amazon Resource Name (ARN) of the resource share.
-	Arn string `pulumi:"arn"`
+	Arn     string                   `pulumi:"arn"`
 	Filters []GetResourceShareFilter `pulumi:"filters"`
 	// The Amazon Resource Name (ARN) of the resource share.
-	Id string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id            string `pulumi:"id"`
+	Name          string `pulumi:"name"`
 	ResourceOwner string `pulumi:"resourceOwner"`
 	// The Status of the RAM share.
 	Status string `pulumi:"status"`
 	// The Tags attached to the RAM share
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-

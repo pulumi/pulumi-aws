@@ -5,5 +5,5 @@
 # Export this package's modules as members:
 from .conditional_forwader import *
 from .directory import *
-from .log_service import *
 from .get_directory import *
+from .log_service import *

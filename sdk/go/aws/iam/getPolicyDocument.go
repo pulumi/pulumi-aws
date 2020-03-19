@@ -8,7 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy_document.html.markdown.
 func GetPolicyDocument(ctx *pulumi.Context, args *GetPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetPolicyDocumentResult, error) {
 	var rv GetPolicyDocumentResult
 	err := ctx.Invoke("aws:iam/getPolicyDocument:getPolicyDocument", args, &rv, opts...)
@@ -39,17 +38,15 @@ type GetPolicyDocumentArgs struct {
 	Version *string `pulumi:"version"`
 }
 
-
 // A collection of values returned by getPolicyDocument.
 type GetPolicyDocumentResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The above arguments serialized as a standard JSON policy document.
-	Json string `pulumi:"json"`
-	OverrideJson *string `pulumi:"overrideJson"`
-	PolicyId *string `pulumi:"policyId"`
-	SourceJson *string `pulumi:"sourceJson"`
-	Statements []GetPolicyDocumentStatement `pulumi:"statements"`
-	Version *string `pulumi:"version"`
+	Json         string                       `pulumi:"json"`
+	OverrideJson *string                      `pulumi:"overrideJson"`
+	PolicyId     *string                      `pulumi:"policyId"`
+	SourceJson   *string                      `pulumi:"sourceJson"`
+	Statements   []GetPolicyDocumentStatement `pulumi:"statements"`
+	Version      *string                      `pulumi:"version"`
 }
-

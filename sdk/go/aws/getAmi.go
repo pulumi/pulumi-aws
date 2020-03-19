@@ -10,7 +10,7 @@ import (
 
 // Use this data source to get the ID of a registered AMI for use in other
 // resources.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami.html.markdown.
 func GetAmi(ctx *pulumi.Context, args *GetAmiArgs, opts ...pulumi.InvokeOption) (*GetAmiResult, error) {
 	var rv GetAmiResult
@@ -40,10 +40,9 @@ type GetAmiArgs struct {
 	// options to narrow down the list AWS returns.
 	NameRegex *string `pulumi:"nameRegex"`
 	// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
-	Owners []string `pulumi:"owners"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	Owners []string               `pulumi:"owners"`
+	Tags   map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getAmi.
 type GetAmiResult struct {
@@ -69,9 +68,9 @@ type GetAmiResult struct {
 	CreationDate string `pulumi:"creationDate"`
 	// The description of the AMI that was provided during image
 	// creation.
-	Description string `pulumi:"description"`
-	ExecutableUsers []string `pulumi:"executableUsers"`
-	Filters []GetAmiFilter `pulumi:"filters"`
+	Description     string         `pulumi:"description"`
+	ExecutableUsers []string       `pulumi:"executableUsers"`
+	Filters         []GetAmiFilter `pulumi:"filters"`
 	// The hypervisor type of the image.
 	Hypervisor string `pulumi:"hypervisor"`
 	// id is the provider-assigned unique ID for this managed resource.
@@ -87,14 +86,14 @@ type GetAmiResult struct {
 	ImageType string `pulumi:"imageType"`
 	// The kernel associated with the image, if any. Only applicable
 	// for machine images.
-	KernelId string `pulumi:"kernelId"`
-	MostRecent *bool `pulumi:"mostRecent"`
+	KernelId   string `pulumi:"kernelId"`
+	MostRecent *bool  `pulumi:"mostRecent"`
 	// The name of the AMI that was provided during image creation.
-	Name string `pulumi:"name"`
+	Name      string  `pulumi:"name"`
 	NameRegex *string `pulumi:"nameRegex"`
 	// The AWS account ID of the image owner.
-	OwnerId string `pulumi:"ownerId"`
-	Owners []string `pulumi:"owners"`
+	OwnerId string   `pulumi:"ownerId"`
+	Owners  []string `pulumi:"owners"`
 	// The value is Windows for `Windows` AMIs; otherwise blank.
 	Platform string `pulumi:"platform"`
 	// Any product codes associated with the AMI.
@@ -130,4 +129,3 @@ type GetAmiResult struct {
 	// `paravirtual`).
 	VirtualizationType string `pulumi:"virtualizationType"`
 }
-

@@ -9,7 +9,7 @@ import (
 )
 
 // Get information on an EC2 Transit Gateway VPN Attachment.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpn_attachment.html.markdown.
 func GetVpnAttachment(ctx *pulumi.Context, args *GetVpnAttachmentArgs, opts ...pulumi.InvokeOption) (*GetVpnAttachmentResult, error) {
 	var rv GetVpnAttachmentResult
@@ -29,14 +29,12 @@ type GetVpnAttachmentArgs struct {
 	VpnConnectionId string `pulumi:"vpnConnectionId"`
 }
 
-
 // A collection of values returned by getVpnAttachment.
 type GetVpnAttachmentResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Key-value tags for the EC2 Transit Gateway VPN Attachment
-	Tags map[string]interface{} `pulumi:"tags"`
-	TransitGatewayId string `pulumi:"transitGatewayId"`
-	VpnConnectionId string `pulumi:"vpnConnectionId"`
+	Tags             map[string]interface{} `pulumi:"tags"`
+	TransitGatewayId string                 `pulumi:"transitGatewayId"`
+	VpnConnectionId  string                 `pulumi:"vpnConnectionId"`
 }
-

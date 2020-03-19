@@ -25,7 +25,7 @@ class Alias(pulumi.CustomResource):
     routing_strategy: pulumi.Output[dict]
     """
     Specifies the fleet and/or routing type to use for the alias.
-    
+
       * `fleetId` (`str`) - ID of the Gamelift Fleet to point the alias to.
       * `message` (`str`) - Message text to be used with the `TERMINAL` routing strategy.
       * `type` (`str`) - Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
@@ -37,21 +37,21 @@ class Alias(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, name=None, routing_strategy=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Gamelift Alias resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_alias.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the alias.
         :param pulumi.Input[str] name: Name of the alias.
         :param pulumi.Input[dict] routing_strategy: Specifies the fleet and/or routing type to use for the alias.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-        
+
         The **routing_strategy** object supports the following:
-        
+
           * `fleetId` (`pulumi.Input[str]`) - ID of the Gamelift Fleet to point the alias to.
           * `message` (`pulumi.Input[str]`) - Message text to be used with the `TERMINAL` routing strategy.
           * `type` (`pulumi.Input[str]`) - Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_alias.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -88,7 +88,7 @@ class Alias(pulumi.CustomResource):
         """
         Get an existing Alias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -97,18 +97,17 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the alias.
         :param pulumi.Input[dict] routing_strategy: Specifies the fleet and/or routing type to use for the alias.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-        
+
         The **routing_strategy** object supports the following:
-        
+
           * `fleetId` (`pulumi.Input[str]`) - ID of the Gamelift Fleet to point the alias to.
           * `message` (`pulumi.Input[str]`) - Message text to be used with the `TERMINAL` routing strategy.
           * `type` (`pulumi.Input[str]`) - Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_alias.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["description"] = description
         __props__["name"] = name

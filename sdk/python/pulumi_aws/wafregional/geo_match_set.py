@@ -13,7 +13,7 @@ class GeoMatchSet(pulumi.CustomResource):
     geo_match_constraints: pulumi.Output[list]
     """
     The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
-    
+
       * `type` (`str`) - The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
       * `value` (`str`) - The country that you want AWS WAF to search for.
         This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
@@ -26,20 +26,20 @@ class GeoMatchSet(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, geo_match_constraints=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a WAF Regional Geo Match Set Resource
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_geo_match_set.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] geo_match_constraints: The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
         :param pulumi.Input[str] name: The name or description of the Geo Match Set.
-        
+
         The **geo_match_constraints** object supports the following:
-        
+
           * `type` (`pulumi.Input[str]`) - The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
           * `value` (`pulumi.Input[str]`) - The country that you want AWS WAF to search for.
             This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
             See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_geo_match_set.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -71,25 +71,24 @@ class GeoMatchSet(pulumi.CustomResource):
         """
         Get an existing GeoMatchSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] geo_match_constraints: The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
         :param pulumi.Input[str] name: The name or description of the Geo Match Set.
-        
+
         The **geo_match_constraints** object supports the following:
-        
+
           * `type` (`pulumi.Input[str]`) - The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
           * `value` (`pulumi.Input[str]`) - The country that you want AWS WAF to search for.
             This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
             See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_geo_match_set.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["geo_match_constraints"] = geo_match_constraints
         __props__["name"] = name
         return GeoMatchSet(resource_name, opts=opts, __props__=__props__)

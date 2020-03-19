@@ -9,7 +9,7 @@ import (
 )
 
 // Retrieve information about a Service Quotas Service.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/servicequotas_service.html.markdown.
 func GetService(ctx *pulumi.Context, args *GetServiceArgs, opts ...pulumi.InvokeOption) (*GetServiceResult, error) {
 	var rv GetServiceResult
@@ -26,7 +26,6 @@ type GetServiceArgs struct {
 	ServiceName string `pulumi:"serviceName"`
 }
 
-
 // A collection of values returned by getService.
 type GetServiceResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
@@ -35,4 +34,3 @@ type GetServiceResult struct {
 	ServiceCode string `pulumi:"serviceCode"`
 	ServiceName string `pulumi:"serviceName"`
 }
-

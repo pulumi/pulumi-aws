@@ -9,7 +9,7 @@ import (
 )
 
 // Retrieve information about an EC2 DHCP Options configuration.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_dhcp_options.html.markdown.
 func LookupVpcDhcpOptions(ctx *pulumi.Context, args *LookupVpcDhcpOptionsArgs, opts ...pulumi.InvokeOption) (*LookupVpcDhcpOptionsResult, error) {
 	var rv LookupVpcDhcpOptionsResult
@@ -26,9 +26,8 @@ type LookupVpcDhcpOptionsArgs struct {
 	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
 	// List of custom filters as described below.
 	Filters []GetVpcDhcpOptionsFilter `pulumi:"filters"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags    map[string]interface{}    `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getVpcDhcpOptions.
 type LookupVpcDhcpOptionsResult struct {
@@ -37,8 +36,8 @@ type LookupVpcDhcpOptionsResult struct {
 	// The suffix domain name to used when resolving non Fully Qualified Domain Names. e.g. the `search` value in the `/etc/resolv.conf` file.
 	DomainName string `pulumi:"domainName"`
 	// List of name servers.
-	DomainNameServers []string `pulumi:"domainNameServers"`
-	Filters []GetVpcDhcpOptionsFilter `pulumi:"filters"`
+	DomainNameServers []string                  `pulumi:"domainNameServers"`
+	Filters           []GetVpcDhcpOptionsFilter `pulumi:"filters"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of NETBIOS name servers.
@@ -52,4 +51,3 @@ type LookupVpcDhcpOptionsResult struct {
 	// A mapping of tags assigned to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-

@@ -12,8 +12,8 @@ import (
 )
 
 // Provides a Pinpoint SMS Channel resource.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_sms_channel.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_sms_channel.markdown.
 type SmsChannel struct {
 	pulumi.CustomResourceState
 
@@ -121,4 +121,3 @@ type SmsChannelArgs struct {
 func (SmsChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*smsChannelArgs)(nil)).Elem()
 }
-

@@ -25,18 +25,18 @@ class ZoneAssociation(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, vpc_id=None, vpc_region=None, zone_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Route53 Hosted Zone VPC association. VPC associations can only be made on private zones.
-        
+
         > **NOTE:** Unless explicit association ordering is required (e.g. a separate cross-account association authorization), usage of this resource is not recommended. Use the `vpc` configuration blocks available within the [`route53.Zone` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone.html) instead.
-        
+
         > **NOTE:** This provider provides both this standalone Zone VPC Association resource and exclusive VPC associations defined in-line in the [`route53.Zone` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone.html) via `vpc` configuration blocks. At this time, you cannot use those in-line VPC associations in conjunction with this resource and the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use the generic this provider resource [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html#lifecycle) with `ignore_changes` in the `route53.Zone` resource to manage additional associations via this resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone_association.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] vpc_id: The VPC to associate with the private hosted zone.
         :param pulumi.Input[str] vpc_region: The VPC's region. Defaults to the region of the AWS provider.
         :param pulumi.Input[str] zone_id: The private hosted zone to associate.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,19 +73,18 @@ class ZoneAssociation(pulumi.CustomResource):
         """
         Get an existing ZoneAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] vpc_id: The VPC to associate with the private hosted zone.
         :param pulumi.Input[str] vpc_region: The VPC's region. Defaults to the region of the AWS provider.
         :param pulumi.Input[str] zone_id: The private hosted zone to associate.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone_association.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["vpc_id"] = vpc_id
         __props__["vpc_region"] = vpc_region
         __props__["zone_id"] = zone_id

@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a SageMaker model resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_model.html.markdown.
 type Model struct {
 	pulumi.CustomResourceState
@@ -145,4 +145,3 @@ type ModelArgs struct {
 func (ModelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*modelArgs)(nil)).Elem()
 }
-

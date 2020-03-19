@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an SSM Parameter resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_parameter.html.markdown.
 type Parameter struct {
 	pulumi.CustomResourceState
@@ -178,4 +178,3 @@ type ParameterArgs struct {
 func (ParameterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*parameterArgs)(nil)).Elem()
 }
-

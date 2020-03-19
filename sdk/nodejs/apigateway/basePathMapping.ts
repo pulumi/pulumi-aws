@@ -71,7 +71,7 @@ export class BasePathMapping extends pulumi.CustomResource {
     /**
      * The id of the API to connect.
      */
-    public readonly restApi!: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<string>;
     /**
      * Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
      */
@@ -132,7 +132,7 @@ export interface BasePathMappingState {
     /**
      * The id of the API to connect.
      */
-    readonly restApi?: pulumi.Input<RestApi>;
+    readonly restApi?: pulumi.Input<string | RestApi>;
     /**
      * Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
      */
@@ -154,7 +154,7 @@ export interface BasePathMappingArgs {
     /**
      * The id of the API to connect.
      */
-    readonly restApi: pulumi.Input<RestApi>;
+    readonly restApi: pulumi.Input<string | RestApi>;
     /**
      * Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
      */

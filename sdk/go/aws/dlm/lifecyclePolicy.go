@@ -12,8 +12,8 @@ import (
 )
 
 // Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dlm_lifecycle_policy.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dlm_lifecycle_policy.markdown.
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
 
@@ -131,4 +131,3 @@ type LifecyclePolicyArgs struct {
 func (LifecyclePolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*lifecyclePolicyArgs)(nil)).Elem()
 }
-

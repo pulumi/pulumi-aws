@@ -9,7 +9,7 @@ import (
 )
 
 // The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_repository.html.markdown.
 func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryResult, error) {
 	var rv LookupRepositoryResult
@@ -23,17 +23,16 @@ func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...p
 // A collection of arguments for invoking getRepository.
 type LookupRepositoryArgs struct {
 	// The name of the ECR Repository.
-	Name string `pulumi:"name"`
+	Name string                 `pulumi:"name"`
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getRepository.
 type LookupRepositoryResult struct {
 	// Full ARN of the repository.
 	Arn string `pulumi:"arn"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The registry ID where the repository was created.
 	RegistryId string `pulumi:"registryId"`
@@ -42,4 +41,3 @@ type LookupRepositoryResult struct {
 	// A mapping of tags assigned to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-

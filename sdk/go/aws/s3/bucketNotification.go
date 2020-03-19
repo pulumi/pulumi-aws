@@ -12,9 +12,9 @@ import (
 )
 
 // Manages a S3 Bucket Notification Configuration. For additional information, see the [Configuring S3 Event Notifications section in the Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html).
-// 
+//
 // > **NOTE:** S3 Buckets only support a single notification configuration. Declaring multiple `s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration. See the example "Trigger multiple Lambda functions" for an option.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_notification.html.markdown.
 type BucketNotification struct {
 	pulumi.CustomResourceState
@@ -111,4 +111,3 @@ type BucketNotificationArgs struct {
 func (BucketNotificationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketNotificationArgs)(nil)).Elem()
 }
-

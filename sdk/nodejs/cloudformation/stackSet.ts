@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a CloudFormation Stack Set. Stack Sets allow CloudFormation templates to be easily deployed across multiple accounts and regions via Stack Set Instances ([`aws.cloudformation.StackSetInstance` resource](https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance.html)). Additional information about Stack Sets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
+ * Manages a CloudFormation StackSet. StackSets allow CloudFormation templates to be easily deployed across multiple accounts and regions via StackSet Instances ([`aws.cloudformation.StackSetInstance` resource](https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance.html)). Additional information about StackSets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
  * 
  * > **NOTE:** All template parameters, including those with a `Default`, must be configured or ignored with the `lifecycle` configuration block `ignoreChanges` argument.
  * 
@@ -104,7 +104,7 @@ export class StackSet extends pulumi.CustomResource {
      */
     public readonly administrationRoleArn!: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the Stack Set.
+     * Amazon Resource Name (ARN) of the StackSet.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -112,27 +112,27 @@ export class StackSet extends pulumi.CustomResource {
      */
     public readonly capabilities!: pulumi.Output<string[] | undefined>;
     /**
-     * Description of the Stack Set.
+     * Description of the StackSet.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Name of the IAM Role in all target accounts for Stack Set operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
+     * Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
      */
     public readonly executionRoleName!: pulumi.Output<string | undefined>;
     /**
-     * Name of the Stack Set. The name must be unique in the region where you create your Stack Set. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
+     * Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Key-value map of input parameters for the Stack Set template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
+     * Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Unique identifier of the Stack Set.
+     * Unique identifier of the StackSet.
      */
     public /*out*/ readonly stackSetId!: pulumi.Output<string>;
     /**
-     * Key-value map of tags to associate with this Stack Set and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
+     * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -204,7 +204,7 @@ export interface StackSetState {
      */
     readonly administrationRoleArn?: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the Stack Set.
+     * Amazon Resource Name (ARN) of the StackSet.
      */
     readonly arn?: pulumi.Input<string>;
     /**
@@ -212,27 +212,27 @@ export interface StackSetState {
      */
     readonly capabilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Description of the Stack Set.
+     * Description of the StackSet.
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Name of the IAM Role in all target accounts for Stack Set operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
+     * Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
      */
     readonly executionRoleName?: pulumi.Input<string>;
     /**
-     * Name of the Stack Set. The name must be unique in the region where you create your Stack Set. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
+     * Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Key-value map of input parameters for the Stack Set template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
+     * Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Unique identifier of the Stack Set.
+     * Unique identifier of the StackSet.
      */
     readonly stackSetId?: pulumi.Input<string>;
     /**
-     * Key-value map of tags to associate with this Stack Set and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
+     * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -258,23 +258,23 @@ export interface StackSetArgs {
      */
     readonly capabilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Description of the Stack Set.
+     * Description of the StackSet.
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Name of the IAM Role in all target accounts for Stack Set operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
+     * Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
      */
     readonly executionRoleName?: pulumi.Input<string>;
     /**
-     * Name of the Stack Set. The name must be unique in the region where you create your Stack Set. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
+     * Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Key-value map of input parameters for the Stack Set template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
+     * Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Key-value map of tags to associate with this Stack Set and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
+     * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

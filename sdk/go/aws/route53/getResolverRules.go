@@ -9,7 +9,7 @@ import (
 )
 
 // `route53.getResolverRules` provides details about a set of Route53 Resolver rules.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rules.html.markdown.
 func GetResolverRules(ctx *pulumi.Context, args *GetResolverRulesArgs, opts ...pulumi.InvokeOption) (*GetResolverRulesResult, error) {
 	var rv GetResolverRulesResult
@@ -33,16 +33,14 @@ type GetResolverRulesArgs struct {
 	ShareStatus *string `pulumi:"shareStatus"`
 }
 
-
 // A collection of values returned by getResolverRules.
 type GetResolverRulesResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	OwnerId *string `pulumi:"ownerId"`
+	Id                 string  `pulumi:"id"`
+	OwnerId            *string `pulumi:"ownerId"`
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
 	// The IDs of the matched resolver rules.
 	ResolverRuleIds []string `pulumi:"resolverRuleIds"`
-	RuleType *string `pulumi:"ruleType"`
-	ShareStatus *string `pulumi:"shareStatus"`
+	RuleType        *string  `pulumi:"ruleType"`
+	ShareStatus     *string  `pulumi:"shareStatus"`
 }
-

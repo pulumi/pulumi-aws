@@ -18,12 +18,11 @@ class Pipeline(pulumi.CustomResource):
     """
     An artifact_store block. Artifact stores are documented below.
     * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
-    
+
       * `encryption_key` (`dict`)
-    
         * `id` (`str`) - The codepipeline ID.
         * `type` (`str`)
-    
+
       * `location` (`str`)
       * `type` (`str`)
     """
@@ -43,9 +42,11 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, artifact_store=None, name=None, role_arn=None, stages=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a CodePipeline.
-        
+
         > **NOTE on `codepipeline.Pipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] artifact_store: An artifact_store block. Artifact stores are documented below.
@@ -53,21 +54,19 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **artifact_store** object supports the following:
-        
+
           * `encryption_key` (`pulumi.Input[dict]`)
-        
             * `id` (`pulumi.Input[str]`) - The codepipeline ID.
             * `type` (`pulumi.Input[str]`)
-        
+
           * `location` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
-        
+
         The **stages** object supports the following:
-        
+
           * `actions` (`pulumi.Input[list]`)
-        
             * `category` (`pulumi.Input[str]`)
             * `configuration` (`pulumi.Input[dict]`)
             * `inputArtifacts` (`pulumi.Input[list]`)
@@ -78,10 +77,8 @@ class Pipeline(pulumi.CustomResource):
             * `role_arn` (`pulumi.Input[str]`) - A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
             * `runOrder` (`pulumi.Input[float]`)
             * `version` (`pulumi.Input[str]`)
-        
-          * `name` (`pulumi.Input[str]`) - The name of the pipeline.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline.html.markdown.
+          * `name` (`pulumi.Input[str]`) - The name of the pipeline.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -123,7 +120,7 @@ class Pipeline(pulumi.CustomResource):
         """
         Get an existing Pipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,21 +130,19 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **artifact_store** object supports the following:
-        
+
           * `encryption_key` (`pulumi.Input[dict]`)
-        
             * `id` (`pulumi.Input[str]`) - The codepipeline ID.
             * `type` (`pulumi.Input[str]`)
-        
+
           * `location` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
-        
+
         The **stages** object supports the following:
-        
+
           * `actions` (`pulumi.Input[list]`)
-        
             * `category` (`pulumi.Input[str]`)
             * `configuration` (`pulumi.Input[dict]`)
             * `inputArtifacts` (`pulumi.Input[list]`)
@@ -158,14 +153,13 @@ class Pipeline(pulumi.CustomResource):
             * `role_arn` (`pulumi.Input[str]`) - A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
             * `runOrder` (`pulumi.Input[float]`)
             * `version` (`pulumi.Input[str]`)
-        
-          * `name` (`pulumi.Input[str]`) - The name of the pipeline.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline.html.markdown.
+          * `name` (`pulumi.Input[str]`) - The name of the pipeline.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["artifact_store"] = artifact_store
         __props__["name"] = name

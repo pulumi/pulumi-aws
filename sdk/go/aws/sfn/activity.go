@@ -11,7 +11,7 @@ import (
 )
 
 // Provides a Step Function Activity resource
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sfn_activity.html.markdown.
 type Activity struct {
 	pulumi.CustomResourceState
@@ -91,4 +91,3 @@ type ActivityArgs struct {
 func (ActivityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*activityArgs)(nil)).Elem()
 }
-

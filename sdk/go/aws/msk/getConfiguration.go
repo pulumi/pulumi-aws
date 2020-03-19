@@ -9,7 +9,7 @@ import (
 )
 
 // Get information on an Amazon MSK Configuration.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_configuration.html.markdown.
 func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationResult, error) {
 	var rv LookupConfigurationResult
@@ -26,7 +26,6 @@ type LookupConfigurationArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getConfiguration.
 type LookupConfigurationResult struct {
 	// Amazon Resource Name (ARN) of the configuration.
@@ -38,9 +37,8 @@ type LookupConfigurationResult struct {
 	// List of Apache Kafka versions which can use this configuration.
 	KafkaVersions []string `pulumi:"kafkaVersions"`
 	// Latest revision of the configuration.
-	LatestRevision int `pulumi:"latestRevision"`
-	Name string `pulumi:"name"`
+	LatestRevision int    `pulumi:"latestRevision"`
+	Name           string `pulumi:"name"`
 	// Contents of the server.properties file.
 	ServerProperties string `pulumi:"serverProperties"`
 }
-

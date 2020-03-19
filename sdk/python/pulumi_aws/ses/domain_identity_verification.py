@@ -21,18 +21,18 @@ class DomainIdentityVerification(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, domain=None, __props__=None, __name__=None, __opts__=None):
         """
         Represents a successful verification of an SES domain identity.
-        
+
         Most commonly, this resource is used together with `route53.Record` and
         `ses.DomainIdentity` to request an SES domain identity,
         deploy the required DNS verification records, and wait for verification to complete.
-        
+
         > **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_identity_verification.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain: The domain name of the SES domain identity to verify.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_identity_verification.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -66,18 +66,17 @@ class DomainIdentityVerification(pulumi.CustomResource):
         """
         Get an existing DomainIdentityVerification resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the domain identity.
         :param pulumi.Input[str] domain: The domain name of the SES domain identity to verify.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_identity_verification.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["domain"] = domain
         return DomainIdentityVerification(resource_name, opts=opts, __props__=__props__)

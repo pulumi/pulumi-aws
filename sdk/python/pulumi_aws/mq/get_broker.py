@@ -13,7 +13,7 @@ class GetBrokerResult:
     """
     A collection of values returned by getBroker.
     """
-    def __init__(__self__, arn=None, auto_minor_version_upgrade=None, broker_id=None, broker_name=None, configuration=None, deployment_mode=None, encryption_options=None, engine_type=None, engine_version=None, host_instance_type=None, instances=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, tags=None, users=None, id=None):
+    def __init__(__self__, arn=None, auto_minor_version_upgrade=None, broker_id=None, broker_name=None, configuration=None, deployment_mode=None, encryption_options=None, engine_type=None, engine_version=None, host_instance_type=None, id=None, instances=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, tags=None, users=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -44,6 +44,12 @@ class GetBrokerResult:
         if host_instance_type and not isinstance(host_instance_type, str):
             raise TypeError("Expected argument 'host_instance_type' to be a str")
         __self__.host_instance_type = host_instance_type
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if instances and not isinstance(instances, list):
             raise TypeError("Expected argument 'instances' to be a list")
         __self__.instances = instances
@@ -68,12 +74,6 @@ class GetBrokerResult:
         if users and not isinstance(users, list):
             raise TypeError("Expected argument 'users' to be a list")
         __self__.users = users
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetBrokerResult(GetBrokerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -90,6 +90,7 @@ class AwaitableGetBrokerResult(GetBrokerResult):
             engine_type=self.engine_type,
             engine_version=self.engine_version,
             host_instance_type=self.host_instance_type,
+            id=self.id,
             instances=self.instances,
             logs=self.logs,
             maintenance_window_start_time=self.maintenance_window_start_time,
@@ -97,24 +98,25 @@ class AwaitableGetBrokerResult(GetBrokerResult):
             security_groups=self.security_groups,
             subnet_ids=self.subnet_ids,
             tags=self.tags,
-            users=self.users,
-            id=self.id)
+            users=self.users)
 
 def get_broker(broker_id=None,broker_name=None,logs=None,tags=None,opts=None):
     """
     Provides information about a MQ Broker.
-    
-    :param str broker_id: The unique id of the mq broker.
-    :param str broker_name: The unique name of the mq broker.
-    
-    The **logs** object supports the following:
-    
-      * `audit` (`bool`)
-      * `general` (`bool`)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/mq_broker.html.markdown.
+
+
+    :param str broker_id: The unique id of the mq broker.
+    :param str broker_name: The unique name of the mq broker.
+
+    The **logs** object supports the following:
+
+      * `audit` (`bool`)
+      * `general` (`bool`)
     """
     __args__ = dict()
+
 
     __args__['brokerId'] = broker_id
     __args__['brokerName'] = broker_name
@@ -137,6 +139,7 @@ def get_broker(broker_id=None,broker_name=None,logs=None,tags=None,opts=None):
         engine_type=__ret__.get('engineType'),
         engine_version=__ret__.get('engineVersion'),
         host_instance_type=__ret__.get('hostInstanceType'),
+        id=__ret__.get('id'),
         instances=__ret__.get('instances'),
         logs=__ret__.get('logs'),
         maintenance_window_start_time=__ret__.get('maintenanceWindowStartTime'),
@@ -144,5 +147,4 @@ def get_broker(broker_id=None,broker_name=None,logs=None,tags=None,opts=None):
         security_groups=__ret__.get('securityGroups'),
         subnet_ids=__ret__.get('subnetIds'),
         tags=__ret__.get('tags'),
-        users=__ret__.get('users'),
-        id=__ret__.get('id'))
+        users=__ret__.get('users'))

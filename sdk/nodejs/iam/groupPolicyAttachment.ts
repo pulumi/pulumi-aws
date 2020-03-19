@@ -29,7 +29,7 @@ import {Group} from "./group";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_policy_attachment.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_policy_attachment.markdown.
  */
 export class GroupPolicyAttachment extends pulumi.CustomResource {
     /**

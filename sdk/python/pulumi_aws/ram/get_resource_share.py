@@ -64,19 +64,21 @@ class AwaitableGetResourceShareResult(GetResourceShareResult):
 def get_resource_share(filters=None,name=None,resource_owner=None,tags=None,opts=None):
     """
     `ram.ResourceShare` Retrieve information about a RAM Resource Share.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ram_resource_share.html.markdown.
+
+
     :param list filters: A filter used to scope the list e.g. by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
     :param str name: The name of the tag key to filter on.
     :param str resource_owner: The owner of the resource share. Valid values are SELF or OTHER-ACCOUNTS
-    
+
     The **filters** object supports the following:
-    
+
       * `name` (`str`) - The name of the tag key to filter on.
       * `values` (`list`) - The value of the tag key.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ram_resource_share.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['filters'] = filters
     __args__['name'] = name

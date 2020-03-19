@@ -10,7 +10,7 @@ import (
 
 // Use this data source to get a list of EBS Snapshot IDs matching the specified
 // criteria.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot_ids.html.markdown.
 func GetSnapshotIds(ctx *pulumi.Context, args *GetSnapshotIdsArgs, opts ...pulumi.InvokeOption) (*GetSnapshotIdsResult, error) {
 	var rv GetSnapshotIdsResult
@@ -33,14 +33,12 @@ type GetSnapshotIdsArgs struct {
 	RestorableByUserIds []string `pulumi:"restorableByUserIds"`
 }
 
-
 // A collection of values returned by getSnapshotIds.
 type GetSnapshotIdsResult struct {
 	Filters []GetSnapshotIdsFilter `pulumi:"filters"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Ids []string `pulumi:"ids"`
-	Owners []string `pulumi:"owners"`
+	Id                  string   `pulumi:"id"`
+	Ids                 []string `pulumi:"ids"`
+	Owners              []string `pulumi:"owners"`
 	RestorableByUserIds []string `pulumi:"restorableByUserIds"`
 }
-

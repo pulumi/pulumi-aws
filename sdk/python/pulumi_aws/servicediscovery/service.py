@@ -21,19 +21,18 @@ class Service(pulumi.CustomResource):
     dns_config: pulumi.Output[dict]
     """
     A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
-    
+
       * `dnsRecords` (`list`) - An array that contains one DnsRecord object for each resource record set.
-    
         * `ttl` (`float`) - The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
         * `type` (`str`) - The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-    
+
       * `namespace_id` (`str`) - The ID of the namespace to use for DNS configuration.
       * `routingPolicy` (`str`) - The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
     """
     health_check_config: pulumi.Output[dict]
     """
     A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
-    
+
       * `failure_threshold` (`float`) - The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
       * `resource_path` (`str`) - The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
       * `type` (`str`) - The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
@@ -41,7 +40,7 @@ class Service(pulumi.CustomResource):
     health_check_custom_config: pulumi.Output[dict]
     """
     A complex type that contains settings for ECS managed health checks.
-    
+
       * `failure_threshold` (`float`) - The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
     """
     name: pulumi.Output[str]
@@ -55,7 +54,9 @@ class Service(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, dns_config=None, health_check_config=None, health_check_custom_config=None, name=None, namespace_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Service Discovery Service resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/service_discovery_service.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the service.
@@ -64,28 +65,25 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] health_check_custom_config: A complex type that contains settings for ECS managed health checks.
         :param pulumi.Input[str] name: The name of the service.
         :param pulumi.Input[str] namespace_id: The ID of the namespace to use for DNS configuration.
-        
+
         The **dns_config** object supports the following:
-        
+
           * `dnsRecords` (`pulumi.Input[list]`) - An array that contains one DnsRecord object for each resource record set.
-        
             * `ttl` (`pulumi.Input[float]`) - The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
             * `type` (`pulumi.Input[str]`) - The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-        
+
           * `namespace_id` (`pulumi.Input[str]`) - The ID of the namespace to use for DNS configuration.
           * `routingPolicy` (`pulumi.Input[str]`) - The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
-        
+
         The **health_check_config** object supports the following:
-        
+
           * `failure_threshold` (`pulumi.Input[float]`) - The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
           * `resource_path` (`pulumi.Input[str]`) - The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
           * `type` (`pulumi.Input[str]`) - The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-        
-        The **health_check_custom_config** object supports the following:
-        
-          * `failure_threshold` (`pulumi.Input[float]`) - The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/service_discovery_service.html.markdown.
+        The **health_check_custom_config** object supports the following:
+
+          * `failure_threshold` (`pulumi.Input[float]`) - The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -122,7 +120,7 @@ class Service(pulumi.CustomResource):
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,32 +131,30 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] health_check_custom_config: A complex type that contains settings for ECS managed health checks.
         :param pulumi.Input[str] name: The name of the service.
         :param pulumi.Input[str] namespace_id: The ID of the namespace to use for DNS configuration.
-        
+
         The **dns_config** object supports the following:
-        
+
           * `dnsRecords` (`pulumi.Input[list]`) - An array that contains one DnsRecord object for each resource record set.
-        
             * `ttl` (`pulumi.Input[float]`) - The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
             * `type` (`pulumi.Input[str]`) - The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-        
+
           * `namespace_id` (`pulumi.Input[str]`) - The ID of the namespace to use for DNS configuration.
           * `routingPolicy` (`pulumi.Input[str]`) - The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
-        
+
         The **health_check_config** object supports the following:
-        
+
           * `failure_threshold` (`pulumi.Input[float]`) - The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
           * `resource_path` (`pulumi.Input[str]`) - The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
           * `type` (`pulumi.Input[str]`) - The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-        
-        The **health_check_custom_config** object supports the following:
-        
-          * `failure_threshold` (`pulumi.Input[float]`) - The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/service_discovery_service.html.markdown.
+        The **health_check_custom_config** object supports the following:
+
+          * `failure_threshold` (`pulumi.Input[float]`) - The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["description"] = description
         __props__["dns_config"] = dns_config

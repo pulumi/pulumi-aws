@@ -119,18 +119,20 @@ class AwaitableGetTransitGatewayResult(GetTransitGatewayResult):
 def get_transit_gateway(filters=None,id=None,tags=None,opts=None):
     """
     Get information on an EC2 Transit Gateway.
-    
-    :param list filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param str id: Identifier of the EC2 Transit Gateway.
-    
-    The **filters** object supports the following:
-    
-      * `name` (`str`) - Name of the filter.
-      * `values` (`list`) - List of one or more values for the filter.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway.html.markdown.
+
+
+    :param list filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param str id: Identifier of the EC2 Transit Gateway.
+
+    The **filters** object supports the following:
+
+      * `name` (`str`) - Name of the filter.
+      * `values` (`list`) - List of one or more values for the filter.
     """
     __args__ = dict()
+
 
     __args__['filters'] = filters
     __args__['id'] = id

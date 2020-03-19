@@ -10,7 +10,7 @@ import (
 
 // The VPN Gateway data source provides details about
 // a specific VPN gateway.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpn_gateway.html.markdown.
 func LookupVpnGateway(ctx *pulumi.Context, args *LookupVpnGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVpnGatewayResult, error) {
 	var rv LookupVpnGatewayResult
@@ -40,15 +40,13 @@ type LookupVpnGatewayArgs struct {
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
-
 // A collection of values returned by getVpnGateway.
 type LookupVpnGatewayResult struct {
-	AmazonSideAsn string `pulumi:"amazonSideAsn"`
-	AttachedVpcId string `pulumi:"attachedVpcId"`
-	AvailabilityZone string `pulumi:"availabilityZone"`
-	Filters []GetVpnGatewayFilter `pulumi:"filters"`
-	Id string `pulumi:"id"`
-	State string `pulumi:"state"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	AmazonSideAsn    string                 `pulumi:"amazonSideAsn"`
+	AttachedVpcId    string                 `pulumi:"attachedVpcId"`
+	AvailabilityZone string                 `pulumi:"availabilityZone"`
+	Filters          []GetVpnGatewayFilter  `pulumi:"filters"`
+	Id               string                 `pulumi:"id"`
+	State            string                 `pulumi:"state"`
+	Tags             map[string]interface{} `pulumi:"tags"`
 }
-

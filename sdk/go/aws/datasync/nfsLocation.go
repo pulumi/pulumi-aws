@@ -12,9 +12,9 @@ import (
 )
 
 // Manages an NFS Location within AWS DataSync.
-// 
+//
 // > **NOTE:** The DataSync Agents must be available before creating this resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_nfs.html.markdown.
 type NfsLocation struct {
 	pulumi.CustomResourceState
@@ -28,8 +28,8 @@ type NfsLocation struct {
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
 	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags pulumi.MapOutput `pulumi:"tags"`
-	Uri pulumi.StringOutput `pulumi:"uri"`
+	Tags pulumi.MapOutput    `pulumi:"tags"`
+	Uri  pulumi.StringOutput `pulumi:"uri"`
 }
 
 // NewNfsLocation registers a new resource with the given unique name, arguments, and options.
@@ -79,7 +79,7 @@ type nfsLocationState struct {
 	Subdirectory *string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location.
 	Tags map[string]interface{} `pulumi:"tags"`
-	Uri *string `pulumi:"uri"`
+	Uri  *string                `pulumi:"uri"`
 }
 
 type NfsLocationState struct {
@@ -93,7 +93,7 @@ type NfsLocationState struct {
 	Subdirectory pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Location.
 	Tags pulumi.MapInput
-	Uri pulumi.StringPtrInput
+	Uri  pulumi.StringPtrInput
 }
 
 func (NfsLocationState) ElementType() reflect.Type {
@@ -126,4 +126,3 @@ type NfsLocationArgs struct {
 func (NfsLocationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*nfsLocationArgs)(nil)).Elem()
 }
-

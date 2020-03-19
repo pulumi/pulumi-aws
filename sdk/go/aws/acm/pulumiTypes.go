@@ -73,7 +73,7 @@ func (i CertificateDomainValidationOptionArray) ToCertificateDomainValidationOpt
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateDomainValidationOptionArrayOutput)
 }
 
-type CertificateDomainValidationOptionOutput struct { *pulumi.OutputState }
+type CertificateDomainValidationOptionOutput struct{ *pulumi.OutputState }
 
 func (CertificateDomainValidationOptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CertificateDomainValidationOption)(nil)).Elem()
@@ -89,25 +89,25 @@ func (o CertificateDomainValidationOptionOutput) ToCertificateDomainValidationOp
 
 // A domain name for which the certificate should be issued
 func (o CertificateDomainValidationOptionOutput) DomainName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateDomainValidationOption) *string { return v.DomainName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
 // The name of the DNS record to create to validate the certificate
 func (o CertificateDomainValidationOptionOutput) ResourceRecordName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateDomainValidationOption) *string { return v.ResourceRecordName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.ResourceRecordName }).(pulumi.StringPtrOutput)
 }
 
 // The type of DNS record to create
 func (o CertificateDomainValidationOptionOutput) ResourceRecordType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateDomainValidationOption) *string { return v.ResourceRecordType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.ResourceRecordType }).(pulumi.StringPtrOutput)
 }
 
 // The value the DNS record needs to have
 func (o CertificateDomainValidationOptionOutput) ResourceRecordValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateDomainValidationOption) *string { return v.ResourceRecordValue }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.ResourceRecordValue }).(pulumi.StringPtrOutput)
 }
 
-type CertificateDomainValidationOptionArrayOutput struct { *pulumi.OutputState}
+type CertificateDomainValidationOptionArrayOutput struct{ *pulumi.OutputState }
 
 func (CertificateDomainValidationOptionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]CertificateDomainValidationOption)(nil)).Elem()
@@ -122,7 +122,7 @@ func (o CertificateDomainValidationOptionArrayOutput) ToCertificateDomainValidat
 }
 
 func (o CertificateDomainValidationOptionArrayOutput) Index(i pulumi.IntInput) CertificateDomainValidationOptionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) CertificateDomainValidationOption {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateDomainValidationOption {
 		return vs[0].([]CertificateDomainValidationOption)[vs[1].(int)]
 	}).(CertificateDomainValidationOptionOutput)
 }
@@ -171,7 +171,8 @@ type CertificateOptionsPtrInput interface {
 
 type certificateOptionsPtrType CertificateOptionsArgs
 
-func CertificateOptionsPtr(v *CertificateOptionsArgs) CertificateOptionsPtrInput {	return (*certificateOptionsPtrType)(v)
+func CertificateOptionsPtr(v *CertificateOptionsArgs) CertificateOptionsPtrInput {
+	return (*certificateOptionsPtrType)(v)
 }
 
 func (*certificateOptionsPtrType) ElementType() reflect.Type {
@@ -186,7 +187,7 @@ func (i *certificateOptionsPtrType) ToCertificateOptionsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOptionsPtrOutput)
 }
 
-type CertificateOptionsOutput struct { *pulumi.OutputState }
+type CertificateOptionsOutput struct{ *pulumi.OutputState }
 
 func (CertificateOptionsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CertificateOptions)(nil)).Elem()
@@ -210,10 +211,10 @@ func (o CertificateOptionsOutput) ToCertificateOptionsPtrOutputWithContext(ctx c
 	}).(CertificateOptionsPtrOutput)
 }
 func (o CertificateOptionsOutput) CertificateTransparencyLoggingPreference() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateOptions) *string { return v.CertificateTransparencyLoggingPreference }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateOptions) *string { return v.CertificateTransparencyLoggingPreference }).(pulumi.StringPtrOutput)
 }
 
-type CertificateOptionsPtrOutput struct { *pulumi.OutputState}
+type CertificateOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (CertificateOptionsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CertificateOptions)(nil)).Elem()
@@ -228,11 +229,11 @@ func (o CertificateOptionsPtrOutput) ToCertificateOptionsPtrOutputWithContext(ct
 }
 
 func (o CertificateOptionsPtrOutput) Elem() CertificateOptionsOutput {
-	return o.ApplyT(func (v *CertificateOptions) CertificateOptions { return *v }).(CertificateOptionsOutput)
+	return o.ApplyT(func(v *CertificateOptions) CertificateOptions { return *v }).(CertificateOptionsOutput)
 }
 
 func (o CertificateOptionsPtrOutput) CertificateTransparencyLoggingPreference() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateOptions) *string { return v.CertificateTransparencyLoggingPreference }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateOptions) *string { return v.CertificateTransparencyLoggingPreference }).(pulumi.StringPtrOutput)
 }
 
 func init() {

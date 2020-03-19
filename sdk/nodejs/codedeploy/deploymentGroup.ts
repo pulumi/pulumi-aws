@@ -221,7 +221,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
     /**
      * Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
      */
-    public readonly deploymentStyle!: pulumi.Output<outputs.codedeploy.DeploymentGroupDeploymentStyle>;
+    public readonly deploymentStyle!: pulumi.Output<outputs.codedeploy.DeploymentGroupDeploymentStyle | undefined>;
     /**
      * Tag filters associated with the deployment group. See the AWS docs for details.
      */
@@ -237,7 +237,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
     /**
      * Single configuration block of the load balancer to use in a blue/green deployment (documented below).
      */
-    public readonly loadBalancerInfo!: pulumi.Output<outputs.codedeploy.DeploymentGroupLoadBalancerInfo>;
+    public readonly loadBalancerInfo!: pulumi.Output<outputs.codedeploy.DeploymentGroupLoadBalancerInfo | undefined>;
     /**
      * On premise tag filters associated with the group. See the AWS docs for details.
      */

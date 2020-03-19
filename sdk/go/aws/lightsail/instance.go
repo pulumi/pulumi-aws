@@ -14,13 +14,13 @@ import (
 // Provides a Lightsail Instance. Amazon Lightsail is a service to provide easy virtual private servers
 // with custom software already setup. See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail)
 // for more information.
-// 
+//
 // > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
-// 
+//
 // ## Availability Zones
-// 
+//
 // Lightsail currently supports the following Availability Zones (e.g. `us-east-1a`):
-// 
+//
 // - `ap-northeast-1{a,c,d}`
 // - `ap-northeast-2{a,c}`
 // - `ap-south-1{a,b}`
@@ -34,13 +34,13 @@ import (
 // - `us-east-1{a,b,c,d,e,f}`
 // - `us-east-2{a,b,c}`
 // - `us-west-2{a,b,c}`
-// 
+//
 // ## Blueprints
-// 
+//
 // Lightsail currently supports the following Blueprint IDs:
-// 
+//
 // ### OS Only
-// 
+//
 // - `amazonLinux20180302`
 // - `centos7190101`
 // - `debian87`
@@ -49,9 +49,9 @@ import (
 // - `opensuse422`
 // - `ubuntu16042`
 // - `ubuntu1804`
-// 
+//
 // ### Apps and OS
-// 
+//
 // - `drupal856`
 // - `gitlab11141`
 // - `joomla3811`
@@ -65,15 +65,15 @@ import (
 // - `redmine346`
 // - `wordpress498`
 // - `wordpressMultisite498`
-// 
+//
 // ## Bundles
-// 
+//
 // Lightsail currently supports the following Bundle IDs (e.g. an instance in `ap-northeast-1` would use `small20`):
-// 
+//
 // ### Prefix
-// 
+//
 // A Bundle ID starts with one of the below size prefixes:
-// 
+//
 // - `nano_`
 // - `micro_`
 // - `small_`
@@ -81,11 +81,11 @@ import (
 // - `large_`
 // - `xlarge_`
 // - `2xlarge_`
-// 
+//
 // ### Suffix
-// 
+//
 // A Bundle ID ends with one of the following suffixes depending on Availability Zone:
-// 
+//
 // - ap-northeast-1: `20`
 // - ap-northeast-2: `20`
 // - ap-south-1: `21`
@@ -99,7 +99,7 @@ import (
 // - us-east-1: `20`
 // - us-east-2: `20`
 // - us-west-2: `20`
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_instance.html.markdown.
 type Instance struct {
 	pulumi.CustomResourceState
@@ -114,29 +114,29 @@ type Instance struct {
 	BlueprintId pulumi.StringOutput `pulumi:"blueprintId"`
 	// The bundle of specification information (see list below)
 	BundleId pulumi.StringOutput `pulumi:"bundleId"`
-	CpuCount pulumi.IntOutput `pulumi:"cpuCount"`
+	CpuCount pulumi.IntOutput    `pulumi:"cpuCount"`
 	// The timestamp when the instance was created.
 	// * `availabilityZone`
 	// * `blueprintId`
 	// * `bundleId`
 	// * `keyPairName`
 	// * `userData`
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt   pulumi.StringOutput `pulumi:"createdAt"`
 	Ipv6Address pulumi.StringOutput `pulumi:"ipv6Address"`
-	IsStaticIp pulumi.BoolOutput `pulumi:"isStaticIp"`
+	IsStaticIp  pulumi.BoolOutput   `pulumi:"isStaticIp"`
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName pulumi.StringPtrOutput `pulumi:"keyPairName"`
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name             pulumi.StringOutput `pulumi:"name"`
 	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
-	PublicIpAddress pulumi.StringOutput `pulumi:"publicIpAddress"`
-	RamSize pulumi.IntOutput `pulumi:"ramSize"`
+	PublicIpAddress  pulumi.StringOutput `pulumi:"publicIpAddress"`
+	RamSize          pulumi.IntOutput    `pulumi:"ramSize"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// launch script to configure server with additional user data
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
-	Username pulumi.StringOutput `pulumi:"username"`
+	Username pulumi.StringOutput    `pulumi:"username"`
 }
 
 // NewInstance registers a new resource with the given unique name, arguments, and options.
@@ -186,24 +186,24 @@ type instanceState struct {
 	BlueprintId *string `pulumi:"blueprintId"`
 	// The bundle of specification information (see list below)
 	BundleId *string `pulumi:"bundleId"`
-	CpuCount *int `pulumi:"cpuCount"`
+	CpuCount *int    `pulumi:"cpuCount"`
 	// The timestamp when the instance was created.
 	// * `availabilityZone`
 	// * `blueprintId`
 	// * `bundleId`
 	// * `keyPairName`
 	// * `userData`
-	CreatedAt *string `pulumi:"createdAt"`
+	CreatedAt   *string `pulumi:"createdAt"`
 	Ipv6Address *string `pulumi:"ipv6Address"`
-	IsStaticIp *bool `pulumi:"isStaticIp"`
+	IsStaticIp  *bool   `pulumi:"isStaticIp"`
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName *string `pulumi:"keyPairName"`
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
-	Name *string `pulumi:"name"`
+	Name             *string `pulumi:"name"`
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	PublicIpAddress *string `pulumi:"publicIpAddress"`
-	RamSize *int `pulumi:"ramSize"`
+	PublicIpAddress  *string `pulumi:"publicIpAddress"`
+	RamSize          *int    `pulumi:"ramSize"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// launch script to configure server with additional user data
@@ -229,17 +229,17 @@ type InstanceState struct {
 	// * `bundleId`
 	// * `keyPairName`
 	// * `userData`
-	CreatedAt pulumi.StringPtrInput
+	CreatedAt   pulumi.StringPtrInput
 	Ipv6Address pulumi.StringPtrInput
-	IsStaticIp pulumi.BoolPtrInput
+	IsStaticIp  pulumi.BoolPtrInput
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName pulumi.StringPtrInput
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
-	Name pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
 	PrivateIpAddress pulumi.StringPtrInput
-	PublicIpAddress pulumi.StringPtrInput
-	RamSize pulumi.IntPtrInput
+	PublicIpAddress  pulumi.StringPtrInput
+	RamSize          pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// launch script to configure server with additional user data
@@ -295,4 +295,3 @@ type InstanceArgs struct {
 func (InstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceArgs)(nil)).Elem()
 }
-

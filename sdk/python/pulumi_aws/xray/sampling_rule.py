@@ -65,7 +65,9 @@ class SamplingRule(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, attributes=None, fixed_rate=None, host=None, http_method=None, priority=None, reservoir_size=None, resource_arn=None, rule_name=None, service_name=None, service_type=None, url_path=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates and manages an AWS XRay Sampling Rule.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/xray_sampling_rule.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] attributes: Matches attributes derived from the request.
@@ -80,8 +82,6 @@ class SamplingRule(pulumi.CustomResource):
         :param pulumi.Input[str] service_type: Matches the `origin` that the service uses to identify its type in segments.
         :param pulumi.Input[str] url_path: Matches the path from a request URL.
         :param pulumi.Input[float] version: The version of the sampling rule format (`1` )
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/xray_sampling_rule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -144,7 +144,7 @@ class SamplingRule(pulumi.CustomResource):
         """
         Get an existing SamplingRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,12 +161,11 @@ class SamplingRule(pulumi.CustomResource):
         :param pulumi.Input[str] service_type: Matches the `origin` that the service uses to identify its type in segments.
         :param pulumi.Input[str] url_path: Matches the path from a request URL.
         :param pulumi.Input[float] version: The version of the sampling rule format (`1` )
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/xray_sampling_rule.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["attributes"] = attributes
         __props__["fixed_rate"] = fixed_rate

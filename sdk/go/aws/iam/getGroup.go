@@ -11,7 +11,7 @@ import (
 // This data source can be used to fetch information about a specific
 // IAM group. By using this data source, you can reference IAM group
 // properties without having to hard code ARNs as input.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_group.html.markdown.
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	var rv LookupGroupResult
@@ -28,13 +28,12 @@ type LookupGroupArgs struct {
 	GroupName string `pulumi:"groupName"`
 }
 
-
 // A collection of values returned by getGroup.
 type LookupGroupResult struct {
 	// The Amazon Resource Name (ARN) specifying the iam user.
 	Arn string `pulumi:"arn"`
 	// The stable and unique string identifying the group.
-	GroupId string `pulumi:"groupId"`
+	GroupId   string `pulumi:"groupId"`
 	GroupName string `pulumi:"groupName"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -43,4 +42,3 @@ type LookupGroupResult struct {
 	// List of objects containing group member information. See supported fields below.
 	Users []GetGroupUser `pulumi:"users"`
 }
-

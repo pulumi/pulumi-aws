@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an IAM SAML provider.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_saml_provider.html.markdown.
 type SamlProvider struct {
 	pulumi.CustomResourceState
@@ -101,4 +101,3 @@ type SamlProviderArgs struct {
 func (SamlProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*samlProviderArgs)(nil)).Elem()
 }
-

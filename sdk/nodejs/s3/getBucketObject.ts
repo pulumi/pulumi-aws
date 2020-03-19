@@ -79,7 +79,7 @@ export function getBucketObject(args: GetBucketObjectArgs, opts?: pulumi.InvokeO
  */
 export interface GetBucketObjectArgs {
     /**
-     * The name of the bucket to read the object from
+     * The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      */
     readonly bucket: string;
     /**

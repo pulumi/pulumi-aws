@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a Gamelift Fleet resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_fleet.html.markdown.
 type Fleet struct {
 	pulumi.CustomResourceState
@@ -27,9 +27,11 @@ type Fleet struct {
 	Ec2InboundPermissions FleetEc2InboundPermissionArrayOutput `pulumi:"ec2InboundPermissions"`
 	// Name of an EC2 instance type. e.g. `t2.micro`
 	Ec2InstanceType pulumi.StringOutput `pulumi:"ec2InstanceType"`
+	// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
+	FleetType pulumi.StringPtrOutput `pulumi:"fleetType"`
 	// ARN of an IAM role that instances in the fleet can assume.
-	InstanceRoleArn pulumi.StringPtrOutput `pulumi:"instanceRoleArn"`
-	LogPaths pulumi.StringArrayOutput `pulumi:"logPaths"`
+	InstanceRoleArn pulumi.StringPtrOutput   `pulumi:"instanceRoleArn"`
+	LogPaths        pulumi.StringArrayOutput `pulumi:"logPaths"`
 	// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
 	MetricGroups pulumi.StringArrayOutput `pulumi:"metricGroups"`
 	// The name of the fleet.
@@ -42,6 +44,8 @@ type Fleet struct {
 	ResourceCreationLimitPolicy FleetResourceCreationLimitPolicyPtrOutput `pulumi:"resourceCreationLimitPolicy"`
 	// Instructions for launching server processes on each instance in the fleet. See below.
 	RuntimeConfiguration FleetRuntimeConfigurationPtrOutput `pulumi:"runtimeConfiguration"`
+	// Key-value mapping of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewFleet registers a new resource with the given unique name, arguments, and options.
@@ -88,9 +92,11 @@ type fleetState struct {
 	Ec2InboundPermissions []FleetEc2InboundPermission `pulumi:"ec2InboundPermissions"`
 	// Name of an EC2 instance type. e.g. `t2.micro`
 	Ec2InstanceType *string `pulumi:"ec2InstanceType"`
+	// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
+	FleetType *string `pulumi:"fleetType"`
 	// ARN of an IAM role that instances in the fleet can assume.
-	InstanceRoleArn *string `pulumi:"instanceRoleArn"`
-	LogPaths []string `pulumi:"logPaths"`
+	InstanceRoleArn *string  `pulumi:"instanceRoleArn"`
+	LogPaths        []string `pulumi:"logPaths"`
 	// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
 	MetricGroups []string `pulumi:"metricGroups"`
 	// The name of the fleet.
@@ -103,6 +109,8 @@ type fleetState struct {
 	ResourceCreationLimitPolicy *FleetResourceCreationLimitPolicy `pulumi:"resourceCreationLimitPolicy"`
 	// Instructions for launching server processes on each instance in the fleet. See below.
 	RuntimeConfiguration *FleetRuntimeConfiguration `pulumi:"runtimeConfiguration"`
+	// Key-value mapping of resource tags
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 type FleetState struct {
@@ -116,9 +124,11 @@ type FleetState struct {
 	Ec2InboundPermissions FleetEc2InboundPermissionArrayInput
 	// Name of an EC2 instance type. e.g. `t2.micro`
 	Ec2InstanceType pulumi.StringPtrInput
+	// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
+	FleetType pulumi.StringPtrInput
 	// ARN of an IAM role that instances in the fleet can assume.
 	InstanceRoleArn pulumi.StringPtrInput
-	LogPaths pulumi.StringArrayInput
+	LogPaths        pulumi.StringArrayInput
 	// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
 	MetricGroups pulumi.StringArrayInput
 	// The name of the fleet.
@@ -131,6 +141,8 @@ type FleetState struct {
 	ResourceCreationLimitPolicy FleetResourceCreationLimitPolicyPtrInput
 	// Instructions for launching server processes on each instance in the fleet. See below.
 	RuntimeConfiguration FleetRuntimeConfigurationPtrInput
+	// Key-value mapping of resource tags
+	Tags pulumi.MapInput
 }
 
 func (FleetState) ElementType() reflect.Type {
@@ -146,6 +158,8 @@ type fleetArgs struct {
 	Ec2InboundPermissions []FleetEc2InboundPermission `pulumi:"ec2InboundPermissions"`
 	// Name of an EC2 instance type. e.g. `t2.micro`
 	Ec2InstanceType string `pulumi:"ec2InstanceType"`
+	// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
+	FleetType *string `pulumi:"fleetType"`
 	// ARN of an IAM role that instances in the fleet can assume.
 	InstanceRoleArn *string `pulumi:"instanceRoleArn"`
 	// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
@@ -158,6 +172,8 @@ type fleetArgs struct {
 	ResourceCreationLimitPolicy *FleetResourceCreationLimitPolicy `pulumi:"resourceCreationLimitPolicy"`
 	// Instructions for launching server processes on each instance in the fleet. See below.
 	RuntimeConfiguration *FleetRuntimeConfiguration `pulumi:"runtimeConfiguration"`
+	// Key-value mapping of resource tags
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Fleet resource.
@@ -170,6 +186,8 @@ type FleetArgs struct {
 	Ec2InboundPermissions FleetEc2InboundPermissionArrayInput
 	// Name of an EC2 instance type. e.g. `t2.micro`
 	Ec2InstanceType pulumi.StringInput
+	// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
+	FleetType pulumi.StringPtrInput
 	// ARN of an IAM role that instances in the fleet can assume.
 	InstanceRoleArn pulumi.StringPtrInput
 	// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
@@ -182,9 +200,10 @@ type FleetArgs struct {
 	ResourceCreationLimitPolicy FleetResourceCreationLimitPolicyPtrInput
 	// Instructions for launching server processes on each instance in the fleet. See below.
 	RuntimeConfiguration FleetRuntimeConfigurationPtrInput
+	// Key-value mapping of resource tags
+	Tags pulumi.MapInput
 }
 
 func (FleetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*fleetArgs)(nil)).Elem()
 }
-

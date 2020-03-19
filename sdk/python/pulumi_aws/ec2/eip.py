@@ -58,11 +58,13 @@ class Eip(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, associate_with_private_ip=None, instance=None, network_interface=None, public_ipv4_pool=None, tags=None, vpc=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Elastic IP resource.
-        
+
         > **Note:** EIP may require IGW to exist prior to association. Use `depends_on` to set an explicit dependency on the IGW.
-        
+
         > **Note:** Do not use `network_interface` to associate the EIP to `lb.LoadBalancer` or `ec2.NatGateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eip.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] associate_with_private_ip: A user specified primary or secondary private IP address to
@@ -73,8 +75,6 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eip.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -117,7 +117,7 @@ class Eip(pulumi.CustomResource):
         """
         Get an existing Eip resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,12 +133,11 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eip.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allocation_id"] = allocation_id
         __props__["associate_with_private_ip"] = associate_with_private_ip
         __props__["association_id"] = association_id

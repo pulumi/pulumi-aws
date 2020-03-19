@@ -12,8 +12,8 @@ import (
 )
 
 // Provides an Elastic network interface (ENI) resource.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_interface.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_interface.markdown.
 type NetworkInterface struct {
 	pulumi.CustomResourceState
 
@@ -25,10 +25,10 @@ type NetworkInterface struct {
 	MacAddress pulumi.StringOutput `pulumi:"macAddress"`
 	// The private DNS name of the network interface (IPv4).
 	PrivateDnsName pulumi.StringOutput `pulumi:"privateDnsName"`
-	PrivateIp pulumi.StringOutput `pulumi:"privateIp"`
+	PrivateIp      pulumi.StringOutput `pulumi:"privateIp"`
 	// List of private IPs to assign to the ENI.
 	PrivateIps pulumi.StringArrayOutput `pulumi:"privateIps"`
-	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
 	PrivateIpsCount pulumi.IntOutput `pulumi:"privateIpsCount"`
 	// List of security group IDs to assign to the ENI.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
@@ -79,10 +79,10 @@ type networkInterfaceState struct {
 	MacAddress *string `pulumi:"macAddress"`
 	// The private DNS name of the network interface (IPv4).
 	PrivateDnsName *string `pulumi:"privateDnsName"`
-	PrivateIp *string `pulumi:"privateIp"`
+	PrivateIp      *string `pulumi:"privateIp"`
 	// List of private IPs to assign to the ENI.
 	PrivateIps []string `pulumi:"privateIps"`
-	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
 	PrivateIpsCount *int `pulumi:"privateIpsCount"`
 	// List of security group IDs to assign to the ENI.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -103,10 +103,10 @@ type NetworkInterfaceState struct {
 	MacAddress pulumi.StringPtrInput
 	// The private DNS name of the network interface (IPv4).
 	PrivateDnsName pulumi.StringPtrInput
-	PrivateIp pulumi.StringPtrInput
+	PrivateIp      pulumi.StringPtrInput
 	// List of private IPs to assign to the ENI.
 	PrivateIps pulumi.StringArrayInput
-	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
 	PrivateIpsCount pulumi.IntPtrInput
 	// List of security group IDs to assign to the ENI.
 	SecurityGroups pulumi.StringArrayInput
@@ -127,10 +127,10 @@ type networkInterfaceArgs struct {
 	Attachments []NetworkInterfaceAttachmentType `pulumi:"attachments"`
 	// A description for the network interface.
 	Description *string `pulumi:"description"`
-	PrivateIp *string `pulumi:"privateIp"`
+	PrivateIp   *string `pulumi:"privateIp"`
 	// List of private IPs to assign to the ENI.
 	PrivateIps []string `pulumi:"privateIps"`
-	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
 	PrivateIpsCount *int `pulumi:"privateIpsCount"`
 	// List of security group IDs to assign to the ENI.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -148,10 +148,10 @@ type NetworkInterfaceArgs struct {
 	Attachments NetworkInterfaceAttachmentTypeArrayInput
 	// A description for the network interface.
 	Description pulumi.StringPtrInput
-	PrivateIp pulumi.StringPtrInput
+	PrivateIp   pulumi.StringPtrInput
 	// List of private IPs to assign to the ENI.
 	PrivateIps pulumi.StringArrayInput
-	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
 	PrivateIpsCount pulumi.IntPtrInput
 	// List of security group IDs to assign to the ENI.
 	SecurityGroups pulumi.StringArrayInput
@@ -166,4 +166,3 @@ type NetworkInterfaceArgs struct {
 func (NetworkInterfaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceArgs)(nil)).Elem()
 }
-

@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an AppSync GraphQL API.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_graphql_api.html.markdown.
 type GraphQLApi struct {
 	pulumi.CustomResourceState
@@ -161,4 +161,3 @@ type GraphQLApiArgs struct {
 func (GraphQLApiArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*graphQLApiArgs)(nil)).Elem()
 }
-

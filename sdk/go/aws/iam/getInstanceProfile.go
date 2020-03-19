@@ -11,7 +11,7 @@ import (
 // This data source can be used to fetch information about a specific
 // IAM instance profile. By using this data source, you can reference IAM
 // instance profile properties without having to hard code ARNs as input.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_instance_profile.html.markdown.
 func LookupInstanceProfile(ctx *pulumi.Context, args *LookupInstanceProfileArgs, opts ...pulumi.InvokeOption) (*LookupInstanceProfileResult, error) {
 	var rv LookupInstanceProfileResult
@@ -28,7 +28,6 @@ type LookupInstanceProfileArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getInstanceProfile.
 type LookupInstanceProfileResult struct {
 	// The Amazon Resource Name (ARN) specifying the instance profile.
@@ -37,7 +36,7 @@ type LookupInstanceProfileResult struct {
 	// was created.
 	CreateDate string `pulumi:"createDate"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The path to the instance profile.
 	Path string `pulumi:"path"`
@@ -48,4 +47,3 @@ type LookupInstanceProfileResult struct {
 	// The role name associated with this instance profile.
 	RoleName string `pulumi:"roleName"`
 }
-

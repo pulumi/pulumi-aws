@@ -12,31 +12,31 @@ import (
 )
 
 // Provides an Application AutoScaling Policy resource.
-// 
+//
 // ## Nested fields
-// 
+//
 // ### `targetTrackingScalingPolicyConfiguration`
-// 
+//
 // * `targetValue` - (Required) The target value for the metric.
 // * `disableScaleIn` - (Optional) Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
 // * `scaleInCooldown` - (Optional) The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
 // * `scaleOutCooldown` - (Optional) The amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
 // * `customizedMetricSpecification` - (Optional) A custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
 // * `predefinedMetricSpecification` - (Optional) A predefined metric. See supported fields below.
-// 
+//
 // ### `customizedMetricSpecification`
-// 
+//
 // * `dimensions` - (Optional) The dimensions of the metric.
 // * `metricName` - (Required) The name of the metric.
 // * `namespace` - (Required) The namespace of the metric.
 // * `statistic` - (Required) The statistic of the metric.
 // * `unit` - (Optional) The unit of the metric.
-// 
+//
 // ### `predefinedMetricSpecification`
-// 
+//
 // * `predefinedMetricType` - (Required) The metric type.
 // * `resourceLabel` - (Optional) Reserved for future use.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appautoscaling_policy.html.markdown.
 type Policy struct {
 	pulumi.CustomResourceState
@@ -175,4 +175,3 @@ type PolicyArgs struct {
 func (PolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyArgs)(nil)).Elem()
 }
-

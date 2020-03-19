@@ -12,14 +12,14 @@ import (
 )
 
 // Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/accessanalyzer_analyzer.html.markdown.
 type Analyzer struct {
 	pulumi.CustomResourceState
 
 	// Name of the Analyzer.
 	AnalyzerName pulumi.StringOutput `pulumi:"analyzerName"`
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn          pulumi.StringOutput `pulumi:"arn"`
 	// Key-value mapping of resource tags.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
@@ -59,7 +59,7 @@ func GetAnalyzer(ctx *pulumi.Context,
 type analyzerState struct {
 	// Name of the Analyzer.
 	AnalyzerName *string `pulumi:"analyzerName"`
-	Arn *string `pulumi:"arn"`
+	Arn          *string `pulumi:"arn"`
 	// Key-value mapping of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
@@ -69,7 +69,7 @@ type analyzerState struct {
 type AnalyzerState struct {
 	// Name of the Analyzer.
 	AnalyzerName pulumi.StringPtrInput
-	Arn pulumi.StringPtrInput
+	Arn          pulumi.StringPtrInput
 	// Key-value mapping of resource tags.
 	Tags pulumi.MapInput
 	// Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
@@ -102,4 +102,3 @@ type AnalyzerArgs struct {
 func (AnalyzerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyzerArgs)(nil)).Elem()
 }
-

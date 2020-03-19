@@ -9,7 +9,7 @@ import (
 )
 
 // Parses an Amazon Resource Name (ARN) into its constituent parts.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/arn.html.markdown.
 func GetArn(ctx *pulumi.Context, args *GetArnArgs, opts ...pulumi.InvokeOption) (*GetArnResult, error) {
 	var rv GetArnResult
@@ -26,12 +26,11 @@ type GetArnArgs struct {
 	Arn string `pulumi:"arn"`
 }
 
-
 // A collection of values returned by getArn.
 type GetArnResult struct {
 	// The [ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS account that owns the resource, without the hyphens.
 	Account string `pulumi:"account"`
-	Arn string `pulumi:"arn"`
+	Arn     string `pulumi:"arn"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The partition that the resource is in.
@@ -45,4 +44,3 @@ type GetArnResult struct {
 	// The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
 	Service string `pulumi:"service"`
 }
-

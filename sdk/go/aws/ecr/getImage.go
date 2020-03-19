@@ -9,7 +9,7 @@ import (
 )
 
 // The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_image.html.markdown.
 func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOption) (*GetImageResult, error) {
 	var rv GetImageResult
@@ -32,20 +32,18 @@ type GetImageArgs struct {
 	RepositoryName string `pulumi:"repositoryName"`
 }
 
-
 // A collection of values returned by getImage.
 type GetImageResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id          string `pulumi:"id"`
 	ImageDigest string `pulumi:"imageDigest"`
 	// The date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
 	ImagePushedAt int `pulumi:"imagePushedAt"`
 	// The size, in bytes, of the image in the repository.
-	ImageSizeInBytes int `pulumi:"imageSizeInBytes"`
-	ImageTag *string `pulumi:"imageTag"`
+	ImageSizeInBytes int     `pulumi:"imageSizeInBytes"`
+	ImageTag         *string `pulumi:"imageTag"`
 	// The list of tags associated with this image.
-	ImageTags []string `pulumi:"imageTags"`
-	RegistryId string `pulumi:"registryId"`
-	RepositoryName string `pulumi:"repositoryName"`
+	ImageTags      []string `pulumi:"imageTags"`
+	RegistryId     string   `pulumi:"registryId"`
+	RepositoryName string   `pulumi:"repositoryName"`
 }
-

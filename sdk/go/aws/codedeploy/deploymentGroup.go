@@ -12,9 +12,9 @@ import (
 )
 
 // Provides a CodeDeploy Deployment Group for a CodeDeploy Application
-// 
+//
 // > **NOTE on blue/green deployments:** When using `greenFleetProvisioningOption` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by this provider and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codedeploy_deployment_group.html.markdown.
 type DeploymentGroup struct {
 	pulumi.CustomResourceState
@@ -34,7 +34,7 @@ type DeploymentGroup struct {
 	// The name of the deployment group.
 	DeploymentGroupName pulumi.StringOutput `pulumi:"deploymentGroupName"`
 	// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
-	DeploymentStyle DeploymentGroupDeploymentStyleOutput `pulumi:"deploymentStyle"`
+	DeploymentStyle DeploymentGroupDeploymentStylePtrOutput `pulumi:"deploymentStyle"`
 	// Tag filters associated with the deployment group. See the AWS docs for details.
 	Ec2TagFilters DeploymentGroupEc2TagFilterArrayOutput `pulumi:"ec2TagFilters"`
 	// Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
@@ -42,7 +42,7 @@ type DeploymentGroup struct {
 	// Configuration block(s) of the ECS services for a deployment group (documented below).
 	EcsService DeploymentGroupEcsServicePtrOutput `pulumi:"ecsService"`
 	// Single configuration block of the load balancer to use in a blue/green deployment (documented below).
-	LoadBalancerInfo DeploymentGroupLoadBalancerInfoOutput `pulumi:"loadBalancerInfo"`
+	LoadBalancerInfo DeploymentGroupLoadBalancerInfoPtrOutput `pulumi:"loadBalancerInfo"`
 	// On premise tag filters associated with the group. See the AWS docs for details.
 	OnPremisesInstanceTagFilters DeploymentGroupOnPremisesInstanceTagFilterArrayOutput `pulumi:"onPremisesInstanceTagFilters"`
 	// The service role ARN that allows deployments.
@@ -227,4 +227,3 @@ type DeploymentGroupArgs struct {
 func (DeploymentGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentGroupArgs)(nil)).Elem()
 }
-

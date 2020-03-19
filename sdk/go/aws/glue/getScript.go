@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/glue_script.html.markdown.
 func GetScript(ctx *pulumi.Context, args *GetScriptArgs, opts ...pulumi.InvokeOption) (*GetScriptResult, error) {
 	var rv GetScriptResult
@@ -30,17 +30,15 @@ type GetScriptArgs struct {
 	Language *string `pulumi:"language"`
 }
 
-
 // A collection of values returned by getScript.
 type GetScriptResult struct {
 	DagEdges []GetScriptDagEdge `pulumi:"dagEdges"`
 	DagNodes []GetScriptDagNode `pulumi:"dagNodes"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id       string  `pulumi:"id"`
 	Language *string `pulumi:"language"`
 	// The Python script generated from the DAG when the `language` argument is set to `PYTHON`.
 	PythonScript string `pulumi:"pythonScript"`
 	// The Scala code generated from the DAG when the `language` argument is set to `SCALA`.
 	ScalaCode string `pulumi:"scalaCode"`
 }
-

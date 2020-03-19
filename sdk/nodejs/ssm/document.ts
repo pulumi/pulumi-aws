@@ -163,6 +163,10 @@ export class Document extends pulumi.CustomResource {
      * A mapping of tags to assign to the object.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+     */
+    public readonly targetType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Document resource with the given unique name, arguments, and options.
@@ -195,6 +199,7 @@ export class Document extends pulumi.CustomResource {
             inputs["schemaVersion"] = state ? state.schemaVersion : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["targetType"] = state ? state.targetType : undefined;
         } else {
             const args = argsOrState as DocumentArgs | undefined;
             if (!args || args.content === undefined) {
@@ -210,6 +215,7 @@ export class Document extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["permissions"] = args ? args.permissions : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["targetType"] = args ? args.targetType : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createdDate"] = undefined /*out*/;
             inputs["defaultVersion"] = undefined /*out*/;
@@ -311,6 +317,10 @@ export interface DocumentState {
      * A mapping of tags to assign to the object.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+     */
+    readonly targetType?: pulumi.Input<string>;
 }
 
 /**
@@ -345,4 +355,8 @@ export interface DocumentArgs {
      * A mapping of tags to assign to the object.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+     */
+    readonly targetType?: pulumi.Input<string>;
 }

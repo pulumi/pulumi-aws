@@ -13,10 +13,10 @@ import (
 // Provides an Elastic Beanstalk Application Resource. Elastic Beanstalk allows
 // you to deploy and manage applications in the AWS cloud without worrying about
 // the infrastructure that runs those applications.
-// 
+//
 // This resource creates an application that has one configuration template named
 // `default`, and no application versions
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application.html.markdown.
 type Application struct {
 	pulumi.CustomResourceState
@@ -111,4 +111,3 @@ type ApplicationArgs struct {
 func (ApplicationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationArgs)(nil)).Elem()
 }
-

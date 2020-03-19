@@ -81,7 +81,8 @@ type DomainClusterConfigPtrInput interface {
 
 type domainClusterConfigPtrType DomainClusterConfigArgs
 
-func DomainClusterConfigPtr(v *DomainClusterConfigArgs) DomainClusterConfigPtrInput {	return (*domainClusterConfigPtrType)(v)
+func DomainClusterConfigPtr(v *DomainClusterConfigArgs) DomainClusterConfigPtrInput {
+	return (*domainClusterConfigPtrType)(v)
 }
 
 func (*domainClusterConfigPtrType) ElementType() reflect.Type {
@@ -96,7 +97,7 @@ func (i *domainClusterConfigPtrType) ToDomainClusterConfigPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigPtrOutput)
 }
 
-type DomainClusterConfigOutput struct { *pulumi.OutputState }
+type DomainClusterConfigOutput struct{ *pulumi.OutputState }
 
 func (DomainClusterConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainClusterConfig)(nil)).Elem()
@@ -119,42 +120,43 @@ func (o DomainClusterConfigOutput) ToDomainClusterConfigPtrOutputWithContext(ctx
 		return &v
 	}).(DomainClusterConfigPtrOutput)
 }
+
 // Number of dedicated master nodes in the cluster
 func (o DomainClusterConfigOutput) DedicatedMasterCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DomainClusterConfig) *int { return v.DedicatedMasterCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DomainClusterConfig) *int { return v.DedicatedMasterCount }).(pulumi.IntPtrOutput)
 }
 
 // Indicates whether dedicated master nodes are enabled for the cluster.
 func (o DomainClusterConfigOutput) DedicatedMasterEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DomainClusterConfig) *bool { return v.DedicatedMasterEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.DedicatedMasterEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Instance type of the dedicated master nodes in the cluster.
 func (o DomainClusterConfigOutput) DedicatedMasterType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainClusterConfig) *string { return v.DedicatedMasterType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainClusterConfig) *string { return v.DedicatedMasterType }).(pulumi.StringPtrOutput)
 }
 
 // Number of instances in the cluster.
 func (o DomainClusterConfigOutput) InstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DomainClusterConfig) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DomainClusterConfig) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
 // Instance type of data nodes in the cluster.
 func (o DomainClusterConfigOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainClusterConfig) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainClusterConfig) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block containing zone awareness settings. Documented below.
 func (o DomainClusterConfigOutput) ZoneAwarenessConfig() DomainClusterConfigZoneAwarenessConfigPtrOutput {
-	return o.ApplyT(func (v DomainClusterConfig) *DomainClusterConfigZoneAwarenessConfig { return v.ZoneAwarenessConfig }).(DomainClusterConfigZoneAwarenessConfigPtrOutput)
+	return o.ApplyT(func(v DomainClusterConfig) *DomainClusterConfigZoneAwarenessConfig { return v.ZoneAwarenessConfig }).(DomainClusterConfigZoneAwarenessConfigPtrOutput)
 }
 
 // Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
 func (o DomainClusterConfigOutput) ZoneAwarenessEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DomainClusterConfig) *bool { return v.ZoneAwarenessEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.ZoneAwarenessEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type DomainClusterConfigPtrOutput struct { *pulumi.OutputState}
+type DomainClusterConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainClusterConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DomainClusterConfig)(nil)).Elem()
@@ -169,42 +171,42 @@ func (o DomainClusterConfigPtrOutput) ToDomainClusterConfigPtrOutputWithContext(
 }
 
 func (o DomainClusterConfigPtrOutput) Elem() DomainClusterConfigOutput {
-	return o.ApplyT(func (v *DomainClusterConfig) DomainClusterConfig { return *v }).(DomainClusterConfigOutput)
+	return o.ApplyT(func(v *DomainClusterConfig) DomainClusterConfig { return *v }).(DomainClusterConfigOutput)
 }
 
 // Number of dedicated master nodes in the cluster
 func (o DomainClusterConfigPtrOutput) DedicatedMasterCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DomainClusterConfig) *int { return v.DedicatedMasterCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DomainClusterConfig) *int { return v.DedicatedMasterCount }).(pulumi.IntPtrOutput)
 }
 
 // Indicates whether dedicated master nodes are enabled for the cluster.
 func (o DomainClusterConfigPtrOutput) DedicatedMasterEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DomainClusterConfig) *bool { return v.DedicatedMasterEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.DedicatedMasterEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Instance type of the dedicated master nodes in the cluster.
 func (o DomainClusterConfigPtrOutput) DedicatedMasterType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainClusterConfig) *string { return v.DedicatedMasterType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainClusterConfig) *string { return v.DedicatedMasterType }).(pulumi.StringPtrOutput)
 }
 
 // Number of instances in the cluster.
 func (o DomainClusterConfigPtrOutput) InstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DomainClusterConfig) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DomainClusterConfig) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
 // Instance type of data nodes in the cluster.
 func (o DomainClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainClusterConfig) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainClusterConfig) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block containing zone awareness settings. Documented below.
 func (o DomainClusterConfigPtrOutput) ZoneAwarenessConfig() DomainClusterConfigZoneAwarenessConfigPtrOutput {
-	return o.ApplyT(func (v DomainClusterConfig) *DomainClusterConfigZoneAwarenessConfig { return v.ZoneAwarenessConfig }).(DomainClusterConfigZoneAwarenessConfigPtrOutput)
+	return o.ApplyT(func(v DomainClusterConfig) *DomainClusterConfigZoneAwarenessConfig { return v.ZoneAwarenessConfig }).(DomainClusterConfigZoneAwarenessConfigPtrOutput)
 }
 
 // Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
 func (o DomainClusterConfigPtrOutput) ZoneAwarenessEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DomainClusterConfig) *bool { return v.ZoneAwarenessEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.ZoneAwarenessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type DomainClusterConfigZoneAwarenessConfig struct {
@@ -253,7 +255,8 @@ type DomainClusterConfigZoneAwarenessConfigPtrInput interface {
 
 type domainClusterConfigZoneAwarenessConfigPtrType DomainClusterConfigZoneAwarenessConfigArgs
 
-func DomainClusterConfigZoneAwarenessConfigPtr(v *DomainClusterConfigZoneAwarenessConfigArgs) DomainClusterConfigZoneAwarenessConfigPtrInput {	return (*domainClusterConfigZoneAwarenessConfigPtrType)(v)
+func DomainClusterConfigZoneAwarenessConfigPtr(v *DomainClusterConfigZoneAwarenessConfigArgs) DomainClusterConfigZoneAwarenessConfigPtrInput {
+	return (*domainClusterConfigZoneAwarenessConfigPtrType)(v)
 }
 
 func (*domainClusterConfigZoneAwarenessConfigPtrType) ElementType() reflect.Type {
@@ -268,7 +271,7 @@ func (i *domainClusterConfigZoneAwarenessConfigPtrType) ToDomainClusterConfigZon
 	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigZoneAwarenessConfigPtrOutput)
 }
 
-type DomainClusterConfigZoneAwarenessConfigOutput struct { *pulumi.OutputState }
+type DomainClusterConfigZoneAwarenessConfigOutput struct{ *pulumi.OutputState }
 
 func (DomainClusterConfigZoneAwarenessConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainClusterConfigZoneAwarenessConfig)(nil)).Elem()
@@ -291,12 +294,13 @@ func (o DomainClusterConfigZoneAwarenessConfigOutput) ToDomainClusterConfigZoneA
 		return &v
 	}).(DomainClusterConfigZoneAwarenessConfigPtrOutput)
 }
+
 // Number of Availability Zones for the domain to use with `zoneAwarenessEnabled`. Defaults to `2`. Valid values: `2` or `3`.
 func (o DomainClusterConfigZoneAwarenessConfigOutput) AvailabilityZoneCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DomainClusterConfigZoneAwarenessConfig) *int { return v.AvailabilityZoneCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DomainClusterConfigZoneAwarenessConfig) *int { return v.AvailabilityZoneCount }).(pulumi.IntPtrOutput)
 }
 
-type DomainClusterConfigZoneAwarenessConfigPtrOutput struct { *pulumi.OutputState}
+type DomainClusterConfigZoneAwarenessConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainClusterConfigZoneAwarenessConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DomainClusterConfigZoneAwarenessConfig)(nil)).Elem()
@@ -311,12 +315,12 @@ func (o DomainClusterConfigZoneAwarenessConfigPtrOutput) ToDomainClusterConfigZo
 }
 
 func (o DomainClusterConfigZoneAwarenessConfigPtrOutput) Elem() DomainClusterConfigZoneAwarenessConfigOutput {
-	return o.ApplyT(func (v *DomainClusterConfigZoneAwarenessConfig) DomainClusterConfigZoneAwarenessConfig { return *v }).(DomainClusterConfigZoneAwarenessConfigOutput)
+	return o.ApplyT(func(v *DomainClusterConfigZoneAwarenessConfig) DomainClusterConfigZoneAwarenessConfig { return *v }).(DomainClusterConfigZoneAwarenessConfigOutput)
 }
 
 // Number of Availability Zones for the domain to use with `zoneAwarenessEnabled`. Defaults to `2`. Valid values: `2` or `3`.
 func (o DomainClusterConfigZoneAwarenessConfigPtrOutput) AvailabilityZoneCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DomainClusterConfigZoneAwarenessConfig) *int { return v.AvailabilityZoneCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DomainClusterConfigZoneAwarenessConfig) *int { return v.AvailabilityZoneCount }).(pulumi.IntPtrOutput)
 }
 
 type DomainCognitoOptions struct {
@@ -377,7 +381,8 @@ type DomainCognitoOptionsPtrInput interface {
 
 type domainCognitoOptionsPtrType DomainCognitoOptionsArgs
 
-func DomainCognitoOptionsPtr(v *DomainCognitoOptionsArgs) DomainCognitoOptionsPtrInput {	return (*domainCognitoOptionsPtrType)(v)
+func DomainCognitoOptionsPtr(v *DomainCognitoOptionsArgs) DomainCognitoOptionsPtrInput {
+	return (*domainCognitoOptionsPtrType)(v)
 }
 
 func (*domainCognitoOptionsPtrType) ElementType() reflect.Type {
@@ -392,7 +397,7 @@ func (i *domainCognitoOptionsPtrType) ToDomainCognitoOptionsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DomainCognitoOptionsPtrOutput)
 }
 
-type DomainCognitoOptionsOutput struct { *pulumi.OutputState }
+type DomainCognitoOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainCognitoOptionsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainCognitoOptions)(nil)).Elem()
@@ -415,27 +420,28 @@ func (o DomainCognitoOptionsOutput) ToDomainCognitoOptionsPtrOutputWithContext(c
 		return &v
 	}).(DomainCognitoOptionsPtrOutput)
 }
+
 // Specifies whether Amazon Cognito authentication with Kibana is enabled or not
 func (o DomainCognitoOptionsOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DomainCognitoOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DomainCognitoOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // ID of the Cognito Identity Pool to use
 func (o DomainCognitoOptionsOutput) IdentityPoolId() pulumi.StringOutput {
-	return o.ApplyT(func (v DomainCognitoOptions) string { return v.IdentityPoolId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DomainCognitoOptions) string { return v.IdentityPoolId }).(pulumi.StringOutput)
 }
 
 // ARN of the IAM role that has the AmazonESCognitoAccess policy attached
 func (o DomainCognitoOptionsOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func (v DomainCognitoOptions) string { return v.RoleArn }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DomainCognitoOptions) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 // ID of the Cognito User Pool to use
 func (o DomainCognitoOptionsOutput) UserPoolId() pulumi.StringOutput {
-	return o.ApplyT(func (v DomainCognitoOptions) string { return v.UserPoolId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DomainCognitoOptions) string { return v.UserPoolId }).(pulumi.StringOutput)
 }
 
-type DomainCognitoOptionsPtrOutput struct { *pulumi.OutputState}
+type DomainCognitoOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainCognitoOptionsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DomainCognitoOptions)(nil)).Elem()
@@ -450,27 +456,151 @@ func (o DomainCognitoOptionsPtrOutput) ToDomainCognitoOptionsPtrOutputWithContex
 }
 
 func (o DomainCognitoOptionsPtrOutput) Elem() DomainCognitoOptionsOutput {
-	return o.ApplyT(func (v *DomainCognitoOptions) DomainCognitoOptions { return *v }).(DomainCognitoOptionsOutput)
+	return o.ApplyT(func(v *DomainCognitoOptions) DomainCognitoOptions { return *v }).(DomainCognitoOptionsOutput)
 }
 
 // Specifies whether Amazon Cognito authentication with Kibana is enabled or not
 func (o DomainCognitoOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DomainCognitoOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DomainCognitoOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // ID of the Cognito Identity Pool to use
 func (o DomainCognitoOptionsPtrOutput) IdentityPoolId() pulumi.StringOutput {
-	return o.ApplyT(func (v DomainCognitoOptions) string { return v.IdentityPoolId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DomainCognitoOptions) string { return v.IdentityPoolId }).(pulumi.StringOutput)
 }
 
 // ARN of the IAM role that has the AmazonESCognitoAccess policy attached
 func (o DomainCognitoOptionsPtrOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func (v DomainCognitoOptions) string { return v.RoleArn }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DomainCognitoOptions) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 // ID of the Cognito User Pool to use
 func (o DomainCognitoOptionsPtrOutput) UserPoolId() pulumi.StringOutput {
-	return o.ApplyT(func (v DomainCognitoOptions) string { return v.UserPoolId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DomainCognitoOptions) string { return v.UserPoolId }).(pulumi.StringOutput)
+}
+
+type DomainDomainEndpointOptions struct {
+	// Whether or not to require HTTPS
+	EnforceHttps      bool    `pulumi:"enforceHttps"`
+	TlsSecurityPolicy *string `pulumi:"tlsSecurityPolicy"`
+}
+
+type DomainDomainEndpointOptionsInput interface {
+	pulumi.Input
+
+	ToDomainDomainEndpointOptionsOutput() DomainDomainEndpointOptionsOutput
+	ToDomainDomainEndpointOptionsOutputWithContext(context.Context) DomainDomainEndpointOptionsOutput
+}
+
+type DomainDomainEndpointOptionsArgs struct {
+	// Whether or not to require HTTPS
+	EnforceHttps      pulumi.BoolInput      `pulumi:"enforceHttps"`
+	TlsSecurityPolicy pulumi.StringPtrInput `pulumi:"tlsSecurityPolicy"`
+}
+
+func (DomainDomainEndpointOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDomainEndpointOptions)(nil)).Elem()
+}
+
+func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsOutput() DomainDomainEndpointOptionsOutput {
+	return i.ToDomainDomainEndpointOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainEndpointOptionsOutput)
+}
+
+func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput {
+	return i.ToDomainDomainEndpointOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainEndpointOptionsOutput).ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx)
+}
+
+type DomainDomainEndpointOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput
+	ToDomainDomainEndpointOptionsPtrOutputWithContext(context.Context) DomainDomainEndpointOptionsPtrOutput
+}
+
+type domainDomainEndpointOptionsPtrType DomainDomainEndpointOptionsArgs
+
+func DomainDomainEndpointOptionsPtr(v *DomainDomainEndpointOptionsArgs) DomainDomainEndpointOptionsPtrInput {
+	return (*domainDomainEndpointOptionsPtrType)(v)
+}
+
+func (*domainDomainEndpointOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDomainEndpointOptions)(nil)).Elem()
+}
+
+func (i *domainDomainEndpointOptionsPtrType) ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput {
+	return i.ToDomainDomainEndpointOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDomainEndpointOptionsPtrType) ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainEndpointOptionsPtrOutput)
+}
+
+type DomainDomainEndpointOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainDomainEndpointOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDomainEndpointOptions)(nil)).Elem()
+}
+
+func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsOutput() DomainDomainEndpointOptionsOutput {
+	return o
+}
+
+func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsOutput {
+	return o
+}
+
+func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput {
+	return o.ToDomainDomainEndpointOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsPtrOutput {
+	return o.ApplyT(func(v DomainDomainEndpointOptions) *DomainDomainEndpointOptions {
+		return &v
+	}).(DomainDomainEndpointOptionsPtrOutput)
+}
+
+// Whether or not to require HTTPS
+func (o DomainDomainEndpointOptionsOutput) EnforceHttps() pulumi.BoolOutput {
+	return o.ApplyT(func(v DomainDomainEndpointOptions) bool { return v.EnforceHttps }).(pulumi.BoolOutput)
+}
+
+func (o DomainDomainEndpointOptionsOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDomainEndpointOptions) *string { return v.TlsSecurityPolicy }).(pulumi.StringPtrOutput)
+}
+
+type DomainDomainEndpointOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDomainEndpointOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDomainEndpointOptions)(nil)).Elem()
+}
+
+func (o DomainDomainEndpointOptionsPtrOutput) ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput {
+	return o
+}
+
+func (o DomainDomainEndpointOptionsPtrOutput) ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsPtrOutput {
+	return o
+}
+
+func (o DomainDomainEndpointOptionsPtrOutput) Elem() DomainDomainEndpointOptionsOutput {
+	return o.ApplyT(func(v *DomainDomainEndpointOptions) DomainDomainEndpointOptions { return *v }).(DomainDomainEndpointOptionsOutput)
+}
+
+// Whether or not to require HTTPS
+func (o DomainDomainEndpointOptionsPtrOutput) EnforceHttps() pulumi.BoolOutput {
+	return o.ApplyT(func(v DomainDomainEndpointOptions) bool { return v.EnforceHttps }).(pulumi.BoolOutput)
+}
+
+func (o DomainDomainEndpointOptionsPtrOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDomainEndpointOptions) *string { return v.TlsSecurityPolicy }).(pulumi.StringPtrOutput)
 }
 
 type DomainEbsOptions struct {
@@ -535,7 +665,8 @@ type DomainEbsOptionsPtrInput interface {
 
 type domainEbsOptionsPtrType DomainEbsOptionsArgs
 
-func DomainEbsOptionsPtr(v *DomainEbsOptionsArgs) DomainEbsOptionsPtrInput {	return (*domainEbsOptionsPtrType)(v)
+func DomainEbsOptionsPtr(v *DomainEbsOptionsArgs) DomainEbsOptionsPtrInput {
+	return (*domainEbsOptionsPtrType)(v)
 }
 
 func (*domainEbsOptionsPtrType) ElementType() reflect.Type {
@@ -550,7 +681,7 @@ func (i *domainEbsOptionsPtrType) ToDomainEbsOptionsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DomainEbsOptionsPtrOutput)
 }
 
-type DomainEbsOptionsOutput struct { *pulumi.OutputState }
+type DomainEbsOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainEbsOptionsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainEbsOptions)(nil)).Elem()
@@ -573,29 +704,30 @@ func (o DomainEbsOptionsOutput) ToDomainEbsOptionsPtrOutputWithContext(ctx conte
 		return &v
 	}).(DomainEbsOptionsPtrOutput)
 }
+
 // Whether EBS volumes are attached to data nodes in the domain.
 func (o DomainEbsOptionsOutput) EbsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v DomainEbsOptions) bool { return v.EbsEnabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v DomainEbsOptions) bool { return v.EbsEnabled }).(pulumi.BoolOutput)
 }
 
 // The baseline input/output (I/O) performance of EBS volumes
 // attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
 func (o DomainEbsOptionsOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DomainEbsOptions) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DomainEbsOptions) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 // The size of EBS volumes attached to data nodes (in GB).
 // **Required** if `ebsEnabled` is set to `true`.
 func (o DomainEbsOptionsOutput) VolumeSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DomainEbsOptions) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DomainEbsOptions) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
 // The type of EBS volumes attached to data nodes.
 func (o DomainEbsOptionsOutput) VolumeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainEbsOptions) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainEbsOptions) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
 
-type DomainEbsOptionsPtrOutput struct { *pulumi.OutputState}
+type DomainEbsOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainEbsOptionsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DomainEbsOptions)(nil)).Elem()
@@ -610,29 +742,29 @@ func (o DomainEbsOptionsPtrOutput) ToDomainEbsOptionsPtrOutputWithContext(ctx co
 }
 
 func (o DomainEbsOptionsPtrOutput) Elem() DomainEbsOptionsOutput {
-	return o.ApplyT(func (v *DomainEbsOptions) DomainEbsOptions { return *v }).(DomainEbsOptionsOutput)
+	return o.ApplyT(func(v *DomainEbsOptions) DomainEbsOptions { return *v }).(DomainEbsOptionsOutput)
 }
 
 // Whether EBS volumes are attached to data nodes in the domain.
 func (o DomainEbsOptionsPtrOutput) EbsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v DomainEbsOptions) bool { return v.EbsEnabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v DomainEbsOptions) bool { return v.EbsEnabled }).(pulumi.BoolOutput)
 }
 
 // The baseline input/output (I/O) performance of EBS volumes
 // attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
 func (o DomainEbsOptionsPtrOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DomainEbsOptions) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DomainEbsOptions) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 // The size of EBS volumes attached to data nodes (in GB).
 // **Required** if `ebsEnabled` is set to `true`.
 func (o DomainEbsOptionsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DomainEbsOptions) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DomainEbsOptions) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
 // The type of EBS volumes attached to data nodes.
 func (o DomainEbsOptionsPtrOutput) VolumeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainEbsOptions) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainEbsOptions) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
 
 type DomainEncryptAtRest struct {
@@ -685,7 +817,8 @@ type DomainEncryptAtRestPtrInput interface {
 
 type domainEncryptAtRestPtrType DomainEncryptAtRestArgs
 
-func DomainEncryptAtRestPtr(v *DomainEncryptAtRestArgs) DomainEncryptAtRestPtrInput {	return (*domainEncryptAtRestPtrType)(v)
+func DomainEncryptAtRestPtr(v *DomainEncryptAtRestArgs) DomainEncryptAtRestPtrInput {
+	return (*domainEncryptAtRestPtrType)(v)
 }
 
 func (*domainEncryptAtRestPtrType) ElementType() reflect.Type {
@@ -700,7 +833,7 @@ func (i *domainEncryptAtRestPtrType) ToDomainEncryptAtRestPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DomainEncryptAtRestPtrOutput)
 }
 
-type DomainEncryptAtRestOutput struct { *pulumi.OutputState }
+type DomainEncryptAtRestOutput struct{ *pulumi.OutputState }
 
 func (DomainEncryptAtRestOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainEncryptAtRest)(nil)).Elem()
@@ -723,17 +856,18 @@ func (o DomainEncryptAtRestOutput) ToDomainEncryptAtRestPtrOutputWithContext(ctx
 		return &v
 	}).(DomainEncryptAtRestPtrOutput)
 }
+
 // Specifies whether Amazon Cognito authentication with Kibana is enabled or not
 func (o DomainEncryptAtRestOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v DomainEncryptAtRest) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v DomainEncryptAtRest) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // The KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
 func (o DomainEncryptAtRestOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainEncryptAtRest) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainEncryptAtRest) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-type DomainEncryptAtRestPtrOutput struct { *pulumi.OutputState}
+type DomainEncryptAtRestPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainEncryptAtRestPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DomainEncryptAtRest)(nil)).Elem()
@@ -748,17 +882,17 @@ func (o DomainEncryptAtRestPtrOutput) ToDomainEncryptAtRestPtrOutputWithContext(
 }
 
 func (o DomainEncryptAtRestPtrOutput) Elem() DomainEncryptAtRestOutput {
-	return o.ApplyT(func (v *DomainEncryptAtRest) DomainEncryptAtRest { return *v }).(DomainEncryptAtRestOutput)
+	return o.ApplyT(func(v *DomainEncryptAtRest) DomainEncryptAtRest { return *v }).(DomainEncryptAtRestOutput)
 }
 
 // Specifies whether Amazon Cognito authentication with Kibana is enabled or not
 func (o DomainEncryptAtRestPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v DomainEncryptAtRest) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v DomainEncryptAtRest) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // The KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
 func (o DomainEncryptAtRestPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainEncryptAtRest) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainEncryptAtRest) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 type DomainLogPublishingOption struct {
@@ -819,7 +953,7 @@ func (i DomainLogPublishingOptionArray) ToDomainLogPublishingOptionArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DomainLogPublishingOptionArrayOutput)
 }
 
-type DomainLogPublishingOptionOutput struct { *pulumi.OutputState }
+type DomainLogPublishingOptionOutput struct{ *pulumi.OutputState }
 
 func (DomainLogPublishingOptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainLogPublishingOption)(nil)).Elem()
@@ -835,20 +969,20 @@ func (o DomainLogPublishingOptionOutput) ToDomainLogPublishingOptionOutputWithCo
 
 // ARN of the Cloudwatch log group to which log needs to be published.
 func (o DomainLogPublishingOptionOutput) CloudwatchLogGroupArn() pulumi.StringOutput {
-	return o.ApplyT(func (v DomainLogPublishingOption) string { return v.CloudwatchLogGroupArn }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DomainLogPublishingOption) string { return v.CloudwatchLogGroupArn }).(pulumi.StringOutput)
 }
 
 // Specifies whether Amazon Cognito authentication with Kibana is enabled or not
 func (o DomainLogPublishingOptionOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DomainLogPublishingOption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DomainLogPublishingOption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
 func (o DomainLogPublishingOptionOutput) LogType() pulumi.StringOutput {
-	return o.ApplyT(func (v DomainLogPublishingOption) string { return v.LogType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DomainLogPublishingOption) string { return v.LogType }).(pulumi.StringOutput)
 }
 
-type DomainLogPublishingOptionArrayOutput struct { *pulumi.OutputState}
+type DomainLogPublishingOptionArrayOutput struct{ *pulumi.OutputState }
 
 func (DomainLogPublishingOptionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DomainLogPublishingOption)(nil)).Elem()
@@ -863,7 +997,7 @@ func (o DomainLogPublishingOptionArrayOutput) ToDomainLogPublishingOptionArrayOu
 }
 
 func (o DomainLogPublishingOptionArrayOutput) Index(i pulumi.IntInput) DomainLogPublishingOptionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DomainLogPublishingOption {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainLogPublishingOption {
 		return vs[0].([]DomainLogPublishingOption)[vs[1].(int)]
 	}).(DomainLogPublishingOptionOutput)
 }
@@ -914,7 +1048,8 @@ type DomainNodeToNodeEncryptionPtrInput interface {
 
 type domainNodeToNodeEncryptionPtrType DomainNodeToNodeEncryptionArgs
 
-func DomainNodeToNodeEncryptionPtr(v *DomainNodeToNodeEncryptionArgs) DomainNodeToNodeEncryptionPtrInput {	return (*domainNodeToNodeEncryptionPtrType)(v)
+func DomainNodeToNodeEncryptionPtr(v *DomainNodeToNodeEncryptionArgs) DomainNodeToNodeEncryptionPtrInput {
+	return (*domainNodeToNodeEncryptionPtrType)(v)
 }
 
 func (*domainNodeToNodeEncryptionPtrType) ElementType() reflect.Type {
@@ -929,7 +1064,7 @@ func (i *domainNodeToNodeEncryptionPtrType) ToDomainNodeToNodeEncryptionPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNodeToNodeEncryptionPtrOutput)
 }
 
-type DomainNodeToNodeEncryptionOutput struct { *pulumi.OutputState }
+type DomainNodeToNodeEncryptionOutput struct{ *pulumi.OutputState }
 
 func (DomainNodeToNodeEncryptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainNodeToNodeEncryption)(nil)).Elem()
@@ -952,12 +1087,13 @@ func (o DomainNodeToNodeEncryptionOutput) ToDomainNodeToNodeEncryptionPtrOutputW
 		return &v
 	}).(DomainNodeToNodeEncryptionPtrOutput)
 }
+
 // Specifies whether Amazon Cognito authentication with Kibana is enabled or not
 func (o DomainNodeToNodeEncryptionOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v DomainNodeToNodeEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v DomainNodeToNodeEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-type DomainNodeToNodeEncryptionPtrOutput struct { *pulumi.OutputState}
+type DomainNodeToNodeEncryptionPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainNodeToNodeEncryptionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DomainNodeToNodeEncryption)(nil)).Elem()
@@ -972,12 +1108,12 @@ func (o DomainNodeToNodeEncryptionPtrOutput) ToDomainNodeToNodeEncryptionPtrOutp
 }
 
 func (o DomainNodeToNodeEncryptionPtrOutput) Elem() DomainNodeToNodeEncryptionOutput {
-	return o.ApplyT(func (v *DomainNodeToNodeEncryption) DomainNodeToNodeEncryption { return *v }).(DomainNodeToNodeEncryptionOutput)
+	return o.ApplyT(func(v *DomainNodeToNodeEncryption) DomainNodeToNodeEncryption { return *v }).(DomainNodeToNodeEncryptionOutput)
 }
 
 // Specifies whether Amazon Cognito authentication with Kibana is enabled or not
 func (o DomainNodeToNodeEncryptionPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v DomainNodeToNodeEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v DomainNodeToNodeEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 type DomainSnapshotOptions struct {
@@ -1028,7 +1164,8 @@ type DomainSnapshotOptionsPtrInput interface {
 
 type domainSnapshotOptionsPtrType DomainSnapshotOptionsArgs
 
-func DomainSnapshotOptionsPtr(v *DomainSnapshotOptionsArgs) DomainSnapshotOptionsPtrInput {	return (*domainSnapshotOptionsPtrType)(v)
+func DomainSnapshotOptionsPtr(v *DomainSnapshotOptionsArgs) DomainSnapshotOptionsPtrInput {
+	return (*domainSnapshotOptionsPtrType)(v)
 }
 
 func (*domainSnapshotOptionsPtrType) ElementType() reflect.Type {
@@ -1043,7 +1180,7 @@ func (i *domainSnapshotOptionsPtrType) ToDomainSnapshotOptionsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSnapshotOptionsPtrOutput)
 }
 
-type DomainSnapshotOptionsOutput struct { *pulumi.OutputState }
+type DomainSnapshotOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainSnapshotOptionsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainSnapshotOptions)(nil)).Elem()
@@ -1066,13 +1203,14 @@ func (o DomainSnapshotOptionsOutput) ToDomainSnapshotOptionsPtrOutputWithContext
 		return &v
 	}).(DomainSnapshotOptionsPtrOutput)
 }
+
 // Hour during which the service takes an automated daily
 // snapshot of the indices in the domain.
 func (o DomainSnapshotOptionsOutput) AutomatedSnapshotStartHour() pulumi.IntOutput {
-	return o.ApplyT(func (v DomainSnapshotOptions) int { return v.AutomatedSnapshotStartHour }).(pulumi.IntOutput)
+	return o.ApplyT(func(v DomainSnapshotOptions) int { return v.AutomatedSnapshotStartHour }).(pulumi.IntOutput)
 }
 
-type DomainSnapshotOptionsPtrOutput struct { *pulumi.OutputState}
+type DomainSnapshotOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainSnapshotOptionsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DomainSnapshotOptions)(nil)).Elem()
@@ -1087,13 +1225,13 @@ func (o DomainSnapshotOptionsPtrOutput) ToDomainSnapshotOptionsPtrOutputWithCont
 }
 
 func (o DomainSnapshotOptionsPtrOutput) Elem() DomainSnapshotOptionsOutput {
-	return o.ApplyT(func (v *DomainSnapshotOptions) DomainSnapshotOptions { return *v }).(DomainSnapshotOptionsOutput)
+	return o.ApplyT(func(v *DomainSnapshotOptions) DomainSnapshotOptions { return *v }).(DomainSnapshotOptionsOutput)
 }
 
 // Hour during which the service takes an automated daily
 // snapshot of the indices in the domain.
 func (o DomainSnapshotOptionsPtrOutput) AutomatedSnapshotStartHour() pulumi.IntOutput {
-	return o.ApplyT(func (v DomainSnapshotOptions) int { return v.AutomatedSnapshotStartHour }).(pulumi.IntOutput)
+	return o.ApplyT(func(v DomainSnapshotOptions) int { return v.AutomatedSnapshotStartHour }).(pulumi.IntOutput)
 }
 
 type DomainVpcOptions struct {
@@ -1102,7 +1240,7 @@ type DomainVpcOptions struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
 	SubnetIds []string `pulumi:"subnetIds"`
-	VpcId *string `pulumi:"vpcId"`
+	VpcId     *string  `pulumi:"vpcId"`
 }
 
 type DomainVpcOptionsInput interface {
@@ -1118,7 +1256,7 @@ type DomainVpcOptionsArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+	VpcId     pulumi.StringPtrInput   `pulumi:"vpcId"`
 }
 
 func (DomainVpcOptionsArgs) ElementType() reflect.Type {
@@ -1150,7 +1288,8 @@ type DomainVpcOptionsPtrInput interface {
 
 type domainVpcOptionsPtrType DomainVpcOptionsArgs
 
-func DomainVpcOptionsPtr(v *DomainVpcOptionsArgs) DomainVpcOptionsPtrInput {	return (*domainVpcOptionsPtrType)(v)
+func DomainVpcOptionsPtr(v *DomainVpcOptionsArgs) DomainVpcOptionsPtrInput {
+	return (*domainVpcOptionsPtrType)(v)
 }
 
 func (*domainVpcOptionsPtrType) ElementType() reflect.Type {
@@ -1165,7 +1304,7 @@ func (i *domainVpcOptionsPtrType) ToDomainVpcOptionsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DomainVpcOptionsPtrOutput)
 }
 
-type DomainVpcOptionsOutput struct { *pulumi.OutputState }
+type DomainVpcOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainVpcOptionsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainVpcOptions)(nil)).Elem()
@@ -1189,24 +1328,24 @@ func (o DomainVpcOptionsOutput) ToDomainVpcOptionsPtrOutputWithContext(ctx conte
 	}).(DomainVpcOptionsPtrOutput)
 }
 func (o DomainVpcOptionsOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DomainVpcOptions) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DomainVpcOptions) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
 // List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
 func (o DomainVpcOptionsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DomainVpcOptions) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DomainVpcOptions) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
 // List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
 func (o DomainVpcOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DomainVpcOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DomainVpcOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
 func (o DomainVpcOptionsOutput) VpcId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainVpcOptions) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainVpcOptions) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
-type DomainVpcOptionsPtrOutput struct { *pulumi.OutputState}
+type DomainVpcOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainVpcOptionsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DomainVpcOptions)(nil)).Elem()
@@ -1221,25 +1360,25 @@ func (o DomainVpcOptionsPtrOutput) ToDomainVpcOptionsPtrOutputWithContext(ctx co
 }
 
 func (o DomainVpcOptionsPtrOutput) Elem() DomainVpcOptionsOutput {
-	return o.ApplyT(func (v *DomainVpcOptions) DomainVpcOptions { return *v }).(DomainVpcOptionsOutput)
+	return o.ApplyT(func(v *DomainVpcOptions) DomainVpcOptions { return *v }).(DomainVpcOptionsOutput)
 }
 
 func (o DomainVpcOptionsPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DomainVpcOptions) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DomainVpcOptions) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
 // List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
 func (o DomainVpcOptionsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DomainVpcOptions) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DomainVpcOptions) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
 // List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
 func (o DomainVpcOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DomainVpcOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DomainVpcOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
 func (o DomainVpcOptionsPtrOutput) VpcId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DomainVpcOptions) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DomainVpcOptions) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 type GetDomainClusterConfig struct {
@@ -1316,7 +1455,7 @@ func (i GetDomainClusterConfigArray) ToGetDomainClusterConfigArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigArrayOutput)
 }
 
-type GetDomainClusterConfigOutput struct { *pulumi.OutputState }
+type GetDomainClusterConfigOutput struct{ *pulumi.OutputState }
 
 func (GetDomainClusterConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetDomainClusterConfig)(nil)).Elem()
@@ -1332,40 +1471,42 @@ func (o GetDomainClusterConfigOutput) ToGetDomainClusterConfigOutputWithContext(
 
 // Number of dedicated master nodes in the cluster.
 func (o GetDomainClusterConfigOutput) DedicatedMasterCount() pulumi.IntOutput {
-	return o.ApplyT(func (v GetDomainClusterConfig) int { return v.DedicatedMasterCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetDomainClusterConfig) int { return v.DedicatedMasterCount }).(pulumi.IntOutput)
 }
 
 // Indicates whether dedicated master nodes are enabled for the cluster.
 func (o GetDomainClusterConfigOutput) DedicatedMasterEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetDomainClusterConfig) bool { return v.DedicatedMasterEnabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetDomainClusterConfig) bool { return v.DedicatedMasterEnabled }).(pulumi.BoolOutput)
 }
 
 // Instance type of the dedicated master nodes in the cluster.
 func (o GetDomainClusterConfigOutput) DedicatedMasterType() pulumi.StringOutput {
-	return o.ApplyT(func (v GetDomainClusterConfig) string { return v.DedicatedMasterType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetDomainClusterConfig) string { return v.DedicatedMasterType }).(pulumi.StringOutput)
 }
 
 // Number of instances in the cluster.
 func (o GetDomainClusterConfigOutput) InstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func (v GetDomainClusterConfig) int { return v.InstanceCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetDomainClusterConfig) int { return v.InstanceCount }).(pulumi.IntOutput)
 }
 
 // Instance type of data nodes in the cluster.
 func (o GetDomainClusterConfigOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func (v GetDomainClusterConfig) string { return v.InstanceType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetDomainClusterConfig) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
 // Configuration block containing zone awareness settings.
 func (o GetDomainClusterConfigOutput) ZoneAwarenessConfigs() GetDomainClusterConfigZoneAwarenessConfigArrayOutput {
-	return o.ApplyT(func (v GetDomainClusterConfig) []GetDomainClusterConfigZoneAwarenessConfig { return v.ZoneAwarenessConfigs }).(GetDomainClusterConfigZoneAwarenessConfigArrayOutput)
+	return o.ApplyT(func(v GetDomainClusterConfig) []GetDomainClusterConfigZoneAwarenessConfig {
+		return v.ZoneAwarenessConfigs
+	}).(GetDomainClusterConfigZoneAwarenessConfigArrayOutput)
 }
 
 // Indicates whether zone awareness is enabled.
 func (o GetDomainClusterConfigOutput) ZoneAwarenessEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetDomainClusterConfig) bool { return v.ZoneAwarenessEnabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetDomainClusterConfig) bool { return v.ZoneAwarenessEnabled }).(pulumi.BoolOutput)
 }
 
-type GetDomainClusterConfigArrayOutput struct { *pulumi.OutputState}
+type GetDomainClusterConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (GetDomainClusterConfigArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetDomainClusterConfig)(nil)).Elem()
@@ -1380,7 +1521,7 @@ func (o GetDomainClusterConfigArrayOutput) ToGetDomainClusterConfigArrayOutputWi
 }
 
 func (o GetDomainClusterConfigArrayOutput) Index(i pulumi.IntInput) GetDomainClusterConfigOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetDomainClusterConfig {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainClusterConfig {
 		return vs[0].([]GetDomainClusterConfig)[vs[1].(int)]
 	}).(GetDomainClusterConfigOutput)
 }
@@ -1435,7 +1576,7 @@ func (i GetDomainClusterConfigZoneAwarenessConfigArray) ToGetDomainClusterConfig
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigZoneAwarenessConfigArrayOutput)
 }
 
-type GetDomainClusterConfigZoneAwarenessConfigOutput struct { *pulumi.OutputState }
+type GetDomainClusterConfigZoneAwarenessConfigOutput struct{ *pulumi.OutputState }
 
 func (GetDomainClusterConfigZoneAwarenessConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetDomainClusterConfigZoneAwarenessConfig)(nil)).Elem()
@@ -1451,10 +1592,10 @@ func (o GetDomainClusterConfigZoneAwarenessConfigOutput) ToGetDomainClusterConfi
 
 // Number of availability zones used.
 func (o GetDomainClusterConfigZoneAwarenessConfigOutput) AvailabilityZoneCount() pulumi.IntOutput {
-	return o.ApplyT(func (v GetDomainClusterConfigZoneAwarenessConfig) int { return v.AvailabilityZoneCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetDomainClusterConfigZoneAwarenessConfig) int { return v.AvailabilityZoneCount }).(pulumi.IntOutput)
 }
 
-type GetDomainClusterConfigZoneAwarenessConfigArrayOutput struct { *pulumi.OutputState}
+type GetDomainClusterConfigZoneAwarenessConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (GetDomainClusterConfigZoneAwarenessConfigArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetDomainClusterConfigZoneAwarenessConfig)(nil)).Elem()
@@ -1469,7 +1610,7 @@ func (o GetDomainClusterConfigZoneAwarenessConfigArrayOutput) ToGetDomainCluster
 }
 
 func (o GetDomainClusterConfigZoneAwarenessConfigArrayOutput) Index(i pulumi.IntInput) GetDomainClusterConfigZoneAwarenessConfigOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetDomainClusterConfigZoneAwarenessConfig {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainClusterConfigZoneAwarenessConfig {
 		return vs[0].([]GetDomainClusterConfigZoneAwarenessConfig)[vs[1].(int)]
 	}).(GetDomainClusterConfigZoneAwarenessConfigOutput)
 }
@@ -1536,7 +1677,7 @@ func (i GetDomainCognitoOptionArray) ToGetDomainCognitoOptionArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainCognitoOptionArrayOutput)
 }
 
-type GetDomainCognitoOptionOutput struct { *pulumi.OutputState }
+type GetDomainCognitoOptionOutput struct{ *pulumi.OutputState }
 
 func (GetDomainCognitoOptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetDomainCognitoOption)(nil)).Elem()
@@ -1552,25 +1693,25 @@ func (o GetDomainCognitoOptionOutput) ToGetDomainCognitoOptionOutputWithContext(
 
 // Whether node to node encryption is enabled.
 func (o GetDomainCognitoOptionOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetDomainCognitoOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetDomainCognitoOption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // The Cognito Identity pool used by the domain.
 func (o GetDomainCognitoOptionOutput) IdentityPoolId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetDomainCognitoOption) string { return v.IdentityPoolId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetDomainCognitoOption) string { return v.IdentityPoolId }).(pulumi.StringOutput)
 }
 
 // The IAM Role with the AmazonESCognitoAccess policy attached.
 func (o GetDomainCognitoOptionOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func (v GetDomainCognitoOption) string { return v.RoleArn }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetDomainCognitoOption) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 // The Cognito User pool used by the domain.
 func (o GetDomainCognitoOptionOutput) UserPoolId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetDomainCognitoOption) string { return v.UserPoolId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetDomainCognitoOption) string { return v.UserPoolId }).(pulumi.StringOutput)
 }
 
-type GetDomainCognitoOptionArrayOutput struct { *pulumi.OutputState}
+type GetDomainCognitoOptionArrayOutput struct{ *pulumi.OutputState }
 
 func (GetDomainCognitoOptionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetDomainCognitoOption)(nil)).Elem()
@@ -1585,7 +1726,7 @@ func (o GetDomainCognitoOptionArrayOutput) ToGetDomainCognitoOptionArrayOutputWi
 }
 
 func (o GetDomainCognitoOptionArrayOutput) Index(i pulumi.IntInput) GetDomainCognitoOptionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetDomainCognitoOption {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainCognitoOption {
 		return vs[0].([]GetDomainCognitoOption)[vs[1].(int)]
 	}).(GetDomainCognitoOptionOutput)
 }
@@ -1654,7 +1795,7 @@ func (i GetDomainEbsOptionArray) ToGetDomainEbsOptionArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainEbsOptionArrayOutput)
 }
 
-type GetDomainEbsOptionOutput struct { *pulumi.OutputState }
+type GetDomainEbsOptionOutput struct{ *pulumi.OutputState }
 
 func (GetDomainEbsOptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetDomainEbsOption)(nil)).Elem()
@@ -1670,26 +1811,26 @@ func (o GetDomainEbsOptionOutput) ToGetDomainEbsOptionOutputWithContext(ctx cont
 
 // Whether EBS volumes are attached to data nodes in the domain.
 func (o GetDomainEbsOptionOutput) EbsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetDomainEbsOption) bool { return v.EbsEnabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetDomainEbsOption) bool { return v.EbsEnabled }).(pulumi.BoolOutput)
 }
 
 // The baseline input/output (I/O) performance of EBS volumes
 // attached to data nodes.
 func (o GetDomainEbsOptionOutput) Iops() pulumi.IntOutput {
-	return o.ApplyT(func (v GetDomainEbsOption) int { return v.Iops }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetDomainEbsOption) int { return v.Iops }).(pulumi.IntOutput)
 }
 
 // The size of EBS volumes attached to data nodes (in GB).
 func (o GetDomainEbsOptionOutput) VolumeSize() pulumi.IntOutput {
-	return o.ApplyT(func (v GetDomainEbsOption) int { return v.VolumeSize }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetDomainEbsOption) int { return v.VolumeSize }).(pulumi.IntOutput)
 }
 
 // The type of EBS volumes attached to data nodes.
 func (o GetDomainEbsOptionOutput) VolumeType() pulumi.StringOutput {
-	return o.ApplyT(func (v GetDomainEbsOption) string { return v.VolumeType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetDomainEbsOption) string { return v.VolumeType }).(pulumi.StringOutput)
 }
 
-type GetDomainEbsOptionArrayOutput struct { *pulumi.OutputState}
+type GetDomainEbsOptionArrayOutput struct{ *pulumi.OutputState }
 
 func (GetDomainEbsOptionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetDomainEbsOption)(nil)).Elem()
@@ -1704,7 +1845,7 @@ func (o GetDomainEbsOptionArrayOutput) ToGetDomainEbsOptionArrayOutputWithContex
 }
 
 func (o GetDomainEbsOptionArrayOutput) Index(i pulumi.IntInput) GetDomainEbsOptionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetDomainEbsOption {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainEbsOption {
 		return vs[0].([]GetDomainEbsOption)[vs[1].(int)]
 	}).(GetDomainEbsOptionOutput)
 }
@@ -1763,7 +1904,7 @@ func (i GetDomainEncryptionAtRestArray) ToGetDomainEncryptionAtRestArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainEncryptionAtRestArrayOutput)
 }
 
-type GetDomainEncryptionAtRestOutput struct { *pulumi.OutputState }
+type GetDomainEncryptionAtRestOutput struct{ *pulumi.OutputState }
 
 func (GetDomainEncryptionAtRestOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetDomainEncryptionAtRest)(nil)).Elem()
@@ -1779,15 +1920,15 @@ func (o GetDomainEncryptionAtRestOutput) ToGetDomainEncryptionAtRestOutputWithCo
 
 // Whether node to node encryption is enabled.
 func (o GetDomainEncryptionAtRestOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetDomainEncryptionAtRest) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetDomainEncryptionAtRest) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // The KMS key id used to encrypt data at rest.
 func (o GetDomainEncryptionAtRestOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetDomainEncryptionAtRest) string { return v.KmsKeyId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetDomainEncryptionAtRest) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-type GetDomainEncryptionAtRestArrayOutput struct { *pulumi.OutputState}
+type GetDomainEncryptionAtRestArrayOutput struct{ *pulumi.OutputState }
 
 func (GetDomainEncryptionAtRestArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetDomainEncryptionAtRest)(nil)).Elem()
@@ -1802,7 +1943,7 @@ func (o GetDomainEncryptionAtRestArrayOutput) ToGetDomainEncryptionAtRestArrayOu
 }
 
 func (o GetDomainEncryptionAtRestArrayOutput) Index(i pulumi.IntInput) GetDomainEncryptionAtRestOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetDomainEncryptionAtRest {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainEncryptionAtRest {
 		return vs[0].([]GetDomainEncryptionAtRest)[vs[1].(int)]
 	}).(GetDomainEncryptionAtRestOutput)
 }
@@ -1865,7 +2006,7 @@ func (i GetDomainLogPublishingOptionArray) ToGetDomainLogPublishingOptionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainLogPublishingOptionArrayOutput)
 }
 
-type GetDomainLogPublishingOptionOutput struct { *pulumi.OutputState }
+type GetDomainLogPublishingOptionOutput struct{ *pulumi.OutputState }
 
 func (GetDomainLogPublishingOptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetDomainLogPublishingOption)(nil)).Elem()
@@ -1881,20 +2022,20 @@ func (o GetDomainLogPublishingOptionOutput) ToGetDomainLogPublishingOptionOutput
 
 // The CloudWatch Log Group where the logs are published.
 func (o GetDomainLogPublishingOptionOutput) CloudwatchLogGroupArn() pulumi.StringOutput {
-	return o.ApplyT(func (v GetDomainLogPublishingOption) string { return v.CloudwatchLogGroupArn }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetDomainLogPublishingOption) string { return v.CloudwatchLogGroupArn }).(pulumi.StringOutput)
 }
 
 // Whether node to node encryption is enabled.
 func (o GetDomainLogPublishingOptionOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetDomainLogPublishingOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetDomainLogPublishingOption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // The type of Elasticsearch log being published.
 func (o GetDomainLogPublishingOptionOutput) LogType() pulumi.StringOutput {
-	return o.ApplyT(func (v GetDomainLogPublishingOption) string { return v.LogType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetDomainLogPublishingOption) string { return v.LogType }).(pulumi.StringOutput)
 }
 
-type GetDomainLogPublishingOptionArrayOutput struct { *pulumi.OutputState}
+type GetDomainLogPublishingOptionArrayOutput struct{ *pulumi.OutputState }
 
 func (GetDomainLogPublishingOptionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetDomainLogPublishingOption)(nil)).Elem()
@@ -1909,7 +2050,7 @@ func (o GetDomainLogPublishingOptionArrayOutput) ToGetDomainLogPublishingOptionA
 }
 
 func (o GetDomainLogPublishingOptionArrayOutput) Index(i pulumi.IntInput) GetDomainLogPublishingOptionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetDomainLogPublishingOption {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainLogPublishingOption {
 		return vs[0].([]GetDomainLogPublishingOption)[vs[1].(int)]
 	}).(GetDomainLogPublishingOptionOutput)
 }
@@ -1964,7 +2105,7 @@ func (i GetDomainNodeToNodeEncryptionArray) ToGetDomainNodeToNodeEncryptionArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainNodeToNodeEncryptionArrayOutput)
 }
 
-type GetDomainNodeToNodeEncryptionOutput struct { *pulumi.OutputState }
+type GetDomainNodeToNodeEncryptionOutput struct{ *pulumi.OutputState }
 
 func (GetDomainNodeToNodeEncryptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetDomainNodeToNodeEncryption)(nil)).Elem()
@@ -1980,10 +2121,10 @@ func (o GetDomainNodeToNodeEncryptionOutput) ToGetDomainNodeToNodeEncryptionOutp
 
 // Whether node to node encryption is enabled.
 func (o GetDomainNodeToNodeEncryptionOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetDomainNodeToNodeEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetDomainNodeToNodeEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-type GetDomainNodeToNodeEncryptionArrayOutput struct { *pulumi.OutputState}
+type GetDomainNodeToNodeEncryptionArrayOutput struct{ *pulumi.OutputState }
 
 func (GetDomainNodeToNodeEncryptionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetDomainNodeToNodeEncryption)(nil)).Elem()
@@ -1998,7 +2139,7 @@ func (o GetDomainNodeToNodeEncryptionArrayOutput) ToGetDomainNodeToNodeEncryptio
 }
 
 func (o GetDomainNodeToNodeEncryptionArrayOutput) Index(i pulumi.IntInput) GetDomainNodeToNodeEncryptionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetDomainNodeToNodeEncryption {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainNodeToNodeEncryption {
 		return vs[0].([]GetDomainNodeToNodeEncryption)[vs[1].(int)]
 	}).(GetDomainNodeToNodeEncryptionOutput)
 }
@@ -2055,7 +2196,7 @@ func (i GetDomainSnapshotOptionArray) ToGetDomainSnapshotOptionArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainSnapshotOptionArrayOutput)
 }
 
-type GetDomainSnapshotOptionOutput struct { *pulumi.OutputState }
+type GetDomainSnapshotOptionOutput struct{ *pulumi.OutputState }
 
 func (GetDomainSnapshotOptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetDomainSnapshotOption)(nil)).Elem()
@@ -2072,10 +2213,10 @@ func (o GetDomainSnapshotOptionOutput) ToGetDomainSnapshotOptionOutputWithContex
 // Hour during which the service takes an automated daily
 // snapshot of the indices in the domain.
 func (o GetDomainSnapshotOptionOutput) AutomatedSnapshotStartHour() pulumi.IntOutput {
-	return o.ApplyT(func (v GetDomainSnapshotOption) int { return v.AutomatedSnapshotStartHour }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetDomainSnapshotOption) int { return v.AutomatedSnapshotStartHour }).(pulumi.IntOutput)
 }
 
-type GetDomainSnapshotOptionArrayOutput struct { *pulumi.OutputState}
+type GetDomainSnapshotOptionArrayOutput struct{ *pulumi.OutputState }
 
 func (GetDomainSnapshotOptionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetDomainSnapshotOption)(nil)).Elem()
@@ -2090,7 +2231,7 @@ func (o GetDomainSnapshotOptionArrayOutput) ToGetDomainSnapshotOptionArrayOutput
 }
 
 func (o GetDomainSnapshotOptionArrayOutput) Index(i pulumi.IntInput) GetDomainSnapshotOptionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetDomainSnapshotOption {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainSnapshotOption {
 		return vs[0].([]GetDomainSnapshotOption)[vs[1].(int)]
 	}).(GetDomainSnapshotOptionOutput)
 }
@@ -2157,7 +2298,7 @@ func (i GetDomainVpcOptionArray) ToGetDomainVpcOptionArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainVpcOptionArrayOutput)
 }
 
-type GetDomainVpcOptionOutput struct { *pulumi.OutputState }
+type GetDomainVpcOptionOutput struct{ *pulumi.OutputState }
 
 func (GetDomainVpcOptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetDomainVpcOption)(nil)).Elem()
@@ -2173,25 +2314,25 @@ func (o GetDomainVpcOptionOutput) ToGetDomainVpcOptionOutputWithContext(ctx cont
 
 // The availability zones used by the domain.
 func (o GetDomainVpcOptionOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetDomainVpcOption) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetDomainVpcOption) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
 // The security groups used by the domain.
 func (o GetDomainVpcOptionOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetDomainVpcOption) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetDomainVpcOption) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
 // The subnets used by the domain.
 func (o GetDomainVpcOptionOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetDomainVpcOption) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetDomainVpcOption) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
 // The VPC used by the domain.
 func (o GetDomainVpcOptionOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetDomainVpcOption) string { return v.VpcId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetDomainVpcOption) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
-type GetDomainVpcOptionArrayOutput struct { *pulumi.OutputState}
+type GetDomainVpcOptionArrayOutput struct{ *pulumi.OutputState }
 
 func (GetDomainVpcOptionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetDomainVpcOption)(nil)).Elem()
@@ -2206,7 +2347,7 @@ func (o GetDomainVpcOptionArrayOutput) ToGetDomainVpcOptionArrayOutputWithContex
 }
 
 func (o GetDomainVpcOptionArrayOutput) Index(i pulumi.IntInput) GetDomainVpcOptionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetDomainVpcOption {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainVpcOption {
 		return vs[0].([]GetDomainVpcOption)[vs[1].(int)]
 	}).(GetDomainVpcOptionOutput)
 }
@@ -2218,6 +2359,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainClusterConfigZoneAwarenessConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainCognitoOptionsOutput{})
 	pulumi.RegisterOutputType(DomainCognitoOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDomainEndpointOptionsOutput{})
+	pulumi.RegisterOutputType(DomainDomainEndpointOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainEbsOptionsOutput{})
 	pulumi.RegisterOutputType(DomainEbsOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainEncryptAtRestOutput{})

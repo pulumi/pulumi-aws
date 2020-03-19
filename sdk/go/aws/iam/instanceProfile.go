@@ -11,7 +11,7 @@ import (
 )
 
 // Provides an IAM instance profile.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_instance_profile.html.markdown.
 type InstanceProfile struct {
 	pulumi.CustomResourceState
@@ -28,7 +28,7 @@ type InstanceProfile struct {
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// The role name to include in the profile.
 	Role pulumi.StringOutput `pulumi:"role"`
-	// 
+	//
 	// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// The [unique ID][1] assigned by AWS.
@@ -75,7 +75,7 @@ type instanceProfileState struct {
 	Path *string `pulumi:"path"`
 	// The role name to include in the profile.
 	Role *string `pulumi:"role"`
-	// 
+	//
 	// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
 	Roles []string `pulumi:"roles"`
 	// The [unique ID][1] assigned by AWS.
@@ -95,7 +95,7 @@ type InstanceProfileState struct {
 	Path pulumi.StringPtrInput
 	// The role name to include in the profile.
 	Role pulumi.StringPtrInput
-	// 
+	//
 	// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
 	Roles pulumi.StringArrayInput
 	// The [unique ID][1] assigned by AWS.
@@ -115,7 +115,7 @@ type instanceProfileArgs struct {
 	Path *string `pulumi:"path"`
 	// The role name to include in the profile.
 	Role interface{} `pulumi:"role"`
-	// 
+	//
 	// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
 	Roles []interface{} `pulumi:"roles"`
 }
@@ -130,7 +130,7 @@ type InstanceProfileArgs struct {
 	Path pulumi.StringPtrInput
 	// The role name to include in the profile.
 	Role pulumi.Input
-	// 
+	//
 	// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
 	Roles pulumi.ArrayInput
 }
@@ -138,4 +138,3 @@ type InstanceProfileArgs struct {
 func (InstanceProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceProfileArgs)(nil)).Elem()
 }
-

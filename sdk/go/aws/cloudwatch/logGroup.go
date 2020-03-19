@@ -11,7 +11,7 @@ import (
 )
 
 // Provides a CloudWatch Log Group resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_group.html.markdown.
 type LogGroup struct {
 	pulumi.CustomResourceState
@@ -27,7 +27,7 @@ type LogGroup struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// Specifies the number of days
-	// you want to retain log events in the specified log group.
+	// you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
@@ -72,7 +72,7 @@ type logGroupState struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Specifies the number of days
-	// you want to retain log events in the specified log group.
+	// you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -90,7 +90,7 @@ type LogGroupState struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Specifies the number of days
-	// you want to retain log events in the specified log group.
+	// you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
 	RetentionInDays pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
@@ -110,7 +110,7 @@ type logGroupArgs struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Specifies the number of days
-	// you want to retain log events in the specified log group.
+	// you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -127,7 +127,7 @@ type LogGroupArgs struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Specifies the number of days
-	// you want to retain log events in the specified log group.
+	// you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
 	RetentionInDays pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
@@ -136,4 +136,3 @@ type LogGroupArgs struct {
 func (LogGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logGroupArgs)(nil)).Elem()
 }
-

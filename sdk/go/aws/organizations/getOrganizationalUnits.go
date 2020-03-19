@@ -9,7 +9,7 @@ import (
 )
 
 // Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organizational_units.html.markdown.
 func GetOrganizationalUnits(ctx *pulumi.Context, args *GetOrganizationalUnitsArgs, opts ...pulumi.InvokeOption) (*GetOrganizationalUnitsResult, error) {
 	var rv GetOrganizationalUnitsResult
@@ -26,13 +26,11 @@ type GetOrganizationalUnitsArgs struct {
 	ParentId string `pulumi:"parentId"`
 }
 
-
 // A collection of values returned by getOrganizationalUnits.
 type GetOrganizationalUnitsResult struct {
 	// List of child organizational units, which have the following attributes:
 	Childrens []GetOrganizationalUnitsChildren `pulumi:"childrens"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id       string `pulumi:"id"`
 	ParentId string `pulumi:"parentId"`
 }
-

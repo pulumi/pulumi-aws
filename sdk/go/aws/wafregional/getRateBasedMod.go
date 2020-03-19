@@ -9,7 +9,7 @@ import (
 )
 
 // `wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_rate_based_rule.html.markdown.
 func GetRateBasedMod(ctx *pulumi.Context, args *GetRateBasedModArgs, opts ...pulumi.InvokeOption) (*GetRateBasedModResult, error) {
 	var rv GetRateBasedModResult
@@ -26,11 +26,9 @@ type GetRateBasedModArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getRateBasedMod.
 type GetRateBasedModResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
-

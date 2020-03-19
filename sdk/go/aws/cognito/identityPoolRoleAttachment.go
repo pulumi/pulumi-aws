@@ -12,8 +12,8 @@ import (
 )
 
 // Provides an AWS Cognito Identity Pool Roles Attachment.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_pool_roles_attachment.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_pool_roles_attachment.markdown.
 type IdentityPoolRoleAttachment struct {
 	pulumi.CustomResourceState
 
@@ -102,4 +102,3 @@ type IdentityPoolRoleAttachmentArgs struct {
 func (IdentityPoolRoleAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityPoolRoleAttachmentArgs)(nil)).Elem()
 }
-

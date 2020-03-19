@@ -12,19 +12,19 @@ import (
 )
 
 // Provides a CodeCommit Trigger Resource.
-// 
+//
 // > **NOTE on CodeCommit**: The CodeCommit is not yet rolled out
 // in all regions - available regions are listed
 // [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codecommit_trigger.html.markdown.
 type Trigger struct {
 	pulumi.CustomResourceState
 
 	ConfigurationId pulumi.StringOutput `pulumi:"configurationId"`
 	// The name for the repository. This needs to be less than 100 characters.
-	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
-	Triggers TriggerTriggerArrayOutput `pulumi:"triggers"`
+	RepositoryName pulumi.StringOutput       `pulumi:"repositoryName"`
+	Triggers       TriggerTriggerArrayOutput `pulumi:"triggers"`
 }
 
 // NewTrigger registers a new resource with the given unique name, arguments, and options.
@@ -63,15 +63,15 @@ func GetTrigger(ctx *pulumi.Context,
 type triggerState struct {
 	ConfigurationId *string `pulumi:"configurationId"`
 	// The name for the repository. This needs to be less than 100 characters.
-	RepositoryName *string `pulumi:"repositoryName"`
-	Triggers []TriggerTrigger `pulumi:"triggers"`
+	RepositoryName *string          `pulumi:"repositoryName"`
+	Triggers       []TriggerTrigger `pulumi:"triggers"`
 }
 
 type TriggerState struct {
 	ConfigurationId pulumi.StringPtrInput
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringPtrInput
-	Triggers TriggerTriggerArrayInput
+	Triggers       TriggerTriggerArrayInput
 }
 
 func (TriggerState) ElementType() reflect.Type {
@@ -80,18 +80,17 @@ func (TriggerState) ElementType() reflect.Type {
 
 type triggerArgs struct {
 	// The name for the repository. This needs to be less than 100 characters.
-	RepositoryName string `pulumi:"repositoryName"`
-	Triggers []TriggerTrigger `pulumi:"triggers"`
+	RepositoryName string           `pulumi:"repositoryName"`
+	Triggers       []TriggerTrigger `pulumi:"triggers"`
 }
 
 // The set of arguments for constructing a Trigger resource.
 type TriggerArgs struct {
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringInput
-	Triggers TriggerTriggerArrayInput
+	Triggers       TriggerTriggerArrayInput
 }
 
 func (TriggerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*triggerArgs)(nil)).Elem()
 }
-

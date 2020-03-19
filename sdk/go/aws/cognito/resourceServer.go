@@ -12,8 +12,8 @@ import (
 )
 
 // Provides a Cognito Resource Server.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_resource_server.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_resource_server.markdown.
 type ResourceServer struct {
 	pulumi.CustomResourceState
 
@@ -24,8 +24,8 @@ type ResourceServer struct {
 	// A list of all scopes configured for this resource server in the format identifier/scope_name.
 	ScopeIdentifiers pulumi.StringArrayOutput `pulumi:"scopeIdentifiers"`
 	// A list of Authorization Scope.
-	Scopes ResourceServerScopeArrayOutput `pulumi:"scopes"`
-	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
+	Scopes     ResourceServerScopeArrayOutput `pulumi:"scopes"`
+	UserPoolId pulumi.StringOutput            `pulumi:"userPoolId"`
 }
 
 // NewResourceServer registers a new resource with the given unique name, arguments, and options.
@@ -69,8 +69,8 @@ type resourceServerState struct {
 	// A list of all scopes configured for this resource server in the format identifier/scope_name.
 	ScopeIdentifiers []string `pulumi:"scopeIdentifiers"`
 	// A list of Authorization Scope.
-	Scopes []ResourceServerScope `pulumi:"scopes"`
-	UserPoolId *string `pulumi:"userPoolId"`
+	Scopes     []ResourceServerScope `pulumi:"scopes"`
+	UserPoolId *string               `pulumi:"userPoolId"`
 }
 
 type ResourceServerState struct {
@@ -81,7 +81,7 @@ type ResourceServerState struct {
 	// A list of all scopes configured for this resource server in the format identifier/scope_name.
 	ScopeIdentifiers pulumi.StringArrayInput
 	// A list of Authorization Scope.
-	Scopes ResourceServerScopeArrayInput
+	Scopes     ResourceServerScopeArrayInput
 	UserPoolId pulumi.StringPtrInput
 }
 
@@ -95,8 +95,8 @@ type resourceServerArgs struct {
 	// A name for the resource server.
 	Name *string `pulumi:"name"`
 	// A list of Authorization Scope.
-	Scopes []ResourceServerScope `pulumi:"scopes"`
-	UserPoolId string `pulumi:"userPoolId"`
+	Scopes     []ResourceServerScope `pulumi:"scopes"`
+	UserPoolId string                `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a ResourceServer resource.
@@ -106,11 +106,10 @@ type ResourceServerArgs struct {
 	// A name for the resource server.
 	Name pulumi.StringPtrInput
 	// A list of Authorization Scope.
-	Scopes ResourceServerScopeArrayInput
+	Scopes     ResourceServerScopeArrayInput
 	UserPoolId pulumi.StringInput
 }
 
 func (ResourceServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceServerArgs)(nil)).Elem()
 }
-

@@ -12,15 +12,15 @@ import (
 )
 
 // Provides an SNS topic policy resource
-// 
+//
 // > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_topic_policy.html.markdown.
 type TopicPolicy struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the SNS topic
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn    pulumi.StringOutput `pulumi:"arn"`
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
@@ -59,13 +59,13 @@ func GetTopicPolicy(ctx *pulumi.Context,
 // Input properties used for looking up and filtering TopicPolicy resources.
 type topicPolicyState struct {
 	// The ARN of the SNS topic
-	Arn *string `pulumi:"arn"`
+	Arn    *string `pulumi:"arn"`
 	Policy *string `pulumi:"policy"`
 }
 
 type TopicPolicyState struct {
 	// The ARN of the SNS topic
-	Arn pulumi.StringPtrInput
+	Arn    pulumi.StringPtrInput
 	Policy pulumi.StringPtrInput
 }
 
@@ -75,18 +75,17 @@ func (TopicPolicyState) ElementType() reflect.Type {
 
 type topicPolicyArgs struct {
 	// The ARN of the SNS topic
-	Arn string `pulumi:"arn"`
+	Arn    string `pulumi:"arn"`
 	Policy string `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a TopicPolicy resource.
 type TopicPolicyArgs struct {
 	// The ARN of the SNS topic
-	Arn pulumi.StringInput
+	Arn    pulumi.StringInput
 	Policy pulumi.StringInput
 }
 
 func (TopicPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicPolicyArgs)(nil)).Elem()
 }
-

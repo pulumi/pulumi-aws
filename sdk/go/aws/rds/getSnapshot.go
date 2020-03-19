@@ -9,10 +9,10 @@ import (
 )
 
 // Use this data source to get information about a DB Snapshot for use when provisioning DB instances
-// 
+//
 // > **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
 // See the [`rds.ClusterSnapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_cluster_snapshot.html) for DB Cluster snapshots.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_snapshot.html.markdown.
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
 	var rv LookupSnapshotResult
@@ -45,16 +45,15 @@ type LookupSnapshotArgs struct {
 	SnapshotType *string `pulumi:"snapshotType"`
 }
 
-
 // A collection of values returned by getSnapshot.
 type LookupSnapshotResult struct {
 	// Specifies the allocated storage size in gigabytes (GB).
 	AllocatedStorage int `pulumi:"allocatedStorage"`
 	// Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
-	AvailabilityZone string `pulumi:"availabilityZone"`
+	AvailabilityZone     string  `pulumi:"availabilityZone"`
 	DbInstanceIdentifier *string `pulumi:"dbInstanceIdentifier"`
 	// The Amazon Resource Name (ARN) for the DB snapshot.
-	DbSnapshotArn string `pulumi:"dbSnapshotArn"`
+	DbSnapshotArn        string  `pulumi:"dbSnapshotArn"`
 	DbSnapshotIdentifier *string `pulumi:"dbSnapshotIdentifier"`
 	// Specifies whether the DB snapshot is encrypted.
 	Encrypted bool `pulumi:"encrypted"`
@@ -63,22 +62,22 @@ type LookupSnapshotResult struct {
 	// Specifies the version of the database engine.
 	EngineVersion string `pulumi:"engineVersion"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	IncludePublic *bool `pulumi:"includePublic"`
-	IncludeShared *bool `pulumi:"includeShared"`
+	Id            string `pulumi:"id"`
+	IncludePublic *bool  `pulumi:"includePublic"`
+	IncludeShared *bool  `pulumi:"includeShared"`
 	// Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
 	Iops int `pulumi:"iops"`
 	// The ARN for the KMS encryption key.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// License model information for the restored DB instance.
 	LicenseModel string `pulumi:"licenseModel"`
-	MostRecent *bool `pulumi:"mostRecent"`
+	MostRecent   *bool  `pulumi:"mostRecent"`
 	// Provides the option group name for the DB snapshot.
 	OptionGroupName string `pulumi:"optionGroupName"`
-	Port int `pulumi:"port"`
+	Port            int    `pulumi:"port"`
 	// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
-	SnapshotCreateTime string `pulumi:"snapshotCreateTime"`
-	SnapshotType *string `pulumi:"snapshotType"`
+	SnapshotCreateTime string  `pulumi:"snapshotCreateTime"`
+	SnapshotType       *string `pulumi:"snapshotType"`
 	// The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
 	SourceDbSnapshotIdentifier string `pulumi:"sourceDbSnapshotIdentifier"`
 	// The region that the DB snapshot was created in or copied from.
@@ -90,4 +89,3 @@ type LookupSnapshotResult struct {
 	// Specifies the ID of the VPC associated with the DB snapshot.
 	VpcId string `pulumi:"vpcId"`
 }
-

@@ -86,7 +86,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
-     * The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
+     * The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -174,7 +174,7 @@ export interface VolumeState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
+     * The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
      */
     readonly type?: pulumi.Input<string>;
 }
@@ -212,7 +212,7 @@ export interface VolumeArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
+     * The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
      */
     readonly type?: pulumi.Input<string>;
 }

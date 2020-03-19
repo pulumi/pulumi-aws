@@ -17,9 +17,8 @@ class Webhook(pulumi.CustomResource):
     filter_groups: pulumi.Output[list]
     """
     Information about the webhook's trigger. Filter group blocks are documented below.
-    
+
       * `filters` (`list`) - A webhook filter for the group. Filter blocks are documented below.
-    
         * `excludeMatchedPattern` (`bool`) - If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
         * `pattern` (`str`) - For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
         * `type` (`str`) - The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`. At least one filter group must specify `EVENT` as its type.
@@ -43,22 +42,21 @@ class Webhook(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, branch_filter=None, filter_groups=None, project_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codebuild_webhook.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch_filter: A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
         :param pulumi.Input[list] filter_groups: Information about the webhook's trigger. Filter group blocks are documented below.
         :param pulumi.Input[str] project_name: The name of the build project.
-        
+
         The **filter_groups** object supports the following:
-        
+
           * `filters` (`pulumi.Input[list]`) - A webhook filter for the group. Filter blocks are documented below.
-        
             * `excludeMatchedPattern` (`pulumi.Input[bool]`) - If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
             * `pattern` (`pulumi.Input[str]`) - For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
             * `type` (`pulumi.Input[str]`) - The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`. At least one filter group must specify `EVENT` as its type.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codebuild_webhook.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -96,7 +94,7 @@ class Webhook(pulumi.CustomResource):
         """
         Get an existing Webhook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -106,20 +104,18 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[str] project_name: The name of the build project.
         :param pulumi.Input[str] secret: The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
         :param pulumi.Input[str] url: The URL to the webhook.
-        
+
         The **filter_groups** object supports the following:
-        
+
           * `filters` (`pulumi.Input[list]`) - A webhook filter for the group. Filter blocks are documented below.
-        
             * `excludeMatchedPattern` (`pulumi.Input[bool]`) - If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
             * `pattern` (`pulumi.Input[str]`) - For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
             * `type` (`pulumi.Input[str]`) - The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`. At least one filter group must specify `EVENT` as its type.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codebuild_webhook.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["branch_filter"] = branch_filter
         __props__["filter_groups"] = filter_groups
         __props__["payload_url"] = payload_url

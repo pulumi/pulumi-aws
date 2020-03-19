@@ -14,9 +14,9 @@ import (
 type ApplicationAppversionLifecycle struct {
 	// Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
 	DeleteSourceFromS3 *bool `pulumi:"deleteSourceFromS3"`
-	// The number of days to retain an application version.
+	// The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
 	MaxAgeInDays *int `pulumi:"maxAgeInDays"`
-	// The maximum number of application versions to retain.
+	// The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
 	MaxCount *int `pulumi:"maxCount"`
 	// The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
 	ServiceRole string `pulumi:"serviceRole"`
@@ -32,9 +32,9 @@ type ApplicationAppversionLifecycleInput interface {
 type ApplicationAppversionLifecycleArgs struct {
 	// Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
 	DeleteSourceFromS3 pulumi.BoolPtrInput `pulumi:"deleteSourceFromS3"`
-	// The number of days to retain an application version.
+	// The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
 	MaxAgeInDays pulumi.IntPtrInput `pulumi:"maxAgeInDays"`
-	// The maximum number of application versions to retain.
+	// The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
 	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
 	// The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
 	ServiceRole pulumi.StringInput `pulumi:"serviceRole"`
@@ -69,7 +69,8 @@ type ApplicationAppversionLifecyclePtrInput interface {
 
 type applicationAppversionLifecyclePtrType ApplicationAppversionLifecycleArgs
 
-func ApplicationAppversionLifecyclePtr(v *ApplicationAppversionLifecycleArgs) ApplicationAppversionLifecyclePtrInput {	return (*applicationAppversionLifecyclePtrType)(v)
+func ApplicationAppversionLifecyclePtr(v *ApplicationAppversionLifecycleArgs) ApplicationAppversionLifecyclePtrInput {
+	return (*applicationAppversionLifecyclePtrType)(v)
 }
 
 func (*applicationAppversionLifecyclePtrType) ElementType() reflect.Type {
@@ -84,7 +85,7 @@ func (i *applicationAppversionLifecyclePtrType) ToApplicationAppversionLifecycle
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAppversionLifecyclePtrOutput)
 }
 
-type ApplicationAppversionLifecycleOutput struct { *pulumi.OutputState }
+type ApplicationAppversionLifecycleOutput struct{ *pulumi.OutputState }
 
 func (ApplicationAppversionLifecycleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationAppversionLifecycle)(nil)).Elem()
@@ -107,27 +108,28 @@ func (o ApplicationAppversionLifecycleOutput) ToApplicationAppversionLifecyclePt
 		return &v
 	}).(ApplicationAppversionLifecyclePtrOutput)
 }
+
 // Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
 func (o ApplicationAppversionLifecycleOutput) DeleteSourceFromS3() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ApplicationAppversionLifecycle) *bool { return v.DeleteSourceFromS3 }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ApplicationAppversionLifecycle) *bool { return v.DeleteSourceFromS3 }).(pulumi.BoolPtrOutput)
 }
 
-// The number of days to retain an application version.
+// The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
 func (o ApplicationAppversionLifecycleOutput) MaxAgeInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ApplicationAppversionLifecycle) *int { return v.MaxAgeInDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ApplicationAppversionLifecycle) *int { return v.MaxAgeInDays }).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of application versions to retain.
+// The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
 func (o ApplicationAppversionLifecycleOutput) MaxCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ApplicationAppversionLifecycle) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ApplicationAppversionLifecycle) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
 
 // The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
 func (o ApplicationAppversionLifecycleOutput) ServiceRole() pulumi.StringOutput {
-	return o.ApplyT(func (v ApplicationAppversionLifecycle) string { return v.ServiceRole }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApplicationAppversionLifecycle) string { return v.ServiceRole }).(pulumi.StringOutput)
 }
 
-type ApplicationAppversionLifecyclePtrOutput struct { *pulumi.OutputState}
+type ApplicationAppversionLifecyclePtrOutput struct{ *pulumi.OutputState }
 
 func (ApplicationAppversionLifecyclePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApplicationAppversionLifecycle)(nil)).Elem()
@@ -142,35 +144,35 @@ func (o ApplicationAppversionLifecyclePtrOutput) ToApplicationAppversionLifecycl
 }
 
 func (o ApplicationAppversionLifecyclePtrOutput) Elem() ApplicationAppversionLifecycleOutput {
-	return o.ApplyT(func (v *ApplicationAppversionLifecycle) ApplicationAppversionLifecycle { return *v }).(ApplicationAppversionLifecycleOutput)
+	return o.ApplyT(func(v *ApplicationAppversionLifecycle) ApplicationAppversionLifecycle { return *v }).(ApplicationAppversionLifecycleOutput)
 }
 
 // Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
 func (o ApplicationAppversionLifecyclePtrOutput) DeleteSourceFromS3() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ApplicationAppversionLifecycle) *bool { return v.DeleteSourceFromS3 }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ApplicationAppversionLifecycle) *bool { return v.DeleteSourceFromS3 }).(pulumi.BoolPtrOutput)
 }
 
-// The number of days to retain an application version.
+// The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
 func (o ApplicationAppversionLifecyclePtrOutput) MaxAgeInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ApplicationAppversionLifecycle) *int { return v.MaxAgeInDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ApplicationAppversionLifecycle) *int { return v.MaxAgeInDays }).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of application versions to retain.
+// The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
 func (o ApplicationAppversionLifecyclePtrOutput) MaxCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ApplicationAppversionLifecycle) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ApplicationAppversionLifecycle) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
 
 // The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
 func (o ApplicationAppversionLifecyclePtrOutput) ServiceRole() pulumi.StringOutput {
-	return o.ApplyT(func (v ApplicationAppversionLifecycle) string { return v.ServiceRole }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApplicationAppversionLifecycle) string { return v.ServiceRole }).(pulumi.StringOutput)
 }
 
 type ConfigurationTemplateSetting struct {
 	// A unique name for this Template.
-	Name string `pulumi:"name"`
-	Namespace string `pulumi:"namespace"`
-	Resource *string `pulumi:"resource"`
-	Value string `pulumi:"value"`
+	Name      string  `pulumi:"name"`
+	Namespace string  `pulumi:"namespace"`
+	Resource  *string `pulumi:"resource"`
+	Value     string  `pulumi:"value"`
 }
 
 type ConfigurationTemplateSettingInput interface {
@@ -182,10 +184,10 @@ type ConfigurationTemplateSettingInput interface {
 
 type ConfigurationTemplateSettingArgs struct {
 	// A unique name for this Template.
-	Name pulumi.StringInput `pulumi:"name"`
-	Namespace pulumi.StringInput `pulumi:"namespace"`
-	Resource pulumi.StringPtrInput `pulumi:"resource"`
-	Value pulumi.StringInput `pulumi:"value"`
+	Name      pulumi.StringInput    `pulumi:"name"`
+	Namespace pulumi.StringInput    `pulumi:"namespace"`
+	Resource  pulumi.StringPtrInput `pulumi:"resource"`
+	Value     pulumi.StringInput    `pulumi:"value"`
 }
 
 func (ConfigurationTemplateSettingArgs) ElementType() reflect.Type {
@@ -221,7 +223,7 @@ func (i ConfigurationTemplateSettingArray) ToConfigurationTemplateSettingArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplateSettingArrayOutput)
 }
 
-type ConfigurationTemplateSettingOutput struct { *pulumi.OutputState }
+type ConfigurationTemplateSettingOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationTemplateSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationTemplateSetting)(nil)).Elem()
@@ -237,22 +239,22 @@ func (o ConfigurationTemplateSettingOutput) ToConfigurationTemplateSettingOutput
 
 // A unique name for this Template.
 func (o ConfigurationTemplateSettingOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ConfigurationTemplateSetting) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ConfigurationTemplateSetting) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o ConfigurationTemplateSettingOutput) Namespace() pulumi.StringOutput {
-	return o.ApplyT(func (v ConfigurationTemplateSetting) string { return v.Namespace }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ConfigurationTemplateSetting) string { return v.Namespace }).(pulumi.StringOutput)
 }
 
 func (o ConfigurationTemplateSettingOutput) Resource() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ConfigurationTemplateSetting) *string { return v.Resource }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ConfigurationTemplateSetting) *string { return v.Resource }).(pulumi.StringPtrOutput)
 }
 
 func (o ConfigurationTemplateSettingOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v ConfigurationTemplateSetting) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ConfigurationTemplateSetting) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type ConfigurationTemplateSettingArrayOutput struct { *pulumi.OutputState}
+type ConfigurationTemplateSettingArrayOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationTemplateSettingArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ConfigurationTemplateSetting)(nil)).Elem()
@@ -267,7 +269,7 @@ func (o ConfigurationTemplateSettingArrayOutput) ToConfigurationTemplateSettingA
 }
 
 func (o ConfigurationTemplateSettingArrayOutput) Index(i pulumi.IntInput) ConfigurationTemplateSettingOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ConfigurationTemplateSetting {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationTemplateSetting {
 		return vs[0].([]ConfigurationTemplateSetting)[vs[1].(int)]
 	}).(ConfigurationTemplateSettingOutput)
 }
@@ -275,10 +277,10 @@ func (o ConfigurationTemplateSettingArrayOutput) Index(i pulumi.IntInput) Config
 type EnvironmentAllSetting struct {
 	// A unique name for this Environment. This name is used
 	// in the application URL
-	Name string `pulumi:"name"`
-	Namespace string `pulumi:"namespace"`
-	Resource *string `pulumi:"resource"`
-	Value string `pulumi:"value"`
+	Name      string  `pulumi:"name"`
+	Namespace string  `pulumi:"namespace"`
+	Resource  *string `pulumi:"resource"`
+	Value     string  `pulumi:"value"`
 }
 
 type EnvironmentAllSettingInput interface {
@@ -291,10 +293,10 @@ type EnvironmentAllSettingInput interface {
 type EnvironmentAllSettingArgs struct {
 	// A unique name for this Environment. This name is used
 	// in the application URL
-	Name pulumi.StringInput `pulumi:"name"`
-	Namespace pulumi.StringInput `pulumi:"namespace"`
-	Resource pulumi.StringPtrInput `pulumi:"resource"`
-	Value pulumi.StringInput `pulumi:"value"`
+	Name      pulumi.StringInput    `pulumi:"name"`
+	Namespace pulumi.StringInput    `pulumi:"namespace"`
+	Resource  pulumi.StringPtrInput `pulumi:"resource"`
+	Value     pulumi.StringInput    `pulumi:"value"`
 }
 
 func (EnvironmentAllSettingArgs) ElementType() reflect.Type {
@@ -330,7 +332,7 @@ func (i EnvironmentAllSettingArray) ToEnvironmentAllSettingArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentAllSettingArrayOutput)
 }
 
-type EnvironmentAllSettingOutput struct { *pulumi.OutputState }
+type EnvironmentAllSettingOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentAllSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EnvironmentAllSetting)(nil)).Elem()
@@ -347,22 +349,22 @@ func (o EnvironmentAllSettingOutput) ToEnvironmentAllSettingOutputWithContext(ct
 // A unique name for this Environment. This name is used
 // in the application URL
 func (o EnvironmentAllSettingOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v EnvironmentAllSetting) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EnvironmentAllSetting) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o EnvironmentAllSettingOutput) Namespace() pulumi.StringOutput {
-	return o.ApplyT(func (v EnvironmentAllSetting) string { return v.Namespace }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EnvironmentAllSetting) string { return v.Namespace }).(pulumi.StringOutput)
 }
 
 func (o EnvironmentAllSettingOutput) Resource() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v EnvironmentAllSetting) *string { return v.Resource }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v EnvironmentAllSetting) *string { return v.Resource }).(pulumi.StringPtrOutput)
 }
 
 func (o EnvironmentAllSettingOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v EnvironmentAllSetting) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EnvironmentAllSetting) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type EnvironmentAllSettingArrayOutput struct { *pulumi.OutputState}
+type EnvironmentAllSettingArrayOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentAllSettingArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]EnvironmentAllSetting)(nil)).Elem()
@@ -377,7 +379,7 @@ func (o EnvironmentAllSettingArrayOutput) ToEnvironmentAllSettingArrayOutputWith
 }
 
 func (o EnvironmentAllSettingArrayOutput) Index(i pulumi.IntInput) EnvironmentAllSettingOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) EnvironmentAllSetting {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentAllSetting {
 		return vs[0].([]EnvironmentAllSetting)[vs[1].(int)]
 	}).(EnvironmentAllSettingOutput)
 }
@@ -385,10 +387,10 @@ func (o EnvironmentAllSettingArrayOutput) Index(i pulumi.IntInput) EnvironmentAl
 type EnvironmentSetting struct {
 	// A unique name for this Environment. This name is used
 	// in the application URL
-	Name string `pulumi:"name"`
-	Namespace string `pulumi:"namespace"`
-	Resource *string `pulumi:"resource"`
-	Value string `pulumi:"value"`
+	Name      string  `pulumi:"name"`
+	Namespace string  `pulumi:"namespace"`
+	Resource  *string `pulumi:"resource"`
+	Value     string  `pulumi:"value"`
 }
 
 type EnvironmentSettingInput interface {
@@ -401,10 +403,10 @@ type EnvironmentSettingInput interface {
 type EnvironmentSettingArgs struct {
 	// A unique name for this Environment. This name is used
 	// in the application URL
-	Name pulumi.StringInput `pulumi:"name"`
-	Namespace pulumi.StringInput `pulumi:"namespace"`
-	Resource pulumi.StringPtrInput `pulumi:"resource"`
-	Value pulumi.StringInput `pulumi:"value"`
+	Name      pulumi.StringInput    `pulumi:"name"`
+	Namespace pulumi.StringInput    `pulumi:"namespace"`
+	Resource  pulumi.StringPtrInput `pulumi:"resource"`
+	Value     pulumi.StringInput    `pulumi:"value"`
 }
 
 func (EnvironmentSettingArgs) ElementType() reflect.Type {
@@ -440,7 +442,7 @@ func (i EnvironmentSettingArray) ToEnvironmentSettingArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentSettingArrayOutput)
 }
 
-type EnvironmentSettingOutput struct { *pulumi.OutputState }
+type EnvironmentSettingOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EnvironmentSetting)(nil)).Elem()
@@ -457,22 +459,22 @@ func (o EnvironmentSettingOutput) ToEnvironmentSettingOutputWithContext(ctx cont
 // A unique name for this Environment. This name is used
 // in the application URL
 func (o EnvironmentSettingOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v EnvironmentSetting) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EnvironmentSetting) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o EnvironmentSettingOutput) Namespace() pulumi.StringOutput {
-	return o.ApplyT(func (v EnvironmentSetting) string { return v.Namespace }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EnvironmentSetting) string { return v.Namespace }).(pulumi.StringOutput)
 }
 
 func (o EnvironmentSettingOutput) Resource() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v EnvironmentSetting) *string { return v.Resource }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v EnvironmentSetting) *string { return v.Resource }).(pulumi.StringPtrOutput)
 }
 
 func (o EnvironmentSettingOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v EnvironmentSetting) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EnvironmentSetting) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type EnvironmentSettingArrayOutput struct { *pulumi.OutputState}
+type EnvironmentSettingArrayOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentSettingArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]EnvironmentSetting)(nil)).Elem()
@@ -487,7 +489,7 @@ func (o EnvironmentSettingArrayOutput) ToEnvironmentSettingArrayOutputWithContex
 }
 
 func (o EnvironmentSettingArrayOutput) Index(i pulumi.IntInput) EnvironmentSettingOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) EnvironmentSetting {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentSetting {
 		return vs[0].([]EnvironmentSetting)[vs[1].(int)]
 	}).(EnvironmentSettingOutput)
 }
@@ -533,7 +535,7 @@ func (i GetApplicationAppversionLifecycleArgs) ToGetApplicationAppversionLifecyc
 	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationAppversionLifecycleOutput)
 }
 
-type GetApplicationAppversionLifecycleOutput struct { *pulumi.OutputState }
+type GetApplicationAppversionLifecycleOutput struct{ *pulumi.OutputState }
 
 func (GetApplicationAppversionLifecycleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetApplicationAppversionLifecycle)(nil)).Elem()
@@ -549,22 +551,22 @@ func (o GetApplicationAppversionLifecycleOutput) ToGetApplicationAppversionLifec
 
 // Specifies whether delete a version's source bundle from S3 when the application version is deleted.
 func (o GetApplicationAppversionLifecycleOutput) DeleteSourceFromS3() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetApplicationAppversionLifecycle) bool { return v.DeleteSourceFromS3 }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetApplicationAppversionLifecycle) bool { return v.DeleteSourceFromS3 }).(pulumi.BoolOutput)
 }
 
 // The number of days to retain an application version.
 func (o GetApplicationAppversionLifecycleOutput) MaxAgeInDays() pulumi.IntOutput {
-	return o.ApplyT(func (v GetApplicationAppversionLifecycle) int { return v.MaxAgeInDays }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetApplicationAppversionLifecycle) int { return v.MaxAgeInDays }).(pulumi.IntOutput)
 }
 
 // The maximum number of application versions to retain.
 func (o GetApplicationAppversionLifecycleOutput) MaxCount() pulumi.IntOutput {
-	return o.ApplyT(func (v GetApplicationAppversionLifecycle) int { return v.MaxCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetApplicationAppversionLifecycle) int { return v.MaxCount }).(pulumi.IntOutput)
 }
 
 // The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
 func (o GetApplicationAppversionLifecycleOutput) ServiceRole() pulumi.StringOutput {
-	return o.ApplyT(func (v GetApplicationAppversionLifecycle) string { return v.ServiceRole }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetApplicationAppversionLifecycle) string { return v.ServiceRole }).(pulumi.StringOutput)
 }
 
 func init() {

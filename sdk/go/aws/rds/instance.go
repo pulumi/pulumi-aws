@@ -14,30 +14,30 @@ import (
 // Provides an RDS instance resource.  A DB instance is an isolated database
 // environment in the cloud.  A DB instance can contain multiple user-created
 // databases.
-// 
+//
 // Changes to a DB instance can occur when you manually change a parameter, such as
 // `allocatedStorage`, and are reflected in the next maintenance window. Because
 // of this, this provider may report a difference in its planning phase because a
 // modification has not yet taken place. You can use the `applyImmediately` flag
 // to instruct the service to apply the change immediately (see documentation
 // below).
-// 
+//
 // When upgrading the major version of an engine, `allowMajorVersionUpgrade`
 // must be set to `true`.
-// 
+//
 // > **Note:** using `applyImmediately` can result in a brief downtime as the
 // server reboots. See the AWS Docs on [RDS Maintenance][2] for more information.
-// 
+//
 // > **Note:** All arguments including the username and password will be stored in
 // the raw state as plain-text. [Read more about sensitive data in
 // state](https://www.terraform.io/docs/state/sensitive-data.html).
-// 
+//
 // ## RDS Instance Class Types
-// 
+//
 // Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
 // and Burstable Performance. For more information please read the AWS RDS documentation
 // about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_instance.html.markdown.
 type Instance struct {
 	pulumi.CustomResourceState
@@ -88,13 +88,15 @@ type Instance struct {
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
 	// for additional read replica contraints.
 	DbSubnetGroupName pulumi.StringOutput `pulumi:"dbSubnetGroupName"`
+	// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
+	DeleteAutomatedBackups pulumi.BoolPtrOutput `pulumi:"deleteAutomatedBackups"`
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
 	// The ID of the Directory Service Active Directory domain to create the instance in.
 	Domain pulumi.StringPtrOutput `pulumi:"domain"`
 	// The name of the IAM role to be used when making API calls to the Directory Service.
 	DomainIamRoleName pulumi.StringPtrOutput `pulumi:"domainIamRoleName"`
-	// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
+	// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `agent` (MSSQL), `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
 	EnabledCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enabledCloudwatchLogsExports"`
 	// The connection endpoint in `address:port` format.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
@@ -181,8 +183,8 @@ type Instance struct {
 	Port pulumi.IntOutput `pulumi:"port"`
 	// Bool to control if instance is publicly
 	// accessible. Default is `false`.
-	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
-	Replicas pulumi.StringArrayOutput `pulumi:"replicas"`
+	PubliclyAccessible pulumi.BoolPtrOutput     `pulumi:"publiclyAccessible"`
+	Replicas           pulumi.StringArrayOutput `pulumi:"replicas"`
 	// Specifies that this resource is a Replicate
 	// database, and to use this value as the source database. This correlates to the
 	// `identifier` of another Amazon RDS Database to replicate. Note that if you are
@@ -313,13 +315,15 @@ type instanceState struct {
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
 	// for additional read replica contraints.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
+	// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
+	DeleteAutomatedBackups *bool `pulumi:"deleteAutomatedBackups"`
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// The ID of the Directory Service Active Directory domain to create the instance in.
 	Domain *string `pulumi:"domain"`
 	// The name of the IAM role to be used when making API calls to the Directory Service.
 	DomainIamRoleName *string `pulumi:"domainIamRoleName"`
-	// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
+	// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `agent` (MSSQL), `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
 	// The connection endpoint in `address:port` format.
 	Endpoint *string `pulumi:"endpoint"`
@@ -406,8 +410,8 @@ type instanceState struct {
 	Port *int `pulumi:"port"`
 	// Bool to control if instance is publicly
 	// accessible. Default is `false`.
-	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	Replicas []string `pulumi:"replicas"`
+	PubliclyAccessible *bool    `pulumi:"publiclyAccessible"`
+	Replicas           []string `pulumi:"replicas"`
 	// Specifies that this resource is a Replicate
 	// database, and to use this value as the source database. This correlates to the
 	// `identifier` of another Amazon RDS Database to replicate. Note that if you are
@@ -508,13 +512,15 @@ type InstanceState struct {
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
 	// for additional read replica contraints.
 	DbSubnetGroupName pulumi.StringPtrInput
+	// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
+	DeleteAutomatedBackups pulumi.BoolPtrInput
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrInput
 	// The ID of the Directory Service Active Directory domain to create the instance in.
 	Domain pulumi.StringPtrInput
 	// The name of the IAM role to be used when making API calls to the Directory Service.
 	DomainIamRoleName pulumi.StringPtrInput
-	// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
+	// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `agent` (MSSQL), `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
 	// The connection endpoint in `address:port` format.
 	Endpoint pulumi.StringPtrInput
@@ -602,7 +608,7 @@ type InstanceState struct {
 	// Bool to control if instance is publicly
 	// accessible. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrInput
-	Replicas pulumi.StringArrayInput
+	Replicas           pulumi.StringArrayInput
 	// Specifies that this resource is a Replicate
 	// database, and to use this value as the source database. This correlates to the
 	// `identifier` of another Amazon RDS Database to replicate. Note that if you are
@@ -703,13 +709,15 @@ type instanceArgs struct {
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
 	// for additional read replica contraints.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
+	// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
+	DeleteAutomatedBackups *bool `pulumi:"deleteAutomatedBackups"`
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// The ID of the Directory Service Active Directory domain to create the instance in.
 	Domain *string `pulumi:"domain"`
 	// The name of the IAM role to be used when making API calls to the Directory Service.
 	DomainIamRoleName *string `pulumi:"domainIamRoleName"`
-	// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
+	// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `agent` (MSSQL), `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
 	// is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
@@ -885,13 +893,15 @@ type InstanceArgs struct {
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
 	// for additional read replica contraints.
 	DbSubnetGroupName pulumi.StringPtrInput
+	// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
+	DeleteAutomatedBackups pulumi.BoolPtrInput
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrInput
 	// The ID of the Directory Service Active Directory domain to create the instance in.
 	Domain pulumi.StringPtrInput
 	// The name of the IAM role to be used when making API calls to the Directory Service.
 	DomainIamRoleName pulumi.StringPtrInput
-	// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
+	// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `agent` (MSSQL), `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
 	// is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
@@ -1026,4 +1036,3 @@ type InstanceArgs struct {
 func (InstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceArgs)(nil)).Elem()
 }
-

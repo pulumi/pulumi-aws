@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an Athena database.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_database.html.markdown.
 type Database struct {
 	pulumi.CustomResourceState
@@ -109,4 +109,3 @@ type DatabaseArgs struct {
 func (DatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseArgs)(nil)).Elem()
 }
-

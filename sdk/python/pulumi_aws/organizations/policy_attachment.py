@@ -21,13 +21,13 @@ class PolicyAttachment(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, policy_id=None, target_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_policy_attachment.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_id: The unique identifier (ID) of the policy that you want to attach to the target.
         :param pulumi.Input[str] target_id: The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_policy_attachment.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,18 +63,17 @@ class PolicyAttachment(pulumi.CustomResource):
         """
         Get an existing PolicyAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_id: The unique identifier (ID) of the policy that you want to attach to the target.
         :param pulumi.Input[str] target_id: The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_policy_attachment.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["policy_id"] = policy_id
         __props__["target_id"] = target_id
         return PolicyAttachment(resource_name, opts=opts, __props__=__props__)

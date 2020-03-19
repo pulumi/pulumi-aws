@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an AWS Backup plan resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_plan.html.markdown.
 type Plan struct {
 	pulumi.CustomResourceState
@@ -111,4 +111,3 @@ type PlanArgs struct {
 func (PlanArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*planArgs)(nil)).Elem()
 }
-

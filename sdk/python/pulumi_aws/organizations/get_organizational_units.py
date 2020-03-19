@@ -13,22 +13,22 @@ class GetOrganizationalUnitsResult:
     """
     A collection of values returned by getOrganizationalUnits.
     """
-    def __init__(__self__, childrens=None, parent_id=None, id=None):
+    def __init__(__self__, childrens=None, id=None, parent_id=None):
         if childrens and not isinstance(childrens, list):
             raise TypeError("Expected argument 'childrens' to be a list")
         __self__.childrens = childrens
         """
         List of child organizational units, which have the following attributes:
         """
-        if parent_id and not isinstance(parent_id, str):
-            raise TypeError("Expected argument 'parent_id' to be a str")
-        __self__.parent_id = parent_id
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
+        if parent_id and not isinstance(parent_id, str):
+            raise TypeError("Expected argument 'parent_id' to be a str")
+        __self__.parent_id = parent_id
 class AwaitableGetOrganizationalUnitsResult(GetOrganizationalUnitsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -36,18 +36,20 @@ class AwaitableGetOrganizationalUnitsResult(GetOrganizationalUnitsResult):
             yield self
         return GetOrganizationalUnitsResult(
             childrens=self.childrens,
-            parent_id=self.parent_id,
-            id=self.id)
+            id=self.id,
+            parent_id=self.parent_id)
 
 def get_organizational_units(parent_id=None,opts=None):
     """
     Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
-    
-    :param str parent_id: The parent ID of the organizational unit.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organizational_units.html.markdown.
+
+
+    :param str parent_id: The parent ID of the organizational unit.
     """
     __args__ = dict()
+
 
     __args__['parentId'] = parent_id
     if opts is None:
@@ -58,5 +60,5 @@ def get_organizational_units(parent_id=None,opts=None):
 
     return AwaitableGetOrganizationalUnitsResult(
         childrens=__ret__.get('childrens'),
-        parent_id=__ret__.get('parentId'),
-        id=__ret__.get('id'))
+        id=__ret__.get('id'),
+        parent_id=__ret__.get('parentId'))

@@ -11,9 +11,9 @@ import (
 )
 
 // Allocates a static IP address.
-// 
+//
 // > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_static_ip.html.markdown.
 type StaticIp struct {
 	pulumi.CustomResourceState
@@ -95,4 +95,3 @@ type StaticIpArgs struct {
 func (StaticIpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*staticIpArgs)(nil)).Elem()
 }
-

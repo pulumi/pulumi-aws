@@ -12,19 +12,19 @@ import (
 )
 
 // Creates a AWS Batch compute environment. Compute environments contain the Amazon ECS container instances that are used to run containerized batch jobs.
-// 
+//
 // For information about AWS Batch, see [What is AWS Batch?][1] .
 // For information about compute environment, see [Compute Environments][2] .
-// 
+//
 // > **Note:** To prevent a race condition during environment deletion, make sure to set `dependsOn` to the related `iam.RolePolicyAttachment`;
 // otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch][3] .
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_compute_environment.html.markdown.
 type ComputeEnvironment struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the compute environment.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn                    pulumi.StringOutput `pulumi:"arn"`
 	ComputeEnvironmentName pulumi.StringOutput `pulumi:"computeEnvironmentName"`
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
 	ComputeEnvironmentNamePrefix pulumi.StringPtrOutput `pulumi:"computeEnvironmentNamePrefix"`
@@ -79,7 +79,7 @@ func GetComputeEnvironment(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ComputeEnvironment resources.
 type computeEnvironmentState struct {
 	// The Amazon Resource Name (ARN) of the compute environment.
-	Arn *string `pulumi:"arn"`
+	Arn                    *string `pulumi:"arn"`
 	ComputeEnvironmentName *string `pulumi:"computeEnvironmentName"`
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
 	ComputeEnvironmentNamePrefix *string `pulumi:"computeEnvironmentNamePrefix"`
@@ -101,7 +101,7 @@ type computeEnvironmentState struct {
 
 type ComputeEnvironmentState struct {
 	// The Amazon Resource Name (ARN) of the compute environment.
-	Arn pulumi.StringPtrInput
+	Arn                    pulumi.StringPtrInput
 	ComputeEnvironmentName pulumi.StringPtrInput
 	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
 	ComputeEnvironmentNamePrefix pulumi.StringPtrInput
@@ -157,4 +157,3 @@ type ComputeEnvironmentArgs struct {
 func (ComputeEnvironmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*computeEnvironmentArgs)(nil)).Elem()
 }
-

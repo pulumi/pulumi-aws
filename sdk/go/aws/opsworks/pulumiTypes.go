@@ -15,7 +15,7 @@ type ApplicationAppSource struct {
 	Password *string `pulumi:"password"`
 	// For sources that are version-aware, the revision to use.
 	Revision *string `pulumi:"revision"`
-	SshKey *string `pulumi:"sshKey"`
+	SshKey   *string `pulumi:"sshKey"`
 	// The type of source to use. For example, "archive".
 	Type string `pulumi:"type"`
 	// The URL where the app resource can be found.
@@ -35,7 +35,7 @@ type ApplicationAppSourceArgs struct {
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// For sources that are version-aware, the revision to use.
 	Revision pulumi.StringPtrInput `pulumi:"revision"`
-	SshKey pulumi.StringPtrInput `pulumi:"sshKey"`
+	SshKey   pulumi.StringPtrInput `pulumi:"sshKey"`
 	// The type of source to use. For example, "archive".
 	Type pulumi.StringInput `pulumi:"type"`
 	// The URL where the app resource can be found.
@@ -77,7 +77,7 @@ func (i ApplicationAppSourceArray) ToApplicationAppSourceArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAppSourceArrayOutput)
 }
 
-type ApplicationAppSourceOutput struct { *pulumi.OutputState }
+type ApplicationAppSourceOutput struct{ *pulumi.OutputState }
 
 func (ApplicationAppSourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationAppSource)(nil)).Elem()
@@ -92,34 +92,34 @@ func (o ApplicationAppSourceOutput) ToApplicationAppSourceOutputWithContext(ctx 
 }
 
 func (o ApplicationAppSourceOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApplicationAppSource) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApplicationAppSource) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // For sources that are version-aware, the revision to use.
 func (o ApplicationAppSourceOutput) Revision() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApplicationAppSource) *string { return v.Revision }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApplicationAppSource) *string { return v.Revision }).(pulumi.StringPtrOutput)
 }
 
 func (o ApplicationAppSourceOutput) SshKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApplicationAppSource) *string { return v.SshKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApplicationAppSource) *string { return v.SshKey }).(pulumi.StringPtrOutput)
 }
 
 // The type of source to use. For example, "archive".
 func (o ApplicationAppSourceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v ApplicationAppSource) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApplicationAppSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The URL where the app resource can be found.
 func (o ApplicationAppSourceOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApplicationAppSource) *string { return v.Url }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApplicationAppSource) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 // Username to use when authenticating to the source.
 func (o ApplicationAppSourceOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApplicationAppSource) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApplicationAppSource) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type ApplicationAppSourceArrayOutput struct { *pulumi.OutputState}
+type ApplicationAppSourceArrayOutput struct{ *pulumi.OutputState }
 
 func (ApplicationAppSourceArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ApplicationAppSource)(nil)).Elem()
@@ -134,15 +134,15 @@ func (o ApplicationAppSourceArrayOutput) ToApplicationAppSourceArrayOutputWithCo
 }
 
 func (o ApplicationAppSourceArrayOutput) Index(i pulumi.IntInput) ApplicationAppSourceOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ApplicationAppSource {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationAppSource {
 		return vs[0].([]ApplicationAppSource)[vs[1].(int)]
 	}).(ApplicationAppSourceOutput)
 }
 
 type ApplicationEnvironment struct {
-	Key string `pulumi:"key"`
-	Secure *bool `pulumi:"secure"`
-	Value string `pulumi:"value"`
+	Key    string `pulumi:"key"`
+	Secure *bool  `pulumi:"secure"`
+	Value  string `pulumi:"value"`
 }
 
 type ApplicationEnvironmentInput interface {
@@ -153,9 +153,9 @@ type ApplicationEnvironmentInput interface {
 }
 
 type ApplicationEnvironmentArgs struct {
-	Key pulumi.StringInput `pulumi:"key"`
+	Key    pulumi.StringInput  `pulumi:"key"`
 	Secure pulumi.BoolPtrInput `pulumi:"secure"`
-	Value pulumi.StringInput `pulumi:"value"`
+	Value  pulumi.StringInput  `pulumi:"value"`
 }
 
 func (ApplicationEnvironmentArgs) ElementType() reflect.Type {
@@ -191,7 +191,7 @@ func (i ApplicationEnvironmentArray) ToApplicationEnvironmentArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationEnvironmentArrayOutput)
 }
 
-type ApplicationEnvironmentOutput struct { *pulumi.OutputState }
+type ApplicationEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (ApplicationEnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationEnvironment)(nil)).Elem()
@@ -206,18 +206,18 @@ func (o ApplicationEnvironmentOutput) ToApplicationEnvironmentOutputWithContext(
 }
 
 func (o ApplicationEnvironmentOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func (v ApplicationEnvironment) string { return v.Key }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApplicationEnvironment) string { return v.Key }).(pulumi.StringOutput)
 }
 
 func (o ApplicationEnvironmentOutput) Secure() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ApplicationEnvironment) *bool { return v.Secure }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ApplicationEnvironment) *bool { return v.Secure }).(pulumi.BoolPtrOutput)
 }
 
 func (o ApplicationEnvironmentOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v ApplicationEnvironment) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApplicationEnvironment) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type ApplicationEnvironmentArrayOutput struct { *pulumi.OutputState}
+type ApplicationEnvironmentArrayOutput struct{ *pulumi.OutputState }
 
 func (ApplicationEnvironmentArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ApplicationEnvironment)(nil)).Elem()
@@ -232,15 +232,15 @@ func (o ApplicationEnvironmentArrayOutput) ToApplicationEnvironmentArrayOutputWi
 }
 
 func (o ApplicationEnvironmentArrayOutput) Index(i pulumi.IntInput) ApplicationEnvironmentOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ApplicationEnvironment {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationEnvironment {
 		return vs[0].([]ApplicationEnvironment)[vs[1].(int)]
 	}).(ApplicationEnvironmentOutput)
 }
 
 type ApplicationSslConfiguration struct {
-	Certificate string `pulumi:"certificate"`
-	Chain *string `pulumi:"chain"`
-	PrivateKey string `pulumi:"privateKey"`
+	Certificate string  `pulumi:"certificate"`
+	Chain       *string `pulumi:"chain"`
+	PrivateKey  string  `pulumi:"privateKey"`
 }
 
 type ApplicationSslConfigurationInput interface {
@@ -251,9 +251,9 @@ type ApplicationSslConfigurationInput interface {
 }
 
 type ApplicationSslConfigurationArgs struct {
-	Certificate pulumi.StringInput `pulumi:"certificate"`
-	Chain pulumi.StringPtrInput `pulumi:"chain"`
-	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+	Certificate pulumi.StringInput    `pulumi:"certificate"`
+	Chain       pulumi.StringPtrInput `pulumi:"chain"`
+	PrivateKey  pulumi.StringInput    `pulumi:"privateKey"`
 }
 
 func (ApplicationSslConfigurationArgs) ElementType() reflect.Type {
@@ -289,7 +289,7 @@ func (i ApplicationSslConfigurationArray) ToApplicationSslConfigurationArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSslConfigurationArrayOutput)
 }
 
-type ApplicationSslConfigurationOutput struct { *pulumi.OutputState }
+type ApplicationSslConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSslConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationSslConfiguration)(nil)).Elem()
@@ -304,18 +304,18 @@ func (o ApplicationSslConfigurationOutput) ToApplicationSslConfigurationOutputWi
 }
 
 func (o ApplicationSslConfigurationOutput) Certificate() pulumi.StringOutput {
-	return o.ApplyT(func (v ApplicationSslConfiguration) string { return v.Certificate }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApplicationSslConfiguration) string { return v.Certificate }).(pulumi.StringOutput)
 }
 
 func (o ApplicationSslConfigurationOutput) Chain() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ApplicationSslConfiguration) *string { return v.Chain }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ApplicationSslConfiguration) *string { return v.Chain }).(pulumi.StringPtrOutput)
 }
 
 func (o ApplicationSslConfigurationOutput) PrivateKey() pulumi.StringOutput {
-	return o.ApplyT(func (v ApplicationSslConfiguration) string { return v.PrivateKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ApplicationSslConfiguration) string { return v.PrivateKey }).(pulumi.StringOutput)
 }
 
-type ApplicationSslConfigurationArrayOutput struct { *pulumi.OutputState}
+type ApplicationSslConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSslConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ApplicationSslConfiguration)(nil)).Elem()
@@ -330,19 +330,19 @@ func (o ApplicationSslConfigurationArrayOutput) ToApplicationSslConfigurationArr
 }
 
 func (o ApplicationSslConfigurationArrayOutput) Index(i pulumi.IntInput) ApplicationSslConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ApplicationSslConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationSslConfiguration {
 		return vs[0].([]ApplicationSslConfiguration)[vs[1].(int)]
 	}).(ApplicationSslConfigurationOutput)
 }
 
 type CustomLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	Iops *int `pulumi:"iops"`
-	MountPoint string `pulumi:"mountPoint"`
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	RaidLevel *string `pulumi:"raidLevel"`
-	Size int `pulumi:"size"`
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 type CustomLayerEbsVolumeInput interface {
@@ -353,13 +353,13 @@ type CustomLayerEbsVolumeInput interface {
 }
 
 type CustomLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	Size pulumi.IntInput `pulumi:"size"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (CustomLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -395,7 +395,7 @@ func (i CustomLayerEbsVolumeArray) ToCustomLayerEbsVolumeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerEbsVolumeArrayOutput)
 }
 
-type CustomLayerEbsVolumeOutput struct { *pulumi.OutputState }
+type CustomLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (CustomLayerEbsVolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomLayerEbsVolume)(nil)).Elem()
@@ -410,34 +410,34 @@ func (o CustomLayerEbsVolumeOutput) ToCustomLayerEbsVolumeOutputWithContext(ctx 
 }
 
 func (o CustomLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v CustomLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v CustomLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 func (o CustomLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v CustomLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v CustomLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 func (o CustomLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
-	return o.ApplyT(func (v CustomLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v CustomLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
 func (o CustomLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
-	return o.ApplyT(func (v CustomLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
+	return o.ApplyT(func(v CustomLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
 func (o CustomLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CustomLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CustomLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
 func (o CustomLayerEbsVolumeOutput) Size() pulumi.IntOutput {
-	return o.ApplyT(func (v CustomLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
+	return o.ApplyT(func(v CustomLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
 func (o CustomLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CustomLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CustomLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type CustomLayerEbsVolumeArrayOutput struct { *pulumi.OutputState}
+type CustomLayerEbsVolumeArrayOutput struct{ *pulumi.OutputState }
 
 func (CustomLayerEbsVolumeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]CustomLayerEbsVolume)(nil)).Elem()
@@ -452,19 +452,19 @@ func (o CustomLayerEbsVolumeArrayOutput) ToCustomLayerEbsVolumeArrayOutputWithCo
 }
 
 func (o CustomLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) CustomLayerEbsVolumeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) CustomLayerEbsVolume {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomLayerEbsVolume {
 		return vs[0].([]CustomLayerEbsVolume)[vs[1].(int)]
 	}).(CustomLayerEbsVolumeOutput)
 }
 
 type GangliaLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	Iops *int `pulumi:"iops"`
-	MountPoint string `pulumi:"mountPoint"`
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	RaidLevel *string `pulumi:"raidLevel"`
-	Size int `pulumi:"size"`
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 type GangliaLayerEbsVolumeInput interface {
@@ -475,13 +475,13 @@ type GangliaLayerEbsVolumeInput interface {
 }
 
 type GangliaLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	Size pulumi.IntInput `pulumi:"size"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GangliaLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -517,7 +517,7 @@ func (i GangliaLayerEbsVolumeArray) ToGangliaLayerEbsVolumeArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerEbsVolumeArrayOutput)
 }
 
-type GangliaLayerEbsVolumeOutput struct { *pulumi.OutputState }
+type GangliaLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (GangliaLayerEbsVolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GangliaLayerEbsVolume)(nil)).Elem()
@@ -532,34 +532,34 @@ func (o GangliaLayerEbsVolumeOutput) ToGangliaLayerEbsVolumeOutputWithContext(ct
 }
 
 func (o GangliaLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v GangliaLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v GangliaLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 func (o GangliaLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GangliaLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GangliaLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 func (o GangliaLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
-	return o.ApplyT(func (v GangliaLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GangliaLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
 func (o GangliaLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
-	return o.ApplyT(func (v GangliaLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GangliaLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
 func (o GangliaLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GangliaLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GangliaLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
 func (o GangliaLayerEbsVolumeOutput) Size() pulumi.IntOutput {
-	return o.ApplyT(func (v GangliaLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GangliaLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
 func (o GangliaLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GangliaLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GangliaLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type GangliaLayerEbsVolumeArrayOutput struct { *pulumi.OutputState}
+type GangliaLayerEbsVolumeArrayOutput struct{ *pulumi.OutputState }
 
 func (GangliaLayerEbsVolumeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GangliaLayerEbsVolume)(nil)).Elem()
@@ -574,19 +574,19 @@ func (o GangliaLayerEbsVolumeArrayOutput) ToGangliaLayerEbsVolumeArrayOutputWith
 }
 
 func (o GangliaLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) GangliaLayerEbsVolumeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GangliaLayerEbsVolume {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GangliaLayerEbsVolume {
 		return vs[0].([]GangliaLayerEbsVolume)[vs[1].(int)]
 	}).(GangliaLayerEbsVolumeOutput)
 }
 
 type HaproxyLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	Iops *int `pulumi:"iops"`
-	MountPoint string `pulumi:"mountPoint"`
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	RaidLevel *string `pulumi:"raidLevel"`
-	Size int `pulumi:"size"`
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 type HaproxyLayerEbsVolumeInput interface {
@@ -597,13 +597,13 @@ type HaproxyLayerEbsVolumeInput interface {
 }
 
 type HaproxyLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	Size pulumi.IntInput `pulumi:"size"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (HaproxyLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -639,7 +639,7 @@ func (i HaproxyLayerEbsVolumeArray) ToHaproxyLayerEbsVolumeArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerEbsVolumeArrayOutput)
 }
 
-type HaproxyLayerEbsVolumeOutput struct { *pulumi.OutputState }
+type HaproxyLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (HaproxyLayerEbsVolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HaproxyLayerEbsVolume)(nil)).Elem()
@@ -654,34 +654,34 @@ func (o HaproxyLayerEbsVolumeOutput) ToHaproxyLayerEbsVolumeOutputWithContext(ct
 }
 
 func (o HaproxyLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v HaproxyLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v HaproxyLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 func (o HaproxyLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v HaproxyLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v HaproxyLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 func (o HaproxyLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
-	return o.ApplyT(func (v HaproxyLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v HaproxyLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
 func (o HaproxyLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
-	return o.ApplyT(func (v HaproxyLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
+	return o.ApplyT(func(v HaproxyLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
 func (o HaproxyLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HaproxyLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HaproxyLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
 func (o HaproxyLayerEbsVolumeOutput) Size() pulumi.IntOutput {
-	return o.ApplyT(func (v HaproxyLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
+	return o.ApplyT(func(v HaproxyLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
 func (o HaproxyLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v HaproxyLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v HaproxyLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type HaproxyLayerEbsVolumeArrayOutput struct { *pulumi.OutputState}
+type HaproxyLayerEbsVolumeArrayOutput struct{ *pulumi.OutputState }
 
 func (HaproxyLayerEbsVolumeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]HaproxyLayerEbsVolume)(nil)).Elem()
@@ -696,18 +696,18 @@ func (o HaproxyLayerEbsVolumeArrayOutput) ToHaproxyLayerEbsVolumeArrayOutputWith
 }
 
 func (o HaproxyLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) HaproxyLayerEbsVolumeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) HaproxyLayerEbsVolume {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HaproxyLayerEbsVolume {
 		return vs[0].([]HaproxyLayerEbsVolume)[vs[1].(int)]
 	}).(HaproxyLayerEbsVolumeOutput)
 }
 
 type InstanceEbsBlockDevice struct {
-	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	DeviceName string `pulumi:"deviceName"`
-	Iops *int `pulumi:"iops"`
-	SnapshotId *string `pulumi:"snapshotId"`
-	VolumeSize *int `pulumi:"volumeSize"`
-	VolumeType *string `pulumi:"volumeType"`
+	DeleteOnTermination *bool   `pulumi:"deleteOnTermination"`
+	DeviceName          string  `pulumi:"deviceName"`
+	Iops                *int    `pulumi:"iops"`
+	SnapshotId          *string `pulumi:"snapshotId"`
+	VolumeSize          *int    `pulumi:"volumeSize"`
+	VolumeType          *string `pulumi:"volumeType"`
 }
 
 type InstanceEbsBlockDeviceInput interface {
@@ -718,12 +718,12 @@ type InstanceEbsBlockDeviceInput interface {
 }
 
 type InstanceEbsBlockDeviceArgs struct {
-	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	DeviceName pulumi.StringInput `pulumi:"deviceName"`
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
+	DeleteOnTermination pulumi.BoolPtrInput   `pulumi:"deleteOnTermination"`
+	DeviceName          pulumi.StringInput    `pulumi:"deviceName"`
+	Iops                pulumi.IntPtrInput    `pulumi:"iops"`
+	SnapshotId          pulumi.StringPtrInput `pulumi:"snapshotId"`
+	VolumeSize          pulumi.IntPtrInput    `pulumi:"volumeSize"`
+	VolumeType          pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
 func (InstanceEbsBlockDeviceArgs) ElementType() reflect.Type {
@@ -759,7 +759,7 @@ func (i InstanceEbsBlockDeviceArray) ToInstanceEbsBlockDeviceArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceEbsBlockDeviceArrayOutput)
 }
 
-type InstanceEbsBlockDeviceOutput struct { *pulumi.OutputState }
+type InstanceEbsBlockDeviceOutput struct{ *pulumi.OutputState }
 
 func (InstanceEbsBlockDeviceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InstanceEbsBlockDevice)(nil)).Elem()
@@ -774,30 +774,30 @@ func (o InstanceEbsBlockDeviceOutput) ToInstanceEbsBlockDeviceOutputWithContext(
 }
 
 func (o InstanceEbsBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v InstanceEbsBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v InstanceEbsBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
 func (o InstanceEbsBlockDeviceOutput) DeviceName() pulumi.StringOutput {
-	return o.ApplyT(func (v InstanceEbsBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InstanceEbsBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
 func (o InstanceEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v InstanceEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v InstanceEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 func (o InstanceEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v InstanceEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v InstanceEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
 func (o InstanceEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v InstanceEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v InstanceEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
 func (o InstanceEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v InstanceEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v InstanceEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
 
-type InstanceEbsBlockDeviceArrayOutput struct { *pulumi.OutputState}
+type InstanceEbsBlockDeviceArrayOutput struct{ *pulumi.OutputState }
 
 func (InstanceEbsBlockDeviceArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]InstanceEbsBlockDevice)(nil)).Elem()
@@ -812,13 +812,13 @@ func (o InstanceEbsBlockDeviceArrayOutput) ToInstanceEbsBlockDeviceArrayOutputWi
 }
 
 func (o InstanceEbsBlockDeviceArrayOutput) Index(i pulumi.IntInput) InstanceEbsBlockDeviceOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) InstanceEbsBlockDevice {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceEbsBlockDevice {
 		return vs[0].([]InstanceEbsBlockDevice)[vs[1].(int)]
 	}).(InstanceEbsBlockDeviceOutput)
 }
 
 type InstanceEphemeralBlockDevice struct {
-	DeviceName string `pulumi:"deviceName"`
+	DeviceName  string `pulumi:"deviceName"`
 	VirtualName string `pulumi:"virtualName"`
 }
 
@@ -830,7 +830,7 @@ type InstanceEphemeralBlockDeviceInput interface {
 }
 
 type InstanceEphemeralBlockDeviceArgs struct {
-	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	DeviceName  pulumi.StringInput `pulumi:"deviceName"`
 	VirtualName pulumi.StringInput `pulumi:"virtualName"`
 }
 
@@ -867,7 +867,7 @@ func (i InstanceEphemeralBlockDeviceArray) ToInstanceEphemeralBlockDeviceArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceEphemeralBlockDeviceArrayOutput)
 }
 
-type InstanceEphemeralBlockDeviceOutput struct { *pulumi.OutputState }
+type InstanceEphemeralBlockDeviceOutput struct{ *pulumi.OutputState }
 
 func (InstanceEphemeralBlockDeviceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InstanceEphemeralBlockDevice)(nil)).Elem()
@@ -882,14 +882,14 @@ func (o InstanceEphemeralBlockDeviceOutput) ToInstanceEphemeralBlockDeviceOutput
 }
 
 func (o InstanceEphemeralBlockDeviceOutput) DeviceName() pulumi.StringOutput {
-	return o.ApplyT(func (v InstanceEphemeralBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InstanceEphemeralBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
 func (o InstanceEphemeralBlockDeviceOutput) VirtualName() pulumi.StringOutput {
-	return o.ApplyT(func (v InstanceEphemeralBlockDevice) string { return v.VirtualName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v InstanceEphemeralBlockDevice) string { return v.VirtualName }).(pulumi.StringOutput)
 }
 
-type InstanceEphemeralBlockDeviceArrayOutput struct { *pulumi.OutputState}
+type InstanceEphemeralBlockDeviceArrayOutput struct{ *pulumi.OutputState }
 
 func (InstanceEphemeralBlockDeviceArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]InstanceEphemeralBlockDevice)(nil)).Elem()
@@ -904,16 +904,16 @@ func (o InstanceEphemeralBlockDeviceArrayOutput) ToInstanceEphemeralBlockDeviceA
 }
 
 func (o InstanceEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntInput) InstanceEphemeralBlockDeviceOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) InstanceEphemeralBlockDevice {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceEphemeralBlockDevice {
 		return vs[0].([]InstanceEphemeralBlockDevice)[vs[1].(int)]
 	}).(InstanceEphemeralBlockDeviceOutput)
 }
 
 type InstanceRootBlockDevice struct {
-	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	Iops *int `pulumi:"iops"`
-	VolumeSize *int `pulumi:"volumeSize"`
-	VolumeType *string `pulumi:"volumeType"`
+	DeleteOnTermination *bool   `pulumi:"deleteOnTermination"`
+	Iops                *int    `pulumi:"iops"`
+	VolumeSize          *int    `pulumi:"volumeSize"`
+	VolumeType          *string `pulumi:"volumeType"`
 }
 
 type InstanceRootBlockDeviceInput interface {
@@ -924,10 +924,10 @@ type InstanceRootBlockDeviceInput interface {
 }
 
 type InstanceRootBlockDeviceArgs struct {
-	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
+	DeleteOnTermination pulumi.BoolPtrInput   `pulumi:"deleteOnTermination"`
+	Iops                pulumi.IntPtrInput    `pulumi:"iops"`
+	VolumeSize          pulumi.IntPtrInput    `pulumi:"volumeSize"`
+	VolumeType          pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
 func (InstanceRootBlockDeviceArgs) ElementType() reflect.Type {
@@ -963,7 +963,7 @@ func (i InstanceRootBlockDeviceArray) ToInstanceRootBlockDeviceArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceRootBlockDeviceArrayOutput)
 }
 
-type InstanceRootBlockDeviceOutput struct { *pulumi.OutputState }
+type InstanceRootBlockDeviceOutput struct{ *pulumi.OutputState }
 
 func (InstanceRootBlockDeviceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InstanceRootBlockDevice)(nil)).Elem()
@@ -978,22 +978,22 @@ func (o InstanceRootBlockDeviceOutput) ToInstanceRootBlockDeviceOutputWithContex
 }
 
 func (o InstanceRootBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v InstanceRootBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v InstanceRootBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
 func (o InstanceRootBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v InstanceRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 func (o InstanceRootBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v InstanceRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
 func (o InstanceRootBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v InstanceRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
 
-type InstanceRootBlockDeviceArrayOutput struct { *pulumi.OutputState}
+type InstanceRootBlockDeviceArrayOutput struct{ *pulumi.OutputState }
 
 func (InstanceRootBlockDeviceArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]InstanceRootBlockDevice)(nil)).Elem()
@@ -1008,19 +1008,19 @@ func (o InstanceRootBlockDeviceArrayOutput) ToInstanceRootBlockDeviceArrayOutput
 }
 
 func (o InstanceRootBlockDeviceArrayOutput) Index(i pulumi.IntInput) InstanceRootBlockDeviceOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) InstanceRootBlockDevice {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceRootBlockDevice {
 		return vs[0].([]InstanceRootBlockDevice)[vs[1].(int)]
 	}).(InstanceRootBlockDeviceOutput)
 }
 
 type JavaAppLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	Iops *int `pulumi:"iops"`
-	MountPoint string `pulumi:"mountPoint"`
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	RaidLevel *string `pulumi:"raidLevel"`
-	Size int `pulumi:"size"`
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 type JavaAppLayerEbsVolumeInput interface {
@@ -1031,13 +1031,13 @@ type JavaAppLayerEbsVolumeInput interface {
 }
 
 type JavaAppLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	Size pulumi.IntInput `pulumi:"size"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (JavaAppLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -1073,7 +1073,7 @@ func (i JavaAppLayerEbsVolumeArray) ToJavaAppLayerEbsVolumeArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerEbsVolumeArrayOutput)
 }
 
-type JavaAppLayerEbsVolumeOutput struct { *pulumi.OutputState }
+type JavaAppLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (JavaAppLayerEbsVolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JavaAppLayerEbsVolume)(nil)).Elem()
@@ -1088,34 +1088,34 @@ func (o JavaAppLayerEbsVolumeOutput) ToJavaAppLayerEbsVolumeOutputWithContext(ct
 }
 
 func (o JavaAppLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v JavaAppLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v JavaAppLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 func (o JavaAppLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v JavaAppLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v JavaAppLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 func (o JavaAppLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
-	return o.ApplyT(func (v JavaAppLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v JavaAppLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
 func (o JavaAppLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
-	return o.ApplyT(func (v JavaAppLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
+	return o.ApplyT(func(v JavaAppLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
 func (o JavaAppLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v JavaAppLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v JavaAppLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
 func (o JavaAppLayerEbsVolumeOutput) Size() pulumi.IntOutput {
-	return o.ApplyT(func (v JavaAppLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
+	return o.ApplyT(func(v JavaAppLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
 func (o JavaAppLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v JavaAppLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v JavaAppLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type JavaAppLayerEbsVolumeArrayOutput struct { *pulumi.OutputState}
+type JavaAppLayerEbsVolumeArrayOutput struct{ *pulumi.OutputState }
 
 func (JavaAppLayerEbsVolumeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]JavaAppLayerEbsVolume)(nil)).Elem()
@@ -1130,19 +1130,19 @@ func (o JavaAppLayerEbsVolumeArrayOutput) ToJavaAppLayerEbsVolumeArrayOutputWith
 }
 
 func (o JavaAppLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) JavaAppLayerEbsVolumeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) JavaAppLayerEbsVolume {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JavaAppLayerEbsVolume {
 		return vs[0].([]JavaAppLayerEbsVolume)[vs[1].(int)]
 	}).(JavaAppLayerEbsVolumeOutput)
 }
 
 type MemcachedLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	Iops *int `pulumi:"iops"`
-	MountPoint string `pulumi:"mountPoint"`
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	RaidLevel *string `pulumi:"raidLevel"`
-	Size int `pulumi:"size"`
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 type MemcachedLayerEbsVolumeInput interface {
@@ -1153,13 +1153,13 @@ type MemcachedLayerEbsVolumeInput interface {
 }
 
 type MemcachedLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	Size pulumi.IntInput `pulumi:"size"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (MemcachedLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -1195,7 +1195,7 @@ func (i MemcachedLayerEbsVolumeArray) ToMemcachedLayerEbsVolumeArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerEbsVolumeArrayOutput)
 }
 
-type MemcachedLayerEbsVolumeOutput struct { *pulumi.OutputState }
+type MemcachedLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (MemcachedLayerEbsVolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MemcachedLayerEbsVolume)(nil)).Elem()
@@ -1210,34 +1210,34 @@ func (o MemcachedLayerEbsVolumeOutput) ToMemcachedLayerEbsVolumeOutputWithContex
 }
 
 func (o MemcachedLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v MemcachedLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v MemcachedLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 func (o MemcachedLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v MemcachedLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v MemcachedLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 func (o MemcachedLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
-	return o.ApplyT(func (v MemcachedLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MemcachedLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
 func (o MemcachedLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
-	return o.ApplyT(func (v MemcachedLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
+	return o.ApplyT(func(v MemcachedLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
 func (o MemcachedLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MemcachedLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MemcachedLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
 func (o MemcachedLayerEbsVolumeOutput) Size() pulumi.IntOutput {
-	return o.ApplyT(func (v MemcachedLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
+	return o.ApplyT(func(v MemcachedLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
 func (o MemcachedLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MemcachedLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MemcachedLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type MemcachedLayerEbsVolumeArrayOutput struct { *pulumi.OutputState}
+type MemcachedLayerEbsVolumeArrayOutput struct{ *pulumi.OutputState }
 
 func (MemcachedLayerEbsVolumeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]MemcachedLayerEbsVolume)(nil)).Elem()
@@ -1252,19 +1252,19 @@ func (o MemcachedLayerEbsVolumeArrayOutput) ToMemcachedLayerEbsVolumeArrayOutput
 }
 
 func (o MemcachedLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) MemcachedLayerEbsVolumeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) MemcachedLayerEbsVolume {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MemcachedLayerEbsVolume {
 		return vs[0].([]MemcachedLayerEbsVolume)[vs[1].(int)]
 	}).(MemcachedLayerEbsVolumeOutput)
 }
 
 type MysqlLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	Iops *int `pulumi:"iops"`
-	MountPoint string `pulumi:"mountPoint"`
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	RaidLevel *string `pulumi:"raidLevel"`
-	Size int `pulumi:"size"`
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 type MysqlLayerEbsVolumeInput interface {
@@ -1275,13 +1275,13 @@ type MysqlLayerEbsVolumeInput interface {
 }
 
 type MysqlLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	Size pulumi.IntInput `pulumi:"size"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (MysqlLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -1317,7 +1317,7 @@ func (i MysqlLayerEbsVolumeArray) ToMysqlLayerEbsVolumeArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerEbsVolumeArrayOutput)
 }
 
-type MysqlLayerEbsVolumeOutput struct { *pulumi.OutputState }
+type MysqlLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (MysqlLayerEbsVolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MysqlLayerEbsVolume)(nil)).Elem()
@@ -1332,34 +1332,34 @@ func (o MysqlLayerEbsVolumeOutput) ToMysqlLayerEbsVolumeOutputWithContext(ctx co
 }
 
 func (o MysqlLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v MysqlLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v MysqlLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 func (o MysqlLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v MysqlLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v MysqlLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 func (o MysqlLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
-	return o.ApplyT(func (v MysqlLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MysqlLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
 func (o MysqlLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
-	return o.ApplyT(func (v MysqlLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
+	return o.ApplyT(func(v MysqlLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
 func (o MysqlLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MysqlLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MysqlLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
 func (o MysqlLayerEbsVolumeOutput) Size() pulumi.IntOutput {
-	return o.ApplyT(func (v MysqlLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
+	return o.ApplyT(func(v MysqlLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
 func (o MysqlLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MysqlLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MysqlLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type MysqlLayerEbsVolumeArrayOutput struct { *pulumi.OutputState}
+type MysqlLayerEbsVolumeArrayOutput struct{ *pulumi.OutputState }
 
 func (MysqlLayerEbsVolumeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]MysqlLayerEbsVolume)(nil)).Elem()
@@ -1374,19 +1374,19 @@ func (o MysqlLayerEbsVolumeArrayOutput) ToMysqlLayerEbsVolumeArrayOutputWithCont
 }
 
 func (o MysqlLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) MysqlLayerEbsVolumeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) MysqlLayerEbsVolume {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MysqlLayerEbsVolume {
 		return vs[0].([]MysqlLayerEbsVolume)[vs[1].(int)]
 	}).(MysqlLayerEbsVolumeOutput)
 }
 
 type NodejsAppLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	Iops *int `pulumi:"iops"`
-	MountPoint string `pulumi:"mountPoint"`
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	RaidLevel *string `pulumi:"raidLevel"`
-	Size int `pulumi:"size"`
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 type NodejsAppLayerEbsVolumeInput interface {
@@ -1397,13 +1397,13 @@ type NodejsAppLayerEbsVolumeInput interface {
 }
 
 type NodejsAppLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	Size pulumi.IntInput `pulumi:"size"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (NodejsAppLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -1439,7 +1439,7 @@ func (i NodejsAppLayerEbsVolumeArray) ToNodejsAppLayerEbsVolumeArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerEbsVolumeArrayOutput)
 }
 
-type NodejsAppLayerEbsVolumeOutput struct { *pulumi.OutputState }
+type NodejsAppLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (NodejsAppLayerEbsVolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NodejsAppLayerEbsVolume)(nil)).Elem()
@@ -1454,34 +1454,34 @@ func (o NodejsAppLayerEbsVolumeOutput) ToNodejsAppLayerEbsVolumeOutputWithContex
 }
 
 func (o NodejsAppLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v NodejsAppLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v NodejsAppLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 func (o NodejsAppLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v NodejsAppLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v NodejsAppLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 func (o NodejsAppLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
-	return o.ApplyT(func (v NodejsAppLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v NodejsAppLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
 func (o NodejsAppLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
-	return o.ApplyT(func (v NodejsAppLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
+	return o.ApplyT(func(v NodejsAppLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
 func (o NodejsAppLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v NodejsAppLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v NodejsAppLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
 func (o NodejsAppLayerEbsVolumeOutput) Size() pulumi.IntOutput {
-	return o.ApplyT(func (v NodejsAppLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
+	return o.ApplyT(func(v NodejsAppLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
 func (o NodejsAppLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v NodejsAppLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v NodejsAppLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type NodejsAppLayerEbsVolumeArrayOutput struct { *pulumi.OutputState}
+type NodejsAppLayerEbsVolumeArrayOutput struct{ *pulumi.OutputState }
 
 func (NodejsAppLayerEbsVolumeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]NodejsAppLayerEbsVolume)(nil)).Elem()
@@ -1496,19 +1496,19 @@ func (o NodejsAppLayerEbsVolumeArrayOutput) ToNodejsAppLayerEbsVolumeArrayOutput
 }
 
 func (o NodejsAppLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) NodejsAppLayerEbsVolumeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) NodejsAppLayerEbsVolume {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodejsAppLayerEbsVolume {
 		return vs[0].([]NodejsAppLayerEbsVolume)[vs[1].(int)]
 	}).(NodejsAppLayerEbsVolumeOutput)
 }
 
 type PhpAppLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	Iops *int `pulumi:"iops"`
-	MountPoint string `pulumi:"mountPoint"`
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	RaidLevel *string `pulumi:"raidLevel"`
-	Size int `pulumi:"size"`
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 type PhpAppLayerEbsVolumeInput interface {
@@ -1519,13 +1519,13 @@ type PhpAppLayerEbsVolumeInput interface {
 }
 
 type PhpAppLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	Size pulumi.IntInput `pulumi:"size"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (PhpAppLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -1561,7 +1561,7 @@ func (i PhpAppLayerEbsVolumeArray) ToPhpAppLayerEbsVolumeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerEbsVolumeArrayOutput)
 }
 
-type PhpAppLayerEbsVolumeOutput struct { *pulumi.OutputState }
+type PhpAppLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (PhpAppLayerEbsVolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PhpAppLayerEbsVolume)(nil)).Elem()
@@ -1576,34 +1576,34 @@ func (o PhpAppLayerEbsVolumeOutput) ToPhpAppLayerEbsVolumeOutputWithContext(ctx 
 }
 
 func (o PhpAppLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PhpAppLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PhpAppLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 func (o PhpAppLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PhpAppLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PhpAppLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 func (o PhpAppLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
-	return o.ApplyT(func (v PhpAppLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PhpAppLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
 func (o PhpAppLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
-	return o.ApplyT(func (v PhpAppLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
+	return o.ApplyT(func(v PhpAppLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
 func (o PhpAppLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PhpAppLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PhpAppLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
 func (o PhpAppLayerEbsVolumeOutput) Size() pulumi.IntOutput {
-	return o.ApplyT(func (v PhpAppLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
+	return o.ApplyT(func(v PhpAppLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
 func (o PhpAppLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PhpAppLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PhpAppLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type PhpAppLayerEbsVolumeArrayOutput struct { *pulumi.OutputState}
+type PhpAppLayerEbsVolumeArrayOutput struct{ *pulumi.OutputState }
 
 func (PhpAppLayerEbsVolumeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PhpAppLayerEbsVolume)(nil)).Elem()
@@ -1618,19 +1618,19 @@ func (o PhpAppLayerEbsVolumeArrayOutput) ToPhpAppLayerEbsVolumeArrayOutputWithCo
 }
 
 func (o PhpAppLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) PhpAppLayerEbsVolumeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PhpAppLayerEbsVolume {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PhpAppLayerEbsVolume {
 		return vs[0].([]PhpAppLayerEbsVolume)[vs[1].(int)]
 	}).(PhpAppLayerEbsVolumeOutput)
 }
 
 type RailsAppLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	Iops *int `pulumi:"iops"`
-	MountPoint string `pulumi:"mountPoint"`
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	RaidLevel *string `pulumi:"raidLevel"`
-	Size int `pulumi:"size"`
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 type RailsAppLayerEbsVolumeInput interface {
@@ -1641,13 +1641,13 @@ type RailsAppLayerEbsVolumeInput interface {
 }
 
 type RailsAppLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	Size pulumi.IntInput `pulumi:"size"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (RailsAppLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -1683,7 +1683,7 @@ func (i RailsAppLayerEbsVolumeArray) ToRailsAppLayerEbsVolumeArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerEbsVolumeArrayOutput)
 }
 
-type RailsAppLayerEbsVolumeOutput struct { *pulumi.OutputState }
+type RailsAppLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (RailsAppLayerEbsVolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RailsAppLayerEbsVolume)(nil)).Elem()
@@ -1698,34 +1698,34 @@ func (o RailsAppLayerEbsVolumeOutput) ToRailsAppLayerEbsVolumeOutputWithContext(
 }
 
 func (o RailsAppLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v RailsAppLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v RailsAppLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 func (o RailsAppLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v RailsAppLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v RailsAppLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 func (o RailsAppLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
-	return o.ApplyT(func (v RailsAppLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RailsAppLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
 func (o RailsAppLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
-	return o.ApplyT(func (v RailsAppLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
+	return o.ApplyT(func(v RailsAppLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
 func (o RailsAppLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RailsAppLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RailsAppLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
 func (o RailsAppLayerEbsVolumeOutput) Size() pulumi.IntOutput {
-	return o.ApplyT(func (v RailsAppLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
+	return o.ApplyT(func(v RailsAppLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
 func (o RailsAppLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RailsAppLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RailsAppLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type RailsAppLayerEbsVolumeArrayOutput struct { *pulumi.OutputState}
+type RailsAppLayerEbsVolumeArrayOutput struct{ *pulumi.OutputState }
 
 func (RailsAppLayerEbsVolumeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]RailsAppLayerEbsVolume)(nil)).Elem()
@@ -1740,7 +1740,7 @@ func (o RailsAppLayerEbsVolumeArrayOutput) ToRailsAppLayerEbsVolumeArrayOutputWi
 }
 
 func (o RailsAppLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) RailsAppLayerEbsVolumeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) RailsAppLayerEbsVolume {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RailsAppLayerEbsVolume {
 		return vs[0].([]RailsAppLayerEbsVolume)[vs[1].(int)]
 	}).(RailsAppLayerEbsVolumeOutput)
 }
@@ -1748,9 +1748,9 @@ func (o RailsAppLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) RailsAppLaye
 type StackCustomCookbooksSource struct {
 	Password *string `pulumi:"password"`
 	Revision *string `pulumi:"revision"`
-	SshKey *string `pulumi:"sshKey"`
-	Type string `pulumi:"type"`
-	Url string `pulumi:"url"`
+	SshKey   *string `pulumi:"sshKey"`
+	Type     string  `pulumi:"type"`
+	Url      string  `pulumi:"url"`
 	Username *string `pulumi:"username"`
 }
 
@@ -1764,9 +1764,9 @@ type StackCustomCookbooksSourceInput interface {
 type StackCustomCookbooksSourceArgs struct {
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	Revision pulumi.StringPtrInput `pulumi:"revision"`
-	SshKey pulumi.StringPtrInput `pulumi:"sshKey"`
-	Type pulumi.StringInput `pulumi:"type"`
-	Url pulumi.StringInput `pulumi:"url"`
+	SshKey   pulumi.StringPtrInput `pulumi:"sshKey"`
+	Type     pulumi.StringInput    `pulumi:"type"`
+	Url      pulumi.StringInput    `pulumi:"url"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -1803,7 +1803,7 @@ func (i StackCustomCookbooksSourceArray) ToStackCustomCookbooksSourceArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(StackCustomCookbooksSourceArrayOutput)
 }
 
-type StackCustomCookbooksSourceOutput struct { *pulumi.OutputState }
+type StackCustomCookbooksSourceOutput struct{ *pulumi.OutputState }
 
 func (StackCustomCookbooksSourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StackCustomCookbooksSource)(nil)).Elem()
@@ -1818,30 +1818,30 @@ func (o StackCustomCookbooksSourceOutput) ToStackCustomCookbooksSourceOutputWith
 }
 
 func (o StackCustomCookbooksSourceOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StackCustomCookbooksSource) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StackCustomCookbooksSource) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 func (o StackCustomCookbooksSourceOutput) Revision() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StackCustomCookbooksSource) *string { return v.Revision }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StackCustomCookbooksSource) *string { return v.Revision }).(pulumi.StringPtrOutput)
 }
 
 func (o StackCustomCookbooksSourceOutput) SshKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StackCustomCookbooksSource) *string { return v.SshKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StackCustomCookbooksSource) *string { return v.SshKey }).(pulumi.StringPtrOutput)
 }
 
 func (o StackCustomCookbooksSourceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v StackCustomCookbooksSource) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StackCustomCookbooksSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
 func (o StackCustomCookbooksSourceOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func (v StackCustomCookbooksSource) string { return v.Url }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StackCustomCookbooksSource) string { return v.Url }).(pulumi.StringOutput)
 }
 
 func (o StackCustomCookbooksSourceOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StackCustomCookbooksSource) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StackCustomCookbooksSource) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type StackCustomCookbooksSourceArrayOutput struct { *pulumi.OutputState}
+type StackCustomCookbooksSourceArrayOutput struct{ *pulumi.OutputState }
 
 func (StackCustomCookbooksSourceArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]StackCustomCookbooksSource)(nil)).Elem()
@@ -1856,19 +1856,19 @@ func (o StackCustomCookbooksSourceArrayOutput) ToStackCustomCookbooksSourceArray
 }
 
 func (o StackCustomCookbooksSourceArrayOutput) Index(i pulumi.IntInput) StackCustomCookbooksSourceOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) StackCustomCookbooksSource {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackCustomCookbooksSource {
 		return vs[0].([]StackCustomCookbooksSource)[vs[1].(int)]
 	}).(StackCustomCookbooksSourceOutput)
 }
 
 type StaticWebLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	Iops *int `pulumi:"iops"`
-	MountPoint string `pulumi:"mountPoint"`
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	RaidLevel *string `pulumi:"raidLevel"`
-	Size int `pulumi:"size"`
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 type StaticWebLayerEbsVolumeInput interface {
@@ -1879,13 +1879,13 @@ type StaticWebLayerEbsVolumeInput interface {
 }
 
 type StaticWebLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	Size pulumi.IntInput `pulumi:"size"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (StaticWebLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -1921,7 +1921,7 @@ func (i StaticWebLayerEbsVolumeArray) ToStaticWebLayerEbsVolumeArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerEbsVolumeArrayOutput)
 }
 
-type StaticWebLayerEbsVolumeOutput struct { *pulumi.OutputState }
+type StaticWebLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (StaticWebLayerEbsVolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StaticWebLayerEbsVolume)(nil)).Elem()
@@ -1936,34 +1936,34 @@ func (o StaticWebLayerEbsVolumeOutput) ToStaticWebLayerEbsVolumeOutputWithContex
 }
 
 func (o StaticWebLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v StaticWebLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v StaticWebLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 func (o StaticWebLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v StaticWebLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v StaticWebLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 func (o StaticWebLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
-	return o.ApplyT(func (v StaticWebLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StaticWebLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
 func (o StaticWebLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
-	return o.ApplyT(func (v StaticWebLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
+	return o.ApplyT(func(v StaticWebLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
 func (o StaticWebLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StaticWebLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StaticWebLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
 func (o StaticWebLayerEbsVolumeOutput) Size() pulumi.IntOutput {
-	return o.ApplyT(func (v StaticWebLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
+	return o.ApplyT(func(v StaticWebLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
 func (o StaticWebLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v StaticWebLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v StaticWebLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type StaticWebLayerEbsVolumeArrayOutput struct { *pulumi.OutputState}
+type StaticWebLayerEbsVolumeArrayOutput struct{ *pulumi.OutputState }
 
 func (StaticWebLayerEbsVolumeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]StaticWebLayerEbsVolume)(nil)).Elem()
@@ -1978,7 +1978,7 @@ func (o StaticWebLayerEbsVolumeArrayOutput) ToStaticWebLayerEbsVolumeArrayOutput
 }
 
 func (o StaticWebLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) StaticWebLayerEbsVolumeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) StaticWebLayerEbsVolume {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StaticWebLayerEbsVolume {
 		return vs[0].([]StaticWebLayerEbsVolume)[vs[1].(int)]
 	}).(StaticWebLayerEbsVolumeOutput)
 }

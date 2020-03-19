@@ -12,17 +12,17 @@ import (
 )
 
 // Creates an Amazon CloudFront web distribution.
-// 
+//
 // For information about CloudFront distributions, see the
 // [Amazon CloudFront Developer Guide][1]. For specific information about creating
 // CloudFront web distributions, see the [POST Distribution][2] page in the Amazon
 // CloudFront API Reference.
-// 
+//
 // > **NOTE:** CloudFront distributions take about 15 minutes to a deployed state
 // after creation or modification. During this time, deletes to resources will be
 // blocked. If you need to delete a distribution that is enabled and you do not
 // want to wait, you need to use the `retainOnDelete` flag.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudfront_distribution.html.markdown.
 type Distribution struct {
 	pulumi.CustomResourceState
@@ -490,4 +490,3 @@ type DistributionArgs struct {
 func (DistributionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*distributionArgs)(nil)).Elem()
 }
-

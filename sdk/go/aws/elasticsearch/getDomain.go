@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to get information about an Elasticsearch Domain
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticsearch_domain.html.markdown.
 func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
 	var rv LookupDomainResult
@@ -23,10 +23,9 @@ func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.In
 // A collection of arguments for invoking getDomain.
 type LookupDomainArgs struct {
 	// Name of the domain.
-	DomainName string `pulumi:"domainName"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	DomainName string                 `pulumi:"domainName"`
+	Tags       map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getDomain.
 type LookupDomainResult struct {
@@ -45,7 +44,7 @@ type LookupDomainResult struct {
 	// Status of the deletion of the domain.
 	Deleted bool `pulumi:"deleted"`
 	// Unique identifier for the domain.
-	DomainId string `pulumi:"domainId"`
+	DomainId   string `pulumi:"domainId"`
 	DomainName string `pulumi:"domainName"`
 	// EBS Options for the instances in the domain.
 	EbsOptions []GetDomainEbsOption `pulumi:"ebsOptions"`
@@ -65,11 +64,10 @@ type LookupDomainResult struct {
 	NodeToNodeEncryptions []GetDomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryptions"`
 	// Status of a configuration change in the domain.
 	// * `snapshotOptions` – Domain snapshot related options.
-	Processing string `pulumi:"processing"`
+	Processing      string                    `pulumi:"processing"`
 	SnapshotOptions []GetDomainSnapshotOption `pulumi:"snapshotOptions"`
 	// The tags assigned to the domain.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// VPC Options for private Elasticsearch domains.
 	VpcOptions []GetDomainVpcOption `pulumi:"vpcOptions"`
 }
-

@@ -13,11 +13,11 @@ import (
 
 // Provides an ElastiCache Security Group to control access to one or more cache
 // clusters.
-// 
+//
 // > **NOTE:** ElastiCache Security Groups are for use only when working with an
 // ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
 // ElastiCache Subnet Group resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_security_group.html.markdown.
 type SecurityGroup struct {
 	pulumi.CustomResourceState
@@ -112,4 +112,3 @@ type SecurityGroupArgs struct {
 func (SecurityGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityGroupArgs)(nil)).Elem()
 }
-

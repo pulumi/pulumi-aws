@@ -16,7 +16,7 @@ class Bucket(pulumi.CustomResource):
     """
     acl: pulumi.Output[str]
     """
-    The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
+    The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".  Conflicts with `grant`.
     """
     arn: pulumi.Output[str]
     """
@@ -41,7 +41,7 @@ class Bucket(pulumi.CustomResource):
     cors_rules: pulumi.Output[list]
     """
     A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
-    
+
       * `allowedHeaders` (`list`) - Specifies which headers are allowed.
       * `allowedMethods` (`list`) - Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
       * `allowedOrigins` (`list`) - Specifies which origins are allowed.
@@ -52,6 +52,15 @@ class Bucket(pulumi.CustomResource):
     """
     A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
     """
+    grants: pulumi.Output[list]
+    """
+    An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
+
+      * `id` (`str`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+      * `permissions` (`list`) - List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+      * `type` (`str`) - - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+      * `uri` (`str`) - Uri address to grant for. Used only when `type` is `Group`.
+    """
     hosted_zone_id: pulumi.Output[str]
     """
     The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
@@ -59,30 +68,26 @@ class Bucket(pulumi.CustomResource):
     lifecycle_rules: pulumi.Output[list]
     """
     A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
-    
+
       * `abortIncompleteMultipartUploadDays` (`float`) - Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
       * `enabled` (`bool`) - Boolean which indicates if this criteria is enabled.
       * `expiration` (`dict`) - Specifies a period in the object's expire (documented below).
-    
         * `date` (`str`) - Specifies the date after which you want the corresponding action to take effect.
         * `days` (`float`) - The number of days that you want to specify for the default retention period.
         * `expiredObjectDeleteMarker` (`bool`) - On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers.
-    
-      * `id` (`str`) - Unique identifier for the rule.
+
+      * `id` (`str`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
       * `noncurrentVersionExpiration` (`dict`) - Specifies when noncurrent object versions expire (documented below).
-    
         * `days` (`float`) - The number of days that you want to specify for the default retention period.
-    
+
       * `noncurrentVersionTransitions` (`list`) - Specifies when noncurrent object versions transitions (documented below).
-    
         * `days` (`float`) - The number of days that you want to specify for the default retention period.
         * `storage_class` (`str`) - The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
-    
+
       * `prefix` (`str`) - Object keyname prefix that identifies subset of objects to which the rule applies.
       * `tags` (`dict`) - A mapping of tags that identifies subset of objects to which the rule applies.
         The rule applies only to objects having all the tags in its tagset.
       * `transitions` (`list`) - Specifies a period in the object's transitions (documented below).
-    
         * `date` (`str`) - Specifies the date after which you want the corresponding action to take effect.
         * `days` (`float`) - The number of days that you want to specify for the default retention period.
         * `storage_class` (`str`) - The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
@@ -90,26 +95,24 @@ class Bucket(pulumi.CustomResource):
     loggings: pulumi.Output[list]
     """
     A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
-    
+
       * `targetBucket` (`str`) - The name of the bucket that will receive the log objects.
       * `targetPrefix` (`str`) - To specify a key prefix for log objects.
     """
     object_lock_configuration: pulumi.Output[dict]
     """
     A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
-    
+
       * `objectLockEnabled` (`str`) - Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
       * `rule` (`dict`) - The Object Lock rule in place for this bucket.
-    
         * `defaultRetention` (`dict`) - The default retention period that you want to apply to new objects placed in this bucket.
-    
           * `days` (`float`) - The number of days that you want to specify for the default retention period.
           * `mode` (`str`) - The default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
           * `years` (`float`) - The number of years that you want to specify for the default retention period.
     """
     policy: pulumi.Output[str]
     """
-    A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
+    A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
     """
     region: pulumi.Output[str]
     """
@@ -118,38 +121,32 @@ class Bucket(pulumi.CustomResource):
     replication_configuration: pulumi.Output[dict]
     """
     A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
-    
+
       * `role` (`str`) - The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
       * `rules` (`list`) - Specifies the rules managing the replication (documented below).
-    
         * `destination` (`dict`) - Specifies the destination for the rule (documented below).
-    
           * `accessControlTranslation` (`dict`) - Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
-    
             * `owner` (`str`) - The override value for the owner on replicated objects. Currently only `Destination` is supported.
-    
+
           * `account_id` (`str`) - The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
           * `bucket` (`str`) - The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
           * `replicaKmsKeyId` (`str`) - Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
             `sse_kms_encrypted_objects` source selection criteria.
           * `storage_class` (`str`) - The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
-    
+
         * `filter` (`dict`) - Filter that identifies subset of objects to which the replication rule applies (documented below).
-    
           * `prefix` (`str`) - Object keyname prefix that identifies subset of objects to which the rule applies.
           * `tags` (`dict`) - A mapping of tags that identifies subset of objects to which the rule applies.
             The rule applies only to objects having all the tags in its tagset.
-    
-        * `id` (`str`) - Unique identifier for the rule.
+
+        * `id` (`str`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
         * `prefix` (`str`) - Object keyname prefix that identifies subset of objects to which the rule applies.
         * `priority` (`float`) - The priority associated with the rule.
         * `sourceSelectionCriteria` (`dict`) - Specifies special object selection criteria (documented below).
-    
           * `sseKmsEncryptedObjects` (`dict`) - Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
             in `destination` must be specified as well.
-    
             * `enabled` (`bool`) - Boolean which indicates if this criteria is enabled.
-    
+
         * `status` (`str`) - The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
     """
     request_payer: pulumi.Output[str]
@@ -162,12 +159,10 @@ class Bucket(pulumi.CustomResource):
     server_side_encryption_configuration: pulumi.Output[dict]
     """
     A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
-    
+
       * `rule` (`dict`) - The Object Lock rule in place for this bucket.
-    
         * `applyServerSideEncryptionByDefault` (`dict`) - A single object for setting server-side encryption by default. (documented below)
-    
-          * `kmsMasterKeyId` (`str`) - The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
+          * `kms_master_key_id` (`str`) - The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
           * `sseAlgorithm` (`str`) - The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
     """
     tags: pulumi.Output[dict]
@@ -178,18 +173,18 @@ class Bucket(pulumi.CustomResource):
     versioning: pulumi.Output[dict]
     """
     A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
-    
+
       * `enabled` (`bool`) - Boolean which indicates if this criteria is enabled.
       * `mfaDelete` (`bool`) - Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`.
     """
     website: pulumi.Output[dict]
     """
     A website object (documented below).
-    
+
       * `errorDocument` (`str`) - An absolute path to the document to return in case of a 4XX error.
       * `indexDocument` (`str`) - Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
       * `redirectAllRequestsTo` (`str`) - A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
-      * `routingRules` (`str`) - A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+      * `routingRules` (`dict`) - A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
         describing redirect behavior and when redirects are applied.
     """
     website_domain: pulumi.Output[str]
@@ -200,24 +195,27 @@ class Bucket(pulumi.CustomResource):
     """
     The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
     """
-    def __init__(__self__, resource_name, opts=None, acceleration_status=None, acl=None, arn=None, bucket=None, bucket_prefix=None, cors_rules=None, force_destroy=None, hosted_zone_id=None, lifecycle_rules=None, loggings=None, object_lock_configuration=None, policy=None, region=None, replication_configuration=None, request_payer=None, server_side_encryption_configuration=None, tags=None, versioning=None, website=None, website_domain=None, website_endpoint=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, acceleration_status=None, acl=None, arn=None, bucket=None, bucket_prefix=None, cors_rules=None, force_destroy=None, grants=None, hosted_zone_id=None, lifecycle_rules=None, loggings=None, object_lock_configuration=None, policy=None, region=None, replication_configuration=None, request_payer=None, server_side_encryption_configuration=None, tags=None, versioning=None, website=None, website_domain=None, website_endpoint=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a S3 bucket resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] acceleration_status: Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
-        :param pulumi.Input[str] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
+        :param pulumi.Input[dict] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".  Conflicts with `grant`.
         :param pulumi.Input[str] arn: The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         :param pulumi.Input[str] bucket: The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
         :param pulumi.Input[str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
         :param pulumi.Input[list] cors_rules: A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
+        :param pulumi.Input[list] grants: An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
         :param pulumi.Input[str] hosted_zone_id: The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         :param pulumi.Input[list] lifecycle_rules: A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
         :param pulumi.Input[list] loggings: A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
         :param pulumi.Input[dict] object_lock_configuration: A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
-        :param pulumi.Input[str] policy: A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
+        :param pulumi.Input[dict] policy: A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
         :param pulumi.Input[str] region: If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
         :param pulumi.Input[dict] replication_configuration: A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
         :param pulumi.Input[str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
@@ -231,118 +229,109 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[dict] website: A website object (documented below).
         :param pulumi.Input[str] website_domain: The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
         :param pulumi.Input[str] website_endpoint: The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
-        
+
         The **cors_rules** object supports the following:
-        
+
           * `allowedHeaders` (`pulumi.Input[list]`) - Specifies which headers are allowed.
           * `allowedMethods` (`pulumi.Input[list]`) - Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
           * `allowedOrigins` (`pulumi.Input[list]`) - Specifies which origins are allowed.
           * `exposeHeaders` (`pulumi.Input[list]`) - Specifies expose header in the response.
           * `maxAgeSeconds` (`pulumi.Input[float]`) - Specifies time in seconds that browser can cache the response for a preflight request.
-        
+
+        The **grants** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+          * `permissions` (`pulumi.Input[list]`) - List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+          * `type` (`pulumi.Input[str]`) - - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+          * `uri` (`pulumi.Input[str]`) - Uri address to grant for. Used only when `type` is `Group`.
+
         The **lifecycle_rules** object supports the following:
-        
+
           * `abortIncompleteMultipartUploadDays` (`pulumi.Input[float]`) - Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
           * `enabled` (`pulumi.Input[bool]`) - Boolean which indicates if this criteria is enabled.
           * `expiration` (`pulumi.Input[dict]`) - Specifies a period in the object's expire (documented below).
-        
             * `date` (`pulumi.Input[str]`) - Specifies the date after which you want the corresponding action to take effect.
             * `days` (`pulumi.Input[float]`) - The number of days that you want to specify for the default retention period.
             * `expiredObjectDeleteMarker` (`pulumi.Input[bool]`) - On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers.
-        
-          * `id` (`pulumi.Input[str]`) - Unique identifier for the rule.
+
+          * `id` (`pulumi.Input[str]`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
           * `noncurrentVersionExpiration` (`pulumi.Input[dict]`) - Specifies when noncurrent object versions expire (documented below).
-        
             * `days` (`pulumi.Input[float]`) - The number of days that you want to specify for the default retention period.
-        
+
           * `noncurrentVersionTransitions` (`pulumi.Input[list]`) - Specifies when noncurrent object versions transitions (documented below).
-        
             * `days` (`pulumi.Input[float]`) - The number of days that you want to specify for the default retention period.
             * `storage_class` (`pulumi.Input[str]`) - The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
-        
+
           * `prefix` (`pulumi.Input[str]`) - Object keyname prefix that identifies subset of objects to which the rule applies.
           * `tags` (`pulumi.Input[dict]`) - A mapping of tags that identifies subset of objects to which the rule applies.
             The rule applies only to objects having all the tags in its tagset.
           * `transitions` (`pulumi.Input[list]`) - Specifies a period in the object's transitions (documented below).
-        
             * `date` (`pulumi.Input[str]`) - Specifies the date after which you want the corresponding action to take effect.
             * `days` (`pulumi.Input[float]`) - The number of days that you want to specify for the default retention period.
             * `storage_class` (`pulumi.Input[str]`) - The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
-        
+
         The **loggings** object supports the following:
-        
+
           * `targetBucket` (`pulumi.Input[str]`) - The name of the bucket that will receive the log objects.
           * `targetPrefix` (`pulumi.Input[str]`) - To specify a key prefix for log objects.
-        
+
         The **object_lock_configuration** object supports the following:
-        
+
           * `objectLockEnabled` (`pulumi.Input[str]`) - Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
           * `rule` (`pulumi.Input[dict]`) - The Object Lock rule in place for this bucket.
-        
             * `defaultRetention` (`pulumi.Input[dict]`) - The default retention period that you want to apply to new objects placed in this bucket.
-        
               * `days` (`pulumi.Input[float]`) - The number of days that you want to specify for the default retention period.
               * `mode` (`pulumi.Input[str]`) - The default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
               * `years` (`pulumi.Input[float]`) - The number of years that you want to specify for the default retention period.
-        
+
         The **replication_configuration** object supports the following:
-        
+
           * `role` (`pulumi.Input[str]`) - The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
           * `rules` (`pulumi.Input[list]`) - Specifies the rules managing the replication (documented below).
-        
             * `destination` (`pulumi.Input[dict]`) - Specifies the destination for the rule (documented below).
-        
               * `accessControlTranslation` (`pulumi.Input[dict]`) - Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
-        
                 * `owner` (`pulumi.Input[str]`) - The override value for the owner on replicated objects. Currently only `Destination` is supported.
-        
+
               * `account_id` (`pulumi.Input[str]`) - The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
               * `bucket` (`pulumi.Input[str]`) - The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
               * `replicaKmsKeyId` (`pulumi.Input[str]`) - Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
                 `sse_kms_encrypted_objects` source selection criteria.
               * `storage_class` (`pulumi.Input[str]`) - The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
-        
+
             * `filter` (`pulumi.Input[dict]`) - Filter that identifies subset of objects to which the replication rule applies (documented below).
-        
               * `prefix` (`pulumi.Input[str]`) - Object keyname prefix that identifies subset of objects to which the rule applies.
               * `tags` (`pulumi.Input[dict]`) - A mapping of tags that identifies subset of objects to which the rule applies.
                 The rule applies only to objects having all the tags in its tagset.
-        
-            * `id` (`pulumi.Input[str]`) - Unique identifier for the rule.
+
+            * `id` (`pulumi.Input[str]`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
             * `prefix` (`pulumi.Input[str]`) - Object keyname prefix that identifies subset of objects to which the rule applies.
             * `priority` (`pulumi.Input[float]`) - The priority associated with the rule.
             * `sourceSelectionCriteria` (`pulumi.Input[dict]`) - Specifies special object selection criteria (documented below).
-        
               * `sseKmsEncryptedObjects` (`pulumi.Input[dict]`) - Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
                 in `destination` must be specified as well.
-        
                 * `enabled` (`pulumi.Input[bool]`) - Boolean which indicates if this criteria is enabled.
-        
+
             * `status` (`pulumi.Input[str]`) - The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
-        
+
         The **server_side_encryption_configuration** object supports the following:
-        
+
           * `rule` (`pulumi.Input[dict]`) - The Object Lock rule in place for this bucket.
-        
             * `applyServerSideEncryptionByDefault` (`pulumi.Input[dict]`) - A single object for setting server-side encryption by default. (documented below)
-        
-              * `kmsMasterKeyId` (`pulumi.Input[str]`) - The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
+              * `kms_master_key_id` (`pulumi.Input[str]`) - The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
               * `sseAlgorithm` (`pulumi.Input[str]`) - The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
-        
+
         The **versioning** object supports the following:
-        
+
           * `enabled` (`pulumi.Input[bool]`) - Boolean which indicates if this criteria is enabled.
           * `mfaDelete` (`pulumi.Input[bool]`) - Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`.
-        
+
         The **website** object supports the following:
-        
+
           * `errorDocument` (`pulumi.Input[str]`) - An absolute path to the document to return in case of a 4XX error.
           * `indexDocument` (`pulumi.Input[str]`) - Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
           * `redirectAllRequestsTo` (`pulumi.Input[str]`) - A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
-          * `routingRules` (`pulumi.Input[str]`) - A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+          * `routingRules` (`pulumi.Input[dict]`) - A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
             describing redirect behavior and when redirects are applied.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -368,6 +357,7 @@ class Bucket(pulumi.CustomResource):
             __props__['bucket_prefix'] = bucket_prefix
             __props__['cors_rules'] = cors_rules
             __props__['force_destroy'] = force_destroy
+            __props__['grants'] = grants
             __props__['hosted_zone_id'] = hosted_zone_id
             __props__['lifecycle_rules'] = lifecycle_rules
             __props__['loggings'] = loggings
@@ -391,16 +381,16 @@ class Bucket(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, acceleration_status=None, acl=None, arn=None, bucket=None, bucket_domain_name=None, bucket_prefix=None, bucket_regional_domain_name=None, cors_rules=None, force_destroy=None, hosted_zone_id=None, lifecycle_rules=None, loggings=None, object_lock_configuration=None, policy=None, region=None, replication_configuration=None, request_payer=None, server_side_encryption_configuration=None, tags=None, versioning=None, website=None, website_domain=None, website_endpoint=None):
+    def get(resource_name, id, opts=None, acceleration_status=None, acl=None, arn=None, bucket=None, bucket_domain_name=None, bucket_prefix=None, bucket_regional_domain_name=None, cors_rules=None, force_destroy=None, grants=None, hosted_zone_id=None, lifecycle_rules=None, loggings=None, object_lock_configuration=None, policy=None, region=None, replication_configuration=None, request_payer=None, server_side_encryption_configuration=None, tags=None, versioning=None, website=None, website_domain=None, website_endpoint=None):
         """
         Get an existing Bucket resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] acceleration_status: Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
-        :param pulumi.Input[str] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
+        :param pulumi.Input[dict] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".  Conflicts with `grant`.
         :param pulumi.Input[str] arn: The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         :param pulumi.Input[str] bucket: The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
         :param pulumi.Input[str] bucket_domain_name: The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
@@ -408,11 +398,12 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[str] bucket_regional_domain_name: The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
         :param pulumi.Input[list] cors_rules: A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
+        :param pulumi.Input[list] grants: An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
         :param pulumi.Input[str] hosted_zone_id: The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         :param pulumi.Input[list] lifecycle_rules: A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
         :param pulumi.Input[list] loggings: A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
         :param pulumi.Input[dict] object_lock_configuration: A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
-        :param pulumi.Input[str] policy: A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
+        :param pulumi.Input[dict] policy: A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
         :param pulumi.Input[str] region: If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
         :param pulumi.Input[dict] replication_configuration: A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
         :param pulumi.Input[str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
@@ -426,122 +417,114 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[dict] website: A website object (documented below).
         :param pulumi.Input[str] website_domain: The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
         :param pulumi.Input[str] website_endpoint: The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
-        
+
         The **cors_rules** object supports the following:
-        
+
           * `allowedHeaders` (`pulumi.Input[list]`) - Specifies which headers are allowed.
           * `allowedMethods` (`pulumi.Input[list]`) - Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
           * `allowedOrigins` (`pulumi.Input[list]`) - Specifies which origins are allowed.
           * `exposeHeaders` (`pulumi.Input[list]`) - Specifies expose header in the response.
           * `maxAgeSeconds` (`pulumi.Input[float]`) - Specifies time in seconds that browser can cache the response for a preflight request.
-        
+
+        The **grants** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+          * `permissions` (`pulumi.Input[list]`) - List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+          * `type` (`pulumi.Input[str]`) - - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+          * `uri` (`pulumi.Input[str]`) - Uri address to grant for. Used only when `type` is `Group`.
+
         The **lifecycle_rules** object supports the following:
-        
+
           * `abortIncompleteMultipartUploadDays` (`pulumi.Input[float]`) - Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
           * `enabled` (`pulumi.Input[bool]`) - Boolean which indicates if this criteria is enabled.
           * `expiration` (`pulumi.Input[dict]`) - Specifies a period in the object's expire (documented below).
-        
             * `date` (`pulumi.Input[str]`) - Specifies the date after which you want the corresponding action to take effect.
             * `days` (`pulumi.Input[float]`) - The number of days that you want to specify for the default retention period.
             * `expiredObjectDeleteMarker` (`pulumi.Input[bool]`) - On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers.
-        
-          * `id` (`pulumi.Input[str]`) - Unique identifier for the rule.
+
+          * `id` (`pulumi.Input[str]`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
           * `noncurrentVersionExpiration` (`pulumi.Input[dict]`) - Specifies when noncurrent object versions expire (documented below).
-        
             * `days` (`pulumi.Input[float]`) - The number of days that you want to specify for the default retention period.
-        
+
           * `noncurrentVersionTransitions` (`pulumi.Input[list]`) - Specifies when noncurrent object versions transitions (documented below).
-        
             * `days` (`pulumi.Input[float]`) - The number of days that you want to specify for the default retention period.
             * `storage_class` (`pulumi.Input[str]`) - The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
-        
+
           * `prefix` (`pulumi.Input[str]`) - Object keyname prefix that identifies subset of objects to which the rule applies.
           * `tags` (`pulumi.Input[dict]`) - A mapping of tags that identifies subset of objects to which the rule applies.
             The rule applies only to objects having all the tags in its tagset.
           * `transitions` (`pulumi.Input[list]`) - Specifies a period in the object's transitions (documented below).
-        
             * `date` (`pulumi.Input[str]`) - Specifies the date after which you want the corresponding action to take effect.
             * `days` (`pulumi.Input[float]`) - The number of days that you want to specify for the default retention period.
             * `storage_class` (`pulumi.Input[str]`) - The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
-        
+
         The **loggings** object supports the following:
-        
+
           * `targetBucket` (`pulumi.Input[str]`) - The name of the bucket that will receive the log objects.
           * `targetPrefix` (`pulumi.Input[str]`) - To specify a key prefix for log objects.
-        
+
         The **object_lock_configuration** object supports the following:
-        
+
           * `objectLockEnabled` (`pulumi.Input[str]`) - Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
           * `rule` (`pulumi.Input[dict]`) - The Object Lock rule in place for this bucket.
-        
             * `defaultRetention` (`pulumi.Input[dict]`) - The default retention period that you want to apply to new objects placed in this bucket.
-        
               * `days` (`pulumi.Input[float]`) - The number of days that you want to specify for the default retention period.
               * `mode` (`pulumi.Input[str]`) - The default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
               * `years` (`pulumi.Input[float]`) - The number of years that you want to specify for the default retention period.
-        
+
         The **replication_configuration** object supports the following:
-        
+
           * `role` (`pulumi.Input[str]`) - The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
           * `rules` (`pulumi.Input[list]`) - Specifies the rules managing the replication (documented below).
-        
             * `destination` (`pulumi.Input[dict]`) - Specifies the destination for the rule (documented below).
-        
               * `accessControlTranslation` (`pulumi.Input[dict]`) - Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
-        
                 * `owner` (`pulumi.Input[str]`) - The override value for the owner on replicated objects. Currently only `Destination` is supported.
-        
+
               * `account_id` (`pulumi.Input[str]`) - The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
               * `bucket` (`pulumi.Input[str]`) - The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
               * `replicaKmsKeyId` (`pulumi.Input[str]`) - Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
                 `sse_kms_encrypted_objects` source selection criteria.
               * `storage_class` (`pulumi.Input[str]`) - The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
-        
+
             * `filter` (`pulumi.Input[dict]`) - Filter that identifies subset of objects to which the replication rule applies (documented below).
-        
               * `prefix` (`pulumi.Input[str]`) - Object keyname prefix that identifies subset of objects to which the rule applies.
               * `tags` (`pulumi.Input[dict]`) - A mapping of tags that identifies subset of objects to which the rule applies.
                 The rule applies only to objects having all the tags in its tagset.
-        
-            * `id` (`pulumi.Input[str]`) - Unique identifier for the rule.
+
+            * `id` (`pulumi.Input[str]`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
             * `prefix` (`pulumi.Input[str]`) - Object keyname prefix that identifies subset of objects to which the rule applies.
             * `priority` (`pulumi.Input[float]`) - The priority associated with the rule.
             * `sourceSelectionCriteria` (`pulumi.Input[dict]`) - Specifies special object selection criteria (documented below).
-        
               * `sseKmsEncryptedObjects` (`pulumi.Input[dict]`) - Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
                 in `destination` must be specified as well.
-        
                 * `enabled` (`pulumi.Input[bool]`) - Boolean which indicates if this criteria is enabled.
-        
+
             * `status` (`pulumi.Input[str]`) - The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
-        
+
         The **server_side_encryption_configuration** object supports the following:
-        
+
           * `rule` (`pulumi.Input[dict]`) - The Object Lock rule in place for this bucket.
-        
             * `applyServerSideEncryptionByDefault` (`pulumi.Input[dict]`) - A single object for setting server-side encryption by default. (documented below)
-        
-              * `kmsMasterKeyId` (`pulumi.Input[str]`) - The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
+              * `kms_master_key_id` (`pulumi.Input[str]`) - The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
               * `sseAlgorithm` (`pulumi.Input[str]`) - The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
-        
+
         The **versioning** object supports the following:
-        
+
           * `enabled` (`pulumi.Input[bool]`) - Boolean which indicates if this criteria is enabled.
           * `mfaDelete` (`pulumi.Input[bool]`) - Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`.
-        
+
         The **website** object supports the following:
-        
+
           * `errorDocument` (`pulumi.Input[str]`) - An absolute path to the document to return in case of a 4XX error.
           * `indexDocument` (`pulumi.Input[str]`) - Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
           * `redirectAllRequestsTo` (`pulumi.Input[str]`) - A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
-          * `routingRules` (`pulumi.Input[str]`) - A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+          * `routingRules` (`pulumi.Input[dict]`) - A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
             describing redirect behavior and when redirects are applied.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["acceleration_status"] = acceleration_status
         __props__["acl"] = acl
         __props__["arn"] = arn
@@ -551,6 +534,7 @@ class Bucket(pulumi.CustomResource):
         __props__["bucket_regional_domain_name"] = bucket_regional_domain_name
         __props__["cors_rules"] = cors_rules
         __props__["force_destroy"] = force_destroy
+        __props__["grants"] = grants
         __props__["hosted_zone_id"] = hosted_zone_id
         __props__["lifecycle_rules"] = lifecycle_rules
         __props__["loggings"] = loggings

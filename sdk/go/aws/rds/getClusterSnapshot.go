@@ -9,10 +9,10 @@ import (
 )
 
 // Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
-// 
-// > **NOTE:** This data source does not apply to snapshots created on DB Instances. 
+//
+// > **NOTE:** This data source does not apply to snapshots created on DB Instances.
 // See the [`rds.Snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_snapshot.html) for DB Instance snapshots.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_cluster_snapshot.html.markdown.
 func LookupClusterSnapshot(ctx *pulumi.Context, args *LookupClusterSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupClusterSnapshotResult, error) {
 	var rv LookupClusterSnapshotResult
@@ -41,10 +41,9 @@ type LookupClusterSnapshotArgs struct {
 	// The type of snapshots to be returned. If you don't specify a SnapshotType
 	// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared` and `public`.
-	SnapshotType *string `pulumi:"snapshotType"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	SnapshotType *string                `pulumi:"snapshotType"`
+	Tags         map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getClusterSnapshot.
 type LookupClusterSnapshotResult struct {
@@ -55,27 +54,27 @@ type LookupClusterSnapshotResult struct {
 	// Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
 	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`
 	// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
-	DbClusterSnapshotArn string `pulumi:"dbClusterSnapshotArn"`
+	DbClusterSnapshotArn        string  `pulumi:"dbClusterSnapshotArn"`
 	DbClusterSnapshotIdentifier *string `pulumi:"dbClusterSnapshotIdentifier"`
 	// Specifies the name of the database engine.
 	Engine string `pulumi:"engine"`
 	// Version of the database engine for this DB cluster snapshot.
 	EngineVersion string `pulumi:"engineVersion"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	IncludePublic *bool `pulumi:"includePublic"`
-	IncludeShared *bool `pulumi:"includeShared"`
+	Id            string `pulumi:"id"`
+	IncludePublic *bool  `pulumi:"includePublic"`
+	IncludeShared *bool  `pulumi:"includeShared"`
 	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// License model information for the restored DB cluster.
 	LicenseModel string `pulumi:"licenseModel"`
-	MostRecent *bool `pulumi:"mostRecent"`
+	MostRecent   *bool  `pulumi:"mostRecent"`
 	// Port that the DB cluster was listening on at the time of the snapshot.
 	Port int `pulumi:"port"`
 	// Time when the snapshot was taken, in Universal Coordinated Time (UTC).
-	SnapshotCreateTime string `pulumi:"snapshotCreateTime"`
-	SnapshotType *string `pulumi:"snapshotType"`
-	SourceDbClusterSnapshotArn string `pulumi:"sourceDbClusterSnapshotArn"`
+	SnapshotCreateTime         string  `pulumi:"snapshotCreateTime"`
+	SnapshotType               *string `pulumi:"snapshotType"`
+	SourceDbClusterSnapshotArn string  `pulumi:"sourceDbClusterSnapshotArn"`
 	// The status of this DB Cluster Snapshot.
 	Status string `pulumi:"status"`
 	// Specifies whether the DB cluster snapshot is encrypted.
@@ -85,4 +84,3 @@ type LookupClusterSnapshotResult struct {
 	// The VPC ID associated with the DB cluster snapshot.
 	VpcId string `pulumi:"vpcId"`
 }
-

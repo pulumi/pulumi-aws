@@ -11,8 +11,8 @@ import (
 )
 
 // Provides a Pinpoint App resource.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_app.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_app.markdown.
 type App struct {
 	pulumi.CustomResourceState
 
@@ -137,4 +137,3 @@ type AppArgs struct {
 func (AppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*appArgs)(nil)).Elem()
 }
-

@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an IoT role alias.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_role_alias.html.markdown.
 type RoleAlias struct {
 	pulumi.CustomResourceState
@@ -108,4 +108,3 @@ type RoleAliasArgs struct {
 func (RoleAliasArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*roleAliasArgs)(nil)).Elem()
 }
-

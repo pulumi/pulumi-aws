@@ -12,11 +12,11 @@ import (
 )
 
 // Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
-// 
+//
 // > **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_adm_channel.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_adm_channel.markdown.
 type AdmChannel struct {
 	pulumi.CustomResourceState
 
@@ -118,4 +118,3 @@ type AdmChannelArgs struct {
 func (AdmChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*admChannelArgs)(nil)).Elem()
 }
-

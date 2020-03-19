@@ -9,7 +9,7 @@ import (
 )
 
 // Retrieve information about an Elastic Beanstalk Application.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_application.html.markdown.
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	var rv LookupApplicationResult
@@ -26,7 +26,6 @@ type LookupApplicationArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getApplication.
 type LookupApplicationResult struct {
 	AppversionLifecycle GetApplicationAppversionLifecycle `pulumi:"appversionLifecycle"`
@@ -35,7 +34,6 @@ type LookupApplicationResult struct {
 	// Short description of the application
 	Description string `pulumi:"description"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
-

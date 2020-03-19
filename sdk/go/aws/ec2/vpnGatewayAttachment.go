@@ -13,11 +13,11 @@ import (
 
 // Provides a Virtual Private Gateway attachment resource, allowing for an existing
 // hardware VPN gateway to be attached and/or detached from a VPC.
-// 
+//
 // > **Note:** The `ec2.VpnGateway`
 // resource can also automatically attach the Virtual Private Gateway it creates
 // to an existing VPC by setting the `vpcId` attribute accordingly.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_attachment.html.markdown.
 type VpnGatewayAttachment struct {
 	pulumi.CustomResourceState
@@ -97,4 +97,3 @@ type VpnGatewayAttachmentArgs struct {
 func (VpnGatewayAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnGatewayAttachmentArgs)(nil)).Elem()
 }
-

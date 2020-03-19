@@ -67,7 +67,8 @@ type ClusterLoggingPtrInput interface {
 
 type clusterLoggingPtrType ClusterLoggingArgs
 
-func ClusterLoggingPtr(v *ClusterLoggingArgs) ClusterLoggingPtrInput {	return (*clusterLoggingPtrType)(v)
+func ClusterLoggingPtr(v *ClusterLoggingArgs) ClusterLoggingPtrInput {
+	return (*clusterLoggingPtrType)(v)
 }
 
 func (*clusterLoggingPtrType) ElementType() reflect.Type {
@@ -82,7 +83,7 @@ func (i *clusterLoggingPtrType) ToClusterLoggingPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingPtrOutput)
 }
 
-type ClusterLoggingOutput struct { *pulumi.OutputState }
+type ClusterLoggingOutput struct{ *pulumi.OutputState }
 
 func (ClusterLoggingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterLogging)(nil)).Elem()
@@ -105,23 +106,24 @@ func (o ClusterLoggingOutput) ToClusterLoggingPtrOutputWithContext(ctx context.C
 		return &v
 	}).(ClusterLoggingPtrOutput)
 }
+
 // The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
 // For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
 func (o ClusterLoggingOutput) BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterLogging) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterLogging) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
 // Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
 func (o ClusterLoggingOutput) Enable() pulumi.BoolOutput {
-	return o.ApplyT(func (v ClusterLogging) bool { return v.Enable }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ClusterLogging) bool { return v.Enable }).(pulumi.BoolOutput)
 }
 
 // The prefix applied to the log file names.
 func (o ClusterLoggingOutput) S3KeyPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterLogging) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterLogging) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
-type ClusterLoggingPtrOutput struct { *pulumi.OutputState}
+type ClusterLoggingPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterLoggingPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterLogging)(nil)).Elem()
@@ -136,23 +138,23 @@ func (o ClusterLoggingPtrOutput) ToClusterLoggingPtrOutputWithContext(ctx contex
 }
 
 func (o ClusterLoggingPtrOutput) Elem() ClusterLoggingOutput {
-	return o.ApplyT(func (v *ClusterLogging) ClusterLogging { return *v }).(ClusterLoggingOutput)
+	return o.ApplyT(func(v *ClusterLogging) ClusterLogging { return *v }).(ClusterLoggingOutput)
 }
 
 // The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
 // For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
 func (o ClusterLoggingPtrOutput) BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterLogging) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterLogging) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
 // Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
 func (o ClusterLoggingPtrOutput) Enable() pulumi.BoolOutput {
-	return o.ApplyT(func (v ClusterLogging) bool { return v.Enable }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ClusterLogging) bool { return v.Enable }).(pulumi.BoolOutput)
 }
 
 // The prefix applied to the log file names.
 func (o ClusterLoggingPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterLogging) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterLogging) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
 type ClusterSnapshotCopy struct {
@@ -209,7 +211,8 @@ type ClusterSnapshotCopyPtrInput interface {
 
 type clusterSnapshotCopyPtrType ClusterSnapshotCopyArgs
 
-func ClusterSnapshotCopyPtr(v *ClusterSnapshotCopyArgs) ClusterSnapshotCopyPtrInput {	return (*clusterSnapshotCopyPtrType)(v)
+func ClusterSnapshotCopyPtr(v *ClusterSnapshotCopyArgs) ClusterSnapshotCopyPtrInput {
+	return (*clusterSnapshotCopyPtrType)(v)
 }
 
 func (*clusterSnapshotCopyPtrType) ElementType() reflect.Type {
@@ -224,7 +227,7 @@ func (i *clusterSnapshotCopyPtrType) ToClusterSnapshotCopyPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSnapshotCopyPtrOutput)
 }
 
-type ClusterSnapshotCopyOutput struct { *pulumi.OutputState }
+type ClusterSnapshotCopyOutput struct{ *pulumi.OutputState }
 
 func (ClusterSnapshotCopyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterSnapshotCopy)(nil)).Elem()
@@ -247,22 +250,23 @@ func (o ClusterSnapshotCopyOutput) ToClusterSnapshotCopyPtrOutputWithContext(ctx
 		return &v
 	}).(ClusterSnapshotCopyPtrOutput)
 }
+
 // The destination region that you want to copy snapshots to.
 func (o ClusterSnapshotCopyOutput) DestinationRegion() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterSnapshotCopy) string { return v.DestinationRegion }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterSnapshotCopy) string { return v.DestinationRegion }).(pulumi.StringOutput)
 }
 
 // The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
 func (o ClusterSnapshotCopyOutput) GrantName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSnapshotCopy) *string { return v.GrantName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSnapshotCopy) *string { return v.GrantName }).(pulumi.StringPtrOutput)
 }
 
 // The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
 func (o ClusterSnapshotCopyOutput) RetentionPeriod() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterSnapshotCopy) *int { return v.RetentionPeriod }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterSnapshotCopy) *int { return v.RetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
-type ClusterSnapshotCopyPtrOutput struct { *pulumi.OutputState}
+type ClusterSnapshotCopyPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterSnapshotCopyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterSnapshotCopy)(nil)).Elem()
@@ -277,22 +281,22 @@ func (o ClusterSnapshotCopyPtrOutput) ToClusterSnapshotCopyPtrOutputWithContext(
 }
 
 func (o ClusterSnapshotCopyPtrOutput) Elem() ClusterSnapshotCopyOutput {
-	return o.ApplyT(func (v *ClusterSnapshotCopy) ClusterSnapshotCopy { return *v }).(ClusterSnapshotCopyOutput)
+	return o.ApplyT(func(v *ClusterSnapshotCopy) ClusterSnapshotCopy { return *v }).(ClusterSnapshotCopyOutput)
 }
 
 // The destination region that you want to copy snapshots to.
 func (o ClusterSnapshotCopyPtrOutput) DestinationRegion() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterSnapshotCopy) string { return v.DestinationRegion }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterSnapshotCopy) string { return v.DestinationRegion }).(pulumi.StringOutput)
 }
 
 // The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
 func (o ClusterSnapshotCopyPtrOutput) GrantName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterSnapshotCopy) *string { return v.GrantName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterSnapshotCopy) *string { return v.GrantName }).(pulumi.StringPtrOutput)
 }
 
 // The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
 func (o ClusterSnapshotCopyPtrOutput) RetentionPeriod() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterSnapshotCopy) *int { return v.RetentionPeriod }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterSnapshotCopy) *int { return v.RetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
 type ParameterGroupParameter struct {
@@ -349,7 +353,7 @@ func (i ParameterGroupParameterArray) ToParameterGroupParameterArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupParameterArrayOutput)
 }
 
-type ParameterGroupParameterOutput struct { *pulumi.OutputState }
+type ParameterGroupParameterOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupParameterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ParameterGroupParameter)(nil)).Elem()
@@ -365,15 +369,15 @@ func (o ParameterGroupParameterOutput) ToParameterGroupParameterOutputWithContex
 
 // The name of the Redshift parameter.
 func (o ParameterGroupParameterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The value of the Redshift parameter.
 func (o ParameterGroupParameterOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v ParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type ParameterGroupParameterArrayOutput struct { *pulumi.OutputState}
+type ParameterGroupParameterArrayOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupParameterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ParameterGroupParameter)(nil)).Elem()
@@ -388,7 +392,7 @@ func (o ParameterGroupParameterArrayOutput) ToParameterGroupParameterArrayOutput
 }
 
 func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGroupParameterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ParameterGroupParameter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ParameterGroupParameter {
 		return vs[0].([]ParameterGroupParameter)[vs[1].(int)]
 	}).(ParameterGroupParameterOutput)
 }
@@ -453,7 +457,7 @@ func (i SecurityGroupIngressArray) ToSecurityGroupIngressArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressArrayOutput)
 }
 
-type SecurityGroupIngressOutput struct { *pulumi.OutputState }
+type SecurityGroupIngressOutput struct{ *pulumi.OutputState }
 
 func (SecurityGroupIngressOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityGroupIngress)(nil)).Elem()
@@ -469,21 +473,21 @@ func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutputWithContext(ctx 
 
 // The CIDR block to accept
 func (o SecurityGroupIngressOutput) Cidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SecurityGroupIngress) *string { return v.Cidr }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.Cidr }).(pulumi.StringPtrOutput)
 }
 
 // The name of the security group to authorize
 func (o SecurityGroupIngressOutput) SecurityGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SecurityGroupIngress) *string { return v.SecurityGroupName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.SecurityGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The owner Id of the security group provided
 // by `securityGroupName`.
 func (o SecurityGroupIngressOutput) SecurityGroupOwnerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SecurityGroupIngress) *string { return v.SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
 }
 
-type SecurityGroupIngressArrayOutput struct { *pulumi.OutputState}
+type SecurityGroupIngressArrayOutput struct{ *pulumi.OutputState }
 
 func (SecurityGroupIngressArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]SecurityGroupIngress)(nil)).Elem()
@@ -498,7 +502,7 @@ func (o SecurityGroupIngressArrayOutput) ToSecurityGroupIngressArrayOutputWithCo
 }
 
 func (o SecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) SecurityGroupIngressOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SecurityGroupIngress {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityGroupIngress {
 		return vs[0].([]SecurityGroupIngress)[vs[1].(int)]
 	}).(SecurityGroupIngressOutput)
 }

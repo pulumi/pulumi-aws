@@ -10,7 +10,7 @@ import (
 
 // The IAM Account Alias data source allows access to the account alias
 // for the effective account in which this provider is working.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_account_alias.html.markdown.
 func LookupAccountAlias(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupAccountAliasResult, error) {
 	var rv LookupAccountAliasResult
@@ -28,4 +28,3 @@ type LookupAccountAliasResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }
-

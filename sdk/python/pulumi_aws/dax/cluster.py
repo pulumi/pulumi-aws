@@ -60,7 +60,7 @@ class Cluster(pulumi.CustomResource):
     List of node objects including `id`, `address`, `port` and
     `availability_zone`. Referenceable e.g. as
     `${aws_dax_cluster.test.nodes.0.address}`
-    
+
       * `address` (`str`)
       * `availability_zone` (`str`)
       * `id` (`str`)
@@ -95,7 +95,7 @@ class Cluster(pulumi.CustomResource):
     server_side_encryption: pulumi.Output[dict]
     """
     Encrypt at rest options
-    
+
       * `enabled` (`bool`) - Whether to enable encryption at rest. Defaults to `false`.
     """
     subnet_group_name: pulumi.Output[str]
@@ -110,7 +110,9 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, availability_zones=None, cluster_name=None, description=None, iam_role_arn=None, maintenance_window=None, node_type=None, notification_topic_arn=None, parameter_group_name=None, replication_factor=None, security_group_ids=None, server_side_encryption=None, subnet_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a DAX Cluster resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_cluster.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] availability_zones: List of Availability Zones in which the
@@ -141,12 +143,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the
                cluster
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
-        
-        The **server_side_encryption** object supports the following:
-        
-          * `enabled` (`pulumi.Input[bool]`) - Whether to enable encryption at rest. Defaults to `false`.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_cluster.html.markdown.
+        The **server_side_encryption** object supports the following:
+
+          * `enabled` (`pulumi.Input[bool]`) - Whether to enable encryption at rest. Defaults to `false`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -202,7 +202,7 @@ class Cluster(pulumi.CustomResource):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -242,23 +242,22 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the
                cluster
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
-        
+
         The **nodes** object supports the following:
-        
+
           * `address` (`pulumi.Input[str]`)
           * `availability_zone` (`pulumi.Input[str]`)
           * `id` (`pulumi.Input[str]`)
           * `port` (`pulumi.Input[float]`) - The port used by the configuration endpoint
-        
-        The **server_side_encryption** object supports the following:
-        
-          * `enabled` (`pulumi.Input[bool]`) - Whether to enable encryption at rest. Defaults to `false`.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_cluster.html.markdown.
+        The **server_side_encryption** object supports the following:
+
+          * `enabled` (`pulumi.Input[bool]`) - Whether to enable encryption at rest. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["availability_zones"] = availability_zones
         __props__["cluster_address"] = cluster_address

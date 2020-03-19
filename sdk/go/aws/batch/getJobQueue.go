@@ -10,7 +10,7 @@ import (
 
 // The Batch Job Queue data source allows access to details of a specific
 // job queue within AWS Batch.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_job_queue.html.markdown.
 func LookupJobQueue(ctx *pulumi.Context, args *LookupJobQueueArgs, opts ...pulumi.InvokeOption) (*LookupJobQueueResult, error) {
 	var rv LookupJobQueueResult
@@ -27,7 +27,6 @@ type LookupJobQueueArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getJobQueue.
 type LookupJobQueueResult struct {
 	// The ARN of the job queue.
@@ -38,7 +37,7 @@ type LookupJobQueueResult struct {
 	// * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
 	ComputeEnvironmentOrders []GetJobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrders"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The priority of the job queue. Job queues with a higher priority are evaluated first when
 	// associated with the same compute environment.
@@ -51,4 +50,3 @@ type LookupJobQueueResult struct {
 	// of the job queue.
 	StatusReason string `pulumi:"statusReason"`
 }
-

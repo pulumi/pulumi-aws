@@ -11,7 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_hosted_transit_virtual_interface_accepter.html.markdown.
 type HostedTransitVirtualInterfaceAcceptor struct {
 	pulumi.CustomResourceState
 
@@ -106,4 +105,3 @@ type HostedTransitVirtualInterfaceAcceptorArgs struct {
 func (HostedTransitVirtualInterfaceAcceptorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostedTransitVirtualInterfaceAcceptorArgs)(nil)).Elem()
 }
-

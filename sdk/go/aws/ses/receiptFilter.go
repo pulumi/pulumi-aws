@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an SES receipt filter resource
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_receipt_filter.html.markdown.
 type ReceiptFilter struct {
 	pulumi.CustomResourceState
@@ -102,4 +102,3 @@ type ReceiptFilterArgs struct {
 func (ReceiptFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*receiptFilterArgs)(nil)).Elem()
 }
-

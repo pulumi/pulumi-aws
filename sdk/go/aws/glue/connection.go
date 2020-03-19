@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a Glue Connection resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_connection.html.markdown.
 type Connection struct {
 	pulumi.CustomResourceState
@@ -139,4 +139,3 @@ type ConnectionArgs struct {
 func (ConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionArgs)(nil)).Elem()
 }
-

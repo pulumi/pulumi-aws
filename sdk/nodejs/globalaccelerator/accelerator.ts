@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Global Accelerator accelerator.
+ * Creates a Global Accelerator accelerator.
  * 
  * ## Example Usage
  * 
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_accelerator.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_accelerator.markdown.
  */
 export class Accelerator extends pulumi.CustomResource {
     /**
@@ -60,9 +60,17 @@ export class Accelerator extends pulumi.CustomResource {
      */
     public readonly attributes!: pulumi.Output<outputs.globalaccelerator.AcceleratorAttributes | undefined>;
     /**
+     * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+     * * `hostedZoneId` --  The Global Accelerator Route 53 zone ID that can be used to
+     * route an [Alias Resource Record Set][1] to the Global Accelerator. This attribute
+     * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+     */
+    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    /**
      * Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
     /**
      * The value for the address type must be `IPV4`.
      */
@@ -89,7 +97,9 @@ export class Accelerator extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as AcceleratorState | undefined;
             inputs["attributes"] = state ? state.attributes : undefined;
+            inputs["dnsName"] = state ? state.dnsName : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
+            inputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
             inputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             inputs["ipSets"] = state ? state.ipSets : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -99,6 +109,8 @@ export class Accelerator extends pulumi.CustomResource {
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["dnsName"] = undefined /*out*/;
+            inputs["hostedZoneId"] = undefined /*out*/;
             inputs["ipSets"] = undefined /*out*/;
         }
         if (!opts) {
@@ -121,9 +133,17 @@ export interface AcceleratorState {
      */
     readonly attributes?: pulumi.Input<inputs.globalaccelerator.AcceleratorAttributes>;
     /**
+     * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+     * * `hostedZoneId` --  The Global Accelerator Route 53 zone ID that can be used to
+     * route an [Alias Resource Record Set][1] to the Global Accelerator. This attribute
+     * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+     */
+    readonly dnsName?: pulumi.Input<string>;
+    /**
      * Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
      */
     readonly enabled?: pulumi.Input<boolean>;
+    readonly hostedZoneId?: pulumi.Input<string>;
     /**
      * The value for the address type must be `IPV4`.
      */

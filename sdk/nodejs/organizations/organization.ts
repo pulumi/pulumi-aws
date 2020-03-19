@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to create an organization.
  * 
- * ## Example Usage:
+ * ## Example Usage
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

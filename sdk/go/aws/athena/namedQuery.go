@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an Athena Named Query resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_named_query.html.markdown.
 type NamedQuery struct {
 	pulumi.CustomResourceState
@@ -122,4 +122,3 @@ type NamedQueryArgs struct {
 func (NamedQueryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*namedQueryArgs)(nil)).Elem()
 }
-

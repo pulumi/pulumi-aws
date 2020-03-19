@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_identity_policy.html.markdown.
 type IdentityPolicy struct {
 	pulumi.CustomResourceState
@@ -20,7 +20,7 @@ type IdentityPolicy struct {
 	// Name or Amazon Resource Name (ARN) of the SES Identity.
 	Identity pulumi.StringOutput `pulumi:"identity"`
 	// Name of the policy.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name   pulumi.StringOutput `pulumi:"name"`
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
@@ -61,7 +61,7 @@ type identityPolicyState struct {
 	// Name or Amazon Resource Name (ARN) of the SES Identity.
 	Identity *string `pulumi:"identity"`
 	// Name of the policy.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
 	Policy *string `pulumi:"policy"`
 }
 
@@ -69,7 +69,7 @@ type IdentityPolicyState struct {
 	// Name or Amazon Resource Name (ARN) of the SES Identity.
 	Identity pulumi.StringPtrInput
 	// Name of the policy.
-	Name pulumi.StringPtrInput
+	Name   pulumi.StringPtrInput
 	Policy pulumi.StringPtrInput
 }
 
@@ -81,8 +81,8 @@ type identityPolicyArgs struct {
 	// Name or Amazon Resource Name (ARN) of the SES Identity.
 	Identity string `pulumi:"identity"`
 	// Name of the policy.
-	Name *string `pulumi:"name"`
-	Policy string `pulumi:"policy"`
+	Name   *string `pulumi:"name"`
+	Policy string  `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a IdentityPolicy resource.
@@ -90,11 +90,10 @@ type IdentityPolicyArgs struct {
 	// Name or Amazon Resource Name (ARN) of the SES Identity.
 	Identity pulumi.StringInput
 	// Name of the policy.
-	Name pulumi.StringPtrInput
+	Name   pulumi.StringPtrInput
 	Policy pulumi.StringInput
 }
 
 func (IdentityPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityPolicyArgs)(nil)).Elem()
 }
-

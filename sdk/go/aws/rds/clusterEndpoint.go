@@ -13,7 +13,7 @@ import (
 
 // Manages a RDS Aurora Cluster Endpoint.
 // You can refer to the [User Guide][1].
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_endpoint.html.markdown.
 type ClusterEndpoint struct {
 	pulumi.CustomResourceState
@@ -148,4 +148,3 @@ type ClusterEndpointArgs struct {
 func (ClusterEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterEndpointArgs)(nil)).Elem()
 }
-

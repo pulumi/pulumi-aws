@@ -9,7 +9,7 @@ import (
 )
 
 // Decrypt multiple secrets from data encrypted with the AWS KMS service.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_secrets.html.markdown.
 func GetSecrets(ctx *pulumi.Context, args *GetSecretsArgs, opts ...pulumi.InvokeOption) (*GetSecretsResult, error) {
 	var rv GetSecretsResult
@@ -26,13 +26,11 @@ type GetSecretsArgs struct {
 	Secrets []GetSecretsSecret `pulumi:"secrets"`
 }
 
-
 // A collection of values returned by getSecrets.
 type GetSecretsResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Map containing each `secret` `name` as the key with its decrypted plaintext value
-	Plaintext map[string]string `pulumi:"plaintext"`
-	Secrets []GetSecretsSecret `pulumi:"secrets"`
+	Plaintext map[string]string  `pulumi:"plaintext"`
+	Secrets   []GetSecretsSecret `pulumi:"secrets"`
 }
-

@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an AppSync DataSource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_datasource.html.markdown.
 type DataSource struct {
 	pulumi.CustomResourceState
@@ -168,4 +168,3 @@ type DataSourceArgs struct {
 func (DataSourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataSourceArgs)(nil)).Elem()
 }
-

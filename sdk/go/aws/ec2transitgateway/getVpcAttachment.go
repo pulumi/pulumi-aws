@@ -9,7 +9,7 @@ import (
 )
 
 // Get information on an EC2 Transit Gateway VPC Attachment.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpc_attachment.html.markdown.
 func LookupVpcAttachment(ctx *pulumi.Context, args *LookupVpcAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupVpcAttachmentResult, error) {
 	var rv LookupVpcAttachmentResult
@@ -25,16 +25,15 @@ type LookupVpcAttachmentArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetVpcAttachmentFilter `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway VPC Attachment.
-	Id *string `pulumi:"id"`
+	Id   *string                `pulumi:"id"`
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getVpcAttachment.
 type LookupVpcAttachmentResult struct {
 	// Whether DNS support is enabled.
-	DnsSupport string `pulumi:"dnsSupport"`
-	Filters []GetVpcAttachmentFilter `pulumi:"filters"`
+	DnsSupport string                   `pulumi:"dnsSupport"`
+	Filters    []GetVpcAttachmentFilter `pulumi:"filters"`
 	// EC2 Transit Gateway VPC Attachment identifier
 	Id *string `pulumi:"id"`
 	// Whether IPv6 support is enabled.
@@ -50,4 +49,3 @@ type LookupVpcAttachmentResult struct {
 	// Identifier of the AWS account that owns the EC2 VPC.
 	VpcOwnerId string `pulumi:"vpcOwnerId"`
 }
-

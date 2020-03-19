@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an [IAM service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_service_linked_role.html.markdown.
 type ServiceLinkedRole struct {
 	pulumi.CustomResourceState
@@ -129,4 +129,3 @@ type ServiceLinkedRoleArgs struct {
 func (ServiceLinkedRoleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceLinkedRoleArgs)(nil)).Elem()
 }
-

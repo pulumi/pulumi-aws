@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a VPC resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc.html.markdown.
 type Vpc struct {
 	pulumi.CustomResourceState
@@ -31,7 +31,7 @@ type Vpc struct {
 	DefaultRouteTableId pulumi.StringOutput `pulumi:"defaultRouteTableId"`
 	// The ID of the security group created by default on VPC creation
 	DefaultSecurityGroupId pulumi.StringOutput `pulumi:"defaultSecurityGroupId"`
-	DhcpOptionsId pulumi.StringOutput `pulumi:"dhcpOptionsId"`
+	DhcpOptionsId          pulumi.StringOutput `pulumi:"dhcpOptionsId"`
 	// A boolean flag to enable/disable ClassicLink
 	// for the VPC. Only valid in regions and accounts that support EC2 Classic.
 	// See the [ClassicLink documentation][1] for more information. Defaults false.
@@ -104,7 +104,7 @@ type vpcState struct {
 	DefaultRouteTableId *string `pulumi:"defaultRouteTableId"`
 	// The ID of the security group created by default on VPC creation
 	DefaultSecurityGroupId *string `pulumi:"defaultSecurityGroupId"`
-	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
+	DhcpOptionsId          *string `pulumi:"dhcpOptionsId"`
 	// A boolean flag to enable/disable ClassicLink
 	// for the VPC. Only valid in regions and accounts that support EC2 Classic.
 	// See the [ClassicLink documentation][1] for more information. Defaults false.
@@ -147,7 +147,7 @@ type VpcState struct {
 	DefaultRouteTableId pulumi.StringPtrInput
 	// The ID of the security group created by default on VPC creation
 	DefaultSecurityGroupId pulumi.StringPtrInput
-	DhcpOptionsId pulumi.StringPtrInput
+	DhcpOptionsId          pulumi.StringPtrInput
 	// A boolean flag to enable/disable ClassicLink
 	// for the VPC. Only valid in regions and accounts that support EC2 Classic.
 	// See the [ClassicLink documentation][1] for more information. Defaults false.
@@ -231,4 +231,3 @@ type VpcArgs struct {
 func (VpcArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcArgs)(nil)).Elem()
 }
-

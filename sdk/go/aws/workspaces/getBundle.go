@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to get information about a WorkSpaces Bundle.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/workspaces_bundle.html.markdown.
 func GetBundle(ctx *pulumi.Context, args *GetBundleArgs, opts ...pulumi.InvokeOption) (*GetBundleResult, error) {
 	var rv GetBundleResult
@@ -25,7 +25,6 @@ type GetBundleArgs struct {
 	// The ID of the bundle.
 	BundleId string `pulumi:"bundleId"`
 }
-
 
 // A collection of values returned by getBundle.
 type GetBundleResult struct {
@@ -45,4 +44,3 @@ type GetBundleResult struct {
 	// The user storage. See supported fields below.
 	UserStorages []GetBundleUserStorage `pulumi:"userStorages"`
 }
-

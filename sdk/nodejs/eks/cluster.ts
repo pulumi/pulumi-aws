@@ -146,6 +146,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly enabledClusterLogTypes!: pulumi.Output<string[] | undefined>;
     /**
+     * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+     */
+    public readonly encryptionConfig!: pulumi.Output<outputs.eks.ClusterEncryptionConfig | undefined>;
+    /**
      * The endpoint for your Kubernetes API server.
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
@@ -198,6 +202,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
             inputs["createdAt"] = state ? state.createdAt : undefined;
             inputs["enabledClusterLogTypes"] = state ? state.enabledClusterLogTypes : undefined;
+            inputs["encryptionConfig"] = state ? state.encryptionConfig : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["identities"] = state ? state.identities : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -216,6 +221,7 @@ export class Cluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcConfig'");
             }
             inputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;
+            inputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -257,6 +263,10 @@ export interface ClusterState {
      * A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
      */
     readonly enabledClusterLogTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+     */
+    readonly encryptionConfig?: pulumi.Input<inputs.eks.ClusterEncryptionConfig>;
     /**
      * The endpoint for your Kubernetes API server.
      */
@@ -303,6 +313,10 @@ export interface ClusterArgs {
      * A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
      */
     readonly enabledClusterLogTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+     */
+    readonly encryptionConfig?: pulumi.Input<inputs.eks.ClusterEncryptionConfig>;
     /**
      * Name of the cluster.
      */

@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_target_group_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group.html.markdown.
  */
 export class TargetGroup extends pulumi.CustomResource {
     /**
@@ -106,6 +106,10 @@ export class TargetGroup extends pulumi.CustomResource {
      * Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`.
      */
     public readonly lambdaMultiValueHeadersEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
+     */
+    public readonly loadBalancingAlgorithmType!: pulumi.Output<string>;
     /**
      * The name of the target group. If omitted, this provider will assign a random, unique name.
      */
@@ -169,6 +173,7 @@ export class TargetGroup extends pulumi.CustomResource {
             inputs["deregistrationDelay"] = state ? state.deregistrationDelay : undefined;
             inputs["healthCheck"] = state ? state.healthCheck : undefined;
             inputs["lambdaMultiValueHeadersEnabled"] = state ? state.lambdaMultiValueHeadersEnabled : undefined;
+            inputs["loadBalancingAlgorithmType"] = state ? state.loadBalancingAlgorithmType : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
             inputs["port"] = state ? state.port : undefined;
@@ -184,6 +189,7 @@ export class TargetGroup extends pulumi.CustomResource {
             inputs["deregistrationDelay"] = args ? args.deregistrationDelay : undefined;
             inputs["healthCheck"] = args ? args.healthCheck : undefined;
             inputs["lambdaMultiValueHeadersEnabled"] = args ? args.lambdaMultiValueHeadersEnabled : undefined;
+            inputs["loadBalancingAlgorithmType"] = args ? args.loadBalancingAlgorithmType : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["port"] = args ? args.port : undefined;
@@ -232,6 +238,10 @@ export interface TargetGroupState {
      * Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`.
      */
     readonly lambdaMultiValueHeadersEnabled?: pulumi.Input<boolean>;
+    /**
+     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
+     */
+    readonly loadBalancingAlgorithmType?: pulumi.Input<string>;
     /**
      * The name of the target group. If omitted, this provider will assign a random, unique name.
      */
@@ -295,6 +305,10 @@ export interface TargetGroupArgs {
      * Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`.
      */
     readonly lambdaMultiValueHeadersEnabled?: pulumi.Input<boolean>;
+    /**
+     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
+     */
+    readonly loadBalancingAlgorithmType?: pulumi.Input<string>;
     /**
      * The name of the target group. If omitted, this provider will assign a random, unique name.
      */

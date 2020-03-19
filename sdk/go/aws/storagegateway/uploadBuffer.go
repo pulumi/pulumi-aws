@@ -12,9 +12,9 @@ import (
 )
 
 // Manages an AWS Storage Gateway upload buffer.
-// 
+//
 // > **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_upload_buffer.html.markdown.
 type UploadBuffer struct {
 	pulumi.CustomResourceState
@@ -94,4 +94,3 @@ type UploadBufferArgs struct {
 func (UploadBufferArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*uploadBufferArgs)(nil)).Elem()
 }
-

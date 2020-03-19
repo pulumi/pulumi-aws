@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a CodeBuild Project resource. See also the [`codebuild.Webhook` resource](https://www.terraform.io/docs/providers/aws/r/codebuild_webhook.html), which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codebuild_project.html.markdown.
 type Project struct {
 	pulumi.CustomResourceState
@@ -49,6 +49,8 @@ type Project struct {
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
 	// Information about the project's input source code. Source blocks are documented below.
 	Source ProjectSourceOutput `pulumi:"source"`
+	// A version of the build input to be built for this project. If not specified, the latest version is used.
+	SourceVersion pulumi.StringPtrOutput `pulumi:"sourceVersion"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
@@ -127,6 +129,8 @@ type projectState struct {
 	ServiceRole *string `pulumi:"serviceRole"`
 	// Information about the project's input source code. Source blocks are documented below.
 	Source *ProjectSource `pulumi:"source"`
+	// A version of the build input to be built for this project. If not specified, the latest version is used.
+	SourceVersion *string `pulumi:"sourceVersion"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
@@ -166,6 +170,8 @@ type ProjectState struct {
 	ServiceRole pulumi.StringPtrInput
 	// Information about the project's input source code. Source blocks are documented below.
 	Source ProjectSourcePtrInput
+	// A version of the build input to be built for this project. If not specified, the latest version is used.
+	SourceVersion pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
@@ -205,6 +211,8 @@ type projectArgs struct {
 	ServiceRole string `pulumi:"serviceRole"`
 	// Information about the project's input source code. Source blocks are documented below.
 	Source ProjectSource `pulumi:"source"`
+	// A version of the build input to be built for this project. If not specified, the latest version is used.
+	SourceVersion *string `pulumi:"sourceVersion"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
@@ -241,6 +249,8 @@ type ProjectArgs struct {
 	ServiceRole pulumi.StringInput
 	// Information about the project's input source code. Source blocks are documented below.
 	Source ProjectSourceInput
+	// A version of the build input to be built for this project. If not specified, the latest version is used.
+	SourceVersion pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
@@ -250,4 +260,3 @@ type ProjectArgs struct {
 func (ProjectArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectArgs)(nil)).Elem()
 }
-

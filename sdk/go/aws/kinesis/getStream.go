@@ -10,9 +10,9 @@ import (
 
 // Use this data source to get information about a Kinesis Stream for use in other
 // resources.
-// 
+//
 // For more details, see the [Amazon Kinesis Documentation][1].
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kinesis_stream.html.markdown.
 func LookupStream(ctx *pulumi.Context, args *LookupStreamArgs, opts ...pulumi.InvokeOption) (*LookupStreamResult, error) {
 	var rv LookupStreamResult
@@ -26,10 +26,9 @@ func LookupStream(ctx *pulumi.Context, args *LookupStreamArgs, opts ...pulumi.In
 // A collection of arguments for invoking getStream.
 type LookupStreamArgs struct {
 	// The name of the Kinesis Stream.
-	Name string `pulumi:"name"`
+	Name string                 `pulumi:"name"`
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getStream.
 type LookupStreamResult struct {
@@ -54,4 +53,3 @@ type LookupStreamResult struct {
 	// A mapping of tags to assigned to the stream.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-

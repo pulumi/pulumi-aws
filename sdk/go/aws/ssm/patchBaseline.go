@@ -11,11 +11,11 @@ import (
 )
 
 // Provides an SSM Patch Baseline resource
-// 
-// > **NOTE on Patch Baselines:** The `approvedPatches` and `approvalRule` are 
+//
+// > **NOTE on Patch Baselines:** The `approvedPatches` and `approvalRule` are
 // both marked as optional fields, but the Patch Baseline requires that at least one
 // of them is specified.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_patch_baseline.html.markdown.
 type PatchBaseline struct {
 	pulumi.CustomResourceState
@@ -36,7 +36,7 @@ type PatchBaseline struct {
 	OperatingSystem pulumi.StringPtrOutput `pulumi:"operatingSystem"`
 	// A list of rejected patches.
 	RejectedPatches pulumi.StringArrayOutput `pulumi:"rejectedPatches"`
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags            pulumi.MapOutput         `pulumi:"tags"`
 }
 
 // NewPatchBaseline registers a new resource with the given unique name, arguments, and options.
@@ -82,8 +82,8 @@ type patchBaselineState struct {
 	// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// A list of rejected patches.
-	RejectedPatches []string `pulumi:"rejectedPatches"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	RejectedPatches []string               `pulumi:"rejectedPatches"`
+	Tags            map[string]interface{} `pulumi:"tags"`
 }
 
 type PatchBaselineState struct {
@@ -103,7 +103,7 @@ type PatchBaselineState struct {
 	OperatingSystem pulumi.StringPtrInput
 	// A list of rejected patches.
 	RejectedPatches pulumi.StringArrayInput
-	Tags pulumi.MapInput
+	Tags            pulumi.MapInput
 }
 
 func (PatchBaselineState) ElementType() reflect.Type {
@@ -126,8 +126,8 @@ type patchBaselineArgs struct {
 	// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// A list of rejected patches.
-	RejectedPatches []string `pulumi:"rejectedPatches"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	RejectedPatches []string               `pulumi:"rejectedPatches"`
+	Tags            map[string]interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PatchBaseline resource.
@@ -148,10 +148,9 @@ type PatchBaselineArgs struct {
 	OperatingSystem pulumi.StringPtrInput
 	// A list of rejected patches.
 	RejectedPatches pulumi.StringArrayInput
-	Tags pulumi.MapInput
+	Tags            pulumi.MapInput
 }
 
 func (PatchBaselineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*patchBaselineArgs)(nil)).Elem()
 }
-

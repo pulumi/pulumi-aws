@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a DMS (Data Migration Service) replication instance resource. DMS replication instances can be created, updated, deleted, and imported.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_replication_instance.html.markdown.
 type ReplicationInstance struct {
 	pulumi.CustomResourceState
@@ -230,4 +230,3 @@ type ReplicationInstanceArgs struct {
 func (ReplicationInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationInstanceArgs)(nil)).Elem()
 }
-

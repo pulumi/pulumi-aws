@@ -69,7 +69,7 @@ func (i ClusterParameterGroupParameterArray) ToClusterParameterGroupParameterArr
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupParameterArrayOutput)
 }
 
-type ClusterParameterGroupParameterOutput struct { *pulumi.OutputState }
+type ClusterParameterGroupParameterOutput struct{ *pulumi.OutputState }
 
 func (ClusterParameterGroupParameterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterParameterGroupParameter)(nil)).Elem()
@@ -85,20 +85,20 @@ func (o ClusterParameterGroupParameterOutput) ToClusterParameterGroupParameterOu
 
 // Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
 func (o ClusterParameterGroupParameterOutput) ApplyMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterParameterGroupParameter) *string { return v.ApplyMethod }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterParameterGroupParameter) *string { return v.ApplyMethod }).(pulumi.StringPtrOutput)
 }
 
 // The name of the neptune parameter.
 func (o ClusterParameterGroupParameterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The value of the neptune parameter.
 func (o ClusterParameterGroupParameterOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type ClusterParameterGroupParameterArrayOutput struct { *pulumi.OutputState}
+type ClusterParameterGroupParameterArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterParameterGroupParameterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ClusterParameterGroupParameter)(nil)).Elem()
@@ -113,7 +113,7 @@ func (o ClusterParameterGroupParameterArrayOutput) ToClusterParameterGroupParame
 }
 
 func (o ClusterParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ClusterParameterGroupParameterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ClusterParameterGroupParameter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterParameterGroupParameter {
 		return vs[0].([]ClusterParameterGroupParameter)[vs[1].(int)]
 	}).(ClusterParameterGroupParameterOutput)
 }
@@ -176,7 +176,7 @@ func (i ParameterGroupParameterArray) ToParameterGroupParameterArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupParameterArrayOutput)
 }
 
-type ParameterGroupParameterOutput struct { *pulumi.OutputState }
+type ParameterGroupParameterOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupParameterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ParameterGroupParameter)(nil)).Elem()
@@ -192,20 +192,20 @@ func (o ParameterGroupParameterOutput) ToParameterGroupParameterOutputWithContex
 
 // The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
 func (o ParameterGroupParameterOutput) ApplyMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ParameterGroupParameter) *string { return v.ApplyMethod }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ParameterGroupParameter) *string { return v.ApplyMethod }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Neptune parameter.
 func (o ParameterGroupParameterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The value of the Neptune parameter.
 func (o ParameterGroupParameterOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v ParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type ParameterGroupParameterArrayOutput struct { *pulumi.OutputState}
+type ParameterGroupParameterArrayOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupParameterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ParameterGroupParameter)(nil)).Elem()
@@ -220,7 +220,7 @@ func (o ParameterGroupParameterArrayOutput) ToParameterGroupParameterArrayOutput
 }
 
 func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGroupParameterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ParameterGroupParameter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ParameterGroupParameter {
 		return vs[0].([]ParameterGroupParameter)[vs[1].(int)]
 	}).(ParameterGroupParameterOutput)
 }

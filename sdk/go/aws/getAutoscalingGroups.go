@@ -10,7 +10,7 @@ import (
 
 // The Autoscaling Groups data source allows access to the list of AWS
 // ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_groups.html.markdown.
 func GetAutoscalingGroups(ctx *pulumi.Context, args *GetAutoscalingGroupsArgs, opts ...pulumi.InvokeOption) (*GetAutoscalingGroupsResult, error) {
 	var rv GetAutoscalingGroupsResult
@@ -27,15 +27,13 @@ type GetAutoscalingGroupsArgs struct {
 	Filters []GetAutoscalingGroupsFilter `pulumi:"filters"`
 }
 
-
 // A collection of values returned by getAutoscalingGroups.
 type GetAutoscalingGroupsResult struct {
 	// A list of the Autoscaling Groups Arns in the current region.
-	Arns []string `pulumi:"arns"`
+	Arns    []string                     `pulumi:"arns"`
 	Filters []GetAutoscalingGroupsFilter `pulumi:"filters"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of the Autoscaling Groups in the current region.
 	Names []string `pulumi:"names"`
 }
-

@@ -61,7 +61,9 @@ class TransitGateway(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, amazon_side_asn=None, auto_accept_shared_attachments=None, default_route_table_association=None, default_route_table_propagation=None, description=None, dns_support=None, tags=None, vpn_ecmp_support=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EC2 Transit Gateway.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] amazon_side_asn: Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
@@ -72,8 +74,6 @@ class TransitGateway(pulumi.CustomResource):
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[dict] tags: Key-value tags for the EC2 Transit Gateway.
         :param pulumi.Input[str] vpn_ecmp_support: Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -115,7 +115,7 @@ class TransitGateway(pulumi.CustomResource):
         """
         Get an existing TransitGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,12 +131,11 @@ class TransitGateway(pulumi.CustomResource):
         :param pulumi.Input[str] propagation_default_route_table_id: Identifier of the default propagation route table
         :param pulumi.Input[dict] tags: Key-value tags for the EC2 Transit Gateway.
         :param pulumi.Input[str] vpn_ecmp_support: Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["amazon_side_asn"] = amazon_side_asn
         __props__["arn"] = arn
         __props__["association_default_route_table_id"] = association_default_route_table_id

@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an SSM Maintenance Window resource
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window.html.markdown.
 type MaintenanceWindow struct {
 	pulumi.CustomResourceState
@@ -21,6 +21,8 @@ type MaintenanceWindow struct {
 	AllowUnassociatedTargets pulumi.BoolPtrOutput `pulumi:"allowUnassociatedTargets"`
 	// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
 	Cutoff pulumi.IntOutput `pulumi:"cutoff"`
+	// A description for the maintenance window.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The duration of the Maintenance Window in hours.
 	Duration pulumi.IntOutput `pulumi:"duration"`
 	// Whether the maintenance window is enabled. Default: `true`.
@@ -80,6 +82,8 @@ type maintenanceWindowState struct {
 	AllowUnassociatedTargets *bool `pulumi:"allowUnassociatedTargets"`
 	// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
 	Cutoff *int `pulumi:"cutoff"`
+	// A description for the maintenance window.
+	Description *string `pulumi:"description"`
 	// The duration of the Maintenance Window in hours.
 	Duration *int `pulumi:"duration"`
 	// Whether the maintenance window is enabled. Default: `true`.
@@ -103,6 +107,8 @@ type MaintenanceWindowState struct {
 	AllowUnassociatedTargets pulumi.BoolPtrInput
 	// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
 	Cutoff pulumi.IntPtrInput
+	// A description for the maintenance window.
+	Description pulumi.StringPtrInput
 	// The duration of the Maintenance Window in hours.
 	Duration pulumi.IntPtrInput
 	// Whether the maintenance window is enabled. Default: `true`.
@@ -130,6 +136,8 @@ type maintenanceWindowArgs struct {
 	AllowUnassociatedTargets *bool `pulumi:"allowUnassociatedTargets"`
 	// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
 	Cutoff int `pulumi:"cutoff"`
+	// A description for the maintenance window.
+	Description *string `pulumi:"description"`
 	// The duration of the Maintenance Window in hours.
 	Duration int `pulumi:"duration"`
 	// Whether the maintenance window is enabled. Default: `true`.
@@ -154,6 +162,8 @@ type MaintenanceWindowArgs struct {
 	AllowUnassociatedTargets pulumi.BoolPtrInput
 	// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
 	Cutoff pulumi.IntInput
+	// A description for the maintenance window.
+	Description pulumi.StringPtrInput
 	// The duration of the Maintenance Window in hours.
 	Duration pulumi.IntInput
 	// Whether the maintenance window is enabled. Default: `true`.
@@ -175,4 +185,3 @@ type MaintenanceWindowArgs struct {
 func (MaintenanceWindowArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*maintenanceWindowArgs)(nil)).Elem()
 }
-

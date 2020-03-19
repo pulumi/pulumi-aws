@@ -11,8 +11,8 @@ import (
 )
 
 // Provides a Cognito User Pool resource.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool.markdown.
 type UserPool struct {
 	pulumi.CustomResourceState
 
@@ -279,4 +279,3 @@ type UserPoolArgs struct {
 func (UserPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolArgs)(nil)).Elem()
 }
-

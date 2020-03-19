@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_server import *
 from .server import *
 from .ssh_key import *
 from .user import *
-from .get_server import *

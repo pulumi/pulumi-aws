@@ -9,7 +9,7 @@ import (
 )
 
 // Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`secretsmanager.Secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret_version.html.markdown.
 func LookupSecretVersion(ctx *pulumi.Context, args *LookupSecretVersionArgs, opts ...pulumi.InvokeOption) (*LookupSecretVersionResult, error) {
 	var rv LookupSecretVersionResult
@@ -30,7 +30,6 @@ type LookupSecretVersionArgs struct {
 	VersionStage *string `pulumi:"versionStage"`
 }
 
-
 // A collection of values returned by getSecretVersion.
 type LookupSecretVersionResult struct {
 	// The ARN of the secret.
@@ -39,12 +38,11 @@ type LookupSecretVersionResult struct {
 	Id string `pulumi:"id"`
 	// The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
 	SecretBinary string `pulumi:"secretBinary"`
-	SecretId string `pulumi:"secretId"`
+	SecretId     string `pulumi:"secretId"`
 	// The decrypted part of the protected secret information that was originally provided as a string.
 	SecretString string `pulumi:"secretString"`
 	// The unique identifier of this version of the secret.
-	VersionId string `pulumi:"versionId"`
-	VersionStage *string `pulumi:"versionStage"`
+	VersionId     string   `pulumi:"versionId"`
+	VersionStage  *string  `pulumi:"versionStage"`
 	VersionStages []string `pulumi:"versionStages"`
 }
-

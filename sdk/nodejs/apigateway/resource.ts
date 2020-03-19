@@ -71,7 +71,7 @@ export class Resource extends pulumi.CustomResource {
     /**
      * The ID of the associated REST API
      */
-    public readonly restApi!: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<string>;
 
     /**
      * Create a Resource resource with the given unique name, arguments, and options.
@@ -135,7 +135,7 @@ export interface ResourceState {
     /**
      * The ID of the associated REST API
      */
-    readonly restApi?: pulumi.Input<RestApi>;
+    readonly restApi?: pulumi.Input<string | RestApi>;
 }
 
 /**
@@ -153,5 +153,5 @@ export interface ResourceArgs {
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: pulumi.Input<RestApi>;
+    readonly restApi: pulumi.Input<string | RestApi>;
 }

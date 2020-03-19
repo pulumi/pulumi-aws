@@ -9,7 +9,7 @@ import (
 )
 
 // Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`secretsmanager.SecretVersion` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret.html.markdown.
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	var rv LookupSecretResult
@@ -28,7 +28,6 @@ type LookupSecretArgs struct {
 	Name *string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getSecret.
 type LookupSecretResult struct {
 	// The Amazon Resource Name (ARN) of the secret.
@@ -39,7 +38,7 @@ type LookupSecretResult struct {
 	Id string `pulumi:"id"`
 	// The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
 	KmsKeyId string `pulumi:"kmsKeyId"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// The resource-based policy document that's attached to the secret.
 	Policy string `pulumi:"policy"`
 	// Whether rotation is enabled or not.
@@ -51,4 +50,3 @@ type LookupSecretResult struct {
 	// Tags of the secret.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-

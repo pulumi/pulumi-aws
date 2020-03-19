@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot.html.markdown.
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
 	var rv LookupSnapshotResult
@@ -33,10 +33,9 @@ type LookupSnapshotArgs struct {
 	// One or more AWS accounts IDs that can create volumes from the snapshot.
 	RestorableByUserIds []string `pulumi:"restorableByUserIds"`
 	// Returns information on a specific snapshot_id.
-	SnapshotIds []string `pulumi:"snapshotIds"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	SnapshotIds []string               `pulumi:"snapshotIds"`
+	Tags        map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getSnapshot.
 type LookupSnapshotResult struct {
@@ -45,21 +44,21 @@ type LookupSnapshotResult struct {
 	// A description for the snapshot
 	Description string `pulumi:"description"`
 	// Whether the snapshot is encrypted.
-	Encrypted bool `pulumi:"encrypted"`
-	Filters []GetSnapshotFilter `pulumi:"filters"`
+	Encrypted bool                `pulumi:"encrypted"`
+	Filters   []GetSnapshotFilter `pulumi:"filters"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ARN for the KMS encryption key.
-	KmsKeyId string `pulumi:"kmsKeyId"`
-	MostRecent *bool `pulumi:"mostRecent"`
+	KmsKeyId   string `pulumi:"kmsKeyId"`
+	MostRecent *bool  `pulumi:"mostRecent"`
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias string `pulumi:"ownerAlias"`
 	// The AWS account ID of the EBS snapshot owner.
-	OwnerId string `pulumi:"ownerId"`
-	Owners []string `pulumi:"owners"`
+	OwnerId             string   `pulumi:"ownerId"`
+	Owners              []string `pulumi:"owners"`
 	RestorableByUserIds []string `pulumi:"restorableByUserIds"`
 	// The snapshot ID (e.g. snap-59fcb34e).
-	SnapshotId string `pulumi:"snapshotId"`
+	SnapshotId  string   `pulumi:"snapshotId"`
 	SnapshotIds []string `pulumi:"snapshotIds"`
 	// The snapshot state.
 	State string `pulumi:"state"`
@@ -70,4 +69,3 @@ type LookupSnapshotResult struct {
 	// The size of the drive in GiBs.
 	VolumeSize int `pulumi:"volumeSize"`
 }
-

@@ -13,8 +13,8 @@ class Stage(pulumi.CustomResource):
     access_log_settings: pulumi.Output[dict]
     """
     Enables access logs for the API stage. Detailed below.
-    
-      * `destinationArn` (`str`) - The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
+
+      * `destination_arn` (`str`) - The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
       * `format` (`str`) - The formatting and values recorded in the logs. 
         For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
     """
@@ -81,7 +81,9 @@ class Stage(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, access_log_settings=None, cache_cluster_enabled=None, cache_cluster_size=None, client_certificate_id=None, deployment=None, description=None, documentation_version=None, rest_api=None, stage_name=None, tags=None, variables=None, xray_tracing_enabled=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an API Gateway Stage.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_stage.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] access_log_settings: Enables access logs for the API stage. Detailed below.
@@ -89,22 +91,20 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] cache_cluster_size: The size of the cache cluster for the stage, if enabled.
                Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
         :param pulumi.Input[str] client_certificate_id: The identifier of a client certificate for the stage.
-        :param pulumi.Input[str] deployment: The ID of the deployment that the stage points to
+        :param pulumi.Input[dict] deployment: The ID of the deployment that the stage points to
         :param pulumi.Input[str] description: The description of the stage
         :param pulumi.Input[str] documentation_version: The version of the associated API documentation
-        :param pulumi.Input[str] rest_api: The ID of the associated REST API
+        :param pulumi.Input[dict] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] stage_name: The name of the stage
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] variables: A map that defines the stage variables
         :param pulumi.Input[bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
-        
+
         The **access_log_settings** object supports the following:
-        
-          * `destinationArn` (`pulumi.Input[str]`) - The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
+
+          * `destination_arn` (`pulumi.Input[str]`) - The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
           * `format` (`pulumi.Input[str]`) - The formatting and values recorded in the logs. 
             For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_stage.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -155,7 +155,7 @@ class Stage(pulumi.CustomResource):
         """
         Get an existing Stage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +165,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] cache_cluster_size: The size of the cache cluster for the stage, if enabled.
                Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
         :param pulumi.Input[str] client_certificate_id: The identifier of a client certificate for the stage.
-        :param pulumi.Input[str] deployment: The ID of the deployment that the stage points to
+        :param pulumi.Input[dict] deployment: The ID of the deployment that the stage points to
         :param pulumi.Input[str] description: The description of the stage
         :param pulumi.Input[str] documentation_version: The version of the associated API documentation
         :param pulumi.Input[str] execution_arn: The execution ARN to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
@@ -173,23 +173,22 @@ class Stage(pulumi.CustomResource):
                e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         :param pulumi.Input[str] invoke_url: The URL to invoke the API pointing to the stage,
                e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-        :param pulumi.Input[str] rest_api: The ID of the associated REST API
+        :param pulumi.Input[dict] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] stage_name: The name of the stage
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] variables: A map that defines the stage variables
         :param pulumi.Input[bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
-        
+
         The **access_log_settings** object supports the following:
-        
-          * `destinationArn` (`pulumi.Input[str]`) - The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
+
+          * `destination_arn` (`pulumi.Input[str]`) - The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
           * `format` (`pulumi.Input[str]`) - The formatting and values recorded in the logs. 
             For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_stage.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["access_log_settings"] = access_log_settings
         __props__["arn"] = arn
         __props__["cache_cluster_enabled"] = cache_cluster_enabled

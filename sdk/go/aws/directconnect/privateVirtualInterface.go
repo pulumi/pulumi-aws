@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a Direct Connect private virtual interface resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_private_virtual_interface.html.markdown.
 type PrivateVirtualInterface struct {
 	pulumi.CustomResourceState
@@ -21,6 +21,7 @@ type PrivateVirtualInterface struct {
 	AddressFamily pulumi.StringOutput `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress pulumi.StringOutput `pulumi:"amazonAddress"`
+	AmazonSideAsn pulumi.StringOutput `pulumi:"amazonSideAsn"`
 	// The ARN of the virtual interface.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Direct Connect endpoint on which the virtual interface terminates.
@@ -94,6 +95,7 @@ type privateVirtualInterfaceState struct {
 	AddressFamily *string `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress *string `pulumi:"amazonAddress"`
+	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
 	// The ARN of the virtual interface.
 	Arn *string `pulumi:"arn"`
 	// The Direct Connect endpoint on which the virtual interface terminates.
@@ -128,6 +130,7 @@ type PrivateVirtualInterfaceState struct {
 	AddressFamily pulumi.StringPtrInput
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress pulumi.StringPtrInput
+	AmazonSideAsn pulumi.StringPtrInput
 	// The ARN of the virtual interface.
 	Arn pulumi.StringPtrInput
 	// The Direct Connect endpoint on which the virtual interface terminates.
@@ -221,4 +224,3 @@ type PrivateVirtualInterfaceArgs struct {
 func (PrivateVirtualInterfaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateVirtualInterfaceArgs)(nil)).Elem()
 }
-
