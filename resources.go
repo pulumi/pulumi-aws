@@ -314,7 +314,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appmesh_virtual_router":  {Tok: awsResource(appmeshMod, "VirtualRouter")},
 			"aws_appmesh_virtual_service": {Tok: awsResource(appmeshMod, "VirtualService")},
 			// API Gateway
-			"aws_api_gateway_account": {Tok: awsResource(apigatewayMod, "Account")},
+			"aws_api_gateway_account": {
+				Tok: awsResource(apigatewayMod, "Account"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"throttle_settings": {
+						MaxItemsOne: boolRef(true),
+					},
+				},
+			},
 			"aws_api_gateway_api_key": {
 				Tok: awsResource(apigatewayMod, "ApiKey"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -571,6 +578,9 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"cluster_state": {
 						CSharpName: "State",
+					},
+					"cluster_certificates": {
+						MaxItemsOne: boolRef(true),
 					},
 				},
 			},
@@ -1110,7 +1120,14 @@ func Provider() tfbridge.ProviderInfo {
 				DeleteBeforeReplace: true, // only 1 mount target per AZ.
 			},
 			// ECS for Kubernetes
-			"aws_eks_cluster": {Tok: awsResource(eksMod, "Cluster")},
+			"aws_eks_cluster": {
+				Tok: awsResource(eksMod, "Cluster"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"certificate_authority": {
+						MaxItemsOne: boolRef(true),
+					},
+				},
+			},
 			"aws_eks_node_group": {
 				Tok: awsResource(eksMod, "NodeGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2068,7 +2085,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudformation_stack":  {Tok: awsDataSource(cloudformationMod, "getStack")},
 			"aws_cloudformation_export": {Tok: awsDataSource(cloudformationMod, "getExport")},
 			// CloudHSM
-			"aws_cloudhsm_v2_cluster": {Tok: awsDataSource(cloudhsmv2Mod, "getCluster")},
+			"aws_cloudhsm_v2_cluster": {
+				Tok: awsDataSource(cloudhsmv2Mod, "getCluster"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"cluster_certificates": {
+						MaxItemsOne: boolRef(true),
+					},
+				},
+			},
 			// CloudTrail
 			"aws_cloudtrail_service_account": {Tok: awsDataSource(cloudtrailMod, "getServiceAccount")},
 			// CloudWatch
@@ -2084,6 +2108,12 @@ func Provider() tfbridge.ProviderInfo {
 					// Override default pluralization ("indices") to match AWS APIs
 					"global_secondary_index": {Name: "globalSecondaryIndexes"},
 					"local_secondary_index":  {Name: "localSecondaryIndexes"},
+					"ttl": {
+						MaxItemsOne: boolRef(true),
+					},
+					"point_in_time_recovery": {
+						MaxItemsOne: boolRef(true),
+					},
 				},
 			},
 			// DX
@@ -2124,7 +2154,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway_vpc_attachment": {Tok: awsDataSource(ec2TransitGatewayMod, "getVpcAttachment")},
 			"aws_ec2_transit_gateway_vpn_attachment": {Tok: awsDataSource(ec2TransitGatewayMod, "getVpnAttachment")},
 			// Elastic Beanstalk
-			"aws_elastic_beanstalk_application": {Tok: awsDataSource(elasticbeanstalkMod, "getApplication")},
+			"aws_elastic_beanstalk_application": {
+				Tok: awsDataSource(elasticbeanstalkMod, "getApplication"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"appversion_lifecycle": {
+						MaxItemsOne: boolRef(true),
+					},
+				},
+			},
 			// Elastic Block Storage
 			"aws_ebs_default_kms_key":       {Tok: awsDataSource(ebsMod, "getDefaultKmsKey")},
 			"aws_ebs_encryption_by_default": {Tok: awsDataSource(ebsMod, "getEncryptionByDefault")},
@@ -2141,10 +2178,27 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ecs_service":              {Tok: awsDataSource(ecsMod, "getService")},
 			"aws_ecs_task_definition":      {Tok: awsDataSource(ecsMod, "getTaskDefinition")},
 			// Elastic Filesystem
-			"aws_efs_file_system":  {Tok: awsDataSource(efsMod, "getFileSystem")},
+			"aws_efs_file_system": {
+				Tok: awsDataSource(efsMod, "getFileSystem"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"lifecycle_policy": {
+						MaxItemsOne: boolRef(true),
+					},
+				},
+			},
 			"aws_efs_mount_target": {Tok: awsDataSource(efsMod, "getMountTarget")},
 			// ECS for Kubernetes
-			"aws_eks_cluster":      {Tok: awsDataSource(eksMod, "getCluster")},
+			"aws_eks_cluster": {
+				Tok: awsDataSource(eksMod, "getCluster"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"certificate_authority": {
+						MaxItemsOne: boolRef(true),
+					},
+					"vpc_config": {
+						MaxItemsOne: boolRef(true),
+					},
+				},
+			},
 			"aws_eks_cluster_auth": {Tok: awsDataSource(eksMod, "getClusterAuth")},
 			// Elastic Beanstalk
 			"aws_elastic_beanstalk_solution_stack": {Tok: awsDataSource(elasticbeanstalkMod, "getSolutionStack")},
@@ -2157,12 +2211,38 @@ func Provider() tfbridge.ProviderInfo {
 			// IOT
 			"aws_iot_endpoint": {Tok: awsDataSource(iotMod, "getEndpoint")},
 			// Lambda
-			"aws_lambda_function":      {Tok: awsDataSource(lambdaMod, "getFunction")},
+			"aws_lambda_function": {
+				Tok: awsDataSource(lambdaMod, "getFunction"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"dead_letter_config": {
+						MaxItemsOne: boolRef(true),
+					},
+					"vpc_config": {
+						MaxItemsOne: boolRef(true),
+					},
+					"environment": {
+						MaxItemsOne: boolRef(true),
+					},
+					"tracing_config": {
+						MaxItemsOne: boolRef(true),
+					},
+				},
+			},
 			"aws_lambda_invocation":    {Tok: awsDataSource(lambdaMod, "getInvocation")},
 			"aws_lambda_layer_version": {Tok: awsDataSource(lambdaMod, "getLayerVersion")},
 			"aws_lambda_alias":         {Tok: awsDataSource(lambdaMod, "getAlias")},
 			// MQ
-			"aws_mq_broker": {Tok: awsDataSource(mqMod, "getBroker")},
+			"aws_mq_broker": {
+				Tok: awsDataSource(mqMod, "getBroker"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"configuration": {
+						MaxItemsOne: boolRef(true),
+					},
+					"maintenance_window_start_time": {
+						MaxItemsOne: boolRef(true),
+					},
+				},
+			},
 			// IAM
 			"aws_iam_account_alias":      {Tok: awsDataSource(iamMod, "getAccountAlias")},
 			"aws_iam_group":              {Tok: awsDataSource(iamMod, "getGroup")},
