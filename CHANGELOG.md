@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add deprecation message for `ec2.Instance` `SecurityGroups` - the messages will be added
+  for dotnet and typescript languages
 
 ---
 

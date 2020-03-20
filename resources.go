@@ -891,6 +891,11 @@ func Provider() tfbridge.ProviderInfo {
 					"instance_state": {
 						CSharpName: "State",
 					},
+					"security_groups": {
+						DeprecationMessage: "Use of `securityGroups` is discouraged as it does not allow for changes and" +
+							" will force your instance to be replaced if changes are made. To avoid this," +
+							" use `vpcSecurityGroupIds` which allows for updates.",
+					},
 				},
 			},
 			"aws_internet_gateway": {Tok: awsResource(ec2Mod, "InternetGateway")},
