@@ -150,11 +150,23 @@ all:: build install lint test_all
 ensure::
 	$(call STEP_MESSAGE)
 ifeq ($(NOPROXY), true)
-	@echo "GO111MODULE=on go mod tidy"; GO111MODULE=on go mod tidy
-	@echo "GO111MODULE=on go mod vendor"; GO111MODULE=on go mod vendor
+	cd provider && @echo "GO111MODULE=on go mod tidy"; GO111MODULE=on go mod tidy
+	cd provider && @echo "GO111MODULE=on go mod vendor"; GO111MODULE=on go mod vendor
+	cd sdk && @echo "GO111MODULE=on go mod tidy"; GO111MODULE=on go mod tidy
+	cd sdk && @echo "GO111MODULE=on go mod vendor"; GO111MODULE=on go mod vendor
+	cd examples && @echo "GO111MODULE=on go mod tidy"; GO111MODULE=on go mod tidy
+	cd examples && @echo "GO111MODULE=on go mod vendor"; GO111MODULE=on go mod vendor
+	cd scripts && @echo "GO111MODULE=on go mod tidy"; GO111MODULE=on go mod tidy
+	cd scripts && @echo "GO111MODULE=on go mod vendor"; GO111MODULE=on go mod vendor
 else
-	@echo "GO111MODULE=on GOPROXY=$(GOPROXY) go mod tidy"; GO111MODULE=on GOPROXY=$(GOPROXY) go mod tidy
-	@echo "GO111MODULE=on GOPROXY=$(GOPROXY) go mod vendor"; GO111MODULE=on GOPROXY=$(GOPROXY) go mod vendor
+	cd provider && @echo "GO111MODULE=on GOPROXY=$(GOPROXY) go mod tidy"; GO111MODULE=on GOPROXY=$(GOPROXY) go mod tidy
+	cd provider && @echo "GO111MODULE=on GOPROXY=$(GOPROXY) go mod vendor"; GO111MODULE=on GOPROXY=$(GOPROXY) go mod vendor
+	cd sdk && @echo "GO111MODULE=on GOPROXY=$(GOPROXY) go mod tidy"; GO111MODULE=on GOPROXY=$(GOPROXY) go mod tidy
+	cd sdk && @echo "GO111MODULE=on GOPROXY=$(GOPROXY) go mod vendor"; GO111MODULE=on GOPROXY=$(GOPROXY) go mod vendor
+	cd examples && @echo "GO111MODULE=on GOPROXY=$(GOPROXY) go mod tidy"; GO111MODULE=on GOPROXY=$(GOPROXY) go mod tidy
+	cd examples && @echo "GO111MODULE=on GOPROXY=$(GOPROXY) go mod vendor"; GO111MODULE=on GOPROXY=$(GOPROXY) go mod vendor
+	cd scripts && @echo "GO111MODULE=on GOPROXY=$(GOPROXY) go mod tidy"; GO111MODULE=on GOPROXY=$(GOPROXY) go mod tidy
+	cd scripts && @echo "GO111MODULE=on GOPROXY=$(GOPROXY) go mod vendor"; GO111MODULE=on GOPROXY=$(GOPROXY) go mod vendor
 endif
 	gomod-doccopy -provider terraform-provider-$(PACK);
 	@if [ -e 'package.json' ]; then echo "yarn install"; yarn install; fi
