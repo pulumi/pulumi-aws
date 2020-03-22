@@ -20,7 +20,7 @@ import (
 	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfbridge"
 
 	"github.com/pulumi/pulumi-aws"
-	"github.com/pulumi/pulumi-aws/pkg/version"
+	"github.com/pulumi/pulumi-aws/provider/pkg/version"
 )
 
 func main() {
