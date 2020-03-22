@@ -28,8 +28,8 @@ import (
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/pulumi/pulumi-aws/provider/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfbridge"
-	"github.com/pulumi/pulumi/pkg/resource"
-	"github.com/pulumi/pulumi/pkg/tokens"
+	"github.com/pulumi/pulumi/sdk/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/go/common/tokens"
 	"github.com/terraform-providers/terraform-provider-aws/aws"
 )
 

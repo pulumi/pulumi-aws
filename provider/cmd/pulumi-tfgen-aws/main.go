@@ -15,9 +15,9 @@
 package main
 
 import (
+	aws "github.com/pulumi/pulumi-aws/provider"
 	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfgen"
 
-	"github.com/pulumi/pulumi-aws"
 	"github.com/pulumi/pulumi-aws/provider/pkg/version"
 )
 
