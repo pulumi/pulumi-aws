@@ -168,7 +168,7 @@ else
 	@echo "cd scripts && GO111MODULE=on GOPROXY=$(GOPROXY) go mod tidy"; cd scripts && GO111MODULE=on GOPROXY=$(GOPROXY) go mod tidy
 	@echo "cd scripts && GO111MODULE=on GOPROXY=$(GOPROXY) go mod vendor"; cd scripts && GO111MODULE=on GOPROXY=$(GOPROXY) go mod vendor
 endif
-	gomod-doccopy -provider terraform-provider-$(PACK);
+	cd provider && gomod-doccopy -provider terraform-provider-$(PACK);
 	@if [ -e 'package.json' ]; then echo "yarn install"; yarn install; fi
 
 build::
