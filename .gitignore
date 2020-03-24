@@ -3,7 +3,7 @@
 **/bin/
 **/obj/
 Pulumi.*.yaml
-
+**/pulumiManifest.go
 **/command-output/
 
 .idea/
