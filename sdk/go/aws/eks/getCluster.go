@@ -23,10 +23,9 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
 	// The name of the cluster
-	Name string `pulumi:"name"`
+	Name string                 `pulumi:"name"`
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
@@ -44,7 +43,7 @@ type LookupClusterResult struct {
 	Id string `pulumi:"id"`
 	// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the [`eks.Cluster` resource documentation](https://www.terraform.io/docs/providers/aws/r/eks_cluster.html).
 	Identities []GetClusterIdentity `pulumi:"identities"`
-	Name string `pulumi:"name"`
+	Name       string               `pulumi:"name"`
 	// The platform version for the cluster.
 	PlatformVersion string `pulumi:"platformVersion"`
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
@@ -58,4 +57,3 @@ type LookupClusterResult struct {
 	// Nested list containing VPC configuration for the cluster.
 	VpcConfig GetClusterVpcConfig `pulumi:"vpcConfig"`
 }
-

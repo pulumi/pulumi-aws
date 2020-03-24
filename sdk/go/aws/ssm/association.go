@@ -191,4 +191,3 @@ type AssociationArgs struct {
 func (AssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*associationArgs)(nil)).Elem()
 }
-

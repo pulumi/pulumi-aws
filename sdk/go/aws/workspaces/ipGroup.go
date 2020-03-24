@@ -22,7 +22,7 @@ type IpGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
 	Rules IpGroupRuleArrayOutput `pulumi:"rules"`
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags  pulumi.MapOutput       `pulumi:"tags"`
 }
 
 // NewIpGroup registers a new resource with the given unique name, arguments, and options.
@@ -58,8 +58,8 @@ type ipGroupState struct {
 	// The name of the IP group.
 	Name *string `pulumi:"name"`
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
-	Rules []IpGroupRule `pulumi:"rules"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	Rules []IpGroupRule          `pulumi:"rules"`
+	Tags  map[string]interface{} `pulumi:"tags"`
 }
 
 type IpGroupState struct {
@@ -69,7 +69,7 @@ type IpGroupState struct {
 	Name pulumi.StringPtrInput
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
 	Rules IpGroupRuleArrayInput
-	Tags pulumi.MapInput
+	Tags  pulumi.MapInput
 }
 
 func (IpGroupState) ElementType() reflect.Type {
@@ -82,8 +82,8 @@ type ipGroupArgs struct {
 	// The name of the IP group.
 	Name *string `pulumi:"name"`
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
-	Rules []IpGroupRule `pulumi:"rules"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	Rules []IpGroupRule          `pulumi:"rules"`
+	Tags  map[string]interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IpGroup resource.
@@ -94,10 +94,9 @@ type IpGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
 	Rules IpGroupRuleArrayInput
-	Tags pulumi.MapInput
+	Tags  pulumi.MapInput
 }
 
 func (IpGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipGroupArgs)(nil)).Elem()
 }
-

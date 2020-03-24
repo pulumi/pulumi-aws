@@ -28,7 +28,6 @@ type GetInstanceTypeOfferingsArgs struct {
 	LocationType *string `pulumi:"locationType"`
 }
 
-
 // A collection of values returned by getInstanceTypeOfferings.
 type GetInstanceTypeOfferingsResult struct {
 	Filters []GetInstanceTypeOfferingsFilter `pulumi:"filters"`
@@ -36,6 +35,5 @@ type GetInstanceTypeOfferingsResult struct {
 	Id string `pulumi:"id"`
 	// Set of EC2 Instance Types.
 	InstanceTypes []string `pulumi:"instanceTypes"`
-	LocationType *string `pulumi:"locationType"`
+	LocationType  *string  `pulumi:"locationType"`
 }
-

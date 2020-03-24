@@ -92,4 +92,3 @@ type VpcEndpointRouteTableAssociationArgs struct {
 func (VpcEndpointRouteTableAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEndpointRouteTableAssociationArgs)(nil)).Elem()
 }
-

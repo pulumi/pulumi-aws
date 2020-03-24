@@ -27,8 +27,8 @@ type Pipeline struct {
 	// The name of the pipeline.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	Stages PipelineStageArrayOutput `pulumi:"stages"`
+	RoleArn pulumi.StringOutput      `pulumi:"roleArn"`
+	Stages  PipelineStageArrayOutput `pulumi:"stages"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
@@ -78,8 +78,8 @@ type pipelineState struct {
 	// The name of the pipeline.
 	Name *string `pulumi:"name"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-	RoleArn *string `pulumi:"roleArn"`
-	Stages []PipelineStage `pulumi:"stages"`
+	RoleArn *string         `pulumi:"roleArn"`
+	Stages  []PipelineStage `pulumi:"stages"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
@@ -94,7 +94,7 @@ type PipelineState struct {
 	Name pulumi.StringPtrInput
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringPtrInput
-	Stages PipelineStageArrayInput
+	Stages  PipelineStageArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
@@ -110,8 +110,8 @@ type pipelineArgs struct {
 	// The name of the pipeline.
 	Name *string `pulumi:"name"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-	RoleArn string `pulumi:"roleArn"`
-	Stages []PipelineStage `pulumi:"stages"`
+	RoleArn string          `pulumi:"roleArn"`
+	Stages  []PipelineStage `pulumi:"stages"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
@@ -125,7 +125,7 @@ type PipelineArgs struct {
 	Name pulumi.StringPtrInput
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringInput
-	Stages PipelineStageArrayInput
+	Stages  PipelineStageArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
@@ -133,4 +133,3 @@ type PipelineArgs struct {
 func (PipelineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*pipelineArgs)(nil)).Elem()
 }
-

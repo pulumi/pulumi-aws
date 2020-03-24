@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_tables.html.markdown.
         /// </summary>
+        [Obsolete("Use GetRouteTables.InvokeAsync() instead")]
         public static Task<GetRouteTablesResult> GetRouteTables(GetRouteTablesArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTablesResult>("aws:ec2/getRouteTables:getRouteTables", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetRouteTables
+    {
+        /// <summary>
+        /// This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_tables.html.markdown.
+        /// </summary>
+        public static Task<GetRouteTablesResult> InvokeAsync(GetRouteTablesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTablesResult>("aws:ec2/getRouteTables:getRouteTables", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

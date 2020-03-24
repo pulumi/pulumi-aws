@@ -96,4 +96,3 @@ type ListenerCertificateArgs struct {
 func (ListenerCertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*listenerCertificateArgs)(nil)).Elem()
 }
-

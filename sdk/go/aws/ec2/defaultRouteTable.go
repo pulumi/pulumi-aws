@@ -56,7 +56,7 @@ type DefaultRouteTable struct {
 	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Routes DefaultRouteTableRouteArrayOutput `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags  pulumi.MapOutput    `pulumi:"tags"`
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -101,8 +101,8 @@ type defaultRouteTableState struct {
 	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Routes []DefaultRouteTableRoute `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
-	VpcId *string `pulumi:"vpcId"`
+	Tags  map[string]interface{} `pulumi:"tags"`
+	VpcId *string                `pulumi:"vpcId"`
 }
 
 type DefaultRouteTableState struct {
@@ -116,7 +116,7 @@ type DefaultRouteTableState struct {
 	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Routes DefaultRouteTableRouteArrayInput
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags  pulumi.MapInput
 	VpcId pulumi.StringPtrInput
 }
 
@@ -152,4 +152,3 @@ type DefaultRouteTableArgs struct {
 func (DefaultRouteTableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultRouteTableArgs)(nil)).Elem()
 }
-

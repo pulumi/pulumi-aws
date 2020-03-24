@@ -70,8 +70,8 @@ type ClusterInstance struct {
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
 	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
 	// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-	PromotionTier pulumi.IntPtrOutput `pulumi:"promotionTier"`
-	PubliclyAccessible pulumi.BoolOutput `pulumi:"publiclyAccessible"`
+	PromotionTier      pulumi.IntPtrOutput `pulumi:"promotionTier"`
+	PubliclyAccessible pulumi.BoolOutput   `pulumi:"publiclyAccessible"`
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
 	// A mapping of tags to assign to the instance.
@@ -160,7 +160,7 @@ type clusterInstanceState struct {
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-	PromotionTier *int `pulumi:"promotionTier"`
+	PromotionTier      *int  `pulumi:"promotionTier"`
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
@@ -217,7 +217,7 @@ type ClusterInstanceState struct {
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-	PromotionTier pulumi.IntPtrInput
+	PromotionTier      pulumi.IntPtrInput
 	PubliclyAccessible pulumi.BoolPtrInput
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
@@ -307,4 +307,3 @@ type ClusterInstanceArgs struct {
 func (ClusterInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterInstanceArgs)(nil)).Elem()
 }
-

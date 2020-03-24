@@ -21,7 +21,23 @@ namespace Pulumi.Aws
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
         /// </summary>
+        [Obsolete("Use GetAvailabilityZones.InvokeAsync() instead")]
         public static Task<GetAvailabilityZonesResult> GetAvailabilityZones(GetAvailabilityZonesArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityZonesResult>("aws:index/getAvailabilityZones:getAvailabilityZones", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetAvailabilityZones
+    {
+        /// <summary>
+        /// The Availability Zones data source allows access to the list of AWS
+        /// Availability Zones which can be accessed by an AWS account within the region
+        /// configured in the provider.
+        /// 
+        /// This is different from the `aws..getAvailabilityZone` (singular) data source,
+        /// which provides some details about a specific availability zone.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
+        /// </summary>
+        public static Task<GetAvailabilityZonesResult> InvokeAsync(GetAvailabilityZonesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityZonesResult>("aws:index/getAvailabilityZones:getAvailabilityZones", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

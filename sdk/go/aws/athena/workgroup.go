@@ -121,4 +121,3 @@ type WorkgroupArgs struct {
 func (WorkgroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workgroupArgs)(nil)).Elem()
 }
-

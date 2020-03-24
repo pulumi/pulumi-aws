@@ -23,10 +23,9 @@ func LookupLogGroup(ctx *pulumi.Context, args *LookupLogGroupArgs, opts ...pulum
 // A collection of arguments for invoking getLogGroup.
 type LookupLogGroupArgs struct {
 	// The name of the Cloudwatch log group
-	Name string `pulumi:"name"`
+	Name string                 `pulumi:"name"`
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getLogGroup.
 type LookupLogGroupResult struct {
@@ -38,10 +37,9 @@ type LookupLogGroupResult struct {
 	Id string `pulumi:"id"`
 	// The ARN of the KMS Key to use when encrypting log data.
 	KmsKeyId string `pulumi:"kmsKeyId"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// The number of days log events retained in the specified log group.
 	RetentionInDays int `pulumi:"retentionInDays"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-

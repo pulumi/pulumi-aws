@@ -115,4 +115,3 @@ type EndpointConfigurationArgs struct {
 func (EndpointConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*endpointConfigurationArgs)(nil)).Elem()
 }
-

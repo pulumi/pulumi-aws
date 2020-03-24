@@ -148,4 +148,3 @@ type AccessPointArgs struct {
 func (AccessPointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessPointArgs)(nil)).Elem()
 }
-

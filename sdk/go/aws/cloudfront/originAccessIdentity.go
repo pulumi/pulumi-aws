@@ -131,4 +131,3 @@ type OriginAccessIdentityArgs struct {
 func (OriginAccessIdentityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*originAccessIdentityArgs)(nil)).Elem()
 }
-

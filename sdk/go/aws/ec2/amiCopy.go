@@ -48,8 +48,8 @@ type AmiCopy struct {
 	// kernel in created instances.
 	KernelId pulumi.StringOutput `pulumi:"kernelId"`
 	// The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	ManageEbsSnapshots pulumi.BoolOutput `pulumi:"manageEbsSnapshots"`
+	KmsKeyId           pulumi.StringOutput `pulumi:"kmsKeyId"`
+	ManageEbsSnapshots pulumi.BoolOutput   `pulumi:"manageEbsSnapshots"`
 	// A region-unique name for the AMI.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The id of an initrd image (ARI) that will be used when booting the
@@ -130,8 +130,8 @@ type amiCopyState struct {
 	// kernel in created instances.
 	KernelId *string `pulumi:"kernelId"`
 	// The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	ManageEbsSnapshots *bool `pulumi:"manageEbsSnapshots"`
+	KmsKeyId           *string `pulumi:"kmsKeyId"`
+	ManageEbsSnapshots *bool   `pulumi:"manageEbsSnapshots"`
 	// A region-unique name for the AMI.
 	Name *string `pulumi:"name"`
 	// The id of an initrd image (ARI) that will be used when booting the
@@ -179,7 +179,7 @@ type AmiCopyState struct {
 	// kernel in created instances.
 	KernelId pulumi.StringPtrInput
 	// The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
-	KmsKeyId pulumi.StringPtrInput
+	KmsKeyId           pulumi.StringPtrInput
 	ManageEbsSnapshots pulumi.BoolPtrInput
 	// A region-unique name for the AMI.
 	Name pulumi.StringPtrInput
@@ -264,4 +264,3 @@ type AmiCopyArgs struct {
 func (AmiCopyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*amiCopyArgs)(nil)).Elem()
 }
-

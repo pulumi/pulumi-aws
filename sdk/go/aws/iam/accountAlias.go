@@ -81,4 +81,3 @@ type AccountAliasArgs struct {
 func (AccountAliasArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountAliasArgs)(nil)).Elem()
 }
-

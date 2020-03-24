@@ -28,11 +28,9 @@ type GetHostedZoneIdArgs struct {
 	Region *string `pulumi:"region"`
 }
 
-
 // A collection of values returned by getHostedZoneId.
 type GetHostedZoneIdResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string  `pulumi:"id"`
 	Region *string `pulumi:"region"`
 }
-

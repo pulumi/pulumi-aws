@@ -17,7 +17,19 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint_service.html.markdown.
         /// </summary>
+        [Obsolete("Use GetVpcEndpointService.InvokeAsync() instead")]
         public static Task<GetVpcEndpointServiceResult> GetVpcEndpointService(GetVpcEndpointServiceArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcEndpointServiceResult>("aws:ec2/getVpcEndpointService:getVpcEndpointService", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetVpcEndpointService
+    {
+        /// <summary>
+        /// The VPC Endpoint Service data source details about a specific service that
+        /// can be specified when creating a VPC endpoint within the region configured in the provider.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint_service.html.markdown.
+        /// </summary>
+        public static Task<GetVpcEndpointServiceResult> InvokeAsync(GetVpcEndpointServiceArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpcEndpointServiceResult>("aws:ec2/getVpcEndpointService:getVpcEndpointService", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

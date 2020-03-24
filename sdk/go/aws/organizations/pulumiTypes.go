@@ -77,7 +77,7 @@ func (i OrganizationAccountArray) ToOrganizationAccountArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAccountArrayOutput)
 }
 
-type OrganizationAccountOutput struct { *pulumi.OutputState }
+type OrganizationAccountOutput struct{ *pulumi.OutputState }
 
 func (OrganizationAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OrganizationAccount)(nil)).Elem()
@@ -93,30 +93,30 @@ func (o OrganizationAccountOutput) ToOrganizationAccountOutputWithContext(ctx co
 
 // ARN of the root
 func (o OrganizationAccountOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OrganizationAccount) *string { return v.Arn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OrganizationAccount) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Email of the account
 func (o OrganizationAccountOutput) Email() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OrganizationAccount) *string { return v.Email }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OrganizationAccount) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the root
 func (o OrganizationAccountOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OrganizationAccount) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OrganizationAccount) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The name of the policy type
 func (o OrganizationAccountOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OrganizationAccount) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OrganizationAccount) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The status of the policy type as it relates to the associated root
 func (o OrganizationAccountOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OrganizationAccount) *string { return v.Status }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OrganizationAccount) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-type OrganizationAccountArrayOutput struct { *pulumi.OutputState}
+type OrganizationAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (OrganizationAccountArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]OrganizationAccount)(nil)).Elem()
@@ -131,7 +131,7 @@ func (o OrganizationAccountArrayOutput) ToOrganizationAccountArrayOutputWithCont
 }
 
 func (o OrganizationAccountArrayOutput) Index(i pulumi.IntInput) OrganizationAccountOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) OrganizationAccount {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationAccount {
 		return vs[0].([]OrganizationAccount)[vs[1].(int)]
 	}).(OrganizationAccountOutput)
 }
@@ -202,7 +202,7 @@ func (i OrganizationNonMasterAccountArray) ToOrganizationNonMasterAccountArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationNonMasterAccountArrayOutput)
 }
 
-type OrganizationNonMasterAccountOutput struct { *pulumi.OutputState }
+type OrganizationNonMasterAccountOutput struct{ *pulumi.OutputState }
 
 func (OrganizationNonMasterAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OrganizationNonMasterAccount)(nil)).Elem()
@@ -218,30 +218,30 @@ func (o OrganizationNonMasterAccountOutput) ToOrganizationNonMasterAccountOutput
 
 // ARN of the root
 func (o OrganizationNonMasterAccountOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OrganizationNonMasterAccount) *string { return v.Arn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OrganizationNonMasterAccount) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Email of the account
 func (o OrganizationNonMasterAccountOutput) Email() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OrganizationNonMasterAccount) *string { return v.Email }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OrganizationNonMasterAccount) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the root
 func (o OrganizationNonMasterAccountOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OrganizationNonMasterAccount) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OrganizationNonMasterAccount) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The name of the policy type
 func (o OrganizationNonMasterAccountOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OrganizationNonMasterAccount) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OrganizationNonMasterAccount) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The status of the policy type as it relates to the associated root
 func (o OrganizationNonMasterAccountOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OrganizationNonMasterAccount) *string { return v.Status }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OrganizationNonMasterAccount) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-type OrganizationNonMasterAccountArrayOutput struct { *pulumi.OutputState}
+type OrganizationNonMasterAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (OrganizationNonMasterAccountArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]OrganizationNonMasterAccount)(nil)).Elem()
@@ -256,7 +256,7 @@ func (o OrganizationNonMasterAccountArrayOutput) ToOrganizationNonMasterAccountA
 }
 
 func (o OrganizationNonMasterAccountArrayOutput) Index(i pulumi.IntInput) OrganizationNonMasterAccountOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) OrganizationNonMasterAccount {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationNonMasterAccount {
 		return vs[0].([]OrganizationNonMasterAccount)[vs[1].(int)]
 	}).(OrganizationNonMasterAccountOutput)
 }
@@ -323,7 +323,7 @@ func (i OrganizationRootArray) ToOrganizationRootArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRootArrayOutput)
 }
 
-type OrganizationRootOutput struct { *pulumi.OutputState }
+type OrganizationRootOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRootOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OrganizationRoot)(nil)).Elem()
@@ -339,25 +339,25 @@ func (o OrganizationRootOutput) ToOrganizationRootOutputWithContext(ctx context.
 
 // ARN of the root
 func (o OrganizationRootOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OrganizationRoot) *string { return v.Arn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OrganizationRoot) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the root
 func (o OrganizationRootOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OrganizationRoot) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OrganizationRoot) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The name of the policy type
 func (o OrganizationRootOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OrganizationRoot) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OrganizationRoot) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // List of policy types enabled for this root. All elements have these attributes:
 func (o OrganizationRootOutput) PolicyTypes() OrganizationRootPolicyTypeArrayOutput {
-	return o.ApplyT(func (v OrganizationRoot) []OrganizationRootPolicyType { return v.PolicyTypes }).(OrganizationRootPolicyTypeArrayOutput)
+	return o.ApplyT(func(v OrganizationRoot) []OrganizationRootPolicyType { return v.PolicyTypes }).(OrganizationRootPolicyTypeArrayOutput)
 }
 
-type OrganizationRootArrayOutput struct { *pulumi.OutputState}
+type OrganizationRootArrayOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRootArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]OrganizationRoot)(nil)).Elem()
@@ -372,7 +372,7 @@ func (o OrganizationRootArrayOutput) ToOrganizationRootArrayOutputWithContext(ct
 }
 
 func (o OrganizationRootArrayOutput) Index(i pulumi.IntInput) OrganizationRootOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) OrganizationRoot {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationRoot {
 		return vs[0].([]OrganizationRoot)[vs[1].(int)]
 	}).(OrganizationRootOutput)
 }
@@ -380,7 +380,7 @@ func (o OrganizationRootArrayOutput) Index(i pulumi.IntInput) OrganizationRootOu
 type OrganizationRootPolicyType struct {
 	// The status of the policy type as it relates to the associated root
 	Status *string `pulumi:"status"`
-	Type *string `pulumi:"type"`
+	Type   *string `pulumi:"type"`
 }
 
 type OrganizationRootPolicyTypeInput interface {
@@ -393,7 +393,7 @@ type OrganizationRootPolicyTypeInput interface {
 type OrganizationRootPolicyTypeArgs struct {
 	// The status of the policy type as it relates to the associated root
 	Status pulumi.StringPtrInput `pulumi:"status"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type   pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (OrganizationRootPolicyTypeArgs) ElementType() reflect.Type {
@@ -429,7 +429,7 @@ func (i OrganizationRootPolicyTypeArray) ToOrganizationRootPolicyTypeArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRootPolicyTypeArrayOutput)
 }
 
-type OrganizationRootPolicyTypeOutput struct { *pulumi.OutputState }
+type OrganizationRootPolicyTypeOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRootPolicyTypeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OrganizationRootPolicyType)(nil)).Elem()
@@ -445,14 +445,14 @@ func (o OrganizationRootPolicyTypeOutput) ToOrganizationRootPolicyTypeOutputWith
 
 // The status of the policy type as it relates to the associated root
 func (o OrganizationRootPolicyTypeOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OrganizationRootPolicyType) *string { return v.Status }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OrganizationRootPolicyType) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 func (o OrganizationRootPolicyTypeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OrganizationRootPolicyType) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OrganizationRootPolicyType) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type OrganizationRootPolicyTypeArrayOutput struct { *pulumi.OutputState}
+type OrganizationRootPolicyTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRootPolicyTypeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]OrganizationRootPolicyType)(nil)).Elem()
@@ -467,7 +467,7 @@ func (o OrganizationRootPolicyTypeArrayOutput) ToOrganizationRootPolicyTypeArray
 }
 
 func (o OrganizationRootPolicyTypeArrayOutput) Index(i pulumi.IntInput) OrganizationRootPolicyTypeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) OrganizationRootPolicyType {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationRootPolicyType {
 		return vs[0].([]OrganizationRootPolicyType)[vs[1].(int)]
 	}).(OrganizationRootPolicyTypeOutput)
 }
@@ -534,7 +534,7 @@ func (i OrganizationalUnitAccountArray) ToOrganizationalUnitAccountArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationalUnitAccountArrayOutput)
 }
 
-type OrganizationalUnitAccountOutput struct { *pulumi.OutputState }
+type OrganizationalUnitAccountOutput struct{ *pulumi.OutputState }
 
 func (OrganizationalUnitAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OrganizationalUnitAccount)(nil)).Elem()
@@ -550,25 +550,25 @@ func (o OrganizationalUnitAccountOutput) ToOrganizationalUnitAccountOutputWithCo
 
 // ARN of the organizational unit
 func (o OrganizationalUnitAccountOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OrganizationalUnitAccount) *string { return v.Arn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OrganizationalUnitAccount) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // Email of the account
 func (o OrganizationalUnitAccountOutput) Email() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OrganizationalUnitAccount) *string { return v.Email }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OrganizationalUnitAccount) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the organization unit
 func (o OrganizationalUnitAccountOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OrganizationalUnitAccount) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OrganizationalUnitAccount) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The name for the organizational unit
 func (o OrganizationalUnitAccountOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v OrganizationalUnitAccount) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v OrganizationalUnitAccount) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type OrganizationalUnitAccountArrayOutput struct { *pulumi.OutputState}
+type OrganizationalUnitAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (OrganizationalUnitAccountArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]OrganizationalUnitAccount)(nil)).Elem()
@@ -583,7 +583,7 @@ func (o OrganizationalUnitAccountArrayOutput) ToOrganizationalUnitAccountArrayOu
 }
 
 func (o OrganizationalUnitAccountArrayOutput) Index(i pulumi.IntInput) OrganizationalUnitAccountOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) OrganizationalUnitAccount {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationalUnitAccount {
 		return vs[0].([]OrganizationalUnitAccount)[vs[1].(int)]
 	}).(OrganizationalUnitAccountOutput)
 }
@@ -654,7 +654,7 @@ func (i GetOrganizationAccountArray) ToGetOrganizationAccountArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationAccountArrayOutput)
 }
 
-type GetOrganizationAccountOutput struct { *pulumi.OutputState }
+type GetOrganizationAccountOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetOrganizationAccount)(nil)).Elem()
@@ -670,30 +670,30 @@ func (o GetOrganizationAccountOutput) ToGetOrganizationAccountOutputWithContext(
 
 // ARN of the root
 func (o GetOrganizationAccountOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func (v GetOrganizationAccount) string { return v.Arn }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetOrganizationAccount) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Email of the account
 func (o GetOrganizationAccountOutput) Email() pulumi.StringOutput {
-	return o.ApplyT(func (v GetOrganizationAccount) string { return v.Email }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetOrganizationAccount) string { return v.Email }).(pulumi.StringOutput)
 }
 
 // Identifier of the root
 func (o GetOrganizationAccountOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v GetOrganizationAccount) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetOrganizationAccount) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The name of the policy type
 func (o GetOrganizationAccountOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetOrganizationAccount) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetOrganizationAccount) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The status of the policy type as it relates to the associated root
 func (o GetOrganizationAccountOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func (v GetOrganizationAccount) string { return v.Status }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetOrganizationAccount) string { return v.Status }).(pulumi.StringOutput)
 }
 
-type GetOrganizationAccountArrayOutput struct { *pulumi.OutputState}
+type GetOrganizationAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationAccountArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetOrganizationAccount)(nil)).Elem()
@@ -708,7 +708,7 @@ func (o GetOrganizationAccountArrayOutput) ToGetOrganizationAccountArrayOutputWi
 }
 
 func (o GetOrganizationAccountArrayOutput) Index(i pulumi.IntInput) GetOrganizationAccountOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetOrganizationAccount {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrganizationAccount {
 		return vs[0].([]GetOrganizationAccount)[vs[1].(int)]
 	}).(GetOrganizationAccountOutput)
 }
@@ -779,7 +779,7 @@ func (i GetOrganizationNonMasterAccountArray) ToGetOrganizationNonMasterAccountA
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationNonMasterAccountArrayOutput)
 }
 
-type GetOrganizationNonMasterAccountOutput struct { *pulumi.OutputState }
+type GetOrganizationNonMasterAccountOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationNonMasterAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetOrganizationNonMasterAccount)(nil)).Elem()
@@ -795,30 +795,30 @@ func (o GetOrganizationNonMasterAccountOutput) ToGetOrganizationNonMasterAccount
 
 // ARN of the root
 func (o GetOrganizationNonMasterAccountOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func (v GetOrganizationNonMasterAccount) string { return v.Arn }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetOrganizationNonMasterAccount) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Email of the account
 func (o GetOrganizationNonMasterAccountOutput) Email() pulumi.StringOutput {
-	return o.ApplyT(func (v GetOrganizationNonMasterAccount) string { return v.Email }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetOrganizationNonMasterAccount) string { return v.Email }).(pulumi.StringOutput)
 }
 
 // Identifier of the root
 func (o GetOrganizationNonMasterAccountOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v GetOrganizationNonMasterAccount) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetOrganizationNonMasterAccount) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The name of the policy type
 func (o GetOrganizationNonMasterAccountOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetOrganizationNonMasterAccount) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetOrganizationNonMasterAccount) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The status of the policy type as it relates to the associated root
 func (o GetOrganizationNonMasterAccountOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func (v GetOrganizationNonMasterAccount) string { return v.Status }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetOrganizationNonMasterAccount) string { return v.Status }).(pulumi.StringOutput)
 }
 
-type GetOrganizationNonMasterAccountArrayOutput struct { *pulumi.OutputState}
+type GetOrganizationNonMasterAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationNonMasterAccountArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetOrganizationNonMasterAccount)(nil)).Elem()
@@ -833,7 +833,7 @@ func (o GetOrganizationNonMasterAccountArrayOutput) ToGetOrganizationNonMasterAc
 }
 
 func (o GetOrganizationNonMasterAccountArrayOutput) Index(i pulumi.IntInput) GetOrganizationNonMasterAccountOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetOrganizationNonMasterAccount {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrganizationNonMasterAccount {
 		return vs[0].([]GetOrganizationNonMasterAccount)[vs[1].(int)]
 	}).(GetOrganizationNonMasterAccountOutput)
 }
@@ -900,7 +900,7 @@ func (i GetOrganizationRootArray) ToGetOrganizationRootArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationRootArrayOutput)
 }
 
-type GetOrganizationRootOutput struct { *pulumi.OutputState }
+type GetOrganizationRootOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationRootOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetOrganizationRoot)(nil)).Elem()
@@ -916,25 +916,25 @@ func (o GetOrganizationRootOutput) ToGetOrganizationRootOutputWithContext(ctx co
 
 // ARN of the root
 func (o GetOrganizationRootOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func (v GetOrganizationRoot) string { return v.Arn }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetOrganizationRoot) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Identifier of the root
 func (o GetOrganizationRootOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v GetOrganizationRoot) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetOrganizationRoot) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The name of the policy type
 func (o GetOrganizationRootOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetOrganizationRoot) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetOrganizationRoot) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // List of policy types enabled for this root. All elements have these attributes:
 func (o GetOrganizationRootOutput) PolicyTypes() GetOrganizationRootPolicyTypeArrayOutput {
-	return o.ApplyT(func (v GetOrganizationRoot) []GetOrganizationRootPolicyType { return v.PolicyTypes }).(GetOrganizationRootPolicyTypeArrayOutput)
+	return o.ApplyT(func(v GetOrganizationRoot) []GetOrganizationRootPolicyType { return v.PolicyTypes }).(GetOrganizationRootPolicyTypeArrayOutput)
 }
 
-type GetOrganizationRootArrayOutput struct { *pulumi.OutputState}
+type GetOrganizationRootArrayOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationRootArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetOrganizationRoot)(nil)).Elem()
@@ -949,7 +949,7 @@ func (o GetOrganizationRootArrayOutput) ToGetOrganizationRootArrayOutputWithCont
 }
 
 func (o GetOrganizationRootArrayOutput) Index(i pulumi.IntInput) GetOrganizationRootOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetOrganizationRoot {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrganizationRoot {
 		return vs[0].([]GetOrganizationRoot)[vs[1].(int)]
 	}).(GetOrganizationRootOutput)
 }
@@ -957,7 +957,7 @@ func (o GetOrganizationRootArrayOutput) Index(i pulumi.IntInput) GetOrganization
 type GetOrganizationRootPolicyType struct {
 	// The status of the policy type as it relates to the associated root
 	Status string `pulumi:"status"`
-	Type string `pulumi:"type"`
+	Type   string `pulumi:"type"`
 }
 
 type GetOrganizationRootPolicyTypeInput interface {
@@ -970,7 +970,7 @@ type GetOrganizationRootPolicyTypeInput interface {
 type GetOrganizationRootPolicyTypeArgs struct {
 	// The status of the policy type as it relates to the associated root
 	Status pulumi.StringInput `pulumi:"status"`
-	Type pulumi.StringInput `pulumi:"type"`
+	Type   pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetOrganizationRootPolicyTypeArgs) ElementType() reflect.Type {
@@ -1006,7 +1006,7 @@ func (i GetOrganizationRootPolicyTypeArray) ToGetOrganizationRootPolicyTypeArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationRootPolicyTypeArrayOutput)
 }
 
-type GetOrganizationRootPolicyTypeOutput struct { *pulumi.OutputState }
+type GetOrganizationRootPolicyTypeOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationRootPolicyTypeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetOrganizationRootPolicyType)(nil)).Elem()
@@ -1022,14 +1022,14 @@ func (o GetOrganizationRootPolicyTypeOutput) ToGetOrganizationRootPolicyTypeOutp
 
 // The status of the policy type as it relates to the associated root
 func (o GetOrganizationRootPolicyTypeOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func (v GetOrganizationRootPolicyType) string { return v.Status }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetOrganizationRootPolicyType) string { return v.Status }).(pulumi.StringOutput)
 }
 
 func (o GetOrganizationRootPolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v GetOrganizationRootPolicyType) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetOrganizationRootPolicyType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type GetOrganizationRootPolicyTypeArrayOutput struct { *pulumi.OutputState}
+type GetOrganizationRootPolicyTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationRootPolicyTypeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetOrganizationRootPolicyType)(nil)).Elem()
@@ -1044,7 +1044,7 @@ func (o GetOrganizationRootPolicyTypeArrayOutput) ToGetOrganizationRootPolicyTyp
 }
 
 func (o GetOrganizationRootPolicyTypeArrayOutput) Index(i pulumi.IntInput) GetOrganizationRootPolicyTypeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetOrganizationRootPolicyType {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrganizationRootPolicyType {
 		return vs[0].([]GetOrganizationRootPolicyType)[vs[1].(int)]
 	}).(GetOrganizationRootPolicyTypeOutput)
 }
@@ -1107,7 +1107,7 @@ func (i GetOrganizationalUnitsChildrenArray) ToGetOrganizationalUnitsChildrenArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationalUnitsChildrenArrayOutput)
 }
 
-type GetOrganizationalUnitsChildrenOutput struct { *pulumi.OutputState }
+type GetOrganizationalUnitsChildrenOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationalUnitsChildrenOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetOrganizationalUnitsChildren)(nil)).Elem()
@@ -1123,20 +1123,20 @@ func (o GetOrganizationalUnitsChildrenOutput) ToGetOrganizationalUnitsChildrenOu
 
 // ARN of the organizational unit
 func (o GetOrganizationalUnitsChildrenOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func (v GetOrganizationalUnitsChildren) string { return v.Arn }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetOrganizationalUnitsChildren) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // ID of the organizational unit
 func (o GetOrganizationalUnitsChildrenOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v GetOrganizationalUnitsChildren) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetOrganizationalUnitsChildren) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Name of the organizational unit
 func (o GetOrganizationalUnitsChildrenOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetOrganizationalUnitsChildren) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetOrganizationalUnitsChildren) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type GetOrganizationalUnitsChildrenArrayOutput struct { *pulumi.OutputState}
+type GetOrganizationalUnitsChildrenArrayOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationalUnitsChildrenArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetOrganizationalUnitsChildren)(nil)).Elem()
@@ -1151,7 +1151,7 @@ func (o GetOrganizationalUnitsChildrenArrayOutput) ToGetOrganizationalUnitsChild
 }
 
 func (o GetOrganizationalUnitsChildrenArrayOutput) Index(i pulumi.IntInput) GetOrganizationalUnitsChildrenOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetOrganizationalUnitsChildren {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrganizationalUnitsChildren {
 		return vs[0].([]GetOrganizationalUnitsChildren)[vs[1].(int)]
 	}).(GetOrganizationalUnitsChildrenOutput)
 }

@@ -95,4 +95,3 @@ type LogStreamArgs struct {
 func (LogStreamArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logStreamArgs)(nil)).Elem()
 }
-

@@ -26,10 +26,9 @@ type LookupVpcEndpointServiceArgs struct {
 	// The common name of an AWS service (e.g. `s3`).
 	Service *string `pulumi:"service"`
 	// The service name that can be specified when creating a VPC endpoint.
-	ServiceName *string `pulumi:"serviceName"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	ServiceName *string                `pulumi:"serviceName"`
+	Tags        map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getVpcEndpointService.
 type LookupVpcEndpointServiceResult struct {
@@ -46,10 +45,10 @@ type LookupVpcEndpointServiceResult struct {
 	// The AWS account ID of the service owner or `amazon`.
 	Owner string `pulumi:"owner"`
 	// The private DNS name for the service.
-	PrivateDnsName string `pulumi:"privateDnsName"`
-	Service *string `pulumi:"service"`
+	PrivateDnsName string  `pulumi:"privateDnsName"`
+	Service        *string `pulumi:"service"`
 	// The ID of the endpoint service.
-	ServiceId string `pulumi:"serviceId"`
+	ServiceId   string `pulumi:"serviceId"`
 	ServiceName string `pulumi:"serviceName"`
 	// The service type, `Gateway` or `Interface`.
 	ServiceType string `pulumi:"serviceType"`
@@ -58,4 +57,3 @@ type LookupVpcEndpointServiceResult struct {
 	// Whether or not the service supports endpoint policies - `true` or `false`.
 	VpcEndpointPolicySupported bool `pulumi:"vpcEndpointPolicySupported"`
 }
-

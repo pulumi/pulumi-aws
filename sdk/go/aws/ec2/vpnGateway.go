@@ -105,4 +105,3 @@ type VpnGatewayArgs struct {
 func (VpnGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnGatewayArgs)(nil)).Elem()
 }
-

@@ -107,4 +107,3 @@ type VaultArgs struct {
 func (VaultArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vaultArgs)(nil)).Elem()
 }
-

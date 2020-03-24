@@ -10,10 +10,10 @@ import (
 
 // Use this data source to lookup information about IAM Server Certificates.
 //
-// ## Import 
+// ## Import
 //
-// The import function will read in certificate body, certificate chain (if it exists), id, name, path, and arn. 
-// It will not retrieve the private key which is not available through the AWS API.   
+// The import function will read in certificate body, certificate chain (if it exists), id, name, path, and arn.
+// It will not retrieve the private key which is not available through the AWS API.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_server_certificate.html.markdown.
 func LookupServerCertificate(ctx *pulumi.Context, args *LookupServerCertificateArgs, opts ...pulumi.InvokeOption) (*LookupServerCertificateResult, error) {
@@ -37,20 +37,18 @@ type LookupServerCertificateArgs struct {
 	PathPrefix *string `pulumi:"pathPrefix"`
 }
 
-
 // A collection of values returned by getServerCertificate.
 type LookupServerCertificateResult struct {
-	Arn string `pulumi:"arn"`
-	CertificateBody string `pulumi:"certificateBody"`
+	Arn              string `pulumi:"arn"`
+	CertificateBody  string `pulumi:"certificateBody"`
 	CertificateChain string `pulumi:"certificateChain"`
-	ExpirationDate string `pulumi:"expirationDate"`
+	ExpirationDate   string `pulumi:"expirationDate"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Latest *bool `pulumi:"latest"`
-	Name string `pulumi:"name"`
+	Id         string  `pulumi:"id"`
+	Latest     *bool   `pulumi:"latest"`
+	Name       string  `pulumi:"name"`
 	NamePrefix *string `pulumi:"namePrefix"`
-	Path string `pulumi:"path"`
+	Path       string  `pulumi:"path"`
 	PathPrefix *string `pulumi:"pathPrefix"`
-	UploadDate string `pulumi:"uploadDate"`
+	UploadDate string  `pulumi:"uploadDate"`
 }
-

@@ -183,8 +183,8 @@ type Instance struct {
 	Port pulumi.IntOutput `pulumi:"port"`
 	// Bool to control if instance is publicly
 	// accessible. Default is `false`.
-	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
-	Replicas pulumi.StringArrayOutput `pulumi:"replicas"`
+	PubliclyAccessible pulumi.BoolPtrOutput     `pulumi:"publiclyAccessible"`
+	Replicas           pulumi.StringArrayOutput `pulumi:"replicas"`
 	// Specifies that this resource is a Replicate
 	// database, and to use this value as the source database. This correlates to the
 	// `identifier` of another Amazon RDS Database to replicate. Note that if you are
@@ -410,8 +410,8 @@ type instanceState struct {
 	Port *int `pulumi:"port"`
 	// Bool to control if instance is publicly
 	// accessible. Default is `false`.
-	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	Replicas []string `pulumi:"replicas"`
+	PubliclyAccessible *bool    `pulumi:"publiclyAccessible"`
+	Replicas           []string `pulumi:"replicas"`
 	// Specifies that this resource is a Replicate
 	// database, and to use this value as the source database. This correlates to the
 	// `identifier` of another Amazon RDS Database to replicate. Note that if you are
@@ -608,7 +608,7 @@ type InstanceState struct {
 	// Bool to control if instance is publicly
 	// accessible. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrInput
-	Replicas pulumi.StringArrayInput
+	Replicas           pulumi.StringArrayInput
 	// Specifies that this resource is a Replicate
 	// database, and to use this value as the source database. This correlates to the
 	// `identifier` of another Amazon RDS Database to replicate. Note that if you are
@@ -1036,4 +1036,3 @@ type InstanceArgs struct {
 func (InstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceArgs)(nil)).Elem()
 }
-

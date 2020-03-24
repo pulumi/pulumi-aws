@@ -88,4 +88,3 @@ type QueuePolicyArgs struct {
 func (QueuePolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*queuePolicyArgs)(nil)).Elem()
 }
-

@@ -75,4 +75,3 @@ type ConfigurationSetArgs struct {
 func (ConfigurationSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationSetArgs)(nil)).Elem()
 }
-

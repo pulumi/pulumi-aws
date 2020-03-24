@@ -25,17 +25,16 @@ type LookupCustomerGatewayArgs struct {
 	// One or more [name-value pairs][dcg-filters] to filter by.
 	Filters []GetCustomerGatewayFilter `pulumi:"filters"`
 	// The ID of the gateway.
-	Id *string `pulumi:"id"`
+	Id   *string                `pulumi:"id"`
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getCustomerGateway.
 type LookupCustomerGatewayResult struct {
 	// (Optional) The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-	BgpAsn int `pulumi:"bgpAsn"`
+	BgpAsn  int                        `pulumi:"bgpAsn"`
 	Filters []GetCustomerGatewayFilter `pulumi:"filters"`
-	Id *string `pulumi:"id"`
+	Id      *string                    `pulumi:"id"`
 	// (Optional) The IP address of the gateway's Internet-routable external interface.
 	IpAddress string `pulumi:"ipAddress"`
 	// Map of key-value pairs assigned to the gateway.
@@ -43,4 +42,3 @@ type LookupCustomerGatewayResult struct {
 	// (Optional) The type of customer gateway. The only type AWS supports at this time is "ipsec.1".
 	Type string `pulumi:"type"`
 }
-

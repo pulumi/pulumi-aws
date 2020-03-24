@@ -36,9 +36,8 @@ type LookupInstanceArgs struct {
 	// A mapping of tags, each pair of which must
 	// exactly match a pair on the desired Instance.
 	InstanceTags map[string]interface{} `pulumi:"instanceTags"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags         map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getInstance.
 type LookupInstanceResult struct {
@@ -51,27 +50,27 @@ type LookupInstanceResult struct {
 	// The availability zone of the Instance.
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// The credit specification of the Instance.
-	CreditSpecifications []GetInstanceCreditSpecification `pulumi:"creditSpecifications"`
-	DisableApiTermination bool `pulumi:"disableApiTermination"`
+	CreditSpecifications  []GetInstanceCreditSpecification `pulumi:"creditSpecifications"`
+	DisableApiTermination bool                             `pulumi:"disableApiTermination"`
 	// The EBS block device mappings of the Instance.
 	EbsBlockDevices []GetInstanceEbsBlockDevice `pulumi:"ebsBlockDevices"`
 	// Whether the Instance is EBS optimized or not (Boolean).
 	EbsOptimized bool `pulumi:"ebsOptimized"`
 	// The ephemeral block device mappings of the Instance.
 	EphemeralBlockDevices []GetInstanceEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
-	Filters []GetInstanceFilter `pulumi:"filters"`
-	GetPasswordData *bool `pulumi:"getPasswordData"`
-	GetUserData *bool `pulumi:"getUserData"`
+	Filters               []GetInstanceFilter               `pulumi:"filters"`
+	GetPasswordData       *bool                             `pulumi:"getPasswordData"`
+	GetUserData           *bool                             `pulumi:"getUserData"`
 	// The Id of the dedicated host the instance will be assigned to.
 	HostId string `pulumi:"hostId"`
 	// The name of the instance profile associated with the Instance.
 	IamInstanceProfile string `pulumi:"iamInstanceProfile"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id         string  `pulumi:"id"`
 	InstanceId *string `pulumi:"instanceId"`
 	// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
-	InstanceState string `pulumi:"instanceState"`
-	InstanceTags map[string]interface{} `pulumi:"instanceTags"`
+	InstanceState string                 `pulumi:"instanceState"`
+	InstanceTags  map[string]interface{} `pulumi:"instanceTags"`
 	// The type of the Instance.
 	InstanceType string `pulumi:"instanceType"`
 	// The key name of the Instance.
@@ -117,4 +116,3 @@ type LookupInstanceResult struct {
 	// The associated security groups in a non-default VPC.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
-

@@ -141,4 +141,3 @@ type VirtualNodeArgs struct {
 func (VirtualNodeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualNodeArgs)(nil)).Elem()
 }
-

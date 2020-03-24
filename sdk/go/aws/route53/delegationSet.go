@@ -89,4 +89,3 @@ type DelegationSetArgs struct {
 func (DelegationSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*delegationSetArgs)(nil)).Elem()
 }
-

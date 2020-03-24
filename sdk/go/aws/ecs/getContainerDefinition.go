@@ -29,7 +29,6 @@ type GetContainerDefinitionArgs struct {
 	TaskDefinition string `pulumi:"taskDefinition"`
 }
 
-
 // A collection of values returned by getContainerDefinition.
 type GetContainerDefinitionResult struct {
 	ContainerName string `pulumi:"containerName"`
@@ -50,7 +49,6 @@ type GetContainerDefinitionResult struct {
 	// The memory limit for this container definition
 	Memory int `pulumi:"memory"`
 	// The soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
-	MemoryReservation int `pulumi:"memoryReservation"`
-	TaskDefinition string `pulumi:"taskDefinition"`
+	MemoryReservation int    `pulumi:"memoryReservation"`
+	TaskDefinition    string `pulumi:"taskDefinition"`
 }
-

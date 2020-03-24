@@ -142,4 +142,3 @@ type EventDestinationArgs struct {
 func (EventDestinationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventDestinationArgs)(nil)).Elem()
 }
-

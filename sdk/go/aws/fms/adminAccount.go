@@ -75,4 +75,3 @@ type AdminAccountArgs struct {
 func (AdminAccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*adminAccountArgs)(nil)).Elem()
 }
-

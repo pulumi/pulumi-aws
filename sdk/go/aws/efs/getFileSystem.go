@@ -25,20 +25,19 @@ type LookupFileSystemArgs struct {
 	// Restricts the list to the file system with this creation token.
 	CreationToken *string `pulumi:"creationToken"`
 	// The ID that identifies the file system (e.g. fs-ccfc0d65).
-	FileSystemId *string `pulumi:"fileSystemId"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	FileSystemId *string                `pulumi:"fileSystemId"`
+	Tags         map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getFileSystem.
 type LookupFileSystemResult struct {
 	// Amazon Resource Name of the file system.
-	Arn string `pulumi:"arn"`
+	Arn           string `pulumi:"arn"`
 	CreationToken string `pulumi:"creationToken"`
 	// The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
 	DnsName string `pulumi:"dnsName"`
 	// Whether EFS is encrypted.
-	Encrypted bool `pulumi:"encrypted"`
+	Encrypted    bool   `pulumi:"encrypted"`
 	FileSystemId string `pulumi:"fileSystemId"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -50,9 +49,8 @@ type LookupFileSystemResult struct {
 	PerformanceMode string `pulumi:"performanceMode"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system.
 	// * `tags` -A mapping of tags to assign to the file system.
-	ProvisionedThroughputInMibps float64 `pulumi:"provisionedThroughputInMibps"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	ProvisionedThroughputInMibps float64                `pulumi:"provisionedThroughputInMibps"`
+	Tags                         map[string]interface{} `pulumi:"tags"`
 	// Throughput mode for the file system.
 	ThroughputMode string `pulumi:"throughputMode"`
 }
-

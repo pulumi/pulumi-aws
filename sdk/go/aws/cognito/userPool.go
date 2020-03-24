@@ -279,4 +279,3 @@ type UserPoolArgs struct {
 func (UserPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolArgs)(nil)).Elem()
 }
-

@@ -125,4 +125,3 @@ type SmsPreferencesArgs struct {
 func (SmsPreferencesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*smsPreferencesArgs)(nil)).Elem()
 }
-

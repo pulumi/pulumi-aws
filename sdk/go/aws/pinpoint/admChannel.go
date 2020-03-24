@@ -118,4 +118,3 @@ type AdmChannelArgs struct {
 func (AdmChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*admChannelArgs)(nil)).Elem()
 }
-

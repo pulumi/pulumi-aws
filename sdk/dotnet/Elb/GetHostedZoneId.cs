@@ -17,7 +17,19 @@ namespace Pulumi.Aws.Elb
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_hosted_zone_id.html.markdown.
         /// </summary>
+        [Obsolete("Use GetHostedZoneId.InvokeAsync() instead")]
         public static Task<GetHostedZoneIdResult> GetHostedZoneId(GetHostedZoneIdArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneIdResult>("aws:elb/getHostedZoneId:getHostedZoneId", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetHostedZoneId
+    {
+        /// <summary>
+        /// Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
+        /// in a given region for the purpose of using in an AWS Route53 Alias.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_hosted_zone_id.html.markdown.
+        /// </summary>
+        public static Task<GetHostedZoneIdResult> InvokeAsync(GetHostedZoneIdArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneIdResult>("aws:elb/getHostedZoneId:getHostedZoneId", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

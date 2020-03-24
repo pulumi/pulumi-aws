@@ -22,7 +22,24 @@ namespace Pulumi.Aws.LB
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_listener.html.markdown.
         /// </summary>
+        [Obsolete("Use GetListener.InvokeAsync() instead")]
         public static Task<GetListenerResult> GetListener(GetListenerArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetListenerResult>("aws:lb/getListener:getListener", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetListener
+    {
+        /// <summary>
+        /// &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
+        /// 
+        /// Provides information about a Load Balancer Listener.
+        /// 
+        /// This data source can prove useful when a module accepts an LB Listener as an
+        /// input variable and needs to know the LB it is attached to, or other
+        /// information specific to the listener in question.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_listener.html.markdown.
+        /// </summary>
+        public static Task<GetListenerResult> InvokeAsync(GetListenerArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetListenerResult>("aws:lb/getListener:getListener", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

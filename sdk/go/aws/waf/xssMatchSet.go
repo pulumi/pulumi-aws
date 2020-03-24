@@ -91,4 +91,3 @@ type XssMatchSetArgs struct {
 func (XssMatchSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*xssMatchSetArgs)(nil)).Elem()
 }
-

@@ -188,4 +188,3 @@ type AnalyticsApplicationArgs struct {
 func (AnalyticsApplicationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyticsApplicationArgs)(nil)).Elem()
 }
-

@@ -160,4 +160,3 @@ type IdentityPoolArgs struct {
 func (IdentityPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityPoolArgs)(nil)).Elem()
 }
-

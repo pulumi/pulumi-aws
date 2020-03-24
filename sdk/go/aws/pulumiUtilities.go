@@ -9,7 +9,6 @@ import (
 	"strconv"
 )
 
-
 type envParser func(v string) interface{}
 
 func parseEnvBool(v string) interface{} {

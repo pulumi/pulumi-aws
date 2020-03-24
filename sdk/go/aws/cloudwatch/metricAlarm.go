@@ -338,4 +338,3 @@ type MetricAlarmArgs struct {
 func (MetricAlarmArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*metricAlarmArgs)(nil)).Elem()
 }
-

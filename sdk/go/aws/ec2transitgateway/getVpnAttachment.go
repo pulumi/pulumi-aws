@@ -29,14 +29,12 @@ type GetVpnAttachmentArgs struct {
 	VpnConnectionId string `pulumi:"vpnConnectionId"`
 }
 
-
 // A collection of values returned by getVpnAttachment.
 type GetVpnAttachmentResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Key-value tags for the EC2 Transit Gateway VPN Attachment
-	Tags map[string]interface{} `pulumi:"tags"`
-	TransitGatewayId string `pulumi:"transitGatewayId"`
-	VpnConnectionId string `pulumi:"vpnConnectionId"`
+	Tags             map[string]interface{} `pulumi:"tags"`
+	TransitGatewayId string                 `pulumi:"transitGatewayId"`
+	VpnConnectionId  string                 `pulumi:"vpnConnectionId"`
 }
-

@@ -364,4 +364,3 @@ type LaunchConfigurationArgs struct {
 func (LaunchConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchConfigurationArgs)(nil)).Elem()
 }
-

@@ -203,4 +203,3 @@ type LayerVersionArgs struct {
 func (LayerVersionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*layerVersionArgs)(nil)).Elem()
 }
-

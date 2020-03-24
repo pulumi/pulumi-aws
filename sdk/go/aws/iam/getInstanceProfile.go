@@ -28,7 +28,6 @@ type LookupInstanceProfileArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getInstanceProfile.
 type LookupInstanceProfileResult struct {
 	// The Amazon Resource Name (ARN) specifying the instance profile.
@@ -37,7 +36,7 @@ type LookupInstanceProfileResult struct {
 	// was created.
 	CreateDate string `pulumi:"createDate"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The path to the instance profile.
 	Path string `pulumi:"path"`
@@ -48,4 +47,3 @@ type LookupInstanceProfileResult struct {
 	// The role name associated with this instance profile.
 	RoleName string `pulumi:"roleName"`
 }
-

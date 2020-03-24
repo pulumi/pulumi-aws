@@ -23,11 +23,10 @@ func LookupCertificateAuthority(ctx *pulumi.Context, args *LookupCertificateAuth
 // A collection of arguments for invoking getCertificateAuthority.
 type LookupCertificateAuthorityArgs struct {
 	// Amazon Resource Name (ARN) of the certificate authority.
-	Arn string `pulumi:"arn"`
+	Arn                      string                                           `pulumi:"arn"`
 	RevocationConfigurations []GetCertificateAuthorityRevocationConfiguration `pulumi:"revocationConfigurations"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags                     map[string]interface{}                           `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getCertificateAuthority.
 type LookupCertificateAuthorityResult struct {
@@ -60,4 +59,3 @@ type LookupCertificateAuthorityResult struct {
 	// The type of the certificate authority.
 	Type string `pulumi:"type"`
 }
-

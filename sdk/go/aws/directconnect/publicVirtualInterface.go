@@ -196,4 +196,3 @@ type PublicVirtualInterfaceArgs struct {
 func (PublicVirtualInterfaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicVirtualInterfaceArgs)(nil)).Elem()
 }
-

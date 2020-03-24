@@ -19,7 +19,21 @@ namespace Pulumi.Aws.ApiGateway
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_rest_api.html.markdown.
         /// </summary>
+        [Obsolete("Use GetRestApi.InvokeAsync() instead")]
         public static Task<GetRestApiResult> GetRestApi(GetRestApiArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRestApiResult>("aws:apigateway/getRestApi:getRestApi", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetRestApi
+    {
+        /// <summary>
+        /// Use this data source to get the id and root_resource_id of a REST API in
+        /// API Gateway. To fetch the REST API you must provide a name to match against. 
+        /// As there is no unique name constraint on REST APIs this data source will 
+        /// error if there is more than one match.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_rest_api.html.markdown.
+        /// </summary>
+        public static Task<GetRestApiResult> InvokeAsync(GetRestApiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRestApiResult>("aws:apigateway/getRestApi:getRestApi", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

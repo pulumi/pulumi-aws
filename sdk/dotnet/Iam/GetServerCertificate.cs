@@ -21,7 +21,23 @@ namespace Pulumi.Aws.Iam
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_server_certificate.html.markdown.
         /// </summary>
+        [Obsolete("Use GetServerCertificate.InvokeAsync() instead")]
         public static Task<GetServerCertificateResult> GetServerCertificate(GetServerCertificateArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerCertificateResult>("aws:iam/getServerCertificate:getServerCertificate", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetServerCertificate
+    {
+        /// <summary>
+        /// Use this data source to lookup information about IAM Server Certificates.
+        /// 
+        /// ## Import 
+        /// 
+        /// The import function will read in certificate body, certificate chain (if it exists), id, name, path, and arn. 
+        /// It will not retrieve the private key which is not available through the AWS API.   
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_server_certificate.html.markdown.
+        /// </summary>
+        public static Task<GetServerCertificateResult> InvokeAsync(GetServerCertificateArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerCertificateResult>("aws:iam/getServerCertificate:getServerCertificate", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

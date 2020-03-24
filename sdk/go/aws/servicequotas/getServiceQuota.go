@@ -30,7 +30,6 @@ type LookupServiceQuotaArgs struct {
 	ServiceCode string `pulumi:"serviceCode"`
 }
 
-
 // A collection of values returned by getServiceQuota.
 type LookupServiceQuotaResult struct {
 	// Whether the service quota is adjustable.
@@ -42,13 +41,12 @@ type LookupServiceQuotaResult struct {
 	// Whether the service quota is global for the AWS account.
 	GlobalQuota bool `pulumi:"globalQuota"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	QuotaCode string `pulumi:"quotaCode"`
-	QuotaName string `pulumi:"quotaName"`
+	Id          string `pulumi:"id"`
+	QuotaCode   string `pulumi:"quotaCode"`
+	QuotaName   string `pulumi:"quotaName"`
 	ServiceCode string `pulumi:"serviceCode"`
 	// Name of the service.
 	ServiceName string `pulumi:"serviceName"`
 	// Current value of the service quota.
 	Value float64 `pulumi:"value"`
 }
-

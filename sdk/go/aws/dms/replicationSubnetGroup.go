@@ -124,4 +124,3 @@ type ReplicationSubnetGroupArgs struct {
 func (ReplicationSubnetGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationSubnetGroupArgs)(nil)).Elem()
 }
-

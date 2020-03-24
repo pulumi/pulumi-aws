@@ -126,4 +126,3 @@ type UserPoolDomainArgs struct {
 func (UserPoolDomainArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPoolDomainArgs)(nil)).Elem()
 }
-

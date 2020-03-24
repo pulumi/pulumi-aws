@@ -30,7 +30,6 @@ type LookupReportDefinitionArgs struct {
 	ReportName string `pulumi:"reportName"`
 }
 
-
 // A collection of values returned by getReportDefinition.
 type LookupReportDefinitionResult struct {
 	// A list of additional artifacts.
@@ -42,7 +41,7 @@ type LookupReportDefinitionResult struct {
 	// Preferred compression format for report.
 	Format string `pulumi:"format"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id         string `pulumi:"id"`
 	ReportName string `pulumi:"reportName"`
 	// Name of customer S3 bucket.
 	S3Bucket string `pulumi:"s3Bucket"`
@@ -53,4 +52,3 @@ type LookupReportDefinitionResult struct {
 	// The frequency on which report data are measured and displayed.
 	TimeUnit string `pulumi:"timeUnit"`
 }
-

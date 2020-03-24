@@ -92,4 +92,3 @@ type SpotDatafeedSubscriptionArgs struct {
 func (SpotDatafeedSubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*spotDatafeedSubscriptionArgs)(nil)).Elem()
 }
-

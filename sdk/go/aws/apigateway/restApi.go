@@ -37,7 +37,7 @@ type RestApi struct {
 	// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
 	MinimumCompressionSize pulumi.IntPtrOutput `pulumi:"minimumCompressionSize"`
 	// The name of the REST API
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name   pulumi.StringOutput    `pulumi:"name"`
 	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// The resource ID of the REST API's root
 	RootResourceId pulumi.StringOutput `pulumi:"rootResourceId"`
@@ -94,7 +94,7 @@ type restApiState struct {
 	// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
 	MinimumCompressionSize *int `pulumi:"minimumCompressionSize"`
 	// The name of the REST API
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
 	Policy *string `pulumi:"policy"`
 	// The resource ID of the REST API's root
 	RootResourceId *string `pulumi:"rootResourceId"`
@@ -124,7 +124,7 @@ type RestApiState struct {
 	// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
 	MinimumCompressionSize pulumi.IntPtrInput
 	// The name of the REST API
-	Name pulumi.StringPtrInput
+	Name   pulumi.StringPtrInput
 	Policy pulumi.StringPtrInput
 	// The resource ID of the REST API's root
 	RootResourceId pulumi.StringPtrInput
@@ -150,7 +150,7 @@ type restApiArgs struct {
 	// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
 	MinimumCompressionSize *int `pulumi:"minimumCompressionSize"`
 	// The name of the REST API
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
 	Policy *string `pulumi:"policy"`
 	// Key-value mapping of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -171,7 +171,7 @@ type RestApiArgs struct {
 	// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
 	MinimumCompressionSize pulumi.IntPtrInput
 	// The name of the REST API
-	Name pulumi.StringPtrInput
+	Name   pulumi.StringPtrInput
 	Policy pulumi.StringPtrInput
 	// Key-value mapping of resource tags
 	Tags pulumi.MapInput
@@ -180,4 +180,3 @@ type RestApiArgs struct {
 func (RestApiArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*restApiArgs)(nil)).Elem()
 }
-

@@ -85,4 +85,3 @@ type SqlInjectionMatchSetArgs struct {
 func (SqlInjectionMatchSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sqlInjectionMatchSetArgs)(nil)).Elem()
 }
-

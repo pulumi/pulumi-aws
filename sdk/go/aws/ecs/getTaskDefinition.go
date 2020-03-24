@@ -27,7 +27,6 @@ type LookupTaskDefinitionArgs struct {
 	TaskDefinition string `pulumi:"taskDefinition"`
 }
 
-
 // A collection of values returned by getTaskDefinition.
 type LookupTaskDefinitionResult struct {
 	// The family of this task definition
@@ -39,9 +38,8 @@ type LookupTaskDefinitionResult struct {
 	// The revision of this task definition
 	Revision int `pulumi:"revision"`
 	// The status of this task definition
-	Status string `pulumi:"status"`
+	Status         string `pulumi:"status"`
 	TaskDefinition string `pulumi:"taskDefinition"`
 	// The ARN of the IAM role that containers in this task can assume
 	TaskRoleArn string `pulumi:"taskRoleArn"`
 }
-

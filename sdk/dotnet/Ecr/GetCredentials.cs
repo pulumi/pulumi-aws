@@ -11,7 +11,13 @@ namespace Pulumi.Aws.Ecr
 {
     public static partial class Invokes
     {
+        [Obsolete("Use GetCredentials.InvokeAsync() instead")]
         public static Task<GetCredentialsResult> GetCredentials(GetCredentialsArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCredentialsResult>("aws:ecr/getCredentials:getCredentials", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetCredentials
+    {
+        public static Task<GetCredentialsResult> InvokeAsync(GetCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCredentialsResult>("aws:ecr/getCredentials:getCredentials", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

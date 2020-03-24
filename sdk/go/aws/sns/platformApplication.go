@@ -188,4 +188,3 @@ type PlatformApplicationArgs struct {
 func (PlatformApplicationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*platformApplicationArgs)(nil)).Elem()
 }
-

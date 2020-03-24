@@ -300,4 +300,3 @@ type BrokerArgs struct {
 func (BrokerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*brokerArgs)(nil)).Elem()
 }
-

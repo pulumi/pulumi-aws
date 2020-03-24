@@ -182,4 +182,3 @@ type LustreFileSystemArgs struct {
 func (LustreFileSystemArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*lustreFileSystemArgs)(nil)).Elem()
 }
-

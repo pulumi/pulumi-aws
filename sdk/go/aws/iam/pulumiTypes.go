@@ -73,7 +73,7 @@ func (i GetGroupUserArray) ToGetGroupUserArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupUserArrayOutput)
 }
 
-type GetGroupUserOutput struct { *pulumi.OutputState }
+type GetGroupUserOutput struct{ *pulumi.OutputState }
 
 func (GetGroupUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetGroupUser)(nil)).Elem()
@@ -89,25 +89,25 @@ func (o GetGroupUserOutput) ToGetGroupUserOutputWithContext(ctx context.Context)
 
 // The Amazon Resource Name (ARN) specifying the iam user.
 func (o GetGroupUserOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func (v GetGroupUser) string { return v.Arn }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetGroupUser) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The path to the iam user.
 func (o GetGroupUserOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func (v GetGroupUser) string { return v.Path }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetGroupUser) string { return v.Path }).(pulumi.StringOutput)
 }
 
 // The stable and unique string identifying the iam user.
 func (o GetGroupUserOutput) UserId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetGroupUser) string { return v.UserId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetGroupUser) string { return v.UserId }).(pulumi.StringOutput)
 }
 
 // The name of the iam user.
 func (o GetGroupUserOutput) UserName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetGroupUser) string { return v.UserName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetGroupUser) string { return v.UserName }).(pulumi.StringOutput)
 }
 
-type GetGroupUserArrayOutput struct { *pulumi.OutputState}
+type GetGroupUserArrayOutput struct{ *pulumi.OutputState }
 
 func (GetGroupUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetGroupUser)(nil)).Elem()
@@ -122,7 +122,7 @@ func (o GetGroupUserArrayOutput) ToGetGroupUserArrayOutputWithContext(ctx contex
 }
 
 func (o GetGroupUserArrayOutput) Index(i pulumi.IntInput) GetGroupUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetGroupUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGroupUser {
 		return vs[0].([]GetGroupUser)[vs[1].(int)]
 	}).(GetGroupUserOutput)
 }
@@ -231,7 +231,7 @@ func (i GetPolicyDocumentStatementArray) ToGetPolicyDocumentStatementArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyDocumentStatementArrayOutput)
 }
 
-type GetPolicyDocumentStatementOutput struct { *pulumi.OutputState }
+type GetPolicyDocumentStatementOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyDocumentStatementOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetPolicyDocumentStatement)(nil)).Elem()
@@ -248,60 +248,60 @@ func (o GetPolicyDocumentStatementOutput) ToGetPolicyDocumentStatementOutputWith
 // A list of actions that this statement either allows
 // or denies. For example, ``["ec2:RunInstances", "s3:*"]``.
 func (o GetPolicyDocumentStatementOutput) Actions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetPolicyDocumentStatement) []string { return v.Actions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetPolicyDocumentStatement) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
 // A nested configuration block (described below)
 // that defines a further, possibly-service-specific condition that constrains
 // whether this statement applies.
 func (o GetPolicyDocumentStatementOutput) Conditions() GetPolicyDocumentStatementConditionArrayOutput {
-	return o.ApplyT(func (v GetPolicyDocumentStatement) []GetPolicyDocumentStatementCondition { return v.Conditions }).(GetPolicyDocumentStatementConditionArrayOutput)
+	return o.ApplyT(func(v GetPolicyDocumentStatement) []GetPolicyDocumentStatementCondition { return v.Conditions }).(GetPolicyDocumentStatementConditionArrayOutput)
 }
 
 // Either "Allow" or "Deny", to specify whether this
 // statement allows or denies the given actions. The default is "Allow".
 func (o GetPolicyDocumentStatementOutput) Effect() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetPolicyDocumentStatement) *string { return v.Effect }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetPolicyDocumentStatement) *string { return v.Effect }).(pulumi.StringPtrOutput)
 }
 
 // A list of actions that this statement does *not*
 // apply to. Used to apply a policy statement to all actions *except* those
 // listed.
 func (o GetPolicyDocumentStatementOutput) NotActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetPolicyDocumentStatement) []string { return v.NotActions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetPolicyDocumentStatement) []string { return v.NotActions }).(pulumi.StringArrayOutput)
 }
 
 // Like `principals` except gives resources that
 // the statement does *not* apply to.
 func (o GetPolicyDocumentStatementOutput) NotPrincipals() GetPolicyDocumentStatementNotPrincipalArrayOutput {
-	return o.ApplyT(func (v GetPolicyDocumentStatement) []GetPolicyDocumentStatementNotPrincipal { return v.NotPrincipals }).(GetPolicyDocumentStatementNotPrincipalArrayOutput)
+	return o.ApplyT(func(v GetPolicyDocumentStatement) []GetPolicyDocumentStatementNotPrincipal { return v.NotPrincipals }).(GetPolicyDocumentStatementNotPrincipalArrayOutput)
 }
 
 // A list of resource ARNs that this statement
 // does *not* apply to. Used to apply a policy statement to all resources
 // *except* those listed.
 func (o GetPolicyDocumentStatementOutput) NotResources() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetPolicyDocumentStatement) []string { return v.NotResources }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetPolicyDocumentStatement) []string { return v.NotResources }).(pulumi.StringArrayOutput)
 }
 
 // A nested configuration block (described below)
 // specifying a resource (or resource pattern) to which this statement applies.
 func (o GetPolicyDocumentStatementOutput) Principals() GetPolicyDocumentStatementPrincipalArrayOutput {
-	return o.ApplyT(func (v GetPolicyDocumentStatement) []GetPolicyDocumentStatementPrincipal { return v.Principals }).(GetPolicyDocumentStatementPrincipalArrayOutput)
+	return o.ApplyT(func(v GetPolicyDocumentStatement) []GetPolicyDocumentStatementPrincipal { return v.Principals }).(GetPolicyDocumentStatementPrincipalArrayOutput)
 }
 
 // A list of resource ARNs that this statement applies
 // to. This is required by AWS if used for an IAM policy.
 func (o GetPolicyDocumentStatementOutput) Resources() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetPolicyDocumentStatement) []string { return v.Resources }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetPolicyDocumentStatement) []string { return v.Resources }).(pulumi.StringArrayOutput)
 }
 
 // An ID for the policy statement.
 func (o GetPolicyDocumentStatementOutput) Sid() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetPolicyDocumentStatement) *string { return v.Sid }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetPolicyDocumentStatement) *string { return v.Sid }).(pulumi.StringPtrOutput)
 }
 
-type GetPolicyDocumentStatementArrayOutput struct { *pulumi.OutputState}
+type GetPolicyDocumentStatementArrayOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyDocumentStatementArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetPolicyDocumentStatement)(nil)).Elem()
@@ -316,7 +316,7 @@ func (o GetPolicyDocumentStatementArrayOutput) ToGetPolicyDocumentStatementArray
 }
 
 func (o GetPolicyDocumentStatementArrayOutput) Index(i pulumi.IntInput) GetPolicyDocumentStatementOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetPolicyDocumentStatement {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyDocumentStatement {
 		return vs[0].([]GetPolicyDocumentStatement)[vs[1].(int)]
 	}).(GetPolicyDocumentStatementOutput)
 }
@@ -395,7 +395,7 @@ func (i GetPolicyDocumentStatementConditionArray) ToGetPolicyDocumentStatementCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyDocumentStatementConditionArrayOutput)
 }
 
-type GetPolicyDocumentStatementConditionOutput struct { *pulumi.OutputState }
+type GetPolicyDocumentStatementConditionOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyDocumentStatementConditionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetPolicyDocumentStatementCondition)(nil)).Elem()
@@ -413,14 +413,14 @@ func (o GetPolicyDocumentStatementConditionOutput) ToGetPolicyDocumentStatementC
 // [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html)
 // to evaluate.
 func (o GetPolicyDocumentStatementConditionOutput) Test() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPolicyDocumentStatementCondition) string { return v.Test }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPolicyDocumentStatementCondition) string { return v.Test }).(pulumi.StringOutput)
 }
 
 // The values to evaluate the condition against. If multiple
 // values are provided, the condition matches if at least one of them applies.
 // (That is, the tests are combined with the "OR" boolean operation.)
 func (o GetPolicyDocumentStatementConditionOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetPolicyDocumentStatementCondition) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetPolicyDocumentStatementCondition) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
 // The name of a
@@ -429,10 +429,10 @@ func (o GetPolicyDocumentStatementConditionOutput) Values() pulumi.StringArrayOu
 // variables starting with `aws:`, or service-specific variables prefixed with
 // the service name.
 func (o GetPolicyDocumentStatementConditionOutput) Variable() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPolicyDocumentStatementCondition) string { return v.Variable }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPolicyDocumentStatementCondition) string { return v.Variable }).(pulumi.StringOutput)
 }
 
-type GetPolicyDocumentStatementConditionArrayOutput struct { *pulumi.OutputState}
+type GetPolicyDocumentStatementConditionArrayOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyDocumentStatementConditionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetPolicyDocumentStatementCondition)(nil)).Elem()
@@ -447,7 +447,7 @@ func (o GetPolicyDocumentStatementConditionArrayOutput) ToGetPolicyDocumentState
 }
 
 func (o GetPolicyDocumentStatementConditionArrayOutput) Index(i pulumi.IntInput) GetPolicyDocumentStatementConditionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetPolicyDocumentStatementCondition {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyDocumentStatementCondition {
 		return vs[0].([]GetPolicyDocumentStatementCondition)[vs[1].(int)]
 	}).(GetPolicyDocumentStatementConditionOutput)
 }
@@ -508,7 +508,7 @@ func (i GetPolicyDocumentStatementNotPrincipalArray) ToGetPolicyDocumentStatemen
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyDocumentStatementNotPrincipalArrayOutput)
 }
 
-type GetPolicyDocumentStatementNotPrincipalOutput struct { *pulumi.OutputState }
+type GetPolicyDocumentStatementNotPrincipalOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyDocumentStatementNotPrincipalOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetPolicyDocumentStatementNotPrincipal)(nil)).Elem()
@@ -525,15 +525,15 @@ func (o GetPolicyDocumentStatementNotPrincipalOutput) ToGetPolicyDocumentStateme
 // List of identifiers for principals. When `type`
 // is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`.
 func (o GetPolicyDocumentStatementNotPrincipalOutput) Identifiers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetPolicyDocumentStatementNotPrincipal) []string { return v.Identifiers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetPolicyDocumentStatementNotPrincipal) []string { return v.Identifiers }).(pulumi.StringArrayOutput)
 }
 
 // The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service".
 func (o GetPolicyDocumentStatementNotPrincipalOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPolicyDocumentStatementNotPrincipal) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPolicyDocumentStatementNotPrincipal) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type GetPolicyDocumentStatementNotPrincipalArrayOutput struct { *pulumi.OutputState}
+type GetPolicyDocumentStatementNotPrincipalArrayOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyDocumentStatementNotPrincipalArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetPolicyDocumentStatementNotPrincipal)(nil)).Elem()
@@ -548,7 +548,7 @@ func (o GetPolicyDocumentStatementNotPrincipalArrayOutput) ToGetPolicyDocumentSt
 }
 
 func (o GetPolicyDocumentStatementNotPrincipalArrayOutput) Index(i pulumi.IntInput) GetPolicyDocumentStatementNotPrincipalOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetPolicyDocumentStatementNotPrincipal {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyDocumentStatementNotPrincipal {
 		return vs[0].([]GetPolicyDocumentStatementNotPrincipal)[vs[1].(int)]
 	}).(GetPolicyDocumentStatementNotPrincipalOutput)
 }
@@ -609,7 +609,7 @@ func (i GetPolicyDocumentStatementPrincipalArray) ToGetPolicyDocumentStatementPr
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyDocumentStatementPrincipalArrayOutput)
 }
 
-type GetPolicyDocumentStatementPrincipalOutput struct { *pulumi.OutputState }
+type GetPolicyDocumentStatementPrincipalOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyDocumentStatementPrincipalOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetPolicyDocumentStatementPrincipal)(nil)).Elem()
@@ -626,15 +626,15 @@ func (o GetPolicyDocumentStatementPrincipalOutput) ToGetPolicyDocumentStatementP
 // List of identifiers for principals. When `type`
 // is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`.
 func (o GetPolicyDocumentStatementPrincipalOutput) Identifiers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetPolicyDocumentStatementPrincipal) []string { return v.Identifiers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetPolicyDocumentStatementPrincipal) []string { return v.Identifiers }).(pulumi.StringArrayOutput)
 }
 
 // The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service".
 func (o GetPolicyDocumentStatementPrincipalOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v GetPolicyDocumentStatementPrincipal) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetPolicyDocumentStatementPrincipal) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type GetPolicyDocumentStatementPrincipalArrayOutput struct { *pulumi.OutputState}
+type GetPolicyDocumentStatementPrincipalArrayOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyDocumentStatementPrincipalArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetPolicyDocumentStatementPrincipal)(nil)).Elem()
@@ -649,7 +649,7 @@ func (o GetPolicyDocumentStatementPrincipalArrayOutput) ToGetPolicyDocumentState
 }
 
 func (o GetPolicyDocumentStatementPrincipalArrayOutput) Index(i pulumi.IntInput) GetPolicyDocumentStatementPrincipalOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetPolicyDocumentStatementPrincipal {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyDocumentStatementPrincipal {
 		return vs[0].([]GetPolicyDocumentStatementPrincipal)[vs[1].(int)]
 	}).(GetPolicyDocumentStatementPrincipalOutput)
 }

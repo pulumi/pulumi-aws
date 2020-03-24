@@ -408,4 +408,3 @@ type LaunchTemplateArgs struct {
 func (LaunchTemplateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*launchTemplateArgs)(nil)).Elem()
 }
-

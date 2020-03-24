@@ -12,8 +12,8 @@ import (
 )
 
 type DatabaseEncryptionConfiguration struct {
-	EncryptionOption string `pulumi:"encryptionOption"`
-	KmsKey *string `pulumi:"kmsKey"`
+	EncryptionOption string  `pulumi:"encryptionOption"`
+	KmsKey           *string `pulumi:"kmsKey"`
 }
 
 type DatabaseEncryptionConfigurationInput interface {
@@ -24,8 +24,8 @@ type DatabaseEncryptionConfigurationInput interface {
 }
 
 type DatabaseEncryptionConfigurationArgs struct {
-	EncryptionOption pulumi.StringInput `pulumi:"encryptionOption"`
-	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
+	EncryptionOption pulumi.StringInput    `pulumi:"encryptionOption"`
+	KmsKey           pulumi.StringPtrInput `pulumi:"kmsKey"`
 }
 
 func (DatabaseEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -57,7 +57,8 @@ type DatabaseEncryptionConfigurationPtrInput interface {
 
 type databaseEncryptionConfigurationPtrType DatabaseEncryptionConfigurationArgs
 
-func DatabaseEncryptionConfigurationPtr(v *DatabaseEncryptionConfigurationArgs) DatabaseEncryptionConfigurationPtrInput {	return (*databaseEncryptionConfigurationPtrType)(v)
+func DatabaseEncryptionConfigurationPtr(v *DatabaseEncryptionConfigurationArgs) DatabaseEncryptionConfigurationPtrInput {
+	return (*databaseEncryptionConfigurationPtrType)(v)
 }
 
 func (*databaseEncryptionConfigurationPtrType) ElementType() reflect.Type {
@@ -72,7 +73,7 @@ func (i *databaseEncryptionConfigurationPtrType) ToDatabaseEncryptionConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseEncryptionConfigurationPtrOutput)
 }
 
-type DatabaseEncryptionConfigurationOutput struct { *pulumi.OutputState }
+type DatabaseEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DatabaseEncryptionConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseEncryptionConfiguration)(nil)).Elem()
@@ -96,14 +97,14 @@ func (o DatabaseEncryptionConfigurationOutput) ToDatabaseEncryptionConfiguration
 	}).(DatabaseEncryptionConfigurationPtrOutput)
 }
 func (o DatabaseEncryptionConfigurationOutput) EncryptionOption() pulumi.StringOutput {
-	return o.ApplyT(func (v DatabaseEncryptionConfiguration) string { return v.EncryptionOption }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DatabaseEncryptionConfiguration) string { return v.EncryptionOption }).(pulumi.StringOutput)
 }
 
 func (o DatabaseEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatabaseEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatabaseEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
 
-type DatabaseEncryptionConfigurationPtrOutput struct { *pulumi.OutputState}
+type DatabaseEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (DatabaseEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DatabaseEncryptionConfiguration)(nil)).Elem()
@@ -118,15 +119,15 @@ func (o DatabaseEncryptionConfigurationPtrOutput) ToDatabaseEncryptionConfigurat
 }
 
 func (o DatabaseEncryptionConfigurationPtrOutput) Elem() DatabaseEncryptionConfigurationOutput {
-	return o.ApplyT(func (v *DatabaseEncryptionConfiguration) DatabaseEncryptionConfiguration { return *v }).(DatabaseEncryptionConfigurationOutput)
+	return o.ApplyT(func(v *DatabaseEncryptionConfiguration) DatabaseEncryptionConfiguration { return *v }).(DatabaseEncryptionConfigurationOutput)
 }
 
 func (o DatabaseEncryptionConfigurationPtrOutput) EncryptionOption() pulumi.StringOutput {
-	return o.ApplyT(func (v DatabaseEncryptionConfiguration) string { return v.EncryptionOption }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DatabaseEncryptionConfiguration) string { return v.EncryptionOption }).(pulumi.StringOutput)
 }
 
 func (o DatabaseEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DatabaseEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DatabaseEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
 
 type WorkgroupConfiguration struct {
@@ -187,7 +188,8 @@ type WorkgroupConfigurationPtrInput interface {
 
 type workgroupConfigurationPtrType WorkgroupConfigurationArgs
 
-func WorkgroupConfigurationPtr(v *WorkgroupConfigurationArgs) WorkgroupConfigurationPtrInput {	return (*workgroupConfigurationPtrType)(v)
+func WorkgroupConfigurationPtr(v *WorkgroupConfigurationArgs) WorkgroupConfigurationPtrInput {
+	return (*workgroupConfigurationPtrType)(v)
 }
 
 func (*workgroupConfigurationPtrType) ElementType() reflect.Type {
@@ -202,7 +204,7 @@ func (i *workgroupConfigurationPtrType) ToWorkgroupConfigurationPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationPtrOutput)
 }
 
-type WorkgroupConfigurationOutput struct { *pulumi.OutputState }
+type WorkgroupConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkgroupConfiguration)(nil)).Elem()
@@ -225,27 +227,30 @@ func (o WorkgroupConfigurationOutput) ToWorkgroupConfigurationPtrOutputWithConte
 		return &v
 	}).(WorkgroupConfigurationPtrOutput)
 }
+
 // Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
 func (o WorkgroupConfigurationOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v WorkgroupConfiguration) *int { return v.BytesScannedCutoffPerQuery }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v WorkgroupConfiguration) *int { return v.BytesScannedCutoffPerQuery }).(pulumi.IntPtrOutput)
 }
 
 // Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
 func (o WorkgroupConfigurationOutput) EnforceWorkgroupConfiguration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v WorkgroupConfiguration) *bool { return v.EnforceWorkgroupConfiguration }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.EnforceWorkgroupConfiguration }).(pulumi.BoolPtrOutput)
 }
 
 // Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 func (o WorkgroupConfigurationOutput) PublishCloudwatchMetricsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v WorkgroupConfiguration) *bool { return v.PublishCloudwatchMetricsEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.PublishCloudwatchMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Configuration block with result settings. Documented below.
 func (o WorkgroupConfigurationOutput) ResultConfiguration() WorkgroupConfigurationResultConfigurationPtrOutput {
-	return o.ApplyT(func (v WorkgroupConfiguration) *WorkgroupConfigurationResultConfiguration { return v.ResultConfiguration }).(WorkgroupConfigurationResultConfigurationPtrOutput)
+	return o.ApplyT(func(v WorkgroupConfiguration) *WorkgroupConfigurationResultConfiguration {
+		return v.ResultConfiguration
+	}).(WorkgroupConfigurationResultConfigurationPtrOutput)
 }
 
-type WorkgroupConfigurationPtrOutput struct { *pulumi.OutputState}
+type WorkgroupConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WorkgroupConfiguration)(nil)).Elem()
@@ -260,27 +265,29 @@ func (o WorkgroupConfigurationPtrOutput) ToWorkgroupConfigurationPtrOutputWithCo
 }
 
 func (o WorkgroupConfigurationPtrOutput) Elem() WorkgroupConfigurationOutput {
-	return o.ApplyT(func (v *WorkgroupConfiguration) WorkgroupConfiguration { return *v }).(WorkgroupConfigurationOutput)
+	return o.ApplyT(func(v *WorkgroupConfiguration) WorkgroupConfiguration { return *v }).(WorkgroupConfigurationOutput)
 }
 
 // Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
 func (o WorkgroupConfigurationPtrOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v WorkgroupConfiguration) *int { return v.BytesScannedCutoffPerQuery }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v WorkgroupConfiguration) *int { return v.BytesScannedCutoffPerQuery }).(pulumi.IntPtrOutput)
 }
 
 // Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
 func (o WorkgroupConfigurationPtrOutput) EnforceWorkgroupConfiguration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v WorkgroupConfiguration) *bool { return v.EnforceWorkgroupConfiguration }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.EnforceWorkgroupConfiguration }).(pulumi.BoolPtrOutput)
 }
 
 // Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 func (o WorkgroupConfigurationPtrOutput) PublishCloudwatchMetricsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v WorkgroupConfiguration) *bool { return v.PublishCloudwatchMetricsEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.PublishCloudwatchMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Configuration block with result settings. Documented below.
 func (o WorkgroupConfigurationPtrOutput) ResultConfiguration() WorkgroupConfigurationResultConfigurationPtrOutput {
-	return o.ApplyT(func (v WorkgroupConfiguration) *WorkgroupConfigurationResultConfiguration { return v.ResultConfiguration }).(WorkgroupConfigurationResultConfigurationPtrOutput)
+	return o.ApplyT(func(v WorkgroupConfiguration) *WorkgroupConfigurationResultConfiguration {
+		return v.ResultConfiguration
+	}).(WorkgroupConfigurationResultConfigurationPtrOutput)
 }
 
 type WorkgroupConfigurationResultConfiguration struct {
@@ -333,7 +340,8 @@ type WorkgroupConfigurationResultConfigurationPtrInput interface {
 
 type workgroupConfigurationResultConfigurationPtrType WorkgroupConfigurationResultConfigurationArgs
 
-func WorkgroupConfigurationResultConfigurationPtr(v *WorkgroupConfigurationResultConfigurationArgs) WorkgroupConfigurationResultConfigurationPtrInput {	return (*workgroupConfigurationResultConfigurationPtrType)(v)
+func WorkgroupConfigurationResultConfigurationPtr(v *WorkgroupConfigurationResultConfigurationArgs) WorkgroupConfigurationResultConfigurationPtrInput {
+	return (*workgroupConfigurationResultConfigurationPtrType)(v)
 }
 
 func (*workgroupConfigurationResultConfigurationPtrType) ElementType() reflect.Type {
@@ -348,7 +356,7 @@ func (i *workgroupConfigurationResultConfigurationPtrType) ToWorkgroupConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationResultConfigurationPtrOutput)
 }
 
-type WorkgroupConfigurationResultConfigurationOutput struct { *pulumi.OutputState }
+type WorkgroupConfigurationResultConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupConfigurationResultConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkgroupConfigurationResultConfiguration)(nil)).Elem()
@@ -371,17 +379,20 @@ func (o WorkgroupConfigurationResultConfigurationOutput) ToWorkgroupConfiguratio
 		return &v
 	}).(WorkgroupConfigurationResultConfigurationPtrOutput)
 }
+
 // Configuration block with encryption settings. Documented below.
 func (o WorkgroupConfigurationResultConfigurationOutput) EncryptionConfiguration() WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput {
-	return o.ApplyT(func (v WorkgroupConfigurationResultConfiguration) *WorkgroupConfigurationResultConfigurationEncryptionConfiguration { return v.EncryptionConfiguration }).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput)
+	return o.ApplyT(func(v WorkgroupConfigurationResultConfiguration) *WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
+		return v.EncryptionConfiguration
+	}).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput)
 }
 
 // The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
 func (o WorkgroupConfigurationResultConfigurationOutput) OutputLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WorkgroupConfigurationResultConfiguration) *string { return v.OutputLocation }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WorkgroupConfigurationResultConfiguration) *string { return v.OutputLocation }).(pulumi.StringPtrOutput)
 }
 
-type WorkgroupConfigurationResultConfigurationPtrOutput struct { *pulumi.OutputState}
+type WorkgroupConfigurationResultConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupConfigurationResultConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WorkgroupConfigurationResultConfiguration)(nil)).Elem()
@@ -396,17 +407,21 @@ func (o WorkgroupConfigurationResultConfigurationPtrOutput) ToWorkgroupConfigura
 }
 
 func (o WorkgroupConfigurationResultConfigurationPtrOutput) Elem() WorkgroupConfigurationResultConfigurationOutput {
-	return o.ApplyT(func (v *WorkgroupConfigurationResultConfiguration) WorkgroupConfigurationResultConfiguration { return *v }).(WorkgroupConfigurationResultConfigurationOutput)
+	return o.ApplyT(func(v *WorkgroupConfigurationResultConfiguration) WorkgroupConfigurationResultConfiguration {
+		return *v
+	}).(WorkgroupConfigurationResultConfigurationOutput)
 }
 
 // Configuration block with encryption settings. Documented below.
 func (o WorkgroupConfigurationResultConfigurationPtrOutput) EncryptionConfiguration() WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput {
-	return o.ApplyT(func (v WorkgroupConfigurationResultConfiguration) *WorkgroupConfigurationResultConfigurationEncryptionConfiguration { return v.EncryptionConfiguration }).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput)
+	return o.ApplyT(func(v WorkgroupConfigurationResultConfiguration) *WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
+		return v.EncryptionConfiguration
+	}).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput)
 }
 
 // The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
 func (o WorkgroupConfigurationResultConfigurationPtrOutput) OutputLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WorkgroupConfigurationResultConfiguration) *string { return v.OutputLocation }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WorkgroupConfigurationResultConfiguration) *string { return v.OutputLocation }).(pulumi.StringPtrOutput)
 }
 
 type WorkgroupConfigurationResultConfigurationEncryptionConfiguration struct {
@@ -459,7 +474,8 @@ type WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrInput in
 
 type workgroupConfigurationResultConfigurationEncryptionConfigurationPtrType WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs
 
-func WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtr(v *WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs) WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrInput {	return (*workgroupConfigurationResultConfigurationEncryptionConfigurationPtrType)(v)
+func WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtr(v *WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs) WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrInput {
+	return (*workgroupConfigurationResultConfigurationEncryptionConfigurationPtrType)(v)
 }
 
 func (*workgroupConfigurationResultConfigurationEncryptionConfigurationPtrType) ElementType() reflect.Type {
@@ -474,7 +490,7 @@ func (i *workgroupConfigurationResultConfigurationEncryptionConfigurationPtrType
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput)
 }
 
-type WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput struct { *pulumi.OutputState }
+type WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkgroupConfigurationResultConfigurationEncryptionConfiguration)(nil)).Elem()
@@ -497,17 +513,20 @@ func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput) 
 		return &v
 	}).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput)
 }
+
 // Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE-S3), server-side encryption with KMS-managed keys (SSE-KMS), or client-side encryption with KMS-managed keys (CSE-KMS) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
 func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput) EncryptionOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WorkgroupConfigurationResultConfigurationEncryptionConfiguration) *string { return v.EncryptionOption }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WorkgroupConfigurationResultConfigurationEncryptionConfiguration) *string {
+		return v.EncryptionOption
+	}).(pulumi.StringPtrOutput)
 }
 
 // For SSE-KMS and CSE-KMS, this is the KMS key Amazon Resource Name (ARN).
 func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WorkgroupConfigurationResultConfigurationEncryptionConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WorkgroupConfigurationResultConfigurationEncryptionConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-type WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput struct { *pulumi.OutputState}
+type WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WorkgroupConfigurationResultConfigurationEncryptionConfiguration)(nil)).Elem()
@@ -522,17 +541,21 @@ func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutpu
 }
 
 func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput) Elem() WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput {
-	return o.ApplyT(func (v *WorkgroupConfigurationResultConfigurationEncryptionConfiguration) WorkgroupConfigurationResultConfigurationEncryptionConfiguration { return *v }).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput)
+	return o.ApplyT(func(v *WorkgroupConfigurationResultConfigurationEncryptionConfiguration) WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
+		return *v
+	}).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput)
 }
 
 // Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE-S3), server-side encryption with KMS-managed keys (SSE-KMS), or client-side encryption with KMS-managed keys (CSE-KMS) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
 func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput) EncryptionOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WorkgroupConfigurationResultConfigurationEncryptionConfiguration) *string { return v.EncryptionOption }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WorkgroupConfigurationResultConfigurationEncryptionConfiguration) *string {
+		return v.EncryptionOption
+	}).(pulumi.StringPtrOutput)
 }
 
 // For SSE-KMS and CSE-KMS, this is the KMS key Amazon Resource Name (ARN).
 func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WorkgroupConfigurationResultConfigurationEncryptionConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WorkgroupConfigurationResultConfigurationEncryptionConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {

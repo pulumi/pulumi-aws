@@ -112,4 +112,3 @@ type IdentityNotificationTopicArgs struct {
 func (IdentityNotificationTopicArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityNotificationTopicArgs)(nil)).Elem()
 }
-

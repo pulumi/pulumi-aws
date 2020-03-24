@@ -107,4 +107,3 @@ type SnapshotCopyGrantArgs struct {
 func (SnapshotCopyGrantArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotCopyGrantArgs)(nil)).Elem()
 }
-

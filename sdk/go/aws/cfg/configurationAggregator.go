@@ -111,4 +111,3 @@ type ConfigurationAggregatorArgs struct {
 func (ConfigurationAggregatorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationAggregatorArgs)(nil)).Elem()
 }
-

@@ -105,4 +105,3 @@ type WebsiteCertificateAuthorityAssociationArgs struct {
 func (WebsiteCertificateAuthorityAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*websiteCertificateAuthorityAssociationArgs)(nil)).Elem()
 }
-

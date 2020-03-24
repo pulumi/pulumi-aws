@@ -139,4 +139,3 @@ type VpcDhcpOptionsArgs struct {
 func (VpcDhcpOptionsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcDhcpOptionsArgs)(nil)).Elem()
 }
-

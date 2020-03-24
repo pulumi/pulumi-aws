@@ -102,4 +102,3 @@ type ProxyProtocolPolicyArgs struct {
 func (ProxyProtocolPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*proxyProtocolPolicyArgs)(nil)).Elem()
 }
-

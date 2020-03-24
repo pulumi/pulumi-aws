@@ -95,4 +95,3 @@ type StaticIpArgs struct {
 func (StaticIpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*staticIpArgs)(nil)).Elem()
 }
-

@@ -28,7 +28,6 @@ type LookupStateMachineArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getStateMachine.
 type LookupStateMachineResult struct {
 	// Set to the arn of the state function.
@@ -38,11 +37,10 @@ type LookupStateMachineResult struct {
 	// Set to the state machine definition.
 	Definition string `pulumi:"definition"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// Set to the roleArn used by the state function.
 	RoleArn string `pulumi:"roleArn"`
 	// Set to the current status of the state machine.
 	Status string `pulumi:"status"`
 }
-

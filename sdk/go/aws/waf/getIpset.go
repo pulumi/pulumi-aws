@@ -26,11 +26,9 @@ type GetIpsetArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getIpset.
 type GetIpsetResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
-

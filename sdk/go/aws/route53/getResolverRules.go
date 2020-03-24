@@ -33,16 +33,14 @@ type GetResolverRulesArgs struct {
 	ShareStatus *string `pulumi:"shareStatus"`
 }
 
-
 // A collection of values returned by getResolverRules.
 type GetResolverRulesResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	OwnerId *string `pulumi:"ownerId"`
+	Id                 string  `pulumi:"id"`
+	OwnerId            *string `pulumi:"ownerId"`
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
 	// The IDs of the matched resolver rules.
 	ResolverRuleIds []string `pulumi:"resolverRuleIds"`
-	RuleType *string `pulumi:"ruleType"`
-	ShareStatus *string `pulumi:"shareStatus"`
+	RuleType        *string  `pulumi:"ruleType"`
+	ShareStatus     *string  `pulumi:"shareStatus"`
 }
-

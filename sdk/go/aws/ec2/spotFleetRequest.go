@@ -22,7 +22,7 @@ type SpotFleetRequest struct {
 	// the Spot pools specified by the Spot fleet request. The default is
 	// `lowestPrice`.
 	AllocationStrategy pulumi.StringPtrOutput `pulumi:"allocationStrategy"`
-	ClientToken pulumi.StringOutput `pulumi:"clientToken"`
+	ClientToken        pulumi.StringOutput    `pulumi:"clientToken"`
 	// Indicates whether running Spot
 	// instances should be terminated if the target capacity of the Spot fleet
 	// request is decreased below the current size of the Spot fleet.
@@ -117,7 +117,7 @@ type spotFleetRequestState struct {
 	// the Spot pools specified by the Spot fleet request. The default is
 	// `lowestPrice`.
 	AllocationStrategy *string `pulumi:"allocationStrategy"`
-	ClientToken *string `pulumi:"clientToken"`
+	ClientToken        *string `pulumi:"clientToken"`
 	// Indicates whether running Spot
 	// instances should be terminated if the target capacity of the Spot fleet
 	// request is decreased below the current size of the Spot fleet.
@@ -176,7 +176,7 @@ type SpotFleetRequestState struct {
 	// the Spot pools specified by the Spot fleet request. The default is
 	// `lowestPrice`.
 	AllocationStrategy pulumi.StringPtrInput
-	ClientToken pulumi.StringPtrInput
+	ClientToken        pulumi.StringPtrInput
 	// Indicates whether running Spot
 	// instances should be terminated if the target capacity of the Spot fleet
 	// request is decreased below the current size of the Spot fleet.
@@ -350,4 +350,3 @@ type SpotFleetRequestArgs struct {
 func (SpotFleetRequestArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*spotFleetRequestArgs)(nil)).Elem()
 }
-

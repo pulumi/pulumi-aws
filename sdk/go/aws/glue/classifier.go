@@ -117,4 +117,3 @@ type ClassifierArgs struct {
 func (ClassifierArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*classifierArgs)(nil)).Elem()
 }
-

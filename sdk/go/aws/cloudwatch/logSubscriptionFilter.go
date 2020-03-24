@@ -27,7 +27,7 @@ type LogSubscriptionFilter struct {
 	LogGroup pulumi.StringOutput `pulumi:"logGroup"`
 	// A name for the subscription filter
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
+	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 }
 
@@ -78,7 +78,7 @@ type logSubscriptionFilterState struct {
 	LogGroup *string `pulumi:"logGroup"`
 	// A name for the subscription filter
 	Name *string `pulumi:"name"`
-	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
+	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
 	RoleArn *string `pulumi:"roleArn"`
 }
 
@@ -93,7 +93,7 @@ type LogSubscriptionFilterState struct {
 	LogGroup pulumi.StringPtrInput
 	// A name for the subscription filter
 	Name pulumi.StringPtrInput
-	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
+	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
 	RoleArn pulumi.StringPtrInput
 }
 
@@ -112,7 +112,7 @@ type logSubscriptionFilterArgs struct {
 	LogGroup interface{} `pulumi:"logGroup"`
 	// A name for the subscription filter
 	Name *string `pulumi:"name"`
-	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
+	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
 	RoleArn *string `pulumi:"roleArn"`
 }
 
@@ -128,11 +128,10 @@ type LogSubscriptionFilterArgs struct {
 	LogGroup pulumi.Input
 	// A name for the subscription filter
 	Name pulumi.StringPtrInput
-	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
+	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
 	RoleArn pulumi.StringPtrInput
 }
 
 func (LogSubscriptionFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logSubscriptionFilterArgs)(nil)).Elem()
 }
-

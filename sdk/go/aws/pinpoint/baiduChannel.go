@@ -118,4 +118,3 @@ type BaiduChannelArgs struct {
 func (BaiduChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*baiduChannelArgs)(nil)).Elem()
 }
-

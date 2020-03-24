@@ -51,25 +51,23 @@ type LookupSubnetArgs struct {
 	VpcId *string `pulumi:"vpcId"`
 }
 
-
 // A collection of values returned by getSubnet.
 type LookupSubnetResult struct {
 	// The ARN of the subnet.
-	Arn string `pulumi:"arn"`
-	AssignIpv6AddressOnCreation bool `pulumi:"assignIpv6AddressOnCreation"`
-	AvailabilityZone string `pulumi:"availabilityZone"`
-	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
-	CidrBlock string `pulumi:"cidrBlock"`
-	DefaultForAz bool `pulumi:"defaultForAz"`
-	Filters []GetSubnetFilter `pulumi:"filters"`
-	Id string `pulumi:"id"`
-	Ipv6CidrBlock string `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlockAssociationId string `pulumi:"ipv6CidrBlockAssociationId"`
-	MapPublicIpOnLaunch bool `pulumi:"mapPublicIpOnLaunch"`
+	Arn                         string            `pulumi:"arn"`
+	AssignIpv6AddressOnCreation bool              `pulumi:"assignIpv6AddressOnCreation"`
+	AvailabilityZone            string            `pulumi:"availabilityZone"`
+	AvailabilityZoneId          string            `pulumi:"availabilityZoneId"`
+	CidrBlock                   string            `pulumi:"cidrBlock"`
+	DefaultForAz                bool              `pulumi:"defaultForAz"`
+	Filters                     []GetSubnetFilter `pulumi:"filters"`
+	Id                          string            `pulumi:"id"`
+	Ipv6CidrBlock               string            `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockAssociationId  string            `pulumi:"ipv6CidrBlockAssociationId"`
+	MapPublicIpOnLaunch         bool              `pulumi:"mapPublicIpOnLaunch"`
 	// The ID of the AWS account that owns the subnet.
-	OwnerId string `pulumi:"ownerId"`
-	State string `pulumi:"state"`
-	Tags map[string]interface{} `pulumi:"tags"`
-	VpcId string `pulumi:"vpcId"`
+	OwnerId string                 `pulumi:"ownerId"`
+	State   string                 `pulumi:"state"`
+	Tags    map[string]interface{} `pulumi:"tags"`
+	VpcId   string                 `pulumi:"vpcId"`
 }
-

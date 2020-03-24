@@ -136,4 +136,3 @@ type LogGroupArgs struct {
 func (LogGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logGroupArgs)(nil)).Elem()
 }
-

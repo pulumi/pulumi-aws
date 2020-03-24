@@ -111,4 +111,3 @@ type ResourceArgs struct {
 func (ResourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceArgs)(nil)).Elem()
 }
-

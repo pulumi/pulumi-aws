@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Ram
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ram_resource_share.html.markdown.
         /// </summary>
+        [Obsolete("Use GetResourceShare.InvokeAsync() instead")]
         public static Task<GetResourceShareResult> GetResourceShare(GetResourceShareArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetResourceShare
+    {
+        /// <summary>
+        /// `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ram_resource_share.html.markdown.
+        /// </summary>
+        public static Task<GetResourceShareResult> InvokeAsync(GetResourceShareArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

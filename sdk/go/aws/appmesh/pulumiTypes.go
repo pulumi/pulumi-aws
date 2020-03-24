@@ -55,7 +55,8 @@ type MeshSpecPtrInput interface {
 
 type meshSpecPtrType MeshSpecArgs
 
-func MeshSpecPtr(v *MeshSpecArgs) MeshSpecPtrInput {	return (*meshSpecPtrType)(v)
+func MeshSpecPtr(v *MeshSpecArgs) MeshSpecPtrInput {
+	return (*meshSpecPtrType)(v)
 }
 
 func (*meshSpecPtrType) ElementType() reflect.Type {
@@ -70,7 +71,7 @@ func (i *meshSpecPtrType) ToMeshSpecPtrOutputWithContext(ctx context.Context) Me
 	return pulumi.ToOutputWithContext(ctx, i).(MeshSpecPtrOutput)
 }
 
-type MeshSpecOutput struct { *pulumi.OutputState }
+type MeshSpecOutput struct{ *pulumi.OutputState }
 
 func (MeshSpecOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MeshSpec)(nil)).Elem()
@@ -94,10 +95,10 @@ func (o MeshSpecOutput) ToMeshSpecPtrOutputWithContext(ctx context.Context) Mesh
 	}).(MeshSpecPtrOutput)
 }
 func (o MeshSpecOutput) EgressFilter() MeshSpecEgressFilterPtrOutput {
-	return o.ApplyT(func (v MeshSpec) *MeshSpecEgressFilter { return v.EgressFilter }).(MeshSpecEgressFilterPtrOutput)
+	return o.ApplyT(func(v MeshSpec) *MeshSpecEgressFilter { return v.EgressFilter }).(MeshSpecEgressFilterPtrOutput)
 }
 
-type MeshSpecPtrOutput struct { *pulumi.OutputState}
+type MeshSpecPtrOutput struct{ *pulumi.OutputState }
 
 func (MeshSpecPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MeshSpec)(nil)).Elem()
@@ -112,11 +113,11 @@ func (o MeshSpecPtrOutput) ToMeshSpecPtrOutputWithContext(ctx context.Context) M
 }
 
 func (o MeshSpecPtrOutput) Elem() MeshSpecOutput {
-	return o.ApplyT(func (v *MeshSpec) MeshSpec { return *v }).(MeshSpecOutput)
+	return o.ApplyT(func(v *MeshSpec) MeshSpec { return *v }).(MeshSpecOutput)
 }
 
 func (o MeshSpecPtrOutput) EgressFilter() MeshSpecEgressFilterPtrOutput {
-	return o.ApplyT(func (v MeshSpec) *MeshSpecEgressFilter { return v.EgressFilter }).(MeshSpecEgressFilterPtrOutput)
+	return o.ApplyT(func(v MeshSpec) *MeshSpecEgressFilter { return v.EgressFilter }).(MeshSpecEgressFilterPtrOutput)
 }
 
 type MeshSpecEgressFilter struct {
@@ -167,7 +168,8 @@ type MeshSpecEgressFilterPtrInput interface {
 
 type meshSpecEgressFilterPtrType MeshSpecEgressFilterArgs
 
-func MeshSpecEgressFilterPtr(v *MeshSpecEgressFilterArgs) MeshSpecEgressFilterPtrInput {	return (*meshSpecEgressFilterPtrType)(v)
+func MeshSpecEgressFilterPtr(v *MeshSpecEgressFilterArgs) MeshSpecEgressFilterPtrInput {
+	return (*meshSpecEgressFilterPtrType)(v)
 }
 
 func (*meshSpecEgressFilterPtrType) ElementType() reflect.Type {
@@ -182,7 +184,7 @@ func (i *meshSpecEgressFilterPtrType) ToMeshSpecEgressFilterPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(MeshSpecEgressFilterPtrOutput)
 }
 
-type MeshSpecEgressFilterOutput struct { *pulumi.OutputState }
+type MeshSpecEgressFilterOutput struct{ *pulumi.OutputState }
 
 func (MeshSpecEgressFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MeshSpecEgressFilter)(nil)).Elem()
@@ -205,13 +207,14 @@ func (o MeshSpecEgressFilterOutput) ToMeshSpecEgressFilterPtrOutputWithContext(c
 		return &v
 	}).(MeshSpecEgressFilterPtrOutput)
 }
+
 // The egress filter type. By default, the type is `DROP_ALL`.
 // Valid values are `ALLOW_ALL` and `DROP_ALL`.
 func (o MeshSpecEgressFilterOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MeshSpecEgressFilter) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MeshSpecEgressFilter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type MeshSpecEgressFilterPtrOutput struct { *pulumi.OutputState}
+type MeshSpecEgressFilterPtrOutput struct{ *pulumi.OutputState }
 
 func (MeshSpecEgressFilterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MeshSpecEgressFilter)(nil)).Elem()
@@ -226,13 +229,13 @@ func (o MeshSpecEgressFilterPtrOutput) ToMeshSpecEgressFilterPtrOutputWithContex
 }
 
 func (o MeshSpecEgressFilterPtrOutput) Elem() MeshSpecEgressFilterOutput {
-	return o.ApplyT(func (v *MeshSpecEgressFilter) MeshSpecEgressFilter { return *v }).(MeshSpecEgressFilterOutput)
+	return o.ApplyT(func(v *MeshSpecEgressFilter) MeshSpecEgressFilter { return *v }).(MeshSpecEgressFilterOutput)
 }
 
 // The egress filter type. By default, the type is `DROP_ALL`.
 // Valid values are `ALLOW_ALL` and `DROP_ALL`.
 func (o MeshSpecEgressFilterPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MeshSpecEgressFilter) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MeshSpecEgressFilter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type RouteSpec struct {
@@ -291,7 +294,8 @@ type RouteSpecPtrInput interface {
 
 type routeSpecPtrType RouteSpecArgs
 
-func RouteSpecPtr(v *RouteSpecArgs) RouteSpecPtrInput {	return (*routeSpecPtrType)(v)
+func RouteSpecPtr(v *RouteSpecArgs) RouteSpecPtrInput {
+	return (*routeSpecPtrType)(v)
 }
 
 func (*routeSpecPtrType) ElementType() reflect.Type {
@@ -306,7 +310,7 @@ func (i *routeSpecPtrType) ToRouteSpecPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecPtrOutput)
 }
 
-type RouteSpecOutput struct { *pulumi.OutputState }
+type RouteSpecOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteSpec)(nil)).Elem()
@@ -329,23 +333,24 @@ func (o RouteSpecOutput) ToRouteSpecPtrOutputWithContext(ctx context.Context) Ro
 		return &v
 	}).(RouteSpecPtrOutput)
 }
+
 // The HTTP routing information for the route.
 func (o RouteSpecOutput) HttpRoute() RouteSpecHttpRoutePtrOutput {
-	return o.ApplyT(func (v RouteSpec) *RouteSpecHttpRoute { return v.HttpRoute }).(RouteSpecHttpRoutePtrOutput)
+	return o.ApplyT(func(v RouteSpec) *RouteSpecHttpRoute { return v.HttpRoute }).(RouteSpecHttpRoutePtrOutput)
 }
 
 // The priority for the route, between `0` and `1000`.
 // Routes are matched based on the specified value, where `0` is the highest priority.
 func (o RouteSpecOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v RouteSpec) *int { return v.Priority }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v RouteSpec) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 // The TCP routing information for the route.
 func (o RouteSpecOutput) TcpRoute() RouteSpecTcpRoutePtrOutput {
-	return o.ApplyT(func (v RouteSpec) *RouteSpecTcpRoute { return v.TcpRoute }).(RouteSpecTcpRoutePtrOutput)
+	return o.ApplyT(func(v RouteSpec) *RouteSpecTcpRoute { return v.TcpRoute }).(RouteSpecTcpRoutePtrOutput)
 }
 
-type RouteSpecPtrOutput struct { *pulumi.OutputState}
+type RouteSpecPtrOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RouteSpec)(nil)).Elem()
@@ -360,23 +365,23 @@ func (o RouteSpecPtrOutput) ToRouteSpecPtrOutputWithContext(ctx context.Context)
 }
 
 func (o RouteSpecPtrOutput) Elem() RouteSpecOutput {
-	return o.ApplyT(func (v *RouteSpec) RouteSpec { return *v }).(RouteSpecOutput)
+	return o.ApplyT(func(v *RouteSpec) RouteSpec { return *v }).(RouteSpecOutput)
 }
 
 // The HTTP routing information for the route.
 func (o RouteSpecPtrOutput) HttpRoute() RouteSpecHttpRoutePtrOutput {
-	return o.ApplyT(func (v RouteSpec) *RouteSpecHttpRoute { return v.HttpRoute }).(RouteSpecHttpRoutePtrOutput)
+	return o.ApplyT(func(v RouteSpec) *RouteSpecHttpRoute { return v.HttpRoute }).(RouteSpecHttpRoutePtrOutput)
 }
 
 // The priority for the route, between `0` and `1000`.
 // Routes are matched based on the specified value, where `0` is the highest priority.
 func (o RouteSpecPtrOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v RouteSpec) *int { return v.Priority }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v RouteSpec) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 // The TCP routing information for the route.
 func (o RouteSpecPtrOutput) TcpRoute() RouteSpecTcpRoutePtrOutput {
-	return o.ApplyT(func (v RouteSpec) *RouteSpecTcpRoute { return v.TcpRoute }).(RouteSpecTcpRoutePtrOutput)
+	return o.ApplyT(func(v RouteSpec) *RouteSpecTcpRoute { return v.TcpRoute }).(RouteSpecTcpRoutePtrOutput)
 }
 
 type RouteSpecHttpRoute struct {
@@ -429,7 +434,8 @@ type RouteSpecHttpRoutePtrInput interface {
 
 type routeSpecHttpRoutePtrType RouteSpecHttpRouteArgs
 
-func RouteSpecHttpRoutePtr(v *RouteSpecHttpRouteArgs) RouteSpecHttpRoutePtrInput {	return (*routeSpecHttpRoutePtrType)(v)
+func RouteSpecHttpRoutePtr(v *RouteSpecHttpRouteArgs) RouteSpecHttpRoutePtrInput {
+	return (*routeSpecHttpRoutePtrType)(v)
 }
 
 func (*routeSpecHttpRoutePtrType) ElementType() reflect.Type {
@@ -444,7 +450,7 @@ func (i *routeSpecHttpRoutePtrType) ToRouteSpecHttpRoutePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRoutePtrOutput)
 }
 
-type RouteSpecHttpRouteOutput struct { *pulumi.OutputState }
+type RouteSpecHttpRouteOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecHttpRouteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteSpecHttpRoute)(nil)).Elem()
@@ -467,17 +473,18 @@ func (o RouteSpecHttpRouteOutput) ToRouteSpecHttpRoutePtrOutputWithContext(ctx c
 		return &v
 	}).(RouteSpecHttpRoutePtrOutput)
 }
+
 // The action to take if a match is determined.
 func (o RouteSpecHttpRouteOutput) Action() RouteSpecHttpRouteActionOutput {
-	return o.ApplyT(func (v RouteSpecHttpRoute) RouteSpecHttpRouteAction { return v.Action }).(RouteSpecHttpRouteActionOutput)
+	return o.ApplyT(func(v RouteSpecHttpRoute) RouteSpecHttpRouteAction { return v.Action }).(RouteSpecHttpRouteActionOutput)
 }
 
 // The method and value to match the header value sent with a request. Specify one match method.
 func (o RouteSpecHttpRouteOutput) Match() RouteSpecHttpRouteMatchOutput {
-	return o.ApplyT(func (v RouteSpecHttpRoute) RouteSpecHttpRouteMatch { return v.Match }).(RouteSpecHttpRouteMatchOutput)
+	return o.ApplyT(func(v RouteSpecHttpRoute) RouteSpecHttpRouteMatch { return v.Match }).(RouteSpecHttpRouteMatchOutput)
 }
 
-type RouteSpecHttpRoutePtrOutput struct { *pulumi.OutputState}
+type RouteSpecHttpRoutePtrOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecHttpRoutePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RouteSpecHttpRoute)(nil)).Elem()
@@ -492,17 +499,17 @@ func (o RouteSpecHttpRoutePtrOutput) ToRouteSpecHttpRoutePtrOutputWithContext(ct
 }
 
 func (o RouteSpecHttpRoutePtrOutput) Elem() RouteSpecHttpRouteOutput {
-	return o.ApplyT(func (v *RouteSpecHttpRoute) RouteSpecHttpRoute { return *v }).(RouteSpecHttpRouteOutput)
+	return o.ApplyT(func(v *RouteSpecHttpRoute) RouteSpecHttpRoute { return *v }).(RouteSpecHttpRouteOutput)
 }
 
 // The action to take if a match is determined.
 func (o RouteSpecHttpRoutePtrOutput) Action() RouteSpecHttpRouteActionOutput {
-	return o.ApplyT(func (v RouteSpecHttpRoute) RouteSpecHttpRouteAction { return v.Action }).(RouteSpecHttpRouteActionOutput)
+	return o.ApplyT(func(v RouteSpecHttpRoute) RouteSpecHttpRouteAction { return v.Action }).(RouteSpecHttpRouteActionOutput)
 }
 
 // The method and value to match the header value sent with a request. Specify one match method.
 func (o RouteSpecHttpRoutePtrOutput) Match() RouteSpecHttpRouteMatchOutput {
-	return o.ApplyT(func (v RouteSpecHttpRoute) RouteSpecHttpRouteMatch { return v.Match }).(RouteSpecHttpRouteMatchOutput)
+	return o.ApplyT(func(v RouteSpecHttpRoute) RouteSpecHttpRouteMatch { return v.Match }).(RouteSpecHttpRouteMatchOutput)
 }
 
 type RouteSpecHttpRouteAction struct {
@@ -536,7 +543,7 @@ func (i RouteSpecHttpRouteActionArgs) ToRouteSpecHttpRouteActionOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteActionOutput)
 }
 
-type RouteSpecHttpRouteActionOutput struct { *pulumi.OutputState }
+type RouteSpecHttpRouteActionOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecHttpRouteActionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteSpecHttpRouteAction)(nil)).Elem()
@@ -553,7 +560,7 @@ func (o RouteSpecHttpRouteActionOutput) ToRouteSpecHttpRouteActionOutputWithCont
 // The targets that traffic is routed to when a request matches the route.
 // You can specify one or more targets and their relative weights with which to distribute traffic.
 func (o RouteSpecHttpRouteActionOutput) WeightedTargets() RouteSpecHttpRouteActionWeightedTargetArrayOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteAction) []RouteSpecHttpRouteActionWeightedTarget { return v.WeightedTargets }).(RouteSpecHttpRouteActionWeightedTargetArrayOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteAction) []RouteSpecHttpRouteActionWeightedTarget { return v.WeightedTargets }).(RouteSpecHttpRouteActionWeightedTargetArrayOutput)
 }
 
 type RouteSpecHttpRouteActionWeightedTarget struct {
@@ -610,7 +617,7 @@ func (i RouteSpecHttpRouteActionWeightedTargetArray) ToRouteSpecHttpRouteActionW
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteActionWeightedTargetArrayOutput)
 }
 
-type RouteSpecHttpRouteActionWeightedTargetOutput struct { *pulumi.OutputState }
+type RouteSpecHttpRouteActionWeightedTargetOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecHttpRouteActionWeightedTargetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteSpecHttpRouteActionWeightedTarget)(nil)).Elem()
@@ -626,15 +633,15 @@ func (o RouteSpecHttpRouteActionWeightedTargetOutput) ToRouteSpecHttpRouteAction
 
 // The virtual node to associate with the weighted target.
 func (o RouteSpecHttpRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
 }
 
 // The relative weight of the weighted target. An integer between 0 and 100.
 func (o RouteSpecHttpRouteActionWeightedTargetOutput) Weight() pulumi.IntOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteActionWeightedTarget) int { return v.Weight }).(pulumi.IntOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteActionWeightedTarget) int { return v.Weight }).(pulumi.IntOutput)
 }
 
-type RouteSpecHttpRouteActionWeightedTargetArrayOutput struct { *pulumi.OutputState}
+type RouteSpecHttpRouteActionWeightedTargetArrayOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecHttpRouteActionWeightedTargetArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]RouteSpecHttpRouteActionWeightedTarget)(nil)).Elem()
@@ -649,7 +656,7 @@ func (o RouteSpecHttpRouteActionWeightedTargetArrayOutput) ToRouteSpecHttpRouteA
 }
 
 func (o RouteSpecHttpRouteActionWeightedTargetArrayOutput) Index(i pulumi.IntInput) RouteSpecHttpRouteActionWeightedTargetOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) RouteSpecHttpRouteActionWeightedTarget {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteSpecHttpRouteActionWeightedTarget {
 		return vs[0].([]RouteSpecHttpRouteActionWeightedTarget)[vs[1].(int)]
 	}).(RouteSpecHttpRouteActionWeightedTargetOutput)
 }
@@ -697,7 +704,7 @@ func (i RouteSpecHttpRouteMatchArgs) ToRouteSpecHttpRouteMatchOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteMatchOutput)
 }
 
-type RouteSpecHttpRouteMatchOutput struct { *pulumi.OutputState }
+type RouteSpecHttpRouteMatchOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecHttpRouteMatchOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteSpecHttpRouteMatch)(nil)).Elem()
@@ -713,23 +720,23 @@ func (o RouteSpecHttpRouteMatchOutput) ToRouteSpecHttpRouteMatchOutputWithContex
 
 // The client request headers to match on.
 func (o RouteSpecHttpRouteMatchOutput) Headers() RouteSpecHttpRouteMatchHeaderArrayOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatch) []RouteSpecHttpRouteMatchHeader { return v.Headers }).(RouteSpecHttpRouteMatchHeaderArrayOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatch) []RouteSpecHttpRouteMatchHeader { return v.Headers }).(RouteSpecHttpRouteMatchHeaderArrayOutput)
 }
 
 // The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 func (o RouteSpecHttpRouteMatchOutput) Method() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatch) *string { return v.Method }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatch) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 // The header value sent by the client must begin with the specified characters.
 // * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
 func (o RouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
 }
 
 // The client request header scheme to match on. Valid values: `http`, `https`.
 func (o RouteSpecHttpRouteMatchOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatch) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatch) *string { return v.Scheme }).(pulumi.StringPtrOutput)
 }
 
 type RouteSpecHttpRouteMatchHeader struct {
@@ -790,7 +797,7 @@ func (i RouteSpecHttpRouteMatchHeaderArray) ToRouteSpecHttpRouteMatchHeaderArray
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteMatchHeaderArrayOutput)
 }
 
-type RouteSpecHttpRouteMatchHeaderOutput struct { *pulumi.OutputState }
+type RouteSpecHttpRouteMatchHeaderOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecHttpRouteMatchHeaderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteSpecHttpRouteMatchHeader)(nil)).Elem()
@@ -806,20 +813,20 @@ func (o RouteSpecHttpRouteMatchHeaderOutput) ToRouteSpecHttpRouteMatchHeaderOutp
 
 // If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
 func (o RouteSpecHttpRouteMatchHeaderOutput) Invert() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeader) *bool { return v.Invert }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeader) *bool { return v.Invert }).(pulumi.BoolPtrOutput)
 }
 
 // The method and value to match the header value sent with a request. Specify one match method.
 func (o RouteSpecHttpRouteMatchHeaderOutput) Match() RouteSpecHttpRouteMatchHeaderMatchPtrOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeader) *RouteSpecHttpRouteMatchHeaderMatch { return v.Match }).(RouteSpecHttpRouteMatchHeaderMatchPtrOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeader) *RouteSpecHttpRouteMatchHeaderMatch { return v.Match }).(RouteSpecHttpRouteMatchHeaderMatchPtrOutput)
 }
 
 // A name for the HTTP header in the client request that will be matched on.
 func (o RouteSpecHttpRouteMatchHeaderOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeader) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type RouteSpecHttpRouteMatchHeaderArrayOutput struct { *pulumi.OutputState}
+type RouteSpecHttpRouteMatchHeaderArrayOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecHttpRouteMatchHeaderArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]RouteSpecHttpRouteMatchHeader)(nil)).Elem()
@@ -834,7 +841,7 @@ func (o RouteSpecHttpRouteMatchHeaderArrayOutput) ToRouteSpecHttpRouteMatchHeade
 }
 
 func (o RouteSpecHttpRouteMatchHeaderArrayOutput) Index(i pulumi.IntInput) RouteSpecHttpRouteMatchHeaderOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) RouteSpecHttpRouteMatchHeader {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteSpecHttpRouteMatchHeader {
 		return vs[0].([]RouteSpecHttpRouteMatchHeader)[vs[1].(int)]
 	}).(RouteSpecHttpRouteMatchHeaderOutput)
 }
@@ -844,8 +851,8 @@ type RouteSpecHttpRouteMatchHeaderMatch struct {
 	Exact *string `pulumi:"exact"`
 	// The header value sent by the client must begin with the specified characters.
 	// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
-	Prefix *string `pulumi:"prefix"`
-	Range *RouteSpecHttpRouteMatchHeaderMatchRange `pulumi:"range"`
+	Prefix *string                                  `pulumi:"prefix"`
+	Range  *RouteSpecHttpRouteMatchHeaderMatchRange `pulumi:"range"`
 	// The header value sent by the client must include the specified characters.
 	Regex *string `pulumi:"regex"`
 	// The header value sent by the client must end with the specified characters.
@@ -864,8 +871,8 @@ type RouteSpecHttpRouteMatchHeaderMatchArgs struct {
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
 	// The header value sent by the client must begin with the specified characters.
 	// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
-	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	Range RouteSpecHttpRouteMatchHeaderMatchRangePtrInput `pulumi:"range"`
+	Prefix pulumi.StringPtrInput                           `pulumi:"prefix"`
+	Range  RouteSpecHttpRouteMatchHeaderMatchRangePtrInput `pulumi:"range"`
 	// The header value sent by the client must include the specified characters.
 	Regex pulumi.StringPtrInput `pulumi:"regex"`
 	// The header value sent by the client must end with the specified characters.
@@ -901,7 +908,8 @@ type RouteSpecHttpRouteMatchHeaderMatchPtrInput interface {
 
 type routeSpecHttpRouteMatchHeaderMatchPtrType RouteSpecHttpRouteMatchHeaderMatchArgs
 
-func RouteSpecHttpRouteMatchHeaderMatchPtr(v *RouteSpecHttpRouteMatchHeaderMatchArgs) RouteSpecHttpRouteMatchHeaderMatchPtrInput {	return (*routeSpecHttpRouteMatchHeaderMatchPtrType)(v)
+func RouteSpecHttpRouteMatchHeaderMatchPtr(v *RouteSpecHttpRouteMatchHeaderMatchArgs) RouteSpecHttpRouteMatchHeaderMatchPtrInput {
+	return (*routeSpecHttpRouteMatchHeaderMatchPtrType)(v)
 }
 
 func (*routeSpecHttpRouteMatchHeaderMatchPtrType) ElementType() reflect.Type {
@@ -916,7 +924,7 @@ func (i *routeSpecHttpRouteMatchHeaderMatchPtrType) ToRouteSpecHttpRouteMatchHea
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteMatchHeaderMatchPtrOutput)
 }
 
-type RouteSpecHttpRouteMatchHeaderMatchOutput struct { *pulumi.OutputState }
+type RouteSpecHttpRouteMatchHeaderMatchOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecHttpRouteMatchHeaderMatchOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteSpecHttpRouteMatchHeaderMatch)(nil)).Elem()
@@ -939,32 +947,33 @@ func (o RouteSpecHttpRouteMatchHeaderMatchOutput) ToRouteSpecHttpRouteMatchHeade
 		return &v
 	}).(RouteSpecHttpRouteMatchHeaderMatchPtrOutput)
 }
+
 // The header value sent by the client must match the specified value exactly.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Exact() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
 // The header value sent by the client must begin with the specified characters.
 // * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Prefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Range() RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *RouteSpecHttpRouteMatchHeaderMatchRange { return v.Range }).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *RouteSpecHttpRouteMatchHeaderMatchRange { return v.Range }).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
 }
 
 // The header value sent by the client must include the specified characters.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Regex() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
 // The header value sent by the client must end with the specified characters.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Suffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
 
-type RouteSpecHttpRouteMatchHeaderMatchPtrOutput struct { *pulumi.OutputState}
+type RouteSpecHttpRouteMatchHeaderMatchPtrOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecHttpRouteMatchHeaderMatchPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RouteSpecHttpRouteMatchHeaderMatch)(nil)).Elem()
@@ -979,32 +988,32 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) ToRouteSpecHttpRouteMatchHe
 }
 
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Elem() RouteSpecHttpRouteMatchHeaderMatchOutput {
-	return o.ApplyT(func (v *RouteSpecHttpRouteMatchHeaderMatch) RouteSpecHttpRouteMatchHeaderMatch { return *v }).(RouteSpecHttpRouteMatchHeaderMatchOutput)
+	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) RouteSpecHttpRouteMatchHeaderMatch { return *v }).(RouteSpecHttpRouteMatchHeaderMatchOutput)
 }
 
 // The header value sent by the client must match the specified value exactly.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Exact() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
 // The header value sent by the client must begin with the specified characters.
 // * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Range() RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *RouteSpecHttpRouteMatchHeaderMatchRange { return v.Range }).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *RouteSpecHttpRouteMatchHeaderMatchRange { return v.Range }).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
 }
 
 // The header value sent by the client must include the specified characters.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Regex() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
 // The header value sent by the client must end with the specified characters.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Suffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
 
 type RouteSpecHttpRouteMatchHeaderMatchRange struct {
@@ -1057,7 +1066,8 @@ type RouteSpecHttpRouteMatchHeaderMatchRangePtrInput interface {
 
 type routeSpecHttpRouteMatchHeaderMatchRangePtrType RouteSpecHttpRouteMatchHeaderMatchRangeArgs
 
-func RouteSpecHttpRouteMatchHeaderMatchRangePtr(v *RouteSpecHttpRouteMatchHeaderMatchRangeArgs) RouteSpecHttpRouteMatchHeaderMatchRangePtrInput {	return (*routeSpecHttpRouteMatchHeaderMatchRangePtrType)(v)
+func RouteSpecHttpRouteMatchHeaderMatchRangePtr(v *RouteSpecHttpRouteMatchHeaderMatchRangeArgs) RouteSpecHttpRouteMatchHeaderMatchRangePtrInput {
+	return (*routeSpecHttpRouteMatchHeaderMatchRangePtrType)(v)
 }
 
 func (*routeSpecHttpRouteMatchHeaderMatchRangePtrType) ElementType() reflect.Type {
@@ -1072,7 +1082,7 @@ func (i *routeSpecHttpRouteMatchHeaderMatchRangePtrType) ToRouteSpecHttpRouteMat
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
 }
 
-type RouteSpecHttpRouteMatchHeaderMatchRangeOutput struct { *pulumi.OutputState }
+type RouteSpecHttpRouteMatchHeaderMatchRangeOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecHttpRouteMatchHeaderMatchRangeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteSpecHttpRouteMatchHeaderMatchRange)(nil)).Elem()
@@ -1095,17 +1105,18 @@ func (o RouteSpecHttpRouteMatchHeaderMatchRangeOutput) ToRouteSpecHttpRouteMatch
 		return &v
 	}).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
 }
+
 // The end of the range.
 func (o RouteSpecHttpRouteMatchHeaderMatchRangeOutput) End() pulumi.IntOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatchRange) int { return v.End }).(pulumi.IntOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatchRange) int { return v.End }).(pulumi.IntOutput)
 }
 
 // The start of the range.
 func (o RouteSpecHttpRouteMatchHeaderMatchRangeOutput) Start() pulumi.IntOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatchRange) int { return v.Start }).(pulumi.IntOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatchRange) int { return v.Start }).(pulumi.IntOutput)
 }
 
-type RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput struct { *pulumi.OutputState}
+type RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RouteSpecHttpRouteMatchHeaderMatchRange)(nil)).Elem()
@@ -1120,17 +1131,17 @@ func (o RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) ToRouteSpecHttpRouteMa
 }
 
 func (o RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) Elem() RouteSpecHttpRouteMatchHeaderMatchRangeOutput {
-	return o.ApplyT(func (v *RouteSpecHttpRouteMatchHeaderMatchRange) RouteSpecHttpRouteMatchHeaderMatchRange { return *v }).(RouteSpecHttpRouteMatchHeaderMatchRangeOutput)
+	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatchRange) RouteSpecHttpRouteMatchHeaderMatchRange { return *v }).(RouteSpecHttpRouteMatchHeaderMatchRangeOutput)
 }
 
 // The end of the range.
 func (o RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) End() pulumi.IntOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatchRange) int { return v.End }).(pulumi.IntOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatchRange) int { return v.End }).(pulumi.IntOutput)
 }
 
 // The start of the range.
 func (o RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) Start() pulumi.IntOutput {
-	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatchRange) int { return v.Start }).(pulumi.IntOutput)
+	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatchRange) int { return v.Start }).(pulumi.IntOutput)
 }
 
 type RouteSpecTcpRoute struct {
@@ -1179,7 +1190,8 @@ type RouteSpecTcpRoutePtrInput interface {
 
 type routeSpecTcpRoutePtrType RouteSpecTcpRouteArgs
 
-func RouteSpecTcpRoutePtr(v *RouteSpecTcpRouteArgs) RouteSpecTcpRoutePtrInput {	return (*routeSpecTcpRoutePtrType)(v)
+func RouteSpecTcpRoutePtr(v *RouteSpecTcpRouteArgs) RouteSpecTcpRoutePtrInput {
+	return (*routeSpecTcpRoutePtrType)(v)
 }
 
 func (*routeSpecTcpRoutePtrType) ElementType() reflect.Type {
@@ -1194,7 +1206,7 @@ func (i *routeSpecTcpRoutePtrType) ToRouteSpecTcpRoutePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecTcpRoutePtrOutput)
 }
 
-type RouteSpecTcpRouteOutput struct { *pulumi.OutputState }
+type RouteSpecTcpRouteOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecTcpRouteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteSpecTcpRoute)(nil)).Elem()
@@ -1217,12 +1229,13 @@ func (o RouteSpecTcpRouteOutput) ToRouteSpecTcpRoutePtrOutputWithContext(ctx con
 		return &v
 	}).(RouteSpecTcpRoutePtrOutput)
 }
+
 // The action to take if a match is determined.
 func (o RouteSpecTcpRouteOutput) Action() RouteSpecTcpRouteActionOutput {
-	return o.ApplyT(func (v RouteSpecTcpRoute) RouteSpecTcpRouteAction { return v.Action }).(RouteSpecTcpRouteActionOutput)
+	return o.ApplyT(func(v RouteSpecTcpRoute) RouteSpecTcpRouteAction { return v.Action }).(RouteSpecTcpRouteActionOutput)
 }
 
-type RouteSpecTcpRoutePtrOutput struct { *pulumi.OutputState}
+type RouteSpecTcpRoutePtrOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecTcpRoutePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RouteSpecTcpRoute)(nil)).Elem()
@@ -1237,12 +1250,12 @@ func (o RouteSpecTcpRoutePtrOutput) ToRouteSpecTcpRoutePtrOutputWithContext(ctx 
 }
 
 func (o RouteSpecTcpRoutePtrOutput) Elem() RouteSpecTcpRouteOutput {
-	return o.ApplyT(func (v *RouteSpecTcpRoute) RouteSpecTcpRoute { return *v }).(RouteSpecTcpRouteOutput)
+	return o.ApplyT(func(v *RouteSpecTcpRoute) RouteSpecTcpRoute { return *v }).(RouteSpecTcpRouteOutput)
 }
 
 // The action to take if a match is determined.
 func (o RouteSpecTcpRoutePtrOutput) Action() RouteSpecTcpRouteActionOutput {
-	return o.ApplyT(func (v RouteSpecTcpRoute) RouteSpecTcpRouteAction { return v.Action }).(RouteSpecTcpRouteActionOutput)
+	return o.ApplyT(func(v RouteSpecTcpRoute) RouteSpecTcpRouteAction { return v.Action }).(RouteSpecTcpRouteActionOutput)
 }
 
 type RouteSpecTcpRouteAction struct {
@@ -1276,7 +1289,7 @@ func (i RouteSpecTcpRouteActionArgs) ToRouteSpecTcpRouteActionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecTcpRouteActionOutput)
 }
 
-type RouteSpecTcpRouteActionOutput struct { *pulumi.OutputState }
+type RouteSpecTcpRouteActionOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecTcpRouteActionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteSpecTcpRouteAction)(nil)).Elem()
@@ -1293,7 +1306,7 @@ func (o RouteSpecTcpRouteActionOutput) ToRouteSpecTcpRouteActionOutputWithContex
 // The targets that traffic is routed to when a request matches the route.
 // You can specify one or more targets and their relative weights with which to distribute traffic.
 func (o RouteSpecTcpRouteActionOutput) WeightedTargets() RouteSpecTcpRouteActionWeightedTargetArrayOutput {
-	return o.ApplyT(func (v RouteSpecTcpRouteAction) []RouteSpecTcpRouteActionWeightedTarget { return v.WeightedTargets }).(RouteSpecTcpRouteActionWeightedTargetArrayOutput)
+	return o.ApplyT(func(v RouteSpecTcpRouteAction) []RouteSpecTcpRouteActionWeightedTarget { return v.WeightedTargets }).(RouteSpecTcpRouteActionWeightedTargetArrayOutput)
 }
 
 type RouteSpecTcpRouteActionWeightedTarget struct {
@@ -1350,7 +1363,7 @@ func (i RouteSpecTcpRouteActionWeightedTargetArray) ToRouteSpecTcpRouteActionWei
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecTcpRouteActionWeightedTargetArrayOutput)
 }
 
-type RouteSpecTcpRouteActionWeightedTargetOutput struct { *pulumi.OutputState }
+type RouteSpecTcpRouteActionWeightedTargetOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecTcpRouteActionWeightedTargetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteSpecTcpRouteActionWeightedTarget)(nil)).Elem()
@@ -1366,15 +1379,15 @@ func (o RouteSpecTcpRouteActionWeightedTargetOutput) ToRouteSpecTcpRouteActionWe
 
 // The virtual node to associate with the weighted target.
 func (o RouteSpecTcpRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
-	return o.ApplyT(func (v RouteSpecTcpRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RouteSpecTcpRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
 }
 
 // The relative weight of the weighted target. An integer between 0 and 100.
 func (o RouteSpecTcpRouteActionWeightedTargetOutput) Weight() pulumi.IntOutput {
-	return o.ApplyT(func (v RouteSpecTcpRouteActionWeightedTarget) int { return v.Weight }).(pulumi.IntOutput)
+	return o.ApplyT(func(v RouteSpecTcpRouteActionWeightedTarget) int { return v.Weight }).(pulumi.IntOutput)
 }
 
-type RouteSpecTcpRouteActionWeightedTargetArrayOutput struct { *pulumi.OutputState}
+type RouteSpecTcpRouteActionWeightedTargetArrayOutput struct{ *pulumi.OutputState }
 
 func (RouteSpecTcpRouteActionWeightedTargetArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]RouteSpecTcpRouteActionWeightedTarget)(nil)).Elem()
@@ -1389,7 +1402,7 @@ func (o RouteSpecTcpRouteActionWeightedTargetArrayOutput) ToRouteSpecTcpRouteAct
 }
 
 func (o RouteSpecTcpRouteActionWeightedTargetArrayOutput) Index(i pulumi.IntInput) RouteSpecTcpRouteActionWeightedTargetOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) RouteSpecTcpRouteActionWeightedTarget {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteSpecTcpRouteActionWeightedTarget {
 		return vs[0].([]RouteSpecTcpRouteActionWeightedTarget)[vs[1].(int)]
 	}).(RouteSpecTcpRouteActionWeightedTargetOutput)
 }
@@ -1452,7 +1465,8 @@ type VirtualNodeSpecPtrInput interface {
 
 type virtualNodeSpecPtrType VirtualNodeSpecArgs
 
-func VirtualNodeSpecPtr(v *VirtualNodeSpecArgs) VirtualNodeSpecPtrInput {	return (*virtualNodeSpecPtrType)(v)
+func VirtualNodeSpecPtr(v *VirtualNodeSpecArgs) VirtualNodeSpecPtrInput {
+	return (*virtualNodeSpecPtrType)(v)
 }
 
 func (*virtualNodeSpecPtrType) ElementType() reflect.Type {
@@ -1467,7 +1481,7 @@ func (i *virtualNodeSpecPtrType) ToVirtualNodeSpecPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecPtrOutput)
 }
 
-type VirtualNodeSpecOutput struct { *pulumi.OutputState }
+type VirtualNodeSpecOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNodeSpec)(nil)).Elem()
@@ -1490,27 +1504,28 @@ func (o VirtualNodeSpecOutput) ToVirtualNodeSpecPtrOutputWithContext(ctx context
 		return &v
 	}).(VirtualNodeSpecPtrOutput)
 }
+
 // The backends to which the virtual node is expected to send outbound traffic.
 func (o VirtualNodeSpecOutput) Backends() VirtualNodeSpecBackendArrayOutput {
-	return o.ApplyT(func (v VirtualNodeSpec) []VirtualNodeSpecBackend { return v.Backends }).(VirtualNodeSpecBackendArrayOutput)
+	return o.ApplyT(func(v VirtualNodeSpec) []VirtualNodeSpecBackend { return v.Backends }).(VirtualNodeSpecBackendArrayOutput)
 }
 
 // The listeners from which the virtual node is expected to receive inbound traffic.
 func (o VirtualNodeSpecOutput) Listener() VirtualNodeSpecListenerPtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpec) *VirtualNodeSpecListener { return v.Listener }).(VirtualNodeSpecListenerPtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpec) *VirtualNodeSpecListener { return v.Listener }).(VirtualNodeSpecListenerPtrOutput)
 }
 
 // The inbound and outbound access logging information for the virtual node.
 func (o VirtualNodeSpecOutput) Logging() VirtualNodeSpecLoggingPtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpec) *VirtualNodeSpecLogging { return v.Logging }).(VirtualNodeSpecLoggingPtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpec) *VirtualNodeSpecLogging { return v.Logging }).(VirtualNodeSpecLoggingPtrOutput)
 }
 
 // The service discovery information for the virtual node.
 func (o VirtualNodeSpecOutput) ServiceDiscovery() VirtualNodeSpecServiceDiscoveryPtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpec) *VirtualNodeSpecServiceDiscovery { return v.ServiceDiscovery }).(VirtualNodeSpecServiceDiscoveryPtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpec) *VirtualNodeSpecServiceDiscovery { return v.ServiceDiscovery }).(VirtualNodeSpecServiceDiscoveryPtrOutput)
 }
 
-type VirtualNodeSpecPtrOutput struct { *pulumi.OutputState}
+type VirtualNodeSpecPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualNodeSpec)(nil)).Elem()
@@ -1525,27 +1540,27 @@ func (o VirtualNodeSpecPtrOutput) ToVirtualNodeSpecPtrOutputWithContext(ctx cont
 }
 
 func (o VirtualNodeSpecPtrOutput) Elem() VirtualNodeSpecOutput {
-	return o.ApplyT(func (v *VirtualNodeSpec) VirtualNodeSpec { return *v }).(VirtualNodeSpecOutput)
+	return o.ApplyT(func(v *VirtualNodeSpec) VirtualNodeSpec { return *v }).(VirtualNodeSpecOutput)
 }
 
 // The backends to which the virtual node is expected to send outbound traffic.
 func (o VirtualNodeSpecPtrOutput) Backends() VirtualNodeSpecBackendArrayOutput {
-	return o.ApplyT(func (v VirtualNodeSpec) []VirtualNodeSpecBackend { return v.Backends }).(VirtualNodeSpecBackendArrayOutput)
+	return o.ApplyT(func(v VirtualNodeSpec) []VirtualNodeSpecBackend { return v.Backends }).(VirtualNodeSpecBackendArrayOutput)
 }
 
 // The listeners from which the virtual node is expected to receive inbound traffic.
 func (o VirtualNodeSpecPtrOutput) Listener() VirtualNodeSpecListenerPtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpec) *VirtualNodeSpecListener { return v.Listener }).(VirtualNodeSpecListenerPtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpec) *VirtualNodeSpecListener { return v.Listener }).(VirtualNodeSpecListenerPtrOutput)
 }
 
 // The inbound and outbound access logging information for the virtual node.
 func (o VirtualNodeSpecPtrOutput) Logging() VirtualNodeSpecLoggingPtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpec) *VirtualNodeSpecLogging { return v.Logging }).(VirtualNodeSpecLoggingPtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpec) *VirtualNodeSpecLogging { return v.Logging }).(VirtualNodeSpecLoggingPtrOutput)
 }
 
 // The service discovery information for the virtual node.
 func (o VirtualNodeSpecPtrOutput) ServiceDiscovery() VirtualNodeSpecServiceDiscoveryPtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpec) *VirtualNodeSpecServiceDiscovery { return v.ServiceDiscovery }).(VirtualNodeSpecServiceDiscoveryPtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpec) *VirtualNodeSpecServiceDiscovery { return v.ServiceDiscovery }).(VirtualNodeSpecServiceDiscoveryPtrOutput)
 }
 
 type VirtualNodeSpecBackend struct {
@@ -1598,7 +1613,7 @@ func (i VirtualNodeSpecBackendArray) ToVirtualNodeSpecBackendArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendArrayOutput)
 }
 
-type VirtualNodeSpecBackendOutput struct { *pulumi.OutputState }
+type VirtualNodeSpecBackendOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecBackendOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNodeSpecBackend)(nil)).Elem()
@@ -1614,10 +1629,10 @@ func (o VirtualNodeSpecBackendOutput) ToVirtualNodeSpecBackendOutputWithContext(
 
 // Specifies a virtual service to use as a backend for a virtual node.
 func (o VirtualNodeSpecBackendOutput) VirtualService() VirtualNodeSpecBackendVirtualServicePtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpecBackend) *VirtualNodeSpecBackendVirtualService { return v.VirtualService }).(VirtualNodeSpecBackendVirtualServicePtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpecBackend) *VirtualNodeSpecBackendVirtualService { return v.VirtualService }).(VirtualNodeSpecBackendVirtualServicePtrOutput)
 }
 
-type VirtualNodeSpecBackendArrayOutput struct { *pulumi.OutputState}
+type VirtualNodeSpecBackendArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecBackendArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]VirtualNodeSpecBackend)(nil)).Elem()
@@ -1632,7 +1647,7 @@ func (o VirtualNodeSpecBackendArrayOutput) ToVirtualNodeSpecBackendArrayOutputWi
 }
 
 func (o VirtualNodeSpecBackendArrayOutput) Index(i pulumi.IntInput) VirtualNodeSpecBackendOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) VirtualNodeSpecBackend {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNodeSpecBackend {
 		return vs[0].([]VirtualNodeSpecBackend)[vs[1].(int)]
 	}).(VirtualNodeSpecBackendOutput)
 }
@@ -1683,7 +1698,8 @@ type VirtualNodeSpecBackendVirtualServicePtrInput interface {
 
 type virtualNodeSpecBackendVirtualServicePtrType VirtualNodeSpecBackendVirtualServiceArgs
 
-func VirtualNodeSpecBackendVirtualServicePtr(v *VirtualNodeSpecBackendVirtualServiceArgs) VirtualNodeSpecBackendVirtualServicePtrInput {	return (*virtualNodeSpecBackendVirtualServicePtrType)(v)
+func VirtualNodeSpecBackendVirtualServicePtr(v *VirtualNodeSpecBackendVirtualServiceArgs) VirtualNodeSpecBackendVirtualServicePtrInput {
+	return (*virtualNodeSpecBackendVirtualServicePtrType)(v)
 }
 
 func (*virtualNodeSpecBackendVirtualServicePtrType) ElementType() reflect.Type {
@@ -1698,7 +1714,7 @@ func (i *virtualNodeSpecBackendVirtualServicePtrType) ToVirtualNodeSpecBackendVi
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServicePtrOutput)
 }
 
-type VirtualNodeSpecBackendVirtualServiceOutput struct { *pulumi.OutputState }
+type VirtualNodeSpecBackendVirtualServiceOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecBackendVirtualServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNodeSpecBackendVirtualService)(nil)).Elem()
@@ -1721,12 +1737,13 @@ func (o VirtualNodeSpecBackendVirtualServiceOutput) ToVirtualNodeSpecBackendVirt
 		return &v
 	}).(VirtualNodeSpecBackendVirtualServicePtrOutput)
 }
+
 // The name of the virtual service that is acting as a virtual node backend.
 func (o VirtualNodeSpecBackendVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualNodeSpecBackendVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
 }
 
-type VirtualNodeSpecBackendVirtualServicePtrOutput struct { *pulumi.OutputState}
+type VirtualNodeSpecBackendVirtualServicePtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecBackendVirtualServicePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualNodeSpecBackendVirtualService)(nil)).Elem()
@@ -1741,12 +1758,12 @@ func (o VirtualNodeSpecBackendVirtualServicePtrOutput) ToVirtualNodeSpecBackendV
 }
 
 func (o VirtualNodeSpecBackendVirtualServicePtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceOutput {
-	return o.ApplyT(func (v *VirtualNodeSpecBackendVirtualService) VirtualNodeSpecBackendVirtualService { return *v }).(VirtualNodeSpecBackendVirtualServiceOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualService) VirtualNodeSpecBackendVirtualService { return *v }).(VirtualNodeSpecBackendVirtualServiceOutput)
 }
 
 // The name of the virtual service that is acting as a virtual node backend.
 func (o VirtualNodeSpecBackendVirtualServicePtrOutput) VirtualServiceName() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualNodeSpecBackendVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
 }
 
 type VirtualNodeSpecListener struct {
@@ -1799,7 +1816,8 @@ type VirtualNodeSpecListenerPtrInput interface {
 
 type virtualNodeSpecListenerPtrType VirtualNodeSpecListenerArgs
 
-func VirtualNodeSpecListenerPtr(v *VirtualNodeSpecListenerArgs) VirtualNodeSpecListenerPtrInput {	return (*virtualNodeSpecListenerPtrType)(v)
+func VirtualNodeSpecListenerPtr(v *VirtualNodeSpecListenerArgs) VirtualNodeSpecListenerPtrInput {
+	return (*virtualNodeSpecListenerPtrType)(v)
 }
 
 func (*virtualNodeSpecListenerPtrType) ElementType() reflect.Type {
@@ -1814,7 +1832,7 @@ func (i *virtualNodeSpecListenerPtrType) ToVirtualNodeSpecListenerPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerPtrOutput)
 }
 
-type VirtualNodeSpecListenerOutput struct { *pulumi.OutputState }
+type VirtualNodeSpecListenerOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecListenerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNodeSpecListener)(nil)).Elem()
@@ -1837,17 +1855,18 @@ func (o VirtualNodeSpecListenerOutput) ToVirtualNodeSpecListenerPtrOutputWithCon
 		return &v
 	}).(VirtualNodeSpecListenerPtrOutput)
 }
+
 // The health check information for the listener.
 func (o VirtualNodeSpecListenerOutput) HealthCheck() VirtualNodeSpecListenerHealthCheckPtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListener) *VirtualNodeSpecListenerHealthCheck { return v.HealthCheck }).(VirtualNodeSpecListenerHealthCheckPtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListener) *VirtualNodeSpecListenerHealthCheck { return v.HealthCheck }).(VirtualNodeSpecListenerHealthCheckPtrOutput)
 }
 
 // The port mapping information for the listener.
 func (o VirtualNodeSpecListenerOutput) PortMapping() VirtualNodeSpecListenerPortMappingOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListener) VirtualNodeSpecListenerPortMapping { return v.PortMapping }).(VirtualNodeSpecListenerPortMappingOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListener) VirtualNodeSpecListenerPortMapping { return v.PortMapping }).(VirtualNodeSpecListenerPortMappingOutput)
 }
 
-type VirtualNodeSpecListenerPtrOutput struct { *pulumi.OutputState}
+type VirtualNodeSpecListenerPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecListenerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualNodeSpecListener)(nil)).Elem()
@@ -1862,24 +1881,24 @@ func (o VirtualNodeSpecListenerPtrOutput) ToVirtualNodeSpecListenerPtrOutputWith
 }
 
 func (o VirtualNodeSpecListenerPtrOutput) Elem() VirtualNodeSpecListenerOutput {
-	return o.ApplyT(func (v *VirtualNodeSpecListener) VirtualNodeSpecListener { return *v }).(VirtualNodeSpecListenerOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListener) VirtualNodeSpecListener { return *v }).(VirtualNodeSpecListenerOutput)
 }
 
 // The health check information for the listener.
 func (o VirtualNodeSpecListenerPtrOutput) HealthCheck() VirtualNodeSpecListenerHealthCheckPtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListener) *VirtualNodeSpecListenerHealthCheck { return v.HealthCheck }).(VirtualNodeSpecListenerHealthCheckPtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListener) *VirtualNodeSpecListenerHealthCheck { return v.HealthCheck }).(VirtualNodeSpecListenerHealthCheckPtrOutput)
 }
 
 // The port mapping information for the listener.
 func (o VirtualNodeSpecListenerPtrOutput) PortMapping() VirtualNodeSpecListenerPortMappingOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListener) VirtualNodeSpecListenerPortMapping { return v.PortMapping }).(VirtualNodeSpecListenerPortMappingOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListener) VirtualNodeSpecListenerPortMapping { return v.PortMapping }).(VirtualNodeSpecListenerPortMappingOutput)
 }
 
 type VirtualNodeSpecListenerHealthCheck struct {
 	// The number of consecutive successful health checks that must occur before declaring listener healthy.
 	// * `intervalMillis`- (Required) The time period in milliseconds between each health check execution.
 	HealthyThreshold int `pulumi:"healthyThreshold"`
-	IntervalMillis int `pulumi:"intervalMillis"`
+	IntervalMillis   int `pulumi:"intervalMillis"`
 	// The destination path for the health check request. This is only required if the specified protocol is `http`.
 	Path *string `pulumi:"path"`
 	// The destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
@@ -1903,7 +1922,7 @@ type VirtualNodeSpecListenerHealthCheckArgs struct {
 	// The number of consecutive successful health checks that must occur before declaring listener healthy.
 	// * `intervalMillis`- (Required) The time period in milliseconds between each health check execution.
 	HealthyThreshold pulumi.IntInput `pulumi:"healthyThreshold"`
-	IntervalMillis pulumi.IntInput `pulumi:"intervalMillis"`
+	IntervalMillis   pulumi.IntInput `pulumi:"intervalMillis"`
 	// The destination path for the health check request. This is only required if the specified protocol is `http`.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
@@ -1945,7 +1964,8 @@ type VirtualNodeSpecListenerHealthCheckPtrInput interface {
 
 type virtualNodeSpecListenerHealthCheckPtrType VirtualNodeSpecListenerHealthCheckArgs
 
-func VirtualNodeSpecListenerHealthCheckPtr(v *VirtualNodeSpecListenerHealthCheckArgs) VirtualNodeSpecListenerHealthCheckPtrInput {	return (*virtualNodeSpecListenerHealthCheckPtrType)(v)
+func VirtualNodeSpecListenerHealthCheckPtr(v *VirtualNodeSpecListenerHealthCheckArgs) VirtualNodeSpecListenerHealthCheckPtrInput {
+	return (*virtualNodeSpecListenerHealthCheckPtrType)(v)
 }
 
 func (*virtualNodeSpecListenerHealthCheckPtrType) ElementType() reflect.Type {
@@ -1960,7 +1980,7 @@ func (i *virtualNodeSpecListenerHealthCheckPtrType) ToVirtualNodeSpecListenerHea
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerHealthCheckPtrOutput)
 }
 
-type VirtualNodeSpecListenerHealthCheckOutput struct { *pulumi.OutputState }
+type VirtualNodeSpecListenerHealthCheckOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecListenerHealthCheckOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNodeSpecListenerHealthCheck)(nil)).Elem()
@@ -1983,42 +2003,43 @@ func (o VirtualNodeSpecListenerHealthCheckOutput) ToVirtualNodeSpecListenerHealt
 		return &v
 	}).(VirtualNodeSpecListenerHealthCheckPtrOutput)
 }
+
 // The number of consecutive successful health checks that must occur before declaring listener healthy.
 // * `intervalMillis`- (Required) The time period in milliseconds between each health check execution.
 func (o VirtualNodeSpecListenerHealthCheckOutput) HealthyThreshold() pulumi.IntOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListenerHealthCheck) int { return v.HealthyThreshold }).(pulumi.IntOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) int { return v.HealthyThreshold }).(pulumi.IntOutput)
 }
 
 func (o VirtualNodeSpecListenerHealthCheckOutput) IntervalMillis() pulumi.IntOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListenerHealthCheck) int { return v.IntervalMillis }).(pulumi.IntOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) int { return v.IntervalMillis }).(pulumi.IntOutput)
 }
 
 // The destination path for the health check request. This is only required if the specified protocol is `http`.
 func (o VirtualNodeSpecListenerHealthCheckOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListenerHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // The destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
 func (o VirtualNodeSpecListenerHealthCheckOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListenerHealthCheck) *int { return v.Port }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // The protocol for the health check request. Valid values are `http` and `tcp`.
 func (o VirtualNodeSpecListenerHealthCheckOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListenerHealthCheck) string { return v.Protocol }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
 // The amount of time to wait when receiving a response from the health check, in milliseconds.
 func (o VirtualNodeSpecListenerHealthCheckOutput) TimeoutMillis() pulumi.IntOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListenerHealthCheck) int { return v.TimeoutMillis }).(pulumi.IntOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) int { return v.TimeoutMillis }).(pulumi.IntOutput)
 }
 
 // The number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
 func (o VirtualNodeSpecListenerHealthCheckOutput) UnhealthyThreshold() pulumi.IntOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListenerHealthCheck) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
 }
 
-type VirtualNodeSpecListenerHealthCheckPtrOutput struct { *pulumi.OutputState}
+type VirtualNodeSpecListenerHealthCheckPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecListenerHealthCheckPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualNodeSpecListenerHealthCheck)(nil)).Elem()
@@ -2033,42 +2054,42 @@ func (o VirtualNodeSpecListenerHealthCheckPtrOutput) ToVirtualNodeSpecListenerHe
 }
 
 func (o VirtualNodeSpecListenerHealthCheckPtrOutput) Elem() VirtualNodeSpecListenerHealthCheckOutput {
-	return o.ApplyT(func (v *VirtualNodeSpecListenerHealthCheck) VirtualNodeSpecListenerHealthCheck { return *v }).(VirtualNodeSpecListenerHealthCheckOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerHealthCheck) VirtualNodeSpecListenerHealthCheck { return *v }).(VirtualNodeSpecListenerHealthCheckOutput)
 }
 
 // The number of consecutive successful health checks that must occur before declaring listener healthy.
 // * `intervalMillis`- (Required) The time period in milliseconds between each health check execution.
 func (o VirtualNodeSpecListenerHealthCheckPtrOutput) HealthyThreshold() pulumi.IntOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListenerHealthCheck) int { return v.HealthyThreshold }).(pulumi.IntOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) int { return v.HealthyThreshold }).(pulumi.IntOutput)
 }
 
 func (o VirtualNodeSpecListenerHealthCheckPtrOutput) IntervalMillis() pulumi.IntOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListenerHealthCheck) int { return v.IntervalMillis }).(pulumi.IntOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) int { return v.IntervalMillis }).(pulumi.IntOutput)
 }
 
 // The destination path for the health check request. This is only required if the specified protocol is `http`.
 func (o VirtualNodeSpecListenerHealthCheckPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListenerHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // The destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
 func (o VirtualNodeSpecListenerHealthCheckPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListenerHealthCheck) *int { return v.Port }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // The protocol for the health check request. Valid values are `http` and `tcp`.
 func (o VirtualNodeSpecListenerHealthCheckPtrOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListenerHealthCheck) string { return v.Protocol }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
 // The amount of time to wait when receiving a response from the health check, in milliseconds.
 func (o VirtualNodeSpecListenerHealthCheckPtrOutput) TimeoutMillis() pulumi.IntOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListenerHealthCheck) int { return v.TimeoutMillis }).(pulumi.IntOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) int { return v.TimeoutMillis }).(pulumi.IntOutput)
 }
 
 // The number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
 func (o VirtualNodeSpecListenerHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListenerHealthCheck) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
 }
 
 type VirtualNodeSpecListenerPortMapping struct {
@@ -2104,7 +2125,7 @@ func (i VirtualNodeSpecListenerPortMappingArgs) ToVirtualNodeSpecListenerPortMap
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerPortMappingOutput)
 }
 
-type VirtualNodeSpecListenerPortMappingOutput struct { *pulumi.OutputState }
+type VirtualNodeSpecListenerPortMappingOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecListenerPortMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNodeSpecListenerPortMapping)(nil)).Elem()
@@ -2120,12 +2141,12 @@ func (o VirtualNodeSpecListenerPortMappingOutput) ToVirtualNodeSpecListenerPortM
 
 // The destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
 func (o VirtualNodeSpecListenerPortMappingOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListenerPortMapping) int { return v.Port }).(pulumi.IntOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListenerPortMapping) int { return v.Port }).(pulumi.IntOutput)
 }
 
 // The protocol for the health check request. Valid values are `http` and `tcp`.
 func (o VirtualNodeSpecListenerPortMappingOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualNodeSpecListenerPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualNodeSpecListenerPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
 type VirtualNodeSpecLogging struct {
@@ -2174,7 +2195,8 @@ type VirtualNodeSpecLoggingPtrInput interface {
 
 type virtualNodeSpecLoggingPtrType VirtualNodeSpecLoggingArgs
 
-func VirtualNodeSpecLoggingPtr(v *VirtualNodeSpecLoggingArgs) VirtualNodeSpecLoggingPtrInput {	return (*virtualNodeSpecLoggingPtrType)(v)
+func VirtualNodeSpecLoggingPtr(v *VirtualNodeSpecLoggingArgs) VirtualNodeSpecLoggingPtrInput {
+	return (*virtualNodeSpecLoggingPtrType)(v)
 }
 
 func (*virtualNodeSpecLoggingPtrType) ElementType() reflect.Type {
@@ -2189,7 +2211,7 @@ func (i *virtualNodeSpecLoggingPtrType) ToVirtualNodeSpecLoggingPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecLoggingPtrOutput)
 }
 
-type VirtualNodeSpecLoggingOutput struct { *pulumi.OutputState }
+type VirtualNodeSpecLoggingOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecLoggingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNodeSpecLogging)(nil)).Elem()
@@ -2212,12 +2234,13 @@ func (o VirtualNodeSpecLoggingOutput) ToVirtualNodeSpecLoggingPtrOutputWithConte
 		return &v
 	}).(VirtualNodeSpecLoggingPtrOutput)
 }
+
 // The access log configuration for a virtual node.
 func (o VirtualNodeSpecLoggingOutput) AccessLog() VirtualNodeSpecLoggingAccessLogPtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpecLogging) *VirtualNodeSpecLoggingAccessLog { return v.AccessLog }).(VirtualNodeSpecLoggingAccessLogPtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpecLogging) *VirtualNodeSpecLoggingAccessLog { return v.AccessLog }).(VirtualNodeSpecLoggingAccessLogPtrOutput)
 }
 
-type VirtualNodeSpecLoggingPtrOutput struct { *pulumi.OutputState}
+type VirtualNodeSpecLoggingPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecLoggingPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualNodeSpecLogging)(nil)).Elem()
@@ -2232,12 +2255,12 @@ func (o VirtualNodeSpecLoggingPtrOutput) ToVirtualNodeSpecLoggingPtrOutputWithCo
 }
 
 func (o VirtualNodeSpecLoggingPtrOutput) Elem() VirtualNodeSpecLoggingOutput {
-	return o.ApplyT(func (v *VirtualNodeSpecLogging) VirtualNodeSpecLogging { return *v }).(VirtualNodeSpecLoggingOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecLogging) VirtualNodeSpecLogging { return *v }).(VirtualNodeSpecLoggingOutput)
 }
 
 // The access log configuration for a virtual node.
 func (o VirtualNodeSpecLoggingPtrOutput) AccessLog() VirtualNodeSpecLoggingAccessLogPtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpecLogging) *VirtualNodeSpecLoggingAccessLog { return v.AccessLog }).(VirtualNodeSpecLoggingAccessLogPtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpecLogging) *VirtualNodeSpecLoggingAccessLog { return v.AccessLog }).(VirtualNodeSpecLoggingAccessLogPtrOutput)
 }
 
 type VirtualNodeSpecLoggingAccessLog struct {
@@ -2286,7 +2309,8 @@ type VirtualNodeSpecLoggingAccessLogPtrInput interface {
 
 type virtualNodeSpecLoggingAccessLogPtrType VirtualNodeSpecLoggingAccessLogArgs
 
-func VirtualNodeSpecLoggingAccessLogPtr(v *VirtualNodeSpecLoggingAccessLogArgs) VirtualNodeSpecLoggingAccessLogPtrInput {	return (*virtualNodeSpecLoggingAccessLogPtrType)(v)
+func VirtualNodeSpecLoggingAccessLogPtr(v *VirtualNodeSpecLoggingAccessLogArgs) VirtualNodeSpecLoggingAccessLogPtrInput {
+	return (*virtualNodeSpecLoggingAccessLogPtrType)(v)
 }
 
 func (*virtualNodeSpecLoggingAccessLogPtrType) ElementType() reflect.Type {
@@ -2301,7 +2325,7 @@ func (i *virtualNodeSpecLoggingAccessLogPtrType) ToVirtualNodeSpecLoggingAccessL
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecLoggingAccessLogPtrOutput)
 }
 
-type VirtualNodeSpecLoggingAccessLogOutput struct { *pulumi.OutputState }
+type VirtualNodeSpecLoggingAccessLogOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecLoggingAccessLogOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNodeSpecLoggingAccessLog)(nil)).Elem()
@@ -2324,12 +2348,13 @@ func (o VirtualNodeSpecLoggingAccessLogOutput) ToVirtualNodeSpecLoggingAccessLog
 		return &v
 	}).(VirtualNodeSpecLoggingAccessLogPtrOutput)
 }
+
 // The file object to send virtual node access logs to.
 func (o VirtualNodeSpecLoggingAccessLogOutput) File() VirtualNodeSpecLoggingAccessLogFilePtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpecLoggingAccessLog) *VirtualNodeSpecLoggingAccessLogFile { return v.File }).(VirtualNodeSpecLoggingAccessLogFilePtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpecLoggingAccessLog) *VirtualNodeSpecLoggingAccessLogFile { return v.File }).(VirtualNodeSpecLoggingAccessLogFilePtrOutput)
 }
 
-type VirtualNodeSpecLoggingAccessLogPtrOutput struct { *pulumi.OutputState}
+type VirtualNodeSpecLoggingAccessLogPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecLoggingAccessLogPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualNodeSpecLoggingAccessLog)(nil)).Elem()
@@ -2344,12 +2369,12 @@ func (o VirtualNodeSpecLoggingAccessLogPtrOutput) ToVirtualNodeSpecLoggingAccess
 }
 
 func (o VirtualNodeSpecLoggingAccessLogPtrOutput) Elem() VirtualNodeSpecLoggingAccessLogOutput {
-	return o.ApplyT(func (v *VirtualNodeSpecLoggingAccessLog) VirtualNodeSpecLoggingAccessLog { return *v }).(VirtualNodeSpecLoggingAccessLogOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecLoggingAccessLog) VirtualNodeSpecLoggingAccessLog { return *v }).(VirtualNodeSpecLoggingAccessLogOutput)
 }
 
 // The file object to send virtual node access logs to.
 func (o VirtualNodeSpecLoggingAccessLogPtrOutput) File() VirtualNodeSpecLoggingAccessLogFilePtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpecLoggingAccessLog) *VirtualNodeSpecLoggingAccessLogFile { return v.File }).(VirtualNodeSpecLoggingAccessLogFilePtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpecLoggingAccessLog) *VirtualNodeSpecLoggingAccessLogFile { return v.File }).(VirtualNodeSpecLoggingAccessLogFilePtrOutput)
 }
 
 type VirtualNodeSpecLoggingAccessLogFile struct {
@@ -2398,7 +2423,8 @@ type VirtualNodeSpecLoggingAccessLogFilePtrInput interface {
 
 type virtualNodeSpecLoggingAccessLogFilePtrType VirtualNodeSpecLoggingAccessLogFileArgs
 
-func VirtualNodeSpecLoggingAccessLogFilePtr(v *VirtualNodeSpecLoggingAccessLogFileArgs) VirtualNodeSpecLoggingAccessLogFilePtrInput {	return (*virtualNodeSpecLoggingAccessLogFilePtrType)(v)
+func VirtualNodeSpecLoggingAccessLogFilePtr(v *VirtualNodeSpecLoggingAccessLogFileArgs) VirtualNodeSpecLoggingAccessLogFilePtrInput {
+	return (*virtualNodeSpecLoggingAccessLogFilePtrType)(v)
 }
 
 func (*virtualNodeSpecLoggingAccessLogFilePtrType) ElementType() reflect.Type {
@@ -2413,7 +2439,7 @@ func (i *virtualNodeSpecLoggingAccessLogFilePtrType) ToVirtualNodeSpecLoggingAcc
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecLoggingAccessLogFilePtrOutput)
 }
 
-type VirtualNodeSpecLoggingAccessLogFileOutput struct { *pulumi.OutputState }
+type VirtualNodeSpecLoggingAccessLogFileOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecLoggingAccessLogFileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNodeSpecLoggingAccessLogFile)(nil)).Elem()
@@ -2436,12 +2462,13 @@ func (o VirtualNodeSpecLoggingAccessLogFileOutput) ToVirtualNodeSpecLoggingAcces
 		return &v
 	}).(VirtualNodeSpecLoggingAccessLogFilePtrOutput)
 }
+
 // The destination path for the health check request. This is only required if the specified protocol is `http`.
 func (o VirtualNodeSpecLoggingAccessLogFileOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualNodeSpecLoggingAccessLogFile) string { return v.Path }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualNodeSpecLoggingAccessLogFile) string { return v.Path }).(pulumi.StringOutput)
 }
 
-type VirtualNodeSpecLoggingAccessLogFilePtrOutput struct { *pulumi.OutputState}
+type VirtualNodeSpecLoggingAccessLogFilePtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecLoggingAccessLogFilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualNodeSpecLoggingAccessLogFile)(nil)).Elem()
@@ -2456,12 +2483,12 @@ func (o VirtualNodeSpecLoggingAccessLogFilePtrOutput) ToVirtualNodeSpecLoggingAc
 }
 
 func (o VirtualNodeSpecLoggingAccessLogFilePtrOutput) Elem() VirtualNodeSpecLoggingAccessLogFileOutput {
-	return o.ApplyT(func (v *VirtualNodeSpecLoggingAccessLogFile) VirtualNodeSpecLoggingAccessLogFile { return *v }).(VirtualNodeSpecLoggingAccessLogFileOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecLoggingAccessLogFile) VirtualNodeSpecLoggingAccessLogFile { return *v }).(VirtualNodeSpecLoggingAccessLogFileOutput)
 }
 
 // The destination path for the health check request. This is only required if the specified protocol is `http`.
 func (o VirtualNodeSpecLoggingAccessLogFilePtrOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualNodeSpecLoggingAccessLogFile) string { return v.Path }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualNodeSpecLoggingAccessLogFile) string { return v.Path }).(pulumi.StringOutput)
 }
 
 type VirtualNodeSpecServiceDiscovery struct {
@@ -2514,7 +2541,8 @@ type VirtualNodeSpecServiceDiscoveryPtrInput interface {
 
 type virtualNodeSpecServiceDiscoveryPtrType VirtualNodeSpecServiceDiscoveryArgs
 
-func VirtualNodeSpecServiceDiscoveryPtr(v *VirtualNodeSpecServiceDiscoveryArgs) VirtualNodeSpecServiceDiscoveryPtrInput {	return (*virtualNodeSpecServiceDiscoveryPtrType)(v)
+func VirtualNodeSpecServiceDiscoveryPtr(v *VirtualNodeSpecServiceDiscoveryArgs) VirtualNodeSpecServiceDiscoveryPtrInput {
+	return (*virtualNodeSpecServiceDiscoveryPtrType)(v)
 }
 
 func (*virtualNodeSpecServiceDiscoveryPtrType) ElementType() reflect.Type {
@@ -2529,7 +2557,7 @@ func (i *virtualNodeSpecServiceDiscoveryPtrType) ToVirtualNodeSpecServiceDiscove
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecServiceDiscoveryPtrOutput)
 }
 
-type VirtualNodeSpecServiceDiscoveryOutput struct { *pulumi.OutputState }
+type VirtualNodeSpecServiceDiscoveryOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecServiceDiscoveryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNodeSpecServiceDiscovery)(nil)).Elem()
@@ -2552,17 +2580,20 @@ func (o VirtualNodeSpecServiceDiscoveryOutput) ToVirtualNodeSpecServiceDiscovery
 		return &v
 	}).(VirtualNodeSpecServiceDiscoveryPtrOutput)
 }
+
 // Specifies any AWS Cloud Map information for the virtual node.
 func (o VirtualNodeSpecServiceDiscoveryOutput) AwsCloudMap() VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpecServiceDiscovery) *VirtualNodeSpecServiceDiscoveryAwsCloudMap { return v.AwsCloudMap }).(VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpecServiceDiscovery) *VirtualNodeSpecServiceDiscoveryAwsCloudMap {
+		return v.AwsCloudMap
+	}).(VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput)
 }
 
 // Specifies the DNS service name for the virtual node.
 func (o VirtualNodeSpecServiceDiscoveryOutput) Dns() VirtualNodeSpecServiceDiscoveryDnsPtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpecServiceDiscovery) *VirtualNodeSpecServiceDiscoveryDns { return v.Dns }).(VirtualNodeSpecServiceDiscoveryDnsPtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpecServiceDiscovery) *VirtualNodeSpecServiceDiscoveryDns { return v.Dns }).(VirtualNodeSpecServiceDiscoveryDnsPtrOutput)
 }
 
-type VirtualNodeSpecServiceDiscoveryPtrOutput struct { *pulumi.OutputState}
+type VirtualNodeSpecServiceDiscoveryPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecServiceDiscoveryPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualNodeSpecServiceDiscovery)(nil)).Elem()
@@ -2577,17 +2608,19 @@ func (o VirtualNodeSpecServiceDiscoveryPtrOutput) ToVirtualNodeSpecServiceDiscov
 }
 
 func (o VirtualNodeSpecServiceDiscoveryPtrOutput) Elem() VirtualNodeSpecServiceDiscoveryOutput {
-	return o.ApplyT(func (v *VirtualNodeSpecServiceDiscovery) VirtualNodeSpecServiceDiscovery { return *v }).(VirtualNodeSpecServiceDiscoveryOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecServiceDiscovery) VirtualNodeSpecServiceDiscovery { return *v }).(VirtualNodeSpecServiceDiscoveryOutput)
 }
 
 // Specifies any AWS Cloud Map information for the virtual node.
 func (o VirtualNodeSpecServiceDiscoveryPtrOutput) AwsCloudMap() VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpecServiceDiscovery) *VirtualNodeSpecServiceDiscoveryAwsCloudMap { return v.AwsCloudMap }).(VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpecServiceDiscovery) *VirtualNodeSpecServiceDiscoveryAwsCloudMap {
+		return v.AwsCloudMap
+	}).(VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput)
 }
 
 // Specifies the DNS service name for the virtual node.
 func (o VirtualNodeSpecServiceDiscoveryPtrOutput) Dns() VirtualNodeSpecServiceDiscoveryDnsPtrOutput {
-	return o.ApplyT(func (v VirtualNodeSpecServiceDiscovery) *VirtualNodeSpecServiceDiscoveryDns { return v.Dns }).(VirtualNodeSpecServiceDiscoveryDnsPtrOutput)
+	return o.ApplyT(func(v VirtualNodeSpecServiceDiscovery) *VirtualNodeSpecServiceDiscoveryDns { return v.Dns }).(VirtualNodeSpecServiceDiscoveryDnsPtrOutput)
 }
 
 type VirtualNodeSpecServiceDiscoveryAwsCloudMap struct {
@@ -2646,7 +2679,8 @@ type VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrInput interface {
 
 type virtualNodeSpecServiceDiscoveryAwsCloudMapPtrType VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs
 
-func VirtualNodeSpecServiceDiscoveryAwsCloudMapPtr(v *VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs) VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrInput {	return (*virtualNodeSpecServiceDiscoveryAwsCloudMapPtrType)(v)
+func VirtualNodeSpecServiceDiscoveryAwsCloudMapPtr(v *VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs) VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrInput {
+	return (*virtualNodeSpecServiceDiscoveryAwsCloudMapPtrType)(v)
 }
 
 func (*virtualNodeSpecServiceDiscoveryAwsCloudMapPtrType) ElementType() reflect.Type {
@@ -2661,7 +2695,7 @@ func (i *virtualNodeSpecServiceDiscoveryAwsCloudMapPtrType) ToVirtualNodeSpecSer
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput)
 }
 
-type VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput struct { *pulumi.OutputState }
+type VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNodeSpecServiceDiscoveryAwsCloudMap)(nil)).Elem()
@@ -2684,23 +2718,24 @@ func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) ToVirtualNodeSpecServi
 		return &v
 	}).(VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput)
 }
+
 // A string map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) Attributes() pulumi.StringMapOutput {
-	return o.ApplyT(func (v VirtualNodeSpecServiceDiscoveryAwsCloudMap) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v VirtualNodeSpecServiceDiscoveryAwsCloudMap) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 // The name of the AWS Cloud Map namespace to use.
 // Use the [`servicediscovery.HttpNamespace`](https://www.terraform.io/docs/providers/aws/r/service_discovery_http_namespace.html) resource to configure a Cloud Map namespace.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) NamespaceName() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualNodeSpecServiceDiscoveryAwsCloudMap) string { return v.NamespaceName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualNodeSpecServiceDiscoveryAwsCloudMap) string { return v.NamespaceName }).(pulumi.StringOutput)
 }
 
 // The name of the AWS Cloud Map service to use. Use the [`servicediscovery.Service`](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html) resource to configure a Cloud Map service.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualNodeSpecServiceDiscoveryAwsCloudMap) string { return v.ServiceName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualNodeSpecServiceDiscoveryAwsCloudMap) string { return v.ServiceName }).(pulumi.StringOutput)
 }
 
-type VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput struct { *pulumi.OutputState}
+type VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualNodeSpecServiceDiscoveryAwsCloudMap)(nil)).Elem()
@@ -2715,23 +2750,25 @@ func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) ToVirtualNodeSpecSe
 }
 
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) Elem() VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput {
-	return o.ApplyT(func (v *VirtualNodeSpecServiceDiscoveryAwsCloudMap) VirtualNodeSpecServiceDiscoveryAwsCloudMap { return *v }).(VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecServiceDiscoveryAwsCloudMap) VirtualNodeSpecServiceDiscoveryAwsCloudMap {
+		return *v
+	}).(VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput)
 }
 
 // A string map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) Attributes() pulumi.StringMapOutput {
-	return o.ApplyT(func (v VirtualNodeSpecServiceDiscoveryAwsCloudMap) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v VirtualNodeSpecServiceDiscoveryAwsCloudMap) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 // The name of the AWS Cloud Map namespace to use.
 // Use the [`servicediscovery.HttpNamespace`](https://www.terraform.io/docs/providers/aws/r/service_discovery_http_namespace.html) resource to configure a Cloud Map namespace.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) NamespaceName() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualNodeSpecServiceDiscoveryAwsCloudMap) string { return v.NamespaceName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualNodeSpecServiceDiscoveryAwsCloudMap) string { return v.NamespaceName }).(pulumi.StringOutput)
 }
 
 // The name of the AWS Cloud Map service to use. Use the [`servicediscovery.Service`](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html) resource to configure a Cloud Map service.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualNodeSpecServiceDiscoveryAwsCloudMap) string { return v.ServiceName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualNodeSpecServiceDiscoveryAwsCloudMap) string { return v.ServiceName }).(pulumi.StringOutput)
 }
 
 type VirtualNodeSpecServiceDiscoveryDns struct {
@@ -2780,7 +2817,8 @@ type VirtualNodeSpecServiceDiscoveryDnsPtrInput interface {
 
 type virtualNodeSpecServiceDiscoveryDnsPtrType VirtualNodeSpecServiceDiscoveryDnsArgs
 
-func VirtualNodeSpecServiceDiscoveryDnsPtr(v *VirtualNodeSpecServiceDiscoveryDnsArgs) VirtualNodeSpecServiceDiscoveryDnsPtrInput {	return (*virtualNodeSpecServiceDiscoveryDnsPtrType)(v)
+func VirtualNodeSpecServiceDiscoveryDnsPtr(v *VirtualNodeSpecServiceDiscoveryDnsArgs) VirtualNodeSpecServiceDiscoveryDnsPtrInput {
+	return (*virtualNodeSpecServiceDiscoveryDnsPtrType)(v)
 }
 
 func (*virtualNodeSpecServiceDiscoveryDnsPtrType) ElementType() reflect.Type {
@@ -2795,7 +2833,7 @@ func (i *virtualNodeSpecServiceDiscoveryDnsPtrType) ToVirtualNodeSpecServiceDisc
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecServiceDiscoveryDnsPtrOutput)
 }
 
-type VirtualNodeSpecServiceDiscoveryDnsOutput struct { *pulumi.OutputState }
+type VirtualNodeSpecServiceDiscoveryDnsOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecServiceDiscoveryDnsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNodeSpecServiceDiscoveryDns)(nil)).Elem()
@@ -2818,12 +2856,13 @@ func (o VirtualNodeSpecServiceDiscoveryDnsOutput) ToVirtualNodeSpecServiceDiscov
 		return &v
 	}).(VirtualNodeSpecServiceDiscoveryDnsPtrOutput)
 }
+
 // The DNS host name for your virtual node.
 func (o VirtualNodeSpecServiceDiscoveryDnsOutput) Hostname() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualNodeSpecServiceDiscoveryDns) string { return v.Hostname }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualNodeSpecServiceDiscoveryDns) string { return v.Hostname }).(pulumi.StringOutput)
 }
 
-type VirtualNodeSpecServiceDiscoveryDnsPtrOutput struct { *pulumi.OutputState}
+type VirtualNodeSpecServiceDiscoveryDnsPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecServiceDiscoveryDnsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualNodeSpecServiceDiscoveryDns)(nil)).Elem()
@@ -2838,12 +2877,12 @@ func (o VirtualNodeSpecServiceDiscoveryDnsPtrOutput) ToVirtualNodeSpecServiceDis
 }
 
 func (o VirtualNodeSpecServiceDiscoveryDnsPtrOutput) Elem() VirtualNodeSpecServiceDiscoveryDnsOutput {
-	return o.ApplyT(func (v *VirtualNodeSpecServiceDiscoveryDns) VirtualNodeSpecServiceDiscoveryDns { return *v }).(VirtualNodeSpecServiceDiscoveryDnsOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecServiceDiscoveryDns) VirtualNodeSpecServiceDiscoveryDns { return *v }).(VirtualNodeSpecServiceDiscoveryDnsOutput)
 }
 
 // The DNS host name for your virtual node.
 func (o VirtualNodeSpecServiceDiscoveryDnsPtrOutput) Hostname() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualNodeSpecServiceDiscoveryDns) string { return v.Hostname }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualNodeSpecServiceDiscoveryDns) string { return v.Hostname }).(pulumi.StringOutput)
 }
 
 type VirtualRouterSpec struct {
@@ -2894,7 +2933,8 @@ type VirtualRouterSpecPtrInput interface {
 
 type virtualRouterSpecPtrType VirtualRouterSpecArgs
 
-func VirtualRouterSpecPtr(v *VirtualRouterSpecArgs) VirtualRouterSpecPtrInput {	return (*virtualRouterSpecPtrType)(v)
+func VirtualRouterSpecPtr(v *VirtualRouterSpecArgs) VirtualRouterSpecPtrInput {
+	return (*virtualRouterSpecPtrType)(v)
 }
 
 func (*virtualRouterSpecPtrType) ElementType() reflect.Type {
@@ -2909,7 +2949,7 @@ func (i *virtualRouterSpecPtrType) ToVirtualRouterSpecPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterSpecPtrOutput)
 }
 
-type VirtualRouterSpecOutput struct { *pulumi.OutputState }
+type VirtualRouterSpecOutput struct{ *pulumi.OutputState }
 
 func (VirtualRouterSpecOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualRouterSpec)(nil)).Elem()
@@ -2932,13 +2972,14 @@ func (o VirtualRouterSpecOutput) ToVirtualRouterSpecPtrOutputWithContext(ctx con
 		return &v
 	}).(VirtualRouterSpecPtrOutput)
 }
+
 // The listeners that the virtual router is expected to receive inbound traffic from.
 // Currently only one listener is supported per virtual router.
 func (o VirtualRouterSpecOutput) Listener() VirtualRouterSpecListenerOutput {
-	return o.ApplyT(func (v VirtualRouterSpec) VirtualRouterSpecListener { return v.Listener }).(VirtualRouterSpecListenerOutput)
+	return o.ApplyT(func(v VirtualRouterSpec) VirtualRouterSpecListener { return v.Listener }).(VirtualRouterSpecListenerOutput)
 }
 
-type VirtualRouterSpecPtrOutput struct { *pulumi.OutputState}
+type VirtualRouterSpecPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualRouterSpecPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualRouterSpec)(nil)).Elem()
@@ -2953,13 +2994,13 @@ func (o VirtualRouterSpecPtrOutput) ToVirtualRouterSpecPtrOutputWithContext(ctx 
 }
 
 func (o VirtualRouterSpecPtrOutput) Elem() VirtualRouterSpecOutput {
-	return o.ApplyT(func (v *VirtualRouterSpec) VirtualRouterSpec { return *v }).(VirtualRouterSpecOutput)
+	return o.ApplyT(func(v *VirtualRouterSpec) VirtualRouterSpec { return *v }).(VirtualRouterSpecOutput)
 }
 
 // The listeners that the virtual router is expected to receive inbound traffic from.
 // Currently only one listener is supported per virtual router.
 func (o VirtualRouterSpecPtrOutput) Listener() VirtualRouterSpecListenerOutput {
-	return o.ApplyT(func (v VirtualRouterSpec) VirtualRouterSpecListener { return v.Listener }).(VirtualRouterSpecListenerOutput)
+	return o.ApplyT(func(v VirtualRouterSpec) VirtualRouterSpecListener { return v.Listener }).(VirtualRouterSpecListenerOutput)
 }
 
 type VirtualRouterSpecListener struct {
@@ -2991,7 +3032,7 @@ func (i VirtualRouterSpecListenerArgs) ToVirtualRouterSpecListenerOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterSpecListenerOutput)
 }
 
-type VirtualRouterSpecListenerOutput struct { *pulumi.OutputState }
+type VirtualRouterSpecListenerOutput struct{ *pulumi.OutputState }
 
 func (VirtualRouterSpecListenerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualRouterSpecListener)(nil)).Elem()
@@ -3007,7 +3048,7 @@ func (o VirtualRouterSpecListenerOutput) ToVirtualRouterSpecListenerOutputWithCo
 
 // The port mapping information for the listener.
 func (o VirtualRouterSpecListenerOutput) PortMapping() VirtualRouterSpecListenerPortMappingOutput {
-	return o.ApplyT(func (v VirtualRouterSpecListener) VirtualRouterSpecListenerPortMapping { return v.PortMapping }).(VirtualRouterSpecListenerPortMappingOutput)
+	return o.ApplyT(func(v VirtualRouterSpecListener) VirtualRouterSpecListenerPortMapping { return v.PortMapping }).(VirtualRouterSpecListenerPortMappingOutput)
 }
 
 type VirtualRouterSpecListenerPortMapping struct {
@@ -3043,7 +3084,7 @@ func (i VirtualRouterSpecListenerPortMappingArgs) ToVirtualRouterSpecListenerPor
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterSpecListenerPortMappingOutput)
 }
 
-type VirtualRouterSpecListenerPortMappingOutput struct { *pulumi.OutputState }
+type VirtualRouterSpecListenerPortMappingOutput struct{ *pulumi.OutputState }
 
 func (VirtualRouterSpecListenerPortMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualRouterSpecListenerPortMapping)(nil)).Elem()
@@ -3059,12 +3100,12 @@ func (o VirtualRouterSpecListenerPortMappingOutput) ToVirtualRouterSpecListenerP
 
 // The port used for the port mapping.
 func (o VirtualRouterSpecListenerPortMappingOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func (v VirtualRouterSpecListenerPortMapping) int { return v.Port }).(pulumi.IntOutput)
+	return o.ApplyT(func(v VirtualRouterSpecListenerPortMapping) int { return v.Port }).(pulumi.IntOutput)
 }
 
 // The protocol used for the port mapping. Valid values are `http` and `tcp`.
 func (o VirtualRouterSpecListenerPortMappingOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualRouterSpecListenerPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualRouterSpecListenerPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
 type VirtualServiceSpec struct {
@@ -3111,7 +3152,8 @@ type VirtualServiceSpecPtrInput interface {
 
 type virtualServiceSpecPtrType VirtualServiceSpecArgs
 
-func VirtualServiceSpecPtr(v *VirtualServiceSpecArgs) VirtualServiceSpecPtrInput {	return (*virtualServiceSpecPtrType)(v)
+func VirtualServiceSpecPtr(v *VirtualServiceSpecArgs) VirtualServiceSpecPtrInput {
+	return (*virtualServiceSpecPtrType)(v)
 }
 
 func (*virtualServiceSpecPtrType) ElementType() reflect.Type {
@@ -3126,7 +3168,7 @@ func (i *virtualServiceSpecPtrType) ToVirtualServiceSpecPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceSpecPtrOutput)
 }
 
-type VirtualServiceSpecOutput struct { *pulumi.OutputState }
+type VirtualServiceSpecOutput struct{ *pulumi.OutputState }
 
 func (VirtualServiceSpecOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualServiceSpec)(nil)).Elem()
@@ -3150,10 +3192,10 @@ func (o VirtualServiceSpecOutput) ToVirtualServiceSpecPtrOutputWithContext(ctx c
 	}).(VirtualServiceSpecPtrOutput)
 }
 func (o VirtualServiceSpecOutput) Provider() VirtualServiceSpecProviderPtrOutput {
-	return o.ApplyT(func (v VirtualServiceSpec) *VirtualServiceSpecProvider { return v.Provider }).(VirtualServiceSpecProviderPtrOutput)
+	return o.ApplyT(func(v VirtualServiceSpec) *VirtualServiceSpecProvider { return v.Provider }).(VirtualServiceSpecProviderPtrOutput)
 }
 
-type VirtualServiceSpecPtrOutput struct { *pulumi.OutputState}
+type VirtualServiceSpecPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualServiceSpecPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualServiceSpec)(nil)).Elem()
@@ -3168,11 +3210,11 @@ func (o VirtualServiceSpecPtrOutput) ToVirtualServiceSpecPtrOutputWithContext(ct
 }
 
 func (o VirtualServiceSpecPtrOutput) Elem() VirtualServiceSpecOutput {
-	return o.ApplyT(func (v *VirtualServiceSpec) VirtualServiceSpec { return *v }).(VirtualServiceSpecOutput)
+	return o.ApplyT(func(v *VirtualServiceSpec) VirtualServiceSpec { return *v }).(VirtualServiceSpecOutput)
 }
 
 func (o VirtualServiceSpecPtrOutput) Provider() VirtualServiceSpecProviderPtrOutput {
-	return o.ApplyT(func (v VirtualServiceSpec) *VirtualServiceSpecProvider { return v.Provider }).(VirtualServiceSpecProviderPtrOutput)
+	return o.ApplyT(func(v VirtualServiceSpec) *VirtualServiceSpecProvider { return v.Provider }).(VirtualServiceSpecProviderPtrOutput)
 }
 
 type VirtualServiceSpecProvider struct {
@@ -3225,7 +3267,8 @@ type VirtualServiceSpecProviderPtrInput interface {
 
 type virtualServiceSpecProviderPtrType VirtualServiceSpecProviderArgs
 
-func VirtualServiceSpecProviderPtr(v *VirtualServiceSpecProviderArgs) VirtualServiceSpecProviderPtrInput {	return (*virtualServiceSpecProviderPtrType)(v)
+func VirtualServiceSpecProviderPtr(v *VirtualServiceSpecProviderArgs) VirtualServiceSpecProviderPtrInput {
+	return (*virtualServiceSpecProviderPtrType)(v)
 }
 
 func (*virtualServiceSpecProviderPtrType) ElementType() reflect.Type {
@@ -3240,7 +3283,7 @@ func (i *virtualServiceSpecProviderPtrType) ToVirtualServiceSpecProviderPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceSpecProviderPtrOutput)
 }
 
-type VirtualServiceSpecProviderOutput struct { *pulumi.OutputState }
+type VirtualServiceSpecProviderOutput struct{ *pulumi.OutputState }
 
 func (VirtualServiceSpecProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualServiceSpecProvider)(nil)).Elem()
@@ -3263,17 +3306,18 @@ func (o VirtualServiceSpecProviderOutput) ToVirtualServiceSpecProviderPtrOutputW
 		return &v
 	}).(VirtualServiceSpecProviderPtrOutput)
 }
+
 // The virtual node associated with a virtual service.
 func (o VirtualServiceSpecProviderOutput) VirtualNode() VirtualServiceSpecProviderVirtualNodePtrOutput {
-	return o.ApplyT(func (v VirtualServiceSpecProvider) *VirtualServiceSpecProviderVirtualNode { return v.VirtualNode }).(VirtualServiceSpecProviderVirtualNodePtrOutput)
+	return o.ApplyT(func(v VirtualServiceSpecProvider) *VirtualServiceSpecProviderVirtualNode { return v.VirtualNode }).(VirtualServiceSpecProviderVirtualNodePtrOutput)
 }
 
 // The virtual router associated with a virtual service.
 func (o VirtualServiceSpecProviderOutput) VirtualRouter() VirtualServiceSpecProviderVirtualRouterPtrOutput {
-	return o.ApplyT(func (v VirtualServiceSpecProvider) *VirtualServiceSpecProviderVirtualRouter { return v.VirtualRouter }).(VirtualServiceSpecProviderVirtualRouterPtrOutput)
+	return o.ApplyT(func(v VirtualServiceSpecProvider) *VirtualServiceSpecProviderVirtualRouter { return v.VirtualRouter }).(VirtualServiceSpecProviderVirtualRouterPtrOutput)
 }
 
-type VirtualServiceSpecProviderPtrOutput struct { *pulumi.OutputState}
+type VirtualServiceSpecProviderPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualServiceSpecProviderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualServiceSpecProvider)(nil)).Elem()
@@ -3288,17 +3332,17 @@ func (o VirtualServiceSpecProviderPtrOutput) ToVirtualServiceSpecProviderPtrOutp
 }
 
 func (o VirtualServiceSpecProviderPtrOutput) Elem() VirtualServiceSpecProviderOutput {
-	return o.ApplyT(func (v *VirtualServiceSpecProvider) VirtualServiceSpecProvider { return *v }).(VirtualServiceSpecProviderOutput)
+	return o.ApplyT(func(v *VirtualServiceSpecProvider) VirtualServiceSpecProvider { return *v }).(VirtualServiceSpecProviderOutput)
 }
 
 // The virtual node associated with a virtual service.
 func (o VirtualServiceSpecProviderPtrOutput) VirtualNode() VirtualServiceSpecProviderVirtualNodePtrOutput {
-	return o.ApplyT(func (v VirtualServiceSpecProvider) *VirtualServiceSpecProviderVirtualNode { return v.VirtualNode }).(VirtualServiceSpecProviderVirtualNodePtrOutput)
+	return o.ApplyT(func(v VirtualServiceSpecProvider) *VirtualServiceSpecProviderVirtualNode { return v.VirtualNode }).(VirtualServiceSpecProviderVirtualNodePtrOutput)
 }
 
 // The virtual router associated with a virtual service.
 func (o VirtualServiceSpecProviderPtrOutput) VirtualRouter() VirtualServiceSpecProviderVirtualRouterPtrOutput {
-	return o.ApplyT(func (v VirtualServiceSpecProvider) *VirtualServiceSpecProviderVirtualRouter { return v.VirtualRouter }).(VirtualServiceSpecProviderVirtualRouterPtrOutput)
+	return o.ApplyT(func(v VirtualServiceSpecProvider) *VirtualServiceSpecProviderVirtualRouter { return v.VirtualRouter }).(VirtualServiceSpecProviderVirtualRouterPtrOutput)
 }
 
 type VirtualServiceSpecProviderVirtualNode struct {
@@ -3347,7 +3391,8 @@ type VirtualServiceSpecProviderVirtualNodePtrInput interface {
 
 type virtualServiceSpecProviderVirtualNodePtrType VirtualServiceSpecProviderVirtualNodeArgs
 
-func VirtualServiceSpecProviderVirtualNodePtr(v *VirtualServiceSpecProviderVirtualNodeArgs) VirtualServiceSpecProviderVirtualNodePtrInput {	return (*virtualServiceSpecProviderVirtualNodePtrType)(v)
+func VirtualServiceSpecProviderVirtualNodePtr(v *VirtualServiceSpecProviderVirtualNodeArgs) VirtualServiceSpecProviderVirtualNodePtrInput {
+	return (*virtualServiceSpecProviderVirtualNodePtrType)(v)
 }
 
 func (*virtualServiceSpecProviderVirtualNodePtrType) ElementType() reflect.Type {
@@ -3362,7 +3407,7 @@ func (i *virtualServiceSpecProviderVirtualNodePtrType) ToVirtualServiceSpecProvi
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceSpecProviderVirtualNodePtrOutput)
 }
 
-type VirtualServiceSpecProviderVirtualNodeOutput struct { *pulumi.OutputState }
+type VirtualServiceSpecProviderVirtualNodeOutput struct{ *pulumi.OutputState }
 
 func (VirtualServiceSpecProviderVirtualNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualServiceSpecProviderVirtualNode)(nil)).Elem()
@@ -3385,12 +3430,13 @@ func (o VirtualServiceSpecProviderVirtualNodeOutput) ToVirtualServiceSpecProvide
 		return &v
 	}).(VirtualServiceSpecProviderVirtualNodePtrOutput)
 }
+
 // The name of the virtual node that is acting as a service provider.
 func (o VirtualServiceSpecProviderVirtualNodeOutput) VirtualNodeName() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualServiceSpecProviderVirtualNode) string { return v.VirtualNodeName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualServiceSpecProviderVirtualNode) string { return v.VirtualNodeName }).(pulumi.StringOutput)
 }
 
-type VirtualServiceSpecProviderVirtualNodePtrOutput struct { *pulumi.OutputState}
+type VirtualServiceSpecProviderVirtualNodePtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualServiceSpecProviderVirtualNodePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualServiceSpecProviderVirtualNode)(nil)).Elem()
@@ -3405,12 +3451,12 @@ func (o VirtualServiceSpecProviderVirtualNodePtrOutput) ToVirtualServiceSpecProv
 }
 
 func (o VirtualServiceSpecProviderVirtualNodePtrOutput) Elem() VirtualServiceSpecProviderVirtualNodeOutput {
-	return o.ApplyT(func (v *VirtualServiceSpecProviderVirtualNode) VirtualServiceSpecProviderVirtualNode { return *v }).(VirtualServiceSpecProviderVirtualNodeOutput)
+	return o.ApplyT(func(v *VirtualServiceSpecProviderVirtualNode) VirtualServiceSpecProviderVirtualNode { return *v }).(VirtualServiceSpecProviderVirtualNodeOutput)
 }
 
 // The name of the virtual node that is acting as a service provider.
 func (o VirtualServiceSpecProviderVirtualNodePtrOutput) VirtualNodeName() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualServiceSpecProviderVirtualNode) string { return v.VirtualNodeName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualServiceSpecProviderVirtualNode) string { return v.VirtualNodeName }).(pulumi.StringOutput)
 }
 
 type VirtualServiceSpecProviderVirtualRouter struct {
@@ -3459,7 +3505,8 @@ type VirtualServiceSpecProviderVirtualRouterPtrInput interface {
 
 type virtualServiceSpecProviderVirtualRouterPtrType VirtualServiceSpecProviderVirtualRouterArgs
 
-func VirtualServiceSpecProviderVirtualRouterPtr(v *VirtualServiceSpecProviderVirtualRouterArgs) VirtualServiceSpecProviderVirtualRouterPtrInput {	return (*virtualServiceSpecProviderVirtualRouterPtrType)(v)
+func VirtualServiceSpecProviderVirtualRouterPtr(v *VirtualServiceSpecProviderVirtualRouterArgs) VirtualServiceSpecProviderVirtualRouterPtrInput {
+	return (*virtualServiceSpecProviderVirtualRouterPtrType)(v)
 }
 
 func (*virtualServiceSpecProviderVirtualRouterPtrType) ElementType() reflect.Type {
@@ -3474,7 +3521,7 @@ func (i *virtualServiceSpecProviderVirtualRouterPtrType) ToVirtualServiceSpecPro
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceSpecProviderVirtualRouterPtrOutput)
 }
 
-type VirtualServiceSpecProviderVirtualRouterOutput struct { *pulumi.OutputState }
+type VirtualServiceSpecProviderVirtualRouterOutput struct{ *pulumi.OutputState }
 
 func (VirtualServiceSpecProviderVirtualRouterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualServiceSpecProviderVirtualRouter)(nil)).Elem()
@@ -3497,12 +3544,13 @@ func (o VirtualServiceSpecProviderVirtualRouterOutput) ToVirtualServiceSpecProvi
 		return &v
 	}).(VirtualServiceSpecProviderVirtualRouterPtrOutput)
 }
+
 // The name of the virtual router that is acting as a service provider.
 func (o VirtualServiceSpecProviderVirtualRouterOutput) VirtualRouterName() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualServiceSpecProviderVirtualRouter) string { return v.VirtualRouterName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualServiceSpecProviderVirtualRouter) string { return v.VirtualRouterName }).(pulumi.StringOutput)
 }
 
-type VirtualServiceSpecProviderVirtualRouterPtrOutput struct { *pulumi.OutputState}
+type VirtualServiceSpecProviderVirtualRouterPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualServiceSpecProviderVirtualRouterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualServiceSpecProviderVirtualRouter)(nil)).Elem()
@@ -3517,12 +3565,12 @@ func (o VirtualServiceSpecProviderVirtualRouterPtrOutput) ToVirtualServiceSpecPr
 }
 
 func (o VirtualServiceSpecProviderVirtualRouterPtrOutput) Elem() VirtualServiceSpecProviderVirtualRouterOutput {
-	return o.ApplyT(func (v *VirtualServiceSpecProviderVirtualRouter) VirtualServiceSpecProviderVirtualRouter { return *v }).(VirtualServiceSpecProviderVirtualRouterOutput)
+	return o.ApplyT(func(v *VirtualServiceSpecProviderVirtualRouter) VirtualServiceSpecProviderVirtualRouter { return *v }).(VirtualServiceSpecProviderVirtualRouterOutput)
 }
 
 // The name of the virtual router that is acting as a service provider.
 func (o VirtualServiceSpecProviderVirtualRouterPtrOutput) VirtualRouterName() pulumi.StringOutput {
-	return o.ApplyT(func (v VirtualServiceSpecProviderVirtualRouter) string { return v.VirtualRouterName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VirtualServiceSpecProviderVirtualRouter) string { return v.VirtualRouterName }).(pulumi.StringOutput)
 }
 
 func init() {

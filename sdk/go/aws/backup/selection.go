@@ -122,4 +122,3 @@ type SelectionArgs struct {
 func (SelectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*selectionArgs)(nil)).Elem()
 }
-

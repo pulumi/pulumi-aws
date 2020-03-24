@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides an Traffic mirror target.  
+// Provides an Traffic mirror target.
 // Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_traffic_mirror_target.html.markdown.
@@ -96,4 +96,3 @@ type TrafficMirrorTargetArgs struct {
 func (TrafficMirrorTargetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficMirrorTargetArgs)(nil)).Elem()
 }
-

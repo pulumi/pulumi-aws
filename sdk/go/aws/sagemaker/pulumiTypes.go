@@ -12,12 +12,12 @@ import (
 )
 
 type EndpointConfigurationProductionVariant struct {
-	AcceleratorType *string `pulumi:"acceleratorType"`
-	InitialInstanceCount int `pulumi:"initialInstanceCount"`
+	AcceleratorType      *string  `pulumi:"acceleratorType"`
+	InitialInstanceCount int      `pulumi:"initialInstanceCount"`
 	InitialVariantWeight *float64 `pulumi:"initialVariantWeight"`
-	InstanceType string `pulumi:"instanceType"`
-	ModelName string `pulumi:"modelName"`
-	VariantName *string `pulumi:"variantName"`
+	InstanceType         string   `pulumi:"instanceType"`
+	ModelName            string   `pulumi:"modelName"`
+	VariantName          *string  `pulumi:"variantName"`
 }
 
 type EndpointConfigurationProductionVariantInput interface {
@@ -28,12 +28,12 @@ type EndpointConfigurationProductionVariantInput interface {
 }
 
 type EndpointConfigurationProductionVariantArgs struct {
-	AcceleratorType pulumi.StringPtrInput `pulumi:"acceleratorType"`
-	InitialInstanceCount pulumi.IntInput `pulumi:"initialInstanceCount"`
+	AcceleratorType      pulumi.StringPtrInput  `pulumi:"acceleratorType"`
+	InitialInstanceCount pulumi.IntInput        `pulumi:"initialInstanceCount"`
 	InitialVariantWeight pulumi.Float64PtrInput `pulumi:"initialVariantWeight"`
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	ModelName pulumi.StringInput `pulumi:"modelName"`
-	VariantName pulumi.StringPtrInput `pulumi:"variantName"`
+	InstanceType         pulumi.StringInput     `pulumi:"instanceType"`
+	ModelName            pulumi.StringInput     `pulumi:"modelName"`
+	VariantName          pulumi.StringPtrInput  `pulumi:"variantName"`
 }
 
 func (EndpointConfigurationProductionVariantArgs) ElementType() reflect.Type {
@@ -69,7 +69,7 @@ func (i EndpointConfigurationProductionVariantArray) ToEndpointConfigurationProd
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationProductionVariantArrayOutput)
 }
 
-type EndpointConfigurationProductionVariantOutput struct { *pulumi.OutputState }
+type EndpointConfigurationProductionVariantOutput struct{ *pulumi.OutputState }
 
 func (EndpointConfigurationProductionVariantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EndpointConfigurationProductionVariant)(nil)).Elem()
@@ -84,30 +84,30 @@ func (o EndpointConfigurationProductionVariantOutput) ToEndpointConfigurationPro
 }
 
 func (o EndpointConfigurationProductionVariantOutput) AcceleratorType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v EndpointConfigurationProductionVariant) *string { return v.AcceleratorType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *string { return v.AcceleratorType }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointConfigurationProductionVariantOutput) InitialInstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func (v EndpointConfigurationProductionVariant) int { return v.InitialInstanceCount }).(pulumi.IntOutput)
+	return o.ApplyT(func(v EndpointConfigurationProductionVariant) int { return v.InitialInstanceCount }).(pulumi.IntOutput)
 }
 
 func (o EndpointConfigurationProductionVariantOutput) InitialVariantWeight() pulumi.Float64PtrOutput {
-	return o.ApplyT(func (v EndpointConfigurationProductionVariant) *float64 { return v.InitialVariantWeight }).(pulumi.Float64PtrOutput)
+	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *float64 { return v.InitialVariantWeight }).(pulumi.Float64PtrOutput)
 }
 
 func (o EndpointConfigurationProductionVariantOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func (v EndpointConfigurationProductionVariant) string { return v.InstanceType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EndpointConfigurationProductionVariant) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
 func (o EndpointConfigurationProductionVariantOutput) ModelName() pulumi.StringOutput {
-	return o.ApplyT(func (v EndpointConfigurationProductionVariant) string { return v.ModelName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v EndpointConfigurationProductionVariant) string { return v.ModelName }).(pulumi.StringOutput)
 }
 
 func (o EndpointConfigurationProductionVariantOutput) VariantName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v EndpointConfigurationProductionVariant) *string { return v.VariantName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *string { return v.VariantName }).(pulumi.StringPtrOutput)
 }
 
-type EndpointConfigurationProductionVariantArrayOutput struct { *pulumi.OutputState}
+type EndpointConfigurationProductionVariantArrayOutput struct{ *pulumi.OutputState }
 
 func (EndpointConfigurationProductionVariantArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]EndpointConfigurationProductionVariant)(nil)).Elem()
@@ -122,16 +122,16 @@ func (o EndpointConfigurationProductionVariantArrayOutput) ToEndpointConfigurati
 }
 
 func (o EndpointConfigurationProductionVariantArrayOutput) Index(i pulumi.IntInput) EndpointConfigurationProductionVariantOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) EndpointConfigurationProductionVariant {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointConfigurationProductionVariant {
 		return vs[0].([]EndpointConfigurationProductionVariant)[vs[1].(int)]
 	}).(EndpointConfigurationProductionVariantOutput)
 }
 
 type ModelContainer struct {
-	ContainerHostname *string `pulumi:"containerHostname"`
-	Environment map[string]interface{} `pulumi:"environment"`
-	Image string `pulumi:"image"`
-	ModelDataUrl *string `pulumi:"modelDataUrl"`
+	ContainerHostname *string                `pulumi:"containerHostname"`
+	Environment       map[string]interface{} `pulumi:"environment"`
+	Image             string                 `pulumi:"image"`
+	ModelDataUrl      *string                `pulumi:"modelDataUrl"`
 }
 
 type ModelContainerInput interface {
@@ -143,9 +143,9 @@ type ModelContainerInput interface {
 
 type ModelContainerArgs struct {
 	ContainerHostname pulumi.StringPtrInput `pulumi:"containerHostname"`
-	Environment pulumi.MapInput `pulumi:"environment"`
-	Image pulumi.StringInput `pulumi:"image"`
-	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
+	Environment       pulumi.MapInput       `pulumi:"environment"`
+	Image             pulumi.StringInput    `pulumi:"image"`
+	ModelDataUrl      pulumi.StringPtrInput `pulumi:"modelDataUrl"`
 }
 
 func (ModelContainerArgs) ElementType() reflect.Type {
@@ -181,7 +181,7 @@ func (i ModelContainerArray) ToModelContainerArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerArrayOutput)
 }
 
-type ModelContainerOutput struct { *pulumi.OutputState }
+type ModelContainerOutput struct{ *pulumi.OutputState }
 
 func (ModelContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ModelContainer)(nil)).Elem()
@@ -196,22 +196,22 @@ func (o ModelContainerOutput) ToModelContainerOutputWithContext(ctx context.Cont
 }
 
 func (o ModelContainerOutput) ContainerHostname() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ModelContainer) *string { return v.ContainerHostname }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ModelContainer) *string { return v.ContainerHostname }).(pulumi.StringPtrOutput)
 }
 
 func (o ModelContainerOutput) Environment() pulumi.MapOutput {
-	return o.ApplyT(func (v ModelContainer) map[string]interface{} { return v.Environment }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ModelContainer) map[string]interface{} { return v.Environment }).(pulumi.MapOutput)
 }
 
 func (o ModelContainerOutput) Image() pulumi.StringOutput {
-	return o.ApplyT(func (v ModelContainer) string { return v.Image }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ModelContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
 func (o ModelContainerOutput) ModelDataUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ModelContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ModelContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
 }
 
-type ModelContainerArrayOutput struct { *pulumi.OutputState}
+type ModelContainerArrayOutput struct{ *pulumi.OutputState }
 
 func (ModelContainerArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ModelContainer)(nil)).Elem()
@@ -226,16 +226,16 @@ func (o ModelContainerArrayOutput) ToModelContainerArrayOutputWithContext(ctx co
 }
 
 func (o ModelContainerArrayOutput) Index(i pulumi.IntInput) ModelContainerOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ModelContainer {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelContainer {
 		return vs[0].([]ModelContainer)[vs[1].(int)]
 	}).(ModelContainerOutput)
 }
 
 type ModelPrimaryContainer struct {
-	ContainerHostname *string `pulumi:"containerHostname"`
-	Environment map[string]interface{} `pulumi:"environment"`
-	Image string `pulumi:"image"`
-	ModelDataUrl *string `pulumi:"modelDataUrl"`
+	ContainerHostname *string                `pulumi:"containerHostname"`
+	Environment       map[string]interface{} `pulumi:"environment"`
+	Image             string                 `pulumi:"image"`
+	ModelDataUrl      *string                `pulumi:"modelDataUrl"`
 }
 
 type ModelPrimaryContainerInput interface {
@@ -247,9 +247,9 @@ type ModelPrimaryContainerInput interface {
 
 type ModelPrimaryContainerArgs struct {
 	ContainerHostname pulumi.StringPtrInput `pulumi:"containerHostname"`
-	Environment pulumi.MapInput `pulumi:"environment"`
-	Image pulumi.StringInput `pulumi:"image"`
-	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
+	Environment       pulumi.MapInput       `pulumi:"environment"`
+	Image             pulumi.StringInput    `pulumi:"image"`
+	ModelDataUrl      pulumi.StringPtrInput `pulumi:"modelDataUrl"`
 }
 
 func (ModelPrimaryContainerArgs) ElementType() reflect.Type {
@@ -281,7 +281,8 @@ type ModelPrimaryContainerPtrInput interface {
 
 type modelPrimaryContainerPtrType ModelPrimaryContainerArgs
 
-func ModelPrimaryContainerPtr(v *ModelPrimaryContainerArgs) ModelPrimaryContainerPtrInput {	return (*modelPrimaryContainerPtrType)(v)
+func ModelPrimaryContainerPtr(v *ModelPrimaryContainerArgs) ModelPrimaryContainerPtrInput {
+	return (*modelPrimaryContainerPtrType)(v)
 }
 
 func (*modelPrimaryContainerPtrType) ElementType() reflect.Type {
@@ -296,7 +297,7 @@ func (i *modelPrimaryContainerPtrType) ToModelPrimaryContainerPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerPtrOutput)
 }
 
-type ModelPrimaryContainerOutput struct { *pulumi.OutputState }
+type ModelPrimaryContainerOutput struct{ *pulumi.OutputState }
 
 func (ModelPrimaryContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ModelPrimaryContainer)(nil)).Elem()
@@ -320,22 +321,22 @@ func (o ModelPrimaryContainerOutput) ToModelPrimaryContainerPtrOutputWithContext
 	}).(ModelPrimaryContainerPtrOutput)
 }
 func (o ModelPrimaryContainerOutput) ContainerHostname() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ModelPrimaryContainer) *string { return v.ContainerHostname }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ContainerHostname }).(pulumi.StringPtrOutput)
 }
 
 func (o ModelPrimaryContainerOutput) Environment() pulumi.MapOutput {
-	return o.ApplyT(func (v ModelPrimaryContainer) map[string]interface{} { return v.Environment }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ModelPrimaryContainer) map[string]interface{} { return v.Environment }).(pulumi.MapOutput)
 }
 
 func (o ModelPrimaryContainerOutput) Image() pulumi.StringOutput {
-	return o.ApplyT(func (v ModelPrimaryContainer) string { return v.Image }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ModelPrimaryContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
 func (o ModelPrimaryContainerOutput) ModelDataUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ModelPrimaryContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
 }
 
-type ModelPrimaryContainerPtrOutput struct { *pulumi.OutputState}
+type ModelPrimaryContainerPtrOutput struct{ *pulumi.OutputState }
 
 func (ModelPrimaryContainerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ModelPrimaryContainer)(nil)).Elem()
@@ -350,28 +351,28 @@ func (o ModelPrimaryContainerPtrOutput) ToModelPrimaryContainerPtrOutputWithCont
 }
 
 func (o ModelPrimaryContainerPtrOutput) Elem() ModelPrimaryContainerOutput {
-	return o.ApplyT(func (v *ModelPrimaryContainer) ModelPrimaryContainer { return *v }).(ModelPrimaryContainerOutput)
+	return o.ApplyT(func(v *ModelPrimaryContainer) ModelPrimaryContainer { return *v }).(ModelPrimaryContainerOutput)
 }
 
 func (o ModelPrimaryContainerPtrOutput) ContainerHostname() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ModelPrimaryContainer) *string { return v.ContainerHostname }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ContainerHostname }).(pulumi.StringPtrOutput)
 }
 
 func (o ModelPrimaryContainerPtrOutput) Environment() pulumi.MapOutput {
-	return o.ApplyT(func (v ModelPrimaryContainer) map[string]interface{} { return v.Environment }).(pulumi.MapOutput)
+	return o.ApplyT(func(v ModelPrimaryContainer) map[string]interface{} { return v.Environment }).(pulumi.MapOutput)
 }
 
 func (o ModelPrimaryContainerPtrOutput) Image() pulumi.StringOutput {
-	return o.ApplyT(func (v ModelPrimaryContainer) string { return v.Image }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ModelPrimaryContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
 func (o ModelPrimaryContainerPtrOutput) ModelDataUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ModelPrimaryContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
 }
 
 type ModelVpcConfig struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	Subnets []string `pulumi:"subnets"`
+	Subnets          []string `pulumi:"subnets"`
 }
 
 type ModelVpcConfigInput interface {
@@ -383,7 +384,7 @@ type ModelVpcConfigInput interface {
 
 type ModelVpcConfigArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+	Subnets          pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
 func (ModelVpcConfigArgs) ElementType() reflect.Type {
@@ -415,7 +416,8 @@ type ModelVpcConfigPtrInput interface {
 
 type modelVpcConfigPtrType ModelVpcConfigArgs
 
-func ModelVpcConfigPtr(v *ModelVpcConfigArgs) ModelVpcConfigPtrInput {	return (*modelVpcConfigPtrType)(v)
+func ModelVpcConfigPtr(v *ModelVpcConfigArgs) ModelVpcConfigPtrInput {
+	return (*modelVpcConfigPtrType)(v)
 }
 
 func (*modelVpcConfigPtrType) ElementType() reflect.Type {
@@ -430,7 +432,7 @@ func (i *modelVpcConfigPtrType) ToModelVpcConfigPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ModelVpcConfigPtrOutput)
 }
 
-type ModelVpcConfigOutput struct { *pulumi.OutputState }
+type ModelVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (ModelVpcConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ModelVpcConfig)(nil)).Elem()
@@ -454,14 +456,14 @@ func (o ModelVpcConfigOutput) ToModelVpcConfigPtrOutputWithContext(ctx context.C
 	}).(ModelVpcConfigPtrOutput)
 }
 func (o ModelVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ModelVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ModelVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
 func (o ModelVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ModelVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ModelVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
 
-type ModelVpcConfigPtrOutput struct { *pulumi.OutputState}
+type ModelVpcConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ModelVpcConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ModelVpcConfig)(nil)).Elem()
@@ -476,15 +478,15 @@ func (o ModelVpcConfigPtrOutput) ToModelVpcConfigPtrOutputWithContext(ctx contex
 }
 
 func (o ModelVpcConfigPtrOutput) Elem() ModelVpcConfigOutput {
-	return o.ApplyT(func (v *ModelVpcConfig) ModelVpcConfig { return *v }).(ModelVpcConfigOutput)
+	return o.ApplyT(func(v *ModelVpcConfig) ModelVpcConfig { return *v }).(ModelVpcConfigOutput)
 }
 
 func (o ModelVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ModelVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ModelVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
 func (o ModelVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ModelVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ModelVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
 
 func init() {

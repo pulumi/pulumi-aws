@@ -129,4 +129,3 @@ type StackSetInstanceArgs struct {
 func (StackSetInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackSetInstanceArgs)(nil)).Elem()
 }
-

@@ -97,4 +97,3 @@ type GlobalTableArgs struct {
 func (GlobalTableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalTableArgs)(nil)).Elem()
 }
-

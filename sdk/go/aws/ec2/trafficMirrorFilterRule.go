@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides an Traffic mirror filter rule.  
+// Provides an Traffic mirror filter rule.
 // Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_traffic_mirror_filter_rule.html.markdown.
@@ -185,4 +185,3 @@ type TrafficMirrorFilterRuleArgs struct {
 func (TrafficMirrorFilterRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficMirrorFilterRuleArgs)(nil)).Elem()
 }
-

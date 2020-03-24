@@ -26,7 +26,6 @@ type LookupMountTargetArgs struct {
 	MountTargetId string `pulumi:"mountTargetId"`
 }
 
-
 // A collection of values returned by getMountTarget.
 type LookupMountTargetResult struct {
 	// The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
@@ -38,7 +37,7 @@ type LookupMountTargetResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Address at which the file system may be mounted via the mount target.
-	IpAddress string `pulumi:"ipAddress"`
+	IpAddress     string `pulumi:"ipAddress"`
 	MountTargetId string `pulumi:"mountTargetId"`
 	// The ID of the network interface that Amazon EFS created when it created the mount target.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
@@ -47,4 +46,3 @@ type LookupMountTargetResult struct {
 	// ID of the mount target's subnet.
 	SubnetId string `pulumi:"subnetId"`
 }
-

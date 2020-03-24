@@ -69,7 +69,8 @@ type DirectoryConnectSettingsPtrInput interface {
 
 type directoryConnectSettingsPtrType DirectoryConnectSettingsArgs
 
-func DirectoryConnectSettingsPtr(v *DirectoryConnectSettingsArgs) DirectoryConnectSettingsPtrInput {	return (*directoryConnectSettingsPtrType)(v)
+func DirectoryConnectSettingsPtr(v *DirectoryConnectSettingsArgs) DirectoryConnectSettingsPtrInput {
+	return (*directoryConnectSettingsPtrType)(v)
 }
 
 func (*directoryConnectSettingsPtrType) ElementType() reflect.Type {
@@ -84,7 +85,7 @@ func (i *directoryConnectSettingsPtrType) ToDirectoryConnectSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConnectSettingsPtrOutput)
 }
 
-type DirectoryConnectSettingsOutput struct { *pulumi.OutputState }
+type DirectoryConnectSettingsOutput struct{ *pulumi.OutputState }
 
 func (DirectoryConnectSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DirectoryConnectSettings)(nil)).Elem()
@@ -107,27 +108,28 @@ func (o DirectoryConnectSettingsOutput) ToDirectoryConnectSettingsPtrOutputWithC
 		return &v
 	}).(DirectoryConnectSettingsPtrOutput)
 }
+
 // The DNS IP addresses of the domain to connect to.
 func (o DirectoryConnectSettingsOutput) CustomerDnsIps() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DirectoryConnectSettings) []string { return v.CustomerDnsIps }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DirectoryConnectSettings) []string { return v.CustomerDnsIps }).(pulumi.StringArrayOutput)
 }
 
 // The username corresponding to the password provided.
 func (o DirectoryConnectSettingsOutput) CustomerUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v DirectoryConnectSettings) string { return v.CustomerUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DirectoryConnectSettings) string { return v.CustomerUsername }).(pulumi.StringOutput)
 }
 
 // The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
 func (o DirectoryConnectSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DirectoryConnectSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DirectoryConnectSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
 // The identifier of the VPC that the directory is in.
 func (o DirectoryConnectSettingsOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func (v DirectoryConnectSettings) string { return v.VpcId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DirectoryConnectSettings) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
-type DirectoryConnectSettingsPtrOutput struct { *pulumi.OutputState}
+type DirectoryConnectSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (DirectoryConnectSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DirectoryConnectSettings)(nil)).Elem()
@@ -142,27 +144,27 @@ func (o DirectoryConnectSettingsPtrOutput) ToDirectoryConnectSettingsPtrOutputWi
 }
 
 func (o DirectoryConnectSettingsPtrOutput) Elem() DirectoryConnectSettingsOutput {
-	return o.ApplyT(func (v *DirectoryConnectSettings) DirectoryConnectSettings { return *v }).(DirectoryConnectSettingsOutput)
+	return o.ApplyT(func(v *DirectoryConnectSettings) DirectoryConnectSettings { return *v }).(DirectoryConnectSettingsOutput)
 }
 
 // The DNS IP addresses of the domain to connect to.
 func (o DirectoryConnectSettingsPtrOutput) CustomerDnsIps() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DirectoryConnectSettings) []string { return v.CustomerDnsIps }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DirectoryConnectSettings) []string { return v.CustomerDnsIps }).(pulumi.StringArrayOutput)
 }
 
 // The username corresponding to the password provided.
 func (o DirectoryConnectSettingsPtrOutput) CustomerUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v DirectoryConnectSettings) string { return v.CustomerUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DirectoryConnectSettings) string { return v.CustomerUsername }).(pulumi.StringOutput)
 }
 
 // The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
 func (o DirectoryConnectSettingsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DirectoryConnectSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DirectoryConnectSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
 // The identifier of the VPC that the directory is in.
 func (o DirectoryConnectSettingsPtrOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func (v DirectoryConnectSettings) string { return v.VpcId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DirectoryConnectSettings) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
 type DirectoryVpcSettings struct {
@@ -215,7 +217,8 @@ type DirectoryVpcSettingsPtrInput interface {
 
 type directoryVpcSettingsPtrType DirectoryVpcSettingsArgs
 
-func DirectoryVpcSettingsPtr(v *DirectoryVpcSettingsArgs) DirectoryVpcSettingsPtrInput {	return (*directoryVpcSettingsPtrType)(v)
+func DirectoryVpcSettingsPtr(v *DirectoryVpcSettingsArgs) DirectoryVpcSettingsPtrInput {
+	return (*directoryVpcSettingsPtrType)(v)
 }
 
 func (*directoryVpcSettingsPtrType) ElementType() reflect.Type {
@@ -230,7 +233,7 @@ func (i *directoryVpcSettingsPtrType) ToDirectoryVpcSettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryVpcSettingsPtrOutput)
 }
 
-type DirectoryVpcSettingsOutput struct { *pulumi.OutputState }
+type DirectoryVpcSettingsOutput struct{ *pulumi.OutputState }
 
 func (DirectoryVpcSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DirectoryVpcSettings)(nil)).Elem()
@@ -253,17 +256,18 @@ func (o DirectoryVpcSettingsOutput) ToDirectoryVpcSettingsPtrOutputWithContext(c
 		return &v
 	}).(DirectoryVpcSettingsPtrOutput)
 }
+
 // The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
 func (o DirectoryVpcSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DirectoryVpcSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DirectoryVpcSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
 // The identifier of the VPC that the directory is in.
 func (o DirectoryVpcSettingsOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func (v DirectoryVpcSettings) string { return v.VpcId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DirectoryVpcSettings) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
-type DirectoryVpcSettingsPtrOutput struct { *pulumi.OutputState}
+type DirectoryVpcSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (DirectoryVpcSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DirectoryVpcSettings)(nil)).Elem()
@@ -278,17 +282,17 @@ func (o DirectoryVpcSettingsPtrOutput) ToDirectoryVpcSettingsPtrOutputWithContex
 }
 
 func (o DirectoryVpcSettingsPtrOutput) Elem() DirectoryVpcSettingsOutput {
-	return o.ApplyT(func (v *DirectoryVpcSettings) DirectoryVpcSettings { return *v }).(DirectoryVpcSettingsOutput)
+	return o.ApplyT(func(v *DirectoryVpcSettings) DirectoryVpcSettings { return *v }).(DirectoryVpcSettingsOutput)
 }
 
 // The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
 func (o DirectoryVpcSettingsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DirectoryVpcSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DirectoryVpcSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
 // The identifier of the VPC that the directory is in.
 func (o DirectoryVpcSettingsPtrOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func (v DirectoryVpcSettings) string { return v.VpcId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DirectoryVpcSettings) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
 type GetDirectoryConnectSetting struct {
@@ -353,7 +357,7 @@ func (i GetDirectoryConnectSettingArray) ToGetDirectoryConnectSettingArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryConnectSettingArrayOutput)
 }
 
-type GetDirectoryConnectSettingOutput struct { *pulumi.OutputState }
+type GetDirectoryConnectSettingOutput struct{ *pulumi.OutputState }
 
 func (GetDirectoryConnectSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetDirectoryConnectSetting)(nil)).Elem()
@@ -369,25 +373,25 @@ func (o GetDirectoryConnectSettingOutput) ToGetDirectoryConnectSettingOutputWith
 
 // The DNS IP addresses of the domain to connect to.
 func (o GetDirectoryConnectSettingOutput) CustomerDnsIps() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetDirectoryConnectSetting) []string { return v.CustomerDnsIps }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetDirectoryConnectSetting) []string { return v.CustomerDnsIps }).(pulumi.StringArrayOutput)
 }
 
 // The username corresponding to the password provided.
 func (o GetDirectoryConnectSettingOutput) CustomerUsername() pulumi.StringOutput {
-	return o.ApplyT(func (v GetDirectoryConnectSetting) string { return v.CustomerUsername }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetDirectoryConnectSetting) string { return v.CustomerUsername }).(pulumi.StringOutput)
 }
 
 // The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
 func (o GetDirectoryConnectSettingOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetDirectoryConnectSetting) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetDirectoryConnectSetting) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
 // The ID of the VPC that the connector is in.
 func (o GetDirectoryConnectSettingOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetDirectoryConnectSetting) string { return v.VpcId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetDirectoryConnectSetting) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
-type GetDirectoryConnectSettingArrayOutput struct { *pulumi.OutputState}
+type GetDirectoryConnectSettingArrayOutput struct{ *pulumi.OutputState }
 
 func (GetDirectoryConnectSettingArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetDirectoryConnectSetting)(nil)).Elem()
@@ -402,7 +406,7 @@ func (o GetDirectoryConnectSettingArrayOutput) ToGetDirectoryConnectSettingArray
 }
 
 func (o GetDirectoryConnectSettingArrayOutput) Index(i pulumi.IntInput) GetDirectoryConnectSettingOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetDirectoryConnectSetting {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDirectoryConnectSetting {
 		return vs[0].([]GetDirectoryConnectSetting)[vs[1].(int)]
 	}).(GetDirectoryConnectSettingOutput)
 }
@@ -461,7 +465,7 @@ func (i GetDirectoryVpcSettingArray) ToGetDirectoryVpcSettingArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryVpcSettingArrayOutput)
 }
 
-type GetDirectoryVpcSettingOutput struct { *pulumi.OutputState }
+type GetDirectoryVpcSettingOutput struct{ *pulumi.OutputState }
 
 func (GetDirectoryVpcSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetDirectoryVpcSetting)(nil)).Elem()
@@ -477,15 +481,15 @@ func (o GetDirectoryVpcSettingOutput) ToGetDirectoryVpcSettingOutputWithContext(
 
 // The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
 func (o GetDirectoryVpcSettingOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetDirectoryVpcSetting) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetDirectoryVpcSetting) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
 // The ID of the VPC that the connector is in.
 func (o GetDirectoryVpcSettingOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetDirectoryVpcSetting) string { return v.VpcId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetDirectoryVpcSetting) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
-type GetDirectoryVpcSettingArrayOutput struct { *pulumi.OutputState}
+type GetDirectoryVpcSettingArrayOutput struct{ *pulumi.OutputState }
 
 func (GetDirectoryVpcSettingArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetDirectoryVpcSetting)(nil)).Elem()
@@ -500,7 +504,7 @@ func (o GetDirectoryVpcSettingArrayOutput) ToGetDirectoryVpcSettingArrayOutputWi
 }
 
 func (o GetDirectoryVpcSettingArrayOutput) Index(i pulumi.IntInput) GetDirectoryVpcSettingOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetDirectoryVpcSetting {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDirectoryVpcSetting {
 		return vs[0].([]GetDirectoryVpcSetting)[vs[1].(int)]
 	}).(GetDirectoryVpcSettingOutput)
 }

@@ -81,4 +81,3 @@ type MemberAccountAssociationArgs struct {
 func (MemberAccountAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*memberAccountAssociationArgs)(nil)).Elem()
 }
-

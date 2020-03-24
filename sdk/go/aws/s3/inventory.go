@@ -163,4 +163,3 @@ type InventoryArgs struct {
 func (InventoryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*inventoryArgs)(nil)).Elem()
 }
-

@@ -181,4 +181,3 @@ type IntegrationResponseArgs struct {
 func (IntegrationResponseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationResponseArgs)(nil)).Elem()
 }
-

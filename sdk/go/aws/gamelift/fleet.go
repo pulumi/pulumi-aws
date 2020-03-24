@@ -30,8 +30,8 @@ type Fleet struct {
 	// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
 	FleetType pulumi.StringPtrOutput `pulumi:"fleetType"`
 	// ARN of an IAM role that instances in the fleet can assume.
-	InstanceRoleArn pulumi.StringPtrOutput `pulumi:"instanceRoleArn"`
-	LogPaths pulumi.StringArrayOutput `pulumi:"logPaths"`
+	InstanceRoleArn pulumi.StringPtrOutput   `pulumi:"instanceRoleArn"`
+	LogPaths        pulumi.StringArrayOutput `pulumi:"logPaths"`
 	// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
 	MetricGroups pulumi.StringArrayOutput `pulumi:"metricGroups"`
 	// The name of the fleet.
@@ -95,8 +95,8 @@ type fleetState struct {
 	// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
 	FleetType *string `pulumi:"fleetType"`
 	// ARN of an IAM role that instances in the fleet can assume.
-	InstanceRoleArn *string `pulumi:"instanceRoleArn"`
-	LogPaths []string `pulumi:"logPaths"`
+	InstanceRoleArn *string  `pulumi:"instanceRoleArn"`
+	LogPaths        []string `pulumi:"logPaths"`
 	// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
 	MetricGroups []string `pulumi:"metricGroups"`
 	// The name of the fleet.
@@ -128,7 +128,7 @@ type FleetState struct {
 	FleetType pulumi.StringPtrInput
 	// ARN of an IAM role that instances in the fleet can assume.
 	InstanceRoleArn pulumi.StringPtrInput
-	LogPaths pulumi.StringArrayInput
+	LogPaths        pulumi.StringArrayInput
 	// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
 	MetricGroups pulumi.StringArrayInput
 	// The name of the fleet.
@@ -207,4 +207,3 @@ type FleetArgs struct {
 func (FleetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*fleetArgs)(nil)).Elem()
 }
-

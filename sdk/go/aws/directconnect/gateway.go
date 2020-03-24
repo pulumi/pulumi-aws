@@ -95,4 +95,3 @@ type GatewayArgs struct {
 func (GatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayArgs)(nil)).Elem()
 }
-

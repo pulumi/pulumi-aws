@@ -114,4 +114,3 @@ type ChannelArgs struct {
 func (ChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*channelArgs)(nil)).Elem()
 }
-

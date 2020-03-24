@@ -101,4 +101,3 @@ type SamlProviderArgs struct {
 func (SamlProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*samlProviderArgs)(nil)).Elem()
 }
-

@@ -172,4 +172,3 @@ type TopicSubscriptionArgs struct {
 func (TopicSubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicSubscriptionArgs)(nil)).Elem()
 }
-

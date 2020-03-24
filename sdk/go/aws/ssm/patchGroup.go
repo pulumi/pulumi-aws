@@ -92,4 +92,3 @@ type PatchGroupArgs struct {
 func (PatchGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*patchGroupArgs)(nil)).Elem()
 }
-

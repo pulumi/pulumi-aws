@@ -92,4 +92,3 @@ type AmiLaunchPermissionArgs struct {
 func (AmiLaunchPermissionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*amiLaunchPermissionArgs)(nil)).Elem()
 }
-

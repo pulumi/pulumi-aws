@@ -105,4 +105,3 @@ type TemplateArgs struct {
 func (TemplateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*templateArgs)(nil)).Elem()
 }
-

@@ -30,19 +30,17 @@ type GetInstancesArgs struct {
 	InstanceTags map[string]interface{} `pulumi:"instanceTags"`
 }
 
-
 // A collection of values returned by getInstances.
 type GetInstancesResult struct {
 	Filters []GetInstancesFilter `pulumi:"filters"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// IDs of instances found through the filter
-	Ids []string `pulumi:"ids"`
-	InstanceStateNames []string `pulumi:"instanceStateNames"`
-	InstanceTags map[string]interface{} `pulumi:"instanceTags"`
+	Ids                []string               `pulumi:"ids"`
+	InstanceStateNames []string               `pulumi:"instanceStateNames"`
+	InstanceTags       map[string]interface{} `pulumi:"instanceTags"`
 	// Private IP addresses of instances found through the filter
 	PrivateIps []string `pulumi:"privateIps"`
 	// Public IP addresses of instances found through the filter
 	PublicIps []string `pulumi:"publicIps"`
 }
-

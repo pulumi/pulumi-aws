@@ -73,7 +73,7 @@ func (BucketPolicyState) ElementType() reflect.Type {
 
 type bucketPolicyArgs struct {
 	// The name of the bucket to which to apply the policy.
-	Bucket string `pulumi:"bucket"`
+	Bucket string      `pulumi:"bucket"`
 	Policy interface{} `pulumi:"policy"`
 }
 
@@ -87,4 +87,3 @@ type BucketPolicyArgs struct {
 func (BucketPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketPolicyArgs)(nil)).Elem()
 }
-

@@ -135,4 +135,3 @@ type MaintenanceWindowTargetArgs struct {
 func (MaintenanceWindowTargetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*maintenanceWindowTargetArgs)(nil)).Elem()
 }
-

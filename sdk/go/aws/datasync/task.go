@@ -138,4 +138,3 @@ type TaskArgs struct {
 func (TaskArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*taskArgs)(nil)).Elem()
 }
-

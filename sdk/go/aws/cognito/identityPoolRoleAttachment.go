@@ -102,4 +102,3 @@ type IdentityPoolRoleAttachmentArgs struct {
 func (IdentityPoolRoleAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*identityPoolRoleAttachmentArgs)(nil)).Elem()
 }
-

@@ -73,7 +73,8 @@ type ClusterBrokerNodeGroupInfoPtrInput interface {
 
 type clusterBrokerNodeGroupInfoPtrType ClusterBrokerNodeGroupInfoArgs
 
-func ClusterBrokerNodeGroupInfoPtr(v *ClusterBrokerNodeGroupInfoArgs) ClusterBrokerNodeGroupInfoPtrInput {	return (*clusterBrokerNodeGroupInfoPtrType)(v)
+func ClusterBrokerNodeGroupInfoPtr(v *ClusterBrokerNodeGroupInfoArgs) ClusterBrokerNodeGroupInfoPtrInput {
+	return (*clusterBrokerNodeGroupInfoPtrType)(v)
 }
 
 func (*clusterBrokerNodeGroupInfoPtrType) ElementType() reflect.Type {
@@ -88,7 +89,7 @@ func (i *clusterBrokerNodeGroupInfoPtrType) ToClusterBrokerNodeGroupInfoPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoPtrOutput)
 }
 
-type ClusterBrokerNodeGroupInfoOutput struct { *pulumi.OutputState }
+type ClusterBrokerNodeGroupInfoOutput struct{ *pulumi.OutputState }
 
 func (ClusterBrokerNodeGroupInfoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterBrokerNodeGroupInfo)(nil)).Elem()
@@ -111,32 +112,33 @@ func (o ClusterBrokerNodeGroupInfoOutput) ToClusterBrokerNodeGroupInfoPtrOutputW
 		return &v
 	}).(ClusterBrokerNodeGroupInfoPtrOutput)
 }
+
 // The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
 func (o ClusterBrokerNodeGroupInfoOutput) AzDistribution() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterBrokerNodeGroupInfo) *string { return v.AzDistribution }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *string { return v.AzDistribution }).(pulumi.StringPtrOutput)
 }
 
 // A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
 func (o ClusterBrokerNodeGroupInfoOutput) ClientSubnets() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterBrokerNodeGroupInfo) []string { return v.ClientSubnets }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) []string { return v.ClientSubnets }).(pulumi.StringArrayOutput)
 }
 
 // The size in GiB of the EBS volume for the data drive on each broker node.
 func (o ClusterBrokerNodeGroupInfoOutput) EbsVolumeSize() pulumi.IntOutput {
-	return o.ApplyT(func (v ClusterBrokerNodeGroupInfo) int { return v.EbsVolumeSize }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) int { return v.EbsVolumeSize }).(pulumi.IntOutput)
 }
 
 // Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
 func (o ClusterBrokerNodeGroupInfoOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterBrokerNodeGroupInfo) string { return v.InstanceType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
 // A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
 func (o ClusterBrokerNodeGroupInfoOutput) SecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterBrokerNodeGroupInfo) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-type ClusterBrokerNodeGroupInfoPtrOutput struct { *pulumi.OutputState}
+type ClusterBrokerNodeGroupInfoPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterBrokerNodeGroupInfoPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterBrokerNodeGroupInfo)(nil)).Elem()
@@ -151,32 +153,32 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) ToClusterBrokerNodeGroupInfoPtrOutp
 }
 
 func (o ClusterBrokerNodeGroupInfoPtrOutput) Elem() ClusterBrokerNodeGroupInfoOutput {
-	return o.ApplyT(func (v *ClusterBrokerNodeGroupInfo) ClusterBrokerNodeGroupInfo { return *v }).(ClusterBrokerNodeGroupInfoOutput)
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) ClusterBrokerNodeGroupInfo { return *v }).(ClusterBrokerNodeGroupInfoOutput)
 }
 
 // The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
 func (o ClusterBrokerNodeGroupInfoPtrOutput) AzDistribution() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterBrokerNodeGroupInfo) *string { return v.AzDistribution }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *string { return v.AzDistribution }).(pulumi.StringPtrOutput)
 }
 
 // A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
 func (o ClusterBrokerNodeGroupInfoPtrOutput) ClientSubnets() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterBrokerNodeGroupInfo) []string { return v.ClientSubnets }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) []string { return v.ClientSubnets }).(pulumi.StringArrayOutput)
 }
 
 // The size in GiB of the EBS volume for the data drive on each broker node.
 func (o ClusterBrokerNodeGroupInfoPtrOutput) EbsVolumeSize() pulumi.IntOutput {
-	return o.ApplyT(func (v ClusterBrokerNodeGroupInfo) int { return v.EbsVolumeSize }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) int { return v.EbsVolumeSize }).(pulumi.IntOutput)
 }
 
 // Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
 func (o ClusterBrokerNodeGroupInfoPtrOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterBrokerNodeGroupInfo) string { return v.InstanceType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
 // A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
 func (o ClusterBrokerNodeGroupInfoPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterBrokerNodeGroupInfo) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
 type ClusterClientAuthentication struct {
@@ -225,7 +227,8 @@ type ClusterClientAuthenticationPtrInput interface {
 
 type clusterClientAuthenticationPtrType ClusterClientAuthenticationArgs
 
-func ClusterClientAuthenticationPtr(v *ClusterClientAuthenticationArgs) ClusterClientAuthenticationPtrInput {	return (*clusterClientAuthenticationPtrType)(v)
+func ClusterClientAuthenticationPtr(v *ClusterClientAuthenticationArgs) ClusterClientAuthenticationPtrInput {
+	return (*clusterClientAuthenticationPtrType)(v)
 }
 
 func (*clusterClientAuthenticationPtrType) ElementType() reflect.Type {
@@ -240,7 +243,7 @@ func (i *clusterClientAuthenticationPtrType) ToClusterClientAuthenticationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientAuthenticationPtrOutput)
 }
 
-type ClusterClientAuthenticationOutput struct { *pulumi.OutputState }
+type ClusterClientAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (ClusterClientAuthenticationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterClientAuthentication)(nil)).Elem()
@@ -263,12 +266,13 @@ func (o ClusterClientAuthenticationOutput) ToClusterClientAuthenticationPtrOutpu
 		return &v
 	}).(ClusterClientAuthenticationPtrOutput)
 }
+
 // Configuration block for specifying TLS client authentication. See below.
 func (o ClusterClientAuthenticationOutput) Tls() ClusterClientAuthenticationTlsPtrOutput {
-	return o.ApplyT(func (v ClusterClientAuthentication) *ClusterClientAuthenticationTls { return v.Tls }).(ClusterClientAuthenticationTlsPtrOutput)
+	return o.ApplyT(func(v ClusterClientAuthentication) *ClusterClientAuthenticationTls { return v.Tls }).(ClusterClientAuthenticationTlsPtrOutput)
 }
 
-type ClusterClientAuthenticationPtrOutput struct { *pulumi.OutputState}
+type ClusterClientAuthenticationPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterClientAuthenticationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterClientAuthentication)(nil)).Elem()
@@ -283,12 +287,12 @@ func (o ClusterClientAuthenticationPtrOutput) ToClusterClientAuthenticationPtrOu
 }
 
 func (o ClusterClientAuthenticationPtrOutput) Elem() ClusterClientAuthenticationOutput {
-	return o.ApplyT(func (v *ClusterClientAuthentication) ClusterClientAuthentication { return *v }).(ClusterClientAuthenticationOutput)
+	return o.ApplyT(func(v *ClusterClientAuthentication) ClusterClientAuthentication { return *v }).(ClusterClientAuthenticationOutput)
 }
 
 // Configuration block for specifying TLS client authentication. See below.
 func (o ClusterClientAuthenticationPtrOutput) Tls() ClusterClientAuthenticationTlsPtrOutput {
-	return o.ApplyT(func (v ClusterClientAuthentication) *ClusterClientAuthenticationTls { return v.Tls }).(ClusterClientAuthenticationTlsPtrOutput)
+	return o.ApplyT(func(v ClusterClientAuthentication) *ClusterClientAuthenticationTls { return v.Tls }).(ClusterClientAuthenticationTlsPtrOutput)
 }
 
 type ClusterClientAuthenticationTls struct {
@@ -337,7 +341,8 @@ type ClusterClientAuthenticationTlsPtrInput interface {
 
 type clusterClientAuthenticationTlsPtrType ClusterClientAuthenticationTlsArgs
 
-func ClusterClientAuthenticationTlsPtr(v *ClusterClientAuthenticationTlsArgs) ClusterClientAuthenticationTlsPtrInput {	return (*clusterClientAuthenticationTlsPtrType)(v)
+func ClusterClientAuthenticationTlsPtr(v *ClusterClientAuthenticationTlsArgs) ClusterClientAuthenticationTlsPtrInput {
+	return (*clusterClientAuthenticationTlsPtrType)(v)
 }
 
 func (*clusterClientAuthenticationTlsPtrType) ElementType() reflect.Type {
@@ -352,7 +357,7 @@ func (i *clusterClientAuthenticationTlsPtrType) ToClusterClientAuthenticationTls
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientAuthenticationTlsPtrOutput)
 }
 
-type ClusterClientAuthenticationTlsOutput struct { *pulumi.OutputState }
+type ClusterClientAuthenticationTlsOutput struct{ *pulumi.OutputState }
 
 func (ClusterClientAuthenticationTlsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterClientAuthenticationTls)(nil)).Elem()
@@ -375,12 +380,13 @@ func (o ClusterClientAuthenticationTlsOutput) ToClusterClientAuthenticationTlsPt
 		return &v
 	}).(ClusterClientAuthenticationTlsPtrOutput)
 }
+
 // List of ACM Certificate Authority Amazon Resource Names (ARNs).
 func (o ClusterClientAuthenticationTlsOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterClientAuthenticationTls) []string { return v.CertificateAuthorityArns }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterClientAuthenticationTls) []string { return v.CertificateAuthorityArns }).(pulumi.StringArrayOutput)
 }
 
-type ClusterClientAuthenticationTlsPtrOutput struct { *pulumi.OutputState}
+type ClusterClientAuthenticationTlsPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterClientAuthenticationTlsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterClientAuthenticationTls)(nil)).Elem()
@@ -395,12 +401,12 @@ func (o ClusterClientAuthenticationTlsPtrOutput) ToClusterClientAuthenticationTl
 }
 
 func (o ClusterClientAuthenticationTlsPtrOutput) Elem() ClusterClientAuthenticationTlsOutput {
-	return o.ApplyT(func (v *ClusterClientAuthenticationTls) ClusterClientAuthenticationTls { return *v }).(ClusterClientAuthenticationTlsOutput)
+	return o.ApplyT(func(v *ClusterClientAuthenticationTls) ClusterClientAuthenticationTls { return *v }).(ClusterClientAuthenticationTlsOutput)
 }
 
 // List of ACM Certificate Authority Amazon Resource Names (ARNs).
 func (o ClusterClientAuthenticationTlsPtrOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClusterClientAuthenticationTls) []string { return v.CertificateAuthorityArns }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClusterClientAuthenticationTls) []string { return v.CertificateAuthorityArns }).(pulumi.StringArrayOutput)
 }
 
 type ClusterConfigurationInfo struct {
@@ -453,7 +459,8 @@ type ClusterConfigurationInfoPtrInput interface {
 
 type clusterConfigurationInfoPtrType ClusterConfigurationInfoArgs
 
-func ClusterConfigurationInfoPtr(v *ClusterConfigurationInfoArgs) ClusterConfigurationInfoPtrInput {	return (*clusterConfigurationInfoPtrType)(v)
+func ClusterConfigurationInfoPtr(v *ClusterConfigurationInfoArgs) ClusterConfigurationInfoPtrInput {
+	return (*clusterConfigurationInfoPtrType)(v)
 }
 
 func (*clusterConfigurationInfoPtrType) ElementType() reflect.Type {
@@ -468,7 +475,7 @@ func (i *clusterConfigurationInfoPtrType) ToClusterConfigurationInfoPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationInfoPtrOutput)
 }
 
-type ClusterConfigurationInfoOutput struct { *pulumi.OutputState }
+type ClusterConfigurationInfoOutput struct{ *pulumi.OutputState }
 
 func (ClusterConfigurationInfoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterConfigurationInfo)(nil)).Elem()
@@ -491,17 +498,18 @@ func (o ClusterConfigurationInfoOutput) ToClusterConfigurationInfoPtrOutputWithC
 		return &v
 	}).(ClusterConfigurationInfoPtrOutput)
 }
+
 // Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
 func (o ClusterConfigurationInfoOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterConfigurationInfo) string { return v.Arn }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterConfigurationInfo) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Revision of the MSK Configuration to use in the cluster.
 func (o ClusterConfigurationInfoOutput) Revision() pulumi.IntOutput {
-	return o.ApplyT(func (v ClusterConfigurationInfo) int { return v.Revision }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ClusterConfigurationInfo) int { return v.Revision }).(pulumi.IntOutput)
 }
 
-type ClusterConfigurationInfoPtrOutput struct { *pulumi.OutputState}
+type ClusterConfigurationInfoPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterConfigurationInfoPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterConfigurationInfo)(nil)).Elem()
@@ -516,17 +524,17 @@ func (o ClusterConfigurationInfoPtrOutput) ToClusterConfigurationInfoPtrOutputWi
 }
 
 func (o ClusterConfigurationInfoPtrOutput) Elem() ClusterConfigurationInfoOutput {
-	return o.ApplyT(func (v *ClusterConfigurationInfo) ClusterConfigurationInfo { return *v }).(ClusterConfigurationInfoOutput)
+	return o.ApplyT(func(v *ClusterConfigurationInfo) ClusterConfigurationInfo { return *v }).(ClusterConfigurationInfoOutput)
 }
 
 // Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
 func (o ClusterConfigurationInfoPtrOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func (v ClusterConfigurationInfo) string { return v.Arn }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClusterConfigurationInfo) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Revision of the MSK Configuration to use in the cluster.
 func (o ClusterConfigurationInfoPtrOutput) Revision() pulumi.IntOutput {
-	return o.ApplyT(func (v ClusterConfigurationInfo) int { return v.Revision }).(pulumi.IntOutput)
+	return o.ApplyT(func(v ClusterConfigurationInfo) int { return v.Revision }).(pulumi.IntOutput)
 }
 
 type ClusterEncryptionInfo struct {
@@ -579,7 +587,8 @@ type ClusterEncryptionInfoPtrInput interface {
 
 type clusterEncryptionInfoPtrType ClusterEncryptionInfoArgs
 
-func ClusterEncryptionInfoPtr(v *ClusterEncryptionInfoArgs) ClusterEncryptionInfoPtrInput {	return (*clusterEncryptionInfoPtrType)(v)
+func ClusterEncryptionInfoPtr(v *ClusterEncryptionInfoArgs) ClusterEncryptionInfoPtrInput {
+	return (*clusterEncryptionInfoPtrType)(v)
 }
 
 func (*clusterEncryptionInfoPtrType) ElementType() reflect.Type {
@@ -594,7 +603,7 @@ func (i *clusterEncryptionInfoPtrType) ToClusterEncryptionInfoPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionInfoPtrOutput)
 }
 
-type ClusterEncryptionInfoOutput struct { *pulumi.OutputState }
+type ClusterEncryptionInfoOutput struct{ *pulumi.OutputState }
 
 func (ClusterEncryptionInfoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterEncryptionInfo)(nil)).Elem()
@@ -617,17 +626,18 @@ func (o ClusterEncryptionInfoOutput) ToClusterEncryptionInfoPtrOutputWithContext
 		return &v
 	}).(ClusterEncryptionInfoPtrOutput)
 }
+
 // You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
 func (o ClusterEncryptionInfoOutput) EncryptionAtRestKmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterEncryptionInfo) *string { return v.EncryptionAtRestKmsKeyArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterEncryptionInfo) *string { return v.EncryptionAtRestKmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block to specify encryption in transit. See below.
 func (o ClusterEncryptionInfoOutput) EncryptionInTransit() ClusterEncryptionInfoEncryptionInTransitPtrOutput {
-	return o.ApplyT(func (v ClusterEncryptionInfo) *ClusterEncryptionInfoEncryptionInTransit { return v.EncryptionInTransit }).(ClusterEncryptionInfoEncryptionInTransitPtrOutput)
+	return o.ApplyT(func(v ClusterEncryptionInfo) *ClusterEncryptionInfoEncryptionInTransit { return v.EncryptionInTransit }).(ClusterEncryptionInfoEncryptionInTransitPtrOutput)
 }
 
-type ClusterEncryptionInfoPtrOutput struct { *pulumi.OutputState}
+type ClusterEncryptionInfoPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterEncryptionInfoPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterEncryptionInfo)(nil)).Elem()
@@ -642,17 +652,17 @@ func (o ClusterEncryptionInfoPtrOutput) ToClusterEncryptionInfoPtrOutputWithCont
 }
 
 func (o ClusterEncryptionInfoPtrOutput) Elem() ClusterEncryptionInfoOutput {
-	return o.ApplyT(func (v *ClusterEncryptionInfo) ClusterEncryptionInfo { return *v }).(ClusterEncryptionInfoOutput)
+	return o.ApplyT(func(v *ClusterEncryptionInfo) ClusterEncryptionInfo { return *v }).(ClusterEncryptionInfoOutput)
 }
 
 // You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
 func (o ClusterEncryptionInfoPtrOutput) EncryptionAtRestKmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterEncryptionInfo) *string { return v.EncryptionAtRestKmsKeyArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterEncryptionInfo) *string { return v.EncryptionAtRestKmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block to specify encryption in transit. See below.
 func (o ClusterEncryptionInfoPtrOutput) EncryptionInTransit() ClusterEncryptionInfoEncryptionInTransitPtrOutput {
-	return o.ApplyT(func (v ClusterEncryptionInfo) *ClusterEncryptionInfoEncryptionInTransit { return v.EncryptionInTransit }).(ClusterEncryptionInfoEncryptionInTransitPtrOutput)
+	return o.ApplyT(func(v ClusterEncryptionInfo) *ClusterEncryptionInfoEncryptionInTransit { return v.EncryptionInTransit }).(ClusterEncryptionInfoEncryptionInTransitPtrOutput)
 }
 
 type ClusterEncryptionInfoEncryptionInTransit struct {
@@ -705,7 +715,8 @@ type ClusterEncryptionInfoEncryptionInTransitPtrInput interface {
 
 type clusterEncryptionInfoEncryptionInTransitPtrType ClusterEncryptionInfoEncryptionInTransitArgs
 
-func ClusterEncryptionInfoEncryptionInTransitPtr(v *ClusterEncryptionInfoEncryptionInTransitArgs) ClusterEncryptionInfoEncryptionInTransitPtrInput {	return (*clusterEncryptionInfoEncryptionInTransitPtrType)(v)
+func ClusterEncryptionInfoEncryptionInTransitPtr(v *ClusterEncryptionInfoEncryptionInTransitArgs) ClusterEncryptionInfoEncryptionInTransitPtrInput {
+	return (*clusterEncryptionInfoEncryptionInTransitPtrType)(v)
 }
 
 func (*clusterEncryptionInfoEncryptionInTransitPtrType) ElementType() reflect.Type {
@@ -720,7 +731,7 @@ func (i *clusterEncryptionInfoEncryptionInTransitPtrType) ToClusterEncryptionInf
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionInfoEncryptionInTransitPtrOutput)
 }
 
-type ClusterEncryptionInfoEncryptionInTransitOutput struct { *pulumi.OutputState }
+type ClusterEncryptionInfoEncryptionInTransitOutput struct{ *pulumi.OutputState }
 
 func (ClusterEncryptionInfoEncryptionInTransitOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterEncryptionInfoEncryptionInTransit)(nil)).Elem()
@@ -743,17 +754,18 @@ func (o ClusterEncryptionInfoEncryptionInTransitOutput) ToClusterEncryptionInfoE
 		return &v
 	}).(ClusterEncryptionInfoEncryptionInTransitPtrOutput)
 }
+
 // Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS_PLAINTEXT` when `encryptionInTransit` block defined, but `TLS` when `encryptionInTransit` block omitted.
 func (o ClusterEncryptionInfoEncryptionInTransitOutput) ClientBroker() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterEncryptionInfoEncryptionInTransit) *string { return v.ClientBroker }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterEncryptionInfoEncryptionInTransit) *string { return v.ClientBroker }).(pulumi.StringPtrOutput)
 }
 
 // Whether data communication among broker nodes is encrypted. Default value: `true`.
 func (o ClusterEncryptionInfoEncryptionInTransitOutput) InCluster() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterEncryptionInfoEncryptionInTransit) *bool { return v.InCluster }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterEncryptionInfoEncryptionInTransit) *bool { return v.InCluster }).(pulumi.BoolPtrOutput)
 }
 
-type ClusterEncryptionInfoEncryptionInTransitPtrOutput struct { *pulumi.OutputState}
+type ClusterEncryptionInfoEncryptionInTransitPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterEncryptionInfoEncryptionInTransitPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterEncryptionInfoEncryptionInTransit)(nil)).Elem()
@@ -768,17 +780,17 @@ func (o ClusterEncryptionInfoEncryptionInTransitPtrOutput) ToClusterEncryptionIn
 }
 
 func (o ClusterEncryptionInfoEncryptionInTransitPtrOutput) Elem() ClusterEncryptionInfoEncryptionInTransitOutput {
-	return o.ApplyT(func (v *ClusterEncryptionInfoEncryptionInTransit) ClusterEncryptionInfoEncryptionInTransit { return *v }).(ClusterEncryptionInfoEncryptionInTransitOutput)
+	return o.ApplyT(func(v *ClusterEncryptionInfoEncryptionInTransit) ClusterEncryptionInfoEncryptionInTransit { return *v }).(ClusterEncryptionInfoEncryptionInTransitOutput)
 }
 
 // Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS_PLAINTEXT` when `encryptionInTransit` block defined, but `TLS` when `encryptionInTransit` block omitted.
 func (o ClusterEncryptionInfoEncryptionInTransitPtrOutput) ClientBroker() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterEncryptionInfoEncryptionInTransit) *string { return v.ClientBroker }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterEncryptionInfoEncryptionInTransit) *string { return v.ClientBroker }).(pulumi.StringPtrOutput)
 }
 
 // Whether data communication among broker nodes is encrypted. Default value: `true`.
 func (o ClusterEncryptionInfoEncryptionInTransitPtrOutput) InCluster() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterEncryptionInfoEncryptionInTransit) *bool { return v.InCluster }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterEncryptionInfoEncryptionInTransit) *bool { return v.InCluster }).(pulumi.BoolPtrOutput)
 }
 
 type ClusterOpenMonitoring struct {
@@ -827,7 +839,8 @@ type ClusterOpenMonitoringPtrInput interface {
 
 type clusterOpenMonitoringPtrType ClusterOpenMonitoringArgs
 
-func ClusterOpenMonitoringPtr(v *ClusterOpenMonitoringArgs) ClusterOpenMonitoringPtrInput {	return (*clusterOpenMonitoringPtrType)(v)
+func ClusterOpenMonitoringPtr(v *ClusterOpenMonitoringArgs) ClusterOpenMonitoringPtrInput {
+	return (*clusterOpenMonitoringPtrType)(v)
 }
 
 func (*clusterOpenMonitoringPtrType) ElementType() reflect.Type {
@@ -842,7 +855,7 @@ func (i *clusterOpenMonitoringPtrType) ToClusterOpenMonitoringPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPtrOutput)
 }
 
-type ClusterOpenMonitoringOutput struct { *pulumi.OutputState }
+type ClusterOpenMonitoringOutput struct{ *pulumi.OutputState }
 
 func (ClusterOpenMonitoringOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterOpenMonitoring)(nil)).Elem()
@@ -865,12 +878,13 @@ func (o ClusterOpenMonitoringOutput) ToClusterOpenMonitoringPtrOutputWithContext
 		return &v
 	}).(ClusterOpenMonitoringPtrOutput)
 }
+
 // Configuration block for Prometheus settings for open monitoring. See below.
 func (o ClusterOpenMonitoringOutput) Prometheus() ClusterOpenMonitoringPrometheusOutput {
-	return o.ApplyT(func (v ClusterOpenMonitoring) ClusterOpenMonitoringPrometheus { return v.Prometheus }).(ClusterOpenMonitoringPrometheusOutput)
+	return o.ApplyT(func(v ClusterOpenMonitoring) ClusterOpenMonitoringPrometheus { return v.Prometheus }).(ClusterOpenMonitoringPrometheusOutput)
 }
 
-type ClusterOpenMonitoringPtrOutput struct { *pulumi.OutputState}
+type ClusterOpenMonitoringPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterOpenMonitoringPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterOpenMonitoring)(nil)).Elem()
@@ -885,12 +899,12 @@ func (o ClusterOpenMonitoringPtrOutput) ToClusterOpenMonitoringPtrOutputWithCont
 }
 
 func (o ClusterOpenMonitoringPtrOutput) Elem() ClusterOpenMonitoringOutput {
-	return o.ApplyT(func (v *ClusterOpenMonitoring) ClusterOpenMonitoring { return *v }).(ClusterOpenMonitoringOutput)
+	return o.ApplyT(func(v *ClusterOpenMonitoring) ClusterOpenMonitoring { return *v }).(ClusterOpenMonitoringOutput)
 }
 
 // Configuration block for Prometheus settings for open monitoring. See below.
 func (o ClusterOpenMonitoringPtrOutput) Prometheus() ClusterOpenMonitoringPrometheusOutput {
-	return o.ApplyT(func (v ClusterOpenMonitoring) ClusterOpenMonitoringPrometheus { return v.Prometheus }).(ClusterOpenMonitoringPrometheusOutput)
+	return o.ApplyT(func(v ClusterOpenMonitoring) ClusterOpenMonitoringPrometheus { return v.Prometheus }).(ClusterOpenMonitoringPrometheusOutput)
 }
 
 type ClusterOpenMonitoringPrometheus struct {
@@ -926,7 +940,7 @@ func (i ClusterOpenMonitoringPrometheusArgs) ToClusterOpenMonitoringPrometheusOu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPrometheusOutput)
 }
 
-type ClusterOpenMonitoringPrometheusOutput struct { *pulumi.OutputState }
+type ClusterOpenMonitoringPrometheusOutput struct{ *pulumi.OutputState }
 
 func (ClusterOpenMonitoringPrometheusOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterOpenMonitoringPrometheus)(nil)).Elem()
@@ -942,12 +956,16 @@ func (o ClusterOpenMonitoringPrometheusOutput) ToClusterOpenMonitoringPrometheus
 
 // Configuration block for JMX Exporter. See below.
 func (o ClusterOpenMonitoringPrometheusOutput) JmxExporter() ClusterOpenMonitoringPrometheusJmxExporterPtrOutput {
-	return o.ApplyT(func (v ClusterOpenMonitoringPrometheus) *ClusterOpenMonitoringPrometheusJmxExporter { return v.JmxExporter }).(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput)
+	return o.ApplyT(func(v ClusterOpenMonitoringPrometheus) *ClusterOpenMonitoringPrometheusJmxExporter {
+		return v.JmxExporter
+	}).(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput)
 }
 
 // Configuration block for Node Exporter. See below.
 func (o ClusterOpenMonitoringPrometheusOutput) NodeExporter() ClusterOpenMonitoringPrometheusNodeExporterPtrOutput {
-	return o.ApplyT(func (v ClusterOpenMonitoringPrometheus) *ClusterOpenMonitoringPrometheusNodeExporter { return v.NodeExporter }).(ClusterOpenMonitoringPrometheusNodeExporterPtrOutput)
+	return o.ApplyT(func(v ClusterOpenMonitoringPrometheus) *ClusterOpenMonitoringPrometheusNodeExporter {
+		return v.NodeExporter
+	}).(ClusterOpenMonitoringPrometheusNodeExporterPtrOutput)
 }
 
 type ClusterOpenMonitoringPrometheusJmxExporter struct {
@@ -996,7 +1014,8 @@ type ClusterOpenMonitoringPrometheusJmxExporterPtrInput interface {
 
 type clusterOpenMonitoringPrometheusJmxExporterPtrType ClusterOpenMonitoringPrometheusJmxExporterArgs
 
-func ClusterOpenMonitoringPrometheusJmxExporterPtr(v *ClusterOpenMonitoringPrometheusJmxExporterArgs) ClusterOpenMonitoringPrometheusJmxExporterPtrInput {	return (*clusterOpenMonitoringPrometheusJmxExporterPtrType)(v)
+func ClusterOpenMonitoringPrometheusJmxExporterPtr(v *ClusterOpenMonitoringPrometheusJmxExporterArgs) ClusterOpenMonitoringPrometheusJmxExporterPtrInput {
+	return (*clusterOpenMonitoringPrometheusJmxExporterPtrType)(v)
 }
 
 func (*clusterOpenMonitoringPrometheusJmxExporterPtrType) ElementType() reflect.Type {
@@ -1011,7 +1030,7 @@ func (i *clusterOpenMonitoringPrometheusJmxExporterPtrType) ToClusterOpenMonitor
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput)
 }
 
-type ClusterOpenMonitoringPrometheusJmxExporterOutput struct { *pulumi.OutputState }
+type ClusterOpenMonitoringPrometheusJmxExporterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOpenMonitoringPrometheusJmxExporterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterOpenMonitoringPrometheusJmxExporter)(nil)).Elem()
@@ -1034,12 +1053,13 @@ func (o ClusterOpenMonitoringPrometheusJmxExporterOutput) ToClusterOpenMonitorin
 		return &v
 	}).(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput)
 }
+
 // Indicates whether you want to enable or disable the Node Exporter.
 func (o ClusterOpenMonitoringPrometheusJmxExporterOutput) EnabledInBroker() pulumi.BoolOutput {
-	return o.ApplyT(func (v ClusterOpenMonitoringPrometheusJmxExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ClusterOpenMonitoringPrometheusJmxExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
 }
 
-type ClusterOpenMonitoringPrometheusJmxExporterPtrOutput struct { *pulumi.OutputState}
+type ClusterOpenMonitoringPrometheusJmxExporterPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterOpenMonitoringPrometheusJmxExporter)(nil)).Elem()
@@ -1054,12 +1074,14 @@ func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) ToClusterOpenMonito
 }
 
 func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) Elem() ClusterOpenMonitoringPrometheusJmxExporterOutput {
-	return o.ApplyT(func (v *ClusterOpenMonitoringPrometheusJmxExporter) ClusterOpenMonitoringPrometheusJmxExporter { return *v }).(ClusterOpenMonitoringPrometheusJmxExporterOutput)
+	return o.ApplyT(func(v *ClusterOpenMonitoringPrometheusJmxExporter) ClusterOpenMonitoringPrometheusJmxExporter {
+		return *v
+	}).(ClusterOpenMonitoringPrometheusJmxExporterOutput)
 }
 
 // Indicates whether you want to enable or disable the Node Exporter.
 func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) EnabledInBroker() pulumi.BoolOutput {
-	return o.ApplyT(func (v ClusterOpenMonitoringPrometheusJmxExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ClusterOpenMonitoringPrometheusJmxExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
 }
 
 type ClusterOpenMonitoringPrometheusNodeExporter struct {
@@ -1108,7 +1130,8 @@ type ClusterOpenMonitoringPrometheusNodeExporterPtrInput interface {
 
 type clusterOpenMonitoringPrometheusNodeExporterPtrType ClusterOpenMonitoringPrometheusNodeExporterArgs
 
-func ClusterOpenMonitoringPrometheusNodeExporterPtr(v *ClusterOpenMonitoringPrometheusNodeExporterArgs) ClusterOpenMonitoringPrometheusNodeExporterPtrInput {	return (*clusterOpenMonitoringPrometheusNodeExporterPtrType)(v)
+func ClusterOpenMonitoringPrometheusNodeExporterPtr(v *ClusterOpenMonitoringPrometheusNodeExporterArgs) ClusterOpenMonitoringPrometheusNodeExporterPtrInput {
+	return (*clusterOpenMonitoringPrometheusNodeExporterPtrType)(v)
 }
 
 func (*clusterOpenMonitoringPrometheusNodeExporterPtrType) ElementType() reflect.Type {
@@ -1123,7 +1146,7 @@ func (i *clusterOpenMonitoringPrometheusNodeExporterPtrType) ToClusterOpenMonito
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPrometheusNodeExporterPtrOutput)
 }
 
-type ClusterOpenMonitoringPrometheusNodeExporterOutput struct { *pulumi.OutputState }
+type ClusterOpenMonitoringPrometheusNodeExporterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOpenMonitoringPrometheusNodeExporterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterOpenMonitoringPrometheusNodeExporter)(nil)).Elem()
@@ -1146,12 +1169,13 @@ func (o ClusterOpenMonitoringPrometheusNodeExporterOutput) ToClusterOpenMonitori
 		return &v
 	}).(ClusterOpenMonitoringPrometheusNodeExporterPtrOutput)
 }
+
 // Indicates whether you want to enable or disable the Node Exporter.
 func (o ClusterOpenMonitoringPrometheusNodeExporterOutput) EnabledInBroker() pulumi.BoolOutput {
-	return o.ApplyT(func (v ClusterOpenMonitoringPrometheusNodeExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ClusterOpenMonitoringPrometheusNodeExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
 }
 
-type ClusterOpenMonitoringPrometheusNodeExporterPtrOutput struct { *pulumi.OutputState}
+type ClusterOpenMonitoringPrometheusNodeExporterPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterOpenMonitoringPrometheusNodeExporter)(nil)).Elem()
@@ -1166,12 +1190,14 @@ func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) ToClusterOpenMonit
 }
 
 func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) Elem() ClusterOpenMonitoringPrometheusNodeExporterOutput {
-	return o.ApplyT(func (v *ClusterOpenMonitoringPrometheusNodeExporter) ClusterOpenMonitoringPrometheusNodeExporter { return *v }).(ClusterOpenMonitoringPrometheusNodeExporterOutput)
+	return o.ApplyT(func(v *ClusterOpenMonitoringPrometheusNodeExporter) ClusterOpenMonitoringPrometheusNodeExporter {
+		return *v
+	}).(ClusterOpenMonitoringPrometheusNodeExporterOutput)
 }
 
 // Indicates whether you want to enable or disable the Node Exporter.
 func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) EnabledInBroker() pulumi.BoolOutput {
-	return o.ApplyT(func (v ClusterOpenMonitoringPrometheusNodeExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v ClusterOpenMonitoringPrometheusNodeExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
 }
 
 func init() {

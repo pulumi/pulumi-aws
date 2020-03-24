@@ -188,4 +188,3 @@ type CapacityReservationArgs struct {
 func (CapacityReservationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*capacityReservationArgs)(nil)).Elem()
 }
-

@@ -28,13 +28,12 @@ type LookupGroupArgs struct {
 	GroupName string `pulumi:"groupName"`
 }
 
-
 // A collection of values returned by getGroup.
 type LookupGroupResult struct {
 	// The Amazon Resource Name (ARN) specifying the iam user.
 	Arn string `pulumi:"arn"`
 	// The stable and unique string identifying the group.
-	GroupId string `pulumi:"groupId"`
+	GroupId   string `pulumi:"groupId"`
 	GroupName string `pulumi:"groupName"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -43,4 +42,3 @@ type LookupGroupResult struct {
 	// List of objects containing group member information. See supported fields below.
 	Users []GetGroupUser `pulumi:"users"`
 }
-

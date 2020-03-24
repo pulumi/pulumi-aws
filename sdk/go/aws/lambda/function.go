@@ -62,7 +62,7 @@ type Function struct {
 	// A mapping of tags to assign to the object.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
-	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
+	Timeout       pulumi.IntPtrOutput         `pulumi:"timeout"`
 	TracingConfig FunctionTracingConfigOutput `pulumi:"tracingConfig"`
 	// Latest published version of your Lambda Function.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -155,7 +155,7 @@ type functionState struct {
 	// A mapping of tags to assign to the object.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
-	Timeout *int `pulumi:"timeout"`
+	Timeout       *int                   `pulumi:"timeout"`
 	TracingConfig *FunctionTracingConfig `pulumi:"tracingConfig"`
 	// Latest published version of your Lambda Function.
 	Version *string `pulumi:"version"`
@@ -212,7 +212,7 @@ type FunctionState struct {
 	// A mapping of tags to assign to the object.
 	Tags pulumi.MapInput
 	// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
-	Timeout pulumi.IntPtrInput
+	Timeout       pulumi.IntPtrInput
 	TracingConfig FunctionTracingConfigPtrInput
 	// Latest published version of your Lambda Function.
 	Version pulumi.StringPtrInput
@@ -262,7 +262,7 @@ type functionArgs struct {
 	// A mapping of tags to assign to the object.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
-	Timeout *int `pulumi:"timeout"`
+	Timeout       *int                   `pulumi:"timeout"`
 	TracingConfig *FunctionTracingConfig `pulumi:"tracingConfig"`
 	// Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
 	VpcConfig *FunctionVpcConfig `pulumi:"vpcConfig"`
@@ -307,7 +307,7 @@ type FunctionArgs struct {
 	// A mapping of tags to assign to the object.
 	Tags pulumi.MapInput
 	// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
-	Timeout pulumi.IntPtrInput
+	Timeout       pulumi.IntPtrInput
 	TracingConfig FunctionTracingConfigPtrInput
 	// Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
 	VpcConfig FunctionVpcConfigPtrInput
@@ -316,4 +316,3 @@ type FunctionArgs struct {
 func (FunctionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionArgs)(nil)).Elem()
 }
-

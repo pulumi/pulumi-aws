@@ -249,4 +249,3 @@ type TaskDefinitionArgs struct {
 func (TaskDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*taskDefinitionArgs)(nil)).Elem()
 }
-

@@ -67,7 +67,7 @@ type DefaultSecurityGroup struct {
 	// The name of the security group
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The owner ID.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	OwnerId             pulumi.StringOutput  `pulumi:"ownerId"`
 	RevokeRulesOnDelete pulumi.BoolPtrOutput `pulumi:"revokeRulesOnDelete"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
@@ -117,8 +117,8 @@ type defaultSecurityGroupState struct {
 	// The name of the security group
 	Name *string `pulumi:"name"`
 	// The owner ID.
-	OwnerId *string `pulumi:"ownerId"`
-	RevokeRulesOnDelete *bool `pulumi:"revokeRulesOnDelete"`
+	OwnerId             *string `pulumi:"ownerId"`
+	RevokeRulesOnDelete *bool   `pulumi:"revokeRulesOnDelete"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VPC ID. **Note that changing
@@ -140,7 +140,7 @@ type DefaultSecurityGroupState struct {
 	// The name of the security group
 	Name pulumi.StringPtrInput
 	// The owner ID.
-	OwnerId pulumi.StringPtrInput
+	OwnerId             pulumi.StringPtrInput
 	RevokeRulesOnDelete pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
@@ -160,8 +160,8 @@ type defaultSecurityGroupArgs struct {
 	Egress []DefaultSecurityGroupEgress `pulumi:"egress"`
 	// Can be specified multiple times for each
 	// ingress rule. Each ingress block supports fields documented below.
-	Ingress []DefaultSecurityGroupIngress `pulumi:"ingress"`
-	RevokeRulesOnDelete *bool `pulumi:"revokeRulesOnDelete"`
+	Ingress             []DefaultSecurityGroupIngress `pulumi:"ingress"`
+	RevokeRulesOnDelete *bool                         `pulumi:"revokeRulesOnDelete"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VPC ID. **Note that changing
@@ -177,7 +177,7 @@ type DefaultSecurityGroupArgs struct {
 	Egress DefaultSecurityGroupEgressArrayInput
 	// Can be specified multiple times for each
 	// ingress rule. Each ingress block supports fields documented below.
-	Ingress DefaultSecurityGroupIngressArrayInput
+	Ingress             DefaultSecurityGroupIngressArrayInput
 	RevokeRulesOnDelete pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
@@ -190,4 +190,3 @@ type DefaultSecurityGroupArgs struct {
 func (DefaultSecurityGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultSecurityGroupArgs)(nil)).Elem()
 }
-

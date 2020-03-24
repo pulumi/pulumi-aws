@@ -27,22 +27,22 @@ type Route struct {
 	DestinationCidrBlock pulumi.StringPtrOutput `pulumi:"destinationCidrBlock"`
 	// The destination IPv6 CIDR block.
 	DestinationIpv6CidrBlock pulumi.StringPtrOutput `pulumi:"destinationIpv6CidrBlock"`
-	DestinationPrefixListId pulumi.StringOutput `pulumi:"destinationPrefixListId"`
+	DestinationPrefixListId  pulumi.StringOutput    `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
 	EgressOnlyGatewayId pulumi.StringOutput `pulumi:"egressOnlyGatewayId"`
 	// Identifier of a VPC internet gateway or a virtual private gateway.
 	GatewayId pulumi.StringOutput `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
+	InstanceId      pulumi.StringOutput `pulumi:"instanceId"`
 	InstanceOwnerId pulumi.StringOutput `pulumi:"instanceOwnerId"`
 	// Identifier of a VPC NAT gateway.
 	NatGatewayId pulumi.StringOutput `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
-	Origin pulumi.StringOutput `pulumi:"origin"`
+	Origin             pulumi.StringOutput `pulumi:"origin"`
 	// The ID of the routing table.
 	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
-	State pulumi.StringOutput `pulumi:"state"`
+	State        pulumi.StringOutput `pulumi:"state"`
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
 	// Identifier of a VPC peering connection.
@@ -84,22 +84,22 @@ type routeState struct {
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
 	// The destination IPv6 CIDR block.
 	DestinationIpv6CidrBlock *string `pulumi:"destinationIpv6CidrBlock"`
-	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
+	DestinationPrefixListId  *string `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
 	EgressOnlyGatewayId *string `pulumi:"egressOnlyGatewayId"`
 	// Identifier of a VPC internet gateway or a virtual private gateway.
 	GatewayId *string `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
-	InstanceId *string `pulumi:"instanceId"`
+	InstanceId      *string `pulumi:"instanceId"`
 	InstanceOwnerId *string `pulumi:"instanceOwnerId"`
 	// Identifier of a VPC NAT gateway.
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	Origin *string `pulumi:"origin"`
+	Origin             *string `pulumi:"origin"`
 	// The ID of the routing table.
 	RouteTableId *string `pulumi:"routeTableId"`
-	State *string `pulumi:"state"`
+	State        *string `pulumi:"state"`
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// Identifier of a VPC peering connection.
@@ -111,22 +111,22 @@ type RouteState struct {
 	DestinationCidrBlock pulumi.StringPtrInput
 	// The destination IPv6 CIDR block.
 	DestinationIpv6CidrBlock pulumi.StringPtrInput
-	DestinationPrefixListId pulumi.StringPtrInput
+	DestinationPrefixListId  pulumi.StringPtrInput
 	// Identifier of a VPC Egress Only Internet Gateway.
 	EgressOnlyGatewayId pulumi.StringPtrInput
 	// Identifier of a VPC internet gateway or a virtual private gateway.
 	GatewayId pulumi.StringPtrInput
 	// Identifier of an EC2 instance.
-	InstanceId pulumi.StringPtrInput
+	InstanceId      pulumi.StringPtrInput
 	InstanceOwnerId pulumi.StringPtrInput
 	// Identifier of a VPC NAT gateway.
 	NatGatewayId pulumi.StringPtrInput
 	// Identifier of an EC2 network interface.
 	NetworkInterfaceId pulumi.StringPtrInput
-	Origin pulumi.StringPtrInput
+	Origin             pulumi.StringPtrInput
 	// The ID of the routing table.
 	RouteTableId pulumi.StringPtrInput
-	State pulumi.StringPtrInput
+	State        pulumi.StringPtrInput
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput
 	// Identifier of a VPC peering connection.
@@ -187,4 +187,3 @@ type RouteArgs struct {
 func (RouteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeArgs)(nil)).Elem()
 }
-

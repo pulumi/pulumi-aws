@@ -31,16 +31,14 @@ type LookupInternetGatewayArgs struct {
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
-
 // A collection of values returned by getInternetGateway.
 type LookupInternetGatewayResult struct {
 	Attachments []GetInternetGatewayAttachment `pulumi:"attachments"`
-	Filters []GetInternetGatewayFilter `pulumi:"filters"`
+	Filters     []GetInternetGatewayFilter     `pulumi:"filters"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id                string `pulumi:"id"`
 	InternetGatewayId string `pulumi:"internetGatewayId"`
 	// The ID of the AWS account that owns the internet gateway.
-	OwnerId string `pulumi:"ownerId"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	OwnerId string                 `pulumi:"ownerId"`
+	Tags    map[string]interface{} `pulumi:"tags"`
 }
-

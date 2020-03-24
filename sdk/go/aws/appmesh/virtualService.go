@@ -130,4 +130,3 @@ type VirtualServiceArgs struct {
 func (VirtualServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualServiceArgs)(nil)).Elem()
 }
-

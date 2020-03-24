@@ -192,4 +192,3 @@ type OrganizationCustomRuleArgs struct {
 func (OrganizationCustomRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationCustomRuleArgs)(nil)).Elem()
 }
-

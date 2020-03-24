@@ -101,4 +101,3 @@ type NotebookInstanceLifecycleConfigurationArgs struct {
 func (NotebookInstanceLifecycleConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*notebookInstanceLifecycleConfigurationArgs)(nil)).Elem()
 }
-

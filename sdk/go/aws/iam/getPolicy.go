@@ -27,7 +27,6 @@ type LookupPolicyArgs struct {
 	Arn string `pulumi:"arn"`
 }
 
-
 // A collection of values returned by getPolicy.
 type LookupPolicyResult struct {
 	// The Amazon Resource Name (ARN) specifying the policy.
@@ -43,4 +42,3 @@ type LookupPolicyResult struct {
 	// The policy document of the policy.
 	Policy string `pulumi:"policy"`
 }
-

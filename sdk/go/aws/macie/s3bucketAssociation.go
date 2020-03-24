@@ -111,4 +111,3 @@ type S3BucketAssociationArgs struct {
 func (S3BucketAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*s3bucketAssociationArgs)(nil)).Elem()
 }
-

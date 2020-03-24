@@ -91,4 +91,3 @@ type AssessmentTargetArgs struct {
 func (AssessmentTargetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*assessmentTargetArgs)(nil)).Elem()
 }
-

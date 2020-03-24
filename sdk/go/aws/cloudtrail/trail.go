@@ -265,4 +265,3 @@ type TrailArgs struct {
 func (TrailArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*trailArgs)(nil)).Elem()
 }
-

@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration. 
+// Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/directory_service_directory.html.markdown.
 func LookupDirectory(ctx *pulumi.Context, args *LookupDirectoryArgs, opts ...pulumi.InvokeOption) (*LookupDirectoryResult, error) {
@@ -23,17 +23,16 @@ func LookupDirectory(ctx *pulumi.Context, args *LookupDirectoryArgs, opts ...pul
 // A collection of arguments for invoking getDirectory.
 type LookupDirectoryArgs struct {
 	// The ID of the directory.
-	DirectoryId string `pulumi:"directoryId"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	DirectoryId string                 `pulumi:"directoryId"`
+	Tags        map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getDirectory.
 type LookupDirectoryResult struct {
 	// The access URL for the directory/connector, such as http://alias.awsapps.com.
 	AccessUrl string `pulumi:"accessUrl"`
 	// The alias for the directory/connector, such as `d-991708b282.awsapps.com`.
-	Alias string `pulumi:"alias"`
+	Alias           string                       `pulumi:"alias"`
 	ConnectSettings []GetDirectoryConnectSetting `pulumi:"connectSettings"`
 	// A textual description for the directory/connector.
 	Description string `pulumi:"description"`
@@ -57,7 +56,6 @@ type LookupDirectoryResult struct {
 	// A mapping of tags assigned to the directory/connector.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
-	Type string `pulumi:"type"`
+	Type        string                   `pulumi:"type"`
 	VpcSettings []GetDirectoryVpcSetting `pulumi:"vpcSettings"`
 }
-

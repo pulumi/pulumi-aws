@@ -198,4 +198,3 @@ type CachesIscsiVolumeArgs struct {
 func (CachesIscsiVolumeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cachesIscsiVolumeArgs)(nil)).Elem()
 }
-

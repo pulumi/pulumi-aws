@@ -98,4 +98,3 @@ type VpcEndpointSubnetAssociationArgs struct {
 func (VpcEndpointSubnetAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEndpointSubnetAssociationArgs)(nil)).Elem()
 }
-

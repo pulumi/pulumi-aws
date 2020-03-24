@@ -33,14 +33,12 @@ type GetSnapshotIdsArgs struct {
 	RestorableByUserIds []string `pulumi:"restorableByUserIds"`
 }
 
-
 // A collection of values returned by getSnapshotIds.
 type GetSnapshotIdsResult struct {
 	Filters []GetSnapshotIdsFilter `pulumi:"filters"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Ids []string `pulumi:"ids"`
-	Owners []string `pulumi:"owners"`
+	Id                  string   `pulumi:"id"`
+	Ids                 []string `pulumi:"ids"`
+	Owners              []string `pulumi:"owners"`
 	RestorableByUserIds []string `pulumi:"restorableByUserIds"`
 }
-

@@ -38,17 +38,15 @@ type GetAvailabilityZonesArgs struct {
 	State *string `pulumi:"state"`
 }
 
-
 // A collection of values returned by getAvailabilityZones.
 type GetAvailabilityZonesResult struct {
-	BlacklistedNames []string `pulumi:"blacklistedNames"`
+	BlacklistedNames   []string `pulumi:"blacklistedNames"`
 	BlacklistedZoneIds []string `pulumi:"blacklistedZoneIds"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of the Availability Zone names available to the account.
 	Names []string `pulumi:"names"`
-	State *string `pulumi:"state"`
+	State *string  `pulumi:"state"`
 	// A list of the Availability Zone IDs available to the account.
 	ZoneIds []string `pulumi:"zoneIds"`
 }
-

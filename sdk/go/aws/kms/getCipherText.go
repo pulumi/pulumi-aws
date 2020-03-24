@@ -36,15 +36,13 @@ type GetCipherTextArgs struct {
 	Plaintext string `pulumi:"plaintext"`
 }
 
-
 // A collection of values returned by getCipherText.
 type GetCipherTextResult struct {
 	// Base64 encoded ciphertext
-	CiphertextBlob string `pulumi:"ciphertextBlob"`
-	Context map[string]string `pulumi:"context"`
+	CiphertextBlob string            `pulumi:"ciphertextBlob"`
+	Context        map[string]string `pulumi:"context"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	KeyId string `pulumi:"keyId"`
+	Id        string `pulumi:"id"`
+	KeyId     string `pulumi:"keyId"`
 	Plaintext string `pulumi:"plaintext"`
 }
-

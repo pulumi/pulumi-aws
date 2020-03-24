@@ -26,18 +26,18 @@ type RailsAppLayer struct {
 	// Whether to enable auto-healing for the layer.
 	AutoHealing pulumi.BoolPtrOutput `pulumi:"autoHealing"`
 	// When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
-	BundlerVersion pulumi.StringPtrOutput `pulumi:"bundlerVersion"`
+	BundlerVersion         pulumi.StringPtrOutput   `pulumi:"bundlerVersion"`
 	CustomConfigureRecipes pulumi.StringArrayOutput `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes pulumi.StringArrayOutput `pulumi:"customDeployRecipes"`
+	CustomDeployRecipes    pulumi.StringArrayOutput `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrOutput `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
 	CustomJson pulumi.StringPtrOutput `pulumi:"customJson"`
 	// Ids for a set of security groups to apply to the layer's instances.
 	CustomSecurityGroupIds pulumi.StringArrayOutput `pulumi:"customSecurityGroupIds"`
-	CustomSetupRecipes pulumi.StringArrayOutput `pulumi:"customSetupRecipes"`
-	CustomShutdownRecipes pulumi.StringArrayOutput `pulumi:"customShutdownRecipes"`
-	CustomUndeployRecipes pulumi.StringArrayOutput `pulumi:"customUndeployRecipes"`
+	CustomSetupRecipes     pulumi.StringArrayOutput `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes  pulumi.StringArrayOutput `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes  pulumi.StringArrayOutput `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrOutput `pulumi:"drainElbOnShutdown"`
 	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
@@ -106,18 +106,18 @@ type railsAppLayerState struct {
 	// Whether to enable auto-healing for the layer.
 	AutoHealing *bool `pulumi:"autoHealing"`
 	// When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
-	BundlerVersion *string `pulumi:"bundlerVersion"`
+	BundlerVersion         *string  `pulumi:"bundlerVersion"`
 	CustomConfigureRecipes []string `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes []string `pulumi:"customDeployRecipes"`
+	CustomDeployRecipes    []string `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn *string `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
 	CustomJson *string `pulumi:"customJson"`
 	// Ids for a set of security groups to apply to the layer's instances.
 	CustomSecurityGroupIds []string `pulumi:"customSecurityGroupIds"`
-	CustomSetupRecipes []string `pulumi:"customSetupRecipes"`
-	CustomShutdownRecipes []string `pulumi:"customShutdownRecipes"`
-	CustomUndeployRecipes []string `pulumi:"customUndeployRecipes"`
+	CustomSetupRecipes     []string `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes  []string `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
 	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
@@ -156,18 +156,18 @@ type RailsAppLayerState struct {
 	// Whether to enable auto-healing for the layer.
 	AutoHealing pulumi.BoolPtrInput
 	// When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
-	BundlerVersion pulumi.StringPtrInput
+	BundlerVersion         pulumi.StringPtrInput
 	CustomConfigureRecipes pulumi.StringArrayInput
-	CustomDeployRecipes pulumi.StringArrayInput
+	CustomDeployRecipes    pulumi.StringArrayInput
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrInput
 	// Custom JSON attributes to apply to the layer.
 	CustomJson pulumi.StringPtrInput
 	// Ids for a set of security groups to apply to the layer's instances.
 	CustomSecurityGroupIds pulumi.StringArrayInput
-	CustomSetupRecipes pulumi.StringArrayInput
-	CustomShutdownRecipes pulumi.StringArrayInput
-	CustomUndeployRecipes pulumi.StringArrayInput
+	CustomSetupRecipes     pulumi.StringArrayInput
+	CustomShutdownRecipes  pulumi.StringArrayInput
+	CustomUndeployRecipes  pulumi.StringArrayInput
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrInput
 	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
@@ -210,18 +210,18 @@ type railsAppLayerArgs struct {
 	// Whether to enable auto-healing for the layer.
 	AutoHealing *bool `pulumi:"autoHealing"`
 	// When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
-	BundlerVersion *string `pulumi:"bundlerVersion"`
+	BundlerVersion         *string  `pulumi:"bundlerVersion"`
 	CustomConfigureRecipes []string `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes []string `pulumi:"customDeployRecipes"`
+	CustomDeployRecipes    []string `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn *string `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
 	CustomJson *string `pulumi:"customJson"`
 	// Ids for a set of security groups to apply to the layer's instances.
 	CustomSecurityGroupIds []string `pulumi:"customSecurityGroupIds"`
-	CustomSetupRecipes []string `pulumi:"customSetupRecipes"`
-	CustomShutdownRecipes []string `pulumi:"customShutdownRecipes"`
-	CustomUndeployRecipes []string `pulumi:"customUndeployRecipes"`
+	CustomSetupRecipes     []string `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes  []string `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
 	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
@@ -261,18 +261,18 @@ type RailsAppLayerArgs struct {
 	// Whether to enable auto-healing for the layer.
 	AutoHealing pulumi.BoolPtrInput
 	// When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
-	BundlerVersion pulumi.StringPtrInput
+	BundlerVersion         pulumi.StringPtrInput
 	CustomConfigureRecipes pulumi.StringArrayInput
-	CustomDeployRecipes pulumi.StringArrayInput
+	CustomDeployRecipes    pulumi.StringArrayInput
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrInput
 	// Custom JSON attributes to apply to the layer.
 	CustomJson pulumi.StringPtrInput
 	// Ids for a set of security groups to apply to the layer's instances.
 	CustomSecurityGroupIds pulumi.StringArrayInput
-	CustomSetupRecipes pulumi.StringArrayInput
-	CustomShutdownRecipes pulumi.StringArrayInput
-	CustomUndeployRecipes pulumi.StringArrayInput
+	CustomSetupRecipes     pulumi.StringArrayInput
+	CustomShutdownRecipes  pulumi.StringArrayInput
+	CustomUndeployRecipes  pulumi.StringArrayInput
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrInput
 	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
@@ -304,4 +304,3 @@ type RailsAppLayerArgs struct {
 func (RailsAppLayerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*railsAppLayerArgs)(nil)).Elem()
 }
-

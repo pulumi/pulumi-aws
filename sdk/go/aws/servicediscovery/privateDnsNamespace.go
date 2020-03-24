@@ -111,4 +111,3 @@ type PrivateDnsNamespaceArgs struct {
 func (PrivateDnsNamespaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*privateDnsNamespaceArgs)(nil)).Elem()
 }
-

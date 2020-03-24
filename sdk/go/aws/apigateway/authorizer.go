@@ -209,4 +209,3 @@ type AuthorizerArgs struct {
 func (AuthorizerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*authorizerArgs)(nil)).Elem()
 }
-

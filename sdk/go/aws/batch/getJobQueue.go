@@ -27,7 +27,6 @@ type LookupJobQueueArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getJobQueue.
 type LookupJobQueueResult struct {
 	// The ARN of the job queue.
@@ -38,7 +37,7 @@ type LookupJobQueueResult struct {
 	// * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
 	ComputeEnvironmentOrders []GetJobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrders"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The priority of the job queue. Job queues with a higher priority are evaluated first when
 	// associated with the same compute environment.
@@ -51,4 +50,3 @@ type LookupJobQueueResult struct {
 	// of the job queue.
 	StatusReason string `pulumi:"statusReason"`
 }
-

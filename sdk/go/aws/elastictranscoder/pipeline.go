@@ -175,4 +175,3 @@ type PipelineArgs struct {
 func (PipelineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*pipelineArgs)(nil)).Elem()
 }
-

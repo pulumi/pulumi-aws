@@ -85,4 +85,3 @@ type ResourceGroupArgs struct {
 func (ResourceGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceGroupArgs)(nil)).Elem()
 }
-

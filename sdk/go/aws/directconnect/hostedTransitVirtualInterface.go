@@ -204,4 +204,3 @@ type HostedTransitVirtualInterfaceArgs struct {
 func (HostedTransitVirtualInterfaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostedTransitVirtualInterfaceArgs)(nil)).Elem()
 }
-

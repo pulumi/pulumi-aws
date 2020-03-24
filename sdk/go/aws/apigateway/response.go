@@ -122,4 +122,3 @@ type ResponseArgs struct {
 func (ResponseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*responseArgs)(nil)).Elem()
 }
-

@@ -114,4 +114,3 @@ type TargetGroupAttachmentArgs struct {
 func (TargetGroupAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*targetGroupAttachmentArgs)(nil)).Elem()
 }
-

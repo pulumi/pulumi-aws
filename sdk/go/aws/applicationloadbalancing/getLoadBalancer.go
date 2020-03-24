@@ -31,29 +31,27 @@ type LookupLoadBalancerArgs struct {
 	// The full ARN of the load balancer.
 	Arn *string `pulumi:"arn"`
 	// The unique name of the load balancer.
-	Name *string `pulumi:"name"`
+	Name *string                `pulumi:"name"`
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getLoadBalancer.
 type LookupLoadBalancerResult struct {
-	AccessLogs GetLoadBalancerAccessLogs `pulumi:"accessLogs"`
-	Arn string `pulumi:"arn"`
-	ArnSuffix string `pulumi:"arnSuffix"`
-	DnsName string `pulumi:"dnsName"`
-	EnableDeletionProtection bool `pulumi:"enableDeletionProtection"`
+	AccessLogs               GetLoadBalancerAccessLogs `pulumi:"accessLogs"`
+	Arn                      string                    `pulumi:"arn"`
+	ArnSuffix                string                    `pulumi:"arnSuffix"`
+	DnsName                  string                    `pulumi:"dnsName"`
+	EnableDeletionProtection bool                      `pulumi:"enableDeletionProtection"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	IdleTimeout int `pulumi:"idleTimeout"`
-	Internal bool `pulumi:"internal"`
-	LoadBalancerType string `pulumi:"loadBalancerType"`
-	Name string `pulumi:"name"`
-	SecurityGroups []string `pulumi:"securityGroups"`
-	SubnetMappings []GetLoadBalancerSubnetMapping `pulumi:"subnetMappings"`
-	Subnets []string `pulumi:"subnets"`
-	Tags map[string]interface{} `pulumi:"tags"`
-	VpcId string `pulumi:"vpcId"`
-	ZoneId string `pulumi:"zoneId"`
+	Id               string                         `pulumi:"id"`
+	IdleTimeout      int                            `pulumi:"idleTimeout"`
+	Internal         bool                           `pulumi:"internal"`
+	LoadBalancerType string                         `pulumi:"loadBalancerType"`
+	Name             string                         `pulumi:"name"`
+	SecurityGroups   []string                       `pulumi:"securityGroups"`
+	SubnetMappings   []GetLoadBalancerSubnetMapping `pulumi:"subnetMappings"`
+	Subnets          []string                       `pulumi:"subnets"`
+	Tags             map[string]interface{}         `pulumi:"tags"`
+	VpcId            string                         `pulumi:"vpcId"`
+	ZoneId           string                         `pulumi:"zoneId"`
 }
-

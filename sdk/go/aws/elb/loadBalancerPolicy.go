@@ -115,4 +115,3 @@ type LoadBalancerPolicyArgs struct {
 func (LoadBalancerPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerPolicyArgs)(nil)).Elem()
 }
-

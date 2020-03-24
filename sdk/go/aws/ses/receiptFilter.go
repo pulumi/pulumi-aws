@@ -102,4 +102,3 @@ type ReceiptFilterArgs struct {
 func (ReceiptFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*receiptFilterArgs)(nil)).Elem()
 }
-

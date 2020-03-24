@@ -69,7 +69,7 @@ func (i CatalogTablePartitionKeyArray) ToCatalogTablePartitionKeyArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTablePartitionKeyArrayOutput)
 }
 
-type CatalogTablePartitionKeyOutput struct { *pulumi.OutputState }
+type CatalogTablePartitionKeyOutput struct{ *pulumi.OutputState }
 
 func (CatalogTablePartitionKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CatalogTablePartitionKey)(nil)).Elem()
@@ -85,20 +85,20 @@ func (o CatalogTablePartitionKeyOutput) ToCatalogTablePartitionKeyOutputWithCont
 
 // Free-form text comment.
 func (o CatalogTablePartitionKeyOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CatalogTablePartitionKey) *string { return v.Comment }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CatalogTablePartitionKey) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
 // Name of the SerDe.
 func (o CatalogTablePartitionKeyOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v CatalogTablePartitionKey) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v CatalogTablePartitionKey) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The datatype of data in the Column.
 func (o CatalogTablePartitionKeyOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CatalogTablePartitionKey) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CatalogTablePartitionKey) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type CatalogTablePartitionKeyArrayOutput struct { *pulumi.OutputState}
+type CatalogTablePartitionKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (CatalogTablePartitionKeyArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]CatalogTablePartitionKey)(nil)).Elem()
@@ -113,7 +113,7 @@ func (o CatalogTablePartitionKeyArrayOutput) ToCatalogTablePartitionKeyArrayOutp
 }
 
 func (o CatalogTablePartitionKeyArrayOutput) Index(i pulumi.IntInput) CatalogTablePartitionKeyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) CatalogTablePartitionKey {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogTablePartitionKey {
 		return vs[0].([]CatalogTablePartitionKey)[vs[1].(int)]
 	}).(CatalogTablePartitionKeyOutput)
 }
@@ -208,7 +208,8 @@ type CatalogTableStorageDescriptorPtrInput interface {
 
 type catalogTableStorageDescriptorPtrType CatalogTableStorageDescriptorArgs
 
-func CatalogTableStorageDescriptorPtr(v *CatalogTableStorageDescriptorArgs) CatalogTableStorageDescriptorPtrInput {	return (*catalogTableStorageDescriptorPtrType)(v)
+func CatalogTableStorageDescriptorPtr(v *CatalogTableStorageDescriptorArgs) CatalogTableStorageDescriptorPtrInput {
+	return (*catalogTableStorageDescriptorPtrType)(v)
 }
 
 func (*catalogTableStorageDescriptorPtrType) ElementType() reflect.Type {
@@ -223,7 +224,7 @@ func (i *catalogTableStorageDescriptorPtrType) ToCatalogTableStorageDescriptorPt
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableStorageDescriptorPtrOutput)
 }
 
-type CatalogTableStorageDescriptorOutput struct { *pulumi.OutputState }
+type CatalogTableStorageDescriptorOutput struct{ *pulumi.OutputState }
 
 func (CatalogTableStorageDescriptorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CatalogTableStorageDescriptor)(nil)).Elem()
@@ -246,67 +247,68 @@ func (o CatalogTableStorageDescriptorOutput) ToCatalogTableStorageDescriptorPtrO
 		return &v
 	}).(CatalogTableStorageDescriptorPtrOutput)
 }
+
 // A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
 func (o CatalogTableStorageDescriptorOutput) BucketColumns() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) []string { return v.BucketColumns }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) []string { return v.BucketColumns }).(pulumi.StringArrayOutput)
 }
 
 // A list of the Columns in the table.
 func (o CatalogTableStorageDescriptorOutput) Columns() CatalogTableStorageDescriptorColumnArrayOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) []CatalogTableStorageDescriptorColumn { return v.Columns }).(CatalogTableStorageDescriptorColumnArrayOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) []CatalogTableStorageDescriptorColumn { return v.Columns }).(CatalogTableStorageDescriptorColumnArrayOutput)
 }
 
 // True if the data in the table is compressed, or False if not.
 func (o CatalogTableStorageDescriptorOutput) Compressed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) *bool { return v.Compressed }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) *bool { return v.Compressed }).(pulumi.BoolPtrOutput)
 }
 
 // The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
 func (o CatalogTableStorageDescriptorOutput) InputFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) *string { return v.InputFormat }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) *string { return v.InputFormat }).(pulumi.StringPtrOutput)
 }
 
 // The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
 func (o CatalogTableStorageDescriptorOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) *string { return v.Location }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // Must be specified if the table contains any dimension columns.
 func (o CatalogTableStorageDescriptorOutput) NumberOfBuckets() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) *int { return v.NumberOfBuckets }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) *int { return v.NumberOfBuckets }).(pulumi.IntPtrOutput)
 }
 
 // The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
 func (o CatalogTableStorageDescriptorOutput) OutputFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) *string { return v.OutputFormat }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) *string { return v.OutputFormat }).(pulumi.StringPtrOutput)
 }
 
 // A map of initialization parameters for the SerDe, in key-value form.
 func (o CatalogTableStorageDescriptorOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 // Serialization/deserialization (SerDe) information.
 func (o CatalogTableStorageDescriptorOutput) SerDeInfo() CatalogTableStorageDescriptorSerDeInfoPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) *CatalogTableStorageDescriptorSerDeInfo { return v.SerDeInfo }).(CatalogTableStorageDescriptorSerDeInfoPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) *CatalogTableStorageDescriptorSerDeInfo { return v.SerDeInfo }).(CatalogTableStorageDescriptorSerDeInfoPtrOutput)
 }
 
 // Information about values that appear very frequently in a column (skewed values).
 func (o CatalogTableStorageDescriptorOutput) SkewedInfo() CatalogTableStorageDescriptorSkewedInfoPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) *CatalogTableStorageDescriptorSkewedInfo { return v.SkewedInfo }).(CatalogTableStorageDescriptorSkewedInfoPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) *CatalogTableStorageDescriptorSkewedInfo { return v.SkewedInfo }).(CatalogTableStorageDescriptorSkewedInfoPtrOutput)
 }
 
 // A list of Order objects specifying the sort order of each bucket in the table.
 func (o CatalogTableStorageDescriptorOutput) SortColumns() CatalogTableStorageDescriptorSortColumnArrayOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) []CatalogTableStorageDescriptorSortColumn { return v.SortColumns }).(CatalogTableStorageDescriptorSortColumnArrayOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) []CatalogTableStorageDescriptorSortColumn { return v.SortColumns }).(CatalogTableStorageDescriptorSortColumnArrayOutput)
 }
 
 // True if the table data is stored in subdirectories, or False if not.
 func (o CatalogTableStorageDescriptorOutput) StoredAsSubDirectories() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) *bool { return v.StoredAsSubDirectories }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) *bool { return v.StoredAsSubDirectories }).(pulumi.BoolPtrOutput)
 }
 
-type CatalogTableStorageDescriptorPtrOutput struct { *pulumi.OutputState}
+type CatalogTableStorageDescriptorPtrOutput struct{ *pulumi.OutputState }
 
 func (CatalogTableStorageDescriptorPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CatalogTableStorageDescriptor)(nil)).Elem()
@@ -321,67 +323,67 @@ func (o CatalogTableStorageDescriptorPtrOutput) ToCatalogTableStorageDescriptorP
 }
 
 func (o CatalogTableStorageDescriptorPtrOutput) Elem() CatalogTableStorageDescriptorOutput {
-	return o.ApplyT(func (v *CatalogTableStorageDescriptor) CatalogTableStorageDescriptor { return *v }).(CatalogTableStorageDescriptorOutput)
+	return o.ApplyT(func(v *CatalogTableStorageDescriptor) CatalogTableStorageDescriptor { return *v }).(CatalogTableStorageDescriptorOutput)
 }
 
 // A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
 func (o CatalogTableStorageDescriptorPtrOutput) BucketColumns() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) []string { return v.BucketColumns }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) []string { return v.BucketColumns }).(pulumi.StringArrayOutput)
 }
 
 // A list of the Columns in the table.
 func (o CatalogTableStorageDescriptorPtrOutput) Columns() CatalogTableStorageDescriptorColumnArrayOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) []CatalogTableStorageDescriptorColumn { return v.Columns }).(CatalogTableStorageDescriptorColumnArrayOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) []CatalogTableStorageDescriptorColumn { return v.Columns }).(CatalogTableStorageDescriptorColumnArrayOutput)
 }
 
 // True if the data in the table is compressed, or False if not.
 func (o CatalogTableStorageDescriptorPtrOutput) Compressed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) *bool { return v.Compressed }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) *bool { return v.Compressed }).(pulumi.BoolPtrOutput)
 }
 
 // The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
 func (o CatalogTableStorageDescriptorPtrOutput) InputFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) *string { return v.InputFormat }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) *string { return v.InputFormat }).(pulumi.StringPtrOutput)
 }
 
 // The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
 func (o CatalogTableStorageDescriptorPtrOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) *string { return v.Location }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // Must be specified if the table contains any dimension columns.
 func (o CatalogTableStorageDescriptorPtrOutput) NumberOfBuckets() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) *int { return v.NumberOfBuckets }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) *int { return v.NumberOfBuckets }).(pulumi.IntPtrOutput)
 }
 
 // The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
 func (o CatalogTableStorageDescriptorPtrOutput) OutputFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) *string { return v.OutputFormat }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) *string { return v.OutputFormat }).(pulumi.StringPtrOutput)
 }
 
 // A map of initialization parameters for the SerDe, in key-value form.
 func (o CatalogTableStorageDescriptorPtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 // Serialization/deserialization (SerDe) information.
 func (o CatalogTableStorageDescriptorPtrOutput) SerDeInfo() CatalogTableStorageDescriptorSerDeInfoPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) *CatalogTableStorageDescriptorSerDeInfo { return v.SerDeInfo }).(CatalogTableStorageDescriptorSerDeInfoPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) *CatalogTableStorageDescriptorSerDeInfo { return v.SerDeInfo }).(CatalogTableStorageDescriptorSerDeInfoPtrOutput)
 }
 
 // Information about values that appear very frequently in a column (skewed values).
 func (o CatalogTableStorageDescriptorPtrOutput) SkewedInfo() CatalogTableStorageDescriptorSkewedInfoPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) *CatalogTableStorageDescriptorSkewedInfo { return v.SkewedInfo }).(CatalogTableStorageDescriptorSkewedInfoPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) *CatalogTableStorageDescriptorSkewedInfo { return v.SkewedInfo }).(CatalogTableStorageDescriptorSkewedInfoPtrOutput)
 }
 
 // A list of Order objects specifying the sort order of each bucket in the table.
 func (o CatalogTableStorageDescriptorPtrOutput) SortColumns() CatalogTableStorageDescriptorSortColumnArrayOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) []CatalogTableStorageDescriptorSortColumn { return v.SortColumns }).(CatalogTableStorageDescriptorSortColumnArrayOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) []CatalogTableStorageDescriptorSortColumn { return v.SortColumns }).(CatalogTableStorageDescriptorSortColumnArrayOutput)
 }
 
 // True if the table data is stored in subdirectories, or False if not.
 func (o CatalogTableStorageDescriptorPtrOutput) StoredAsSubDirectories() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptor) *bool { return v.StoredAsSubDirectories }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) *bool { return v.StoredAsSubDirectories }).(pulumi.BoolPtrOutput)
 }
 
 type CatalogTableStorageDescriptorColumn struct {
@@ -442,7 +444,7 @@ func (i CatalogTableStorageDescriptorColumnArray) ToCatalogTableStorageDescripto
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableStorageDescriptorColumnArrayOutput)
 }
 
-type CatalogTableStorageDescriptorColumnOutput struct { *pulumi.OutputState }
+type CatalogTableStorageDescriptorColumnOutput struct{ *pulumi.OutputState }
 
 func (CatalogTableStorageDescriptorColumnOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CatalogTableStorageDescriptorColumn)(nil)).Elem()
@@ -458,20 +460,20 @@ func (o CatalogTableStorageDescriptorColumnOutput) ToCatalogTableStorageDescript
 
 // Free-form text comment.
 func (o CatalogTableStorageDescriptorColumnOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptorColumn) *string { return v.Comment }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptorColumn) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
 // Name of the SerDe.
 func (o CatalogTableStorageDescriptorColumnOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptorColumn) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptorColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The datatype of data in the Column.
 func (o CatalogTableStorageDescriptorColumnOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptorColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptorColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type CatalogTableStorageDescriptorColumnArrayOutput struct { *pulumi.OutputState}
+type CatalogTableStorageDescriptorColumnArrayOutput struct{ *pulumi.OutputState }
 
 func (CatalogTableStorageDescriptorColumnArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]CatalogTableStorageDescriptorColumn)(nil)).Elem()
@@ -486,7 +488,7 @@ func (o CatalogTableStorageDescriptorColumnArrayOutput) ToCatalogTableStorageDes
 }
 
 func (o CatalogTableStorageDescriptorColumnArrayOutput) Index(i pulumi.IntInput) CatalogTableStorageDescriptorColumnOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) CatalogTableStorageDescriptorColumn {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogTableStorageDescriptorColumn {
 		return vs[0].([]CatalogTableStorageDescriptorColumn)[vs[1].(int)]
 	}).(CatalogTableStorageDescriptorColumnOutput)
 }
@@ -545,7 +547,8 @@ type CatalogTableStorageDescriptorSerDeInfoPtrInput interface {
 
 type catalogTableStorageDescriptorSerDeInfoPtrType CatalogTableStorageDescriptorSerDeInfoArgs
 
-func CatalogTableStorageDescriptorSerDeInfoPtr(v *CatalogTableStorageDescriptorSerDeInfoArgs) CatalogTableStorageDescriptorSerDeInfoPtrInput {	return (*catalogTableStorageDescriptorSerDeInfoPtrType)(v)
+func CatalogTableStorageDescriptorSerDeInfoPtr(v *CatalogTableStorageDescriptorSerDeInfoArgs) CatalogTableStorageDescriptorSerDeInfoPtrInput {
+	return (*catalogTableStorageDescriptorSerDeInfoPtrType)(v)
 }
 
 func (*catalogTableStorageDescriptorSerDeInfoPtrType) ElementType() reflect.Type {
@@ -560,7 +563,7 @@ func (i *catalogTableStorageDescriptorSerDeInfoPtrType) ToCatalogTableStorageDes
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableStorageDescriptorSerDeInfoPtrOutput)
 }
 
-type CatalogTableStorageDescriptorSerDeInfoOutput struct { *pulumi.OutputState }
+type CatalogTableStorageDescriptorSerDeInfoOutput struct{ *pulumi.OutputState }
 
 func (CatalogTableStorageDescriptorSerDeInfoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CatalogTableStorageDescriptorSerDeInfo)(nil)).Elem()
@@ -583,22 +586,23 @@ func (o CatalogTableStorageDescriptorSerDeInfoOutput) ToCatalogTableStorageDescr
 		return &v
 	}).(CatalogTableStorageDescriptorSerDeInfoPtrOutput)
 }
+
 // Name of the SerDe.
 func (o CatalogTableStorageDescriptorSerDeInfoOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptorSerDeInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSerDeInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // A map of initialization parameters for the SerDe, in key-value form.
 func (o CatalogTableStorageDescriptorSerDeInfoOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptorSerDeInfo) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSerDeInfo) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 // Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
 func (o CatalogTableStorageDescriptorSerDeInfoOutput) SerializationLibrary() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptorSerDeInfo) *string { return v.SerializationLibrary }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSerDeInfo) *string { return v.SerializationLibrary }).(pulumi.StringPtrOutput)
 }
 
-type CatalogTableStorageDescriptorSerDeInfoPtrOutput struct { *pulumi.OutputState}
+type CatalogTableStorageDescriptorSerDeInfoPtrOutput struct{ *pulumi.OutputState }
 
 func (CatalogTableStorageDescriptorSerDeInfoPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CatalogTableStorageDescriptorSerDeInfo)(nil)).Elem()
@@ -613,22 +617,22 @@ func (o CatalogTableStorageDescriptorSerDeInfoPtrOutput) ToCatalogTableStorageDe
 }
 
 func (o CatalogTableStorageDescriptorSerDeInfoPtrOutput) Elem() CatalogTableStorageDescriptorSerDeInfoOutput {
-	return o.ApplyT(func (v *CatalogTableStorageDescriptorSerDeInfo) CatalogTableStorageDescriptorSerDeInfo { return *v }).(CatalogTableStorageDescriptorSerDeInfoOutput)
+	return o.ApplyT(func(v *CatalogTableStorageDescriptorSerDeInfo) CatalogTableStorageDescriptorSerDeInfo { return *v }).(CatalogTableStorageDescriptorSerDeInfoOutput)
 }
 
 // Name of the SerDe.
 func (o CatalogTableStorageDescriptorSerDeInfoPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptorSerDeInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSerDeInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // A map of initialization parameters for the SerDe, in key-value form.
 func (o CatalogTableStorageDescriptorSerDeInfoPtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptorSerDeInfo) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSerDeInfo) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 // Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
 func (o CatalogTableStorageDescriptorSerDeInfoPtrOutput) SerializationLibrary() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptorSerDeInfo) *string { return v.SerializationLibrary }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSerDeInfo) *string { return v.SerializationLibrary }).(pulumi.StringPtrOutput)
 }
 
 type CatalogTableStorageDescriptorSkewedInfo struct {
@@ -685,7 +689,8 @@ type CatalogTableStorageDescriptorSkewedInfoPtrInput interface {
 
 type catalogTableStorageDescriptorSkewedInfoPtrType CatalogTableStorageDescriptorSkewedInfoArgs
 
-func CatalogTableStorageDescriptorSkewedInfoPtr(v *CatalogTableStorageDescriptorSkewedInfoArgs) CatalogTableStorageDescriptorSkewedInfoPtrInput {	return (*catalogTableStorageDescriptorSkewedInfoPtrType)(v)
+func CatalogTableStorageDescriptorSkewedInfoPtr(v *CatalogTableStorageDescriptorSkewedInfoArgs) CatalogTableStorageDescriptorSkewedInfoPtrInput {
+	return (*catalogTableStorageDescriptorSkewedInfoPtrType)(v)
 }
 
 func (*catalogTableStorageDescriptorSkewedInfoPtrType) ElementType() reflect.Type {
@@ -700,7 +705,7 @@ func (i *catalogTableStorageDescriptorSkewedInfoPtrType) ToCatalogTableStorageDe
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableStorageDescriptorSkewedInfoPtrOutput)
 }
 
-type CatalogTableStorageDescriptorSkewedInfoOutput struct { *pulumi.OutputState }
+type CatalogTableStorageDescriptorSkewedInfoOutput struct{ *pulumi.OutputState }
 
 func (CatalogTableStorageDescriptorSkewedInfoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CatalogTableStorageDescriptorSkewedInfo)(nil)).Elem()
@@ -723,22 +728,25 @@ func (o CatalogTableStorageDescriptorSkewedInfoOutput) ToCatalogTableStorageDesc
 		return &v
 	}).(CatalogTableStorageDescriptorSkewedInfoPtrOutput)
 }
+
 // A list of names of columns that contain skewed values.
 func (o CatalogTableStorageDescriptorSkewedInfoOutput) SkewedColumnNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptorSkewedInfo) []string { return v.SkewedColumnNames }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSkewedInfo) []string { return v.SkewedColumnNames }).(pulumi.StringArrayOutput)
 }
 
 // A list of values that appear so frequently as to be considered skewed.
 func (o CatalogTableStorageDescriptorSkewedInfoOutput) SkewedColumnValueLocationMaps() pulumi.StringMapOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptorSkewedInfo) map[string]string { return v.SkewedColumnValueLocationMaps }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSkewedInfo) map[string]string {
+		return v.SkewedColumnValueLocationMaps
+	}).(pulumi.StringMapOutput)
 }
 
 // A mapping of skewed values to the columns that contain them.
 func (o CatalogTableStorageDescriptorSkewedInfoOutput) SkewedColumnValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptorSkewedInfo) []string { return v.SkewedColumnValues }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSkewedInfo) []string { return v.SkewedColumnValues }).(pulumi.StringArrayOutput)
 }
 
-type CatalogTableStorageDescriptorSkewedInfoPtrOutput struct { *pulumi.OutputState}
+type CatalogTableStorageDescriptorSkewedInfoPtrOutput struct{ *pulumi.OutputState }
 
 func (CatalogTableStorageDescriptorSkewedInfoPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CatalogTableStorageDescriptorSkewedInfo)(nil)).Elem()
@@ -753,22 +761,24 @@ func (o CatalogTableStorageDescriptorSkewedInfoPtrOutput) ToCatalogTableStorageD
 }
 
 func (o CatalogTableStorageDescriptorSkewedInfoPtrOutput) Elem() CatalogTableStorageDescriptorSkewedInfoOutput {
-	return o.ApplyT(func (v *CatalogTableStorageDescriptorSkewedInfo) CatalogTableStorageDescriptorSkewedInfo { return *v }).(CatalogTableStorageDescriptorSkewedInfoOutput)
+	return o.ApplyT(func(v *CatalogTableStorageDescriptorSkewedInfo) CatalogTableStorageDescriptorSkewedInfo { return *v }).(CatalogTableStorageDescriptorSkewedInfoOutput)
 }
 
 // A list of names of columns that contain skewed values.
 func (o CatalogTableStorageDescriptorSkewedInfoPtrOutput) SkewedColumnNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptorSkewedInfo) []string { return v.SkewedColumnNames }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSkewedInfo) []string { return v.SkewedColumnNames }).(pulumi.StringArrayOutput)
 }
 
 // A list of values that appear so frequently as to be considered skewed.
 func (o CatalogTableStorageDescriptorSkewedInfoPtrOutput) SkewedColumnValueLocationMaps() pulumi.StringMapOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptorSkewedInfo) map[string]string { return v.SkewedColumnValueLocationMaps }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSkewedInfo) map[string]string {
+		return v.SkewedColumnValueLocationMaps
+	}).(pulumi.StringMapOutput)
 }
 
 // A mapping of skewed values to the columns that contain them.
 func (o CatalogTableStorageDescriptorSkewedInfoPtrOutput) SkewedColumnValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptorSkewedInfo) []string { return v.SkewedColumnValues }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSkewedInfo) []string { return v.SkewedColumnValues }).(pulumi.StringArrayOutput)
 }
 
 type CatalogTableStorageDescriptorSortColumn struct {
@@ -825,7 +835,7 @@ func (i CatalogTableStorageDescriptorSortColumnArray) ToCatalogTableStorageDescr
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableStorageDescriptorSortColumnArrayOutput)
 }
 
-type CatalogTableStorageDescriptorSortColumnOutput struct { *pulumi.OutputState }
+type CatalogTableStorageDescriptorSortColumnOutput struct{ *pulumi.OutputState }
 
 func (CatalogTableStorageDescriptorSortColumnOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CatalogTableStorageDescriptorSortColumn)(nil)).Elem()
@@ -841,15 +851,15 @@ func (o CatalogTableStorageDescriptorSortColumnOutput) ToCatalogTableStorageDesc
 
 // The name of the column.
 func (o CatalogTableStorageDescriptorSortColumnOutput) Column() pulumi.StringOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptorSortColumn) string { return v.Column }).(pulumi.StringOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSortColumn) string { return v.Column }).(pulumi.StringOutput)
 }
 
 // Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
 func (o CatalogTableStorageDescriptorSortColumnOutput) SortOrder() pulumi.IntOutput {
-	return o.ApplyT(func (v CatalogTableStorageDescriptorSortColumn) int { return v.SortOrder }).(pulumi.IntOutput)
+	return o.ApplyT(func(v CatalogTableStorageDescriptorSortColumn) int { return v.SortOrder }).(pulumi.IntOutput)
 }
 
-type CatalogTableStorageDescriptorSortColumnArrayOutput struct { *pulumi.OutputState}
+type CatalogTableStorageDescriptorSortColumnArrayOutput struct{ *pulumi.OutputState }
 
 func (CatalogTableStorageDescriptorSortColumnArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]CatalogTableStorageDescriptorSortColumn)(nil)).Elem()
@@ -864,7 +874,7 @@ func (o CatalogTableStorageDescriptorSortColumnArrayOutput) ToCatalogTableStorag
 }
 
 func (o CatalogTableStorageDescriptorSortColumnArrayOutput) Index(i pulumi.IntInput) CatalogTableStorageDescriptorSortColumnOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) CatalogTableStorageDescriptorSortColumn {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogTableStorageDescriptorSortColumn {
 		return vs[0].([]CatalogTableStorageDescriptorSortColumn)[vs[1].(int)]
 	}).(CatalogTableStorageDescriptorSortColumnOutput)
 }
@@ -876,7 +886,7 @@ type ClassifierCsvClassifier struct {
 	ContainsHeader *string `pulumi:"containsHeader"`
 	// The delimiter used in the Csv to separate columns.
 	Delimiter *string `pulumi:"delimiter"`
-	// Specifies whether to trim column values. 
+	// Specifies whether to trim column values.
 	DisableValueTrimming *bool `pulumi:"disableValueTrimming"`
 	// A list of strings representing column names.
 	Headers []string `pulumi:"headers"`
@@ -898,7 +908,7 @@ type ClassifierCsvClassifierArgs struct {
 	ContainsHeader pulumi.StringPtrInput `pulumi:"containsHeader"`
 	// The delimiter used in the Csv to separate columns.
 	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
-	// Specifies whether to trim column values. 
+	// Specifies whether to trim column values.
 	DisableValueTrimming pulumi.BoolPtrInput `pulumi:"disableValueTrimming"`
 	// A list of strings representing column names.
 	Headers pulumi.StringArrayInput `pulumi:"headers"`
@@ -935,7 +945,8 @@ type ClassifierCsvClassifierPtrInput interface {
 
 type classifierCsvClassifierPtrType ClassifierCsvClassifierArgs
 
-func ClassifierCsvClassifierPtr(v *ClassifierCsvClassifierArgs) ClassifierCsvClassifierPtrInput {	return (*classifierCsvClassifierPtrType)(v)
+func ClassifierCsvClassifierPtr(v *ClassifierCsvClassifierArgs) ClassifierCsvClassifierPtrInput {
+	return (*classifierCsvClassifierPtrType)(v)
 }
 
 func (*classifierCsvClassifierPtrType) ElementType() reflect.Type {
@@ -950,7 +961,7 @@ func (i *classifierCsvClassifierPtrType) ToClassifierCsvClassifierPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ClassifierCsvClassifierPtrOutput)
 }
 
-type ClassifierCsvClassifierOutput struct { *pulumi.OutputState }
+type ClassifierCsvClassifierOutput struct{ *pulumi.OutputState }
 
 func (ClassifierCsvClassifierOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClassifierCsvClassifier)(nil)).Elem()
@@ -973,37 +984,38 @@ func (o ClassifierCsvClassifierOutput) ToClassifierCsvClassifierPtrOutputWithCon
 		return &v
 	}).(ClassifierCsvClassifierPtrOutput)
 }
+
 // Enables the processing of files that contain only one column.
 func (o ClassifierCsvClassifierOutput) AllowSingleColumn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClassifierCsvClassifier) *bool { return v.AllowSingleColumn }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClassifierCsvClassifier) *bool { return v.AllowSingleColumn }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
 func (o ClassifierCsvClassifierOutput) ContainsHeader() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClassifierCsvClassifier) *string { return v.ContainsHeader }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.ContainsHeader }).(pulumi.StringPtrOutput)
 }
 
 // The delimiter used in the Csv to separate columns.
 func (o ClassifierCsvClassifierOutput) Delimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClassifierCsvClassifier) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to trim column values. 
+// Specifies whether to trim column values.
 func (o ClassifierCsvClassifierOutput) DisableValueTrimming() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClassifierCsvClassifier) *bool { return v.DisableValueTrimming }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClassifierCsvClassifier) *bool { return v.DisableValueTrimming }).(pulumi.BoolPtrOutput)
 }
 
 // A list of strings representing column names.
 func (o ClassifierCsvClassifierOutput) Headers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClassifierCsvClassifier) []string { return v.Headers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClassifierCsvClassifier) []string { return v.Headers }).(pulumi.StringArrayOutput)
 }
 
 // A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
 func (o ClassifierCsvClassifierOutput) QuoteSymbol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClassifierCsvClassifier) *string { return v.QuoteSymbol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.QuoteSymbol }).(pulumi.StringPtrOutput)
 }
 
-type ClassifierCsvClassifierPtrOutput struct { *pulumi.OutputState}
+type ClassifierCsvClassifierPtrOutput struct{ *pulumi.OutputState }
 
 func (ClassifierCsvClassifierPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClassifierCsvClassifier)(nil)).Elem()
@@ -1018,37 +1030,37 @@ func (o ClassifierCsvClassifierPtrOutput) ToClassifierCsvClassifierPtrOutputWith
 }
 
 func (o ClassifierCsvClassifierPtrOutput) Elem() ClassifierCsvClassifierOutput {
-	return o.ApplyT(func (v *ClassifierCsvClassifier) ClassifierCsvClassifier { return *v }).(ClassifierCsvClassifierOutput)
+	return o.ApplyT(func(v *ClassifierCsvClassifier) ClassifierCsvClassifier { return *v }).(ClassifierCsvClassifierOutput)
 }
 
 // Enables the processing of files that contain only one column.
 func (o ClassifierCsvClassifierPtrOutput) AllowSingleColumn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClassifierCsvClassifier) *bool { return v.AllowSingleColumn }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClassifierCsvClassifier) *bool { return v.AllowSingleColumn }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
 func (o ClassifierCsvClassifierPtrOutput) ContainsHeader() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClassifierCsvClassifier) *string { return v.ContainsHeader }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.ContainsHeader }).(pulumi.StringPtrOutput)
 }
 
 // The delimiter used in the Csv to separate columns.
 func (o ClassifierCsvClassifierPtrOutput) Delimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClassifierCsvClassifier) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to trim column values. 
+// Specifies whether to trim column values.
 func (o ClassifierCsvClassifierPtrOutput) DisableValueTrimming() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClassifierCsvClassifier) *bool { return v.DisableValueTrimming }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClassifierCsvClassifier) *bool { return v.DisableValueTrimming }).(pulumi.BoolPtrOutput)
 }
 
 // A list of strings representing column names.
 func (o ClassifierCsvClassifierPtrOutput) Headers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ClassifierCsvClassifier) []string { return v.Headers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ClassifierCsvClassifier) []string { return v.Headers }).(pulumi.StringArrayOutput)
 }
 
 // A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
 func (o ClassifierCsvClassifierPtrOutput) QuoteSymbol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClassifierCsvClassifier) *string { return v.QuoteSymbol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.QuoteSymbol }).(pulumi.StringPtrOutput)
 }
 
 type ClassifierGrokClassifier struct {
@@ -1105,7 +1117,8 @@ type ClassifierGrokClassifierPtrInput interface {
 
 type classifierGrokClassifierPtrType ClassifierGrokClassifierArgs
 
-func ClassifierGrokClassifierPtr(v *ClassifierGrokClassifierArgs) ClassifierGrokClassifierPtrInput {	return (*classifierGrokClassifierPtrType)(v)
+func ClassifierGrokClassifierPtr(v *ClassifierGrokClassifierArgs) ClassifierGrokClassifierPtrInput {
+	return (*classifierGrokClassifierPtrType)(v)
 }
 
 func (*classifierGrokClassifierPtrType) ElementType() reflect.Type {
@@ -1120,7 +1133,7 @@ func (i *classifierGrokClassifierPtrType) ToClassifierGrokClassifierPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ClassifierGrokClassifierPtrOutput)
 }
 
-type ClassifierGrokClassifierOutput struct { *pulumi.OutputState }
+type ClassifierGrokClassifierOutput struct{ *pulumi.OutputState }
 
 func (ClassifierGrokClassifierOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClassifierGrokClassifier)(nil)).Elem()
@@ -1143,22 +1156,23 @@ func (o ClassifierGrokClassifierOutput) ToClassifierGrokClassifierPtrOutputWithC
 		return &v
 	}).(ClassifierGrokClassifierPtrOutput)
 }
+
 // An identifier of the data format that the classifier matches.
 func (o ClassifierGrokClassifierOutput) Classification() pulumi.StringOutput {
-	return o.ApplyT(func (v ClassifierGrokClassifier) string { return v.Classification }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClassifierGrokClassifier) string { return v.Classification }).(pulumi.StringOutput)
 }
 
 // Custom grok patterns used by this classifier.
 func (o ClassifierGrokClassifierOutput) CustomPatterns() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClassifierGrokClassifier) *string { return v.CustomPatterns }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClassifierGrokClassifier) *string { return v.CustomPatterns }).(pulumi.StringPtrOutput)
 }
 
 // The grok pattern used by this classifier.
 func (o ClassifierGrokClassifierOutput) GrokPattern() pulumi.StringOutput {
-	return o.ApplyT(func (v ClassifierGrokClassifier) string { return v.GrokPattern }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClassifierGrokClassifier) string { return v.GrokPattern }).(pulumi.StringOutput)
 }
 
-type ClassifierGrokClassifierPtrOutput struct { *pulumi.OutputState}
+type ClassifierGrokClassifierPtrOutput struct{ *pulumi.OutputState }
 
 func (ClassifierGrokClassifierPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClassifierGrokClassifier)(nil)).Elem()
@@ -1173,22 +1187,22 @@ func (o ClassifierGrokClassifierPtrOutput) ToClassifierGrokClassifierPtrOutputWi
 }
 
 func (o ClassifierGrokClassifierPtrOutput) Elem() ClassifierGrokClassifierOutput {
-	return o.ApplyT(func (v *ClassifierGrokClassifier) ClassifierGrokClassifier { return *v }).(ClassifierGrokClassifierOutput)
+	return o.ApplyT(func(v *ClassifierGrokClassifier) ClassifierGrokClassifier { return *v }).(ClassifierGrokClassifierOutput)
 }
 
 // An identifier of the data format that the classifier matches.
 func (o ClassifierGrokClassifierPtrOutput) Classification() pulumi.StringOutput {
-	return o.ApplyT(func (v ClassifierGrokClassifier) string { return v.Classification }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClassifierGrokClassifier) string { return v.Classification }).(pulumi.StringOutput)
 }
 
 // Custom grok patterns used by this classifier.
 func (o ClassifierGrokClassifierPtrOutput) CustomPatterns() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClassifierGrokClassifier) *string { return v.CustomPatterns }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClassifierGrokClassifier) *string { return v.CustomPatterns }).(pulumi.StringPtrOutput)
 }
 
 // The grok pattern used by this classifier.
 func (o ClassifierGrokClassifierPtrOutput) GrokPattern() pulumi.StringOutput {
-	return o.ApplyT(func (v ClassifierGrokClassifier) string { return v.GrokPattern }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClassifierGrokClassifier) string { return v.GrokPattern }).(pulumi.StringOutput)
 }
 
 type ClassifierJsonClassifier struct {
@@ -1237,7 +1251,8 @@ type ClassifierJsonClassifierPtrInput interface {
 
 type classifierJsonClassifierPtrType ClassifierJsonClassifierArgs
 
-func ClassifierJsonClassifierPtr(v *ClassifierJsonClassifierArgs) ClassifierJsonClassifierPtrInput {	return (*classifierJsonClassifierPtrType)(v)
+func ClassifierJsonClassifierPtr(v *ClassifierJsonClassifierArgs) ClassifierJsonClassifierPtrInput {
+	return (*classifierJsonClassifierPtrType)(v)
 }
 
 func (*classifierJsonClassifierPtrType) ElementType() reflect.Type {
@@ -1252,7 +1267,7 @@ func (i *classifierJsonClassifierPtrType) ToClassifierJsonClassifierPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ClassifierJsonClassifierPtrOutput)
 }
 
-type ClassifierJsonClassifierOutput struct { *pulumi.OutputState }
+type ClassifierJsonClassifierOutput struct{ *pulumi.OutputState }
 
 func (ClassifierJsonClassifierOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClassifierJsonClassifier)(nil)).Elem()
@@ -1275,12 +1290,13 @@ func (o ClassifierJsonClassifierOutput) ToClassifierJsonClassifierPtrOutputWithC
 		return &v
 	}).(ClassifierJsonClassifierPtrOutput)
 }
+
 // A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
 func (o ClassifierJsonClassifierOutput) JsonPath() pulumi.StringOutput {
-	return o.ApplyT(func (v ClassifierJsonClassifier) string { return v.JsonPath }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClassifierJsonClassifier) string { return v.JsonPath }).(pulumi.StringOutput)
 }
 
-type ClassifierJsonClassifierPtrOutput struct { *pulumi.OutputState}
+type ClassifierJsonClassifierPtrOutput struct{ *pulumi.OutputState }
 
 func (ClassifierJsonClassifierPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClassifierJsonClassifier)(nil)).Elem()
@@ -1295,12 +1311,12 @@ func (o ClassifierJsonClassifierPtrOutput) ToClassifierJsonClassifierPtrOutputWi
 }
 
 func (o ClassifierJsonClassifierPtrOutput) Elem() ClassifierJsonClassifierOutput {
-	return o.ApplyT(func (v *ClassifierJsonClassifier) ClassifierJsonClassifier { return *v }).(ClassifierJsonClassifierOutput)
+	return o.ApplyT(func(v *ClassifierJsonClassifier) ClassifierJsonClassifier { return *v }).(ClassifierJsonClassifierOutput)
 }
 
 // A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
 func (o ClassifierJsonClassifierPtrOutput) JsonPath() pulumi.StringOutput {
-	return o.ApplyT(func (v ClassifierJsonClassifier) string { return v.JsonPath }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClassifierJsonClassifier) string { return v.JsonPath }).(pulumi.StringOutput)
 }
 
 type ClassifierXmlClassifier struct {
@@ -1353,7 +1369,8 @@ type ClassifierXmlClassifierPtrInput interface {
 
 type classifierXmlClassifierPtrType ClassifierXmlClassifierArgs
 
-func ClassifierXmlClassifierPtr(v *ClassifierXmlClassifierArgs) ClassifierXmlClassifierPtrInput {	return (*classifierXmlClassifierPtrType)(v)
+func ClassifierXmlClassifierPtr(v *ClassifierXmlClassifierArgs) ClassifierXmlClassifierPtrInput {
+	return (*classifierXmlClassifierPtrType)(v)
 }
 
 func (*classifierXmlClassifierPtrType) ElementType() reflect.Type {
@@ -1368,7 +1385,7 @@ func (i *classifierXmlClassifierPtrType) ToClassifierXmlClassifierPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ClassifierXmlClassifierPtrOutput)
 }
 
-type ClassifierXmlClassifierOutput struct { *pulumi.OutputState }
+type ClassifierXmlClassifierOutput struct{ *pulumi.OutputState }
 
 func (ClassifierXmlClassifierOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClassifierXmlClassifier)(nil)).Elem()
@@ -1391,17 +1408,18 @@ func (o ClassifierXmlClassifierOutput) ToClassifierXmlClassifierPtrOutputWithCon
 		return &v
 	}).(ClassifierXmlClassifierPtrOutput)
 }
+
 // An identifier of the data format that the classifier matches.
 func (o ClassifierXmlClassifierOutput) Classification() pulumi.StringOutput {
-	return o.ApplyT(func (v ClassifierXmlClassifier) string { return v.Classification }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClassifierXmlClassifier) string { return v.Classification }).(pulumi.StringOutput)
 }
 
 // The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
 func (o ClassifierXmlClassifierOutput) RowTag() pulumi.StringOutput {
-	return o.ApplyT(func (v ClassifierXmlClassifier) string { return v.RowTag }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClassifierXmlClassifier) string { return v.RowTag }).(pulumi.StringOutput)
 }
 
-type ClassifierXmlClassifierPtrOutput struct { *pulumi.OutputState}
+type ClassifierXmlClassifierPtrOutput struct{ *pulumi.OutputState }
 
 func (ClassifierXmlClassifierPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClassifierXmlClassifier)(nil)).Elem()
@@ -1416,17 +1434,17 @@ func (o ClassifierXmlClassifierPtrOutput) ToClassifierXmlClassifierPtrOutputWith
 }
 
 func (o ClassifierXmlClassifierPtrOutput) Elem() ClassifierXmlClassifierOutput {
-	return o.ApplyT(func (v *ClassifierXmlClassifier) ClassifierXmlClassifier { return *v }).(ClassifierXmlClassifierOutput)
+	return o.ApplyT(func(v *ClassifierXmlClassifier) ClassifierXmlClassifier { return *v }).(ClassifierXmlClassifierOutput)
 }
 
 // An identifier of the data format that the classifier matches.
 func (o ClassifierXmlClassifierPtrOutput) Classification() pulumi.StringOutput {
-	return o.ApplyT(func (v ClassifierXmlClassifier) string { return v.Classification }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClassifierXmlClassifier) string { return v.Classification }).(pulumi.StringOutput)
 }
 
 // The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
 func (o ClassifierXmlClassifierPtrOutput) RowTag() pulumi.StringOutput {
-	return o.ApplyT(func (v ClassifierXmlClassifier) string { return v.RowTag }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ClassifierXmlClassifier) string { return v.RowTag }).(pulumi.StringOutput)
 }
 
 type ConnectionPhysicalConnectionRequirements struct {
@@ -1483,7 +1501,8 @@ type ConnectionPhysicalConnectionRequirementsPtrInput interface {
 
 type connectionPhysicalConnectionRequirementsPtrType ConnectionPhysicalConnectionRequirementsArgs
 
-func ConnectionPhysicalConnectionRequirementsPtr(v *ConnectionPhysicalConnectionRequirementsArgs) ConnectionPhysicalConnectionRequirementsPtrInput {	return (*connectionPhysicalConnectionRequirementsPtrType)(v)
+func ConnectionPhysicalConnectionRequirementsPtr(v *ConnectionPhysicalConnectionRequirementsArgs) ConnectionPhysicalConnectionRequirementsPtrInput {
+	return (*connectionPhysicalConnectionRequirementsPtrType)(v)
 }
 
 func (*connectionPhysicalConnectionRequirementsPtrType) ElementType() reflect.Type {
@@ -1498,7 +1517,7 @@ func (i *connectionPhysicalConnectionRequirementsPtrType) ToConnectionPhysicalCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPhysicalConnectionRequirementsPtrOutput)
 }
 
-type ConnectionPhysicalConnectionRequirementsOutput struct { *pulumi.OutputState }
+type ConnectionPhysicalConnectionRequirementsOutput struct{ *pulumi.OutputState }
 
 func (ConnectionPhysicalConnectionRequirementsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConnectionPhysicalConnectionRequirements)(nil)).Elem()
@@ -1521,22 +1540,23 @@ func (o ConnectionPhysicalConnectionRequirementsOutput) ToConnectionPhysicalConn
 		return &v
 	}).(ConnectionPhysicalConnectionRequirementsPtrOutput)
 }
+
 // The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
 func (o ConnectionPhysicalConnectionRequirementsOutput) AvailabilityZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ConnectionPhysicalConnectionRequirements) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // The security group ID list used by the connection.
 func (o ConnectionPhysicalConnectionRequirementsOutput) SecurityGroupIdLists() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ConnectionPhysicalConnectionRequirements) []string { return v.SecurityGroupIdLists }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) []string { return v.SecurityGroupIdLists }).(pulumi.StringArrayOutput)
 }
 
 // The subnet ID used by the connection.
 func (o ConnectionPhysicalConnectionRequirementsOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ConnectionPhysicalConnectionRequirements) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-type ConnectionPhysicalConnectionRequirementsPtrOutput struct { *pulumi.OutputState}
+type ConnectionPhysicalConnectionRequirementsPtrOutput struct{ *pulumi.OutputState }
 
 func (ConnectionPhysicalConnectionRequirementsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ConnectionPhysicalConnectionRequirements)(nil)).Elem()
@@ -1551,22 +1571,22 @@ func (o ConnectionPhysicalConnectionRequirementsPtrOutput) ToConnectionPhysicalC
 }
 
 func (o ConnectionPhysicalConnectionRequirementsPtrOutput) Elem() ConnectionPhysicalConnectionRequirementsOutput {
-	return o.ApplyT(func (v *ConnectionPhysicalConnectionRequirements) ConnectionPhysicalConnectionRequirements { return *v }).(ConnectionPhysicalConnectionRequirementsOutput)
+	return o.ApplyT(func(v *ConnectionPhysicalConnectionRequirements) ConnectionPhysicalConnectionRequirements { return *v }).(ConnectionPhysicalConnectionRequirementsOutput)
 }
 
 // The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
 func (o ConnectionPhysicalConnectionRequirementsPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ConnectionPhysicalConnectionRequirements) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // The security group ID list used by the connection.
 func (o ConnectionPhysicalConnectionRequirementsPtrOutput) SecurityGroupIdLists() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v ConnectionPhysicalConnectionRequirements) []string { return v.SecurityGroupIdLists }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) []string { return v.SecurityGroupIdLists }).(pulumi.StringArrayOutput)
 }
 
 // The subnet ID used by the connection.
 func (o ConnectionPhysicalConnectionRequirementsPtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ConnectionPhysicalConnectionRequirements) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 type CrawlerCatalogTarget struct {
@@ -1623,7 +1643,7 @@ func (i CrawlerCatalogTargetArray) ToCrawlerCatalogTargetArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerCatalogTargetArrayOutput)
 }
 
-type CrawlerCatalogTargetOutput struct { *pulumi.OutputState }
+type CrawlerCatalogTargetOutput struct{ *pulumi.OutputState }
 
 func (CrawlerCatalogTargetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CrawlerCatalogTarget)(nil)).Elem()
@@ -1639,15 +1659,15 @@ func (o CrawlerCatalogTargetOutput) ToCrawlerCatalogTargetOutputWithContext(ctx 
 
 // The name of the Glue database to be synchronized.
 func (o CrawlerCatalogTargetOutput) DatabaseName() pulumi.StringOutput {
-	return o.ApplyT(func (v CrawlerCatalogTarget) string { return v.DatabaseName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v CrawlerCatalogTarget) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
 // A list of catalog tables to be synchronized.
 func (o CrawlerCatalogTargetOutput) Tables() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v CrawlerCatalogTarget) []string { return v.Tables }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v CrawlerCatalogTarget) []string { return v.Tables }).(pulumi.StringArrayOutput)
 }
 
-type CrawlerCatalogTargetArrayOutput struct { *pulumi.OutputState}
+type CrawlerCatalogTargetArrayOutput struct{ *pulumi.OutputState }
 
 func (CrawlerCatalogTargetArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]CrawlerCatalogTarget)(nil)).Elem()
@@ -1662,7 +1682,7 @@ func (o CrawlerCatalogTargetArrayOutput) ToCrawlerCatalogTargetArrayOutputWithCo
 }
 
 func (o CrawlerCatalogTargetArrayOutput) Index(i pulumi.IntInput) CrawlerCatalogTargetOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) CrawlerCatalogTarget {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerCatalogTarget {
 		return vs[0].([]CrawlerCatalogTarget)[vs[1].(int)]
 	}).(CrawlerCatalogTargetOutput)
 }
@@ -1717,7 +1737,7 @@ func (i CrawlerDynamodbTargetArray) ToCrawlerDynamodbTargetArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerDynamodbTargetArrayOutput)
 }
 
-type CrawlerDynamodbTargetOutput struct { *pulumi.OutputState }
+type CrawlerDynamodbTargetOutput struct{ *pulumi.OutputState }
 
 func (CrawlerDynamodbTargetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CrawlerDynamodbTarget)(nil)).Elem()
@@ -1733,10 +1753,10 @@ func (o CrawlerDynamodbTargetOutput) ToCrawlerDynamodbTargetOutputWithContext(ct
 
 // The path to the Amazon S3 target.
 func (o CrawlerDynamodbTargetOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func (v CrawlerDynamodbTarget) string { return v.Path }).(pulumi.StringOutput)
+	return o.ApplyT(func(v CrawlerDynamodbTarget) string { return v.Path }).(pulumi.StringOutput)
 }
 
-type CrawlerDynamodbTargetArrayOutput struct { *pulumi.OutputState}
+type CrawlerDynamodbTargetArrayOutput struct{ *pulumi.OutputState }
 
 func (CrawlerDynamodbTargetArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]CrawlerDynamodbTarget)(nil)).Elem()
@@ -1751,7 +1771,7 @@ func (o CrawlerDynamodbTargetArrayOutput) ToCrawlerDynamodbTargetArrayOutputWith
 }
 
 func (o CrawlerDynamodbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDynamodbTargetOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) CrawlerDynamodbTarget {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerDynamodbTarget {
 		return vs[0].([]CrawlerDynamodbTarget)[vs[1].(int)]
 	}).(CrawlerDynamodbTargetOutput)
 }
@@ -1814,7 +1834,7 @@ func (i CrawlerJdbcTargetArray) ToCrawlerJdbcTargetArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerJdbcTargetArrayOutput)
 }
 
-type CrawlerJdbcTargetOutput struct { *pulumi.OutputState }
+type CrawlerJdbcTargetOutput struct{ *pulumi.OutputState }
 
 func (CrawlerJdbcTargetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CrawlerJdbcTarget)(nil)).Elem()
@@ -1830,20 +1850,20 @@ func (o CrawlerJdbcTargetOutput) ToCrawlerJdbcTargetOutputWithContext(ctx contex
 
 // The name of the connection to use to connect to the JDBC target.
 func (o CrawlerJdbcTargetOutput) ConnectionName() pulumi.StringOutput {
-	return o.ApplyT(func (v CrawlerJdbcTarget) string { return v.ConnectionName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v CrawlerJdbcTarget) string { return v.ConnectionName }).(pulumi.StringOutput)
 }
 
 // A list of glob patterns used to exclude from the crawl.
 func (o CrawlerJdbcTargetOutput) Exclusions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v CrawlerJdbcTarget) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v CrawlerJdbcTarget) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
 }
 
 // The path to the Amazon S3 target.
 func (o CrawlerJdbcTargetOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func (v CrawlerJdbcTarget) string { return v.Path }).(pulumi.StringOutput)
+	return o.ApplyT(func(v CrawlerJdbcTarget) string { return v.Path }).(pulumi.StringOutput)
 }
 
-type CrawlerJdbcTargetArrayOutput struct { *pulumi.OutputState}
+type CrawlerJdbcTargetArrayOutput struct{ *pulumi.OutputState }
 
 func (CrawlerJdbcTargetArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]CrawlerJdbcTarget)(nil)).Elem()
@@ -1858,7 +1878,7 @@ func (o CrawlerJdbcTargetArrayOutput) ToCrawlerJdbcTargetArrayOutputWithContext(
 }
 
 func (o CrawlerJdbcTargetArrayOutput) Index(i pulumi.IntInput) CrawlerJdbcTargetOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) CrawlerJdbcTarget {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerJdbcTarget {
 		return vs[0].([]CrawlerJdbcTarget)[vs[1].(int)]
 	}).(CrawlerJdbcTargetOutput)
 }
@@ -1917,7 +1937,7 @@ func (i CrawlerS3TargetArray) ToCrawlerS3TargetArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerS3TargetArrayOutput)
 }
 
-type CrawlerS3TargetOutput struct { *pulumi.OutputState }
+type CrawlerS3TargetOutput struct{ *pulumi.OutputState }
 
 func (CrawlerS3TargetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CrawlerS3Target)(nil)).Elem()
@@ -1933,15 +1953,15 @@ func (o CrawlerS3TargetOutput) ToCrawlerS3TargetOutputWithContext(ctx context.Co
 
 // A list of glob patterns used to exclude from the crawl.
 func (o CrawlerS3TargetOutput) Exclusions() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v CrawlerS3Target) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v CrawlerS3Target) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
 }
 
 // The path to the Amazon S3 target.
 func (o CrawlerS3TargetOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func (v CrawlerS3Target) string { return v.Path }).(pulumi.StringOutput)
+	return o.ApplyT(func(v CrawlerS3Target) string { return v.Path }).(pulumi.StringOutput)
 }
 
-type CrawlerS3TargetArrayOutput struct { *pulumi.OutputState}
+type CrawlerS3TargetArrayOutput struct{ *pulumi.OutputState }
 
 func (CrawlerS3TargetArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]CrawlerS3Target)(nil)).Elem()
@@ -1956,7 +1976,7 @@ func (o CrawlerS3TargetArrayOutput) ToCrawlerS3TargetArrayOutputWithContext(ctx 
 }
 
 func (o CrawlerS3TargetArrayOutput) Index(i pulumi.IntInput) CrawlerS3TargetOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) CrawlerS3Target {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerS3Target {
 		return vs[0].([]CrawlerS3Target)[vs[1].(int)]
 	}).(CrawlerS3TargetOutput)
 }
@@ -2011,7 +2031,8 @@ type CrawlerSchemaChangePolicyPtrInput interface {
 
 type crawlerSchemaChangePolicyPtrType CrawlerSchemaChangePolicyArgs
 
-func CrawlerSchemaChangePolicyPtr(v *CrawlerSchemaChangePolicyArgs) CrawlerSchemaChangePolicyPtrInput {	return (*crawlerSchemaChangePolicyPtrType)(v)
+func CrawlerSchemaChangePolicyPtr(v *CrawlerSchemaChangePolicyArgs) CrawlerSchemaChangePolicyPtrInput {
+	return (*crawlerSchemaChangePolicyPtrType)(v)
 }
 
 func (*crawlerSchemaChangePolicyPtrType) ElementType() reflect.Type {
@@ -2026,7 +2047,7 @@ func (i *crawlerSchemaChangePolicyPtrType) ToCrawlerSchemaChangePolicyPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerSchemaChangePolicyPtrOutput)
 }
 
-type CrawlerSchemaChangePolicyOutput struct { *pulumi.OutputState }
+type CrawlerSchemaChangePolicyOutput struct{ *pulumi.OutputState }
 
 func (CrawlerSchemaChangePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CrawlerSchemaChangePolicy)(nil)).Elem()
@@ -2049,17 +2070,18 @@ func (o CrawlerSchemaChangePolicyOutput) ToCrawlerSchemaChangePolicyPtrOutputWit
 		return &v
 	}).(CrawlerSchemaChangePolicyPtrOutput)
 }
+
 // The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
 func (o CrawlerSchemaChangePolicyOutput) DeleteBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CrawlerSchemaChangePolicy) *string { return v.DeleteBehavior }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CrawlerSchemaChangePolicy) *string { return v.DeleteBehavior }).(pulumi.StringPtrOutput)
 }
 
 // The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
 func (o CrawlerSchemaChangePolicyOutput) UpdateBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CrawlerSchemaChangePolicy) *string { return v.UpdateBehavior }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CrawlerSchemaChangePolicy) *string { return v.UpdateBehavior }).(pulumi.StringPtrOutput)
 }
 
-type CrawlerSchemaChangePolicyPtrOutput struct { *pulumi.OutputState}
+type CrawlerSchemaChangePolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (CrawlerSchemaChangePolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CrawlerSchemaChangePolicy)(nil)).Elem()
@@ -2074,17 +2096,17 @@ func (o CrawlerSchemaChangePolicyPtrOutput) ToCrawlerSchemaChangePolicyPtrOutput
 }
 
 func (o CrawlerSchemaChangePolicyPtrOutput) Elem() CrawlerSchemaChangePolicyOutput {
-	return o.ApplyT(func (v *CrawlerSchemaChangePolicy) CrawlerSchemaChangePolicy { return *v }).(CrawlerSchemaChangePolicyOutput)
+	return o.ApplyT(func(v *CrawlerSchemaChangePolicy) CrawlerSchemaChangePolicy { return *v }).(CrawlerSchemaChangePolicyOutput)
 }
 
 // The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
 func (o CrawlerSchemaChangePolicyPtrOutput) DeleteBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CrawlerSchemaChangePolicy) *string { return v.DeleteBehavior }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CrawlerSchemaChangePolicy) *string { return v.DeleteBehavior }).(pulumi.StringPtrOutput)
 }
 
 // The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
 func (o CrawlerSchemaChangePolicyPtrOutput) UpdateBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CrawlerSchemaChangePolicy) *string { return v.UpdateBehavior }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CrawlerSchemaChangePolicy) *string { return v.UpdateBehavior }).(pulumi.StringPtrOutput)
 }
 
 type JobCommand struct {
@@ -2141,7 +2163,8 @@ type JobCommandPtrInput interface {
 
 type jobCommandPtrType JobCommandArgs
 
-func JobCommandPtr(v *JobCommandArgs) JobCommandPtrInput {	return (*jobCommandPtrType)(v)
+func JobCommandPtr(v *JobCommandArgs) JobCommandPtrInput {
+	return (*jobCommandPtrType)(v)
 }
 
 func (*jobCommandPtrType) ElementType() reflect.Type {
@@ -2156,7 +2179,7 @@ func (i *jobCommandPtrType) ToJobCommandPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(JobCommandPtrOutput)
 }
 
-type JobCommandOutput struct { *pulumi.OutputState }
+type JobCommandOutput struct{ *pulumi.OutputState }
 
 func (JobCommandOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobCommand)(nil)).Elem()
@@ -2179,22 +2202,23 @@ func (o JobCommandOutput) ToJobCommandPtrOutputWithContext(ctx context.Context) 
 		return &v
 	}).(JobCommandPtrOutput)
 }
+
 // The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
 func (o JobCommandOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v JobCommand) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v JobCommand) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
 func (o JobCommandOutput) PythonVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v JobCommand) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v JobCommand) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the S3 path to a script that executes a job.
 func (o JobCommandOutput) ScriptLocation() pulumi.StringOutput {
-	return o.ApplyT(func (v JobCommand) string { return v.ScriptLocation }).(pulumi.StringOutput)
+	return o.ApplyT(func(v JobCommand) string { return v.ScriptLocation }).(pulumi.StringOutput)
 }
 
-type JobCommandPtrOutput struct { *pulumi.OutputState}
+type JobCommandPtrOutput struct{ *pulumi.OutputState }
 
 func (JobCommandPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**JobCommand)(nil)).Elem()
@@ -2209,22 +2233,22 @@ func (o JobCommandPtrOutput) ToJobCommandPtrOutputWithContext(ctx context.Contex
 }
 
 func (o JobCommandPtrOutput) Elem() JobCommandOutput {
-	return o.ApplyT(func (v *JobCommand) JobCommand { return *v }).(JobCommandOutput)
+	return o.ApplyT(func(v *JobCommand) JobCommand { return *v }).(JobCommandOutput)
 }
 
 // The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
 func (o JobCommandPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v JobCommand) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v JobCommand) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
 func (o JobCommandPtrOutput) PythonVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v JobCommand) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v JobCommand) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the S3 path to a script that executes a job.
 func (o JobCommandPtrOutput) ScriptLocation() pulumi.StringOutput {
-	return o.ApplyT(func (v JobCommand) string { return v.ScriptLocation }).(pulumi.StringOutput)
+	return o.ApplyT(func(v JobCommand) string { return v.ScriptLocation }).(pulumi.StringOutput)
 }
 
 type JobExecutionProperty struct {
@@ -2273,7 +2297,8 @@ type JobExecutionPropertyPtrInput interface {
 
 type jobExecutionPropertyPtrType JobExecutionPropertyArgs
 
-func JobExecutionPropertyPtr(v *JobExecutionPropertyArgs) JobExecutionPropertyPtrInput {	return (*jobExecutionPropertyPtrType)(v)
+func JobExecutionPropertyPtr(v *JobExecutionPropertyArgs) JobExecutionPropertyPtrInput {
+	return (*jobExecutionPropertyPtrType)(v)
 }
 
 func (*jobExecutionPropertyPtrType) ElementType() reflect.Type {
@@ -2288,7 +2313,7 @@ func (i *jobExecutionPropertyPtrType) ToJobExecutionPropertyPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(JobExecutionPropertyPtrOutput)
 }
 
-type JobExecutionPropertyOutput struct { *pulumi.OutputState }
+type JobExecutionPropertyOutput struct{ *pulumi.OutputState }
 
 func (JobExecutionPropertyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobExecutionProperty)(nil)).Elem()
@@ -2311,12 +2336,13 @@ func (o JobExecutionPropertyOutput) ToJobExecutionPropertyPtrOutputWithContext(c
 		return &v
 	}).(JobExecutionPropertyPtrOutput)
 }
+
 // The maximum number of concurrent runs allowed for a job. The default is 1.
 func (o JobExecutionPropertyOutput) MaxConcurrentRuns() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v JobExecutionProperty) *int { return v.MaxConcurrentRuns }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v JobExecutionProperty) *int { return v.MaxConcurrentRuns }).(pulumi.IntPtrOutput)
 }
 
-type JobExecutionPropertyPtrOutput struct { *pulumi.OutputState}
+type JobExecutionPropertyPtrOutput struct{ *pulumi.OutputState }
 
 func (JobExecutionPropertyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**JobExecutionProperty)(nil)).Elem()
@@ -2331,12 +2357,12 @@ func (o JobExecutionPropertyPtrOutput) ToJobExecutionPropertyPtrOutputWithContex
 }
 
 func (o JobExecutionPropertyPtrOutput) Elem() JobExecutionPropertyOutput {
-	return o.ApplyT(func (v *JobExecutionProperty) JobExecutionProperty { return *v }).(JobExecutionPropertyOutput)
+	return o.ApplyT(func(v *JobExecutionProperty) JobExecutionProperty { return *v }).(JobExecutionPropertyOutput)
 }
 
 // The maximum number of concurrent runs allowed for a job. The default is 1.
 func (o JobExecutionPropertyPtrOutput) MaxConcurrentRuns() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v JobExecutionProperty) *int { return v.MaxConcurrentRuns }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v JobExecutionProperty) *int { return v.MaxConcurrentRuns }).(pulumi.IntPtrOutput)
 }
 
 type JobNotificationProperty struct {
@@ -2385,7 +2411,8 @@ type JobNotificationPropertyPtrInput interface {
 
 type jobNotificationPropertyPtrType JobNotificationPropertyArgs
 
-func JobNotificationPropertyPtr(v *JobNotificationPropertyArgs) JobNotificationPropertyPtrInput {	return (*jobNotificationPropertyPtrType)(v)
+func JobNotificationPropertyPtr(v *JobNotificationPropertyArgs) JobNotificationPropertyPtrInput {
+	return (*jobNotificationPropertyPtrType)(v)
 }
 
 func (*jobNotificationPropertyPtrType) ElementType() reflect.Type {
@@ -2400,7 +2427,7 @@ func (i *jobNotificationPropertyPtrType) ToJobNotificationPropertyPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(JobNotificationPropertyPtrOutput)
 }
 
-type JobNotificationPropertyOutput struct { *pulumi.OutputState }
+type JobNotificationPropertyOutput struct{ *pulumi.OutputState }
 
 func (JobNotificationPropertyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobNotificationProperty)(nil)).Elem()
@@ -2423,12 +2450,13 @@ func (o JobNotificationPropertyOutput) ToJobNotificationPropertyPtrOutputWithCon
 		return &v
 	}).(JobNotificationPropertyPtrOutput)
 }
+
 // After a job run starts, the number of minutes to wait before sending a job run delay notification.
 func (o JobNotificationPropertyOutput) NotifyDelayAfter() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v JobNotificationProperty) *int { return v.NotifyDelayAfter }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v JobNotificationProperty) *int { return v.NotifyDelayAfter }).(pulumi.IntPtrOutput)
 }
 
-type JobNotificationPropertyPtrOutput struct { *pulumi.OutputState}
+type JobNotificationPropertyPtrOutput struct{ *pulumi.OutputState }
 
 func (JobNotificationPropertyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**JobNotificationProperty)(nil)).Elem()
@@ -2443,16 +2471,16 @@ func (o JobNotificationPropertyPtrOutput) ToJobNotificationPropertyPtrOutputWith
 }
 
 func (o JobNotificationPropertyPtrOutput) Elem() JobNotificationPropertyOutput {
-	return o.ApplyT(func (v *JobNotificationProperty) JobNotificationProperty { return *v }).(JobNotificationPropertyOutput)
+	return o.ApplyT(func(v *JobNotificationProperty) JobNotificationProperty { return *v }).(JobNotificationPropertyOutput)
 }
 
 // After a job run starts, the number of minutes to wait before sending a job run delay notification.
 func (o JobNotificationPropertyPtrOutput) NotifyDelayAfter() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v JobNotificationProperty) *int { return v.NotifyDelayAfter }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v JobNotificationProperty) *int { return v.NotifyDelayAfter }).(pulumi.IntPtrOutput)
 }
 
 type SecurityConfigurationEncryptionConfiguration struct {
-	CloudwatchEncryption SecurityConfigurationEncryptionConfigurationCloudwatchEncryption `pulumi:"cloudwatchEncryption"`
+	CloudwatchEncryption   SecurityConfigurationEncryptionConfigurationCloudwatchEncryption   `pulumi:"cloudwatchEncryption"`
 	JobBookmarksEncryption SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption `pulumi:"jobBookmarksEncryption"`
 	// A `s3Encryption ` block as described below, which contains encryption configuration for S3 data.
 	S3Encryption SecurityConfigurationEncryptionConfigurationS3Encryption `pulumi:"s3Encryption"`
@@ -2466,7 +2494,7 @@ type SecurityConfigurationEncryptionConfigurationInput interface {
 }
 
 type SecurityConfigurationEncryptionConfigurationArgs struct {
-	CloudwatchEncryption SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionInput `pulumi:"cloudwatchEncryption"`
+	CloudwatchEncryption   SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionInput   `pulumi:"cloudwatchEncryption"`
 	JobBookmarksEncryption SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionInput `pulumi:"jobBookmarksEncryption"`
 	// A `s3Encryption ` block as described below, which contains encryption configuration for S3 data.
 	S3Encryption SecurityConfigurationEncryptionConfigurationS3EncryptionInput `pulumi:"s3Encryption"`
@@ -2501,7 +2529,8 @@ type SecurityConfigurationEncryptionConfigurationPtrInput interface {
 
 type securityConfigurationEncryptionConfigurationPtrType SecurityConfigurationEncryptionConfigurationArgs
 
-func SecurityConfigurationEncryptionConfigurationPtr(v *SecurityConfigurationEncryptionConfigurationArgs) SecurityConfigurationEncryptionConfigurationPtrInput {	return (*securityConfigurationEncryptionConfigurationPtrType)(v)
+func SecurityConfigurationEncryptionConfigurationPtr(v *SecurityConfigurationEncryptionConfigurationArgs) SecurityConfigurationEncryptionConfigurationPtrInput {
+	return (*securityConfigurationEncryptionConfigurationPtrType)(v)
 }
 
 func (*securityConfigurationEncryptionConfigurationPtrType) ElementType() reflect.Type {
@@ -2516,7 +2545,7 @@ func (i *securityConfigurationEncryptionConfigurationPtrType) ToSecurityConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationPtrOutput)
 }
 
-type SecurityConfigurationEncryptionConfigurationOutput struct { *pulumi.OutputState }
+type SecurityConfigurationEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SecurityConfigurationEncryptionConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityConfigurationEncryptionConfiguration)(nil)).Elem()
@@ -2540,19 +2569,25 @@ func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurat
 	}).(SecurityConfigurationEncryptionConfigurationPtrOutput)
 }
 func (o SecurityConfigurationEncryptionConfigurationOutput) CloudwatchEncryption() SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput {
-	return o.ApplyT(func (v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationCloudwatchEncryption { return v.CloudwatchEncryption }).(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput)
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationCloudwatchEncryption {
+		return v.CloudwatchEncryption
+	}).(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput)
 }
 
 func (o SecurityConfigurationEncryptionConfigurationOutput) JobBookmarksEncryption() SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput {
-	return o.ApplyT(func (v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption { return v.JobBookmarksEncryption }).(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput)
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption {
+		return v.JobBookmarksEncryption
+	}).(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput)
 }
 
 // A `s3Encryption ` block as described below, which contains encryption configuration for S3 data.
 func (o SecurityConfigurationEncryptionConfigurationOutput) S3Encryption() SecurityConfigurationEncryptionConfigurationS3EncryptionOutput {
-	return o.ApplyT(func (v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationS3Encryption { return v.S3Encryption }).(SecurityConfigurationEncryptionConfigurationS3EncryptionOutput)
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationS3Encryption {
+		return v.S3Encryption
+	}).(SecurityConfigurationEncryptionConfigurationS3EncryptionOutput)
 }
 
-type SecurityConfigurationEncryptionConfigurationPtrOutput struct { *pulumi.OutputState}
+type SecurityConfigurationEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (SecurityConfigurationEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SecurityConfigurationEncryptionConfiguration)(nil)).Elem()
@@ -2567,20 +2602,28 @@ func (o SecurityConfigurationEncryptionConfigurationPtrOutput) ToSecurityConfigu
 }
 
 func (o SecurityConfigurationEncryptionConfigurationPtrOutput) Elem() SecurityConfigurationEncryptionConfigurationOutput {
-	return o.ApplyT(func (v *SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfiguration { return *v }).(SecurityConfigurationEncryptionConfigurationOutput)
+	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfiguration {
+		return *v
+	}).(SecurityConfigurationEncryptionConfigurationOutput)
 }
 
 func (o SecurityConfigurationEncryptionConfigurationPtrOutput) CloudwatchEncryption() SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput {
-	return o.ApplyT(func (v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationCloudwatchEncryption { return v.CloudwatchEncryption }).(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput)
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationCloudwatchEncryption {
+		return v.CloudwatchEncryption
+	}).(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput)
 }
 
 func (o SecurityConfigurationEncryptionConfigurationPtrOutput) JobBookmarksEncryption() SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput {
-	return o.ApplyT(func (v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption { return v.JobBookmarksEncryption }).(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput)
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption {
+		return v.JobBookmarksEncryption
+	}).(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput)
 }
 
 // A `s3Encryption ` block as described below, which contains encryption configuration for S3 data.
 func (o SecurityConfigurationEncryptionConfigurationPtrOutput) S3Encryption() SecurityConfigurationEncryptionConfigurationS3EncryptionOutput {
-	return o.ApplyT(func (v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationS3Encryption { return v.S3Encryption }).(SecurityConfigurationEncryptionConfigurationS3EncryptionOutput)
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationS3Encryption {
+		return v.S3Encryption
+	}).(SecurityConfigurationEncryptionConfigurationS3EncryptionOutput)
 }
 
 type SecurityConfigurationEncryptionConfigurationCloudwatchEncryption struct {
@@ -2616,7 +2659,7 @@ func (i SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput)
 }
 
-type SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput struct { *pulumi.OutputState }
+type SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput struct{ *pulumi.OutputState }
 
 func (SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityConfigurationEncryptionConfigurationCloudwatchEncryption)(nil)).Elem()
@@ -2632,12 +2675,14 @@ func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) 
 
 // Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
 func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) CloudwatchEncryptionMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SecurityConfigurationEncryptionConfigurationCloudwatchEncryption) *string { return v.CloudwatchEncryptionMode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationCloudwatchEncryption) *string {
+		return v.CloudwatchEncryptionMode
+	}).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
 func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SecurityConfigurationEncryptionConfigurationCloudwatchEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationCloudwatchEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 type SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption struct {
@@ -2673,7 +2718,7 @@ func (i SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput)
 }
 
-type SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput struct { *pulumi.OutputState }
+type SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput struct{ *pulumi.OutputState }
 
 func (SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption)(nil)).Elem()
@@ -2689,12 +2734,16 @@ func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput
 
 // Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
 func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput) JobBookmarksEncryptionMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) *string { return v.JobBookmarksEncryptionMode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) *string {
+		return v.JobBookmarksEncryptionMode
+	}).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
 func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) *string {
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type SecurityConfigurationEncryptionConfigurationS3Encryption struct {
@@ -2730,7 +2779,7 @@ func (i SecurityConfigurationEncryptionConfigurationS3EncryptionArgs) ToSecurity
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationS3EncryptionOutput)
 }
 
-type SecurityConfigurationEncryptionConfigurationS3EncryptionOutput struct { *pulumi.OutputState }
+type SecurityConfigurationEncryptionConfigurationS3EncryptionOutput struct{ *pulumi.OutputState }
 
 func (SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityConfigurationEncryptionConfigurationS3Encryption)(nil)).Elem()
@@ -2746,12 +2795,12 @@ func (o SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) ToSecuri
 
 // Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
 func (o SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SecurityConfigurationEncryptionConfigurationS3Encryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationS3Encryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
 func (o SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) S3EncryptionMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SecurityConfigurationEncryptionConfigurationS3Encryption) *string { return v.S3EncryptionMode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationS3Encryption) *string { return v.S3EncryptionMode }).(pulumi.StringPtrOutput)
 }
 
 type TriggerAction struct {
@@ -2816,7 +2865,7 @@ func (i TriggerActionArray) ToTriggerActionArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerActionArrayOutput)
 }
 
-type TriggerActionOutput struct { *pulumi.OutputState }
+type TriggerActionOutput struct{ *pulumi.OutputState }
 
 func (TriggerActionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TriggerAction)(nil)).Elem()
@@ -2832,25 +2881,25 @@ func (o TriggerActionOutput) ToTriggerActionOutputWithContext(ctx context.Contex
 
 // Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
 func (o TriggerActionOutput) Arguments() pulumi.MapOutput {
-	return o.ApplyT(func (v TriggerAction) map[string]interface{} { return v.Arguments }).(pulumi.MapOutput)
+	return o.ApplyT(func(v TriggerAction) map[string]interface{} { return v.Arguments }).(pulumi.MapOutput)
 }
 
 // The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
 func (o TriggerActionOutput) CrawlerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v TriggerAction) *string { return v.CrawlerName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v TriggerAction) *string { return v.CrawlerName }).(pulumi.StringPtrOutput)
 }
 
 // The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
 func (o TriggerActionOutput) JobName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v TriggerAction) *string { return v.JobName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v TriggerAction) *string { return v.JobName }).(pulumi.StringPtrOutput)
 }
 
 // The job run timeout in minutes. It overrides the timeout value of the job.
 func (o TriggerActionOutput) Timeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v TriggerAction) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v TriggerAction) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
-type TriggerActionArrayOutput struct { *pulumi.OutputState}
+type TriggerActionArrayOutput struct{ *pulumi.OutputState }
 
 func (TriggerActionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]TriggerAction)(nil)).Elem()
@@ -2865,7 +2914,7 @@ func (o TriggerActionArrayOutput) ToTriggerActionArrayOutputWithContext(ctx cont
 }
 
 func (o TriggerActionArrayOutput) Index(i pulumi.IntInput) TriggerActionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) TriggerAction {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TriggerAction {
 		return vs[0].([]TriggerAction)[vs[1].(int)]
 	}).(TriggerActionOutput)
 }
@@ -2920,7 +2969,8 @@ type TriggerPredicatePtrInput interface {
 
 type triggerPredicatePtrType TriggerPredicateArgs
 
-func TriggerPredicatePtr(v *TriggerPredicateArgs) TriggerPredicatePtrInput {	return (*triggerPredicatePtrType)(v)
+func TriggerPredicatePtr(v *TriggerPredicateArgs) TriggerPredicatePtrInput {
+	return (*triggerPredicatePtrType)(v)
 }
 
 func (*triggerPredicatePtrType) ElementType() reflect.Type {
@@ -2935,7 +2985,7 @@ func (i *triggerPredicatePtrType) ToTriggerPredicatePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerPredicatePtrOutput)
 }
 
-type TriggerPredicateOutput struct { *pulumi.OutputState }
+type TriggerPredicateOutput struct{ *pulumi.OutputState }
 
 func (TriggerPredicateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TriggerPredicate)(nil)).Elem()
@@ -2958,17 +3008,18 @@ func (o TriggerPredicateOutput) ToTriggerPredicatePtrOutputWithContext(ctx conte
 		return &v
 	}).(TriggerPredicatePtrOutput)
 }
+
 // A list of the conditions that determine when the trigger will fire. Defined below.
 func (o TriggerPredicateOutput) Conditions() TriggerPredicateConditionArrayOutput {
-	return o.ApplyT(func (v TriggerPredicate) []TriggerPredicateCondition { return v.Conditions }).(TriggerPredicateConditionArrayOutput)
+	return o.ApplyT(func(v TriggerPredicate) []TriggerPredicateCondition { return v.Conditions }).(TriggerPredicateConditionArrayOutput)
 }
 
 // How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
 func (o TriggerPredicateOutput) Logical() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v TriggerPredicate) *string { return v.Logical }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v TriggerPredicate) *string { return v.Logical }).(pulumi.StringPtrOutput)
 }
 
-type TriggerPredicatePtrOutput struct { *pulumi.OutputState}
+type TriggerPredicatePtrOutput struct{ *pulumi.OutputState }
 
 func (TriggerPredicatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TriggerPredicate)(nil)).Elem()
@@ -2983,17 +3034,17 @@ func (o TriggerPredicatePtrOutput) ToTriggerPredicatePtrOutputWithContext(ctx co
 }
 
 func (o TriggerPredicatePtrOutput) Elem() TriggerPredicateOutput {
-	return o.ApplyT(func (v *TriggerPredicate) TriggerPredicate { return *v }).(TriggerPredicateOutput)
+	return o.ApplyT(func(v *TriggerPredicate) TriggerPredicate { return *v }).(TriggerPredicateOutput)
 }
 
 // A list of the conditions that determine when the trigger will fire. Defined below.
 func (o TriggerPredicatePtrOutput) Conditions() TriggerPredicateConditionArrayOutput {
-	return o.ApplyT(func (v TriggerPredicate) []TriggerPredicateCondition { return v.Conditions }).(TriggerPredicateConditionArrayOutput)
+	return o.ApplyT(func(v TriggerPredicate) []TriggerPredicateCondition { return v.Conditions }).(TriggerPredicateConditionArrayOutput)
 }
 
 // How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
 func (o TriggerPredicatePtrOutput) Logical() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v TriggerPredicate) *string { return v.Logical }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v TriggerPredicate) *string { return v.Logical }).(pulumi.StringPtrOutput)
 }
 
 type TriggerPredicateCondition struct {
@@ -3062,7 +3113,7 @@ func (i TriggerPredicateConditionArray) ToTriggerPredicateConditionArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerPredicateConditionArrayOutput)
 }
 
-type TriggerPredicateConditionOutput struct { *pulumi.OutputState }
+type TriggerPredicateConditionOutput struct{ *pulumi.OutputState }
 
 func (TriggerPredicateConditionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TriggerPredicateCondition)(nil)).Elem()
@@ -3078,30 +3129,30 @@ func (o TriggerPredicateConditionOutput) ToTriggerPredicateConditionOutputWithCo
 
 // The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
 func (o TriggerPredicateConditionOutput) CrawlState() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v TriggerPredicateCondition) *string { return v.CrawlState }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v TriggerPredicateCondition) *string { return v.CrawlState }).(pulumi.StringPtrOutput)
 }
 
 // The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
 func (o TriggerPredicateConditionOutput) CrawlerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v TriggerPredicateCondition) *string { return v.CrawlerName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v TriggerPredicateCondition) *string { return v.CrawlerName }).(pulumi.StringPtrOutput)
 }
 
 // The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
 func (o TriggerPredicateConditionOutput) JobName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v TriggerPredicateCondition) *string { return v.JobName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v TriggerPredicateCondition) *string { return v.JobName }).(pulumi.StringPtrOutput)
 }
 
 // A logical operator. Defaults to `EQUALS`.
 func (o TriggerPredicateConditionOutput) LogicalOperator() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v TriggerPredicateCondition) *string { return v.LogicalOperator }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v TriggerPredicateCondition) *string { return v.LogicalOperator }).(pulumi.StringPtrOutput)
 }
 
 // The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
 func (o TriggerPredicateConditionOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v TriggerPredicateCondition) *string { return v.State }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v TriggerPredicateCondition) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-type TriggerPredicateConditionArrayOutput struct { *pulumi.OutputState}
+type TriggerPredicateConditionArrayOutput struct{ *pulumi.OutputState }
 
 func (TriggerPredicateConditionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]TriggerPredicateCondition)(nil)).Elem()
@@ -3116,7 +3167,7 @@ func (o TriggerPredicateConditionArrayOutput) ToTriggerPredicateConditionArrayOu
 }
 
 func (o TriggerPredicateConditionArrayOutput) Index(i pulumi.IntInput) TriggerPredicateConditionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) TriggerPredicateCondition {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TriggerPredicateCondition {
 		return vs[0].([]TriggerPredicateCondition)[vs[1].(int)]
 	}).(TriggerPredicateConditionOutput)
 }
@@ -3179,7 +3230,7 @@ func (i GetScriptDagEdgeArray) ToGetScriptDagEdgeArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetScriptDagEdgeArrayOutput)
 }
 
-type GetScriptDagEdgeOutput struct { *pulumi.OutputState }
+type GetScriptDagEdgeOutput struct{ *pulumi.OutputState }
 
 func (GetScriptDagEdgeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetScriptDagEdge)(nil)).Elem()
@@ -3195,20 +3246,20 @@ func (o GetScriptDagEdgeOutput) ToGetScriptDagEdgeOutputWithContext(ctx context.
 
 // The ID of the node at which the edge starts.
 func (o GetScriptDagEdgeOutput) Source() pulumi.StringOutput {
-	return o.ApplyT(func (v GetScriptDagEdge) string { return v.Source }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetScriptDagEdge) string { return v.Source }).(pulumi.StringOutput)
 }
 
 // The ID of the node at which the edge ends.
 func (o GetScriptDagEdgeOutput) Target() pulumi.StringOutput {
-	return o.ApplyT(func (v GetScriptDagEdge) string { return v.Target }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetScriptDagEdge) string { return v.Target }).(pulumi.StringOutput)
 }
 
 // The target of the edge.
 func (o GetScriptDagEdgeOutput) TargetParameter() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GetScriptDagEdge) *string { return v.TargetParameter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GetScriptDagEdge) *string { return v.TargetParameter }).(pulumi.StringPtrOutput)
 }
 
-type GetScriptDagEdgeArrayOutput struct { *pulumi.OutputState}
+type GetScriptDagEdgeArrayOutput struct{ *pulumi.OutputState }
 
 func (GetScriptDagEdgeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetScriptDagEdge)(nil)).Elem()
@@ -3223,7 +3274,7 @@ func (o GetScriptDagEdgeArrayOutput) ToGetScriptDagEdgeArrayOutputWithContext(ct
 }
 
 func (o GetScriptDagEdgeArrayOutput) Index(i pulumi.IntInput) GetScriptDagEdgeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetScriptDagEdge {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetScriptDagEdge {
 		return vs[0].([]GetScriptDagEdge)[vs[1].(int)]
 	}).(GetScriptDagEdgeOutput)
 }
@@ -3290,7 +3341,7 @@ func (i GetScriptDagNodeArray) ToGetScriptDagNodeArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetScriptDagNodeArrayOutput)
 }
 
-type GetScriptDagNodeOutput struct { *pulumi.OutputState }
+type GetScriptDagNodeOutput struct{ *pulumi.OutputState }
 
 func (GetScriptDagNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetScriptDagNode)(nil)).Elem()
@@ -3306,25 +3357,25 @@ func (o GetScriptDagNodeOutput) ToGetScriptDagNodeOutputWithContext(ctx context.
 
 // Nested configuration an argument or property of a node. Defined below.
 func (o GetScriptDagNodeOutput) Args() GetScriptDagNodeArgArrayOutput {
-	return o.ApplyT(func (v GetScriptDagNode) []GetScriptDagNodeArg { return v.Args }).(GetScriptDagNodeArgArrayOutput)
+	return o.ApplyT(func(v GetScriptDagNode) []GetScriptDagNodeArg { return v.Args }).(GetScriptDagNodeArgArrayOutput)
 }
 
 // A node identifier that is unique within the node's graph.
 func (o GetScriptDagNodeOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v GetScriptDagNode) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetScriptDagNode) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The line number of the node.
 func (o GetScriptDagNodeOutput) LineNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v GetScriptDagNode) *int { return v.LineNumber }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v GetScriptDagNode) *int { return v.LineNumber }).(pulumi.IntPtrOutput)
 }
 
 // The type of node this is.
 func (o GetScriptDagNodeOutput) NodeType() pulumi.StringOutput {
-	return o.ApplyT(func (v GetScriptDagNode) string { return v.NodeType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetScriptDagNode) string { return v.NodeType }).(pulumi.StringOutput)
 }
 
-type GetScriptDagNodeArrayOutput struct { *pulumi.OutputState}
+type GetScriptDagNodeArrayOutput struct{ *pulumi.OutputState }
 
 func (GetScriptDagNodeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetScriptDagNode)(nil)).Elem()
@@ -3339,7 +3390,7 @@ func (o GetScriptDagNodeArrayOutput) ToGetScriptDagNodeArrayOutputWithContext(ct
 }
 
 func (o GetScriptDagNodeArrayOutput) Index(i pulumi.IntInput) GetScriptDagNodeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetScriptDagNode {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetScriptDagNode {
 		return vs[0].([]GetScriptDagNode)[vs[1].(int)]
 	}).(GetScriptDagNodeOutput)
 }
@@ -3402,7 +3453,7 @@ func (i GetScriptDagNodeArgArray) ToGetScriptDagNodeArgArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetScriptDagNodeArgArrayOutput)
 }
 
-type GetScriptDagNodeArgOutput struct { *pulumi.OutputState }
+type GetScriptDagNodeArgOutput struct{ *pulumi.OutputState }
 
 func (GetScriptDagNodeArgOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetScriptDagNodeArg)(nil)).Elem()
@@ -3418,20 +3469,20 @@ func (o GetScriptDagNodeArgOutput) ToGetScriptDagNodeArgOutputWithContext(ctx co
 
 // The name of the argument or property.
 func (o GetScriptDagNodeArgOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetScriptDagNodeArg) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetScriptDagNodeArg) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Boolean if the value is used as a parameter. Defaults to `false`.
 func (o GetScriptDagNodeArgOutput) Param() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v GetScriptDagNodeArg) *bool { return v.Param }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v GetScriptDagNodeArg) *bool { return v.Param }).(pulumi.BoolPtrOutput)
 }
 
 // The value of the argument or property.
 func (o GetScriptDagNodeArgOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v GetScriptDagNodeArg) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetScriptDagNodeArg) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type GetScriptDagNodeArgArrayOutput struct { *pulumi.OutputState}
+type GetScriptDagNodeArgArrayOutput struct{ *pulumi.OutputState }
 
 func (GetScriptDagNodeArgArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetScriptDagNodeArg)(nil)).Elem()
@@ -3446,7 +3497,7 @@ func (o GetScriptDagNodeArgArrayOutput) ToGetScriptDagNodeArgArrayOutputWithCont
 }
 
 func (o GetScriptDagNodeArgArrayOutput) Index(i pulumi.IntInput) GetScriptDagNodeArgOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetScriptDagNodeArg {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetScriptDagNodeArg {
 		return vs[0].([]GetScriptDagNodeArg)[vs[1].(int)]
 	}).(GetScriptDagNodeArgOutput)
 }

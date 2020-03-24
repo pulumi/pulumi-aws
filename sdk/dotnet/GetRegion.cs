@@ -21,7 +21,23 @@ namespace Pulumi.Aws
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/region.html.markdown.
         /// </summary>
+        [Obsolete("Use GetRegion.InvokeAsync() instead")]
         public static Task<GetRegionResult> GetRegion(GetRegionArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegionResult>("aws:index/getRegion:getRegion", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetRegion
+    {
+        /// <summary>
+        /// `aws..getRegion` provides details about a specific AWS region.
+        /// 
+        /// As well as validating a given region name this resource can be used to
+        /// discover the name of the region configured within the provider. The latter
+        /// can be useful in a child module which is inheriting an AWS provider
+        /// configuration from its parent module.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/region.html.markdown.
+        /// </summary>
+        public static Task<GetRegionResult> InvokeAsync(GetRegionArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegionResult>("aws:index/getRegion:getRegion", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

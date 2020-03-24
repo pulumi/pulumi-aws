@@ -129,4 +129,3 @@ type ServiceLinkedRoleArgs struct {
 func (ServiceLinkedRoleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceLinkedRoleArgs)(nil)).Elem()
 }
-

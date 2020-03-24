@@ -122,4 +122,3 @@ type NamedQueryArgs struct {
 func (NamedQueryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*namedQueryArgs)(nil)).Elem()
 }
-

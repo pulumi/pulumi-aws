@@ -108,4 +108,3 @@ type NetworkInterfaceSecurityGroupAttachmentArgs struct {
 func (NetworkInterfaceSecurityGroupAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkInterfaceSecurityGroupAttachmentArgs)(nil)).Elem()
 }
-

@@ -133,4 +133,3 @@ type PeeringConnectionOptionsArgs struct {
 func (PeeringConnectionOptionsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*peeringConnectionOptionsArgs)(nil)).Elem()
 }
-

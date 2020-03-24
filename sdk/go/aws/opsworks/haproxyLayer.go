@@ -22,18 +22,18 @@ type HaproxyLayer struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps pulumi.BoolPtrOutput `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing pulumi.BoolPtrOutput `pulumi:"autoHealing"`
+	AutoHealing            pulumi.BoolPtrOutput     `pulumi:"autoHealing"`
 	CustomConfigureRecipes pulumi.StringArrayOutput `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes pulumi.StringArrayOutput `pulumi:"customDeployRecipes"`
+	CustomDeployRecipes    pulumi.StringArrayOutput `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrOutput `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
 	CustomJson pulumi.StringPtrOutput `pulumi:"customJson"`
 	// Ids for a set of security groups to apply to the layer's instances.
 	CustomSecurityGroupIds pulumi.StringArrayOutput `pulumi:"customSecurityGroupIds"`
-	CustomSetupRecipes pulumi.StringArrayOutput `pulumi:"customSetupRecipes"`
-	CustomShutdownRecipes pulumi.StringArrayOutput `pulumi:"customShutdownRecipes"`
-	CustomUndeployRecipes pulumi.StringArrayOutput `pulumi:"customUndeployRecipes"`
+	CustomSetupRecipes     pulumi.StringArrayOutput `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes  pulumi.StringArrayOutput `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes  pulumi.StringArrayOutput `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrOutput `pulumi:"drainElbOnShutdown"`
 	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
@@ -105,18 +105,18 @@ type haproxyLayerState struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps *bool `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing *bool `pulumi:"autoHealing"`
+	AutoHealing            *bool    `pulumi:"autoHealing"`
 	CustomConfigureRecipes []string `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes []string `pulumi:"customDeployRecipes"`
+	CustomDeployRecipes    []string `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn *string `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
 	CustomJson *string `pulumi:"customJson"`
 	// Ids for a set of security groups to apply to the layer's instances.
 	CustomSecurityGroupIds []string `pulumi:"customSecurityGroupIds"`
-	CustomSetupRecipes []string `pulumi:"customSetupRecipes"`
-	CustomShutdownRecipes []string `pulumi:"customShutdownRecipes"`
-	CustomUndeployRecipes []string `pulumi:"customUndeployRecipes"`
+	CustomSetupRecipes     []string `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes  []string `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
 	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
@@ -155,18 +155,18 @@ type HaproxyLayerState struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps pulumi.BoolPtrInput
 	// Whether to enable auto-healing for the layer.
-	AutoHealing pulumi.BoolPtrInput
+	AutoHealing            pulumi.BoolPtrInput
 	CustomConfigureRecipes pulumi.StringArrayInput
-	CustomDeployRecipes pulumi.StringArrayInput
+	CustomDeployRecipes    pulumi.StringArrayInput
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrInput
 	// Custom JSON attributes to apply to the layer.
 	CustomJson pulumi.StringPtrInput
 	// Ids for a set of security groups to apply to the layer's instances.
 	CustomSecurityGroupIds pulumi.StringArrayInput
-	CustomSetupRecipes pulumi.StringArrayInput
-	CustomShutdownRecipes pulumi.StringArrayInput
-	CustomUndeployRecipes pulumi.StringArrayInput
+	CustomSetupRecipes     pulumi.StringArrayInput
+	CustomShutdownRecipes  pulumi.StringArrayInput
+	CustomUndeployRecipes  pulumi.StringArrayInput
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrInput
 	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
@@ -209,18 +209,18 @@ type haproxyLayerArgs struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps *bool `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing *bool `pulumi:"autoHealing"`
+	AutoHealing            *bool    `pulumi:"autoHealing"`
 	CustomConfigureRecipes []string `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes []string `pulumi:"customDeployRecipes"`
+	CustomDeployRecipes    []string `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn *string `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
 	CustomJson *string `pulumi:"customJson"`
 	// Ids for a set of security groups to apply to the layer's instances.
 	CustomSecurityGroupIds []string `pulumi:"customSecurityGroupIds"`
-	CustomSetupRecipes []string `pulumi:"customSetupRecipes"`
-	CustomShutdownRecipes []string `pulumi:"customShutdownRecipes"`
-	CustomUndeployRecipes []string `pulumi:"customUndeployRecipes"`
+	CustomSetupRecipes     []string `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes  []string `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
 	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
@@ -260,18 +260,18 @@ type HaproxyLayerArgs struct {
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 	AutoAssignPublicIps pulumi.BoolPtrInput
 	// Whether to enable auto-healing for the layer.
-	AutoHealing pulumi.BoolPtrInput
+	AutoHealing            pulumi.BoolPtrInput
 	CustomConfigureRecipes pulumi.StringArrayInput
-	CustomDeployRecipes pulumi.StringArrayInput
+	CustomDeployRecipes    pulumi.StringArrayInput
 	// The ARN of an IAM profile that will be used for the layer's instances.
 	CustomInstanceProfileArn pulumi.StringPtrInput
 	// Custom JSON attributes to apply to the layer.
 	CustomJson pulumi.StringPtrInput
 	// Ids for a set of security groups to apply to the layer's instances.
 	CustomSecurityGroupIds pulumi.StringArrayInput
-	CustomSetupRecipes pulumi.StringArrayInput
-	CustomShutdownRecipes pulumi.StringArrayInput
-	CustomUndeployRecipes pulumi.StringArrayInput
+	CustomSetupRecipes     pulumi.StringArrayInput
+	CustomShutdownRecipes  pulumi.StringArrayInput
+	CustomUndeployRecipes  pulumi.StringArrayInput
 	// Whether to enable Elastic Load Balancing connection draining.
 	DrainElbOnShutdown pulumi.BoolPtrInput
 	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
@@ -307,4 +307,3 @@ type HaproxyLayerArgs struct {
 func (HaproxyLayerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*haproxyLayerArgs)(nil)).Elem()
 }
-

@@ -21,7 +21,7 @@ type SnapshotSchedule struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
-	Identifier pulumi.StringOutput `pulumi:"identifier"`
+	Identifier   pulumi.StringOutput  `pulumi:"identifier"`
 	// Creates a unique
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringOutput `pulumi:"identifierPrefix"`
@@ -66,8 +66,8 @@ type snapshotScheduleState struct {
 	// The description of the snapshot schedule.
 	Description *string `pulumi:"description"`
 	// Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
-	ForceDestroy *bool `pulumi:"forceDestroy"`
-	Identifier *string `pulumi:"identifier"`
+	ForceDestroy *bool   `pulumi:"forceDestroy"`
+	Identifier   *string `pulumi:"identifier"`
 	// Creates a unique
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
@@ -83,7 +83,7 @@ type SnapshotScheduleState struct {
 	Description pulumi.StringPtrInput
 	// Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
 	ForceDestroy pulumi.BoolPtrInput
-	Identifier pulumi.StringPtrInput
+	Identifier   pulumi.StringPtrInput
 	// Creates a unique
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringPtrInput
@@ -101,8 +101,8 @@ type snapshotScheduleArgs struct {
 	// The description of the snapshot schedule.
 	Description *string `pulumi:"description"`
 	// Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
-	ForceDestroy *bool `pulumi:"forceDestroy"`
-	Identifier *string `pulumi:"identifier"`
+	ForceDestroy *bool   `pulumi:"forceDestroy"`
+	Identifier   *string `pulumi:"identifier"`
 	// Creates a unique
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
@@ -118,7 +118,7 @@ type SnapshotScheduleArgs struct {
 	Description pulumi.StringPtrInput
 	// Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
 	ForceDestroy pulumi.BoolPtrInput
-	Identifier pulumi.StringPtrInput
+	Identifier   pulumi.StringPtrInput
 	// Creates a unique
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringPtrInput
@@ -129,4 +129,3 @@ type SnapshotScheduleArgs struct {
 func (SnapshotScheduleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotScheduleArgs)(nil)).Elem()
 }
-

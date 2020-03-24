@@ -11,7 +11,13 @@ namespace Pulumi.Aws.Ec2
 {
     public static partial class Invokes
     {
+        [Obsolete("Use GetInstances.InvokeAsync() instead")]
         public static Task<GetInstancesResult> GetInstances(GetInstancesArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ec2/getInstances:getInstances", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetInstances
+    {
+        public static Task<GetInstancesResult> InvokeAsync(GetInstancesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ec2/getInstances:getInstances", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

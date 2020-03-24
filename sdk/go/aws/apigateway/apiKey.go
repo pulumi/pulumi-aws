@@ -138,4 +138,3 @@ type ApiKeyArgs struct {
 func (ApiKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiKeyArgs)(nil)).Elem()
 }
-

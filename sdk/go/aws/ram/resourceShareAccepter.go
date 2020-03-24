@@ -123,4 +123,3 @@ type ResourceShareAccepterArgs struct {
 func (ResourceShareAccepterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceShareAccepterArgs)(nil)).Elem()
 }
-

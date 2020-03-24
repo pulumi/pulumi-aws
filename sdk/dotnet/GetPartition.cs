@@ -16,7 +16,18 @@ namespace Pulumi.Aws
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/partition.html.markdown.
         /// </summary>
+        [Obsolete("Use GetPartition.InvokeAsync() instead")]
         public static Task<GetPartitionResult> GetPartition(InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPartitionResult>("aws:index/getPartition:getPartition", InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetPartition
+    {
+        /// <summary>
+        /// Use this data source to lookup current AWS partition in which this provider is working
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/partition.html.markdown.
+        /// </summary>
+        public static Task<GetPartitionResult> InvokeAsync(InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartitionResult>("aws:index/getPartition:getPartition", InvokeArgs.Empty, options.WithVersion());
     }
 

@@ -123,4 +123,3 @@ type ListenerRuleArgs struct {
 func (ListenerRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*listenerRuleArgs)(nil)).Elem()
 }
-

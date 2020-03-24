@@ -217,4 +217,3 @@ type MaintenanceWindowTaskArgs struct {
 func (MaintenanceWindowTaskArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*maintenanceWindowTaskArgs)(nil)).Elem()
 }
-

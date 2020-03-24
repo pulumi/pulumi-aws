@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Kms
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_secrets.html.markdown.
         /// </summary>
+        [Obsolete("Use GetSecrets.InvokeAsync() instead")]
         public static Task<GetSecretsResult> GetSecrets(GetSecretsArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretsResult>("aws:kms/getSecrets:getSecrets", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetSecrets
+    {
+        /// <summary>
+        /// Decrypt multiple secrets from data encrypted with the AWS KMS service.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_secrets.html.markdown.
+        /// </summary>
+        public static Task<GetSecretsResult> InvokeAsync(GetSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretsResult>("aws:kms/getSecrets:getSecrets", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

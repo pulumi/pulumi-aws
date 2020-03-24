@@ -31,13 +31,11 @@ type GetClusterAuthArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getClusterAuth.
 type GetClusterAuthResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The token to use to authenticate with the cluster.
 	Token string `pulumi:"token"`
 }
-

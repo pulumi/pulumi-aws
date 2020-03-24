@@ -41,7 +41,7 @@ type Environment struct {
 	// Name of the application that contains the version
 	// to be deployed
 	Application pulumi.StringOutput `pulumi:"application"`
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn         pulumi.StringOutput `pulumi:"arn"`
 	// The autoscaling groups used by this Environment.
 	AutoscalingGroups pulumi.StringArrayOutput `pulumi:"autoscalingGroups"`
 	// Fully qualified DNS name for this Environment.
@@ -137,7 +137,7 @@ type environmentState struct {
 	// Name of the application that contains the version
 	// to be deployed
 	Application *string `pulumi:"application"`
-	Arn *string `pulumi:"arn"`
+	Arn         *string `pulumi:"arn"`
 	// The autoscaling groups used by this Environment.
 	AutoscalingGroups []string `pulumi:"autoscalingGroups"`
 	// Fully qualified DNS name for this Environment.
@@ -203,7 +203,7 @@ type EnvironmentState struct {
 	// Name of the application that contains the version
 	// to be deployed
 	Application pulumi.StringPtrInput
-	Arn pulumi.StringPtrInput
+	Arn         pulumi.StringPtrInput
 	// The autoscaling groups used by this Environment.
 	AutoscalingGroups pulumi.StringArrayInput
 	// Fully qualified DNS name for this Environment.
@@ -359,4 +359,3 @@ type EnvironmentArgs struct {
 func (EnvironmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentArgs)(nil)).Elem()
 }
-

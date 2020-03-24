@@ -130,4 +130,3 @@ type ThreatIntelSetArgs struct {
 func (ThreatIntelSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*threatIntelSetArgs)(nil)).Elem()
 }
-

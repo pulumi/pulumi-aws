@@ -11,7 +11,13 @@ namespace Pulumi.Aws.Rds
 {
     public static partial class Invokes
     {
+        [Obsolete("Use GetEventCategories.InvokeAsync() instead")]
         public static Task<GetEventCategoriesResult> GetEventCategories(GetEventCategoriesArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventCategoriesResult>("aws:rds/getEventCategories:getEventCategories", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetEventCategories
+    {
+        public static Task<GetEventCategoriesResult> InvokeAsync(GetEventCategoriesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventCategoriesResult>("aws:rds/getEventCategories:getEventCategories", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

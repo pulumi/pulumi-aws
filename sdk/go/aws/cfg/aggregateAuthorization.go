@@ -108,4 +108,3 @@ type AggregateAuthorizationArgs struct {
 func (AggregateAuthorizationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*aggregateAuthorizationArgs)(nil)).Elem()
 }
-

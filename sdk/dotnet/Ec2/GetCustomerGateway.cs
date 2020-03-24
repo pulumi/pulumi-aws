@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/customer_gateway.html.markdown.
         /// </summary>
+        [Obsolete("Use GetCustomerGateway.InvokeAsync() instead")]
         public static Task<GetCustomerGatewayResult> GetCustomerGateway(GetCustomerGatewayArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerGatewayResult>("aws:ec2/getCustomerGateway:getCustomerGateway", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetCustomerGateway
+    {
+        /// <summary>
+        /// Get an existing AWS Customer Gateway.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/customer_gateway.html.markdown.
+        /// </summary>
+        public static Task<GetCustomerGatewayResult> InvokeAsync(GetCustomerGatewayArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerGatewayResult>("aws:ec2/getCustomerGateway:getCustomerGateway", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

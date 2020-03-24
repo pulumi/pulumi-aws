@@ -26,7 +26,6 @@ type LookupApplicationArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getApplication.
 type LookupApplicationResult struct {
 	AppversionLifecycle GetApplicationAppversionLifecycle `pulumi:"appversionLifecycle"`
@@ -35,7 +34,6 @@ type LookupApplicationResult struct {
 	// Short description of the application
 	Description string `pulumi:"description"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
-

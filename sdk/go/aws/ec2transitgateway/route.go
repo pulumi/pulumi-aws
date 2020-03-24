@@ -112,4 +112,3 @@ type RouteArgs struct {
 func (RouteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeArgs)(nil)).Elem()
 }
-

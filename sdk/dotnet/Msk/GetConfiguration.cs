@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Msk
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_configuration.html.markdown.
         /// </summary>
+        [Obsolete("Use GetConfiguration.InvokeAsync() instead")]
         public static Task<GetConfigurationResult> GetConfiguration(GetConfigurationArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("aws:msk/getConfiguration:getConfiguration", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetConfiguration
+    {
+        /// <summary>
+        /// Get information on an Amazon MSK Configuration.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_configuration.html.markdown.
+        /// </summary>
+        public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("aws:msk/getConfiguration:getConfiguration", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

@@ -27,4 +27,3 @@ type LookupEncryptionByDefaultResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }
-

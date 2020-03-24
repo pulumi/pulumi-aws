@@ -181,4 +181,3 @@ type ReportDefinitionArgs struct {
 func (ReportDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*reportDefinitionArgs)(nil)).Elem()
 }
-

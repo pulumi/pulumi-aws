@@ -25,7 +25,7 @@ import (
 type EventSubscription struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn           pulumi.StringOutput `pulumi:"arn"`
 	CustomerAwsId pulumi.StringOutput `pulumi:"customerAwsId"`
 	// A boolean flag to enable/disable the subscription. Defaults to true.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
@@ -41,7 +41,7 @@ type EventSubscription struct {
 	SourceIds pulumi.StringArrayOutput `pulumi:"sourceIds"`
 	// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
 	SourceType pulumi.StringPtrOutput `pulumi:"sourceType"`
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status     pulumi.StringOutput    `pulumi:"status"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
@@ -77,7 +77,7 @@ func GetEventSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventSubscription resources.
 type eventSubscriptionState struct {
-	Arn *string `pulumi:"arn"`
+	Arn           *string `pulumi:"arn"`
 	CustomerAwsId *string `pulumi:"customerAwsId"`
 	// A boolean flag to enable/disable the subscription. Defaults to true.
 	Enabled *bool `pulumi:"enabled"`
@@ -93,13 +93,13 @@ type eventSubscriptionState struct {
 	SourceIds []string `pulumi:"sourceIds"`
 	// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
 	SourceType *string `pulumi:"sourceType"`
-	Status *string `pulumi:"status"`
+	Status     *string `pulumi:"status"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 type EventSubscriptionState struct {
-	Arn pulumi.StringPtrInput
+	Arn           pulumi.StringPtrInput
 	CustomerAwsId pulumi.StringPtrInput
 	// A boolean flag to enable/disable the subscription. Defaults to true.
 	Enabled pulumi.BoolPtrInput
@@ -115,7 +115,7 @@ type EventSubscriptionState struct {
 	SourceIds pulumi.StringArrayInput
 	// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
 	SourceType pulumi.StringPtrInput
-	Status pulumi.StringPtrInput
+	Status     pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
@@ -166,4 +166,3 @@ type EventSubscriptionArgs struct {
 func (EventSubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventSubscriptionArgs)(nil)).Elem()
 }
-

@@ -121,4 +121,3 @@ type RdsDbInstanceArgs struct {
 func (RdsDbInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*rdsDbInstanceArgs)(nil)).Elem()
 }
-

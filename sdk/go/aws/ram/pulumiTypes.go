@@ -65,7 +65,7 @@ func (i GetResourceShareFilterArray) ToGetResourceShareFilterArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetResourceShareFilterArrayOutput)
 }
 
-type GetResourceShareFilterOutput struct { *pulumi.OutputState }
+type GetResourceShareFilterOutput struct{ *pulumi.OutputState }
 
 func (GetResourceShareFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetResourceShareFilter)(nil)).Elem()
@@ -81,15 +81,15 @@ func (o GetResourceShareFilterOutput) ToGetResourceShareFilterOutputWithContext(
 
 // The name of the tag key to filter on.
 func (o GetResourceShareFilterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetResourceShareFilter) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetResourceShareFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The value of the tag key.
 func (o GetResourceShareFilterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetResourceShareFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetResourceShareFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-type GetResourceShareFilterArrayOutput struct { *pulumi.OutputState}
+type GetResourceShareFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (GetResourceShareFilterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetResourceShareFilter)(nil)).Elem()
@@ -104,7 +104,7 @@ func (o GetResourceShareFilterArrayOutput) ToGetResourceShareFilterArrayOutputWi
 }
 
 func (o GetResourceShareFilterArrayOutput) Index(i pulumi.IntInput) GetResourceShareFilterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetResourceShareFilter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResourceShareFilter {
 		return vs[0].([]GetResourceShareFilter)[vs[1].(int)]
 	}).(GetResourceShareFilterOutput)
 }

@@ -101,4 +101,3 @@ type OrganizationalUnitArgs struct {
 func (OrganizationalUnitArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationalUnitArgs)(nil)).Elem()
 }
-

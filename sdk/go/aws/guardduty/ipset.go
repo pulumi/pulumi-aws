@@ -130,4 +130,3 @@ type IPSetArgs struct {
 func (IPSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipsetArgs)(nil)).Elem()
 }
-

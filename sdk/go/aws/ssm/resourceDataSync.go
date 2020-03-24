@@ -99,4 +99,3 @@ type ResourceDataSyncArgs struct {
 func (ResourceDataSyncArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceDataSyncArgs)(nil)).Elem()
 }
-

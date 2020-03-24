@@ -226,4 +226,3 @@ type StackArgs struct {
 func (StackArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackArgs)(nil)).Elem()
 }
-

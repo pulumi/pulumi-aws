@@ -163,4 +163,3 @@ type JobDefinitionArgs struct {
 func (JobDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobDefinitionArgs)(nil)).Elem()
 }
-

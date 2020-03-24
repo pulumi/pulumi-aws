@@ -88,4 +88,3 @@ type HttpNamespaceArgs struct {
 func (HttpNamespaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*httpNamespaceArgs)(nil)).Elem()
 }
-

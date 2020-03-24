@@ -132,4 +132,3 @@ type LoadBalancerCookieStickinessPolicyArgs struct {
 func (LoadBalancerCookieStickinessPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerCookieStickinessPolicyArgs)(nil)).Elem()
 }
-

@@ -94,4 +94,3 @@ type WorkingStorageArgs struct {
 func (WorkingStorageArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workingStorageArgs)(nil)).Elem()
 }
-

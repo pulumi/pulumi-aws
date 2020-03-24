@@ -12,9 +12,9 @@ import (
 )
 
 type ClusterNode struct {
-	Address *string `pulumi:"address"`
+	Address          *string `pulumi:"address"`
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	Id *string `pulumi:"id"`
+	Id               *string `pulumi:"id"`
 	// The port used by the configuration endpoint
 	Port *int `pulumi:"port"`
 }
@@ -27,9 +27,9 @@ type ClusterNodeInput interface {
 }
 
 type ClusterNodeArgs struct {
-	Address pulumi.StringPtrInput `pulumi:"address"`
+	Address          pulumi.StringPtrInput `pulumi:"address"`
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id               pulumi.StringPtrInput `pulumi:"id"`
 	// The port used by the configuration endpoint
 	Port pulumi.IntPtrInput `pulumi:"port"`
 }
@@ -67,7 +67,7 @@ func (i ClusterNodeArray) ToClusterNodeArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeArrayOutput)
 }
 
-type ClusterNodeOutput struct { *pulumi.OutputState }
+type ClusterNodeOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterNode)(nil)).Elem()
@@ -82,23 +82,23 @@ func (o ClusterNodeOutput) ToClusterNodeOutputWithContext(ctx context.Context) C
 }
 
 func (o ClusterNodeOutput) Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNode) *string { return v.Address }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNode) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterNodeOutput) AvailabilityZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNode) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNode) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterNodeOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ClusterNode) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ClusterNode) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The port used by the configuration endpoint
 func (o ClusterNodeOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ClusterNode) *int { return v.Port }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v ClusterNode) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-type ClusterNodeArrayOutput struct { *pulumi.OutputState}
+type ClusterNodeArrayOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ClusterNode)(nil)).Elem()
@@ -113,7 +113,7 @@ func (o ClusterNodeArrayOutput) ToClusterNodeArrayOutputWithContext(ctx context.
 }
 
 func (o ClusterNodeArrayOutput) Index(i pulumi.IntInput) ClusterNodeOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ClusterNode {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterNode {
 		return vs[0].([]ClusterNode)[vs[1].(int)]
 	}).(ClusterNodeOutput)
 }
@@ -164,7 +164,8 @@ type ClusterServerSideEncryptionPtrInput interface {
 
 type clusterServerSideEncryptionPtrType ClusterServerSideEncryptionArgs
 
-func ClusterServerSideEncryptionPtr(v *ClusterServerSideEncryptionArgs) ClusterServerSideEncryptionPtrInput {	return (*clusterServerSideEncryptionPtrType)(v)
+func ClusterServerSideEncryptionPtr(v *ClusterServerSideEncryptionArgs) ClusterServerSideEncryptionPtrInput {
+	return (*clusterServerSideEncryptionPtrType)(v)
 }
 
 func (*clusterServerSideEncryptionPtrType) ElementType() reflect.Type {
@@ -179,7 +180,7 @@ func (i *clusterServerSideEncryptionPtrType) ToClusterServerSideEncryptionPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServerSideEncryptionPtrOutput)
 }
 
-type ClusterServerSideEncryptionOutput struct { *pulumi.OutputState }
+type ClusterServerSideEncryptionOutput struct{ *pulumi.OutputState }
 
 func (ClusterServerSideEncryptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterServerSideEncryption)(nil)).Elem()
@@ -202,12 +203,13 @@ func (o ClusterServerSideEncryptionOutput) ToClusterServerSideEncryptionPtrOutpu
 		return &v
 	}).(ClusterServerSideEncryptionPtrOutput)
 }
+
 // Whether to enable encryption at rest. Defaults to `false`.
 func (o ClusterServerSideEncryptionOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServerSideEncryption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServerSideEncryption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-type ClusterServerSideEncryptionPtrOutput struct { *pulumi.OutputState}
+type ClusterServerSideEncryptionPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServerSideEncryptionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterServerSideEncryption)(nil)).Elem()
@@ -222,17 +224,17 @@ func (o ClusterServerSideEncryptionPtrOutput) ToClusterServerSideEncryptionPtrOu
 }
 
 func (o ClusterServerSideEncryptionPtrOutput) Elem() ClusterServerSideEncryptionOutput {
-	return o.ApplyT(func (v *ClusterServerSideEncryption) ClusterServerSideEncryption { return *v }).(ClusterServerSideEncryptionOutput)
+	return o.ApplyT(func(v *ClusterServerSideEncryption) ClusterServerSideEncryption { return *v }).(ClusterServerSideEncryptionOutput)
 }
 
 // Whether to enable encryption at rest. Defaults to `false`.
 func (o ClusterServerSideEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ClusterServerSideEncryption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v ClusterServerSideEncryption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 type ParameterGroupParameter struct {
 	// The name of the parameter group.
-	Name string `pulumi:"name"`
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -245,7 +247,7 @@ type ParameterGroupParameterInput interface {
 
 type ParameterGroupParameterArgs struct {
 	// The name of the parameter group.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -282,7 +284,7 @@ func (i ParameterGroupParameterArray) ToParameterGroupParameterArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupParameterArrayOutput)
 }
 
-type ParameterGroupParameterOutput struct { *pulumi.OutputState }
+type ParameterGroupParameterOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupParameterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ParameterGroupParameter)(nil)).Elem()
@@ -298,14 +300,14 @@ func (o ParameterGroupParameterOutput) ToParameterGroupParameterOutputWithContex
 
 // The name of the parameter group.
 func (o ParameterGroupParameterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o ParameterGroupParameterOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v ParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type ParameterGroupParameterArrayOutput struct { *pulumi.OutputState}
+type ParameterGroupParameterArrayOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupParameterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ParameterGroupParameter)(nil)).Elem()
@@ -320,7 +322,7 @@ func (o ParameterGroupParameterArrayOutput) ToParameterGroupParameterArrayOutput
 }
 
 func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGroupParameterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ParameterGroupParameter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ParameterGroupParameter {
 		return vs[0].([]ParameterGroupParameter)[vs[1].(int)]
 	}).(ParameterGroupParameterOutput)
 }

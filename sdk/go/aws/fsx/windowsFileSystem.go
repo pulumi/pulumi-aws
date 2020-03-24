@@ -237,4 +237,3 @@ type WindowsFileSystemArgs struct {
 func (WindowsFileSystemArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*windowsFileSystemArgs)(nil)).Elem()
 }
-

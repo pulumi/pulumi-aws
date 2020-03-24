@@ -19,7 +19,7 @@ type Application struct {
 	// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
 	ComputePlatform pulumi.StringPtrOutput `pulumi:"computePlatform"`
 	// The name of the application.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name     pulumi.StringOutput `pulumi:"name"`
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 }
 
@@ -54,7 +54,7 @@ type applicationState struct {
 	// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
 	ComputePlatform *string `pulumi:"computePlatform"`
 	// The name of the application.
-	Name *string `pulumi:"name"`
+	Name     *string `pulumi:"name"`
 	UniqueId *string `pulumi:"uniqueId"`
 }
 
@@ -62,7 +62,7 @@ type ApplicationState struct {
 	// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
 	ComputePlatform pulumi.StringPtrInput
 	// The name of the application.
-	Name pulumi.StringPtrInput
+	Name     pulumi.StringPtrInput
 	UniqueId pulumi.StringPtrInput
 }
 
@@ -74,7 +74,7 @@ type applicationArgs struct {
 	// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
 	ComputePlatform *string `pulumi:"computePlatform"`
 	// The name of the application.
-	Name *string `pulumi:"name"`
+	Name     *string `pulumi:"name"`
 	UniqueId *string `pulumi:"uniqueId"`
 }
 
@@ -83,11 +83,10 @@ type ApplicationArgs struct {
 	// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
 	ComputePlatform pulumi.StringPtrInput
 	// The name of the application.
-	Name pulumi.StringPtrInput
+	Name     pulumi.StringPtrInput
 	UniqueId pulumi.StringPtrInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationArgs)(nil)).Elem()
 }
-

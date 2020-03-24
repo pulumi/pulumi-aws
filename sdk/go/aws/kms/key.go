@@ -36,7 +36,7 @@ type Key struct {
 	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrOutput `pulumi:"keyUsage"`
-	Policy pulumi.StringOutput `pulumi:"policy"`
+	Policy   pulumi.StringOutput    `pulumi:"policy"`
 	// A mapping of tags to assign to the object.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
@@ -89,7 +89,7 @@ type keyState struct {
 	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage *string `pulumi:"keyUsage"`
-	Policy *string `pulumi:"policy"`
+	Policy   *string `pulumi:"policy"`
 	// A mapping of tags to assign to the object.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
@@ -115,7 +115,7 @@ type KeyState struct {
 	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrInput
-	Policy pulumi.StringPtrInput
+	Policy   pulumi.StringPtrInput
 	// A mapping of tags to assign to the object.
 	Tags pulumi.MapInput
 }
@@ -141,7 +141,7 @@ type keyArgs struct {
 	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage *string `pulumi:"keyUsage"`
-	Policy *string `pulumi:"policy"`
+	Policy   *string `pulumi:"policy"`
 	// A mapping of tags to assign to the object.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
@@ -164,7 +164,7 @@ type KeyArgs struct {
 	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrInput
-	Policy pulumi.StringPtrInput
+	Policy   pulumi.StringPtrInput
 	// A mapping of tags to assign to the object.
 	Tags pulumi.MapInput
 }
@@ -172,4 +172,3 @@ type KeyArgs struct {
 func (KeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyArgs)(nil)).Elem()
 }
-

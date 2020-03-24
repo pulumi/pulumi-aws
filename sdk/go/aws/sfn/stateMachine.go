@@ -124,4 +124,3 @@ type StateMachineArgs struct {
 func (StateMachineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stateMachineArgs)(nil)).Elem()
 }
-

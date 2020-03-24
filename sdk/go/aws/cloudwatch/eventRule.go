@@ -166,4 +166,3 @@ type EventRuleArgs struct {
 func (EventRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventRuleArgs)(nil)).Elem()
 }
-

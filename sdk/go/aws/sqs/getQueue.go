@@ -25,21 +25,19 @@ func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getQueue.
 type LookupQueueArgs struct {
 	// The name of the queue to match.
-	Name string `pulumi:"name"`
+	Name string                 `pulumi:"name"`
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getQueue.
 type LookupQueueResult struct {
 	// The Amazon Resource Name (ARN) of the queue.
 	Arn string `pulumi:"arn"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// A mapping of tags for the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The URL of the queue.
 	Url string `pulumi:"url"`
 }
-

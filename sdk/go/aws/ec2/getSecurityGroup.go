@@ -40,17 +40,15 @@ type LookupSecurityGroupArgs struct {
 	VpcId *string `pulumi:"vpcId"`
 }
 
-
 // A collection of values returned by getSecurityGroup.
 type LookupSecurityGroupResult struct {
 	// The computed ARN of the security group.
 	Arn string `pulumi:"arn"`
 	// The description of the security group.
-	Description string `pulumi:"description"`
-	Filters []GetSecurityGroupFilter `pulumi:"filters"`
-	Id string `pulumi:"id"`
-	Name string `pulumi:"name"`
-	Tags map[string]interface{} `pulumi:"tags"`
-	VpcId string `pulumi:"vpcId"`
+	Description string                   `pulumi:"description"`
+	Filters     []GetSecurityGroupFilter `pulumi:"filters"`
+	Id          string                   `pulumi:"id"`
+	Name        string                   `pulumi:"name"`
+	Tags        map[string]interface{}   `pulumi:"tags"`
+	VpcId       string                   `pulumi:"vpcId"`
 }
-

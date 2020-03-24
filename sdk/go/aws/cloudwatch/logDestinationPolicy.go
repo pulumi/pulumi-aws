@@ -92,4 +92,3 @@ type LogDestinationPolicyArgs struct {
 func (LogDestinationPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logDestinationPolicyArgs)(nil)).Elem()
 }
-

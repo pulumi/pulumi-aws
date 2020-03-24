@@ -26,8 +26,8 @@ type VpnConnection struct {
 	// The configuration information for the VPN connection's customer gateway (in the native XML format).
 	CustomerGatewayConfiguration pulumi.StringOutput `pulumi:"customerGatewayConfiguration"`
 	// The ID of the customer gateway.
-	CustomerGatewayId pulumi.StringOutput `pulumi:"customerGatewayId"`
-	Routes VpnConnectionRouteTypeArrayOutput `pulumi:"routes"`
+	CustomerGatewayId pulumi.StringOutput               `pulumi:"customerGatewayId"`
+	Routes            VpnConnectionRouteTypeArrayOutput `pulumi:"routes"`
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly pulumi.BoolOutput `pulumi:"staticRoutesOnly"`
 	// Tags to apply to the connection.
@@ -65,7 +65,7 @@ type VpnConnection struct {
 	// The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
 	Tunnel2VgwInsideAddress pulumi.StringOutput `pulumi:"tunnel2VgwInsideAddress"`
 	// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type           pulumi.StringOutput                  `pulumi:"type"`
 	VgwTelemetries VpnConnectionVgwTelemetryArrayOutput `pulumi:"vgwTelemetries"`
 	// The ID of the Virtual Private Gateway.
 	VpnGatewayId pulumi.StringPtrOutput `pulumi:"vpnGatewayId"`
@@ -108,8 +108,8 @@ type vpnConnectionState struct {
 	// The configuration information for the VPN connection's customer gateway (in the native XML format).
 	CustomerGatewayConfiguration *string `pulumi:"customerGatewayConfiguration"`
 	// The ID of the customer gateway.
-	CustomerGatewayId *string `pulumi:"customerGatewayId"`
-	Routes []VpnConnectionRouteType `pulumi:"routes"`
+	CustomerGatewayId *string                  `pulumi:"customerGatewayId"`
+	Routes            []VpnConnectionRouteType `pulumi:"routes"`
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly *bool `pulumi:"staticRoutesOnly"`
 	// Tags to apply to the connection.
@@ -147,7 +147,7 @@ type vpnConnectionState struct {
 	// The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
 	Tunnel2VgwInsideAddress *string `pulumi:"tunnel2VgwInsideAddress"`
 	// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
-	Type *string `pulumi:"type"`
+	Type           *string                     `pulumi:"type"`
 	VgwTelemetries []VpnConnectionVgwTelemetry `pulumi:"vgwTelemetries"`
 	// The ID of the Virtual Private Gateway.
 	VpnGatewayId *string `pulumi:"vpnGatewayId"`
@@ -158,7 +158,7 @@ type VpnConnectionState struct {
 	CustomerGatewayConfiguration pulumi.StringPtrInput
 	// The ID of the customer gateway.
 	CustomerGatewayId pulumi.StringPtrInput
-	Routes VpnConnectionRouteTypeArrayInput
+	Routes            VpnConnectionRouteTypeArrayInput
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly pulumi.BoolPtrInput
 	// Tags to apply to the connection.
@@ -196,7 +196,7 @@ type VpnConnectionState struct {
 	// The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
 	Tunnel2VgwInsideAddress pulumi.StringPtrInput
 	// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
-	Type pulumi.StringPtrInput
+	Type           pulumi.StringPtrInput
 	VgwTelemetries VpnConnectionVgwTelemetryArrayInput
 	// The ID of the Virtual Private Gateway.
 	VpnGatewayId pulumi.StringPtrInput
@@ -256,4 +256,3 @@ type VpnConnectionArgs struct {
 func (VpnConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnConnectionArgs)(nil)).Elem()
 }
-

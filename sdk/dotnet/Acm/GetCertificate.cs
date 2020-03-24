@@ -18,7 +18,20 @@ namespace Pulumi.Aws.Acm
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acm_certificate.html.markdown.
         /// </summary>
+        [Obsolete("Use GetCertificate.InvokeAsync() instead")]
         public static Task<GetCertificateResult> GetCertificate(GetCertificateArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("aws:acm/getCertificate:getCertificate", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetCertificate
+    {
+        /// <summary>
+        /// Use this data source to get the ARN of a certificate in AWS Certificate
+        /// Manager (ACM), you can reference
+        /// it by domain without having to hard code the ARNs as input.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acm_certificate.html.markdown.
+        /// </summary>
+        public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("aws:acm/getCertificate:getCertificate", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

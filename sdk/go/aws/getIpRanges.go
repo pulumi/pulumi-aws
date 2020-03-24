@@ -36,7 +36,6 @@ type GetIpRangesArgs struct {
 	Url *string `pulumi:"url"`
 }
 
-
 // A collection of values returned by getIpRanges.
 type GetIpRangesResult struct {
 	// The lexically ordered list of CIDR blocks.
@@ -47,11 +46,10 @@ type GetIpRangesResult struct {
 	Id string `pulumi:"id"`
 	// The lexically ordered list of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
-	Regions []string `pulumi:"regions"`
-	Services []string `pulumi:"services"`
+	Regions        []string `pulumi:"regions"`
+	Services       []string `pulumi:"services"`
 	// The publication time of the IP ranges, in Unix epoch time format
 	// (e.g. `1470267965`).
-	SyncToken int `pulumi:"syncToken"`
-	Url *string `pulumi:"url"`
+	SyncToken int     `pulumi:"syncToken"`
+	Url       *string `pulumi:"url"`
 }
-

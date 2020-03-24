@@ -102,4 +102,3 @@ type PrincipalAssociationArgs struct {
 func (PrincipalAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*principalAssociationArgs)(nil)).Elem()
 }
-

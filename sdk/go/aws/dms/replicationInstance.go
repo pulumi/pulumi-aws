@@ -230,4 +230,3 @@ type ReplicationInstanceArgs struct {
 func (ReplicationInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationInstanceArgs)(nil)).Elem()
 }
-

@@ -19,7 +19,21 @@ namespace Pulumi.Aws.ApiGateway
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_vpc_link.html.markdown.
         /// </summary>
+        [Obsolete("Use GetVpcLink.InvokeAsync() instead")]
         public static Task<GetVpcLinkResult> GetVpcLink(GetVpcLinkArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcLinkResult>("aws:apigateway/getVpcLink:getVpcLink", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetVpcLink
+    {
+        /// <summary>
+        /// Use this data source to get the id of a VPC Link in
+        /// API Gateway. To fetch the VPC Link you must provide a name to match against. 
+        /// As there is no unique name constraint on API Gateway VPC Links this data source will 
+        /// error if there is more than one match.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_vpc_link.html.markdown.
+        /// </summary>
+        public static Task<GetVpcLinkResult> InvokeAsync(GetVpcLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpcLinkResult>("aws:apigateway/getVpcLink:getVpcLink", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

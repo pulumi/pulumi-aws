@@ -18,7 +18,20 @@ namespace Pulumi.Aws.Kms
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_alias.html.markdown.
         /// </summary>
+        [Obsolete("Use GetAlias.InvokeAsync() instead")]
         public static Task<GetAliasResult> GetAlias(GetAliasArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:kms/getAlias:getAlias", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetAlias
+    {
+        /// <summary>
+        /// Use this data source to get the ARN of a KMS key alias.
+        /// By using this data source, you can reference key alias
+        /// without having to hard code the ARN as input.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_alias.html.markdown.
+        /// </summary>
+        public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:kms/getAlias:getAlias", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

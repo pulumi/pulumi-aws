@@ -180,4 +180,3 @@ type ReplicationTaskArgs struct {
 func (ReplicationTaskArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationTaskArgs)(nil)).Elem()
 }
-

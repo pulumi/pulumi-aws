@@ -50,7 +50,7 @@ type Topic struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The friendly name for the SNS topic. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
-	Policy pulumi.StringOutput `pulumi:"policy"`
+	Policy     pulumi.StringOutput    `pulumi:"policy"`
 	// IAM role for failure feedback
 	SqsFailureFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"sqsFailureFeedbackRoleArn"`
 	// The IAM role permitted to receive success feedback for this topic
@@ -119,7 +119,7 @@ type topicState struct {
 	Name *string `pulumi:"name"`
 	// The friendly name for the SNS topic. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	Policy *string `pulumi:"policy"`
+	Policy     *string `pulumi:"policy"`
 	// IAM role for failure feedback
 	SqsFailureFeedbackRoleArn *string `pulumi:"sqsFailureFeedbackRoleArn"`
 	// The IAM role permitted to receive success feedback for this topic
@@ -161,7 +161,7 @@ type TopicState struct {
 	Name pulumi.StringPtrInput
 	// The friendly name for the SNS topic. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	Policy pulumi.StringPtrInput
+	Policy     pulumi.StringPtrInput
 	// IAM role for failure feedback
 	SqsFailureFeedbackRoleArn pulumi.StringPtrInput
 	// The IAM role permitted to receive success feedback for this topic
@@ -205,7 +205,7 @@ type topicArgs struct {
 	Name *string `pulumi:"name"`
 	// The friendly name for the SNS topic. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	Policy *string `pulumi:"policy"`
+	Policy     *string `pulumi:"policy"`
 	// IAM role for failure feedback
 	SqsFailureFeedbackRoleArn *string `pulumi:"sqsFailureFeedbackRoleArn"`
 	// The IAM role permitted to receive success feedback for this topic
@@ -246,7 +246,7 @@ type TopicArgs struct {
 	Name pulumi.StringPtrInput
 	// The friendly name for the SNS topic. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	Policy pulumi.StringPtrInput
+	Policy     pulumi.StringPtrInput
 	// IAM role for failure feedback
 	SqsFailureFeedbackRoleArn pulumi.StringPtrInput
 	// The IAM role permitted to receive success feedback for this topic
@@ -260,4 +260,3 @@ type TopicArgs struct {
 func (TopicArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*topicArgs)(nil)).Elem()
 }
-

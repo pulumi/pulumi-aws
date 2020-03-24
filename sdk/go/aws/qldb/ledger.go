@@ -14,9 +14,9 @@ type Ledger struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the QLDB Ledger
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn                pulumi.StringOutput  `pulumi:"arn"`
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name               pulumi.StringOutput  `pulumi:"name"`
 	// Key-value mapping of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
@@ -50,18 +50,18 @@ func GetLedger(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Ledger resources.
 type ledgerState struct {
 	// The ARN of the QLDB Ledger
-	Arn *string `pulumi:"arn"`
-	DeletionProtection *bool `pulumi:"deletionProtection"`
-	Name *string `pulumi:"name"`
+	Arn                *string `pulumi:"arn"`
+	DeletionProtection *bool   `pulumi:"deletionProtection"`
+	Name               *string `pulumi:"name"`
 	// Key-value mapping of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 type LedgerState struct {
 	// The ARN of the QLDB Ledger
-	Arn pulumi.StringPtrInput
+	Arn                pulumi.StringPtrInput
 	DeletionProtection pulumi.BoolPtrInput
-	Name pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
 	// Key-value mapping of resource tags
 	Tags pulumi.MapInput
 }
@@ -71,8 +71,8 @@ func (LedgerState) ElementType() reflect.Type {
 }
 
 type ledgerArgs struct {
-	DeletionProtection *bool `pulumi:"deletionProtection"`
-	Name *string `pulumi:"name"`
+	DeletionProtection *bool   `pulumi:"deletionProtection"`
+	Name               *string `pulumi:"name"`
 	// Key-value mapping of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
@@ -80,7 +80,7 @@ type ledgerArgs struct {
 // The set of arguments for constructing a Ledger resource.
 type LedgerArgs struct {
 	DeletionProtection pulumi.BoolPtrInput
-	Name pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
 	// Key-value mapping of resource tags
 	Tags pulumi.MapInput
 }
@@ -88,4 +88,3 @@ type LedgerArgs struct {
 func (LedgerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ledgerArgs)(nil)).Elem()
 }
-

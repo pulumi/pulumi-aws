@@ -111,4 +111,3 @@ type PlanArgs struct {
 func (PlanArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*planArgs)(nil)).Elem()
 }
-

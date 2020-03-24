@@ -32,11 +32,11 @@ type SnapshotCopy struct {
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias pulumi.StringOutput `pulumi:"ownerAlias"`
 	// The AWS account ID of the snapshot owner.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	SourceRegion pulumi.StringOutput `pulumi:"sourceRegion"`
+	OwnerId          pulumi.StringOutput `pulumi:"ownerId"`
+	SourceRegion     pulumi.StringOutput `pulumi:"sourceRegion"`
 	SourceSnapshotId pulumi.StringOutput `pulumi:"sourceSnapshotId"`
 	// A mapping of tags for the snapshot.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags     pulumi.MapOutput    `pulumi:"tags"`
 	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
 	VolumeSize pulumi.IntOutput `pulumi:"volumeSize"`
@@ -91,12 +91,12 @@ type snapshotCopyState struct {
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias *string `pulumi:"ownerAlias"`
 	// The AWS account ID of the snapshot owner.
-	OwnerId *string `pulumi:"ownerId"`
-	SourceRegion *string `pulumi:"sourceRegion"`
+	OwnerId          *string `pulumi:"ownerId"`
+	SourceRegion     *string `pulumi:"sourceRegion"`
 	SourceSnapshotId *string `pulumi:"sourceSnapshotId"`
 	// A mapping of tags for the snapshot.
-	Tags map[string]interface{} `pulumi:"tags"`
-	VolumeId *string `pulumi:"volumeId"`
+	Tags     map[string]interface{} `pulumi:"tags"`
+	VolumeId *string                `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
 	VolumeSize *int `pulumi:"volumeSize"`
 }
@@ -117,11 +117,11 @@ type SnapshotCopyState struct {
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias pulumi.StringPtrInput
 	// The AWS account ID of the snapshot owner.
-	OwnerId pulumi.StringPtrInput
-	SourceRegion pulumi.StringPtrInput
+	OwnerId          pulumi.StringPtrInput
+	SourceRegion     pulumi.StringPtrInput
 	SourceSnapshotId pulumi.StringPtrInput
 	// A mapping of tags for the snapshot.
-	Tags pulumi.MapInput
+	Tags     pulumi.MapInput
 	VolumeId pulumi.StringPtrInput
 	// The size of the drive in GiBs.
 	VolumeSize pulumi.IntPtrInput
@@ -139,9 +139,9 @@ type snapshotCopyArgs struct {
 	// The ARN for the KMS encryption key.
 	// * `sourceSnapshotId` The ARN for the snapshot to be copied.
 	// * `sourceRegion` The region of the source snapshot.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	SourceRegion string `pulumi:"sourceRegion"`
-	SourceSnapshotId string `pulumi:"sourceSnapshotId"`
+	KmsKeyId         *string `pulumi:"kmsKeyId"`
+	SourceRegion     string  `pulumi:"sourceRegion"`
+	SourceSnapshotId string  `pulumi:"sourceSnapshotId"`
 	// A mapping of tags for the snapshot.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
@@ -155,8 +155,8 @@ type SnapshotCopyArgs struct {
 	// The ARN for the KMS encryption key.
 	// * `sourceSnapshotId` The ARN for the snapshot to be copied.
 	// * `sourceRegion` The region of the source snapshot.
-	KmsKeyId pulumi.StringPtrInput
-	SourceRegion pulumi.StringInput
+	KmsKeyId         pulumi.StringPtrInput
+	SourceRegion     pulumi.StringInput
 	SourceSnapshotId pulumi.StringInput
 	// A mapping of tags for the snapshot.
 	Tags pulumi.MapInput
@@ -165,4 +165,3 @@ type SnapshotCopyArgs struct {
 func (SnapshotCopyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotCopyArgs)(nil)).Elem()
 }
-

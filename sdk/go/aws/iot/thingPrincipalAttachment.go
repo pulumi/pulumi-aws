@@ -92,4 +92,3 @@ type ThingPrincipalAttachmentArgs struct {
 func (ThingPrincipalAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*thingPrincipalAttachmentArgs)(nil)).Elem()
 }
-

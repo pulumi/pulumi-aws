@@ -119,4 +119,3 @@ type VaultLockArgs struct {
 func (VaultLockArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vaultLockArgs)(nil)).Elem()
 }
-

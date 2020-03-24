@@ -36,8 +36,8 @@ type ClusterSnapshot struct {
 	// License model information for the restored DB cluster.
 	LicenseModel pulumi.StringOutput `pulumi:"licenseModel"`
 	// Port that the DB cluster was listening on at the time of the snapshot.
-	Port pulumi.IntOutput `pulumi:"port"`
-	SnapshotType pulumi.StringOutput `pulumi:"snapshotType"`
+	Port                       pulumi.IntOutput    `pulumi:"port"`
+	SnapshotType               pulumi.StringOutput `pulumi:"snapshotType"`
 	SourceDbClusterSnapshotArn pulumi.StringOutput `pulumi:"sourceDbClusterSnapshotArn"`
 	// The status of this DB Cluster Snapshot.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -102,8 +102,8 @@ type clusterSnapshotState struct {
 	// License model information for the restored DB cluster.
 	LicenseModel *string `pulumi:"licenseModel"`
 	// Port that the DB cluster was listening on at the time of the snapshot.
-	Port *int `pulumi:"port"`
-	SnapshotType *string `pulumi:"snapshotType"`
+	Port                       *int    `pulumi:"port"`
+	SnapshotType               *string `pulumi:"snapshotType"`
 	SourceDbClusterSnapshotArn *string `pulumi:"sourceDbClusterSnapshotArn"`
 	// The status of this DB Cluster Snapshot.
 	Status *string `pulumi:"status"`
@@ -135,8 +135,8 @@ type ClusterSnapshotState struct {
 	// License model information for the restored DB cluster.
 	LicenseModel pulumi.StringPtrInput
 	// Port that the DB cluster was listening on at the time of the snapshot.
-	Port pulumi.IntPtrInput
-	SnapshotType pulumi.StringPtrInput
+	Port                       pulumi.IntPtrInput
+	SnapshotType               pulumi.StringPtrInput
 	SourceDbClusterSnapshotArn pulumi.StringPtrInput
 	// The status of this DB Cluster Snapshot.
 	Status pulumi.StringPtrInput
@@ -174,4 +174,3 @@ type ClusterSnapshotArgs struct {
 func (ClusterSnapshotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterSnapshotArgs)(nil)).Elem()
 }
-

@@ -18,7 +18,20 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_invocation.html.markdown.
         /// </summary>
+        [Obsolete("Use GetInvocation.InvokeAsync() instead")]
         public static Task<GetInvocationResult> GetInvocation(GetInvocationArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetInvocation
+    {
+        /// <summary>
+        /// Use this data source to invoke custom lambda functions as data source.
+        /// The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
+        /// invocation type.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_invocation.html.markdown.
+        /// </summary>
+        public static Task<GetInvocationResult> InvokeAsync(GetInvocationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

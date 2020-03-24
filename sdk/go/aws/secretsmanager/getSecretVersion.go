@@ -30,7 +30,6 @@ type LookupSecretVersionArgs struct {
 	VersionStage *string `pulumi:"versionStage"`
 }
 
-
 // A collection of values returned by getSecretVersion.
 type LookupSecretVersionResult struct {
 	// The ARN of the secret.
@@ -39,12 +38,11 @@ type LookupSecretVersionResult struct {
 	Id string `pulumi:"id"`
 	// The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
 	SecretBinary string `pulumi:"secretBinary"`
-	SecretId string `pulumi:"secretId"`
+	SecretId     string `pulumi:"secretId"`
 	// The decrypted part of the protected secret information that was originally provided as a string.
 	SecretString string `pulumi:"secretString"`
 	// The unique identifier of this version of the secret.
-	VersionId string `pulumi:"versionId"`
-	VersionStage *string `pulumi:"versionStage"`
+	VersionId     string   `pulumi:"versionId"`
+	VersionStage  *string  `pulumi:"versionStage"`
 	VersionStages []string `pulumi:"versionStages"`
 }
-

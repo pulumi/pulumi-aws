@@ -27,11 +27,10 @@ type LookupComputeEnvironmentArgs struct {
 	ComputeEnvironmentName string `pulumi:"computeEnvironmentName"`
 }
 
-
 // A collection of values returned by getComputeEnvironment.
 type LookupComputeEnvironmentResult struct {
 	// The ARN of the compute environment.
-	Arn string `pulumi:"arn"`
+	Arn                    string `pulumi:"arn"`
 	ComputeEnvironmentName string `pulumi:"computeEnvironmentName"`
 	// The ARN of the underlying Amazon ECS cluster used by the compute environment.
 	EcsClusterArn string `pulumi:"ecsClusterArn"`
@@ -48,4 +47,3 @@ type LookupComputeEnvironmentResult struct {
 	// The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
 	Type string `pulumi:"type"`
 }
-

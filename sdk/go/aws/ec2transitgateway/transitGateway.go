@@ -169,4 +169,3 @@ type TransitGatewayArgs struct {
 func (TransitGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*transitGatewayArgs)(nil)).Elem()
 }
-

@@ -51,7 +51,7 @@ type Certificate struct {
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions CertificateDomainValidationOptionArrayOutput `pulumi:"domainValidationOptions"`
-	Options CertificateOptionsPtrOutput `pulumi:"options"`
+	Options                 CertificateOptionsPtrOutput                  `pulumi:"options"`
 	// The certificate's PEM-formatted private key
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
 	// A list of domains that should be SANs in the issued certificate
@@ -106,7 +106,7 @@ type certificateState struct {
 	DomainName *string `pulumi:"domainName"`
 	// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions []CertificateDomainValidationOption `pulumi:"domainValidationOptions"`
-	Options *CertificateOptions `pulumi:"options"`
+	Options                 *CertificateOptions                 `pulumi:"options"`
 	// The certificate's PEM-formatted private key
 	PrivateKey *string `pulumi:"privateKey"`
 	// A list of domains that should be SANs in the issued certificate
@@ -134,7 +134,7 @@ type CertificateState struct {
 	DomainName pulumi.StringPtrInput
 	// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions CertificateDomainValidationOptionArrayInput
-	Options CertificateOptionsPtrInput
+	Options                 CertificateOptionsPtrInput
 	// The certificate's PEM-formatted private key
 	PrivateKey pulumi.StringPtrInput
 	// A list of domains that should be SANs in the issued certificate
@@ -161,8 +161,8 @@ type certificateArgs struct {
 	// * Creating a private CA issued certificate
 	CertificateChain *string `pulumi:"certificateChain"`
 	// A domain name for which the certificate should be issued
-	DomainName *string `pulumi:"domainName"`
-	Options *CertificateOptions `pulumi:"options"`
+	DomainName *string             `pulumi:"domainName"`
+	Options    *CertificateOptions `pulumi:"options"`
 	// The certificate's PEM-formatted private key
 	PrivateKey *string `pulumi:"privateKey"`
 	// A list of domains that should be SANs in the issued certificate
@@ -185,7 +185,7 @@ type CertificateArgs struct {
 	CertificateChain pulumi.StringPtrInput
 	// A domain name for which the certificate should be issued
 	DomainName pulumi.StringPtrInput
-	Options CertificateOptionsPtrInput
+	Options    CertificateOptionsPtrInput
 	// The certificate's PEM-formatted private key
 	PrivateKey pulumi.StringPtrInput
 	// A list of domains that should be SANs in the issued certificate
@@ -200,4 +200,3 @@ type CertificateArgs struct {
 func (CertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateArgs)(nil)).Elem()
 }
-

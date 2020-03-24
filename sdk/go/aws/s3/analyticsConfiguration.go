@@ -14,9 +14,9 @@ import (
 type AnalyticsConfiguration struct {
 	pulumi.CustomResourceState
 
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	Filter AnalyticsConfigurationFilterPtrOutput `pulumi:"filter"`
-	Name pulumi.StringOutput `pulumi:"name"`
+	Bucket               pulumi.StringOutput                                 `pulumi:"bucket"`
+	Filter               AnalyticsConfigurationFilterPtrOutput               `pulumi:"filter"`
+	Name                 pulumi.StringOutput                                 `pulumi:"name"`
 	StorageClassAnalysis AnalyticsConfigurationStorageClassAnalysisPtrOutput `pulumi:"storageClassAnalysis"`
 }
 
@@ -51,16 +51,16 @@ func GetAnalyticsConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AnalyticsConfiguration resources.
 type analyticsConfigurationState struct {
-	Bucket *string `pulumi:"bucket"`
-	Filter *AnalyticsConfigurationFilter `pulumi:"filter"`
-	Name *string `pulumi:"name"`
+	Bucket               *string                                     `pulumi:"bucket"`
+	Filter               *AnalyticsConfigurationFilter               `pulumi:"filter"`
+	Name                 *string                                     `pulumi:"name"`
 	StorageClassAnalysis *AnalyticsConfigurationStorageClassAnalysis `pulumi:"storageClassAnalysis"`
 }
 
 type AnalyticsConfigurationState struct {
-	Bucket pulumi.StringPtrInput
-	Filter AnalyticsConfigurationFilterPtrInput
-	Name pulumi.StringPtrInput
+	Bucket               pulumi.StringPtrInput
+	Filter               AnalyticsConfigurationFilterPtrInput
+	Name                 pulumi.StringPtrInput
 	StorageClassAnalysis AnalyticsConfigurationStorageClassAnalysisPtrInput
 }
 
@@ -69,21 +69,20 @@ func (AnalyticsConfigurationState) ElementType() reflect.Type {
 }
 
 type analyticsConfigurationArgs struct {
-	Bucket string `pulumi:"bucket"`
-	Filter *AnalyticsConfigurationFilter `pulumi:"filter"`
-	Name *string `pulumi:"name"`
+	Bucket               string                                      `pulumi:"bucket"`
+	Filter               *AnalyticsConfigurationFilter               `pulumi:"filter"`
+	Name                 *string                                     `pulumi:"name"`
 	StorageClassAnalysis *AnalyticsConfigurationStorageClassAnalysis `pulumi:"storageClassAnalysis"`
 }
 
 // The set of arguments for constructing a AnalyticsConfiguration resource.
 type AnalyticsConfigurationArgs struct {
-	Bucket pulumi.StringInput
-	Filter AnalyticsConfigurationFilterPtrInput
-	Name pulumi.StringPtrInput
+	Bucket               pulumi.StringInput
+	Filter               AnalyticsConfigurationFilterPtrInput
+	Name                 pulumi.StringPtrInput
 	StorageClassAnalysis AnalyticsConfigurationStorageClassAnalysisPtrInput
 }
 
 func (AnalyticsConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*analyticsConfigurationArgs)(nil)).Elem()
 }
-

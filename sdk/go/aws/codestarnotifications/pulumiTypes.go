@@ -15,7 +15,7 @@ type NotificationRuleTarget struct {
 	Address string `pulumi:"address"`
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status *string `pulumi:"status"`
-	Type *string `pulumi:"type"`
+	Type   *string `pulumi:"type"`
 }
 
 type NotificationRuleTargetInput interface {
@@ -29,7 +29,7 @@ type NotificationRuleTargetArgs struct {
 	Address pulumi.StringInput `pulumi:"address"`
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type   pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (NotificationRuleTargetArgs) ElementType() reflect.Type {
@@ -65,7 +65,7 @@ func (i NotificationRuleTargetArray) ToNotificationRuleTargetArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleTargetArrayOutput)
 }
 
-type NotificationRuleTargetOutput struct { *pulumi.OutputState }
+type NotificationRuleTargetOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleTargetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotificationRuleTarget)(nil)).Elem()
@@ -80,19 +80,19 @@ func (o NotificationRuleTargetOutput) ToNotificationRuleTargetOutputWithContext(
 }
 
 func (o NotificationRuleTargetOutput) Address() pulumi.StringOutput {
-	return o.ApplyT(func (v NotificationRuleTarget) string { return v.Address }).(pulumi.StringOutput)
+	return o.ApplyT(func(v NotificationRuleTarget) string { return v.Address }).(pulumi.StringOutput)
 }
 
 // The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 func (o NotificationRuleTargetOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v NotificationRuleTarget) *string { return v.Status }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v NotificationRuleTarget) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 func (o NotificationRuleTargetOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v NotificationRuleTarget) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v NotificationRuleTarget) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type NotificationRuleTargetArrayOutput struct { *pulumi.OutputState}
+type NotificationRuleTargetArrayOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleTargetArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]NotificationRuleTarget)(nil)).Elem()
@@ -107,7 +107,7 @@ func (o NotificationRuleTargetArrayOutput) ToNotificationRuleTargetArrayOutputWi
 }
 
 func (o NotificationRuleTargetArrayOutput) Index(i pulumi.IntInput) NotificationRuleTargetOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) NotificationRuleTarget {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationRuleTarget {
 		return vs[0].([]NotificationRuleTarget)[vs[1].(int)]
 	}).(NotificationRuleTargetOutput)
 }

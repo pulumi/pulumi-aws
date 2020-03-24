@@ -227,4 +227,3 @@ type SmbFileShareArgs struct {
 func (SmbFileShareArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*smbFileShareArgs)(nil)).Elem()
 }
-

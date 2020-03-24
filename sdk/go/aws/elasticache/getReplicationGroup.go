@@ -26,7 +26,6 @@ type LookupReplicationGroupArgs struct {
 	ReplicationGroupId string `pulumi:"replicationGroupId"`
 }
 
-
 // A collection of values returned by getReplicationGroup.
 type LookupReplicationGroupResult struct {
 	// A flag that enables using an AuthToken (password) when issuing Redis commands.
@@ -56,4 +55,3 @@ type LookupReplicationGroupResult struct {
 	// The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
 	SnapshotWindow string `pulumi:"snapshotWindow"`
 }
-

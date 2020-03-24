@@ -118,4 +118,3 @@ type PublicKeyArgs struct {
 func (PublicKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicKeyArgs)(nil)).Elem()
 }
-

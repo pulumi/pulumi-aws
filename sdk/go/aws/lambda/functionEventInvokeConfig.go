@@ -119,4 +119,3 @@ type FunctionEventInvokeConfigArgs struct {
 func (FunctionEventInvokeConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionEventInvokeConfigArgs)(nil)).Elem()
 }
-

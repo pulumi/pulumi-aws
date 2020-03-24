@@ -95,4 +95,3 @@ type VpcIpv4CidrBlockAssociationArgs struct {
 func (VpcIpv4CidrBlockAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcIpv4CidrBlockAssociationArgs)(nil)).Elem()
 }
-

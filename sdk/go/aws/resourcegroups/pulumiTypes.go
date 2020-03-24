@@ -12,8 +12,8 @@ import (
 )
 
 type GroupResourceQuery struct {
-	Query string `pulumi:"query"`
-	Type *string `pulumi:"type"`
+	Query string  `pulumi:"query"`
+	Type  *string `pulumi:"type"`
 }
 
 type GroupResourceQueryInput interface {
@@ -24,8 +24,8 @@ type GroupResourceQueryInput interface {
 }
 
 type GroupResourceQueryArgs struct {
-	Query pulumi.StringInput `pulumi:"query"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Query pulumi.StringInput    `pulumi:"query"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GroupResourceQueryArgs) ElementType() reflect.Type {
@@ -57,7 +57,8 @@ type GroupResourceQueryPtrInput interface {
 
 type groupResourceQueryPtrType GroupResourceQueryArgs
 
-func GroupResourceQueryPtr(v *GroupResourceQueryArgs) GroupResourceQueryPtrInput {	return (*groupResourceQueryPtrType)(v)
+func GroupResourceQueryPtr(v *GroupResourceQueryArgs) GroupResourceQueryPtrInput {
+	return (*groupResourceQueryPtrType)(v)
 }
 
 func (*groupResourceQueryPtrType) ElementType() reflect.Type {
@@ -72,7 +73,7 @@ func (i *groupResourceQueryPtrType) ToGroupResourceQueryPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(GroupResourceQueryPtrOutput)
 }
 
-type GroupResourceQueryOutput struct { *pulumi.OutputState }
+type GroupResourceQueryOutput struct{ *pulumi.OutputState }
 
 func (GroupResourceQueryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupResourceQuery)(nil)).Elem()
@@ -96,14 +97,14 @@ func (o GroupResourceQueryOutput) ToGroupResourceQueryPtrOutputWithContext(ctx c
 	}).(GroupResourceQueryPtrOutput)
 }
 func (o GroupResourceQueryOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupResourceQuery) string { return v.Query }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupResourceQuery) string { return v.Query }).(pulumi.StringOutput)
 }
 
 func (o GroupResourceQueryOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupResourceQuery) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupResourceQuery) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type GroupResourceQueryPtrOutput struct { *pulumi.OutputState}
+type GroupResourceQueryPtrOutput struct{ *pulumi.OutputState }
 
 func (GroupResourceQueryPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GroupResourceQuery)(nil)).Elem()
@@ -118,15 +119,15 @@ func (o GroupResourceQueryPtrOutput) ToGroupResourceQueryPtrOutputWithContext(ct
 }
 
 func (o GroupResourceQueryPtrOutput) Elem() GroupResourceQueryOutput {
-	return o.ApplyT(func (v *GroupResourceQuery) GroupResourceQuery { return *v }).(GroupResourceQueryOutput)
+	return o.ApplyT(func(v *GroupResourceQuery) GroupResourceQuery { return *v }).(GroupResourceQueryOutput)
 }
 
 func (o GroupResourceQueryPtrOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupResourceQuery) string { return v.Query }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupResourceQuery) string { return v.Query }).(pulumi.StringOutput)
 }
 
 func (o GroupResourceQueryPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupResourceQuery) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupResourceQuery) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 func init() {

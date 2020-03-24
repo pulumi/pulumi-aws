@@ -91,4 +91,3 @@ type RecorderStatusArgs struct {
 func (RecorderStatusArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*recorderStatusArgs)(nil)).Elem()
 }
-

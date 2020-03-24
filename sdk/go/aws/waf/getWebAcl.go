@@ -26,11 +26,9 @@ type LookupWebAclArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getWebAcl.
 type LookupWebAclResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
-

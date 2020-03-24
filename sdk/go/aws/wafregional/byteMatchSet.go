@@ -85,4 +85,3 @@ type ByteMatchSetArgs struct {
 func (ByteMatchSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*byteMatchSetArgs)(nil)).Elem()
 }
-

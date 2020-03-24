@@ -41,8 +41,8 @@ type Snapshot struct {
 	LicenseModel pulumi.StringOutput `pulumi:"licenseModel"`
 	// Provides the option group name for the DB snapshot.
 	OptionGroupName pulumi.StringOutput `pulumi:"optionGroupName"`
-	Port pulumi.IntOutput `pulumi:"port"`
-	SnapshotType pulumi.StringOutput `pulumi:"snapshotType"`
+	Port            pulumi.IntOutput    `pulumi:"port"`
+	SnapshotType    pulumi.StringOutput `pulumi:"snapshotType"`
 	// The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
 	SourceDbSnapshotIdentifier pulumi.StringOutput `pulumi:"sourceDbSnapshotIdentifier"`
 	// The region that the DB snapshot was created in or copied from.
@@ -115,8 +115,8 @@ type snapshotState struct {
 	LicenseModel *string `pulumi:"licenseModel"`
 	// Provides the option group name for the DB snapshot.
 	OptionGroupName *string `pulumi:"optionGroupName"`
-	Port *int `pulumi:"port"`
-	SnapshotType *string `pulumi:"snapshotType"`
+	Port            *int    `pulumi:"port"`
+	SnapshotType    *string `pulumi:"snapshotType"`
 	// The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
 	SourceDbSnapshotIdentifier *string `pulumi:"sourceDbSnapshotIdentifier"`
 	// The region that the DB snapshot was created in or copied from.
@@ -156,8 +156,8 @@ type SnapshotState struct {
 	LicenseModel pulumi.StringPtrInput
 	// Provides the option group name for the DB snapshot.
 	OptionGroupName pulumi.StringPtrInput
-	Port pulumi.IntPtrInput
-	SnapshotType pulumi.StringPtrInput
+	Port            pulumi.IntPtrInput
+	SnapshotType    pulumi.StringPtrInput
 	// The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
 	SourceDbSnapshotIdentifier pulumi.StringPtrInput
 	// The region that the DB snapshot was created in or copied from.
@@ -198,4 +198,3 @@ type SnapshotArgs struct {
 func (SnapshotArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotArgs)(nil)).Elem()
 }
-

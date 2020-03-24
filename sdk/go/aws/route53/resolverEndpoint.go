@@ -152,4 +152,3 @@ type ResolverEndpointArgs struct {
 func (ResolverEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverEndpointArgs)(nil)).Elem()
 }
-

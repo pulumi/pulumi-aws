@@ -244,4 +244,3 @@ type TargetGroupArgs struct {
 func (TargetGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*targetGroupArgs)(nil)).Elem()
 }
-

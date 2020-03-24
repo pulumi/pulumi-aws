@@ -197,4 +197,3 @@ type EventTargetArgs struct {
 func (EventTargetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventTargetArgs)(nil)).Elem()
 }
-

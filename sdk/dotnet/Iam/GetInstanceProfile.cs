@@ -18,7 +18,20 @@ namespace Pulumi.Aws.Iam
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_instance_profile.html.markdown.
         /// </summary>
+        [Obsolete("Use GetInstanceProfile.InvokeAsync() instead")]
         public static Task<GetInstanceProfileResult> GetInstanceProfile(GetInstanceProfileArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfileResult>("aws:iam/getInstanceProfile:getInstanceProfile", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetInstanceProfile
+    {
+        /// <summary>
+        /// This data source can be used to fetch information about a specific
+        /// IAM instance profile. By using this data source, you can reference IAM
+        /// instance profile properties without having to hard code ARNs as input.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_instance_profile.html.markdown.
+        /// </summary>
+        public static Task<GetInstanceProfileResult> InvokeAsync(GetInstanceProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfileResult>("aws:iam/getInstanceProfile:getInstanceProfile", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

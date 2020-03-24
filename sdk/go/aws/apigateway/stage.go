@@ -227,4 +227,3 @@ type StageArgs struct {
 func (StageArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stageArgs)(nil)).Elem()
 }
-

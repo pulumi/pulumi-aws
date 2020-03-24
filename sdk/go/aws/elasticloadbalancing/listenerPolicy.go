@@ -102,4 +102,3 @@ type ListenerPolicyArgs struct {
 func (ListenerPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*listenerPolicyArgs)(nil)).Elem()
 }
-

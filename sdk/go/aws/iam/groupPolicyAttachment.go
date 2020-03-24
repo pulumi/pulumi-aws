@@ -94,4 +94,3 @@ type GroupPolicyAttachmentArgs struct {
 func (GroupPolicyAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupPolicyAttachmentArgs)(nil)).Elem()
 }
-

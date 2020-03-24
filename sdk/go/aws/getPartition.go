@@ -24,7 +24,6 @@ func GetPartition(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetPartiti
 type GetPartitionResult struct {
 	DnsSuffix string `pulumi:"dnsSuffix"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id        string `pulumi:"id"`
 	Partition string `pulumi:"partition"`
 }
-

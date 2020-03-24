@@ -41,11 +41,10 @@ type LookupRouteTableArgs struct {
 	VpcId *string `pulumi:"vpcId"`
 }
 
-
 // A collection of values returned by getRouteTable.
 type LookupRouteTableResult struct {
 	Associations []GetRouteTableAssociationType `pulumi:"associations"`
-	Filters []GetRouteTableFilter `pulumi:"filters"`
+	Filters      []GetRouteTableFilter          `pulumi:"filters"`
 	// The Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
 	GatewayId string `pulumi:"gatewayId"`
 	// id is the provider-assigned unique ID for this managed resource.
@@ -53,11 +52,10 @@ type LookupRouteTableResult struct {
 	// The ID of the AWS account that owns the route table
 	OwnerId string `pulumi:"ownerId"`
 	// The Route Table ID.
-	RouteTableId string `pulumi:"routeTableId"`
-	Routes []GetRouteTableRoute `pulumi:"routes"`
+	RouteTableId string               `pulumi:"routeTableId"`
+	Routes       []GetRouteTableRoute `pulumi:"routes"`
 	// The Subnet ID. Only set when associated with a Subnet.
-	SubnetId string `pulumi:"subnetId"`
-	Tags map[string]interface{} `pulumi:"tags"`
-	VpcId string `pulumi:"vpcId"`
+	SubnetId string                 `pulumi:"subnetId"`
+	Tags     map[string]interface{} `pulumi:"tags"`
+	VpcId    string                 `pulumi:"vpcId"`
 }
-

@@ -130,12 +130,12 @@ type Cluster struct {
 	AdditionalInfo pulumi.StringPtrOutput `pulumi:"additionalInfo"`
 	// A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
 	Applications pulumi.StringArrayOutput `pulumi:"applications"`
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn          pulumi.StringOutput      `pulumi:"arn"`
 	// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole pulumi.StringPtrOutput `pulumi:"autoscalingRole"`
 	// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
 	BootstrapActions ClusterBootstrapActionArrayOutput `pulumi:"bootstrapActions"`
-	ClusterState pulumi.StringOutput `pulumi:"clusterState"`
+	ClusterState     pulumi.StringOutput               `pulumi:"clusterState"`
 	// List of configurations supplied for the EMR cluster you are creating
 	Configurations pulumi.StringPtrOutput `pulumi:"configurations"`
 	// A JSON string for supplying list of configurations for the EMR cluster.
@@ -227,12 +227,12 @@ type clusterState struct {
 	AdditionalInfo *string `pulumi:"additionalInfo"`
 	// A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
 	Applications []string `pulumi:"applications"`
-	Arn *string `pulumi:"arn"`
+	Arn          *string  `pulumi:"arn"`
 	// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole *string `pulumi:"autoscalingRole"`
 	// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
 	BootstrapActions []ClusterBootstrapAction `pulumi:"bootstrapActions"`
-	ClusterState *string `pulumi:"clusterState"`
+	ClusterState     *string                  `pulumi:"clusterState"`
 	// List of configurations supplied for the EMR cluster you are creating
 	Configurations *string `pulumi:"configurations"`
 	// A JSON string for supplying list of configurations for the EMR cluster.
@@ -291,12 +291,12 @@ type ClusterState struct {
 	AdditionalInfo pulumi.StringPtrInput
 	// A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
 	Applications pulumi.StringArrayInput
-	Arn pulumi.StringPtrInput
+	Arn          pulumi.StringPtrInput
 	// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole pulumi.StringPtrInput
 	// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
 	BootstrapActions ClusterBootstrapActionArrayInput
-	ClusterState pulumi.StringPtrInput
+	ClusterState     pulumi.StringPtrInput
 	// List of configurations supplied for the EMR cluster you are creating
 	Configurations pulumi.StringPtrInput
 	// A JSON string for supplying list of configurations for the EMR cluster.
@@ -476,4 +476,3 @@ type ClusterArgs struct {
 func (ClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterArgs)(nil)).Elem()
 }
-

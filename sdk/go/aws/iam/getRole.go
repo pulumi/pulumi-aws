@@ -28,7 +28,6 @@ type LookupRoleArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getRole.
 type LookupRoleResult struct {
 	// The Amazon Resource Name (ARN) specifying the role.
@@ -42,8 +41,8 @@ type LookupRoleResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Maximum session duration.
-	MaxSessionDuration int `pulumi:"maxSessionDuration"`
-	Name string `pulumi:"name"`
+	MaxSessionDuration int    `pulumi:"maxSessionDuration"`
+	Name               string `pulumi:"name"`
 	// The path to the role.
 	Path string `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the role.
@@ -51,4 +50,3 @@ type LookupRoleResult struct {
 	// The stable and unique string identifying the role.
 	UniqueId string `pulumi:"uniqueId"`
 }
-

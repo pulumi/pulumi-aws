@@ -17,7 +17,19 @@ namespace Pulumi.Aws.Ebs
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.
         /// </summary>
+        [Obsolete("Use GetVolume.InvokeAsync() instead")]
         public static Task<GetVolumeResult> GetVolume(GetVolumeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("aws:ebs/getVolume:getVolume", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetVolume
+    {
+        /// <summary>
+        /// Use this data source to get information about an EBS volume for use in other
+        /// resources.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.
+        /// </summary>
+        public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("aws:ebs/getVolume:getVolume", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

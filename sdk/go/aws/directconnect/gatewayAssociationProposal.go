@@ -134,4 +134,3 @@ type GatewayAssociationProposalArgs struct {
 func (GatewayAssociationProposalArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gatewayAssociationProposalArgs)(nil)).Elem()
 }
-

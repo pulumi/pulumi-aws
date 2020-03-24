@@ -25,13 +25,13 @@ import (
 type DefaultVpcDhcpOptions struct {
 	pulumi.CustomResourceState
 
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	DomainName        pulumi.StringOutput `pulumi:"domainName"`
 	DomainNameServers pulumi.StringOutput `pulumi:"domainNameServers"`
 	// List of NETBIOS name servers.
 	NetbiosNameServers pulumi.StringArrayOutput `pulumi:"netbiosNameServers"`
 	// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
 	NetbiosNodeType pulumi.StringPtrOutput `pulumi:"netbiosNodeType"`
-	NtpServers pulumi.StringOutput `pulumi:"ntpServers"`
+	NtpServers      pulumi.StringOutput    `pulumi:"ntpServers"`
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// A mapping of tags to assign to the resource.
@@ -66,13 +66,13 @@ func GetDefaultVpcDhcpOptions(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DefaultVpcDhcpOptions resources.
 type defaultVpcDhcpOptionsState struct {
-	DomainName *string `pulumi:"domainName"`
+	DomainName        *string `pulumi:"domainName"`
 	DomainNameServers *string `pulumi:"domainNameServers"`
 	// List of NETBIOS name servers.
 	NetbiosNameServers []string `pulumi:"netbiosNameServers"`
 	// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
 	NetbiosNodeType *string `pulumi:"netbiosNodeType"`
-	NtpServers *string `pulumi:"ntpServers"`
+	NtpServers      *string `pulumi:"ntpServers"`
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId *string `pulumi:"ownerId"`
 	// A mapping of tags to assign to the resource.
@@ -80,13 +80,13 @@ type defaultVpcDhcpOptionsState struct {
 }
 
 type DefaultVpcDhcpOptionsState struct {
-	DomainName pulumi.StringPtrInput
+	DomainName        pulumi.StringPtrInput
 	DomainNameServers pulumi.StringPtrInput
 	// List of NETBIOS name servers.
 	NetbiosNameServers pulumi.StringArrayInput
 	// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
 	NetbiosNodeType pulumi.StringPtrInput
-	NtpServers pulumi.StringPtrInput
+	NtpServers      pulumi.StringPtrInput
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -119,4 +119,3 @@ type DefaultVpcDhcpOptionsArgs struct {
 func (DefaultVpcDhcpOptionsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*defaultVpcDhcpOptionsArgs)(nil)).Elem()
 }
-

@@ -16,7 +16,18 @@ namespace Pulumi.Aws.CodeCommit
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/codecommit_repository.html.markdown.
         /// </summary>
+        [Obsolete("Use GetRepository.InvokeAsync() instead")]
         public static Task<GetRepositoryResult> GetRepository(GetRepositoryArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("aws:codecommit/getRepository:getRepository", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetRepository
+    {
+        /// <summary>
+        /// The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/codecommit_repository.html.markdown.
+        /// </summary>
+        public static Task<GetRepositoryResult> InvokeAsync(GetRepositoryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("aws:codecommit/getRepository:getRepository", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
