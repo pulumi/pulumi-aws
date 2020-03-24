@@ -1,4 +1,4 @@
-/vendor/
+**/vendor/
 .pulumi
 **/bin/
 **/obj/
