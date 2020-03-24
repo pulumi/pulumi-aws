@@ -13,5 +13,4 @@ require (
 replace (
 	github.com/Azure/go-autorest => github.com/Azure/go-autorest v12.4.3+incompatible
 	github.com/pulumi/pulumi-aws/sdk => ../sdk
-
 )
