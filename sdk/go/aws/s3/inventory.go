@@ -17,7 +17,7 @@ import (
 type Inventory struct {
 	pulumi.CustomResourceState
 
-	// The S3 bucket configuration where inventory results are published (documented below).
+	// The name of the bucket where the inventory configuration will be stored.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Contains information about where to publish the inventory results (documented below).
 	Destination InventoryDestinationOutput `pulumi:"destination"`
@@ -76,7 +76,7 @@ func GetInventory(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Inventory resources.
 type inventoryState struct {
-	// The S3 bucket configuration where inventory results are published (documented below).
+	// The name of the bucket where the inventory configuration will be stored.
 	Bucket *string `pulumi:"bucket"`
 	// Contains information about where to publish the inventory results (documented below).
 	Destination *InventoryDestination `pulumi:"destination"`
@@ -96,7 +96,7 @@ type inventoryState struct {
 }
 
 type InventoryState struct {
-	// The S3 bucket configuration where inventory results are published (documented below).
+	// The name of the bucket where the inventory configuration will be stored.
 	Bucket pulumi.StringPtrInput
 	// Contains information about where to publish the inventory results (documented below).
 	Destination InventoryDestinationPtrInput
@@ -120,7 +120,7 @@ func (InventoryState) ElementType() reflect.Type {
 }
 
 type inventoryArgs struct {
-	// The S3 bucket configuration where inventory results are published (documented below).
+	// The name of the bucket where the inventory configuration will be stored.
 	Bucket string `pulumi:"bucket"`
 	// Contains information about where to publish the inventory results (documented below).
 	Destination InventoryDestination `pulumi:"destination"`
@@ -141,7 +141,7 @@ type inventoryArgs struct {
 
 // The set of arguments for constructing a Inventory resource.
 type InventoryArgs struct {
-	// The S3 bucket configuration where inventory results are published (documented below).
+	// The name of the bucket where the inventory configuration will be stored.
 	Bucket pulumi.StringInput
 	// Contains information about where to publish the inventory results (documented below).
 	Destination InventoryDestinationInput

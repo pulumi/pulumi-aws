@@ -65,6 +65,9 @@ export interface GetClusterArgs {
      * The cluster identifier
      */
     readonly clusterIdentifier: string;
+    /**
+     * The tags associated to the cluster
+     */
     readonly tags?: {[key: string]: any};
 }
 

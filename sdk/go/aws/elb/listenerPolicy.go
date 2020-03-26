@@ -37,6 +37,12 @@ func NewListenerPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &ListenerPolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("aws:elasticloadbalancing/listenerPolicy:ListenerPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ListenerPolicy
 	err := ctx.RegisterResource("aws:elb/listenerPolicy:ListenerPolicy", name, args, &resource, opts...)
 	if err != nil {

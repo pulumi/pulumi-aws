@@ -125,6 +125,7 @@ def get_transit_gateway(filters=None,id=None,tags=None,opts=None):
 
     :param list filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param str id: Identifier of the EC2 Transit Gateway.
+    :param dict tags: Key-value tags for the EC2 Transit Gateway
 
     The **filters** object supports the following:
 

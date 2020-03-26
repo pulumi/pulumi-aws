@@ -47,6 +47,9 @@ export interface GetKeyArgs {
      * The ID of the API Key to look up.
      */
     readonly id: string;
+    /**
+     * A mapping of tags for the resource.
+     */
     readonly tags?: {[key: string]: any};
 }
 

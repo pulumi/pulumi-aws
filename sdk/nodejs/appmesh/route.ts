@@ -143,7 +143,7 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly meshName!: pulumi.Output<string>;
     /**
-     * A name for the HTTP header in the client request that will be matched on.
+     * The name to use for the route.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -231,7 +231,7 @@ export interface RouteState {
      */
     readonly meshName?: pulumi.Input<string>;
     /**
-     * A name for the HTTP header in the client request that will be matched on.
+     * The name to use for the route.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -257,7 +257,7 @@ export interface RouteArgs {
      */
     readonly meshName: pulumi.Input<string>;
     /**
-     * A name for the HTTP header in the client request that will be matched on.
+     * The name to use for the route.
      */
     readonly name?: pulumi.Input<string>;
     /**

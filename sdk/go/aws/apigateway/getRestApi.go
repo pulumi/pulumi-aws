@@ -26,7 +26,8 @@ func LookupRestApi(ctx *pulumi.Context, args *LookupRestApiArgs, opts ...pulumi.
 // A collection of arguments for invoking getRestApi.
 type LookupRestApiArgs struct {
 	// The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
-	Name string                 `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Key-value mapping of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 

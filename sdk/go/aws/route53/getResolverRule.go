@@ -31,8 +31,9 @@ type LookupResolverRuleArgs struct {
 	// The ID of the desired resolver rule. Conflicts with `domainName`, `name`, `resolverEndpointId` and `ruleType`.
 	ResolverRuleId *string `pulumi:"resolverRuleId"`
 	// The rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolverRuleId`.
-	RuleType *string                `pulumi:"ruleType"`
-	Tags     map[string]interface{} `pulumi:"tags"`
+	RuleType *string `pulumi:"ruleType"`
+	// A mapping of tags assigned to the resolver rule.
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // A collection of values returned by getResolverRule.

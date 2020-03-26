@@ -41,6 +41,10 @@ namespace Pulumi.Aws.RedShift
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// The tags associated to the cluster
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

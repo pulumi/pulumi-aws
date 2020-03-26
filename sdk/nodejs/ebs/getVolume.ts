@@ -66,6 +66,9 @@ export interface GetVolumeArgs {
      * recent Volume.
      */
     readonly mostRecent?: boolean;
+    /**
+     * A mapping of tags for the resource.
+     */
     readonly tags?: {[key: string]: any};
 }
 

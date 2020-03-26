@@ -674,7 +674,7 @@ namespace Pulumi.Aws.Msk
     public sealed class ClusterOpenMonitoringPrometheusJmxExporterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether you want to enable or disable the Node Exporter.
+        /// Indicates whether you want to enable or disable the JMX Exporter. 
         /// </summary>
         [Input("enabledInBroker", required: true)]
         public Input<bool> EnabledInBroker { get; set; } = null!;
@@ -687,7 +687,7 @@ namespace Pulumi.Aws.Msk
     public sealed class ClusterOpenMonitoringPrometheusJmxExporterGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether you want to enable or disable the Node Exporter.
+        /// Indicates whether you want to enable or disable the JMX Exporter. 
         /// </summary>
         [Input("enabledInBroker", required: true)]
         public Input<bool> EnabledInBroker { get; set; } = null!;
@@ -700,7 +700,7 @@ namespace Pulumi.Aws.Msk
     public sealed class ClusterOpenMonitoringPrometheusNodeExporterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether you want to enable or disable the Node Exporter.
+        /// Indicates whether you want to enable or disable the JMX Exporter. 
         /// </summary>
         [Input("enabledInBroker", required: true)]
         public Input<bool> EnabledInBroker { get; set; } = null!;
@@ -713,7 +713,7 @@ namespace Pulumi.Aws.Msk
     public sealed class ClusterOpenMonitoringPrometheusNodeExporterGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether you want to enable or disable the Node Exporter.
+        /// Indicates whether you want to enable or disable the JMX Exporter. 
         /// </summary>
         [Input("enabledInBroker", required: true)]
         public Input<bool> EnabledInBroker { get; set; } = null!;
@@ -904,7 +904,7 @@ namespace Pulumi.Aws.Msk
     public sealed class ClusterOpenMonitoringPrometheusJmxExporter
     {
         /// <summary>
-        /// Indicates whether you want to enable or disable the Node Exporter.
+        /// Indicates whether you want to enable or disable the JMX Exporter. 
         /// </summary>
         public readonly bool EnabledInBroker;
 
@@ -919,7 +919,7 @@ namespace Pulumi.Aws.Msk
     public sealed class ClusterOpenMonitoringPrometheusNodeExporter
     {
         /// <summary>
-        /// Indicates whether you want to enable or disable the Node Exporter.
+        /// Indicates whether you want to enable or disable the JMX Exporter. 
         /// </summary>
         public readonly bool EnabledInBroker;
 

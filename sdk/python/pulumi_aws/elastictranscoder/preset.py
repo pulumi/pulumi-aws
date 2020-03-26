@@ -16,9 +16,9 @@ class Preset(pulumi.CustomResource):
     Audio parameters object (documented below).
 
       * `audioPackingMode` (`str`) - The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
-      * `bitRate` (`str`) - The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
+      * `bitRate` (`str`) - The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
       * `channels` (`str`) - The number of audio channels in the output file
-      * `codec` (`str`) - The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
+      * `codec` (`str`) - The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
       * `sampleRate` (`str`) - The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
     """
     audio_codec_options: pulumi.Output[dict]
@@ -46,14 +46,14 @@ class Preset(pulumi.CustomResource):
     """
     Thumbnail parameters object (documented below)
 
-      * `aspectRatio` (`str`) - The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `max_width`, `max_height`, `sizing_policy`, `padding_policy`, and `display_aspect_ratio` instead of `resolution` and `aspect_ratio`.)
+      * `aspectRatio` (`str`) - The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
       * `format` (`str`) - The format of thumbnails, if any. Valid formats are jpg and png.
       * `interval` (`str`) - The approximate number of seconds between thumbnails. The value must be an integer. The actual interval can vary by several seconds from one thumbnail to the next.
-      * `maxHeight` (`str`) - The maximum height of the watermark.
-      * `maxWidth` (`str`) - The maximum width of the watermark.
-      * `paddingPolicy` (`str`) - When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `max_width` and `max_height`.
-      * `resolution` (`str`) - The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspect_ratio`)
-      * `sizingPolicy` (`str`) - A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+      * `maxHeight` (`str`) - The maximum height of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
+      * `maxWidth` (`str`) - The maximum width of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
+      * `paddingPolicy` (`str`) - When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of thumbnails to make the total size of the thumbnails match the values that you specified for thumbnail MaxWidth and MaxHeight settings.
+      * `resolution` (`str`) - The width and height of thumbnail files in pixels, in the format WidthxHeight, where both values are even integers. The values cannot exceed the width and height that you specified in the Video:Resolution object. (To better control resolution and aspect ratio of thumbnails, we recommend that you use the thumbnail values `max_width`, `max_height`, `sizing_policy`, and `padding_policy` instead of `resolution` and `aspect_ratio`. The two groups of settings are mutually exclusive. Do not use them together)
+      * `sizingPolicy` (`str`) - A value that controls scaling of thumbnails. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, and `ShrinkToFill`.
     """
     type: pulumi.Output[str]
     video: pulumi.Output[dict]
@@ -68,11 +68,11 @@ class Preset(pulumi.CustomResource):
       * `frameRate` (`str`) - The frames per second for the video stream in the output file. The following values are valid: `auto`, `10`, `15`, `23.97`, `24`, `25`, `29.97`, `30`, `50`, `60`.
       * `keyframesMaxDist` (`str`) - The maximum number of frames between key frames. Not applicable for containers of type gif.
       * `maxFrameRate` (`str`) - If you specify auto for FrameRate, Elastic Transcoder uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. If you do not specify a MaxFrameRate, Elastic Transcoder will use a default of 30.
-      * `maxHeight` (`str`) - The maximum height of the watermark.
-      * `maxWidth` (`str`) - The maximum width of the watermark.
+      * `maxHeight` (`str`) - The maximum height of the output video in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 96 and 3072, inclusive.
+      * `maxWidth` (`str`) - The maximum width of the output video in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 128 and 4096, inclusive.
       * `paddingPolicy` (`str`) - When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `max_width` and `max_height`.
       * `resolution` (`str`) - The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspect_ratio`)
-      * `sizingPolicy` (`str`) - A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+      * `sizingPolicy` (`str`) - A value that controls scaling of the output video. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, `ShrinkToFill`.
     """
     video_codec_options: pulumi.Output[dict]
     video_watermarks: pulumi.Output[list]
@@ -112,9 +112,9 @@ class Preset(pulumi.CustomResource):
         The **audio** object supports the following:
 
           * `audioPackingMode` (`pulumi.Input[str]`) - The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
-          * `bitRate` (`pulumi.Input[str]`) - The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
+          * `bitRate` (`pulumi.Input[str]`) - The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
           * `channels` (`pulumi.Input[str]`) - The number of audio channels in the output file
-          * `codec` (`pulumi.Input[str]`) - The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
+          * `codec` (`pulumi.Input[str]`) - The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
           * `sampleRate` (`pulumi.Input[str]`) - The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
 
         The **audio_codec_options** object supports the following:
@@ -126,14 +126,14 @@ class Preset(pulumi.CustomResource):
 
         The **thumbnails** object supports the following:
 
-          * `aspectRatio` (`pulumi.Input[str]`) - The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `max_width`, `max_height`, `sizing_policy`, `padding_policy`, and `display_aspect_ratio` instead of `resolution` and `aspect_ratio`.)
+          * `aspectRatio` (`pulumi.Input[str]`) - The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
           * `format` (`pulumi.Input[str]`) - The format of thumbnails, if any. Valid formats are jpg and png.
           * `interval` (`pulumi.Input[str]`) - The approximate number of seconds between thumbnails. The value must be an integer. The actual interval can vary by several seconds from one thumbnail to the next.
-          * `maxHeight` (`pulumi.Input[str]`) - The maximum height of the watermark.
-          * `maxWidth` (`pulumi.Input[str]`) - The maximum width of the watermark.
-          * `paddingPolicy` (`pulumi.Input[str]`) - When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `max_width` and `max_height`.
-          * `resolution` (`pulumi.Input[str]`) - The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspect_ratio`)
-          * `sizingPolicy` (`pulumi.Input[str]`) - A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+          * `maxHeight` (`pulumi.Input[str]`) - The maximum height of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
+          * `maxWidth` (`pulumi.Input[str]`) - The maximum width of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
+          * `paddingPolicy` (`pulumi.Input[str]`) - When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of thumbnails to make the total size of the thumbnails match the values that you specified for thumbnail MaxWidth and MaxHeight settings.
+          * `resolution` (`pulumi.Input[str]`) - The width and height of thumbnail files in pixels, in the format WidthxHeight, where both values are even integers. The values cannot exceed the width and height that you specified in the Video:Resolution object. (To better control resolution and aspect ratio of thumbnails, we recommend that you use the thumbnail values `max_width`, `max_height`, `sizing_policy`, and `padding_policy` instead of `resolution` and `aspect_ratio`. The two groups of settings are mutually exclusive. Do not use them together)
+          * `sizingPolicy` (`pulumi.Input[str]`) - A value that controls scaling of thumbnails. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, and `ShrinkToFill`.
 
         The **video** object supports the following:
 
@@ -145,11 +145,11 @@ class Preset(pulumi.CustomResource):
           * `frameRate` (`pulumi.Input[str]`) - The frames per second for the video stream in the output file. The following values are valid: `auto`, `10`, `15`, `23.97`, `24`, `25`, `29.97`, `30`, `50`, `60`.
           * `keyframesMaxDist` (`pulumi.Input[str]`) - The maximum number of frames between key frames. Not applicable for containers of type gif.
           * `maxFrameRate` (`pulumi.Input[str]`) - If you specify auto for FrameRate, Elastic Transcoder uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. If you do not specify a MaxFrameRate, Elastic Transcoder will use a default of 30.
-          * `maxHeight` (`pulumi.Input[str]`) - The maximum height of the watermark.
-          * `maxWidth` (`pulumi.Input[str]`) - The maximum width of the watermark.
+          * `maxHeight` (`pulumi.Input[str]`) - The maximum height of the output video in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 96 and 3072, inclusive.
+          * `maxWidth` (`pulumi.Input[str]`) - The maximum width of the output video in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 128 and 4096, inclusive.
           * `paddingPolicy` (`pulumi.Input[str]`) - When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `max_width` and `max_height`.
           * `resolution` (`pulumi.Input[str]`) - The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspect_ratio`)
-          * `sizingPolicy` (`pulumi.Input[str]`) - A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+          * `sizingPolicy` (`pulumi.Input[str]`) - A value that controls scaling of the output video. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, `ShrinkToFill`.
 
         The **video_watermarks** object supports the following:
 
@@ -222,9 +222,9 @@ class Preset(pulumi.CustomResource):
         The **audio** object supports the following:
 
           * `audioPackingMode` (`pulumi.Input[str]`) - The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
-          * `bitRate` (`pulumi.Input[str]`) - The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
+          * `bitRate` (`pulumi.Input[str]`) - The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
           * `channels` (`pulumi.Input[str]`) - The number of audio channels in the output file
-          * `codec` (`pulumi.Input[str]`) - The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
+          * `codec` (`pulumi.Input[str]`) - The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
           * `sampleRate` (`pulumi.Input[str]`) - The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
 
         The **audio_codec_options** object supports the following:
@@ -236,14 +236,14 @@ class Preset(pulumi.CustomResource):
 
         The **thumbnails** object supports the following:
 
-          * `aspectRatio` (`pulumi.Input[str]`) - The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `max_width`, `max_height`, `sizing_policy`, `padding_policy`, and `display_aspect_ratio` instead of `resolution` and `aspect_ratio`.)
+          * `aspectRatio` (`pulumi.Input[str]`) - The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
           * `format` (`pulumi.Input[str]`) - The format of thumbnails, if any. Valid formats are jpg and png.
           * `interval` (`pulumi.Input[str]`) - The approximate number of seconds between thumbnails. The value must be an integer. The actual interval can vary by several seconds from one thumbnail to the next.
-          * `maxHeight` (`pulumi.Input[str]`) - The maximum height of the watermark.
-          * `maxWidth` (`pulumi.Input[str]`) - The maximum width of the watermark.
-          * `paddingPolicy` (`pulumi.Input[str]`) - When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `max_width` and `max_height`.
-          * `resolution` (`pulumi.Input[str]`) - The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspect_ratio`)
-          * `sizingPolicy` (`pulumi.Input[str]`) - A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+          * `maxHeight` (`pulumi.Input[str]`) - The maximum height of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
+          * `maxWidth` (`pulumi.Input[str]`) - The maximum width of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
+          * `paddingPolicy` (`pulumi.Input[str]`) - When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of thumbnails to make the total size of the thumbnails match the values that you specified for thumbnail MaxWidth and MaxHeight settings.
+          * `resolution` (`pulumi.Input[str]`) - The width and height of thumbnail files in pixels, in the format WidthxHeight, where both values are even integers. The values cannot exceed the width and height that you specified in the Video:Resolution object. (To better control resolution and aspect ratio of thumbnails, we recommend that you use the thumbnail values `max_width`, `max_height`, `sizing_policy`, and `padding_policy` instead of `resolution` and `aspect_ratio`. The two groups of settings are mutually exclusive. Do not use them together)
+          * `sizingPolicy` (`pulumi.Input[str]`) - A value that controls scaling of thumbnails. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, and `ShrinkToFill`.
 
         The **video** object supports the following:
 
@@ -255,11 +255,11 @@ class Preset(pulumi.CustomResource):
           * `frameRate` (`pulumi.Input[str]`) - The frames per second for the video stream in the output file. The following values are valid: `auto`, `10`, `15`, `23.97`, `24`, `25`, `29.97`, `30`, `50`, `60`.
           * `keyframesMaxDist` (`pulumi.Input[str]`) - The maximum number of frames between key frames. Not applicable for containers of type gif.
           * `maxFrameRate` (`pulumi.Input[str]`) - If you specify auto for FrameRate, Elastic Transcoder uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. If you do not specify a MaxFrameRate, Elastic Transcoder will use a default of 30.
-          * `maxHeight` (`pulumi.Input[str]`) - The maximum height of the watermark.
-          * `maxWidth` (`pulumi.Input[str]`) - The maximum width of the watermark.
+          * `maxHeight` (`pulumi.Input[str]`) - The maximum height of the output video in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 96 and 3072, inclusive.
+          * `maxWidth` (`pulumi.Input[str]`) - The maximum width of the output video in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 128 and 4096, inclusive.
           * `paddingPolicy` (`pulumi.Input[str]`) - When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `max_width` and `max_height`.
           * `resolution` (`pulumi.Input[str]`) - The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspect_ratio`)
-          * `sizingPolicy` (`pulumi.Input[str]`) - A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+          * `sizingPolicy` (`pulumi.Input[str]`) - A value that controls scaling of the output video. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, `ShrinkToFill`.
 
         The **video_watermarks** object supports the following:
 

@@ -49,6 +49,9 @@ namespace Pulumi.Aws.Route53
         [Input("privateZone")]
         public bool? PrivateZone { get; set; }
 
+        /// <summary>
+        /// The number of Record Set in the Hosted Zone.
+        /// </summary>
         [Input("resourceRecordSetCount")]
         public int? ResourceRecordSetCount { get; set; }
 

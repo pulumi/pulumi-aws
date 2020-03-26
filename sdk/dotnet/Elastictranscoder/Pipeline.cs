@@ -290,13 +290,13 @@ namespace Pulumi.Aws.ElasticTranscoder
     public sealed class PipelineContentConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
+        /// The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+        /// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
         /// </summary>
         [Input("storageClass")]
         public Input<string>? StorageClass { get; set; }
@@ -309,13 +309,13 @@ namespace Pulumi.Aws.ElasticTranscoder
     public sealed class PipelineContentConfigGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
+        /// The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+        /// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
         /// </summary>
         [Input("storageClass")]
         public Input<string>? StorageClass { get; set; }
@@ -331,7 +331,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         private InputList<string>? _accesses;
 
         /// <summary>
-        /// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+        /// The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
         /// </summary>
         public InputList<string> Accesses
         {
@@ -340,13 +340,13 @@ namespace Pulumi.Aws.ElasticTranscoder
         }
 
         /// <summary>
-        /// The AWS user or group that you want to have access to thumbnail files.
+        /// The AWS user or group that you want to have access to transcoded files and playlists.
         /// </summary>
         [Input("grantee")]
         public Input<string>? Grantee { get; set; }
 
         /// <summary>
-        /// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+        /// Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
         /// </summary>
         [Input("granteeType")]
         public Input<string>? GranteeType { get; set; }
@@ -362,7 +362,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         private InputList<string>? _accesses;
 
         /// <summary>
-        /// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+        /// The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
         /// </summary>
         public InputList<string> Accesses
         {
@@ -371,13 +371,13 @@ namespace Pulumi.Aws.ElasticTranscoder
         }
 
         /// <summary>
-        /// The AWS user or group that you want to have access to thumbnail files.
+        /// The AWS user or group that you want to have access to transcoded files and playlists.
         /// </summary>
         [Input("grantee")]
         public Input<string>? Grantee { get; set; }
 
         /// <summary>
-        /// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+        /// Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
         /// </summary>
         [Input("granteeType")]
         public Input<string>? GranteeType { get; set; }
@@ -557,11 +557,11 @@ namespace Pulumi.Aws.ElasticTranscoder
     public sealed class PipelineContentConfig
     {
         /// <summary>
-        /// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
+        /// The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
         /// </summary>
         public readonly string Bucket;
         /// <summary>
-        /// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+        /// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
         /// </summary>
         public readonly string? StorageClass;
 
@@ -579,15 +579,15 @@ namespace Pulumi.Aws.ElasticTranscoder
     public sealed class PipelineContentConfigPermissions
     {
         /// <summary>
-        /// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+        /// The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
         /// </summary>
         public readonly ImmutableArray<string> Accesses;
         /// <summary>
-        /// The AWS user or group that you want to have access to thumbnail files.
+        /// The AWS user or group that you want to have access to transcoded files and playlists.
         /// </summary>
         public readonly string? Grantee;
         /// <summary>
-        /// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+        /// Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
         /// </summary>
         public readonly string? GranteeType;
 

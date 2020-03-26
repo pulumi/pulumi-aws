@@ -37,7 +37,7 @@ type Project struct {
 	Environment ProjectEnvironmentOutput `pulumi:"environment"`
 	// Configuration for the builds to store log data to CloudWatch or S3.
 	LogsConfig ProjectLogsConfigPtrOutput `pulumi:"logsConfig"`
-	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	// The projects name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
 	QueuedTimeout pulumi.IntPtrOutput `pulumi:"queuedTimeout"`
@@ -117,7 +117,7 @@ type projectState struct {
 	Environment *ProjectEnvironment `pulumi:"environment"`
 	// Configuration for the builds to store log data to CloudWatch or S3.
 	LogsConfig *ProjectLogsConfig `pulumi:"logsConfig"`
-	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	// The projects name.
 	Name *string `pulumi:"name"`
 	// How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
 	QueuedTimeout *int `pulumi:"queuedTimeout"`
@@ -158,7 +158,7 @@ type ProjectState struct {
 	Environment ProjectEnvironmentPtrInput
 	// Configuration for the builds to store log data to CloudWatch or S3.
 	LogsConfig ProjectLogsConfigPtrInput
-	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	// The projects name.
 	Name pulumi.StringPtrInput
 	// How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
 	QueuedTimeout pulumi.IntPtrInput
@@ -199,7 +199,7 @@ type projectArgs struct {
 	Environment ProjectEnvironment `pulumi:"environment"`
 	// Configuration for the builds to store log data to CloudWatch or S3.
 	LogsConfig *ProjectLogsConfig `pulumi:"logsConfig"`
-	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	// The projects name.
 	Name *string `pulumi:"name"`
 	// How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
 	QueuedTimeout *int `pulumi:"queuedTimeout"`
@@ -237,7 +237,7 @@ type ProjectArgs struct {
 	Environment ProjectEnvironmentInput
 	// Configuration for the builds to store log data to CloudWatch or S3.
 	LogsConfig ProjectLogsConfigPtrInput
-	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	// The projects name.
 	Name pulumi.StringPtrInput
 	// How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
 	QueuedTimeout pulumi.IntPtrInput

@@ -93,6 +93,9 @@ export interface GetClusterSnapshotArgs {
      * included in the returned results by default. Possible values are, `automated`, `manual`, `shared` and `public`.
      */
     readonly snapshotType?: string;
+    /**
+     * A mapping of tags for the resource.
+     */
     readonly tags?: {[key: string]: any};
 }
 

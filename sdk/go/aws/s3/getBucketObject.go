@@ -28,9 +28,10 @@ type LookupBucketObjectArgs struct {
 	// The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
 	Bucket string `pulumi:"bucket"`
 	// The full path to the object inside the bucket
-	Key   string                 `pulumi:"key"`
-	Range *string                `pulumi:"range"`
-	Tags  map[string]interface{} `pulumi:"tags"`
+	Key   string  `pulumi:"key"`
+	Range *string `pulumi:"range"`
+	// A mapping of tags assigned to the object.
+	Tags map[string]interface{} `pulumi:"tags"`
 	// Specific version ID of the object returned (defaults to latest version)
 	VersionId *string `pulumi:"versionId"`
 }

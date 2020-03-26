@@ -77,7 +77,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<Outputs.ProjectLogsConfig?> LogsConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        /// The projects name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<Inputs.ProjectLogsConfigArgs>? LogsConfig { get; set; }
 
         /// <summary>
-        /// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        /// The projects name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -364,7 +364,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<Inputs.ProjectLogsConfigGetArgs>? LogsConfig { get; set; }
 
         /// <summary>
-        /// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        /// The projects name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -458,7 +458,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<bool>? EncryptionDisabled { get; set; }
 
         /// <summary>
-        /// The location of the source code from git or s3.
+        /// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS` then this value will be ignored. If `type` is set to `S3`, this is the name of the output bucket.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -494,7 +494,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The build output artifact's type. Valid values for this parameter are: `CODEPIPELINE`, `NO_ARTIFACTS` or `S3`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -519,7 +519,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<bool>? EncryptionDisabled { get; set; }
 
         /// <summary>
-        /// The location of the source code from git or s3.
+        /// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS` then this value will be ignored. If `type` is set to `S3`, this is the name of the output bucket.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -555,7 +555,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The build output artifact's type. Valid values for this parameter are: `CODEPIPELINE`, `NO_ARTIFACTS` or `S3`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -568,7 +568,7 @@ namespace Pulumi.Aws.CodeBuild
     public sealed class ProjectCacheArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The location of the source code from git or s3.
+        /// The location where the AWS CodeBuild project stores cached resources. For type `S3` the value must be a valid S3 bucket name/prefix.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -586,7 +586,7 @@ namespace Pulumi.Aws.CodeBuild
         }
 
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, and `S3`. Defaults to `NO_CACHE`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -599,7 +599,7 @@ namespace Pulumi.Aws.CodeBuild
     public sealed class ProjectCacheGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The location of the source code from git or s3.
+        /// The location where the AWS CodeBuild project stores cached resources. For type `S3` the value must be a valid S3 bucket name/prefix.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -617,7 +617,7 @@ namespace Pulumi.Aws.CodeBuild
         }
 
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, and `S3`. Defaults to `NO_CACHE`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -678,7 +678,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<ProjectEnvironmentRegistryCredentialArgs>? RegistryCredential { get; set; }
 
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The type of build environment to use for related builds. Available values are: `LINUX_CONTAINER`, `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` or `ARM_CONTAINER`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -691,13 +691,13 @@ namespace Pulumi.Aws.CodeBuild
     public sealed class ProjectEnvironmentEnvironmentVariablesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        /// The environment variable's name or key.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -716,13 +716,13 @@ namespace Pulumi.Aws.CodeBuild
     public sealed class ProjectEnvironmentEnvironmentVariablesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        /// The environment variable's name or key.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -789,7 +789,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<ProjectEnvironmentRegistryCredentialGetArgs>? RegistryCredential { get; set; }
 
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The type of build environment to use for related builds. Available values are: `LINUX_CONTAINER`, `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` or `ARM_CONTAINER`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -934,13 +934,13 @@ namespace Pulumi.Aws.CodeBuild
         public Input<bool>? EncryptionDisabled { get; set; }
 
         /// <summary>
-        /// The location of the source code from git or s3.
+        /// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS` then this value will be ignored. If `type` is set to `S3`, this is the name of the output bucket.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+        /// Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -959,13 +959,13 @@ namespace Pulumi.Aws.CodeBuild
         public Input<bool>? EncryptionDisabled { get; set; }
 
         /// <summary>
-        /// The location of the source code from git or s3.
+        /// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS` then this value will be ignored. If `type` is set to `S3`, this is the name of the output bucket.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+        /// Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -990,7 +990,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<bool>? EncryptionDisabled { get; set; }
 
         /// <summary>
-        /// The location of the source code from git or s3.
+        /// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS` then this value will be ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -1026,7 +1026,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The build output artifact's type. Valid values for this parameter are: `CODEPIPELINE`, `NO_ARTIFACTS` or `S3`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -1051,7 +1051,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<bool>? EncryptionDisabled { get; set; }
 
         /// <summary>
-        /// The location of the source code from git or s3.
+        /// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS` then this value will be ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -1087,7 +1087,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The build output artifact's type. Valid values for this parameter are: `CODEPIPELINE`, `NO_ARTIFACTS` or `S3`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -1173,7 +1173,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? Resource { get; set; }
 
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The authorization type to use. The only valid value is `OAUTH`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -1192,7 +1192,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? Resource { get; set; }
 
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The authorization type to use. The only valid value is `OAUTH`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -1310,7 +1310,7 @@ namespace Pulumi.Aws.CodeBuild
         }
 
         /// <summary>
-        /// The build spec declaration to use for this build project's related builds.
+        /// The build spec declaration to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
         /// </summary>
         [Input("buildspec")]
         public Input<string>? Buildspec { get; set; }
@@ -1340,13 +1340,13 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+        /// Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
         /// </summary>
         [Input("reportBuildStatus")]
         public Input<bool>? ReportBuildStatus { get; set; }
 
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3` or `NO_SOURCE`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -1365,7 +1365,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? Resource { get; set; }
 
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The authorization type to use. The only valid value is `OAUTH`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -1384,7 +1384,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? Resource { get; set; }
 
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The authorization type to use. The only valid value is `OAUTH`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -1409,7 +1409,7 @@ namespace Pulumi.Aws.CodeBuild
         }
 
         /// <summary>
-        /// The build spec declaration to use for this build project's related builds.
+        /// The build spec declaration to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
         /// </summary>
         [Input("buildspec")]
         public Input<string>? Buildspec { get; set; }
@@ -1439,13 +1439,13 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+        /// Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
         /// </summary>
         [Input("reportBuildStatus")]
         public Input<bool>? ReportBuildStatus { get; set; }
 
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3` or `NO_SOURCE`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -1571,7 +1571,7 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         public readonly bool? EncryptionDisabled;
         /// <summary>
-        /// The location of the source code from git or s3.
+        /// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS` then this value will be ignored. If `type` is set to `S3`, this is the name of the output bucket.
         /// </summary>
         public readonly string? Location;
         /// <summary>
@@ -1595,7 +1595,7 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         public readonly string? Path;
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The build output artifact's type. Valid values for this parameter are: `CODEPIPELINE`, `NO_ARTIFACTS` or `S3`.
         /// </summary>
         public readonly string Type;
 
@@ -1627,7 +1627,7 @@ namespace Pulumi.Aws.CodeBuild
     public sealed class ProjectCache
     {
         /// <summary>
-        /// The location of the source code from git or s3.
+        /// The location where the AWS CodeBuild project stores cached resources. For type `S3` the value must be a valid S3 bucket name/prefix.
         /// </summary>
         public readonly string? Location;
         /// <summary>
@@ -1635,7 +1635,7 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         public readonly ImmutableArray<string> Modes;
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, and `S3`. Defaults to `NO_CACHE`.
         /// </summary>
         public readonly string? Type;
 
@@ -1683,7 +1683,7 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         public readonly ProjectEnvironmentRegistryCredential? RegistryCredential;
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The type of build environment to use for related builds. Available values are: `LINUX_CONTAINER`, `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` or `ARM_CONTAINER`.
         /// </summary>
         public readonly string Type;
 
@@ -1713,11 +1713,11 @@ namespace Pulumi.Aws.CodeBuild
     public sealed class ProjectEnvironmentEnvironmentVariables
     {
         /// <summary>
-        /// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        /// The environment variable's name or key.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`.
         /// </summary>
         public readonly string? Type;
         /// <summary>
@@ -1817,11 +1817,11 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         public readonly bool? EncryptionDisabled;
         /// <summary>
-        /// The location of the source code from git or s3.
+        /// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS` then this value will be ignored. If `type` is set to `S3`, this is the name of the output bucket.
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+        /// Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
         /// </summary>
         public readonly string? Status;
 
@@ -1849,7 +1849,7 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         public readonly bool? EncryptionDisabled;
         /// <summary>
-        /// The location of the source code from git or s3.
+        /// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS` then this value will be ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
         /// </summary>
         public readonly string? Location;
         /// <summary>
@@ -1873,7 +1873,7 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         public readonly string? Path;
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The build output artifact's type. Valid values for this parameter are: `CODEPIPELINE`, `NO_ARTIFACTS` or `S3`.
         /// </summary>
         public readonly string Type;
 
@@ -1973,7 +1973,7 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         public readonly string? Resource;
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The authorization type to use. The only valid value is `OAUTH`
         /// </summary>
         public readonly string Type;
 
@@ -2010,7 +2010,7 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         public readonly ImmutableArray<ProjectSourceAuths> Auths;
         /// <summary>
-        /// The build spec declaration to use for this build project's related builds.
+        /// The build spec declaration to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
         /// </summary>
         public readonly string? Buildspec;
         /// <summary>
@@ -2030,11 +2030,11 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+        /// Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
         /// </summary>
         public readonly bool? ReportBuildStatus;
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3` or `NO_SOURCE`.
         /// </summary>
         public readonly string Type;
 
@@ -2068,7 +2068,7 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         public readonly string? Resource;
         /// <summary>
-        /// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+        /// The authorization type to use. The only valid value is `OAUTH`
         /// </summary>
         public readonly string Type;
 

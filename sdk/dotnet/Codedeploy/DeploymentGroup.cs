@@ -424,7 +424,7 @@ namespace Pulumi.Aws.CodeDeploy
         }
 
         /// <summary>
-        /// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
+        /// Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -457,7 +457,7 @@ namespace Pulumi.Aws.CodeDeploy
         }
 
         /// <summary>
-        /// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
+        /// Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -620,9 +620,9 @@ namespace Pulumi.Aws.CodeDeploy
     public sealed class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action to take on instances in the original environment after a successful blue/green deployment.
-        /// * `TERMINATE`: Instances are terminated after a specified wait time.
-        /// * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
+        /// The method used to add instances to a replacement environment.
+        /// * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
+        /// * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscaling_groups` to specify the Auto Scaling group.
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
@@ -635,9 +635,9 @@ namespace Pulumi.Aws.CodeDeploy
     public sealed class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action to take on instances in the original environment after a successful blue/green deployment.
-        /// * `TERMINATE`: Instances are terminated after a specified wait time.
-        /// * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
+        /// The method used to add instances to a replacement environment.
+        /// * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
+        /// * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscaling_groups` to specify the Auto Scaling group.
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
@@ -943,7 +943,7 @@ namespace Pulumi.Aws.CodeDeploy
     public sealed class DeploymentGroupLoadBalancerInfoElbInfosArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the target group.
+        /// The name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -956,7 +956,7 @@ namespace Pulumi.Aws.CodeDeploy
     public sealed class DeploymentGroupLoadBalancerInfoElbInfosGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the target group.
+        /// The name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -1006,7 +1006,7 @@ namespace Pulumi.Aws.CodeDeploy
     public sealed class DeploymentGroupLoadBalancerInfoTargetGroupInfosArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the target group.
+        /// The name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -1019,7 +1019,7 @@ namespace Pulumi.Aws.CodeDeploy
     public sealed class DeploymentGroupLoadBalancerInfoTargetGroupInfosGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the target group.
+        /// The name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -1317,7 +1317,7 @@ namespace Pulumi.Aws.CodeDeploy
         /// </summary>
         public readonly ImmutableArray<string> Alarms;
         /// <summary>
-        /// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
+        /// Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -1417,9 +1417,9 @@ namespace Pulumi.Aws.CodeDeploy
     public sealed class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption
     {
         /// <summary>
-        /// The action to take on instances in the original environment after a successful blue/green deployment.
-        /// * `TERMINATE`: Instances are terminated after a specified wait time.
-        /// * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
+        /// The method used to add instances to a replacement environment.
+        /// * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
+        /// * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscaling_groups` to specify the Auto Scaling group.
         /// </summary>
         public readonly string? Action;
 
@@ -1601,7 +1601,7 @@ namespace Pulumi.Aws.CodeDeploy
     public sealed class DeploymentGroupLoadBalancerInfoElbInfos
     {
         /// <summary>
-        /// Name of the target group.
+        /// The name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
         /// </summary>
         public readonly string? Name;
 
@@ -1616,7 +1616,7 @@ namespace Pulumi.Aws.CodeDeploy
     public sealed class DeploymentGroupLoadBalancerInfoTargetGroupInfos
     {
         /// <summary>
-        /// Name of the target group.
+        /// The name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
         /// </summary>
         public readonly string? Name;
 

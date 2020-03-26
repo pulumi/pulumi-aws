@@ -23,7 +23,8 @@ func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...p
 // A collection of arguments for invoking getRepository.
 type LookupRepositoryArgs struct {
 	// The name of the ECR Repository.
-	Name string                 `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// A mapping of tags assigned to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 

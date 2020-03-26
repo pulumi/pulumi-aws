@@ -16,7 +16,7 @@ import (
 type LaunchTemplate struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the launch template.
+	// The Amazon Resource Name (ARN) of the instance profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specify volumes to attach to the instance besides the volumes specified by the AMI.
 	// See Block Devices below for details.
@@ -117,7 +117,7 @@ func GetLaunchTemplate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LaunchTemplate resources.
 type launchTemplateState struct {
-	// Amazon Resource Name (ARN) of the launch template.
+	// The Amazon Resource Name (ARN) of the instance profile.
 	Arn *string `pulumi:"arn"`
 	// Specify volumes to attach to the instance besides the volumes specified by the AMI.
 	// See Block Devices below for details.
@@ -191,7 +191,7 @@ type launchTemplateState struct {
 }
 
 type LaunchTemplateState struct {
-	// Amazon Resource Name (ARN) of the launch template.
+	// The Amazon Resource Name (ARN) of the instance profile.
 	Arn pulumi.StringPtrInput
 	// Specify volumes to attach to the instance besides the volumes specified by the AMI.
 	// See Block Devices below for details.

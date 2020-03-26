@@ -35,6 +35,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// Key-value tags for the EC2 Transit Gateway VPN Attachment
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

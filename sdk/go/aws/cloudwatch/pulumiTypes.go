@@ -1090,11 +1090,14 @@ func (o EventTargetSqsTargetPtrOutput) MessageGroupId() pulumi.StringPtrOutput {
 }
 
 type LogMetricFilterMetricTransformation struct {
+	// The value to emit when a filter pattern does not match a log event.
 	DefaultValue *string `pulumi:"defaultValue"`
-	// A name for the metric filter.
-	Name      string `pulumi:"name"`
+	// The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+	Name string `pulumi:"name"`
+	// The destination namespace of the CloudWatch metric.
 	Namespace string `pulumi:"namespace"`
-	Value     string `pulumi:"value"`
+	// What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
+	Value string `pulumi:"value"`
 }
 
 type LogMetricFilterMetricTransformationInput interface {
@@ -1105,11 +1108,14 @@ type LogMetricFilterMetricTransformationInput interface {
 }
 
 type LogMetricFilterMetricTransformationArgs struct {
+	// The value to emit when a filter pattern does not match a log event.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// A name for the metric filter.
-	Name      pulumi.StringInput `pulumi:"name"`
+	// The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+	Name pulumi.StringInput `pulumi:"name"`
+	// The destination namespace of the CloudWatch metric.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
-	Value     pulumi.StringInput `pulumi:"value"`
+	// What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (LogMetricFilterMetricTransformationArgs) ElementType() reflect.Type {
@@ -1180,19 +1186,23 @@ func (o LogMetricFilterMetricTransformationOutput) ToLogMetricFilterMetricTransf
 		return &v
 	}).(LogMetricFilterMetricTransformationPtrOutput)
 }
+
+// The value to emit when a filter pattern does not match a log event.
 func (o LogMetricFilterMetricTransformationOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// A name for the metric filter.
+// The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
 func (o LogMetricFilterMetricTransformationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The destination namespace of the CloudWatch metric.
 func (o LogMetricFilterMetricTransformationOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) string { return v.Namespace }).(pulumi.StringOutput)
 }
 
+// What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
 func (o LogMetricFilterMetricTransformationOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1215,19 +1225,22 @@ func (o LogMetricFilterMetricTransformationPtrOutput) Elem() LogMetricFilterMetr
 	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) LogMetricFilterMetricTransformation { return *v }).(LogMetricFilterMetricTransformationOutput)
 }
 
+// The value to emit when a filter pattern does not match a log event.
 func (o LogMetricFilterMetricTransformationPtrOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// A name for the metric filter.
+// The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
 func (o LogMetricFilterMetricTransformationPtrOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The destination namespace of the CloudWatch metric.
 func (o LogMetricFilterMetricTransformationPtrOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) string { return v.Namespace }).(pulumi.StringOutput)
 }
 
+// What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
 func (o LogMetricFilterMetricTransformationPtrOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) string { return v.Value }).(pulumi.StringOutput)
 }

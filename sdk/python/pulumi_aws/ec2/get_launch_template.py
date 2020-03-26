@@ -223,6 +223,7 @@ def get_launch_template(name=None,tags=None,opts=None):
 
 
     :param str name: The name of the launch template.
+    :param dict tags: (Optional) A mapping of tags to assign to the launch template.
     """
     __args__ = dict()
 

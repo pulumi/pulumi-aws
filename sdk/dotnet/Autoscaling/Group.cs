@@ -959,7 +959,7 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class GroupLaunchTemplateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The autoscaling group id.
+        /// The ID of the launch template. Conflicts with `name`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -984,7 +984,7 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class GroupLaunchTemplateGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The autoscaling group id.
+        /// The ID of the launch template. Conflicts with `name`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -1362,7 +1362,7 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class GroupLaunchTemplate
     {
         /// <summary>
-        /// The autoscaling group id.
+        /// The ID of the launch template. Conflicts with `name`.
         /// </summary>
         public readonly string Id;
         /// <summary>

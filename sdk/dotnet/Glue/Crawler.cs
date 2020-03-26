@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Configuration { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Glue database to be synchronized.
+        /// Glue database where results are written.
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Configuration { get; set; }
 
         /// <summary>
-        /// The name of the Glue database to be synchronized.
+        /// Glue database where results are written.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
@@ -317,7 +317,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Configuration { get; set; }
 
         /// <summary>
-        /// The name of the Glue database to be synchronized.
+        /// Glue database where results are written.
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
@@ -473,7 +473,7 @@ namespace Pulumi.Aws.Glue
     public sealed class CrawlerDynamodbTargetsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The path to the Amazon S3 target.
+        /// The name of the DynamoDB table to crawl.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
@@ -486,7 +486,7 @@ namespace Pulumi.Aws.Glue
     public sealed class CrawlerDynamodbTargetsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The path to the Amazon S3 target.
+        /// The name of the DynamoDB table to crawl.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
@@ -517,7 +517,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The path to the Amazon S3 target.
+        /// The path of the JDBC target.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
@@ -548,7 +548,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The path to the Amazon S3 target.
+        /// The path of the JDBC target.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
@@ -573,7 +573,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The path to the Amazon S3 target.
+        /// The name of the DynamoDB table to crawl.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
@@ -598,7 +598,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The path to the Amazon S3 target.
+        /// The name of the DynamoDB table to crawl.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
@@ -676,7 +676,7 @@ namespace Pulumi.Aws.Glue
     public sealed class CrawlerDynamodbTargets
     {
         /// <summary>
-        /// The path to the Amazon S3 target.
+        /// The name of the DynamoDB table to crawl.
         /// </summary>
         public readonly string Path;
 
@@ -699,7 +699,7 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public readonly ImmutableArray<string> Exclusions;
         /// <summary>
-        /// The path to the Amazon S3 target.
+        /// The path of the JDBC target.
         /// </summary>
         public readonly string Path;
 
@@ -723,7 +723,7 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public readonly ImmutableArray<string> Exclusions;
         /// <summary>
-        /// The path to the Amazon S3 target.
+        /// The name of the DynamoDB table to crawl.
         /// </summary>
         public readonly string Path;
 

@@ -59,7 +59,7 @@ class TopicRule(pulumi.CustomResource):
         The **cloudwatch_alarm** object supports the following:
 
           * `alarmName` (`pulumi.Input[str]`) - The CloudWatch alarm name.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
+          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch alarm.
           * `stateReason` (`pulumi.Input[str]`) - The reason for the alarm change.
           * `stateValue` (`pulumi.Input[str]`) - The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
 
@@ -70,7 +70,7 @@ class TopicRule(pulumi.CustomResource):
           * `metricTimestamp` (`pulumi.Input[str]`) - An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
           * `metricUnit` (`pulumi.Input[str]`) - The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
           * `metricValue` (`pulumi.Input[str]`) - The CloudWatch metric value.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
+          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch metric.
 
         The **dynamodb** object supports the following:
 
@@ -81,7 +81,7 @@ class TopicRule(pulumi.CustomResource):
           * `rangeKeyField` (`pulumi.Input[str]`) - The range key name.
           * `rangeKeyType` (`pulumi.Input[str]`) - The range key type. Valid values are "STRING" or "NUMBER".
           * `rangeKeyValue` (`pulumi.Input[str]`) - The range key value.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
+          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to the DynamoDB table.
           * `table_name` (`pulumi.Input[str]`) - The name of the DynamoDB table.
 
         The **elasticsearch** object supports the following:
@@ -89,19 +89,19 @@ class TopicRule(pulumi.CustomResource):
           * `endpoint` (`pulumi.Input[str]`) - The endpoint of your Elasticsearch domain.
           * `id` (`pulumi.Input[str]`) - The unique identifier for the document you are storing.
           * `index` (`pulumi.Input[str]`) - The Elasticsearch index where you want to store your data.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
+          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that has access to Elasticsearch.
           * `type` (`pulumi.Input[str]`) - The type of document you are storing.
 
         The **firehose** object supports the following:
 
           * `deliveryStreamName` (`pulumi.Input[str]`) - The delivery stream name.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
+          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
           * `separator` (`pulumi.Input[str]`) - A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 
         The **kinesis** object supports the following:
 
           * `partitionKey` (`pulumi.Input[str]`) - The partition key.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
+          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to the Amazon Kinesis stream.
           * `streamName` (`pulumi.Input[str]`) - The name of the Amazon Kinesis stream.
 
         The **lambda_** object supports the following:
@@ -117,7 +117,7 @@ class TopicRule(pulumi.CustomResource):
 
           * `bucket_name` (`pulumi.Input[str]`) - The Amazon S3 bucket name.
           * `key` (`pulumi.Input[str]`) - The object key.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
+          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch alarm.
 
         The **sns** object supports the following:
 
@@ -196,7 +196,7 @@ class TopicRule(pulumi.CustomResource):
         The **cloudwatch_alarm** object supports the following:
 
           * `alarmName` (`pulumi.Input[str]`) - The CloudWatch alarm name.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
+          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch alarm.
           * `stateReason` (`pulumi.Input[str]`) - The reason for the alarm change.
           * `stateValue` (`pulumi.Input[str]`) - The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
 
@@ -207,7 +207,7 @@ class TopicRule(pulumi.CustomResource):
           * `metricTimestamp` (`pulumi.Input[str]`) - An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
           * `metricUnit` (`pulumi.Input[str]`) - The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
           * `metricValue` (`pulumi.Input[str]`) - The CloudWatch metric value.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
+          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch metric.
 
         The **dynamodb** object supports the following:
 
@@ -218,7 +218,7 @@ class TopicRule(pulumi.CustomResource):
           * `rangeKeyField` (`pulumi.Input[str]`) - The range key name.
           * `rangeKeyType` (`pulumi.Input[str]`) - The range key type. Valid values are "STRING" or "NUMBER".
           * `rangeKeyValue` (`pulumi.Input[str]`) - The range key value.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
+          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to the DynamoDB table.
           * `table_name` (`pulumi.Input[str]`) - The name of the DynamoDB table.
 
         The **elasticsearch** object supports the following:
@@ -226,19 +226,19 @@ class TopicRule(pulumi.CustomResource):
           * `endpoint` (`pulumi.Input[str]`) - The endpoint of your Elasticsearch domain.
           * `id` (`pulumi.Input[str]`) - The unique identifier for the document you are storing.
           * `index` (`pulumi.Input[str]`) - The Elasticsearch index where you want to store your data.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
+          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that has access to Elasticsearch.
           * `type` (`pulumi.Input[str]`) - The type of document you are storing.
 
         The **firehose** object supports the following:
 
           * `deliveryStreamName` (`pulumi.Input[str]`) - The delivery stream name.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
+          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
           * `separator` (`pulumi.Input[str]`) - A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 
         The **kinesis** object supports the following:
 
           * `partitionKey` (`pulumi.Input[str]`) - The partition key.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
+          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to the Amazon Kinesis stream.
           * `streamName` (`pulumi.Input[str]`) - The name of the Amazon Kinesis stream.
 
         The **lambda_** object supports the following:
@@ -254,7 +254,7 @@ class TopicRule(pulumi.CustomResource):
 
           * `bucket_name` (`pulumi.Input[str]`) - The Amazon S3 bucket name.
           * `key` (`pulumi.Input[str]`) - The object key.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
+          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch alarm.
 
         The **sns** object supports the following:
 

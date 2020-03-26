@@ -91,7 +91,7 @@ export class Inventory extends pulumi.CustomResource {
     }
 
     /**
-     * The S3 bucket configuration where inventory results are published (documented below).
+     * The name of the bucket where the inventory configuration will be stored.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
@@ -183,7 +183,7 @@ export class Inventory extends pulumi.CustomResource {
  */
 export interface InventoryState {
     /**
-     * The S3 bucket configuration where inventory results are published (documented below).
+     * The name of the bucket where the inventory configuration will be stored.
      */
     readonly bucket?: pulumi.Input<string>;
     /**
@@ -222,7 +222,7 @@ export interface InventoryState {
  */
 export interface InventoryArgs {
     /**
-     * The S3 bucket configuration where inventory results are published (documented below).
+     * The name of the bucket where the inventory configuration will be stored.
      */
     readonly bucket: pulumi.Input<string>;
     /**

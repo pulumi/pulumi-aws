@@ -179,7 +179,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
      */
     public readonly maxErrors!: pulumi.Output<string>;
     /**
-     * The parameter name.
+     * The name of the maintenance window task.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -187,7 +187,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<number | undefined>;
     /**
-     * The IAM service role to assume during task execution.
+     * The role that should be assumed when executing the task.
      */
     public readonly serviceRoleArn!: pulumi.Output<string>;
     /**
@@ -311,7 +311,7 @@ export interface MaintenanceWindowTaskState {
      */
     readonly maxErrors?: pulumi.Input<string>;
     /**
-     * The parameter name.
+     * The name of the maintenance window task.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -319,7 +319,7 @@ export interface MaintenanceWindowTaskState {
      */
     readonly priority?: pulumi.Input<number>;
     /**
-     * The IAM service role to assume during task execution.
+     * The role that should be assumed when executing the task.
      */
     readonly serviceRoleArn?: pulumi.Input<string>;
     /**
@@ -373,7 +373,7 @@ export interface MaintenanceWindowTaskArgs {
      */
     readonly maxErrors: pulumi.Input<string>;
     /**
-     * The parameter name.
+     * The name of the maintenance window task.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -381,7 +381,7 @@ export interface MaintenanceWindowTaskArgs {
      */
     readonly priority?: pulumi.Input<number>;
     /**
-     * The IAM service role to assume during task execution.
+     * The role that should be assumed when executing the task.
      */
     readonly serviceRoleArn: pulumi.Input<string>;
     /**

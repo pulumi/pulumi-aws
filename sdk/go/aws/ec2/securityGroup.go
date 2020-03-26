@@ -15,10 +15,7 @@ type SecurityGroup struct {
 
 	// The ARN of the security group
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The security group description. Defaults to
-	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-	// `GroupDescription` attribute, for which there is no Update API. If you'd like
-	// to classify your security groups in a way that can be updated, use `tags`.
+	// Description of this egress rule.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
@@ -83,10 +80,7 @@ func GetSecurityGroup(ctx *pulumi.Context,
 type securityGroupState struct {
 	// The ARN of the security group
 	Arn *string `pulumi:"arn"`
-	// The security group description. Defaults to
-	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-	// `GroupDescription` attribute, for which there is no Update API. If you'd like
-	// to classify your security groups in a way that can be updated, use `tags`.
+	// Description of this egress rule.
 	Description *string `pulumi:"description"`
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
@@ -121,10 +115,7 @@ type securityGroupState struct {
 type SecurityGroupState struct {
 	// The ARN of the security group
 	Arn pulumi.StringPtrInput
-	// The security group description. Defaults to
-	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-	// `GroupDescription` attribute, for which there is no Update API. If you'd like
-	// to classify your security groups in a way that can be updated, use `tags`.
+	// Description of this egress rule.
 	Description pulumi.StringPtrInput
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
@@ -161,10 +152,7 @@ func (SecurityGroupState) ElementType() reflect.Type {
 }
 
 type securityGroupArgs struct {
-	// The security group description. Defaults to
-	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-	// `GroupDescription` attribute, for which there is no Update API. If you'd like
-	// to classify your security groups in a way that can be updated, use `tags`.
+	// Description of this egress rule.
 	Description *string `pulumi:"description"`
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
@@ -196,10 +184,7 @@ type securityGroupArgs struct {
 
 // The set of arguments for constructing a SecurityGroup resource.
 type SecurityGroupArgs struct {
-	// The security group description. Defaults to
-	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-	// `GroupDescription` attribute, for which there is no Update API. If you'd like
-	// to classify your security groups in a way that can be updated, use `tags`.
+	// Description of this egress rule.
 	Description pulumi.StringPtrInput
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.

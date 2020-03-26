@@ -53,6 +53,10 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// Map of key-value pairs assigned to the gateway.
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

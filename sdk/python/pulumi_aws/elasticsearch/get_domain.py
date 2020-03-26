@@ -171,6 +171,7 @@ def get_domain(domain_name=None,tags=None,opts=None):
 
 
     :param str domain_name: Name of the domain.
+    :param dict tags: The tags assigned to the domain.
     """
     __args__ = dict()
 

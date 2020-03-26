@@ -76,6 +76,9 @@ export interface GetVpcEndpointServiceArgs {
      * The service name that can be specified when creating a VPC endpoint.
      */
     readonly serviceName?: string;
+    /**
+     * A mapping of tags assigned to the resource.
+     */
     readonly tags?: {[key: string]: any};
 }
 

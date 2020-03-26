@@ -469,13 +469,13 @@ namespace Pulumi.Aws.AppMesh
     public sealed class VirtualNodeSpecListenerPortMappingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+        /// The port used for the port mapping.
         /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
         /// <summary>
-        /// The protocol for the health check request. Valid values are `http` and `tcp`.
+        /// The protocol used for the port mapping. Valid values are `http` and `tcp`.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
@@ -488,13 +488,13 @@ namespace Pulumi.Aws.AppMesh
     public sealed class VirtualNodeSpecListenerPortMappingGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+        /// The port used for the port mapping.
         /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
         /// <summary>
-        /// The protocol for the health check request. Valid values are `http` and `tcp`.
+        /// The protocol used for the port mapping. Valid values are `http` and `tcp`.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
@@ -520,7 +520,7 @@ namespace Pulumi.Aws.AppMesh
     public sealed class VirtualNodeSpecLoggingAccessLogFileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The destination path for the health check request. This is only required if the specified protocol is `http`.
+        /// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
@@ -533,7 +533,7 @@ namespace Pulumi.Aws.AppMesh
     public sealed class VirtualNodeSpecLoggingAccessLogFileGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The destination path for the health check request. This is only required if the specified protocol is `http`.
+        /// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
@@ -854,11 +854,11 @@ namespace Pulumi.Aws.AppMesh
     public sealed class VirtualNodeSpecListenerPortMapping
     {
         /// <summary>
-        /// The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+        /// The port used for the port mapping.
         /// </summary>
         public readonly int Port;
         /// <summary>
-        /// The protocol for the health check request. Valid values are `http` and `tcp`.
+        /// The protocol used for the port mapping. Valid values are `http` and `tcp`.
         /// </summary>
         public readonly string Protocol;
 
@@ -906,7 +906,7 @@ namespace Pulumi.Aws.AppMesh
     public sealed class VirtualNodeSpecLoggingAccessLogFile
     {
         /// <summary>
-        /// The destination path for the health check request. This is only required if the specified protocol is `http`.
+        /// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
         /// </summary>
         public readonly string Path;
 

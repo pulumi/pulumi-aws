@@ -68,6 +68,9 @@ export interface GetZoneArgs {
      * Used with `name` field to get a private Hosted Zone.
      */
     readonly privateZone?: boolean;
+    /**
+     * The number of Record Set in the Hosted Zone.
+     */
     readonly resourceRecordSetCount?: number;
     /**
      * Used with `name` field. A mapping of tags, each pair of which must exactly match a pair on the desired Hosted Zone.

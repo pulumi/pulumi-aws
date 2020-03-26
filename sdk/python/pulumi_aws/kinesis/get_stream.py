@@ -102,6 +102,7 @@ def get_stream(name=None,tags=None,opts=None):
 
 
     :param str name: The name of the Kinesis Stream.
+    :param dict tags: A mapping of tags to assigned to the stream.
     """
     __args__ = dict()
 

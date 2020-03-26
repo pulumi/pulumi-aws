@@ -124,6 +124,7 @@ def get_cluster(name=None,tags=None,opts=None):
 
 
     :param str name: The name of the cluster
+    :param dict tags: Key-value mapping of resource tags.
     """
     __args__ = dict()
 

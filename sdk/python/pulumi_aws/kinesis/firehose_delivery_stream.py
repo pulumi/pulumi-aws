@@ -25,8 +25,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
       * `bufferingInterval` (`float`) - Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
       * `bufferingSize` (`float`) - Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-      * `cloudwatch_logging_options` (`dict`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-        * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+      * `cloudwatch_logging_options` (`dict`) - The CloudWatch Logging Options for the delivery stream. More details are given below
+        * `enabled` (`bool`) - Enables or disables the logging. Defaults to `false`.
         * `log_group_name` (`str`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
         * `logStreamName` (`str`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -34,7 +34,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
       * `indexName` (`str`) - The Elasticsearch index name.
       * `indexRotationPeriod` (`str`) - The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
       * `processingConfiguration` (`dict`) - The data processing configuration.  More details are given below.
-        * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        * `enabled` (`bool`) - Enables or disables data processing.
         * `processors` (`list`) - Array of data processors. More details are given below
           * `parameters` (`list`) - Array of processor parameters. More details are given below
             * `parameterName` (`str`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
@@ -42,9 +42,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
           * `type` (`str`) - The type of processor. Valid Values: `Lambda`
 
-      * `retryDuration` (`float`) - After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-      * `role_arn` (`str`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-      * `s3BackupMode` (`str`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+      * `retryDuration` (`float`) - After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+      * `role_arn` (`str`) - The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+      * `s3BackupMode` (`str`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
       * `typeName` (`str`) - The Elasticsearch type name with maximum length of 100 characters.
     """
     extended_s3_configuration: pulumi.Output[dict]
@@ -55,8 +55,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
       * `bufferInterval` (`float`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
       * `bufferSize` (`float`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
         We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-      * `cloudwatch_logging_options` (`dict`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-        * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+      * `cloudwatch_logging_options` (`dict`) - The CloudWatch Logging Options for the delivery stream. More details are given below
+        * `enabled` (`bool`) - Enables or disables the logging. Defaults to `false`.
         * `log_group_name` (`str`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
         * `logStreamName` (`str`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -108,7 +108,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         be used.
       * `prefix` (`str`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
       * `processingConfiguration` (`dict`) - The data processing configuration.  More details are given below.
-        * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        * `enabled` (`bool`) - Enables or disables data processing.
         * `processors` (`list`) - Array of data processors. More details are given below
           * `parameters` (`list`) - Array of processor parameters. More details are given below
             * `parameterName` (`str`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
@@ -122,8 +122,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         * `bufferInterval` (`float`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
         * `bufferSize` (`float`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
           We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-        * `cloudwatch_logging_options` (`dict`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-          * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        * `cloudwatch_logging_options` (`dict`) - The CloudWatch Logging Options for the delivery stream. More details are given below
+          * `enabled` (`bool`) - Enables or disables the logging. Defaults to `false`.
           * `log_group_name` (`str`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
           * `logStreamName` (`str`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -133,14 +133,14 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         * `prefix` (`str`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
         * `role_arn` (`str`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
 
-      * `s3BackupMode` (`str`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+      * `s3BackupMode` (`str`) - The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
     """
     kinesis_source_configuration: pulumi.Output[dict]
     """
     Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
 
       * `kinesisStreamArn` (`str`) - The kinesis stream used as the source of the firehose delivery stream.
-      * `role_arn` (`str`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      * `role_arn` (`str`) - The ARN of the role that provides access to the source Kinesis stream.
     """
     name: pulumi.Output[str]
     """
@@ -153,8 +153,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     Using `redshift_configuration` requires the user to also specify a
     `s3_configuration` block. More details are given below.
 
-      * `cloudwatch_logging_options` (`dict`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-        * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+      * `cloudwatch_logging_options` (`dict`) - The CloudWatch Logging Options for the delivery stream. More details are given below
+        * `enabled` (`bool`) - Enables or disables the logging. Defaults to `false`.
         * `log_group_name` (`str`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
         * `logStreamName` (`str`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -164,7 +164,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
       * `dataTableName` (`str`) - The name of the table in the redshift cluster that the s3 bucket will copy to.
       * `password` (`str`) - The password for the username above.
       * `processingConfiguration` (`dict`) - The data processing configuration.  More details are given below.
-        * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        * `enabled` (`bool`) - Enables or disables data processing.
         * `processors` (`list`) - Array of data processors. More details are given below
           * `parameters` (`list`) - Array of processor parameters. More details are given below
             * `parameterName` (`str`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
@@ -172,15 +172,15 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
           * `type` (`str`) - The type of processor. Valid Values: `Lambda`
 
-      * `retryDuration` (`float`) - After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-      * `role_arn` (`str`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      * `retryDuration` (`float`) - The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+      * `role_arn` (`str`) - The arn of the role the stream assumes.
       * `s3BackupConfiguration` (`dict`) - The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
         * `bucketArn` (`str`) - The ARN of the S3 bucket
         * `bufferInterval` (`float`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
         * `bufferSize` (`float`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
           We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-        * `cloudwatch_logging_options` (`dict`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-          * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        * `cloudwatch_logging_options` (`dict`) - The CloudWatch Logging Options for the delivery stream. More details are given below
+          * `enabled` (`bool`) - Enables or disables the logging. Defaults to `false`.
           * `log_group_name` (`str`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
           * `logStreamName` (`str`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -190,7 +190,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         * `prefix` (`str`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
         * `role_arn` (`str`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
 
-      * `s3BackupMode` (`str`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+      * `s3BackupMode` (`str`) - The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
       * `username` (`str`) - The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
     """
     s3_configuration: pulumi.Output[dict]
@@ -202,8 +202,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
       * `bufferInterval` (`float`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
       * `bufferSize` (`float`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
         We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-      * `cloudwatch_logging_options` (`dict`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-        * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+      * `cloudwatch_logging_options` (`dict`) - The CloudWatch Logging Options for the delivery stream. More details are given below
+        * `enabled` (`bool`) - Enables or disables the logging. Defaults to `false`.
         * `log_group_name` (`str`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
         * `logStreamName` (`str`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -218,7 +218,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     Encrypt at rest options.
     Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 
-      * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+      * `enabled` (`bool`) - Whether to enable encryption at rest. Default is `false`.
     """
     splunk_configuration: pulumi.Output[dict]
     tags: pulumi.Output[dict]
@@ -260,8 +260,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
           * `bufferingInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
           * `bufferingSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below
+            * `enabled` (`pulumi.Input[bool]`) - Enables or disables the logging. Defaults to `false`.
             * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
             * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -269,7 +269,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
           * `indexName` (`pulumi.Input[str]`) - The Elasticsearch index name.
           * `indexRotationPeriod` (`pulumi.Input[str]`) - The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
           * `processingConfiguration` (`pulumi.Input[dict]`) - The data processing configuration.  More details are given below.
-            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `enabled` (`pulumi.Input[bool]`) - Enables or disables data processing.
             * `processors` (`pulumi.Input[list]`) - Array of data processors. More details are given below
               * `parameters` (`pulumi.Input[list]`) - Array of processor parameters. More details are given below
                 * `parameterName` (`pulumi.Input[str]`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
@@ -277,9 +277,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
               * `type` (`pulumi.Input[str]`) - The type of processor. Valid Values: `Lambda`
 
-          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-          * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-          * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+          * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
           * `typeName` (`pulumi.Input[str]`) - The Elasticsearch type name with maximum length of 100 characters.
 
         The **extended_s3_configuration** object supports the following:
@@ -288,8 +288,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
           * `bufferInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
           * `bufferSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
             We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below
+            * `enabled` (`pulumi.Input[bool]`) - Enables or disables the logging. Defaults to `false`.
             * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
             * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -341,7 +341,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             be used.
           * `prefix` (`pulumi.Input[str]`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
           * `processingConfiguration` (`pulumi.Input[dict]`) - The data processing configuration.  More details are given below.
-            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `enabled` (`pulumi.Input[bool]`) - Enables or disables data processing.
             * `processors` (`pulumi.Input[list]`) - Array of data processors. More details are given below
               * `parameters` (`pulumi.Input[list]`) - Array of processor parameters. More details are given below
                 * `parameterName` (`pulumi.Input[str]`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
@@ -355,8 +355,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             * `bufferInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
             * `bufferSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
               We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-            * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-              * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below
+              * `enabled` (`pulumi.Input[bool]`) - Enables or disables the logging. Defaults to `false`.
               * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
               * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -366,17 +366,17 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             * `prefix` (`pulumi.Input[str]`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
             * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
 
-          * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+          * `s3BackupMode` (`pulumi.Input[str]`) - The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
 
         The **kinesis_source_configuration** object supports the following:
 
           * `kinesisStreamArn` (`pulumi.Input[str]`) - The kinesis stream used as the source of the firehose delivery stream.
-          * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+          * `role_arn` (`pulumi.Input[str]`) - The ARN of the role that provides access to the source Kinesis stream.
 
         The **redshift_configuration** object supports the following:
 
-          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below
+            * `enabled` (`pulumi.Input[bool]`) - Enables or disables the logging. Defaults to `false`.
             * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
             * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -386,7 +386,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
           * `dataTableName` (`pulumi.Input[str]`) - The name of the table in the redshift cluster that the s3 bucket will copy to.
           * `password` (`pulumi.Input[str]`) - The password for the username above.
           * `processingConfiguration` (`pulumi.Input[dict]`) - The data processing configuration.  More details are given below.
-            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `enabled` (`pulumi.Input[bool]`) - Enables or disables data processing.
             * `processors` (`pulumi.Input[list]`) - Array of data processors. More details are given below
               * `parameters` (`pulumi.Input[list]`) - Array of processor parameters. More details are given below
                 * `parameterName` (`pulumi.Input[str]`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
@@ -394,15 +394,15 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
               * `type` (`pulumi.Input[str]`) - The type of processor. Valid Values: `Lambda`
 
-          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-          * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+          * `retryDuration` (`pulumi.Input[float]`) - The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+          * `role_arn` (`pulumi.Input[str]`) - The arn of the role the stream assumes.
           * `s3BackupConfiguration` (`pulumi.Input[dict]`) - The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
             * `bucketArn` (`pulumi.Input[str]`) - The ARN of the S3 bucket
             * `bufferInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
             * `bufferSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
               We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-            * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-              * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below
+              * `enabled` (`pulumi.Input[bool]`) - Enables or disables the logging. Defaults to `false`.
               * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
               * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -412,7 +412,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             * `prefix` (`pulumi.Input[str]`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
             * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
 
-          * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+          * `s3BackupMode` (`pulumi.Input[str]`) - The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
           * `username` (`pulumi.Input[str]`) - The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
 
         The **s3_configuration** object supports the following:
@@ -421,8 +421,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
           * `bufferInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
           * `bufferSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
             We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below
+            * `enabled` (`pulumi.Input[bool]`) - Enables or disables the logging. Defaults to `false`.
             * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
             * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -434,12 +434,12 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
         The **server_side_encryption** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+          * `enabled` (`pulumi.Input[bool]`) - Whether to enable encryption at rest. Default is `false`.
 
         The **splunk_configuration** object supports the following:
 
           * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `enabled` (`pulumi.Input[bool]`) - Enables or disables the logging. Defaults to `false`.
             * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
             * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -448,7 +448,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
           * `hecEndpointType` (`pulumi.Input[str]`) - The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
           * `hecToken` (`pulumi.Input[str]`) - The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
           * `processingConfiguration` (`pulumi.Input[dict]`) - The data processing configuration.  More details are given below.
-            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `enabled` (`pulumi.Input[bool]`) - Enables or disables data processing.
             * `processors` (`pulumi.Input[list]`) - Array of data processors. More details are given below
               * `parameters` (`pulumi.Input[list]`) - Array of processor parameters. More details are given below
                 * `parameterName` (`pulumi.Input[str]`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
@@ -527,8 +527,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
           * `bufferingInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
           * `bufferingSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below
+            * `enabled` (`pulumi.Input[bool]`) - Enables or disables the logging. Defaults to `false`.
             * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
             * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -536,7 +536,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
           * `indexName` (`pulumi.Input[str]`) - The Elasticsearch index name.
           * `indexRotationPeriod` (`pulumi.Input[str]`) - The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
           * `processingConfiguration` (`pulumi.Input[dict]`) - The data processing configuration.  More details are given below.
-            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `enabled` (`pulumi.Input[bool]`) - Enables or disables data processing.
             * `processors` (`pulumi.Input[list]`) - Array of data processors. More details are given below
               * `parameters` (`pulumi.Input[list]`) - Array of processor parameters. More details are given below
                 * `parameterName` (`pulumi.Input[str]`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
@@ -544,9 +544,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
               * `type` (`pulumi.Input[str]`) - The type of processor. Valid Values: `Lambda`
 
-          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-          * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-          * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+          * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
           * `typeName` (`pulumi.Input[str]`) - The Elasticsearch type name with maximum length of 100 characters.
 
         The **extended_s3_configuration** object supports the following:
@@ -555,8 +555,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
           * `bufferInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
           * `bufferSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
             We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below
+            * `enabled` (`pulumi.Input[bool]`) - Enables or disables the logging. Defaults to `false`.
             * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
             * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -608,7 +608,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             be used.
           * `prefix` (`pulumi.Input[str]`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
           * `processingConfiguration` (`pulumi.Input[dict]`) - The data processing configuration.  More details are given below.
-            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `enabled` (`pulumi.Input[bool]`) - Enables or disables data processing.
             * `processors` (`pulumi.Input[list]`) - Array of data processors. More details are given below
               * `parameters` (`pulumi.Input[list]`) - Array of processor parameters. More details are given below
                 * `parameterName` (`pulumi.Input[str]`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
@@ -622,8 +622,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             * `bufferInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
             * `bufferSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
               We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-            * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-              * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below
+              * `enabled` (`pulumi.Input[bool]`) - Enables or disables the logging. Defaults to `false`.
               * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
               * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -633,17 +633,17 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             * `prefix` (`pulumi.Input[str]`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
             * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
 
-          * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+          * `s3BackupMode` (`pulumi.Input[str]`) - The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
 
         The **kinesis_source_configuration** object supports the following:
 
           * `kinesisStreamArn` (`pulumi.Input[str]`) - The kinesis stream used as the source of the firehose delivery stream.
-          * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+          * `role_arn` (`pulumi.Input[str]`) - The ARN of the role that provides access to the source Kinesis stream.
 
         The **redshift_configuration** object supports the following:
 
-          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below
+            * `enabled` (`pulumi.Input[bool]`) - Enables or disables the logging. Defaults to `false`.
             * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
             * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -653,7 +653,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
           * `dataTableName` (`pulumi.Input[str]`) - The name of the table in the redshift cluster that the s3 bucket will copy to.
           * `password` (`pulumi.Input[str]`) - The password for the username above.
           * `processingConfiguration` (`pulumi.Input[dict]`) - The data processing configuration.  More details are given below.
-            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `enabled` (`pulumi.Input[bool]`) - Enables or disables data processing.
             * `processors` (`pulumi.Input[list]`) - Array of data processors. More details are given below
               * `parameters` (`pulumi.Input[list]`) - Array of processor parameters. More details are given below
                 * `parameterName` (`pulumi.Input[str]`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
@@ -661,15 +661,15 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
               * `type` (`pulumi.Input[str]`) - The type of processor. Valid Values: `Lambda`
 
-          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-          * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+          * `retryDuration` (`pulumi.Input[float]`) - The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+          * `role_arn` (`pulumi.Input[str]`) - The arn of the role the stream assumes.
           * `s3BackupConfiguration` (`pulumi.Input[dict]`) - The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
             * `bucketArn` (`pulumi.Input[str]`) - The ARN of the S3 bucket
             * `bufferInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
             * `bufferSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
               We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-            * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-              * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below
+              * `enabled` (`pulumi.Input[bool]`) - Enables or disables the logging. Defaults to `false`.
               * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
               * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -679,7 +679,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             * `prefix` (`pulumi.Input[str]`) - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
             * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
 
-          * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+          * `s3BackupMode` (`pulumi.Input[str]`) - The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
           * `username` (`pulumi.Input[str]`) - The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
 
         The **s3_configuration** object supports the following:
@@ -688,8 +688,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
           * `bufferInterval` (`pulumi.Input[float]`) - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
           * `bufferSize` (`pulumi.Input[float]`) - Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
             We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
-          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+          * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below
+            * `enabled` (`pulumi.Input[bool]`) - Enables or disables the logging. Defaults to `false`.
             * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
             * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -701,12 +701,12 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
         The **server_side_encryption** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+          * `enabled` (`pulumi.Input[bool]`) - Whether to enable encryption at rest. Default is `false`.
 
         The **splunk_configuration** object supports the following:
 
           * `cloudwatch_logging_options` (`pulumi.Input[dict]`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
-            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `enabled` (`pulumi.Input[bool]`) - Enables or disables the logging. Defaults to `false`.
             * `log_group_name` (`pulumi.Input[str]`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
             * `logStreamName` (`pulumi.Input[str]`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
 
@@ -715,7 +715,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
           * `hecEndpointType` (`pulumi.Input[str]`) - The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
           * `hecToken` (`pulumi.Input[str]`) - The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
           * `processingConfiguration` (`pulumi.Input[dict]`) - The data processing configuration.  More details are given below.
-            * `enabled` (`pulumi.Input[bool]`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+            * `enabled` (`pulumi.Input[bool]`) - Enables or disables data processing.
             * `processors` (`pulumi.Input[list]`) - Array of data processors. More details are given below
               * `parameters` (`pulumi.Input[list]`) - Array of processor parameters. More details are given below
                 * `parameterName` (`pulumi.Input[str]`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`

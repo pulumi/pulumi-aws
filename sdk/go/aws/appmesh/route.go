@@ -25,7 +25,7 @@ type Route struct {
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
 	// The name of the service mesh in which to create the route.
 	MeshName pulumi.StringOutput `pulumi:"meshName"`
-	// A name for the HTTP header in the client request that will be matched on.
+	// The name to use for the route.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The route specification to apply.
 	Spec RouteSpecOutput `pulumi:"spec"`
@@ -80,7 +80,7 @@ type routeState struct {
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
 	// The name of the service mesh in which to create the route.
 	MeshName *string `pulumi:"meshName"`
-	// A name for the HTTP header in the client request that will be matched on.
+	// The name to use for the route.
 	Name *string `pulumi:"name"`
 	// The route specification to apply.
 	Spec *RouteSpec `pulumi:"spec"`
@@ -99,7 +99,7 @@ type RouteState struct {
 	LastUpdatedDate pulumi.StringPtrInput
 	// The name of the service mesh in which to create the route.
 	MeshName pulumi.StringPtrInput
-	// A name for the HTTP header in the client request that will be matched on.
+	// The name to use for the route.
 	Name pulumi.StringPtrInput
 	// The route specification to apply.
 	Spec RouteSpecPtrInput
@@ -116,7 +116,7 @@ func (RouteState) ElementType() reflect.Type {
 type routeArgs struct {
 	// The name of the service mesh in which to create the route.
 	MeshName string `pulumi:"meshName"`
-	// A name for the HTTP header in the client request that will be matched on.
+	// The name to use for the route.
 	Name *string `pulumi:"name"`
 	// The route specification to apply.
 	Spec RouteSpec `pulumi:"spec"`
@@ -130,7 +130,7 @@ type routeArgs struct {
 type RouteArgs struct {
 	// The name of the service mesh in which to create the route.
 	MeshName pulumi.StringInput
-	// A name for the HTTP header in the client request that will be matched on.
+	// The name to use for the route.
 	Name pulumi.StringPtrInput
 	// The route specification to apply.
 	Spec RouteSpecInput

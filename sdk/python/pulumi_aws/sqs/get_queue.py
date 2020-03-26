@@ -63,6 +63,7 @@ def get_queue(name=None,tags=None,opts=None):
 
 
     :param str name: The name of the queue to match.
+    :param dict tags: A mapping of tags for the resource.
     """
     __args__ = dict()
 

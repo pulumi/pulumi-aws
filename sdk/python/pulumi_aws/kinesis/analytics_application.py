@@ -20,8 +20,8 @@ class AnalyticsApplication(pulumi.CustomResource):
     See CloudWatch Logging Options below for more details.
 
       * `id` (`str`) - The ARN of the Kinesis Analytics Application.
-      * `logStreamArn` (`str`)
-      * `role_arn` (`str`)
+      * `logStreamArn` (`str`) - The ARN of the CloudWatch Log Stream.
+      * `role_arn` (`str`) - The ARN of the IAM Role used to send application messages.
     """
     code: pulumi.Output[str]
     """
@@ -40,40 +40,49 @@ class AnalyticsApplication(pulumi.CustomResource):
     Input configuration of the application. See Inputs below for more details.
 
       * `id` (`str`) - The ARN of the Kinesis Analytics Application.
-      * `kinesisFirehose` (`dict`)
-        * `resource_arn` (`str`)
-        * `role_arn` (`str`)
+      * `kinesisFirehose` (`dict`) - The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesis_stream`.
+        See Kinesis Firehose below for more details.
+        * `resource_arn` (`str`) - The ARN of the Kinesis Firehose delivery stream.
+        * `role_arn` (`str`) - The ARN of the IAM Role used to access the stream.
 
-      * `kinesisStream` (`dict`)
-        * `resource_arn` (`str`)
-        * `role_arn` (`str`)
+      * `kinesisStream` (`dict`) - The Kinesis Stream configuration for the streaming source. Conflicts with `kinesis_firehose`.
+        See Kinesis Stream below for more details.
+        * `resource_arn` (`str`) - The ARN of the Kinesis Stream.
+        * `role_arn` (`str`) - The ARN of the IAM Role used to access the stream.
 
-      * `name_prefix` (`str`)
-      * `parallelism` (`dict`)
-        * `count` (`float`)
+      * `name_prefix` (`str`) - The Name Prefix to use when creating an in-application stream.
+      * `parallelism` (`dict`) - The number of Parallel in-application streams to create.
+        See Parallelism below for more details.
+        * `count` (`float`) - The Count of streams.
 
-      * `processingConfiguration` (`dict`)
-        * `lambda_` (`dict`)
-          * `resource_arn` (`str`)
-          * `role_arn` (`str`)
+      * `processingConfiguration` (`dict`) - The Processing Configuration to transform records as they are received from the stream.
+        See Processing Configuration below for more details.
+        * `lambda_` (`dict`) - The Lambda function configuration. See Lambda below for more details.
+          * `resource_arn` (`str`) - The ARN of the Lambda function.
+          * `role_arn` (`str`) - The ARN of the IAM Role used to access the Lambda function.
 
-      * `schema` (`dict`)
-        * `recordColumns` (`list`)
-          * `mapping` (`str`)
-          * `name` (`str`) - Name of the Kinesis Analytics Application.
-          * `sqlType` (`str`)
+      * `schema` (`dict`) - The Schema format of the data in the streaming source. See Source Schema below for more details.
+        * `recordColumns` (`list`) - The Record Column mapping for the streaming source data element.
+          See Record Columns below for more details.
+          * `mapping` (`str`) - The Mapping reference to the data element.
+          * `name` (`str`) - Name of the column.
+          * `sqlType` (`str`) - The SQL Type of the column.
 
-        * `recordEncoding` (`str`)
-        * `recordFormat` (`dict`)
-          * `mappingParameters` (`dict`)
-            * `csv` (`dict`)
-              * `recordColumnDelimiter` (`str`)
-              * `recordRowDelimiter` (`str`)
+        * `recordEncoding` (`str`) - The Encoding of the record in the streaming source.
+        * `recordFormat` (`dict`) - The Record Format and mapping information to schematize a record.
+          See Record Format below for more details.
+          * `mappingParameters` (`dict`) - The Mapping Information for the record format.
+            See Mapping Parameters below for more details.
+            * `csv` (`dict`) - Mapping information when the record format uses delimiters.
+              See CSV Mapping Parameters below for more details.
+              * `recordColumnDelimiter` (`str`) - The Column Delimiter.
+              * `recordRowDelimiter` (`str`) - The Row Delimiter.
 
-            * `json` (`dict`)
-              * `recordRowPath` (`str`)
+            * `json` (`dict`) - Mapping information when JSON is the record format on the streaming source.
+              See JSON Mapping Parameters below for more details.
+              * `recordRowPath` (`str`) - Path to the top-level parent that contains the records.
 
-          * `recordFormatType` (`str`)
+          * `recordFormatType` (`str`) - The type of Record Format. Can be `CSV` or `JSON`.
 
       * `startingPositionConfigurations` (`list`)
         * `starting_position` (`str`)
@@ -93,21 +102,23 @@ class AnalyticsApplication(pulumi.CustomResource):
     Output destination configuration of the application. See Outputs below for more details.
 
       * `id` (`str`) - The ARN of the Kinesis Analytics Application.
-      * `kinesisFirehose` (`dict`)
-        * `resource_arn` (`str`)
-        * `role_arn` (`str`)
+      * `kinesisFirehose` (`dict`) - The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesis_stream`.
+        See Kinesis Firehose below for more details.
+        * `resource_arn` (`str`) - The ARN of the Kinesis Firehose delivery stream.
+        * `role_arn` (`str`) - The ARN of the IAM Role used to access the stream.
 
-      * `kinesisStream` (`dict`)
-        * `resource_arn` (`str`)
-        * `role_arn` (`str`)
+      * `kinesisStream` (`dict`) - The Kinesis Stream configuration for the destination stream. Conflicts with `kinesis_firehose`.
+        See Kinesis Stream below for more details.
+        * `resource_arn` (`str`) - The ARN of the Kinesis Stream.
+        * `role_arn` (`str`) - The ARN of the IAM Role used to access the stream.
 
-      * `lambda_` (`dict`)
-        * `resource_arn` (`str`)
-        * `role_arn` (`str`)
+      * `lambda_` (`dict`) - The Lambda function destination. See Lambda below for more details.
+        * `resource_arn` (`str`) - The ARN of the Lambda function.
+        * `role_arn` (`str`) - The ARN of the IAM Role used to access the Lambda function.
 
-      * `name` (`str`) - Name of the Kinesis Analytics Application.
-      * `schema` (`dict`)
-        * `recordFormatType` (`str`)
+      * `name` (`str`) - The Name of the in-application stream.
+      * `schema` (`dict`) - The Schema format of the data written to the destination. See Destination Schema below for more details.
+        * `recordFormatType` (`str`) - The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
     """
     reference_data_sources: pulumi.Output[dict]
     """
@@ -115,30 +126,35 @@ class AnalyticsApplication(pulumi.CustomResource):
     See Reference Data Sources below for more details.
 
       * `id` (`str`) - The ARN of the Kinesis Analytics Application.
-      * `s3` (`dict`)
-        * `bucketArn` (`str`)
-        * `fileKey` (`str`)
-        * `role_arn` (`str`)
+      * `s3` (`dict`) - The S3 configuration for the reference data source. See S3 Reference below for more details.
+        * `bucketArn` (`str`) - The S3 Bucket ARN.
+        * `fileKey` (`str`) - The File Key name containing reference data.
+        * `role_arn` (`str`) - The ARN of the IAM Role used to send application messages.
 
-      * `schema` (`dict`)
-        * `recordColumns` (`list`)
-          * `mapping` (`str`)
-          * `name` (`str`) - Name of the Kinesis Analytics Application.
-          * `sqlType` (`str`)
+      * `schema` (`dict`) - The Schema format of the data in the streaming source. See Source Schema below for more details.
+        * `recordColumns` (`list`) - The Record Column mapping for the streaming source data element.
+          See Record Columns below for more details.
+          * `mapping` (`str`) - The Mapping reference to the data element.
+          * `name` (`str`) - Name of the column.
+          * `sqlType` (`str`) - The SQL Type of the column.
 
-        * `recordEncoding` (`str`)
-        * `recordFormat` (`dict`)
-          * `mappingParameters` (`dict`)
-            * `csv` (`dict`)
-              * `recordColumnDelimiter` (`str`)
-              * `recordRowDelimiter` (`str`)
+        * `recordEncoding` (`str`) - The Encoding of the record in the streaming source.
+        * `recordFormat` (`dict`) - The Record Format and mapping information to schematize a record.
+          See Record Format below for more details.
+          * `mappingParameters` (`dict`) - The Mapping Information for the record format.
+            See Mapping Parameters below for more details.
+            * `csv` (`dict`) - Mapping information when the record format uses delimiters.
+              See CSV Mapping Parameters below for more details.
+              * `recordColumnDelimiter` (`str`) - The Column Delimiter.
+              * `recordRowDelimiter` (`str`) - The Row Delimiter.
 
-            * `json` (`dict`)
-              * `recordRowPath` (`str`)
+            * `json` (`dict`) - Mapping information when JSON is the record format on the streaming source.
+              See JSON Mapping Parameters below for more details.
+              * `recordRowPath` (`str`) - Path to the top-level parent that contains the records.
 
-          * `recordFormatType` (`str`)
+          * `recordFormatType` (`str`) - The type of Record Format. Can be `CSV` or `JSON`.
 
-      * `table_name` (`str`)
+      * `table_name` (`str`) - The in-application Table Name.
     """
     status: pulumi.Output[str]
     """
@@ -177,46 +193,55 @@ class AnalyticsApplication(pulumi.CustomResource):
         The **cloudwatch_logging_options** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ARN of the Kinesis Analytics Application.
-          * `logStreamArn` (`pulumi.Input[str]`)
-          * `role_arn` (`pulumi.Input[str]`)
+          * `logStreamArn` (`pulumi.Input[str]`) - The ARN of the CloudWatch Log Stream.
+          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM Role used to send application messages.
 
         The **inputs** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ARN of the Kinesis Analytics Application.
-          * `kinesisFirehose` (`pulumi.Input[dict]`)
-            * `resource_arn` (`pulumi.Input[str]`)
-            * `role_arn` (`pulumi.Input[str]`)
+          * `kinesisFirehose` (`pulumi.Input[dict]`) - The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesis_stream`.
+            See Kinesis Firehose below for more details.
+            * `resource_arn` (`pulumi.Input[str]`) - The ARN of the Kinesis Firehose delivery stream.
+            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM Role used to access the stream.
 
-          * `kinesisStream` (`pulumi.Input[dict]`)
-            * `resource_arn` (`pulumi.Input[str]`)
-            * `role_arn` (`pulumi.Input[str]`)
+          * `kinesisStream` (`pulumi.Input[dict]`) - The Kinesis Stream configuration for the streaming source. Conflicts with `kinesis_firehose`.
+            See Kinesis Stream below for more details.
+            * `resource_arn` (`pulumi.Input[str]`) - The ARN of the Kinesis Stream.
+            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM Role used to access the stream.
 
-          * `name_prefix` (`pulumi.Input[str]`)
-          * `parallelism` (`pulumi.Input[dict]`)
-            * `count` (`pulumi.Input[float]`)
+          * `name_prefix` (`pulumi.Input[str]`) - The Name Prefix to use when creating an in-application stream.
+          * `parallelism` (`pulumi.Input[dict]`) - The number of Parallel in-application streams to create.
+            See Parallelism below for more details.
+            * `count` (`pulumi.Input[float]`) - The Count of streams.
 
-          * `processingConfiguration` (`pulumi.Input[dict]`)
-            * `lambda_` (`pulumi.Input[dict]`)
-              * `resource_arn` (`pulumi.Input[str]`)
-              * `role_arn` (`pulumi.Input[str]`)
+          * `processingConfiguration` (`pulumi.Input[dict]`) - The Processing Configuration to transform records as they are received from the stream.
+            See Processing Configuration below for more details.
+            * `lambda_` (`pulumi.Input[dict]`) - The Lambda function configuration. See Lambda below for more details.
+              * `resource_arn` (`pulumi.Input[str]`) - The ARN of the Lambda function.
+              * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM Role used to access the Lambda function.
 
-          * `schema` (`pulumi.Input[dict]`)
-            * `recordColumns` (`pulumi.Input[list]`)
-              * `mapping` (`pulumi.Input[str]`)
-              * `name` (`pulumi.Input[str]`) - Name of the Kinesis Analytics Application.
-              * `sqlType` (`pulumi.Input[str]`)
+          * `schema` (`pulumi.Input[dict]`) - The Schema format of the data in the streaming source. See Source Schema below for more details.
+            * `recordColumns` (`pulumi.Input[list]`) - The Record Column mapping for the streaming source data element.
+              See Record Columns below for more details.
+              * `mapping` (`pulumi.Input[str]`) - The Mapping reference to the data element.
+              * `name` (`pulumi.Input[str]`) - Name of the column.
+              * `sqlType` (`pulumi.Input[str]`) - The SQL Type of the column.
 
-            * `recordEncoding` (`pulumi.Input[str]`)
-            * `recordFormat` (`pulumi.Input[dict]`)
-              * `mappingParameters` (`pulumi.Input[dict]`)
-                * `csv` (`pulumi.Input[dict]`)
-                  * `recordColumnDelimiter` (`pulumi.Input[str]`)
-                  * `recordRowDelimiter` (`pulumi.Input[str]`)
+            * `recordEncoding` (`pulumi.Input[str]`) - The Encoding of the record in the streaming source.
+            * `recordFormat` (`pulumi.Input[dict]`) - The Record Format and mapping information to schematize a record.
+              See Record Format below for more details.
+              * `mappingParameters` (`pulumi.Input[dict]`) - The Mapping Information for the record format.
+                See Mapping Parameters below for more details.
+                * `csv` (`pulumi.Input[dict]`) - Mapping information when the record format uses delimiters.
+                  See CSV Mapping Parameters below for more details.
+                  * `recordColumnDelimiter` (`pulumi.Input[str]`) - The Column Delimiter.
+                  * `recordRowDelimiter` (`pulumi.Input[str]`) - The Row Delimiter.
 
-                * `json` (`pulumi.Input[dict]`)
-                  * `recordRowPath` (`pulumi.Input[str]`)
+                * `json` (`pulumi.Input[dict]`) - Mapping information when JSON is the record format on the streaming source.
+                  See JSON Mapping Parameters below for more details.
+                  * `recordRowPath` (`pulumi.Input[str]`) - Path to the top-level parent that contains the records.
 
-              * `recordFormatType` (`pulumi.Input[str]`)
+              * `recordFormatType` (`pulumi.Input[str]`) - The type of Record Format. Can be `CSV` or `JSON`.
 
           * `startingPositionConfigurations` (`pulumi.Input[list]`)
             * `starting_position` (`pulumi.Input[str]`)
@@ -226,49 +251,56 @@ class AnalyticsApplication(pulumi.CustomResource):
         The **outputs** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ARN of the Kinesis Analytics Application.
-          * `kinesisFirehose` (`pulumi.Input[dict]`)
-            * `resource_arn` (`pulumi.Input[str]`)
-            * `role_arn` (`pulumi.Input[str]`)
+          * `kinesisFirehose` (`pulumi.Input[dict]`) - The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesis_stream`.
+            See Kinesis Firehose below for more details.
+            * `resource_arn` (`pulumi.Input[str]`) - The ARN of the Kinesis Firehose delivery stream.
+            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM Role used to access the stream.
 
-          * `kinesisStream` (`pulumi.Input[dict]`)
-            * `resource_arn` (`pulumi.Input[str]`)
-            * `role_arn` (`pulumi.Input[str]`)
+          * `kinesisStream` (`pulumi.Input[dict]`) - The Kinesis Stream configuration for the destination stream. Conflicts with `kinesis_firehose`.
+            See Kinesis Stream below for more details.
+            * `resource_arn` (`pulumi.Input[str]`) - The ARN of the Kinesis Stream.
+            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM Role used to access the stream.
 
-          * `lambda_` (`pulumi.Input[dict]`)
-            * `resource_arn` (`pulumi.Input[str]`)
-            * `role_arn` (`pulumi.Input[str]`)
+          * `lambda_` (`pulumi.Input[dict]`) - The Lambda function destination. See Lambda below for more details.
+            * `resource_arn` (`pulumi.Input[str]`) - The ARN of the Lambda function.
+            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM Role used to access the Lambda function.
 
-          * `name` (`pulumi.Input[str]`) - Name of the Kinesis Analytics Application.
-          * `schema` (`pulumi.Input[dict]`)
-            * `recordFormatType` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The Name of the in-application stream.
+          * `schema` (`pulumi.Input[dict]`) - The Schema format of the data written to the destination. See Destination Schema below for more details.
+            * `recordFormatType` (`pulumi.Input[str]`) - The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
 
         The **reference_data_sources** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ARN of the Kinesis Analytics Application.
-          * `s3` (`pulumi.Input[dict]`)
-            * `bucketArn` (`pulumi.Input[str]`)
-            * `fileKey` (`pulumi.Input[str]`)
-            * `role_arn` (`pulumi.Input[str]`)
+          * `s3` (`pulumi.Input[dict]`) - The S3 configuration for the reference data source. See S3 Reference below for more details.
+            * `bucketArn` (`pulumi.Input[str]`) - The S3 Bucket ARN.
+            * `fileKey` (`pulumi.Input[str]`) - The File Key name containing reference data.
+            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM Role used to send application messages.
 
-          * `schema` (`pulumi.Input[dict]`)
-            * `recordColumns` (`pulumi.Input[list]`)
-              * `mapping` (`pulumi.Input[str]`)
-              * `name` (`pulumi.Input[str]`) - Name of the Kinesis Analytics Application.
-              * `sqlType` (`pulumi.Input[str]`)
+          * `schema` (`pulumi.Input[dict]`) - The Schema format of the data in the streaming source. See Source Schema below for more details.
+            * `recordColumns` (`pulumi.Input[list]`) - The Record Column mapping for the streaming source data element.
+              See Record Columns below for more details.
+              * `mapping` (`pulumi.Input[str]`) - The Mapping reference to the data element.
+              * `name` (`pulumi.Input[str]`) - Name of the column.
+              * `sqlType` (`pulumi.Input[str]`) - The SQL Type of the column.
 
-            * `recordEncoding` (`pulumi.Input[str]`)
-            * `recordFormat` (`pulumi.Input[dict]`)
-              * `mappingParameters` (`pulumi.Input[dict]`)
-                * `csv` (`pulumi.Input[dict]`)
-                  * `recordColumnDelimiter` (`pulumi.Input[str]`)
-                  * `recordRowDelimiter` (`pulumi.Input[str]`)
+            * `recordEncoding` (`pulumi.Input[str]`) - The Encoding of the record in the streaming source.
+            * `recordFormat` (`pulumi.Input[dict]`) - The Record Format and mapping information to schematize a record.
+              See Record Format below for more details.
+              * `mappingParameters` (`pulumi.Input[dict]`) - The Mapping Information for the record format.
+                See Mapping Parameters below for more details.
+                * `csv` (`pulumi.Input[dict]`) - Mapping information when the record format uses delimiters.
+                  See CSV Mapping Parameters below for more details.
+                  * `recordColumnDelimiter` (`pulumi.Input[str]`) - The Column Delimiter.
+                  * `recordRowDelimiter` (`pulumi.Input[str]`) - The Row Delimiter.
 
-                * `json` (`pulumi.Input[dict]`)
-                  * `recordRowPath` (`pulumi.Input[str]`)
+                * `json` (`pulumi.Input[dict]`) - Mapping information when JSON is the record format on the streaming source.
+                  See JSON Mapping Parameters below for more details.
+                  * `recordRowPath` (`pulumi.Input[str]`) - Path to the top-level parent that contains the records.
 
-              * `recordFormatType` (`pulumi.Input[str]`)
+              * `recordFormatType` (`pulumi.Input[str]`) - The type of Record Format. Can be `CSV` or `JSON`.
 
-          * `table_name` (`pulumi.Input[str]`)
+          * `table_name` (`pulumi.Input[str]`) - The in-application Table Name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -334,46 +366,55 @@ class AnalyticsApplication(pulumi.CustomResource):
         The **cloudwatch_logging_options** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ARN of the Kinesis Analytics Application.
-          * `logStreamArn` (`pulumi.Input[str]`)
-          * `role_arn` (`pulumi.Input[str]`)
+          * `logStreamArn` (`pulumi.Input[str]`) - The ARN of the CloudWatch Log Stream.
+          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM Role used to send application messages.
 
         The **inputs** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ARN of the Kinesis Analytics Application.
-          * `kinesisFirehose` (`pulumi.Input[dict]`)
-            * `resource_arn` (`pulumi.Input[str]`)
-            * `role_arn` (`pulumi.Input[str]`)
+          * `kinesisFirehose` (`pulumi.Input[dict]`) - The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesis_stream`.
+            See Kinesis Firehose below for more details.
+            * `resource_arn` (`pulumi.Input[str]`) - The ARN of the Kinesis Firehose delivery stream.
+            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM Role used to access the stream.
 
-          * `kinesisStream` (`pulumi.Input[dict]`)
-            * `resource_arn` (`pulumi.Input[str]`)
-            * `role_arn` (`pulumi.Input[str]`)
+          * `kinesisStream` (`pulumi.Input[dict]`) - The Kinesis Stream configuration for the streaming source. Conflicts with `kinesis_firehose`.
+            See Kinesis Stream below for more details.
+            * `resource_arn` (`pulumi.Input[str]`) - The ARN of the Kinesis Stream.
+            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM Role used to access the stream.
 
-          * `name_prefix` (`pulumi.Input[str]`)
-          * `parallelism` (`pulumi.Input[dict]`)
-            * `count` (`pulumi.Input[float]`)
+          * `name_prefix` (`pulumi.Input[str]`) - The Name Prefix to use when creating an in-application stream.
+          * `parallelism` (`pulumi.Input[dict]`) - The number of Parallel in-application streams to create.
+            See Parallelism below for more details.
+            * `count` (`pulumi.Input[float]`) - The Count of streams.
 
-          * `processingConfiguration` (`pulumi.Input[dict]`)
-            * `lambda_` (`pulumi.Input[dict]`)
-              * `resource_arn` (`pulumi.Input[str]`)
-              * `role_arn` (`pulumi.Input[str]`)
+          * `processingConfiguration` (`pulumi.Input[dict]`) - The Processing Configuration to transform records as they are received from the stream.
+            See Processing Configuration below for more details.
+            * `lambda_` (`pulumi.Input[dict]`) - The Lambda function configuration. See Lambda below for more details.
+              * `resource_arn` (`pulumi.Input[str]`) - The ARN of the Lambda function.
+              * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM Role used to access the Lambda function.
 
-          * `schema` (`pulumi.Input[dict]`)
-            * `recordColumns` (`pulumi.Input[list]`)
-              * `mapping` (`pulumi.Input[str]`)
-              * `name` (`pulumi.Input[str]`) - Name of the Kinesis Analytics Application.
-              * `sqlType` (`pulumi.Input[str]`)
+          * `schema` (`pulumi.Input[dict]`) - The Schema format of the data in the streaming source. See Source Schema below for more details.
+            * `recordColumns` (`pulumi.Input[list]`) - The Record Column mapping for the streaming source data element.
+              See Record Columns below for more details.
+              * `mapping` (`pulumi.Input[str]`) - The Mapping reference to the data element.
+              * `name` (`pulumi.Input[str]`) - Name of the column.
+              * `sqlType` (`pulumi.Input[str]`) - The SQL Type of the column.
 
-            * `recordEncoding` (`pulumi.Input[str]`)
-            * `recordFormat` (`pulumi.Input[dict]`)
-              * `mappingParameters` (`pulumi.Input[dict]`)
-                * `csv` (`pulumi.Input[dict]`)
-                  * `recordColumnDelimiter` (`pulumi.Input[str]`)
-                  * `recordRowDelimiter` (`pulumi.Input[str]`)
+            * `recordEncoding` (`pulumi.Input[str]`) - The Encoding of the record in the streaming source.
+            * `recordFormat` (`pulumi.Input[dict]`) - The Record Format and mapping information to schematize a record.
+              See Record Format below for more details.
+              * `mappingParameters` (`pulumi.Input[dict]`) - The Mapping Information for the record format.
+                See Mapping Parameters below for more details.
+                * `csv` (`pulumi.Input[dict]`) - Mapping information when the record format uses delimiters.
+                  See CSV Mapping Parameters below for more details.
+                  * `recordColumnDelimiter` (`pulumi.Input[str]`) - The Column Delimiter.
+                  * `recordRowDelimiter` (`pulumi.Input[str]`) - The Row Delimiter.
 
-                * `json` (`pulumi.Input[dict]`)
-                  * `recordRowPath` (`pulumi.Input[str]`)
+                * `json` (`pulumi.Input[dict]`) - Mapping information when JSON is the record format on the streaming source.
+                  See JSON Mapping Parameters below for more details.
+                  * `recordRowPath` (`pulumi.Input[str]`) - Path to the top-level parent that contains the records.
 
-              * `recordFormatType` (`pulumi.Input[str]`)
+              * `recordFormatType` (`pulumi.Input[str]`) - The type of Record Format. Can be `CSV` or `JSON`.
 
           * `startingPositionConfigurations` (`pulumi.Input[list]`)
             * `starting_position` (`pulumi.Input[str]`)
@@ -383,49 +424,56 @@ class AnalyticsApplication(pulumi.CustomResource):
         The **outputs** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ARN of the Kinesis Analytics Application.
-          * `kinesisFirehose` (`pulumi.Input[dict]`)
-            * `resource_arn` (`pulumi.Input[str]`)
-            * `role_arn` (`pulumi.Input[str]`)
+          * `kinesisFirehose` (`pulumi.Input[dict]`) - The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesis_stream`.
+            See Kinesis Firehose below for more details.
+            * `resource_arn` (`pulumi.Input[str]`) - The ARN of the Kinesis Firehose delivery stream.
+            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM Role used to access the stream.
 
-          * `kinesisStream` (`pulumi.Input[dict]`)
-            * `resource_arn` (`pulumi.Input[str]`)
-            * `role_arn` (`pulumi.Input[str]`)
+          * `kinesisStream` (`pulumi.Input[dict]`) - The Kinesis Stream configuration for the destination stream. Conflicts with `kinesis_firehose`.
+            See Kinesis Stream below for more details.
+            * `resource_arn` (`pulumi.Input[str]`) - The ARN of the Kinesis Stream.
+            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM Role used to access the stream.
 
-          * `lambda_` (`pulumi.Input[dict]`)
-            * `resource_arn` (`pulumi.Input[str]`)
-            * `role_arn` (`pulumi.Input[str]`)
+          * `lambda_` (`pulumi.Input[dict]`) - The Lambda function destination. See Lambda below for more details.
+            * `resource_arn` (`pulumi.Input[str]`) - The ARN of the Lambda function.
+            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM Role used to access the Lambda function.
 
-          * `name` (`pulumi.Input[str]`) - Name of the Kinesis Analytics Application.
-          * `schema` (`pulumi.Input[dict]`)
-            * `recordFormatType` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The Name of the in-application stream.
+          * `schema` (`pulumi.Input[dict]`) - The Schema format of the data written to the destination. See Destination Schema below for more details.
+            * `recordFormatType` (`pulumi.Input[str]`) - The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
 
         The **reference_data_sources** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ARN of the Kinesis Analytics Application.
-          * `s3` (`pulumi.Input[dict]`)
-            * `bucketArn` (`pulumi.Input[str]`)
-            * `fileKey` (`pulumi.Input[str]`)
-            * `role_arn` (`pulumi.Input[str]`)
+          * `s3` (`pulumi.Input[dict]`) - The S3 configuration for the reference data source. See S3 Reference below for more details.
+            * `bucketArn` (`pulumi.Input[str]`) - The S3 Bucket ARN.
+            * `fileKey` (`pulumi.Input[str]`) - The File Key name containing reference data.
+            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM Role used to send application messages.
 
-          * `schema` (`pulumi.Input[dict]`)
-            * `recordColumns` (`pulumi.Input[list]`)
-              * `mapping` (`pulumi.Input[str]`)
-              * `name` (`pulumi.Input[str]`) - Name of the Kinesis Analytics Application.
-              * `sqlType` (`pulumi.Input[str]`)
+          * `schema` (`pulumi.Input[dict]`) - The Schema format of the data in the streaming source. See Source Schema below for more details.
+            * `recordColumns` (`pulumi.Input[list]`) - The Record Column mapping for the streaming source data element.
+              See Record Columns below for more details.
+              * `mapping` (`pulumi.Input[str]`) - The Mapping reference to the data element.
+              * `name` (`pulumi.Input[str]`) - Name of the column.
+              * `sqlType` (`pulumi.Input[str]`) - The SQL Type of the column.
 
-            * `recordEncoding` (`pulumi.Input[str]`)
-            * `recordFormat` (`pulumi.Input[dict]`)
-              * `mappingParameters` (`pulumi.Input[dict]`)
-                * `csv` (`pulumi.Input[dict]`)
-                  * `recordColumnDelimiter` (`pulumi.Input[str]`)
-                  * `recordRowDelimiter` (`pulumi.Input[str]`)
+            * `recordEncoding` (`pulumi.Input[str]`) - The Encoding of the record in the streaming source.
+            * `recordFormat` (`pulumi.Input[dict]`) - The Record Format and mapping information to schematize a record.
+              See Record Format below for more details.
+              * `mappingParameters` (`pulumi.Input[dict]`) - The Mapping Information for the record format.
+                See Mapping Parameters below for more details.
+                * `csv` (`pulumi.Input[dict]`) - Mapping information when the record format uses delimiters.
+                  See CSV Mapping Parameters below for more details.
+                  * `recordColumnDelimiter` (`pulumi.Input[str]`) - The Column Delimiter.
+                  * `recordRowDelimiter` (`pulumi.Input[str]`) - The Row Delimiter.
 
-                * `json` (`pulumi.Input[dict]`)
-                  * `recordRowPath` (`pulumi.Input[str]`)
+                * `json` (`pulumi.Input[dict]`) - Mapping information when JSON is the record format on the streaming source.
+                  See JSON Mapping Parameters below for more details.
+                  * `recordRowPath` (`pulumi.Input[str]`) - Path to the top-level parent that contains the records.
 
-              * `recordFormatType` (`pulumi.Input[str]`)
+              * `recordFormatType` (`pulumi.Input[str]`) - The type of Record Format. Can be `CSV` or `JSON`.
 
-          * `table_name` (`pulumi.Input[str]`)
+          * `table_name` (`pulumi.Input[str]`) - The in-application Table Name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

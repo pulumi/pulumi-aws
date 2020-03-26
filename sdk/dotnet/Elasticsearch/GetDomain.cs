@@ -41,6 +41,10 @@ namespace Pulumi.Aws.ElasticSearch
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// The tags assigned to the domain.
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

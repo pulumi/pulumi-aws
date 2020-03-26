@@ -134,7 +134,7 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly maxRetries!: pulumi.Output<number | undefined>;
     /**
-     * The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
+     * The name you assign to this job. It must be unique in your account.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -281,7 +281,7 @@ export interface JobState {
      */
     readonly maxRetries?: pulumi.Input<number>;
     /**
-     * The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
+     * The name you assign to this job. It must be unique in your account.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -357,7 +357,7 @@ export interface JobArgs {
      */
     readonly maxRetries?: pulumi.Input<number>;
     /**
-     * The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
+     * The name you assign to this job. It must be unique in your account.
      */
     readonly name?: pulumi.Input<string>;
     /**

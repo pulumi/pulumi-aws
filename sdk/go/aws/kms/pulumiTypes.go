@@ -12,7 +12,9 @@ import (
 )
 
 type GrantConstraint struct {
+	// A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryptionContextSubset`.
 	EncryptionContextEquals map[string]string `pulumi:"encryptionContextEquals"`
+	// A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryptionContextEquals`.
 	EncryptionContextSubset map[string]string `pulumi:"encryptionContextSubset"`
 }
 
@@ -24,7 +26,9 @@ type GrantConstraintInput interface {
 }
 
 type GrantConstraintArgs struct {
+	// A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryptionContextSubset`.
 	EncryptionContextEquals pulumi.StringMapInput `pulumi:"encryptionContextEquals"`
+	// A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryptionContextEquals`.
 	EncryptionContextSubset pulumi.StringMapInput `pulumi:"encryptionContextSubset"`
 }
 
@@ -75,10 +79,12 @@ func (o GrantConstraintOutput) ToGrantConstraintOutputWithContext(ctx context.Co
 	return o
 }
 
+// A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryptionContextSubset`.
 func (o GrantConstraintOutput) EncryptionContextEquals() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GrantConstraint) map[string]string { return v.EncryptionContextEquals }).(pulumi.StringMapOutput)
 }
 
+// A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryptionContextEquals`.
 func (o GrantConstraintOutput) EncryptionContextSubset() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GrantConstraint) map[string]string { return v.EncryptionContextSubset }).(pulumi.StringMapOutput)
 }

@@ -50,13 +50,13 @@ class VirtualNode(pulumi.CustomResource):
           * `unhealthyThreshold` (`float`) - The number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
 
         * `portMapping` (`dict`) - The port mapping information for the listener.
-          * `port` (`float`) - The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
-          * `protocol` (`str`) - The protocol for the health check request. Valid values are `http` and `tcp`.
+          * `port` (`float`) - The port used for the port mapping.
+          * `protocol` (`str`) - The protocol used for the port mapping. Valid values are `http` and `tcp`.
 
       * `logging` (`dict`) - The inbound and outbound access logging information for the virtual node.
         * `accessLog` (`dict`) - The access log configuration for a virtual node.
           * `file` (`dict`) - The file object to send virtual node access logs to.
-            * `path` (`str`) - The destination path for the health check request. This is only required if the specified protocol is `http`.
+            * `path` (`str`) - The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
 
       * `serviceDiscovery` (`dict`) - The service discovery information for the virtual node.
         * `awsCloudMap` (`dict`) - Specifies any AWS Cloud Map information for the virtual node.
@@ -114,13 +114,13 @@ class VirtualNode(pulumi.CustomResource):
               * `unhealthyThreshold` (`pulumi.Input[float]`) - The number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
 
             * `portMapping` (`pulumi.Input[dict]`) - The port mapping information for the listener.
-              * `port` (`pulumi.Input[float]`) - The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
-              * `protocol` (`pulumi.Input[str]`) - The protocol for the health check request. Valid values are `http` and `tcp`.
+              * `port` (`pulumi.Input[float]`) - The port used for the port mapping.
+              * `protocol` (`pulumi.Input[str]`) - The protocol used for the port mapping. Valid values are `http` and `tcp`.
 
           * `logging` (`pulumi.Input[dict]`) - The inbound and outbound access logging information for the virtual node.
             * `accessLog` (`pulumi.Input[dict]`) - The access log configuration for a virtual node.
               * `file` (`pulumi.Input[dict]`) - The file object to send virtual node access logs to.
-                * `path` (`pulumi.Input[str]`) - The destination path for the health check request. This is only required if the specified protocol is `http`.
+                * `path` (`pulumi.Input[str]`) - The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
 
           * `serviceDiscovery` (`pulumi.Input[dict]`) - The service discovery information for the virtual node.
             * `awsCloudMap` (`pulumi.Input[dict]`) - Specifies any AWS Cloud Map information for the virtual node.
@@ -201,13 +201,13 @@ class VirtualNode(pulumi.CustomResource):
               * `unhealthyThreshold` (`pulumi.Input[float]`) - The number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
 
             * `portMapping` (`pulumi.Input[dict]`) - The port mapping information for the listener.
-              * `port` (`pulumi.Input[float]`) - The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
-              * `protocol` (`pulumi.Input[str]`) - The protocol for the health check request. Valid values are `http` and `tcp`.
+              * `port` (`pulumi.Input[float]`) - The port used for the port mapping.
+              * `protocol` (`pulumi.Input[str]`) - The protocol used for the port mapping. Valid values are `http` and `tcp`.
 
           * `logging` (`pulumi.Input[dict]`) - The inbound and outbound access logging information for the virtual node.
             * `accessLog` (`pulumi.Input[dict]`) - The access log configuration for a virtual node.
               * `file` (`pulumi.Input[dict]`) - The file object to send virtual node access logs to.
-                * `path` (`pulumi.Input[str]`) - The destination path for the health check request. This is only required if the specified protocol is `http`.
+                * `path` (`pulumi.Input[str]`) - The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
 
           * `serviceDiscovery` (`pulumi.Input[dict]`) - The service discovery information for the virtual node.
             * `awsCloudMap` (`pulumi.Input[dict]`) - Specifies any AWS Cloud Map information for the virtual node.

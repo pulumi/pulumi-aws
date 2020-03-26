@@ -41,7 +41,7 @@ namespace Pulumi.Aws.AppMesh
         public Output<string> MeshName { get; private set; } = null!;
 
         /// <summary>
-        /// A name for the HTTP header in the client request that will be matched on.
+        /// The name to use for the route.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.AppMesh
         public Input<string> MeshName { get; set; } = null!;
 
         /// <summary>
-        /// A name for the HTTP header in the client request that will be matched on.
+        /// The name to use for the route.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? MeshName { get; set; }
 
         /// <summary>
-        /// A name for the HTTP header in the client request that will be matched on.
+        /// The name to use for the route.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -354,7 +354,7 @@ namespace Pulumi.Aws.AppMesh
         public Input<RouteSpecHttpRouteActionArgs> Action { get; set; } = null!;
 
         /// <summary>
-        /// The method and value to match the header value sent with a request. Specify one match method.
+        /// The criteria for determining an HTTP request match.
         /// </summary>
         [Input("match", required: true)]
         public Input<RouteSpecHttpRouteMatchArgs> Match { get; set; } = null!;
@@ -373,7 +373,7 @@ namespace Pulumi.Aws.AppMesh
         public Input<RouteSpecHttpRouteActionGetArgs> Action { get; set; } = null!;
 
         /// <summary>
-        /// The method and value to match the header value sent with a request. Specify one match method.
+        /// The criteria for determining an HTTP request match.
         /// </summary>
         [Input("match", required: true)]
         public Input<RouteSpecHttpRouteMatchGetArgs> Match { get; set; } = null!;
@@ -404,7 +404,8 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? Method { get; set; }
 
         /// <summary>
-        /// The header value sent by the client must begin with the specified characters.
+        /// Specifies the path with which to match requests.
+        /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         /// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
         /// </summary>
         [Input("prefix", required: true)]
@@ -442,7 +443,8 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? Method { get; set; }
 
         /// <summary>
-        /// The header value sent by the client must begin with the specified characters.
+        /// Specifies the path with which to match requests.
+        /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         /// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
         /// </summary>
         [Input("prefix", required: true)]
@@ -518,7 +520,8 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? Exact { get; set; }
 
         /// <summary>
-        /// The header value sent by the client must begin with the specified characters.
+        /// Specifies the path with which to match requests.
+        /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         /// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
         /// </summary>
         [Input("prefix")]
@@ -553,7 +556,8 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? Exact { get; set; }
 
         /// <summary>
-        /// The header value sent by the client must begin with the specified characters.
+        /// Specifies the path with which to match requests.
+        /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         /// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
         /// </summary>
         [Input("prefix")]
@@ -762,7 +766,7 @@ namespace Pulumi.Aws.AppMesh
         /// </summary>
         public readonly RouteSpecHttpRouteAction Action;
         /// <summary>
-        /// The method and value to match the header value sent with a request. Specify one match method.
+        /// The criteria for determining an HTTP request match.
         /// </summary>
         public readonly RouteSpecHttpRouteMatch Match;
 
@@ -826,7 +830,8 @@ namespace Pulumi.Aws.AppMesh
         /// </summary>
         public readonly string? Method;
         /// <summary>
-        /// The header value sent by the client must begin with the specified characters.
+        /// Specifies the path with which to match requests.
+        /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         /// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
         /// </summary>
         public readonly string Prefix;
@@ -885,7 +890,8 @@ namespace Pulumi.Aws.AppMesh
         /// </summary>
         public readonly string? Exact;
         /// <summary>
-        /// The header value sent by the client must begin with the specified characters.
+        /// Specifies the path with which to match requests.
+        /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         /// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
         /// </summary>
         public readonly string? Prefix;

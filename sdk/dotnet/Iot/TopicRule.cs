@@ -282,7 +282,7 @@ namespace Pulumi.Aws.Iot
         public Input<string> AlarmName { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The IAM role ARN that allows access to the CloudWatch alarm.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.Iot
         public Input<string> AlarmName { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The IAM role ARN that allows access to the CloudWatch alarm.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.Iot
         public Input<string> MetricValue { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The IAM role ARN that allows access to the CloudWatch metric.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -411,7 +411,7 @@ namespace Pulumi.Aws.Iot
         public Input<string> MetricValue { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The IAM role ARN that allows access to the CloudWatch metric.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -466,7 +466,7 @@ namespace Pulumi.Aws.Iot
         public Input<string>? RangeKeyValue { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The ARN of the IAM role that grants access to the DynamoDB table.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -527,7 +527,7 @@ namespace Pulumi.Aws.Iot
         public Input<string>? RangeKeyValue { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The ARN of the IAM role that grants access to the DynamoDB table.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -564,7 +564,7 @@ namespace Pulumi.Aws.Iot
         public Input<string> Index { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The IAM role ARN that has access to Elasticsearch.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -601,7 +601,7 @@ namespace Pulumi.Aws.Iot
         public Input<string> Index { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The IAM role ARN that has access to Elasticsearch.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -626,7 +626,7 @@ namespace Pulumi.Aws.Iot
         public Input<string> DeliveryStreamName { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -651,7 +651,7 @@ namespace Pulumi.Aws.Iot
         public Input<string> DeliveryStreamName { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -676,7 +676,7 @@ namespace Pulumi.Aws.Iot
         public Input<string>? PartitionKey { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -701,7 +701,7 @@ namespace Pulumi.Aws.Iot
         public Input<string>? PartitionKey { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -796,7 +796,7 @@ namespace Pulumi.Aws.Iot
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The IAM role ARN that allows access to the CloudWatch alarm.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -821,7 +821,7 @@ namespace Pulumi.Aws.Iot
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The IAM role ARN that allows access to the CloudWatch alarm.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -943,7 +943,7 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         public readonly string AlarmName;
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The IAM role ARN that allows access to the CloudWatch alarm.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
@@ -993,7 +993,7 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         public readonly string MetricValue;
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The IAM role ARN that allows access to the CloudWatch metric.
         /// </summary>
         public readonly string RoleArn;
 
@@ -1047,7 +1047,7 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         public readonly string? RangeKeyValue;
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The ARN of the IAM role that grants access to the DynamoDB table.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
@@ -1095,7 +1095,7 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         public readonly string Index;
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The IAM role ARN that has access to Elasticsearch.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
@@ -1127,7 +1127,7 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         public readonly string DeliveryStreamName;
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
@@ -1155,7 +1155,7 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         public readonly string? PartitionKey;
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
@@ -1224,7 +1224,7 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The IAM role ARN that allows access to the CloudWatch alarm.
         /// </summary>
         public readonly string RoleArn;
 

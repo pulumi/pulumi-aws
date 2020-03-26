@@ -337,7 +337,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? BufferingSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
@@ -367,19 +367,19 @@ namespace Pulumi.Aws.Kinesis
         public Input<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
 
         /// <summary>
-        /// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        /// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
         /// </summary>
         [Input("retryDuration")]
         public Input<int>? RetryDuration { get; set; }
 
         /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        /// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
         /// </summary>
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }
@@ -398,7 +398,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -423,7 +423,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -460,7 +460,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? BufferingSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
@@ -490,19 +490,19 @@ namespace Pulumi.Aws.Kinesis
         public Input<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
 
         /// <summary>
-        /// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        /// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
         /// </summary>
         [Input("retryDuration")]
         public Input<int>? RetryDuration { get; set; }
 
         /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        /// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
         /// </summary>
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }
@@ -521,7 +521,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables data processing.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -546,7 +546,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables data processing.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -678,7 +678,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? BufferSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
@@ -733,7 +733,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs>? S3BackupConfiguration { get; set; }
 
         /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        /// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
         /// </summary>
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }
@@ -746,7 +746,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -771,7 +771,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -1423,7 +1423,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? BufferSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
@@ -1478,7 +1478,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationGetArgs>? S3BackupConfiguration { get; set; }
 
         /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        /// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
         /// </summary>
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }
@@ -1491,7 +1491,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables data processing.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -1516,7 +1516,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables data processing.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -1648,7 +1648,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? BufferSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
@@ -1686,7 +1686,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -1711,7 +1711,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -1755,7 +1755,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? BufferSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
@@ -1799,7 +1799,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string> KinesisStreamArn { get; set; } = null!;
 
         /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        /// The ARN of the role that provides access to the source Kinesis stream.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -1818,7 +1818,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string> KinesisStreamArn { get; set; } = null!;
 
         /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        /// The ARN of the role that provides access to the source Kinesis stream.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -1831,7 +1831,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamRedshiftConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
@@ -1873,13 +1873,13 @@ namespace Pulumi.Aws.Kinesis
         public Input<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
 
         /// <summary>
-        /// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        /// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
         /// </summary>
         [Input("retryDuration")]
         public Input<int>? RetryDuration { get; set; }
 
         /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        /// The arn of the role the stream assumes.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -1891,7 +1891,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs>? S3BackupConfiguration { get; set; }
 
         /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        /// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
         /// </summary>
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }
@@ -1910,7 +1910,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -1935,7 +1935,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -1960,7 +1960,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamRedshiftConfigurationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
@@ -2002,13 +2002,13 @@ namespace Pulumi.Aws.Kinesis
         public Input<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
 
         /// <summary>
-        /// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        /// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
         /// </summary>
         [Input("retryDuration")]
         public Input<int>? RetryDuration { get; set; }
 
         /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        /// The arn of the role the stream assumes.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -2020,7 +2020,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationGetArgs>? S3BackupConfiguration { get; set; }
 
         /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        /// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
         /// </summary>
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }
@@ -2039,7 +2039,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables data processing.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -2064,7 +2064,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables data processing.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -2196,7 +2196,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? BufferSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
@@ -2234,7 +2234,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -2259,7 +2259,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -2303,7 +2303,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? BufferSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
@@ -2360,7 +2360,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? BufferSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
@@ -2398,7 +2398,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -2423,7 +2423,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -2467,7 +2467,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? BufferSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
@@ -2505,7 +2505,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamServerSideEncryptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Whether to enable encryption at rest. Default is `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -2518,7 +2518,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamServerSideEncryptionGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Whether to enable encryption at rest. Default is `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -2586,7 +2586,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -2611,7 +2611,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -2691,7 +2691,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables data processing.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -2716,7 +2716,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables data processing.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -2842,7 +2842,7 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly int? BufferingSize;
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below
         /// </summary>
         public readonly FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions CloudwatchLoggingOptions;
         /// <summary>
@@ -2862,15 +2862,15 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
-        /// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        /// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
         /// </summary>
         public readonly int? RetryDuration;
         /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        /// The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
         /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
@@ -2910,7 +2910,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -2938,7 +2938,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables data processing.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -3017,7 +3017,7 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly int? BufferSize;
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below
         /// </summary>
         public readonly FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions CloudwatchLoggingOptions;
         /// <summary>
@@ -3054,7 +3054,7 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration? S3BackupConfiguration;
         /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        /// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
         /// </summary>
         public readonly string? S3BackupMode;
 
@@ -3094,7 +3094,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -3435,7 +3435,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables data processing.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -3514,7 +3514,7 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly int? BufferSize;
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below
         /// </summary>
         public readonly FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions CloudwatchLoggingOptions;
         /// <summary>
@@ -3561,7 +3561,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -3593,7 +3593,7 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly string KinesisStreamArn;
         /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        /// The ARN of the role that provides access to the source Kinesis stream.
         /// </summary>
         public readonly string RoleArn;
 
@@ -3611,7 +3611,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamRedshiftConfiguration
     {
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below
         /// </summary>
         public readonly FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions CloudwatchLoggingOptions;
         /// <summary>
@@ -3639,11 +3639,11 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
-        /// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        /// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
         /// </summary>
         public readonly int? RetryDuration;
         /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        /// The arn of the role the stream assumes.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
@@ -3651,7 +3651,7 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration? S3BackupConfiguration;
         /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        /// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
         /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
@@ -3693,7 +3693,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -3721,7 +3721,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables data processing.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -3800,7 +3800,7 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly int? BufferSize;
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below
         /// </summary>
         public readonly FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions CloudwatchLoggingOptions;
         /// <summary>
@@ -3847,7 +3847,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -3888,7 +3888,7 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly int? BufferSize;
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below
         /// </summary>
         public readonly FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions CloudwatchLoggingOptions;
         /// <summary>
@@ -3935,7 +3935,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -3963,7 +3963,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamServerSideEncryption
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Whether to enable encryption at rest. Default is `false`.
         /// </summary>
         public readonly bool? Enabled;
 
@@ -4036,7 +4036,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -4064,7 +4064,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Enables or disables data processing.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

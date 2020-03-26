@@ -23,13 +23,20 @@ class AmiCopy(pulumi.CustomResource):
     Nested block describing an EBS block device that should be
     attached to created instances. The structure of this block is described below.
 
-      * `deleteOnTermination` (`bool`)
-      * `device_name` (`str`)
-      * `encrypted` (`bool`) - Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
-      * `iops` (`float`)
-      * `snapshot_id` (`str`)
-      * `volume_size` (`float`)
-      * `volumeType` (`str`)
+      * `deleteOnTermination` (`bool`) - Boolean controlling whether the EBS volumes created to
+        support each created instance will be deleted once that instance is terminated.
+      * `device_name` (`str`) - The path at which the device is exposed to created instances.
+      * `encrypted` (`bool`) - Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+      * `iops` (`float`) - Number of I/O operations per second the
+        created volumes will support.
+      * `snapshot_id` (`str`) - The id of an EBS snapshot that will be used to initialize the created
+        EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
+        snapshot.
+      * `volume_size` (`float`) - The size of created volumes in GiB.
+        If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
+        as the selected snapshot.
+      * `volumeType` (`str`) - The type of EBS volume to create. Can be one of "standard" (the
+        default), "io1" or "gp2".
     """
     ena_support: pulumi.Output[bool]
     """
@@ -37,15 +44,16 @@ class AmiCopy(pulumi.CustomResource):
     """
     encrypted: pulumi.Output[bool]
     """
-    Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+    Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
     """
     ephemeral_block_devices: pulumi.Output[list]
     """
     Nested block describing an ephemeral block device that
     should be attached to created instances. The structure of this block is described below.
 
-      * `device_name` (`str`)
-      * `virtualName` (`str`)
+      * `device_name` (`str`) - The path at which the device is exposed to created instances.
+      * `virtualName` (`str`) - A name for the ephemeral device, of the form "ephemeralN" where
+        *N* is a volume number starting from zero.
     """
     image_location: pulumi.Output[str]
     """
@@ -59,7 +67,9 @@ class AmiCopy(pulumi.CustomResource):
     """
     kms_key_id: pulumi.Output[str]
     """
-    The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+    The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+    an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+    if this parameter is not specified, the default CMK for EBS is used
     """
     manage_ebs_snapshots: pulumi.Output[bool]
     name: pulumi.Output[str]
@@ -122,10 +132,12 @@ class AmiCopy(pulumi.CustomResource):
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
         :param pulumi.Input[list] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
-        :param pulumi.Input[bool] encrypted: Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+        :param pulumi.Input[bool] encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
         :param pulumi.Input[list] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
-        :param pulumi.Input[str] kms_key_id: The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+        :param pulumi.Input[str] kms_key_id: The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+               an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+               if this parameter is not specified, the default CMK for EBS is used
         :param pulumi.Input[str] name: A region-unique name for the AMI.
         :param pulumi.Input[str] source_ami_id: The id of the AMI to copy. This id must be valid in the region
                given by `source_ami_region`.
@@ -135,18 +147,26 @@ class AmiCopy(pulumi.CustomResource):
 
         The **ebs_block_devices** object supports the following:
 
-          * `deleteOnTermination` (`pulumi.Input[bool]`)
-          * `device_name` (`pulumi.Input[str]`)
-          * `encrypted` (`pulumi.Input[bool]`) - Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
-          * `iops` (`pulumi.Input[float]`)
-          * `snapshot_id` (`pulumi.Input[str]`)
-          * `volume_size` (`pulumi.Input[float]`)
-          * `volumeType` (`pulumi.Input[str]`)
+          * `deleteOnTermination` (`pulumi.Input[bool]`) - Boolean controlling whether the EBS volumes created to
+            support each created instance will be deleted once that instance is terminated.
+          * `device_name` (`pulumi.Input[str]`) - The path at which the device is exposed to created instances.
+          * `encrypted` (`pulumi.Input[bool]`) - Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+          * `iops` (`pulumi.Input[float]`) - Number of I/O operations per second the
+            created volumes will support.
+          * `snapshot_id` (`pulumi.Input[str]`) - The id of an EBS snapshot that will be used to initialize the created
+            EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
+            snapshot.
+          * `volume_size` (`pulumi.Input[float]`) - The size of created volumes in GiB.
+            If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
+            as the selected snapshot.
+          * `volumeType` (`pulumi.Input[str]`) - The type of EBS volume to create. Can be one of "standard" (the
+            default), "io1" or "gp2".
 
         The **ephemeral_block_devices** object supports the following:
 
-          * `device_name` (`pulumi.Input[str]`)
-          * `virtualName` (`pulumi.Input[str]`)
+          * `device_name` (`pulumi.Input[str]`) - The path at which the device is exposed to created instances.
+          * `virtualName` (`pulumi.Input[str]`) - A name for the ephemeral device, of the form "ephemeralN" where
+            *N* is a volume number starting from zero.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -208,14 +228,16 @@ class AmiCopy(pulumi.CustomResource):
         :param pulumi.Input[list] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
         :param pulumi.Input[bool] ena_support: Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
-        :param pulumi.Input[bool] encrypted: Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+        :param pulumi.Input[bool] encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
         :param pulumi.Input[list] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g. created
                by the `ec2-upload-bundle` command in the EC2 command line tools.
         :param pulumi.Input[str] kernel_id: The id of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
-        :param pulumi.Input[str] kms_key_id: The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+        :param pulumi.Input[str] kms_key_id: The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+               an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+               if this parameter is not specified, the default CMK for EBS is used
         :param pulumi.Input[str] name: A region-unique name for the AMI.
         :param pulumi.Input[str] ramdisk_id: The id of an initrd image (ARI) that will be used when booting the
                created instances.
@@ -233,18 +255,26 @@ class AmiCopy(pulumi.CustomResource):
 
         The **ebs_block_devices** object supports the following:
 
-          * `deleteOnTermination` (`pulumi.Input[bool]`)
-          * `device_name` (`pulumi.Input[str]`)
-          * `encrypted` (`pulumi.Input[bool]`) - Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
-          * `iops` (`pulumi.Input[float]`)
-          * `snapshot_id` (`pulumi.Input[str]`)
-          * `volume_size` (`pulumi.Input[float]`)
-          * `volumeType` (`pulumi.Input[str]`)
+          * `deleteOnTermination` (`pulumi.Input[bool]`) - Boolean controlling whether the EBS volumes created to
+            support each created instance will be deleted once that instance is terminated.
+          * `device_name` (`pulumi.Input[str]`) - The path at which the device is exposed to created instances.
+          * `encrypted` (`pulumi.Input[bool]`) - Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+          * `iops` (`pulumi.Input[float]`) - Number of I/O operations per second the
+            created volumes will support.
+          * `snapshot_id` (`pulumi.Input[str]`) - The id of an EBS snapshot that will be used to initialize the created
+            EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
+            snapshot.
+          * `volume_size` (`pulumi.Input[float]`) - The size of created volumes in GiB.
+            If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
+            as the selected snapshot.
+          * `volumeType` (`pulumi.Input[str]`) - The type of EBS volume to create. Can be one of "standard" (the
+            default), "io1" or "gp2".
 
         The **ephemeral_block_devices** object supports the following:
 
-          * `device_name` (`pulumi.Input[str]`)
-          * `virtualName` (`pulumi.Input[str]`)
+          * `device_name` (`pulumi.Input[str]`) - The path at which the device is exposed to created instances.
+          * `virtualName` (`pulumi.Input[str]`) - A name for the ephemeral device, of the form "ephemeralN" where
+            *N* is a volume number starting from zero.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

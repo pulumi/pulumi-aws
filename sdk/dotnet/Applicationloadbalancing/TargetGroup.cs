@@ -67,13 +67,13 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+        /// The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+        /// The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Output("protocol")]
         public Output<string?> Protocol { get; private set; } = null!;
@@ -202,13 +202,13 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+        /// The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+        /// The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -316,13 +316,13 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+        /// The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+        /// The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -385,7 +385,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     public sealed class TargetGroupHealthCheckArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether  health checks are enabled. Defaults to true.
+        /// Boolean to enable / disable `stickiness`. Default is `true`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -412,13 +412,13 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+        /// The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
 
         /// <summary>
-        /// The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+        /// The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -444,7 +444,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     public sealed class TargetGroupHealthCheckGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether  health checks are enabled. Defaults to true.
+        /// Boolean to enable / disable `stickiness`. Default is `true`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -471,13 +471,13 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+        /// The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
 
         /// <summary>
-        /// The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+        /// The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -558,7 +558,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     public sealed class TargetGroupHealthCheck
     {
         /// <summary>
-        /// Indicates whether  health checks are enabled. Defaults to true.
+        /// Boolean to enable / disable `stickiness`. Default is `true`
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -575,11 +575,11 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// </summary>
         public readonly string Path;
         /// <summary>
-        /// The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
+        /// The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         public readonly string? Port;
         /// <summary>
-        /// The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+        /// The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         public readonly string? Protocol;
         /// <summary>

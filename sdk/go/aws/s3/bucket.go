@@ -22,7 +22,7 @@ type Bucket struct {
 	Acl pulumi.StringPtrOutput `pulumi:"acl"`
 	// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+	// The name of the bucket. If omitted, this provider will assign a random, unique name.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
 	BucketDomainName pulumi.StringOutput `pulumi:"bucketDomainName"`
@@ -57,8 +57,7 @@ type Bucket struct {
 	RequestPayer pulumi.StringOutput `pulumi:"requestPayer"`
 	// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
 	ServerSideEncryptionConfiguration BucketServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
-	// A mapping of tags that identifies subset of objects to which the rule applies.
-	// The rule applies only to objects having all the tags in its tagset.
+	// A mapping of tags to assign to the bucket.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
 	Versioning BucketVersioningOutput `pulumi:"versioning"`
@@ -104,7 +103,7 @@ type bucketState struct {
 	Acl *string `pulumi:"acl"`
 	// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
 	Arn *string `pulumi:"arn"`
-	// The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+	// The name of the bucket. If omitted, this provider will assign a random, unique name.
 	Bucket *string `pulumi:"bucket"`
 	// The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
 	BucketDomainName *string `pulumi:"bucketDomainName"`
@@ -139,8 +138,7 @@ type bucketState struct {
 	RequestPayer *string `pulumi:"requestPayer"`
 	// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
 	ServerSideEncryptionConfiguration *BucketServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
-	// A mapping of tags that identifies subset of objects to which the rule applies.
-	// The rule applies only to objects having all the tags in its tagset.
+	// A mapping of tags to assign to the bucket.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
 	Versioning *BucketVersioning `pulumi:"versioning"`
@@ -159,7 +157,7 @@ type BucketState struct {
 	Acl pulumi.StringPtrInput
 	// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
 	Arn pulumi.StringPtrInput
-	// The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+	// The name of the bucket. If omitted, this provider will assign a random, unique name.
 	Bucket pulumi.StringPtrInput
 	// The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
 	BucketDomainName pulumi.StringPtrInput
@@ -194,8 +192,7 @@ type BucketState struct {
 	RequestPayer pulumi.StringPtrInput
 	// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
 	ServerSideEncryptionConfiguration BucketServerSideEncryptionConfigurationPtrInput
-	// A mapping of tags that identifies subset of objects to which the rule applies.
-	// The rule applies only to objects having all the tags in its tagset.
+	// A mapping of tags to assign to the bucket.
 	Tags pulumi.MapInput
 	// A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
 	Versioning BucketVersioningPtrInput
@@ -218,7 +215,7 @@ type bucketArgs struct {
 	Acl interface{} `pulumi:"acl"`
 	// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
 	Arn *string `pulumi:"arn"`
-	// The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+	// The name of the bucket. If omitted, this provider will assign a random, unique name.
 	Bucket *string `pulumi:"bucket"`
 	// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
@@ -249,8 +246,7 @@ type bucketArgs struct {
 	RequestPayer *string `pulumi:"requestPayer"`
 	// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
 	ServerSideEncryptionConfiguration *BucketServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
-	// A mapping of tags that identifies subset of objects to which the rule applies.
-	// The rule applies only to objects having all the tags in its tagset.
+	// A mapping of tags to assign to the bucket.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
 	Versioning *BucketVersioning `pulumi:"versioning"`
@@ -270,7 +266,7 @@ type BucketArgs struct {
 	Acl pulumi.Input
 	// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
 	Arn pulumi.StringPtrInput
-	// The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+	// The name of the bucket. If omitted, this provider will assign a random, unique name.
 	Bucket pulumi.StringPtrInput
 	// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
 	BucketPrefix pulumi.StringPtrInput
@@ -301,8 +297,7 @@ type BucketArgs struct {
 	RequestPayer pulumi.StringPtrInput
 	// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
 	ServerSideEncryptionConfiguration BucketServerSideEncryptionConfigurationPtrInput
-	// A mapping of tags that identifies subset of objects to which the rule applies.
-	// The rule applies only to objects having all the tags in its tagset.
+	// A mapping of tags to assign to the bucket.
 	Tags pulumi.MapInput
 	// A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
 	Versioning BucketVersioningPtrInput

@@ -15,8 +15,8 @@ class Trigger(pulumi.CustomResource):
     List of actions initiated by this trigger when it fires. Defined below.
 
       * `arguments` (`dict`) - Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
-      * `crawlerName` (`str`) - The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
-      * `jobName` (`str`) - The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+      * `crawlerName` (`str`) - The name of the crawler to be executed. Conflicts with `job_name`.
+      * `jobName` (`str`) - The name of a job to be executed. Conflicts with `crawler_name`.
       * `timeout` (`float`) - The job run timeout in minutes. It overrides the timeout value of the job.
     """
     arn: pulumi.Output[str]
@@ -85,8 +85,8 @@ class Trigger(pulumi.CustomResource):
         The **actions** object supports the following:
 
           * `arguments` (`pulumi.Input[dict]`) - Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
-          * `crawlerName` (`pulumi.Input[str]`) - The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
-          * `jobName` (`pulumi.Input[str]`) - The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+          * `crawlerName` (`pulumi.Input[str]`) - The name of the crawler to be executed. Conflicts with `job_name`.
+          * `jobName` (`pulumi.Input[str]`) - The name of a job to be executed. Conflicts with `crawler_name`.
           * `timeout` (`pulumi.Input[float]`) - The job run timeout in minutes. It overrides the timeout value of the job.
 
         The **predicate** object supports the following:
@@ -160,8 +160,8 @@ class Trigger(pulumi.CustomResource):
         The **actions** object supports the following:
 
           * `arguments` (`pulumi.Input[dict]`) - Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
-          * `crawlerName` (`pulumi.Input[str]`) - The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
-          * `jobName` (`pulumi.Input[str]`) - The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+          * `crawlerName` (`pulumi.Input[str]`) - The name of the crawler to be executed. Conflicts with `job_name`.
+          * `jobName` (`pulumi.Input[str]`) - The name of a job to be executed. Conflicts with `crawler_name`.
           * `timeout` (`pulumi.Input[float]`) - The job run timeout in minutes. It overrides the timeout value of the job.
 
         The **predicate** object supports the following:

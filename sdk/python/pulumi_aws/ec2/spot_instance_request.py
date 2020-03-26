@@ -43,7 +43,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
     """
     Customize the credit specification of the instance. See Credit Specification below for more details.
 
-      * `cpuCredits` (`str`)
+      * `cpuCredits` (`str`) - The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
     """
     disable_api_termination: pulumi.Output[bool]
     """
@@ -57,7 +57,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
       * `deleteOnTermination` (`bool`) - Whether the volume should be destroyed
         on instance termination (Default: `true`).
-      * `device_name` (`str`) - The name of the block device to mount on the instance.
+      * `device_name` (`str`) - The name of the device to mount.
       * `encrypted` (`bool`) - Enables [EBS
         encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
         on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
@@ -146,10 +146,9 @@ class SpotInstanceRequest(pulumi.CustomResource):
     """
     Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 
-      * `deleteOnTermination` (`bool`) - Whether the volume should be destroyed
-        on instance termination (Default: `true`).
-      * `device_index` (`float`)
-      * `network_interface_id` (`str`)
+      * `deleteOnTermination` (`bool`) - Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
+      * `device_index` (`float`) - The integer index of the network interface attachment. Limited by instance type.
+      * `network_interface_id` (`str`) - The ID of the network interface to attach.
     """
     password_data: pulumi.Output[str]
     placement_group: pulumi.Output[str]
@@ -184,17 +183,15 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
       * `deleteOnTermination` (`bool`) - Whether the volume should be destroyed
         on instance termination (Default: `true`).
-      * `encrypted` (`bool`) - Enables [EBS
-        encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-        on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
+      * `encrypted` (`bool`) - Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
       * `iops` (`float`) - The amount of provisioned
         [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        This must be set with a `volume_type` of `"io1"`.
+        This is only valid for `volume_type` of `"io1"`, and must be specified if
+        using that type
       * `kms_key_id` (`str`) - Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
       * `volume_id` (`str`)
       * `volume_size` (`float`) - The size of the volume in gibibytes (GiB).
-      * `volumeType` (`str`) - The type of volume. Can be `"standard"`, `"gp2"`,
-        or `"io1"`. (Default: `"gp2"`).
+      * `volumeType` (`str`) - The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
     """
     security_groups: pulumi.Output[list]
     """
@@ -366,13 +363,13 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
         The **credit_specification** object supports the following:
 
-          * `cpuCredits` (`pulumi.Input[str]`)
+          * `cpuCredits` (`pulumi.Input[str]`) - The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 
         The **ebs_block_devices** object supports the following:
 
           * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
             on instance termination (Default: `true`).
-          * `device_name` (`pulumi.Input[str]`) - The name of the block device to mount on the instance.
+          * `device_name` (`pulumi.Input[str]`) - The name of the device to mount.
           * `encrypted` (`pulumi.Input[bool]`) - Enables [EBS
             encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
             on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
@@ -396,26 +393,23 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
         The **network_interfaces** object supports the following:
 
-          * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
-            on instance termination (Default: `true`).
-          * `device_index` (`pulumi.Input[float]`)
-          * `network_interface_id` (`pulumi.Input[str]`)
+          * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
+          * `device_index` (`pulumi.Input[float]`) - The integer index of the network interface attachment. Limited by instance type.
+          * `network_interface_id` (`pulumi.Input[str]`) - The ID of the network interface to attach.
 
         The **root_block_device** object supports the following:
 
           * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
             on instance termination (Default: `true`).
-          * `encrypted` (`pulumi.Input[bool]`) - Enables [EBS
-            encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-            on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
+          * `encrypted` (`pulumi.Input[bool]`) - Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
           * `iops` (`pulumi.Input[float]`) - The amount of provisioned
             [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-            This must be set with a `volume_type` of `"io1"`.
+            This is only valid for `volume_type` of `"io1"`, and must be specified if
+            using that type
           * `kms_key_id` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
           * `volume_id` (`pulumi.Input[str]`)
           * `volume_size` (`pulumi.Input[float]`) - The size of the volume in gibibytes (GiB).
-          * `volumeType` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`,
-            or `"io1"`. (Default: `"gp2"`).
+          * `volumeType` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -584,13 +578,13 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
         The **credit_specification** object supports the following:
 
-          * `cpuCredits` (`pulumi.Input[str]`)
+          * `cpuCredits` (`pulumi.Input[str]`) - The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 
         The **ebs_block_devices** object supports the following:
 
           * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
             on instance termination (Default: `true`).
-          * `device_name` (`pulumi.Input[str]`) - The name of the block device to mount on the instance.
+          * `device_name` (`pulumi.Input[str]`) - The name of the device to mount.
           * `encrypted` (`pulumi.Input[bool]`) - Enables [EBS
             encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
             on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
@@ -614,26 +608,23 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
         The **network_interfaces** object supports the following:
 
-          * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
-            on instance termination (Default: `true`).
-          * `device_index` (`pulumi.Input[float]`)
-          * `network_interface_id` (`pulumi.Input[str]`)
+          * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
+          * `device_index` (`pulumi.Input[float]`) - The integer index of the network interface attachment. Limited by instance type.
+          * `network_interface_id` (`pulumi.Input[str]`) - The ID of the network interface to attach.
 
         The **root_block_device** object supports the following:
 
           * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
             on instance termination (Default: `true`).
-          * `encrypted` (`pulumi.Input[bool]`) - Enables [EBS
-            encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-            on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
+          * `encrypted` (`pulumi.Input[bool]`) - Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
           * `iops` (`pulumi.Input[float]`) - The amount of provisioned
             [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-            This must be set with a `volume_type` of `"io1"`.
+            This is only valid for `volume_type` of `"io1"`, and must be specified if
+            using that type
           * `kms_key_id` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
           * `volume_id` (`pulumi.Input[str]`)
           * `volume_size` (`pulumi.Input[float]`) - The size of the volume in gibibytes (GiB).
-          * `volumeType` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`,
-            or `"io1"`. (Default: `"gp2"`).
+          * `volumeType` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

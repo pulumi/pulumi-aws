@@ -789,8 +789,7 @@ func (o MaintenanceWindowTaskLoggingInfoPtrOutput) S3Region() pulumi.StringOutpu
 }
 
 type MaintenanceWindowTaskTarget struct {
-	Key string `pulumi:"key"`
-	// The array of strings.
+	Key    string   `pulumi:"key"`
 	Values []string `pulumi:"values"`
 }
 
@@ -802,8 +801,7 @@ type MaintenanceWindowTaskTargetInput interface {
 }
 
 type MaintenanceWindowTaskTargetArgs struct {
-	Key pulumi.StringInput `pulumi:"key"`
-	// The array of strings.
+	Key    pulumi.StringInput      `pulumi:"key"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -858,7 +856,6 @@ func (o MaintenanceWindowTaskTargetOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskTarget) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The array of strings.
 func (o MaintenanceWindowTaskTargetOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskTarget) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1962,7 +1959,7 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParamet
 type MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters struct {
 	// The inputs for the STEP_FUNCTION task.
 	Input *string `pulumi:"input"`
-	// The parameter name.
+	// The name of the STEP_FUNCTION task.
 	Name *string `pulumi:"name"`
 }
 
@@ -1976,7 +1973,7 @@ type MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersInput i
 type MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs struct {
 	// The inputs for the STEP_FUNCTION task.
 	Input pulumi.StringPtrInput `pulumi:"input"`
-	// The parameter name.
+	// The name of the STEP_FUNCTION task.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -2054,7 +2051,7 @@ func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutp
 	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters) *string { return v.Input }).(pulumi.StringPtrOutput)
 }
 
-// The parameter name.
+// The name of the STEP_FUNCTION task.
 func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2084,15 +2081,14 @@ func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrO
 	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters) *string { return v.Input }).(pulumi.StringPtrOutput)
 }
 
-// The parameter name.
+// The name of the STEP_FUNCTION task.
 func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type MaintenanceWindowTaskTaskParameter struct {
-	// The parameter name.
-	Name string `pulumi:"name"`
-	// The array of strings.
+	// The name of the maintenance window task.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -2104,9 +2100,8 @@ type MaintenanceWindowTaskTaskParameterInput interface {
 }
 
 type MaintenanceWindowTaskTaskParameterArgs struct {
-	// The parameter name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The array of strings.
+	// The name of the maintenance window task.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2157,12 +2152,11 @@ func (o MaintenanceWindowTaskTaskParameterOutput) ToMaintenanceWindowTaskTaskPar
 	return o
 }
 
-// The parameter name.
+// The name of the maintenance window task.
 func (o MaintenanceWindowTaskTaskParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskTaskParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The array of strings.
 func (o MaintenanceWindowTaskTaskParameterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskTaskParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2188,10 +2182,15 @@ func (o MaintenanceWindowTaskTaskParameterArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type PatchBaselineApprovalRule struct {
-	ApproveAfterDays  int                                    `pulumi:"approveAfterDays"`
-	ComplianceLevel   *string                                `pulumi:"complianceLevel"`
-	EnableNonSecurity *bool                                  `pulumi:"enableNonSecurity"`
-	PatchFilters      []PatchBaselineApprovalRulePatchFilter `pulumi:"patchFilters"`
+	// The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
+	ApproveAfterDays int `pulumi:"approveAfterDays"`
+	// Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
+	ComplianceLevel *string `pulumi:"complianceLevel"`
+	// Boolean enabling the application of non-security updates. The default value is 'false'. Valid for Linux instances only.
+	EnableNonSecurity *bool `pulumi:"enableNonSecurity"`
+	// The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
+	// * `PATCH_SET` defaults to `OS` if unspecified
+	PatchFilters []PatchBaselineApprovalRulePatchFilter `pulumi:"patchFilters"`
 }
 
 type PatchBaselineApprovalRuleInput interface {
@@ -2202,10 +2201,15 @@ type PatchBaselineApprovalRuleInput interface {
 }
 
 type PatchBaselineApprovalRuleArgs struct {
-	ApproveAfterDays  pulumi.IntInput                                `pulumi:"approveAfterDays"`
-	ComplianceLevel   pulumi.StringPtrInput                          `pulumi:"complianceLevel"`
-	EnableNonSecurity pulumi.BoolPtrInput                            `pulumi:"enableNonSecurity"`
-	PatchFilters      PatchBaselineApprovalRulePatchFilterArrayInput `pulumi:"patchFilters"`
+	// The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
+	ApproveAfterDays pulumi.IntInput `pulumi:"approveAfterDays"`
+	// Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
+	ComplianceLevel pulumi.StringPtrInput `pulumi:"complianceLevel"`
+	// Boolean enabling the application of non-security updates. The default value is 'false'. Valid for Linux instances only.
+	EnableNonSecurity pulumi.BoolPtrInput `pulumi:"enableNonSecurity"`
+	// The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
+	// * `PATCH_SET` defaults to `OS` if unspecified
+	PatchFilters PatchBaselineApprovalRulePatchFilterArrayInput `pulumi:"patchFilters"`
 }
 
 func (PatchBaselineApprovalRuleArgs) ElementType() reflect.Type {
@@ -2255,18 +2259,23 @@ func (o PatchBaselineApprovalRuleOutput) ToPatchBaselineApprovalRuleOutputWithCo
 	return o
 }
 
+// The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
 func (o PatchBaselineApprovalRuleOutput) ApproveAfterDays() pulumi.IntOutput {
 	return o.ApplyT(func(v PatchBaselineApprovalRule) int { return v.ApproveAfterDays }).(pulumi.IntOutput)
 }
 
+// Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
 func (o PatchBaselineApprovalRuleOutput) ComplianceLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PatchBaselineApprovalRule) *string { return v.ComplianceLevel }).(pulumi.StringPtrOutput)
 }
 
+// Boolean enabling the application of non-security updates. The default value is 'false'. Valid for Linux instances only.
 func (o PatchBaselineApprovalRuleOutput) EnableNonSecurity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PatchBaselineApprovalRule) *bool { return v.EnableNonSecurity }).(pulumi.BoolPtrOutput)
 }
 
+// The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
+// * `PATCH_SET` defaults to `OS` if unspecified
 func (o PatchBaselineApprovalRuleOutput) PatchFilters() PatchBaselineApprovalRulePatchFilterArrayOutput {
 	return o.ApplyT(func(v PatchBaselineApprovalRule) []PatchBaselineApprovalRulePatchFilter { return v.PatchFilters }).(PatchBaselineApprovalRulePatchFilterArrayOutput)
 }

@@ -52,6 +52,9 @@ export interface GetNetworkInterfaceArgs {
      * The identifier for the network interface.
      */
     readonly id?: string;
+    /**
+     * Any tags assigned to the network interface.
+     */
     readonly tags?: {[key: string]: any};
 }
 

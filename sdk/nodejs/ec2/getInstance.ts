@@ -81,6 +81,9 @@ export interface GetInstanceArgs {
      * exactly match a pair on the desired Instance.
      */
     readonly instanceTags?: {[key: string]: any};
+    /**
+     * A mapping of tags assigned to the Instance.
+     */
     readonly tags?: {[key: string]: any};
 }
 

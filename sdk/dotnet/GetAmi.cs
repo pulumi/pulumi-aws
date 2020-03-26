@@ -93,6 +93,12 @@ namespace Pulumi.Aws
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// Any tags assigned to the image.
+        /// * `tags.#.key` - The key name of the tag.
+        /// * `tags.#.value` - The value of the tag.
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

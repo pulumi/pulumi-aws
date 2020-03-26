@@ -256,6 +256,9 @@ namespace Pulumi.Aws.CodeStarNotifications
 
     public sealed class NotificationRuleTargetsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of notification rule target. For example, a SNS Topic ARN.
+        /// </summary>
         [Input("address", required: true)]
         public Input<string> Address { get; set; } = null!;
 
@@ -265,6 +268,9 @@ namespace Pulumi.Aws.CodeStarNotifications
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        /// <summary>
+        /// The type of the notification target. Default value is `SNS`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -275,6 +281,9 @@ namespace Pulumi.Aws.CodeStarNotifications
 
     public sealed class NotificationRuleTargetsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of notification rule target. For example, a SNS Topic ARN.
+        /// </summary>
         [Input("address", required: true)]
         public Input<string> Address { get; set; } = null!;
 
@@ -284,6 +293,9 @@ namespace Pulumi.Aws.CodeStarNotifications
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        /// <summary>
+        /// The type of the notification target. Default value is `SNS`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -299,11 +311,17 @@ namespace Pulumi.Aws.CodeStarNotifications
     [OutputType]
     public sealed class NotificationRuleTargets
     {
+        /// <summary>
+        /// The ARN of notification rule target. For example, a SNS Topic ARN.
+        /// </summary>
         public readonly string Address;
         /// <summary>
         /// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// The type of the notification target. Default value is `SNS`.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

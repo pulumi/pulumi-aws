@@ -46,6 +46,9 @@ export interface GetQueueArgs {
      * The name of the queue to match.
      */
     readonly name: string;
+    /**
+     * A mapping of tags for the resource.
+     */
     readonly tags?: {[key: string]: any};
 }
 

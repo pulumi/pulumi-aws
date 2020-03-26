@@ -642,7 +642,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? Query { get; set; }
 
         /// <summary>
-        /// The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+        /// The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
         /// </summary>
         [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;
@@ -685,7 +685,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? Query { get; set; }
 
         /// <summary>
-        /// The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+        /// The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
         /// </summary>
         [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;
@@ -746,7 +746,7 @@ namespace Pulumi.Aws.Alb
         public Input<ListenerRuleConditionsSourceIpArgs>? SourceIp { get; set; }
 
         /// <summary>
-        /// Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+        /// List of exactly one pattern to match. Required when `field` is set.
         /// </summary>
         [Input("values")]
         public Input<string>? Values { get; set; }
@@ -807,7 +807,7 @@ namespace Pulumi.Aws.Alb
         public Input<ListenerRuleConditionsSourceIpGetArgs>? SourceIp { get; set; }
 
         /// <summary>
-        /// Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+        /// List of exactly one pattern to match. Required when `field` is set.
         /// </summary>
         [Input("values")]
         public Input<string>? Values { get; set; }
@@ -823,7 +823,7 @@ namespace Pulumi.Aws.Alb
         private InputList<string>? _values;
 
         /// <summary>
-        /// Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+        /// List of exactly one pattern to match. Required when `field` is set.
         /// </summary>
         public InputList<string> Values
         {
@@ -842,7 +842,7 @@ namespace Pulumi.Aws.Alb
         private InputList<string>? _values;
 
         /// <summary>
-        /// Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+        /// List of exactly one pattern to match. Required when `field` is set.
         /// </summary>
         public InputList<string> Values
         {
@@ -867,7 +867,7 @@ namespace Pulumi.Aws.Alb
         private InputList<string>? _values;
 
         /// <summary>
-        /// Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+        /// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
         /// </summary>
         public InputList<string> Values
         {
@@ -892,7 +892,7 @@ namespace Pulumi.Aws.Alb
         private InputList<string>? _values;
 
         /// <summary>
-        /// Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+        /// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
         /// </summary>
         public InputList<string> Values
         {
@@ -911,7 +911,7 @@ namespace Pulumi.Aws.Alb
         private InputList<string>? _values;
 
         /// <summary>
-        /// Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+        /// List of exactly one pattern to match. Required when `field` is set.
         /// </summary>
         public InputList<string> Values
         {
@@ -930,7 +930,7 @@ namespace Pulumi.Aws.Alb
         private InputList<string>? _values;
 
         /// <summary>
-        /// Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+        /// List of exactly one pattern to match. Required when `field` is set.
         /// </summary>
         public InputList<string> Values
         {
@@ -949,7 +949,7 @@ namespace Pulumi.Aws.Alb
         private InputList<string>? _values;
 
         /// <summary>
-        /// Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+        /// List of exactly one pattern to match. Required when `field` is set.
         /// </summary>
         public InputList<string> Values
         {
@@ -968,7 +968,7 @@ namespace Pulumi.Aws.Alb
         private InputList<string>? _values;
 
         /// <summary>
-        /// Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+        /// List of exactly one pattern to match. Required when `field` is set.
         /// </summary>
         public InputList<string> Values
         {
@@ -1025,7 +1025,7 @@ namespace Pulumi.Aws.Alb
         private InputList<string>? _values;
 
         /// <summary>
-        /// Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+        /// List of exactly one pattern to match. Required when `field` is set.
         /// </summary>
         public InputList<string> Values
         {
@@ -1044,7 +1044,7 @@ namespace Pulumi.Aws.Alb
         private InputList<string>? _values;
 
         /// <summary>
-        /// Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+        /// List of exactly one pattern to match. Required when `field` is set.
         /// </summary>
         public InputList<string> Values
         {
@@ -1296,7 +1296,7 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         public readonly string? Query;
         /// <summary>
-        /// The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+        /// The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
         /// </summary>
         public readonly string StatusCode;
 
@@ -1350,7 +1350,7 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         public readonly ListenerRuleConditionsSourceIp? SourceIp;
         /// <summary>
-        /// Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+        /// List of exactly one pattern to match. Required when `field` is set.
         /// </summary>
         public readonly string Values;
 
@@ -1380,7 +1380,7 @@ namespace Pulumi.Aws.Alb
     public sealed class ListenerRuleConditionsHostHeader
     {
         /// <summary>
-        /// Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+        /// List of exactly one pattern to match. Required when `field` is set.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 
@@ -1399,7 +1399,7 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         public readonly string HttpHeaderName;
         /// <summary>
-        /// Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+        /// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 
@@ -1417,7 +1417,7 @@ namespace Pulumi.Aws.Alb
     public sealed class ListenerRuleConditionsHttpRequestMethod
     {
         /// <summary>
-        /// Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+        /// List of exactly one pattern to match. Required when `field` is set.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 
@@ -1432,7 +1432,7 @@ namespace Pulumi.Aws.Alb
     public sealed class ListenerRuleConditionsPathPattern
     {
         /// <summary>
-        /// Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+        /// List of exactly one pattern to match. Required when `field` is set.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 
@@ -1469,7 +1469,7 @@ namespace Pulumi.Aws.Alb
     public sealed class ListenerRuleConditionsSourceIp
     {
         /// <summary>
-        /// Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+        /// List of exactly one pattern to match. Required when `field` is set.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

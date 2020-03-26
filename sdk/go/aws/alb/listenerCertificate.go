@@ -39,6 +39,12 @@ func NewListenerCertificate(ctx *pulumi.Context,
 	if args == nil {
 		args = &ListenerCertificateArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("aws:applicationloadbalancing/listenerCertificate:ListenerCertificate"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ListenerCertificate
 	err := ctx.RegisterResource("aws:alb/listenerCertificate:ListenerCertificate", name, args, &resource, opts...)
 	if err != nil {

@@ -33,8 +33,9 @@ type LookupSnapshotArgs struct {
 	// One or more AWS accounts IDs that can create volumes from the snapshot.
 	RestorableByUserIds []string `pulumi:"restorableByUserIds"`
 	// Returns information on a specific snapshot_id.
-	SnapshotIds []string               `pulumi:"snapshotIds"`
-	Tags        map[string]interface{} `pulumi:"tags"`
+	SnapshotIds []string `pulumi:"snapshotIds"`
+	// A mapping of tags for the resource.
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // A collection of values returned by getSnapshot.

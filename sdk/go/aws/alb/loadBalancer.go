@@ -69,6 +69,12 @@ func NewLoadBalancer(ctx *pulumi.Context,
 	if args == nil {
 		args = &LoadBalancerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("aws:applicationloadbalancing/loadBalancer:LoadBalancer"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource LoadBalancer
 	err := ctx.RegisterResource("aws:alb/loadBalancer:LoadBalancer", name, args, &resource, opts...)
 	if err != nil {

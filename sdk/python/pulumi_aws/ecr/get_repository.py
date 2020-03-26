@@ -68,6 +68,7 @@ def get_repository(name=None,tags=None,opts=None):
 
 
     :param str name: The name of the ECR Repository.
+    :param dict tags: A mapping of tags assigned to the resource.
     """
     __args__ = dict()
 

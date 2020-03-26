@@ -43,6 +43,10 @@ namespace Pulumi.Aws.CloudFormation
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// A map of tags associated with this stack.
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

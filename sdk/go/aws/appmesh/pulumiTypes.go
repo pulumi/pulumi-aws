@@ -387,7 +387,7 @@ func (o RouteSpecPtrOutput) TcpRoute() RouteSpecTcpRoutePtrOutput {
 type RouteSpecHttpRoute struct {
 	// The action to take if a match is determined.
 	Action RouteSpecHttpRouteAction `pulumi:"action"`
-	// The method and value to match the header value sent with a request. Specify one match method.
+	// The criteria for determining an HTTP request match.
 	Match RouteSpecHttpRouteMatch `pulumi:"match"`
 }
 
@@ -401,7 +401,7 @@ type RouteSpecHttpRouteInput interface {
 type RouteSpecHttpRouteArgs struct {
 	// The action to take if a match is determined.
 	Action RouteSpecHttpRouteActionInput `pulumi:"action"`
-	// The method and value to match the header value sent with a request. Specify one match method.
+	// The criteria for determining an HTTP request match.
 	Match RouteSpecHttpRouteMatchInput `pulumi:"match"`
 }
 
@@ -479,7 +479,7 @@ func (o RouteSpecHttpRouteOutput) Action() RouteSpecHttpRouteActionOutput {
 	return o.ApplyT(func(v RouteSpecHttpRoute) RouteSpecHttpRouteAction { return v.Action }).(RouteSpecHttpRouteActionOutput)
 }
 
-// The method and value to match the header value sent with a request. Specify one match method.
+// The criteria for determining an HTTP request match.
 func (o RouteSpecHttpRouteOutput) Match() RouteSpecHttpRouteMatchOutput {
 	return o.ApplyT(func(v RouteSpecHttpRoute) RouteSpecHttpRouteMatch { return v.Match }).(RouteSpecHttpRouteMatchOutput)
 }
@@ -507,7 +507,7 @@ func (o RouteSpecHttpRoutePtrOutput) Action() RouteSpecHttpRouteActionOutput {
 	return o.ApplyT(func(v RouteSpecHttpRoute) RouteSpecHttpRouteAction { return v.Action }).(RouteSpecHttpRouteActionOutput)
 }
 
-// The method and value to match the header value sent with a request. Specify one match method.
+// The criteria for determining an HTTP request match.
 func (o RouteSpecHttpRoutePtrOutput) Match() RouteSpecHttpRouteMatchOutput {
 	return o.ApplyT(func(v RouteSpecHttpRoute) RouteSpecHttpRouteMatch { return v.Match }).(RouteSpecHttpRouteMatchOutput)
 }
@@ -666,7 +666,8 @@ type RouteSpecHttpRouteMatch struct {
 	Headers []RouteSpecHttpRouteMatchHeader `pulumi:"headers"`
 	// The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 	Method *string `pulumi:"method"`
-	// The header value sent by the client must begin with the specified characters.
+	// Specifies the path with which to match requests.
+	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
 	Prefix string `pulumi:"prefix"`
 	// The client request header scheme to match on. Valid values: `http`, `https`.
@@ -685,7 +686,8 @@ type RouteSpecHttpRouteMatchArgs struct {
 	Headers RouteSpecHttpRouteMatchHeaderArrayInput `pulumi:"headers"`
 	// The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 	Method pulumi.StringPtrInput `pulumi:"method"`
-	// The header value sent by the client must begin with the specified characters.
+	// Specifies the path with which to match requests.
+	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
 	Prefix pulumi.StringInput `pulumi:"prefix"`
 	// The client request header scheme to match on. Valid values: `http`, `https`.
@@ -728,7 +730,8 @@ func (o RouteSpecHttpRouteMatchOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatch) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
-// The header value sent by the client must begin with the specified characters.
+// Specifies the path with which to match requests.
+// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 // * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
 func (o RouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
@@ -849,7 +852,8 @@ func (o RouteSpecHttpRouteMatchHeaderArrayOutput) Index(i pulumi.IntInput) Route
 type RouteSpecHttpRouteMatchHeaderMatch struct {
 	// The header value sent by the client must match the specified value exactly.
 	Exact *string `pulumi:"exact"`
-	// The header value sent by the client must begin with the specified characters.
+	// Specifies the path with which to match requests.
+	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
 	Prefix *string                                  `pulumi:"prefix"`
 	Range  *RouteSpecHttpRouteMatchHeaderMatchRange `pulumi:"range"`
@@ -869,7 +873,8 @@ type RouteSpecHttpRouteMatchHeaderMatchInput interface {
 type RouteSpecHttpRouteMatchHeaderMatchArgs struct {
 	// The header value sent by the client must match the specified value exactly.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
-	// The header value sent by the client must begin with the specified characters.
+	// Specifies the path with which to match requests.
+	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
 	Prefix pulumi.StringPtrInput                           `pulumi:"prefix"`
 	Range  RouteSpecHttpRouteMatchHeaderMatchRangePtrInput `pulumi:"range"`
@@ -953,7 +958,8 @@ func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Exact() pulumi.StringPtrOutput
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-// The header value sent by the client must begin with the specified characters.
+// Specifies the path with which to match requests.
+// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 // * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
@@ -996,7 +1002,8 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Exact() pulumi.StringPtrOut
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-// The header value sent by the client must begin with the specified characters.
+// Specifies the path with which to match requests.
+// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 // * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
@@ -2093,9 +2100,9 @@ func (o VirtualNodeSpecListenerHealthCheckPtrOutput) UnhealthyThreshold() pulumi
 }
 
 type VirtualNodeSpecListenerPortMapping struct {
-	// The destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+	// The port used for the port mapping.
 	Port int `pulumi:"port"`
-	// The protocol for the health check request. Valid values are `http` and `tcp`.
+	// The protocol used for the port mapping. Valid values are `http` and `tcp`.
 	Protocol string `pulumi:"protocol"`
 }
 
@@ -2107,9 +2114,9 @@ type VirtualNodeSpecListenerPortMappingInput interface {
 }
 
 type VirtualNodeSpecListenerPortMappingArgs struct {
-	// The destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+	// The port used for the port mapping.
 	Port pulumi.IntInput `pulumi:"port"`
-	// The protocol for the health check request. Valid values are `http` and `tcp`.
+	// The protocol used for the port mapping. Valid values are `http` and `tcp`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
@@ -2139,12 +2146,12 @@ func (o VirtualNodeSpecListenerPortMappingOutput) ToVirtualNodeSpecListenerPortM
 	return o
 }
 
-// The destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+// The port used for the port mapping.
 func (o VirtualNodeSpecListenerPortMappingOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerPortMapping) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// The protocol for the health check request. Valid values are `http` and `tcp`.
+// The protocol used for the port mapping. Valid values are `http` and `tcp`.
 func (o VirtualNodeSpecListenerPortMappingOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -2378,7 +2385,7 @@ func (o VirtualNodeSpecLoggingAccessLogPtrOutput) File() VirtualNodeSpecLoggingA
 }
 
 type VirtualNodeSpecLoggingAccessLogFile struct {
-	// The destination path for the health check request. This is only required if the specified protocol is `http`.
+	// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
 	Path string `pulumi:"path"`
 }
 
@@ -2390,7 +2397,7 @@ type VirtualNodeSpecLoggingAccessLogFileInput interface {
 }
 
 type VirtualNodeSpecLoggingAccessLogFileArgs struct {
-	// The destination path for the health check request. This is only required if the specified protocol is `http`.
+	// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
 	Path pulumi.StringInput `pulumi:"path"`
 }
 
@@ -2463,7 +2470,7 @@ func (o VirtualNodeSpecLoggingAccessLogFileOutput) ToVirtualNodeSpecLoggingAcces
 	}).(VirtualNodeSpecLoggingAccessLogFilePtrOutput)
 }
 
-// The destination path for the health check request. This is only required if the specified protocol is `http`.
+// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
 func (o VirtualNodeSpecLoggingAccessLogFileOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecLoggingAccessLogFile) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -2486,7 +2493,7 @@ func (o VirtualNodeSpecLoggingAccessLogFilePtrOutput) Elem() VirtualNodeSpecLogg
 	return o.ApplyT(func(v *VirtualNodeSpecLoggingAccessLogFile) VirtualNodeSpecLoggingAccessLogFile { return *v }).(VirtualNodeSpecLoggingAccessLogFileOutput)
 }
 
-// The destination path for the health check request. This is only required if the specified protocol is `http`.
+// The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out.
 func (o VirtualNodeSpecLoggingAccessLogFilePtrOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecLoggingAccessLogFile) string { return v.Path }).(pulumi.StringOutput)
 }

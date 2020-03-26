@@ -14,8 +14,8 @@ class Grant(pulumi.CustomResource):
     """
     A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
 
-      * `encryptionContextEquals` (`dict`)
-      * `encryptionContextSubset` (`dict`)
+      * `encryptionContextEquals` (`dict`) - A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
+      * `encryptionContextSubset` (`dict`) - A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
     """
     grant_creation_tokens: pulumi.Output[list]
     """
@@ -72,8 +72,8 @@ class Grant(pulumi.CustomResource):
 
         The **constraints** object supports the following:
 
-          * `encryptionContextEquals` (`pulumi.Input[dict]`)
-          * `encryptionContextSubset` (`pulumi.Input[dict]`)
+          * `encryptionContextEquals` (`pulumi.Input[dict]`) - A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
+          * `encryptionContextSubset` (`pulumi.Input[dict]`) - A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -137,8 +137,8 @@ class Grant(pulumi.CustomResource):
 
         The **constraints** object supports the following:
 
-          * `encryptionContextEquals` (`pulumi.Input[dict]`)
-          * `encryptionContextSubset` (`pulumi.Input[dict]`)
+          * `encryptionContextEquals` (`pulumi.Input[dict]`) - A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
+          * `encryptionContextSubset` (`pulumi.Input[dict]`) - A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

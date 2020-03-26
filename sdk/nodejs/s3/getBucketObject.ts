@@ -89,6 +89,9 @@ export interface GetBucketObjectArgs {
      */
     readonly key: string;
     readonly range?: string;
+    /**
+     * A mapping of tags assigned to the object.
+     */
     readonly tags?: {[key: string]: any};
     /**
      * Specific version ID of the object returned (defaults to latest version)

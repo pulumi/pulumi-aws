@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Ec2
     public partial class LaunchTemplate : Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the launch template.
+        /// The Amazon Resource Name (ARN) of the instance profile.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -490,7 +490,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class LaunchTemplateState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the launch template.
+        /// The Amazon Resource Name (ARN) of the instance profile.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -775,24 +775,49 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateBlockDeviceMappingsEbsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+        /// </summary>
         [Input("deleteOnTermination")]
         public Input<string>? DeleteOnTermination { get; set; }
 
+        /// <summary>
+        /// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
+        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`.
+        /// </summary>
         [Input("encrypted")]
         public Input<string>? Encrypted { get; set; }
 
+        /// <summary>
+        /// The amount of provisioned
+        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+        /// This must be set with a `volume_type` of `"io1"`.
+        /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
+        /// <summary>
+        /// AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+        /// `encrypted` must be set to `true` when this is set.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// The Snapshot ID to mount.
+        /// </summary>
         [Input("snapshotId")]
         public Input<string>? SnapshotId { get; set; }
 
+        /// <summary>
+        /// The size of the volume in gigabytes.
+        /// </summary>
         [Input("volumeSize")]
         public Input<int>? VolumeSize { get; set; }
 
+        /// <summary>
+        /// The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
+        /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
 
@@ -803,24 +828,49 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateBlockDeviceMappingsEbsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+        /// </summary>
         [Input("deleteOnTermination")]
         public Input<string>? DeleteOnTermination { get; set; }
 
+        /// <summary>
+        /// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
+        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`.
+        /// </summary>
         [Input("encrypted")]
         public Input<string>? Encrypted { get; set; }
 
+        /// <summary>
+        /// The amount of provisioned
+        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+        /// This must be set with a `volume_type` of `"io1"`.
+        /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
+        /// <summary>
+        /// AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+        /// `encrypted` must be set to `true` when this is set.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// The Snapshot ID to mount.
+        /// </summary>
         [Input("snapshotId")]
         public Input<string>? SnapshotId { get; set; }
 
+        /// <summary>
+        /// The size of the volume in gigabytes.
+        /// </summary>
         [Input("volumeSize")]
         public Input<int>? VolumeSize { get; set; }
 
+        /// <summary>
+        /// The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
+        /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
 
@@ -864,9 +914,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateCapacityReservationSpecificationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
+        /// </summary>
         [Input("capacityReservationPreference")]
         public Input<string>? CapacityReservationPreference { get; set; }
 
+        /// <summary>
+        /// Used to target a specific Capacity Reservation:
+        /// </summary>
         [Input("capacityReservationTarget")]
         public Input<LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs>? CapacityReservationTarget { get; set; }
 
@@ -877,6 +933,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the Capacity Reservation to target.
+        /// </summary>
         [Input("capacityReservationId")]
         public Input<string>? CapacityReservationId { get; set; }
 
@@ -887,6 +946,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the Capacity Reservation to target.
+        /// </summary>
         [Input("capacityReservationId")]
         public Input<string>? CapacityReservationId { get; set; }
 
@@ -897,9 +959,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateCapacityReservationSpecificationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
+        /// </summary>
         [Input("capacityReservationPreference")]
         public Input<string>? CapacityReservationPreference { get; set; }
 
+        /// <summary>
+        /// Used to target a specific Capacity Reservation:
+        /// </summary>
         [Input("capacityReservationTarget")]
         public Input<LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetGetArgs>? CapacityReservationTarget { get; set; }
 
@@ -910,9 +978,16 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateCpuOptionsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of CPU cores for the instance.
+        /// </summary>
         [Input("coreCount")]
         public Input<int>? CoreCount { get; set; }
 
+        /// <summary>
+        /// The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+        /// Otherwise, specify the default value of 2.
+        /// </summary>
         [Input("threadsPerCore")]
         public Input<int>? ThreadsPerCore { get; set; }
 
@@ -923,9 +998,16 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateCpuOptionsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of CPU cores for the instance.
+        /// </summary>
         [Input("coreCount")]
         public Input<int>? CoreCount { get; set; }
 
+        /// <summary>
+        /// The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+        /// Otherwise, specify the default value of 2.
+        /// </summary>
         [Input("threadsPerCore")]
         public Input<int>? ThreadsPerCore { get; set; }
 
@@ -936,6 +1018,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateCreditSpecificationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+        /// </summary>
         [Input("cpuCredits")]
         public Input<string>? CpuCredits { get; set; }
 
@@ -946,6 +1031,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateCreditSpecificationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+        /// </summary>
         [Input("cpuCredits")]
         public Input<string>? CpuCredits { get; set; }
 
@@ -957,7 +1045,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class LaunchTemplateElasticGpuSpecificationsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Accelerator type.
+        /// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -970,7 +1058,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class LaunchTemplateElasticGpuSpecificationsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Accelerator type.
+        /// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -1009,13 +1097,13 @@ namespace Pulumi.Aws.Ec2
     public sealed class LaunchTemplateIamInstanceProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the launch template.
+        /// The Amazon Resource Name (ARN) of the instance profile.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
+        /// The name of the instance profile.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -1028,13 +1116,13 @@ namespace Pulumi.Aws.Ec2
     public sealed class LaunchTemplateIamInstanceProfileGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the launch template.
+        /// The Amazon Resource Name (ARN) of the instance profile.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
+        /// The name of the instance profile.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -1046,9 +1134,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateInstanceMarketOptionsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The market type. Can be `spot`.
+        /// </summary>
         [Input("marketType")]
         public Input<string>? MarketType { get; set; }
 
+        /// <summary>
+        /// The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+        /// </summary>
         [Input("spotOptions")]
         public Input<LaunchTemplateInstanceMarketOptionsSpotOptionsArgs>? SpotOptions { get; set; }
 
@@ -1059,9 +1153,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateInstanceMarketOptionsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The market type. Can be `spot`.
+        /// </summary>
         [Input("marketType")]
         public Input<string>? MarketType { get; set; }
 
+        /// <summary>
+        /// The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+        /// </summary>
         [Input("spotOptions")]
         public Input<LaunchTemplateInstanceMarketOptionsSpotOptionsGetArgs>? SpotOptions { get; set; }
 
@@ -1072,18 +1172,34 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateInstanceMarketOptionsSpotOptionsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The required duration in minutes. This value must be a multiple of 60.
+        /// </summary>
         [Input("blockDurationMinutes")]
         public Input<int>? BlockDurationMinutes { get; set; }
 
+        /// <summary>
+        /// The behavior when a Spot Instance is interrupted. Can be `hibernate`,
+        /// `stop`, or `terminate`. (Default: `terminate`).
+        /// </summary>
         [Input("instanceInterruptionBehavior")]
         public Input<string>? InstanceInterruptionBehavior { get; set; }
 
+        /// <summary>
+        /// The maximum hourly price you're willing to pay for the Spot Instances.
+        /// </summary>
         [Input("maxPrice")]
         public Input<string>? MaxPrice { get; set; }
 
+        /// <summary>
+        /// The Spot Instance request type. Can be `one-time`, or `persistent`.
+        /// </summary>
         [Input("spotInstanceType")]
         public Input<string>? SpotInstanceType { get; set; }
 
+        /// <summary>
+        /// The end date of the request.
+        /// </summary>
         [Input("validUntil")]
         public Input<string>? ValidUntil { get; set; }
 
@@ -1094,18 +1210,34 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateInstanceMarketOptionsSpotOptionsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The required duration in minutes. This value must be a multiple of 60.
+        /// </summary>
         [Input("blockDurationMinutes")]
         public Input<int>? BlockDurationMinutes { get; set; }
 
+        /// <summary>
+        /// The behavior when a Spot Instance is interrupted. Can be `hibernate`,
+        /// `stop`, or `terminate`. (Default: `terminate`).
+        /// </summary>
         [Input("instanceInterruptionBehavior")]
         public Input<string>? InstanceInterruptionBehavior { get; set; }
 
+        /// <summary>
+        /// The maximum hourly price you're willing to pay for the Spot Instances.
+        /// </summary>
         [Input("maxPrice")]
         public Input<string>? MaxPrice { get; set; }
 
+        /// <summary>
+        /// The Spot Instance request type. Can be `one-time`, or `persistent`.
+        /// </summary>
         [Input("spotInstanceType")]
         public Input<string>? SpotInstanceType { get; set; }
 
+        /// <summary>
+        /// The end date of the request.
+        /// </summary>
         [Input("validUntil")]
         public Input<string>? ValidUntil { get; set; }
 
@@ -1116,6 +1248,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateLicenseSpecificationsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the license configuration.
+        /// </summary>
         [Input("licenseConfigurationArn", required: true)]
         public Input<string> LicenseConfigurationArn { get; set; } = null!;
 
@@ -1126,6 +1261,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateLicenseSpecificationsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the license configuration.
+        /// </summary>
         [Input("licenseConfigurationArn", required: true)]
         public Input<string> LicenseConfigurationArn { get; set; } = null!;
 
@@ -1136,6 +1274,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateMonitoringArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If `true`, the launched EC2 instance will have detailed monitoring enabled.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -1146,6 +1287,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateMonitoringGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If `true`, the launched EC2 instance will have detailed monitoring enabled.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -1156,57 +1300,93 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateNetworkInterfacesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Associate a public ip address with the network interface.  Boolean value.
+        /// </summary>
         [Input("associatePublicIpAddress")]
         public Input<string>? AssociatePublicIpAddress { get; set; }
 
+        /// <summary>
+        /// Whether the network interface should be destroyed on instance termination.
+        /// </summary>
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
 
         /// <summary>
-        /// Description of the launch template.
+        /// Description of the network interface.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The integer index of the network interface attachment.
+        /// </summary>
         [Input("deviceIndex")]
         public Input<int>? DeviceIndex { get; set; }
 
+        /// <summary>
+        /// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_address_count`
+        /// </summary>
         [Input("ipv4AddressCount")]
         public Input<int>? Ipv4AddressCount { get; set; }
 
         [Input("ipv4Addresses")]
         private InputList<string>? _ipv4Addresses;
+
+        /// <summary>
+        /// One or more private IPv4 addresses to associate. Conflicts with `ipv4_addresses`
+        /// </summary>
         public InputList<string> Ipv4Addresses
         {
             get => _ipv4Addresses ?? (_ipv4Addresses = new InputList<string>());
             set => _ipv4Addresses = value;
         }
 
+        /// <summary>
+        /// The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
+        /// </summary>
         [Input("ipv6AddressCount")]
         public Input<int>? Ipv6AddressCount { get; set; }
 
         [Input("ipv6Addresses")]
         private InputList<string>? _ipv6Addresses;
+
+        /// <summary>
+        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
+        /// </summary>
         public InputList<string> Ipv6Addresses
         {
             get => _ipv6Addresses ?? (_ipv6Addresses = new InputList<string>());
             set => _ipv6Addresses = value;
         }
 
+        /// <summary>
+        /// The ID of the network interface to attach.
+        /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
+        /// <summary>
+        /// The primary private IPv4 address.
+        /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
+
+        /// <summary>
+        /// A list of security group IDs to associate.
+        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
             set => _securityGroups = value;
         }
 
+        /// <summary>
+        /// The VPC Subnet ID to associate.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
@@ -1217,57 +1397,93 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateNetworkInterfacesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Associate a public ip address with the network interface.  Boolean value.
+        /// </summary>
         [Input("associatePublicIpAddress")]
         public Input<string>? AssociatePublicIpAddress { get; set; }
 
+        /// <summary>
+        /// Whether the network interface should be destroyed on instance termination.
+        /// </summary>
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
 
         /// <summary>
-        /// Description of the launch template.
+        /// Description of the network interface.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The integer index of the network interface attachment.
+        /// </summary>
         [Input("deviceIndex")]
         public Input<int>? DeviceIndex { get; set; }
 
+        /// <summary>
+        /// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_address_count`
+        /// </summary>
         [Input("ipv4AddressCount")]
         public Input<int>? Ipv4AddressCount { get; set; }
 
         [Input("ipv4Addresses")]
         private InputList<string>? _ipv4Addresses;
+
+        /// <summary>
+        /// One or more private IPv4 addresses to associate. Conflicts with `ipv4_addresses`
+        /// </summary>
         public InputList<string> Ipv4Addresses
         {
             get => _ipv4Addresses ?? (_ipv4Addresses = new InputList<string>());
             set => _ipv4Addresses = value;
         }
 
+        /// <summary>
+        /// The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
+        /// </summary>
         [Input("ipv6AddressCount")]
         public Input<int>? Ipv6AddressCount { get; set; }
 
         [Input("ipv6Addresses")]
         private InputList<string>? _ipv6Addresses;
+
+        /// <summary>
+        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
+        /// </summary>
         public InputList<string> Ipv6Addresses
         {
             get => _ipv6Addresses ?? (_ipv6Addresses = new InputList<string>());
             set => _ipv6Addresses = value;
         }
 
+        /// <summary>
+        /// The ID of the network interface to attach.
+        /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
+        /// <summary>
+        /// The primary private IPv4 address.
+        /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
+
+        /// <summary>
+        /// A list of security group IDs to associate.
+        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
             set => _securityGroups = value;
         }
 
+        /// <summary>
+        /// The VPC Subnet ID to associate.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
@@ -1278,21 +1494,39 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplatePlacementArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The affinity setting for an instance on a Dedicated Host.
+        /// </summary>
         [Input("affinity")]
         public Input<string>? Affinity { get; set; }
 
+        /// <summary>
+        /// The Availability Zone for the instance.
+        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
+        /// <summary>
+        /// The name of the placement group for the instance.
+        /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
+        /// <summary>
+        /// The ID of the Dedicated Host for the instance.
+        /// </summary>
         [Input("hostId")]
         public Input<string>? HostId { get; set; }
 
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
         [Input("spreadDomain")]
         public Input<string>? SpreadDomain { get; set; }
 
+        /// <summary>
+        /// The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
+        /// </summary>
         [Input("tenancy")]
         public Input<string>? Tenancy { get; set; }
 
@@ -1303,21 +1537,39 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplatePlacementGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The affinity setting for an instance on a Dedicated Host.
+        /// </summary>
         [Input("affinity")]
         public Input<string>? Affinity { get; set; }
 
+        /// <summary>
+        /// The Availability Zone for the instance.
+        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
+        /// <summary>
+        /// The name of the placement group for the instance.
+        /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
+        /// <summary>
+        /// The ID of the Dedicated Host for the instance.
+        /// </summary>
         [Input("hostId")]
         public Input<string>? HostId { get; set; }
 
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
         [Input("spreadDomain")]
         public Input<string>? SpreadDomain { get; set; }
 
+        /// <summary>
+        /// The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
+        /// </summary>
         [Input("tenancy")]
         public Input<string>? Tenancy { get; set; }
 
@@ -1328,6 +1580,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateTagSpecificationsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of resource to tag. Valid values are `instance` and `volume`.
+        /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
 
@@ -1335,7 +1590,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the launch template.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -1350,6 +1605,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchTemplateTagSpecificationsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of resource to tag. Valid values are `instance` and `volume`.
+        /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
 
@@ -1357,7 +1615,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the launch template.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -1413,12 +1671,37 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class LaunchTemplateBlockDeviceMappingsEbs
     {
+        /// <summary>
+        /// Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+        /// </summary>
         public readonly string? DeleteOnTermination;
+        /// <summary>
+        /// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
+        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`.
+        /// </summary>
         public readonly string? Encrypted;
+        /// <summary>
+        /// The amount of provisioned
+        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+        /// This must be set with a `volume_type` of `"io1"`.
+        /// </summary>
         public readonly int Iops;
+        /// <summary>
+        /// AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+        /// `encrypted` must be set to `true` when this is set.
+        /// </summary>
         public readonly string? KmsKeyId;
+        /// <summary>
+        /// The Snapshot ID to mount.
+        /// </summary>
         public readonly string? SnapshotId;
+        /// <summary>
+        /// The size of the volume in gigabytes.
+        /// </summary>
         public readonly int VolumeSize;
+        /// <summary>
+        /// The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
+        /// </summary>
         public readonly string VolumeType;
 
         [OutputConstructor]
@@ -1444,7 +1727,13 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class LaunchTemplateCapacityReservationSpecification
     {
+        /// <summary>
+        /// Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
+        /// </summary>
         public readonly string? CapacityReservationPreference;
+        /// <summary>
+        /// Used to target a specific Capacity Reservation:
+        /// </summary>
         public readonly LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget? CapacityReservationTarget;
 
         [OutputConstructor]
@@ -1460,6 +1749,9 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget
     {
+        /// <summary>
+        /// The ID of the Capacity Reservation to target.
+        /// </summary>
         public readonly string? CapacityReservationId;
 
         [OutputConstructor]
@@ -1472,7 +1764,14 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class LaunchTemplateCpuOptions
     {
+        /// <summary>
+        /// The number of CPU cores for the instance.
+        /// </summary>
         public readonly int? CoreCount;
+        /// <summary>
+        /// The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+        /// Otherwise, specify the default value of 2.
+        /// </summary>
         public readonly int? ThreadsPerCore;
 
         [OutputConstructor]
@@ -1488,6 +1787,9 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class LaunchTemplateCreditSpecification
     {
+        /// <summary>
+        /// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+        /// </summary>
         public readonly string? CpuCredits;
 
         [OutputConstructor]
@@ -1501,7 +1803,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class LaunchTemplateElasticGpuSpecifications
     {
         /// <summary>
-        /// Accelerator type.
+        /// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
         /// </summary>
         public readonly string Type;
 
@@ -1531,11 +1833,11 @@ namespace Pulumi.Aws.Ec2
     public sealed class LaunchTemplateIamInstanceProfile
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the launch template.
+        /// The Amazon Resource Name (ARN) of the instance profile.
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
+        /// The name of the instance profile.
         /// </summary>
         public readonly string? Name;
 
@@ -1552,7 +1854,13 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class LaunchTemplateInstanceMarketOptions
     {
+        /// <summary>
+        /// The market type. Can be `spot`.
+        /// </summary>
         public readonly string? MarketType;
+        /// <summary>
+        /// The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+        /// </summary>
         public readonly LaunchTemplateInstanceMarketOptionsSpotOptions? SpotOptions;
 
         [OutputConstructor]
@@ -1568,10 +1876,26 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class LaunchTemplateInstanceMarketOptionsSpotOptions
     {
+        /// <summary>
+        /// The required duration in minutes. This value must be a multiple of 60.
+        /// </summary>
         public readonly int? BlockDurationMinutes;
+        /// <summary>
+        /// The behavior when a Spot Instance is interrupted. Can be `hibernate`,
+        /// `stop`, or `terminate`. (Default: `terminate`).
+        /// </summary>
         public readonly string? InstanceInterruptionBehavior;
+        /// <summary>
+        /// The maximum hourly price you're willing to pay for the Spot Instances.
+        /// </summary>
         public readonly string? MaxPrice;
+        /// <summary>
+        /// The Spot Instance request type. Can be `one-time`, or `persistent`.
+        /// </summary>
         public readonly string? SpotInstanceType;
+        /// <summary>
+        /// The end date of the request.
+        /// </summary>
         public readonly string ValidUntil;
 
         [OutputConstructor]
@@ -1593,6 +1917,9 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class LaunchTemplateLicenseSpecifications
     {
+        /// <summary>
+        /// ARN of the license configuration.
+        /// </summary>
         public readonly string LicenseConfigurationArn;
 
         [OutputConstructor]
@@ -1605,6 +1932,9 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class LaunchTemplateMonitoring
     {
+        /// <summary>
+        /// If `true`, the launched EC2 instance will have detailed monitoring enabled.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]
@@ -1617,20 +1947,53 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class LaunchTemplateNetworkInterfaces
     {
+        /// <summary>
+        /// Associate a public ip address with the network interface.  Boolean value.
+        /// </summary>
         public readonly string? AssociatePublicIpAddress;
+        /// <summary>
+        /// Whether the network interface should be destroyed on instance termination.
+        /// </summary>
         public readonly bool? DeleteOnTermination;
         /// <summary>
-        /// Description of the launch template.
+        /// Description of the network interface.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The integer index of the network interface attachment.
+        /// </summary>
         public readonly int? DeviceIndex;
+        /// <summary>
+        /// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_address_count`
+        /// </summary>
         public readonly int? Ipv4AddressCount;
+        /// <summary>
+        /// One or more private IPv4 addresses to associate. Conflicts with `ipv4_addresses`
+        /// </summary>
         public readonly ImmutableArray<string> Ipv4Addresses;
+        /// <summary>
+        /// The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
+        /// </summary>
         public readonly int? Ipv6AddressCount;
+        /// <summary>
+        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
+        /// </summary>
         public readonly ImmutableArray<string> Ipv6Addresses;
+        /// <summary>
+        /// The ID of the network interface to attach.
+        /// </summary>
         public readonly string? NetworkInterfaceId;
+        /// <summary>
+        /// The primary private IPv4 address.
+        /// </summary>
         public readonly string? PrivateIpAddress;
+        /// <summary>
+        /// A list of security group IDs to associate.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
+        /// <summary>
+        /// The VPC Subnet ID to associate.
+        /// </summary>
         public readonly string? SubnetId;
 
         [OutputConstructor]
@@ -1666,11 +2029,29 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class LaunchTemplatePlacement
     {
+        /// <summary>
+        /// The affinity setting for an instance on a Dedicated Host.
+        /// </summary>
         public readonly string? Affinity;
+        /// <summary>
+        /// The Availability Zone for the instance.
+        /// </summary>
         public readonly string? AvailabilityZone;
+        /// <summary>
+        /// The name of the placement group for the instance.
+        /// </summary>
         public readonly string? GroupName;
+        /// <summary>
+        /// The ID of the Dedicated Host for the instance.
+        /// </summary>
         public readonly string? HostId;
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
         public readonly string? SpreadDomain;
+        /// <summary>
+        /// The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
+        /// </summary>
         public readonly string? Tenancy;
 
         [OutputConstructor]
@@ -1694,9 +2075,12 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class LaunchTemplateTagSpecifications
     {
+        /// <summary>
+        /// The type of resource to tag. Valid values are `instance` and `volume`.
+        /// </summary>
         public readonly string? ResourceType;
         /// <summary>
-        /// A mapping of tags to assign to the launch template.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Tags;
 

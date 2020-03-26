@@ -74,6 +74,9 @@ export interface GetVpcDhcpOptionsArgs {
      * List of custom filters as described below.
      */
     readonly filters?: inputs.ec2.GetVpcDhcpOptionsFilter[];
+    /**
+     * A mapping of tags assigned to the resource.
+     */
     readonly tags?: {[key: string]: any};
 }
 

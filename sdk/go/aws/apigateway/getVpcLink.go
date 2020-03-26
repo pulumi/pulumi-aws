@@ -27,7 +27,8 @@ func LookupVpcLink(ctx *pulumi.Context, args *LookupVpcLinkArgs, opts ...pulumi.
 type LookupVpcLinkArgs struct {
 	// The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
 	// If multiple API Gateway VPC Links are found with this name, an error will be returned.
-	Name string                 `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Key-value mapping of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 

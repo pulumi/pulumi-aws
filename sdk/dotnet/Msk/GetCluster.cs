@@ -41,6 +41,10 @@ namespace Pulumi.Aws.Msk
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// Map of key-value pairs assigned to the cluster.
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

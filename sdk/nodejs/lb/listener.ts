@@ -188,11 +188,11 @@ export class Listener extends pulumi.CustomResource {
      */
     public readonly loadBalancerArn!: pulumi.Output<string>;
     /**
-     * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+     * The port on which the load balancer is listening.
      */
     public readonly port!: pulumi.Output<number>;
     /**
-     * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+     * The protocol for connections from clients to the load balancer. Valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
      */
     public readonly protocol!: pulumi.Output<string | undefined>;
     /**
@@ -272,11 +272,11 @@ export interface ListenerState {
      */
     readonly loadBalancerArn?: pulumi.Input<string>;
     /**
-     * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+     * The port on which the load balancer is listening.
      */
     readonly port?: pulumi.Input<number>;
     /**
-     * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+     * The protocol for connections from clients to the load balancer. Valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
      */
     readonly protocol?: pulumi.Input<string>;
     /**
@@ -302,11 +302,11 @@ export interface ListenerArgs {
      */
     readonly loadBalancerArn: pulumi.Input<string>;
     /**
-     * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+     * The port on which the load balancer is listening.
      */
     readonly port: pulumi.Input<number>;
     /**
-     * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+     * The protocol for connections from clients to the load balancer. Valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
      */
     readonly protocol?: pulumi.Input<string>;
     /**
