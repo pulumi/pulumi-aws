@@ -19,19 +19,18 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-
-	log "github.com/pulumi/pulumi/sdk/go/common/util/logging"
+	"log"
 )
 
 func main() {
 	contents, err := ioutil.ReadFile("./schema.json")
 	if err != nil {
-		log.Errorf("%v\n", err)
+		log.Fatal(err)
 	}
 	err = ioutil.WriteFile("./schema.go", []byte(fmt.Sprintf(`package main
 var pulumiSchema = %#v
 `, contents)), 0600)
 	if err != nil {
-		log.Errorf("%v\n", err)
+		log.Fatal(err)
 	}
 }
