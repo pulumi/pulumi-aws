@@ -109,4 +109,3 @@ type RequestValidatorArgs struct {
 func (RequestValidatorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*requestValidatorArgs)(nil)).Elem()
 }
-

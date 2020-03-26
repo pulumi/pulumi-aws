@@ -91,4 +91,3 @@ type DomainIdentityVerificationArgs struct {
 func (DomainIdentityVerificationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainIdentityVerificationArgs)(nil)).Elem()
 }
-

@@ -97,4 +97,3 @@ type UserGroupMembershipArgs struct {
 func (UserGroupMembershipArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userGroupMembershipArgs)(nil)).Elem()
 }
-

@@ -167,4 +167,3 @@ type ResolverArgs struct {
 func (ResolverArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverArgs)(nil)).Elem()
 }
-

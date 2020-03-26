@@ -241,9 +241,15 @@ namespace Pulumi.Aws.CodePipeline
 
     public sealed class WebhookAuthenticationConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A valid CIDR block for `IP` filtering. Required for `IP`.
+        /// </summary>
         [Input("allowedIpRange")]
         public Input<string>? AllowedIpRange { get; set; }
 
+        /// <summary>
+        /// The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`'s `configuration` block. Required for `GITHUB_HMAC`.
+        /// </summary>
         [Input("secretToken")]
         public Input<string>? SecretToken { get; set; }
 
@@ -254,9 +260,15 @@ namespace Pulumi.Aws.CodePipeline
 
     public sealed class WebhookAuthenticationConfigurationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A valid CIDR block for `IP` filtering. Required for `IP`.
+        /// </summary>
         [Input("allowedIpRange")]
         public Input<string>? AllowedIpRange { get; set; }
 
+        /// <summary>
+        /// The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`'s `configuration` block. Required for `GITHUB_HMAC`.
+        /// </summary>
         [Input("secretToken")]
         public Input<string>? SecretToken { get; set; }
 
@@ -267,9 +279,15 @@ namespace Pulumi.Aws.CodePipeline
 
     public sealed class WebhookFiltersArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The [JSON path](https://github.com/json-path/JsonPath) to filter on.
+        /// </summary>
         [Input("jsonPath", required: true)]
         public Input<string> JsonPath { get; set; } = null!;
 
+        /// <summary>
+        /// The value to match on (e.g. `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
+        /// </summary>
         [Input("matchEquals", required: true)]
         public Input<string> MatchEquals { get; set; } = null!;
 
@@ -280,9 +298,15 @@ namespace Pulumi.Aws.CodePipeline
 
     public sealed class WebhookFiltersGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The [JSON path](https://github.com/json-path/JsonPath) to filter on.
+        /// </summary>
         [Input("jsonPath", required: true)]
         public Input<string> JsonPath { get; set; } = null!;
 
+        /// <summary>
+        /// The value to match on (e.g. `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
+        /// </summary>
         [Input("matchEquals", required: true)]
         public Input<string> MatchEquals { get; set; } = null!;
 
@@ -298,7 +322,13 @@ namespace Pulumi.Aws.CodePipeline
     [OutputType]
     public sealed class WebhookAuthenticationConfiguration
     {
+        /// <summary>
+        /// A valid CIDR block for `IP` filtering. Required for `IP`.
+        /// </summary>
         public readonly string? AllowedIpRange;
+        /// <summary>
+        /// The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`'s `configuration` block. Required for `GITHUB_HMAC`.
+        /// </summary>
         public readonly string? SecretToken;
 
         [OutputConstructor]
@@ -314,7 +344,13 @@ namespace Pulumi.Aws.CodePipeline
     [OutputType]
     public sealed class WebhookFilters
     {
+        /// <summary>
+        /// The [JSON path](https://github.com/json-path/JsonPath) to filter on.
+        /// </summary>
         public readonly string JsonPath;
+        /// <summary>
+        /// The value to match on (e.g. `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
+        /// </summary>
         public readonly string MatchEquals;
 
         [OutputConstructor]

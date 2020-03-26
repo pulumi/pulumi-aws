@@ -107,8 +107,8 @@ type Cluster struct {
 	// load-balanced across replicas
 	ReaderEndpoint pulumi.StringOutput `pulumi:"readerEndpoint"`
 	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
-	ReplicationSourceIdentifier pulumi.StringPtrOutput `pulumi:"replicationSourceIdentifier"`
-	S3Import ClusterS3ImportPtrOutput `pulumi:"s3Import"`
+	ReplicationSourceIdentifier pulumi.StringPtrOutput   `pulumi:"replicationSourceIdentifier"`
+	S3Import                    ClusterS3ImportPtrOutput `pulumi:"s3Import"`
 	// Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
 	ScalingConfiguration ClusterScalingConfigurationPtrOutput `pulumi:"scalingConfiguration"`
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
@@ -227,8 +227,8 @@ type clusterState struct {
 	// load-balanced across replicas
 	ReaderEndpoint *string `pulumi:"readerEndpoint"`
 	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
-	ReplicationSourceIdentifier *string `pulumi:"replicationSourceIdentifier"`
-	S3Import *ClusterS3Import `pulumi:"s3Import"`
+	ReplicationSourceIdentifier *string          `pulumi:"replicationSourceIdentifier"`
+	S3Import                    *ClusterS3Import `pulumi:"s3Import"`
 	// Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
 	ScalingConfiguration *ClusterScalingConfiguration `pulumi:"scalingConfiguration"`
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
@@ -321,7 +321,7 @@ type ClusterState struct {
 	ReaderEndpoint pulumi.StringPtrInput
 	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
 	ReplicationSourceIdentifier pulumi.StringPtrInput
-	S3Import ClusterS3ImportPtrInput
+	S3Import                    ClusterS3ImportPtrInput
 	// Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
 	ScalingConfiguration ClusterScalingConfigurationPtrInput
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
@@ -406,8 +406,8 @@ type clusterArgs struct {
 	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
-	ReplicationSourceIdentifier *string `pulumi:"replicationSourceIdentifier"`
-	S3Import *ClusterS3Import `pulumi:"s3Import"`
+	ReplicationSourceIdentifier *string          `pulumi:"replicationSourceIdentifier"`
+	S3Import                    *ClusterS3Import `pulumi:"s3Import"`
 	// Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
 	ScalingConfiguration *ClusterScalingConfiguration `pulumi:"scalingConfiguration"`
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
@@ -490,7 +490,7 @@ type ClusterArgs struct {
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
 	ReplicationSourceIdentifier pulumi.StringPtrInput
-	S3Import ClusterS3ImportPtrInput
+	S3Import                    ClusterS3ImportPtrInput
 	// Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
 	ScalingConfiguration ClusterScalingConfigurationPtrInput
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
@@ -511,4 +511,3 @@ type ClusterArgs struct {
 func (ClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterArgs)(nil)).Elem()
 }
-

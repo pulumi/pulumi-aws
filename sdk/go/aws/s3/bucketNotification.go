@@ -111,4 +111,3 @@ type BucketNotificationArgs struct {
 func (BucketNotificationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketNotificationArgs)(nil)).Elem()
 }
-

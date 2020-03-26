@@ -50,8 +50,8 @@ type AmiFromInstance struct {
 	ImageLocation pulumi.StringOutput `pulumi:"imageLocation"`
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
-	KernelId pulumi.StringOutput `pulumi:"kernelId"`
-	ManageEbsSnapshots pulumi.BoolOutput `pulumi:"manageEbsSnapshots"`
+	KernelId           pulumi.StringOutput `pulumi:"kernelId"`
+	ManageEbsSnapshots pulumi.BoolOutput   `pulumi:"manageEbsSnapshots"`
 	// A region-unique name for the AMI.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The id of an initrd image (ARI) that will be used when booting the
@@ -126,8 +126,8 @@ type amiFromInstanceState struct {
 	ImageLocation *string `pulumi:"imageLocation"`
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
-	KernelId *string `pulumi:"kernelId"`
-	ManageEbsSnapshots *bool `pulumi:"manageEbsSnapshots"`
+	KernelId           *string `pulumi:"kernelId"`
+	ManageEbsSnapshots *bool   `pulumi:"manageEbsSnapshots"`
 	// A region-unique name for the AMI.
 	Name *string `pulumi:"name"`
 	// The id of an initrd image (ARI) that will be used when booting the
@@ -172,7 +172,7 @@ type AmiFromInstanceState struct {
 	ImageLocation pulumi.StringPtrInput
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
-	KernelId pulumi.StringPtrInput
+	KernelId           pulumi.StringPtrInput
 	ManageEbsSnapshots pulumi.BoolPtrInput
 	// A region-unique name for the AMI.
 	Name pulumi.StringPtrInput
@@ -252,4 +252,3 @@ type AmiFromInstanceArgs struct {
 func (AmiFromInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*amiFromInstanceArgs)(nil)).Elem()
 }
-

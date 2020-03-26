@@ -322,9 +322,15 @@ namespace Pulumi.Aws.Kinesis
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The ARN of the CloudWatch Log Stream.
+        /// </summary>
         [Input("logStreamArn", required: true)]
         public Input<string> LogStreamArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM Role used to send application messages.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -341,9 +347,15 @@ namespace Pulumi.Aws.Kinesis
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The ARN of the CloudWatch Log Stream.
+        /// </summary>
         [Input("logStreamArn", required: true)]
         public Input<string> LogStreamArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM Role used to send application messages.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -360,21 +372,43 @@ namespace Pulumi.Aws.Kinesis
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesis_stream`.
+        /// See Kinesis Firehose below for more details.
+        /// </summary>
         [Input("kinesisFirehose")]
         public Input<AnalyticsApplicationInputsKinesisFirehoseArgs>? KinesisFirehose { get; set; }
 
+        /// <summary>
+        /// The Kinesis Stream configuration for the streaming source. Conflicts with `kinesis_firehose`.
+        /// See Kinesis Stream below for more details.
+        /// </summary>
         [Input("kinesisStream")]
         public Input<AnalyticsApplicationInputsKinesisStreamArgs>? KinesisStream { get; set; }
 
+        /// <summary>
+        /// The Name Prefix to use when creating an in-application stream.
+        /// </summary>
         [Input("namePrefix", required: true)]
         public Input<string> NamePrefix { get; set; } = null!;
 
+        /// <summary>
+        /// The number of Parallel in-application streams to create.
+        /// See Parallelism below for more details.
+        /// </summary>
         [Input("parallelism")]
         public Input<AnalyticsApplicationInputsParallelismArgs>? Parallelism { get; set; }
 
+        /// <summary>
+        /// The Processing Configuration to transform records as they are received from the stream.
+        /// See Processing Configuration below for more details.
+        /// </summary>
         [Input("processingConfiguration")]
         public Input<AnalyticsApplicationInputsProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
 
+        /// <summary>
+        /// The Schema format of the data in the streaming source. See Source Schema below for more details.
+        /// </summary>
         [Input("schema", required: true)]
         public Input<AnalyticsApplicationInputsSchemaArgs> Schema { get; set; } = null!;
 
@@ -407,21 +441,43 @@ namespace Pulumi.Aws.Kinesis
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesis_stream`.
+        /// See Kinesis Firehose below for more details.
+        /// </summary>
         [Input("kinesisFirehose")]
         public Input<AnalyticsApplicationInputsKinesisFirehoseGetArgs>? KinesisFirehose { get; set; }
 
+        /// <summary>
+        /// The Kinesis Stream configuration for the streaming source. Conflicts with `kinesis_firehose`.
+        /// See Kinesis Stream below for more details.
+        /// </summary>
         [Input("kinesisStream")]
         public Input<AnalyticsApplicationInputsKinesisStreamGetArgs>? KinesisStream { get; set; }
 
+        /// <summary>
+        /// The Name Prefix to use when creating an in-application stream.
+        /// </summary>
         [Input("namePrefix", required: true)]
         public Input<string> NamePrefix { get; set; } = null!;
 
+        /// <summary>
+        /// The number of Parallel in-application streams to create.
+        /// See Parallelism below for more details.
+        /// </summary>
         [Input("parallelism")]
         public Input<AnalyticsApplicationInputsParallelismGetArgs>? Parallelism { get; set; }
 
+        /// <summary>
+        /// The Processing Configuration to transform records as they are received from the stream.
+        /// See Processing Configuration below for more details.
+        /// </summary>
         [Input("processingConfiguration")]
         public Input<AnalyticsApplicationInputsProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
 
+        /// <summary>
+        /// The Schema format of the data in the streaming source. See Source Schema below for more details.
+        /// </summary>
         [Input("schema", required: true)]
         public Input<AnalyticsApplicationInputsSchemaGetArgs> Schema { get; set; } = null!;
 
@@ -448,9 +504,15 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsKinesisFirehoseArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Kinesis Firehose delivery stream.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM Role used to access the stream.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -461,9 +523,15 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsKinesisFirehoseGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Kinesis Firehose delivery stream.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM Role used to access the stream.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -474,9 +542,15 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsKinesisStreamArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Kinesis Stream.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM Role used to access the stream.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -487,9 +561,15 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsKinesisStreamGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Kinesis Stream.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM Role used to access the stream.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -500,6 +580,9 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsParallelismArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Count of streams.
+        /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;
 
@@ -510,6 +593,9 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsParallelismGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Count of streams.
+        /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;
 
@@ -520,6 +606,9 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsProcessingConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Lambda function configuration. See Lambda below for more details.
+        /// </summary>
         [Input("lambda", required: true)]
         public Input<AnalyticsApplicationInputsProcessingConfigurationLambdaArgs> Lambda { get; set; } = null!;
 
@@ -530,6 +619,9 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsProcessingConfigurationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Lambda function configuration. See Lambda below for more details.
+        /// </summary>
         [Input("lambda", required: true)]
         public Input<AnalyticsApplicationInputsProcessingConfigurationLambdaGetArgs> Lambda { get; set; } = null!;
 
@@ -540,9 +632,15 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsProcessingConfigurationLambdaArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Lambda function.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM Role used to access the Lambda function.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -553,9 +651,15 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsProcessingConfigurationLambdaGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Lambda function.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM Role used to access the Lambda function.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -568,15 +672,27 @@ namespace Pulumi.Aws.Kinesis
     {
         [Input("recordColumns", required: true)]
         private InputList<AnalyticsApplicationInputsSchemaRecordColumnsArgs>? _recordColumns;
+
+        /// <summary>
+        /// The Record Column mapping for the streaming source data element.
+        /// See Record Columns below for more details.
+        /// </summary>
         public InputList<AnalyticsApplicationInputsSchemaRecordColumnsArgs> RecordColumns
         {
             get => _recordColumns ?? (_recordColumns = new InputList<AnalyticsApplicationInputsSchemaRecordColumnsArgs>());
             set => _recordColumns = value;
         }
 
+        /// <summary>
+        /// The Encoding of the record in the streaming source.
+        /// </summary>
         [Input("recordEncoding")]
         public Input<string>? RecordEncoding { get; set; }
 
+        /// <summary>
+        /// The Record Format and mapping information to schematize a record.
+        /// See Record Format below for more details.
+        /// </summary>
         [Input("recordFormat", required: true)]
         public Input<AnalyticsApplicationInputsSchemaRecordFormatArgs> RecordFormat { get; set; } = null!;
 
@@ -589,15 +705,27 @@ namespace Pulumi.Aws.Kinesis
     {
         [Input("recordColumns", required: true)]
         private InputList<AnalyticsApplicationInputsSchemaRecordColumnsGetArgs>? _recordColumns;
+
+        /// <summary>
+        /// The Record Column mapping for the streaming source data element.
+        /// See Record Columns below for more details.
+        /// </summary>
         public InputList<AnalyticsApplicationInputsSchemaRecordColumnsGetArgs> RecordColumns
         {
             get => _recordColumns ?? (_recordColumns = new InputList<AnalyticsApplicationInputsSchemaRecordColumnsGetArgs>());
             set => _recordColumns = value;
         }
 
+        /// <summary>
+        /// The Encoding of the record in the streaming source.
+        /// </summary>
         [Input("recordEncoding")]
         public Input<string>? RecordEncoding { get; set; }
 
+        /// <summary>
+        /// The Record Format and mapping information to schematize a record.
+        /// See Record Format below for more details.
+        /// </summary>
         [Input("recordFormat", required: true)]
         public Input<AnalyticsApplicationInputsSchemaRecordFormatGetArgs> RecordFormat { get; set; } = null!;
 
@@ -608,15 +736,21 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsSchemaRecordColumnsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Mapping reference to the data element.
+        /// </summary>
         [Input("mapping")]
         public Input<string>? Mapping { get; set; }
 
         /// <summary>
-        /// Name of the Kinesis Analytics Application.
+        /// Name of the column.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The SQL Type of the column.
+        /// </summary>
         [Input("sqlType", required: true)]
         public Input<string> SqlType { get; set; } = null!;
 
@@ -627,15 +761,21 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsSchemaRecordColumnsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Mapping reference to the data element.
+        /// </summary>
         [Input("mapping")]
         public Input<string>? Mapping { get; set; }
 
         /// <summary>
-        /// Name of the Kinesis Analytics Application.
+        /// Name of the column.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The SQL Type of the column.
+        /// </summary>
         [Input("sqlType", required: true)]
         public Input<string> SqlType { get; set; } = null!;
 
@@ -646,9 +786,16 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsSchemaRecordFormatArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Mapping Information for the record format.
+        /// See Mapping Parameters below for more details.
+        /// </summary>
         [Input("mappingParameters")]
         public Input<AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs>? MappingParameters { get; set; }
 
+        /// <summary>
+        /// The type of Record Format. Can be `CSV` or `JSON`.
+        /// </summary>
         [Input("recordFormatType")]
         public Input<string>? RecordFormatType { get; set; }
 
@@ -659,9 +806,16 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsSchemaRecordFormatGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Mapping Information for the record format.
+        /// See Mapping Parameters below for more details.
+        /// </summary>
         [Input("mappingParameters")]
         public Input<AnalyticsApplicationInputsSchemaRecordFormatMappingParametersGetArgs>? MappingParameters { get; set; }
 
+        /// <summary>
+        /// The type of Record Format. Can be `CSV` or `JSON`.
+        /// </summary>
         [Input("recordFormatType")]
         public Input<string>? RecordFormatType { get; set; }
 
@@ -672,9 +826,17 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Mapping information when the record format uses delimiters.
+        /// See CSV Mapping Parameters below for more details.
+        /// </summary>
         [Input("csv")]
         public Input<AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs>? Csv { get; set; }
 
+        /// <summary>
+        /// Mapping information when JSON is the record format on the streaming source.
+        /// See JSON Mapping Parameters below for more details.
+        /// </summary>
         [Input("json")]
         public Input<AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs>? Json { get; set; }
 
@@ -685,9 +847,15 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Column Delimiter.
+        /// </summary>
         [Input("recordColumnDelimiter", required: true)]
         public Input<string> RecordColumnDelimiter { get; set; } = null!;
 
+        /// <summary>
+        /// The Row Delimiter.
+        /// </summary>
         [Input("recordRowDelimiter", required: true)]
         public Input<string> RecordRowDelimiter { get; set; } = null!;
 
@@ -698,9 +866,15 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Column Delimiter.
+        /// </summary>
         [Input("recordColumnDelimiter", required: true)]
         public Input<string> RecordColumnDelimiter { get; set; } = null!;
 
+        /// <summary>
+        /// The Row Delimiter.
+        /// </summary>
         [Input("recordRowDelimiter", required: true)]
         public Input<string> RecordRowDelimiter { get; set; } = null!;
 
@@ -711,9 +885,17 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Mapping information when the record format uses delimiters.
+        /// See CSV Mapping Parameters below for more details.
+        /// </summary>
         [Input("csv")]
         public Input<AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvGetArgs>? Csv { get; set; }
 
+        /// <summary>
+        /// Mapping information when JSON is the record format on the streaming source.
+        /// See JSON Mapping Parameters below for more details.
+        /// </summary>
         [Input("json")]
         public Input<AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonGetArgs>? Json { get; set; }
 
@@ -724,6 +906,9 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Path to the top-level parent that contains the records.
+        /// </summary>
         [Input("recordRowPath", required: true)]
         public Input<string> RecordRowPath { get; set; } = null!;
 
@@ -734,6 +919,9 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Path to the top-level parent that contains the records.
+        /// </summary>
         [Input("recordRowPath", required: true)]
         public Input<string> RecordRowPath { get; set; } = null!;
 
@@ -770,21 +958,35 @@ namespace Pulumi.Aws.Kinesis
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesis_stream`.
+        /// See Kinesis Firehose below for more details.
+        /// </summary>
         [Input("kinesisFirehose")]
         public Input<AnalyticsApplicationOutputsKinesisFirehoseArgs>? KinesisFirehose { get; set; }
 
+        /// <summary>
+        /// The Kinesis Stream configuration for the destination stream. Conflicts with `kinesis_firehose`.
+        /// See Kinesis Stream below for more details.
+        /// </summary>
         [Input("kinesisStream")]
         public Input<AnalyticsApplicationOutputsKinesisStreamArgs>? KinesisStream { get; set; }
 
+        /// <summary>
+        /// The Lambda function destination. See Lambda below for more details.
+        /// </summary>
         [Input("lambda")]
         public Input<AnalyticsApplicationOutputsLambdaArgs>? Lambda { get; set; }
 
         /// <summary>
-        /// Name of the Kinesis Analytics Application.
+        /// The Name of the in-application stream.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Schema format of the data written to the destination. See Destination Schema below for more details.
+        /// </summary>
         [Input("schema", required: true)]
         public Input<AnalyticsApplicationOutputsSchemaArgs> Schema { get; set; } = null!;
 
@@ -801,21 +1003,35 @@ namespace Pulumi.Aws.Kinesis
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesis_stream`.
+        /// See Kinesis Firehose below for more details.
+        /// </summary>
         [Input("kinesisFirehose")]
         public Input<AnalyticsApplicationOutputsKinesisFirehoseGetArgs>? KinesisFirehose { get; set; }
 
+        /// <summary>
+        /// The Kinesis Stream configuration for the destination stream. Conflicts with `kinesis_firehose`.
+        /// See Kinesis Stream below for more details.
+        /// </summary>
         [Input("kinesisStream")]
         public Input<AnalyticsApplicationOutputsKinesisStreamGetArgs>? KinesisStream { get; set; }
 
+        /// <summary>
+        /// The Lambda function destination. See Lambda below for more details.
+        /// </summary>
         [Input("lambda")]
         public Input<AnalyticsApplicationOutputsLambdaGetArgs>? Lambda { get; set; }
 
         /// <summary>
-        /// Name of the Kinesis Analytics Application.
+        /// The Name of the in-application stream.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Schema format of the data written to the destination. See Destination Schema below for more details.
+        /// </summary>
         [Input("schema", required: true)]
         public Input<AnalyticsApplicationOutputsSchemaGetArgs> Schema { get; set; } = null!;
 
@@ -826,9 +1042,15 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationOutputsKinesisFirehoseArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Kinesis Firehose delivery stream.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM Role used to access the stream.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -839,9 +1061,15 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationOutputsKinesisFirehoseGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Kinesis Firehose delivery stream.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM Role used to access the stream.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -852,9 +1080,15 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationOutputsKinesisStreamArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Kinesis Stream.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM Role used to access the stream.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -865,9 +1099,15 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationOutputsKinesisStreamGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Kinesis Stream.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM Role used to access the stream.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -878,9 +1118,15 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationOutputsLambdaArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Lambda function.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM Role used to access the Lambda function.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -891,9 +1137,15 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationOutputsLambdaGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Lambda function.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM Role used to access the Lambda function.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -904,6 +1156,9 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationOutputsSchemaArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
+        /// </summary>
         [Input("recordFormatType")]
         public Input<string>? RecordFormatType { get; set; }
 
@@ -914,6 +1169,9 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationOutputsSchemaGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
+        /// </summary>
         [Input("recordFormatType")]
         public Input<string>? RecordFormatType { get; set; }
 
@@ -930,12 +1188,21 @@ namespace Pulumi.Aws.Kinesis
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The S3 configuration for the reference data source. See S3 Reference below for more details.
+        /// </summary>
         [Input("s3", required: true)]
         public Input<AnalyticsApplicationReferenceDataSourcesS3Args> S3 { get; set; } = null!;
 
+        /// <summary>
+        /// The Schema format of the data in the streaming source. See Source Schema below for more details.
+        /// </summary>
         [Input("schema", required: true)]
         public Input<AnalyticsApplicationReferenceDataSourcesSchemaArgs> Schema { get; set; } = null!;
 
+        /// <summary>
+        /// The in-application Table Name.
+        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 
@@ -952,12 +1219,21 @@ namespace Pulumi.Aws.Kinesis
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The S3 configuration for the reference data source. See S3 Reference below for more details.
+        /// </summary>
         [Input("s3", required: true)]
         public Input<AnalyticsApplicationReferenceDataSourcesS3GetArgs> S3 { get; set; } = null!;
 
+        /// <summary>
+        /// The Schema format of the data in the streaming source. See Source Schema below for more details.
+        /// </summary>
         [Input("schema", required: true)]
         public Input<AnalyticsApplicationReferenceDataSourcesSchemaGetArgs> Schema { get; set; } = null!;
 
+        /// <summary>
+        /// The in-application Table Name.
+        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 
@@ -968,12 +1244,21 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationReferenceDataSourcesS3Args : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The S3 Bucket ARN.
+        /// </summary>
         [Input("bucketArn", required: true)]
         public Input<string> BucketArn { get; set; } = null!;
 
+        /// <summary>
+        /// The File Key name containing reference data.
+        /// </summary>
         [Input("fileKey", required: true)]
         public Input<string> FileKey { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM Role used to send application messages.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -984,12 +1269,21 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationReferenceDataSourcesS3GetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The S3 Bucket ARN.
+        /// </summary>
         [Input("bucketArn", required: true)]
         public Input<string> BucketArn { get; set; } = null!;
 
+        /// <summary>
+        /// The File Key name containing reference data.
+        /// </summary>
         [Input("fileKey", required: true)]
         public Input<string> FileKey { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM Role used to send application messages.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -1002,15 +1296,27 @@ namespace Pulumi.Aws.Kinesis
     {
         [Input("recordColumns", required: true)]
         private InputList<AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArgs>? _recordColumns;
+
+        /// <summary>
+        /// The Record Column mapping for the streaming source data element.
+        /// See Record Columns below for more details.
+        /// </summary>
         public InputList<AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArgs> RecordColumns
         {
             get => _recordColumns ?? (_recordColumns = new InputList<AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArgs>());
             set => _recordColumns = value;
         }
 
+        /// <summary>
+        /// The Encoding of the record in the streaming source.
+        /// </summary>
         [Input("recordEncoding")]
         public Input<string>? RecordEncoding { get; set; }
 
+        /// <summary>
+        /// The Record Format and mapping information to schematize a record.
+        /// See Record Format below for more details.
+        /// </summary>
         [Input("recordFormat", required: true)]
         public Input<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs> RecordFormat { get; set; } = null!;
 
@@ -1023,15 +1329,27 @@ namespace Pulumi.Aws.Kinesis
     {
         [Input("recordColumns", required: true)]
         private InputList<AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsGetArgs>? _recordColumns;
+
+        /// <summary>
+        /// The Record Column mapping for the streaming source data element.
+        /// See Record Columns below for more details.
+        /// </summary>
         public InputList<AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsGetArgs> RecordColumns
         {
             get => _recordColumns ?? (_recordColumns = new InputList<AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsGetArgs>());
             set => _recordColumns = value;
         }
 
+        /// <summary>
+        /// The Encoding of the record in the streaming source.
+        /// </summary>
         [Input("recordEncoding")]
         public Input<string>? RecordEncoding { get; set; }
 
+        /// <summary>
+        /// The Record Format and mapping information to schematize a record.
+        /// See Record Format below for more details.
+        /// </summary>
         [Input("recordFormat", required: true)]
         public Input<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatGetArgs> RecordFormat { get; set; } = null!;
 
@@ -1042,15 +1360,21 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Mapping reference to the data element.
+        /// </summary>
         [Input("mapping")]
         public Input<string>? Mapping { get; set; }
 
         /// <summary>
-        /// Name of the Kinesis Analytics Application.
+        /// Name of the column.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The SQL Type of the column.
+        /// </summary>
         [Input("sqlType", required: true)]
         public Input<string> SqlType { get; set; } = null!;
 
@@ -1061,15 +1385,21 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Mapping reference to the data element.
+        /// </summary>
         [Input("mapping")]
         public Input<string>? Mapping { get; set; }
 
         /// <summary>
-        /// Name of the Kinesis Analytics Application.
+        /// Name of the column.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The SQL Type of the column.
+        /// </summary>
         [Input("sqlType", required: true)]
         public Input<string> SqlType { get; set; } = null!;
 
@@ -1080,9 +1410,16 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Mapping Information for the record format.
+        /// See Mapping Parameters below for more details.
+        /// </summary>
         [Input("mappingParameters")]
         public Input<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs>? MappingParameters { get; set; }
 
+        /// <summary>
+        /// The type of Record Format. Can be `CSV` or `JSON`.
+        /// </summary>
         [Input("recordFormatType")]
         public Input<string>? RecordFormatType { get; set; }
 
@@ -1093,9 +1430,16 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Mapping Information for the record format.
+        /// See Mapping Parameters below for more details.
+        /// </summary>
         [Input("mappingParameters")]
         public Input<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersGetArgs>? MappingParameters { get; set; }
 
+        /// <summary>
+        /// The type of Record Format. Can be `CSV` or `JSON`.
+        /// </summary>
         [Input("recordFormatType")]
         public Input<string>? RecordFormatType { get; set; }
 
@@ -1106,9 +1450,17 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Mapping information when the record format uses delimiters.
+        /// See CSV Mapping Parameters below for more details.
+        /// </summary>
         [Input("csv")]
         public Input<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs>? Csv { get; set; }
 
+        /// <summary>
+        /// Mapping information when JSON is the record format on the streaming source.
+        /// See JSON Mapping Parameters below for more details.
+        /// </summary>
         [Input("json")]
         public Input<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs>? Json { get; set; }
 
@@ -1119,9 +1471,15 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Column Delimiter.
+        /// </summary>
         [Input("recordColumnDelimiter", required: true)]
         public Input<string> RecordColumnDelimiter { get; set; } = null!;
 
+        /// <summary>
+        /// The Row Delimiter.
+        /// </summary>
         [Input("recordRowDelimiter", required: true)]
         public Input<string> RecordRowDelimiter { get; set; } = null!;
 
@@ -1132,9 +1490,15 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Column Delimiter.
+        /// </summary>
         [Input("recordColumnDelimiter", required: true)]
         public Input<string> RecordColumnDelimiter { get; set; } = null!;
 
+        /// <summary>
+        /// The Row Delimiter.
+        /// </summary>
         [Input("recordRowDelimiter", required: true)]
         public Input<string> RecordRowDelimiter { get; set; } = null!;
 
@@ -1145,9 +1509,17 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Mapping information when the record format uses delimiters.
+        /// See CSV Mapping Parameters below for more details.
+        /// </summary>
         [Input("csv")]
         public Input<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvGetArgs>? Csv { get; set; }
 
+        /// <summary>
+        /// Mapping information when JSON is the record format on the streaming source.
+        /// See JSON Mapping Parameters below for more details.
+        /// </summary>
         [Input("json")]
         public Input<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonGetArgs>? Json { get; set; }
 
@@ -1158,6 +1530,9 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Path to the top-level parent that contains the records.
+        /// </summary>
         [Input("recordRowPath", required: true)]
         public Input<string> RecordRowPath { get; set; } = null!;
 
@@ -1168,6 +1543,9 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Path to the top-level parent that contains the records.
+        /// </summary>
         [Input("recordRowPath", required: true)]
         public Input<string> RecordRowPath { get; set; } = null!;
 
@@ -1187,7 +1565,13 @@ namespace Pulumi.Aws.Kinesis
         /// The ARN of the Kinesis Analytics Application.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The ARN of the CloudWatch Log Stream.
+        /// </summary>
         public readonly string LogStreamArn;
+        /// <summary>
+        /// The ARN of the IAM Role used to send application messages.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]
@@ -1209,11 +1593,33 @@ namespace Pulumi.Aws.Kinesis
         /// The ARN of the Kinesis Analytics Application.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesis_stream`.
+        /// See Kinesis Firehose below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationInputsKinesisFirehose? KinesisFirehose;
+        /// <summary>
+        /// The Kinesis Stream configuration for the streaming source. Conflicts with `kinesis_firehose`.
+        /// See Kinesis Stream below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationInputsKinesisStream? KinesisStream;
+        /// <summary>
+        /// The Name Prefix to use when creating an in-application stream.
+        /// </summary>
         public readonly string NamePrefix;
+        /// <summary>
+        /// The number of Parallel in-application streams to create.
+        /// See Parallelism below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationInputsParallelism? Parallelism;
+        /// <summary>
+        /// The Processing Configuration to transform records as they are received from the stream.
+        /// See Processing Configuration below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationInputsProcessingConfiguration? ProcessingConfiguration;
+        /// <summary>
+        /// The Schema format of the data in the streaming source. See Source Schema below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationInputsSchema Schema;
         public readonly ImmutableArray<AnalyticsApplicationInputsStartingPositionConfigurations> StartingPositionConfigurations;
         public readonly ImmutableArray<string> StreamNames;
@@ -1245,7 +1651,13 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationInputsKinesisFirehose
     {
+        /// <summary>
+        /// The ARN of the Kinesis Firehose delivery stream.
+        /// </summary>
         public readonly string ResourceArn;
+        /// <summary>
+        /// The ARN of the IAM Role used to access the stream.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]
@@ -1261,7 +1673,13 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationInputsKinesisStream
     {
+        /// <summary>
+        /// The ARN of the Kinesis Stream.
+        /// </summary>
         public readonly string ResourceArn;
+        /// <summary>
+        /// The ARN of the IAM Role used to access the stream.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]
@@ -1277,6 +1695,9 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationInputsParallelism
     {
+        /// <summary>
+        /// The Count of streams.
+        /// </summary>
         public readonly int Count;
 
         [OutputConstructor]
@@ -1289,6 +1710,9 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationInputsProcessingConfiguration
     {
+        /// <summary>
+        /// The Lambda function configuration. See Lambda below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationInputsProcessingConfigurationLambda Lambda;
 
         [OutputConstructor]
@@ -1301,7 +1725,13 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationInputsProcessingConfigurationLambda
     {
+        /// <summary>
+        /// The ARN of the Lambda function.
+        /// </summary>
         public readonly string ResourceArn;
+        /// <summary>
+        /// The ARN of the IAM Role used to access the Lambda function.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]
@@ -1317,8 +1747,19 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationInputsSchema
     {
+        /// <summary>
+        /// The Record Column mapping for the streaming source data element.
+        /// See Record Columns below for more details.
+        /// </summary>
         public readonly ImmutableArray<AnalyticsApplicationInputsSchemaRecordColumns> RecordColumns;
+        /// <summary>
+        /// The Encoding of the record in the streaming source.
+        /// </summary>
         public readonly string? RecordEncoding;
+        /// <summary>
+        /// The Record Format and mapping information to schematize a record.
+        /// See Record Format below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationInputsSchemaRecordFormat RecordFormat;
 
         [OutputConstructor]
@@ -1336,11 +1777,17 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationInputsSchemaRecordColumns
     {
+        /// <summary>
+        /// The Mapping reference to the data element.
+        /// </summary>
         public readonly string? Mapping;
         /// <summary>
-        /// Name of the Kinesis Analytics Application.
+        /// Name of the column.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The SQL Type of the column.
+        /// </summary>
         public readonly string SqlType;
 
         [OutputConstructor]
@@ -1358,7 +1805,14 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationInputsSchemaRecordFormat
     {
+        /// <summary>
+        /// The Mapping Information for the record format.
+        /// See Mapping Parameters below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationInputsSchemaRecordFormatMappingParameters? MappingParameters;
+        /// <summary>
+        /// The type of Record Format. Can be `CSV` or `JSON`.
+        /// </summary>
         public readonly string RecordFormatType;
 
         [OutputConstructor]
@@ -1374,7 +1828,15 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationInputsSchemaRecordFormatMappingParameters
     {
+        /// <summary>
+        /// Mapping information when the record format uses delimiters.
+        /// See CSV Mapping Parameters below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv? Csv;
+        /// <summary>
+        /// Mapping information when JSON is the record format on the streaming source.
+        /// See JSON Mapping Parameters below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson? Json;
 
         [OutputConstructor]
@@ -1390,7 +1852,13 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv
     {
+        /// <summary>
+        /// The Column Delimiter.
+        /// </summary>
         public readonly string RecordColumnDelimiter;
+        /// <summary>
+        /// The Row Delimiter.
+        /// </summary>
         public readonly string RecordRowDelimiter;
 
         [OutputConstructor]
@@ -1406,6 +1874,9 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson
     {
+        /// <summary>
+        /// Path to the top-level parent that contains the records.
+        /// </summary>
         public readonly string RecordRowPath;
 
         [OutputConstructor]
@@ -1434,13 +1905,27 @@ namespace Pulumi.Aws.Kinesis
         /// The ARN of the Kinesis Analytics Application.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesis_stream`.
+        /// See Kinesis Firehose below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationOutputsKinesisFirehose? KinesisFirehose;
+        /// <summary>
+        /// The Kinesis Stream configuration for the destination stream. Conflicts with `kinesis_firehose`.
+        /// See Kinesis Stream below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationOutputsKinesisStream? KinesisStream;
+        /// <summary>
+        /// The Lambda function destination. See Lambda below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationOutputsLambda? Lambda;
         /// <summary>
-        /// Name of the Kinesis Analytics Application.
+        /// The Name of the in-application stream.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Schema format of the data written to the destination. See Destination Schema below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationOutputsSchema Schema;
 
         [OutputConstructor]
@@ -1464,7 +1949,13 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationOutputsKinesisFirehose
     {
+        /// <summary>
+        /// The ARN of the Kinesis Firehose delivery stream.
+        /// </summary>
         public readonly string ResourceArn;
+        /// <summary>
+        /// The ARN of the IAM Role used to access the stream.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]
@@ -1480,7 +1971,13 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationOutputsKinesisStream
     {
+        /// <summary>
+        /// The ARN of the Kinesis Stream.
+        /// </summary>
         public readonly string ResourceArn;
+        /// <summary>
+        /// The ARN of the IAM Role used to access the stream.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]
@@ -1496,7 +1993,13 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationOutputsLambda
     {
+        /// <summary>
+        /// The ARN of the Lambda function.
+        /// </summary>
         public readonly string ResourceArn;
+        /// <summary>
+        /// The ARN of the IAM Role used to access the Lambda function.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]
@@ -1512,6 +2015,9 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationOutputsSchema
     {
+        /// <summary>
+        /// The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
+        /// </summary>
         public readonly string? RecordFormatType;
 
         [OutputConstructor]
@@ -1528,8 +2034,17 @@ namespace Pulumi.Aws.Kinesis
         /// The ARN of the Kinesis Analytics Application.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The S3 configuration for the reference data source. See S3 Reference below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationReferenceDataSourcesS3 S3;
+        /// <summary>
+        /// The Schema format of the data in the streaming source. See Source Schema below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationReferenceDataSourcesSchema Schema;
+        /// <summary>
+        /// The in-application Table Name.
+        /// </summary>
         public readonly string TableName;
 
         [OutputConstructor]
@@ -1549,8 +2064,17 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationReferenceDataSourcesS3
     {
+        /// <summary>
+        /// The S3 Bucket ARN.
+        /// </summary>
         public readonly string BucketArn;
+        /// <summary>
+        /// The File Key name containing reference data.
+        /// </summary>
         public readonly string FileKey;
+        /// <summary>
+        /// The ARN of the IAM Role used to send application messages.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]
@@ -1568,8 +2092,19 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationReferenceDataSourcesSchema
     {
+        /// <summary>
+        /// The Record Column mapping for the streaming source data element.
+        /// See Record Columns below for more details.
+        /// </summary>
         public readonly ImmutableArray<AnalyticsApplicationReferenceDataSourcesSchemaRecordColumns> RecordColumns;
+        /// <summary>
+        /// The Encoding of the record in the streaming source.
+        /// </summary>
         public readonly string? RecordEncoding;
+        /// <summary>
+        /// The Record Format and mapping information to schematize a record.
+        /// See Record Format below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat RecordFormat;
 
         [OutputConstructor]
@@ -1587,11 +2122,17 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationReferenceDataSourcesSchemaRecordColumns
     {
+        /// <summary>
+        /// The Mapping reference to the data element.
+        /// </summary>
         public readonly string? Mapping;
         /// <summary>
-        /// Name of the Kinesis Analytics Application.
+        /// Name of the column.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The SQL Type of the column.
+        /// </summary>
         public readonly string SqlType;
 
         [OutputConstructor]
@@ -1609,7 +2150,14 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat
     {
+        /// <summary>
+        /// The Mapping Information for the record format.
+        /// See Mapping Parameters below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters? MappingParameters;
+        /// <summary>
+        /// The type of Record Format. Can be `CSV` or `JSON`.
+        /// </summary>
         public readonly string RecordFormatType;
 
         [OutputConstructor]
@@ -1625,7 +2173,15 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters
     {
+        /// <summary>
+        /// Mapping information when the record format uses delimiters.
+        /// See CSV Mapping Parameters below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv? Csv;
+        /// <summary>
+        /// Mapping information when JSON is the record format on the streaming source.
+        /// See JSON Mapping Parameters below for more details.
+        /// </summary>
         public readonly AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson? Json;
 
         [OutputConstructor]
@@ -1641,7 +2197,13 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv
     {
+        /// <summary>
+        /// The Column Delimiter.
+        /// </summary>
         public readonly string RecordColumnDelimiter;
+        /// <summary>
+        /// The Row Delimiter.
+        /// </summary>
         public readonly string RecordRowDelimiter;
 
         [OutputConstructor]
@@ -1657,6 +2219,9 @@ namespace Pulumi.Aws.Kinesis
     [OutputType]
     public sealed class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson
     {
+        /// <summary>
+        /// Path to the top-level parent that contains the records.
+        /// </summary>
         public readonly string RecordRowPath;
 
         [OutputConstructor]

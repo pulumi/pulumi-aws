@@ -21,7 +21,7 @@ type OpenIdConnectProvider struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
 	ClientIdLists pulumi.StringArrayOutput `pulumi:"clientIdLists"`
-	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
+	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
 	ThumbprintLists pulumi.StringArrayOutput `pulumi:"thumbprintLists"`
 	// The URL of the identity provider. Corresponds to the _iss_ claim.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -68,7 +68,7 @@ type openIdConnectProviderState struct {
 	Arn *string `pulumi:"arn"`
 	// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
 	ClientIdLists []string `pulumi:"clientIdLists"`
-	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
+	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
 	ThumbprintLists []string `pulumi:"thumbprintLists"`
 	// The URL of the identity provider. Corresponds to the _iss_ claim.
 	Url *string `pulumi:"url"`
@@ -79,7 +79,7 @@ type OpenIdConnectProviderState struct {
 	Arn pulumi.StringPtrInput
 	// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
 	ClientIdLists pulumi.StringArrayInput
-	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
+	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
 	ThumbprintLists pulumi.StringArrayInput
 	// The URL of the identity provider. Corresponds to the _iss_ claim.
 	Url pulumi.StringPtrInput
@@ -92,7 +92,7 @@ func (OpenIdConnectProviderState) ElementType() reflect.Type {
 type openIdConnectProviderArgs struct {
 	// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
 	ClientIdLists []string `pulumi:"clientIdLists"`
-	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
+	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
 	ThumbprintLists []string `pulumi:"thumbprintLists"`
 	// The URL of the identity provider. Corresponds to the _iss_ claim.
 	Url string `pulumi:"url"`
@@ -102,7 +102,7 @@ type openIdConnectProviderArgs struct {
 type OpenIdConnectProviderArgs struct {
 	// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
 	ClientIdLists pulumi.StringArrayInput
-	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
+	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
 	ThumbprintLists pulumi.StringArrayInput
 	// The URL of the identity provider. Corresponds to the _iss_ claim.
 	Url pulumi.StringInput
@@ -111,4 +111,3 @@ type OpenIdConnectProviderArgs struct {
 func (OpenIdConnectProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*openIdConnectProviderArgs)(nil)).Elem()
 }
-

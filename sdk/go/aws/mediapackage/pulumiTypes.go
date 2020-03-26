@@ -61,7 +61,7 @@ func (i ChannelHlsIngestArray) ToChannelHlsIngestArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestArrayOutput)
 }
 
-type ChannelHlsIngestOutput struct { *pulumi.OutputState }
+type ChannelHlsIngestOutput struct{ *pulumi.OutputState }
 
 func (ChannelHlsIngestOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ChannelHlsIngest)(nil)).Elem()
@@ -77,10 +77,10 @@ func (o ChannelHlsIngestOutput) ToChannelHlsIngestOutputWithContext(ctx context.
 
 // A list of the ingest endpoints
 func (o ChannelHlsIngestOutput) IngestEndpoints() ChannelHlsIngestIngestEndpointArrayOutput {
-	return o.ApplyT(func (v ChannelHlsIngest) []ChannelHlsIngestIngestEndpoint { return v.IngestEndpoints }).(ChannelHlsIngestIngestEndpointArrayOutput)
+	return o.ApplyT(func(v ChannelHlsIngest) []ChannelHlsIngestIngestEndpoint { return v.IngestEndpoints }).(ChannelHlsIngestIngestEndpointArrayOutput)
 }
 
-type ChannelHlsIngestArrayOutput struct { *pulumi.OutputState}
+type ChannelHlsIngestArrayOutput struct{ *pulumi.OutputState }
 
 func (ChannelHlsIngestArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ChannelHlsIngest)(nil)).Elem()
@@ -95,7 +95,7 @@ func (o ChannelHlsIngestArrayOutput) ToChannelHlsIngestArrayOutputWithContext(ct
 }
 
 func (o ChannelHlsIngestArrayOutput) Index(i pulumi.IntInput) ChannelHlsIngestOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ChannelHlsIngest {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelHlsIngest {
 		return vs[0].([]ChannelHlsIngest)[vs[1].(int)]
 	}).(ChannelHlsIngestOutput)
 }
@@ -158,7 +158,7 @@ func (i ChannelHlsIngestIngestEndpointArray) ToChannelHlsIngestIngestEndpointArr
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestIngestEndpointArrayOutput)
 }
 
-type ChannelHlsIngestIngestEndpointOutput struct { *pulumi.OutputState }
+type ChannelHlsIngestIngestEndpointOutput struct{ *pulumi.OutputState }
 
 func (ChannelHlsIngestIngestEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ChannelHlsIngestIngestEndpoint)(nil)).Elem()
@@ -174,20 +174,20 @@ func (o ChannelHlsIngestIngestEndpointOutput) ToChannelHlsIngestIngestEndpointOu
 
 // The password
 func (o ChannelHlsIngestIngestEndpointOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ChannelHlsIngestIngestEndpoint) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ChannelHlsIngestIngestEndpoint) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // The URL
 func (o ChannelHlsIngestIngestEndpointOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ChannelHlsIngestIngestEndpoint) *string { return v.Url }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ChannelHlsIngestIngestEndpoint) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 // The username
 func (o ChannelHlsIngestIngestEndpointOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ChannelHlsIngestIngestEndpoint) *string { return v.Username }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ChannelHlsIngestIngestEndpoint) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type ChannelHlsIngestIngestEndpointArrayOutput struct { *pulumi.OutputState}
+type ChannelHlsIngestIngestEndpointArrayOutput struct{ *pulumi.OutputState }
 
 func (ChannelHlsIngestIngestEndpointArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ChannelHlsIngestIngestEndpoint)(nil)).Elem()
@@ -202,7 +202,7 @@ func (o ChannelHlsIngestIngestEndpointArrayOutput) ToChannelHlsIngestIngestEndpo
 }
 
 func (o ChannelHlsIngestIngestEndpointArrayOutput) Index(i pulumi.IntInput) ChannelHlsIngestIngestEndpointOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ChannelHlsIngestIngestEndpoint {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelHlsIngestIngestEndpoint {
 		return vs[0].([]ChannelHlsIngestIngestEndpoint)[vs[1].(int)]
 	}).(ChannelHlsIngestIngestEndpointOutput)
 }

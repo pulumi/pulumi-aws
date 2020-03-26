@@ -243,6 +243,7 @@ def get_cluster(cluster_identifier=None,tags=None,opts=None):
 
 
     :param str cluster_identifier: The cluster identifier
+    :param dict tags: The tags associated to the cluster
     """
     __args__ = dict()
 

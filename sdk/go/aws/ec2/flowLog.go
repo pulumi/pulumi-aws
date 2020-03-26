@@ -160,4 +160,3 @@ type FlowLogArgs struct {
 func (FlowLogArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*flowLogArgs)(nil)).Elem()
 }
-

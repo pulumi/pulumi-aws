@@ -35,23 +35,21 @@ type GetBucketObjectsArgs struct {
 	StartAfter *string `pulumi:"startAfter"`
 }
 
-
 // A collection of values returned by getBucketObjects.
 type GetBucketObjectsResult struct {
 	Bucket string `pulumi:"bucket"`
 	// List of any keys between `prefix` and the next occurrence of `delimiter` (i.e., similar to subdirectories of the `prefix` "directory"); the list is only returned when you specify `delimiter`
 	CommonPrefixes []string `pulumi:"commonPrefixes"`
-	Delimiter *string `pulumi:"delimiter"`
-	EncodingType *string `pulumi:"encodingType"`
-	FetchOwner *bool `pulumi:"fetchOwner"`
+	Delimiter      *string  `pulumi:"delimiter"`
+	EncodingType   *string  `pulumi:"encodingType"`
+	FetchOwner     *bool    `pulumi:"fetchOwner"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of strings representing object keys
-	Keys []string `pulumi:"keys"`
-	MaxKeys *int `pulumi:"maxKeys"`
+	Keys    []string `pulumi:"keys"`
+	MaxKeys *int     `pulumi:"maxKeys"`
 	// List of strings representing object owner IDs (see `fetchOwner` above)
-	Owners []string `pulumi:"owners"`
-	Prefix *string `pulumi:"prefix"`
-	StartAfter *string `pulumi:"startAfter"`
+	Owners     []string `pulumi:"owners"`
+	Prefix     *string  `pulumi:"prefix"`
+	StartAfter *string  `pulumi:"startAfter"`
 }
-

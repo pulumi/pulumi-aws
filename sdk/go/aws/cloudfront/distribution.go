@@ -490,4 +490,3 @@ type DistributionArgs struct {
 func (DistributionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*distributionArgs)(nil)).Elem()
 }
-

@@ -131,4 +131,3 @@ type LifecyclePolicyArgs struct {
 func (LifecyclePolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*lifecyclePolicyArgs)(nil)).Elem()
 }
-

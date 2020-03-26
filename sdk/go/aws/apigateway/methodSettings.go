@@ -118,4 +118,3 @@ type MethodSettingsArgs struct {
 func (MethodSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*methodSettingsArgs)(nil)).Elem()
 }
-

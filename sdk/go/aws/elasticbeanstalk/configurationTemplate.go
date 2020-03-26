@@ -155,4 +155,3 @@ type ConfigurationTemplateArgs struct {
 func (ConfigurationTemplateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationTemplateArgs)(nil)).Elem()
 }
-

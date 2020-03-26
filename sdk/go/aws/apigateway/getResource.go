@@ -8,8 +8,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to get the id of a Resource in API Gateway. 
-// To fetch the Resource, you must provide the REST API id as well as the full path.  
+// Use this data source to get the id of a Resource in API Gateway.
+// To fetch the Resource, you must provide the REST API id as well as the full path.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_resource.html.markdown.
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {
@@ -29,16 +29,14 @@ type LookupResourceArgs struct {
 	RestApiId string `pulumi:"restApiId"`
 }
 
-
 // A collection of values returned by getResource.
 type LookupResourceResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set to the ID of the parent Resource.
 	ParentId string `pulumi:"parentId"`
-	Path string `pulumi:"path"`
+	Path     string `pulumi:"path"`
 	// Set to the path relative to the parent Resource.
-	PathPart string `pulumi:"pathPart"`
+	PathPart  string `pulumi:"pathPart"`
 	RestApiId string `pulumi:"restApiId"`
 }
-

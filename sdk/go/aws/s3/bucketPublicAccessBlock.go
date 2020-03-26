@@ -144,4 +144,3 @@ type BucketPublicAccessBlockArgs struct {
 func (BucketPublicAccessBlockArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketPublicAccessBlockArgs)(nil)).Elem()
 }
-

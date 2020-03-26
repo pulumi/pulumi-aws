@@ -116,4 +116,3 @@ type HostedPrivateVirtualInterfaceAccepterArgs struct {
 func (HostedPrivateVirtualInterfaceAccepterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostedPrivateVirtualInterfaceAccepterArgs)(nil)).Elem()
 }
-

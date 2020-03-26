@@ -94,4 +94,3 @@ type ResourceAssociationArgs struct {
 func (ResourceAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceAssociationArgs)(nil)).Elem()
 }
-

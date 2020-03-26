@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Msk
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_cluster.html.markdown.
         /// </summary>
+        [Obsolete("Use GetCluster.InvokeAsync() instead")]
         public static Task<GetClusterResult> GetCluster(GetClusterArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:msk/getCluster:getCluster", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetCluster
+    {
+        /// <summary>
+        /// Get information on an Amazon MSK Cluster.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_cluster.html.markdown.
+        /// </summary>
+        public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:msk/getCluster:getCluster", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -30,6 +41,10 @@ namespace Pulumi.Aws.Msk
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// Map of key-value pairs assigned to the cluster.
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

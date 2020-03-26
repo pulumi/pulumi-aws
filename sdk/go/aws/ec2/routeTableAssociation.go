@@ -100,4 +100,3 @@ type RouteTableAssociationArgs struct {
 func (RouteTableAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeTableAssociationArgs)(nil)).Elem()
 }
-

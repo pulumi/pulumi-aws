@@ -16,7 +16,18 @@ namespace Pulumi.Aws.DirectoryService
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/directory_service_directory.html.markdown.
         /// </summary>
+        [Obsolete("Use GetDirectory.InvokeAsync() instead")]
         public static Task<GetDirectoryResult> GetDirectory(GetDirectoryArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDirectoryResult>("aws:directoryservice/getDirectory:getDirectory", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetDirectory
+    {
+        /// <summary>
+        /// Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration. 
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/directory_service_directory.html.markdown.
+        /// </summary>
+        public static Task<GetDirectoryResult> InvokeAsync(GetDirectoryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDirectoryResult>("aws:directoryservice/getDirectory:getDirectory", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -30,6 +41,10 @@ namespace Pulumi.Aws.DirectoryService
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the directory/connector.
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

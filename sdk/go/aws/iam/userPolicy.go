@@ -21,7 +21,7 @@ type UserPolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
-	Policy pulumi.StringOutput `pulumi:"policy"`
+	Policy     pulumi.StringOutput    `pulumi:"policy"`
 	// IAM user to which to attach this policy.
 	User pulumi.StringOutput `pulumi:"user"`
 }
@@ -64,7 +64,7 @@ type userPolicyState struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	Policy *string `pulumi:"policy"`
+	Policy     *string `pulumi:"policy"`
 	// IAM user to which to attach this policy.
 	User *string `pulumi:"user"`
 }
@@ -74,7 +74,7 @@ type UserPolicyState struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	Policy pulumi.StringPtrInput
+	Policy     pulumi.StringPtrInput
 	// IAM user to which to attach this policy.
 	User pulumi.StringPtrInput
 }
@@ -87,8 +87,8 @@ type userPolicyArgs struct {
 	// The name of the policy. If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	Policy interface{} `pulumi:"policy"`
+	NamePrefix *string     `pulumi:"namePrefix"`
+	Policy     interface{} `pulumi:"policy"`
 	// IAM user to which to attach this policy.
 	User string `pulumi:"user"`
 }
@@ -99,7 +99,7 @@ type UserPolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	Policy pulumi.Input
+	Policy     pulumi.Input
 	// IAM user to which to attach this policy.
 	User pulumi.StringInput
 }
@@ -107,4 +107,3 @@ type UserPolicyArgs struct {
 func (UserPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPolicyArgs)(nil)).Elem()
 }
-

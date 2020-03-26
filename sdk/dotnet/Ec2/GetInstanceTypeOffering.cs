@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_instance_type_offering.html.markdown.
         /// </summary>
+        [Obsolete("Use GetInstanceTypeOffering.InvokeAsync() instead")]
         public static Task<GetInstanceTypeOfferingResult> GetInstanceTypeOffering(GetInstanceTypeOfferingArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceTypeOfferingResult>("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetInstanceTypeOffering
+    {
+        /// <summary>
+        /// Information about single EC2 Instance Type Offering.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_instance_type_offering.html.markdown.
+        /// </summary>
+        public static Task<GetInstanceTypeOfferingResult> InvokeAsync(GetInstanceTypeOfferingArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceTypeOfferingResult>("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

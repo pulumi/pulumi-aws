@@ -189,4 +189,3 @@ type CatalogTableArgs struct {
 func (CatalogTableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*catalogTableArgs)(nil)).Elem()
 }
-

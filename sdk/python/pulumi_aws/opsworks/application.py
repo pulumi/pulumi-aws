@@ -61,9 +61,9 @@ class Application(pulumi.CustomResource):
     """
     Object to define environment variables.  Object is described below.
 
-      * `key` (`str`)
-      * `secure` (`bool`)
-      * `value` (`str`)
+      * `key` (`str`) - Variable name.
+      * `secure` (`bool`) - Set visibility of the variable value to `true` or `false`.
+      * `value` (`str`) - Variable value.
     """
     name: pulumi.Output[str]
     """
@@ -81,9 +81,9 @@ class Application(pulumi.CustomResource):
     """
     The SSL configuration of the app. Object is described below.
 
-      * `certificate` (`str`)
-      * `chain` (`str`)
-      * `private_key` (`str`)
+      * `certificate` (`str`) - The contents of the certificate's domain.crt file.
+      * `chain` (`str`) - Can be used to specify an intermediate certificate authority key or client authentication.
+      * `private_key` (`str`) - The private key; the contents of the certificate's domain.key file.
     """
     stack_id: pulumi.Output[str]
     """
@@ -91,7 +91,7 @@ class Application(pulumi.CustomResource):
     """
     type: pulumi.Output[str]
     """
-    The type of source to use. For example, "archive".
+    Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
     """
     def __init__(__self__, resource_name, opts=None, app_sources=None, auto_bundle_on_deploy=None, aws_flow_ruby_settings=None, data_source_arn=None, data_source_database_name=None, data_source_type=None, description=None, document_root=None, domains=None, enable_ssl=None, environments=None, name=None, rails_env=None, short_name=None, ssl_configurations=None, stack_id=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -117,7 +117,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] short_name: A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
         :param pulumi.Input[list] ssl_configurations: The SSL configuration of the app. Object is described below.
         :param pulumi.Input[str] stack_id: The id of the stack the application will belong to.
-        :param pulumi.Input[str] type: The type of source to use. For example, "archive".
+        :param pulumi.Input[str] type: Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
 
         The **app_sources** object supports the following:
 
@@ -130,15 +130,15 @@ class Application(pulumi.CustomResource):
 
         The **environments** object supports the following:
 
-          * `key` (`pulumi.Input[str]`)
-          * `secure` (`pulumi.Input[bool]`)
-          * `value` (`pulumi.Input[str]`)
+          * `key` (`pulumi.Input[str]`) - Variable name.
+          * `secure` (`pulumi.Input[bool]`) - Set visibility of the variable value to `true` or `false`.
+          * `value` (`pulumi.Input[str]`) - Variable value.
 
         The **ssl_configurations** object supports the following:
 
-          * `certificate` (`pulumi.Input[str]`)
-          * `chain` (`pulumi.Input[str]`)
-          * `private_key` (`pulumi.Input[str]`)
+          * `certificate` (`pulumi.Input[str]`) - The contents of the certificate's domain.crt file.
+          * `chain` (`pulumi.Input[str]`) - Can be used to specify an intermediate certificate authority key or client authentication.
+          * `private_key` (`pulumi.Input[str]`) - The private key; the contents of the certificate's domain.key file.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -209,7 +209,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] short_name: A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
         :param pulumi.Input[list] ssl_configurations: The SSL configuration of the app. Object is described below.
         :param pulumi.Input[str] stack_id: The id of the stack the application will belong to.
-        :param pulumi.Input[str] type: The type of source to use. For example, "archive".
+        :param pulumi.Input[str] type: Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
 
         The **app_sources** object supports the following:
 
@@ -222,15 +222,15 @@ class Application(pulumi.CustomResource):
 
         The **environments** object supports the following:
 
-          * `key` (`pulumi.Input[str]`)
-          * `secure` (`pulumi.Input[bool]`)
-          * `value` (`pulumi.Input[str]`)
+          * `key` (`pulumi.Input[str]`) - Variable name.
+          * `secure` (`pulumi.Input[bool]`) - Set visibility of the variable value to `true` or `false`.
+          * `value` (`pulumi.Input[str]`) - Variable value.
 
         The **ssl_configurations** object supports the following:
 
-          * `certificate` (`pulumi.Input[str]`)
-          * `chain` (`pulumi.Input[str]`)
-          * `private_key` (`pulumi.Input[str]`)
+          * `certificate` (`pulumi.Input[str]`) - The contents of the certificate's domain.crt file.
+          * `chain` (`pulumi.Input[str]`) - Can be used to specify an intermediate certificate authority key or client authentication.
+          * `private_key` (`pulumi.Input[str]`) - The private key; the contents of the certificate's domain.key file.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

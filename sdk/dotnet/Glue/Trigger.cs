@@ -290,13 +290,13 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
+        /// The name of the crawler to be executed. Conflicts with `job_name`.
         /// </summary>
         [Input("crawlerName")]
         public Input<string>? CrawlerName { get; set; }
 
         /// <summary>
-        /// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+        /// The name of a job to be executed. Conflicts with `crawler_name`.
         /// </summary>
         [Input("jobName")]
         public Input<string>? JobName { get; set; }
@@ -327,13 +327,13 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
+        /// The name of the crawler to be executed. Conflicts with `job_name`.
         /// </summary>
         [Input("crawlerName")]
         public Input<string>? CrawlerName { get; set; }
 
         /// <summary>
-        /// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+        /// The name of a job to be executed. Conflicts with `crawler_name`.
         /// </summary>
         [Input("jobName")]
         public Input<string>? JobName { get; set; }
@@ -485,11 +485,11 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Arguments;
         /// <summary>
-        /// The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
+        /// The name of the crawler to be executed. Conflicts with `job_name`.
         /// </summary>
         public readonly string? CrawlerName;
         /// <summary>
-        /// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+        /// The name of a job to be executed. Conflicts with `crawler_name`.
         /// </summary>
         public readonly string? JobName;
         /// <summary>

@@ -39,9 +39,9 @@ type InstanceGroup struct {
 	// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
-	Name pulumi.StringOutput `pulumi:"name"`
-	RunningInstanceCount pulumi.IntOutput `pulumi:"runningInstanceCount"`
-	Status pulumi.StringOutput `pulumi:"status"`
+	Name                 pulumi.StringOutput `pulumi:"name"`
+	RunningInstanceCount pulumi.IntOutput    `pulumi:"runningInstanceCount"`
+	Status               pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewInstanceGroup registers a new resource with the given unique name, arguments, and options.
@@ -95,9 +95,9 @@ type instanceGroupState struct {
 	// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
 	InstanceType *string `pulumi:"instanceType"`
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
-	RunningInstanceCount *int `pulumi:"runningInstanceCount"`
-	Status *string `pulumi:"status"`
+	Name                 *string `pulumi:"name"`
+	RunningInstanceCount *int    `pulumi:"runningInstanceCount"`
+	Status               *string `pulumi:"status"`
 }
 
 type InstanceGroupState struct {
@@ -118,9 +118,9 @@ type InstanceGroupState struct {
 	// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
 	InstanceType pulumi.StringPtrInput
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
 	RunningInstanceCount pulumi.IntPtrInput
-	Status pulumi.StringPtrInput
+	Status               pulumi.StringPtrInput
 }
 
 func (InstanceGroupState) ElementType() reflect.Type {
@@ -173,4 +173,3 @@ type InstanceGroupArgs struct {
 func (InstanceGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceGroupArgs)(nil)).Elem()
 }
-

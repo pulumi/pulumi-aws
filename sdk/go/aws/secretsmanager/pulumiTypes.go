@@ -57,7 +57,8 @@ type SecretRotationRulesPtrInput interface {
 
 type secretRotationRulesPtrType SecretRotationRulesArgs
 
-func SecretRotationRulesPtr(v *SecretRotationRulesArgs) SecretRotationRulesPtrInput {	return (*secretRotationRulesPtrType)(v)
+func SecretRotationRulesPtr(v *SecretRotationRulesArgs) SecretRotationRulesPtrInput {
+	return (*secretRotationRulesPtrType)(v)
 }
 
 func (*secretRotationRulesPtrType) ElementType() reflect.Type {
@@ -72,7 +73,7 @@ func (i *secretRotationRulesPtrType) ToSecretRotationRulesPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SecretRotationRulesPtrOutput)
 }
 
-type SecretRotationRulesOutput struct { *pulumi.OutputState }
+type SecretRotationRulesOutput struct{ *pulumi.OutputState }
 
 func (SecretRotationRulesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecretRotationRules)(nil)).Elem()
@@ -95,12 +96,13 @@ func (o SecretRotationRulesOutput) ToSecretRotationRulesPtrOutputWithContext(ctx
 		return &v
 	}).(SecretRotationRulesPtrOutput)
 }
+
 // Specifies the number of days between automatic scheduled rotations of the secret.
 func (o SecretRotationRulesOutput) AutomaticallyAfterDays() pulumi.IntOutput {
-	return o.ApplyT(func (v SecretRotationRules) int { return v.AutomaticallyAfterDays }).(pulumi.IntOutput)
+	return o.ApplyT(func(v SecretRotationRules) int { return v.AutomaticallyAfterDays }).(pulumi.IntOutput)
 }
 
-type SecretRotationRulesPtrOutput struct { *pulumi.OutputState}
+type SecretRotationRulesPtrOutput struct{ *pulumi.OutputState }
 
 func (SecretRotationRulesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SecretRotationRules)(nil)).Elem()
@@ -115,12 +117,12 @@ func (o SecretRotationRulesPtrOutput) ToSecretRotationRulesPtrOutputWithContext(
 }
 
 func (o SecretRotationRulesPtrOutput) Elem() SecretRotationRulesOutput {
-	return o.ApplyT(func (v *SecretRotationRules) SecretRotationRules { return *v }).(SecretRotationRulesOutput)
+	return o.ApplyT(func(v *SecretRotationRules) SecretRotationRules { return *v }).(SecretRotationRulesOutput)
 }
 
 // Specifies the number of days between automatic scheduled rotations of the secret.
 func (o SecretRotationRulesPtrOutput) AutomaticallyAfterDays() pulumi.IntOutput {
-	return o.ApplyT(func (v SecretRotationRules) int { return v.AutomaticallyAfterDays }).(pulumi.IntOutput)
+	return o.ApplyT(func(v SecretRotationRules) int { return v.AutomaticallyAfterDays }).(pulumi.IntOutput)
 }
 
 type GetSecretRotationRule struct {
@@ -171,7 +173,7 @@ func (i GetSecretRotationRuleArray) ToGetSecretRotationRuleArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecretRotationRuleArrayOutput)
 }
 
-type GetSecretRotationRuleOutput struct { *pulumi.OutputState }
+type GetSecretRotationRuleOutput struct{ *pulumi.OutputState }
 
 func (GetSecretRotationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetSecretRotationRule)(nil)).Elem()
@@ -186,10 +188,10 @@ func (o GetSecretRotationRuleOutput) ToGetSecretRotationRuleOutputWithContext(ct
 }
 
 func (o GetSecretRotationRuleOutput) AutomaticallyAfterDays() pulumi.IntOutput {
-	return o.ApplyT(func (v GetSecretRotationRule) int { return v.AutomaticallyAfterDays }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetSecretRotationRule) int { return v.AutomaticallyAfterDays }).(pulumi.IntOutput)
 }
 
-type GetSecretRotationRuleArrayOutput struct { *pulumi.OutputState}
+type GetSecretRotationRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (GetSecretRotationRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetSecretRotationRule)(nil)).Elem()
@@ -204,7 +206,7 @@ func (o GetSecretRotationRuleArrayOutput) ToGetSecretRotationRuleArrayOutputWith
 }
 
 func (o GetSecretRotationRuleArrayOutput) Index(i pulumi.IntInput) GetSecretRotationRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetSecretRotationRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecretRotationRule {
 		return vs[0].([]GetSecretRotationRule)[vs[1].(int)]
 	}).(GetSecretRotationRuleOutput)
 }

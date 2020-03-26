@@ -16,7 +16,18 @@ namespace Pulumi.Aws.WafRegional
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_rule.html.markdown.
         /// </summary>
+        [Obsolete("Use GetRule.InvokeAsync() instead")]
         public static Task<GetRuleResult> GetRule(GetRuleArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("aws:wafregional/getRule:getRule", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetRule
+    {
+        /// <summary>
+        /// `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_rule.html.markdown.
+        /// </summary>
+        public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("aws:wafregional/getRule:getRule", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

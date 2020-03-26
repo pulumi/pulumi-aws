@@ -118,4 +118,3 @@ type SubnetGroupArgs struct {
 func (SubnetGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*subnetGroupArgs)(nil)).Elem()
 }
-

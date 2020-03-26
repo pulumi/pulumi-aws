@@ -99,4 +99,3 @@ type AttachmentArgs struct {
 func (AttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*attachmentArgs)(nil)).Elem()
 }
-

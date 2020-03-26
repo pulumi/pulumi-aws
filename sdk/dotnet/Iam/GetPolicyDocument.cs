@@ -11,7 +11,13 @@ namespace Pulumi.Aws.Iam
 {
     public static partial class Invokes
     {
+        [Obsolete("Use GetPolicyDocument.InvokeAsync() instead")]
         public static Task<GetPolicyDocumentResult> GetPolicyDocument(GetPolicyDocumentArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDocumentResult>("aws:iam/getPolicyDocument:getPolicyDocument", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetPolicyDocument
+    {
+        public static Task<GetPolicyDocumentResult> InvokeAsync(GetPolicyDocumentArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDocumentResult>("aws:iam/getPolicyDocument:getPolicyDocument", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

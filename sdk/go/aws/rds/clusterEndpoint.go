@@ -148,4 +148,3 @@ type ClusterEndpointArgs struct {
 func (ClusterEndpointArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterEndpointArgs)(nil)).Elem()
 }
-

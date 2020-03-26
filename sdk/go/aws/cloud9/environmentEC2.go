@@ -141,4 +141,3 @@ type EnvironmentEC2Args struct {
 func (EnvironmentEC2Args) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentEC2Args)(nil)).Elem()
 }
-

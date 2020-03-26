@@ -74,6 +74,9 @@ export interface GetRouteTableArgs {
      * Identifier of the EC2 Transit Gateway Route Table.
      */
     readonly id?: string;
+    /**
+     * Key-value tags for the EC2 Transit Gateway Route Table
+     */
     readonly tags?: {[key: string]: any};
 }
 

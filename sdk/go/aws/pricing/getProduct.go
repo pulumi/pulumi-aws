@@ -29,14 +29,12 @@ type GetProductArgs struct {
 	ServiceCode string `pulumi:"serviceCode"`
 }
 
-
 // A collection of values returned by getProduct.
 type GetProductResult struct {
 	Filters []GetProductFilter `pulumi:"filters"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set to the product returned from the API.
-	Result string `pulumi:"result"`
+	Result      string `pulumi:"result"`
 	ServiceCode string `pulumi:"serviceCode"`
 }
-

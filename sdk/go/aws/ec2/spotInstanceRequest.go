@@ -89,10 +89,10 @@ type SpotInstanceRequest struct {
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrOutput `pulumi:"instanceInitiatedShutdownBehavior"`
 	// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
 	InstanceInterruptionBehaviour pulumi.StringPtrOutput `pulumi:"instanceInterruptionBehaviour"`
-	InstanceState pulumi.StringOutput `pulumi:"instanceState"`
+	InstanceState                 pulumi.StringOutput    `pulumi:"instanceState"`
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
-	Ipv6AddressCount pulumi.IntOutput `pulumi:"ipv6AddressCount"`
+	InstanceType     pulumi.StringOutput `pulumi:"instanceType"`
+	Ipv6AddressCount pulumi.IntOutput    `pulumi:"ipv6AddressCount"`
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
 	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
@@ -104,9 +104,9 @@ type SpotInstanceRequest struct {
 	Monitoring pulumi.BoolPtrOutput `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces SpotInstanceRequestNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
-	PasswordData pulumi.StringOutput `pulumi:"passwordData"`
+	PasswordData      pulumi.StringOutput                            `pulumi:"passwordData"`
 	// The Placement Group to start the instance in.
-	PlacementGroup pulumi.StringOutput `pulumi:"placementGroup"`
+	PlacementGroup            pulumi.StringOutput `pulumi:"placementGroup"`
 	PrimaryNetworkInterfaceId pulumi.StringOutput `pulumi:"primaryNetworkInterfaceId"`
 	// The private DNS name assigned to the instance. Can only be
 	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
@@ -139,8 +139,8 @@ type SpotInstanceRequest struct {
 	// the Spot Instance request.
 	SpotInstanceId pulumi.StringOutput `pulumi:"spotInstanceId"`
 	// The maximum price to request on the spot market.
-	SpotPrice pulumi.StringPtrOutput `pulumi:"spotPrice"`
-	SpotRequestState pulumi.StringOutput `pulumi:"spotRequestState"`
+	SpotPrice        pulumi.StringPtrOutput `pulumi:"spotPrice"`
+	SpotRequestState pulumi.StringOutput    `pulumi:"spotRequestState"`
 	// If set to `one-time`, after
 	// the instance is terminated, the spot request will be closed.
 	SpotType pulumi.StringPtrOutput `pulumi:"spotType"`
@@ -253,10 +253,10 @@ type spotInstanceRequestState struct {
 	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
 	// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
 	InstanceInterruptionBehaviour *string `pulumi:"instanceInterruptionBehaviour"`
-	InstanceState *string `pulumi:"instanceState"`
+	InstanceState                 *string `pulumi:"instanceState"`
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType *string `pulumi:"instanceType"`
-	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
+	InstanceType     *string `pulumi:"instanceType"`
+	Ipv6AddressCount *int    `pulumi:"ipv6AddressCount"`
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
@@ -268,9 +268,9 @@ type spotInstanceRequestState struct {
 	Monitoring *bool `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces []SpotInstanceRequestNetworkInterface `pulumi:"networkInterfaces"`
-	PasswordData *string `pulumi:"passwordData"`
+	PasswordData      *string                               `pulumi:"passwordData"`
 	// The Placement Group to start the instance in.
-	PlacementGroup *string `pulumi:"placementGroup"`
+	PlacementGroup            *string `pulumi:"placementGroup"`
 	PrimaryNetworkInterfaceId *string `pulumi:"primaryNetworkInterfaceId"`
 	// The private DNS name assigned to the instance. Can only be
 	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
@@ -303,7 +303,7 @@ type spotInstanceRequestState struct {
 	// the Spot Instance request.
 	SpotInstanceId *string `pulumi:"spotInstanceId"`
 	// The maximum price to request on the spot market.
-	SpotPrice *string `pulumi:"spotPrice"`
+	SpotPrice        *string `pulumi:"spotPrice"`
 	SpotRequestState *string `pulumi:"spotRequestState"`
 	// If set to `one-time`, after
 	// the instance is terminated, the spot request will be closed.
@@ -384,9 +384,9 @@ type SpotInstanceRequestState struct {
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
 	// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
 	InstanceInterruptionBehaviour pulumi.StringPtrInput
-	InstanceState pulumi.StringPtrInput
+	InstanceState                 pulumi.StringPtrInput
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType pulumi.StringPtrInput
+	InstanceType     pulumi.StringPtrInput
 	Ipv6AddressCount pulumi.IntPtrInput
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses pulumi.StringArrayInput
@@ -399,9 +399,9 @@ type SpotInstanceRequestState struct {
 	Monitoring pulumi.BoolPtrInput
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces SpotInstanceRequestNetworkInterfaceArrayInput
-	PasswordData pulumi.StringPtrInput
+	PasswordData      pulumi.StringPtrInput
 	// The Placement Group to start the instance in.
-	PlacementGroup pulumi.StringPtrInput
+	PlacementGroup            pulumi.StringPtrInput
 	PrimaryNetworkInterfaceId pulumi.StringPtrInput
 	// The private DNS name assigned to the instance. Can only be
 	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
@@ -434,7 +434,7 @@ type SpotInstanceRequestState struct {
 	// the Spot Instance request.
 	SpotInstanceId pulumi.StringPtrInput
 	// The maximum price to request on the spot market.
-	SpotPrice pulumi.StringPtrInput
+	SpotPrice        pulumi.StringPtrInput
 	SpotRequestState pulumi.StringPtrInput
 	// If set to `one-time`, after
 	// the instance is terminated, the spot request will be closed.
@@ -519,8 +519,8 @@ type spotInstanceRequestArgs struct {
 	// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
 	InstanceInterruptionBehaviour *string `pulumi:"instanceInterruptionBehaviour"`
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType string `pulumi:"instanceType"`
-	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
+	InstanceType     string `pulumi:"instanceType"`
+	Ipv6AddressCount *int   `pulumi:"ipv6AddressCount"`
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
@@ -627,7 +627,7 @@ type SpotInstanceRequestArgs struct {
 	// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
 	InstanceInterruptionBehaviour pulumi.StringPtrInput
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType pulumi.StringInput
+	InstanceType     pulumi.StringInput
 	Ipv6AddressCount pulumi.IntPtrInput
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses pulumi.StringArrayInput
@@ -685,4 +685,3 @@ type SpotInstanceRequestArgs struct {
 func (SpotInstanceRequestArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*spotInstanceRequestArgs)(nil)).Elem()
 }
-

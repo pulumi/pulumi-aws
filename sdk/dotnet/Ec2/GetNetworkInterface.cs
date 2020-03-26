@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_interface.html.markdown.
         /// </summary>
+        [Obsolete("Use GetNetworkInterface.InvokeAsync() instead")]
         public static Task<GetNetworkInterfaceResult> GetNetworkInterface(GetNetworkInterfaceArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("aws:ec2/getNetworkInterface:getNetworkInterface", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetNetworkInterface
+    {
+        /// <summary>
+        /// Use this data source to get information about a Network Interface.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_interface.html.markdown.
+        /// </summary>
+        public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("aws:ec2/getNetworkInterface:getNetworkInterface", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -42,6 +53,10 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// Any tags assigned to the network interface.
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

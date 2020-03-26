@@ -17,7 +17,7 @@ namespace Pulumi.Aws.S3
     public partial class Inventory : Pulumi.CustomResource
     {
         /// <summary>
-        /// The S3 bucket configuration where inventory results are published (documented below).
+        /// The name of the bucket where the inventory configuration will be stored.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.S3
     public sealed class InventoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The S3 bucket configuration where inventory results are published (documented below).
+        /// The name of the bucket where the inventory configuration will be stored.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.S3
     public sealed class InventoryState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The S3 bucket configuration where inventory results are published (documented below).
+        /// The name of the bucket where the inventory configuration will be stored.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
@@ -417,7 +417,7 @@ namespace Pulumi.Aws.S3
     public sealed class InventoryFilterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The prefix that is prepended to all inventory results.
+        /// The prefix that an object must have to be included in the inventory results.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
@@ -430,7 +430,7 @@ namespace Pulumi.Aws.S3
     public sealed class InventoryFilterGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The prefix that is prepended to all inventory results.
+        /// The prefix that an object must have to be included in the inventory results.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
@@ -575,7 +575,7 @@ namespace Pulumi.Aws.S3
     public sealed class InventoryFilter
     {
         /// <summary>
-        /// The prefix that is prepended to all inventory results.
+        /// The prefix that an object must have to be included in the inventory results.
         /// </summary>
         public readonly string? Prefix;
 

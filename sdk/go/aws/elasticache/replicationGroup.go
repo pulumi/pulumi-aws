@@ -422,4 +422,3 @@ type ReplicationGroupArgs struct {
 func (ReplicationGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*replicationGroupArgs)(nil)).Elem()
 }
-

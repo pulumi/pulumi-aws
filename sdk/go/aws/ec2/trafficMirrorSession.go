@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides an Traffic mirror session.  
+// Provides an Traffic mirror session.
 // Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_traffic_mirror_session.html.markdown.
@@ -24,7 +24,7 @@ type TrafficMirrorSession struct {
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
 	// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
 	PacketLength pulumi.IntPtrOutput `pulumi:"packetLength"`
-	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets. 
+	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 	SessionNumber pulumi.IntOutput `pulumi:"sessionNumber"`
 	// ID of the traffic mirror filter to be used
 	TrafficMirrorFilterId pulumi.StringOutput `pulumi:"trafficMirrorFilterId"`
@@ -80,7 +80,7 @@ type trafficMirrorSessionState struct {
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
 	PacketLength *int `pulumi:"packetLength"`
-	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets. 
+	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 	SessionNumber *int `pulumi:"sessionNumber"`
 	// ID of the traffic mirror filter to be used
 	TrafficMirrorFilterId *string `pulumi:"trafficMirrorFilterId"`
@@ -97,7 +97,7 @@ type TrafficMirrorSessionState struct {
 	NetworkInterfaceId pulumi.StringPtrInput
 	// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
 	PacketLength pulumi.IntPtrInput
-	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets. 
+	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 	SessionNumber pulumi.IntPtrInput
 	// ID of the traffic mirror filter to be used
 	TrafficMirrorFilterId pulumi.StringPtrInput
@@ -118,7 +118,7 @@ type trafficMirrorSessionArgs struct {
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 	// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
 	PacketLength *int `pulumi:"packetLength"`
-	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets. 
+	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 	SessionNumber int `pulumi:"sessionNumber"`
 	// ID of the traffic mirror filter to be used
 	TrafficMirrorFilterId string `pulumi:"trafficMirrorFilterId"`
@@ -136,7 +136,7 @@ type TrafficMirrorSessionArgs struct {
 	NetworkInterfaceId pulumi.StringInput
 	// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
 	PacketLength pulumi.IntPtrInput
-	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets. 
+	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 	SessionNumber pulumi.IntInput
 	// ID of the traffic mirror filter to be used
 	TrafficMirrorFilterId pulumi.StringInput
@@ -149,4 +149,3 @@ type TrafficMirrorSessionArgs struct {
 func (TrafficMirrorSessionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficMirrorSessionArgs)(nil)).Elem()
 }
-

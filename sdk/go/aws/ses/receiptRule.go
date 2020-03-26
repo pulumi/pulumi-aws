@@ -209,4 +209,3 @@ type ReceiptRuleArgs struct {
 func (ReceiptRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*receiptRuleArgs)(nil)).Elem()
 }
-

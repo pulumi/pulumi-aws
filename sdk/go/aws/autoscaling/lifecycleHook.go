@@ -164,4 +164,3 @@ type LifecycleHookArgs struct {
 func (LifecycleHookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*lifecycleHookArgs)(nil)).Elem()
 }
-

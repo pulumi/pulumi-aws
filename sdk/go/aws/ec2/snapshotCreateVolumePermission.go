@@ -92,4 +92,3 @@ type SnapshotCreateVolumePermissionArgs struct {
 func (SnapshotCreateVolumePermissionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotCreateVolumePermissionArgs)(nil)).Elem()
 }
-

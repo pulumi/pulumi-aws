@@ -115,4 +115,3 @@ type RuleGroupArgs struct {
 func (RuleGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleGroupArgs)(nil)).Elem()
 }
-

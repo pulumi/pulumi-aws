@@ -121,4 +121,3 @@ type SmsChannelArgs struct {
 func (SmsChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*smsChannelArgs)(nil)).Elem()
 }
-

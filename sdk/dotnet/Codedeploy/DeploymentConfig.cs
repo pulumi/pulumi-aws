@@ -163,9 +163,18 @@ namespace Pulumi.Aws.CodeDeploy
 
     public sealed class DeploymentConfigMinimumHealthyHostsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as
+        /// a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the
+        /// deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances.
+        /// When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances as an absolute value.
+        /// </summary>
         [Input("value")]
         public Input<int>? Value { get; set; }
 
@@ -176,9 +185,18 @@ namespace Pulumi.Aws.CodeDeploy
 
     public sealed class DeploymentConfigMinimumHealthyHostsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as
+        /// a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the
+        /// deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances.
+        /// When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances as an absolute value.
+        /// </summary>
         [Input("value")]
         public Input<int>? Value { get; set; }
 
@@ -189,12 +207,21 @@ namespace Pulumi.Aws.CodeDeploy
 
     public sealed class DeploymentConfigTrafficRoutingConfigArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The time based canary configuration information. If `type` is `TimeBasedLinear`, use `time_based_linear` instead.
+        /// </summary>
         [Input("timeBasedCanary")]
         public Input<DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs>? TimeBasedCanary { get; set; }
 
+        /// <summary>
+        /// The time based linear configuration information. If `type` is `TimeBasedCanary`, use `time_based_canary` instead.
+        /// </summary>
         [Input("timeBasedLinear")]
         public Input<DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs>? TimeBasedLinear { get; set; }
 
+        /// <summary>
+        /// Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -205,12 +232,21 @@ namespace Pulumi.Aws.CodeDeploy
 
     public sealed class DeploymentConfigTrafficRoutingConfigGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The time based canary configuration information. If `type` is `TimeBasedLinear`, use `time_based_linear` instead.
+        /// </summary>
         [Input("timeBasedCanary")]
         public Input<DeploymentConfigTrafficRoutingConfigTimeBasedCanaryGetArgs>? TimeBasedCanary { get; set; }
 
+        /// <summary>
+        /// The time based linear configuration information. If `type` is `TimeBasedCanary`, use `time_based_canary` instead.
+        /// </summary>
         [Input("timeBasedLinear")]
         public Input<DeploymentConfigTrafficRoutingConfigTimeBasedLinearGetArgs>? TimeBasedLinear { get; set; }
 
+        /// <summary>
+        /// Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -221,9 +257,15 @@ namespace Pulumi.Aws.CodeDeploy
 
     public sealed class DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
+        /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
 
+        /// <summary>
+        /// The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
+        /// </summary>
         [Input("percentage")]
         public Input<int>? Percentage { get; set; }
 
@@ -234,9 +276,15 @@ namespace Pulumi.Aws.CodeDeploy
 
     public sealed class DeploymentConfigTrafficRoutingConfigTimeBasedCanaryGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
+        /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
 
+        /// <summary>
+        /// The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
+        /// </summary>
         [Input("percentage")]
         public Input<int>? Percentage { get; set; }
 
@@ -247,9 +295,15 @@ namespace Pulumi.Aws.CodeDeploy
 
     public sealed class DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
+        /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
 
+        /// <summary>
+        /// The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
+        /// </summary>
         [Input("percentage")]
         public Input<int>? Percentage { get; set; }
 
@@ -260,9 +314,15 @@ namespace Pulumi.Aws.CodeDeploy
 
     public sealed class DeploymentConfigTrafficRoutingConfigTimeBasedLinearGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
+        /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
 
+        /// <summary>
+        /// The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
+        /// </summary>
         [Input("percentage")]
         public Input<int>? Percentage { get; set; }
 
@@ -278,7 +338,16 @@ namespace Pulumi.Aws.CodeDeploy
     [OutputType]
     public sealed class DeploymentConfigMinimumHealthyHosts
     {
+        /// <summary>
+        /// The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
+        /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as
+        /// a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the
+        /// deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances.
+        /// When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances as an absolute value.
+        /// </summary>
         public readonly int? Value;
 
         [OutputConstructor]
@@ -294,8 +363,17 @@ namespace Pulumi.Aws.CodeDeploy
     [OutputType]
     public sealed class DeploymentConfigTrafficRoutingConfig
     {
+        /// <summary>
+        /// The time based canary configuration information. If `type` is `TimeBasedLinear`, use `time_based_linear` instead.
+        /// </summary>
         public readonly DeploymentConfigTrafficRoutingConfigTimeBasedCanary? TimeBasedCanary;
+        /// <summary>
+        /// The time based linear configuration information. If `type` is `TimeBasedCanary`, use `time_based_canary` instead.
+        /// </summary>
         public readonly DeploymentConfigTrafficRoutingConfigTimeBasedLinear? TimeBasedLinear;
+        /// <summary>
+        /// Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]
@@ -313,7 +391,13 @@ namespace Pulumi.Aws.CodeDeploy
     [OutputType]
     public sealed class DeploymentConfigTrafficRoutingConfigTimeBasedCanary
     {
+        /// <summary>
+        /// The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
+        /// </summary>
         public readonly int? Interval;
+        /// <summary>
+        /// The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
+        /// </summary>
         public readonly int? Percentage;
 
         [OutputConstructor]
@@ -329,7 +413,13 @@ namespace Pulumi.Aws.CodeDeploy
     [OutputType]
     public sealed class DeploymentConfigTrafficRoutingConfigTimeBasedLinear
     {
+        /// <summary>
+        /// The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
+        /// </summary>
         public readonly int? Interval;
+        /// <summary>
+        /// The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
+        /// </summary>
         public readonly int? Percentage;
 
         [OutputConstructor]

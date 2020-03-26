@@ -94,4 +94,3 @@ type UserPolicyAttachmentArgs struct {
 func (UserPolicyAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPolicyAttachmentArgs)(nil)).Elem()
 }
-

@@ -75,6 +75,7 @@ def get_log_group(name=None,tags=None,opts=None):
 
 
     :param str name: The name of the Cloudwatch log group
+    :param dict tags: A mapping of tags to assign to the resource.
     """
     __args__ = dict()
 

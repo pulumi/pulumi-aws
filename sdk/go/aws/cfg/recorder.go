@@ -111,4 +111,3 @@ type RecorderArgs struct {
 func (RecorderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*recorderArgs)(nil)).Elem()
 }
-

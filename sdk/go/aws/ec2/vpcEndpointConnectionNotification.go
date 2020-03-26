@@ -125,4 +125,3 @@ type VpcEndpointConnectionNotificationArgs struct {
 func (VpcEndpointConnectionNotificationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEndpointConnectionNotificationArgs)(nil)).Elem()
 }
-

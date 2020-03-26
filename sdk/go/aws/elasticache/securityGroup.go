@@ -112,4 +112,3 @@ type SecurityGroupArgs struct {
 func (SecurityGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityGroupArgs)(nil)).Elem()
 }
-

@@ -61,7 +61,8 @@ type AccountThrottleSettingsPtrInput interface {
 
 type accountThrottleSettingsPtrType AccountThrottleSettingsArgs
 
-func AccountThrottleSettingsPtr(v *AccountThrottleSettingsArgs) AccountThrottleSettingsPtrInput {	return (*accountThrottleSettingsPtrType)(v)
+func AccountThrottleSettingsPtr(v *AccountThrottleSettingsArgs) AccountThrottleSettingsPtrInput {
+	return (*accountThrottleSettingsPtrType)(v)
 }
 
 func (*accountThrottleSettingsPtrType) ElementType() reflect.Type {
@@ -76,7 +77,7 @@ func (i *accountThrottleSettingsPtrType) ToAccountThrottleSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AccountThrottleSettingsPtrOutput)
 }
 
-type AccountThrottleSettingsOutput struct { *pulumi.OutputState }
+type AccountThrottleSettingsOutput struct{ *pulumi.OutputState }
 
 func (AccountThrottleSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountThrottleSettings)(nil)).Elem()
@@ -99,17 +100,18 @@ func (o AccountThrottleSettingsOutput) ToAccountThrottleSettingsPtrOutputWithCon
 		return &v
 	}).(AccountThrottleSettingsPtrOutput)
 }
+
 // The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
 func (o AccountThrottleSettingsOutput) BurstLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v AccountThrottleSettings) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v AccountThrottleSettings) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
 }
 
 // The number of times API Gateway allows the API to be called per second on average (RPS).
 func (o AccountThrottleSettingsOutput) RateLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func (v AccountThrottleSettings) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
+	return o.ApplyT(func(v AccountThrottleSettings) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
 }
 
-type AccountThrottleSettingsPtrOutput struct { *pulumi.OutputState}
+type AccountThrottleSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (AccountThrottleSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccountThrottleSettings)(nil)).Elem()
@@ -124,17 +126,17 @@ func (o AccountThrottleSettingsPtrOutput) ToAccountThrottleSettingsPtrOutputWith
 }
 
 func (o AccountThrottleSettingsPtrOutput) Elem() AccountThrottleSettingsOutput {
-	return o.ApplyT(func (v *AccountThrottleSettings) AccountThrottleSettings { return *v }).(AccountThrottleSettingsOutput)
+	return o.ApplyT(func(v *AccountThrottleSettings) AccountThrottleSettings { return *v }).(AccountThrottleSettingsOutput)
 }
 
 // The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
 func (o AccountThrottleSettingsPtrOutput) BurstLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v AccountThrottleSettings) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v AccountThrottleSettings) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
 }
 
 // The number of times API Gateway allows the API to be called per second on average (RPS).
 func (o AccountThrottleSettingsPtrOutput) RateLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func (v AccountThrottleSettings) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
+	return o.ApplyT(func(v AccountThrottleSettings) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
 }
 
 type DocumentationPartLocation struct {
@@ -199,7 +201,8 @@ type DocumentationPartLocationPtrInput interface {
 
 type documentationPartLocationPtrType DocumentationPartLocationArgs
 
-func DocumentationPartLocationPtr(v *DocumentationPartLocationArgs) DocumentationPartLocationPtrInput {	return (*documentationPartLocationPtrType)(v)
+func DocumentationPartLocationPtr(v *DocumentationPartLocationArgs) DocumentationPartLocationPtrInput {
+	return (*documentationPartLocationPtrType)(v)
 }
 
 func (*documentationPartLocationPtrType) ElementType() reflect.Type {
@@ -214,7 +217,7 @@ func (i *documentationPartLocationPtrType) ToDocumentationPartLocationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartLocationPtrOutput)
 }
 
-type DocumentationPartLocationOutput struct { *pulumi.OutputState }
+type DocumentationPartLocationOutput struct{ *pulumi.OutputState }
 
 func (DocumentationPartLocationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DocumentationPartLocation)(nil)).Elem()
@@ -237,32 +240,33 @@ func (o DocumentationPartLocationOutput) ToDocumentationPartLocationPtrOutputWit
 		return &v
 	}).(DocumentationPartLocationPtrOutput)
 }
+
 // The HTTP verb of a method. The default value is `*` for any method.
 func (o DocumentationPartLocationOutput) Method() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DocumentationPartLocation) *string { return v.Method }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 // The name of the targeted API entity.
 func (o DocumentationPartLocationOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DocumentationPartLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The URL path of the target. The default value is `/` for the root resource.
 func (o DocumentationPartLocationOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DocumentationPartLocation) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // The HTTP status code of a response. The default value is `*` for any status code.
 func (o DocumentationPartLocationOutput) StatusCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DocumentationPartLocation) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
 }
 
 // The type of API entity to which the documentation content applies. e.g. `API`, `METHOD` or `REQUEST_BODY`
 func (o DocumentationPartLocationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v DocumentationPartLocation) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DocumentationPartLocation) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type DocumentationPartLocationPtrOutput struct { *pulumi.OutputState}
+type DocumentationPartLocationPtrOutput struct{ *pulumi.OutputState }
 
 func (DocumentationPartLocationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DocumentationPartLocation)(nil)).Elem()
@@ -277,32 +281,32 @@ func (o DocumentationPartLocationPtrOutput) ToDocumentationPartLocationPtrOutput
 }
 
 func (o DocumentationPartLocationPtrOutput) Elem() DocumentationPartLocationOutput {
-	return o.ApplyT(func (v *DocumentationPartLocation) DocumentationPartLocation { return *v }).(DocumentationPartLocationOutput)
+	return o.ApplyT(func(v *DocumentationPartLocation) DocumentationPartLocation { return *v }).(DocumentationPartLocationOutput)
 }
 
 // The HTTP verb of a method. The default value is `*` for any method.
 func (o DocumentationPartLocationPtrOutput) Method() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DocumentationPartLocation) *string { return v.Method }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 // The name of the targeted API entity.
 func (o DocumentationPartLocationPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DocumentationPartLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The URL path of the target. The default value is `/` for the root resource.
 func (o DocumentationPartLocationPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DocumentationPartLocation) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // The HTTP status code of a response. The default value is `*` for any status code.
 func (o DocumentationPartLocationPtrOutput) StatusCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DocumentationPartLocation) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
 }
 
 // The type of API entity to which the documentation content applies. e.g. `API`, `METHOD` or `REQUEST_BODY`
 func (o DocumentationPartLocationPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v DocumentationPartLocation) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DocumentationPartLocation) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type DomainNameEndpointConfiguration struct {
@@ -351,7 +355,8 @@ type DomainNameEndpointConfigurationPtrInput interface {
 
 type domainNameEndpointConfigurationPtrType DomainNameEndpointConfigurationArgs
 
-func DomainNameEndpointConfigurationPtr(v *DomainNameEndpointConfigurationArgs) DomainNameEndpointConfigurationPtrInput {	return (*domainNameEndpointConfigurationPtrType)(v)
+func DomainNameEndpointConfigurationPtr(v *DomainNameEndpointConfigurationArgs) DomainNameEndpointConfigurationPtrInput {
+	return (*domainNameEndpointConfigurationPtrType)(v)
 }
 
 func (*domainNameEndpointConfigurationPtrType) ElementType() reflect.Type {
@@ -366,7 +371,7 @@ func (i *domainNameEndpointConfigurationPtrType) ToDomainNameEndpointConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameEndpointConfigurationPtrOutput)
 }
 
-type DomainNameEndpointConfigurationOutput struct { *pulumi.OutputState }
+type DomainNameEndpointConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DomainNameEndpointConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainNameEndpointConfiguration)(nil)).Elem()
@@ -389,12 +394,13 @@ func (o DomainNameEndpointConfigurationOutput) ToDomainNameEndpointConfiguration
 		return &v
 	}).(DomainNameEndpointConfigurationPtrOutput)
 }
+
 // A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 func (o DomainNameEndpointConfigurationOutput) Types() pulumi.StringOutput {
-	return o.ApplyT(func (v DomainNameEndpointConfiguration) string { return v.Types }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DomainNameEndpointConfiguration) string { return v.Types }).(pulumi.StringOutput)
 }
 
-type DomainNameEndpointConfigurationPtrOutput struct { *pulumi.OutputState}
+type DomainNameEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainNameEndpointConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DomainNameEndpointConfiguration)(nil)).Elem()
@@ -409,12 +415,12 @@ func (o DomainNameEndpointConfigurationPtrOutput) ToDomainNameEndpointConfigurat
 }
 
 func (o DomainNameEndpointConfigurationPtrOutput) Elem() DomainNameEndpointConfigurationOutput {
-	return o.ApplyT(func (v *DomainNameEndpointConfiguration) DomainNameEndpointConfiguration { return *v }).(DomainNameEndpointConfigurationOutput)
+	return o.ApplyT(func(v *DomainNameEndpointConfiguration) DomainNameEndpointConfiguration { return *v }).(DomainNameEndpointConfigurationOutput)
 }
 
 // A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 func (o DomainNameEndpointConfigurationPtrOutput) Types() pulumi.StringOutput {
-	return o.ApplyT(func (v DomainNameEndpointConfiguration) string { return v.Types }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DomainNameEndpointConfiguration) string { return v.Types }).(pulumi.StringOutput)
 }
 
 type MethodSettingsSettings struct {
@@ -422,7 +428,7 @@ type MethodSettingsSettings struct {
 	CacheDataEncrypted *bool `pulumi:"cacheDataEncrypted"`
 	// Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
 	CacheTtlInSeconds *int `pulumi:"cacheTtlInSeconds"`
-	// Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
+	// Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
 	CachingEnabled *bool `pulumi:"cachingEnabled"`
 	// Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
 	DataTraceEnabled *bool `pulumi:"dataTraceEnabled"`
@@ -452,7 +458,7 @@ type MethodSettingsSettingsArgs struct {
 	CacheDataEncrypted pulumi.BoolPtrInput `pulumi:"cacheDataEncrypted"`
 	// Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
 	CacheTtlInSeconds pulumi.IntPtrInput `pulumi:"cacheTtlInSeconds"`
-	// Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
+	// Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
 	CachingEnabled pulumi.BoolPtrInput `pulumi:"cachingEnabled"`
 	// Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
 	DataTraceEnabled pulumi.BoolPtrInput `pulumi:"dataTraceEnabled"`
@@ -499,7 +505,8 @@ type MethodSettingsSettingsPtrInput interface {
 
 type methodSettingsSettingsPtrType MethodSettingsSettingsArgs
 
-func MethodSettingsSettingsPtr(v *MethodSettingsSettingsArgs) MethodSettingsSettingsPtrInput {	return (*methodSettingsSettingsPtrType)(v)
+func MethodSettingsSettingsPtr(v *MethodSettingsSettingsArgs) MethodSettingsSettingsPtrInput {
+	return (*methodSettingsSettingsPtrType)(v)
 }
 
 func (*methodSettingsSettingsPtrType) ElementType() reflect.Type {
@@ -514,7 +521,7 @@ func (i *methodSettingsSettingsPtrType) ToMethodSettingsSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(MethodSettingsSettingsPtrOutput)
 }
 
-type MethodSettingsSettingsOutput struct { *pulumi.OutputState }
+type MethodSettingsSettingsOutput struct{ *pulumi.OutputState }
 
 func (MethodSettingsSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MethodSettingsSettings)(nil)).Elem()
@@ -537,57 +544,58 @@ func (o MethodSettingsSettingsOutput) ToMethodSettingsSettingsPtrOutputWithConte
 		return &v
 	}).(MethodSettingsSettingsPtrOutput)
 }
+
 // Specifies whether the cached responses are encrypted.
 func (o MethodSettingsSettingsOutput) CacheDataEncrypted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *bool { return v.CacheDataEncrypted }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *bool { return v.CacheDataEncrypted }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
 func (o MethodSettingsSettingsOutput) CacheTtlInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *int { return v.CacheTtlInSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *int { return v.CacheTtlInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
+// Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
 func (o MethodSettingsSettingsOutput) CachingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *bool { return v.CachingEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *bool { return v.CachingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
 func (o MethodSettingsSettingsOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
 func (o MethodSettingsSettingsOutput) LoggingLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether Amazon CloudWatch metrics are enabled for this method.
 func (o MethodSettingsSettingsOutput) MetricsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *bool { return v.MetricsEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *bool { return v.MetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether authorization is required for a cache invalidation request.
 func (o MethodSettingsSettingsOutput) RequireAuthorizationForCacheControl() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *bool { return v.RequireAuthorizationForCacheControl }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *bool { return v.RequireAuthorizationForCacheControl }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the throttling burst limit.
 func (o MethodSettingsSettingsOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the throttling rate limit.
 func (o MethodSettingsSettingsOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
 }
 
 // Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
 func (o MethodSettingsSettingsOutput) UnauthorizedCacheControlHeaderStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *string { return v.UnauthorizedCacheControlHeaderStrategy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *string { return v.UnauthorizedCacheControlHeaderStrategy }).(pulumi.StringPtrOutput)
 }
 
-type MethodSettingsSettingsPtrOutput struct { *pulumi.OutputState}
+type MethodSettingsSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (MethodSettingsSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MethodSettingsSettings)(nil)).Elem()
@@ -602,57 +610,57 @@ func (o MethodSettingsSettingsPtrOutput) ToMethodSettingsSettingsPtrOutputWithCo
 }
 
 func (o MethodSettingsSettingsPtrOutput) Elem() MethodSettingsSettingsOutput {
-	return o.ApplyT(func (v *MethodSettingsSettings) MethodSettingsSettings { return *v }).(MethodSettingsSettingsOutput)
+	return o.ApplyT(func(v *MethodSettingsSettings) MethodSettingsSettings { return *v }).(MethodSettingsSettingsOutput)
 }
 
 // Specifies whether the cached responses are encrypted.
 func (o MethodSettingsSettingsPtrOutput) CacheDataEncrypted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *bool { return v.CacheDataEncrypted }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *bool { return v.CacheDataEncrypted }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
 func (o MethodSettingsSettingsPtrOutput) CacheTtlInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *int { return v.CacheTtlInSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *int { return v.CacheTtlInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
+// Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
 func (o MethodSettingsSettingsPtrOutput) CachingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *bool { return v.CachingEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *bool { return v.CachingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
 func (o MethodSettingsSettingsPtrOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
 func (o MethodSettingsSettingsPtrOutput) LoggingLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether Amazon CloudWatch metrics are enabled for this method.
 func (o MethodSettingsSettingsPtrOutput) MetricsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *bool { return v.MetricsEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *bool { return v.MetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether authorization is required for a cache invalidation request.
 func (o MethodSettingsSettingsPtrOutput) RequireAuthorizationForCacheControl() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *bool { return v.RequireAuthorizationForCacheControl }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *bool { return v.RequireAuthorizationForCacheControl }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the throttling burst limit.
 func (o MethodSettingsSettingsPtrOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the throttling rate limit.
 func (o MethodSettingsSettingsPtrOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
 }
 
 // Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
 func (o MethodSettingsSettingsPtrOutput) UnauthorizedCacheControlHeaderStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v MethodSettingsSettings) *string { return v.UnauthorizedCacheControlHeaderStrategy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v MethodSettingsSettings) *string { return v.UnauthorizedCacheControlHeaderStrategy }).(pulumi.StringPtrOutput)
 }
 
 type RestApiEndpointConfiguration struct {
@@ -705,7 +713,8 @@ type RestApiEndpointConfigurationPtrInput interface {
 
 type restApiEndpointConfigurationPtrType RestApiEndpointConfigurationArgs
 
-func RestApiEndpointConfigurationPtr(v *RestApiEndpointConfigurationArgs) RestApiEndpointConfigurationPtrInput {	return (*restApiEndpointConfigurationPtrType)(v)
+func RestApiEndpointConfigurationPtr(v *RestApiEndpointConfigurationArgs) RestApiEndpointConfigurationPtrInput {
+	return (*restApiEndpointConfigurationPtrType)(v)
 }
 
 func (*restApiEndpointConfigurationPtrType) ElementType() reflect.Type {
@@ -720,7 +729,7 @@ func (i *restApiEndpointConfigurationPtrType) ToRestApiEndpointConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(RestApiEndpointConfigurationPtrOutput)
 }
 
-type RestApiEndpointConfigurationOutput struct { *pulumi.OutputState }
+type RestApiEndpointConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RestApiEndpointConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RestApiEndpointConfiguration)(nil)).Elem()
@@ -743,17 +752,18 @@ func (o RestApiEndpointConfigurationOutput) ToRestApiEndpointConfigurationPtrOut
 		return &v
 	}).(RestApiEndpointConfigurationPtrOutput)
 }
+
 // A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 func (o RestApiEndpointConfigurationOutput) Types() pulumi.StringOutput {
-	return o.ApplyT(func (v RestApiEndpointConfiguration) string { return v.Types }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RestApiEndpointConfiguration) string { return v.Types }).(pulumi.StringOutput)
 }
 
 // A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
 func (o RestApiEndpointConfigurationOutput) VpcEndpointIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v RestApiEndpointConfiguration) []string { return v.VpcEndpointIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v RestApiEndpointConfiguration) []string { return v.VpcEndpointIds }).(pulumi.StringArrayOutput)
 }
 
-type RestApiEndpointConfigurationPtrOutput struct { *pulumi.OutputState}
+type RestApiEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (RestApiEndpointConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RestApiEndpointConfiguration)(nil)).Elem()
@@ -768,23 +778,23 @@ func (o RestApiEndpointConfigurationPtrOutput) ToRestApiEndpointConfigurationPtr
 }
 
 func (o RestApiEndpointConfigurationPtrOutput) Elem() RestApiEndpointConfigurationOutput {
-	return o.ApplyT(func (v *RestApiEndpointConfiguration) RestApiEndpointConfiguration { return *v }).(RestApiEndpointConfigurationOutput)
+	return o.ApplyT(func(v *RestApiEndpointConfiguration) RestApiEndpointConfiguration { return *v }).(RestApiEndpointConfigurationOutput)
 }
 
 // A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 func (o RestApiEndpointConfigurationPtrOutput) Types() pulumi.StringOutput {
-	return o.ApplyT(func (v RestApiEndpointConfiguration) string { return v.Types }).(pulumi.StringOutput)
+	return o.ApplyT(func(v RestApiEndpointConfiguration) string { return v.Types }).(pulumi.StringOutput)
 }
 
 // A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
 func (o RestApiEndpointConfigurationPtrOutput) VpcEndpointIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v RestApiEndpointConfiguration) []string { return v.VpcEndpointIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v RestApiEndpointConfiguration) []string { return v.VpcEndpointIds }).(pulumi.StringArrayOutput)
 }
 
 type StageAccessLogSettings struct {
 	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
 	DestinationArn string `pulumi:"destinationArn"`
-	// The formatting and values recorded in the logs. 
+	// The formatting and values recorded in the logs.
 	// For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
 	Format string `pulumi:"format"`
 }
@@ -799,7 +809,7 @@ type StageAccessLogSettingsInput interface {
 type StageAccessLogSettingsArgs struct {
 	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
 	DestinationArn pulumi.StringInput `pulumi:"destinationArn"`
-	// The formatting and values recorded in the logs. 
+	// The formatting and values recorded in the logs.
 	// For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
 	Format pulumi.StringInput `pulumi:"format"`
 }
@@ -833,7 +843,8 @@ type StageAccessLogSettingsPtrInput interface {
 
 type stageAccessLogSettingsPtrType StageAccessLogSettingsArgs
 
-func StageAccessLogSettingsPtr(v *StageAccessLogSettingsArgs) StageAccessLogSettingsPtrInput {	return (*stageAccessLogSettingsPtrType)(v)
+func StageAccessLogSettingsPtr(v *StageAccessLogSettingsArgs) StageAccessLogSettingsPtrInput {
+	return (*stageAccessLogSettingsPtrType)(v)
 }
 
 func (*stageAccessLogSettingsPtrType) ElementType() reflect.Type {
@@ -848,7 +859,7 @@ func (i *stageAccessLogSettingsPtrType) ToStageAccessLogSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StageAccessLogSettingsPtrOutput)
 }
 
-type StageAccessLogSettingsOutput struct { *pulumi.OutputState }
+type StageAccessLogSettingsOutput struct{ *pulumi.OutputState }
 
 func (StageAccessLogSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StageAccessLogSettings)(nil)).Elem()
@@ -871,18 +882,19 @@ func (o StageAccessLogSettingsOutput) ToStageAccessLogSettingsPtrOutputWithConte
 		return &v
 	}).(StageAccessLogSettingsPtrOutput)
 }
+
 // The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
 func (o StageAccessLogSettingsOutput) DestinationArn() pulumi.StringOutput {
-	return o.ApplyT(func (v StageAccessLogSettings) string { return v.DestinationArn }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StageAccessLogSettings) string { return v.DestinationArn }).(pulumi.StringOutput)
 }
 
-// The formatting and values recorded in the logs. 
+// The formatting and values recorded in the logs.
 // For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
 func (o StageAccessLogSettingsOutput) Format() pulumi.StringOutput {
-	return o.ApplyT(func (v StageAccessLogSettings) string { return v.Format }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StageAccessLogSettings) string { return v.Format }).(pulumi.StringOutput)
 }
 
-type StageAccessLogSettingsPtrOutput struct { *pulumi.OutputState}
+type StageAccessLogSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (StageAccessLogSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StageAccessLogSettings)(nil)).Elem()
@@ -897,18 +909,18 @@ func (o StageAccessLogSettingsPtrOutput) ToStageAccessLogSettingsPtrOutputWithCo
 }
 
 func (o StageAccessLogSettingsPtrOutput) Elem() StageAccessLogSettingsOutput {
-	return o.ApplyT(func (v *StageAccessLogSettings) StageAccessLogSettings { return *v }).(StageAccessLogSettingsOutput)
+	return o.ApplyT(func(v *StageAccessLogSettings) StageAccessLogSettings { return *v }).(StageAccessLogSettingsOutput)
 }
 
 // The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
 func (o StageAccessLogSettingsPtrOutput) DestinationArn() pulumi.StringOutput {
-	return o.ApplyT(func (v StageAccessLogSettings) string { return v.DestinationArn }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StageAccessLogSettings) string { return v.DestinationArn }).(pulumi.StringOutput)
 }
 
-// The formatting and values recorded in the logs. 
+// The formatting and values recorded in the logs.
 // For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
 func (o StageAccessLogSettingsPtrOutput) Format() pulumi.StringOutput {
-	return o.ApplyT(func (v StageAccessLogSettings) string { return v.Format }).(pulumi.StringOutput)
+	return o.ApplyT(func(v StageAccessLogSettings) string { return v.Format }).(pulumi.StringOutput)
 }
 
 type UsagePlanApiStage struct {
@@ -965,7 +977,7 @@ func (i UsagePlanApiStageArray) ToUsagePlanApiStageArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanApiStageArrayOutput)
 }
 
-type UsagePlanApiStageOutput struct { *pulumi.OutputState }
+type UsagePlanApiStageOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanApiStageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UsagePlanApiStage)(nil)).Elem()
@@ -981,15 +993,15 @@ func (o UsagePlanApiStageOutput) ToUsagePlanApiStageOutputWithContext(ctx contex
 
 // API Id of the associated API stage in a usage plan.
 func (o UsagePlanApiStageOutput) ApiId() pulumi.StringOutput {
-	return o.ApplyT(func (v UsagePlanApiStage) string { return v.ApiId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v UsagePlanApiStage) string { return v.ApiId }).(pulumi.StringOutput)
 }
 
 // API stage name of the associated API stage in a usage plan.
 func (o UsagePlanApiStageOutput) Stage() pulumi.StringOutput {
-	return o.ApplyT(func (v UsagePlanApiStage) string { return v.Stage }).(pulumi.StringOutput)
+	return o.ApplyT(func(v UsagePlanApiStage) string { return v.Stage }).(pulumi.StringOutput)
 }
 
-type UsagePlanApiStageArrayOutput struct { *pulumi.OutputState}
+type UsagePlanApiStageArrayOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanApiStageArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]UsagePlanApiStage)(nil)).Elem()
@@ -1004,7 +1016,7 @@ func (o UsagePlanApiStageArrayOutput) ToUsagePlanApiStageArrayOutputWithContext(
 }
 
 func (o UsagePlanApiStageArrayOutput) Index(i pulumi.IntInput) UsagePlanApiStageOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) UsagePlanApiStage {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UsagePlanApiStage {
 		return vs[0].([]UsagePlanApiStage)[vs[1].(int)]
 	}).(UsagePlanApiStageOutput)
 }
@@ -1063,7 +1075,8 @@ type UsagePlanQuotaSettingsPtrInput interface {
 
 type usagePlanQuotaSettingsPtrType UsagePlanQuotaSettingsArgs
 
-func UsagePlanQuotaSettingsPtr(v *UsagePlanQuotaSettingsArgs) UsagePlanQuotaSettingsPtrInput {	return (*usagePlanQuotaSettingsPtrType)(v)
+func UsagePlanQuotaSettingsPtr(v *UsagePlanQuotaSettingsArgs) UsagePlanQuotaSettingsPtrInput {
+	return (*usagePlanQuotaSettingsPtrType)(v)
 }
 
 func (*usagePlanQuotaSettingsPtrType) ElementType() reflect.Type {
@@ -1078,7 +1091,7 @@ func (i *usagePlanQuotaSettingsPtrType) ToUsagePlanQuotaSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanQuotaSettingsPtrOutput)
 }
 
-type UsagePlanQuotaSettingsOutput struct { *pulumi.OutputState }
+type UsagePlanQuotaSettingsOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanQuotaSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UsagePlanQuotaSettings)(nil)).Elem()
@@ -1101,22 +1114,23 @@ func (o UsagePlanQuotaSettingsOutput) ToUsagePlanQuotaSettingsPtrOutputWithConte
 		return &v
 	}).(UsagePlanQuotaSettingsPtrOutput)
 }
+
 // The maximum number of requests that can be made in a given time period.
 func (o UsagePlanQuotaSettingsOutput) Limit() pulumi.IntOutput {
-	return o.ApplyT(func (v UsagePlanQuotaSettings) int { return v.Limit }).(pulumi.IntOutput)
+	return o.ApplyT(func(v UsagePlanQuotaSettings) int { return v.Limit }).(pulumi.IntOutput)
 }
 
 // The number of requests subtracted from the given limit in the initial time period.
 func (o UsagePlanQuotaSettingsOutput) Offset() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v UsagePlanQuotaSettings) *int { return v.Offset }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v UsagePlanQuotaSettings) *int { return v.Offset }).(pulumi.IntPtrOutput)
 }
 
 // The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
 func (o UsagePlanQuotaSettingsOutput) Period() pulumi.StringOutput {
-	return o.ApplyT(func (v UsagePlanQuotaSettings) string { return v.Period }).(pulumi.StringOutput)
+	return o.ApplyT(func(v UsagePlanQuotaSettings) string { return v.Period }).(pulumi.StringOutput)
 }
 
-type UsagePlanQuotaSettingsPtrOutput struct { *pulumi.OutputState}
+type UsagePlanQuotaSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanQuotaSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**UsagePlanQuotaSettings)(nil)).Elem()
@@ -1131,22 +1145,22 @@ func (o UsagePlanQuotaSettingsPtrOutput) ToUsagePlanQuotaSettingsPtrOutputWithCo
 }
 
 func (o UsagePlanQuotaSettingsPtrOutput) Elem() UsagePlanQuotaSettingsOutput {
-	return o.ApplyT(func (v *UsagePlanQuotaSettings) UsagePlanQuotaSettings { return *v }).(UsagePlanQuotaSettingsOutput)
+	return o.ApplyT(func(v *UsagePlanQuotaSettings) UsagePlanQuotaSettings { return *v }).(UsagePlanQuotaSettingsOutput)
 }
 
 // The maximum number of requests that can be made in a given time period.
 func (o UsagePlanQuotaSettingsPtrOutput) Limit() pulumi.IntOutput {
-	return o.ApplyT(func (v UsagePlanQuotaSettings) int { return v.Limit }).(pulumi.IntOutput)
+	return o.ApplyT(func(v UsagePlanQuotaSettings) int { return v.Limit }).(pulumi.IntOutput)
 }
 
 // The number of requests subtracted from the given limit in the initial time period.
 func (o UsagePlanQuotaSettingsPtrOutput) Offset() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v UsagePlanQuotaSettings) *int { return v.Offset }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v UsagePlanQuotaSettings) *int { return v.Offset }).(pulumi.IntPtrOutput)
 }
 
 // The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
 func (o UsagePlanQuotaSettingsPtrOutput) Period() pulumi.StringOutput {
-	return o.ApplyT(func (v UsagePlanQuotaSettings) string { return v.Period }).(pulumi.StringOutput)
+	return o.ApplyT(func(v UsagePlanQuotaSettings) string { return v.Period }).(pulumi.StringOutput)
 }
 
 type UsagePlanThrottleSettings struct {
@@ -1199,7 +1213,8 @@ type UsagePlanThrottleSettingsPtrInput interface {
 
 type usagePlanThrottleSettingsPtrType UsagePlanThrottleSettingsArgs
 
-func UsagePlanThrottleSettingsPtr(v *UsagePlanThrottleSettingsArgs) UsagePlanThrottleSettingsPtrInput {	return (*usagePlanThrottleSettingsPtrType)(v)
+func UsagePlanThrottleSettingsPtr(v *UsagePlanThrottleSettingsArgs) UsagePlanThrottleSettingsPtrInput {
+	return (*usagePlanThrottleSettingsPtrType)(v)
 }
 
 func (*usagePlanThrottleSettingsPtrType) ElementType() reflect.Type {
@@ -1214,7 +1229,7 @@ func (i *usagePlanThrottleSettingsPtrType) ToUsagePlanThrottleSettingsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanThrottleSettingsPtrOutput)
 }
 
-type UsagePlanThrottleSettingsOutput struct { *pulumi.OutputState }
+type UsagePlanThrottleSettingsOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanThrottleSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UsagePlanThrottleSettings)(nil)).Elem()
@@ -1237,17 +1252,18 @@ func (o UsagePlanThrottleSettingsOutput) ToUsagePlanThrottleSettingsPtrOutputWit
 		return &v
 	}).(UsagePlanThrottleSettingsPtrOutput)
 }
+
 // The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
 func (o UsagePlanThrottleSettingsOutput) BurstLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v UsagePlanThrottleSettings) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v UsagePlanThrottleSettings) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
 }
 
 // The API request steady-state rate limit.
 func (o UsagePlanThrottleSettingsOutput) RateLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func (v UsagePlanThrottleSettings) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
+	return o.ApplyT(func(v UsagePlanThrottleSettings) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
 }
 
-type UsagePlanThrottleSettingsPtrOutput struct { *pulumi.OutputState}
+type UsagePlanThrottleSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanThrottleSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**UsagePlanThrottleSettings)(nil)).Elem()
@@ -1262,21 +1278,21 @@ func (o UsagePlanThrottleSettingsPtrOutput) ToUsagePlanThrottleSettingsPtrOutput
 }
 
 func (o UsagePlanThrottleSettingsPtrOutput) Elem() UsagePlanThrottleSettingsOutput {
-	return o.ApplyT(func (v *UsagePlanThrottleSettings) UsagePlanThrottleSettings { return *v }).(UsagePlanThrottleSettingsOutput)
+	return o.ApplyT(func(v *UsagePlanThrottleSettings) UsagePlanThrottleSettings { return *v }).(UsagePlanThrottleSettingsOutput)
 }
 
 // The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
 func (o UsagePlanThrottleSettingsPtrOutput) BurstLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v UsagePlanThrottleSettings) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v UsagePlanThrottleSettings) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
 }
 
 // The API request steady-state rate limit.
 func (o UsagePlanThrottleSettingsPtrOutput) RateLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func (v UsagePlanThrottleSettings) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
+	return o.ApplyT(func(v UsagePlanThrottleSettings) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
 }
 
 type GetRestApiEndpointConfiguration struct {
-	Types []string `pulumi:"types"`
+	Types          []string `pulumi:"types"`
 	VpcEndpointIds []string `pulumi:"vpcEndpointIds"`
 }
 
@@ -1288,7 +1304,7 @@ type GetRestApiEndpointConfigurationInput interface {
 }
 
 type GetRestApiEndpointConfigurationArgs struct {
-	Types pulumi.StringArrayInput `pulumi:"types"`
+	Types          pulumi.StringArrayInput `pulumi:"types"`
 	VpcEndpointIds pulumi.StringArrayInput `pulumi:"vpcEndpointIds"`
 }
 
@@ -1325,7 +1341,7 @@ func (i GetRestApiEndpointConfigurationArray) ToGetRestApiEndpointConfigurationA
 	return pulumi.ToOutputWithContext(ctx, i).(GetRestApiEndpointConfigurationArrayOutput)
 }
 
-type GetRestApiEndpointConfigurationOutput struct { *pulumi.OutputState }
+type GetRestApiEndpointConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetRestApiEndpointConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetRestApiEndpointConfiguration)(nil)).Elem()
@@ -1340,14 +1356,14 @@ func (o GetRestApiEndpointConfigurationOutput) ToGetRestApiEndpointConfiguration
 }
 
 func (o GetRestApiEndpointConfigurationOutput) Types() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetRestApiEndpointConfiguration) []string { return v.Types }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetRestApiEndpointConfiguration) []string { return v.Types }).(pulumi.StringArrayOutput)
 }
 
 func (o GetRestApiEndpointConfigurationOutput) VpcEndpointIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetRestApiEndpointConfiguration) []string { return v.VpcEndpointIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetRestApiEndpointConfiguration) []string { return v.VpcEndpointIds }).(pulumi.StringArrayOutput)
 }
 
-type GetRestApiEndpointConfigurationArrayOutput struct { *pulumi.OutputState}
+type GetRestApiEndpointConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (GetRestApiEndpointConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetRestApiEndpointConfiguration)(nil)).Elem()
@@ -1362,7 +1378,7 @@ func (o GetRestApiEndpointConfigurationArrayOutput) ToGetRestApiEndpointConfigur
 }
 
 func (o GetRestApiEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) GetRestApiEndpointConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetRestApiEndpointConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRestApiEndpointConfiguration {
 		return vs[0].([]GetRestApiEndpointConfiguration)[vs[1].(int)]
 	}).(GetRestApiEndpointConfigurationOutput)
 }

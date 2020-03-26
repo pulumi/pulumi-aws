@@ -32,10 +32,10 @@ import (
 //
 // > **Note:** API Gateway requires the use of AWS Certificate Manager (ACM) certificates instead of Identity and Access Management (IAM) certificates in regions that support ACM. Regions that support ACM can be found in the [Regions and Endpoints Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#acm_region). To import an existing private key and certificate into ACM or request an ACM certificate, see the [`acm.Certificate` resource](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html).
 //
-// > **Note:** The `apigateway.DomainName` resource expects dependency on the `acm.CertificateValidation` as 
-// only verified certificates can be used. This can be made either explicitly by adding the 
-// `dependsOn = [aws_acm_certificate_validation.cert]` attribute. Or implicitly by referring certificate ARN 
-// from the validation resource where it will be available after the resource creation: 
+// > **Note:** The `apigateway.DomainName` resource expects dependency on the `acm.CertificateValidation` as
+// only verified certificates can be used. This can be made either explicitly by adding the
+// `dependsOn = [aws_acm_certificate_validation.cert]` attribute. Or implicitly by referring certificate ARN
+// from the validation resource where it will be available after the resource creation:
 // `regionalCertificateArn = aws_acm_certificate_validation.cert.certificate_arn`.
 //
 // > **Note:** All arguments including the private key will be stored in the raw state as plain-text.
@@ -294,4 +294,3 @@ type DomainNameArgs struct {
 func (DomainNameArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainNameArgs)(nil)).Elem()
 }
-

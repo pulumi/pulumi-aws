@@ -17,7 +17,7 @@ class LoadBalancer(pulumi.CustomResource):
       * `bucket` (`str`) - The S3 bucket name to store the logs in.
       * `bucket_prefix` (`str`) - The S3 bucket prefix. Logs are stored in the root if not configured.
       * `enabled` (`bool`) - Boolean to enable / disable `access_logs`. Default is `true`
-      * `interval` (`float`) - The interval between checks.
+      * `interval` (`float`) - The publishing interval in minutes. Default: 60 minutes.
     """
     arn: pulumi.Output[str]
     """
@@ -170,7 +170,7 @@ class LoadBalancer(pulumi.CustomResource):
           * `bucket` (`pulumi.Input[str]`) - The S3 bucket name to store the logs in.
           * `bucket_prefix` (`pulumi.Input[str]`) - The S3 bucket prefix. Logs are stored in the root if not configured.
           * `enabled` (`pulumi.Input[bool]`) - Boolean to enable / disable `access_logs`. Default is `true`
-          * `interval` (`pulumi.Input[float]`) - The interval between checks.
+          * `interval` (`pulumi.Input[float]`) - The publishing interval in minutes. Default: 60 minutes.
 
         The **health_check** object supports the following:
 
@@ -280,7 +280,7 @@ class LoadBalancer(pulumi.CustomResource):
           * `bucket` (`pulumi.Input[str]`) - The S3 bucket name to store the logs in.
           * `bucket_prefix` (`pulumi.Input[str]`) - The S3 bucket prefix. Logs are stored in the root if not configured.
           * `enabled` (`pulumi.Input[bool]`) - Boolean to enable / disable `access_logs`. Default is `true`
-          * `interval` (`pulumi.Input[float]`) - The interval between checks.
+          * `interval` (`pulumi.Input[float]`) - The publishing interval in minutes. Default: 60 minutes.
 
         The **health_check** object supports the following:
 

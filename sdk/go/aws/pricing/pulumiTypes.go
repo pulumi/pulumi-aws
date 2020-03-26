@@ -65,7 +65,7 @@ func (i GetProductFilterArray) ToGetProductFilterArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetProductFilterArrayOutput)
 }
 
-type GetProductFilterOutput struct { *pulumi.OutputState }
+type GetProductFilterOutput struct{ *pulumi.OutputState }
 
 func (GetProductFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetProductFilter)(nil)).Elem()
@@ -81,15 +81,15 @@ func (o GetProductFilterOutput) ToGetProductFilterOutputWithContext(ctx context.
 
 // The product attribute name that you want to filter on.
 func (o GetProductFilterOutput) Field() pulumi.StringOutput {
-	return o.ApplyT(func (v GetProductFilter) string { return v.Field }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetProductFilter) string { return v.Field }).(pulumi.StringOutput)
 }
 
 // The product attribute value that you want to filter on.
 func (o GetProductFilterOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v GetProductFilter) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetProductFilter) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type GetProductFilterArrayOutput struct { *pulumi.OutputState}
+type GetProductFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (GetProductFilterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetProductFilter)(nil)).Elem()
@@ -104,7 +104,7 @@ func (o GetProductFilterArrayOutput) ToGetProductFilterArrayOutputWithContext(ct
 }
 
 func (o GetProductFilterArrayOutput) Index(i pulumi.IntInput) GetProductFilterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetProductFilter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetProductFilter {
 		return vs[0].([]GetProductFilter)[vs[1].(int)]
 	}).(GetProductFilterOutput)
 }

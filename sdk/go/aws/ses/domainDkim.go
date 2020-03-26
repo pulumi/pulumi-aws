@@ -102,4 +102,3 @@ type DomainDkimArgs struct {
 func (DomainDkimArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainDkimArgs)(nil)).Elem()
 }
-

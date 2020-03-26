@@ -28,8 +28,8 @@ type EfsLocation struct {
 	// Subdirectory to perform actions as source or destination. Default `/`.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags pulumi.MapOutput `pulumi:"tags"`
-	Uri pulumi.StringOutput `pulumi:"uri"`
+	Tags pulumi.MapOutput    `pulumi:"tags"`
+	Uri  pulumi.StringOutput `pulumi:"uri"`
 }
 
 // NewEfsLocation registers a new resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ type efsLocationState struct {
 	Subdirectory *string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location.
 	Tags map[string]interface{} `pulumi:"tags"`
-	Uri *string `pulumi:"uri"`
+	Uri  *string                `pulumi:"uri"`
 }
 
 type EfsLocationState struct {
@@ -90,7 +90,7 @@ type EfsLocationState struct {
 	Subdirectory pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Location.
 	Tags pulumi.MapInput
-	Uri pulumi.StringPtrInput
+	Uri  pulumi.StringPtrInput
 }
 
 func (EfsLocationState) ElementType() reflect.Type {
@@ -123,4 +123,3 @@ type EfsLocationArgs struct {
 func (EfsLocationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*efsLocationArgs)(nil)).Elem()
 }
-

@@ -279,7 +279,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<string>? AudioPackingMode { get; set; }
 
         /// <summary>
-        /// The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
+        /// The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
         /// </summary>
         [Input("bitRate")]
         public Input<string>? BitRate { get; set; }
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<string>? Channels { get; set; }
 
         /// <summary>
-        /// The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
+        /// The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
         /// </summary>
         [Input("codec")]
         public Input<string>? Codec { get; set; }
@@ -378,7 +378,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<string>? AudioPackingMode { get; set; }
 
         /// <summary>
-        /// The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
+        /// The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
         /// </summary>
         [Input("bitRate")]
         public Input<string>? BitRate { get; set; }
@@ -390,7 +390,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<string>? Channels { get; set; }
 
         /// <summary>
-        /// The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
+        /// The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
         /// </summary>
         [Input("codec")]
         public Input<string>? Codec { get; set; }
@@ -409,7 +409,7 @@ namespace Pulumi.Aws.ElasticTranscoder
     public sealed class PresetThumbnailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `max_width`, `max_height`, `sizing_policy`, `padding_policy`, and `display_aspect_ratio` instead of `resolution` and `aspect_ratio`.)
+        /// The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
         /// </summary>
         [Input("aspectRatio")]
         public Input<string>? AspectRatio { get; set; }
@@ -427,31 +427,31 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<string>? Interval { get; set; }
 
         /// <summary>
-        /// The maximum height of the watermark.
+        /// The maximum height of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
         /// </summary>
         [Input("maxHeight")]
         public Input<string>? MaxHeight { get; set; }
 
         /// <summary>
-        /// The maximum width of the watermark.
+        /// The maximum width of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
         /// </summary>
         [Input("maxWidth")]
         public Input<string>? MaxWidth { get; set; }
 
         /// <summary>
-        /// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `max_width` and `max_height`.
+        /// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of thumbnails to make the total size of the thumbnails match the values that you specified for thumbnail MaxWidth and MaxHeight settings.
         /// </summary>
         [Input("paddingPolicy")]
         public Input<string>? PaddingPolicy { get; set; }
 
         /// <summary>
-        /// The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspect_ratio`)
+        /// The width and height of thumbnail files in pixels, in the format WidthxHeight, where both values are even integers. The values cannot exceed the width and height that you specified in the Video:Resolution object. (To better control resolution and aspect ratio of thumbnails, we recommend that you use the thumbnail values `max_width`, `max_height`, `sizing_policy`, and `padding_policy` instead of `resolution` and `aspect_ratio`. The two groups of settings are mutually exclusive. Do not use them together)
         /// </summary>
         [Input("resolution")]
         public Input<string>? Resolution { get; set; }
 
         /// <summary>
-        /// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+        /// A value that controls scaling of thumbnails. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, and `ShrinkToFill`.
         /// </summary>
         [Input("sizingPolicy")]
         public Input<string>? SizingPolicy { get; set; }
@@ -464,7 +464,7 @@ namespace Pulumi.Aws.ElasticTranscoder
     public sealed class PresetThumbnailsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `max_width`, `max_height`, `sizing_policy`, `padding_policy`, and `display_aspect_ratio` instead of `resolution` and `aspect_ratio`.)
+        /// The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
         /// </summary>
         [Input("aspectRatio")]
         public Input<string>? AspectRatio { get; set; }
@@ -482,31 +482,31 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<string>? Interval { get; set; }
 
         /// <summary>
-        /// The maximum height of the watermark.
+        /// The maximum height of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
         /// </summary>
         [Input("maxHeight")]
         public Input<string>? MaxHeight { get; set; }
 
         /// <summary>
-        /// The maximum width of the watermark.
+        /// The maximum width of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
         /// </summary>
         [Input("maxWidth")]
         public Input<string>? MaxWidth { get; set; }
 
         /// <summary>
-        /// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `max_width` and `max_height`.
+        /// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of thumbnails to make the total size of the thumbnails match the values that you specified for thumbnail MaxWidth and MaxHeight settings.
         /// </summary>
         [Input("paddingPolicy")]
         public Input<string>? PaddingPolicy { get; set; }
 
         /// <summary>
-        /// The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspect_ratio`)
+        /// The width and height of thumbnail files in pixels, in the format WidthxHeight, where both values are even integers. The values cannot exceed the width and height that you specified in the Video:Resolution object. (To better control resolution and aspect ratio of thumbnails, we recommend that you use the thumbnail values `max_width`, `max_height`, `sizing_policy`, and `padding_policy` instead of `resolution` and `aspect_ratio`. The two groups of settings are mutually exclusive. Do not use them together)
         /// </summary>
         [Input("resolution")]
         public Input<string>? Resolution { get; set; }
 
         /// <summary>
-        /// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+        /// A value that controls scaling of thumbnails. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, and `ShrinkToFill`.
         /// </summary>
         [Input("sizingPolicy")]
         public Input<string>? SizingPolicy { get; set; }
@@ -567,13 +567,13 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<string>? MaxFrameRate { get; set; }
 
         /// <summary>
-        /// The maximum height of the watermark.
+        /// The maximum height of the output video in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 96 and 3072, inclusive.
         /// </summary>
         [Input("maxHeight")]
         public Input<string>? MaxHeight { get; set; }
 
         /// <summary>
-        /// The maximum width of the watermark.
+        /// The maximum width of the output video in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 128 and 4096, inclusive.
         /// </summary>
         [Input("maxWidth")]
         public Input<string>? MaxWidth { get; set; }
@@ -591,7 +591,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<string>? Resolution { get; set; }
 
         /// <summary>
-        /// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+        /// A value that controls scaling of the output video. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, `ShrinkToFill`.
         /// </summary>
         [Input("sizingPolicy")]
         public Input<string>? SizingPolicy { get; set; }
@@ -652,13 +652,13 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<string>? MaxFrameRate { get; set; }
 
         /// <summary>
-        /// The maximum height of the watermark.
+        /// The maximum height of the output video in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 96 and 3072, inclusive.
         /// </summary>
         [Input("maxHeight")]
         public Input<string>? MaxHeight { get; set; }
 
         /// <summary>
-        /// The maximum width of the watermark.
+        /// The maximum width of the output video in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 128 and 4096, inclusive.
         /// </summary>
         [Input("maxWidth")]
         public Input<string>? MaxWidth { get; set; }
@@ -676,7 +676,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<string>? Resolution { get; set; }
 
         /// <summary>
-        /// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+        /// A value that controls scaling of the output video. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, `ShrinkToFill`.
         /// </summary>
         [Input("sizingPolicy")]
         public Input<string>? SizingPolicy { get; set; }
@@ -832,7 +832,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         /// </summary>
         public readonly string? AudioPackingMode;
         /// <summary>
-        /// The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
+        /// The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
         /// </summary>
         public readonly string? BitRate;
         /// <summary>
@@ -840,7 +840,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         /// </summary>
         public readonly string? Channels;
         /// <summary>
-        /// The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
+        /// The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
         /// </summary>
         public readonly string? Codec;
         /// <summary>
@@ -902,7 +902,7 @@ namespace Pulumi.Aws.ElasticTranscoder
     public sealed class PresetThumbnails
     {
         /// <summary>
-        /// The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `max_width`, `max_height`, `sizing_policy`, `padding_policy`, and `display_aspect_ratio` instead of `resolution` and `aspect_ratio`.)
+        /// The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
         /// </summary>
         public readonly string? AspectRatio;
         /// <summary>
@@ -914,23 +914,23 @@ namespace Pulumi.Aws.ElasticTranscoder
         /// </summary>
         public readonly string? Interval;
         /// <summary>
-        /// The maximum height of the watermark.
+        /// The maximum height of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
         /// </summary>
         public readonly string? MaxHeight;
         /// <summary>
-        /// The maximum width of the watermark.
+        /// The maximum width of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
         /// </summary>
         public readonly string? MaxWidth;
         /// <summary>
-        /// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `max_width` and `max_height`.
+        /// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of thumbnails to make the total size of the thumbnails match the values that you specified for thumbnail MaxWidth and MaxHeight settings.
         /// </summary>
         public readonly string? PaddingPolicy;
         /// <summary>
-        /// The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspect_ratio`)
+        /// The width and height of thumbnail files in pixels, in the format WidthxHeight, where both values are even integers. The values cannot exceed the width and height that you specified in the Video:Resolution object. (To better control resolution and aspect ratio of thumbnails, we recommend that you use the thumbnail values `max_width`, `max_height`, `sizing_policy`, and `padding_policy` instead of `resolution` and `aspect_ratio`. The two groups of settings are mutually exclusive. Do not use them together)
         /// </summary>
         public readonly string? Resolution;
         /// <summary>
-        /// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+        /// A value that controls scaling of thumbnails. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, and `ShrinkToFill`.
         /// </summary>
         public readonly string? SizingPolicy;
 
@@ -992,11 +992,11 @@ namespace Pulumi.Aws.ElasticTranscoder
         /// </summary>
         public readonly string? MaxFrameRate;
         /// <summary>
-        /// The maximum height of the watermark.
+        /// The maximum height of the output video in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 96 and 3072, inclusive.
         /// </summary>
         public readonly string? MaxHeight;
         /// <summary>
-        /// The maximum width of the watermark.
+        /// The maximum width of the output video in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 128 and 4096, inclusive.
         /// </summary>
         public readonly string? MaxWidth;
         /// <summary>
@@ -1008,7 +1008,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         /// </summary>
         public readonly string? Resolution;
         /// <summary>
-        /// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+        /// A value that controls scaling of the output video. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, `ShrinkToFill`.
         /// </summary>
         public readonly string? SizingPolicy;
 

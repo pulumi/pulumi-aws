@@ -38,17 +38,15 @@ type GetPolicyDocumentArgs struct {
 	Version *string `pulumi:"version"`
 }
 
-
 // A collection of values returned by getPolicyDocument.
 type GetPolicyDocumentResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The above arguments serialized as a standard JSON policy document.
-	Json string `pulumi:"json"`
-	OverrideJson *string `pulumi:"overrideJson"`
-	PolicyId *string `pulumi:"policyId"`
-	SourceJson *string `pulumi:"sourceJson"`
-	Statements []GetPolicyDocumentStatement `pulumi:"statements"`
-	Version *string `pulumi:"version"`
+	Json         string                       `pulumi:"json"`
+	OverrideJson *string                      `pulumi:"overrideJson"`
+	PolicyId     *string                      `pulumi:"policyId"`
+	SourceJson   *string                      `pulumi:"sourceJson"`
+	Statements   []GetPolicyDocumentStatement `pulumi:"statements"`
+	Version      *string                      `pulumi:"version"`
 }
-

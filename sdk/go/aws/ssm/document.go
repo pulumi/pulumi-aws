@@ -244,4 +244,3 @@ type DocumentArgs struct {
 func (DocumentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*documentArgs)(nil)).Elem()
 }
-

@@ -130,4 +130,3 @@ type AppCookieStickinessPolicyArgs struct {
 func (AppCookieStickinessPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*appCookieStickinessPolicyArgs)(nil)).Elem()
 }
-

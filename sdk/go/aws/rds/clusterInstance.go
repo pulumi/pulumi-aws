@@ -386,4 +386,3 @@ type ClusterInstanceArgs struct {
 func (ClusterInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*clusterInstanceArgs)(nil)).Elem()
 }
-

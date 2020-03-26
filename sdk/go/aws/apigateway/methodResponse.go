@@ -148,4 +148,3 @@ type MethodResponseArgs struct {
 func (MethodResponseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*methodResponseArgs)(nil)).Elem()
 }
-

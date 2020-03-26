@@ -41,16 +41,14 @@ type GetAmiIdsArgs struct {
 	SortAscending *bool `pulumi:"sortAscending"`
 }
 
-
 // A collection of values returned by getAmiIds.
 type GetAmiIdsResult struct {
-	ExecutableUsers []string `pulumi:"executableUsers"`
-	Filters []GetAmiIdsFilter `pulumi:"filters"`
+	ExecutableUsers []string          `pulumi:"executableUsers"`
+	Filters         []GetAmiIdsFilter `pulumi:"filters"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Ids []string `pulumi:"ids"`
-	NameRegex *string `pulumi:"nameRegex"`
-	Owners []string `pulumi:"owners"`
-	SortAscending *bool `pulumi:"sortAscending"`
+	Id            string   `pulumi:"id"`
+	Ids           []string `pulumi:"ids"`
+	NameRegex     *string  `pulumi:"nameRegex"`
+	Owners        []string `pulumi:"owners"`
+	SortAscending *bool    `pulumi:"sortAscending"`
 }
-

@@ -26,21 +26,21 @@ type LookupNetworkInterfaceArgs struct {
 	Filters []GetNetworkInterfaceFilter `pulumi:"filters"`
 	// The identifier for the network interface.
 	Id *string `pulumi:"id"`
+	// Any tags assigned to the network interface.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getNetworkInterface.
 type LookupNetworkInterfaceResult struct {
 	// The association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
-	Associations []GetNetworkInterfaceAssociation `pulumi:"associations"`
-	Attachments []GetNetworkInterfaceAttachmentType `pulumi:"attachments"`
+	Associations []GetNetworkInterfaceAssociation    `pulumi:"associations"`
+	Attachments  []GetNetworkInterfaceAttachmentType `pulumi:"attachments"`
 	// The Availability Zone.
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// Description of the network interface.
-	Description string `pulumi:"description"`
-	Filters []GetNetworkInterfaceFilter `pulumi:"filters"`
-	Id string `pulumi:"id"`
+	Description string                      `pulumi:"description"`
+	Filters     []GetNetworkInterfaceFilter `pulumi:"filters"`
+	Id          string                      `pulumi:"id"`
 	// The type of interface.
 	InterfaceType string `pulumi:"interfaceType"`
 	// List of IPv6 addresses to assign to the ENI.
@@ -66,4 +66,3 @@ type LookupNetworkInterfaceResult struct {
 	// The ID of the VPC.
 	VpcId string `pulumi:"vpcId"`
 }
-

@@ -357,7 +357,7 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly arn!: pulumi.Output<string>;
     /**
-     * The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+     * The name of the bucket. If omitted, this provider will assign a random, unique name.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
@@ -424,8 +424,7 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.s3.BucketServerSideEncryptionConfiguration | undefined>;
     /**
-     * A mapping of tags that identifies subset of objects to which the rule applies.
-     * The rule applies only to objects having all the tags in its tagset.
+     * A mapping of tags to assign to the bucket.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -536,7 +535,7 @@ export interface BucketState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+     * The name of the bucket. If omitted, this provider will assign a random, unique name.
      */
     readonly bucket?: pulumi.Input<string>;
     /**
@@ -603,8 +602,7 @@ export interface BucketState {
      */
     readonly serverSideEncryptionConfiguration?: pulumi.Input<inputs.s3.BucketServerSideEncryptionConfiguration>;
     /**
-     * A mapping of tags that identifies subset of objects to which the rule applies.
-     * The rule applies only to objects having all the tags in its tagset.
+     * A mapping of tags to assign to the bucket.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -642,7 +640,7 @@ export interface BucketArgs {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+     * The name of the bucket. If omitted, this provider will assign a random, unique name.
      */
     readonly bucket?: pulumi.Input<string>;
     /**
@@ -701,8 +699,7 @@ export interface BucketArgs {
      */
     readonly serverSideEncryptionConfiguration?: pulumi.Input<inputs.s3.BucketServerSideEncryptionConfiguration>;
     /**
-     * A mapping of tags that identifies subset of objects to which the rule applies.
-     * The rule applies only to objects having all the tags in its tagset.
+     * A mapping of tags to assign to the bucket.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

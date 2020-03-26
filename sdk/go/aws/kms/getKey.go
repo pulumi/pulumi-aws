@@ -35,25 +35,23 @@ type LookupKeyArgs struct {
 	KeyId string `pulumi:"keyId"`
 }
 
-
 // A collection of values returned by getKey.
 type LookupKeyResult struct {
-	Arn string `pulumi:"arn"`
-	AwsAccountId string `pulumi:"awsAccountId"`
-	CreationDate string `pulumi:"creationDate"`
-	CustomerMasterKeySpec string `pulumi:"customerMasterKeySpec"`
-	DeletionDate string `pulumi:"deletionDate"`
-	Description string `pulumi:"description"`
-	Enabled bool `pulumi:"enabled"`
-	ExpirationModel string `pulumi:"expirationModel"`
-	GrantTokens []string `pulumi:"grantTokens"`
+	Arn                   string   `pulumi:"arn"`
+	AwsAccountId          string   `pulumi:"awsAccountId"`
+	CreationDate          string   `pulumi:"creationDate"`
+	CustomerMasterKeySpec string   `pulumi:"customerMasterKeySpec"`
+	DeletionDate          string   `pulumi:"deletionDate"`
+	Description           string   `pulumi:"description"`
+	Enabled               bool     `pulumi:"enabled"`
+	ExpirationModel       string   `pulumi:"expirationModel"`
+	GrantTokens           []string `pulumi:"grantTokens"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	KeyId string `pulumi:"keyId"`
+	Id         string `pulumi:"id"`
+	KeyId      string `pulumi:"keyId"`
 	KeyManager string `pulumi:"keyManager"`
-	KeyState string `pulumi:"keyState"`
-	KeyUsage string `pulumi:"keyUsage"`
-	Origin string `pulumi:"origin"`
-	ValidTo string `pulumi:"validTo"`
+	KeyState   string `pulumi:"keyState"`
+	KeyUsage   string `pulumi:"keyUsage"`
+	Origin     string `pulumi:"origin"`
+	ValidTo    string `pulumi:"validTo"`
 }
-

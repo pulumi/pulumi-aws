@@ -121,4 +121,3 @@ type DeliveryChannelArgs struct {
 func (DeliveryChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deliveryChannelArgs)(nil)).Elem()
 }
-

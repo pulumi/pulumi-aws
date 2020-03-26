@@ -17,14 +17,14 @@ import (
 type Crawler struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the crawler 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ARN of the crawler
+	Arn            pulumi.StringOutput             `pulumi:"arn"`
 	CatalogTargets CrawlerCatalogTargetArrayOutput `pulumi:"catalogTargets"`
 	// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
 	Classifiers pulumi.StringArrayOutput `pulumi:"classifiers"`
 	// JSON string of configuration information.
 	Configuration pulumi.StringPtrOutput `pulumi:"configuration"`
-	// The name of the Glue database to be synchronized.
+	// Glue database where results are written.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// Description of the crawler.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -84,14 +84,14 @@ func GetCrawler(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Crawler resources.
 type crawlerState struct {
-	// The ARN of the crawler 
-	Arn *string `pulumi:"arn"`
+	// The ARN of the crawler
+	Arn            *string                `pulumi:"arn"`
 	CatalogTargets []CrawlerCatalogTarget `pulumi:"catalogTargets"`
 	// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
 	Classifiers []string `pulumi:"classifiers"`
 	// JSON string of configuration information.
 	Configuration *string `pulumi:"configuration"`
-	// The name of the Glue database to be synchronized.
+	// Glue database where results are written.
 	DatabaseName *string `pulumi:"databaseName"`
 	// Description of the crawler.
 	Description *string `pulumi:"description"`
@@ -118,14 +118,14 @@ type crawlerState struct {
 }
 
 type CrawlerState struct {
-	// The ARN of the crawler 
-	Arn pulumi.StringPtrInput
+	// The ARN of the crawler
+	Arn            pulumi.StringPtrInput
 	CatalogTargets CrawlerCatalogTargetArrayInput
 	// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
 	Classifiers pulumi.StringArrayInput
 	// JSON string of configuration information.
 	Configuration pulumi.StringPtrInput
-	// The name of the Glue database to be synchronized.
+	// Glue database where results are written.
 	DatabaseName pulumi.StringPtrInput
 	// Description of the crawler.
 	Description pulumi.StringPtrInput
@@ -161,7 +161,7 @@ type crawlerArgs struct {
 	Classifiers []string `pulumi:"classifiers"`
 	// JSON string of configuration information.
 	Configuration *string `pulumi:"configuration"`
-	// The name of the Glue database to be synchronized.
+	// Glue database where results are written.
 	DatabaseName string `pulumi:"databaseName"`
 	// Description of the crawler.
 	Description *string `pulumi:"description"`
@@ -194,7 +194,7 @@ type CrawlerArgs struct {
 	Classifiers pulumi.StringArrayInput
 	// JSON string of configuration information.
 	Configuration pulumi.StringPtrInput
-	// The name of the Glue database to be synchronized.
+	// Glue database where results are written.
 	DatabaseName pulumi.StringInput
 	// Description of the crawler.
 	Description pulumi.StringPtrInput
@@ -223,4 +223,3 @@ type CrawlerArgs struct {
 func (CrawlerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*crawlerArgs)(nil)).Elem()
 }
-

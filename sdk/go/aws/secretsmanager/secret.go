@@ -25,8 +25,8 @@ type Secret struct {
 	// Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	Policy pulumi.StringPtrOutput `pulumi:"policy"`
+	NamePrefix pulumi.StringOutput    `pulumi:"namePrefix"`
+	Policy     pulumi.StringPtrOutput `pulumi:"policy"`
 	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
 	RecoveryWindowInDays pulumi.IntPtrOutput `pulumi:"recoveryWindowInDays"`
 	// Specifies whether automatic rotation is enabled for this secret.
@@ -77,7 +77,7 @@ type secretState struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	Policy *string `pulumi:"policy"`
+	Policy     *string `pulumi:"policy"`
 	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
 	RecoveryWindowInDays *int `pulumi:"recoveryWindowInDays"`
 	// Specifies whether automatic rotation is enabled for this secret.
@@ -101,7 +101,7 @@ type SecretState struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	Policy pulumi.StringPtrInput
+	Policy     pulumi.StringPtrInput
 	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
 	RecoveryWindowInDays pulumi.IntPtrInput
 	// Specifies whether automatic rotation is enabled for this secret.
@@ -127,7 +127,7 @@ type secretArgs struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	Policy *string `pulumi:"policy"`
+	Policy     *string `pulumi:"policy"`
 	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
 	RecoveryWindowInDays *int `pulumi:"recoveryWindowInDays"`
 	// Specifies the ARN of the Lambda function that can rotate the secret.
@@ -148,7 +148,7 @@ type SecretArgs struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	Policy pulumi.StringPtrInput
+	Policy     pulumi.StringPtrInput
 	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
 	RecoveryWindowInDays pulumi.IntPtrInput
 	// Specifies the ARN of the Lambda function that can rotate the secret.
@@ -162,4 +162,3 @@ type SecretArgs struct {
 func (SecretArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*secretArgs)(nil)).Elem()
 }
-

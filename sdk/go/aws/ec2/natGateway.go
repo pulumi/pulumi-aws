@@ -120,4 +120,3 @@ type NatGatewayArgs struct {
 func (NatGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*natGatewayArgs)(nil)).Elem()
 }
-

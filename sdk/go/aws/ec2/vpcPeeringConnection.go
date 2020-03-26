@@ -206,4 +206,3 @@ type VpcPeeringConnectionArgs struct {
 func (VpcPeeringConnectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcPeeringConnectionArgs)(nil)).Elem()
 }
-

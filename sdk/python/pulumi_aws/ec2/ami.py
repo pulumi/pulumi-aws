@@ -23,13 +23,20 @@ class Ami(pulumi.CustomResource):
     Nested block describing an EBS block device that should be
     attached to created instances. The structure of this block is described below.
 
-      * `deleteOnTermination` (`bool`)
-      * `device_name` (`str`)
-      * `encrypted` (`bool`)
-      * `iops` (`float`)
-      * `snapshot_id` (`str`)
-      * `volume_size` (`float`)
-      * `volumeType` (`str`)
+      * `deleteOnTermination` (`bool`) - Boolean controlling whether the EBS volumes created to
+        support each created instance will be deleted once that instance is terminated.
+      * `device_name` (`str`) - The path at which the device is exposed to created instances.
+      * `encrypted` (`bool`) - Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+      * `iops` (`float`) - Number of I/O operations per second the
+        created volumes will support.
+      * `snapshot_id` (`str`) - The id of an EBS snapshot that will be used to initialize the created
+        EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
+        snapshot.
+      * `volume_size` (`float`) - The size of created volumes in GiB.
+        If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
+        as the selected snapshot.
+      * `volumeType` (`str`) - The type of EBS volume to create. Can be one of "standard" (the
+        default), "io1" or "gp2".
     """
     ena_support: pulumi.Output[bool]
     """
@@ -40,8 +47,9 @@ class Ami(pulumi.CustomResource):
     Nested block describing an ephemeral block device that
     should be attached to created instances. The structure of this block is described below.
 
-      * `device_name` (`str`)
-      * `virtualName` (`str`)
+      * `device_name` (`str`) - The path at which the device is exposed to created instances.
+      * `virtualName` (`str`) - A name for the ephemeral device, of the form "ephemeralN" where
+        *N* is a volume number starting from zero.
     """
     image_location: pulumi.Output[str]
     """
@@ -125,18 +133,26 @@ class Ami(pulumi.CustomResource):
 
         The **ebs_block_devices** object supports the following:
 
-          * `deleteOnTermination` (`pulumi.Input[bool]`)
-          * `device_name` (`pulumi.Input[str]`)
-          * `encrypted` (`pulumi.Input[bool]`)
-          * `iops` (`pulumi.Input[float]`)
-          * `snapshot_id` (`pulumi.Input[str]`)
-          * `volume_size` (`pulumi.Input[float]`)
-          * `volumeType` (`pulumi.Input[str]`)
+          * `deleteOnTermination` (`pulumi.Input[bool]`) - Boolean controlling whether the EBS volumes created to
+            support each created instance will be deleted once that instance is terminated.
+          * `device_name` (`pulumi.Input[str]`) - The path at which the device is exposed to created instances.
+          * `encrypted` (`pulumi.Input[bool]`) - Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+          * `iops` (`pulumi.Input[float]`) - Number of I/O operations per second the
+            created volumes will support.
+          * `snapshot_id` (`pulumi.Input[str]`) - The id of an EBS snapshot that will be used to initialize the created
+            EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
+            snapshot.
+          * `volume_size` (`pulumi.Input[float]`) - The size of created volumes in GiB.
+            If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
+            as the selected snapshot.
+          * `volumeType` (`pulumi.Input[str]`) - The type of EBS volume to create. Can be one of "standard" (the
+            default), "io1" or "gp2".
 
         The **ephemeral_block_devices** object supports the following:
 
-          * `device_name` (`pulumi.Input[str]`)
-          * `virtualName` (`pulumi.Input[str]`)
+          * `device_name` (`pulumi.Input[str]`) - The path at which the device is exposed to created instances.
+          * `virtualName` (`pulumi.Input[str]`) - A name for the ephemeral device, of the form "ephemeralN" where
+            *N* is a volume number starting from zero.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -210,18 +226,26 @@ class Ami(pulumi.CustomResource):
 
         The **ebs_block_devices** object supports the following:
 
-          * `deleteOnTermination` (`pulumi.Input[bool]`)
-          * `device_name` (`pulumi.Input[str]`)
-          * `encrypted` (`pulumi.Input[bool]`)
-          * `iops` (`pulumi.Input[float]`)
-          * `snapshot_id` (`pulumi.Input[str]`)
-          * `volume_size` (`pulumi.Input[float]`)
-          * `volumeType` (`pulumi.Input[str]`)
+          * `deleteOnTermination` (`pulumi.Input[bool]`) - Boolean controlling whether the EBS volumes created to
+            support each created instance will be deleted once that instance is terminated.
+          * `device_name` (`pulumi.Input[str]`) - The path at which the device is exposed to created instances.
+          * `encrypted` (`pulumi.Input[bool]`) - Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+          * `iops` (`pulumi.Input[float]`) - Number of I/O operations per second the
+            created volumes will support.
+          * `snapshot_id` (`pulumi.Input[str]`) - The id of an EBS snapshot that will be used to initialize the created
+            EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
+            snapshot.
+          * `volume_size` (`pulumi.Input[float]`) - The size of created volumes in GiB.
+            If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
+            as the selected snapshot.
+          * `volumeType` (`pulumi.Input[str]`) - The type of EBS volume to create. Can be one of "standard" (the
+            default), "io1" or "gp2".
 
         The **ephemeral_block_devices** object supports the following:
 
-          * `device_name` (`pulumi.Input[str]`)
-          * `virtualName` (`pulumi.Input[str]`)
+          * `device_name` (`pulumi.Input[str]`) - The path at which the device is exposed to created instances.
+          * `virtualName` (`pulumi.Input[str]`) - A name for the ephemeral device, of the form "ephemeralN" where
+            *N* is a volume number starting from zero.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

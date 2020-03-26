@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Waf
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rate_based_rule.html.markdown.
         /// </summary>
+        [Obsolete("Use GetRateBasedRule.InvokeAsync() instead")]
         public static Task<GetRateBasedRuleResult> GetRateBasedRule(GetRateBasedRuleArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRateBasedRuleResult>("aws:waf/getRateBasedRule:getRateBasedRule", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetRateBasedRule
+    {
+        /// <summary>
+        /// `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rate_based_rule.html.markdown.
+        /// </summary>
+        public static Task<GetRateBasedRuleResult> InvokeAsync(GetRateBasedRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRateBasedRuleResult>("aws:waf/getRateBasedRule:getRateBasedRule", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

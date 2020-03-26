@@ -18,7 +18,20 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpcs.html.markdown.
         /// </summary>
+        [Obsolete("Use GetVpcs.InvokeAsync() instead")]
         public static Task<GetVpcsResult> GetVpcs(GetVpcsArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcsResult>("aws:ec2/getVpcs:getVpcs", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetVpcs
+    {
+        /// <summary>
+        /// This resource can be useful for getting back a list of VPC Ids for a region.
+        /// 
+        /// The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpcs.html.markdown.
+        /// </summary>
+        public static Task<GetVpcsResult> InvokeAsync(GetVpcsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpcsResult>("aws:ec2/getVpcs:getVpcs", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

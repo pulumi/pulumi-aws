@@ -26,22 +26,25 @@ class DeploymentConfig(pulumi.CustomResource):
     """
     A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
 
-      * `type` (`str`)
-      * `value` (`float`)
+      * `type` (`str`) - The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
+      * `value` (`float`) - The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as
+        a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the
+        deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances.
+        When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances as an absolute value.
     """
     traffic_routing_config: pulumi.Output[dict]
     """
     A traffic_routing_config block. Traffic Routing Config is documented below.
 
-      * `timeBasedCanary` (`dict`)
-        * `interval` (`float`)
-        * `percentage` (`float`)
+      * `timeBasedCanary` (`dict`) - The time based canary configuration information. If `type` is `TimeBasedLinear`, use `time_based_linear` instead.
+        * `interval` (`float`) - The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
+        * `percentage` (`float`) - The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
 
-      * `timeBasedLinear` (`dict`)
-        * `interval` (`float`)
-        * `percentage` (`float`)
+      * `timeBasedLinear` (`dict`) - The time based linear configuration information. If `type` is `TimeBasedCanary`, use `time_based_canary` instead.
+        * `interval` (`float`) - The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
+        * `percentage` (`float`) - The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
 
-      * `type` (`str`)
+      * `type` (`str`) - Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
     """
     def __init__(__self__, resource_name, opts=None, compute_platform=None, deployment_config_name=None, minimum_healthy_hosts=None, traffic_routing_config=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -58,20 +61,23 @@ class DeploymentConfig(pulumi.CustomResource):
 
         The **minimum_healthy_hosts** object supports the following:
 
-          * `type` (`pulumi.Input[str]`)
-          * `value` (`pulumi.Input[float]`)
+          * `type` (`pulumi.Input[str]`) - The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
+          * `value` (`pulumi.Input[float]`) - The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as
+            a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the
+            deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances.
+            When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances as an absolute value.
 
         The **traffic_routing_config** object supports the following:
 
-          * `timeBasedCanary` (`pulumi.Input[dict]`)
-            * `interval` (`pulumi.Input[float]`)
-            * `percentage` (`pulumi.Input[float]`)
+          * `timeBasedCanary` (`pulumi.Input[dict]`) - The time based canary configuration information. If `type` is `TimeBasedLinear`, use `time_based_linear` instead.
+            * `interval` (`pulumi.Input[float]`) - The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
+            * `percentage` (`pulumi.Input[float]`) - The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
 
-          * `timeBasedLinear` (`pulumi.Input[dict]`)
-            * `interval` (`pulumi.Input[float]`)
-            * `percentage` (`pulumi.Input[float]`)
+          * `timeBasedLinear` (`pulumi.Input[dict]`) - The time based linear configuration information. If `type` is `TimeBasedCanary`, use `time_based_canary` instead.
+            * `interval` (`pulumi.Input[float]`) - The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
+            * `percentage` (`pulumi.Input[float]`) - The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
 
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -120,20 +126,23 @@ class DeploymentConfig(pulumi.CustomResource):
 
         The **minimum_healthy_hosts** object supports the following:
 
-          * `type` (`pulumi.Input[str]`)
-          * `value` (`pulumi.Input[float]`)
+          * `type` (`pulumi.Input[str]`) - The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
+          * `value` (`pulumi.Input[float]`) - The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as
+            a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the
+            deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances.
+            When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances as an absolute value.
 
         The **traffic_routing_config** object supports the following:
 
-          * `timeBasedCanary` (`pulumi.Input[dict]`)
-            * `interval` (`pulumi.Input[float]`)
-            * `percentage` (`pulumi.Input[float]`)
+          * `timeBasedCanary` (`pulumi.Input[dict]`) - The time based canary configuration information. If `type` is `TimeBasedLinear`, use `time_based_linear` instead.
+            * `interval` (`pulumi.Input[float]`) - The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
+            * `percentage` (`pulumi.Input[float]`) - The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
 
-          * `timeBasedLinear` (`pulumi.Input[dict]`)
-            * `interval` (`pulumi.Input[float]`)
-            * `percentage` (`pulumi.Input[float]`)
+          * `timeBasedLinear` (`pulumi.Input[dict]`) - The time based linear configuration information. If `type` is `TimeBasedCanary`, use `time_based_canary` instead.
+            * `interval` (`pulumi.Input[float]`) - The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
+            * `percentage` (`pulumi.Input[float]`) - The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
 
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

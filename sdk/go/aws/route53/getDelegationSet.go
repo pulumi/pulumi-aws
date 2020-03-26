@@ -28,11 +28,9 @@ type LookupDelegationSetArgs struct {
 	Id string `pulumi:"id"`
 }
 
-
 // A collection of values returned by getDelegationSet.
 type LookupDelegationSetResult struct {
-	CallerReference string `pulumi:"callerReference"`
-	Id string `pulumi:"id"`
-	NameServers []string `pulumi:"nameServers"`
+	CallerReference string   `pulumi:"callerReference"`
+	Id              string   `pulumi:"id"`
+	NameServers     []string `pulumi:"nameServers"`
 }
-

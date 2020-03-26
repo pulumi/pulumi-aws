@@ -92,4 +92,3 @@ type VpnConnectionRouteArgs struct {
 func (VpnConnectionRouteArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnConnectionRouteArgs)(nil)).Elem()
 }
-

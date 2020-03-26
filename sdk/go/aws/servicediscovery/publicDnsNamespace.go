@@ -97,4 +97,3 @@ type PublicDnsNamespaceArgs struct {
 func (PublicDnsNamespaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*publicDnsNamespaceArgs)(nil)).Elem()
 }
-

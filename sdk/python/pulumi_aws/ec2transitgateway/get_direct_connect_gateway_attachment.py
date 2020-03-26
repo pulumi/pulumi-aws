@@ -51,6 +51,7 @@ def get_direct_connect_gateway_attachment(dx_gateway_id=None,tags=None,transit_g
 
 
     :param str dx_gateway_id: Identifier of the Direct Connect Gateway.
+    :param dict tags: Key-value tags for the EC2 Transit Gateway Attachment
     :param str transit_gateway_id: Identifier of the EC2 Transit Gateway.
     """
     __args__ = dict()

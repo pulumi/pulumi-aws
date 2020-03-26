@@ -53,6 +53,9 @@ export interface GetStackArgs {
      * The name of the stack
      */
     readonly name: string;
+    /**
+     * A map of tags associated with this stack.
+     */
     readonly tags?: {[key: string]: any};
 }
 

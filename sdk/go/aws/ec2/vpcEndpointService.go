@@ -161,4 +161,3 @@ type VpcEndpointServiceArgs struct {
 func (VpcEndpointServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEndpointServiceArgs)(nil)).Elem()
 }
-

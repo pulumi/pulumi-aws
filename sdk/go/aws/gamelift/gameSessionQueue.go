@@ -121,4 +121,3 @@ type GameSessionQueueArgs struct {
 func (GameSessionQueueArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gameSessionQueueArgs)(nil)).Elem()
 }
-

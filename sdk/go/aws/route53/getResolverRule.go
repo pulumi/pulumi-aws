@@ -32,27 +32,26 @@ type LookupResolverRuleArgs struct {
 	ResolverRuleId *string `pulumi:"resolverRuleId"`
 	// The rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolverRuleId`.
 	RuleType *string `pulumi:"ruleType"`
+	// A mapping of tags assigned to the resolver rule.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getResolverRule.
 type LookupResolverRuleResult struct {
 	// The ARN (Amazon Resource Name) for the resolver rule.
-	Arn string `pulumi:"arn"`
+	Arn        string `pulumi:"arn"`
 	DomainName string `pulumi:"domainName"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
-	OwnerId string `pulumi:"ownerId"`
+	OwnerId            string `pulumi:"ownerId"`
 	ResolverEndpointId string `pulumi:"resolverEndpointId"`
-	ResolverRuleId string `pulumi:"resolverRuleId"`
-	RuleType string `pulumi:"ruleType"`
+	ResolverRuleId     string `pulumi:"resolverRuleId"`
+	RuleType           string `pulumi:"ruleType"`
 	// Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
 	// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
 	ShareStatus string `pulumi:"shareStatus"`
 	// A mapping of tags assigned to the resolver rule.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-

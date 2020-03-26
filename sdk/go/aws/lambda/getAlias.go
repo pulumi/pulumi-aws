@@ -28,13 +28,12 @@ type LookupAliasArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getAlias.
 type LookupAliasResult struct {
 	// The Amazon Resource Name (ARN) identifying the Lambda function alias.
 	Arn string `pulumi:"arn"`
 	// Description of alias.
-	Description string `pulumi:"description"`
+	Description  string `pulumi:"description"`
 	FunctionName string `pulumi:"functionName"`
 	// Lambda function version which the alias uses.
 	FunctionVersion string `pulumi:"functionVersion"`
@@ -42,6 +41,5 @@ type LookupAliasResult struct {
 	Id string `pulumi:"id"`
 	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
 	InvokeArn string `pulumi:"invokeArn"`
-	Name string `pulumi:"name"`
+	Name      string `pulumi:"name"`
 }
-

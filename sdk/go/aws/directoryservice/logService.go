@@ -92,4 +92,3 @@ type LogServiceArgs struct {
 func (LogServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logServiceArgs)(nil)).Elem()
 }
-

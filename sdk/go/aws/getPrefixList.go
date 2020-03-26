@@ -34,7 +34,6 @@ type GetPrefixListArgs struct {
 	PrefixListId *string `pulumi:"prefixListId"`
 }
 
-
 // A collection of values returned by getPrefixList.
 type GetPrefixListResult struct {
 	// The list of CIDR blocks for the AWS service associated
@@ -43,7 +42,6 @@ type GetPrefixListResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the selected prefix list.
-	Name string `pulumi:"name"`
+	Name         string  `pulumi:"name"`
 	PrefixListId *string `pulumi:"prefixListId"`
 }
-

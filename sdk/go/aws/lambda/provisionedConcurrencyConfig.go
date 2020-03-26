@@ -105,4 +105,3 @@ type ProvisionedConcurrencyConfigArgs struct {
 func (ProvisionedConcurrencyConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*provisionedConcurrencyConfigArgs)(nil)).Elem()
 }
-

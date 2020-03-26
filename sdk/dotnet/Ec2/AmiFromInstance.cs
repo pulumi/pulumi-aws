@@ -392,24 +392,52 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class AmiFromInstanceEbsBlockDevicesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Boolean controlling whether the EBS volumes created to
+        /// support each created instance will be deleted once that instance is terminated.
+        /// </summary>
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
 
+        /// <summary>
+        /// The path at which the device is exposed to created instances.
+        /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
+        /// <summary>
+        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
 
+        /// <summary>
+        /// Number of I/O operations per second the
+        /// created volumes will support.
+        /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
+        /// <summary>
+        /// The id of an EBS snapshot that will be used to initialize the created
+        /// EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
+        /// snapshot.
+        /// </summary>
         [Input("snapshotId")]
         public Input<string>? SnapshotId { get; set; }
 
+        /// <summary>
+        /// The size of created volumes in GiB.
+        /// If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
+        /// as the selected snapshot.
+        /// </summary>
         [Input("volumeSize")]
         public Input<int>? VolumeSize { get; set; }
 
+        /// <summary>
+        /// The type of EBS volume to create. Can be one of "standard" (the
+        /// default), "io1" or "gp2".
+        /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
 
@@ -420,24 +448,52 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class AmiFromInstanceEbsBlockDevicesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Boolean controlling whether the EBS volumes created to
+        /// support each created instance will be deleted once that instance is terminated.
+        /// </summary>
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
 
+        /// <summary>
+        /// The path at which the device is exposed to created instances.
+        /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
+        /// <summary>
+        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
 
+        /// <summary>
+        /// Number of I/O operations per second the
+        /// created volumes will support.
+        /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
+        /// <summary>
+        /// The id of an EBS snapshot that will be used to initialize the created
+        /// EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
+        /// snapshot.
+        /// </summary>
         [Input("snapshotId")]
         public Input<string>? SnapshotId { get; set; }
 
+        /// <summary>
+        /// The size of created volumes in GiB.
+        /// If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
+        /// as the selected snapshot.
+        /// </summary>
         [Input("volumeSize")]
         public Input<int>? VolumeSize { get; set; }
 
+        /// <summary>
+        /// The type of EBS volume to create. Can be one of "standard" (the
+        /// default), "io1" or "gp2".
+        /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
 
@@ -448,9 +504,16 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class AmiFromInstanceEphemeralBlockDevicesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path at which the device is exposed to created instances.
+        /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
+        /// <summary>
+        /// A name for the ephemeral device, of the form "ephemeralN" where
+        /// *N* is a volume number starting from zero.
+        /// </summary>
         [Input("virtualName")]
         public Input<string>? VirtualName { get; set; }
 
@@ -461,9 +524,16 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class AmiFromInstanceEphemeralBlockDevicesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path at which the device is exposed to created instances.
+        /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
+        /// <summary>
+        /// A name for the ephemeral device, of the form "ephemeralN" where
+        /// *N* is a volume number starting from zero.
+        /// </summary>
         [Input("virtualName")]
         public Input<string>? VirtualName { get; set; }
 
@@ -479,12 +549,40 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class AmiFromInstanceEbsBlockDevices
     {
+        /// <summary>
+        /// Boolean controlling whether the EBS volumes created to
+        /// support each created instance will be deleted once that instance is terminated.
+        /// </summary>
         public readonly bool DeleteOnTermination;
+        /// <summary>
+        /// The path at which the device is exposed to created instances.
+        /// </summary>
         public readonly string DeviceName;
+        /// <summary>
+        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        /// </summary>
         public readonly bool Encrypted;
+        /// <summary>
+        /// Number of I/O operations per second the
+        /// created volumes will support.
+        /// </summary>
         public readonly int Iops;
+        /// <summary>
+        /// The id of an EBS snapshot that will be used to initialize the created
+        /// EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
+        /// snapshot.
+        /// </summary>
         public readonly string SnapshotId;
+        /// <summary>
+        /// The size of created volumes in GiB.
+        /// If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
+        /// as the selected snapshot.
+        /// </summary>
         public readonly int VolumeSize;
+        /// <summary>
+        /// The type of EBS volume to create. Can be one of "standard" (the
+        /// default), "io1" or "gp2".
+        /// </summary>
         public readonly string VolumeType;
 
         [OutputConstructor]
@@ -510,7 +608,14 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class AmiFromInstanceEphemeralBlockDevices
     {
+        /// <summary>
+        /// The path at which the device is exposed to created instances.
+        /// </summary>
         public readonly string DeviceName;
+        /// <summary>
+        /// A name for the ephemeral device, of the form "ephemeralN" where
+        /// *N* is a volume number starting from zero.
+        /// </summary>
         public readonly string VirtualName;
 
         [OutputConstructor]

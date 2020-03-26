@@ -46,6 +46,9 @@ export function getVpnAttachment(args: GetVpnAttachmentArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getVpnAttachment.
  */
 export interface GetVpnAttachmentArgs {
+    /**
+     * Key-value tags for the EC2 Transit Gateway VPN Attachment
+     */
     readonly tags?: {[key: string]: any};
     /**
      * Identifier of the EC2 Transit Gateway.

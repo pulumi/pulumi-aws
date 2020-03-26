@@ -147,4 +147,3 @@ type ActivationArgs struct {
 func (ActivationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*activationArgs)(nil)).Elem()
 }
-

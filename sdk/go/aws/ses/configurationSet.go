@@ -26,6 +26,12 @@ func NewConfigurationSet(ctx *pulumi.Context,
 	if args == nil {
 		args = &ConfigurationSetArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("aws:ses/confgurationSet:ConfgurationSet"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ConfigurationSet
 	err := ctx.RegisterResource("aws:ses/configurationSet:ConfigurationSet", name, args, &resource, opts...)
 	if err != nil {
@@ -75,4 +81,3 @@ type ConfigurationSetArgs struct {
 func (ConfigurationSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationSetArgs)(nil)).Elem()
 }
-

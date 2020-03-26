@@ -28,7 +28,6 @@ type LookupUserArgs struct {
 	UserName string `pulumi:"userName"`
 }
 
-
 // A collection of values returned by getUser.
 type LookupUserResult struct {
 	// The Amazon Resource Name (ARN) assigned by AWS for this user.
@@ -44,4 +43,3 @@ type LookupUserResult struct {
 	// The name associated to this User
 	UserName string `pulumi:"userName"`
 }
-

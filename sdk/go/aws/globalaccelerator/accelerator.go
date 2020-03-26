@@ -24,8 +24,8 @@ type Accelerator struct {
 	// is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
+	Enabled      pulumi.BoolPtrOutput `pulumi:"enabled"`
+	HostedZoneId pulumi.StringOutput  `pulumi:"hostedZoneId"`
 	// The value for the address type must be `IPV4`.
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
 	// IP address set associated with the accelerator.
@@ -70,7 +70,7 @@ type acceleratorState struct {
 	// is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
 	DnsName *string `pulumi:"dnsName"`
 	// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
-	Enabled *bool `pulumi:"enabled"`
+	Enabled      *bool   `pulumi:"enabled"`
 	HostedZoneId *string `pulumi:"hostedZoneId"`
 	// The value for the address type must be `IPV4`.
 	IpAddressType *string `pulumi:"ipAddressType"`
@@ -89,7 +89,7 @@ type AcceleratorState struct {
 	// is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
 	DnsName pulumi.StringPtrInput
 	// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
-	Enabled pulumi.BoolPtrInput
+	Enabled      pulumi.BoolPtrInput
 	HostedZoneId pulumi.StringPtrInput
 	// The value for the address type must be `IPV4`.
 	IpAddressType pulumi.StringPtrInput
@@ -129,4 +129,3 @@ type AcceleratorArgs struct {
 func (AcceleratorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*acceleratorArgs)(nil)).Elem()
 }
-

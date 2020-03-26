@@ -82,7 +82,7 @@ export class AmiCopy extends pulumi.CustomResource {
      */
     public /*out*/ readonly enaSupport!: pulumi.Output<boolean>;
     /**
-     * Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+     * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
      */
     public readonly encrypted!: pulumi.Output<boolean | undefined>;
     /**
@@ -101,7 +101,9 @@ export class AmiCopy extends pulumi.CustomResource {
      */
     public /*out*/ readonly kernelId!: pulumi.Output<string>;
     /**
-     * The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+     * The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+     * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+     * if this parameter is not specified, the default CMK for EBS is used
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     public /*out*/ readonly manageEbsSnapshots!: pulumi.Output<boolean>;
@@ -237,7 +239,7 @@ export interface AmiCopyState {
      */
     readonly enaSupport?: pulumi.Input<boolean>;
     /**
-     * Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+     * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
      */
     readonly encrypted?: pulumi.Input<boolean>;
     /**
@@ -256,7 +258,9 @@ export interface AmiCopyState {
      */
     readonly kernelId?: pulumi.Input<string>;
     /**
-     * The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+     * The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+     * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+     * if this parameter is not specified, the default CMK for EBS is used
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     readonly manageEbsSnapshots?: pulumi.Input<boolean>;
@@ -315,7 +319,7 @@ export interface AmiCopyArgs {
      */
     readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiCopyEbsBlockDevice>[]>;
     /**
-     * Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+     * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
      */
     readonly encrypted?: pulumi.Input<boolean>;
     /**
@@ -324,7 +328,9 @@ export interface AmiCopyArgs {
      */
     readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiCopyEphemeralBlockDevice>[]>;
     /**
-     * The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+     * The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+     * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+     * if this parameter is not specified, the default CMK for EBS is used
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**

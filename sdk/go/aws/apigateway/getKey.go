@@ -25,9 +25,9 @@ func GetKey(ctx *pulumi.Context, args *GetKeyArgs, opts ...pulumi.InvokeOption) 
 type GetKeyArgs struct {
 	// The ID of the API Key to look up.
 	Id string `pulumi:"id"`
+	// A mapping of tags for the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getKey.
 type GetKeyResult struct {
@@ -48,4 +48,3 @@ type GetKeyResult struct {
 	// Set to the value of the API Key.
 	Value string `pulumi:"value"`
 }
-

@@ -18,15 +18,15 @@ class Webhook(pulumi.CustomResource):
     """
     An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
 
-      * `allowedIpRange` (`str`)
-      * `secretToken` (`str`)
+      * `allowedIpRange` (`str`) - A valid CIDR block for `IP` filtering. Required for `IP`.
+      * `secretToken` (`str`) - The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`'s `configuration` block. Required for `GITHUB_HMAC`.
     """
     filters: pulumi.Output[list]
     """
     One or more `filter` blocks. Filter blocks are documented below.
 
-      * `jsonPath` (`str`)
-      * `matchEquals` (`str`)
+      * `jsonPath` (`str`) - The [JSON path](https://github.com/json-path/JsonPath) to filter on.
+      * `matchEquals` (`str`) - The value to match on (e.g. `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
     """
     name: pulumi.Output[str]
     """
@@ -66,13 +66,13 @@ class Webhook(pulumi.CustomResource):
 
         The **authentication_configuration** object supports the following:
 
-          * `allowedIpRange` (`pulumi.Input[str]`)
-          * `secretToken` (`pulumi.Input[str]`)
+          * `allowedIpRange` (`pulumi.Input[str]`) - A valid CIDR block for `IP` filtering. Required for `IP`.
+          * `secretToken` (`pulumi.Input[str]`) - The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`'s `configuration` block. Required for `GITHUB_HMAC`.
 
         The **filters** object supports the following:
 
-          * `jsonPath` (`pulumi.Input[str]`)
-          * `matchEquals` (`pulumi.Input[str]`)
+          * `jsonPath` (`pulumi.Input[str]`) - The [JSON path](https://github.com/json-path/JsonPath) to filter on.
+          * `matchEquals` (`pulumi.Input[str]`) - The value to match on (e.g. `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -133,13 +133,13 @@ class Webhook(pulumi.CustomResource):
 
         The **authentication_configuration** object supports the following:
 
-          * `allowedIpRange` (`pulumi.Input[str]`)
-          * `secretToken` (`pulumi.Input[str]`)
+          * `allowedIpRange` (`pulumi.Input[str]`) - A valid CIDR block for `IP` filtering. Required for `IP`.
+          * `secretToken` (`pulumi.Input[str]`) - The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`'s `configuration` block. Required for `GITHUB_HMAC`.
 
         The **filters** object supports the following:
 
-          * `jsonPath` (`pulumi.Input[str]`)
-          * `matchEquals` (`pulumi.Input[str]`)
+          * `jsonPath` (`pulumi.Input[str]`) - The [JSON path](https://github.com/json-path/JsonPath) to filter on.
+          * `matchEquals` (`pulumi.Input[str]`) - The value to match on (e.g. `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

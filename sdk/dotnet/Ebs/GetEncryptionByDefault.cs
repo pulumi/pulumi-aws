@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Ebs
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_encryption_by_default.html.markdown.
         /// </summary>
+        [Obsolete("Use GetEncryptionByDefault.InvokeAsync() instead")]
         public static Task<GetEncryptionByDefaultResult> GetEncryptionByDefault(InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionByDefaultResult>("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetEncryptionByDefault
+    {
+        /// <summary>
+        /// Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_encryption_by_default.html.markdown.
+        /// </summary>
+        public static Task<GetEncryptionByDefaultResult> InvokeAsync(InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionByDefaultResult>("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", InvokeArgs.Empty, options.WithVersion());
     }
 

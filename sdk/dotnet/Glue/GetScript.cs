@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Glue
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/glue_script.html.markdown.
         /// </summary>
+        [Obsolete("Use GetScript.InvokeAsync() instead")]
         public static Task<GetScriptResult> GetScript(GetScriptArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScriptResult>("aws:glue/getScript:getScript", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetScript
+    {
+        /// <summary>
+        /// Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/glue_script.html.markdown.
+        /// </summary>
+        public static Task<GetScriptResult> InvokeAsync(GetScriptArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScriptResult>("aws:glue/getScript:getScript", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

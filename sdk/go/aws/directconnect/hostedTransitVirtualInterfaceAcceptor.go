@@ -105,4 +105,3 @@ type HostedTransitVirtualInterfaceAcceptorArgs struct {
 func (HostedTransitVirtualInterfaceAcceptorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostedTransitVirtualInterfaceAcceptorArgs)(nil)).Elem()
 }
-

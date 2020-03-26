@@ -141,4 +141,3 @@ type JobQueueArgs struct {
 func (JobQueueArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobQueueArgs)(nil)).Elem()
 }
-

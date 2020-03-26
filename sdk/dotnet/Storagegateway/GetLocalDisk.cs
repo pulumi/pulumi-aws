@@ -16,7 +16,18 @@ namespace Pulumi.Aws.StorageGateway
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/storagegateway_local_disk.html.markdown.
         /// </summary>
+        [Obsolete("Use GetLocalDisk.InvokeAsync() instead")]
         public static Task<GetLocalDiskResult> GetLocalDisk(GetLocalDiskArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLocalDiskResult>("aws:storagegateway/getLocalDisk:getLocalDisk", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetLocalDisk
+    {
+        /// <summary>
+        /// Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/storagegateway_local_disk.html.markdown.
+        /// </summary>
+        public static Task<GetLocalDiskResult> InvokeAsync(GetLocalDiskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLocalDiskResult>("aws:storagegateway/getLocalDisk:getLocalDisk", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

@@ -163,4 +163,3 @@ type BgpPeerArgs struct {
 func (BgpPeerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bgpPeerArgs)(nil)).Elem()
 }
-

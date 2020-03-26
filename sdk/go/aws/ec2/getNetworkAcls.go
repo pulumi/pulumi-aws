@@ -28,15 +28,13 @@ type GetNetworkAclsArgs struct {
 	VpcId *string `pulumi:"vpcId"`
 }
 
-
 // A collection of values returned by getNetworkAcls.
 type GetNetworkAclsResult struct {
 	Filters []GetNetworkAclsFilter `pulumi:"filters"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of all the network ACL ids found. This data source will fail if none are found.
-	Ids []string `pulumi:"ids"`
-	Tags map[string]interface{} `pulumi:"tags"`
-	VpcId *string `pulumi:"vpcId"`
+	Ids   []string               `pulumi:"ids"`
+	Tags  map[string]interface{} `pulumi:"tags"`
+	VpcId *string                `pulumi:"vpcId"`
 }
-

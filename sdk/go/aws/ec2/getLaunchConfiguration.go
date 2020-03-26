@@ -26,7 +26,6 @@ type LookupLaunchConfigurationArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getLaunchConfiguration.
 type LookupLaunchConfigurationResult struct {
 	// The Amazon Resource Name of the launch configuration.
@@ -68,4 +67,3 @@ type LookupLaunchConfigurationResult struct {
 	// The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
 	VpcClassicLinkSecurityGroups []string `pulumi:"vpcClassicLinkSecurityGroups"`
 }
-

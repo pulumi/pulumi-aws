@@ -86,6 +86,7 @@ def get_key(id=None,tags=None,opts=None):
 
 
     :param str id: The ID of the API Key to look up.
+    :param dict tags: A mapping of tags for the resource.
     """
     __args__ = dict()
 

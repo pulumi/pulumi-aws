@@ -179,4 +179,3 @@ type OrganizationManagedRuleArgs struct {
 func (OrganizationManagedRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationManagedRuleArgs)(nil)).Elem()
 }
-

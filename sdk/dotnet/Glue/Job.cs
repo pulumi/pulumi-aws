@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Glue
         public Output<int?> MaxRetries { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
+        /// The name you assign to this job. It must be unique in your account.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.Glue
         public Input<int>? MaxRetries { get; set; }
 
         /// <summary>
-        /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
+        /// The name you assign to this job. It must be unique in your account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -372,7 +372,7 @@ namespace Pulumi.Aws.Glue
         public Input<int>? MaxRetries { get; set; }
 
         /// <summary>
-        /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
+        /// The name you assign to this job. It must be unique in your account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

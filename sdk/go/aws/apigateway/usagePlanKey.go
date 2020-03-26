@@ -117,4 +117,3 @@ type UsagePlanKeyArgs struct {
 func (UsagePlanKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*usagePlanKeyArgs)(nil)).Elem()
 }
-

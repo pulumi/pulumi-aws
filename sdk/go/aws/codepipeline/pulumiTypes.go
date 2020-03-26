@@ -12,8 +12,11 @@ import (
 )
 
 type PipelineArtifactStore struct {
+	// The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
 	EncryptionKey *PipelineArtifactStoreEncryptionKey `pulumi:"encryptionKey"`
+	// The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3 bucket.
 	Location string `pulumi:"location"`
+	// The type of the artifact store, such as Amazon S3
 	Type string `pulumi:"type"`
 }
 
@@ -25,8 +28,11 @@ type PipelineArtifactStoreInput interface {
 }
 
 type PipelineArtifactStoreArgs struct {
+	// The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
 	EncryptionKey PipelineArtifactStoreEncryptionKeyPtrInput `pulumi:"encryptionKey"`
+	// The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3 bucket.
 	Location pulumi.StringInput `pulumi:"location"`
+	// The type of the artifact store, such as Amazon S3
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -59,7 +65,8 @@ type PipelineArtifactStorePtrInput interface {
 
 type pipelineArtifactStorePtrType PipelineArtifactStoreArgs
 
-func PipelineArtifactStorePtr(v *PipelineArtifactStoreArgs) PipelineArtifactStorePtrInput {	return (*pipelineArtifactStorePtrType)(v)
+func PipelineArtifactStorePtr(v *PipelineArtifactStoreArgs) PipelineArtifactStorePtrInput {
+	return (*pipelineArtifactStorePtrType)(v)
 }
 
 func (*pipelineArtifactStorePtrType) ElementType() reflect.Type {
@@ -74,7 +81,7 @@ func (i *pipelineArtifactStorePtrType) ToPipelineArtifactStorePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineArtifactStorePtrOutput)
 }
 
-type PipelineArtifactStoreOutput struct { *pulumi.OutputState }
+type PipelineArtifactStoreOutput struct{ *pulumi.OutputState }
 
 func (PipelineArtifactStoreOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipelineArtifactStore)(nil)).Elem()
@@ -97,19 +104,23 @@ func (o PipelineArtifactStoreOutput) ToPipelineArtifactStorePtrOutputWithContext
 		return &v
 	}).(PipelineArtifactStorePtrOutput)
 }
+
+// The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
 func (o PipelineArtifactStoreOutput) EncryptionKey() PipelineArtifactStoreEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v PipelineArtifactStore) *PipelineArtifactStoreEncryptionKey { return v.EncryptionKey }).(PipelineArtifactStoreEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v PipelineArtifactStore) *PipelineArtifactStoreEncryptionKey { return v.EncryptionKey }).(PipelineArtifactStoreEncryptionKeyPtrOutput)
 }
 
+// The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3 bucket.
 func (o PipelineArtifactStoreOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineArtifactStore) string { return v.Location }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineArtifactStore) string { return v.Location }).(pulumi.StringOutput)
 }
 
+// The type of the artifact store, such as Amazon S3
 func (o PipelineArtifactStoreOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineArtifactStore) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineArtifactStore) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type PipelineArtifactStorePtrOutput struct { *pulumi.OutputState}
+type PipelineArtifactStorePtrOutput struct{ *pulumi.OutputState }
 
 func (PipelineArtifactStorePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PipelineArtifactStore)(nil)).Elem()
@@ -124,24 +135,28 @@ func (o PipelineArtifactStorePtrOutput) ToPipelineArtifactStorePtrOutputWithCont
 }
 
 func (o PipelineArtifactStorePtrOutput) Elem() PipelineArtifactStoreOutput {
-	return o.ApplyT(func (v *PipelineArtifactStore) PipelineArtifactStore { return *v }).(PipelineArtifactStoreOutput)
+	return o.ApplyT(func(v *PipelineArtifactStore) PipelineArtifactStore { return *v }).(PipelineArtifactStoreOutput)
 }
 
+// The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
 func (o PipelineArtifactStorePtrOutput) EncryptionKey() PipelineArtifactStoreEncryptionKeyPtrOutput {
-	return o.ApplyT(func (v PipelineArtifactStore) *PipelineArtifactStoreEncryptionKey { return v.EncryptionKey }).(PipelineArtifactStoreEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v PipelineArtifactStore) *PipelineArtifactStoreEncryptionKey { return v.EncryptionKey }).(PipelineArtifactStoreEncryptionKeyPtrOutput)
 }
 
+// The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3 bucket.
 func (o PipelineArtifactStorePtrOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineArtifactStore) string { return v.Location }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineArtifactStore) string { return v.Location }).(pulumi.StringOutput)
 }
 
+// The type of the artifact store, such as Amazon S3
 func (o PipelineArtifactStorePtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineArtifactStore) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineArtifactStore) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type PipelineArtifactStoreEncryptionKey struct {
-	// The codepipeline ID.
+	// The KMS key ARN or ID
 	Id string `pulumi:"id"`
+	// The type of key; currently only `KMS` is supported
 	Type string `pulumi:"type"`
 }
 
@@ -153,8 +168,9 @@ type PipelineArtifactStoreEncryptionKeyInput interface {
 }
 
 type PipelineArtifactStoreEncryptionKeyArgs struct {
-	// The codepipeline ID.
+	// The KMS key ARN or ID
 	Id pulumi.StringInput `pulumi:"id"`
+	// The type of key; currently only `KMS` is supported
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -187,7 +203,8 @@ type PipelineArtifactStoreEncryptionKeyPtrInput interface {
 
 type pipelineArtifactStoreEncryptionKeyPtrType PipelineArtifactStoreEncryptionKeyArgs
 
-func PipelineArtifactStoreEncryptionKeyPtr(v *PipelineArtifactStoreEncryptionKeyArgs) PipelineArtifactStoreEncryptionKeyPtrInput {	return (*pipelineArtifactStoreEncryptionKeyPtrType)(v)
+func PipelineArtifactStoreEncryptionKeyPtr(v *PipelineArtifactStoreEncryptionKeyArgs) PipelineArtifactStoreEncryptionKeyPtrInput {
+	return (*pipelineArtifactStoreEncryptionKeyPtrType)(v)
 }
 
 func (*pipelineArtifactStoreEncryptionKeyPtrType) ElementType() reflect.Type {
@@ -202,7 +219,7 @@ func (i *pipelineArtifactStoreEncryptionKeyPtrType) ToPipelineArtifactStoreEncry
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineArtifactStoreEncryptionKeyPtrOutput)
 }
 
-type PipelineArtifactStoreEncryptionKeyOutput struct { *pulumi.OutputState }
+type PipelineArtifactStoreEncryptionKeyOutput struct{ *pulumi.OutputState }
 
 func (PipelineArtifactStoreEncryptionKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipelineArtifactStoreEncryptionKey)(nil)).Elem()
@@ -225,16 +242,18 @@ func (o PipelineArtifactStoreEncryptionKeyOutput) ToPipelineArtifactStoreEncrypt
 		return &v
 	}).(PipelineArtifactStoreEncryptionKeyPtrOutput)
 }
-// The codepipeline ID.
+
+// The KMS key ARN or ID
 func (o PipelineArtifactStoreEncryptionKeyOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineArtifactStoreEncryptionKey) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineArtifactStoreEncryptionKey) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The type of key; currently only `KMS` is supported
 func (o PipelineArtifactStoreEncryptionKeyOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineArtifactStoreEncryptionKey) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineArtifactStoreEncryptionKey) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type PipelineArtifactStoreEncryptionKeyPtrOutput struct { *pulumi.OutputState}
+type PipelineArtifactStoreEncryptionKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (PipelineArtifactStoreEncryptionKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PipelineArtifactStoreEncryptionKey)(nil)).Elem()
@@ -249,21 +268,23 @@ func (o PipelineArtifactStoreEncryptionKeyPtrOutput) ToPipelineArtifactStoreEncr
 }
 
 func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Elem() PipelineArtifactStoreEncryptionKeyOutput {
-	return o.ApplyT(func (v *PipelineArtifactStoreEncryptionKey) PipelineArtifactStoreEncryptionKey { return *v }).(PipelineArtifactStoreEncryptionKeyOutput)
+	return o.ApplyT(func(v *PipelineArtifactStoreEncryptionKey) PipelineArtifactStoreEncryptionKey { return *v }).(PipelineArtifactStoreEncryptionKeyOutput)
 }
 
-// The codepipeline ID.
+// The KMS key ARN or ID
 func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineArtifactStoreEncryptionKey) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineArtifactStoreEncryptionKey) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The type of key; currently only `KMS` is supported
 func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineArtifactStoreEncryptionKey) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineArtifactStoreEncryptionKey) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type PipelineStage struct {
+	// The action(s) to include in the stage. Defined as an `action` block below
 	Actions []PipelineStageAction `pulumi:"actions"`
-	// The name of the pipeline.
+	// The name of the stage.
 	Name string `pulumi:"name"`
 }
 
@@ -275,8 +296,9 @@ type PipelineStageInput interface {
 }
 
 type PipelineStageArgs struct {
+	// The action(s) to include in the stage. Defined as an `action` block below
 	Actions PipelineStageActionArrayInput `pulumi:"actions"`
-	// The name of the pipeline.
+	// The name of the stage.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -313,7 +335,7 @@ func (i PipelineStageArray) ToPipelineStageArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageArrayOutput)
 }
 
-type PipelineStageOutput struct { *pulumi.OutputState }
+type PipelineStageOutput struct{ *pulumi.OutputState }
 
 func (PipelineStageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipelineStage)(nil)).Elem()
@@ -327,16 +349,17 @@ func (o PipelineStageOutput) ToPipelineStageOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The action(s) to include in the stage. Defined as an `action` block below
 func (o PipelineStageOutput) Actions() PipelineStageActionArrayOutput {
-	return o.ApplyT(func (v PipelineStage) []PipelineStageAction { return v.Actions }).(PipelineStageActionArrayOutput)
+	return o.ApplyT(func(v PipelineStage) []PipelineStageAction { return v.Actions }).(PipelineStageActionArrayOutput)
 }
 
-// The name of the pipeline.
+// The name of the stage.
 func (o PipelineStageOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineStage) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineStage) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type PipelineStageArrayOutput struct { *pulumi.OutputState}
+type PipelineStageArrayOutput struct{ *pulumi.OutputState }
 
 func (PipelineStageArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PipelineStage)(nil)).Elem()
@@ -351,23 +374,31 @@ func (o PipelineStageArrayOutput) ToPipelineStageArrayOutputWithContext(ctx cont
 }
 
 func (o PipelineStageArrayOutput) Index(i pulumi.IntInput) PipelineStageOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PipelineStage {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineStage {
 		return vs[0].([]PipelineStage)[vs[1].(int)]
 	}).(PipelineStageOutput)
 }
 
 type PipelineStageAction struct {
+	// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
 	Category string `pulumi:"category"`
+	// A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
 	Configuration map[string]interface{} `pulumi:"configuration"`
+	// A list of artifact names to be worked on.
 	InputArtifacts []string `pulumi:"inputArtifacts"`
-	// The name of the pipeline.
+	// The action declaration's name.
 	Name string `pulumi:"name"`
+	// A list of artifact names to output. Output artifact names must be unique within a pipeline.
 	OutputArtifacts []string `pulumi:"outputArtifacts"`
+	// The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
 	Owner string `pulumi:"owner"`
+	// The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
 	Provider string `pulumi:"provider"`
-	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+	// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
 	RoleArn *string `pulumi:"roleArn"`
+	// The order in which actions are run.
 	RunOrder *int `pulumi:"runOrder"`
+	// A string that identifies the action type.
 	Version string `pulumi:"version"`
 }
 
@@ -379,17 +410,25 @@ type PipelineStageActionInput interface {
 }
 
 type PipelineStageActionArgs struct {
+	// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
 	Category pulumi.StringInput `pulumi:"category"`
+	// A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
 	Configuration pulumi.MapInput `pulumi:"configuration"`
+	// A list of artifact names to be worked on.
 	InputArtifacts pulumi.StringArrayInput `pulumi:"inputArtifacts"`
-	// The name of the pipeline.
+	// The action declaration's name.
 	Name pulumi.StringInput `pulumi:"name"`
+	// A list of artifact names to output. Output artifact names must be unique within a pipeline.
 	OutputArtifacts pulumi.StringArrayInput `pulumi:"outputArtifacts"`
+	// The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
 	Owner pulumi.StringInput `pulumi:"owner"`
+	// The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
 	Provider pulumi.StringInput `pulumi:"provider"`
-	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+	// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The order in which actions are run.
 	RunOrder pulumi.IntPtrInput `pulumi:"runOrder"`
+	// A string that identifies the action type.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -426,7 +465,7 @@ func (i PipelineStageActionArray) ToPipelineStageActionArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageActionArrayOutput)
 }
 
-type PipelineStageActionOutput struct { *pulumi.OutputState }
+type PipelineStageActionOutput struct{ *pulumi.OutputState }
 
 func (PipelineStageActionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipelineStageAction)(nil)).Elem()
@@ -440,49 +479,57 @@ func (o PipelineStageActionOutput) ToPipelineStageActionOutputWithContext(ctx co
 	return o
 }
 
+// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
 func (o PipelineStageActionOutput) Category() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineStageAction) string { return v.Category }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineStageAction) string { return v.Category }).(pulumi.StringOutput)
 }
 
+// A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
 func (o PipelineStageActionOutput) Configuration() pulumi.MapOutput {
-	return o.ApplyT(func (v PipelineStageAction) map[string]interface{} { return v.Configuration }).(pulumi.MapOutput)
+	return o.ApplyT(func(v PipelineStageAction) map[string]interface{} { return v.Configuration }).(pulumi.MapOutput)
 }
 
+// A list of artifact names to be worked on.
 func (o PipelineStageActionOutput) InputArtifacts() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PipelineStageAction) []string { return v.InputArtifacts }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PipelineStageAction) []string { return v.InputArtifacts }).(pulumi.StringArrayOutput)
 }
 
-// The name of the pipeline.
+// The action declaration's name.
 func (o PipelineStageActionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineStageAction) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineStageAction) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// A list of artifact names to output. Output artifact names must be unique within a pipeline.
 func (o PipelineStageActionOutput) OutputArtifacts() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PipelineStageAction) []string { return v.OutputArtifacts }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PipelineStageAction) []string { return v.OutputArtifacts }).(pulumi.StringArrayOutput)
 }
 
+// The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
 func (o PipelineStageActionOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineStageAction) string { return v.Owner }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineStageAction) string { return v.Owner }).(pulumi.StringOutput)
 }
 
+// The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
 func (o PipelineStageActionOutput) Provider() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineStageAction) string { return v.Provider }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineStageAction) string { return v.Provider }).(pulumi.StringOutput)
 }
 
-// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
 func (o PipelineStageActionOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineStageAction) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineStageAction) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The order in which actions are run.
 func (o PipelineStageActionOutput) RunOrder() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PipelineStageAction) *int { return v.RunOrder }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PipelineStageAction) *int { return v.RunOrder }).(pulumi.IntPtrOutput)
 }
 
+// A string that identifies the action type.
 func (o PipelineStageActionOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func (v PipelineStageAction) string { return v.Version }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PipelineStageAction) string { return v.Version }).(pulumi.StringOutput)
 }
 
-type PipelineStageActionArrayOutput struct { *pulumi.OutputState}
+type PipelineStageActionArrayOutput struct{ *pulumi.OutputState }
 
 func (PipelineStageActionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PipelineStageAction)(nil)).Elem()
@@ -497,13 +544,15 @@ func (o PipelineStageActionArrayOutput) ToPipelineStageActionArrayOutputWithCont
 }
 
 func (o PipelineStageActionArrayOutput) Index(i pulumi.IntInput) PipelineStageActionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PipelineStageAction {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineStageAction {
 		return vs[0].([]PipelineStageAction)[vs[1].(int)]
 	}).(PipelineStageActionOutput)
 }
 
 type WebhookAuthenticationConfiguration struct {
+	// A valid CIDR block for `IP` filtering. Required for `IP`.
 	AllowedIpRange *string `pulumi:"allowedIpRange"`
+	// The shared secret for the GitHub repository webhook. Set this as `secret` in your `githubRepositoryWebhook`'s `configuration` block. Required for `GITHUB_HMAC`.
 	SecretToken *string `pulumi:"secretToken"`
 }
 
@@ -515,7 +564,9 @@ type WebhookAuthenticationConfigurationInput interface {
 }
 
 type WebhookAuthenticationConfigurationArgs struct {
+	// A valid CIDR block for `IP` filtering. Required for `IP`.
 	AllowedIpRange pulumi.StringPtrInput `pulumi:"allowedIpRange"`
+	// The shared secret for the GitHub repository webhook. Set this as `secret` in your `githubRepositoryWebhook`'s `configuration` block. Required for `GITHUB_HMAC`.
 	SecretToken pulumi.StringPtrInput `pulumi:"secretToken"`
 }
 
@@ -548,7 +599,8 @@ type WebhookAuthenticationConfigurationPtrInput interface {
 
 type webhookAuthenticationConfigurationPtrType WebhookAuthenticationConfigurationArgs
 
-func WebhookAuthenticationConfigurationPtr(v *WebhookAuthenticationConfigurationArgs) WebhookAuthenticationConfigurationPtrInput {	return (*webhookAuthenticationConfigurationPtrType)(v)
+func WebhookAuthenticationConfigurationPtr(v *WebhookAuthenticationConfigurationArgs) WebhookAuthenticationConfigurationPtrInput {
+	return (*webhookAuthenticationConfigurationPtrType)(v)
 }
 
 func (*webhookAuthenticationConfigurationPtrType) ElementType() reflect.Type {
@@ -563,7 +615,7 @@ func (i *webhookAuthenticationConfigurationPtrType) ToWebhookAuthenticationConfi
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookAuthenticationConfigurationPtrOutput)
 }
 
-type WebhookAuthenticationConfigurationOutput struct { *pulumi.OutputState }
+type WebhookAuthenticationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WebhookAuthenticationConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebhookAuthenticationConfiguration)(nil)).Elem()
@@ -586,15 +638,18 @@ func (o WebhookAuthenticationConfigurationOutput) ToWebhookAuthenticationConfigu
 		return &v
 	}).(WebhookAuthenticationConfigurationPtrOutput)
 }
+
+// A valid CIDR block for `IP` filtering. Required for `IP`.
 func (o WebhookAuthenticationConfigurationOutput) AllowedIpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WebhookAuthenticationConfiguration) *string { return v.AllowedIpRange }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WebhookAuthenticationConfiguration) *string { return v.AllowedIpRange }).(pulumi.StringPtrOutput)
 }
 
+// The shared secret for the GitHub repository webhook. Set this as `secret` in your `githubRepositoryWebhook`'s `configuration` block. Required for `GITHUB_HMAC`.
 func (o WebhookAuthenticationConfigurationOutput) SecretToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WebhookAuthenticationConfiguration) *string { return v.SecretToken }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WebhookAuthenticationConfiguration) *string { return v.SecretToken }).(pulumi.StringPtrOutput)
 }
 
-type WebhookAuthenticationConfigurationPtrOutput struct { *pulumi.OutputState}
+type WebhookAuthenticationConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (WebhookAuthenticationConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WebhookAuthenticationConfiguration)(nil)).Elem()
@@ -609,19 +664,23 @@ func (o WebhookAuthenticationConfigurationPtrOutput) ToWebhookAuthenticationConf
 }
 
 func (o WebhookAuthenticationConfigurationPtrOutput) Elem() WebhookAuthenticationConfigurationOutput {
-	return o.ApplyT(func (v *WebhookAuthenticationConfiguration) WebhookAuthenticationConfiguration { return *v }).(WebhookAuthenticationConfigurationOutput)
+	return o.ApplyT(func(v *WebhookAuthenticationConfiguration) WebhookAuthenticationConfiguration { return *v }).(WebhookAuthenticationConfigurationOutput)
 }
 
+// A valid CIDR block for `IP` filtering. Required for `IP`.
 func (o WebhookAuthenticationConfigurationPtrOutput) AllowedIpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WebhookAuthenticationConfiguration) *string { return v.AllowedIpRange }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WebhookAuthenticationConfiguration) *string { return v.AllowedIpRange }).(pulumi.StringPtrOutput)
 }
 
+// The shared secret for the GitHub repository webhook. Set this as `secret` in your `githubRepositoryWebhook`'s `configuration` block. Required for `GITHUB_HMAC`.
 func (o WebhookAuthenticationConfigurationPtrOutput) SecretToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v WebhookAuthenticationConfiguration) *string { return v.SecretToken }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v WebhookAuthenticationConfiguration) *string { return v.SecretToken }).(pulumi.StringPtrOutput)
 }
 
 type WebhookFilter struct {
+	// The [JSON path](https://github.com/json-path/JsonPath) to filter on.
 	JsonPath string `pulumi:"jsonPath"`
+	// The value to match on (e.g. `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
 	MatchEquals string `pulumi:"matchEquals"`
 }
 
@@ -633,7 +692,9 @@ type WebhookFilterInput interface {
 }
 
 type WebhookFilterArgs struct {
+	// The [JSON path](https://github.com/json-path/JsonPath) to filter on.
 	JsonPath pulumi.StringInput `pulumi:"jsonPath"`
+	// The value to match on (e.g. `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
 	MatchEquals pulumi.StringInput `pulumi:"matchEquals"`
 }
 
@@ -670,7 +731,7 @@ func (i WebhookFilterArray) ToWebhookFilterArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookFilterArrayOutput)
 }
 
-type WebhookFilterOutput struct { *pulumi.OutputState }
+type WebhookFilterOutput struct{ *pulumi.OutputState }
 
 func (WebhookFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebhookFilter)(nil)).Elem()
@@ -684,15 +745,17 @@ func (o WebhookFilterOutput) ToWebhookFilterOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The [JSON path](https://github.com/json-path/JsonPath) to filter on.
 func (o WebhookFilterOutput) JsonPath() pulumi.StringOutput {
-	return o.ApplyT(func (v WebhookFilter) string { return v.JsonPath }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WebhookFilter) string { return v.JsonPath }).(pulumi.StringOutput)
 }
 
+// The value to match on (e.g. `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
 func (o WebhookFilterOutput) MatchEquals() pulumi.StringOutput {
-	return o.ApplyT(func (v WebhookFilter) string { return v.MatchEquals }).(pulumi.StringOutput)
+	return o.ApplyT(func(v WebhookFilter) string { return v.MatchEquals }).(pulumi.StringOutput)
 }
 
-type WebhookFilterArrayOutput struct { *pulumi.OutputState}
+type WebhookFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (WebhookFilterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]WebhookFilter)(nil)).Elem()
@@ -707,7 +770,7 @@ func (o WebhookFilterArrayOutput) ToWebhookFilterArrayOutputWithContext(ctx cont
 }
 
 func (o WebhookFilterArrayOutput) Index(i pulumi.IntInput) WebhookFilterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) WebhookFilter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebhookFilter {
 		return vs[0].([]WebhookFilter)[vs[1].(int)]
 	}).(WebhookFilterOutput)
 }

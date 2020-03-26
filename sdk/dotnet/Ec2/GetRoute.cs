@@ -20,7 +20,22 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route.html.markdown.
         /// </summary>
+        [Obsolete("Use GetRoute.InvokeAsync() instead")]
         public static Task<GetRouteResult> GetRoute(GetRouteArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("aws:ec2/getRoute:getRoute", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetRoute
+    {
+        /// <summary>
+        /// `aws.ec2.Route` provides details about a specific Route.
+        /// 
+        /// This resource can prove useful when finding the resource
+        /// associated with a CIDR. For example, finding the peering
+        /// connection associated with a CIDR value.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route.html.markdown.
+        /// </summary>
+        public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("aws:ec2/getRoute:getRoute", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

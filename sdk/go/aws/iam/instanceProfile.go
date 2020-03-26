@@ -138,4 +138,3 @@ type InstanceProfileArgs struct {
 func (InstanceProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceProfileArgs)(nil)).Elem()
 }
-

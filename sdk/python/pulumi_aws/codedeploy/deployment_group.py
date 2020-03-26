@@ -15,7 +15,7 @@ class DeploymentGroup(pulumi.CustomResource):
     Configuration block of alarms associated with the deployment group (documented below).
 
       * `alarms` (`list`) - A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
-      * `enabled` (`bool`) - Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
+      * `enabled` (`bool`) - Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
       * `ignorePollAlarmFailure` (`bool`) - Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
         * `true`: The deployment will proceed even if alarm status information can't be retrieved.
         * `false`: The deployment will stop if alarm status information can't be retrieved.
@@ -46,9 +46,9 @@ class DeploymentGroup(pulumi.CustomResource):
         * `waitTimeInMinutes` (`float`) - The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
 
       * `greenFleetProvisioningOption` (`dict`) - Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
-        * `action` (`str`) - The action to take on instances in the original environment after a successful blue/green deployment.
-          * `TERMINATE`: Instances are terminated after a specified wait time.
-          * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
+        * `action` (`str`) - The method used to add instances to a replacement environment.
+          * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
+          * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscaling_groups` to specify the Auto Scaling group.
 
       * `terminateBlueInstancesOnDeploymentSuccess` (`dict`) - Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
         * `action` (`str`) - The action to take on instances in the original environment after a successful blue/green deployment.
@@ -100,10 +100,10 @@ class DeploymentGroup(pulumi.CustomResource):
     Single configuration block of the load balancer to use in a blue/green deployment (documented below).
 
       * `elbInfos` (`list`) - The Classic Elastic Load Balancer to use in a deployment. Conflicts with `target_group_info` and `target_group_pair_info`.
-        * `name` (`str`) - Name of the target group.
+        * `name` (`str`) - The name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 
       * `targetGroupInfos` (`list`) - The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elb_info` and `target_group_pair_info`.
-        * `name` (`str`) - Name of the target group.
+        * `name` (`str`) - The name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 
       * `targetGroupPairInfo` (`dict`) - The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elb_info` and `target_group_info`.
         * `prodTrafficRoute` (`dict`) - Configuration block for the production traffic route (documented below).
@@ -164,7 +164,7 @@ class DeploymentGroup(pulumi.CustomResource):
         The **alarm_configuration** object supports the following:
 
           * `alarms` (`pulumi.Input[list]`) - A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
-          * `enabled` (`pulumi.Input[bool]`) - Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
+          * `enabled` (`pulumi.Input[bool]`) - Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
           * `ignorePollAlarmFailure` (`pulumi.Input[bool]`) - Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
             * `true`: The deployment will proceed even if alarm status information can't be retrieved.
             * `false`: The deployment will stop if alarm status information can't be retrieved.
@@ -183,9 +183,9 @@ class DeploymentGroup(pulumi.CustomResource):
             * `waitTimeInMinutes` (`pulumi.Input[float]`) - The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
 
           * `greenFleetProvisioningOption` (`pulumi.Input[dict]`) - Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
-            * `action` (`pulumi.Input[str]`) - The action to take on instances in the original environment after a successful blue/green deployment.
-              * `TERMINATE`: Instances are terminated after a specified wait time.
-              * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
+            * `action` (`pulumi.Input[str]`) - The method used to add instances to a replacement environment.
+              * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
+              * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscaling_groups` to specify the Auto Scaling group.
 
           * `terminateBlueInstancesOnDeploymentSuccess` (`pulumi.Input[dict]`) - Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
             * `action` (`pulumi.Input[str]`) - The action to take on instances in the original environment after a successful blue/green deployment.
@@ -219,10 +219,10 @@ class DeploymentGroup(pulumi.CustomResource):
         The **load_balancer_info** object supports the following:
 
           * `elbInfos` (`pulumi.Input[list]`) - The Classic Elastic Load Balancer to use in a deployment. Conflicts with `target_group_info` and `target_group_pair_info`.
-            * `name` (`pulumi.Input[str]`) - Name of the target group.
+            * `name` (`pulumi.Input[str]`) - The name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 
           * `targetGroupInfos` (`pulumi.Input[list]`) - The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elb_info` and `target_group_pair_info`.
-            * `name` (`pulumi.Input[str]`) - Name of the target group.
+            * `name` (`pulumi.Input[str]`) - The name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 
           * `targetGroupPairInfo` (`pulumi.Input[dict]`) - The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elb_info` and `target_group_info`.
             * `prodTrafficRoute` (`pulumi.Input[dict]`) - Configuration block for the production traffic route (documented below).
@@ -318,7 +318,7 @@ class DeploymentGroup(pulumi.CustomResource):
         The **alarm_configuration** object supports the following:
 
           * `alarms` (`pulumi.Input[list]`) - A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
-          * `enabled` (`pulumi.Input[bool]`) - Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
+          * `enabled` (`pulumi.Input[bool]`) - Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
           * `ignorePollAlarmFailure` (`pulumi.Input[bool]`) - Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
             * `true`: The deployment will proceed even if alarm status information can't be retrieved.
             * `false`: The deployment will stop if alarm status information can't be retrieved.
@@ -337,9 +337,9 @@ class DeploymentGroup(pulumi.CustomResource):
             * `waitTimeInMinutes` (`pulumi.Input[float]`) - The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
 
           * `greenFleetProvisioningOption` (`pulumi.Input[dict]`) - Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
-            * `action` (`pulumi.Input[str]`) - The action to take on instances in the original environment after a successful blue/green deployment.
-              * `TERMINATE`: Instances are terminated after a specified wait time.
-              * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
+            * `action` (`pulumi.Input[str]`) - The method used to add instances to a replacement environment.
+              * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
+              * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscaling_groups` to specify the Auto Scaling group.
 
           * `terminateBlueInstancesOnDeploymentSuccess` (`pulumi.Input[dict]`) - Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
             * `action` (`pulumi.Input[str]`) - The action to take on instances in the original environment after a successful blue/green deployment.
@@ -373,10 +373,10 @@ class DeploymentGroup(pulumi.CustomResource):
         The **load_balancer_info** object supports the following:
 
           * `elbInfos` (`pulumi.Input[list]`) - The Classic Elastic Load Balancer to use in a deployment. Conflicts with `target_group_info` and `target_group_pair_info`.
-            * `name` (`pulumi.Input[str]`) - Name of the target group.
+            * `name` (`pulumi.Input[str]`) - The name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 
           * `targetGroupInfos` (`pulumi.Input[list]`) - The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elb_info` and `target_group_pair_info`.
-            * `name` (`pulumi.Input[str]`) - Name of the target group.
+            * `name` (`pulumi.Input[str]`) - The name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 
           * `targetGroupPairInfo` (`pulumi.Input[dict]`) - The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elb_info` and `target_group_info`.
             * `prodTrafficRoute` (`pulumi.Input[dict]`) - Configuration block for the production traffic route (documented below).

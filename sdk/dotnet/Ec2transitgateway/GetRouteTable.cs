@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_route_table.html.markdown.
         /// </summary>
+        [Obsolete("Use GetRouteTable.InvokeAsync() instead")]
         public static Task<GetRouteTableResult> GetRouteTable(GetRouteTableArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("aws:ec2transitgateway/getRouteTable:getRouteTable", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetRouteTable
+    {
+        /// <summary>
+        /// Get information on an EC2 Transit Gateway Route Table.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_route_table.html.markdown.
+        /// </summary>
+        public static Task<GetRouteTableResult> InvokeAsync(GetRouteTableArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("aws:ec2transitgateway/getRouteTable:getRouteTable", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -42,6 +53,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// Key-value tags for the EC2 Transit Gateway Route Table
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

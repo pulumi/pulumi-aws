@@ -264,4 +264,3 @@ type HealthCheckArgs struct {
 func (HealthCheckArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*healthCheckArgs)(nil)).Elem()
 }
-

@@ -151,4 +151,3 @@ type VpcAttachmentAccepterArgs struct {
 func (VpcAttachmentAccepterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcAttachmentAccepterArgs)(nil)).Elem()
 }
-

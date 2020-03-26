@@ -24,9 +24,9 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 type LookupClusterArgs struct {
 	// The cluster identifier
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+	// The tags associated to the cluster
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
@@ -51,7 +51,7 @@ type LookupClusterResult struct {
 	// The name of a cluster subnet group to be associated with this cluster
 	ClusterSubnetGroupName string `pulumi:"clusterSubnetGroupName"`
 	// The cluster type
-	ClusterType string `pulumi:"clusterType"`
+	ClusterType    string `pulumi:"clusterType"`
 	ClusterVersion string `pulumi:"clusterVersion"`
 	// The name of the default database in the cluster
 	DatabaseName string `pulumi:"databaseName"`
@@ -92,4 +92,3 @@ type LookupClusterResult struct {
 	// The VPC security group Ids associated with the cluster
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
-

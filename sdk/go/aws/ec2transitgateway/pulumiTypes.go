@@ -65,7 +65,7 @@ func (i GetRouteTableFilterArray) ToGetRouteTableFilterArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableFilterArrayOutput)
 }
 
-type GetRouteTableFilterOutput struct { *pulumi.OutputState }
+type GetRouteTableFilterOutput struct{ *pulumi.OutputState }
 
 func (GetRouteTableFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetRouteTableFilter)(nil)).Elem()
@@ -81,15 +81,15 @@ func (o GetRouteTableFilterOutput) ToGetRouteTableFilterOutputWithContext(ctx co
 
 // Name of the filter.
 func (o GetRouteTableFilterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetRouteTableFilter) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetRouteTableFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // List of one or more values for the filter.
 func (o GetRouteTableFilterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetRouteTableFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetRouteTableFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-type GetRouteTableFilterArrayOutput struct { *pulumi.OutputState}
+type GetRouteTableFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (GetRouteTableFilterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetRouteTableFilter)(nil)).Elem()
@@ -104,7 +104,7 @@ func (o GetRouteTableFilterArrayOutput) ToGetRouteTableFilterArrayOutputWithCont
 }
 
 func (o GetRouteTableFilterArrayOutput) Index(i pulumi.IntInput) GetRouteTableFilterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetRouteTableFilter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteTableFilter {
 		return vs[0].([]GetRouteTableFilter)[vs[1].(int)]
 	}).(GetRouteTableFilterOutput)
 }
@@ -163,7 +163,7 @@ func (i GetTransitGatewayFilterArray) ToGetTransitGatewayFilterArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetTransitGatewayFilterArrayOutput)
 }
 
-type GetTransitGatewayFilterOutput struct { *pulumi.OutputState }
+type GetTransitGatewayFilterOutput struct{ *pulumi.OutputState }
 
 func (GetTransitGatewayFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetTransitGatewayFilter)(nil)).Elem()
@@ -179,15 +179,15 @@ func (o GetTransitGatewayFilterOutput) ToGetTransitGatewayFilterOutputWithContex
 
 // Name of the filter.
 func (o GetTransitGatewayFilterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetTransitGatewayFilter) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetTransitGatewayFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // List of one or more values for the filter.
 func (o GetTransitGatewayFilterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetTransitGatewayFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetTransitGatewayFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-type GetTransitGatewayFilterArrayOutput struct { *pulumi.OutputState}
+type GetTransitGatewayFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (GetTransitGatewayFilterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetTransitGatewayFilter)(nil)).Elem()
@@ -202,7 +202,7 @@ func (o GetTransitGatewayFilterArrayOutput) ToGetTransitGatewayFilterArrayOutput
 }
 
 func (o GetTransitGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetTransitGatewayFilterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetTransitGatewayFilter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTransitGatewayFilter {
 		return vs[0].([]GetTransitGatewayFilter)[vs[1].(int)]
 	}).(GetTransitGatewayFilterOutput)
 }
@@ -261,7 +261,7 @@ func (i GetVpcAttachmentFilterArray) ToGetVpcAttachmentFilterArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpcAttachmentFilterArrayOutput)
 }
 
-type GetVpcAttachmentFilterOutput struct { *pulumi.OutputState }
+type GetVpcAttachmentFilterOutput struct{ *pulumi.OutputState }
 
 func (GetVpcAttachmentFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetVpcAttachmentFilter)(nil)).Elem()
@@ -277,15 +277,15 @@ func (o GetVpcAttachmentFilterOutput) ToGetVpcAttachmentFilterOutputWithContext(
 
 // Name of the filter.
 func (o GetVpcAttachmentFilterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetVpcAttachmentFilter) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetVpcAttachmentFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // List of one or more values for the filter.
 func (o GetVpcAttachmentFilterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetVpcAttachmentFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetVpcAttachmentFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-type GetVpcAttachmentFilterArrayOutput struct { *pulumi.OutputState}
+type GetVpcAttachmentFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (GetVpcAttachmentFilterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetVpcAttachmentFilter)(nil)).Elem()
@@ -300,7 +300,7 @@ func (o GetVpcAttachmentFilterArrayOutput) ToGetVpcAttachmentFilterArrayOutputWi
 }
 
 func (o GetVpcAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetVpcAttachmentFilterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetVpcAttachmentFilter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcAttachmentFilter {
 		return vs[0].([]GetVpcAttachmentFilter)[vs[1].(int)]
 	}).(GetVpcAttachmentFilterOutput)
 }

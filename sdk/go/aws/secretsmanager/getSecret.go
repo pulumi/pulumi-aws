@@ -28,7 +28,6 @@ type LookupSecretArgs struct {
 	Name *string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getSecret.
 type LookupSecretResult struct {
 	// The Amazon Resource Name (ARN) of the secret.
@@ -39,7 +38,7 @@ type LookupSecretResult struct {
 	Id string `pulumi:"id"`
 	// The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
 	KmsKeyId string `pulumi:"kmsKeyId"`
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// The resource-based policy document that's attached to the secret.
 	Policy string `pulumi:"policy"`
 	// Whether rotation is enabled or not.
@@ -51,4 +50,3 @@ type LookupSecretResult struct {
 	// Tags of the secret.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-

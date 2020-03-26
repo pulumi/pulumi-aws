@@ -42,6 +42,12 @@ func NewSslNegotiationPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &SslNegotiationPolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SslNegotiationPolicy
 	err := ctx.RegisterResource("aws:elb/sslNegotiationPolicy:SslNegotiationPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -127,4 +133,3 @@ type SslNegotiationPolicyArgs struct {
 func (SslNegotiationPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sslNegotiationPolicyArgs)(nil)).Elem()
 }
-

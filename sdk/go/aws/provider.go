@@ -18,7 +18,6 @@ import (
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/index.html.markdown.
 type Provider struct {
 	pulumi.ProviderResourceState
-
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -43,11 +42,11 @@ func NewProvider(ctx *pulumi.Context,
 
 type providerArgs struct {
 	// The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
-	AccessKey *string `pulumi:"accessKey"`
-	AllowedAccountIds []string `pulumi:"allowedAccountIds"`
-	AssumeRole *ProviderAssumeRole `pulumi:"assumeRole"`
-	Endpoints []ProviderEndpoint `pulumi:"endpoints"`
-	ForbiddenAccountIds []string `pulumi:"forbiddenAccountIds"`
+	AccessKey           *string             `pulumi:"accessKey"`
+	AllowedAccountIds   []string            `pulumi:"allowedAccountIds"`
+	AssumeRole          *ProviderAssumeRole `pulumi:"assumeRole"`
+	Endpoints           []ProviderEndpoint  `pulumi:"endpoints"`
+	ForbiddenAccountIds []string            `pulumi:"forbiddenAccountIds"`
 	// Resource tag key prefixes to ignore across all resources.
 	IgnoreTagPrefixes []string `pulumi:"ignoreTagPrefixes"`
 	// Resource tag keys to ignore across all resources.
@@ -72,7 +71,7 @@ type providerArgs struct {
 	// available/implemented.
 	SkipCredentialsValidation *bool `pulumi:"skipCredentialsValidation"`
 	// Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
-	SkipGetEc2Platforms *bool `pulumi:"skipGetEc2Platforms"`
+	SkipGetEc2Platforms  *bool `pulumi:"skipGetEc2Platforms"`
 	SkipMetadataApiCheck *bool `pulumi:"skipMetadataApiCheck"`
 	// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
 	// not public (yet).
@@ -86,10 +85,10 @@ type providerArgs struct {
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
 	// The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
-	AccessKey pulumi.StringPtrInput
-	AllowedAccountIds pulumi.StringArrayInput
-	AssumeRole ProviderAssumeRolePtrInput
-	Endpoints ProviderEndpointArrayInput
+	AccessKey           pulumi.StringPtrInput
+	AllowedAccountIds   pulumi.StringArrayInput
+	AssumeRole          ProviderAssumeRolePtrInput
+	Endpoints           ProviderEndpointArrayInput
 	ForbiddenAccountIds pulumi.StringArrayInput
 	// Resource tag key prefixes to ignore across all resources.
 	IgnoreTagPrefixes pulumi.StringArrayInput
@@ -115,7 +114,7 @@ type ProviderArgs struct {
 	// available/implemented.
 	SkipCredentialsValidation pulumi.BoolPtrInput
 	// Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
-	SkipGetEc2Platforms pulumi.BoolPtrInput
+	SkipGetEc2Platforms  pulumi.BoolPtrInput
 	SkipMetadataApiCheck pulumi.BoolPtrInput
 	// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
 	// not public (yet).
@@ -129,4 +128,3 @@ type ProviderArgs struct {
 func (ProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*providerArgs)(nil)).Elem()
 }
-

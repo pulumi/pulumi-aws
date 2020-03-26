@@ -125,4 +125,3 @@ type LogMetricFilterArgs struct {
 func (LogMetricFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logMetricFilterArgs)(nil)).Elem()
 }
-

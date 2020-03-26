@@ -142,4 +142,3 @@ type VirtualRouterArgs struct {
 func (VirtualRouterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualRouterArgs)(nil)).Elem()
 }
-

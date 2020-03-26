@@ -65,7 +65,7 @@ func (i VaultNotificationArray) ToVaultNotificationArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationArrayOutput)
 }
 
-type VaultNotificationOutput struct { *pulumi.OutputState }
+type VaultNotificationOutput struct{ *pulumi.OutputState }
 
 func (VaultNotificationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VaultNotification)(nil)).Elem()
@@ -81,15 +81,15 @@ func (o VaultNotificationOutput) ToVaultNotificationOutputWithContext(ctx contex
 
 // You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
 func (o VaultNotificationOutput) Events() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v VaultNotification) []string { return v.Events }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v VaultNotification) []string { return v.Events }).(pulumi.StringArrayOutput)
 }
 
 // The SNS Topic ARN.
 func (o VaultNotificationOutput) SnsTopic() pulumi.StringOutput {
-	return o.ApplyT(func (v VaultNotification) string { return v.SnsTopic }).(pulumi.StringOutput)
+	return o.ApplyT(func(v VaultNotification) string { return v.SnsTopic }).(pulumi.StringOutput)
 }
 
-type VaultNotificationArrayOutput struct { *pulumi.OutputState}
+type VaultNotificationArrayOutput struct{ *pulumi.OutputState }
 
 func (VaultNotificationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]VaultNotification)(nil)).Elem()
@@ -104,7 +104,7 @@ func (o VaultNotificationArrayOutput) ToVaultNotificationArrayOutputWithContext(
 }
 
 func (o VaultNotificationArrayOutput) Index(i pulumi.IntInput) VaultNotificationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) VaultNotification {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VaultNotification {
 		return vs[0].([]VaultNotification)[vs[1].(int)]
 	}).(VaultNotificationOutput)
 }

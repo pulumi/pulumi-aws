@@ -183,6 +183,7 @@ def get_cluster(cluster_id=None,tags=None,opts=None):
 
 
     :param str cluster_id: Group identifier.
+    :param dict tags: The tags assigned to the resource
     """
     __args__ = dict()
 

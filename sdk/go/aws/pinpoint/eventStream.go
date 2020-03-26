@@ -105,4 +105,3 @@ type EventStreamArgs struct {
 func (EventStreamArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventStreamArgs)(nil)).Elem()
 }
-

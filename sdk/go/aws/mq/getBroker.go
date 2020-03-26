@@ -25,33 +25,31 @@ type LookupBrokerArgs struct {
 	// The unique id of the mq broker.
 	BrokerId *string `pulumi:"brokerId"`
 	// The unique name of the mq broker.
-	BrokerName *string `pulumi:"brokerName"`
-	Logs *GetBrokerLogs `pulumi:"logs"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	BrokerName *string                `pulumi:"brokerName"`
+	Logs       *GetBrokerLogs         `pulumi:"logs"`
+	Tags       map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getBroker.
 type LookupBrokerResult struct {
-	Arn string `pulumi:"arn"`
-	AutoMinorVersionUpgrade bool `pulumi:"autoMinorVersionUpgrade"`
-	BrokerId string `pulumi:"brokerId"`
-	BrokerName string `pulumi:"brokerName"`
-	Configuration GetBrokerConfiguration `pulumi:"configuration"`
-	DeploymentMode string `pulumi:"deploymentMode"`
-	EncryptionOptions []GetBrokerEncryptionOption `pulumi:"encryptionOptions"`
-	EngineType string `pulumi:"engineType"`
-	EngineVersion string `pulumi:"engineVersion"`
-	HostInstanceType string `pulumi:"hostInstanceType"`
+	Arn                     string                      `pulumi:"arn"`
+	AutoMinorVersionUpgrade bool                        `pulumi:"autoMinorVersionUpgrade"`
+	BrokerId                string                      `pulumi:"brokerId"`
+	BrokerName              string                      `pulumi:"brokerName"`
+	Configuration           GetBrokerConfiguration      `pulumi:"configuration"`
+	DeploymentMode          string                      `pulumi:"deploymentMode"`
+	EncryptionOptions       []GetBrokerEncryptionOption `pulumi:"encryptionOptions"`
+	EngineType              string                      `pulumi:"engineType"`
+	EngineVersion           string                      `pulumi:"engineVersion"`
+	HostInstanceType        string                      `pulumi:"hostInstanceType"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Instances []GetBrokerInstance `pulumi:"instances"`
-	Logs *GetBrokerLogs `pulumi:"logs"`
+	Id                         string                              `pulumi:"id"`
+	Instances                  []GetBrokerInstance                 `pulumi:"instances"`
+	Logs                       *GetBrokerLogs                      `pulumi:"logs"`
 	MaintenanceWindowStartTime GetBrokerMaintenanceWindowStartTime `pulumi:"maintenanceWindowStartTime"`
-	PubliclyAccessible bool `pulumi:"publiclyAccessible"`
-	SecurityGroups []string `pulumi:"securityGroups"`
-	SubnetIds []string `pulumi:"subnetIds"`
-	Tags map[string]interface{} `pulumi:"tags"`
-	Users []GetBrokerUser `pulumi:"users"`
+	PubliclyAccessible         bool                                `pulumi:"publiclyAccessible"`
+	SecurityGroups             []string                            `pulumi:"securityGroups"`
+	SubnetIds                  []string                            `pulumi:"subnetIds"`
+	Tags                       map[string]interface{}              `pulumi:"tags"`
+	Users                      []GetBrokerUser                     `pulumi:"users"`
 }
-

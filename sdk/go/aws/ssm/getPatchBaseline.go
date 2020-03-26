@@ -32,7 +32,6 @@ type LookupPatchBaselineArgs struct {
 	Owner string `pulumi:"owner"`
 }
 
-
 // A collection of values returned by getPatchBaseline.
 type LookupPatchBaselineResult struct {
 	DefaultBaseline *bool `pulumi:"defaultBaseline"`
@@ -41,9 +40,8 @@ type LookupPatchBaselineResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the baseline.
-	Name string `pulumi:"name"`
-	NamePrefix *string `pulumi:"namePrefix"`
+	Name            string  `pulumi:"name"`
+	NamePrefix      *string `pulumi:"namePrefix"`
 	OperatingSystem *string `pulumi:"operatingSystem"`
-	Owner string `pulumi:"owner"`
+	Owner           string  `pulumi:"owner"`
 }
-

@@ -46,6 +46,9 @@ export interface GetDomainArgs {
      * Name of the domain.
      */
     readonly domainName: string;
+    /**
+     * The tags assigned to the domain.
+     */
     readonly tags?: {[key: string]: any};
 }
 

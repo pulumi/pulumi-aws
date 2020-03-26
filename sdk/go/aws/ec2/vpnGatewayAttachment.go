@@ -97,4 +97,3 @@ type VpnGatewayAttachmentArgs struct {
 func (VpnGatewayAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpnGatewayAttachmentArgs)(nil)).Elem()
 }
-

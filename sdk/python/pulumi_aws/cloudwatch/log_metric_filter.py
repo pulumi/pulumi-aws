@@ -19,10 +19,10 @@ class LogMetricFilter(pulumi.CustomResource):
     A block defining collection of information
     needed to define how metric data gets emitted. See below.
 
-      * `default_value` (`str`)
-      * `name` (`str`) - A name for the metric filter.
-      * `namespace` (`str`)
-      * `value` (`str`)
+      * `default_value` (`str`) - The value to emit when a filter pattern does not match a log event.
+      * `name` (`str`) - The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+      * `namespace` (`str`) - The destination namespace of the CloudWatch metric.
+      * `value` (`str`) - What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
     """
     name: pulumi.Output[str]
     """
@@ -50,10 +50,10 @@ class LogMetricFilter(pulumi.CustomResource):
 
         The **metric_transformation** object supports the following:
 
-          * `default_value` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`) - A name for the metric filter.
-          * `namespace` (`pulumi.Input[str]`)
-          * `value` (`pulumi.Input[str]`)
+          * `default_value` (`pulumi.Input[str]`) - The value to emit when a filter pattern does not match a log event.
+          * `name` (`pulumi.Input[str]`) - The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+          * `namespace` (`pulumi.Input[str]`) - The destination namespace of the CloudWatch metric.
+          * `value` (`pulumi.Input[str]`) - What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -106,10 +106,10 @@ class LogMetricFilter(pulumi.CustomResource):
 
         The **metric_transformation** object supports the following:
 
-          * `default_value` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`) - A name for the metric filter.
-          * `namespace` (`pulumi.Input[str]`)
-          * `value` (`pulumi.Input[str]`)
+          * `default_value` (`pulumi.Input[str]`) - The value to emit when a filter pattern does not match a log event.
+          * `name` (`pulumi.Input[str]`) - The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+          * `namespace` (`pulumi.Input[str]`) - The destination namespace of the CloudWatch metric.
+          * `value` (`pulumi.Input[str]`) - What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

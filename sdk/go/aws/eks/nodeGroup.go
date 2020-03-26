@@ -21,8 +21,8 @@ type NodeGroup struct {
 	// Amazon Resource Name (ARN) of the EKS Node Group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the EKS Cluster.
-	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
-	DiskSize pulumi.IntOutput `pulumi:"diskSize"`
+	ClusterName   pulumi.StringOutput `pulumi:"clusterName"`
+	DiskSize      pulumi.IntOutput    `pulumi:"diskSize"`
 	InstanceTypes pulumi.StringOutput `pulumi:"instanceTypes"`
 	// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
@@ -43,7 +43,7 @@ type NodeGroup struct {
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Key-value mapping of resource tags.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags    pulumi.MapOutput    `pulumi:"tags"`
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -91,8 +91,8 @@ type nodeGroupState struct {
 	// Amazon Resource Name (ARN) of the EKS Node Group.
 	Arn *string `pulumi:"arn"`
 	// Name of the EKS Cluster.
-	ClusterName *string `pulumi:"clusterName"`
-	DiskSize *int `pulumi:"diskSize"`
+	ClusterName   *string `pulumi:"clusterName"`
+	DiskSize      *int    `pulumi:"diskSize"`
 	InstanceTypes *string `pulumi:"instanceTypes"`
 	// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels map[string]string `pulumi:"labels"`
@@ -113,8 +113,8 @@ type nodeGroupState struct {
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value mapping of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
-	Version *string `pulumi:"version"`
+	Tags    map[string]interface{} `pulumi:"tags"`
+	Version *string                `pulumi:"version"`
 }
 
 type NodeGroupState struct {
@@ -122,8 +122,8 @@ type NodeGroupState struct {
 	// Amazon Resource Name (ARN) of the EKS Node Group.
 	Arn pulumi.StringPtrInput
 	// Name of the EKS Cluster.
-	ClusterName pulumi.StringPtrInput
-	DiskSize pulumi.IntPtrInput
+	ClusterName   pulumi.StringPtrInput
+	DiskSize      pulumi.IntPtrInput
 	InstanceTypes pulumi.StringPtrInput
 	// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapInput
@@ -144,7 +144,7 @@ type NodeGroupState struct {
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds pulumi.StringArrayInput
 	// Key-value mapping of resource tags.
-	Tags pulumi.MapInput
+	Tags    pulumi.MapInput
 	Version pulumi.StringPtrInput
 }
 
@@ -155,8 +155,8 @@ func (NodeGroupState) ElementType() reflect.Type {
 type nodeGroupArgs struct {
 	AmiType *string `pulumi:"amiType"`
 	// Name of the EKS Cluster.
-	ClusterName string `pulumi:"clusterName"`
-	DiskSize *int `pulumi:"diskSize"`
+	ClusterName   string  `pulumi:"clusterName"`
+	DiskSize      *int    `pulumi:"diskSize"`
 	InstanceTypes *string `pulumi:"instanceTypes"`
 	// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels map[string]string `pulumi:"labels"`
@@ -173,16 +173,16 @@ type nodeGroupArgs struct {
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value mapping of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
-	Version *string `pulumi:"version"`
+	Tags    map[string]interface{} `pulumi:"tags"`
+	Version *string                `pulumi:"version"`
 }
 
 // The set of arguments for constructing a NodeGroup resource.
 type NodeGroupArgs struct {
 	AmiType pulumi.StringPtrInput
 	// Name of the EKS Cluster.
-	ClusterName pulumi.StringInput
-	DiskSize pulumi.IntPtrInput
+	ClusterName   pulumi.StringInput
+	DiskSize      pulumi.IntPtrInput
 	InstanceTypes pulumi.StringPtrInput
 	// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapInput
@@ -199,11 +199,10 @@ type NodeGroupArgs struct {
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds pulumi.StringArrayInput
 	// Key-value mapping of resource tags.
-	Tags pulumi.MapInput
+	Tags    pulumi.MapInput
 	Version pulumi.StringPtrInput
 }
 
 func (NodeGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*nodeGroupArgs)(nil)).Elem()
 }
-

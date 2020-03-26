@@ -46,6 +46,12 @@ func NewListenerRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &ListenerRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("aws:applicationloadbalancing/listenerRule:ListenerRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ListenerRule
 	err := ctx.RegisterResource("aws:alb/listenerRule:ListenerRule", name, args, &resource, opts...)
 	if err != nil {
@@ -123,4 +129,3 @@ type ListenerRuleArgs struct {
 func (ListenerRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*listenerRuleArgs)(nil)).Elem()
 }
-

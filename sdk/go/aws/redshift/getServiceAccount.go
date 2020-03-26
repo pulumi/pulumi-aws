@@ -28,13 +28,11 @@ type GetServiceAccountArgs struct {
 	Region *string `pulumi:"region"`
 }
 
-
 // A collection of values returned by getServiceAccount.
 type GetServiceAccountResult struct {
 	// The ARN of the AWS Redshift service account in the selected region.
 	Arn string `pulumi:"arn"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string  `pulumi:"id"`
 	Region *string `pulumi:"region"`
 }
-

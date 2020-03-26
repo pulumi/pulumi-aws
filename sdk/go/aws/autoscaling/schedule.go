@@ -178,4 +178,3 @@ type ScheduleArgs struct {
 func (ScheduleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduleArgs)(nil)).Elem()
 }
-

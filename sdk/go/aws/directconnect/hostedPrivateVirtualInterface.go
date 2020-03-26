@@ -203,4 +203,3 @@ type HostedPrivateVirtualInterfaceArgs struct {
 func (HostedPrivateVirtualInterfaceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*hostedPrivateVirtualInterfaceArgs)(nil)).Elem()
 }
-

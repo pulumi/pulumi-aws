@@ -83,7 +83,7 @@ func (i DistributionCustomErrorResponseArray) ToDistributionCustomErrorResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCustomErrorResponseArrayOutput)
 }
 
-type DistributionCustomErrorResponseOutput struct { *pulumi.OutputState }
+type DistributionCustomErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (DistributionCustomErrorResponseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionCustomErrorResponse)(nil)).Elem()
@@ -101,28 +101,28 @@ func (o DistributionCustomErrorResponseOutput) ToDistributionCustomErrorResponse
 // HTTP error codes to stay in CloudFront caches before CloudFront queries your
 // origin to see whether the object has been updated.
 func (o DistributionCustomErrorResponseOutput) ErrorCachingMinTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DistributionCustomErrorResponse) *int { return v.ErrorCachingMinTtl }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DistributionCustomErrorResponse) *int { return v.ErrorCachingMinTtl }).(pulumi.IntPtrOutput)
 }
 
 // The 4xx or 5xx HTTP status code that you want to
 // customize.
 func (o DistributionCustomErrorResponseOutput) ErrorCode() pulumi.IntOutput {
-	return o.ApplyT(func (v DistributionCustomErrorResponse) int { return v.ErrorCode }).(pulumi.IntOutput)
+	return o.ApplyT(func(v DistributionCustomErrorResponse) int { return v.ErrorCode }).(pulumi.IntOutput)
 }
 
 // The HTTP status code that you want CloudFront
 // to return with the custom error page to the viewer.
 func (o DistributionCustomErrorResponseOutput) ResponseCode() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DistributionCustomErrorResponse) *int { return v.ResponseCode }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DistributionCustomErrorResponse) *int { return v.ResponseCode }).(pulumi.IntPtrOutput)
 }
 
 // The path of the custom error page (for
 // example, `/custom_404.html`).
 func (o DistributionCustomErrorResponseOutput) ResponsePagePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DistributionCustomErrorResponse) *string { return v.ResponsePagePath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DistributionCustomErrorResponse) *string { return v.ResponsePagePath }).(pulumi.StringPtrOutput)
 }
 
-type DistributionCustomErrorResponseArrayOutput struct { *pulumi.OutputState}
+type DistributionCustomErrorResponseArrayOutput struct{ *pulumi.OutputState }
 
 func (DistributionCustomErrorResponseArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DistributionCustomErrorResponse)(nil)).Elem()
@@ -137,7 +137,7 @@ func (o DistributionCustomErrorResponseArrayOutput) ToDistributionCustomErrorRes
 }
 
 func (o DistributionCustomErrorResponseArrayOutput) Index(i pulumi.IntInput) DistributionCustomErrorResponseOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DistributionCustomErrorResponse {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionCustomErrorResponse {
 		return vs[0].([]DistributionCustomErrorResponse)[vs[1].(int)]
 	}).(DistributionCustomErrorResponseOutput)
 }
@@ -282,7 +282,8 @@ type DistributionDefaultCacheBehaviorPtrInput interface {
 
 type distributionDefaultCacheBehaviorPtrType DistributionDefaultCacheBehaviorArgs
 
-func DistributionDefaultCacheBehaviorPtr(v *DistributionDefaultCacheBehaviorArgs) DistributionDefaultCacheBehaviorPtrInput {	return (*distributionDefaultCacheBehaviorPtrType)(v)
+func DistributionDefaultCacheBehaviorPtr(v *DistributionDefaultCacheBehaviorArgs) DistributionDefaultCacheBehaviorPtrInput {
+	return (*distributionDefaultCacheBehaviorPtrType)(v)
 }
 
 func (*distributionDefaultCacheBehaviorPtrType) ElementType() reflect.Type {
@@ -297,7 +298,7 @@ func (i *distributionDefaultCacheBehaviorPtrType) ToDistributionDefaultCacheBeha
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorPtrOutput)
 }
 
-type DistributionDefaultCacheBehaviorOutput struct { *pulumi.OutputState }
+type DistributionDefaultCacheBehaviorOutput struct{ *pulumi.OutputState }
 
 func (DistributionDefaultCacheBehaviorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionDefaultCacheBehavior)(nil)).Elem()
@@ -320,23 +321,24 @@ func (o DistributionDefaultCacheBehaviorOutput) ToDistributionDefaultCacheBehavi
 		return &v
 	}).(DistributionDefaultCacheBehaviorPtrOutput)
 }
+
 // Controls which HTTP methods CloudFront
 // processes and forwards to your Amazon S3 bucket or your custom origin.
 func (o DistributionDefaultCacheBehaviorOutput) AllowedMethods() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
 
 // Controls whether CloudFront caches the
 // response to requests using the specified HTTP methods.
 func (o DistributionDefaultCacheBehaviorOutput) CachedMethods() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) []string { return v.CachedMethods }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []string { return v.CachedMethods }).(pulumi.StringArrayOutput)
 }
 
 // Whether you want CloudFront to automatically
 // compress content for web requests that include `Accept-Encoding: gzip` in
 // the request header (default: `false`).
 func (o DistributionDefaultCacheBehaviorOutput) Compress() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
 }
 
 // The default amount of time (in seconds) that an
@@ -344,24 +346,28 @@ func (o DistributionDefaultCacheBehaviorOutput) Compress() pulumi.BoolPtrOutput 
 // in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
 // 1 day.
 func (o DistributionDefaultCacheBehaviorOutput) DefaultTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
 
 // Field level encryption configuration ID
 func (o DistributionDefaultCacheBehaviorOutput) FieldLevelEncryptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) *string { return v.FieldLevelEncryptionId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *string { return v.FieldLevelEncryptionId }).(pulumi.StringPtrOutput)
 }
 
 // The forwarded values configuration that specifies how CloudFront
 // handles query strings, cookies and headers (maximum one).
 func (o DistributionDefaultCacheBehaviorOutput) ForwardedValues() DistributionDefaultCacheBehaviorForwardedValuesOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) DistributionDefaultCacheBehaviorForwardedValues { return v.ForwardedValues }).(DistributionDefaultCacheBehaviorForwardedValuesOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) DistributionDefaultCacheBehaviorForwardedValues {
+		return v.ForwardedValues
+	}).(DistributionDefaultCacheBehaviorForwardedValuesOutput)
 }
 
 // A config block that triggers a lambda function with
 // specific actions. Defined below, maximum 4.
 func (o DistributionDefaultCacheBehaviorOutput) LambdaFunctionAssociations() DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) []DistributionDefaultCacheBehaviorLambdaFunctionAssociation { return v.LambdaFunctionAssociations }).(DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []DistributionDefaultCacheBehaviorLambdaFunctionAssociation {
+		return v.LambdaFunctionAssociations
+	}).(DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput)
 }
 
 // The maximum amount of time (in seconds) that an
@@ -370,34 +376,34 @@ func (o DistributionDefaultCacheBehaviorOutput) LambdaFunctionAssociations() Dis
 // effective in the presence of `Cache-Control max-age`, `Cache-Control
 // s-maxage`, and `Expires` headers. Defaults to 365 days.
 func (o DistributionDefaultCacheBehaviorOutput) MaxTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) *int { return v.MaxTtl }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *int { return v.MaxTtl }).(pulumi.IntPtrOutput)
 }
 
 // The minimum amount of time that you want objects to
 // stay in CloudFront caches before CloudFront queries your origin to see
 // whether the object has been updated. Defaults to 0 seconds.
 func (o DistributionDefaultCacheBehaviorOutput) MinTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) *int { return v.MinTtl }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *int { return v.MinTtl }).(pulumi.IntPtrOutput)
 }
 
 // Indicates whether you want to distribute
 // media files in Microsoft Smooth Streaming format using the origin that is
 // associated with this cache behavior.
 func (o DistributionDefaultCacheBehaviorOutput) SmoothStreaming() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) *bool { return v.SmoothStreaming }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *bool { return v.SmoothStreaming }).(pulumi.BoolPtrOutput)
 }
 
 // The value of ID for the origin that you want
 // CloudFront to route requests to when a request matches the path pattern
 // either for a cache behavior or for the default cache behavior.
 func (o DistributionDefaultCacheBehaviorOutput) TargetOriginId() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) string { return v.TargetOriginId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) string { return v.TargetOriginId }).(pulumi.StringOutput)
 }
 
 // The AWS accounts, if any, that you want to
 // allow to create signed URLs for private content.
 func (o DistributionDefaultCacheBehaviorOutput) TrustedSigners() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) []string { return v.TrustedSigners }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []string { return v.TrustedSigners }).(pulumi.StringArrayOutput)
 }
 
 // Use this element to specify the
@@ -405,10 +411,10 @@ func (o DistributionDefaultCacheBehaviorOutput) TrustedSigners() pulumi.StringAr
 // TargetOriginId when a request matches the path pattern in PathPattern. One
 // of `allow-all`, `https-only`, or `redirect-to-https`.
 func (o DistributionDefaultCacheBehaviorOutput) ViewerProtocolPolicy() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) string { return v.ViewerProtocolPolicy }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) string { return v.ViewerProtocolPolicy }).(pulumi.StringOutput)
 }
 
-type DistributionDefaultCacheBehaviorPtrOutput struct { *pulumi.OutputState}
+type DistributionDefaultCacheBehaviorPtrOutput struct{ *pulumi.OutputState }
 
 func (DistributionDefaultCacheBehaviorPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DistributionDefaultCacheBehavior)(nil)).Elem()
@@ -423,26 +429,26 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) ToDistributionDefaultCacheBeh
 }
 
 func (o DistributionDefaultCacheBehaviorPtrOutput) Elem() DistributionDefaultCacheBehaviorOutput {
-	return o.ApplyT(func (v *DistributionDefaultCacheBehavior) DistributionDefaultCacheBehavior { return *v }).(DistributionDefaultCacheBehaviorOutput)
+	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) DistributionDefaultCacheBehavior { return *v }).(DistributionDefaultCacheBehaviorOutput)
 }
 
 // Controls which HTTP methods CloudFront
 // processes and forwards to your Amazon S3 bucket or your custom origin.
 func (o DistributionDefaultCacheBehaviorPtrOutput) AllowedMethods() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
 
 // Controls whether CloudFront caches the
 // response to requests using the specified HTTP methods.
 func (o DistributionDefaultCacheBehaviorPtrOutput) CachedMethods() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) []string { return v.CachedMethods }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []string { return v.CachedMethods }).(pulumi.StringArrayOutput)
 }
 
 // Whether you want CloudFront to automatically
 // compress content for web requests that include `Accept-Encoding: gzip` in
 // the request header (default: `false`).
 func (o DistributionDefaultCacheBehaviorPtrOutput) Compress() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
 }
 
 // The default amount of time (in seconds) that an
@@ -450,24 +456,28 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) Compress() pulumi.BoolPtrOutp
 // in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
 // 1 day.
 func (o DistributionDefaultCacheBehaviorPtrOutput) DefaultTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
 
 // Field level encryption configuration ID
 func (o DistributionDefaultCacheBehaviorPtrOutput) FieldLevelEncryptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) *string { return v.FieldLevelEncryptionId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *string { return v.FieldLevelEncryptionId }).(pulumi.StringPtrOutput)
 }
 
 // The forwarded values configuration that specifies how CloudFront
 // handles query strings, cookies and headers (maximum one).
 func (o DistributionDefaultCacheBehaviorPtrOutput) ForwardedValues() DistributionDefaultCacheBehaviorForwardedValuesOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) DistributionDefaultCacheBehaviorForwardedValues { return v.ForwardedValues }).(DistributionDefaultCacheBehaviorForwardedValuesOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) DistributionDefaultCacheBehaviorForwardedValues {
+		return v.ForwardedValues
+	}).(DistributionDefaultCacheBehaviorForwardedValuesOutput)
 }
 
 // A config block that triggers a lambda function with
 // specific actions. Defined below, maximum 4.
 func (o DistributionDefaultCacheBehaviorPtrOutput) LambdaFunctionAssociations() DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) []DistributionDefaultCacheBehaviorLambdaFunctionAssociation { return v.LambdaFunctionAssociations }).(DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []DistributionDefaultCacheBehaviorLambdaFunctionAssociation {
+		return v.LambdaFunctionAssociations
+	}).(DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput)
 }
 
 // The maximum amount of time (in seconds) that an
@@ -476,34 +486,34 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) LambdaFunctionAssociations() 
 // effective in the presence of `Cache-Control max-age`, `Cache-Control
 // s-maxage`, and `Expires` headers. Defaults to 365 days.
 func (o DistributionDefaultCacheBehaviorPtrOutput) MaxTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) *int { return v.MaxTtl }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *int { return v.MaxTtl }).(pulumi.IntPtrOutput)
 }
 
 // The minimum amount of time that you want objects to
 // stay in CloudFront caches before CloudFront queries your origin to see
 // whether the object has been updated. Defaults to 0 seconds.
 func (o DistributionDefaultCacheBehaviorPtrOutput) MinTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) *int { return v.MinTtl }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *int { return v.MinTtl }).(pulumi.IntPtrOutput)
 }
 
 // Indicates whether you want to distribute
 // media files in Microsoft Smooth Streaming format using the origin that is
 // associated with this cache behavior.
 func (o DistributionDefaultCacheBehaviorPtrOutput) SmoothStreaming() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) *bool { return v.SmoothStreaming }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *bool { return v.SmoothStreaming }).(pulumi.BoolPtrOutput)
 }
 
 // The value of ID for the origin that you want
 // CloudFront to route requests to when a request matches the path pattern
 // either for a cache behavior or for the default cache behavior.
 func (o DistributionDefaultCacheBehaviorPtrOutput) TargetOriginId() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) string { return v.TargetOriginId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) string { return v.TargetOriginId }).(pulumi.StringOutput)
 }
 
 // The AWS accounts, if any, that you want to
 // allow to create signed URLs for private content.
 func (o DistributionDefaultCacheBehaviorPtrOutput) TrustedSigners() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) []string { return v.TrustedSigners }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []string { return v.TrustedSigners }).(pulumi.StringArrayOutput)
 }
 
 // Use this element to specify the
@@ -511,7 +521,7 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) TrustedSigners() pulumi.Strin
 // TargetOriginId when a request matches the path pattern in PathPattern. One
 // of `allow-all`, `https-only`, or `redirect-to-https`.
 func (o DistributionDefaultCacheBehaviorPtrOutput) ViewerProtocolPolicy() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehavior) string { return v.ViewerProtocolPolicy }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) string { return v.ViewerProtocolPolicy }).(pulumi.StringOutput)
 }
 
 type DistributionDefaultCacheBehaviorForwardedValues struct {
@@ -569,7 +579,7 @@ func (i DistributionDefaultCacheBehaviorForwardedValuesArgs) ToDistributionDefau
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorForwardedValuesOutput)
 }
 
-type DistributionDefaultCacheBehaviorForwardedValuesOutput struct { *pulumi.OutputState }
+type DistributionDefaultCacheBehaviorForwardedValuesOutput struct{ *pulumi.OutputState }
 
 func (DistributionDefaultCacheBehaviorForwardedValuesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionDefaultCacheBehaviorForwardedValues)(nil)).Elem()
@@ -586,20 +596,22 @@ func (o DistributionDefaultCacheBehaviorForwardedValuesOutput) ToDistributionDef
 // The forwarded values cookies
 // that specifies how CloudFront handles cookies (maximum one).
 func (o DistributionDefaultCacheBehaviorForwardedValuesOutput) Cookies() DistributionDefaultCacheBehaviorForwardedValuesCookiesOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehaviorForwardedValues) DistributionDefaultCacheBehaviorForwardedValuesCookies { return v.Cookies }).(DistributionDefaultCacheBehaviorForwardedValuesCookiesOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehaviorForwardedValues) DistributionDefaultCacheBehaviorForwardedValuesCookies {
+		return v.Cookies
+	}).(DistributionDefaultCacheBehaviorForwardedValuesCookiesOutput)
 }
 
 // Specifies the Headers, if any, that you want
 // CloudFront to vary upon for this cache behavior. Specify `*` to include all
 // headers.
 func (o DistributionDefaultCacheBehaviorForwardedValuesOutput) Headers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehaviorForwardedValues) []string { return v.Headers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehaviorForwardedValues) []string { return v.Headers }).(pulumi.StringArrayOutput)
 }
 
 // Indicates whether you want CloudFront to forward
 // query strings to the origin that is associated with this cache behavior.
 func (o DistributionDefaultCacheBehaviorForwardedValuesOutput) QueryString() pulumi.BoolOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehaviorForwardedValues) bool { return v.QueryString }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehaviorForwardedValues) bool { return v.QueryString }).(pulumi.BoolOutput)
 }
 
 // When specified, along with a value of
@@ -607,7 +619,7 @@ func (o DistributionDefaultCacheBehaviorForwardedValuesOutput) QueryString() pul
 // query string keys listed in this argument are cached. When omitted with a
 // value of `true` for `queryString`, all query string keys are cached.
 func (o DistributionDefaultCacheBehaviorForwardedValuesOutput) QueryStringCacheKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehaviorForwardedValues) []string { return v.QueryStringCacheKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehaviorForwardedValues) []string { return v.QueryStringCacheKeys }).(pulumi.StringArrayOutput)
 }
 
 type DistributionDefaultCacheBehaviorForwardedValuesCookies struct {
@@ -653,7 +665,7 @@ func (i DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs) ToDistributi
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorForwardedValuesCookiesOutput)
 }
 
-type DistributionDefaultCacheBehaviorForwardedValuesCookiesOutput struct { *pulumi.OutputState }
+type DistributionDefaultCacheBehaviorForwardedValuesCookiesOutput struct{ *pulumi.OutputState }
 
 func (DistributionDefaultCacheBehaviorForwardedValuesCookiesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionDefaultCacheBehaviorForwardedValuesCookies)(nil)).Elem()
@@ -672,14 +684,14 @@ func (o DistributionDefaultCacheBehaviorForwardedValuesCookiesOutput) ToDistribu
 // specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
 // subsequent `whitelistedNames`
 func (o DistributionDefaultCacheBehaviorForwardedValuesCookiesOutput) Forward() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehaviorForwardedValuesCookies) string { return v.Forward }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehaviorForwardedValuesCookies) string { return v.Forward }).(pulumi.StringOutput)
 }
 
 // If you have specified `whitelist` to
 // `forward`, the whitelisted cookies that you want CloudFront to forward to
 // your origin.
 func (o DistributionDefaultCacheBehaviorForwardedValuesCookiesOutput) WhitelistedNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehaviorForwardedValuesCookies) []string { return v.WhitelistedNames }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehaviorForwardedValuesCookies) []string { return v.WhitelistedNames }).(pulumi.StringArrayOutput)
 }
 
 type DistributionDefaultCacheBehaviorLambdaFunctionAssociation struct {
@@ -744,7 +756,7 @@ func (i DistributionDefaultCacheBehaviorLambdaFunctionAssociationArray) ToDistri
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput)
 }
 
-type DistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput struct { *pulumi.OutputState }
+type DistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput struct{ *pulumi.OutputState }
 
 func (DistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionDefaultCacheBehaviorLambdaFunctionAssociation)(nil)).Elem()
@@ -762,20 +774,20 @@ func (o DistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput) ToDistr
 // Valid values: `viewer-request`, `origin-request`, `viewer-response`,
 // `origin-response`
 func (o DistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput) EventType() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehaviorLambdaFunctionAssociation) string { return v.EventType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehaviorLambdaFunctionAssociation) string { return v.EventType }).(pulumi.StringOutput)
 }
 
 // When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
 func (o DistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput) IncludeBody() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehaviorLambdaFunctionAssociation) *bool { return v.IncludeBody }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehaviorLambdaFunctionAssociation) *bool { return v.IncludeBody }).(pulumi.BoolPtrOutput)
 }
 
 // ARN of the Lambda function.
 func (o DistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput) LambdaArn() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionDefaultCacheBehaviorLambdaFunctionAssociation) string { return v.LambdaArn }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionDefaultCacheBehaviorLambdaFunctionAssociation) string { return v.LambdaArn }).(pulumi.StringOutput)
 }
 
-type DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput struct { *pulumi.OutputState}
+type DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DistributionDefaultCacheBehaviorLambdaFunctionAssociation)(nil)).Elem()
@@ -790,7 +802,7 @@ func (o DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput) To
 }
 
 func (o DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput) Index(i pulumi.IntInput) DistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DistributionDefaultCacheBehaviorLambdaFunctionAssociation {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionDefaultCacheBehaviorLambdaFunctionAssociation {
 		return vs[0].([]DistributionDefaultCacheBehaviorLambdaFunctionAssociation)[vs[1].(int)]
 	}).(DistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput)
 }
@@ -855,7 +867,8 @@ type DistributionLoggingConfigPtrInput interface {
 
 type distributionLoggingConfigPtrType DistributionLoggingConfigArgs
 
-func DistributionLoggingConfigPtr(v *DistributionLoggingConfigArgs) DistributionLoggingConfigPtrInput {	return (*distributionLoggingConfigPtrType)(v)
+func DistributionLoggingConfigPtr(v *DistributionLoggingConfigArgs) DistributionLoggingConfigPtrInput {
+	return (*distributionLoggingConfigPtrType)(v)
 }
 
 func (*distributionLoggingConfigPtrType) ElementType() reflect.Type {
@@ -870,7 +883,7 @@ func (i *distributionLoggingConfigPtrType) ToDistributionLoggingConfigPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionLoggingConfigPtrOutput)
 }
 
-type DistributionLoggingConfigOutput struct { *pulumi.OutputState }
+type DistributionLoggingConfigOutput struct{ *pulumi.OutputState }
 
 func (DistributionLoggingConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionLoggingConfig)(nil)).Elem()
@@ -893,25 +906,26 @@ func (o DistributionLoggingConfigOutput) ToDistributionLoggingConfigPtrOutputWit
 		return &v
 	}).(DistributionLoggingConfigPtrOutput)
 }
+
 // The Amazon S3 bucket to store the access logs in, for
 // example, `myawslogbucket.s3.amazonaws.com`.
 func (o DistributionLoggingConfigOutput) Bucket() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionLoggingConfig) string { return v.Bucket }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionLoggingConfig) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
 // Specifies whether you want CloudFront to
 // include cookies in access logs (default: `false`).
 func (o DistributionLoggingConfigOutput) IncludeCookies() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DistributionLoggingConfig) *bool { return v.IncludeCookies }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DistributionLoggingConfig) *bool { return v.IncludeCookies }).(pulumi.BoolPtrOutput)
 }
 
 // An optional string that you want CloudFront to prefix
 // to the access log filenames for this distribution, for example, `myprefix/`.
 func (o DistributionLoggingConfigOutput) Prefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DistributionLoggingConfig) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DistributionLoggingConfig) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-type DistributionLoggingConfigPtrOutput struct { *pulumi.OutputState}
+type DistributionLoggingConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (DistributionLoggingConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DistributionLoggingConfig)(nil)).Elem()
@@ -926,25 +940,25 @@ func (o DistributionLoggingConfigPtrOutput) ToDistributionLoggingConfigPtrOutput
 }
 
 func (o DistributionLoggingConfigPtrOutput) Elem() DistributionLoggingConfigOutput {
-	return o.ApplyT(func (v *DistributionLoggingConfig) DistributionLoggingConfig { return *v }).(DistributionLoggingConfigOutput)
+	return o.ApplyT(func(v *DistributionLoggingConfig) DistributionLoggingConfig { return *v }).(DistributionLoggingConfigOutput)
 }
 
 // The Amazon S3 bucket to store the access logs in, for
 // example, `myawslogbucket.s3.amazonaws.com`.
 func (o DistributionLoggingConfigPtrOutput) Bucket() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionLoggingConfig) string { return v.Bucket }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionLoggingConfig) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
 // Specifies whether you want CloudFront to
 // include cookies in access logs (default: `false`).
 func (o DistributionLoggingConfigPtrOutput) IncludeCookies() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DistributionLoggingConfig) *bool { return v.IncludeCookies }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DistributionLoggingConfig) *bool { return v.IncludeCookies }).(pulumi.BoolPtrOutput)
 }
 
 // An optional string that you want CloudFront to prefix
 // to the access log filenames for this distribution, for example, `myprefix/`.
 func (o DistributionLoggingConfigPtrOutput) Prefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DistributionLoggingConfig) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DistributionLoggingConfig) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 type DistributionOrderedCacheBehavior struct {
@@ -1097,7 +1111,7 @@ func (i DistributionOrderedCacheBehaviorArray) ToDistributionOrderedCacheBehavio
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOrderedCacheBehaviorArrayOutput)
 }
 
-type DistributionOrderedCacheBehaviorOutput struct { *pulumi.OutputState }
+type DistributionOrderedCacheBehaviorOutput struct{ *pulumi.OutputState }
 
 func (DistributionOrderedCacheBehaviorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionOrderedCacheBehavior)(nil)).Elem()
@@ -1114,20 +1128,20 @@ func (o DistributionOrderedCacheBehaviorOutput) ToDistributionOrderedCacheBehavi
 // Controls which HTTP methods CloudFront
 // processes and forwards to your Amazon S3 bucket or your custom origin.
 func (o DistributionOrderedCacheBehaviorOutput) AllowedMethods() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehavior) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
 
 // Controls whether CloudFront caches the
 // response to requests using the specified HTTP methods.
 func (o DistributionOrderedCacheBehaviorOutput) CachedMethods() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehavior) []string { return v.CachedMethods }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) []string { return v.CachedMethods }).(pulumi.StringArrayOutput)
 }
 
 // Whether you want CloudFront to automatically
 // compress content for web requests that include `Accept-Encoding: gzip` in
 // the request header (default: `false`).
 func (o DistributionOrderedCacheBehaviorOutput) Compress() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehavior) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
 }
 
 // The default amount of time (in seconds) that an
@@ -1135,24 +1149,28 @@ func (o DistributionOrderedCacheBehaviorOutput) Compress() pulumi.BoolPtrOutput 
 // in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
 // 1 day.
 func (o DistributionOrderedCacheBehaviorOutput) DefaultTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehavior) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
 
 // Field level encryption configuration ID
 func (o DistributionOrderedCacheBehaviorOutput) FieldLevelEncryptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehavior) *string { return v.FieldLevelEncryptionId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *string { return v.FieldLevelEncryptionId }).(pulumi.StringPtrOutput)
 }
 
 // The forwarded values configuration that specifies how CloudFront
 // handles query strings, cookies and headers (maximum one).
 func (o DistributionOrderedCacheBehaviorOutput) ForwardedValues() DistributionOrderedCacheBehaviorForwardedValuesOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehavior) DistributionOrderedCacheBehaviorForwardedValues { return v.ForwardedValues }).(DistributionOrderedCacheBehaviorForwardedValuesOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) DistributionOrderedCacheBehaviorForwardedValues {
+		return v.ForwardedValues
+	}).(DistributionOrderedCacheBehaviorForwardedValuesOutput)
 }
 
 // A config block that triggers a lambda function with
 // specific actions. Defined below, maximum 4.
 func (o DistributionOrderedCacheBehaviorOutput) LambdaFunctionAssociations() DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehavior) []DistributionOrderedCacheBehaviorLambdaFunctionAssociation { return v.LambdaFunctionAssociations }).(DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) []DistributionOrderedCacheBehaviorLambdaFunctionAssociation {
+		return v.LambdaFunctionAssociations
+	}).(DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayOutput)
 }
 
 // The maximum amount of time (in seconds) that an
@@ -1161,40 +1179,40 @@ func (o DistributionOrderedCacheBehaviorOutput) LambdaFunctionAssociations() Dis
 // effective in the presence of `Cache-Control max-age`, `Cache-Control
 // s-maxage`, and `Expires` headers. Defaults to 365 days.
 func (o DistributionOrderedCacheBehaviorOutput) MaxTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehavior) *int { return v.MaxTtl }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *int { return v.MaxTtl }).(pulumi.IntPtrOutput)
 }
 
 // The minimum amount of time that you want objects to
 // stay in CloudFront caches before CloudFront queries your origin to see
 // whether the object has been updated. Defaults to 0 seconds.
 func (o DistributionOrderedCacheBehaviorOutput) MinTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehavior) *int { return v.MinTtl }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *int { return v.MinTtl }).(pulumi.IntPtrOutput)
 }
 
 // The pattern (for example, `images/*.jpg)` that
 // specifies which requests you want this cache behavior to apply to.
 func (o DistributionOrderedCacheBehaviorOutput) PathPattern() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehavior) string { return v.PathPattern }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) string { return v.PathPattern }).(pulumi.StringOutput)
 }
 
 // Indicates whether you want to distribute
 // media files in Microsoft Smooth Streaming format using the origin that is
 // associated with this cache behavior.
 func (o DistributionOrderedCacheBehaviorOutput) SmoothStreaming() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehavior) *bool { return v.SmoothStreaming }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *bool { return v.SmoothStreaming }).(pulumi.BoolPtrOutput)
 }
 
 // The value of ID for the origin that you want
 // CloudFront to route requests to when a request matches the path pattern
 // either for a cache behavior or for the default cache behavior.
 func (o DistributionOrderedCacheBehaviorOutput) TargetOriginId() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehavior) string { return v.TargetOriginId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) string { return v.TargetOriginId }).(pulumi.StringOutput)
 }
 
 // The AWS accounts, if any, that you want to
 // allow to create signed URLs for private content.
 func (o DistributionOrderedCacheBehaviorOutput) TrustedSigners() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehavior) []string { return v.TrustedSigners }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) []string { return v.TrustedSigners }).(pulumi.StringArrayOutput)
 }
 
 // Use this element to specify the
@@ -1202,10 +1220,10 @@ func (o DistributionOrderedCacheBehaviorOutput) TrustedSigners() pulumi.StringAr
 // TargetOriginId when a request matches the path pattern in PathPattern. One
 // of `allow-all`, `https-only`, or `redirect-to-https`.
 func (o DistributionOrderedCacheBehaviorOutput) ViewerProtocolPolicy() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehavior) string { return v.ViewerProtocolPolicy }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) string { return v.ViewerProtocolPolicy }).(pulumi.StringOutput)
 }
 
-type DistributionOrderedCacheBehaviorArrayOutput struct { *pulumi.OutputState}
+type DistributionOrderedCacheBehaviorArrayOutput struct{ *pulumi.OutputState }
 
 func (DistributionOrderedCacheBehaviorArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DistributionOrderedCacheBehavior)(nil)).Elem()
@@ -1220,7 +1238,7 @@ func (o DistributionOrderedCacheBehaviorArrayOutput) ToDistributionOrderedCacheB
 }
 
 func (o DistributionOrderedCacheBehaviorArrayOutput) Index(i pulumi.IntInput) DistributionOrderedCacheBehaviorOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DistributionOrderedCacheBehavior {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionOrderedCacheBehavior {
 		return vs[0].([]DistributionOrderedCacheBehavior)[vs[1].(int)]
 	}).(DistributionOrderedCacheBehaviorOutput)
 }
@@ -1280,7 +1298,7 @@ func (i DistributionOrderedCacheBehaviorForwardedValuesArgs) ToDistributionOrder
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOrderedCacheBehaviorForwardedValuesOutput)
 }
 
-type DistributionOrderedCacheBehaviorForwardedValuesOutput struct { *pulumi.OutputState }
+type DistributionOrderedCacheBehaviorForwardedValuesOutput struct{ *pulumi.OutputState }
 
 func (DistributionOrderedCacheBehaviorForwardedValuesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionOrderedCacheBehaviorForwardedValues)(nil)).Elem()
@@ -1297,20 +1315,22 @@ func (o DistributionOrderedCacheBehaviorForwardedValuesOutput) ToDistributionOrd
 // The forwarded values cookies
 // that specifies how CloudFront handles cookies (maximum one).
 func (o DistributionOrderedCacheBehaviorForwardedValuesOutput) Cookies() DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehaviorForwardedValues) DistributionOrderedCacheBehaviorForwardedValuesCookies { return v.Cookies }).(DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehaviorForwardedValues) DistributionOrderedCacheBehaviorForwardedValuesCookies {
+		return v.Cookies
+	}).(DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput)
 }
 
 // Specifies the Headers, if any, that you want
 // CloudFront to vary upon for this cache behavior. Specify `*` to include all
 // headers.
 func (o DistributionOrderedCacheBehaviorForwardedValuesOutput) Headers() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehaviorForwardedValues) []string { return v.Headers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehaviorForwardedValues) []string { return v.Headers }).(pulumi.StringArrayOutput)
 }
 
 // Indicates whether you want CloudFront to forward
 // query strings to the origin that is associated with this cache behavior.
 func (o DistributionOrderedCacheBehaviorForwardedValuesOutput) QueryString() pulumi.BoolOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehaviorForwardedValues) bool { return v.QueryString }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehaviorForwardedValues) bool { return v.QueryString }).(pulumi.BoolOutput)
 }
 
 // When specified, along with a value of
@@ -1318,7 +1338,7 @@ func (o DistributionOrderedCacheBehaviorForwardedValuesOutput) QueryString() pul
 // query string keys listed in this argument are cached. When omitted with a
 // value of `true` for `queryString`, all query string keys are cached.
 func (o DistributionOrderedCacheBehaviorForwardedValuesOutput) QueryStringCacheKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehaviorForwardedValues) []string { return v.QueryStringCacheKeys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehaviorForwardedValues) []string { return v.QueryStringCacheKeys }).(pulumi.StringArrayOutput)
 }
 
 type DistributionOrderedCacheBehaviorForwardedValuesCookies struct {
@@ -1364,7 +1384,7 @@ func (i DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs) ToDistributi
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput)
 }
 
-type DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput struct { *pulumi.OutputState }
+type DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput struct{ *pulumi.OutputState }
 
 func (DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionOrderedCacheBehaviorForwardedValuesCookies)(nil)).Elem()
@@ -1383,14 +1403,14 @@ func (o DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput) ToDistribu
 // specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
 // subsequent `whitelistedNames`
 func (o DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput) Forward() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehaviorForwardedValuesCookies) string { return v.Forward }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehaviorForwardedValuesCookies) string { return v.Forward }).(pulumi.StringOutput)
 }
 
 // If you have specified `whitelist` to
 // `forward`, the whitelisted cookies that you want CloudFront to forward to
 // your origin.
 func (o DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput) WhitelistedNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehaviorForwardedValuesCookies) []string { return v.WhitelistedNames }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehaviorForwardedValuesCookies) []string { return v.WhitelistedNames }).(pulumi.StringArrayOutput)
 }
 
 type DistributionOrderedCacheBehaviorLambdaFunctionAssociation struct {
@@ -1455,7 +1475,7 @@ func (i DistributionOrderedCacheBehaviorLambdaFunctionAssociationArray) ToDistri
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayOutput)
 }
 
-type DistributionOrderedCacheBehaviorLambdaFunctionAssociationOutput struct { *pulumi.OutputState }
+type DistributionOrderedCacheBehaviorLambdaFunctionAssociationOutput struct{ *pulumi.OutputState }
 
 func (DistributionOrderedCacheBehaviorLambdaFunctionAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionOrderedCacheBehaviorLambdaFunctionAssociation)(nil)).Elem()
@@ -1473,20 +1493,20 @@ func (o DistributionOrderedCacheBehaviorLambdaFunctionAssociationOutput) ToDistr
 // Valid values: `viewer-request`, `origin-request`, `viewer-response`,
 // `origin-response`
 func (o DistributionOrderedCacheBehaviorLambdaFunctionAssociationOutput) EventType() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehaviorLambdaFunctionAssociation) string { return v.EventType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehaviorLambdaFunctionAssociation) string { return v.EventType }).(pulumi.StringOutput)
 }
 
 // When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
 func (o DistributionOrderedCacheBehaviorLambdaFunctionAssociationOutput) IncludeBody() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehaviorLambdaFunctionAssociation) *bool { return v.IncludeBody }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehaviorLambdaFunctionAssociation) *bool { return v.IncludeBody }).(pulumi.BoolPtrOutput)
 }
 
 // ARN of the Lambda function.
 func (o DistributionOrderedCacheBehaviorLambdaFunctionAssociationOutput) LambdaArn() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionOrderedCacheBehaviorLambdaFunctionAssociation) string { return v.LambdaArn }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionOrderedCacheBehaviorLambdaFunctionAssociation) string { return v.LambdaArn }).(pulumi.StringOutput)
 }
 
-type DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayOutput struct { *pulumi.OutputState}
+type DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DistributionOrderedCacheBehaviorLambdaFunctionAssociation)(nil)).Elem()
@@ -1501,7 +1521,7 @@ func (o DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayOutput) To
 }
 
 func (o DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayOutput) Index(i pulumi.IntInput) DistributionOrderedCacheBehaviorLambdaFunctionAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DistributionOrderedCacheBehaviorLambdaFunctionAssociation {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionOrderedCacheBehaviorLambdaFunctionAssociation {
 		return vs[0].([]DistributionOrderedCacheBehaviorLambdaFunctionAssociation)[vs[1].(int)]
 	}).(DistributionOrderedCacheBehaviorLambdaFunctionAssociationOutput)
 }
@@ -1594,7 +1614,7 @@ func (i DistributionOriginArray) ToDistributionOriginArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginArrayOutput)
 }
 
-type DistributionOriginOutput struct { *pulumi.OutputState }
+type DistributionOriginOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionOrigin)(nil)).Elem()
@@ -1612,42 +1632,42 @@ func (o DistributionOriginOutput) ToDistributionOriginOutputWithContext(ctx cont
 // `value` parameters that specify header data that will be sent to the origin
 // (multiples allowed).
 func (o DistributionOriginOutput) CustomHeaders() DistributionOriginCustomHeaderArrayOutput {
-	return o.ApplyT(func (v DistributionOrigin) []DistributionOriginCustomHeader { return v.CustomHeaders }).(DistributionOriginCustomHeaderArrayOutput)
+	return o.ApplyT(func(v DistributionOrigin) []DistributionOriginCustomHeader { return v.CustomHeaders }).(DistributionOriginCustomHeaderArrayOutput)
 }
 
 // The CloudFront custom
 // origin configuration information. If an S3
 // origin is required, use `s3OriginConfig` instead.
 func (o DistributionOriginOutput) CustomOriginConfig() DistributionOriginCustomOriginConfigPtrOutput {
-	return o.ApplyT(func (v DistributionOrigin) *DistributionOriginCustomOriginConfig { return v.CustomOriginConfig }).(DistributionOriginCustomOriginConfigPtrOutput)
+	return o.ApplyT(func(v DistributionOrigin) *DistributionOriginCustomOriginConfig { return v.CustomOriginConfig }).(DistributionOriginCustomOriginConfigPtrOutput)
 }
 
 // The DNS domain name of either the S3 bucket, or
 // web site of your custom origin.
 func (o DistributionOriginOutput) DomainName() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionOrigin) string { return v.DomainName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionOrigin) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
 // The unique identifier of the member origin
 func (o DistributionOriginOutput) OriginId() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionOrigin) string { return v.OriginId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionOrigin) string { return v.OriginId }).(pulumi.StringOutput)
 }
 
 // An optional element that causes CloudFront to
 // request your content from a directory in your Amazon S3 bucket or your
 // custom origin.
 func (o DistributionOriginOutput) OriginPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DistributionOrigin) *string { return v.OriginPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DistributionOrigin) *string { return v.OriginPath }).(pulumi.StringPtrOutput)
 }
 
 // The CloudFront S3 origin
 // configuration information. If a custom origin is required, use
 // `customOriginConfig` instead.
 func (o DistributionOriginOutput) S3OriginConfig() DistributionOriginS3OriginConfigPtrOutput {
-	return o.ApplyT(func (v DistributionOrigin) *DistributionOriginS3OriginConfig { return v.S3OriginConfig }).(DistributionOriginS3OriginConfigPtrOutput)
+	return o.ApplyT(func(v DistributionOrigin) *DistributionOriginS3OriginConfig { return v.S3OriginConfig }).(DistributionOriginS3OriginConfigPtrOutput)
 }
 
-type DistributionOriginArrayOutput struct { *pulumi.OutputState}
+type DistributionOriginArrayOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DistributionOrigin)(nil)).Elem()
@@ -1662,13 +1682,13 @@ func (o DistributionOriginArrayOutput) ToDistributionOriginArrayOutputWithContex
 }
 
 func (o DistributionOriginArrayOutput) Index(i pulumi.IntInput) DistributionOriginOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DistributionOrigin {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionOrigin {
 		return vs[0].([]DistributionOrigin)[vs[1].(int)]
 	}).(DistributionOriginOutput)
 }
 
 type DistributionOriginCustomHeader struct {
-	Name string `pulumi:"name"`
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -1680,7 +1700,7 @@ type DistributionOriginCustomHeaderInput interface {
 }
 
 type DistributionOriginCustomHeaderArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1717,7 +1737,7 @@ func (i DistributionOriginCustomHeaderArray) ToDistributionOriginCustomHeaderArr
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginCustomHeaderArrayOutput)
 }
 
-type DistributionOriginCustomHeaderOutput struct { *pulumi.OutputState }
+type DistributionOriginCustomHeaderOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginCustomHeaderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionOriginCustomHeader)(nil)).Elem()
@@ -1732,14 +1752,14 @@ func (o DistributionOriginCustomHeaderOutput) ToDistributionOriginCustomHeaderOu
 }
 
 func (o DistributionOriginCustomHeaderOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionOriginCustomHeader) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionOriginCustomHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o DistributionOriginCustomHeaderOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionOriginCustomHeader) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionOriginCustomHeader) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type DistributionOriginCustomHeaderArrayOutput struct { *pulumi.OutputState}
+type DistributionOriginCustomHeaderArrayOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginCustomHeaderArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DistributionOriginCustomHeader)(nil)).Elem()
@@ -1754,7 +1774,7 @@ func (o DistributionOriginCustomHeaderArrayOutput) ToDistributionOriginCustomHea
 }
 
 func (o DistributionOriginCustomHeaderArrayOutput) Index(i pulumi.IntInput) DistributionOriginCustomHeaderOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DistributionOriginCustomHeader {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionOriginCustomHeader {
 		return vs[0].([]DistributionOriginCustomHeader)[vs[1].(int)]
 	}).(DistributionOriginCustomHeaderOutput)
 }
@@ -1831,7 +1851,8 @@ type DistributionOriginCustomOriginConfigPtrInput interface {
 
 type distributionOriginCustomOriginConfigPtrType DistributionOriginCustomOriginConfigArgs
 
-func DistributionOriginCustomOriginConfigPtr(v *DistributionOriginCustomOriginConfigArgs) DistributionOriginCustomOriginConfigPtrInput {	return (*distributionOriginCustomOriginConfigPtrType)(v)
+func DistributionOriginCustomOriginConfigPtr(v *DistributionOriginCustomOriginConfigArgs) DistributionOriginCustomOriginConfigPtrInput {
+	return (*distributionOriginCustomOriginConfigPtrType)(v)
 }
 
 func (*distributionOriginCustomOriginConfigPtrType) ElementType() reflect.Type {
@@ -1846,7 +1867,7 @@ func (i *distributionOriginCustomOriginConfigPtrType) ToDistributionOriginCustom
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginCustomOriginConfigPtrOutput)
 }
 
-type DistributionOriginCustomOriginConfigOutput struct { *pulumi.OutputState }
+type DistributionOriginCustomOriginConfigOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginCustomOriginConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionOriginCustomOriginConfig)(nil)).Elem()
@@ -1869,40 +1890,41 @@ func (o DistributionOriginCustomOriginConfigOutput) ToDistributionOriginCustomOr
 		return &v
 	}).(DistributionOriginCustomOriginConfigPtrOutput)
 }
+
 // The HTTP port the custom origin listens on.
 func (o DistributionOriginCustomOriginConfigOutput) HttpPort() pulumi.IntOutput {
-	return o.ApplyT(func (v DistributionOriginCustomOriginConfig) int { return v.HttpPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v DistributionOriginCustomOriginConfig) int { return v.HttpPort }).(pulumi.IntOutput)
 }
 
 // The HTTPS port the custom origin listens on.
 func (o DistributionOriginCustomOriginConfigOutput) HttpsPort() pulumi.IntOutput {
-	return o.ApplyT(func (v DistributionOriginCustomOriginConfig) int { return v.HttpsPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v DistributionOriginCustomOriginConfig) int { return v.HttpsPort }).(pulumi.IntOutput)
 }
 
 // The Custom KeepAlive timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
 func (o DistributionOriginCustomOriginConfigOutput) OriginKeepaliveTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DistributionOriginCustomOriginConfig) *int { return v.OriginKeepaliveTimeout }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DistributionOriginCustomOriginConfig) *int { return v.OriginKeepaliveTimeout }).(pulumi.IntPtrOutput)
 }
 
 // The origin protocol policy to apply to
 // your origin. One of `http-only`, `https-only`, or `match-viewer`.
 func (o DistributionOriginCustomOriginConfigOutput) OriginProtocolPolicy() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionOriginCustomOriginConfig) string { return v.OriginProtocolPolicy }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionOriginCustomOriginConfig) string { return v.OriginProtocolPolicy }).(pulumi.StringOutput)
 }
 
 // The Custom Read timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
 func (o DistributionOriginCustomOriginConfigOutput) OriginReadTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DistributionOriginCustomOriginConfig) *int { return v.OriginReadTimeout }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DistributionOriginCustomOriginConfig) *int { return v.OriginReadTimeout }).(pulumi.IntPtrOutput)
 }
 
 // The SSL/TLS protocols that you want
 // CloudFront to use when communicating with your origin over HTTPS. A list of
 // one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
 func (o DistributionOriginCustomOriginConfigOutput) OriginSslProtocols() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DistributionOriginCustomOriginConfig) []string { return v.OriginSslProtocols }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DistributionOriginCustomOriginConfig) []string { return v.OriginSslProtocols }).(pulumi.StringArrayOutput)
 }
 
-type DistributionOriginCustomOriginConfigPtrOutput struct { *pulumi.OutputState}
+type DistributionOriginCustomOriginConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginCustomOriginConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DistributionOriginCustomOriginConfig)(nil)).Elem()
@@ -1917,40 +1939,40 @@ func (o DistributionOriginCustomOriginConfigPtrOutput) ToDistributionOriginCusto
 }
 
 func (o DistributionOriginCustomOriginConfigPtrOutput) Elem() DistributionOriginCustomOriginConfigOutput {
-	return o.ApplyT(func (v *DistributionOriginCustomOriginConfig) DistributionOriginCustomOriginConfig { return *v }).(DistributionOriginCustomOriginConfigOutput)
+	return o.ApplyT(func(v *DistributionOriginCustomOriginConfig) DistributionOriginCustomOriginConfig { return *v }).(DistributionOriginCustomOriginConfigOutput)
 }
 
 // The HTTP port the custom origin listens on.
 func (o DistributionOriginCustomOriginConfigPtrOutput) HttpPort() pulumi.IntOutput {
-	return o.ApplyT(func (v DistributionOriginCustomOriginConfig) int { return v.HttpPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v DistributionOriginCustomOriginConfig) int { return v.HttpPort }).(pulumi.IntOutput)
 }
 
 // The HTTPS port the custom origin listens on.
 func (o DistributionOriginCustomOriginConfigPtrOutput) HttpsPort() pulumi.IntOutput {
-	return o.ApplyT(func (v DistributionOriginCustomOriginConfig) int { return v.HttpsPort }).(pulumi.IntOutput)
+	return o.ApplyT(func(v DistributionOriginCustomOriginConfig) int { return v.HttpsPort }).(pulumi.IntOutput)
 }
 
 // The Custom KeepAlive timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
 func (o DistributionOriginCustomOriginConfigPtrOutput) OriginKeepaliveTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DistributionOriginCustomOriginConfig) *int { return v.OriginKeepaliveTimeout }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DistributionOriginCustomOriginConfig) *int { return v.OriginKeepaliveTimeout }).(pulumi.IntPtrOutput)
 }
 
 // The origin protocol policy to apply to
 // your origin. One of `http-only`, `https-only`, or `match-viewer`.
 func (o DistributionOriginCustomOriginConfigPtrOutput) OriginProtocolPolicy() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionOriginCustomOriginConfig) string { return v.OriginProtocolPolicy }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionOriginCustomOriginConfig) string { return v.OriginProtocolPolicy }).(pulumi.StringOutput)
 }
 
 // The Custom Read timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
 func (o DistributionOriginCustomOriginConfigPtrOutput) OriginReadTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DistributionOriginCustomOriginConfig) *int { return v.OriginReadTimeout }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DistributionOriginCustomOriginConfig) *int { return v.OriginReadTimeout }).(pulumi.IntPtrOutput)
 }
 
 // The SSL/TLS protocols that you want
 // CloudFront to use when communicating with your origin over HTTPS. A list of
 // one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
 func (o DistributionOriginCustomOriginConfigPtrOutput) OriginSslProtocols() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DistributionOriginCustomOriginConfig) []string { return v.OriginSslProtocols }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DistributionOriginCustomOriginConfig) []string { return v.OriginSslProtocols }).(pulumi.StringArrayOutput)
 }
 
 type DistributionOriginGroup struct {
@@ -2011,7 +2033,7 @@ func (i DistributionOriginGroupArray) ToDistributionOriginGroupArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginGroupArrayOutput)
 }
 
-type DistributionOriginGroupOutput struct { *pulumi.OutputState }
+type DistributionOriginGroupOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionOriginGroup)(nil)).Elem()
@@ -2027,20 +2049,20 @@ func (o DistributionOriginGroupOutput) ToDistributionOriginGroupOutputWithContex
 
 // The failover criteria for when to failover to the secondary origin
 func (o DistributionOriginGroupOutput) FailoverCriteria() DistributionOriginGroupFailoverCriteriaOutput {
-	return o.ApplyT(func (v DistributionOriginGroup) DistributionOriginGroupFailoverCriteria { return v.FailoverCriteria }).(DistributionOriginGroupFailoverCriteriaOutput)
+	return o.ApplyT(func(v DistributionOriginGroup) DistributionOriginGroupFailoverCriteria { return v.FailoverCriteria }).(DistributionOriginGroupFailoverCriteriaOutput)
 }
 
 // Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
 func (o DistributionOriginGroupOutput) Members() DistributionOriginGroupMemberArrayOutput {
-	return o.ApplyT(func (v DistributionOriginGroup) []DistributionOriginGroupMember { return v.Members }).(DistributionOriginGroupMemberArrayOutput)
+	return o.ApplyT(func(v DistributionOriginGroup) []DistributionOriginGroupMember { return v.Members }).(DistributionOriginGroupMemberArrayOutput)
 }
 
 // The unique identifier of the member origin
 func (o DistributionOriginGroupOutput) OriginId() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionOriginGroup) string { return v.OriginId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionOriginGroup) string { return v.OriginId }).(pulumi.StringOutput)
 }
 
-type DistributionOriginGroupArrayOutput struct { *pulumi.OutputState}
+type DistributionOriginGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginGroupArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DistributionOriginGroup)(nil)).Elem()
@@ -2055,7 +2077,7 @@ func (o DistributionOriginGroupArrayOutput) ToDistributionOriginGroupArrayOutput
 }
 
 func (o DistributionOriginGroupArrayOutput) Index(i pulumi.IntInput) DistributionOriginGroupOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DistributionOriginGroup {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionOriginGroup {
 		return vs[0].([]DistributionOriginGroup)[vs[1].(int)]
 	}).(DistributionOriginGroupOutput)
 }
@@ -2089,7 +2111,7 @@ func (i DistributionOriginGroupFailoverCriteriaArgs) ToDistributionOriginGroupFa
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginGroupFailoverCriteriaOutput)
 }
 
-type DistributionOriginGroupFailoverCriteriaOutput struct { *pulumi.OutputState }
+type DistributionOriginGroupFailoverCriteriaOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginGroupFailoverCriteriaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionOriginGroupFailoverCriteria)(nil)).Elem()
@@ -2105,7 +2127,7 @@ func (o DistributionOriginGroupFailoverCriteriaOutput) ToDistributionOriginGroup
 
 // A list of HTTP status codes for the origin group
 func (o DistributionOriginGroupFailoverCriteriaOutput) StatusCodes() pulumi.IntArrayOutput {
-	return o.ApplyT(func (v DistributionOriginGroupFailoverCriteria) []int { return v.StatusCodes }).(pulumi.IntArrayOutput)
+	return o.ApplyT(func(v DistributionOriginGroupFailoverCriteria) []int { return v.StatusCodes }).(pulumi.IntArrayOutput)
 }
 
 type DistributionOriginGroupMember struct {
@@ -2158,7 +2180,7 @@ func (i DistributionOriginGroupMemberArray) ToDistributionOriginGroupMemberArray
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginGroupMemberArrayOutput)
 }
 
-type DistributionOriginGroupMemberOutput struct { *pulumi.OutputState }
+type DistributionOriginGroupMemberOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginGroupMemberOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionOriginGroupMember)(nil)).Elem()
@@ -2174,10 +2196,10 @@ func (o DistributionOriginGroupMemberOutput) ToDistributionOriginGroupMemberOutp
 
 // The unique identifier of the member origin
 func (o DistributionOriginGroupMemberOutput) OriginId() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionOriginGroupMember) string { return v.OriginId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionOriginGroupMember) string { return v.OriginId }).(pulumi.StringOutput)
 }
 
-type DistributionOriginGroupMemberArrayOutput struct { *pulumi.OutputState}
+type DistributionOriginGroupMemberArrayOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginGroupMemberArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DistributionOriginGroupMember)(nil)).Elem()
@@ -2192,7 +2214,7 @@ func (o DistributionOriginGroupMemberArrayOutput) ToDistributionOriginGroupMembe
 }
 
 func (o DistributionOriginGroupMemberArrayOutput) Index(i pulumi.IntInput) DistributionOriginGroupMemberOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DistributionOriginGroupMember {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionOriginGroupMember {
 		return vs[0].([]DistributionOriginGroupMember)[vs[1].(int)]
 	}).(DistributionOriginGroupMemberOutput)
 }
@@ -2245,7 +2267,8 @@ type DistributionOriginS3OriginConfigPtrInput interface {
 
 type distributionOriginS3OriginConfigPtrType DistributionOriginS3OriginConfigArgs
 
-func DistributionOriginS3OriginConfigPtr(v *DistributionOriginS3OriginConfigArgs) DistributionOriginS3OriginConfigPtrInput {	return (*distributionOriginS3OriginConfigPtrType)(v)
+func DistributionOriginS3OriginConfigPtr(v *DistributionOriginS3OriginConfigArgs) DistributionOriginS3OriginConfigPtrInput {
+	return (*distributionOriginS3OriginConfigPtrType)(v)
 }
 
 func (*distributionOriginS3OriginConfigPtrType) ElementType() reflect.Type {
@@ -2260,7 +2283,7 @@ func (i *distributionOriginS3OriginConfigPtrType) ToDistributionOriginS3OriginCo
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginS3OriginConfigPtrOutput)
 }
 
-type DistributionOriginS3OriginConfigOutput struct { *pulumi.OutputState }
+type DistributionOriginS3OriginConfigOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginS3OriginConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionOriginS3OriginConfig)(nil)).Elem()
@@ -2283,13 +2306,14 @@ func (o DistributionOriginS3OriginConfigOutput) ToDistributionOriginS3OriginConf
 		return &v
 	}).(DistributionOriginS3OriginConfigPtrOutput)
 }
+
 // The [CloudFront origin access
 // identity][5] to associate with the origin.
 func (o DistributionOriginS3OriginConfigOutput) OriginAccessIdentity() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionOriginS3OriginConfig) string { return v.OriginAccessIdentity }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionOriginS3OriginConfig) string { return v.OriginAccessIdentity }).(pulumi.StringOutput)
 }
 
-type DistributionOriginS3OriginConfigPtrOutput struct { *pulumi.OutputState}
+type DistributionOriginS3OriginConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginS3OriginConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DistributionOriginS3OriginConfig)(nil)).Elem()
@@ -2304,13 +2328,13 @@ func (o DistributionOriginS3OriginConfigPtrOutput) ToDistributionOriginS3OriginC
 }
 
 func (o DistributionOriginS3OriginConfigPtrOutput) Elem() DistributionOriginS3OriginConfigOutput {
-	return o.ApplyT(func (v *DistributionOriginS3OriginConfig) DistributionOriginS3OriginConfig { return *v }).(DistributionOriginS3OriginConfigOutput)
+	return o.ApplyT(func(v *DistributionOriginS3OriginConfig) DistributionOriginS3OriginConfig { return *v }).(DistributionOriginS3OriginConfigOutput)
 }
 
 // The [CloudFront origin access
 // identity][5] to associate with the origin.
 func (o DistributionOriginS3OriginConfigPtrOutput) OriginAccessIdentity() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionOriginS3OriginConfig) string { return v.OriginAccessIdentity }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionOriginS3OriginConfig) string { return v.OriginAccessIdentity }).(pulumi.StringOutput)
 }
 
 type DistributionRestrictions struct {
@@ -2357,7 +2381,8 @@ type DistributionRestrictionsPtrInput interface {
 
 type distributionRestrictionsPtrType DistributionRestrictionsArgs
 
-func DistributionRestrictionsPtr(v *DistributionRestrictionsArgs) DistributionRestrictionsPtrInput {	return (*distributionRestrictionsPtrType)(v)
+func DistributionRestrictionsPtr(v *DistributionRestrictionsArgs) DistributionRestrictionsPtrInput {
+	return (*distributionRestrictionsPtrType)(v)
 }
 
 func (*distributionRestrictionsPtrType) ElementType() reflect.Type {
@@ -2372,7 +2397,7 @@ func (i *distributionRestrictionsPtrType) ToDistributionRestrictionsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionRestrictionsPtrOutput)
 }
 
-type DistributionRestrictionsOutput struct { *pulumi.OutputState }
+type DistributionRestrictionsOutput struct{ *pulumi.OutputState }
 
 func (DistributionRestrictionsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionRestrictions)(nil)).Elem()
@@ -2396,10 +2421,10 @@ func (o DistributionRestrictionsOutput) ToDistributionRestrictionsPtrOutputWithC
 	}).(DistributionRestrictionsPtrOutput)
 }
 func (o DistributionRestrictionsOutput) GeoRestriction() DistributionRestrictionsGeoRestrictionOutput {
-	return o.ApplyT(func (v DistributionRestrictions) DistributionRestrictionsGeoRestriction { return v.GeoRestriction }).(DistributionRestrictionsGeoRestrictionOutput)
+	return o.ApplyT(func(v DistributionRestrictions) DistributionRestrictionsGeoRestriction { return v.GeoRestriction }).(DistributionRestrictionsGeoRestrictionOutput)
 }
 
-type DistributionRestrictionsPtrOutput struct { *pulumi.OutputState}
+type DistributionRestrictionsPtrOutput struct{ *pulumi.OutputState }
 
 func (DistributionRestrictionsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DistributionRestrictions)(nil)).Elem()
@@ -2414,11 +2439,11 @@ func (o DistributionRestrictionsPtrOutput) ToDistributionRestrictionsPtrOutputWi
 }
 
 func (o DistributionRestrictionsPtrOutput) Elem() DistributionRestrictionsOutput {
-	return o.ApplyT(func (v *DistributionRestrictions) DistributionRestrictions { return *v }).(DistributionRestrictionsOutput)
+	return o.ApplyT(func(v *DistributionRestrictions) DistributionRestrictions { return *v }).(DistributionRestrictionsOutput)
 }
 
 func (o DistributionRestrictionsPtrOutput) GeoRestriction() DistributionRestrictionsGeoRestrictionOutput {
-	return o.ApplyT(func (v DistributionRestrictions) DistributionRestrictionsGeoRestriction { return v.GeoRestriction }).(DistributionRestrictionsGeoRestrictionOutput)
+	return o.ApplyT(func(v DistributionRestrictions) DistributionRestrictionsGeoRestriction { return v.GeoRestriction }).(DistributionRestrictionsGeoRestrictionOutput)
 }
 
 type DistributionRestrictionsGeoRestriction struct {
@@ -2462,7 +2487,7 @@ func (i DistributionRestrictionsGeoRestrictionArgs) ToDistributionRestrictionsGe
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionRestrictionsGeoRestrictionOutput)
 }
 
-type DistributionRestrictionsGeoRestrictionOutput struct { *pulumi.OutputState }
+type DistributionRestrictionsGeoRestrictionOutput struct{ *pulumi.OutputState }
 
 func (DistributionRestrictionsGeoRestrictionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionRestrictionsGeoRestriction)(nil)).Elem()
@@ -2480,14 +2505,14 @@ func (o DistributionRestrictionsGeoRestrictionOutput) ToDistributionRestrictions
 // want CloudFront either to distribute your content (`whitelist`) or not
 // distribute your content (`blacklist`).
 func (o DistributionRestrictionsGeoRestrictionOutput) Locations() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DistributionRestrictionsGeoRestriction) []string { return v.Locations }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DistributionRestrictionsGeoRestriction) []string { return v.Locations }).(pulumi.StringArrayOutput)
 }
 
 // The method that you want to use to restrict
 // distribution of your content by country: `none`, `whitelist`, or
 // `blacklist`.
 func (o DistributionRestrictionsGeoRestrictionOutput) RestrictionType() pulumi.StringOutput {
-	return o.ApplyT(func (v DistributionRestrictionsGeoRestriction) string { return v.RestrictionType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DistributionRestrictionsGeoRestriction) string { return v.RestrictionType }).(pulumi.StringOutput)
 }
 
 type DistributionViewerCertificate struct {
@@ -2515,7 +2540,7 @@ type DistributionViewerCertificate struct {
 	// specified. If you have specified `cloudfrontDefaultCertificate`, `TLSv1`
 	// must be specified.
 	MinimumProtocolVersion *string `pulumi:"minimumProtocolVersion"`
-	SslSupportMethod *string `pulumi:"sslSupportMethod"`
+	SslSupportMethod       *string `pulumi:"sslSupportMethod"`
 }
 
 type DistributionViewerCertificateInput interface {
@@ -2550,7 +2575,7 @@ type DistributionViewerCertificateArgs struct {
 	// specified. If you have specified `cloudfrontDefaultCertificate`, `TLSv1`
 	// must be specified.
 	MinimumProtocolVersion pulumi.StringPtrInput `pulumi:"minimumProtocolVersion"`
-	SslSupportMethod pulumi.StringPtrInput `pulumi:"sslSupportMethod"`
+	SslSupportMethod       pulumi.StringPtrInput `pulumi:"sslSupportMethod"`
 }
 
 func (DistributionViewerCertificateArgs) ElementType() reflect.Type {
@@ -2582,7 +2607,8 @@ type DistributionViewerCertificatePtrInput interface {
 
 type distributionViewerCertificatePtrType DistributionViewerCertificateArgs
 
-func DistributionViewerCertificatePtr(v *DistributionViewerCertificateArgs) DistributionViewerCertificatePtrInput {	return (*distributionViewerCertificatePtrType)(v)
+func DistributionViewerCertificatePtr(v *DistributionViewerCertificateArgs) DistributionViewerCertificatePtrInput {
+	return (*distributionViewerCertificatePtrType)(v)
 }
 
 func (*distributionViewerCertificatePtrType) ElementType() reflect.Type {
@@ -2597,7 +2623,7 @@ func (i *distributionViewerCertificatePtrType) ToDistributionViewerCertificatePt
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionViewerCertificatePtrOutput)
 }
 
-type DistributionViewerCertificateOutput struct { *pulumi.OutputState }
+type DistributionViewerCertificateOutput struct{ *pulumi.OutputState }
 
 func (DistributionViewerCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionViewerCertificate)(nil)).Elem()
@@ -2620,26 +2646,27 @@ func (o DistributionViewerCertificateOutput) ToDistributionViewerCertificatePtrO
 		return &v
 	}).(DistributionViewerCertificatePtrOutput)
 }
+
 // The ARN of the [AWS Certificate Manager][6]
 // certificate that you wish to use with this distribution. Specify this,
 // `cloudfrontDefaultCertificate`, or `iamCertificateId`.  The ACM
 // certificate must be in  US-EAST-1.
 func (o DistributionViewerCertificateOutput) AcmCertificateArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DistributionViewerCertificate) *string { return v.AcmCertificateArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DistributionViewerCertificate) *string { return v.AcmCertificateArn }).(pulumi.StringPtrOutput)
 }
 
 // `true` if you want viewers to use HTTPS
 // to request your objects and you're using the CloudFront domain name for your
 // distribution. Specify this, `acmCertificateArn`, or `iamCertificateId`.
 func (o DistributionViewerCertificateOutput) CloudfrontDefaultCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DistributionViewerCertificate) *bool { return v.CloudfrontDefaultCertificate }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DistributionViewerCertificate) *bool { return v.CloudfrontDefaultCertificate }).(pulumi.BoolPtrOutput)
 }
 
 // The IAM certificate identifier of the custom viewer
 // certificate for this distribution if you are using a custom domain. Specify
 // this, `acmCertificateArn`, or `cloudfrontDefaultCertificate`.
 func (o DistributionViewerCertificateOutput) IamCertificateId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DistributionViewerCertificate) *string { return v.IamCertificateId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DistributionViewerCertificate) *string { return v.IamCertificateId }).(pulumi.StringPtrOutput)
 }
 
 // The minimum version of the SSL protocol that
@@ -2653,14 +2680,14 @@ func (o DistributionViewerCertificateOutput) IamCertificateId() pulumi.StringPtr
 // specified. If you have specified `cloudfrontDefaultCertificate`, `TLSv1`
 // must be specified.
 func (o DistributionViewerCertificateOutput) MinimumProtocolVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DistributionViewerCertificate) *string { return v.MinimumProtocolVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DistributionViewerCertificate) *string { return v.MinimumProtocolVersion }).(pulumi.StringPtrOutput)
 }
 
 func (o DistributionViewerCertificateOutput) SslSupportMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DistributionViewerCertificate) *string { return v.SslSupportMethod }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DistributionViewerCertificate) *string { return v.SslSupportMethod }).(pulumi.StringPtrOutput)
 }
 
-type DistributionViewerCertificatePtrOutput struct { *pulumi.OutputState}
+type DistributionViewerCertificatePtrOutput struct{ *pulumi.OutputState }
 
 func (DistributionViewerCertificatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DistributionViewerCertificate)(nil)).Elem()
@@ -2675,7 +2702,7 @@ func (o DistributionViewerCertificatePtrOutput) ToDistributionViewerCertificateP
 }
 
 func (o DistributionViewerCertificatePtrOutput) Elem() DistributionViewerCertificateOutput {
-	return o.ApplyT(func (v *DistributionViewerCertificate) DistributionViewerCertificate { return *v }).(DistributionViewerCertificateOutput)
+	return o.ApplyT(func(v *DistributionViewerCertificate) DistributionViewerCertificate { return *v }).(DistributionViewerCertificateOutput)
 }
 
 // The ARN of the [AWS Certificate Manager][6]
@@ -2683,21 +2710,21 @@ func (o DistributionViewerCertificatePtrOutput) Elem() DistributionViewerCertifi
 // `cloudfrontDefaultCertificate`, or `iamCertificateId`.  The ACM
 // certificate must be in  US-EAST-1.
 func (o DistributionViewerCertificatePtrOutput) AcmCertificateArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DistributionViewerCertificate) *string { return v.AcmCertificateArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DistributionViewerCertificate) *string { return v.AcmCertificateArn }).(pulumi.StringPtrOutput)
 }
 
 // `true` if you want viewers to use HTTPS
 // to request your objects and you're using the CloudFront domain name for your
 // distribution. Specify this, `acmCertificateArn`, or `iamCertificateId`.
 func (o DistributionViewerCertificatePtrOutput) CloudfrontDefaultCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DistributionViewerCertificate) *bool { return v.CloudfrontDefaultCertificate }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DistributionViewerCertificate) *bool { return v.CloudfrontDefaultCertificate }).(pulumi.BoolPtrOutput)
 }
 
 // The IAM certificate identifier of the custom viewer
 // certificate for this distribution if you are using a custom domain. Specify
 // this, `acmCertificateArn`, or `cloudfrontDefaultCertificate`.
 func (o DistributionViewerCertificatePtrOutput) IamCertificateId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DistributionViewerCertificate) *string { return v.IamCertificateId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DistributionViewerCertificate) *string { return v.IamCertificateId }).(pulumi.StringPtrOutput)
 }
 
 // The minimum version of the SSL protocol that
@@ -2711,11 +2738,11 @@ func (o DistributionViewerCertificatePtrOutput) IamCertificateId() pulumi.String
 // specified. If you have specified `cloudfrontDefaultCertificate`, `TLSv1`
 // must be specified.
 func (o DistributionViewerCertificatePtrOutput) MinimumProtocolVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DistributionViewerCertificate) *string { return v.MinimumProtocolVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DistributionViewerCertificate) *string { return v.MinimumProtocolVersion }).(pulumi.StringPtrOutput)
 }
 
 func (o DistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DistributionViewerCertificate) *string { return v.SslSupportMethod }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DistributionViewerCertificate) *string { return v.SslSupportMethod }).(pulumi.StringPtrOutput)
 }
 
 func init() {

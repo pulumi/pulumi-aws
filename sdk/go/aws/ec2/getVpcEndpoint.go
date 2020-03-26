@@ -38,15 +38,14 @@ type LookupVpcEndpointArgs struct {
 	VpcId *string `pulumi:"vpcId"`
 }
 
-
 // A collection of values returned by getVpcEndpoint.
 type LookupVpcEndpointResult struct {
 	// The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
 	CidrBlocks []string `pulumi:"cidrBlocks"`
 	// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
 	DnsEntries []GetVpcEndpointDnsEntry `pulumi:"dnsEntries"`
-	Filters []GetVpcEndpointFilter `pulumi:"filters"`
-	Id string `pulumi:"id"`
+	Filters    []GetVpcEndpointFilter   `pulumi:"filters"`
+	Id         string                   `pulumi:"id"`
 	// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// The ID of the AWS account that owns the VPC endpoint.
@@ -63,13 +62,12 @@ type LookupVpcEndpointResult struct {
 	RouteTableIds []string `pulumi:"routeTableIds"`
 	// One or more security groups associated with the network interfaces. Applicable for endpoints of type `Interface`.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	ServiceName string `pulumi:"serviceName"`
-	State string `pulumi:"state"`
+	ServiceName      string   `pulumi:"serviceName"`
+	State            string   `pulumi:"state"`
 	// One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
-	SubnetIds []string `pulumi:"subnetIds"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	SubnetIds []string               `pulumi:"subnetIds"`
+	Tags      map[string]interface{} `pulumi:"tags"`
 	// The VPC Endpoint type, `Gateway` or `Interface`.
 	VpcEndpointType string `pulumi:"vpcEndpointType"`
-	VpcId string `pulumi:"vpcId"`
+	VpcId           string `pulumi:"vpcId"`
 }
-

@@ -100,4 +100,3 @@ type StaticIpAttachmentArgs struct {
 func (StaticIpAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*staticIpAttachmentArgs)(nil)).Elem()
 }
-

@@ -161,4 +161,3 @@ type GraphQLApiArgs struct {
 func (GraphQLApiArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*graphQLApiArgs)(nil)).Elem()
 }
-

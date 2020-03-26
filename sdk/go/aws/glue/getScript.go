@@ -30,17 +30,15 @@ type GetScriptArgs struct {
 	Language *string `pulumi:"language"`
 }
 
-
 // A collection of values returned by getScript.
 type GetScriptResult struct {
 	DagEdges []GetScriptDagEdge `pulumi:"dagEdges"`
 	DagNodes []GetScriptDagNode `pulumi:"dagNodes"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id       string  `pulumi:"id"`
 	Language *string `pulumi:"language"`
 	// The Python script generated from the DAG when the `language` argument is set to `PYTHON`.
 	PythonScript string `pulumi:"pythonScript"`
 	// The Scala code generated from the DAG when the `language` argument is set to `SCALA`.
 	ScalaCode string `pulumi:"scalaCode"`
 }
-

@@ -172,4 +172,3 @@ type FleetArgs struct {
 func (FleetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*fleetArgs)(nil)).Elem()
 }
-

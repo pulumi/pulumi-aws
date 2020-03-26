@@ -114,29 +114,29 @@ type Instance struct {
 	BlueprintId pulumi.StringOutput `pulumi:"blueprintId"`
 	// The bundle of specification information (see list below)
 	BundleId pulumi.StringOutput `pulumi:"bundleId"`
-	CpuCount pulumi.IntOutput `pulumi:"cpuCount"`
+	CpuCount pulumi.IntOutput    `pulumi:"cpuCount"`
 	// The timestamp when the instance was created.
 	// * `availabilityZone`
 	// * `blueprintId`
 	// * `bundleId`
 	// * `keyPairName`
 	// * `userData`
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt   pulumi.StringOutput `pulumi:"createdAt"`
 	Ipv6Address pulumi.StringOutput `pulumi:"ipv6Address"`
-	IsStaticIp pulumi.BoolOutput `pulumi:"isStaticIp"`
+	IsStaticIp  pulumi.BoolOutput   `pulumi:"isStaticIp"`
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName pulumi.StringPtrOutput `pulumi:"keyPairName"`
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name             pulumi.StringOutput `pulumi:"name"`
 	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
-	PublicIpAddress pulumi.StringOutput `pulumi:"publicIpAddress"`
-	RamSize pulumi.IntOutput `pulumi:"ramSize"`
+	PublicIpAddress  pulumi.StringOutput `pulumi:"publicIpAddress"`
+	RamSize          pulumi.IntOutput    `pulumi:"ramSize"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// launch script to configure server with additional user data
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
-	Username pulumi.StringOutput `pulumi:"username"`
+	Username pulumi.StringOutput    `pulumi:"username"`
 }
 
 // NewInstance registers a new resource with the given unique name, arguments, and options.
@@ -186,24 +186,24 @@ type instanceState struct {
 	BlueprintId *string `pulumi:"blueprintId"`
 	// The bundle of specification information (see list below)
 	BundleId *string `pulumi:"bundleId"`
-	CpuCount *int `pulumi:"cpuCount"`
+	CpuCount *int    `pulumi:"cpuCount"`
 	// The timestamp when the instance was created.
 	// * `availabilityZone`
 	// * `blueprintId`
 	// * `bundleId`
 	// * `keyPairName`
 	// * `userData`
-	CreatedAt *string `pulumi:"createdAt"`
+	CreatedAt   *string `pulumi:"createdAt"`
 	Ipv6Address *string `pulumi:"ipv6Address"`
-	IsStaticIp *bool `pulumi:"isStaticIp"`
+	IsStaticIp  *bool   `pulumi:"isStaticIp"`
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName *string `pulumi:"keyPairName"`
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
-	Name *string `pulumi:"name"`
+	Name             *string `pulumi:"name"`
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	PublicIpAddress *string `pulumi:"publicIpAddress"`
-	RamSize *int `pulumi:"ramSize"`
+	PublicIpAddress  *string `pulumi:"publicIpAddress"`
+	RamSize          *int    `pulumi:"ramSize"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// launch script to configure server with additional user data
@@ -229,17 +229,17 @@ type InstanceState struct {
 	// * `bundleId`
 	// * `keyPairName`
 	// * `userData`
-	CreatedAt pulumi.StringPtrInput
+	CreatedAt   pulumi.StringPtrInput
 	Ipv6Address pulumi.StringPtrInput
-	IsStaticIp pulumi.BoolPtrInput
+	IsStaticIp  pulumi.BoolPtrInput
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName pulumi.StringPtrInput
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
-	Name pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
 	PrivateIpAddress pulumi.StringPtrInput
-	PublicIpAddress pulumi.StringPtrInput
-	RamSize pulumi.IntPtrInput
+	PublicIpAddress  pulumi.StringPtrInput
+	RamSize          pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// launch script to configure server with additional user data
@@ -295,4 +295,3 @@ type InstanceArgs struct {
 func (InstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*instanceArgs)(nil)).Elem()
 }
-

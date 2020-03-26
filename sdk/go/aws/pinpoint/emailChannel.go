@@ -134,4 +134,3 @@ type EmailChannelArgs struct {
 func (EmailChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailChannelArgs)(nil)).Elem()
 }
-

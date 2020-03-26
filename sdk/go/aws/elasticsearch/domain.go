@@ -26,7 +26,7 @@ type Domain struct {
 	// Amazon Resource Name (ARN) of the domain.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Cluster configuration of the domain, see below.
-	ClusterConfig DomainClusterConfigOutput `pulumi:"clusterConfig"`
+	ClusterConfig  DomainClusterConfigOutput     `pulumi:"clusterConfig"`
 	CognitoOptions DomainCognitoOptionsPtrOutput `pulumi:"cognitoOptions"`
 	// Domain endpoint HTTP(S) related options. See below.
 	DomainEndpointOptions DomainDomainEndpointOptionsOutput `pulumi:"domainEndpointOptions"`
@@ -96,7 +96,7 @@ type domainState struct {
 	// Amazon Resource Name (ARN) of the domain.
 	Arn *string `pulumi:"arn"`
 	// Cluster configuration of the domain, see below.
-	ClusterConfig *DomainClusterConfig `pulumi:"clusterConfig"`
+	ClusterConfig  *DomainClusterConfig  `pulumi:"clusterConfig"`
 	CognitoOptions *DomainCognitoOptions `pulumi:"cognitoOptions"`
 	// Domain endpoint HTTP(S) related options. See below.
 	DomainEndpointOptions *DomainDomainEndpointOptions `pulumi:"domainEndpointOptions"`
@@ -139,7 +139,7 @@ type DomainState struct {
 	// Amazon Resource Name (ARN) of the domain.
 	Arn pulumi.StringPtrInput
 	// Cluster configuration of the domain, see below.
-	ClusterConfig DomainClusterConfigPtrInput
+	ClusterConfig  DomainClusterConfigPtrInput
 	CognitoOptions DomainCognitoOptionsPtrInput
 	// Domain endpoint HTTP(S) related options. See below.
 	DomainEndpointOptions DomainDomainEndpointOptionsPtrInput
@@ -184,7 +184,7 @@ type domainArgs struct {
 	// domain on every apply.
 	AdvancedOptions map[string]interface{} `pulumi:"advancedOptions"`
 	// Cluster configuration of the domain, see below.
-	ClusterConfig *DomainClusterConfig `pulumi:"clusterConfig"`
+	ClusterConfig  *DomainClusterConfig  `pulumi:"clusterConfig"`
 	CognitoOptions *DomainCognitoOptions `pulumi:"cognitoOptions"`
 	// Domain endpoint HTTP(S) related options. See below.
 	DomainEndpointOptions *DomainDomainEndpointOptions `pulumi:"domainEndpointOptions"`
@@ -218,7 +218,7 @@ type DomainArgs struct {
 	// domain on every apply.
 	AdvancedOptions pulumi.MapInput
 	// Cluster configuration of the domain, see below.
-	ClusterConfig DomainClusterConfigPtrInput
+	ClusterConfig  DomainClusterConfigPtrInput
 	CognitoOptions DomainCognitoOptionsPtrInput
 	// Domain endpoint HTTP(S) related options. See below.
 	DomainEndpointOptions DomainDomainEndpointOptionsPtrInput
@@ -245,4 +245,3 @@ type DomainArgs struct {
 func (DomainArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainArgs)(nil)).Elem()
 }
-

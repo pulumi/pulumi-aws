@@ -140,7 +140,7 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly stackId!: pulumi.Output<string>;
     /**
-     * The type of source to use. For example, "archive".
+     * Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -279,7 +279,7 @@ export interface ApplicationState {
      */
     readonly stackId?: pulumi.Input<string>;
     /**
-     * The type of source to use. For example, "archive".
+     * Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
      */
     readonly type?: pulumi.Input<string>;
 }
@@ -353,7 +353,7 @@ export interface ApplicationArgs {
      */
     readonly stackId: pulumi.Input<string>;
     /**
-     * The type of source to use. For example, "archive".
+     * Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
      */
     readonly type: pulumi.Input<string>;
 }

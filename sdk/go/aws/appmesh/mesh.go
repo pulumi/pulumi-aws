@@ -113,4 +113,3 @@ type MeshArgs struct {
 func (MeshArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*meshArgs)(nil)).Elem()
 }
-

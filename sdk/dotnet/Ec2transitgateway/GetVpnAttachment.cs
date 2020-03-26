@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpn_attachment.html.markdown.
         /// </summary>
+        [Obsolete("Use GetVpnAttachment.InvokeAsync() instead")]
         public static Task<GetVpnAttachmentResult> GetVpnAttachment(GetVpnAttachmentArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpnAttachmentResult>("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetVpnAttachment
+    {
+        /// <summary>
+        /// Get information on an EC2 Transit Gateway VPN Attachment.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpn_attachment.html.markdown.
+        /// </summary>
+        public static Task<GetVpnAttachmentResult> InvokeAsync(GetVpnAttachmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpnAttachmentResult>("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -24,6 +35,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// Key-value tags for the EC2 Transit Gateway VPN Attachment
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

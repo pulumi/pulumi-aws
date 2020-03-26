@@ -99,4 +99,3 @@ type BucketMetricArgs struct {
 func (BucketMetricArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bucketMetricArgs)(nil)).Elem()
 }
-

@@ -24,9 +24,9 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 type LookupClusterArgs struct {
 	// Name of the cluster.
 	ClusterName string `pulumi:"clusterName"`
+	// Map of key-value pairs assigned to the cluster.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
@@ -36,7 +36,7 @@ type LookupClusterResult struct {
 	BootstrapBrokers string `pulumi:"bootstrapBrokers"`
 	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster.
 	BootstrapBrokersTls string `pulumi:"bootstrapBrokersTls"`
-	ClusterName string `pulumi:"clusterName"`
+	ClusterName         string `pulumi:"clusterName"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Apache Kafka version.
@@ -48,4 +48,3 @@ type LookupClusterResult struct {
 	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
 	ZookeeperConnectString string `pulumi:"zookeeperConnectString"`
 }
-

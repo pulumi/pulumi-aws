@@ -29,11 +29,10 @@ type LookupBucketArgs struct {
 	Bucket string `pulumi:"bucket"`
 }
 
-
 // A collection of values returned by getBucket.
 type LookupBucketResult struct {
 	// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
-	Arn string `pulumi:"arn"`
+	Arn    string `pulumi:"arn"`
 	Bucket string `pulumi:"bucket"`
 	// The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
 	BucketDomainName string `pulumi:"bucketDomainName"`
@@ -50,4 +49,3 @@ type LookupBucketResult struct {
 	// The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
 	WebsiteEndpoint string `pulumi:"websiteEndpoint"`
 }
-

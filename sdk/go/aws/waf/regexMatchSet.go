@@ -96,4 +96,3 @@ type RegexMatchSetArgs struct {
 func (RegexMatchSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*regexMatchSetArgs)(nil)).Elem()
 }
-

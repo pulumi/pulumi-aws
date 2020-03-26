@@ -147,4 +147,3 @@ type FargateProfileArgs struct {
 func (FargateProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*fargateProfileArgs)(nil)).Elem()
 }
-

@@ -20,7 +20,22 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet.html.markdown.
         /// </summary>
+        [Obsolete("Use GetSubnet.InvokeAsync() instead")]
         public static Task<GetSubnetResult> GetSubnet(GetSubnetArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("aws:ec2/getSubnet:getSubnet", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetSubnet
+    {
+        /// <summary>
+        /// `aws.ec2.Subnet` provides details about a specific VPC subnet.
+        /// 
+        /// This resource can prove useful when a module accepts a subnet id as
+        /// an input variable and needs to, for example, determine the id of the
+        /// VPC that the subnet belongs to.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet.html.markdown.
+        /// </summary>
+        public static Task<GetSubnetResult> InvokeAsync(GetSubnetArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("aws:ec2/getSubnet:getSubnet", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

@@ -32,4 +32,3 @@ type GetCallerIdentityResult struct {
 	// The unique identifier of the calling entity.
 	UserId string `pulumi:"userId"`
 }
-

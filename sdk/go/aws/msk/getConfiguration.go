@@ -26,7 +26,6 @@ type LookupConfigurationArgs struct {
 	Name string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getConfiguration.
 type LookupConfigurationResult struct {
 	// Amazon Resource Name (ARN) of the configuration.
@@ -38,9 +37,8 @@ type LookupConfigurationResult struct {
 	// List of Apache Kafka versions which can use this configuration.
 	KafkaVersions []string `pulumi:"kafkaVersions"`
 	// Latest revision of the configuration.
-	LatestRevision int `pulumi:"latestRevision"`
-	Name string `pulumi:"name"`
+	LatestRevision int    `pulumi:"latestRevision"`
+	Name           string `pulumi:"name"`
 	// Contents of the server.properties file.
 	ServerProperties string `pulumi:"serverProperties"`
 }
-

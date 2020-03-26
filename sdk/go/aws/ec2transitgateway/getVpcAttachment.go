@@ -26,15 +26,15 @@ type LookupVpcAttachmentArgs struct {
 	Filters []GetVpcAttachmentFilter `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway VPC Attachment.
 	Id *string `pulumi:"id"`
+	// Key-value tags for the EC2 Transit Gateway VPC Attachment
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getVpcAttachment.
 type LookupVpcAttachmentResult struct {
 	// Whether DNS support is enabled.
-	DnsSupport string `pulumi:"dnsSupport"`
-	Filters []GetVpcAttachmentFilter `pulumi:"filters"`
+	DnsSupport string                   `pulumi:"dnsSupport"`
+	Filters    []GetVpcAttachmentFilter `pulumi:"filters"`
 	// EC2 Transit Gateway VPC Attachment identifier
 	Id *string `pulumi:"id"`
 	// Whether IPv6 support is enabled.
@@ -50,4 +50,3 @@ type LookupVpcAttachmentResult struct {
 	// Identifier of the AWS account that owns the EC2 VPC.
 	VpcOwnerId string `pulumi:"vpcOwnerId"`
 }
-

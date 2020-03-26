@@ -26,7 +26,6 @@ type GetServiceArgs struct {
 	ServiceName string `pulumi:"serviceName"`
 }
 
-
 // A collection of values returned by getService.
 type GetServiceResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
@@ -35,4 +34,3 @@ type GetServiceResult struct {
 	ServiceCode string `pulumi:"serviceCode"`
 	ServiceName string `pulumi:"serviceName"`
 }
-

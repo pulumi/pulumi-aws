@@ -539,7 +539,7 @@ namespace Pulumi.Aws.Elb
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The interval between checks.
+        /// The publishing interval in minutes. Default: 60 minutes.
         /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
@@ -570,7 +570,7 @@ namespace Pulumi.Aws.Elb
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The interval between checks.
+        /// The publishing interval in minutes. Default: 60 minutes.
         /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
@@ -760,7 +760,7 @@ namespace Pulumi.Aws.Elb
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// The interval between checks.
+        /// The publishing interval in minutes. Default: 60 minutes.
         /// </summary>
         public readonly int? Interval;
 

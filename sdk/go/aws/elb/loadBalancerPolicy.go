@@ -42,6 +42,12 @@ func NewLoadBalancerPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &LoadBalancerPolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource LoadBalancerPolicy
 	err := ctx.RegisterResource("aws:elb/loadBalancerPolicy:LoadBalancerPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -115,4 +121,3 @@ type LoadBalancerPolicyArgs struct {
 func (LoadBalancerPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerPolicyArgs)(nil)).Elem()
 }
-

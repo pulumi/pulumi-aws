@@ -112,4 +112,3 @@ type VpcLinkArgs struct {
 func (VpcLinkArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcLinkArgs)(nil)).Elem()
 }
-

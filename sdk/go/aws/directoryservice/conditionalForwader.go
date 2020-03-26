@@ -105,4 +105,3 @@ type ConditionalForwaderArgs struct {
 func (ConditionalForwaderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*conditionalForwaderArgs)(nil)).Elem()
 }
-

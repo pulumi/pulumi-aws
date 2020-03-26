@@ -22,7 +22,24 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb.html.markdown.
         /// </summary>
+        [Obsolete("Use GetLoadBalancer.InvokeAsync() instead")]
         public static Task<GetLoadBalancerResult> GetLoadBalancer(GetLoadBalancerArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws:applicationloadbalancing/getLoadBalancer:getLoadBalancer", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetLoadBalancer
+    {
+        /// <summary>
+        /// &gt; **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
+        /// 
+        /// Provides information about a Load Balancer.
+        /// 
+        /// This data source can prove useful when a module accepts an LB as an input
+        /// variable and needs to, for example, determine the security groups associated
+        /// with it, etc.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb.html.markdown.
+        /// </summary>
+        public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws:applicationloadbalancing/getLoadBalancer:getLoadBalancer", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

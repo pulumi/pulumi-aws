@@ -176,4 +176,3 @@ type EipAssociationArgs struct {
 func (EipAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eipAssociationArgs)(nil)).Elem()
 }
-

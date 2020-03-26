@@ -102,4 +102,3 @@ type CapacityProviderArgs struct {
 func (CapacityProviderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*capacityProviderArgs)(nil)).Elem()
 }
-

@@ -85,4 +85,3 @@ type RegexPatternSetArgs struct {
 func (RegexPatternSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*regexPatternSetArgs)(nil)).Elem()
 }
-

@@ -26,14 +26,12 @@ type GetNetworkInterfacesArgs struct {
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
-
 // A collection of values returned by getNetworkInterfaces.
 type GetNetworkInterfacesResult struct {
 	Filters []GetNetworkInterfacesFilter `pulumi:"filters"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of all the network interface ids found. This data source will fail if none are found.
-	Ids []string `pulumi:"ids"`
+	Ids  []string               `pulumi:"ids"`
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-

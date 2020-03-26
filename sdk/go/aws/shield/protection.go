@@ -90,4 +90,3 @@ type ProtectionArgs struct {
 func (ProtectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*protectionArgs)(nil)).Elem()
 }
-

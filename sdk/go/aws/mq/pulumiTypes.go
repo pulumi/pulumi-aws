@@ -61,7 +61,8 @@ type BrokerConfigurationPtrInput interface {
 
 type brokerConfigurationPtrType BrokerConfigurationArgs
 
-func BrokerConfigurationPtr(v *BrokerConfigurationArgs) BrokerConfigurationPtrInput {	return (*brokerConfigurationPtrType)(v)
+func BrokerConfigurationPtr(v *BrokerConfigurationArgs) BrokerConfigurationPtrInput {
+	return (*brokerConfigurationPtrType)(v)
 }
 
 func (*brokerConfigurationPtrType) ElementType() reflect.Type {
@@ -76,7 +77,7 @@ func (i *brokerConfigurationPtrType) ToBrokerConfigurationPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerConfigurationPtrOutput)
 }
 
-type BrokerConfigurationOutput struct { *pulumi.OutputState }
+type BrokerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BrokerConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BrokerConfiguration)(nil)).Elem()
@@ -99,17 +100,18 @@ func (o BrokerConfigurationOutput) ToBrokerConfigurationPtrOutputWithContext(ctx
 		return &v
 	}).(BrokerConfigurationPtrOutput)
 }
+
 // The Configuration ID.
 func (o BrokerConfigurationOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BrokerConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BrokerConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Revision of the Configuration.
 func (o BrokerConfigurationOutput) Revision() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v BrokerConfiguration) *int { return v.Revision }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v BrokerConfiguration) *int { return v.Revision }).(pulumi.IntPtrOutput)
 }
 
-type BrokerConfigurationPtrOutput struct { *pulumi.OutputState}
+type BrokerConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (BrokerConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BrokerConfiguration)(nil)).Elem()
@@ -124,17 +126,17 @@ func (o BrokerConfigurationPtrOutput) ToBrokerConfigurationPtrOutputWithContext(
 }
 
 func (o BrokerConfigurationPtrOutput) Elem() BrokerConfigurationOutput {
-	return o.ApplyT(func (v *BrokerConfiguration) BrokerConfiguration { return *v }).(BrokerConfigurationOutput)
+	return o.ApplyT(func(v *BrokerConfiguration) BrokerConfiguration { return *v }).(BrokerConfigurationOutput)
 }
 
 // The Configuration ID.
 func (o BrokerConfigurationPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BrokerConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BrokerConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Revision of the Configuration.
 func (o BrokerConfigurationPtrOutput) Revision() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v BrokerConfiguration) *int { return v.Revision }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v BrokerConfiguration) *int { return v.Revision }).(pulumi.IntPtrOutput)
 }
 
 type BrokerEncryptionOptions struct {
@@ -187,7 +189,8 @@ type BrokerEncryptionOptionsPtrInput interface {
 
 type brokerEncryptionOptionsPtrType BrokerEncryptionOptionsArgs
 
-func BrokerEncryptionOptionsPtr(v *BrokerEncryptionOptionsArgs) BrokerEncryptionOptionsPtrInput {	return (*brokerEncryptionOptionsPtrType)(v)
+func BrokerEncryptionOptionsPtr(v *BrokerEncryptionOptionsArgs) BrokerEncryptionOptionsPtrInput {
+	return (*brokerEncryptionOptionsPtrType)(v)
 }
 
 func (*brokerEncryptionOptionsPtrType) ElementType() reflect.Type {
@@ -202,7 +205,7 @@ func (i *brokerEncryptionOptionsPtrType) ToBrokerEncryptionOptionsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerEncryptionOptionsPtrOutput)
 }
 
-type BrokerEncryptionOptionsOutput struct { *pulumi.OutputState }
+type BrokerEncryptionOptionsOutput struct{ *pulumi.OutputState }
 
 func (BrokerEncryptionOptionsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BrokerEncryptionOptions)(nil)).Elem()
@@ -225,17 +228,18 @@ func (o BrokerEncryptionOptionsOutput) ToBrokerEncryptionOptionsPtrOutputWithCon
 		return &v
 	}).(BrokerEncryptionOptionsPtrOutput)
 }
+
 // Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
 func (o BrokerEncryptionOptionsOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BrokerEncryptionOptions) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BrokerEncryptionOptions) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
 func (o BrokerEncryptionOptionsOutput) UseAwsOwnedKey() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v BrokerEncryptionOptions) *bool { return v.UseAwsOwnedKey }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v BrokerEncryptionOptions) *bool { return v.UseAwsOwnedKey }).(pulumi.BoolPtrOutput)
 }
 
-type BrokerEncryptionOptionsPtrOutput struct { *pulumi.OutputState}
+type BrokerEncryptionOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (BrokerEncryptionOptionsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BrokerEncryptionOptions)(nil)).Elem()
@@ -250,23 +254,23 @@ func (o BrokerEncryptionOptionsPtrOutput) ToBrokerEncryptionOptionsPtrOutputWith
 }
 
 func (o BrokerEncryptionOptionsPtrOutput) Elem() BrokerEncryptionOptionsOutput {
-	return o.ApplyT(func (v *BrokerEncryptionOptions) BrokerEncryptionOptions { return *v }).(BrokerEncryptionOptionsOutput)
+	return o.ApplyT(func(v *BrokerEncryptionOptions) BrokerEncryptionOptions { return *v }).(BrokerEncryptionOptionsOutput)
 }
 
 // Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
 func (o BrokerEncryptionOptionsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BrokerEncryptionOptions) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BrokerEncryptionOptions) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
 func (o BrokerEncryptionOptionsPtrOutput) UseAwsOwnedKey() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v BrokerEncryptionOptions) *bool { return v.UseAwsOwnedKey }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v BrokerEncryptionOptions) *bool { return v.UseAwsOwnedKey }).(pulumi.BoolPtrOutput)
 }
 
 type BrokerInstance struct {
-	ConsoleUrl *string `pulumi:"consoleUrl"`
-	Endpoints []string `pulumi:"endpoints"`
-	IpAddress *string `pulumi:"ipAddress"`
+	ConsoleUrl *string  `pulumi:"consoleUrl"`
+	Endpoints  []string `pulumi:"endpoints"`
+	IpAddress  *string  `pulumi:"ipAddress"`
 }
 
 type BrokerInstanceInput interface {
@@ -277,9 +281,9 @@ type BrokerInstanceInput interface {
 }
 
 type BrokerInstanceArgs struct {
-	ConsoleUrl pulumi.StringPtrInput `pulumi:"consoleUrl"`
-	Endpoints pulumi.StringArrayInput `pulumi:"endpoints"`
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	ConsoleUrl pulumi.StringPtrInput   `pulumi:"consoleUrl"`
+	Endpoints  pulumi.StringArrayInput `pulumi:"endpoints"`
+	IpAddress  pulumi.StringPtrInput   `pulumi:"ipAddress"`
 }
 
 func (BrokerInstanceArgs) ElementType() reflect.Type {
@@ -315,7 +319,7 @@ func (i BrokerInstanceArray) ToBrokerInstanceArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerInstanceArrayOutput)
 }
 
-type BrokerInstanceOutput struct { *pulumi.OutputState }
+type BrokerInstanceOutput struct{ *pulumi.OutputState }
 
 func (BrokerInstanceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BrokerInstance)(nil)).Elem()
@@ -330,18 +334,18 @@ func (o BrokerInstanceOutput) ToBrokerInstanceOutputWithContext(ctx context.Cont
 }
 
 func (o BrokerInstanceOutput) ConsoleUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BrokerInstance) *string { return v.ConsoleUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BrokerInstance) *string { return v.ConsoleUrl }).(pulumi.StringPtrOutput)
 }
 
 func (o BrokerInstanceOutput) Endpoints() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v BrokerInstance) []string { return v.Endpoints }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v BrokerInstance) []string { return v.Endpoints }).(pulumi.StringArrayOutput)
 }
 
 func (o BrokerInstanceOutput) IpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v BrokerInstance) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v BrokerInstance) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-type BrokerInstanceArrayOutput struct { *pulumi.OutputState}
+type BrokerInstanceArrayOutput struct{ *pulumi.OutputState }
 
 func (BrokerInstanceArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]BrokerInstance)(nil)).Elem()
@@ -356,7 +360,7 @@ func (o BrokerInstanceArrayOutput) ToBrokerInstanceArrayOutputWithContext(ctx co
 }
 
 func (o BrokerInstanceArrayOutput) Index(i pulumi.IntInput) BrokerInstanceOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) BrokerInstance {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BrokerInstance {
 		return vs[0].([]BrokerInstance)[vs[1].(int)]
 	}).(BrokerInstanceOutput)
 }
@@ -411,7 +415,8 @@ type BrokerLogsPtrInput interface {
 
 type brokerLogsPtrType BrokerLogsArgs
 
-func BrokerLogsPtr(v *BrokerLogsArgs) BrokerLogsPtrInput {	return (*brokerLogsPtrType)(v)
+func BrokerLogsPtr(v *BrokerLogsArgs) BrokerLogsPtrInput {
+	return (*brokerLogsPtrType)(v)
 }
 
 func (*brokerLogsPtrType) ElementType() reflect.Type {
@@ -426,7 +431,7 @@ func (i *brokerLogsPtrType) ToBrokerLogsPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerLogsPtrOutput)
 }
 
-type BrokerLogsOutput struct { *pulumi.OutputState }
+type BrokerLogsOutput struct{ *pulumi.OutputState }
 
 func (BrokerLogsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BrokerLogs)(nil)).Elem()
@@ -449,17 +454,18 @@ func (o BrokerLogsOutput) ToBrokerLogsPtrOutputWithContext(ctx context.Context) 
 		return &v
 	}).(BrokerLogsPtrOutput)
 }
+
 // Enables audit logging. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
 func (o BrokerLogsOutput) Audit() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v BrokerLogs) *bool { return v.Audit }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v BrokerLogs) *bool { return v.Audit }).(pulumi.BoolPtrOutput)
 }
 
 // Enables general logging via CloudWatch. Defaults to `false`.
 func (o BrokerLogsOutput) General() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v BrokerLogs) *bool { return v.General }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v BrokerLogs) *bool { return v.General }).(pulumi.BoolPtrOutput)
 }
 
-type BrokerLogsPtrOutput struct { *pulumi.OutputState}
+type BrokerLogsPtrOutput struct{ *pulumi.OutputState }
 
 func (BrokerLogsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BrokerLogs)(nil)).Elem()
@@ -474,17 +480,17 @@ func (o BrokerLogsPtrOutput) ToBrokerLogsPtrOutputWithContext(ctx context.Contex
 }
 
 func (o BrokerLogsPtrOutput) Elem() BrokerLogsOutput {
-	return o.ApplyT(func (v *BrokerLogs) BrokerLogs { return *v }).(BrokerLogsOutput)
+	return o.ApplyT(func(v *BrokerLogs) BrokerLogs { return *v }).(BrokerLogsOutput)
 }
 
 // Enables audit logging. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
 func (o BrokerLogsPtrOutput) Audit() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v BrokerLogs) *bool { return v.Audit }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v BrokerLogs) *bool { return v.Audit }).(pulumi.BoolPtrOutput)
 }
 
 // Enables general logging via CloudWatch. Defaults to `false`.
 func (o BrokerLogsPtrOutput) General() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v BrokerLogs) *bool { return v.General }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v BrokerLogs) *bool { return v.General }).(pulumi.BoolPtrOutput)
 }
 
 type BrokerMaintenanceWindowStartTime struct {
@@ -541,7 +547,8 @@ type BrokerMaintenanceWindowStartTimePtrInput interface {
 
 type brokerMaintenanceWindowStartTimePtrType BrokerMaintenanceWindowStartTimeArgs
 
-func BrokerMaintenanceWindowStartTimePtr(v *BrokerMaintenanceWindowStartTimeArgs) BrokerMaintenanceWindowStartTimePtrInput {	return (*brokerMaintenanceWindowStartTimePtrType)(v)
+func BrokerMaintenanceWindowStartTimePtr(v *BrokerMaintenanceWindowStartTimeArgs) BrokerMaintenanceWindowStartTimePtrInput {
+	return (*brokerMaintenanceWindowStartTimePtrType)(v)
 }
 
 func (*brokerMaintenanceWindowStartTimePtrType) ElementType() reflect.Type {
@@ -556,7 +563,7 @@ func (i *brokerMaintenanceWindowStartTimePtrType) ToBrokerMaintenanceWindowStart
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerMaintenanceWindowStartTimePtrOutput)
 }
 
-type BrokerMaintenanceWindowStartTimeOutput struct { *pulumi.OutputState }
+type BrokerMaintenanceWindowStartTimeOutput struct{ *pulumi.OutputState }
 
 func (BrokerMaintenanceWindowStartTimeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BrokerMaintenanceWindowStartTime)(nil)).Elem()
@@ -579,22 +586,23 @@ func (o BrokerMaintenanceWindowStartTimeOutput) ToBrokerMaintenanceWindowStartTi
 		return &v
 	}).(BrokerMaintenanceWindowStartTimePtrOutput)
 }
+
 // The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
 func (o BrokerMaintenanceWindowStartTimeOutput) DayOfWeek() pulumi.StringOutput {
-	return o.ApplyT(func (v BrokerMaintenanceWindowStartTime) string { return v.DayOfWeek }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BrokerMaintenanceWindowStartTime) string { return v.DayOfWeek }).(pulumi.StringOutput)
 }
 
 // The time, in 24-hour format. e.g. `02:00`
 func (o BrokerMaintenanceWindowStartTimeOutput) TimeOfDay() pulumi.StringOutput {
-	return o.ApplyT(func (v BrokerMaintenanceWindowStartTime) string { return v.TimeOfDay }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BrokerMaintenanceWindowStartTime) string { return v.TimeOfDay }).(pulumi.StringOutput)
 }
 
 // The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
 func (o BrokerMaintenanceWindowStartTimeOutput) TimeZone() pulumi.StringOutput {
-	return o.ApplyT(func (v BrokerMaintenanceWindowStartTime) string { return v.TimeZone }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BrokerMaintenanceWindowStartTime) string { return v.TimeZone }).(pulumi.StringOutput)
 }
 
-type BrokerMaintenanceWindowStartTimePtrOutput struct { *pulumi.OutputState}
+type BrokerMaintenanceWindowStartTimePtrOutput struct{ *pulumi.OutputState }
 
 func (BrokerMaintenanceWindowStartTimePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BrokerMaintenanceWindowStartTime)(nil)).Elem()
@@ -609,22 +617,22 @@ func (o BrokerMaintenanceWindowStartTimePtrOutput) ToBrokerMaintenanceWindowStar
 }
 
 func (o BrokerMaintenanceWindowStartTimePtrOutput) Elem() BrokerMaintenanceWindowStartTimeOutput {
-	return o.ApplyT(func (v *BrokerMaintenanceWindowStartTime) BrokerMaintenanceWindowStartTime { return *v }).(BrokerMaintenanceWindowStartTimeOutput)
+	return o.ApplyT(func(v *BrokerMaintenanceWindowStartTime) BrokerMaintenanceWindowStartTime { return *v }).(BrokerMaintenanceWindowStartTimeOutput)
 }
 
 // The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
 func (o BrokerMaintenanceWindowStartTimePtrOutput) DayOfWeek() pulumi.StringOutput {
-	return o.ApplyT(func (v BrokerMaintenanceWindowStartTime) string { return v.DayOfWeek }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BrokerMaintenanceWindowStartTime) string { return v.DayOfWeek }).(pulumi.StringOutput)
 }
 
 // The time, in 24-hour format. e.g. `02:00`
 func (o BrokerMaintenanceWindowStartTimePtrOutput) TimeOfDay() pulumi.StringOutput {
-	return o.ApplyT(func (v BrokerMaintenanceWindowStartTime) string { return v.TimeOfDay }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BrokerMaintenanceWindowStartTime) string { return v.TimeOfDay }).(pulumi.StringOutput)
 }
 
 // The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
 func (o BrokerMaintenanceWindowStartTimePtrOutput) TimeZone() pulumi.StringOutput {
-	return o.ApplyT(func (v BrokerMaintenanceWindowStartTime) string { return v.TimeZone }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BrokerMaintenanceWindowStartTime) string { return v.TimeZone }).(pulumi.StringOutput)
 }
 
 type BrokerUser struct {
@@ -689,7 +697,7 @@ func (i BrokerUserArray) ToBrokerUserArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerUserArrayOutput)
 }
 
-type BrokerUserOutput struct { *pulumi.OutputState }
+type BrokerUserOutput struct{ *pulumi.OutputState }
 
 func (BrokerUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BrokerUser)(nil)).Elem()
@@ -705,25 +713,25 @@ func (o BrokerUserOutput) ToBrokerUserOutputWithContext(ctx context.Context) Bro
 
 // Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user.
 func (o BrokerUserOutput) ConsoleAccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v BrokerUser) *bool { return v.ConsoleAccess }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v BrokerUser) *bool { return v.ConsoleAccess }).(pulumi.BoolPtrOutput)
 }
 
 // The list of groups (20 maximum) to which the ActiveMQ user belongs.
 func (o BrokerUserOutput) Groups() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v BrokerUser) []string { return v.Groups }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v BrokerUser) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
 // The password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
 func (o BrokerUserOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func (v BrokerUser) string { return v.Password }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BrokerUser) string { return v.Password }).(pulumi.StringOutput)
 }
 
 // The username of the user.
 func (o BrokerUserOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v BrokerUser) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v BrokerUser) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type BrokerUserArrayOutput struct { *pulumi.OutputState}
+type BrokerUserArrayOutput struct{ *pulumi.OutputState }
 
 func (BrokerUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]BrokerUser)(nil)).Elem()
@@ -738,14 +746,14 @@ func (o BrokerUserArrayOutput) ToBrokerUserArrayOutputWithContext(ctx context.Co
 }
 
 func (o BrokerUserArrayOutput) Index(i pulumi.IntInput) BrokerUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) BrokerUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BrokerUser {
 		return vs[0].([]BrokerUser)[vs[1].(int)]
 	}).(BrokerUserOutput)
 }
 
 type GetBrokerConfiguration struct {
-	Id string `pulumi:"id"`
-	Revision int `pulumi:"revision"`
+	Id       string `pulumi:"id"`
+	Revision int    `pulumi:"revision"`
 }
 
 type GetBrokerConfigurationInput interface {
@@ -756,8 +764,8 @@ type GetBrokerConfigurationInput interface {
 }
 
 type GetBrokerConfigurationArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
-	Revision pulumi.IntInput `pulumi:"revision"`
+	Id       pulumi.StringInput `pulumi:"id"`
+	Revision pulumi.IntInput    `pulumi:"revision"`
 }
 
 func (GetBrokerConfigurationArgs) ElementType() reflect.Type {
@@ -772,7 +780,7 @@ func (i GetBrokerConfigurationArgs) ToGetBrokerConfigurationOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerConfigurationOutput)
 }
 
-type GetBrokerConfigurationOutput struct { *pulumi.OutputState }
+type GetBrokerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetBrokerConfiguration)(nil)).Elem()
@@ -787,16 +795,16 @@ func (o GetBrokerConfigurationOutput) ToGetBrokerConfigurationOutputWithContext(
 }
 
 func (o GetBrokerConfigurationOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func (v GetBrokerConfiguration) string { return v.Id }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetBrokerConfiguration) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetBrokerConfigurationOutput) Revision() pulumi.IntOutput {
-	return o.ApplyT(func (v GetBrokerConfiguration) int { return v.Revision }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetBrokerConfiguration) int { return v.Revision }).(pulumi.IntOutput)
 }
 
 type GetBrokerEncryptionOption struct {
-	KmsKeyId string `pulumi:"kmsKeyId"`
-	UseAwsOwnedKey bool `pulumi:"useAwsOwnedKey"`
+	KmsKeyId       string `pulumi:"kmsKeyId"`
+	UseAwsOwnedKey bool   `pulumi:"useAwsOwnedKey"`
 }
 
 type GetBrokerEncryptionOptionInput interface {
@@ -807,8 +815,8 @@ type GetBrokerEncryptionOptionInput interface {
 }
 
 type GetBrokerEncryptionOptionArgs struct {
-	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
-	UseAwsOwnedKey pulumi.BoolInput `pulumi:"useAwsOwnedKey"`
+	KmsKeyId       pulumi.StringInput `pulumi:"kmsKeyId"`
+	UseAwsOwnedKey pulumi.BoolInput   `pulumi:"useAwsOwnedKey"`
 }
 
 func (GetBrokerEncryptionOptionArgs) ElementType() reflect.Type {
@@ -844,7 +852,7 @@ func (i GetBrokerEncryptionOptionArray) ToGetBrokerEncryptionOptionArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerEncryptionOptionArrayOutput)
 }
 
-type GetBrokerEncryptionOptionOutput struct { *pulumi.OutputState }
+type GetBrokerEncryptionOptionOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerEncryptionOptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetBrokerEncryptionOption)(nil)).Elem()
@@ -859,14 +867,14 @@ func (o GetBrokerEncryptionOptionOutput) ToGetBrokerEncryptionOptionOutputWithCo
 }
 
 func (o GetBrokerEncryptionOptionOutput) KmsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetBrokerEncryptionOption) string { return v.KmsKeyId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetBrokerEncryptionOption) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
 func (o GetBrokerEncryptionOptionOutput) UseAwsOwnedKey() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetBrokerEncryptionOption) bool { return v.UseAwsOwnedKey }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetBrokerEncryptionOption) bool { return v.UseAwsOwnedKey }).(pulumi.BoolOutput)
 }
 
-type GetBrokerEncryptionOptionArrayOutput struct { *pulumi.OutputState}
+type GetBrokerEncryptionOptionArrayOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerEncryptionOptionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetBrokerEncryptionOption)(nil)).Elem()
@@ -881,15 +889,15 @@ func (o GetBrokerEncryptionOptionArrayOutput) ToGetBrokerEncryptionOptionArrayOu
 }
 
 func (o GetBrokerEncryptionOptionArrayOutput) Index(i pulumi.IntInput) GetBrokerEncryptionOptionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetBrokerEncryptionOption {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBrokerEncryptionOption {
 		return vs[0].([]GetBrokerEncryptionOption)[vs[1].(int)]
 	}).(GetBrokerEncryptionOptionOutput)
 }
 
 type GetBrokerInstance struct {
-	ConsoleUrl string `pulumi:"consoleUrl"`
-	Endpoints []string `pulumi:"endpoints"`
-	IpAddress string `pulumi:"ipAddress"`
+	ConsoleUrl string   `pulumi:"consoleUrl"`
+	Endpoints  []string `pulumi:"endpoints"`
+	IpAddress  string   `pulumi:"ipAddress"`
 }
 
 type GetBrokerInstanceInput interface {
@@ -900,9 +908,9 @@ type GetBrokerInstanceInput interface {
 }
 
 type GetBrokerInstanceArgs struct {
-	ConsoleUrl pulumi.StringInput `pulumi:"consoleUrl"`
-	Endpoints pulumi.StringArrayInput `pulumi:"endpoints"`
-	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	ConsoleUrl pulumi.StringInput      `pulumi:"consoleUrl"`
+	Endpoints  pulumi.StringArrayInput `pulumi:"endpoints"`
+	IpAddress  pulumi.StringInput      `pulumi:"ipAddress"`
 }
 
 func (GetBrokerInstanceArgs) ElementType() reflect.Type {
@@ -938,7 +946,7 @@ func (i GetBrokerInstanceArray) ToGetBrokerInstanceArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerInstanceArrayOutput)
 }
 
-type GetBrokerInstanceOutput struct { *pulumi.OutputState }
+type GetBrokerInstanceOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerInstanceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetBrokerInstance)(nil)).Elem()
@@ -953,18 +961,18 @@ func (o GetBrokerInstanceOutput) ToGetBrokerInstanceOutputWithContext(ctx contex
 }
 
 func (o GetBrokerInstanceOutput) ConsoleUrl() pulumi.StringOutput {
-	return o.ApplyT(func (v GetBrokerInstance) string { return v.ConsoleUrl }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetBrokerInstance) string { return v.ConsoleUrl }).(pulumi.StringOutput)
 }
 
 func (o GetBrokerInstanceOutput) Endpoints() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetBrokerInstance) []string { return v.Endpoints }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetBrokerInstance) []string { return v.Endpoints }).(pulumi.StringArrayOutput)
 }
 
 func (o GetBrokerInstanceOutput) IpAddress() pulumi.StringOutput {
-	return o.ApplyT(func (v GetBrokerInstance) string { return v.IpAddress }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetBrokerInstance) string { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-type GetBrokerInstanceArrayOutput struct { *pulumi.OutputState}
+type GetBrokerInstanceArrayOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerInstanceArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetBrokerInstance)(nil)).Elem()
@@ -979,13 +987,13 @@ func (o GetBrokerInstanceArrayOutput) ToGetBrokerInstanceArrayOutputWithContext(
 }
 
 func (o GetBrokerInstanceArrayOutput) Index(i pulumi.IntInput) GetBrokerInstanceOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetBrokerInstance {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBrokerInstance {
 		return vs[0].([]GetBrokerInstance)[vs[1].(int)]
 	}).(GetBrokerInstanceOutput)
 }
 
 type GetBrokerLogs struct {
-	Audit bool `pulumi:"audit"`
+	Audit   bool `pulumi:"audit"`
 	General bool `pulumi:"general"`
 }
 
@@ -997,7 +1005,7 @@ type GetBrokerLogsInput interface {
 }
 
 type GetBrokerLogsArgs struct {
-	Audit pulumi.BoolInput `pulumi:"audit"`
+	Audit   pulumi.BoolInput `pulumi:"audit"`
 	General pulumi.BoolInput `pulumi:"general"`
 }
 
@@ -1013,7 +1021,7 @@ func (i GetBrokerLogsArgs) ToGetBrokerLogsOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerLogsOutput)
 }
 
-type GetBrokerLogsOutput struct { *pulumi.OutputState }
+type GetBrokerLogsOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerLogsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetBrokerLogs)(nil)).Elem()
@@ -1028,17 +1036,17 @@ func (o GetBrokerLogsOutput) ToGetBrokerLogsOutputWithContext(ctx context.Contex
 }
 
 func (o GetBrokerLogsOutput) Audit() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetBrokerLogs) bool { return v.Audit }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetBrokerLogs) bool { return v.Audit }).(pulumi.BoolOutput)
 }
 
 func (o GetBrokerLogsOutput) General() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetBrokerLogs) bool { return v.General }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetBrokerLogs) bool { return v.General }).(pulumi.BoolOutput)
 }
 
 type GetBrokerMaintenanceWindowStartTime struct {
 	DayOfWeek string `pulumi:"dayOfWeek"`
 	TimeOfDay string `pulumi:"timeOfDay"`
-	TimeZone string `pulumi:"timeZone"`
+	TimeZone  string `pulumi:"timeZone"`
 }
 
 type GetBrokerMaintenanceWindowStartTimeInput interface {
@@ -1051,7 +1059,7 @@ type GetBrokerMaintenanceWindowStartTimeInput interface {
 type GetBrokerMaintenanceWindowStartTimeArgs struct {
 	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
 	TimeOfDay pulumi.StringInput `pulumi:"timeOfDay"`
-	TimeZone pulumi.StringInput `pulumi:"timeZone"`
+	TimeZone  pulumi.StringInput `pulumi:"timeZone"`
 }
 
 func (GetBrokerMaintenanceWindowStartTimeArgs) ElementType() reflect.Type {
@@ -1066,7 +1074,7 @@ func (i GetBrokerMaintenanceWindowStartTimeArgs) ToGetBrokerMaintenanceWindowSta
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerMaintenanceWindowStartTimeOutput)
 }
 
-type GetBrokerMaintenanceWindowStartTimeOutput struct { *pulumi.OutputState }
+type GetBrokerMaintenanceWindowStartTimeOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerMaintenanceWindowStartTimeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetBrokerMaintenanceWindowStartTime)(nil)).Elem()
@@ -1081,21 +1089,21 @@ func (o GetBrokerMaintenanceWindowStartTimeOutput) ToGetBrokerMaintenanceWindowS
 }
 
 func (o GetBrokerMaintenanceWindowStartTimeOutput) DayOfWeek() pulumi.StringOutput {
-	return o.ApplyT(func (v GetBrokerMaintenanceWindowStartTime) string { return v.DayOfWeek }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetBrokerMaintenanceWindowStartTime) string { return v.DayOfWeek }).(pulumi.StringOutput)
 }
 
 func (o GetBrokerMaintenanceWindowStartTimeOutput) TimeOfDay() pulumi.StringOutput {
-	return o.ApplyT(func (v GetBrokerMaintenanceWindowStartTime) string { return v.TimeOfDay }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetBrokerMaintenanceWindowStartTime) string { return v.TimeOfDay }).(pulumi.StringOutput)
 }
 
 func (o GetBrokerMaintenanceWindowStartTimeOutput) TimeZone() pulumi.StringOutput {
-	return o.ApplyT(func (v GetBrokerMaintenanceWindowStartTime) string { return v.TimeZone }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetBrokerMaintenanceWindowStartTime) string { return v.TimeZone }).(pulumi.StringOutput)
 }
 
 type GetBrokerUser struct {
-	ConsoleAccess bool `pulumi:"consoleAccess"`
-	Groups []string `pulumi:"groups"`
-	Username string `pulumi:"username"`
+	ConsoleAccess bool     `pulumi:"consoleAccess"`
+	Groups        []string `pulumi:"groups"`
+	Username      string   `pulumi:"username"`
 }
 
 type GetBrokerUserInput interface {
@@ -1106,9 +1114,9 @@ type GetBrokerUserInput interface {
 }
 
 type GetBrokerUserArgs struct {
-	ConsoleAccess pulumi.BoolInput `pulumi:"consoleAccess"`
-	Groups pulumi.StringArrayInput `pulumi:"groups"`
-	Username pulumi.StringInput `pulumi:"username"`
+	ConsoleAccess pulumi.BoolInput        `pulumi:"consoleAccess"`
+	Groups        pulumi.StringArrayInput `pulumi:"groups"`
+	Username      pulumi.StringInput      `pulumi:"username"`
 }
 
 func (GetBrokerUserArgs) ElementType() reflect.Type {
@@ -1144,7 +1152,7 @@ func (i GetBrokerUserArray) ToGetBrokerUserArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerUserArrayOutput)
 }
 
-type GetBrokerUserOutput struct { *pulumi.OutputState }
+type GetBrokerUserOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetBrokerUser)(nil)).Elem()
@@ -1159,18 +1167,18 @@ func (o GetBrokerUserOutput) ToGetBrokerUserOutputWithContext(ctx context.Contex
 }
 
 func (o GetBrokerUserOutput) ConsoleAccess() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetBrokerUser) bool { return v.ConsoleAccess }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetBrokerUser) bool { return v.ConsoleAccess }).(pulumi.BoolOutput)
 }
 
 func (o GetBrokerUserOutput) Groups() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetBrokerUser) []string { return v.Groups }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetBrokerUser) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
 func (o GetBrokerUserOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func (v GetBrokerUser) string { return v.Username }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetBrokerUser) string { return v.Username }).(pulumi.StringOutput)
 }
 
-type GetBrokerUserArrayOutput struct { *pulumi.OutputState}
+type GetBrokerUserArrayOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerUserArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetBrokerUser)(nil)).Elem()
@@ -1185,7 +1193,7 @@ func (o GetBrokerUserArrayOutput) ToGetBrokerUserArrayOutputWithContext(ctx cont
 }
 
 func (o GetBrokerUserArrayOutput) Index(i pulumi.IntInput) GetBrokerUserOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetBrokerUser {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBrokerUser {
 		return vs[0].([]GetBrokerUser)[vs[1].(int)]
 	}).(GetBrokerUserOutput)
 }

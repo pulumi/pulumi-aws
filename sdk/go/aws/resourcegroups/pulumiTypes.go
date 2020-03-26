@@ -12,7 +12,9 @@ import (
 )
 
 type GroupResourceQuery struct {
+	// The resource query as a JSON string.
 	Query string `pulumi:"query"`
+	// The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
 	Type *string `pulumi:"type"`
 }
 
@@ -24,7 +26,9 @@ type GroupResourceQueryInput interface {
 }
 
 type GroupResourceQueryArgs struct {
+	// The resource query as a JSON string.
 	Query pulumi.StringInput `pulumi:"query"`
+	// The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -57,7 +61,8 @@ type GroupResourceQueryPtrInput interface {
 
 type groupResourceQueryPtrType GroupResourceQueryArgs
 
-func GroupResourceQueryPtr(v *GroupResourceQueryArgs) GroupResourceQueryPtrInput {	return (*groupResourceQueryPtrType)(v)
+func GroupResourceQueryPtr(v *GroupResourceQueryArgs) GroupResourceQueryPtrInput {
+	return (*groupResourceQueryPtrType)(v)
 }
 
 func (*groupResourceQueryPtrType) ElementType() reflect.Type {
@@ -72,7 +77,7 @@ func (i *groupResourceQueryPtrType) ToGroupResourceQueryPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(GroupResourceQueryPtrOutput)
 }
 
-type GroupResourceQueryOutput struct { *pulumi.OutputState }
+type GroupResourceQueryOutput struct{ *pulumi.OutputState }
 
 func (GroupResourceQueryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupResourceQuery)(nil)).Elem()
@@ -95,15 +100,18 @@ func (o GroupResourceQueryOutput) ToGroupResourceQueryPtrOutputWithContext(ctx c
 		return &v
 	}).(GroupResourceQueryPtrOutput)
 }
+
+// The resource query as a JSON string.
 func (o GroupResourceQueryOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupResourceQuery) string { return v.Query }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupResourceQuery) string { return v.Query }).(pulumi.StringOutput)
 }
 
+// The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
 func (o GroupResourceQueryOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupResourceQuery) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupResourceQuery) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type GroupResourceQueryPtrOutput struct { *pulumi.OutputState}
+type GroupResourceQueryPtrOutput struct{ *pulumi.OutputState }
 
 func (GroupResourceQueryPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GroupResourceQuery)(nil)).Elem()
@@ -118,15 +126,17 @@ func (o GroupResourceQueryPtrOutput) ToGroupResourceQueryPtrOutputWithContext(ct
 }
 
 func (o GroupResourceQueryPtrOutput) Elem() GroupResourceQueryOutput {
-	return o.ApplyT(func (v *GroupResourceQuery) GroupResourceQuery { return *v }).(GroupResourceQueryOutput)
+	return o.ApplyT(func(v *GroupResourceQuery) GroupResourceQuery { return *v }).(GroupResourceQueryOutput)
 }
 
+// The resource query as a JSON string.
 func (o GroupResourceQueryPtrOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func (v GroupResourceQuery) string { return v.Query }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GroupResourceQuery) string { return v.Query }).(pulumi.StringOutput)
 }
 
+// The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
 func (o GroupResourceQueryPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v GroupResourceQuery) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v GroupResourceQuery) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -148,4 +148,3 @@ type GlobalClusterArgs struct {
 func (GlobalClusterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*globalClusterArgs)(nil)).Elem()
 }
-

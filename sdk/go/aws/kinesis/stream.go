@@ -167,4 +167,3 @@ type StreamArgs struct {
 func (StreamArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamArgs)(nil)).Elem()
 }
-

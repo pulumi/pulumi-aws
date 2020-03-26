@@ -104,4 +104,3 @@ type RouteTablePropagationArgs struct {
 func (RouteTablePropagationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeTablePropagationArgs)(nil)).Elem()
 }
-

@@ -94,4 +94,3 @@ type UploadBufferArgs struct {
 func (UploadBufferArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*uploadBufferArgs)(nil)).Elem()
 }
-

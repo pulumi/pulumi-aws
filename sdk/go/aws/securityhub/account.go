@@ -19,7 +19,6 @@ import (
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_account.markdown.
 type Account struct {
 	pulumi.CustomResourceState
-
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -69,4 +68,3 @@ type AccountArgs struct {
 func (AccountArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountArgs)(nil)).Elem()
 }
-

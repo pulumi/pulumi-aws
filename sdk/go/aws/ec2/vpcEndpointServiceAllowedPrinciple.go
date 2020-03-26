@@ -98,4 +98,3 @@ type VpcEndpointServiceAllowedPrincipleArgs struct {
 func (VpcEndpointServiceAllowedPrincipleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcEndpointServiceAllowedPrincipleArgs)(nil)).Elem()
 }
-

@@ -12,7 +12,7 @@ import (
 
 // Provides an SSM Patch Baseline resource
 //
-// > **NOTE on Patch Baselines:** The `approvedPatches` and `approvalRule` are 
+// > **NOTE on Patch Baselines:** The `approvedPatches` and `approvalRule` are
 // both marked as optional fields, but the Patch Baseline requires that at least one
 // of them is specified.
 //
@@ -36,6 +36,7 @@ type PatchBaseline struct {
 	OperatingSystem pulumi.StringPtrOutput `pulumi:"operatingSystem"`
 	// A list of rejected patches.
 	RejectedPatches pulumi.StringArrayOutput `pulumi:"rejectedPatches"`
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -83,6 +84,7 @@ type patchBaselineState struct {
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// A list of rejected patches.
 	RejectedPatches []string `pulumi:"rejectedPatches"`
+	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -103,6 +105,7 @@ type PatchBaselineState struct {
 	OperatingSystem pulumi.StringPtrInput
 	// A list of rejected patches.
 	RejectedPatches pulumi.StringArrayInput
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -127,6 +130,7 @@ type patchBaselineArgs struct {
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// A list of rejected patches.
 	RejectedPatches []string `pulumi:"rejectedPatches"`
+	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -148,10 +152,10 @@ type PatchBaselineArgs struct {
 	OperatingSystem pulumi.StringPtrInput
 	// A list of rejected patches.
 	RejectedPatches pulumi.StringArrayInput
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
 func (PatchBaselineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*patchBaselineArgs)(nil)).Elem()
 }
-

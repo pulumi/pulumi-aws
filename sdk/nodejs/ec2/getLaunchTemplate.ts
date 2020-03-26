@@ -46,6 +46,9 @@ export interface GetLaunchTemplateArgs {
      * The name of the launch template.
      */
     readonly name: string;
+    /**
+     * (Optional) A mapping of tags to assign to the launch template.
+     */
     readonly tags?: {[key: string]: any};
 }
 

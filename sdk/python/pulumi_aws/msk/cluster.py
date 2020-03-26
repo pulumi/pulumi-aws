@@ -82,10 +82,10 @@ class Cluster(pulumi.CustomResource):
 
       * `prometheus` (`dict`) - Configuration block for Prometheus settings for open monitoring. See below.
         * `jmxExporter` (`dict`) - Configuration block for JMX Exporter. See below.
-          * `enabledInBroker` (`bool`) - Indicates whether you want to enable or disable the Node Exporter.
+          * `enabledInBroker` (`bool`) - Indicates whether you want to enable or disable the JMX Exporter. 
 
         * `nodeExporter` (`dict`) - Configuration block for Node Exporter. See below.
-          * `enabledInBroker` (`bool`) - Indicates whether you want to enable or disable the Node Exporter.
+          * `enabledInBroker` (`bool`) - Indicates whether you want to enable or disable the JMX Exporter. 
     """
     tags: pulumi.Output[dict]
     """
@@ -143,10 +143,10 @@ class Cluster(pulumi.CustomResource):
 
           * `prometheus` (`pulumi.Input[dict]`) - Configuration block for Prometheus settings for open monitoring. See below.
             * `jmxExporter` (`pulumi.Input[dict]`) - Configuration block for JMX Exporter. See below.
-              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the Node Exporter.
+              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the JMX Exporter. 
 
             * `nodeExporter` (`pulumi.Input[dict]`) - Configuration block for Node Exporter. See below.
-              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the Node Exporter.
+              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the JMX Exporter. 
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -249,10 +249,10 @@ class Cluster(pulumi.CustomResource):
 
           * `prometheus` (`pulumi.Input[dict]`) - Configuration block for Prometheus settings for open monitoring. See below.
             * `jmxExporter` (`pulumi.Input[dict]`) - Configuration block for JMX Exporter. See below.
-              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the Node Exporter.
+              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the JMX Exporter. 
 
             * `nodeExporter` (`pulumi.Input[dict]`) - Configuration block for Node Exporter. See below.
-              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the Node Exporter.
+              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the JMX Exporter. 
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

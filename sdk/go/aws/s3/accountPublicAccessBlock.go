@@ -144,4 +144,3 @@ type AccountPublicAccessBlockArgs struct {
 func (AccountPublicAccessBlockArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountPublicAccessBlockArgs)(nil)).Elem()
 }
-

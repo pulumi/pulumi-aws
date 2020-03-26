@@ -41,6 +41,12 @@ func NewTargetGroupAttachment(ctx *pulumi.Context,
 	if args == nil {
 		args = &TargetGroupAttachmentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource TargetGroupAttachment
 	err := ctx.RegisterResource("aws:lb/targetGroupAttachment:TargetGroupAttachment", name, args, &resource, opts...)
 	if err != nil {
@@ -114,4 +120,3 @@ type TargetGroupAttachmentArgs struct {
 func (TargetGroupAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*targetGroupAttachmentArgs)(nil)).Elem()
 }
-

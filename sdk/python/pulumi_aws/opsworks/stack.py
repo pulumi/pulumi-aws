@@ -37,11 +37,11 @@ class Stack(pulumi.CustomResource):
     described below.
 
       * `password` (`str`)
-      * `revision` (`str`)
+      * `revision` (`str`) - For sources that are version-aware, the revision to use.
       * `sshKey` (`str`)
-      * `type` (`str`)
-      * `url` (`str`)
-      * `username` (`str`)
+      * `type` (`str`) - The type of source to use. For example, "archive".
+      * `url` (`str`) - The URL where the cookbooks resource can be found.
+      * `username` (`str`) - Username to use when authenticating to the source.
     """
     custom_json: pulumi.Output[str]
     """
@@ -155,11 +155,11 @@ class Stack(pulumi.CustomResource):
         The **custom_cookbooks_sources** object supports the following:
 
           * `password` (`pulumi.Input[str]`)
-          * `revision` (`pulumi.Input[str]`)
+          * `revision` (`pulumi.Input[str]`) - For sources that are version-aware, the revision to use.
           * `sshKey` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`)
-          * `url` (`pulumi.Input[str]`)
-          * `username` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The type of source to use. For example, "archive".
+          * `url` (`pulumi.Input[str]`) - The URL where the cookbooks resource can be found.
+          * `username` (`pulumi.Input[str]`) - Username to use when authenticating to the source.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -256,11 +256,11 @@ class Stack(pulumi.CustomResource):
         The **custom_cookbooks_sources** object supports the following:
 
           * `password` (`pulumi.Input[str]`)
-          * `revision` (`pulumi.Input[str]`)
+          * `revision` (`pulumi.Input[str]`) - For sources that are version-aware, the revision to use.
           * `sshKey` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`)
-          * `url` (`pulumi.Input[str]`)
-          * `username` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The type of source to use. For example, "archive".
+          * `url` (`pulumi.Input[str]`) - The URL where the cookbooks resource can be found.
+          * `username` (`pulumi.Input[str]`) - Username to use when authenticating to the source.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

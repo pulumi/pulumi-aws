@@ -43,6 +43,12 @@ func NewLoadBalancerCookieStickinessPolicy(ctx *pulumi.Context,
 	if args == nil {
 		args = &LoadBalancerCookieStickinessPolicyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("aws:elasticloadbalancing/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource LoadBalancerCookieStickinessPolicy
 	err := ctx.RegisterResource("aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -132,4 +138,3 @@ type LoadBalancerCookieStickinessPolicyArgs struct {
 func (LoadBalancerCookieStickinessPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerCookieStickinessPolicyArgs)(nil)).Elem()
 }
-

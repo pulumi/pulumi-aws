@@ -108,4 +108,3 @@ type LogDestinationArgs struct {
 func (LogDestinationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logDestinationArgs)(nil)).Elem()
 }
-

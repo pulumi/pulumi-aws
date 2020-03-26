@@ -25,7 +25,7 @@ class Crawler(pulumi.CustomResource):
     """
     database_name: pulumi.Output[str]
     """
-    The name of the Glue database to be synchronized.
+    Glue database where results are written.
     """
     description: pulumi.Output[str]
     """
@@ -35,7 +35,7 @@ class Crawler(pulumi.CustomResource):
     """
     List of nested DynamoDB target arguments. See below.
 
-      * `path` (`str`) - The path to the Amazon S3 target.
+      * `path` (`str`) - The name of the DynamoDB table to crawl.
     """
     jdbc_targets: pulumi.Output[list]
     """
@@ -43,7 +43,7 @@ class Crawler(pulumi.CustomResource):
 
       * `connectionName` (`str`) - The name of the connection to use to connect to the JDBC target.
       * `exclusions` (`list`) - A list of glob patterns used to exclude from the crawl.
-      * `path` (`str`) - The path to the Amazon S3 target.
+      * `path` (`str`) - The path of the JDBC target.
     """
     name: pulumi.Output[str]
     """
@@ -58,7 +58,7 @@ class Crawler(pulumi.CustomResource):
     List nested Amazon S3 target arguments. See below.
 
       * `exclusions` (`list`) - A list of glob patterns used to exclude from the crawl.
-      * `path` (`str`) - The path to the Amazon S3 target.
+      * `path` (`str`) - The name of the DynamoDB table to crawl.
     """
     schedule: pulumi.Output[str]
     """
@@ -93,7 +93,7 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         :param pulumi.Input[str] configuration: JSON string of configuration information.
-        :param pulumi.Input[str] database_name: The name of the Glue database to be synchronized.
+        :param pulumi.Input[str] database_name: Glue database where results are written.
         :param pulumi.Input[str] description: Description of the crawler.
         :param pulumi.Input[list] dynamodb_targets: List of nested DynamoDB target arguments. See below.
         :param pulumi.Input[list] jdbc_targets: List of nested JBDC target arguments. See below.
@@ -113,18 +113,18 @@ class Crawler(pulumi.CustomResource):
 
         The **dynamodb_targets** object supports the following:
 
-          * `path` (`pulumi.Input[str]`) - The path to the Amazon S3 target.
+          * `path` (`pulumi.Input[str]`) - The name of the DynamoDB table to crawl.
 
         The **jdbc_targets** object supports the following:
 
           * `connectionName` (`pulumi.Input[str]`) - The name of the connection to use to connect to the JDBC target.
           * `exclusions` (`pulumi.Input[list]`) - A list of glob patterns used to exclude from the crawl.
-          * `path` (`pulumi.Input[str]`) - The path to the Amazon S3 target.
+          * `path` (`pulumi.Input[str]`) - The path of the JDBC target.
 
         The **s3_targets** object supports the following:
 
           * `exclusions` (`pulumi.Input[list]`) - A list of glob patterns used to exclude from the crawl.
-          * `path` (`pulumi.Input[str]`) - The path to the Amazon S3 target.
+          * `path` (`pulumi.Input[str]`) - The name of the DynamoDB table to crawl.
 
         The **schema_change_policy** object supports the following:
 
@@ -186,7 +186,7 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the crawler 
         :param pulumi.Input[list] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         :param pulumi.Input[str] configuration: JSON string of configuration information.
-        :param pulumi.Input[str] database_name: The name of the Glue database to be synchronized.
+        :param pulumi.Input[str] database_name: Glue database where results are written.
         :param pulumi.Input[str] description: Description of the crawler.
         :param pulumi.Input[list] dynamodb_targets: List of nested DynamoDB target arguments. See below.
         :param pulumi.Input[list] jdbc_targets: List of nested JBDC target arguments. See below.
@@ -206,18 +206,18 @@ class Crawler(pulumi.CustomResource):
 
         The **dynamodb_targets** object supports the following:
 
-          * `path` (`pulumi.Input[str]`) - The path to the Amazon S3 target.
+          * `path` (`pulumi.Input[str]`) - The name of the DynamoDB table to crawl.
 
         The **jdbc_targets** object supports the following:
 
           * `connectionName` (`pulumi.Input[str]`) - The name of the connection to use to connect to the JDBC target.
           * `exclusions` (`pulumi.Input[list]`) - A list of glob patterns used to exclude from the crawl.
-          * `path` (`pulumi.Input[str]`) - The path to the Amazon S3 target.
+          * `path` (`pulumi.Input[str]`) - The path of the JDBC target.
 
         The **s3_targets** object supports the following:
 
           * `exclusions` (`pulumi.Input[list]`) - A list of glob patterns used to exclude from the crawl.
-          * `path` (`pulumi.Input[str]`) - The path to the Amazon S3 target.
+          * `path` (`pulumi.Input[str]`) - The name of the DynamoDB table to crawl.
 
         The **schema_change_policy** object supports the following:
 

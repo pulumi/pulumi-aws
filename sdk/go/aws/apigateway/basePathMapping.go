@@ -114,4 +114,3 @@ type BasePathMappingArgs struct {
 func (BasePathMappingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*basePathMappingArgs)(nil)).Elem()
 }
-

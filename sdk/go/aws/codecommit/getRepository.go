@@ -26,7 +26,6 @@ type LookupRepositoryArgs struct {
 	RepositoryName string `pulumi:"repositoryName"`
 }
 
-
 // A collection of values returned by getRepository.
 type LookupRepositoryResult struct {
 	// The ARN of the repository
@@ -38,7 +37,6 @@ type LookupRepositoryResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ID of the repository
-	RepositoryId string `pulumi:"repositoryId"`
+	RepositoryId   string `pulumi:"repositoryId"`
 	RepositoryName string `pulumi:"repositoryName"`
 }
-

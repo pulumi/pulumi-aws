@@ -102,4 +102,3 @@ type ResolverRuleAssociationArgs struct {
 func (ResolverRuleAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resolverRuleAssociationArgs)(nil)).Elem()
 }
-

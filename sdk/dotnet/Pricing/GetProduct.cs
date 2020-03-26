@@ -17,7 +17,19 @@ namespace Pulumi.Aws.Pricing
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/pricing_product.html.markdown.
         /// </summary>
+        [Obsolete("Use GetProduct.InvokeAsync() instead")]
         public static Task<GetProductResult> GetProduct(GetProductArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("aws:pricing/getProduct:getProduct", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetProduct
+    {
+        /// <summary>
+        /// Use this data source to get the pricing information of all products in AWS.
+        /// This data source is only available in a us-east-1 or ap-south-1 provider.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/pricing_product.html.markdown.
+        /// </summary>
+        public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("aws:pricing/getProduct:getProduct", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

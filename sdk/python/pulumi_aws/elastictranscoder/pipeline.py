@@ -19,16 +19,16 @@ class Pipeline(pulumi.CustomResource):
     """
     The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
 
-      * `bucket` (`str`) - The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-      * `storage_class` (`str`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+      * `bucket` (`str`) - The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
+      * `storage_class` (`str`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
     """
     content_config_permissions: pulumi.Output[list]
     """
     The permissions for the `content_config` object. (documented below)
 
-      * `accesses` (`list`) - The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
-      * `grantee` (`str`) - The AWS user or group that you want to have access to thumbnail files.
-      * `granteeType` (`str`) - Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+      * `accesses` (`list`) - The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
+      * `grantee` (`str`) - The AWS user or group that you want to have access to transcoded files and playlists.
+      * `granteeType` (`str`) - Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
     """
     input_bucket: pulumi.Output[str]
     """
@@ -91,14 +91,14 @@ class Pipeline(pulumi.CustomResource):
 
         The **content_config** object supports the following:
 
-          * `bucket` (`pulumi.Input[str]`) - The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-          * `storage_class` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+          * `bucket` (`pulumi.Input[str]`) - The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
+          * `storage_class` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
 
         The **content_config_permissions** object supports the following:
 
-          * `accesses` (`pulumi.Input[list]`) - The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
-          * `grantee` (`pulumi.Input[str]`) - The AWS user or group that you want to have access to thumbnail files.
-          * `granteeType` (`pulumi.Input[str]`) - Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+          * `accesses` (`pulumi.Input[list]`) - The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
+          * `grantee` (`pulumi.Input[str]`) - The AWS user or group that you want to have access to transcoded files and playlists.
+          * `granteeType` (`pulumi.Input[str]`) - Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
 
         The **notifications** object supports the following:
 
@@ -178,14 +178,14 @@ class Pipeline(pulumi.CustomResource):
 
         The **content_config** object supports the following:
 
-          * `bucket` (`pulumi.Input[str]`) - The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-          * `storage_class` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+          * `bucket` (`pulumi.Input[str]`) - The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
+          * `storage_class` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
 
         The **content_config_permissions** object supports the following:
 
-          * `accesses` (`pulumi.Input[list]`) - The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
-          * `grantee` (`pulumi.Input[str]`) - The AWS user or group that you want to have access to thumbnail files.
-          * `granteeType` (`pulumi.Input[str]`) - Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+          * `accesses` (`pulumi.Input[list]`) - The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
+          * `grantee` (`pulumi.Input[str]`) - The AWS user or group that you want to have access to transcoded files and playlists.
+          * `granteeType` (`pulumi.Input[str]`) - Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
 
         The **notifications** object supports the following:
 

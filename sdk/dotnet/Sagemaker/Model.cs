@@ -241,20 +241,34 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class ModelContainersArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The DNS host name for the container.
+        /// </summary>
         [Input("containerHostname")]
         public Input<string>? ContainerHostname { get; set; }
 
         [Input("environment")]
         private InputMap<object>? _environment;
+
+        /// <summary>
+        /// Environment variables for the Docker container.
+        /// A list of key value pairs.
+        /// </summary>
         public InputMap<object> Environment
         {
             get => _environment ?? (_environment = new InputMap<object>());
             set => _environment = value;
         }
 
+        /// <summary>
+        /// The registry path where the inference code image is stored in Amazon ECR.
+        /// </summary>
         [Input("image", required: true)]
         public Input<string> Image { get; set; } = null!;
 
+        /// <summary>
+        /// The URL for the S3 location where model artifacts are stored.
+        /// </summary>
         [Input("modelDataUrl")]
         public Input<string>? ModelDataUrl { get; set; }
 
@@ -265,20 +279,34 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class ModelContainersGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The DNS host name for the container.
+        /// </summary>
         [Input("containerHostname")]
         public Input<string>? ContainerHostname { get; set; }
 
         [Input("environment")]
         private InputMap<object>? _environment;
+
+        /// <summary>
+        /// Environment variables for the Docker container.
+        /// A list of key value pairs.
+        /// </summary>
         public InputMap<object> Environment
         {
             get => _environment ?? (_environment = new InputMap<object>());
             set => _environment = value;
         }
 
+        /// <summary>
+        /// The registry path where the inference code image is stored in Amazon ECR.
+        /// </summary>
         [Input("image", required: true)]
         public Input<string> Image { get; set; } = null!;
 
+        /// <summary>
+        /// The URL for the S3 location where model artifacts are stored.
+        /// </summary>
         [Input("modelDataUrl")]
         public Input<string>? ModelDataUrl { get; set; }
 
@@ -289,20 +317,34 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class ModelPrimaryContainerArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The DNS host name for the container.
+        /// </summary>
         [Input("containerHostname")]
         public Input<string>? ContainerHostname { get; set; }
 
         [Input("environment")]
         private InputMap<object>? _environment;
+
+        /// <summary>
+        /// Environment variables for the Docker container.
+        /// A list of key value pairs.
+        /// </summary>
         public InputMap<object> Environment
         {
             get => _environment ?? (_environment = new InputMap<object>());
             set => _environment = value;
         }
 
+        /// <summary>
+        /// The registry path where the inference code image is stored in Amazon ECR.
+        /// </summary>
         [Input("image", required: true)]
         public Input<string> Image { get; set; } = null!;
 
+        /// <summary>
+        /// The URL for the S3 location where model artifacts are stored.
+        /// </summary>
         [Input("modelDataUrl")]
         public Input<string>? ModelDataUrl { get; set; }
 
@@ -313,20 +355,34 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class ModelPrimaryContainerGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The DNS host name for the container.
+        /// </summary>
         [Input("containerHostname")]
         public Input<string>? ContainerHostname { get; set; }
 
         [Input("environment")]
         private InputMap<object>? _environment;
+
+        /// <summary>
+        /// Environment variables for the Docker container.
+        /// A list of key value pairs.
+        /// </summary>
         public InputMap<object> Environment
         {
             get => _environment ?? (_environment = new InputMap<object>());
             set => _environment = value;
         }
 
+        /// <summary>
+        /// The registry path where the inference code image is stored in Amazon ECR.
+        /// </summary>
         [Input("image", required: true)]
         public Input<string> Image { get; set; } = null!;
 
+        /// <summary>
+        /// The URL for the S3 location where model artifacts are stored.
+        /// </summary>
         [Input("modelDataUrl")]
         public Input<string>? ModelDataUrl { get; set; }
 
@@ -388,9 +444,22 @@ namespace Pulumi.Aws.Sagemaker
     [OutputType]
     public sealed class ModelContainers
     {
+        /// <summary>
+        /// The DNS host name for the container.
+        /// </summary>
         public readonly string? ContainerHostname;
+        /// <summary>
+        /// Environment variables for the Docker container.
+        /// A list of key value pairs.
+        /// </summary>
         public readonly ImmutableDictionary<string, object>? Environment;
+        /// <summary>
+        /// The registry path where the inference code image is stored in Amazon ECR.
+        /// </summary>
         public readonly string Image;
+        /// <summary>
+        /// The URL for the S3 location where model artifacts are stored.
+        /// </summary>
         public readonly string? ModelDataUrl;
 
         [OutputConstructor]
@@ -410,9 +479,22 @@ namespace Pulumi.Aws.Sagemaker
     [OutputType]
     public sealed class ModelPrimaryContainer
     {
+        /// <summary>
+        /// The DNS host name for the container.
+        /// </summary>
         public readonly string? ContainerHostname;
+        /// <summary>
+        /// Environment variables for the Docker container.
+        /// A list of key value pairs.
+        /// </summary>
         public readonly ImmutableDictionary<string, object>? Environment;
+        /// <summary>
+        /// The registry path where the inference code image is stored in Amazon ECR.
+        /// </summary>
         public readonly string Image;
+        /// <summary>
+        /// The URL for the S3 location where model artifacts are stored.
+        /// </summary>
         public readonly string? ModelDataUrl;
 
         [OutputConstructor]

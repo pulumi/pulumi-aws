@@ -11,7 +11,13 @@ namespace Pulumi.Aws.S3
 {
     public static partial class Invokes
     {
+        [Obsolete("Use GetBucketObjects.InvokeAsync() instead")]
         public static Task<GetBucketObjectsResult> GetBucketObjects(GetBucketObjectsArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBucketObjectsResult>("aws:s3/getBucketObjects:getBucketObjects", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetBucketObjects
+    {
+        public static Task<GetBucketObjectsResult> InvokeAsync(GetBucketObjectsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBucketObjectsResult>("aws:s3/getBucketObjects:getBucketObjects", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

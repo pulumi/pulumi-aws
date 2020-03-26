@@ -28,14 +28,12 @@ type LookupActivityArgs struct {
 	Name *string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getActivity.
 type LookupActivityResult struct {
 	Arn string `pulumi:"arn"`
 	// The date the activity was created.
 	CreationDate string `pulumi:"creationDate"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
-

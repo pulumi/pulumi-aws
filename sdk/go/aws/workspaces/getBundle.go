@@ -26,7 +26,6 @@ type GetBundleArgs struct {
 	BundleId string `pulumi:"bundleId"`
 }
 
-
 // A collection of values returned by getBundle.
 type GetBundleResult struct {
 	BundleId string `pulumi:"bundleId"`
@@ -45,4 +44,3 @@ type GetBundleResult struct {
 	// The user storage. See supported fields below.
 	UserStorages []GetBundleUserStorage `pulumi:"userStorages"`
 }
-

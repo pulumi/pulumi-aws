@@ -79,4 +79,3 @@ type ActiveReceiptRuleSetArgs struct {
 func (ActiveReceiptRuleSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*activeReceiptRuleSetArgs)(nil)).Elem()
 }
-

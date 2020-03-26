@@ -92,4 +92,3 @@ type InviteAccepterArgs struct {
 func (InviteAccepterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*inviteAccepterArgs)(nil)).Elem()
 }
-

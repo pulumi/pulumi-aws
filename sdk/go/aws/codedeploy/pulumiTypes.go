@@ -12,7 +12,12 @@ import (
 )
 
 type DeploymentConfigMinimumHealthyHosts struct {
+	// The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
 	Type *string `pulumi:"type"`
+	// The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as
+	// a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the
+	// deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances.
+	// When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances as an absolute value.
 	Value *int `pulumi:"value"`
 }
 
@@ -24,7 +29,12 @@ type DeploymentConfigMinimumHealthyHostsInput interface {
 }
 
 type DeploymentConfigMinimumHealthyHostsArgs struct {
+	// The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as
+	// a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the
+	// deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances.
+	// When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances as an absolute value.
 	Value pulumi.IntPtrInput `pulumi:"value"`
 }
 
@@ -57,7 +67,8 @@ type DeploymentConfigMinimumHealthyHostsPtrInput interface {
 
 type deploymentConfigMinimumHealthyHostsPtrType DeploymentConfigMinimumHealthyHostsArgs
 
-func DeploymentConfigMinimumHealthyHostsPtr(v *DeploymentConfigMinimumHealthyHostsArgs) DeploymentConfigMinimumHealthyHostsPtrInput {	return (*deploymentConfigMinimumHealthyHostsPtrType)(v)
+func DeploymentConfigMinimumHealthyHostsPtr(v *DeploymentConfigMinimumHealthyHostsArgs) DeploymentConfigMinimumHealthyHostsPtrInput {
+	return (*deploymentConfigMinimumHealthyHostsPtrType)(v)
 }
 
 func (*deploymentConfigMinimumHealthyHostsPtrType) ElementType() reflect.Type {
@@ -72,7 +83,7 @@ func (i *deploymentConfigMinimumHealthyHostsPtrType) ToDeploymentConfigMinimumHe
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigMinimumHealthyHostsPtrOutput)
 }
 
-type DeploymentConfigMinimumHealthyHostsOutput struct { *pulumi.OutputState }
+type DeploymentConfigMinimumHealthyHostsOutput struct{ *pulumi.OutputState }
 
 func (DeploymentConfigMinimumHealthyHostsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentConfigMinimumHealthyHosts)(nil)).Elem()
@@ -95,15 +106,21 @@ func (o DeploymentConfigMinimumHealthyHostsOutput) ToDeploymentConfigMinimumHeal
 		return &v
 	}).(DeploymentConfigMinimumHealthyHostsPtrOutput)
 }
+
+// The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
 func (o DeploymentConfigMinimumHealthyHostsOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentConfigMinimumHealthyHosts) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentConfigMinimumHealthyHosts) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as
+// a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the
+// deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances.
+// When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances as an absolute value.
 func (o DeploymentConfigMinimumHealthyHostsOutput) Value() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DeploymentConfigMinimumHealthyHosts) *int { return v.Value }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DeploymentConfigMinimumHealthyHosts) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
-type DeploymentConfigMinimumHealthyHostsPtrOutput struct { *pulumi.OutputState}
+type DeploymentConfigMinimumHealthyHostsPtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentConfigMinimumHealthyHostsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DeploymentConfigMinimumHealthyHosts)(nil)).Elem()
@@ -118,20 +135,28 @@ func (o DeploymentConfigMinimumHealthyHostsPtrOutput) ToDeploymentConfigMinimumH
 }
 
 func (o DeploymentConfigMinimumHealthyHostsPtrOutput) Elem() DeploymentConfigMinimumHealthyHostsOutput {
-	return o.ApplyT(func (v *DeploymentConfigMinimumHealthyHosts) DeploymentConfigMinimumHealthyHosts { return *v }).(DeploymentConfigMinimumHealthyHostsOutput)
+	return o.ApplyT(func(v *DeploymentConfigMinimumHealthyHosts) DeploymentConfigMinimumHealthyHosts { return *v }).(DeploymentConfigMinimumHealthyHostsOutput)
 }
 
+// The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
 func (o DeploymentConfigMinimumHealthyHostsPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentConfigMinimumHealthyHosts) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentConfigMinimumHealthyHosts) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as
+// a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the
+// deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances.
+// When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances as an absolute value.
 func (o DeploymentConfigMinimumHealthyHostsPtrOutput) Value() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DeploymentConfigMinimumHealthyHosts) *int { return v.Value }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DeploymentConfigMinimumHealthyHosts) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type DeploymentConfigTrafficRoutingConfig struct {
+	// The time based canary configuration information. If `type` is `TimeBasedLinear`, use `timeBasedLinear` instead.
 	TimeBasedCanary *DeploymentConfigTrafficRoutingConfigTimeBasedCanary `pulumi:"timeBasedCanary"`
+	// The time based linear configuration information. If `type` is `TimeBasedCanary`, use `timeBasedCanary` instead.
 	TimeBasedLinear *DeploymentConfigTrafficRoutingConfigTimeBasedLinear `pulumi:"timeBasedLinear"`
+	// Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
 	Type *string `pulumi:"type"`
 }
 
@@ -143,8 +168,11 @@ type DeploymentConfigTrafficRoutingConfigInput interface {
 }
 
 type DeploymentConfigTrafficRoutingConfigArgs struct {
+	// The time based canary configuration information. If `type` is `TimeBasedLinear`, use `timeBasedLinear` instead.
 	TimeBasedCanary DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrInput `pulumi:"timeBasedCanary"`
+	// The time based linear configuration information. If `type` is `TimeBasedCanary`, use `timeBasedCanary` instead.
 	TimeBasedLinear DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrInput `pulumi:"timeBasedLinear"`
+	// Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -177,7 +205,8 @@ type DeploymentConfigTrafficRoutingConfigPtrInput interface {
 
 type deploymentConfigTrafficRoutingConfigPtrType DeploymentConfigTrafficRoutingConfigArgs
 
-func DeploymentConfigTrafficRoutingConfigPtr(v *DeploymentConfigTrafficRoutingConfigArgs) DeploymentConfigTrafficRoutingConfigPtrInput {	return (*deploymentConfigTrafficRoutingConfigPtrType)(v)
+func DeploymentConfigTrafficRoutingConfigPtr(v *DeploymentConfigTrafficRoutingConfigArgs) DeploymentConfigTrafficRoutingConfigPtrInput {
+	return (*deploymentConfigTrafficRoutingConfigPtrType)(v)
 }
 
 func (*deploymentConfigTrafficRoutingConfigPtrType) ElementType() reflect.Type {
@@ -192,7 +221,7 @@ func (i *deploymentConfigTrafficRoutingConfigPtrType) ToDeploymentConfigTrafficR
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigTrafficRoutingConfigPtrOutput)
 }
 
-type DeploymentConfigTrafficRoutingConfigOutput struct { *pulumi.OutputState }
+type DeploymentConfigTrafficRoutingConfigOutput struct{ *pulumi.OutputState }
 
 func (DeploymentConfigTrafficRoutingConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentConfigTrafficRoutingConfig)(nil)).Elem()
@@ -215,19 +244,27 @@ func (o DeploymentConfigTrafficRoutingConfigOutput) ToDeploymentConfigTrafficRou
 		return &v
 	}).(DeploymentConfigTrafficRoutingConfigPtrOutput)
 }
+
+// The time based canary configuration information. If `type` is `TimeBasedLinear`, use `timeBasedLinear` instead.
 func (o DeploymentConfigTrafficRoutingConfigOutput) TimeBasedCanary() DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput {
-	return o.ApplyT(func (v DeploymentConfigTrafficRoutingConfig) *DeploymentConfigTrafficRoutingConfigTimeBasedCanary { return v.TimeBasedCanary }).(DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput)
+	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfig) *DeploymentConfigTrafficRoutingConfigTimeBasedCanary {
+		return v.TimeBasedCanary
+	}).(DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput)
 }
 
+// The time based linear configuration information. If `type` is `TimeBasedCanary`, use `timeBasedCanary` instead.
 func (o DeploymentConfigTrafficRoutingConfigOutput) TimeBasedLinear() DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput {
-	return o.ApplyT(func (v DeploymentConfigTrafficRoutingConfig) *DeploymentConfigTrafficRoutingConfigTimeBasedLinear { return v.TimeBasedLinear }).(DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput)
+	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfig) *DeploymentConfigTrafficRoutingConfigTimeBasedLinear {
+		return v.TimeBasedLinear
+	}).(DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput)
 }
 
+// Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
 func (o DeploymentConfigTrafficRoutingConfigOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentConfigTrafficRoutingConfig) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfig) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type DeploymentConfigTrafficRoutingConfigPtrOutput struct { *pulumi.OutputState}
+type DeploymentConfigTrafficRoutingConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentConfigTrafficRoutingConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DeploymentConfigTrafficRoutingConfig)(nil)).Elem()
@@ -242,23 +279,32 @@ func (o DeploymentConfigTrafficRoutingConfigPtrOutput) ToDeploymentConfigTraffic
 }
 
 func (o DeploymentConfigTrafficRoutingConfigPtrOutput) Elem() DeploymentConfigTrafficRoutingConfigOutput {
-	return o.ApplyT(func (v *DeploymentConfigTrafficRoutingConfig) DeploymentConfigTrafficRoutingConfig { return *v }).(DeploymentConfigTrafficRoutingConfigOutput)
+	return o.ApplyT(func(v *DeploymentConfigTrafficRoutingConfig) DeploymentConfigTrafficRoutingConfig { return *v }).(DeploymentConfigTrafficRoutingConfigOutput)
 }
 
+// The time based canary configuration information. If `type` is `TimeBasedLinear`, use `timeBasedLinear` instead.
 func (o DeploymentConfigTrafficRoutingConfigPtrOutput) TimeBasedCanary() DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput {
-	return o.ApplyT(func (v DeploymentConfigTrafficRoutingConfig) *DeploymentConfigTrafficRoutingConfigTimeBasedCanary { return v.TimeBasedCanary }).(DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput)
+	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfig) *DeploymentConfigTrafficRoutingConfigTimeBasedCanary {
+		return v.TimeBasedCanary
+	}).(DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput)
 }
 
+// The time based linear configuration information. If `type` is `TimeBasedCanary`, use `timeBasedCanary` instead.
 func (o DeploymentConfigTrafficRoutingConfigPtrOutput) TimeBasedLinear() DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput {
-	return o.ApplyT(func (v DeploymentConfigTrafficRoutingConfig) *DeploymentConfigTrafficRoutingConfigTimeBasedLinear { return v.TimeBasedLinear }).(DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput)
+	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfig) *DeploymentConfigTrafficRoutingConfigTimeBasedLinear {
+		return v.TimeBasedLinear
+	}).(DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput)
 }
 
+// Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
 func (o DeploymentConfigTrafficRoutingConfigPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentConfigTrafficRoutingConfig) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfig) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type DeploymentConfigTrafficRoutingConfigTimeBasedCanary struct {
+	// The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
 	Interval *int `pulumi:"interval"`
+	// The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
 	Percentage *int `pulumi:"percentage"`
 }
 
@@ -270,7 +316,9 @@ type DeploymentConfigTrafficRoutingConfigTimeBasedCanaryInput interface {
 }
 
 type DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs struct {
+	// The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
 	Percentage pulumi.IntPtrInput `pulumi:"percentage"`
 }
 
@@ -303,7 +351,8 @@ type DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrInput interface {
 
 type deploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrType DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs
 
-func DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtr(v *DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs) DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrInput {	return (*deploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrType)(v)
+func DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtr(v *DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs) DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrInput {
+	return (*deploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrType)(v)
 }
 
 func (*deploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrType) ElementType() reflect.Type {
@@ -318,7 +367,7 @@ func (i *deploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrType) ToDeploymen
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput)
 }
 
-type DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput struct { *pulumi.OutputState }
+type DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput struct{ *pulumi.OutputState }
 
 func (DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentConfigTrafficRoutingConfigTimeBasedCanary)(nil)).Elem()
@@ -341,15 +390,18 @@ func (o DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput) ToDeploymentC
 		return &v
 	}).(DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput)
 }
+
+// The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DeploymentConfigTrafficRoutingConfigTimeBasedCanary) *int { return v.Interval }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfigTimeBasedCanary) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
+// The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput) Percentage() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DeploymentConfigTrafficRoutingConfigTimeBasedCanary) *int { return v.Percentage }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfigTimeBasedCanary) *int { return v.Percentage }).(pulumi.IntPtrOutput)
 }
 
-type DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput struct { *pulumi.OutputState}
+type DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DeploymentConfigTrafficRoutingConfigTimeBasedCanary)(nil)).Elem()
@@ -364,19 +416,25 @@ func (o DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput) ToDeployme
 }
 
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput) Elem() DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput {
-	return o.ApplyT(func (v *DeploymentConfigTrafficRoutingConfigTimeBasedCanary) DeploymentConfigTrafficRoutingConfigTimeBasedCanary { return *v }).(DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput)
+	return o.ApplyT(func(v *DeploymentConfigTrafficRoutingConfigTimeBasedCanary) DeploymentConfigTrafficRoutingConfigTimeBasedCanary {
+		return *v
+	}).(DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput)
 }
 
+// The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DeploymentConfigTrafficRoutingConfigTimeBasedCanary) *int { return v.Interval }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfigTimeBasedCanary) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
+// The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput) Percentage() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DeploymentConfigTrafficRoutingConfigTimeBasedCanary) *int { return v.Percentage }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfigTimeBasedCanary) *int { return v.Percentage }).(pulumi.IntPtrOutput)
 }
 
 type DeploymentConfigTrafficRoutingConfigTimeBasedLinear struct {
+	// The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
 	Interval *int `pulumi:"interval"`
+	// The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
 	Percentage *int `pulumi:"percentage"`
 }
 
@@ -388,7 +446,9 @@ type DeploymentConfigTrafficRoutingConfigTimeBasedLinearInput interface {
 }
 
 type DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs struct {
+	// The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
 	Percentage pulumi.IntPtrInput `pulumi:"percentage"`
 }
 
@@ -421,7 +481,8 @@ type DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrInput interface {
 
 type deploymentConfigTrafficRoutingConfigTimeBasedLinearPtrType DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs
 
-func DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtr(v *DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs) DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrInput {	return (*deploymentConfigTrafficRoutingConfigTimeBasedLinearPtrType)(v)
+func DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtr(v *DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs) DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrInput {
+	return (*deploymentConfigTrafficRoutingConfigTimeBasedLinearPtrType)(v)
 }
 
 func (*deploymentConfigTrafficRoutingConfigTimeBasedLinearPtrType) ElementType() reflect.Type {
@@ -436,7 +497,7 @@ func (i *deploymentConfigTrafficRoutingConfigTimeBasedLinearPtrType) ToDeploymen
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput)
 }
 
-type DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput struct { *pulumi.OutputState }
+type DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput struct{ *pulumi.OutputState }
 
 func (DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentConfigTrafficRoutingConfigTimeBasedLinear)(nil)).Elem()
@@ -459,15 +520,18 @@ func (o DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput) ToDeploymentC
 		return &v
 	}).(DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput)
 }
+
+// The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DeploymentConfigTrafficRoutingConfigTimeBasedLinear) *int { return v.Interval }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfigTimeBasedLinear) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
+// The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput) Percentage() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DeploymentConfigTrafficRoutingConfigTimeBasedLinear) *int { return v.Percentage }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfigTimeBasedLinear) *int { return v.Percentage }).(pulumi.IntPtrOutput)
 }
 
-type DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput struct { *pulumi.OutputState}
+type DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DeploymentConfigTrafficRoutingConfigTimeBasedLinear)(nil)).Elem()
@@ -482,21 +546,25 @@ func (o DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput) ToDeployme
 }
 
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput) Elem() DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput {
-	return o.ApplyT(func (v *DeploymentConfigTrafficRoutingConfigTimeBasedLinear) DeploymentConfigTrafficRoutingConfigTimeBasedLinear { return *v }).(DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput)
+	return o.ApplyT(func(v *DeploymentConfigTrafficRoutingConfigTimeBasedLinear) DeploymentConfigTrafficRoutingConfigTimeBasedLinear {
+		return *v
+	}).(DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput)
 }
 
+// The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DeploymentConfigTrafficRoutingConfigTimeBasedLinear) *int { return v.Interval }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfigTimeBasedLinear) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
+// The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput) Percentage() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DeploymentConfigTrafficRoutingConfigTimeBasedLinear) *int { return v.Percentage }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfigTimeBasedLinear) *int { return v.Percentage }).(pulumi.IntPtrOutput)
 }
 
 type DeploymentGroupAlarmConfiguration struct {
 	// A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
 	Alarms []string `pulumi:"alarms"`
-	// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
+	// Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
 	Enabled *bool `pulumi:"enabled"`
 	// Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
 	// * `true`: The deployment will proceed even if alarm status information can't be retrieved.
@@ -514,7 +582,7 @@ type DeploymentGroupAlarmConfigurationInput interface {
 type DeploymentGroupAlarmConfigurationArgs struct {
 	// A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
 	Alarms pulumi.StringArrayInput `pulumi:"alarms"`
-	// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
+	// Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
 	// * `true`: The deployment will proceed even if alarm status information can't be retrieved.
@@ -551,7 +619,8 @@ type DeploymentGroupAlarmConfigurationPtrInput interface {
 
 type deploymentGroupAlarmConfigurationPtrType DeploymentGroupAlarmConfigurationArgs
 
-func DeploymentGroupAlarmConfigurationPtr(v *DeploymentGroupAlarmConfigurationArgs) DeploymentGroupAlarmConfigurationPtrInput {	return (*deploymentGroupAlarmConfigurationPtrType)(v)
+func DeploymentGroupAlarmConfigurationPtr(v *DeploymentGroupAlarmConfigurationArgs) DeploymentGroupAlarmConfigurationPtrInput {
+	return (*deploymentGroupAlarmConfigurationPtrType)(v)
 }
 
 func (*deploymentGroupAlarmConfigurationPtrType) ElementType() reflect.Type {
@@ -566,7 +635,7 @@ func (i *deploymentGroupAlarmConfigurationPtrType) ToDeploymentGroupAlarmConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupAlarmConfigurationPtrOutput)
 }
 
-type DeploymentGroupAlarmConfigurationOutput struct { *pulumi.OutputState }
+type DeploymentGroupAlarmConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupAlarmConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupAlarmConfiguration)(nil)).Elem()
@@ -589,24 +658,25 @@ func (o DeploymentGroupAlarmConfigurationOutput) ToDeploymentGroupAlarmConfigura
 		return &v
 	}).(DeploymentGroupAlarmConfigurationPtrOutput)
 }
+
 // A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
 func (o DeploymentGroupAlarmConfigurationOutput) Alarms() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DeploymentGroupAlarmConfiguration) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DeploymentGroupAlarmConfiguration) []string { return v.Alarms }).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
+// Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
 func (o DeploymentGroupAlarmConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupAlarmConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupAlarmConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
 // * `true`: The deployment will proceed even if alarm status information can't be retrieved.
 // * `false`: The deployment will stop if alarm status information can't be retrieved.
 func (o DeploymentGroupAlarmConfigurationOutput) IgnorePollAlarmFailure() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupAlarmConfiguration) *bool { return v.IgnorePollAlarmFailure }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupAlarmConfiguration) *bool { return v.IgnorePollAlarmFailure }).(pulumi.BoolPtrOutput)
 }
 
-type DeploymentGroupAlarmConfigurationPtrOutput struct { *pulumi.OutputState}
+type DeploymentGroupAlarmConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupAlarmConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DeploymentGroupAlarmConfiguration)(nil)).Elem()
@@ -621,24 +691,24 @@ func (o DeploymentGroupAlarmConfigurationPtrOutput) ToDeploymentGroupAlarmConfig
 }
 
 func (o DeploymentGroupAlarmConfigurationPtrOutput) Elem() DeploymentGroupAlarmConfigurationOutput {
-	return o.ApplyT(func (v *DeploymentGroupAlarmConfiguration) DeploymentGroupAlarmConfiguration { return *v }).(DeploymentGroupAlarmConfigurationOutput)
+	return o.ApplyT(func(v *DeploymentGroupAlarmConfiguration) DeploymentGroupAlarmConfiguration { return *v }).(DeploymentGroupAlarmConfigurationOutput)
 }
 
 // A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
 func (o DeploymentGroupAlarmConfigurationPtrOutput) Alarms() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DeploymentGroupAlarmConfiguration) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DeploymentGroupAlarmConfiguration) []string { return v.Alarms }).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
+// Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
 func (o DeploymentGroupAlarmConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupAlarmConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupAlarmConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
 // * `true`: The deployment will proceed even if alarm status information can't be retrieved.
 // * `false`: The deployment will stop if alarm status information can't be retrieved.
 func (o DeploymentGroupAlarmConfigurationPtrOutput) IgnorePollAlarmFailure() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupAlarmConfiguration) *bool { return v.IgnorePollAlarmFailure }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupAlarmConfiguration) *bool { return v.IgnorePollAlarmFailure }).(pulumi.BoolPtrOutput)
 }
 
 type DeploymentGroupAutoRollbackConfiguration struct {
@@ -691,7 +761,8 @@ type DeploymentGroupAutoRollbackConfigurationPtrInput interface {
 
 type deploymentGroupAutoRollbackConfigurationPtrType DeploymentGroupAutoRollbackConfigurationArgs
 
-func DeploymentGroupAutoRollbackConfigurationPtr(v *DeploymentGroupAutoRollbackConfigurationArgs) DeploymentGroupAutoRollbackConfigurationPtrInput {	return (*deploymentGroupAutoRollbackConfigurationPtrType)(v)
+func DeploymentGroupAutoRollbackConfigurationPtr(v *DeploymentGroupAutoRollbackConfigurationArgs) DeploymentGroupAutoRollbackConfigurationPtrInput {
+	return (*deploymentGroupAutoRollbackConfigurationPtrType)(v)
 }
 
 func (*deploymentGroupAutoRollbackConfigurationPtrType) ElementType() reflect.Type {
@@ -706,7 +777,7 @@ func (i *deploymentGroupAutoRollbackConfigurationPtrType) ToDeploymentGroupAutoR
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupAutoRollbackConfigurationPtrOutput)
 }
 
-type DeploymentGroupAutoRollbackConfigurationOutput struct { *pulumi.OutputState }
+type DeploymentGroupAutoRollbackConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupAutoRollbackConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupAutoRollbackConfiguration)(nil)).Elem()
@@ -729,17 +800,18 @@ func (o DeploymentGroupAutoRollbackConfigurationOutput) ToDeploymentGroupAutoRol
 		return &v
 	}).(DeploymentGroupAutoRollbackConfigurationPtrOutput)
 }
+
 // Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
 func (o DeploymentGroupAutoRollbackConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupAutoRollbackConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupAutoRollbackConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
 func (o DeploymentGroupAutoRollbackConfigurationOutput) Events() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DeploymentGroupAutoRollbackConfiguration) []string { return v.Events }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DeploymentGroupAutoRollbackConfiguration) []string { return v.Events }).(pulumi.StringArrayOutput)
 }
 
-type DeploymentGroupAutoRollbackConfigurationPtrOutput struct { *pulumi.OutputState}
+type DeploymentGroupAutoRollbackConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupAutoRollbackConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DeploymentGroupAutoRollbackConfiguration)(nil)).Elem()
@@ -754,17 +826,17 @@ func (o DeploymentGroupAutoRollbackConfigurationPtrOutput) ToDeploymentGroupAuto
 }
 
 func (o DeploymentGroupAutoRollbackConfigurationPtrOutput) Elem() DeploymentGroupAutoRollbackConfigurationOutput {
-	return o.ApplyT(func (v *DeploymentGroupAutoRollbackConfiguration) DeploymentGroupAutoRollbackConfiguration { return *v }).(DeploymentGroupAutoRollbackConfigurationOutput)
+	return o.ApplyT(func(v *DeploymentGroupAutoRollbackConfiguration) DeploymentGroupAutoRollbackConfiguration { return *v }).(DeploymentGroupAutoRollbackConfigurationOutput)
 }
 
 // Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
 func (o DeploymentGroupAutoRollbackConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupAutoRollbackConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupAutoRollbackConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
 func (o DeploymentGroupAutoRollbackConfigurationPtrOutput) Events() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DeploymentGroupAutoRollbackConfiguration) []string { return v.Events }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DeploymentGroupAutoRollbackConfiguration) []string { return v.Events }).(pulumi.StringArrayOutput)
 }
 
 type DeploymentGroupBlueGreenDeploymentConfig struct {
@@ -821,7 +893,8 @@ type DeploymentGroupBlueGreenDeploymentConfigPtrInput interface {
 
 type deploymentGroupBlueGreenDeploymentConfigPtrType DeploymentGroupBlueGreenDeploymentConfigArgs
 
-func DeploymentGroupBlueGreenDeploymentConfigPtr(v *DeploymentGroupBlueGreenDeploymentConfigArgs) DeploymentGroupBlueGreenDeploymentConfigPtrInput {	return (*deploymentGroupBlueGreenDeploymentConfigPtrType)(v)
+func DeploymentGroupBlueGreenDeploymentConfigPtr(v *DeploymentGroupBlueGreenDeploymentConfigArgs) DeploymentGroupBlueGreenDeploymentConfigPtrInput {
+	return (*deploymentGroupBlueGreenDeploymentConfigPtrType)(v)
 }
 
 func (*deploymentGroupBlueGreenDeploymentConfigPtrType) ElementType() reflect.Type {
@@ -836,7 +909,7 @@ func (i *deploymentGroupBlueGreenDeploymentConfigPtrType) ToDeploymentGroupBlueG
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueGreenDeploymentConfigPtrOutput)
 }
 
-type DeploymentGroupBlueGreenDeploymentConfigOutput struct { *pulumi.OutputState }
+type DeploymentGroupBlueGreenDeploymentConfigOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupBlueGreenDeploymentConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupBlueGreenDeploymentConfig)(nil)).Elem()
@@ -859,22 +932,29 @@ func (o DeploymentGroupBlueGreenDeploymentConfigOutput) ToDeploymentGroupBlueGre
 		return &v
 	}).(DeploymentGroupBlueGreenDeploymentConfigPtrOutput)
 }
+
 // Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
 func (o DeploymentGroupBlueGreenDeploymentConfigOutput) DeploymentReadyOption() DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupBlueGreenDeploymentConfig) *DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption { return v.DeploymentReadyOption }).(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfig) *DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption {
+		return v.DeploymentReadyOption
+	}).(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput)
 }
 
 // Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
 func (o DeploymentGroupBlueGreenDeploymentConfigOutput) GreenFleetProvisioningOption() DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupBlueGreenDeploymentConfig) *DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption { return v.GreenFleetProvisioningOption }).(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfig) *DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption {
+		return v.GreenFleetProvisioningOption
+	}).(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput)
 }
 
 // Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
 func (o DeploymentGroupBlueGreenDeploymentConfigOutput) TerminateBlueInstancesOnDeploymentSuccess() DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupBlueGreenDeploymentConfig) *DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess { return v.TerminateBlueInstancesOnDeploymentSuccess }).(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfig) *DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess {
+		return v.TerminateBlueInstancesOnDeploymentSuccess
+	}).(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput)
 }
 
-type DeploymentGroupBlueGreenDeploymentConfigPtrOutput struct { *pulumi.OutputState}
+type DeploymentGroupBlueGreenDeploymentConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupBlueGreenDeploymentConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DeploymentGroupBlueGreenDeploymentConfig)(nil)).Elem()
@@ -889,22 +969,28 @@ func (o DeploymentGroupBlueGreenDeploymentConfigPtrOutput) ToDeploymentGroupBlue
 }
 
 func (o DeploymentGroupBlueGreenDeploymentConfigPtrOutput) Elem() DeploymentGroupBlueGreenDeploymentConfigOutput {
-	return o.ApplyT(func (v *DeploymentGroupBlueGreenDeploymentConfig) DeploymentGroupBlueGreenDeploymentConfig { return *v }).(DeploymentGroupBlueGreenDeploymentConfigOutput)
+	return o.ApplyT(func(v *DeploymentGroupBlueGreenDeploymentConfig) DeploymentGroupBlueGreenDeploymentConfig { return *v }).(DeploymentGroupBlueGreenDeploymentConfigOutput)
 }
 
 // Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
 func (o DeploymentGroupBlueGreenDeploymentConfigPtrOutput) DeploymentReadyOption() DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupBlueGreenDeploymentConfig) *DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption { return v.DeploymentReadyOption }).(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfig) *DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption {
+		return v.DeploymentReadyOption
+	}).(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput)
 }
 
 // Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
 func (o DeploymentGroupBlueGreenDeploymentConfigPtrOutput) GreenFleetProvisioningOption() DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupBlueGreenDeploymentConfig) *DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption { return v.GreenFleetProvisioningOption }).(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfig) *DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption {
+		return v.GreenFleetProvisioningOption
+	}).(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput)
 }
 
 // Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
 func (o DeploymentGroupBlueGreenDeploymentConfigPtrOutput) TerminateBlueInstancesOnDeploymentSuccess() DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupBlueGreenDeploymentConfig) *DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess { return v.TerminateBlueInstancesOnDeploymentSuccess }).(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfig) *DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess {
+		return v.TerminateBlueInstancesOnDeploymentSuccess
+	}).(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput)
 }
 
 type DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption struct {
@@ -961,7 +1047,8 @@ type DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrInput inter
 
 type deploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrType DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs
 
-func DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtr(v *DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs) DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrInput {	return (*deploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrType)(v)
+func DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtr(v *DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs) DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrInput {
+	return (*deploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrType)(v)
 }
 
 func (*deploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrType) ElementType() reflect.Type {
@@ -976,7 +1063,7 @@ func (i *deploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput)
 }
 
-type DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput struct { *pulumi.OutputState }
+type DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption)(nil)).Elem()
@@ -999,19 +1086,24 @@ func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput) ToD
 		return &v
 	}).(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput)
 }
+
 // When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
 // * `CONTINUE_DEPLOYMENT`: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
 // * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
 func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput) ActionOnTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) *string { return v.ActionOnTimeout }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) *string {
+		return v.ActionOnTimeout
+	}).(pulumi.StringPtrOutput)
 }
 
 // The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `actionOnTimeout`.
 func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput) WaitTimeInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) *int { return v.WaitTimeInMinutes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) *int {
+		return v.WaitTimeInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
-type DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput struct { *pulumi.OutputState}
+type DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption)(nil)).Elem()
@@ -1026,25 +1118,31 @@ func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput) 
 }
 
 func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput) Elem() DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput {
-	return o.ApplyT(func (v *DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption { return *v }).(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput)
+	return o.ApplyT(func(v *DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption {
+		return *v
+	}).(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput)
 }
 
 // When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
 // * `CONTINUE_DEPLOYMENT`: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
 // * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
 func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput) ActionOnTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) *string { return v.ActionOnTimeout }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) *string {
+		return v.ActionOnTimeout
+	}).(pulumi.StringPtrOutput)
 }
 
 // The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `actionOnTimeout`.
 func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput) WaitTimeInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) *int { return v.WaitTimeInMinutes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) *int {
+		return v.WaitTimeInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 type DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption struct {
-	// The action to take on instances in the original environment after a successful blue/green deployment.
-	// * `TERMINATE`: Instances are terminated after a specified wait time.
-	// * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
+	// The method used to add instances to a replacement environment.
+	// * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
+	// * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscalingGroups` to specify the Auto Scaling group.
 	Action *string `pulumi:"action"`
 }
 
@@ -1056,9 +1154,9 @@ type DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionInput i
 }
 
 type DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs struct {
-	// The action to take on instances in the original environment after a successful blue/green deployment.
-	// * `TERMINATE`: Instances are terminated after a specified wait time.
-	// * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
+	// The method used to add instances to a replacement environment.
+	// * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
+	// * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscalingGroups` to specify the Auto Scaling group.
 	Action pulumi.StringPtrInput `pulumi:"action"`
 }
 
@@ -1091,7 +1189,8 @@ type DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrInpu
 
 type deploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrType DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs
 
-func DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtr(v *DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs) DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrInput {	return (*deploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrType)(v)
+func DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtr(v *DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs) DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrInput {
+	return (*deploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrType)(v)
 }
 
 func (*deploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrType) ElementType() reflect.Type {
@@ -1106,7 +1205,7 @@ func (i *deploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtr
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput)
 }
 
-type DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput struct { *pulumi.OutputState }
+type DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption)(nil)).Elem()
@@ -1129,14 +1228,15 @@ func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutp
 		return &v
 	}).(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput)
 }
-// The action to take on instances in the original environment after a successful blue/green deployment.
-// * `TERMINATE`: Instances are terminated after a specified wait time.
-// * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
+
+// The method used to add instances to a replacement environment.
+// * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
+// * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscalingGroups` to specify the Auto Scaling group.
 func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption) *string { return v.Action }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-type DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput struct { *pulumi.OutputState}
+type DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption)(nil)).Elem()
@@ -1151,14 +1251,16 @@ func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrO
 }
 
 func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput) Elem() DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput {
-	return o.ApplyT(func (v *DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption) DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption { return *v }).(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput)
+	return o.ApplyT(func(v *DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption) DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption {
+		return *v
+	}).(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput)
 }
 
-// The action to take on instances in the original environment after a successful blue/green deployment.
-// * `TERMINATE`: Instances are terminated after a specified wait time.
-// * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
+// The method used to add instances to a replacement environment.
+// * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
+// * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscalingGroups` to specify the Auto Scaling group.
 func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption) *string { return v.Action }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
 type DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess struct {
@@ -1215,7 +1317,8 @@ type DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentS
 
 type deploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrType DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs
 
-func DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtr(v *DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs) DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrInput {	return (*deploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrType)(v)
+func DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtr(v *DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs) DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrInput {
+	return (*deploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrType)(v)
 }
 
 func (*deploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrType) ElementType() reflect.Type {
@@ -1230,7 +1333,7 @@ func (i *deploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploym
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput)
 }
 
-type DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput struct { *pulumi.OutputState }
+type DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess)(nil)).Elem()
@@ -1253,19 +1356,24 @@ func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeployme
 		return &v
 	}).(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput)
 }
+
 // The action to take on instances in the original environment after a successful blue/green deployment.
 // * `TERMINATE`: Instances are terminated after a specified wait time.
 // * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
 func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) *string { return v.Action }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) *string {
+		return v.Action
+	}).(pulumi.StringPtrOutput)
 }
 
 // The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
 func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput) TerminationWaitTimeInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) *int { return v.TerminationWaitTimeInMinutes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) *int {
+		return v.TerminationWaitTimeInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
-type DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput struct { *pulumi.OutputState}
+type DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess)(nil)).Elem()
@@ -1280,19 +1388,25 @@ func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeployme
 }
 
 func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput) Elem() DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput {
-	return o.ApplyT(func (v *DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess { return *v }).(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput)
+	return o.ApplyT(func(v *DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess {
+		return *v
+	}).(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput)
 }
 
 // The action to take on instances in the original environment after a successful blue/green deployment.
 // * `TERMINATE`: Instances are terminated after a specified wait time.
 // * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
 func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) *string { return v.Action }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) *string {
+		return v.Action
+	}).(pulumi.StringPtrOutput)
 }
 
 // The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
 func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput) TerminationWaitTimeInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) *int { return v.TerminationWaitTimeInMinutes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) *int {
+		return v.TerminationWaitTimeInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 type DeploymentGroupDeploymentStyle struct {
@@ -1345,7 +1459,8 @@ type DeploymentGroupDeploymentStylePtrInput interface {
 
 type deploymentGroupDeploymentStylePtrType DeploymentGroupDeploymentStyleArgs
 
-func DeploymentGroupDeploymentStylePtr(v *DeploymentGroupDeploymentStyleArgs) DeploymentGroupDeploymentStylePtrInput {	return (*deploymentGroupDeploymentStylePtrType)(v)
+func DeploymentGroupDeploymentStylePtr(v *DeploymentGroupDeploymentStyleArgs) DeploymentGroupDeploymentStylePtrInput {
+	return (*deploymentGroupDeploymentStylePtrType)(v)
 }
 
 func (*deploymentGroupDeploymentStylePtrType) ElementType() reflect.Type {
@@ -1360,7 +1475,7 @@ func (i *deploymentGroupDeploymentStylePtrType) ToDeploymentGroupDeploymentStyle
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupDeploymentStylePtrOutput)
 }
 
-type DeploymentGroupDeploymentStyleOutput struct { *pulumi.OutputState }
+type DeploymentGroupDeploymentStyleOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupDeploymentStyleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupDeploymentStyle)(nil)).Elem()
@@ -1383,17 +1498,18 @@ func (o DeploymentGroupDeploymentStyleOutput) ToDeploymentGroupDeploymentStylePt
 		return &v
 	}).(DeploymentGroupDeploymentStylePtrOutput)
 }
+
 // Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
 func (o DeploymentGroupDeploymentStyleOutput) DeploymentOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupDeploymentStyle) *string { return v.DeploymentOption }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupDeploymentStyle) *string { return v.DeploymentOption }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
 func (o DeploymentGroupDeploymentStyleOutput) DeploymentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupDeploymentStyle) *string { return v.DeploymentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupDeploymentStyle) *string { return v.DeploymentType }).(pulumi.StringPtrOutput)
 }
 
-type DeploymentGroupDeploymentStylePtrOutput struct { *pulumi.OutputState}
+type DeploymentGroupDeploymentStylePtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupDeploymentStylePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DeploymentGroupDeploymentStyle)(nil)).Elem()
@@ -1408,17 +1524,17 @@ func (o DeploymentGroupDeploymentStylePtrOutput) ToDeploymentGroupDeploymentStyl
 }
 
 func (o DeploymentGroupDeploymentStylePtrOutput) Elem() DeploymentGroupDeploymentStyleOutput {
-	return o.ApplyT(func (v *DeploymentGroupDeploymentStyle) DeploymentGroupDeploymentStyle { return *v }).(DeploymentGroupDeploymentStyleOutput)
+	return o.ApplyT(func(v *DeploymentGroupDeploymentStyle) DeploymentGroupDeploymentStyle { return *v }).(DeploymentGroupDeploymentStyleOutput)
 }
 
 // Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
 func (o DeploymentGroupDeploymentStylePtrOutput) DeploymentOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupDeploymentStyle) *string { return v.DeploymentOption }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupDeploymentStyle) *string { return v.DeploymentOption }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
 func (o DeploymentGroupDeploymentStylePtrOutput) DeploymentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupDeploymentStyle) *string { return v.DeploymentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupDeploymentStyle) *string { return v.DeploymentType }).(pulumi.StringPtrOutput)
 }
 
 type DeploymentGroupEc2TagFilter struct {
@@ -1479,7 +1595,7 @@ func (i DeploymentGroupEc2TagFilterArray) ToDeploymentGroupEc2TagFilterArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagFilterArrayOutput)
 }
 
-type DeploymentGroupEc2TagFilterOutput struct { *pulumi.OutputState }
+type DeploymentGroupEc2TagFilterOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupEc2TagFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupEc2TagFilter)(nil)).Elem()
@@ -1495,20 +1611,20 @@ func (o DeploymentGroupEc2TagFilterOutput) ToDeploymentGroupEc2TagFilterOutputWi
 
 // The key of the tag filter.
 func (o DeploymentGroupEc2TagFilterOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupEc2TagFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupEc2TagFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
 func (o DeploymentGroupEc2TagFilterOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupEc2TagFilter) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupEc2TagFilter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The value of the tag filter.
 func (o DeploymentGroupEc2TagFilterOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupEc2TagFilter) *string { return v.Value }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupEc2TagFilter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type DeploymentGroupEc2TagFilterArrayOutput struct { *pulumi.OutputState}
+type DeploymentGroupEc2TagFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupEc2TagFilterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DeploymentGroupEc2TagFilter)(nil)).Elem()
@@ -1523,7 +1639,7 @@ func (o DeploymentGroupEc2TagFilterArrayOutput) ToDeploymentGroupEc2TagFilterArr
 }
 
 func (o DeploymentGroupEc2TagFilterArrayOutput) Index(i pulumi.IntInput) DeploymentGroupEc2TagFilterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DeploymentGroupEc2TagFilter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupEc2TagFilter {
 		return vs[0].([]DeploymentGroupEc2TagFilter)[vs[1].(int)]
 	}).(DeploymentGroupEc2TagFilterOutput)
 }
@@ -1578,7 +1694,7 @@ func (i DeploymentGroupEc2TagSetArray) ToDeploymentGroupEc2TagSetArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagSetArrayOutput)
 }
 
-type DeploymentGroupEc2TagSetOutput struct { *pulumi.OutputState }
+type DeploymentGroupEc2TagSetOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupEc2TagSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupEc2TagSet)(nil)).Elem()
@@ -1594,10 +1710,10 @@ func (o DeploymentGroupEc2TagSetOutput) ToDeploymentGroupEc2TagSetOutputWithCont
 
 // Tag filters associated with the deployment group. See the AWS docs for details.
 func (o DeploymentGroupEc2TagSetOutput) Ec2TagFilters() DeploymentGroupEc2TagSetEc2TagFilterArrayOutput {
-	return o.ApplyT(func (v DeploymentGroupEc2TagSet) []DeploymentGroupEc2TagSetEc2TagFilter { return v.Ec2TagFilters }).(DeploymentGroupEc2TagSetEc2TagFilterArrayOutput)
+	return o.ApplyT(func(v DeploymentGroupEc2TagSet) []DeploymentGroupEc2TagSetEc2TagFilter { return v.Ec2TagFilters }).(DeploymentGroupEc2TagSetEc2TagFilterArrayOutput)
 }
 
-type DeploymentGroupEc2TagSetArrayOutput struct { *pulumi.OutputState}
+type DeploymentGroupEc2TagSetArrayOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupEc2TagSetArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DeploymentGroupEc2TagSet)(nil)).Elem()
@@ -1612,7 +1728,7 @@ func (o DeploymentGroupEc2TagSetArrayOutput) ToDeploymentGroupEc2TagSetArrayOutp
 }
 
 func (o DeploymentGroupEc2TagSetArrayOutput) Index(i pulumi.IntInput) DeploymentGroupEc2TagSetOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DeploymentGroupEc2TagSet {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupEc2TagSet {
 		return vs[0].([]DeploymentGroupEc2TagSet)[vs[1].(int)]
 	}).(DeploymentGroupEc2TagSetOutput)
 }
@@ -1675,7 +1791,7 @@ func (i DeploymentGroupEc2TagSetEc2TagFilterArray) ToDeploymentGroupEc2TagSetEc2
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagSetEc2TagFilterArrayOutput)
 }
 
-type DeploymentGroupEc2TagSetEc2TagFilterOutput struct { *pulumi.OutputState }
+type DeploymentGroupEc2TagSetEc2TagFilterOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupEc2TagSetEc2TagFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupEc2TagSetEc2TagFilter)(nil)).Elem()
@@ -1691,20 +1807,20 @@ func (o DeploymentGroupEc2TagSetEc2TagFilterOutput) ToDeploymentGroupEc2TagSetEc
 
 // The key of the tag filter.
 func (o DeploymentGroupEc2TagSetEc2TagFilterOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupEc2TagSetEc2TagFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupEc2TagSetEc2TagFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
 func (o DeploymentGroupEc2TagSetEc2TagFilterOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupEc2TagSetEc2TagFilter) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupEc2TagSetEc2TagFilter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The value of the tag filter.
 func (o DeploymentGroupEc2TagSetEc2TagFilterOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupEc2TagSetEc2TagFilter) *string { return v.Value }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupEc2TagSetEc2TagFilter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type DeploymentGroupEc2TagSetEc2TagFilterArrayOutput struct { *pulumi.OutputState}
+type DeploymentGroupEc2TagSetEc2TagFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupEc2TagSetEc2TagFilterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DeploymentGroupEc2TagSetEc2TagFilter)(nil)).Elem()
@@ -1719,7 +1835,7 @@ func (o DeploymentGroupEc2TagSetEc2TagFilterArrayOutput) ToDeploymentGroupEc2Tag
 }
 
 func (o DeploymentGroupEc2TagSetEc2TagFilterArrayOutput) Index(i pulumi.IntInput) DeploymentGroupEc2TagSetEc2TagFilterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DeploymentGroupEc2TagSetEc2TagFilter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupEc2TagSetEc2TagFilter {
 		return vs[0].([]DeploymentGroupEc2TagSetEc2TagFilter)[vs[1].(int)]
 	}).(DeploymentGroupEc2TagSetEc2TagFilterOutput)
 }
@@ -1774,7 +1890,8 @@ type DeploymentGroupEcsServicePtrInput interface {
 
 type deploymentGroupEcsServicePtrType DeploymentGroupEcsServiceArgs
 
-func DeploymentGroupEcsServicePtr(v *DeploymentGroupEcsServiceArgs) DeploymentGroupEcsServicePtrInput {	return (*deploymentGroupEcsServicePtrType)(v)
+func DeploymentGroupEcsServicePtr(v *DeploymentGroupEcsServiceArgs) DeploymentGroupEcsServicePtrInput {
+	return (*deploymentGroupEcsServicePtrType)(v)
 }
 
 func (*deploymentGroupEcsServicePtrType) ElementType() reflect.Type {
@@ -1789,7 +1906,7 @@ func (i *deploymentGroupEcsServicePtrType) ToDeploymentGroupEcsServicePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEcsServicePtrOutput)
 }
 
-type DeploymentGroupEcsServiceOutput struct { *pulumi.OutputState }
+type DeploymentGroupEcsServiceOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupEcsServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupEcsService)(nil)).Elem()
@@ -1812,17 +1929,18 @@ func (o DeploymentGroupEcsServiceOutput) ToDeploymentGroupEcsServicePtrOutputWit
 		return &v
 	}).(DeploymentGroupEcsServicePtrOutput)
 }
+
 // The name of the ECS cluster.
 func (o DeploymentGroupEcsServiceOutput) ClusterName() pulumi.StringOutput {
-	return o.ApplyT(func (v DeploymentGroupEcsService) string { return v.ClusterName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DeploymentGroupEcsService) string { return v.ClusterName }).(pulumi.StringOutput)
 }
 
 // The name of the ECS service.
 func (o DeploymentGroupEcsServiceOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func (v DeploymentGroupEcsService) string { return v.ServiceName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DeploymentGroupEcsService) string { return v.ServiceName }).(pulumi.StringOutput)
 }
 
-type DeploymentGroupEcsServicePtrOutput struct { *pulumi.OutputState}
+type DeploymentGroupEcsServicePtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupEcsServicePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DeploymentGroupEcsService)(nil)).Elem()
@@ -1837,17 +1955,17 @@ func (o DeploymentGroupEcsServicePtrOutput) ToDeploymentGroupEcsServicePtrOutput
 }
 
 func (o DeploymentGroupEcsServicePtrOutput) Elem() DeploymentGroupEcsServiceOutput {
-	return o.ApplyT(func (v *DeploymentGroupEcsService) DeploymentGroupEcsService { return *v }).(DeploymentGroupEcsServiceOutput)
+	return o.ApplyT(func(v *DeploymentGroupEcsService) DeploymentGroupEcsService { return *v }).(DeploymentGroupEcsServiceOutput)
 }
 
 // The name of the ECS cluster.
 func (o DeploymentGroupEcsServicePtrOutput) ClusterName() pulumi.StringOutput {
-	return o.ApplyT(func (v DeploymentGroupEcsService) string { return v.ClusterName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DeploymentGroupEcsService) string { return v.ClusterName }).(pulumi.StringOutput)
 }
 
 // The name of the ECS service.
 func (o DeploymentGroupEcsServicePtrOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func (v DeploymentGroupEcsService) string { return v.ServiceName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DeploymentGroupEcsService) string { return v.ServiceName }).(pulumi.StringOutput)
 }
 
 type DeploymentGroupLoadBalancerInfo struct {
@@ -1904,7 +2022,8 @@ type DeploymentGroupLoadBalancerInfoPtrInput interface {
 
 type deploymentGroupLoadBalancerInfoPtrType DeploymentGroupLoadBalancerInfoArgs
 
-func DeploymentGroupLoadBalancerInfoPtr(v *DeploymentGroupLoadBalancerInfoArgs) DeploymentGroupLoadBalancerInfoPtrInput {	return (*deploymentGroupLoadBalancerInfoPtrType)(v)
+func DeploymentGroupLoadBalancerInfoPtr(v *DeploymentGroupLoadBalancerInfoArgs) DeploymentGroupLoadBalancerInfoPtrInput {
+	return (*deploymentGroupLoadBalancerInfoPtrType)(v)
 }
 
 func (*deploymentGroupLoadBalancerInfoPtrType) ElementType() reflect.Type {
@@ -1919,7 +2038,7 @@ func (i *deploymentGroupLoadBalancerInfoPtrType) ToDeploymentGroupLoadBalancerIn
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoPtrOutput)
 }
 
-type DeploymentGroupLoadBalancerInfoOutput struct { *pulumi.OutputState }
+type DeploymentGroupLoadBalancerInfoOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupLoadBalancerInfo)(nil)).Elem()
@@ -1942,22 +2061,27 @@ func (o DeploymentGroupLoadBalancerInfoOutput) ToDeploymentGroupLoadBalancerInfo
 		return &v
 	}).(DeploymentGroupLoadBalancerInfoPtrOutput)
 }
+
 // The Classic Elastic Load Balancer to use in a deployment. Conflicts with `targetGroupInfo` and `targetGroupPairInfo`.
 func (o DeploymentGroupLoadBalancerInfoOutput) ElbInfos() DeploymentGroupLoadBalancerInfoElbInfoArrayOutput {
-	return o.ApplyT(func (v DeploymentGroupLoadBalancerInfo) []DeploymentGroupLoadBalancerInfoElbInfo { return v.ElbInfos }).(DeploymentGroupLoadBalancerInfoElbInfoArrayOutput)
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfo) []DeploymentGroupLoadBalancerInfoElbInfo { return v.ElbInfos }).(DeploymentGroupLoadBalancerInfoElbInfoArrayOutput)
 }
 
 // The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elbInfo` and `targetGroupPairInfo`.
 func (o DeploymentGroupLoadBalancerInfoOutput) TargetGroupInfos() DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput {
-	return o.ApplyT(func (v DeploymentGroupLoadBalancerInfo) []DeploymentGroupLoadBalancerInfoTargetGroupInfo { return v.TargetGroupInfos }).(DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput)
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfo) []DeploymentGroupLoadBalancerInfoTargetGroupInfo {
+		return v.TargetGroupInfos
+	}).(DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput)
 }
 
 // The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elbInfo` and `targetGroupInfo`.
 func (o DeploymentGroupLoadBalancerInfoOutput) TargetGroupPairInfo() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupLoadBalancerInfo) *DeploymentGroupLoadBalancerInfoTargetGroupPairInfo { return v.TargetGroupPairInfo }).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfo) *DeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
+		return v.TargetGroupPairInfo
+	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput)
 }
 
-type DeploymentGroupLoadBalancerInfoPtrOutput struct { *pulumi.OutputState}
+type DeploymentGroupLoadBalancerInfoPtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DeploymentGroupLoadBalancerInfo)(nil)).Elem()
@@ -1972,26 +2096,30 @@ func (o DeploymentGroupLoadBalancerInfoPtrOutput) ToDeploymentGroupLoadBalancerI
 }
 
 func (o DeploymentGroupLoadBalancerInfoPtrOutput) Elem() DeploymentGroupLoadBalancerInfoOutput {
-	return o.ApplyT(func (v *DeploymentGroupLoadBalancerInfo) DeploymentGroupLoadBalancerInfo { return *v }).(DeploymentGroupLoadBalancerInfoOutput)
+	return o.ApplyT(func(v *DeploymentGroupLoadBalancerInfo) DeploymentGroupLoadBalancerInfo { return *v }).(DeploymentGroupLoadBalancerInfoOutput)
 }
 
 // The Classic Elastic Load Balancer to use in a deployment. Conflicts with `targetGroupInfo` and `targetGroupPairInfo`.
 func (o DeploymentGroupLoadBalancerInfoPtrOutput) ElbInfos() DeploymentGroupLoadBalancerInfoElbInfoArrayOutput {
-	return o.ApplyT(func (v DeploymentGroupLoadBalancerInfo) []DeploymentGroupLoadBalancerInfoElbInfo { return v.ElbInfos }).(DeploymentGroupLoadBalancerInfoElbInfoArrayOutput)
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfo) []DeploymentGroupLoadBalancerInfoElbInfo { return v.ElbInfos }).(DeploymentGroupLoadBalancerInfoElbInfoArrayOutput)
 }
 
 // The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elbInfo` and `targetGroupPairInfo`.
 func (o DeploymentGroupLoadBalancerInfoPtrOutput) TargetGroupInfos() DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput {
-	return o.ApplyT(func (v DeploymentGroupLoadBalancerInfo) []DeploymentGroupLoadBalancerInfoTargetGroupInfo { return v.TargetGroupInfos }).(DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput)
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfo) []DeploymentGroupLoadBalancerInfoTargetGroupInfo {
+		return v.TargetGroupInfos
+	}).(DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput)
 }
 
 // The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elbInfo` and `targetGroupInfo`.
 func (o DeploymentGroupLoadBalancerInfoPtrOutput) TargetGroupPairInfo() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupLoadBalancerInfo) *DeploymentGroupLoadBalancerInfoTargetGroupPairInfo { return v.TargetGroupPairInfo }).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfo) *DeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
+		return v.TargetGroupPairInfo
+	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput)
 }
 
 type DeploymentGroupLoadBalancerInfoElbInfo struct {
-	// Name of the target group.
+	// The name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 	Name *string `pulumi:"name"`
 }
 
@@ -2003,7 +2131,7 @@ type DeploymentGroupLoadBalancerInfoElbInfoInput interface {
 }
 
 type DeploymentGroupLoadBalancerInfoElbInfoArgs struct {
-	// Name of the target group.
+	// The name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -2040,7 +2168,7 @@ func (i DeploymentGroupLoadBalancerInfoElbInfoArray) ToDeploymentGroupLoadBalanc
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoElbInfoArrayOutput)
 }
 
-type DeploymentGroupLoadBalancerInfoElbInfoOutput struct { *pulumi.OutputState }
+type DeploymentGroupLoadBalancerInfoElbInfoOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoElbInfoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupLoadBalancerInfoElbInfo)(nil)).Elem()
@@ -2054,12 +2182,12 @@ func (o DeploymentGroupLoadBalancerInfoElbInfoOutput) ToDeploymentGroupLoadBalan
 	return o
 }
 
-// Name of the target group.
+// The name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 func (o DeploymentGroupLoadBalancerInfoElbInfoOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupLoadBalancerInfoElbInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfoElbInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type DeploymentGroupLoadBalancerInfoElbInfoArrayOutput struct { *pulumi.OutputState}
+type DeploymentGroupLoadBalancerInfoElbInfoArrayOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoElbInfoArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DeploymentGroupLoadBalancerInfoElbInfo)(nil)).Elem()
@@ -2074,13 +2202,13 @@ func (o DeploymentGroupLoadBalancerInfoElbInfoArrayOutput) ToDeploymentGroupLoad
 }
 
 func (o DeploymentGroupLoadBalancerInfoElbInfoArrayOutput) Index(i pulumi.IntInput) DeploymentGroupLoadBalancerInfoElbInfoOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DeploymentGroupLoadBalancerInfoElbInfo {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupLoadBalancerInfoElbInfo {
 		return vs[0].([]DeploymentGroupLoadBalancerInfoElbInfo)[vs[1].(int)]
 	}).(DeploymentGroupLoadBalancerInfoElbInfoOutput)
 }
 
 type DeploymentGroupLoadBalancerInfoTargetGroupInfo struct {
-	// Name of the target group.
+	// The name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 	Name *string `pulumi:"name"`
 }
 
@@ -2092,7 +2220,7 @@ type DeploymentGroupLoadBalancerInfoTargetGroupInfoInput interface {
 }
 
 type DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs struct {
-	// Name of the target group.
+	// The name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -2129,7 +2257,7 @@ func (i DeploymentGroupLoadBalancerInfoTargetGroupInfoArray) ToDeploymentGroupLo
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput)
 }
 
-type DeploymentGroupLoadBalancerInfoTargetGroupInfoOutput struct { *pulumi.OutputState }
+type DeploymentGroupLoadBalancerInfoTargetGroupInfoOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoTargetGroupInfoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupLoadBalancerInfoTargetGroupInfo)(nil)).Elem()
@@ -2143,12 +2271,12 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupInfoOutput) ToDeploymentGroupL
 	return o
 }
 
-// Name of the target group.
+// The name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 func (o DeploymentGroupLoadBalancerInfoTargetGroupInfoOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupLoadBalancerInfoTargetGroupInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfoTargetGroupInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput struct { *pulumi.OutputState}
+type DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DeploymentGroupLoadBalancerInfoTargetGroupInfo)(nil)).Elem()
@@ -2163,7 +2291,7 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput) ToDeploymentG
 }
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput) Index(i pulumi.IntInput) DeploymentGroupLoadBalancerInfoTargetGroupInfoOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DeploymentGroupLoadBalancerInfoTargetGroupInfo {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupLoadBalancerInfoTargetGroupInfo {
 		return vs[0].([]DeploymentGroupLoadBalancerInfoTargetGroupInfo)[vs[1].(int)]
 	}).(DeploymentGroupLoadBalancerInfoTargetGroupInfoOutput)
 }
@@ -2222,7 +2350,8 @@ type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrInput interface {
 
 type deploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrType DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs
 
-func DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtr(v *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrInput {	return (*deploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrType)(v)
+func DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtr(v *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrInput {
+	return (*deploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrType)(v)
 }
 
 func (*deploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrType) ElementType() reflect.Type {
@@ -2237,7 +2366,7 @@ func (i *deploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrType) ToDeployment
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput)
 }
 
-type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput struct { *pulumi.OutputState }
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupLoadBalancerInfoTargetGroupPairInfo)(nil)).Elem()
@@ -2260,22 +2389,29 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput) ToDeploymentGr
 		return &v
 	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput)
 }
+
 // Configuration block for the production traffic route (documented below).
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput) ProdTrafficRoute() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput {
-	return o.ApplyT(func (v DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute { return v.ProdTrafficRoute }).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput)
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute {
+		return v.ProdTrafficRoute
+	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput)
 }
 
 // Configuration blocks for a target group within a target group pair (documented below).
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput) TargetGroups() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput {
-	return o.ApplyT(func (v DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) []DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup { return v.TargetGroups }).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput)
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) []DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup {
+		return v.TargetGroups
+	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput)
 }
 
 // Configuration block for the test traffic route (documented below).
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput) TestTrafficRoute() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput {
-	return o.ApplyT(func (v DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute { return v.TestTrafficRoute }).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput)
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute {
+		return v.TestTrafficRoute
+	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput)
 }
 
-type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput struct { *pulumi.OutputState}
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DeploymentGroupLoadBalancerInfoTargetGroupPairInfo)(nil)).Elem()
@@ -2290,22 +2426,30 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput) ToDeploymen
 }
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput) Elem() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput {
-	return o.ApplyT(func (v *DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) DeploymentGroupLoadBalancerInfoTargetGroupPairInfo { return *v }).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput)
+	return o.ApplyT(func(v *DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) DeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
+		return *v
+	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput)
 }
 
 // Configuration block for the production traffic route (documented below).
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput) ProdTrafficRoute() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput {
-	return o.ApplyT(func (v DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute { return v.ProdTrafficRoute }).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput)
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute {
+		return v.ProdTrafficRoute
+	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput)
 }
 
 // Configuration blocks for a target group within a target group pair (documented below).
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput) TargetGroups() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput {
-	return o.ApplyT(func (v DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) []DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup { return v.TargetGroups }).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput)
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) []DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup {
+		return v.TargetGroups
+	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput)
 }
 
 // Configuration block for the test traffic route (documented below).
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput) TestTrafficRoute() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput {
-	return o.ApplyT(func (v DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute { return v.TestTrafficRoute }).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput)
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute {
+		return v.TestTrafficRoute
+	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput)
 }
 
 type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute struct {
@@ -2337,7 +2481,7 @@ func (i DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput)
 }
 
-type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput struct { *pulumi.OutputState }
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute)(nil)).Elem()
@@ -2353,7 +2497,9 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput
 
 // List of Amazon Resource Names (ARNs) of the load balancer listeners.
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput) ListenerArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute) []string { return v.ListenerArns }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute) []string {
+		return v.ListenerArns
+	}).(pulumi.StringArrayOutput)
 }
 
 type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup struct {
@@ -2406,7 +2552,7 @@ func (i DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArray) ToDe
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput)
 }
 
-type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutput struct { *pulumi.OutputState }
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup)(nil)).Elem()
@@ -2422,10 +2568,10 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutput) ToD
 
 // Name of the target group.
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput struct { *pulumi.OutputState}
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup)(nil)).Elem()
@@ -2440,7 +2586,7 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput
 }
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput) Index(i pulumi.IntInput) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup {
 		return vs[0].([]DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup)[vs[1].(int)]
 	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutput)
 }
@@ -2491,7 +2637,8 @@ type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrInput 
 
 type deploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrType DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs
 
-func DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtr(v *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrInput {	return (*deploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrType)(v)
+func DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtr(v *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrInput {
+	return (*deploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrType)(v)
 }
 
 func (*deploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrType) ElementType() reflect.Type {
@@ -2506,7 +2653,7 @@ func (i *deploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrTy
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput)
 }
 
-type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput struct { *pulumi.OutputState }
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute)(nil)).Elem()
@@ -2529,12 +2676,15 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput
 		return &v
 	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput)
 }
+
 // List of Amazon Resource Names (ARNs) of the load balancer listeners.
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput) ListenerArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute) []string { return v.ListenerArns }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute) []string {
+		return v.ListenerArns
+	}).(pulumi.StringArrayOutput)
 }
 
-type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput struct { *pulumi.OutputState}
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute)(nil)).Elem()
@@ -2549,12 +2699,16 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOut
 }
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput) Elem() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput {
-	return o.ApplyT(func (v *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute { return *v }).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput)
+	return o.ApplyT(func(v *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute {
+		return *v
+	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput)
 }
 
 // List of Amazon Resource Names (ARNs) of the load balancer listeners.
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput) ListenerArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute) []string { return v.ListenerArns }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute) []string {
+		return v.ListenerArns
+	}).(pulumi.StringArrayOutput)
 }
 
 type DeploymentGroupOnPremisesInstanceTagFilter struct {
@@ -2615,7 +2769,7 @@ func (i DeploymentGroupOnPremisesInstanceTagFilterArray) ToDeploymentGroupOnPrem
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupOnPremisesInstanceTagFilterArrayOutput)
 }
 
-type DeploymentGroupOnPremisesInstanceTagFilterOutput struct { *pulumi.OutputState }
+type DeploymentGroupOnPremisesInstanceTagFilterOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupOnPremisesInstanceTagFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupOnPremisesInstanceTagFilter)(nil)).Elem()
@@ -2631,20 +2785,20 @@ func (o DeploymentGroupOnPremisesInstanceTagFilterOutput) ToDeploymentGroupOnPre
 
 // The key of the tag filter.
 func (o DeploymentGroupOnPremisesInstanceTagFilterOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupOnPremisesInstanceTagFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupOnPremisesInstanceTagFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
 func (o DeploymentGroupOnPremisesInstanceTagFilterOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupOnPremisesInstanceTagFilter) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupOnPremisesInstanceTagFilter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The value of the tag filter.
 func (o DeploymentGroupOnPremisesInstanceTagFilterOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeploymentGroupOnPremisesInstanceTagFilter) *string { return v.Value }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupOnPremisesInstanceTagFilter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type DeploymentGroupOnPremisesInstanceTagFilterArrayOutput struct { *pulumi.OutputState}
+type DeploymentGroupOnPremisesInstanceTagFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupOnPremisesInstanceTagFilterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DeploymentGroupOnPremisesInstanceTagFilter)(nil)).Elem()
@@ -2659,7 +2813,7 @@ func (o DeploymentGroupOnPremisesInstanceTagFilterArrayOutput) ToDeploymentGroup
 }
 
 func (o DeploymentGroupOnPremisesInstanceTagFilterArrayOutput) Index(i pulumi.IntInput) DeploymentGroupOnPremisesInstanceTagFilterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DeploymentGroupOnPremisesInstanceTagFilter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupOnPremisesInstanceTagFilter {
 		return vs[0].([]DeploymentGroupOnPremisesInstanceTagFilter)[vs[1].(int)]
 	}).(DeploymentGroupOnPremisesInstanceTagFilterOutput)
 }
@@ -2722,7 +2876,7 @@ func (i DeploymentGroupTriggerConfigurationArray) ToDeploymentGroupTriggerConfig
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTriggerConfigurationArrayOutput)
 }
 
-type DeploymentGroupTriggerConfigurationOutput struct { *pulumi.OutputState }
+type DeploymentGroupTriggerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupTriggerConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentGroupTriggerConfiguration)(nil)).Elem()
@@ -2738,20 +2892,20 @@ func (o DeploymentGroupTriggerConfigurationOutput) ToDeploymentGroupTriggerConfi
 
 // The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation][1] for all possible values.
 func (o DeploymentGroupTriggerConfigurationOutput) TriggerEvents() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v DeploymentGroupTriggerConfiguration) []string { return v.TriggerEvents }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v DeploymentGroupTriggerConfiguration) []string { return v.TriggerEvents }).(pulumi.StringArrayOutput)
 }
 
 // The name of the notification trigger.
 func (o DeploymentGroupTriggerConfigurationOutput) TriggerName() pulumi.StringOutput {
-	return o.ApplyT(func (v DeploymentGroupTriggerConfiguration) string { return v.TriggerName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DeploymentGroupTriggerConfiguration) string { return v.TriggerName }).(pulumi.StringOutput)
 }
 
 // The ARN of the SNS topic through which notifications are sent.
 func (o DeploymentGroupTriggerConfigurationOutput) TriggerTargetArn() pulumi.StringOutput {
-	return o.ApplyT(func (v DeploymentGroupTriggerConfiguration) string { return v.TriggerTargetArn }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DeploymentGroupTriggerConfiguration) string { return v.TriggerTargetArn }).(pulumi.StringOutput)
 }
 
-type DeploymentGroupTriggerConfigurationArrayOutput struct { *pulumi.OutputState}
+type DeploymentGroupTriggerConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupTriggerConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DeploymentGroupTriggerConfiguration)(nil)).Elem()
@@ -2766,7 +2920,7 @@ func (o DeploymentGroupTriggerConfigurationArrayOutput) ToDeploymentGroupTrigger
 }
 
 func (o DeploymentGroupTriggerConfigurationArrayOutput) Index(i pulumi.IntInput) DeploymentGroupTriggerConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DeploymentGroupTriggerConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroupTriggerConfiguration {
 		return vs[0].([]DeploymentGroupTriggerConfiguration)[vs[1].(int)]
 	}).(DeploymentGroupTriggerConfigurationOutput)
 }

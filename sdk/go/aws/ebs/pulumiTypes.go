@@ -12,7 +12,7 @@ import (
 )
 
 type GetSnapshotFilter struct {
-	Name string `pulumi:"name"`
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -24,7 +24,7 @@ type GetSnapshotFilterInput interface {
 }
 
 type GetSnapshotFilterArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -61,7 +61,7 @@ func (i GetSnapshotFilterArray) ToGetSnapshotFilterArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotFilterArrayOutput)
 }
 
-type GetSnapshotFilterOutput struct { *pulumi.OutputState }
+type GetSnapshotFilterOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetSnapshotFilter)(nil)).Elem()
@@ -76,14 +76,14 @@ func (o GetSnapshotFilterOutput) ToGetSnapshotFilterOutputWithContext(ctx contex
 }
 
 func (o GetSnapshotFilterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSnapshotFilter) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSnapshotFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o GetSnapshotFilterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetSnapshotFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetSnapshotFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-type GetSnapshotFilterArrayOutput struct { *pulumi.OutputState}
+type GetSnapshotFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotFilterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetSnapshotFilter)(nil)).Elem()
@@ -98,13 +98,13 @@ func (o GetSnapshotFilterArrayOutput) ToGetSnapshotFilterArrayOutputWithContext(
 }
 
 func (o GetSnapshotFilterArrayOutput) Index(i pulumi.IntInput) GetSnapshotFilterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetSnapshotFilter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSnapshotFilter {
 		return vs[0].([]GetSnapshotFilter)[vs[1].(int)]
 	}).(GetSnapshotFilterOutput)
 }
 
 type GetSnapshotIdsFilter struct {
-	Name string `pulumi:"name"`
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -116,7 +116,7 @@ type GetSnapshotIdsFilterInput interface {
 }
 
 type GetSnapshotIdsFilterArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -153,7 +153,7 @@ func (i GetSnapshotIdsFilterArray) ToGetSnapshotIdsFilterArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotIdsFilterArrayOutput)
 }
 
-type GetSnapshotIdsFilterOutput struct { *pulumi.OutputState }
+type GetSnapshotIdsFilterOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotIdsFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetSnapshotIdsFilter)(nil)).Elem()
@@ -168,14 +168,14 @@ func (o GetSnapshotIdsFilterOutput) ToGetSnapshotIdsFilterOutputWithContext(ctx 
 }
 
 func (o GetSnapshotIdsFilterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetSnapshotIdsFilter) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSnapshotIdsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o GetSnapshotIdsFilterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetSnapshotIdsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetSnapshotIdsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-type GetSnapshotIdsFilterArrayOutput struct { *pulumi.OutputState}
+type GetSnapshotIdsFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotIdsFilterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetSnapshotIdsFilter)(nil)).Elem()
@@ -190,13 +190,13 @@ func (o GetSnapshotIdsFilterArrayOutput) ToGetSnapshotIdsFilterArrayOutputWithCo
 }
 
 func (o GetSnapshotIdsFilterArrayOutput) Index(i pulumi.IntInput) GetSnapshotIdsFilterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetSnapshotIdsFilter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSnapshotIdsFilter {
 		return vs[0].([]GetSnapshotIdsFilter)[vs[1].(int)]
 	}).(GetSnapshotIdsFilterOutput)
 }
 
 type GetVolumeFilter struct {
-	Name string `pulumi:"name"`
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -208,7 +208,7 @@ type GetVolumeFilterInput interface {
 }
 
 type GetVolumeFilterArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -245,7 +245,7 @@ func (i GetVolumeFilterArray) ToGetVolumeFilterArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeFilterArrayOutput)
 }
 
-type GetVolumeFilterOutput struct { *pulumi.OutputState }
+type GetVolumeFilterOutput struct{ *pulumi.OutputState }
 
 func (GetVolumeFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetVolumeFilter)(nil)).Elem()
@@ -260,14 +260,14 @@ func (o GetVolumeFilterOutput) ToGetVolumeFilterOutputWithContext(ctx context.Co
 }
 
 func (o GetVolumeFilterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetVolumeFilter) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetVolumeFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o GetVolumeFilterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetVolumeFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetVolumeFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-type GetVolumeFilterArrayOutput struct { *pulumi.OutputState}
+type GetVolumeFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (GetVolumeFilterArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetVolumeFilter)(nil)).Elem()
@@ -282,7 +282,7 @@ func (o GetVolumeFilterArrayOutput) ToGetVolumeFilterArrayOutputWithContext(ctx 
 }
 
 func (o GetVolumeFilterArrayOutput) Index(i pulumi.IntInput) GetVolumeFilterOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetVolumeFilter {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeFilter {
 		return vs[0].([]GetVolumeFilter)[vs[1].(int)]
 	}).(GetVolumeFilterOutput)
 }

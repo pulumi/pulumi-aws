@@ -126,4 +126,3 @@ type ConfigurationArgs struct {
 func (ConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*configurationArgs)(nil)).Elem()
 }
-

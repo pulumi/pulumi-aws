@@ -25,8 +25,8 @@ type Eip struct {
 	// associate with the Elastic IP address. If no private IP address is specified,
 	// the Elastic IP address is associated with the primary private IP address.
 	AssociateWithPrivateIp pulumi.StringPtrOutput `pulumi:"associateWithPrivateIp"`
-	AssociationId pulumi.StringOutput `pulumi:"associationId"`
-	Domain pulumi.StringOutput `pulumi:"domain"`
+	AssociationId          pulumi.StringOutput    `pulumi:"associationId"`
+	Domain                 pulumi.StringOutput    `pulumi:"domain"`
 	// EC2 instance ID.
 	Instance pulumi.StringOutput `pulumi:"instance"`
 	// Network interface ID to associate with.
@@ -80,8 +80,8 @@ type eipState struct {
 	// associate with the Elastic IP address. If no private IP address is specified,
 	// the Elastic IP address is associated with the primary private IP address.
 	AssociateWithPrivateIp *string `pulumi:"associateWithPrivateIp"`
-	AssociationId *string `pulumi:"associationId"`
-	Domain *string `pulumi:"domain"`
+	AssociationId          *string `pulumi:"associationId"`
+	Domain                 *string `pulumi:"domain"`
 	// EC2 instance ID.
 	Instance *string `pulumi:"instance"`
 	// Network interface ID to associate with.
@@ -108,8 +108,8 @@ type EipState struct {
 	// associate with the Elastic IP address. If no private IP address is specified,
 	// the Elastic IP address is associated with the primary private IP address.
 	AssociateWithPrivateIp pulumi.StringPtrInput
-	AssociationId pulumi.StringPtrInput
-	Domain pulumi.StringPtrInput
+	AssociationId          pulumi.StringPtrInput
+	Domain                 pulumi.StringPtrInput
 	// EC2 instance ID.
 	Instance pulumi.StringPtrInput
 	// Network interface ID to associate with.
@@ -172,4 +172,3 @@ type EipArgs struct {
 func (EipArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*eipArgs)(nil)).Elem()
 }
-

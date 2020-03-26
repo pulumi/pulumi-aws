@@ -1102,6 +1102,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class SpotInstanceRequestCreditSpecificationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+        /// </summary>
         [Input("cpuCredits")]
         public Input<string>? CpuCredits { get; set; }
 
@@ -1112,6 +1115,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class SpotInstanceRequestCreditSpecificationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+        /// </summary>
         [Input("cpuCredits")]
         public Input<string>? CpuCredits { get; set; }
 
@@ -1130,7 +1136,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? DeleteOnTermination { get; set; }
 
         /// <summary>
-        /// The name of the block device to mount on the instance.
+        /// The name of the device to mount.
         /// </summary>
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
@@ -1194,7 +1200,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? DeleteOnTermination { get; set; }
 
         /// <summary>
-        /// The name of the block device to mount on the instance.
+        /// The name of the device to mount.
         /// </summary>
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
@@ -1305,15 +1311,20 @@ namespace Pulumi.Aws.Ec2
     public sealed class SpotInstanceRequestNetworkInterfacesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the volume should be destroyed
-        /// on instance termination (Default: `true`).
+        /// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
         /// </summary>
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
 
+        /// <summary>
+        /// The integer index of the network interface attachment. Limited by instance type.
+        /// </summary>
         [Input("deviceIndex", required: true)]
         public Input<int> DeviceIndex { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the network interface to attach.
+        /// </summary>
         [Input("networkInterfaceId", required: true)]
         public Input<string> NetworkInterfaceId { get; set; } = null!;
 
@@ -1325,15 +1336,20 @@ namespace Pulumi.Aws.Ec2
     public sealed class SpotInstanceRequestNetworkInterfacesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the volume should be destroyed
-        /// on instance termination (Default: `true`).
+        /// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
         /// </summary>
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
 
+        /// <summary>
+        /// The integer index of the network interface attachment. Limited by instance type.
+        /// </summary>
         [Input("deviceIndex", required: true)]
         public Input<int> DeviceIndex { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the network interface to attach.
+        /// </summary>
         [Input("networkInterfaceId", required: true)]
         public Input<string> NetworkInterfaceId { get; set; } = null!;
 
@@ -1352,9 +1368,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? DeleteOnTermination { get; set; }
 
         /// <summary>
-        /// Enables [EBS
-        /// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
+        /// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -1362,7 +1376,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The amount of provisioned
         /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1"`.
+        /// This is only valid for `volume_type` of `"io1"`, and must be specified if
+        /// using that type
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
@@ -1383,8 +1398,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? VolumeSize { get; set; }
 
         /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`,
-        /// or `"io1"`. (Default: `"gp2"`).
+        /// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
@@ -1404,9 +1418,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? DeleteOnTermination { get; set; }
 
         /// <summary>
-        /// Enables [EBS
-        /// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
+        /// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -1414,7 +1426,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The amount of provisioned
         /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1"`.
+        /// This is only valid for `volume_type` of `"io1"`, and must be specified if
+        /// using that type
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
@@ -1435,8 +1448,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? VolumeSize { get; set; }
 
         /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`,
-        /// or `"io1"`. (Default: `"gp2"`).
+        /// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
@@ -1453,6 +1465,9 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class SpotInstanceRequestCreditSpecification
     {
+        /// <summary>
+        /// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+        /// </summary>
         public readonly string? CpuCredits;
 
         [OutputConstructor]
@@ -1471,7 +1486,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool? DeleteOnTermination;
         /// <summary>
-        /// The name of the block device to mount on the instance.
+        /// The name of the device to mount.
         /// </summary>
         public readonly string DeviceName;
         /// <summary>
@@ -1563,11 +1578,16 @@ namespace Pulumi.Aws.Ec2
     public sealed class SpotInstanceRequestNetworkInterfaces
     {
         /// <summary>
-        /// Whether the volume should be destroyed
-        /// on instance termination (Default: `true`).
+        /// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
         /// </summary>
         public readonly bool? DeleteOnTermination;
+        /// <summary>
+        /// The integer index of the network interface attachment. Limited by instance type.
+        /// </summary>
         public readonly int DeviceIndex;
+        /// <summary>
+        /// The ID of the network interface to attach.
+        /// </summary>
         public readonly string NetworkInterfaceId;
 
         [OutputConstructor]
@@ -1591,15 +1611,14 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool? DeleteOnTermination;
         /// <summary>
-        /// Enables [EBS
-        /// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
+        /// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
         /// </summary>
         public readonly bool Encrypted;
         /// <summary>
         /// The amount of provisioned
         /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1"`.
+        /// This is only valid for `volume_type` of `"io1"`, and must be specified if
+        /// using that type
         /// </summary>
         public readonly int Iops;
         /// <summary>
@@ -1612,8 +1631,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly int VolumeSize;
         /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`,
-        /// or `"io1"`. (Default: `"gp2"`).
+        /// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
         /// </summary>
         public readonly string VolumeType;
 

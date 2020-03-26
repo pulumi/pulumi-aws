@@ -132,6 +132,7 @@ def get_directory(directory_id=None,tags=None,opts=None):
 
 
     :param str directory_id: The ID of the directory.
+    :param dict tags: A mapping of tags assigned to the directory/connector.
     """
     __args__ = dict()
 

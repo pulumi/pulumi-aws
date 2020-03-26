@@ -91,4 +91,3 @@ type ActivityArgs struct {
 func (ActivityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*activityArgs)(nil)).Elem()
 }
-

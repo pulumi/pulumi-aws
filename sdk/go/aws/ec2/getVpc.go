@@ -45,22 +45,21 @@ type LookupVpcArgs struct {
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
-
 // A collection of values returned by getVpc.
 type LookupVpcResult struct {
 	// Amazon Resource Name (ARN) of VPC
 	Arn string `pulumi:"arn"`
 	// The CIDR block for the association.
-	CidrBlock string `pulumi:"cidrBlock"`
+	CidrBlock             string                       `pulumi:"cidrBlock"`
 	CidrBlockAssociations []GetVpcCidrBlockAssociation `pulumi:"cidrBlockAssociations"`
-	Default bool `pulumi:"default"`
-	DhcpOptionsId string `pulumi:"dhcpOptionsId"`
+	Default               bool                         `pulumi:"default"`
+	DhcpOptionsId         string                       `pulumi:"dhcpOptionsId"`
 	// Whether or not the VPC has DNS hostname support
 	EnableDnsHostnames bool `pulumi:"enableDnsHostnames"`
 	// Whether or not the VPC has DNS support
-	EnableDnsSupport bool `pulumi:"enableDnsSupport"`
-	Filters []GetVpcFilter `pulumi:"filters"`
-	Id string `pulumi:"id"`
+	EnableDnsSupport bool           `pulumi:"enableDnsSupport"`
+	Filters          []GetVpcFilter `pulumi:"filters"`
+	Id               string         `pulumi:"id"`
 	// The allowed tenancy of instances launched into the
 	// selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
 	InstanceTenancy string `pulumi:"instanceTenancy"`
@@ -73,7 +72,6 @@ type LookupVpcResult struct {
 	// The ID of the AWS account that owns the VPC.
 	OwnerId string `pulumi:"ownerId"`
 	// The State of the association.
-	State string `pulumi:"state"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	State string                 `pulumi:"state"`
+	Tags  map[string]interface{} `pulumi:"tags"`
 }
-

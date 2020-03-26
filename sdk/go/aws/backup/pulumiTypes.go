@@ -85,7 +85,7 @@ func (i PlanRuleArray) ToPlanRuleArrayOutputWithContext(ctx context.Context) Pla
 	return pulumi.ToOutputWithContext(ctx, i).(PlanRuleArrayOutput)
 }
 
-type PlanRuleOutput struct { *pulumi.OutputState }
+type PlanRuleOutput struct{ *pulumi.OutputState }
 
 func (PlanRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PlanRule)(nil)).Elem()
@@ -101,40 +101,40 @@ func (o PlanRuleOutput) ToPlanRuleOutputWithContext(ctx context.Context) PlanRul
 
 // The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
 func (o PlanRuleOutput) CompletionWindow() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PlanRule) *int { return v.CompletionWindow }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PlanRule) *int { return v.CompletionWindow }).(pulumi.IntPtrOutput)
 }
 
 // The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
 func (o PlanRuleOutput) Lifecycle() PlanRuleLifecyclePtrOutput {
-	return o.ApplyT(func (v PlanRule) *PlanRuleLifecycle { return v.Lifecycle }).(PlanRuleLifecyclePtrOutput)
+	return o.ApplyT(func(v PlanRule) *PlanRuleLifecycle { return v.Lifecycle }).(PlanRuleLifecyclePtrOutput)
 }
 
 // Metadata that you can assign to help organize the resources that you create.
 func (o PlanRuleOutput) RecoveryPointTags() pulumi.MapOutput {
-	return o.ApplyT(func (v PlanRule) map[string]interface{} { return v.RecoveryPointTags }).(pulumi.MapOutput)
+	return o.ApplyT(func(v PlanRule) map[string]interface{} { return v.RecoveryPointTags }).(pulumi.MapOutput)
 }
 
 // An display name for a backup rule.
 func (o PlanRuleOutput) RuleName() pulumi.StringOutput {
-	return o.ApplyT(func (v PlanRule) string { return v.RuleName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PlanRule) string { return v.RuleName }).(pulumi.StringOutput)
 }
 
 // A CRON expression specifying when AWS Backup initiates a backup job.
 func (o PlanRuleOutput) Schedule() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PlanRule) *string { return v.Schedule }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PlanRule) *string { return v.Schedule }).(pulumi.StringPtrOutput)
 }
 
 // The amount of time in minutes before beginning a backup.
 func (o PlanRuleOutput) StartWindow() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PlanRule) *int { return v.StartWindow }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PlanRule) *int { return v.StartWindow }).(pulumi.IntPtrOutput)
 }
 
 // The name of a logical container where backups are stored.
 func (o PlanRuleOutput) TargetVaultName() pulumi.StringOutput {
-	return o.ApplyT(func (v PlanRule) string { return v.TargetVaultName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PlanRule) string { return v.TargetVaultName }).(pulumi.StringOutput)
 }
 
-type PlanRuleArrayOutput struct { *pulumi.OutputState}
+type PlanRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (PlanRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PlanRule)(nil)).Elem()
@@ -149,7 +149,7 @@ func (o PlanRuleArrayOutput) ToPlanRuleArrayOutputWithContext(ctx context.Contex
 }
 
 func (o PlanRuleArrayOutput) Index(i pulumi.IntInput) PlanRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PlanRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanRule {
 		return vs[0].([]PlanRule)[vs[1].(int)]
 	}).(PlanRuleOutput)
 }
@@ -204,7 +204,8 @@ type PlanRuleLifecyclePtrInput interface {
 
 type planRuleLifecyclePtrType PlanRuleLifecycleArgs
 
-func PlanRuleLifecyclePtr(v *PlanRuleLifecycleArgs) PlanRuleLifecyclePtrInput {	return (*planRuleLifecyclePtrType)(v)
+func PlanRuleLifecyclePtr(v *PlanRuleLifecycleArgs) PlanRuleLifecyclePtrInput {
+	return (*planRuleLifecyclePtrType)(v)
 }
 
 func (*planRuleLifecyclePtrType) ElementType() reflect.Type {
@@ -219,7 +220,7 @@ func (i *planRuleLifecyclePtrType) ToPlanRuleLifecyclePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(PlanRuleLifecyclePtrOutput)
 }
 
-type PlanRuleLifecycleOutput struct { *pulumi.OutputState }
+type PlanRuleLifecycleOutput struct{ *pulumi.OutputState }
 
 func (PlanRuleLifecycleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PlanRuleLifecycle)(nil)).Elem()
@@ -242,17 +243,18 @@ func (o PlanRuleLifecycleOutput) ToPlanRuleLifecyclePtrOutputWithContext(ctx con
 		return &v
 	}).(PlanRuleLifecyclePtrOutput)
 }
+
 // Specifies the number of days after creation that a recovery point is moved to cold storage.
 func (o PlanRuleLifecycleOutput) ColdStorageAfter() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PlanRuleLifecycle) *int { return v.ColdStorageAfter }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PlanRuleLifecycle) *int { return v.ColdStorageAfter }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
 func (o PlanRuleLifecycleOutput) DeleteAfter() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PlanRuleLifecycle) *int { return v.DeleteAfter }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PlanRuleLifecycle) *int { return v.DeleteAfter }).(pulumi.IntPtrOutput)
 }
 
-type PlanRuleLifecyclePtrOutput struct { *pulumi.OutputState}
+type PlanRuleLifecyclePtrOutput struct{ *pulumi.OutputState }
 
 func (PlanRuleLifecyclePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PlanRuleLifecycle)(nil)).Elem()
@@ -267,17 +269,17 @@ func (o PlanRuleLifecyclePtrOutput) ToPlanRuleLifecyclePtrOutputWithContext(ctx 
 }
 
 func (o PlanRuleLifecyclePtrOutput) Elem() PlanRuleLifecycleOutput {
-	return o.ApplyT(func (v *PlanRuleLifecycle) PlanRuleLifecycle { return *v }).(PlanRuleLifecycleOutput)
+	return o.ApplyT(func(v *PlanRuleLifecycle) PlanRuleLifecycle { return *v }).(PlanRuleLifecycleOutput)
 }
 
 // Specifies the number of days after creation that a recovery point is moved to cold storage.
 func (o PlanRuleLifecyclePtrOutput) ColdStorageAfter() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PlanRuleLifecycle) *int { return v.ColdStorageAfter }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PlanRuleLifecycle) *int { return v.ColdStorageAfter }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
 func (o PlanRuleLifecyclePtrOutput) DeleteAfter() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PlanRuleLifecycle) *int { return v.DeleteAfter }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PlanRuleLifecycle) *int { return v.DeleteAfter }).(pulumi.IntPtrOutput)
 }
 
 type SelectionSelectionTag struct {
@@ -338,7 +340,7 @@ func (i SelectionSelectionTagArray) ToSelectionSelectionTagArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionSelectionTagArrayOutput)
 }
 
-type SelectionSelectionTagOutput struct { *pulumi.OutputState }
+type SelectionSelectionTagOutput struct{ *pulumi.OutputState }
 
 func (SelectionSelectionTagOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SelectionSelectionTag)(nil)).Elem()
@@ -354,20 +356,20 @@ func (o SelectionSelectionTagOutput) ToSelectionSelectionTagOutputWithContext(ct
 
 // The key in a key-value pair.
 func (o SelectionSelectionTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func (v SelectionSelectionTag) string { return v.Key }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SelectionSelectionTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
 // An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
 func (o SelectionSelectionTagOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func (v SelectionSelectionTag) string { return v.Type }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SelectionSelectionTag) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The value in a key-value pair.
 func (o SelectionSelectionTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func (v SelectionSelectionTag) string { return v.Value }).(pulumi.StringOutput)
+	return o.ApplyT(func(v SelectionSelectionTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type SelectionSelectionTagArrayOutput struct { *pulumi.OutputState}
+type SelectionSelectionTagArrayOutput struct{ *pulumi.OutputState }
 
 func (SelectionSelectionTagArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]SelectionSelectionTag)(nil)).Elem()
@@ -382,7 +384,7 @@ func (o SelectionSelectionTagArrayOutput) ToSelectionSelectionTagArrayOutputWith
 }
 
 func (o SelectionSelectionTagArrayOutput) Index(i pulumi.IntInput) SelectionSelectionTagOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SelectionSelectionTag {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SelectionSelectionTag {
 		return vs[0].([]SelectionSelectionTag)[vs[1].(int)]
 	}).(SelectionSelectionTagOutput)
 }

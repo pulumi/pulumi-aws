@@ -106,4 +106,3 @@ type ZoneAssociationArgs struct {
 func (ZoneAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*zoneAssociationArgs)(nil)).Elem()
 }
-

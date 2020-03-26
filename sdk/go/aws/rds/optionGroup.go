@@ -156,4 +156,3 @@ type OptionGroupArgs struct {
 func (OptionGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*optionGroupArgs)(nil)).Elem()
 }
-

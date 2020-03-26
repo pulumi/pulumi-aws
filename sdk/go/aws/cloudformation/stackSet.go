@@ -175,4 +175,3 @@ type StackSetArgs struct {
 func (StackSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*stackSetArgs)(nil)).Elem()
 }
-

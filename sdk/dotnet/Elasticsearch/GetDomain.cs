@@ -16,7 +16,18 @@ namespace Pulumi.Aws.ElasticSearch
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticsearch_domain.html.markdown.
         /// </summary>
+        [Obsolete("Use GetDomain.InvokeAsync() instead")]
         public static Task<GetDomainResult> GetDomain(GetDomainArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws:elasticsearch/getDomain:getDomain", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetDomain
+    {
+        /// <summary>
+        /// Use this data source to get information about an Elasticsearch Domain
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticsearch_domain.html.markdown.
+        /// </summary>
+        public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws:elasticsearch/getDomain:getDomain", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -30,6 +41,10 @@ namespace Pulumi.Aws.ElasticSearch
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// The tags assigned to the domain.
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

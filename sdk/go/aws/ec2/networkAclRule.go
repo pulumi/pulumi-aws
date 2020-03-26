@@ -194,4 +194,3 @@ type NetworkAclRuleArgs struct {
 func (NetworkAclRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkAclRuleArgs)(nil)).Elem()
 }
-

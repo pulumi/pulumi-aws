@@ -141,4 +141,3 @@ type RateBasedRuleArgs struct {
 func (RateBasedRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*rateBasedRuleArgs)(nil)).Elem()
 }
-

@@ -17,7 +17,19 @@ namespace Pulumi.Aws
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami.html.markdown.
         /// </summary>
+        [Obsolete("Use GetAmi.InvokeAsync() instead")]
         public static Task<GetAmiResult> GetAmi(GetAmiArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAmiResult>("aws:index/getAmi:getAmi", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetAmi
+    {
+        /// <summary>
+        /// Use this data source to get the ID of a registered AMI for use in other
+        /// resources.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami.html.markdown.
+        /// </summary>
+        public static Task<GetAmiResult> InvokeAsync(GetAmiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAmiResult>("aws:index/getAmi:getAmi", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -81,6 +93,12 @@ namespace Pulumi.Aws
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// Any tags assigned to the image.
+        /// * `tags.#.key` - The key name of the tag.
+        /// * `tags.#.value` - The value of the tag.
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

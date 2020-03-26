@@ -28,22 +28,21 @@ type LookupResourceShareArgs struct {
 	Name string `pulumi:"name"`
 	// The owner of the resource share. Valid values are SELF or OTHER-ACCOUNTS
 	ResourceOwner string `pulumi:"resourceOwner"`
+	// The Tags attached to the RAM share
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getResourceShare.
 type LookupResourceShareResult struct {
 	// The Amazon Resource Name (ARN) of the resource share.
-	Arn string `pulumi:"arn"`
+	Arn     string                   `pulumi:"arn"`
 	Filters []GetResourceShareFilter `pulumi:"filters"`
 	// The Amazon Resource Name (ARN) of the resource share.
-	Id string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id            string `pulumi:"id"`
+	Name          string `pulumi:"name"`
 	ResourceOwner string `pulumi:"resourceOwner"`
 	// The Status of the RAM share.
 	Status string `pulumi:"status"`
 	// The Tags attached to the RAM share
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-

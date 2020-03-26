@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_dhcp_options.html.markdown.
         /// </summary>
+        [Obsolete("Use GetVpcDhcpOptions.InvokeAsync() instead")]
         public static Task<GetVpcDhcpOptionsResult> GetVpcDhcpOptions(GetVpcDhcpOptionsArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcDhcpOptionsResult>("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetVpcDhcpOptions
+    {
+        /// <summary>
+        /// Retrieve information about an EC2 DHCP Options configuration.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_dhcp_options.html.markdown.
+        /// </summary>
+        public static Task<GetVpcDhcpOptionsResult> InvokeAsync(GetVpcDhcpOptionsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpcDhcpOptionsResult>("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -42,6 +53,10 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

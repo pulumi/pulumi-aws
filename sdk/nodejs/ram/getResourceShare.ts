@@ -73,6 +73,9 @@ export interface GetResourceShareArgs {
      * The owner of the resource share. Valid values are SELF or OTHER-ACCOUNTS
      */
     readonly resourceOwner: string;
+    /**
+     * The Tags attached to the RAM share
+     */
     readonly tags?: {[key: string]: any};
 }
 

@@ -168,4 +168,3 @@ type NotebookInstanceArgs struct {
 func (NotebookInstanceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*notebookInstanceArgs)(nil)).Elem()
 }
-

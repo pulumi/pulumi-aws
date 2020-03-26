@@ -82,4 +82,3 @@ type EgressOnlyInternetGatewayArgs struct {
 func (EgressOnlyInternetGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*egressOnlyInternetGatewayArgs)(nil)).Elem()
 }
-

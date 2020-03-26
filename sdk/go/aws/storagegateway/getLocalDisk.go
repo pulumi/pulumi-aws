@@ -30,15 +30,13 @@ type GetLocalDiskArgs struct {
 	GatewayArn string `pulumi:"gatewayArn"`
 }
 
-
 // A collection of values returned by getLocalDisk.
 type GetLocalDiskResult struct {
 	// The disk identifier. e.g. `pci-0000:03:00.0-scsi-0:0:0:0`
-	DiskId string `pulumi:"diskId"`
-	DiskNode *string `pulumi:"diskNode"`
-	DiskPath *string `pulumi:"diskPath"`
-	GatewayArn string `pulumi:"gatewayArn"`
+	DiskId     string  `pulumi:"diskId"`
+	DiskNode   *string `pulumi:"diskNode"`
+	DiskPath   *string `pulumi:"diskPath"`
+	GatewayArn string  `pulumi:"gatewayArn"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }
-

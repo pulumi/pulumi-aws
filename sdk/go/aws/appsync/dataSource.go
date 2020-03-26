@@ -168,4 +168,3 @@ type DataSourceArgs struct {
 func (DataSourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataSourceArgs)(nil)).Elem()
 }
-

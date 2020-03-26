@@ -40,15 +40,13 @@ type LookupVpnGatewayArgs struct {
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
-
 // A collection of values returned by getVpnGateway.
 type LookupVpnGatewayResult struct {
-	AmazonSideAsn string `pulumi:"amazonSideAsn"`
-	AttachedVpcId string `pulumi:"attachedVpcId"`
-	AvailabilityZone string `pulumi:"availabilityZone"`
-	Filters []GetVpnGatewayFilter `pulumi:"filters"`
-	Id string `pulumi:"id"`
-	State string `pulumi:"state"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	AmazonSideAsn    string                 `pulumi:"amazonSideAsn"`
+	AttachedVpcId    string                 `pulumi:"attachedVpcId"`
+	AvailabilityZone string                 `pulumi:"availabilityZone"`
+	Filters          []GetVpnGatewayFilter  `pulumi:"filters"`
+	Id               string                 `pulumi:"id"`
+	State            string                 `pulumi:"state"`
+	Tags             map[string]interface{} `pulumi:"tags"`
 }
-

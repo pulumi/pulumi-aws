@@ -65,7 +65,8 @@ type CertificateAuthorityCertificateAuthorityConfigurationPtrInput interface {
 
 type certificateAuthorityCertificateAuthorityConfigurationPtrType CertificateAuthorityCertificateAuthorityConfigurationArgs
 
-func CertificateAuthorityCertificateAuthorityConfigurationPtr(v *CertificateAuthorityCertificateAuthorityConfigurationArgs) CertificateAuthorityCertificateAuthorityConfigurationPtrInput {	return (*certificateAuthorityCertificateAuthorityConfigurationPtrType)(v)
+func CertificateAuthorityCertificateAuthorityConfigurationPtr(v *CertificateAuthorityCertificateAuthorityConfigurationArgs) CertificateAuthorityCertificateAuthorityConfigurationPtrInput {
+	return (*certificateAuthorityCertificateAuthorityConfigurationPtrType)(v)
 }
 
 func (*certificateAuthorityCertificateAuthorityConfigurationPtrType) ElementType() reflect.Type {
@@ -80,7 +81,7 @@ func (i *certificateAuthorityCertificateAuthorityConfigurationPtrType) ToCertifi
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCertificateAuthorityConfigurationPtrOutput)
 }
 
-type CertificateAuthorityCertificateAuthorityConfigurationOutput struct { *pulumi.OutputState }
+type CertificateAuthorityCertificateAuthorityConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityCertificateAuthorityConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CertificateAuthorityCertificateAuthorityConfiguration)(nil)).Elem()
@@ -103,22 +104,25 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationOutput) ToCertifica
 		return &v
 	}).(CertificateAuthorityCertificateAuthorityConfigurationPtrOutput)
 }
+
 // Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
 func (o CertificateAuthorityCertificateAuthorityConfigurationOutput) KeyAlgorithm() pulumi.StringOutput {
-	return o.ApplyT(func (v CertificateAuthorityCertificateAuthorityConfiguration) string { return v.KeyAlgorithm }).(pulumi.StringOutput)
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfiguration) string { return v.KeyAlgorithm }).(pulumi.StringOutput)
 }
 
 // Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
 func (o CertificateAuthorityCertificateAuthorityConfigurationOutput) SigningAlgorithm() pulumi.StringOutput {
-	return o.ApplyT(func (v CertificateAuthorityCertificateAuthorityConfiguration) string { return v.SigningAlgorithm }).(pulumi.StringOutput)
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfiguration) string { return v.SigningAlgorithm }).(pulumi.StringOutput)
 }
 
 // Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
 func (o CertificateAuthorityCertificateAuthorityConfigurationOutput) Subject() CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput {
-	return o.ApplyT(func (v CertificateAuthorityCertificateAuthorityConfiguration) CertificateAuthorityCertificateAuthorityConfigurationSubject { return v.Subject }).(CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput)
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfiguration) CertificateAuthorityCertificateAuthorityConfigurationSubject {
+		return v.Subject
+	}).(CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput)
 }
 
-type CertificateAuthorityCertificateAuthorityConfigurationPtrOutput struct { *pulumi.OutputState}
+type CertificateAuthorityCertificateAuthorityConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CertificateAuthorityCertificateAuthorityConfiguration)(nil)).Elem()
@@ -133,22 +137,26 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) ToCertif
 }
 
 func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) Elem() CertificateAuthorityCertificateAuthorityConfigurationOutput {
-	return o.ApplyT(func (v *CertificateAuthorityCertificateAuthorityConfiguration) CertificateAuthorityCertificateAuthorityConfiguration { return *v }).(CertificateAuthorityCertificateAuthorityConfigurationOutput)
+	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfiguration) CertificateAuthorityCertificateAuthorityConfiguration {
+		return *v
+	}).(CertificateAuthorityCertificateAuthorityConfigurationOutput)
 }
 
 // Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
 func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) KeyAlgorithm() pulumi.StringOutput {
-	return o.ApplyT(func (v CertificateAuthorityCertificateAuthorityConfiguration) string { return v.KeyAlgorithm }).(pulumi.StringOutput)
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfiguration) string { return v.KeyAlgorithm }).(pulumi.StringOutput)
 }
 
 // Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
 func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) SigningAlgorithm() pulumi.StringOutput {
-	return o.ApplyT(func (v CertificateAuthorityCertificateAuthorityConfiguration) string { return v.SigningAlgorithm }).(pulumi.StringOutput)
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfiguration) string { return v.SigningAlgorithm }).(pulumi.StringOutput)
 }
 
 // Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
 func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) Subject() CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput {
-	return o.ApplyT(func (v CertificateAuthorityCertificateAuthorityConfiguration) CertificateAuthorityCertificateAuthorityConfigurationSubject { return v.Subject }).(CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput)
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfiguration) CertificateAuthorityCertificateAuthorityConfigurationSubject {
+		return v.Subject
+	}).(CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput)
 }
 
 type CertificateAuthorityCertificateAuthorityConfigurationSubject struct {
@@ -228,7 +236,7 @@ func (i CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs) ToCert
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput)
 }
 
-type CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput struct { *pulumi.OutputState }
+type CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CertificateAuthorityCertificateAuthorityConfigurationSubject)(nil)).Elem()
@@ -244,67 +252,73 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) ToCe
 
 // Fully qualified domain name (FQDN) associated with the certificate subject.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) CommonName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.CommonName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.CommonName }).(pulumi.StringPtrOutput)
 }
 
 // Two digit code that specifies the country in which the certificate subject located.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) Country() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Country }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
 // Disambiguating information for the certificate subject.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) DistinguishedNameQualifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.DistinguishedNameQualifier }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
+		return v.DistinguishedNameQualifier
+	}).(pulumi.StringPtrOutput)
 }
 
 // Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) GenerationQualifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.GenerationQualifier }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
+		return v.GenerationQualifier
+	}).(pulumi.StringPtrOutput)
 }
 
 // First name.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) GivenName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.GivenName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.GivenName }).(pulumi.StringPtrOutput)
 }
 
 // Concatenation that typically contains the first letter of the `givenName`, the first letter of the middle name if one exists, and the first letter of the `surname`.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) Initials() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Initials }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Initials }).(pulumi.StringPtrOutput)
 }
 
 // The locality (such as a city or town) in which the certificate subject is located.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) Locality() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Locality }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Locality }).(pulumi.StringPtrOutput)
 }
 
 // Legal name of the organization with which the certificate subject is affiliated.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) Organization() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Organization }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Organization }).(pulumi.StringPtrOutput)
 }
 
 // A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) OrganizationalUnit() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string {
+		return v.OrganizationalUnit
+	}).(pulumi.StringPtrOutput)
 }
 
 // Typically a shortened version of a longer `givenName`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) Pseudonym() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Pseudonym }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Pseudonym }).(pulumi.StringPtrOutput)
 }
 
 // State in which the subject of the certificate is located.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.State }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) Surname() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Surname }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Surname }).(pulumi.StringPtrOutput)
 }
 
 // A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Title }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
 
 type CertificateAuthorityRevocationConfiguration struct {
@@ -353,7 +367,8 @@ type CertificateAuthorityRevocationConfigurationPtrInput interface {
 
 type certificateAuthorityRevocationConfigurationPtrType CertificateAuthorityRevocationConfigurationArgs
 
-func CertificateAuthorityRevocationConfigurationPtr(v *CertificateAuthorityRevocationConfigurationArgs) CertificateAuthorityRevocationConfigurationPtrInput {	return (*certificateAuthorityRevocationConfigurationPtrType)(v)
+func CertificateAuthorityRevocationConfigurationPtr(v *CertificateAuthorityRevocationConfigurationArgs) CertificateAuthorityRevocationConfigurationPtrInput {
+	return (*certificateAuthorityRevocationConfigurationPtrType)(v)
 }
 
 func (*certificateAuthorityRevocationConfigurationPtrType) ElementType() reflect.Type {
@@ -368,7 +383,7 @@ func (i *certificateAuthorityRevocationConfigurationPtrType) ToCertificateAuthor
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityRevocationConfigurationPtrOutput)
 }
 
-type CertificateAuthorityRevocationConfigurationOutput struct { *pulumi.OutputState }
+type CertificateAuthorityRevocationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityRevocationConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CertificateAuthorityRevocationConfiguration)(nil)).Elem()
@@ -391,12 +406,15 @@ func (o CertificateAuthorityRevocationConfigurationOutput) ToCertificateAuthorit
 		return &v
 	}).(CertificateAuthorityRevocationConfigurationPtrOutput)
 }
+
 // Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
 func (o CertificateAuthorityRevocationConfigurationOutput) CrlConfiguration() CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityRevocationConfiguration) *CertificateAuthorityRevocationConfigurationCrlConfiguration { return v.CrlConfiguration }).(CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityRevocationConfiguration) *CertificateAuthorityRevocationConfigurationCrlConfiguration {
+		return v.CrlConfiguration
+	}).(CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput)
 }
 
-type CertificateAuthorityRevocationConfigurationPtrOutput struct { *pulumi.OutputState}
+type CertificateAuthorityRevocationConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityRevocationConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CertificateAuthorityRevocationConfiguration)(nil)).Elem()
@@ -411,12 +429,16 @@ func (o CertificateAuthorityRevocationConfigurationPtrOutput) ToCertificateAutho
 }
 
 func (o CertificateAuthorityRevocationConfigurationPtrOutput) Elem() CertificateAuthorityRevocationConfigurationOutput {
-	return o.ApplyT(func (v *CertificateAuthorityRevocationConfiguration) CertificateAuthorityRevocationConfiguration { return *v }).(CertificateAuthorityRevocationConfigurationOutput)
+	return o.ApplyT(func(v *CertificateAuthorityRevocationConfiguration) CertificateAuthorityRevocationConfiguration {
+		return *v
+	}).(CertificateAuthorityRevocationConfigurationOutput)
 }
 
 // Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
 func (o CertificateAuthorityRevocationConfigurationPtrOutput) CrlConfiguration() CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityRevocationConfiguration) *CertificateAuthorityRevocationConfigurationCrlConfiguration { return v.CrlConfiguration }).(CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityRevocationConfiguration) *CertificateAuthorityRevocationConfigurationCrlConfiguration {
+		return v.CrlConfiguration
+	}).(CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput)
 }
 
 type CertificateAuthorityRevocationConfigurationCrlConfiguration struct {
@@ -477,7 +499,8 @@ type CertificateAuthorityRevocationConfigurationCrlConfigurationPtrInput interfa
 
 type certificateAuthorityRevocationConfigurationCrlConfigurationPtrType CertificateAuthorityRevocationConfigurationCrlConfigurationArgs
 
-func CertificateAuthorityRevocationConfigurationCrlConfigurationPtr(v *CertificateAuthorityRevocationConfigurationCrlConfigurationArgs) CertificateAuthorityRevocationConfigurationCrlConfigurationPtrInput {	return (*certificateAuthorityRevocationConfigurationCrlConfigurationPtrType)(v)
+func CertificateAuthorityRevocationConfigurationCrlConfigurationPtr(v *CertificateAuthorityRevocationConfigurationCrlConfigurationArgs) CertificateAuthorityRevocationConfigurationCrlConfigurationPtrInput {
+	return (*certificateAuthorityRevocationConfigurationCrlConfigurationPtrType)(v)
 }
 
 func (*certificateAuthorityRevocationConfigurationCrlConfigurationPtrType) ElementType() reflect.Type {
@@ -492,7 +515,7 @@ func (i *certificateAuthorityRevocationConfigurationCrlConfigurationPtrType) ToC
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput)
 }
 
-type CertificateAuthorityRevocationConfigurationCrlConfigurationOutput struct { *pulumi.OutputState }
+type CertificateAuthorityRevocationConfigurationCrlConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CertificateAuthorityRevocationConfigurationCrlConfiguration)(nil)).Elem()
@@ -515,27 +538,28 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) ToCer
 		return &v
 	}).(CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput)
 }
+
 // Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) CustomCname() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.CustomCname }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.CustomCname }).(pulumi.StringPtrOutput)
 }
 
 // Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityRevocationConfigurationCrlConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // Number of days until a certificate expires. Must be between 1 and 5000.
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) ExpirationInDays() pulumi.IntOutput {
-	return o.ApplyT(func (v CertificateAuthorityRevocationConfigurationCrlConfiguration) int { return v.ExpirationInDays }).(pulumi.IntOutput)
+	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) int { return v.ExpirationInDays }).(pulumi.IntOutput)
 }
 
 // Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) S3BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
 }
 
-type CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput struct { *pulumi.OutputState}
+type CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CertificateAuthorityRevocationConfigurationCrlConfiguration)(nil)).Elem()
@@ -550,27 +574,29 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) To
 }
 
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) Elem() CertificateAuthorityRevocationConfigurationCrlConfigurationOutput {
-	return o.ApplyT(func (v *CertificateAuthorityRevocationConfigurationCrlConfiguration) CertificateAuthorityRevocationConfigurationCrlConfiguration { return *v }).(CertificateAuthorityRevocationConfigurationCrlConfigurationOutput)
+	return o.ApplyT(func(v *CertificateAuthorityRevocationConfigurationCrlConfiguration) CertificateAuthorityRevocationConfigurationCrlConfiguration {
+		return *v
+	}).(CertificateAuthorityRevocationConfigurationCrlConfigurationOutput)
 }
 
 // Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) CustomCname() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.CustomCname }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.CustomCname }).(pulumi.StringPtrOutput)
 }
 
 // Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityRevocationConfigurationCrlConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // Number of days until a certificate expires. Must be between 1 and 5000.
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) ExpirationInDays() pulumi.IntOutput {
-	return o.ApplyT(func (v CertificateAuthorityRevocationConfigurationCrlConfiguration) int { return v.ExpirationInDays }).(pulumi.IntOutput)
+	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) int { return v.ExpirationInDays }).(pulumi.IntOutput)
 }
 
 // Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) S3BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v CertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
 }
 
 type GetCertificateAuthorityRevocationConfiguration struct {
@@ -621,7 +647,7 @@ func (i GetCertificateAuthorityRevocationConfigurationArray) ToGetCertificateAut
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateAuthorityRevocationConfigurationArrayOutput)
 }
 
-type GetCertificateAuthorityRevocationConfigurationOutput struct { *pulumi.OutputState }
+type GetCertificateAuthorityRevocationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetCertificateAuthorityRevocationConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetCertificateAuthorityRevocationConfiguration)(nil)).Elem()
@@ -636,10 +662,12 @@ func (o GetCertificateAuthorityRevocationConfigurationOutput) ToGetCertificateAu
 }
 
 func (o GetCertificateAuthorityRevocationConfigurationOutput) CrlConfigurations() GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput {
-	return o.ApplyT(func (v GetCertificateAuthorityRevocationConfiguration) []GetCertificateAuthorityRevocationConfigurationCrlConfiguration { return v.CrlConfigurations }).(GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput)
+	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfiguration) []GetCertificateAuthorityRevocationConfigurationCrlConfiguration {
+		return v.CrlConfigurations
+	}).(GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput)
 }
 
-type GetCertificateAuthorityRevocationConfigurationArrayOutput struct { *pulumi.OutputState}
+type GetCertificateAuthorityRevocationConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (GetCertificateAuthorityRevocationConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetCertificateAuthorityRevocationConfiguration)(nil)).Elem()
@@ -654,16 +682,16 @@ func (o GetCertificateAuthorityRevocationConfigurationArrayOutput) ToGetCertific
 }
 
 func (o GetCertificateAuthorityRevocationConfigurationArrayOutput) Index(i pulumi.IntInput) GetCertificateAuthorityRevocationConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetCertificateAuthorityRevocationConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCertificateAuthorityRevocationConfiguration {
 		return vs[0].([]GetCertificateAuthorityRevocationConfiguration)[vs[1].(int)]
 	}).(GetCertificateAuthorityRevocationConfigurationOutput)
 }
 
 type GetCertificateAuthorityRevocationConfigurationCrlConfiguration struct {
-	CustomCname string `pulumi:"customCname"`
-	Enabled bool `pulumi:"enabled"`
-	ExpirationInDays int `pulumi:"expirationInDays"`
-	S3BucketName string `pulumi:"s3BucketName"`
+	CustomCname      string `pulumi:"customCname"`
+	Enabled          bool   `pulumi:"enabled"`
+	ExpirationInDays int    `pulumi:"expirationInDays"`
+	S3BucketName     string `pulumi:"s3BucketName"`
 }
 
 type GetCertificateAuthorityRevocationConfigurationCrlConfigurationInput interface {
@@ -674,10 +702,10 @@ type GetCertificateAuthorityRevocationConfigurationCrlConfigurationInput interfa
 }
 
 type GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs struct {
-	CustomCname pulumi.StringInput `pulumi:"customCname"`
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	ExpirationInDays pulumi.IntInput `pulumi:"expirationInDays"`
-	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
+	CustomCname      pulumi.StringInput `pulumi:"customCname"`
+	Enabled          pulumi.BoolInput   `pulumi:"enabled"`
+	ExpirationInDays pulumi.IntInput    `pulumi:"expirationInDays"`
+	S3BucketName     pulumi.StringInput `pulumi:"s3BucketName"`
 }
 
 func (GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs) ElementType() reflect.Type {
@@ -713,7 +741,7 @@ func (i GetCertificateAuthorityRevocationConfigurationCrlConfigurationArray) ToG
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput)
 }
 
-type GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput struct { *pulumi.OutputState }
+type GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GetCertificateAuthorityRevocationConfigurationCrlConfiguration)(nil)).Elem()
@@ -728,22 +756,22 @@ func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) To
 }
 
 func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) CustomCname() pulumi.StringOutput {
-	return o.ApplyT(func (v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) string { return v.CustomCname }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) string { return v.CustomCname }).(pulumi.StringOutput)
 }
 
 func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) ExpirationInDays() pulumi.IntOutput {
-	return o.ApplyT(func (v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) int { return v.ExpirationInDays }).(pulumi.IntOutput)
+	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) int { return v.ExpirationInDays }).(pulumi.IntOutput)
 }
 
 func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) S3BucketName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) string { return v.S3BucketName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) string { return v.S3BucketName }).(pulumi.StringOutput)
 }
 
-type GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput struct { *pulumi.OutputState}
+type GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]GetCertificateAuthorityRevocationConfigurationCrlConfiguration)(nil)).Elem()
@@ -758,7 +786,7 @@ func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutpu
 }
 
 func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput) Index(i pulumi.IntInput) GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetCertificateAuthorityRevocationConfigurationCrlConfiguration {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCertificateAuthorityRevocationConfigurationCrlConfiguration {
 		return vs[0].([]GetCertificateAuthorityRevocationConfigurationCrlConfiguration)[vs[1].(int)]
 	}).(GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput)
 }

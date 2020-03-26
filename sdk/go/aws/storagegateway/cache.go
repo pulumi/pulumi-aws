@@ -94,4 +94,3 @@ type CacheArgs struct {
 func (CacheArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*cacheArgs)(nil)).Elem()
 }
-

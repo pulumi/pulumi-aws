@@ -26,17 +26,17 @@ type LookupRouteTableArgs struct {
 	Filters []GetRouteTableFilter `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway Route Table.
 	Id *string `pulumi:"id"`
+	// Key-value tags for the EC2 Transit Gateway Route Table
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getRouteTable.
 type LookupRouteTableResult struct {
 	// Boolean whether this is the default association route table for the EC2 Transit Gateway
 	DefaultAssociationRouteTable bool `pulumi:"defaultAssociationRouteTable"`
 	// Boolean whether this is the default propagation route table for the EC2 Transit Gateway
-	DefaultPropagationRouteTable bool `pulumi:"defaultPropagationRouteTable"`
-	Filters []GetRouteTableFilter `pulumi:"filters"`
+	DefaultPropagationRouteTable bool                  `pulumi:"defaultPropagationRouteTable"`
+	Filters                      []GetRouteTableFilter `pulumi:"filters"`
 	// EC2 Transit Gateway Route Table identifier
 	Id *string `pulumi:"id"`
 	// Key-value tags for the EC2 Transit Gateway Route Table
@@ -44,4 +44,3 @@ type LookupRouteTableResult struct {
 	// EC2 Transit Gateway identifier
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 }
-

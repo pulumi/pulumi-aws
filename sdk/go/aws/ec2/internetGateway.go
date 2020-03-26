@@ -91,4 +91,3 @@ type InternetGatewayArgs struct {
 func (InternetGatewayArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*internetGatewayArgs)(nil)).Elem()
 }
-

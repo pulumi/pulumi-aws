@@ -87,4 +87,3 @@ type ProductSubscriptionArgs struct {
 func (ProductSubscriptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*productSubscriptionArgs)(nil)).Elem()
 }
-

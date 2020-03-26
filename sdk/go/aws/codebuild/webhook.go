@@ -117,4 +117,3 @@ type WebhookArgs struct {
 func (WebhookArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*webhookArgs)(nil)).Elem()
 }
-

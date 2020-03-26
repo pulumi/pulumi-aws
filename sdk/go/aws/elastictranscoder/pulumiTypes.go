@@ -12,9 +12,9 @@ import (
 )
 
 type PipelineContentConfig struct {
-	// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
+	// The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
 	Bucket *string `pulumi:"bucket"`
-	// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+	// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
 	StorageClass *string `pulumi:"storageClass"`
 }
 
@@ -26,9 +26,9 @@ type PipelineContentConfigInput interface {
 }
 
 type PipelineContentConfigArgs struct {
-	// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
+	// The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
 	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
-	// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+	// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
 	StorageClass pulumi.StringPtrInput `pulumi:"storageClass"`
 }
 
@@ -61,7 +61,8 @@ type PipelineContentConfigPtrInput interface {
 
 type pipelineContentConfigPtrType PipelineContentConfigArgs
 
-func PipelineContentConfigPtr(v *PipelineContentConfigArgs) PipelineContentConfigPtrInput {	return (*pipelineContentConfigPtrType)(v)
+func PipelineContentConfigPtr(v *PipelineContentConfigArgs) PipelineContentConfigPtrInput {
+	return (*pipelineContentConfigPtrType)(v)
 }
 
 func (*pipelineContentConfigPtrType) ElementType() reflect.Type {
@@ -76,7 +77,7 @@ func (i *pipelineContentConfigPtrType) ToPipelineContentConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineContentConfigPtrOutput)
 }
 
-type PipelineContentConfigOutput struct { *pulumi.OutputState }
+type PipelineContentConfigOutput struct{ *pulumi.OutputState }
 
 func (PipelineContentConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipelineContentConfig)(nil)).Elem()
@@ -99,17 +100,18 @@ func (o PipelineContentConfigOutput) ToPipelineContentConfigPtrOutputWithContext
 		return &v
 	}).(PipelineContentConfigPtrOutput)
 }
-// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
+
+// The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
 func (o PipelineContentConfigOutput) Bucket() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineContentConfig) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineContentConfig) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
 func (o PipelineContentConfigOutput) StorageClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineContentConfig) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineContentConfig) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
 }
 
-type PipelineContentConfigPtrOutput struct { *pulumi.OutputState}
+type PipelineContentConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (PipelineContentConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PipelineContentConfig)(nil)).Elem()
@@ -124,25 +126,25 @@ func (o PipelineContentConfigPtrOutput) ToPipelineContentConfigPtrOutputWithCont
 }
 
 func (o PipelineContentConfigPtrOutput) Elem() PipelineContentConfigOutput {
-	return o.ApplyT(func (v *PipelineContentConfig) PipelineContentConfig { return *v }).(PipelineContentConfigOutput)
+	return o.ApplyT(func(v *PipelineContentConfig) PipelineContentConfig { return *v }).(PipelineContentConfigOutput)
 }
 
-// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
+// The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
 func (o PipelineContentConfigPtrOutput) Bucket() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineContentConfig) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineContentConfig) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
 func (o PipelineContentConfigPtrOutput) StorageClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineContentConfig) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineContentConfig) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
 }
 
 type PipelineContentConfigPermission struct {
-	// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+	// The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
 	Accesses []string `pulumi:"accesses"`
-	// The AWS user or group that you want to have access to thumbnail files.
+	// The AWS user or group that you want to have access to transcoded files and playlists.
 	Grantee *string `pulumi:"grantee"`
-	// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+	// Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
 	GranteeType *string `pulumi:"granteeType"`
 }
 
@@ -154,11 +156,11 @@ type PipelineContentConfigPermissionInput interface {
 }
 
 type PipelineContentConfigPermissionArgs struct {
-	// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+	// The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
 	Accesses pulumi.StringArrayInput `pulumi:"accesses"`
-	// The AWS user or group that you want to have access to thumbnail files.
+	// The AWS user or group that you want to have access to transcoded files and playlists.
 	Grantee pulumi.StringPtrInput `pulumi:"grantee"`
-	// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+	// Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
 	GranteeType pulumi.StringPtrInput `pulumi:"granteeType"`
 }
 
@@ -195,7 +197,7 @@ func (i PipelineContentConfigPermissionArray) ToPipelineContentConfigPermissionA
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineContentConfigPermissionArrayOutput)
 }
 
-type PipelineContentConfigPermissionOutput struct { *pulumi.OutputState }
+type PipelineContentConfigPermissionOutput struct{ *pulumi.OutputState }
 
 func (PipelineContentConfigPermissionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipelineContentConfigPermission)(nil)).Elem()
@@ -209,22 +211,22 @@ func (o PipelineContentConfigPermissionOutput) ToPipelineContentConfigPermission
 	return o
 }
 
-// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+// The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
 func (o PipelineContentConfigPermissionOutput) Accesses() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PipelineContentConfigPermission) []string { return v.Accesses }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PipelineContentConfigPermission) []string { return v.Accesses }).(pulumi.StringArrayOutput)
 }
 
-// The AWS user or group that you want to have access to thumbnail files.
+// The AWS user or group that you want to have access to transcoded files and playlists.
 func (o PipelineContentConfigPermissionOutput) Grantee() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineContentConfigPermission) *string { return v.Grantee }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineContentConfigPermission) *string { return v.Grantee }).(pulumi.StringPtrOutput)
 }
 
-// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+// Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
 func (o PipelineContentConfigPermissionOutput) GranteeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineContentConfigPermission) *string { return v.GranteeType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineContentConfigPermission) *string { return v.GranteeType }).(pulumi.StringPtrOutput)
 }
 
-type PipelineContentConfigPermissionArrayOutput struct { *pulumi.OutputState}
+type PipelineContentConfigPermissionArrayOutput struct{ *pulumi.OutputState }
 
 func (PipelineContentConfigPermissionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PipelineContentConfigPermission)(nil)).Elem()
@@ -239,7 +241,7 @@ func (o PipelineContentConfigPermissionArrayOutput) ToPipelineContentConfigPermi
 }
 
 func (o PipelineContentConfigPermissionArrayOutput) Index(i pulumi.IntInput) PipelineContentConfigPermissionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PipelineContentConfigPermission {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineContentConfigPermission {
 		return vs[0].([]PipelineContentConfigPermission)[vs[1].(int)]
 	}).(PipelineContentConfigPermissionOutput)
 }
@@ -302,7 +304,8 @@ type PipelineNotificationsPtrInput interface {
 
 type pipelineNotificationsPtrType PipelineNotificationsArgs
 
-func PipelineNotificationsPtr(v *PipelineNotificationsArgs) PipelineNotificationsPtrInput {	return (*pipelineNotificationsPtrType)(v)
+func PipelineNotificationsPtr(v *PipelineNotificationsArgs) PipelineNotificationsPtrInput {
+	return (*pipelineNotificationsPtrType)(v)
 }
 
 func (*pipelineNotificationsPtrType) ElementType() reflect.Type {
@@ -317,7 +320,7 @@ func (i *pipelineNotificationsPtrType) ToPipelineNotificationsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineNotificationsPtrOutput)
 }
 
-type PipelineNotificationsOutput struct { *pulumi.OutputState }
+type PipelineNotificationsOutput struct{ *pulumi.OutputState }
 
 func (PipelineNotificationsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipelineNotifications)(nil)).Elem()
@@ -340,27 +343,28 @@ func (o PipelineNotificationsOutput) ToPipelineNotificationsPtrOutputWithContext
 		return &v
 	}).(PipelineNotificationsPtrOutput)
 }
+
 // The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
 func (o PipelineNotificationsOutput) Completed() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineNotifications) *string { return v.Completed }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineNotifications) *string { return v.Completed }).(pulumi.StringPtrOutput)
 }
 
 // The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
 func (o PipelineNotificationsOutput) Error() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineNotifications) *string { return v.Error }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineNotifications) *string { return v.Error }).(pulumi.StringPtrOutput)
 }
 
 // The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
 func (o PipelineNotificationsOutput) Progressing() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineNotifications) *string { return v.Progressing }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineNotifications) *string { return v.Progressing }).(pulumi.StringPtrOutput)
 }
 
 // The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
 func (o PipelineNotificationsOutput) Warning() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineNotifications) *string { return v.Warning }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineNotifications) *string { return v.Warning }).(pulumi.StringPtrOutput)
 }
 
-type PipelineNotificationsPtrOutput struct { *pulumi.OutputState}
+type PipelineNotificationsPtrOutput struct{ *pulumi.OutputState }
 
 func (PipelineNotificationsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PipelineNotifications)(nil)).Elem()
@@ -375,27 +379,27 @@ func (o PipelineNotificationsPtrOutput) ToPipelineNotificationsPtrOutputWithCont
 }
 
 func (o PipelineNotificationsPtrOutput) Elem() PipelineNotificationsOutput {
-	return o.ApplyT(func (v *PipelineNotifications) PipelineNotifications { return *v }).(PipelineNotificationsOutput)
+	return o.ApplyT(func(v *PipelineNotifications) PipelineNotifications { return *v }).(PipelineNotificationsOutput)
 }
 
 // The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
 func (o PipelineNotificationsPtrOutput) Completed() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineNotifications) *string { return v.Completed }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineNotifications) *string { return v.Completed }).(pulumi.StringPtrOutput)
 }
 
 // The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
 func (o PipelineNotificationsPtrOutput) Error() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineNotifications) *string { return v.Error }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineNotifications) *string { return v.Error }).(pulumi.StringPtrOutput)
 }
 
 // The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
 func (o PipelineNotificationsPtrOutput) Progressing() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineNotifications) *string { return v.Progressing }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineNotifications) *string { return v.Progressing }).(pulumi.StringPtrOutput)
 }
 
 // The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
 func (o PipelineNotificationsPtrOutput) Warning() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineNotifications) *string { return v.Warning }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineNotifications) *string { return v.Warning }).(pulumi.StringPtrOutput)
 }
 
 type PipelineThumbnailConfig struct {
@@ -448,7 +452,8 @@ type PipelineThumbnailConfigPtrInput interface {
 
 type pipelineThumbnailConfigPtrType PipelineThumbnailConfigArgs
 
-func PipelineThumbnailConfigPtr(v *PipelineThumbnailConfigArgs) PipelineThumbnailConfigPtrInput {	return (*pipelineThumbnailConfigPtrType)(v)
+func PipelineThumbnailConfigPtr(v *PipelineThumbnailConfigArgs) PipelineThumbnailConfigPtrInput {
+	return (*pipelineThumbnailConfigPtrType)(v)
 }
 
 func (*pipelineThumbnailConfigPtrType) ElementType() reflect.Type {
@@ -463,7 +468,7 @@ func (i *pipelineThumbnailConfigPtrType) ToPipelineThumbnailConfigPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineThumbnailConfigPtrOutput)
 }
 
-type PipelineThumbnailConfigOutput struct { *pulumi.OutputState }
+type PipelineThumbnailConfigOutput struct{ *pulumi.OutputState }
 
 func (PipelineThumbnailConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipelineThumbnailConfig)(nil)).Elem()
@@ -486,17 +491,18 @@ func (o PipelineThumbnailConfigOutput) ToPipelineThumbnailConfigPtrOutputWithCon
 		return &v
 	}).(PipelineThumbnailConfigPtrOutput)
 }
+
 // The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
 func (o PipelineThumbnailConfigOutput) Bucket() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineThumbnailConfig) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineThumbnailConfig) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
 func (o PipelineThumbnailConfigOutput) StorageClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineThumbnailConfig) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineThumbnailConfig) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
 }
 
-type PipelineThumbnailConfigPtrOutput struct { *pulumi.OutputState}
+type PipelineThumbnailConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (PipelineThumbnailConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PipelineThumbnailConfig)(nil)).Elem()
@@ -511,17 +517,17 @@ func (o PipelineThumbnailConfigPtrOutput) ToPipelineThumbnailConfigPtrOutputWith
 }
 
 func (o PipelineThumbnailConfigPtrOutput) Elem() PipelineThumbnailConfigOutput {
-	return o.ApplyT(func (v *PipelineThumbnailConfig) PipelineThumbnailConfig { return *v }).(PipelineThumbnailConfigOutput)
+	return o.ApplyT(func(v *PipelineThumbnailConfig) PipelineThumbnailConfig { return *v }).(PipelineThumbnailConfigOutput)
 }
 
 // The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
 func (o PipelineThumbnailConfigPtrOutput) Bucket() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineThumbnailConfig) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineThumbnailConfig) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
 func (o PipelineThumbnailConfigPtrOutput) StorageClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineThumbnailConfig) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineThumbnailConfig) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
 }
 
 type PipelineThumbnailConfigPermission struct {
@@ -582,7 +588,7 @@ func (i PipelineThumbnailConfigPermissionArray) ToPipelineThumbnailConfigPermiss
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineThumbnailConfigPermissionArrayOutput)
 }
 
-type PipelineThumbnailConfigPermissionOutput struct { *pulumi.OutputState }
+type PipelineThumbnailConfigPermissionOutput struct{ *pulumi.OutputState }
 
 func (PipelineThumbnailConfigPermissionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipelineThumbnailConfigPermission)(nil)).Elem()
@@ -598,20 +604,20 @@ func (o PipelineThumbnailConfigPermissionOutput) ToPipelineThumbnailConfigPermis
 
 // The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
 func (o PipelineThumbnailConfigPermissionOutput) Accesses() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PipelineThumbnailConfigPermission) []string { return v.Accesses }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PipelineThumbnailConfigPermission) []string { return v.Accesses }).(pulumi.StringArrayOutput)
 }
 
 // The AWS user or group that you want to have access to thumbnail files.
 func (o PipelineThumbnailConfigPermissionOutput) Grantee() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineThumbnailConfigPermission) *string { return v.Grantee }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineThumbnailConfigPermission) *string { return v.Grantee }).(pulumi.StringPtrOutput)
 }
 
 // Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
 func (o PipelineThumbnailConfigPermissionOutput) GranteeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PipelineThumbnailConfigPermission) *string { return v.GranteeType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PipelineThumbnailConfigPermission) *string { return v.GranteeType }).(pulumi.StringPtrOutput)
 }
 
-type PipelineThumbnailConfigPermissionArrayOutput struct { *pulumi.OutputState}
+type PipelineThumbnailConfigPermissionArrayOutput struct{ *pulumi.OutputState }
 
 func (PipelineThumbnailConfigPermissionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PipelineThumbnailConfigPermission)(nil)).Elem()
@@ -626,7 +632,7 @@ func (o PipelineThumbnailConfigPermissionArrayOutput) ToPipelineThumbnailConfigP
 }
 
 func (o PipelineThumbnailConfigPermissionArrayOutput) Index(i pulumi.IntInput) PipelineThumbnailConfigPermissionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PipelineThumbnailConfigPermission {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineThumbnailConfigPermission {
 		return vs[0].([]PipelineThumbnailConfigPermission)[vs[1].(int)]
 	}).(PipelineThumbnailConfigPermissionOutput)
 }
@@ -634,11 +640,11 @@ func (o PipelineThumbnailConfigPermissionArrayOutput) Index(i pulumi.IntInput) P
 type PresetAudio struct {
 	// The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
 	AudioPackingMode *string `pulumi:"audioPackingMode"`
-	// The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
+	// The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
 	BitRate *string `pulumi:"bitRate"`
 	// The number of audio channels in the output file
 	Channels *string `pulumi:"channels"`
-	// The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
+	// The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
 	Codec *string `pulumi:"codec"`
 	// The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
 	SampleRate *string `pulumi:"sampleRate"`
@@ -654,11 +660,11 @@ type PresetAudioInput interface {
 type PresetAudioArgs struct {
 	// The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
 	AudioPackingMode pulumi.StringPtrInput `pulumi:"audioPackingMode"`
-	// The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
+	// The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
 	BitRate pulumi.StringPtrInput `pulumi:"bitRate"`
 	// The number of audio channels in the output file
 	Channels pulumi.StringPtrInput `pulumi:"channels"`
-	// The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
+	// The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
 	Codec pulumi.StringPtrInput `pulumi:"codec"`
 	// The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
 	SampleRate pulumi.StringPtrInput `pulumi:"sampleRate"`
@@ -693,7 +699,8 @@ type PresetAudioPtrInput interface {
 
 type presetAudioPtrType PresetAudioArgs
 
-func PresetAudioPtr(v *PresetAudioArgs) PresetAudioPtrInput {	return (*presetAudioPtrType)(v)
+func PresetAudioPtr(v *PresetAudioArgs) PresetAudioPtrInput {
+	return (*presetAudioPtrType)(v)
 }
 
 func (*presetAudioPtrType) ElementType() reflect.Type {
@@ -708,7 +715,7 @@ func (i *presetAudioPtrType) ToPresetAudioPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PresetAudioPtrOutput)
 }
 
-type PresetAudioOutput struct { *pulumi.OutputState }
+type PresetAudioOutput struct{ *pulumi.OutputState }
 
 func (PresetAudioOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PresetAudio)(nil)).Elem()
@@ -731,32 +738,33 @@ func (o PresetAudioOutput) ToPresetAudioPtrOutputWithContext(ctx context.Context
 		return &v
 	}).(PresetAudioPtrOutput)
 }
+
 // The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
 func (o PresetAudioOutput) AudioPackingMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetAudio) *string { return v.AudioPackingMode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetAudio) *string { return v.AudioPackingMode }).(pulumi.StringPtrOutput)
 }
 
-// The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
+// The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
 func (o PresetAudioOutput) BitRate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetAudio) *string { return v.BitRate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetAudio) *string { return v.BitRate }).(pulumi.StringPtrOutput)
 }
 
 // The number of audio channels in the output file
 func (o PresetAudioOutput) Channels() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetAudio) *string { return v.Channels }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetAudio) *string { return v.Channels }).(pulumi.StringPtrOutput)
 }
 
-// The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
+// The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
 func (o PresetAudioOutput) Codec() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetAudio) *string { return v.Codec }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetAudio) *string { return v.Codec }).(pulumi.StringPtrOutput)
 }
 
 // The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
 func (o PresetAudioOutput) SampleRate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetAudio) *string { return v.SampleRate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetAudio) *string { return v.SampleRate }).(pulumi.StringPtrOutput)
 }
 
-type PresetAudioPtrOutput struct { *pulumi.OutputState}
+type PresetAudioPtrOutput struct{ *pulumi.OutputState }
 
 func (PresetAudioPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PresetAudio)(nil)).Elem()
@@ -771,32 +779,32 @@ func (o PresetAudioPtrOutput) ToPresetAudioPtrOutputWithContext(ctx context.Cont
 }
 
 func (o PresetAudioPtrOutput) Elem() PresetAudioOutput {
-	return o.ApplyT(func (v *PresetAudio) PresetAudio { return *v }).(PresetAudioOutput)
+	return o.ApplyT(func(v *PresetAudio) PresetAudio { return *v }).(PresetAudioOutput)
 }
 
 // The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
 func (o PresetAudioPtrOutput) AudioPackingMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetAudio) *string { return v.AudioPackingMode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetAudio) *string { return v.AudioPackingMode }).(pulumi.StringPtrOutput)
 }
 
-// The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
+// The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
 func (o PresetAudioPtrOutput) BitRate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetAudio) *string { return v.BitRate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetAudio) *string { return v.BitRate }).(pulumi.StringPtrOutput)
 }
 
 // The number of audio channels in the output file
 func (o PresetAudioPtrOutput) Channels() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetAudio) *string { return v.Channels }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetAudio) *string { return v.Channels }).(pulumi.StringPtrOutput)
 }
 
-// The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
+// The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
 func (o PresetAudioPtrOutput) Codec() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetAudio) *string { return v.Codec }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetAudio) *string { return v.Codec }).(pulumi.StringPtrOutput)
 }
 
 // The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
 func (o PresetAudioPtrOutput) SampleRate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetAudio) *string { return v.SampleRate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetAudio) *string { return v.SampleRate }).(pulumi.StringPtrOutput)
 }
 
 type PresetAudioCodecOptions struct {
@@ -857,7 +865,8 @@ type PresetAudioCodecOptionsPtrInput interface {
 
 type presetAudioCodecOptionsPtrType PresetAudioCodecOptionsArgs
 
-func PresetAudioCodecOptionsPtr(v *PresetAudioCodecOptionsArgs) PresetAudioCodecOptionsPtrInput {	return (*presetAudioCodecOptionsPtrType)(v)
+func PresetAudioCodecOptionsPtr(v *PresetAudioCodecOptionsArgs) PresetAudioCodecOptionsPtrInput {
+	return (*presetAudioCodecOptionsPtrType)(v)
 }
 
 func (*presetAudioCodecOptionsPtrType) ElementType() reflect.Type {
@@ -872,7 +881,7 @@ func (i *presetAudioCodecOptionsPtrType) ToPresetAudioCodecOptionsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PresetAudioCodecOptionsPtrOutput)
 }
 
-type PresetAudioCodecOptionsOutput struct { *pulumi.OutputState }
+type PresetAudioCodecOptionsOutput struct{ *pulumi.OutputState }
 
 func (PresetAudioCodecOptionsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PresetAudioCodecOptions)(nil)).Elem()
@@ -895,27 +904,28 @@ func (o PresetAudioCodecOptionsOutput) ToPresetAudioCodecOptionsPtrOutputWithCon
 		return &v
 	}).(PresetAudioCodecOptionsPtrOutput)
 }
+
 // The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
 func (o PresetAudioCodecOptionsOutput) BitDepth() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetAudioCodecOptions) *string { return v.BitDepth }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetAudioCodecOptions) *string { return v.BitDepth }).(pulumi.StringPtrOutput)
 }
 
 // The order the bits of a PCM sample are stored in. The supported value is LittleEndian. (PCM Only)
 func (o PresetAudioCodecOptionsOutput) BitOrder() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetAudioCodecOptions) *string { return v.BitOrder }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetAudioCodecOptions) *string { return v.BitOrder }).(pulumi.StringPtrOutput)
 }
 
 // If you specified AAC for Audio:Codec, choose the AAC profile for the output file.
 func (o PresetAudioCodecOptionsOutput) Profile() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetAudioCodecOptions) *string { return v.Profile }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetAudioCodecOptions) *string { return v.Profile }).(pulumi.StringPtrOutput)
 }
 
 // Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned). The supported value is Signed. (PCM Only)
 func (o PresetAudioCodecOptionsOutput) Signed() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetAudioCodecOptions) *string { return v.Signed }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetAudioCodecOptions) *string { return v.Signed }).(pulumi.StringPtrOutput)
 }
 
-type PresetAudioCodecOptionsPtrOutput struct { *pulumi.OutputState}
+type PresetAudioCodecOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (PresetAudioCodecOptionsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PresetAudioCodecOptions)(nil)).Elem()
@@ -930,45 +940,45 @@ func (o PresetAudioCodecOptionsPtrOutput) ToPresetAudioCodecOptionsPtrOutputWith
 }
 
 func (o PresetAudioCodecOptionsPtrOutput) Elem() PresetAudioCodecOptionsOutput {
-	return o.ApplyT(func (v *PresetAudioCodecOptions) PresetAudioCodecOptions { return *v }).(PresetAudioCodecOptionsOutput)
+	return o.ApplyT(func(v *PresetAudioCodecOptions) PresetAudioCodecOptions { return *v }).(PresetAudioCodecOptionsOutput)
 }
 
 // The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
 func (o PresetAudioCodecOptionsPtrOutput) BitDepth() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetAudioCodecOptions) *string { return v.BitDepth }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetAudioCodecOptions) *string { return v.BitDepth }).(pulumi.StringPtrOutput)
 }
 
 // The order the bits of a PCM sample are stored in. The supported value is LittleEndian. (PCM Only)
 func (o PresetAudioCodecOptionsPtrOutput) BitOrder() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetAudioCodecOptions) *string { return v.BitOrder }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetAudioCodecOptions) *string { return v.BitOrder }).(pulumi.StringPtrOutput)
 }
 
 // If you specified AAC for Audio:Codec, choose the AAC profile for the output file.
 func (o PresetAudioCodecOptionsPtrOutput) Profile() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetAudioCodecOptions) *string { return v.Profile }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetAudioCodecOptions) *string { return v.Profile }).(pulumi.StringPtrOutput)
 }
 
 // Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned). The supported value is Signed. (PCM Only)
 func (o PresetAudioCodecOptionsPtrOutput) Signed() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetAudioCodecOptions) *string { return v.Signed }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetAudioCodecOptions) *string { return v.Signed }).(pulumi.StringPtrOutput)
 }
 
 type PresetThumbnails struct {
-	// The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
+	// The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
 	AspectRatio *string `pulumi:"aspectRatio"`
 	// The format of thumbnails, if any. Valid formats are jpg and png.
 	Format *string `pulumi:"format"`
 	// The approximate number of seconds between thumbnails. The value must be an integer. The actual interval can vary by several seconds from one thumbnail to the next.
 	Interval *string `pulumi:"interval"`
-	// The maximum height of the watermark.
+	// The maximum height of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
 	MaxHeight *string `pulumi:"maxHeight"`
-	// The maximum width of the watermark.
+	// The maximum width of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
 	MaxWidth *string `pulumi:"maxWidth"`
-	// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
+	// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of thumbnails to make the total size of the thumbnails match the values that you specified for thumbnail MaxWidth and MaxHeight settings.
 	PaddingPolicy *string `pulumi:"paddingPolicy"`
-	// The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
+	// The width and height of thumbnail files in pixels, in the format WidthxHeight, where both values are even integers. The values cannot exceed the width and height that you specified in the Video:Resolution object. (To better control resolution and aspect ratio of thumbnails, we recommend that you use the thumbnail values `maxWidth`, `maxHeight`, `sizingPolicy`, and `paddingPolicy` instead of `resolution` and `aspectRatio`. The two groups of settings are mutually exclusive. Do not use them together)
 	Resolution *string `pulumi:"resolution"`
-	// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+	// A value that controls scaling of thumbnails. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, and `ShrinkToFill`.
 	SizingPolicy *string `pulumi:"sizingPolicy"`
 }
 
@@ -980,21 +990,21 @@ type PresetThumbnailsInput interface {
 }
 
 type PresetThumbnailsArgs struct {
-	// The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
+	// The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
 	AspectRatio pulumi.StringPtrInput `pulumi:"aspectRatio"`
 	// The format of thumbnails, if any. Valid formats are jpg and png.
 	Format pulumi.StringPtrInput `pulumi:"format"`
 	// The approximate number of seconds between thumbnails. The value must be an integer. The actual interval can vary by several seconds from one thumbnail to the next.
 	Interval pulumi.StringPtrInput `pulumi:"interval"`
-	// The maximum height of the watermark.
+	// The maximum height of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
 	MaxHeight pulumi.StringPtrInput `pulumi:"maxHeight"`
-	// The maximum width of the watermark.
+	// The maximum width of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
 	MaxWidth pulumi.StringPtrInput `pulumi:"maxWidth"`
-	// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
+	// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of thumbnails to make the total size of the thumbnails match the values that you specified for thumbnail MaxWidth and MaxHeight settings.
 	PaddingPolicy pulumi.StringPtrInput `pulumi:"paddingPolicy"`
-	// The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
+	// The width and height of thumbnail files in pixels, in the format WidthxHeight, where both values are even integers. The values cannot exceed the width and height that you specified in the Video:Resolution object. (To better control resolution and aspect ratio of thumbnails, we recommend that you use the thumbnail values `maxWidth`, `maxHeight`, `sizingPolicy`, and `paddingPolicy` instead of `resolution` and `aspectRatio`. The two groups of settings are mutually exclusive. Do not use them together)
 	Resolution pulumi.StringPtrInput `pulumi:"resolution"`
-	// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+	// A value that controls scaling of thumbnails. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, and `ShrinkToFill`.
 	SizingPolicy pulumi.StringPtrInput `pulumi:"sizingPolicy"`
 }
 
@@ -1027,7 +1037,8 @@ type PresetThumbnailsPtrInput interface {
 
 type presetThumbnailsPtrType PresetThumbnailsArgs
 
-func PresetThumbnailsPtr(v *PresetThumbnailsArgs) PresetThumbnailsPtrInput {	return (*presetThumbnailsPtrType)(v)
+func PresetThumbnailsPtr(v *PresetThumbnailsArgs) PresetThumbnailsPtrInput {
+	return (*presetThumbnailsPtrType)(v)
 }
 
 func (*presetThumbnailsPtrType) ElementType() reflect.Type {
@@ -1042,7 +1053,7 @@ func (i *presetThumbnailsPtrType) ToPresetThumbnailsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PresetThumbnailsPtrOutput)
 }
 
-type PresetThumbnailsOutput struct { *pulumi.OutputState }
+type PresetThumbnailsOutput struct{ *pulumi.OutputState }
 
 func (PresetThumbnailsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PresetThumbnails)(nil)).Elem()
@@ -1065,47 +1076,48 @@ func (o PresetThumbnailsOutput) ToPresetThumbnailsPtrOutputWithContext(ctx conte
 		return &v
 	}).(PresetThumbnailsPtrOutput)
 }
-// The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
+
+// The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
 func (o PresetThumbnailsOutput) AspectRatio() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetThumbnails) *string { return v.AspectRatio }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetThumbnails) *string { return v.AspectRatio }).(pulumi.StringPtrOutput)
 }
 
 // The format of thumbnails, if any. Valid formats are jpg and png.
 func (o PresetThumbnailsOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetThumbnails) *string { return v.Format }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetThumbnails) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
 // The approximate number of seconds between thumbnails. The value must be an integer. The actual interval can vary by several seconds from one thumbnail to the next.
 func (o PresetThumbnailsOutput) Interval() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetThumbnails) *string { return v.Interval }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetThumbnails) *string { return v.Interval }).(pulumi.StringPtrOutput)
 }
 
-// The maximum height of the watermark.
+// The maximum height of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
 func (o PresetThumbnailsOutput) MaxHeight() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetThumbnails) *string { return v.MaxHeight }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetThumbnails) *string { return v.MaxHeight }).(pulumi.StringPtrOutput)
 }
 
-// The maximum width of the watermark.
+// The maximum width of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
 func (o PresetThumbnailsOutput) MaxWidth() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetThumbnails) *string { return v.MaxWidth }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetThumbnails) *string { return v.MaxWidth }).(pulumi.StringPtrOutput)
 }
 
-// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
+// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of thumbnails to make the total size of the thumbnails match the values that you specified for thumbnail MaxWidth and MaxHeight settings.
 func (o PresetThumbnailsOutput) PaddingPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetThumbnails) *string { return v.PaddingPolicy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetThumbnails) *string { return v.PaddingPolicy }).(pulumi.StringPtrOutput)
 }
 
-// The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
+// The width and height of thumbnail files in pixels, in the format WidthxHeight, where both values are even integers. The values cannot exceed the width and height that you specified in the Video:Resolution object. (To better control resolution and aspect ratio of thumbnails, we recommend that you use the thumbnail values `maxWidth`, `maxHeight`, `sizingPolicy`, and `paddingPolicy` instead of `resolution` and `aspectRatio`. The two groups of settings are mutually exclusive. Do not use them together)
 func (o PresetThumbnailsOutput) Resolution() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetThumbnails) *string { return v.Resolution }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetThumbnails) *string { return v.Resolution }).(pulumi.StringPtrOutput)
 }
 
-// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+// A value that controls scaling of thumbnails. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, and `ShrinkToFill`.
 func (o PresetThumbnailsOutput) SizingPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetThumbnails) *string { return v.SizingPolicy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetThumbnails) *string { return v.SizingPolicy }).(pulumi.StringPtrOutput)
 }
 
-type PresetThumbnailsPtrOutput struct { *pulumi.OutputState}
+type PresetThumbnailsPtrOutput struct{ *pulumi.OutputState }
 
 func (PresetThumbnailsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PresetThumbnails)(nil)).Elem()
@@ -1120,47 +1132,47 @@ func (o PresetThumbnailsPtrOutput) ToPresetThumbnailsPtrOutputWithContext(ctx co
 }
 
 func (o PresetThumbnailsPtrOutput) Elem() PresetThumbnailsOutput {
-	return o.ApplyT(func (v *PresetThumbnails) PresetThumbnails { return *v }).(PresetThumbnailsOutput)
+	return o.ApplyT(func(v *PresetThumbnails) PresetThumbnails { return *v }).(PresetThumbnailsOutput)
 }
 
-// The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
+// The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
 func (o PresetThumbnailsPtrOutput) AspectRatio() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetThumbnails) *string { return v.AspectRatio }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetThumbnails) *string { return v.AspectRatio }).(pulumi.StringPtrOutput)
 }
 
 // The format of thumbnails, if any. Valid formats are jpg and png.
 func (o PresetThumbnailsPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetThumbnails) *string { return v.Format }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetThumbnails) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
 // The approximate number of seconds between thumbnails. The value must be an integer. The actual interval can vary by several seconds from one thumbnail to the next.
 func (o PresetThumbnailsPtrOutput) Interval() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetThumbnails) *string { return v.Interval }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetThumbnails) *string { return v.Interval }).(pulumi.StringPtrOutput)
 }
 
-// The maximum height of the watermark.
+// The maximum height of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
 func (o PresetThumbnailsPtrOutput) MaxHeight() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetThumbnails) *string { return v.MaxHeight }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetThumbnails) *string { return v.MaxHeight }).(pulumi.StringPtrOutput)
 }
 
-// The maximum width of the watermark.
+// The maximum width of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
 func (o PresetThumbnailsPtrOutput) MaxWidth() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetThumbnails) *string { return v.MaxWidth }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetThumbnails) *string { return v.MaxWidth }).(pulumi.StringPtrOutput)
 }
 
-// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
+// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of thumbnails to make the total size of the thumbnails match the values that you specified for thumbnail MaxWidth and MaxHeight settings.
 func (o PresetThumbnailsPtrOutput) PaddingPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetThumbnails) *string { return v.PaddingPolicy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetThumbnails) *string { return v.PaddingPolicy }).(pulumi.StringPtrOutput)
 }
 
-// The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
+// The width and height of thumbnail files in pixels, in the format WidthxHeight, where both values are even integers. The values cannot exceed the width and height that you specified in the Video:Resolution object. (To better control resolution and aspect ratio of thumbnails, we recommend that you use the thumbnail values `maxWidth`, `maxHeight`, `sizingPolicy`, and `paddingPolicy` instead of `resolution` and `aspectRatio`. The two groups of settings are mutually exclusive. Do not use them together)
 func (o PresetThumbnailsPtrOutput) Resolution() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetThumbnails) *string { return v.Resolution }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetThumbnails) *string { return v.Resolution }).(pulumi.StringPtrOutput)
 }
 
-// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+// A value that controls scaling of thumbnails. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, and `ShrinkToFill`.
 func (o PresetThumbnailsPtrOutput) SizingPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetThumbnails) *string { return v.SizingPolicy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetThumbnails) *string { return v.SizingPolicy }).(pulumi.StringPtrOutput)
 }
 
 type PresetVideo struct {
@@ -1180,15 +1192,15 @@ type PresetVideo struct {
 	KeyframesMaxDist *string `pulumi:"keyframesMaxDist"`
 	// If you specify auto for FrameRate, Elastic Transcoder uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. If you do not specify a MaxFrameRate, Elastic Transcoder will use a default of 30.
 	MaxFrameRate *string `pulumi:"maxFrameRate"`
-	// The maximum height of the watermark.
+	// The maximum height of the output video in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 96 and 3072, inclusive.
 	MaxHeight *string `pulumi:"maxHeight"`
-	// The maximum width of the watermark.
+	// The maximum width of the output video in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 128 and 4096, inclusive.
 	MaxWidth *string `pulumi:"maxWidth"`
 	// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
 	PaddingPolicy *string `pulumi:"paddingPolicy"`
 	// The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
 	Resolution *string `pulumi:"resolution"`
-	// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+	// A value that controls scaling of the output video. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, `ShrinkToFill`.
 	SizingPolicy *string `pulumi:"sizingPolicy"`
 }
 
@@ -1216,15 +1228,15 @@ type PresetVideoArgs struct {
 	KeyframesMaxDist pulumi.StringPtrInput `pulumi:"keyframesMaxDist"`
 	// If you specify auto for FrameRate, Elastic Transcoder uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. If you do not specify a MaxFrameRate, Elastic Transcoder will use a default of 30.
 	MaxFrameRate pulumi.StringPtrInput `pulumi:"maxFrameRate"`
-	// The maximum height of the watermark.
+	// The maximum height of the output video in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 96 and 3072, inclusive.
 	MaxHeight pulumi.StringPtrInput `pulumi:"maxHeight"`
-	// The maximum width of the watermark.
+	// The maximum width of the output video in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 128 and 4096, inclusive.
 	MaxWidth pulumi.StringPtrInput `pulumi:"maxWidth"`
 	// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
 	PaddingPolicy pulumi.StringPtrInput `pulumi:"paddingPolicy"`
 	// The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
 	Resolution pulumi.StringPtrInput `pulumi:"resolution"`
-	// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+	// A value that controls scaling of the output video. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, `ShrinkToFill`.
 	SizingPolicy pulumi.StringPtrInput `pulumi:"sizingPolicy"`
 }
 
@@ -1257,7 +1269,8 @@ type PresetVideoPtrInput interface {
 
 type presetVideoPtrType PresetVideoArgs
 
-func PresetVideoPtr(v *PresetVideoArgs) PresetVideoPtrInput {	return (*presetVideoPtrType)(v)
+func PresetVideoPtr(v *PresetVideoArgs) PresetVideoPtrInput {
+	return (*presetVideoPtrType)(v)
 }
 
 func (*presetVideoPtrType) ElementType() reflect.Type {
@@ -1272,7 +1285,7 @@ func (i *presetVideoPtrType) ToPresetVideoPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PresetVideoPtrOutput)
 }
 
-type PresetVideoOutput struct { *pulumi.OutputState }
+type PresetVideoOutput struct{ *pulumi.OutputState }
 
 func (PresetVideoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PresetVideo)(nil)).Elem()
@@ -1295,72 +1308,73 @@ func (o PresetVideoOutput) ToPresetVideoPtrOutputWithContext(ctx context.Context
 		return &v
 	}).(PresetVideoPtrOutput)
 }
+
 // The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
 func (o PresetVideoOutput) AspectRatio() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.AspectRatio }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.AspectRatio }).(pulumi.StringPtrOutput)
 }
 
 // The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
 func (o PresetVideoOutput) BitRate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.BitRate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.BitRate }).(pulumi.StringPtrOutput)
 }
 
 // The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
 func (o PresetVideoOutput) Codec() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.Codec }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.Codec }).(pulumi.StringPtrOutput)
 }
 
 // The value that Elastic Transcoder adds to the metadata in the output file. If you set DisplayAspectRatio to auto, Elastic Transcoder chooses an aspect ratio that ensures square pixels. If you specify another option, Elastic Transcoder sets that value in the output file.
 func (o PresetVideoOutput) DisplayAspectRatio() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.DisplayAspectRatio }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.DisplayAspectRatio }).(pulumi.StringPtrOutput)
 }
 
 // Whether to use a fixed value for Video:FixedGOP. Not applicable for containers of type gif. Valid values are true and false. Also known as, Fixed Number of Frames Between Keyframes.
 func (o PresetVideoOutput) FixedGop() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.FixedGop }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.FixedGop }).(pulumi.StringPtrOutput)
 }
 
 // The frames per second for the video stream in the output file. The following values are valid: `auto`, `10`, `15`, `23.97`, `24`, `25`, `29.97`, `30`, `50`, `60`.
 func (o PresetVideoOutput) FrameRate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.FrameRate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.FrameRate }).(pulumi.StringPtrOutput)
 }
 
 // The maximum number of frames between key frames. Not applicable for containers of type gif.
 func (o PresetVideoOutput) KeyframesMaxDist() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.KeyframesMaxDist }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.KeyframesMaxDist }).(pulumi.StringPtrOutput)
 }
 
 // If you specify auto for FrameRate, Elastic Transcoder uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. If you do not specify a MaxFrameRate, Elastic Transcoder will use a default of 30.
 func (o PresetVideoOutput) MaxFrameRate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.MaxFrameRate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.MaxFrameRate }).(pulumi.StringPtrOutput)
 }
 
-// The maximum height of the watermark.
+// The maximum height of the output video in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 96 and 3072, inclusive.
 func (o PresetVideoOutput) MaxHeight() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.MaxHeight }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.MaxHeight }).(pulumi.StringPtrOutput)
 }
 
-// The maximum width of the watermark.
+// The maximum width of the output video in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 128 and 4096, inclusive.
 func (o PresetVideoOutput) MaxWidth() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.MaxWidth }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.MaxWidth }).(pulumi.StringPtrOutput)
 }
 
 // When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
 func (o PresetVideoOutput) PaddingPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.PaddingPolicy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.PaddingPolicy }).(pulumi.StringPtrOutput)
 }
 
 // The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
 func (o PresetVideoOutput) Resolution() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.Resolution }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.Resolution }).(pulumi.StringPtrOutput)
 }
 
-// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+// A value that controls scaling of the output video. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, `ShrinkToFill`.
 func (o PresetVideoOutput) SizingPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.SizingPolicy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.SizingPolicy }).(pulumi.StringPtrOutput)
 }
 
-type PresetVideoPtrOutput struct { *pulumi.OutputState}
+type PresetVideoPtrOutput struct{ *pulumi.OutputState }
 
 func (PresetVideoPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PresetVideo)(nil)).Elem()
@@ -1375,72 +1389,72 @@ func (o PresetVideoPtrOutput) ToPresetVideoPtrOutputWithContext(ctx context.Cont
 }
 
 func (o PresetVideoPtrOutput) Elem() PresetVideoOutput {
-	return o.ApplyT(func (v *PresetVideo) PresetVideo { return *v }).(PresetVideoOutput)
+	return o.ApplyT(func(v *PresetVideo) PresetVideo { return *v }).(PresetVideoOutput)
 }
 
 // The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
 func (o PresetVideoPtrOutput) AspectRatio() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.AspectRatio }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.AspectRatio }).(pulumi.StringPtrOutput)
 }
 
 // The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
 func (o PresetVideoPtrOutput) BitRate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.BitRate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.BitRate }).(pulumi.StringPtrOutput)
 }
 
 // The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
 func (o PresetVideoPtrOutput) Codec() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.Codec }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.Codec }).(pulumi.StringPtrOutput)
 }
 
 // The value that Elastic Transcoder adds to the metadata in the output file. If you set DisplayAspectRatio to auto, Elastic Transcoder chooses an aspect ratio that ensures square pixels. If you specify another option, Elastic Transcoder sets that value in the output file.
 func (o PresetVideoPtrOutput) DisplayAspectRatio() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.DisplayAspectRatio }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.DisplayAspectRatio }).(pulumi.StringPtrOutput)
 }
 
 // Whether to use a fixed value for Video:FixedGOP. Not applicable for containers of type gif. Valid values are true and false. Also known as, Fixed Number of Frames Between Keyframes.
 func (o PresetVideoPtrOutput) FixedGop() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.FixedGop }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.FixedGop }).(pulumi.StringPtrOutput)
 }
 
 // The frames per second for the video stream in the output file. The following values are valid: `auto`, `10`, `15`, `23.97`, `24`, `25`, `29.97`, `30`, `50`, `60`.
 func (o PresetVideoPtrOutput) FrameRate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.FrameRate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.FrameRate }).(pulumi.StringPtrOutput)
 }
 
 // The maximum number of frames between key frames. Not applicable for containers of type gif.
 func (o PresetVideoPtrOutput) KeyframesMaxDist() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.KeyframesMaxDist }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.KeyframesMaxDist }).(pulumi.StringPtrOutput)
 }
 
 // If you specify auto for FrameRate, Elastic Transcoder uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. If you do not specify a MaxFrameRate, Elastic Transcoder will use a default of 30.
 func (o PresetVideoPtrOutput) MaxFrameRate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.MaxFrameRate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.MaxFrameRate }).(pulumi.StringPtrOutput)
 }
 
-// The maximum height of the watermark.
+// The maximum height of the output video in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 96 and 3072, inclusive.
 func (o PresetVideoPtrOutput) MaxHeight() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.MaxHeight }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.MaxHeight }).(pulumi.StringPtrOutput)
 }
 
-// The maximum width of the watermark.
+// The maximum width of the output video in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 128 and 4096, inclusive.
 func (o PresetVideoPtrOutput) MaxWidth() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.MaxWidth }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.MaxWidth }).(pulumi.StringPtrOutput)
 }
 
 // When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
 func (o PresetVideoPtrOutput) PaddingPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.PaddingPolicy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.PaddingPolicy }).(pulumi.StringPtrOutput)
 }
 
 // The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
 func (o PresetVideoPtrOutput) Resolution() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.Resolution }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.Resolution }).(pulumi.StringPtrOutput)
 }
 
-// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+// A value that controls scaling of the output video. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, `ShrinkToFill`.
 func (o PresetVideoPtrOutput) SizingPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideo) *string { return v.SizingPolicy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideo) *string { return v.SizingPolicy }).(pulumi.StringPtrOutput)
 }
 
 type PresetVideoWatermark struct {
@@ -1529,7 +1543,7 @@ func (i PresetVideoWatermarkArray) ToPresetVideoWatermarkArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(PresetVideoWatermarkArrayOutput)
 }
 
-type PresetVideoWatermarkOutput struct { *pulumi.OutputState }
+type PresetVideoWatermarkOutput struct{ *pulumi.OutputState }
 
 func (PresetVideoWatermarkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PresetVideoWatermark)(nil)).Elem()
@@ -1545,55 +1559,55 @@ func (o PresetVideoWatermarkOutput) ToPresetVideoWatermarkOutputWithContext(ctx 
 
 // The horizontal position of the watermark unless you specify a nonzero value for `horzontalOffset`.
 func (o PresetVideoWatermarkOutput) HorizontalAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideoWatermark) *string { return v.HorizontalAlign }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideoWatermark) *string { return v.HorizontalAlign }).(pulumi.StringPtrOutput)
 }
 
 // The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontalAlign`.
 func (o PresetVideoWatermarkOutput) HorizontalOffset() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideoWatermark) *string { return v.HorizontalOffset }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideoWatermark) *string { return v.HorizontalOffset }).(pulumi.StringPtrOutput)
 }
 
 // A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
 func (o PresetVideoWatermarkOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideoWatermark) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideoWatermark) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The maximum height of the watermark.
 func (o PresetVideoWatermarkOutput) MaxHeight() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideoWatermark) *string { return v.MaxHeight }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideoWatermark) *string { return v.MaxHeight }).(pulumi.StringPtrOutput)
 }
 
 // The maximum width of the watermark.
 func (o PresetVideoWatermarkOutput) MaxWidth() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideoWatermark) *string { return v.MaxWidth }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideoWatermark) *string { return v.MaxWidth }).(pulumi.StringPtrOutput)
 }
 
 // A percentage that indicates how much you want a watermark to obscure the video in the location where it appears.
 func (o PresetVideoWatermarkOutput) Opacity() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideoWatermark) *string { return v.Opacity }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideoWatermark) *string { return v.Opacity }).(pulumi.StringPtrOutput)
 }
 
 // A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
 func (o PresetVideoWatermarkOutput) SizingPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideoWatermark) *string { return v.SizingPolicy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideoWatermark) *string { return v.SizingPolicy }).(pulumi.StringPtrOutput)
 }
 
 // A value that determines how Elastic Transcoder interprets values that you specified for `video_watermarks.horizontal_offset`, `video_watermarks.vertical_offset`, `video_watermarks.max_width`, and `video_watermarks.max_height`. Valid values are `Content` and `Frame`.
 func (o PresetVideoWatermarkOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideoWatermark) *string { return v.Target }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideoWatermark) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
 // The vertical position of the watermark unless you specify a nonzero value for `verticalAlign`. Valid values are `Top`, `Bottom`, `Center`.
 func (o PresetVideoWatermarkOutput) VerticalAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideoWatermark) *string { return v.VerticalAlign }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideoWatermark) *string { return v.VerticalAlign }).(pulumi.StringPtrOutput)
 }
 
 // The amount by which you want the vertical position of the watermark to be offset from the position specified by `verticalAlign`
 func (o PresetVideoWatermarkOutput) VerticalOffset() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PresetVideoWatermark) *string { return v.VerticalOffset }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PresetVideoWatermark) *string { return v.VerticalOffset }).(pulumi.StringPtrOutput)
 }
 
-type PresetVideoWatermarkArrayOutput struct { *pulumi.OutputState}
+type PresetVideoWatermarkArrayOutput struct{ *pulumi.OutputState }
 
 func (PresetVideoWatermarkArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PresetVideoWatermark)(nil)).Elem()
@@ -1608,7 +1622,7 @@ func (o PresetVideoWatermarkArrayOutput) ToPresetVideoWatermarkArrayOutputWithCo
 }
 
 func (o PresetVideoWatermarkArrayOutput) Index(i pulumi.IntInput) PresetVideoWatermarkOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PresetVideoWatermark {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PresetVideoWatermark {
 		return vs[0].([]PresetVideoWatermark)[vs[1].(int)]
 	}).(PresetVideoWatermarkOutput)
 }

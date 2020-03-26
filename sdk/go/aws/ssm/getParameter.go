@@ -28,16 +28,14 @@ type LookupParameterArgs struct {
 	WithDecryption *bool `pulumi:"withDecryption"`
 }
 
-
 // A collection of values returned by getParameter.
 type LookupParameterResult struct {
 	Arn string `pulumi:"arn"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	Name string `pulumi:"name"`
-	Type string `pulumi:"type"`
-	Value string `pulumi:"value"`
-	Version int `pulumi:"version"`
-	WithDecryption *bool `pulumi:"withDecryption"`
+	Id             string `pulumi:"id"`
+	Name           string `pulumi:"name"`
+	Type           string `pulumi:"type"`
+	Value          string `pulumi:"value"`
+	Version        int    `pulumi:"version"`
+	WithDecryption *bool  `pulumi:"withDecryption"`
 }
-

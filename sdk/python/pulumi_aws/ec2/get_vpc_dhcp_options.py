@@ -97,6 +97,7 @@ def get_vpc_dhcp_options(dhcp_options_id=None,filters=None,tags=None,opts=None):
 
     :param str dhcp_options_id: The EC2 DHCP Options ID.
     :param list filters: List of custom filters as described below.
+    :param dict tags: A mapping of tags assigned to the resource.
 
     The **filters** object supports the following:
 

@@ -116,6 +116,7 @@ def get_vpc_endpoint_service(service=None,service_name=None,tags=None,opts=None)
 
     :param str service: The common name of an AWS service (e.g. `s3`).
     :param str service_name: The service name that can be specified when creating a VPC endpoint.
+    :param dict tags: A mapping of tags assigned to the resource.
     """
     __args__ = dict()
 

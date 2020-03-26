@@ -16,7 +16,18 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret_version.html.markdown.
         /// </summary>
+        [Obsolete("Use GetSecretVersion.InvokeAsync() instead")]
         public static Task<GetSecretVersionResult> GetSecretVersion(GetSecretVersionArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretVersionResult>("aws:secretsmanager/getSecretVersion:getSecretVersion", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetSecretVersion
+    {
+        /// <summary>
+        /// Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`aws.secretsmanager.Secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret_version.html.markdown.
+        /// </summary>
+        public static Task<GetSecretVersionResult> InvokeAsync(GetSecretVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretVersionResult>("aws:secretsmanager/getSecretVersion:getSecretVersion", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

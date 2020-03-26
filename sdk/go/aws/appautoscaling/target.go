@@ -146,4 +146,3 @@ type TargetArgs struct {
 func (TargetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*targetArgs)(nil)).Elem()
 }
-

@@ -105,4 +105,3 @@ type GcmChannelArgs struct {
 func (GcmChannelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gcmChannelArgs)(nil)).Elem()
 }
-

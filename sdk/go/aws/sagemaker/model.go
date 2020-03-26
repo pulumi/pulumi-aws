@@ -145,4 +145,3 @@ type ModelArgs struct {
 func (ModelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*modelArgs)(nil)).Elem()
 }
-

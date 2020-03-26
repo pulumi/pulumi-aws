@@ -115,4 +115,3 @@ type CatalogDatabaseArgs struct {
 func (CatalogDatabaseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*catalogDatabaseArgs)(nil)).Elem()
 }
-

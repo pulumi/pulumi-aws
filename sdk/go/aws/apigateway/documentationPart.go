@@ -105,4 +105,3 @@ type DocumentationPartArgs struct {
 func (DocumentationPartArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*documentationPartArgs)(nil)).Elem()
 }
-

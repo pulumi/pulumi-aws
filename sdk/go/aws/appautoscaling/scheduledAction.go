@@ -158,4 +158,3 @@ type ScheduledActionArgs struct {
 func (ScheduledActionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduledActionArgs)(nil)).Elem()
 }
-

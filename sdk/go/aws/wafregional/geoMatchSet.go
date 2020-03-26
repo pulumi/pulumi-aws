@@ -85,4 +85,3 @@ type GeoMatchSetArgs struct {
 func (GeoMatchSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*geoMatchSetArgs)(nil)).Elem()
 }
-

@@ -45,4 +45,3 @@ type LookupOrganizationResult struct {
 	// List of organization roots. All elements have these attributes:
 	Roots []GetOrganizationRoot `pulumi:"roots"`
 }
-

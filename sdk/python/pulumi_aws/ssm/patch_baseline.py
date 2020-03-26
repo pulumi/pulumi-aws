@@ -14,10 +14,11 @@ class PatchBaseline(pulumi.CustomResource):
     """
     A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
 
-      * `approveAfterDays` (`float`)
-      * `complianceLevel` (`str`)
-      * `enableNonSecurity` (`bool`)
-      * `patchFilters` (`list`)
+      * `approveAfterDays` (`float`) - The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
+      * `complianceLevel` (`str`) - Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
+      * `enableNonSecurity` (`bool`) - Boolean enabling the application of non-security updates. The default value is 'false'. Valid for Linux instances only.
+      * `patchFilters` (`list`) - The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
+        * `PATCH_SET` defaults to `OS` if unspecified
         * `key` (`str`)
         * `values` (`list`)
     """
@@ -53,6 +54,9 @@ class PatchBaseline(pulumi.CustomResource):
     A list of rejected patches.
     """
     tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
     def __init__(__self__, resource_name, opts=None, approval_rules=None, approved_patches=None, approved_patches_compliance_level=None, description=None, global_filters=None, name=None, operating_system=None, rejected_patches=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an SSM Patch Baseline resource
@@ -73,13 +77,15 @@ class PatchBaseline(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the patch baseline.
         :param pulumi.Input[str] operating_system: Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
         :param pulumi.Input[list] rejected_patches: A list of rejected patches.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         The **approval_rules** object supports the following:
 
-          * `approveAfterDays` (`pulumi.Input[float]`)
-          * `complianceLevel` (`pulumi.Input[str]`)
-          * `enableNonSecurity` (`pulumi.Input[bool]`)
-          * `patchFilters` (`pulumi.Input[list]`)
+          * `approveAfterDays` (`pulumi.Input[float]`) - The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
+          * `complianceLevel` (`pulumi.Input[str]`) - Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
+          * `enableNonSecurity` (`pulumi.Input[bool]`) - Boolean enabling the application of non-security updates. The default value is 'false'. Valid for Linux instances only.
+          * `patchFilters` (`pulumi.Input[list]`) - The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
+            * `PATCH_SET` defaults to `OS` if unspecified
             * `key` (`pulumi.Input[str]`)
             * `values` (`pulumi.Input[list]`)
 
@@ -137,13 +143,15 @@ class PatchBaseline(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the patch baseline.
         :param pulumi.Input[str] operating_system: Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
         :param pulumi.Input[list] rejected_patches: A list of rejected patches.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         The **approval_rules** object supports the following:
 
-          * `approveAfterDays` (`pulumi.Input[float]`)
-          * `complianceLevel` (`pulumi.Input[str]`)
-          * `enableNonSecurity` (`pulumi.Input[bool]`)
-          * `patchFilters` (`pulumi.Input[list]`)
+          * `approveAfterDays` (`pulumi.Input[float]`) - The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
+          * `complianceLevel` (`pulumi.Input[str]`) - Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
+          * `enableNonSecurity` (`pulumi.Input[bool]`) - Boolean enabling the application of non-security updates. The default value is 'false'. Valid for Linux instances only.
+          * `patchFilters` (`pulumi.Input[list]`) - The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
+            * `PATCH_SET` defaults to `OS` if unspecified
             * `key` (`pulumi.Input[str]`)
             * `values` (`pulumi.Input[list]`)
 

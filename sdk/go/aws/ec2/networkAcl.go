@@ -142,4 +142,3 @@ type NetworkAclArgs struct {
 func (NetworkAclArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkAclArgs)(nil)).Elem()
 }
-

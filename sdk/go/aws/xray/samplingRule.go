@@ -222,4 +222,3 @@ type SamplingRuleArgs struct {
 func (SamplingRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*samplingRuleArgs)(nil)).Elem()
 }
-

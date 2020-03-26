@@ -115,6 +115,13 @@ def get_certificate_authority(arn=None,revocation_configurations=None,tags=None,
 
 
     :param str arn: Amazon Resource Name (ARN) of the certificate authority.
+    :param list revocation_configurations: Nested attribute containing revocation configuration.
+           * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
+           * `revocation_configuration.0.crl_configuration.0.custom_cname` - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
+           * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+           * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
+           * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
+    :param dict tags: Specifies a key-value map of user-defined tags that are attached to the certificate authority.
 
     The **revocation_configurations** object supports the following:
 

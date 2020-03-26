@@ -151,9 +151,15 @@ namespace Pulumi.Aws.Athena
 
     public sealed class DatabaseEncryptionConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
+        /// </summary>
         [Input("encryptionOption", required: true)]
         public Input<string> EncryptionOption { get; set; } = null!;
 
+        /// <summary>
+        /// The KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
+        /// </summary>
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
 
@@ -164,9 +170,15 @@ namespace Pulumi.Aws.Athena
 
     public sealed class DatabaseEncryptionConfigurationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
+        /// </summary>
         [Input("encryptionOption", required: true)]
         public Input<string> EncryptionOption { get; set; } = null!;
 
+        /// <summary>
+        /// The KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
+        /// </summary>
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
 
@@ -182,7 +194,13 @@ namespace Pulumi.Aws.Athena
     [OutputType]
     public sealed class DatabaseEncryptionConfiguration
     {
+        /// <summary>
+        /// The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
+        /// </summary>
         public readonly string EncryptionOption;
+        /// <summary>
+        /// The KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
+        /// </summary>
         public readonly string? KmsKey;
 
         [OutputConstructor]

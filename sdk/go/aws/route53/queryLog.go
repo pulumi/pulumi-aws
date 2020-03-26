@@ -98,4 +98,3 @@ type QueryLogArgs struct {
 func (QueryLogArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*queryLogArgs)(nil)).Elem()
 }
-

@@ -15,8 +15,8 @@ class NetworkInterface(pulumi.CustomResource):
     Block to define the attachment of the ENI. Documented below.
 
       * `attachment_id` (`str`)
-      * `device_index` (`float`)
-      * `instance` (`str`)
+      * `device_index` (`float`) - Integer to define the devices index.
+      * `instance` (`str`) - ID of the instance to attach to.
     """
     description: pulumi.Output[str]
     """
@@ -75,8 +75,8 @@ class NetworkInterface(pulumi.CustomResource):
         The **attachments** object supports the following:
 
           * `attachment_id` (`pulumi.Input[str]`)
-          * `device_index` (`pulumi.Input[float]`)
-          * `instance` (`pulumi.Input[str]`)
+          * `device_index` (`pulumi.Input[float]`) - Integer to define the devices index.
+          * `instance` (`pulumi.Input[str]`) - ID of the instance to attach to.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -137,8 +137,8 @@ class NetworkInterface(pulumi.CustomResource):
         The **attachments** object supports the following:
 
           * `attachment_id` (`pulumi.Input[str]`)
-          * `device_index` (`pulumi.Input[float]`)
-          * `instance` (`pulumi.Input[str]`)
+          * `device_index` (`pulumi.Input[float]`) - Integer to define the devices index.
+          * `instance` (`pulumi.Input[str]`) - ID of the instance to attach to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -57,7 +57,7 @@ type LoadBalancer struct {
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags  pulumi.MapOutput    `pulumi:"tags"`
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
 	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
@@ -69,6 +69,12 @@ func NewLoadBalancer(ctx *pulumi.Context,
 	if args == nil {
 		args = &LoadBalancerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("aws:applicationloadbalancing/loadBalancer:LoadBalancer"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource LoadBalancer
 	err := ctx.RegisterResource("aws:alb/loadBalancer:LoadBalancer", name, args, &resource, opts...)
 	if err != nil {
@@ -130,8 +136,8 @@ type loadBalancerState struct {
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets []string `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
-	VpcId *string `pulumi:"vpcId"`
+	Tags  map[string]interface{} `pulumi:"tags"`
+	VpcId *string                `pulumi:"vpcId"`
 	// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
 	ZoneId *string `pulumi:"zoneId"`
 }
@@ -176,7 +182,7 @@ type LoadBalancerState struct {
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayInput
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags  pulumi.MapInput
 	VpcId pulumi.StringPtrInput
 	// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
 	ZoneId pulumi.StringPtrInput
@@ -264,4 +270,3 @@ type LoadBalancerArgs struct {
 func (LoadBalancerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancerArgs)(nil)).Elem()
 }
-

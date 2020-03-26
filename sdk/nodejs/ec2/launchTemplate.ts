@@ -39,7 +39,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the launch template.
+     * The Amazon Resource Name (ARN) of the instance profile.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -265,7 +265,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
  */
 export interface LaunchTemplateState {
     /**
-     * Amazon Resource Name (ARN) of the launch template.
+     * The Amazon Resource Name (ARN) of the instance profile.
      */
     readonly arn?: pulumi.Input<string>;
     /**

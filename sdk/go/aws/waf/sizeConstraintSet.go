@@ -91,4 +91,3 @@ type SizeConstraintSetArgs struct {
 func (SizeConstraintSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*sizeConstraintSetArgs)(nil)).Elem()
 }
-

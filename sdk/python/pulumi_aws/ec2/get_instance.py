@@ -284,6 +284,7 @@ def get_instance(filters=None,get_password_data=None,get_user_data=None,instance
     :param str instance_id: Specify the exact Instance ID with which to populate the data source.
     :param dict instance_tags: A mapping of tags, each pair of which must
            exactly match a pair on the desired Instance.
+    :param dict tags: A mapping of tags assigned to the Instance.
 
     The **filters** object supports the following:
 

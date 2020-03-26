@@ -16,7 +16,18 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_hosted_zone.html.markdown.
         /// </summary>
+        [Obsolete("Use GetHostedZone.InvokeAsync() instead")]
         public static Task<GetHostedZoneResult> GetHostedZone(GetHostedZoneArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneResult>("aws:elasticbeanstalk/getHostedZone:getHostedZone", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetHostedZone
+    {
+        /// <summary>
+        /// Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_hosted_zone.html.markdown.
+        /// </summary>
+        public static Task<GetHostedZoneResult> InvokeAsync(GetHostedZoneArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneResult>("aws:elasticbeanstalk/getHostedZone:getHostedZone", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

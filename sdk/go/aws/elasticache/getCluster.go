@@ -24,9 +24,9 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 type LookupClusterArgs struct {
 	// Group identifier.
 	ClusterId string `pulumi:"clusterId"`
+	// The tags assigned to the resource
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
@@ -38,7 +38,7 @@ type LookupClusterResult struct {
 	CacheNodes []GetClusterCacheNode `pulumi:"cacheNodes"`
 	// (Memcached only) The DNS name of the cache cluster without the port appended.
 	ClusterAddress string `pulumi:"clusterAddress"`
-	ClusterId string `pulumi:"clusterId"`
+	ClusterId      string `pulumi:"clusterId"`
 	// (Memcached only) The configuration endpoint to allow host discovery.
 	ConfigurationEndpoint string `pulumi:"configurationEndpoint"`
 	// Name of the cache engine.
@@ -79,4 +79,3 @@ type LookupClusterResult struct {
 	// The tags assigned to the resource
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-

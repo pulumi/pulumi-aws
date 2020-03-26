@@ -24,9 +24,9 @@ func LookupLaunchTemplate(ctx *pulumi.Context, args *LookupLaunchTemplateArgs, o
 type LookupLaunchTemplateArgs struct {
 	// The name of the launch template.
 	Name string `pulumi:"name"`
+	// (Optional) A mapping of tags to assign to the launch template.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getLaunchTemplate.
 type LookupLaunchTemplateResult struct {
@@ -72,7 +72,7 @@ type LookupLaunchTemplateResult struct {
 	LatestVersion int `pulumi:"latestVersion"`
 	// The monitoring option for the instance.
 	Monitorings []GetLaunchTemplateMonitoring `pulumi:"monitorings"`
-	Name string `pulumi:"name"`
+	Name        string                        `pulumi:"name"`
 	// Customize network interfaces to be attached at instance boot time. See Network
 	// Interfaces below for more details.
 	NetworkInterfaces []GetLaunchTemplateNetworkInterface `pulumi:"networkInterfaces"`
@@ -92,4 +92,3 @@ type LookupLaunchTemplateResult struct {
 	// A list of security group IDs to associate with.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
-

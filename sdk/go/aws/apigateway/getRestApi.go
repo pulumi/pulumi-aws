@@ -9,8 +9,8 @@ import (
 )
 
 // Use this data source to get the id and rootResourceId of a REST API in
-// API Gateway. To fetch the REST API you must provide a name to match against. 
-// As there is no unique name constraint on REST APIs this data source will 
+// API Gateway. To fetch the REST API you must provide a name to match against.
+// As there is no unique name constraint on REST APIs this data source will
 // error if there is more than one match.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_rest_api.html.markdown.
@@ -27,9 +27,9 @@ func LookupRestApi(ctx *pulumi.Context, args *LookupRestApiArgs, opts ...pulumi.
 type LookupRestApiArgs struct {
 	// The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
 	Name string `pulumi:"name"`
+	// Key-value mapping of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-
 
 // A collection of values returned by getRestApi.
 type LookupRestApiResult struct {
@@ -48,8 +48,8 @@ type LookupRestApiResult struct {
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Minimum response size to compress for the REST API.
-	MinimumCompressionSize int `pulumi:"minimumCompressionSize"`
-	Name string `pulumi:"name"`
+	MinimumCompressionSize int    `pulumi:"minimumCompressionSize"`
+	Name                   string `pulumi:"name"`
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy string `pulumi:"policy"`
 	// Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
@@ -57,4 +57,3 @@ type LookupRestApiResult struct {
 	// Key-value mapping of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
-

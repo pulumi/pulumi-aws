@@ -33,7 +33,6 @@ type GetRegionArgs struct {
 	Name *string `pulumi:"name"`
 }
 
-
 // A collection of values returned by getRegion.
 type GetRegionResult struct {
 	// The region's description in this format: "Location (Region name)".
@@ -45,4 +44,3 @@ type GetRegionResult struct {
 	// The name of the selected region.
 	Name string `pulumi:"name"`
 }
-

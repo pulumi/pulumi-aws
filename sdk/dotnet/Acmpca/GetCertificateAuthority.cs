@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Acmpca
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acmpca_certificate_authority.html.markdown.
         /// </summary>
+        [Obsolete("Use GetCertificateAuthority.InvokeAsync() instead")]
         public static Task<GetCertificateAuthorityResult> GetCertificateAuthority(GetCertificateAuthorityArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateAuthorityResult>("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetCertificateAuthority
+    {
+        /// <summary>
+        /// Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acmpca_certificate_authority.html.markdown.
+        /// </summary>
+        public static Task<GetCertificateAuthorityResult> InvokeAsync(GetCertificateAuthorityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateAuthorityResult>("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -30,6 +41,15 @@ namespace Pulumi.Aws.Acmpca
 
         [Input("revocationConfigurations")]
         private List<Inputs.GetCertificateAuthorityRevocationConfigurationsArgs>? _revocationConfigurations;
+
+        /// <summary>
+        /// Nested attribute containing revocation configuration.
+        /// * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
+        /// * `revocation_configuration.0.crl_configuration.0.custom_cname` - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
+        /// * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+        /// * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
+        /// * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
+        /// </summary>
         public List<Inputs.GetCertificateAuthorityRevocationConfigurationsArgs> RevocationConfigurations
         {
             get => _revocationConfigurations ?? (_revocationConfigurations = new List<Inputs.GetCertificateAuthorityRevocationConfigurationsArgs>());
@@ -38,6 +58,10 @@ namespace Pulumi.Aws.Acmpca
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

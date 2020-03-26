@@ -65,7 +65,8 @@ type QueueReservationPlanSettingsPtrInput interface {
 
 type queueReservationPlanSettingsPtrType QueueReservationPlanSettingsArgs
 
-func QueueReservationPlanSettingsPtr(v *QueueReservationPlanSettingsArgs) QueueReservationPlanSettingsPtrInput {	return (*queueReservationPlanSettingsPtrType)(v)
+func QueueReservationPlanSettingsPtr(v *QueueReservationPlanSettingsArgs) QueueReservationPlanSettingsPtrInput {
+	return (*queueReservationPlanSettingsPtrType)(v)
 }
 
 func (*queueReservationPlanSettingsPtrType) ElementType() reflect.Type {
@@ -80,7 +81,7 @@ func (i *queueReservationPlanSettingsPtrType) ToQueueReservationPlanSettingsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(QueueReservationPlanSettingsPtrOutput)
 }
 
-type QueueReservationPlanSettingsOutput struct { *pulumi.OutputState }
+type QueueReservationPlanSettingsOutput struct{ *pulumi.OutputState }
 
 func (QueueReservationPlanSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*QueueReservationPlanSettings)(nil)).Elem()
@@ -103,22 +104,23 @@ func (o QueueReservationPlanSettingsOutput) ToQueueReservationPlanSettingsPtrOut
 		return &v
 	}).(QueueReservationPlanSettingsPtrOutput)
 }
+
 // The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
 func (o QueueReservationPlanSettingsOutput) Commitment() pulumi.StringOutput {
-	return o.ApplyT(func (v QueueReservationPlanSettings) string { return v.Commitment }).(pulumi.StringOutput)
+	return o.ApplyT(func(v QueueReservationPlanSettings) string { return v.Commitment }).(pulumi.StringOutput)
 }
 
 // Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
 func (o QueueReservationPlanSettingsOutput) RenewalType() pulumi.StringOutput {
-	return o.ApplyT(func (v QueueReservationPlanSettings) string { return v.RenewalType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v QueueReservationPlanSettings) string { return v.RenewalType }).(pulumi.StringOutput)
 }
 
 // Specifies the number of reserved transcode slots (RTS) for queue.
 func (o QueueReservationPlanSettingsOutput) ReservedSlots() pulumi.IntOutput {
-	return o.ApplyT(func (v QueueReservationPlanSettings) int { return v.ReservedSlots }).(pulumi.IntOutput)
+	return o.ApplyT(func(v QueueReservationPlanSettings) int { return v.ReservedSlots }).(pulumi.IntOutput)
 }
 
-type QueueReservationPlanSettingsPtrOutput struct { *pulumi.OutputState}
+type QueueReservationPlanSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (QueueReservationPlanSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**QueueReservationPlanSettings)(nil)).Elem()
@@ -133,22 +135,22 @@ func (o QueueReservationPlanSettingsPtrOutput) ToQueueReservationPlanSettingsPtr
 }
 
 func (o QueueReservationPlanSettingsPtrOutput) Elem() QueueReservationPlanSettingsOutput {
-	return o.ApplyT(func (v *QueueReservationPlanSettings) QueueReservationPlanSettings { return *v }).(QueueReservationPlanSettingsOutput)
+	return o.ApplyT(func(v *QueueReservationPlanSettings) QueueReservationPlanSettings { return *v }).(QueueReservationPlanSettingsOutput)
 }
 
 // The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
 func (o QueueReservationPlanSettingsPtrOutput) Commitment() pulumi.StringOutput {
-	return o.ApplyT(func (v QueueReservationPlanSettings) string { return v.Commitment }).(pulumi.StringOutput)
+	return o.ApplyT(func(v QueueReservationPlanSettings) string { return v.Commitment }).(pulumi.StringOutput)
 }
 
 // Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
 func (o QueueReservationPlanSettingsPtrOutput) RenewalType() pulumi.StringOutput {
-	return o.ApplyT(func (v QueueReservationPlanSettings) string { return v.RenewalType }).(pulumi.StringOutput)
+	return o.ApplyT(func(v QueueReservationPlanSettings) string { return v.RenewalType }).(pulumi.StringOutput)
 }
 
 // Specifies the number of reserved transcode slots (RTS) for queue.
 func (o QueueReservationPlanSettingsPtrOutput) ReservedSlots() pulumi.IntOutput {
-	return o.ApplyT(func (v QueueReservationPlanSettings) int { return v.ReservedSlots }).(pulumi.IntOutput)
+	return o.ApplyT(func(v QueueReservationPlanSettings) int { return v.ReservedSlots }).(pulumi.IntOutput)
 }
 
 func init() {

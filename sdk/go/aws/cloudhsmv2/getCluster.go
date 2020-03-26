@@ -28,7 +28,6 @@ type LookupClusterArgs struct {
 	ClusterState *string `pulumi:"clusterState"`
 }
 
-
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
 	// The list of cluster certificates.
@@ -39,8 +38,8 @@ type LookupClusterResult struct {
 	// * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
 	// The number of available cluster certificates may vary depending on state of the cluster.
 	ClusterCertificates GetClusterClusterCertificates `pulumi:"clusterCertificates"`
-	ClusterId string `pulumi:"clusterId"`
-	ClusterState string `pulumi:"clusterState"`
+	ClusterId           string                        `pulumi:"clusterId"`
+	ClusterState        string                        `pulumi:"clusterState"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ID of the security group associated with the CloudHSM cluster.
@@ -50,4 +49,3 @@ type LookupClusterResult struct {
 	// The id of the VPC that the CloudHSM cluster resides in.
 	VpcId string `pulumi:"vpcId"`
 }
-

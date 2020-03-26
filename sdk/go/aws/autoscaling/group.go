@@ -164,8 +164,8 @@ type Group struct {
 	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
 	TerminationPolicies pulumi.StringArrayOutput `pulumi:"terminationPolicies"`
 	// A list of subnet IDs to launch resources in.
-	VpcZoneIdentifiers pulumi.StringArrayOutput `pulumi:"vpcZoneIdentifiers"`
-	WaitForCapacityTimeout pulumi.StringPtrOutput `pulumi:"waitForCapacityTimeout"`
+	VpcZoneIdentifiers     pulumi.StringArrayOutput `pulumi:"vpcZoneIdentifiers"`
+	WaitForCapacityTimeout pulumi.StringPtrOutput   `pulumi:"waitForCapacityTimeout"`
 	// Setting this will cause this provider to wait
 	// for exactly this number of healthy instances from this autoscaling group in
 	// all attached load balancers on both create and update operations. (Takes
@@ -291,8 +291,8 @@ type groupState struct {
 	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
 	TerminationPolicies []string `pulumi:"terminationPolicies"`
 	// A list of subnet IDs to launch resources in.
-	VpcZoneIdentifiers []string `pulumi:"vpcZoneIdentifiers"`
-	WaitForCapacityTimeout *string `pulumi:"waitForCapacityTimeout"`
+	VpcZoneIdentifiers     []string `pulumi:"vpcZoneIdentifiers"`
+	WaitForCapacityTimeout *string  `pulumi:"waitForCapacityTimeout"`
 	// Setting this will cause this provider to wait
 	// for exactly this number of healthy instances from this autoscaling group in
 	// all attached load balancers on both create and update operations. (Takes
@@ -385,7 +385,7 @@ type GroupState struct {
 	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
 	TerminationPolicies pulumi.StringArrayInput
 	// A list of subnet IDs to launch resources in.
-	VpcZoneIdentifiers pulumi.StringArrayInput
+	VpcZoneIdentifiers     pulumi.StringArrayInput
 	WaitForCapacityTimeout pulumi.StringPtrInput
 	// Setting this will cause this provider to wait
 	// for exactly this number of healthy instances from this autoscaling group in
@@ -481,8 +481,8 @@ type groupArgs struct {
 	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
 	TerminationPolicies []string `pulumi:"terminationPolicies"`
 	// A list of subnet IDs to launch resources in.
-	VpcZoneIdentifiers []string `pulumi:"vpcZoneIdentifiers"`
-	WaitForCapacityTimeout *string `pulumi:"waitForCapacityTimeout"`
+	VpcZoneIdentifiers     []string `pulumi:"vpcZoneIdentifiers"`
+	WaitForCapacityTimeout *string  `pulumi:"waitForCapacityTimeout"`
 	// Setting this will cause this provider to wait
 	// for exactly this number of healthy instances from this autoscaling group in
 	// all attached load balancers on both create and update operations. (Takes
@@ -574,7 +574,7 @@ type GroupArgs struct {
 	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
 	TerminationPolicies pulumi.StringArrayInput
 	// A list of subnet IDs to launch resources in.
-	VpcZoneIdentifiers pulumi.StringArrayInput
+	VpcZoneIdentifiers     pulumi.StringArrayInput
 	WaitForCapacityTimeout pulumi.StringPtrInput
 	// Setting this will cause this provider to wait
 	// for exactly this number of healthy instances from this autoscaling group in
@@ -587,4 +587,3 @@ type GroupArgs struct {
 func (GroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupArgs)(nil)).Elem()
 }
-

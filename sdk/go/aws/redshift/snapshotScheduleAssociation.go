@@ -89,4 +89,3 @@ type SnapshotScheduleAssociationArgs struct {
 func (SnapshotScheduleAssociationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotScheduleAssociationArgs)(nil)).Elem()
 }
-

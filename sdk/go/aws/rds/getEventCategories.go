@@ -23,13 +23,11 @@ type GetEventCategoriesArgs struct {
 	SourceType *string `pulumi:"sourceType"`
 }
 
-
 // A collection of values returned by getEventCategories.
 type GetEventCategoriesResult struct {
 	// A list of the event categories.
 	EventCategories []string `pulumi:"eventCategories"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id         string  `pulumi:"id"`
 	SourceType *string `pulumi:"sourceType"`
 }
-

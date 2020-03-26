@@ -77,4 +77,3 @@ type EncryptionByDefaultArgs struct {
 func (EncryptionByDefaultArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*encryptionByDefaultArgs)(nil)).Elem()
 }
-

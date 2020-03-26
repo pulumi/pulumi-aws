@@ -43,13 +43,13 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Output<string> LoadBalancerArn { get; private set; } = null!;
 
         /// <summary>
-        /// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+        /// The port on which the load balancer is listening.
         /// </summary>
         [Output("port")]
         public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+        /// The protocol for connections from clients to the load balancer. Valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
         /// </summary>
         [Output("protocol")]
         public Output<string?> Protocol { get; private set; } = null!;
@@ -131,13 +131,13 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<string> LoadBalancerArn { get; set; } = null!;
 
         /// <summary>
-        /// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+        /// The port on which the load balancer is listening.
         /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
         /// <summary>
-        /// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+        /// The protocol for connections from clients to the load balancer. Valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -186,13 +186,13 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<string>? LoadBalancerArn { get; set; }
 
         /// <summary>
-        /// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+        /// The port on which the load balancer is listening.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+        /// The protocol for connections from clients to the load balancer. Valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -654,7 +654,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<string>? Query { get; set; }
 
         /// <summary>
-        /// The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+        /// The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
         /// </summary>
         [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;
@@ -697,7 +697,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<string>? Query { get; set; }
 
         /// <summary>
-        /// The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+        /// The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
         /// </summary>
         [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;
@@ -940,7 +940,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// </summary>
         public readonly string? Query;
         /// <summary>
-        /// The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
+        /// The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
         /// </summary>
         public readonly string StatusCode;
 
