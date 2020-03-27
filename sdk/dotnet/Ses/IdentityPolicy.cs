@@ -28,6 +28,9 @@ namespace Pulumi.Aws.Ses
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// JSON string of the policy.
+        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -89,6 +92,9 @@ namespace Pulumi.Aws.Ses
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// JSON string of the policy.
+        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
@@ -111,6 +117,9 @@ namespace Pulumi.Aws.Ses
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// JSON string of the policy.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

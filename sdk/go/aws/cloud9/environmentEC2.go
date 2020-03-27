@@ -31,6 +31,8 @@ type EnvironmentEC2 struct {
 	OwnerArn pulumi.StringOutput `pulumi:"ownerArn"`
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
+	// Key-value mapping of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The type of the environment (e.g. `ssh` or `ec2`)
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -80,6 +82,8 @@ type environmentEC2State struct {
 	OwnerArn *string `pulumi:"ownerArn"`
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId *string `pulumi:"subnetId"`
+	// Key-value mapping of resource tags
+	Tags map[string]interface{} `pulumi:"tags"`
 	// The type of the environment (e.g. `ssh` or `ec2`)
 	Type *string `pulumi:"type"`
 }
@@ -99,6 +103,8 @@ type EnvironmentEC2State struct {
 	OwnerArn pulumi.StringPtrInput
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId pulumi.StringPtrInput
+	// Key-value mapping of resource tags
+	Tags pulumi.MapInput
 	// The type of the environment (e.g. `ssh` or `ec2`)
 	Type pulumi.StringPtrInput
 }
@@ -120,6 +126,8 @@ type environmentEC2Args struct {
 	OwnerArn *string `pulumi:"ownerArn"`
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId *string `pulumi:"subnetId"`
+	// Key-value mapping of resource tags
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EnvironmentEC2 resource.
@@ -136,6 +144,8 @@ type EnvironmentEC2Args struct {
 	OwnerArn pulumi.StringPtrInput
 	// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	SubnetId pulumi.StringPtrInput
+	// Key-value mapping of resource tags
+	Tags pulumi.MapInput
 }
 
 func (EnvironmentEC2Args) ElementType() reflect.Type {

@@ -3025,7 +3025,7 @@ export namespace cloudfront {
 }
 
 export namespace cloudhsmv2 {
-    export interface ClusterClusterCertificates {
+    export interface ClusterClusterCertificate {
         awsHardwareCertificate?: pulumi.Input<string>;
         clusterCertificate?: pulumi.Input<string>;
         clusterCsr?: pulumi.Input<string>;
@@ -4281,6 +4281,13 @@ export namespace cognito {
          * The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
          */
         snsCallerArn: pulumi.Input<string>;
+    }
+
+    export interface UserPoolSoftwareTokenMfaConfiguration {
+        /**
+         * Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `smsConfiguration` is not present, the `mfaConfiguration` argument must be set to `OFF` and the `softwareTokenMfaConfiguration` configuration block must be fully removed.
+         */
+        enabled: pulumi.Input<boolean>;
     }
 
     export interface UserPoolUserPoolAddOns {
@@ -5644,11 +5651,11 @@ export namespace ec2 {
          */
         deviceIndex?: pulumi.Input<number>;
         /**
-         * The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4AddressCount`
+         * The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
          */
         ipv4AddressCount?: pulumi.Input<number>;
         /**
-         * One or more private IPv4 addresses to associate. Conflicts with `ipv4Addresses`
+         * One or more private IPv4 addresses to associate. Conflicts with `ipv4AddressCount`
          */
         ipv4Addresses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -6557,6 +6564,9 @@ export namespace eks {
          * Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
          */
         endpointPublicAccess?: pulumi.Input<boolean>;
+        /**
+         * List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
+         */
         publicAccessCidrs?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
@@ -7297,7 +7307,7 @@ export namespace elasticsearch {
          */
         zoneAwarenessConfig?: pulumi.Input<inputs.elasticsearch.DomainClusterConfigZoneAwarenessConfig>;
         /**
-         * Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
+         * Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
          */
         zoneAwarenessEnabled?: pulumi.Input<boolean>;
     }
@@ -7333,6 +7343,9 @@ export namespace elasticsearch {
          * Whether or not to require HTTPS
          */
         enforceHttps: pulumi.Input<boolean>;
+        /**
+         * The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
+         */
         tlsSecurityPolicy?: pulumi.Input<string>;
     }
 
@@ -10770,11 +10783,17 @@ export namespace neptune {
 
 export namespace opsworks {
     export interface ApplicationAppSource {
+        /**
+         * Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+         */
         password?: pulumi.Input<string>;
         /**
          * For sources that are version-aware, the revision to use.
          */
         revision?: pulumi.Input<string>;
+        /**
+         * SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+         */
         sshKey?: pulumi.Input<string>;
         /**
          * The type of source to use. For example, "archive".

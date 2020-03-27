@@ -80,7 +80,7 @@ export class GroupPolicy extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
-     * The policy document attached to the group.
+     * The policy document. This is a JSON formatted string.
      */
     public readonly policy!: pulumi.Output<string>;
 
@@ -143,7 +143,7 @@ export interface GroupPolicyState {
      */
     readonly namePrefix?: pulumi.Input<string>;
     /**
-     * The policy document attached to the group.
+     * The policy document. This is a JSON formatted string.
      */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
 }
@@ -167,7 +167,7 @@ export interface GroupPolicyArgs {
      */
     readonly namePrefix?: pulumi.Input<string>;
     /**
-     * The policy document attached to the group.
+     * The policy document. This is a JSON formatted string.
      */
     readonly policy: pulumi.Input<string | PolicyDocument>;
 }

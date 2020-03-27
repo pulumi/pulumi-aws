@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Emr
         public Output<string> ServiceRole { get; private set; } = null!;
 
         /// <summary>
-        /// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+        /// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
         /// </summary>
         [Output("steps")]
         public Output<ImmutableArray<Outputs.ClusterSteps>> Steps { get; private set; } = null!;
@@ -513,7 +513,7 @@ namespace Pulumi.Aws.Emr
         private InputList<Inputs.ClusterStepsArgs>? _steps;
 
         /// <summary>
-        /// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+        /// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
         /// </summary>
         public InputList<Inputs.ClusterStepsArgs> Steps
         {
@@ -732,7 +732,7 @@ namespace Pulumi.Aws.Emr
         private InputList<Inputs.ClusterStepsGetArgs>? _steps;
 
         /// <summary>
-        /// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+        /// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
         /// </summary>
         public InputList<Inputs.ClusterStepsGetArgs> Steps
         {

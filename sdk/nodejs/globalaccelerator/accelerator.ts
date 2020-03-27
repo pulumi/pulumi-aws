@@ -83,6 +83,10 @@ export class Accelerator extends pulumi.CustomResource {
      * The name of the accelerator.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Accelerator resource with the given unique name, arguments, and options.
@@ -103,12 +107,14 @@ export class Accelerator extends pulumi.CustomResource {
             inputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             inputs["ipSets"] = state ? state.ipSets : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AcceleratorArgs | undefined;
             inputs["attributes"] = args ? args.attributes : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["dnsName"] = undefined /*out*/;
             inputs["hostedZoneId"] = undefined /*out*/;
             inputs["ipSets"] = undefined /*out*/;
@@ -156,6 +162,10 @@ export interface AcceleratorState {
      * The name of the accelerator.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -178,4 +188,8 @@ export interface AcceleratorArgs {
      * The name of the accelerator.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

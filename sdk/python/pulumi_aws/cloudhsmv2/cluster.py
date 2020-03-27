@@ -10,7 +10,7 @@ from typing import Union
 from .. import utilities, tables
 
 class Cluster(pulumi.CustomResource):
-    cluster_certificates: pulumi.Output[dict]
+    cluster_certificates: pulumi.Output[list]
     """
     The list of cluster certificates.
     * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
@@ -124,7 +124,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] cluster_certificates: The list of cluster certificates.
+        :param pulumi.Input[list] cluster_certificates: The list of cluster certificates.
                * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
                * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in UNINITIALIZED state after an hsm instance is added to the cluster.
                * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.

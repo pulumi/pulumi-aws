@@ -179,7 +179,7 @@ type Cluster struct {
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
 	// The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater. (default is 1)
 	StepConcurrencyLevel pulumi.IntPtrOutput `pulumi:"stepConcurrencyLevel"`
-	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
 	Steps ClusterStepArrayOutput `pulumi:"steps"`
 	// list of tags to apply to the EMR Cluster
 	Tags pulumi.MapOutput `pulumi:"tags"`
@@ -276,7 +276,7 @@ type clusterState struct {
 	ServiceRole *string `pulumi:"serviceRole"`
 	// The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater. (default is 1)
 	StepConcurrencyLevel *int `pulumi:"stepConcurrencyLevel"`
-	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
 	Steps []ClusterStep `pulumi:"steps"`
 	// list of tags to apply to the EMR Cluster
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -340,7 +340,7 @@ type ClusterState struct {
 	ServiceRole pulumi.StringPtrInput
 	// The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater. (default is 1)
 	StepConcurrencyLevel pulumi.IntPtrInput
-	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
 	Steps ClusterStepArrayInput
 	// list of tags to apply to the EMR Cluster
 	Tags pulumi.MapInput
@@ -403,7 +403,7 @@ type clusterArgs struct {
 	ServiceRole string `pulumi:"serviceRole"`
 	// The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater. (default is 1)
 	StepConcurrencyLevel *int `pulumi:"stepConcurrencyLevel"`
-	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
 	Steps []ClusterStep `pulumi:"steps"`
 	// list of tags to apply to the EMR Cluster
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -463,7 +463,7 @@ type ClusterArgs struct {
 	ServiceRole pulumi.StringInput
 	// The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater. (default is 1)
 	StepConcurrencyLevel pulumi.IntPtrInput
-	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
 	Steps ClusterStepArrayInput
 	// list of tags to apply to the EMR Cluster
 	Tags pulumi.MapInput

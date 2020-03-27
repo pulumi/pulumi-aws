@@ -110,6 +110,9 @@ namespace Pulumi.Aws.Sns
         [Output("namePrefix")]
         public Output<string?> NamePrefix { get; private set; } = null!;
 
+        /// <summary>
+        /// The fully-formed AWS policy as JSON.
+        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -267,6 +270,9 @@ namespace Pulumi.Aws.Sns
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
+        /// <summary>
+        /// The fully-formed AWS policy as JSON.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
@@ -397,6 +403,9 @@ namespace Pulumi.Aws.Sns
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
+        /// <summary>
+        /// The fully-formed AWS policy as JSON.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

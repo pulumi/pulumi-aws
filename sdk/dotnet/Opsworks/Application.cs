@@ -433,6 +433,9 @@ namespace Pulumi.Aws.OpsWorks
 
     public sealed class ApplicationAppSourcesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
@@ -442,6 +445,9 @@ namespace Pulumi.Aws.OpsWorks
         [Input("revision")]
         public Input<string>? Revision { get; set; }
 
+        /// <summary>
+        /// SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        /// </summary>
         [Input("sshKey")]
         public Input<string>? SshKey { get; set; }
 
@@ -470,6 +476,9 @@ namespace Pulumi.Aws.OpsWorks
 
     public sealed class ApplicationAppSourcesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
@@ -479,6 +488,9 @@ namespace Pulumi.Aws.OpsWorks
         [Input("revision")]
         public Input<string>? Revision { get; set; }
 
+        /// <summary>
+        /// SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        /// </summary>
         [Input("sshKey")]
         public Input<string>? SshKey { get; set; }
 
@@ -612,11 +624,17 @@ namespace Pulumi.Aws.OpsWorks
     [OutputType]
     public sealed class ApplicationAppSources
     {
+        /// <summary>
+        /// Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        /// </summary>
         public readonly string? Password;
         /// <summary>
         /// For sources that are version-aware, the revision to use.
         /// </summary>
         public readonly string? Revision;
+        /// <summary>
+        /// SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        /// </summary>
         public readonly string? SshKey;
         /// <summary>
         /// The type of source to use. For example, "archive".

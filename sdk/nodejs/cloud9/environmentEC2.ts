@@ -76,6 +76,10 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The type of the environment (e.g. `ssh` or `ec2`)
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -99,6 +103,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["ownerArn"] = state ? state.ownerArn : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as EnvironmentEC2Args | undefined;
@@ -111,6 +116,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["ownerArn"] = args ? args.ownerArn : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -158,6 +164,10 @@ export interface EnvironmentEC2State {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The type of the environment (e.g. `ssh` or `ec2`)
      */
     readonly type?: pulumi.Input<string>;
@@ -191,4 +201,8 @@ export interface EnvironmentEC2Args {
      * The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
      */
     readonly subnetId?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

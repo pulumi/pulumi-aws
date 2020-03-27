@@ -19,6 +19,7 @@ import (
 type RepositoryPolicy struct {
 	pulumi.CustomResourceState
 
+	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The registry ID where the repository was created.
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
@@ -60,6 +61,7 @@ func GetRepositoryPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryPolicy resources.
 type repositoryPolicyState struct {
+	// The policy document. This is a JSON formatted string.
 	Policy *string `pulumi:"policy"`
 	// The registry ID where the repository was created.
 	RegistryId *string `pulumi:"registryId"`
@@ -68,6 +70,7 @@ type repositoryPolicyState struct {
 }
 
 type RepositoryPolicyState struct {
+	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringPtrInput
 	// The registry ID where the repository was created.
 	RegistryId pulumi.StringPtrInput
@@ -80,6 +83,7 @@ func (RepositoryPolicyState) ElementType() reflect.Type {
 }
 
 type repositoryPolicyArgs struct {
+	// The policy document. This is a JSON formatted string.
 	Policy interface{} `pulumi:"policy"`
 	// Name of the repository to apply the policy.
 	Repository string `pulumi:"repository"`
@@ -87,6 +91,7 @@ type repositoryPolicyArgs struct {
 
 // The set of arguments for constructing a RepositoryPolicy resource.
 type RepositoryPolicyArgs struct {
+	// The policy document. This is a JSON formatted string.
 	Policy pulumi.Input
 	// Name of the repository to apply the policy.
 	Repository pulumi.StringInput

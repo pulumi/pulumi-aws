@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The date by which this activation request should expire. The default value is 24 hours.
+        /// UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Output("expirationDate")]
         public Output<string> ExpirationDate { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The date by which this activation request should expire. The default value is 24 hours.
+        /// UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Input("expirationDate")]
         public Input<string>? ExpirationDate { get; set; }
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The date by which this activation request should expire. The default value is 24 hours.
+        /// UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Input("expirationDate")]
         public Input<string>? ExpirationDate { get; set; }

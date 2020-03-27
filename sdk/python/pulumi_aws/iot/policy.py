@@ -24,7 +24,7 @@ class Policy(pulumi.CustomResource):
     """
     policy: pulumi.Output[str]
     """
-    The policy document.
+    The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
     """
     def __init__(__self__, resource_name, opts=None, name=None, policy=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -35,7 +35,7 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the policy.
-        :param pulumi.Input[str] policy: The policy document.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -78,7 +78,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN assigned by AWS to this policy.
         :param pulumi.Input[str] default_version_id: The default version of this policy.
         :param pulumi.Input[str] name: The name of the policy.
-        :param pulumi.Input[str] policy: The policy document.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

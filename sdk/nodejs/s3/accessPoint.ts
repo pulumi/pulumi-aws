@@ -6,6 +6,11 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a resource to manage an S3 Access Point.
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_access_point.html.markdown.
+ */
 export class AccessPoint extends pulumi.CustomResource {
     /**
      * Get an existing AccessPoint resource's state with the given name, ID, and optional extra
@@ -33,6 +38,9 @@ export class AccessPoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessPoint.__pulumiType;
     }
 
+    /**
+     * The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
+     */
     public readonly accountId!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the S3 Access Point.
@@ -125,6 +133,9 @@ export class AccessPoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccessPoint resources.
  */
 export interface AccessPointState {
+    /**
+     * The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
+     */
     readonly accountId?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the S3 Access Point.
@@ -169,6 +180,9 @@ export interface AccessPointState {
  * The set of arguments for constructing a AccessPoint resource.
  */
 export interface AccessPointArgs {
+    /**
+     * The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
+     */
     readonly accountId?: pulumi.Input<string>;
     /**
      * The name of the bucket that you want to associate this access point with.

@@ -5101,9 +5101,9 @@ type LaunchTemplateNetworkInterface struct {
 	Description *string `pulumi:"description"`
 	// The integer index of the network interface attachment.
 	DeviceIndex *int `pulumi:"deviceIndex"`
-	// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4AddressCount`
+	// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
 	Ipv4AddressCount *int `pulumi:"ipv4AddressCount"`
-	// One or more private IPv4 addresses to associate. Conflicts with `ipv4Addresses`
+	// One or more private IPv4 addresses to associate. Conflicts with `ipv4AddressCount`
 	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
 	// The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6Addresses`
 	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
@@ -5135,9 +5135,9 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The integer index of the network interface attachment.
 	DeviceIndex pulumi.IntPtrInput `pulumi:"deviceIndex"`
-	// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4AddressCount`
+	// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
 	Ipv4AddressCount pulumi.IntPtrInput `pulumi:"ipv4AddressCount"`
-	// One or more private IPv4 addresses to associate. Conflicts with `ipv4Addresses`
+	// One or more private IPv4 addresses to associate. Conflicts with `ipv4AddressCount`
 	Ipv4Addresses pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
 	// The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6Addresses`
 	Ipv6AddressCount pulumi.IntPtrInput `pulumi:"ipv6AddressCount"`
@@ -5220,12 +5220,12 @@ func (o LaunchTemplateNetworkInterfaceOutput) DeviceIndex() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.DeviceIndex }).(pulumi.IntPtrOutput)
 }
 
-// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4AddressCount`
+// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv4AddressCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.Ipv4AddressCount }).(pulumi.IntPtrOutput)
 }
 
-// One or more private IPv4 addresses to associate. Conflicts with `ipv4Addresses`
+// One or more private IPv4 addresses to associate. Conflicts with `ipv4AddressCount`
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv4Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []string { return v.Ipv4Addresses }).(pulumi.StringArrayOutput)
 }

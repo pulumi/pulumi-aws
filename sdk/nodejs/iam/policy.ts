@@ -85,7 +85,7 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly path!: pulumi.Output<string | undefined>;
     /**
-     * The policy document.
+     * The policy document. This is a JSON formatted string.
      */
     public readonly policy!: pulumi.Output<string>;
 
@@ -156,7 +156,7 @@ export interface PolicyState {
      */
     readonly path?: pulumi.Input<string>;
     /**
-     * The policy document.
+     * The policy document. This is a JSON formatted string.
      */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
 }
@@ -183,7 +183,7 @@ export interface PolicyArgs {
      */
     readonly path?: pulumi.Input<string>;
     /**
-     * The policy document.
+     * The policy document. This is a JSON formatted string.
      */
     readonly policy: pulumi.Input<string | PolicyDocument>;
 }

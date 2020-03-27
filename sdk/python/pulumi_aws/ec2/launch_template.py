@@ -167,8 +167,8 @@ class LaunchTemplate(pulumi.CustomResource):
       * `deleteOnTermination` (`bool`) - Whether the network interface should be destroyed on instance termination.
       * `description` (`str`) - Description of the network interface.
       * `device_index` (`float`) - The integer index of the network interface attachment.
-      * `ipv4AddressCount` (`float`) - The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_address_count`
-      * `ipv4Addresses` (`list`) - One or more private IPv4 addresses to associate. Conflicts with `ipv4_addresses`
+      * `ipv4AddressCount` (`float`) - The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
+      * `ipv4Addresses` (`list`) - One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
       * `ipv6_address_count` (`float`) - The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
       * `ipv6_addresses` (`list`) - One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
       * `network_interface_id` (`str`) - The ID of the network interface to attach.
@@ -336,8 +336,8 @@ class LaunchTemplate(pulumi.CustomResource):
           * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the network interface should be destroyed on instance termination.
           * `description` (`pulumi.Input[str]`) - Description of the network interface.
           * `device_index` (`pulumi.Input[float]`) - The integer index of the network interface attachment.
-          * `ipv4AddressCount` (`pulumi.Input[float]`) - The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_address_count`
-          * `ipv4Addresses` (`pulumi.Input[list]`) - One or more private IPv4 addresses to associate. Conflicts with `ipv4_addresses`
+          * `ipv4AddressCount` (`pulumi.Input[float]`) - The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
+          * `ipv4Addresses` (`pulumi.Input[list]`) - One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
           * `ipv6_address_count` (`pulumi.Input[float]`) - The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
           * `ipv6_addresses` (`pulumi.Input[list]`) - One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
           * `network_interface_id` (`pulumi.Input[str]`) - The ID of the network interface to attach.
@@ -538,8 +538,8 @@ class LaunchTemplate(pulumi.CustomResource):
           * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the network interface should be destroyed on instance termination.
           * `description` (`pulumi.Input[str]`) - Description of the network interface.
           * `device_index` (`pulumi.Input[float]`) - The integer index of the network interface attachment.
-          * `ipv4AddressCount` (`pulumi.Input[float]`) - The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_address_count`
-          * `ipv4Addresses` (`pulumi.Input[list]`) - One or more private IPv4 addresses to associate. Conflicts with `ipv4_addresses`
+          * `ipv4AddressCount` (`pulumi.Input[float]`) - The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
+          * `ipv4Addresses` (`pulumi.Input[list]`) - One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
           * `ipv6_address_count` (`pulumi.Input[float]`) - The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
           * `ipv6_addresses` (`pulumi.Input[list]`) - One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
           * `network_interface_id` (`pulumi.Input[str]`) - The ID of the network interface to attach.

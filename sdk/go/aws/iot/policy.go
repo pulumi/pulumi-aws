@@ -23,7 +23,7 @@ type Policy struct {
 	DefaultVersionId pulumi.StringOutput `pulumi:"defaultVersionId"`
 	// The name of the policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The policy document.
+	// The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
@@ -64,7 +64,7 @@ type policyState struct {
 	DefaultVersionId *string `pulumi:"defaultVersionId"`
 	// The name of the policy.
 	Name *string `pulumi:"name"`
-	// The policy document.
+	// The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
 	Policy *string `pulumi:"policy"`
 }
 
@@ -75,7 +75,7 @@ type PolicyState struct {
 	DefaultVersionId pulumi.StringPtrInput
 	// The name of the policy.
 	Name pulumi.StringPtrInput
-	// The policy document.
+	// The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
 	Policy pulumi.StringPtrInput
 }
 
@@ -86,7 +86,7 @@ func (PolicyState) ElementType() reflect.Type {
 type policyArgs struct {
 	// The name of the policy.
 	Name *string `pulumi:"name"`
-	// The policy document.
+	// The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
 	Policy string `pulumi:"policy"`
 }
 
@@ -94,7 +94,7 @@ type policyArgs struct {
 type PolicyArgs struct {
 	// The name of the policy.
 	Name pulumi.StringPtrInput
-	// The policy document.
+	// The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
 	Policy pulumi.StringInput
 }
 

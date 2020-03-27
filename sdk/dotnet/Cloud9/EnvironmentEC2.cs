@@ -59,6 +59,12 @@ namespace Pulumi.Aws.Cloud9
         public Output<string?> SubnetId { get; private set; } = null!;
 
         /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the environment (e.g. `ssh` or `ec2`)
         /// </summary>
         [Output("type")]
@@ -146,6 +152,18 @@ namespace Pulumi.Aws.Cloud9
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         public EnvironmentEC2Args()
         {
         }
@@ -194,6 +212,18 @@ namespace Pulumi.Aws.Cloud9
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The type of the environment (e.g. `ssh` or `ec2`)

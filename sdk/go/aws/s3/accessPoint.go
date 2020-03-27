@@ -11,9 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Provides a resource to manage an S3 Access Point.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_access_point.html.markdown.
 type AccessPoint struct {
 	pulumi.CustomResourceState
 
+	// The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Amazon Resource Name (ARN) of the S3 Access Point.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -67,6 +71,7 @@ func GetAccessPoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessPoint resources.
 type accessPointState struct {
+	// The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
 	AccountId *string `pulumi:"accountId"`
 	// Amazon Resource Name (ARN) of the S3 Access Point.
 	Arn *string `pulumi:"arn"`
@@ -90,6 +95,7 @@ type accessPointState struct {
 }
 
 type AccessPointState struct {
+	// The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
 	AccountId pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the S3 Access Point.
 	Arn pulumi.StringPtrInput
@@ -117,6 +123,7 @@ func (AccessPointState) ElementType() reflect.Type {
 }
 
 type accessPointArgs struct {
+	// The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
 	AccountId *string `pulumi:"accountId"`
 	// The name of the bucket that you want to associate this access point with.
 	Bucket string `pulumi:"bucket"`
@@ -132,6 +139,7 @@ type accessPointArgs struct {
 
 // The set of arguments for constructing a AccessPoint resource.
 type AccessPointArgs struct {
+	// The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
 	AccountId pulumi.StringPtrInput
 	// The name of the bucket that you want to associate this access point with.
 	Bucket pulumi.StringInput

@@ -216,7 +216,7 @@ class GetInstanceResult:
             raise TypeError("Expected argument 'user_data_base64' to be a str")
         __self__.user_data_base64 = user_data_base64
         """
-        Base64 encoded contents of User Data supplied to the Instance. Valid UTF-8 contents can be decoded with the [`base64decode` function](https://www.terraform.io/docs/configuration/functions/base64decode.html). This attribute is only exported if `get_user_data` is true.
+        Base64 encoded contents of User Data supplied to the Instance. This attribute is only exported if `get_user_data` is true.
         """
         if vpc_security_group_ids and not isinstance(vpc_security_group_ids, list):
             raise TypeError("Expected argument 'vpc_security_group_ids' to be a list")

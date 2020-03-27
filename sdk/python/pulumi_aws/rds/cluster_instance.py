@@ -139,7 +139,23 @@ class ClusterInstance(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, ca_cert_identifier=None, cluster_identifier=None, copy_tags_to_snapshot=None, db_parameter_group_name=None, db_subnet_group_name=None, engine=None, engine_version=None, identifier=None, identifier_prefix=None, instance_class=None, monitoring_interval=None, monitoring_role_arn=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, preferred_backup_window=None, preferred_maintenance_window=None, promotion_tier=None, publicly_accessible=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a ClusterInstance resource with the given unique name, props, and options.
+        Provides an RDS Cluster Instance Resource. A Cluster Instance Resource defines
+        attributes that are specific to a single instance in a [RDS Cluster][3],
+        specifically running Amazon Aurora.
+
+        Unlike other RDS resources that support replication, with Amazon Aurora you do
+        not designate a primary and subsequent replicas. Instead, you simply add RDS
+        Instances and Aurora manages the replication. You can use the [count][5]
+        meta-parameter to make multiple instances and join them all to the same RDS
+        Cluster, or you may specify different Cluster Instance resources with various
+        `instance_class` sizes.
+
+        For more information on Amazon Aurora, see [Aurora on Amazon RDS][2] in the Amazon RDS User Guide.
+
+        > **NOTE:** Deletion Protection from the RDS service can only be enabled at the cluster level, not for individual cluster instances. You can still add the [`protect` CustomResourceOption](https://www.pulumi.com/docs/intro/concepts/programming-model/#protect) to this resource configuration if you desire protection from accidental deletion.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_instance.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any database modifications

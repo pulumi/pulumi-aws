@@ -25,10 +25,8 @@ type NetworkAcl struct {
 	pulumi.CustomResourceState
 
 	// Specifies an egress rule. Parameters defined below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Egress NetworkAclEgressArrayOutput `pulumi:"egress"`
 	// Specifies an ingress rule. Parameters defined below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Ingress NetworkAclIngressArrayOutput `pulumi:"ingress"`
 	// The ID of the AWS account that owns the network ACL.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
@@ -72,10 +70,8 @@ func GetNetworkAcl(ctx *pulumi.Context,
 // Input properties used for looking up and filtering NetworkAcl resources.
 type networkAclState struct {
 	// Specifies an egress rule. Parameters defined below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Egress []NetworkAclEgress `pulumi:"egress"`
 	// Specifies an ingress rule. Parameters defined below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Ingress []NetworkAclIngress `pulumi:"ingress"`
 	// The ID of the AWS account that owns the network ACL.
 	OwnerId *string `pulumi:"ownerId"`
@@ -89,10 +85,8 @@ type networkAclState struct {
 
 type NetworkAclState struct {
 	// Specifies an egress rule. Parameters defined below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Egress NetworkAclEgressArrayInput
 	// Specifies an ingress rule. Parameters defined below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Ingress NetworkAclIngressArrayInput
 	// The ID of the AWS account that owns the network ACL.
 	OwnerId pulumi.StringPtrInput
@@ -110,10 +104,8 @@ func (NetworkAclState) ElementType() reflect.Type {
 
 type networkAclArgs struct {
 	// Specifies an egress rule. Parameters defined below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Egress []NetworkAclEgress `pulumi:"egress"`
 	// Specifies an ingress rule. Parameters defined below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Ingress []NetworkAclIngress `pulumi:"ingress"`
 	// A list of Subnet IDs to apply the ACL to
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -126,10 +118,8 @@ type networkAclArgs struct {
 // The set of arguments for constructing a NetworkAcl resource.
 type NetworkAclArgs struct {
 	// Specifies an egress rule. Parameters defined below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Egress NetworkAclEgressArrayInput
 	// Specifies an ingress rule. Parameters defined below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Ingress NetworkAclIngressArrayInput
 	// A list of Subnet IDs to apply the ACL to
 	SubnetIds pulumi.StringArrayInput

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides an API Gateway Deployment.
+// Provides an API Gateway REST Deployment.
 //
 // > **Note:** Depends on having `apigateway.Integration` inside your rest api (which in turn depends on `apigateway.Method`). To avoid race conditions
 // you might need to add an explicit `dependsOn = ["aws_api_gateway_integration.name"]`.

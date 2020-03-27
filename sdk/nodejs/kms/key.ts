@@ -86,6 +86,9 @@ export class Key extends pulumi.CustomResource {
      * Defaults to `ENCRYPT_DECRYPT`.
      */
     public readonly keyUsage!: pulumi.Output<string | undefined>;
+    /**
+     * A valid policy JSON document.
+     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the object.
@@ -178,6 +181,9 @@ export interface KeyState {
      * Defaults to `ENCRYPT_DECRYPT`.
      */
     readonly keyUsage?: pulumi.Input<string>;
+    /**
+     * A valid policy JSON document.
+     */
     readonly policy?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the object.
@@ -217,6 +223,9 @@ export interface KeyArgs {
      * Defaults to `ENCRYPT_DECRYPT`.
      */
     readonly keyUsage?: pulumi.Input<string>;
+    /**
+     * A valid policy JSON document.
+     */
     readonly policy?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the object.

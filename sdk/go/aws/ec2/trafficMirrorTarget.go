@@ -23,6 +23,8 @@ type TrafficMirrorTarget struct {
 	NetworkInterfaceId pulumi.StringPtrOutput `pulumi:"networkInterfaceId"`
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn pulumi.StringPtrOutput `pulumi:"networkLoadBalancerArn"`
+	// Key-value mapping of resource tags.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewTrafficMirrorTarget registers a new resource with the given unique name, arguments, and options.
@@ -59,6 +61,8 @@ type trafficMirrorTargetState struct {
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn *string `pulumi:"networkLoadBalancerArn"`
+	// Key-value mapping of resource tags.
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 type TrafficMirrorTargetState struct {
@@ -68,6 +72,8 @@ type TrafficMirrorTargetState struct {
 	NetworkInterfaceId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn pulumi.StringPtrInput
+	// Key-value mapping of resource tags.
+	Tags pulumi.MapInput
 }
 
 func (TrafficMirrorTargetState) ElementType() reflect.Type {
@@ -81,6 +87,8 @@ type trafficMirrorTargetArgs struct {
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn *string `pulumi:"networkLoadBalancerArn"`
+	// Key-value mapping of resource tags.
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TrafficMirrorTarget resource.
@@ -91,6 +99,8 @@ type TrafficMirrorTargetArgs struct {
 	NetworkInterfaceId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn pulumi.StringPtrInput
+	// Key-value mapping of resource tags.
+	Tags pulumi.MapInput
 }
 
 func (TrafficMirrorTargetArgs) ElementType() reflect.Type {

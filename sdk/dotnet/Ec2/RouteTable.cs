@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> PropagatingVgws { get; private set; } = null!;
 
         /// <summary>
-        /// A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+        /// A list of route objects. Their keys are documented below.
         /// </summary>
         [Output("routes")]
         public Output<ImmutableArray<Outputs.RouteTableRoutes>> Routes { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.RouteTableRoutesArgs>? _routes;
 
         /// <summary>
-        /// A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+        /// A list of route objects. Their keys are documented below.
         /// </summary>
         public InputList<Inputs.RouteTableRoutesArgs> Routes
         {
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.RouteTableRoutesGetArgs>? _routes;
 
         /// <summary>
-        /// A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+        /// A list of route objects. Their keys are documented below.
         /// </summary>
         public InputList<Inputs.RouteTableRoutesGetArgs> Routes
         {

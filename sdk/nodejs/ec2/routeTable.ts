@@ -90,7 +90,7 @@ export class RouteTable extends pulumi.CustomResource {
      */
     public readonly propagatingVgws!: pulumi.Output<string[]>;
     /**
-     * A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+     * A list of route objects. Their keys are documented below.
      */
     public readonly routes!: pulumi.Output<outputs.ec2.RouteTableRoute[]>;
     /**
@@ -154,7 +154,7 @@ export interface RouteTableState {
      */
     readonly propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+     * A list of route objects. Their keys are documented below.
      */
     readonly routes?: pulumi.Input<pulumi.Input<inputs.ec2.RouteTableRoute>[]>;
     /**
@@ -176,7 +176,7 @@ export interface RouteTableArgs {
      */
     readonly propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+     * A list of route objects. Their keys are documented below.
      */
     readonly routes?: pulumi.Input<pulumi.Input<inputs.ec2.RouteTableRoute>[]>;
     /**

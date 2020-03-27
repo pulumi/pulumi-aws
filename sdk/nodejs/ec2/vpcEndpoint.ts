@@ -139,6 +139,9 @@ export class VpcEndpoint extends pulumi.CustomResource {
      * The ID of the AWS account that owns the VPC endpoint.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
+     * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
@@ -276,6 +279,9 @@ export interface VpcEndpointState {
      * The ID of the AWS account that owns the VPC endpoint.
      */
     readonly ownerId?: pulumi.Input<string>;
+    /**
+     * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+     */
     readonly policy?: pulumi.Input<string>;
     /**
      * The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
@@ -332,6 +338,9 @@ export interface VpcEndpointArgs {
      * Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
      */
     readonly autoAccept?: pulumi.Input<boolean>;
+    /**
+     * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+     */
     readonly policy?: pulumi.Input<string>;
     /**
      * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.

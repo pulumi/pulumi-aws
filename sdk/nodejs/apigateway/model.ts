@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 import {RestApi} from "./restApi";
 
 /**
- * Provides a Model for a API Gateway.
+ * Provides a Model for a REST API Gateway.
  * 
  * ## Example Usage
  * 

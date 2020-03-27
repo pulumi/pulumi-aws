@@ -1325,7 +1325,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? DeviceIndex { get; set; }
 
         /// <summary>
-        /// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_address_count`
+        /// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
         /// </summary>
         [Input("ipv4AddressCount")]
         public Input<int>? Ipv4AddressCount { get; set; }
@@ -1334,7 +1334,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _ipv4Addresses;
 
         /// <summary>
-        /// One or more private IPv4 addresses to associate. Conflicts with `ipv4_addresses`
+        /// One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
         /// </summary>
         public InputList<string> Ipv4Addresses
         {
@@ -1422,7 +1422,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? DeviceIndex { get; set; }
 
         /// <summary>
-        /// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_address_count`
+        /// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
         /// </summary>
         [Input("ipv4AddressCount")]
         public Input<int>? Ipv4AddressCount { get; set; }
@@ -1431,7 +1431,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _ipv4Addresses;
 
         /// <summary>
-        /// One or more private IPv4 addresses to associate. Conflicts with `ipv4_addresses`
+        /// One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
         /// </summary>
         public InputList<string> Ipv4Addresses
         {
@@ -1964,11 +1964,11 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly int? DeviceIndex;
         /// <summary>
-        /// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_address_count`
+        /// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
         /// </summary>
         public readonly int? Ipv4AddressCount;
         /// <summary>
-        /// One or more private IPv4 addresses to associate. Conflicts with `ipv4_addresses`
+        /// One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
         /// </summary>
         public readonly ImmutableArray<string> Ipv4Addresses;
         /// <summary>
