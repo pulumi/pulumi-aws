@@ -2,11 +2,15 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## v1.28.0 (2020-03-27)
 * Add deprecation message for `ec2.Instance` `SecurityGroups` - the messages will be added
   for dotnet and typescript languages
 * Upgrade to v2.53.0 of the AWS Terraform Provider
-
----
+* Upgrade to pulumi-terraform-bridge v1.8.4
 
 ## 1.27.0 (2020-03-13)
 * Upgrade to Pulumi v1.12.1
