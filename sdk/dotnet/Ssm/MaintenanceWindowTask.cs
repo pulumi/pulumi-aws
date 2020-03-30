@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string> MaxErrors { get; private set; } = null!;
 
         /// <summary>
-        /// The parameter name.
+        /// The name of the maintenance window task.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Ssm
         public Output<int?> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// The IAM service role to assume during task execution.
+        /// The role that should be assumed when executing the task.
         /// </summary>
         [Output("serviceRoleArn")]
         public Output<string> ServiceRoleArn { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string> MaxErrors { get; set; } = null!;
 
         /// <summary>
-        /// The parameter name.
+        /// The name of the maintenance window task.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Ssm
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// The IAM service role to assume during task execution.
+        /// The role that should be assumed when executing the task.
         /// </summary>
         [Input("serviceRoleArn", required: true)]
         public Input<string> ServiceRoleArn { get; set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? MaxErrors { get; set; }
 
         /// <summary>
-        /// The parameter name.
+        /// The name of the maintenance window task.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.Ssm
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// The IAM service role to assume during task execution.
+        /// The role that should be assumed when executing the task.
         /// </summary>
         [Input("serviceRoleArn")]
         public Input<string>? ServiceRoleArn { get; set; }
@@ -376,10 +376,6 @@ namespace Pulumi.Aws.Ssm
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// The array of strings.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());
@@ -398,10 +394,6 @@ namespace Pulumi.Aws.Ssm
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// The array of strings.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());
@@ -880,7 +872,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Input { get; set; }
 
         /// <summary>
-        /// The parameter name.
+        /// The name of the STEP_FUNCTION task.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -899,7 +891,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Input { get; set; }
 
         /// <summary>
-        /// The parameter name.
+        /// The name of the STEP_FUNCTION task.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -912,17 +904,13 @@ namespace Pulumi.Aws.Ssm
     public sealed class MaintenanceWindowTaskTaskParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The parameter name.
+        /// The name of the maintenance window task.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// The array of strings.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());
@@ -937,17 +925,13 @@ namespace Pulumi.Aws.Ssm
     public sealed class MaintenanceWindowTaskTaskParametersGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The parameter name.
+        /// The name of the maintenance window task.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// The array of strings.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());
@@ -986,9 +970,6 @@ namespace Pulumi.Aws.Ssm
     public sealed class MaintenanceWindowTaskTargets
     {
         public readonly string Key;
-        /// <summary>
-        /// The array of strings.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
@@ -1229,7 +1210,7 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public readonly string? Input;
         /// <summary>
-        /// The parameter name.
+        /// The name of the STEP_FUNCTION task.
         /// </summary>
         public readonly string? Name;
 
@@ -1247,12 +1228,9 @@ namespace Pulumi.Aws.Ssm
     public sealed class MaintenanceWindowTaskTaskParameters
     {
         /// <summary>
-        /// The parameter name.
+        /// The name of the maintenance window task.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The array of strings.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

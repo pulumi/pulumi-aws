@@ -18,7 +18,20 @@ namespace Pulumi.Aws.Route53
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_delegation_set.html.markdown.
         /// </summary>
+        [Obsolete("Use GetDelegationSet.InvokeAsync() instead")]
         public static Task<GetDelegationSetResult> GetDelegationSet(GetDelegationSetArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDelegationSetResult>("aws:route53/getDelegationSet:getDelegationSet", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetDelegationSet
+    {
+        /// <summary>
+        /// `aws.route53.DelegationSet` provides details about a specific Route 53 Delegation Set.
+        /// 
+        /// This data source allows to find a list of name servers associated with a specific delegation set.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_delegation_set.html.markdown.
+        /// </summary>
+        public static Task<GetDelegationSetResult> InvokeAsync(GetDelegationSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDelegationSetResult>("aws:route53/getDelegationSet:getDelegationSet", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

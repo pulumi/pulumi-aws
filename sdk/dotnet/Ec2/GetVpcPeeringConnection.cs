@@ -17,7 +17,19 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_peering_connection.html.markdown.
         /// </summary>
+        [Obsolete("Use GetVpcPeeringConnection.InvokeAsync() instead")]
         public static Task<GetVpcPeeringConnectionResult> GetVpcPeeringConnection(GetVpcPeeringConnectionArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcPeeringConnectionResult>("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetVpcPeeringConnection
+    {
+        /// <summary>
+        /// The VPC Peering Connection data source provides details about
+        /// a specific VPC peering connection.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_peering_connection.html.markdown.
+        /// </summary>
+        public static Task<GetVpcPeeringConnectionResult> InvokeAsync(GetVpcPeeringConnectionArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpcPeeringConnectionResult>("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

@@ -101,6 +101,7 @@ def get_zone(name=None,private_zone=None,resource_record_set_count=None,tags=Non
 
     :param str name: The Hosted Zone name of the desired Hosted Zone.
     :param bool private_zone: Used with `name` field to get a private Hosted Zone.
+    :param float resource_record_set_count: The number of Record Set in the Hosted Zone.
     :param dict tags: Used with `name` field. A mapping of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
     :param str vpc_id: Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
     :param str zone_id: The Hosted Zone id of the desired Hosted Zone.

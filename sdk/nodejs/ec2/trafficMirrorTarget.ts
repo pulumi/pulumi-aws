@@ -69,6 +69,10 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
      */
     public readonly networkLoadBalancerArn!: pulumi.Output<string | undefined>;
+    /**
+     * Key-value mapping of resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a TrafficMirrorTarget resource with the given unique name, arguments, and options.
@@ -85,11 +89,13 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             inputs["networkLoadBalancerArn"] = state ? state.networkLoadBalancerArn : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as TrafficMirrorTargetArgs | undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             inputs["networkLoadBalancerArn"] = args ? args.networkLoadBalancerArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts) {
             opts = {}
@@ -118,6 +124,10 @@ export interface TrafficMirrorTargetState {
      * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
      */
     readonly networkLoadBalancerArn?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -136,4 +146,8 @@ export interface TrafficMirrorTargetArgs {
      * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
      */
     readonly networkLoadBalancerArn?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

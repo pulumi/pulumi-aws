@@ -19,7 +19,21 @@ namespace Pulumi.Aws.Kinesis
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kinesis_stream.html.markdown.
         /// </summary>
+        [Obsolete("Use GetStream.InvokeAsync() instead")]
         public static Task<GetStreamResult> GetStream(GetStreamArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamResult>("aws:kinesis/getStream:getStream", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetStream
+    {
+        /// <summary>
+        /// Use this data source to get information about a Kinesis Stream for use in other
+        /// resources.
+        /// 
+        /// For more details, see the [Amazon Kinesis Documentation][1].
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kinesis_stream.html.markdown.
+        /// </summary>
+        public static Task<GetStreamResult> InvokeAsync(GetStreamArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamResult>("aws:kinesis/getStream:getStream", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -33,6 +47,10 @@ namespace Pulumi.Aws.Kinesis
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assigned to the stream.
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

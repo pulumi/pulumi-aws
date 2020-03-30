@@ -22,7 +22,7 @@ class RolePolicy(pulumi.CustomResource):
     """
     policy: pulumi.Output[str]
     """
-    The policy document attached to the role.
+    The policy document. This is a JSON formatted string.
     """
     role: pulumi.Output[str]
     """
@@ -40,7 +40,7 @@ class RolePolicy(pulumi.CustomResource):
                assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
-        :param pulumi.Input[dict] policy: The policy document attached to the role.
+        :param pulumi.Input[dict] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[dict] role: The IAM role to attach to the policy.
         """
         if __name__ is not None:
@@ -87,7 +87,7 @@ class RolePolicy(pulumi.CustomResource):
                assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
-        :param pulumi.Input[dict] policy: The policy document attached to the role.
+        :param pulumi.Input[dict] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[dict] role: The IAM role to attach to the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

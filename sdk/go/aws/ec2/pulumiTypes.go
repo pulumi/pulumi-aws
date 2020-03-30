@@ -12,13 +12,26 @@ import (
 )
 
 type AmiCopyEbsBlockDevice struct {
-	DeleteOnTermination *bool   `pulumi:"deleteOnTermination"`
-	DeviceName          *string `pulumi:"deviceName"`
-	// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
-	Encrypted  *bool   `pulumi:"encrypted"`
-	Iops       *int    `pulumi:"iops"`
+	// Boolean controlling whether the EBS volumes created to
+	// support each created instance will be deleted once that instance is terminated.
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// The path at which the device is exposed to created instances.
+	DeviceName *string `pulumi:"deviceName"`
+	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
+	Encrypted *bool `pulumi:"encrypted"`
+	// Number of I/O operations per second the
+	// created volumes will support.
+	Iops *int `pulumi:"iops"`
+	// The id of an EBS snapshot that will be used to initialize the created
+	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
+	// snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
-	VolumeSize *int    `pulumi:"volumeSize"`
+	// The size of created volumes in GiB.
+	// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
+	// as the selected snapshot.
+	VolumeSize *int `pulumi:"volumeSize"`
+	// The type of EBS volume to create. Can be one of "standard" (the
+	// default), "io1" or "gp2".
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -30,13 +43,26 @@ type AmiCopyEbsBlockDeviceInput interface {
 }
 
 type AmiCopyEbsBlockDeviceArgs struct {
-	DeleteOnTermination pulumi.BoolPtrInput   `pulumi:"deleteOnTermination"`
-	DeviceName          pulumi.StringPtrInput `pulumi:"deviceName"`
-	// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
-	Encrypted  pulumi.BoolPtrInput   `pulumi:"encrypted"`
-	Iops       pulumi.IntPtrInput    `pulumi:"iops"`
+	// Boolean controlling whether the EBS volumes created to
+	// support each created instance will be deleted once that instance is terminated.
+	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// The path at which the device is exposed to created instances.
+	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
+	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
+	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
+	// Number of I/O operations per second the
+	// created volumes will support.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The id of an EBS snapshot that will be used to initialize the created
+	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
+	// snapshot.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	VolumeSize pulumi.IntPtrInput    `pulumi:"volumeSize"`
+	// The size of created volumes in GiB.
+	// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
+	// as the selected snapshot.
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+	// The type of EBS volume to create. Can be one of "standard" (the
+	// default), "io1" or "gp2".
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -87,31 +113,44 @@ func (o AmiCopyEbsBlockDeviceOutput) ToAmiCopyEbsBlockDeviceOutputWithContext(ct
 	return o
 }
 
+// Boolean controlling whether the EBS volumes created to
+// support each created instance will be deleted once that instance is terminated.
 func (o AmiCopyEbsBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+// The path at which the device is exposed to created instances.
 func (o AmiCopyEbsBlockDeviceOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
 func (o AmiCopyEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
+// Number of I/O operations per second the
+// created volumes will support.
 func (o AmiCopyEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// The id of an EBS snapshot that will be used to initialize the created
+// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
+// snapshot.
 func (o AmiCopyEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// The size of created volumes in GiB.
+// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
+// as the selected snapshot.
 func (o AmiCopyEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
+// The type of EBS volume to create. Can be one of "standard" (the
+// default), "io1" or "gp2".
 func (o AmiCopyEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiCopyEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -137,7 +176,10 @@ func (o AmiCopyEbsBlockDeviceArrayOutput) Index(i pulumi.IntInput) AmiCopyEbsBlo
 }
 
 type AmiCopyEphemeralBlockDevice struct {
-	DeviceName  *string `pulumi:"deviceName"`
+	// The path at which the device is exposed to created instances.
+	DeviceName *string `pulumi:"deviceName"`
+	// A name for the ephemeral device, of the form "ephemeralN" where
+	// *N* is a volume number starting from zero.
 	VirtualName *string `pulumi:"virtualName"`
 }
 
@@ -149,7 +191,10 @@ type AmiCopyEphemeralBlockDeviceInput interface {
 }
 
 type AmiCopyEphemeralBlockDeviceArgs struct {
-	DeviceName  pulumi.StringPtrInput `pulumi:"deviceName"`
+	// The path at which the device is exposed to created instances.
+	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
+	// A name for the ephemeral device, of the form "ephemeralN" where
+	// *N* is a volume number starting from zero.
 	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
@@ -200,10 +245,13 @@ func (o AmiCopyEphemeralBlockDeviceOutput) ToAmiCopyEphemeralBlockDeviceOutputWi
 	return o
 }
 
+// The path at which the device is exposed to created instances.
 func (o AmiCopyEphemeralBlockDeviceOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiCopyEphemeralBlockDevice) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
+// A name for the ephemeral device, of the form "ephemeralN" where
+// *N* is a volume number starting from zero.
 func (o AmiCopyEphemeralBlockDeviceOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiCopyEphemeralBlockDevice) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
 }
@@ -229,13 +277,27 @@ func (o AmiCopyEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntInput) AmiCopy
 }
 
 type AmiEbsBlockDevice struct {
-	DeleteOnTermination *bool   `pulumi:"deleteOnTermination"`
-	DeviceName          string  `pulumi:"deviceName"`
-	Encrypted           *bool   `pulumi:"encrypted"`
-	Iops                *int    `pulumi:"iops"`
-	SnapshotId          *string `pulumi:"snapshotId"`
-	VolumeSize          *int    `pulumi:"volumeSize"`
-	VolumeType          *string `pulumi:"volumeType"`
+	// Boolean controlling whether the EBS volumes created to
+	// support each created instance will be deleted once that instance is terminated.
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// The path at which the device is exposed to created instances.
+	DeviceName string `pulumi:"deviceName"`
+	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
+	Encrypted *bool `pulumi:"encrypted"`
+	// Number of I/O operations per second the
+	// created volumes will support.
+	Iops *int `pulumi:"iops"`
+	// The id of an EBS snapshot that will be used to initialize the created
+	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
+	// snapshot.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// The size of created volumes in GiB.
+	// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
+	// as the selected snapshot.
+	VolumeSize *int `pulumi:"volumeSize"`
+	// The type of EBS volume to create. Can be one of "standard" (the
+	// default), "io1" or "gp2".
+	VolumeType *string `pulumi:"volumeType"`
 }
 
 type AmiEbsBlockDeviceInput interface {
@@ -246,13 +308,27 @@ type AmiEbsBlockDeviceInput interface {
 }
 
 type AmiEbsBlockDeviceArgs struct {
-	DeleteOnTermination pulumi.BoolPtrInput   `pulumi:"deleteOnTermination"`
-	DeviceName          pulumi.StringInput    `pulumi:"deviceName"`
-	Encrypted           pulumi.BoolPtrInput   `pulumi:"encrypted"`
-	Iops                pulumi.IntPtrInput    `pulumi:"iops"`
-	SnapshotId          pulumi.StringPtrInput `pulumi:"snapshotId"`
-	VolumeSize          pulumi.IntPtrInput    `pulumi:"volumeSize"`
-	VolumeType          pulumi.StringPtrInput `pulumi:"volumeType"`
+	// Boolean controlling whether the EBS volumes created to
+	// support each created instance will be deleted once that instance is terminated.
+	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// The path at which the device is exposed to created instances.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
+	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
+	// Number of I/O operations per second the
+	// created volumes will support.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The id of an EBS snapshot that will be used to initialize the created
+	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
+	// snapshot.
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// The size of created volumes in GiB.
+	// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
+	// as the selected snapshot.
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+	// The type of EBS volume to create. Can be one of "standard" (the
+	// default), "io1" or "gp2".
+	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
 func (AmiEbsBlockDeviceArgs) ElementType() reflect.Type {
@@ -302,30 +378,44 @@ func (o AmiEbsBlockDeviceOutput) ToAmiEbsBlockDeviceOutputWithContext(ctx contex
 	return o
 }
 
+// Boolean controlling whether the EBS volumes created to
+// support each created instance will be deleted once that instance is terminated.
 func (o AmiEbsBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+// The path at which the device is exposed to created instances.
 func (o AmiEbsBlockDeviceOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
+// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
 func (o AmiEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
+// Number of I/O operations per second the
+// created volumes will support.
 func (o AmiEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// The id of an EBS snapshot that will be used to initialize the created
+// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
+// snapshot.
 func (o AmiEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// The size of created volumes in GiB.
+// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
+// as the selected snapshot.
 func (o AmiEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
+// The type of EBS volume to create. Can be one of "standard" (the
+// default), "io1" or "gp2".
 func (o AmiEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -351,7 +441,10 @@ func (o AmiEbsBlockDeviceArrayOutput) Index(i pulumi.IntInput) AmiEbsBlockDevice
 }
 
 type AmiEphemeralBlockDevice struct {
-	DeviceName  string `pulumi:"deviceName"`
+	// The path at which the device is exposed to created instances.
+	DeviceName string `pulumi:"deviceName"`
+	// A name for the ephemeral device, of the form "ephemeralN" where
+	// *N* is a volume number starting from zero.
 	VirtualName string `pulumi:"virtualName"`
 }
 
@@ -363,7 +456,10 @@ type AmiEphemeralBlockDeviceInput interface {
 }
 
 type AmiEphemeralBlockDeviceArgs struct {
-	DeviceName  pulumi.StringInput `pulumi:"deviceName"`
+	// The path at which the device is exposed to created instances.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// A name for the ephemeral device, of the form "ephemeralN" where
+	// *N* is a volume number starting from zero.
 	VirtualName pulumi.StringInput `pulumi:"virtualName"`
 }
 
@@ -414,10 +510,13 @@ func (o AmiEphemeralBlockDeviceOutput) ToAmiEphemeralBlockDeviceOutputWithContex
 	return o
 }
 
+// The path at which the device is exposed to created instances.
 func (o AmiEphemeralBlockDeviceOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v AmiEphemeralBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
+// A name for the ephemeral device, of the form "ephemeralN" where
+// *N* is a volume number starting from zero.
 func (o AmiEphemeralBlockDeviceOutput) VirtualName() pulumi.StringOutput {
 	return o.ApplyT(func(v AmiEphemeralBlockDevice) string { return v.VirtualName }).(pulumi.StringOutput)
 }
@@ -443,13 +542,27 @@ func (o AmiEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntInput) AmiEphemera
 }
 
 type AmiFromInstanceEbsBlockDevice struct {
-	DeleteOnTermination *bool   `pulumi:"deleteOnTermination"`
-	DeviceName          *string `pulumi:"deviceName"`
-	Encrypted           *bool   `pulumi:"encrypted"`
-	Iops                *int    `pulumi:"iops"`
-	SnapshotId          *string `pulumi:"snapshotId"`
-	VolumeSize          *int    `pulumi:"volumeSize"`
-	VolumeType          *string `pulumi:"volumeType"`
+	// Boolean controlling whether the EBS volumes created to
+	// support each created instance will be deleted once that instance is terminated.
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// The path at which the device is exposed to created instances.
+	DeviceName *string `pulumi:"deviceName"`
+	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
+	Encrypted *bool `pulumi:"encrypted"`
+	// Number of I/O operations per second the
+	// created volumes will support.
+	Iops *int `pulumi:"iops"`
+	// The id of an EBS snapshot that will be used to initialize the created
+	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
+	// snapshot.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// The size of created volumes in GiB.
+	// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
+	// as the selected snapshot.
+	VolumeSize *int `pulumi:"volumeSize"`
+	// The type of EBS volume to create. Can be one of "standard" (the
+	// default), "io1" or "gp2".
+	VolumeType *string `pulumi:"volumeType"`
 }
 
 type AmiFromInstanceEbsBlockDeviceInput interface {
@@ -460,13 +573,27 @@ type AmiFromInstanceEbsBlockDeviceInput interface {
 }
 
 type AmiFromInstanceEbsBlockDeviceArgs struct {
-	DeleteOnTermination pulumi.BoolPtrInput   `pulumi:"deleteOnTermination"`
-	DeviceName          pulumi.StringPtrInput `pulumi:"deviceName"`
-	Encrypted           pulumi.BoolPtrInput   `pulumi:"encrypted"`
-	Iops                pulumi.IntPtrInput    `pulumi:"iops"`
-	SnapshotId          pulumi.StringPtrInput `pulumi:"snapshotId"`
-	VolumeSize          pulumi.IntPtrInput    `pulumi:"volumeSize"`
-	VolumeType          pulumi.StringPtrInput `pulumi:"volumeType"`
+	// Boolean controlling whether the EBS volumes created to
+	// support each created instance will be deleted once that instance is terminated.
+	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// The path at which the device is exposed to created instances.
+	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
+	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
+	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
+	// Number of I/O operations per second the
+	// created volumes will support.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The id of an EBS snapshot that will be used to initialize the created
+	// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
+	// snapshot.
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// The size of created volumes in GiB.
+	// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
+	// as the selected snapshot.
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+	// The type of EBS volume to create. Can be one of "standard" (the
+	// default), "io1" or "gp2".
+	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
 func (AmiFromInstanceEbsBlockDeviceArgs) ElementType() reflect.Type {
@@ -516,30 +643,44 @@ func (o AmiFromInstanceEbsBlockDeviceOutput) ToAmiFromInstanceEbsBlockDeviceOutp
 	return o
 }
 
+// Boolean controlling whether the EBS volumes created to
+// support each created instance will be deleted once that instance is terminated.
 func (o AmiFromInstanceEbsBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+// The path at which the device is exposed to created instances.
 func (o AmiFromInstanceEbsBlockDeviceOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
+// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
 func (o AmiFromInstanceEbsBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
+// Number of I/O operations per second the
+// created volumes will support.
 func (o AmiFromInstanceEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// The id of an EBS snapshot that will be used to initialize the created
+// EBS volumes. If set, the `volumeSize` attribute must be at least as large as the referenced
+// snapshot.
 func (o AmiFromInstanceEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// The size of created volumes in GiB.
+// If `snapshotId` is set and `volumeSize` is omitted then the volume will have the same size
+// as the selected snapshot.
 func (o AmiFromInstanceEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
+// The type of EBS volume to create. Can be one of "standard" (the
+// default), "io1" or "gp2".
 func (o AmiFromInstanceEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -565,7 +706,10 @@ func (o AmiFromInstanceEbsBlockDeviceArrayOutput) Index(i pulumi.IntInput) AmiFr
 }
 
 type AmiFromInstanceEphemeralBlockDevice struct {
-	DeviceName  *string `pulumi:"deviceName"`
+	// The path at which the device is exposed to created instances.
+	DeviceName *string `pulumi:"deviceName"`
+	// A name for the ephemeral device, of the form "ephemeralN" where
+	// *N* is a volume number starting from zero.
 	VirtualName *string `pulumi:"virtualName"`
 }
 
@@ -577,7 +721,10 @@ type AmiFromInstanceEphemeralBlockDeviceInput interface {
 }
 
 type AmiFromInstanceEphemeralBlockDeviceArgs struct {
-	DeviceName  pulumi.StringPtrInput `pulumi:"deviceName"`
+	// The path at which the device is exposed to created instances.
+	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
+	// A name for the ephemeral device, of the form "ephemeralN" where
+	// *N* is a volume number starting from zero.
 	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
@@ -628,10 +775,13 @@ func (o AmiFromInstanceEphemeralBlockDeviceOutput) ToAmiFromInstanceEphemeralBlo
 	return o
 }
 
+// The path at which the device is exposed to created instances.
 func (o AmiFromInstanceEphemeralBlockDeviceOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEphemeralBlockDevice) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
+// A name for the ephemeral device, of the form "ephemeralN" where
+// *N* is a volume number starting from zero.
 func (o AmiFromInstanceEphemeralBlockDeviceOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AmiFromInstanceEphemeralBlockDevice) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
 }
@@ -2170,6 +2320,7 @@ func (o FleetTargetCapacitySpecificationPtrOutput) TotalTargetCapacity() pulumi.
 }
 
 type InstanceCreditSpecification struct {
+	// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 	CpuCredits *string `pulumi:"cpuCredits"`
 }
 
@@ -2181,6 +2332,7 @@ type InstanceCreditSpecificationInput interface {
 }
 
 type InstanceCreditSpecificationArgs struct {
+	// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 	CpuCredits pulumi.StringPtrInput `pulumi:"cpuCredits"`
 }
 
@@ -2252,6 +2404,8 @@ func (o InstanceCreditSpecificationOutput) ToInstanceCreditSpecificationPtrOutpu
 		return &v
 	}).(InstanceCreditSpecificationPtrOutput)
 }
+
+// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 func (o InstanceCreditSpecificationOutput) CpuCredits() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceCreditSpecification) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
 }
@@ -2274,6 +2428,7 @@ func (o InstanceCreditSpecificationPtrOutput) Elem() InstanceCreditSpecification
 	return o.ApplyT(func(v *InstanceCreditSpecification) InstanceCreditSpecification { return *v }).(InstanceCreditSpecificationOutput)
 }
 
+// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 func (o InstanceCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceCreditSpecification) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
 }
@@ -2282,7 +2437,7 @@ type InstanceEbsBlockDevice struct {
 	// Whether the volume should be destroyed
 	// on instance termination (Default: `true`).
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	// The name of the block device to mount on the instance.
+	// The name of the device to mount.
 	DeviceName string `pulumi:"deviceName"`
 	// Enables [EBS
 	// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
@@ -2315,7 +2470,7 @@ type InstanceEbsBlockDeviceArgs struct {
 	// Whether the volume should be destroyed
 	// on instance termination (Default: `true`).
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	// The name of the block device to mount on the instance.
+	// The name of the device to mount.
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// Enables [EBS
 	// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
@@ -2390,7 +2545,7 @@ func (o InstanceEbsBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the block device to mount on the instance.
+// The name of the device to mount.
 func (o InstanceEbsBlockDeviceOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
@@ -2568,11 +2723,12 @@ func (o InstanceEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntInput) Instan
 }
 
 type InstanceNetworkInterface struct {
-	// Whether the volume should be destroyed
-	// on instance termination (Default: `true`).
-	DeleteOnTermination *bool  `pulumi:"deleteOnTermination"`
-	DeviceIndex         int    `pulumi:"deviceIndex"`
-	NetworkInterfaceId  string `pulumi:"networkInterfaceId"`
+	// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// The integer index of the network interface attachment. Limited by instance type.
+	DeviceIndex int `pulumi:"deviceIndex"`
+	// The ID of the network interface to attach.
+	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 }
 
 type InstanceNetworkInterfaceInput interface {
@@ -2583,11 +2739,12 @@ type InstanceNetworkInterfaceInput interface {
 }
 
 type InstanceNetworkInterfaceArgs struct {
-	// Whether the volume should be destroyed
-	// on instance termination (Default: `true`).
+	// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	DeviceIndex         pulumi.IntInput     `pulumi:"deviceIndex"`
-	NetworkInterfaceId  pulumi.StringInput  `pulumi:"networkInterfaceId"`
+	// The integer index of the network interface attachment. Limited by instance type.
+	DeviceIndex pulumi.IntInput `pulumi:"deviceIndex"`
+	// The ID of the network interface to attach.
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 }
 
 func (InstanceNetworkInterfaceArgs) ElementType() reflect.Type {
@@ -2637,16 +2794,17 @@ func (o InstanceNetworkInterfaceOutput) ToInstanceNetworkInterfaceOutputWithCont
 	return o
 }
 
-// Whether the volume should be destroyed
-// on instance termination (Default: `true`).
+// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
 func (o InstanceNetworkInterfaceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+// The integer index of the network interface attachment. Limited by instance type.
 func (o InstanceNetworkInterfaceOutput) DeviceIndex() pulumi.IntOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) int { return v.DeviceIndex }).(pulumi.IntOutput)
 }
 
+// The ID of the network interface to attach.
 func (o InstanceNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
@@ -2675,21 +2833,19 @@ type InstanceRootBlockDevice struct {
 	// Whether the volume should be destroyed
 	// on instance termination (Default: `true`).
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	// Enables [EBS
-	// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-	// on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
+	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 	Encrypted *bool `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1"`.
+	// This is only valid for `volumeType` of `"io1"`, and must be specified if
+	// using that type
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	VolumeId *string `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -2704,21 +2860,19 @@ type InstanceRootBlockDeviceArgs struct {
 	// Whether the volume should be destroyed
 	// on instance termination (Default: `true`).
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	// Enables [EBS
-	// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-	// on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
+	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1"`.
+	// This is only valid for `volumeType` of `"io1"`, and must be specified if
+	// using that type
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	VolumeId pulumi.StringPtrInput `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -2797,16 +2951,15 @@ func (o InstanceRootBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v InstanceRootBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// Enables [EBS
-// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-// on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
+// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 func (o InstanceRootBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This must be set with a `volumeType` of `"io1"`.
+// This is only valid for `volumeType` of `"io1"`, and must be specified if
+// using that type
 func (o InstanceRootBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -2825,8 +2978,7 @@ func (o InstanceRootBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`,
-// or `"io1"`. (Default: `"gp2"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
 func (o InstanceRootBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -2855,16 +3007,15 @@ func (o InstanceRootBlockDevicePtrOutput) DeleteOnTermination() pulumi.BoolPtrOu
 	return o.ApplyT(func(v InstanceRootBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// Enables [EBS
-// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-// on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
+// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 func (o InstanceRootBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This must be set with a `volumeType` of `"io1"`.
+// This is only valid for `volumeType` of `"io1"`, and must be specified if
+// using that type
 func (o InstanceRootBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -2883,8 +3034,7 @@ func (o InstanceRootBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`,
-// or `"io1"`. (Default: `"gp2"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
 func (o InstanceRootBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -3381,13 +3531,24 @@ func (o LaunchTemplateBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) La
 }
 
 type LaunchTemplateBlockDeviceMappingEbs struct {
+	// Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
 	DeleteOnTermination *string `pulumi:"deleteOnTermination"`
-	Encrypted           *string `pulumi:"encrypted"`
-	Iops                *int    `pulumi:"iops"`
-	KmsKeyId            *string `pulumi:"kmsKeyId"`
-	SnapshotId          *string `pulumi:"snapshotId"`
-	VolumeSize          *int    `pulumi:"volumeSize"`
-	VolumeType          *string `pulumi:"volumeType"`
+	// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
+	// on the volume (Default: `false`). Cannot be used with `snapshotId`.
+	Encrypted *string `pulumi:"encrypted"`
+	// The amount of provisioned
+	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+	// This must be set with a `volumeType` of `"io1"`.
+	Iops *int `pulumi:"iops"`
+	// AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+	// `encrypted` must be set to `true` when this is set.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The Snapshot ID to mount.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// The size of the volume in gigabytes.
+	VolumeSize *int `pulumi:"volumeSize"`
+	// The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
+	VolumeType *string `pulumi:"volumeType"`
 }
 
 type LaunchTemplateBlockDeviceMappingEbsInput interface {
@@ -3398,13 +3559,24 @@ type LaunchTemplateBlockDeviceMappingEbsInput interface {
 }
 
 type LaunchTemplateBlockDeviceMappingEbsArgs struct {
+	// Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
 	DeleteOnTermination pulumi.StringPtrInput `pulumi:"deleteOnTermination"`
-	Encrypted           pulumi.StringPtrInput `pulumi:"encrypted"`
-	Iops                pulumi.IntPtrInput    `pulumi:"iops"`
-	KmsKeyId            pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	SnapshotId          pulumi.StringPtrInput `pulumi:"snapshotId"`
-	VolumeSize          pulumi.IntPtrInput    `pulumi:"volumeSize"`
-	VolumeType          pulumi.StringPtrInput `pulumi:"volumeType"`
+	// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
+	// on the volume (Default: `false`). Cannot be used with `snapshotId`.
+	Encrypted pulumi.StringPtrInput `pulumi:"encrypted"`
+	// The amount of provisioned
+	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+	// This must be set with a `volumeType` of `"io1"`.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+	// `encrypted` must be set to `true` when this is set.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The Snapshot ID to mount.
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// The size of the volume in gigabytes.
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+	// The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
+	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
 func (LaunchTemplateBlockDeviceMappingEbsArgs) ElementType() reflect.Type {
@@ -3475,30 +3647,42 @@ func (o LaunchTemplateBlockDeviceMappingEbsOutput) ToLaunchTemplateBlockDeviceMa
 		return &v
 	}).(LaunchTemplateBlockDeviceMappingEbsPtrOutput)
 }
+
+// Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) DeleteOnTermination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.DeleteOnTermination }).(pulumi.StringPtrOutput)
 }
 
+// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
+// on the volume (Default: `false`). Cannot be used with `snapshotId`.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) Encrypted() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.Encrypted }).(pulumi.StringPtrOutput)
 }
 
+// The amount of provisioned
+// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+// This must be set with a `volumeType` of `"io1"`.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+// `encrypted` must be set to `true` when this is set.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The Snapshot ID to mount.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// The size of the volume in gigabytes.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
+// The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -3521,37 +3705,50 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Elem() LaunchTemplateBlock
 	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) LaunchTemplateBlockDeviceMappingEbs { return *v }).(LaunchTemplateBlockDeviceMappingEbsOutput)
 }
 
+// Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) DeleteOnTermination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.DeleteOnTermination }).(pulumi.StringPtrOutput)
 }
 
+// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
+// on the volume (Default: `false`). Cannot be used with `snapshotId`.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Encrypted() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.Encrypted }).(pulumi.StringPtrOutput)
 }
 
+// The amount of provisioned
+// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+// This must be set with a `volumeType` of `"io1"`.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+// `encrypted` must be set to `true` when this is set.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The Snapshot ID to mount.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// The size of the volume in gigabytes.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
+// The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
 
 type LaunchTemplateCapacityReservationSpecification struct {
-	CapacityReservationPreference *string                                                                  `pulumi:"capacityReservationPreference"`
-	CapacityReservationTarget     *LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget `pulumi:"capacityReservationTarget"`
+	// Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
+	CapacityReservationPreference *string `pulumi:"capacityReservationPreference"`
+	// Used to target a specific Capacity Reservation:
+	CapacityReservationTarget *LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget `pulumi:"capacityReservationTarget"`
 }
 
 type LaunchTemplateCapacityReservationSpecificationInput interface {
@@ -3562,8 +3759,10 @@ type LaunchTemplateCapacityReservationSpecificationInput interface {
 }
 
 type LaunchTemplateCapacityReservationSpecificationArgs struct {
-	CapacityReservationPreference pulumi.StringPtrInput                                                           `pulumi:"capacityReservationPreference"`
-	CapacityReservationTarget     LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtrInput `pulumi:"capacityReservationTarget"`
+	// Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
+	CapacityReservationPreference pulumi.StringPtrInput `pulumi:"capacityReservationPreference"`
+	// Used to target a specific Capacity Reservation:
+	CapacityReservationTarget LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtrInput `pulumi:"capacityReservationTarget"`
 }
 
 func (LaunchTemplateCapacityReservationSpecificationArgs) ElementType() reflect.Type {
@@ -3634,12 +3833,15 @@ func (o LaunchTemplateCapacityReservationSpecificationOutput) ToLaunchTemplateCa
 		return &v
 	}).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
 }
+
+// Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
 func (o LaunchTemplateCapacityReservationSpecificationOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecification) *string {
 		return v.CapacityReservationPreference
 	}).(pulumi.StringPtrOutput)
 }
 
+// Used to target a specific Capacity Reservation:
 func (o LaunchTemplateCapacityReservationSpecificationOutput) CapacityReservationTarget() LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecification) *LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
 		return v.CapacityReservationTarget
@@ -3666,12 +3868,14 @@ func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) Elem() LaunchTe
 	}).(LaunchTemplateCapacityReservationSpecificationOutput)
 }
 
+// Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
 func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecification) *string {
 		return v.CapacityReservationPreference
 	}).(pulumi.StringPtrOutput)
 }
 
+// Used to target a specific Capacity Reservation:
 func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) CapacityReservationTarget() LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecification) *LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
 		return v.CapacityReservationTarget
@@ -3679,6 +3883,7 @@ func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) CapacityReserva
 }
 
 type LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget struct {
+	// The ID of the Capacity Reservation to target.
 	CapacityReservationId *string `pulumi:"capacityReservationId"`
 }
 
@@ -3690,6 +3895,7 @@ type LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetInpu
 }
 
 type LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs struct {
+	// The ID of the Capacity Reservation to target.
 	CapacityReservationId pulumi.StringPtrInput `pulumi:"capacityReservationId"`
 }
 
@@ -3761,6 +3967,8 @@ func (o LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetO
 		return &v
 	}).(LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
 }
+
+// The ID of the Capacity Reservation to target.
 func (o LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput) CapacityReservationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget) *string {
 		return v.CapacityReservationId
@@ -3787,6 +3995,7 @@ func (o LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetP
 	}).(LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput)
 }
 
+// The ID of the Capacity Reservation to target.
 func (o LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtrOutput) CapacityReservationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget) *string {
 		return v.CapacityReservationId
@@ -3794,7 +4003,10 @@ func (o LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetP
 }
 
 type LaunchTemplateCpuOptions struct {
-	CoreCount      *int `pulumi:"coreCount"`
+	// The number of CPU cores for the instance.
+	CoreCount *int `pulumi:"coreCount"`
+	// The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+	// Otherwise, specify the default value of 2.
 	ThreadsPerCore *int `pulumi:"threadsPerCore"`
 }
 
@@ -3806,7 +4018,10 @@ type LaunchTemplateCpuOptionsInput interface {
 }
 
 type LaunchTemplateCpuOptionsArgs struct {
-	CoreCount      pulumi.IntPtrInput `pulumi:"coreCount"`
+	// The number of CPU cores for the instance.
+	CoreCount pulumi.IntPtrInput `pulumi:"coreCount"`
+	// The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+	// Otherwise, specify the default value of 2.
 	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
 }
 
@@ -3878,10 +4093,14 @@ func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsPtrOutputWithC
 		return &v
 	}).(LaunchTemplateCpuOptionsPtrOutput)
 }
+
+// The number of CPU cores for the instance.
 func (o LaunchTemplateCpuOptionsOutput) CoreCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
 }
 
+// The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+// Otherwise, specify the default value of 2.
 func (o LaunchTemplateCpuOptionsOutput) ThreadsPerCore() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
 }
@@ -3904,15 +4123,19 @@ func (o LaunchTemplateCpuOptionsPtrOutput) Elem() LaunchTemplateCpuOptionsOutput
 	return o.ApplyT(func(v *LaunchTemplateCpuOptions) LaunchTemplateCpuOptions { return *v }).(LaunchTemplateCpuOptionsOutput)
 }
 
+// The number of CPU cores for the instance.
 func (o LaunchTemplateCpuOptionsPtrOutput) CoreCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
 }
 
+// The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+// Otherwise, specify the default value of 2.
 func (o LaunchTemplateCpuOptionsPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
 }
 
 type LaunchTemplateCreditSpecification struct {
+	// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 	CpuCredits *string `pulumi:"cpuCredits"`
 }
 
@@ -3924,6 +4147,7 @@ type LaunchTemplateCreditSpecificationInput interface {
 }
 
 type LaunchTemplateCreditSpecificationArgs struct {
+	// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 	CpuCredits pulumi.StringPtrInput `pulumi:"cpuCredits"`
 }
 
@@ -3995,6 +4219,8 @@ func (o LaunchTemplateCreditSpecificationOutput) ToLaunchTemplateCreditSpecifica
 		return &v
 	}).(LaunchTemplateCreditSpecificationPtrOutput)
 }
+
+// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 func (o LaunchTemplateCreditSpecificationOutput) CpuCredits() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCreditSpecification) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
 }
@@ -4017,12 +4243,13 @@ func (o LaunchTemplateCreditSpecificationPtrOutput) Elem() LaunchTemplateCreditS
 	return o.ApplyT(func(v *LaunchTemplateCreditSpecification) LaunchTemplateCreditSpecification { return *v }).(LaunchTemplateCreditSpecificationOutput)
 }
 
+// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 func (o LaunchTemplateCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCreditSpecification) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
 }
 
 type LaunchTemplateElasticGpuSpecification struct {
-	// Accelerator type.
+	// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
 	Type string `pulumi:"type"`
 }
 
@@ -4034,7 +4261,7 @@ type LaunchTemplateElasticGpuSpecificationInput interface {
 }
 
 type LaunchTemplateElasticGpuSpecificationArgs struct {
-	// Accelerator type.
+	// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4085,7 +4312,7 @@ func (o LaunchTemplateElasticGpuSpecificationOutput) ToLaunchTemplateElasticGpuS
 	return o
 }
 
-// Accelerator type.
+// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
 func (o LaunchTemplateElasticGpuSpecificationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LaunchTemplateElasticGpuSpecification) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4227,9 +4454,9 @@ func (o LaunchTemplateElasticInferenceAcceleratorPtrOutput) Type() pulumi.String
 }
 
 type LaunchTemplateIamInstanceProfile struct {
-	// Amazon Resource Name (ARN) of the launch template.
+	// The Amazon Resource Name (ARN) of the instance profile.
 	Arn *string `pulumi:"arn"`
-	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
+	// The name of the instance profile.
 	Name *string `pulumi:"name"`
 }
 
@@ -4241,9 +4468,9 @@ type LaunchTemplateIamInstanceProfileInput interface {
 }
 
 type LaunchTemplateIamInstanceProfileArgs struct {
-	// Amazon Resource Name (ARN) of the launch template.
+	// The Amazon Resource Name (ARN) of the instance profile.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
+	// The name of the instance profile.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -4316,12 +4543,12 @@ func (o LaunchTemplateIamInstanceProfileOutput) ToLaunchTemplateIamInstanceProfi
 	}).(LaunchTemplateIamInstanceProfilePtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the launch template.
+// The Amazon Resource Name (ARN) of the instance profile.
 func (o LaunchTemplateIamInstanceProfileOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateIamInstanceProfile) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
+// The name of the instance profile.
 func (o LaunchTemplateIamInstanceProfileOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateIamInstanceProfile) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -4344,18 +4571,20 @@ func (o LaunchTemplateIamInstanceProfilePtrOutput) Elem() LaunchTemplateIamInsta
 	return o.ApplyT(func(v *LaunchTemplateIamInstanceProfile) LaunchTemplateIamInstanceProfile { return *v }).(LaunchTemplateIamInstanceProfileOutput)
 }
 
-// Amazon Resource Name (ARN) of the launch template.
+// The Amazon Resource Name (ARN) of the instance profile.
 func (o LaunchTemplateIamInstanceProfilePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateIamInstanceProfile) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
+// The name of the instance profile.
 func (o LaunchTemplateIamInstanceProfilePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateIamInstanceProfile) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type LaunchTemplateInstanceMarketOptions struct {
-	MarketType  *string                                         `pulumi:"marketType"`
+	// The market type. Can be `spot`.
+	MarketType *string `pulumi:"marketType"`
+	// The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
 	SpotOptions *LaunchTemplateInstanceMarketOptionsSpotOptions `pulumi:"spotOptions"`
 }
 
@@ -4367,7 +4596,9 @@ type LaunchTemplateInstanceMarketOptionsInput interface {
 }
 
 type LaunchTemplateInstanceMarketOptionsArgs struct {
-	MarketType  pulumi.StringPtrInput                                  `pulumi:"marketType"`
+	// The market type. Can be `spot`.
+	MarketType pulumi.StringPtrInput `pulumi:"marketType"`
+	// The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
 	SpotOptions LaunchTemplateInstanceMarketOptionsSpotOptionsPtrInput `pulumi:"spotOptions"`
 }
 
@@ -4439,10 +4670,13 @@ func (o LaunchTemplateInstanceMarketOptionsOutput) ToLaunchTemplateInstanceMarke
 		return &v
 	}).(LaunchTemplateInstanceMarketOptionsPtrOutput)
 }
+
+// The market type. Can be `spot`.
 func (o LaunchTemplateInstanceMarketOptionsOutput) MarketType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptions) *string { return v.MarketType }).(pulumi.StringPtrOutput)
 }
 
+// The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
 func (o LaunchTemplateInstanceMarketOptionsOutput) SpotOptions() LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptions) *LaunchTemplateInstanceMarketOptionsSpotOptions {
 		return v.SpotOptions
@@ -4467,10 +4701,12 @@ func (o LaunchTemplateInstanceMarketOptionsPtrOutput) Elem() LaunchTemplateInsta
 	return o.ApplyT(func(v *LaunchTemplateInstanceMarketOptions) LaunchTemplateInstanceMarketOptions { return *v }).(LaunchTemplateInstanceMarketOptionsOutput)
 }
 
+// The market type. Can be `spot`.
 func (o LaunchTemplateInstanceMarketOptionsPtrOutput) MarketType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptions) *string { return v.MarketType }).(pulumi.StringPtrOutput)
 }
 
+// The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
 func (o LaunchTemplateInstanceMarketOptionsPtrOutput) SpotOptions() LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptions) *LaunchTemplateInstanceMarketOptionsSpotOptions {
 		return v.SpotOptions
@@ -4478,11 +4714,17 @@ func (o LaunchTemplateInstanceMarketOptionsPtrOutput) SpotOptions() LaunchTempla
 }
 
 type LaunchTemplateInstanceMarketOptionsSpotOptions struct {
-	BlockDurationMinutes         *int    `pulumi:"blockDurationMinutes"`
+	// The required duration in minutes. This value must be a multiple of 60.
+	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
+	// The behavior when a Spot Instance is interrupted. Can be `hibernate`,
+	// `stop`, or `terminate`. (Default: `terminate`).
 	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
-	MaxPrice                     *string `pulumi:"maxPrice"`
-	SpotInstanceType             *string `pulumi:"spotInstanceType"`
-	ValidUntil                   *string `pulumi:"validUntil"`
+	// The maximum hourly price you're willing to pay for the Spot Instances.
+	MaxPrice *string `pulumi:"maxPrice"`
+	// The Spot Instance request type. Can be `one-time`, or `persistent`.
+	SpotInstanceType *string `pulumi:"spotInstanceType"`
+	// The end date of the request.
+	ValidUntil *string `pulumi:"validUntil"`
 }
 
 type LaunchTemplateInstanceMarketOptionsSpotOptionsInput interface {
@@ -4493,11 +4735,17 @@ type LaunchTemplateInstanceMarketOptionsSpotOptionsInput interface {
 }
 
 type LaunchTemplateInstanceMarketOptionsSpotOptionsArgs struct {
-	BlockDurationMinutes         pulumi.IntPtrInput    `pulumi:"blockDurationMinutes"`
+	// The required duration in minutes. This value must be a multiple of 60.
+	BlockDurationMinutes pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
+	// The behavior when a Spot Instance is interrupted. Can be `hibernate`,
+	// `stop`, or `terminate`. (Default: `terminate`).
 	InstanceInterruptionBehavior pulumi.StringPtrInput `pulumi:"instanceInterruptionBehavior"`
-	MaxPrice                     pulumi.StringPtrInput `pulumi:"maxPrice"`
-	SpotInstanceType             pulumi.StringPtrInput `pulumi:"spotInstanceType"`
-	ValidUntil                   pulumi.StringPtrInput `pulumi:"validUntil"`
+	// The maximum hourly price you're willing to pay for the Spot Instances.
+	MaxPrice pulumi.StringPtrInput `pulumi:"maxPrice"`
+	// The Spot Instance request type. Can be `one-time`, or `persistent`.
+	SpotInstanceType pulumi.StringPtrInput `pulumi:"spotInstanceType"`
+	// The end date of the request.
+	ValidUntil pulumi.StringPtrInput `pulumi:"validUntil"`
 }
 
 func (LaunchTemplateInstanceMarketOptionsSpotOptionsArgs) ElementType() reflect.Type {
@@ -4568,22 +4816,29 @@ func (o LaunchTemplateInstanceMarketOptionsSpotOptionsOutput) ToLaunchTemplateIn
 		return &v
 	}).(LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput)
 }
+
+// The required duration in minutes. This value must be a multiple of 60.
 func (o LaunchTemplateInstanceMarketOptionsSpotOptionsOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) *int { return v.BlockDurationMinutes }).(pulumi.IntPtrOutput)
 }
 
+// The behavior when a Spot Instance is interrupted. Can be `hibernate`,
+// `stop`, or `terminate`. (Default: `terminate`).
 func (o LaunchTemplateInstanceMarketOptionsSpotOptionsOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) *string { return v.InstanceInterruptionBehavior }).(pulumi.StringPtrOutput)
 }
 
+// The maximum hourly price you're willing to pay for the Spot Instances.
 func (o LaunchTemplateInstanceMarketOptionsSpotOptionsOutput) MaxPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) *string { return v.MaxPrice }).(pulumi.StringPtrOutput)
 }
 
+// The Spot Instance request type. Can be `one-time`, or `persistent`.
 func (o LaunchTemplateInstanceMarketOptionsSpotOptionsOutput) SpotInstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) *string { return v.SpotInstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The end date of the request.
 func (o LaunchTemplateInstanceMarketOptionsSpotOptionsOutput) ValidUntil() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) *string { return v.ValidUntil }).(pulumi.StringPtrOutput)
 }
@@ -4608,27 +4863,34 @@ func (o LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput) Elem() LaunchTe
 	}).(LaunchTemplateInstanceMarketOptionsSpotOptionsOutput)
 }
 
+// The required duration in minutes. This value must be a multiple of 60.
 func (o LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) *int { return v.BlockDurationMinutes }).(pulumi.IntPtrOutput)
 }
 
+// The behavior when a Spot Instance is interrupted. Can be `hibernate`,
+// `stop`, or `terminate`. (Default: `terminate`).
 func (o LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) *string { return v.InstanceInterruptionBehavior }).(pulumi.StringPtrOutput)
 }
 
+// The maximum hourly price you're willing to pay for the Spot Instances.
 func (o LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput) MaxPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) *string { return v.MaxPrice }).(pulumi.StringPtrOutput)
 }
 
+// The Spot Instance request type. Can be `one-time`, or `persistent`.
 func (o LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput) SpotInstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) *string { return v.SpotInstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The end date of the request.
 func (o LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput) ValidUntil() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) *string { return v.ValidUntil }).(pulumi.StringPtrOutput)
 }
 
 type LaunchTemplateLicenseSpecification struct {
+	// ARN of the license configuration.
 	LicenseConfigurationArn string `pulumi:"licenseConfigurationArn"`
 }
 
@@ -4640,6 +4902,7 @@ type LaunchTemplateLicenseSpecificationInput interface {
 }
 
 type LaunchTemplateLicenseSpecificationArgs struct {
+	// ARN of the license configuration.
 	LicenseConfigurationArn pulumi.StringInput `pulumi:"licenseConfigurationArn"`
 }
 
@@ -4690,6 +4953,7 @@ func (o LaunchTemplateLicenseSpecificationOutput) ToLaunchTemplateLicenseSpecifi
 	return o
 }
 
+// ARN of the license configuration.
 func (o LaunchTemplateLicenseSpecificationOutput) LicenseConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LaunchTemplateLicenseSpecification) string { return v.LicenseConfigurationArn }).(pulumi.StringOutput)
 }
@@ -4715,6 +4979,7 @@ func (o LaunchTemplateLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type LaunchTemplateMonitoring struct {
+	// If `true`, the launched EC2 instance will have detailed monitoring enabled.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -4726,6 +4991,7 @@ type LaunchTemplateMonitoringInput interface {
 }
 
 type LaunchTemplateMonitoringArgs struct {
+	// If `true`, the launched EC2 instance will have detailed monitoring enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -4797,6 +5063,8 @@ func (o LaunchTemplateMonitoringOutput) ToLaunchTemplateMonitoringPtrOutputWithC
 		return &v
 	}).(LaunchTemplateMonitoringPtrOutput)
 }
+
+// If `true`, the launched EC2 instance will have detailed monitoring enabled.
 func (o LaunchTemplateMonitoringOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMonitoring) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -4819,24 +5087,36 @@ func (o LaunchTemplateMonitoringPtrOutput) Elem() LaunchTemplateMonitoringOutput
 	return o.ApplyT(func(v *LaunchTemplateMonitoring) LaunchTemplateMonitoring { return *v }).(LaunchTemplateMonitoringOutput)
 }
 
+// If `true`, the launched EC2 instance will have detailed monitoring enabled.
 func (o LaunchTemplateMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMonitoring) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 type LaunchTemplateNetworkInterface struct {
+	// Associate a public ip address with the network interface.  Boolean value.
 	AssociatePublicIpAddress *string `pulumi:"associatePublicIpAddress"`
-	DeleteOnTermination      *bool   `pulumi:"deleteOnTermination"`
-	// Description of the launch template.
-	Description        *string  `pulumi:"description"`
-	DeviceIndex        *int     `pulumi:"deviceIndex"`
-	Ipv4AddressCount   *int     `pulumi:"ipv4AddressCount"`
-	Ipv4Addresses      []string `pulumi:"ipv4Addresses"`
-	Ipv6AddressCount   *int     `pulumi:"ipv6AddressCount"`
-	Ipv6Addresses      []string `pulumi:"ipv6Addresses"`
-	NetworkInterfaceId *string  `pulumi:"networkInterfaceId"`
-	PrivateIpAddress   *string  `pulumi:"privateIpAddress"`
-	SecurityGroups     []string `pulumi:"securityGroups"`
-	SubnetId           *string  `pulumi:"subnetId"`
+	// Whether the network interface should be destroyed on instance termination.
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// Description of the network interface.
+	Description *string `pulumi:"description"`
+	// The integer index of the network interface attachment.
+	DeviceIndex *int `pulumi:"deviceIndex"`
+	// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
+	Ipv4AddressCount *int `pulumi:"ipv4AddressCount"`
+	// One or more private IPv4 addresses to associate. Conflicts with `ipv4AddressCount`
+	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
+	// The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6Addresses`
+	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
+	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6AddressCount`
+	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
+	// The ID of the network interface to attach.
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// The primary private IPv4 address.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// A list of security group IDs to associate.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// The VPC Subnet ID to associate.
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 type LaunchTemplateNetworkInterfaceInput interface {
@@ -4847,19 +5127,30 @@ type LaunchTemplateNetworkInterfaceInput interface {
 }
 
 type LaunchTemplateNetworkInterfaceArgs struct {
+	// Associate a public ip address with the network interface.  Boolean value.
 	AssociatePublicIpAddress pulumi.StringPtrInput `pulumi:"associatePublicIpAddress"`
-	DeleteOnTermination      pulumi.BoolPtrInput   `pulumi:"deleteOnTermination"`
-	// Description of the launch template.
-	Description        pulumi.StringPtrInput   `pulumi:"description"`
-	DeviceIndex        pulumi.IntPtrInput      `pulumi:"deviceIndex"`
-	Ipv4AddressCount   pulumi.IntPtrInput      `pulumi:"ipv4AddressCount"`
-	Ipv4Addresses      pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
-	Ipv6AddressCount   pulumi.IntPtrInput      `pulumi:"ipv6AddressCount"`
-	Ipv6Addresses      pulumi.StringArrayInput `pulumi:"ipv6Addresses"`
-	NetworkInterfaceId pulumi.StringPtrInput   `pulumi:"networkInterfaceId"`
-	PrivateIpAddress   pulumi.StringPtrInput   `pulumi:"privateIpAddress"`
-	SecurityGroups     pulumi.StringArrayInput `pulumi:"securityGroups"`
-	SubnetId           pulumi.StringPtrInput   `pulumi:"subnetId"`
+	// Whether the network interface should be destroyed on instance termination.
+	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// Description of the network interface.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The integer index of the network interface attachment.
+	DeviceIndex pulumi.IntPtrInput `pulumi:"deviceIndex"`
+	// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
+	Ipv4AddressCount pulumi.IntPtrInput `pulumi:"ipv4AddressCount"`
+	// One or more private IPv4 addresses to associate. Conflicts with `ipv4AddressCount`
+	Ipv4Addresses pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
+	// The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6Addresses`
+	Ipv6AddressCount pulumi.IntPtrInput `pulumi:"ipv6AddressCount"`
+	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6AddressCount`
+	Ipv6Addresses pulumi.StringArrayInput `pulumi:"ipv6Addresses"`
+	// The ID of the network interface to attach.
+	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
+	// The primary private IPv4 address.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// A list of security group IDs to associate.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// The VPC Subnet ID to associate.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
 func (LaunchTemplateNetworkInterfaceArgs) ElementType() reflect.Type {
@@ -4909,51 +5200,62 @@ func (o LaunchTemplateNetworkInterfaceOutput) ToLaunchTemplateNetworkInterfaceOu
 	return o
 }
 
+// Associate a public ip address with the network interface.  Boolean value.
 func (o LaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.AssociatePublicIpAddress }).(pulumi.StringPtrOutput)
 }
 
+// Whether the network interface should be destroyed on instance termination.
 func (o LaunchTemplateNetworkInterfaceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// Description of the launch template.
+// Description of the network interface.
 func (o LaunchTemplateNetworkInterfaceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The integer index of the network interface attachment.
 func (o LaunchTemplateNetworkInterfaceOutput) DeviceIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.DeviceIndex }).(pulumi.IntPtrOutput)
 }
 
+// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv4AddressCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.Ipv4AddressCount }).(pulumi.IntPtrOutput)
 }
 
+// One or more private IPv4 addresses to associate. Conflicts with `ipv4AddressCount`
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv4Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []string { return v.Ipv4Addresses }).(pulumi.StringArrayOutput)
 }
 
+// The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6Addresses`
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv6AddressCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.Ipv6AddressCount }).(pulumi.IntPtrOutput)
 }
 
+// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6AddressCount`
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv6Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []string { return v.Ipv6Addresses }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the network interface to attach.
 func (o LaunchTemplateNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
+// The primary private IPv4 address.
 func (o LaunchTemplateNetworkInterfaceOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
+// A list of security group IDs to associate.
 func (o LaunchTemplateNetworkInterfaceOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// The VPC Subnet ID to associate.
 func (o LaunchTemplateNetworkInterfaceOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -4979,12 +5281,18 @@ func (o LaunchTemplateNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Laun
 }
 
 type LaunchTemplatePlacement struct {
-	Affinity         *string `pulumi:"affinity"`
+	// The affinity setting for an instance on a Dedicated Host.
+	Affinity *string `pulumi:"affinity"`
+	// The Availability Zone for the instance.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	GroupName        *string `pulumi:"groupName"`
-	HostId           *string `pulumi:"hostId"`
-	SpreadDomain     *string `pulumi:"spreadDomain"`
-	Tenancy          *string `pulumi:"tenancy"`
+	// The name of the placement group for the instance.
+	GroupName *string `pulumi:"groupName"`
+	// The ID of the Dedicated Host for the instance.
+	HostId *string `pulumi:"hostId"`
+	// Reserved for future use.
+	SpreadDomain *string `pulumi:"spreadDomain"`
+	// The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
+	Tenancy *string `pulumi:"tenancy"`
 }
 
 type LaunchTemplatePlacementInput interface {
@@ -4995,12 +5303,18 @@ type LaunchTemplatePlacementInput interface {
 }
 
 type LaunchTemplatePlacementArgs struct {
-	Affinity         pulumi.StringPtrInput `pulumi:"affinity"`
+	// The affinity setting for an instance on a Dedicated Host.
+	Affinity pulumi.StringPtrInput `pulumi:"affinity"`
+	// The Availability Zone for the instance.
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	GroupName        pulumi.StringPtrInput `pulumi:"groupName"`
-	HostId           pulumi.StringPtrInput `pulumi:"hostId"`
-	SpreadDomain     pulumi.StringPtrInput `pulumi:"spreadDomain"`
-	Tenancy          pulumi.StringPtrInput `pulumi:"tenancy"`
+	// The name of the placement group for the instance.
+	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
+	// The ID of the Dedicated Host for the instance.
+	HostId pulumi.StringPtrInput `pulumi:"hostId"`
+	// Reserved for future use.
+	SpreadDomain pulumi.StringPtrInput `pulumi:"spreadDomain"`
+	// The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
+	Tenancy pulumi.StringPtrInput `pulumi:"tenancy"`
 }
 
 func (LaunchTemplatePlacementArgs) ElementType() reflect.Type {
@@ -5071,26 +5385,33 @@ func (o LaunchTemplatePlacementOutput) ToLaunchTemplatePlacementPtrOutputWithCon
 		return &v
 	}).(LaunchTemplatePlacementPtrOutput)
 }
+
+// The affinity setting for an instance on a Dedicated Host.
 func (o LaunchTemplatePlacementOutput) Affinity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.Affinity }).(pulumi.StringPtrOutput)
 }
 
+// The Availability Zone for the instance.
 func (o LaunchTemplatePlacementOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// The name of the placement group for the instance.
 func (o LaunchTemplatePlacementOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Dedicated Host for the instance.
 func (o LaunchTemplatePlacementOutput) HostId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.HostId }).(pulumi.StringPtrOutput)
 }
 
+// Reserved for future use.
 func (o LaunchTemplatePlacementOutput) SpreadDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.SpreadDomain }).(pulumi.StringPtrOutput)
 }
 
+// The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
 func (o LaunchTemplatePlacementOutput) Tenancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.Tenancy }).(pulumi.StringPtrOutput)
 }
@@ -5113,33 +5434,40 @@ func (o LaunchTemplatePlacementPtrOutput) Elem() LaunchTemplatePlacementOutput {
 	return o.ApplyT(func(v *LaunchTemplatePlacement) LaunchTemplatePlacement { return *v }).(LaunchTemplatePlacementOutput)
 }
 
+// The affinity setting for an instance on a Dedicated Host.
 func (o LaunchTemplatePlacementPtrOutput) Affinity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.Affinity }).(pulumi.StringPtrOutput)
 }
 
+// The Availability Zone for the instance.
 func (o LaunchTemplatePlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// The name of the placement group for the instance.
 func (o LaunchTemplatePlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Dedicated Host for the instance.
 func (o LaunchTemplatePlacementPtrOutput) HostId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.HostId }).(pulumi.StringPtrOutput)
 }
 
+// Reserved for future use.
 func (o LaunchTemplatePlacementPtrOutput) SpreadDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.SpreadDomain }).(pulumi.StringPtrOutput)
 }
 
+// The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
 func (o LaunchTemplatePlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.Tenancy }).(pulumi.StringPtrOutput)
 }
 
 type LaunchTemplateTagSpecification struct {
+	// The type of resource to tag. Valid values are `instance` and `volume`.
 	ResourceType *string `pulumi:"resourceType"`
-	// A mapping of tags to assign to the launch template.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -5151,8 +5479,9 @@ type LaunchTemplateTagSpecificationInput interface {
 }
 
 type LaunchTemplateTagSpecificationArgs struct {
+	// The type of resource to tag. Valid values are `instance` and `volume`.
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
-	// A mapping of tags to assign to the launch template.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
@@ -5203,11 +5532,12 @@ func (o LaunchTemplateTagSpecificationOutput) ToLaunchTemplateTagSpecificationOu
 	return o
 }
 
+// The type of resource to tag. Valid values are `instance` and `volume`.
 func (o LaunchTemplateTagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
-// A mapping of tags to assign to the launch template.
+// A mapping of tags to assign to the resource.
 func (o LaunchTemplateTagSpecificationOutput) Tags() pulumi.MapOutput {
 	return o.ApplyT(func(v LaunchTemplateTagSpecification) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
 }
@@ -5568,8 +5898,10 @@ func (o NetworkAclIngressArrayOutput) Index(i pulumi.IntInput) NetworkAclIngress
 
 type NetworkInterfaceAttachmentType struct {
 	AttachmentId *string `pulumi:"attachmentId"`
-	DeviceIndex  int     `pulumi:"deviceIndex"`
-	Instance     string  `pulumi:"instance"`
+	// Integer to define the devices index.
+	DeviceIndex int `pulumi:"deviceIndex"`
+	// ID of the instance to attach to.
+	Instance string `pulumi:"instance"`
 }
 
 type NetworkInterfaceAttachmentTypeInput interface {
@@ -5581,8 +5913,10 @@ type NetworkInterfaceAttachmentTypeInput interface {
 
 type NetworkInterfaceAttachmentTypeArgs struct {
 	AttachmentId pulumi.StringPtrInput `pulumi:"attachmentId"`
-	DeviceIndex  pulumi.IntInput       `pulumi:"deviceIndex"`
-	Instance     pulumi.StringInput    `pulumi:"instance"`
+	// Integer to define the devices index.
+	DeviceIndex pulumi.IntInput `pulumi:"deviceIndex"`
+	// ID of the instance to attach to.
+	Instance pulumi.StringInput `pulumi:"instance"`
 }
 
 func (NetworkInterfaceAttachmentTypeArgs) ElementType() reflect.Type {
@@ -5636,10 +5970,12 @@ func (o NetworkInterfaceAttachmentTypeOutput) AttachmentId() pulumi.StringPtrOut
 	return o.ApplyT(func(v NetworkInterfaceAttachmentType) *string { return v.AttachmentId }).(pulumi.StringPtrOutput)
 }
 
+// Integer to define the devices index.
 func (o NetworkInterfaceAttachmentTypeOutput) DeviceIndex() pulumi.IntOutput {
 	return o.ApplyT(func(v NetworkInterfaceAttachmentType) int { return v.DeviceIndex }).(pulumi.IntOutput)
 }
 
+// ID of the instance to attach to.
 func (o NetworkInterfaceAttachmentTypeOutput) Instance() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceAttachmentType) string { return v.Instance }).(pulumi.StringOutput)
 }
@@ -6150,19 +6486,27 @@ func (o RouteTableRouteArrayOutput) Index(i pulumi.IntInput) RouteTableRouteOutp
 }
 
 type SecurityGroupEgress struct {
+	// List of CIDR blocks.
 	CidrBlocks []string `pulumi:"cidrBlocks"`
-	// The security group description. Defaults to
-	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-	// `GroupDescription` attribute, for which there is no Update API. If you'd like
-	// to classify your security groups in a way that can be updated, use `tags`.
-	Description    *string  `pulumi:"description"`
-	FromPort       int      `pulumi:"fromPort"`
+	// Description of this egress rule.
+	Description *string `pulumi:"description"`
+	// The start port (or ICMP type number if protocol is "icmp")
+	FromPort int `pulumi:"fromPort"`
+	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
-	PrefixListIds  []string `pulumi:"prefixListIds"`
-	Protocol       string   `pulumi:"protocol"`
+	// List of prefix list IDs (for allowing access to VPC endpoints)
+	PrefixListIds []string `pulumi:"prefixListIds"`
+	// The protocol. If you select a protocol of
+	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+	Protocol string `pulumi:"protocol"`
+	// List of security group Group Names if using
+	// EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	Self           *bool    `pulumi:"self"`
-	ToPort         int      `pulumi:"toPort"`
+	// If true, the security group itself will be added as
+	// a source to this egress rule.
+	Self *bool `pulumi:"self"`
+	// The end range port (or ICMP code if protocol is "icmp").
+	ToPort int `pulumi:"toPort"`
 }
 
 type SecurityGroupEgressInput interface {
@@ -6173,19 +6517,27 @@ type SecurityGroupEgressInput interface {
 }
 
 type SecurityGroupEgressArgs struct {
+	// List of CIDR blocks.
 	CidrBlocks pulumi.StringArrayInput `pulumi:"cidrBlocks"`
-	// The security group description. Defaults to
-	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-	// `GroupDescription` attribute, for which there is no Update API. If you'd like
-	// to classify your security groups in a way that can be updated, use `tags`.
-	Description    pulumi.StringPtrInput   `pulumi:"description"`
-	FromPort       pulumi.IntInput         `pulumi:"fromPort"`
+	// Description of this egress rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The start port (or ICMP type number if protocol is "icmp")
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
-	PrefixListIds  pulumi.StringArrayInput `pulumi:"prefixListIds"`
-	Protocol       pulumi.StringInput      `pulumi:"protocol"`
+	// List of prefix list IDs (for allowing access to VPC endpoints)
+	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
+	// The protocol. If you select a protocol of
+	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// List of security group Group Names if using
+	// EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	Self           pulumi.BoolPtrInput     `pulumi:"self"`
-	ToPort         pulumi.IntInput         `pulumi:"toPort"`
+	// If true, the security group itself will be added as
+	// a source to this egress rule.
+	Self pulumi.BoolPtrInput `pulumi:"self"`
+	// The end range port (or ICMP code if protocol is "icmp").
+	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
 func (SecurityGroupEgressArgs) ElementType() reflect.Type {
@@ -6235,42 +6587,50 @@ func (o SecurityGroupEgressOutput) ToSecurityGroupEgressOutputWithContext(ctx co
 	return o
 }
 
+// List of CIDR blocks.
 func (o SecurityGroupEgressOutput) CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) []string { return v.CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// The security group description. Defaults to
-// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-// `GroupDescription` attribute, for which there is no Update API. If you'd like
-// to classify your security groups in a way that can be updated, use `tags`.
+// Description of this egress rule.
 func (o SecurityGroupEgressOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The start port (or ICMP type number if protocol is "icmp")
 func (o SecurityGroupEgressOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) int { return v.FromPort }).(pulumi.IntOutput)
 }
 
+// List of IPv6 CIDR blocks.
 func (o SecurityGroupEgressOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) []string { return v.Ipv6CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
+// List of prefix list IDs (for allowing access to VPC endpoints)
 func (o SecurityGroupEgressOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
 
+// The protocol. If you select a protocol of
+// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 func (o SecurityGroupEgressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
+// List of security group Group Names if using
+// EC2-Classic, or Group IDs if using a VPC.
 func (o SecurityGroupEgressOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// If true, the security group itself will be added as
+// a source to this egress rule.
 func (o SecurityGroupEgressOutput) Self() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) *bool { return v.Self }).(pulumi.BoolPtrOutput)
 }
 
+// The end range port (or ICMP code if protocol is "icmp").
 func (o SecurityGroupEgressOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) int { return v.ToPort }).(pulumi.IntOutput)
 }
@@ -6296,19 +6656,27 @@ func (o SecurityGroupEgressArrayOutput) Index(i pulumi.IntInput) SecurityGroupEg
 }
 
 type SecurityGroupIngress struct {
+	// List of CIDR blocks.
 	CidrBlocks []string `pulumi:"cidrBlocks"`
-	// The security group description. Defaults to
-	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-	// `GroupDescription` attribute, for which there is no Update API. If you'd like
-	// to classify your security groups in a way that can be updated, use `tags`.
-	Description    *string  `pulumi:"description"`
-	FromPort       int      `pulumi:"fromPort"`
+	// Description of this egress rule.
+	Description *string `pulumi:"description"`
+	// The start port (or ICMP type number if protocol is "icmp")
+	FromPort int `pulumi:"fromPort"`
+	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
-	PrefixListIds  []string `pulumi:"prefixListIds"`
-	Protocol       string   `pulumi:"protocol"`
+	// List of prefix list IDs (for allowing access to VPC endpoints)
+	PrefixListIds []string `pulumi:"prefixListIds"`
+	// The protocol. If you select a protocol of
+	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+	Protocol string `pulumi:"protocol"`
+	// List of security group Group Names if using
+	// EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	Self           *bool    `pulumi:"self"`
-	ToPort         int      `pulumi:"toPort"`
+	// If true, the security group itself will be added as
+	// a source to this egress rule.
+	Self *bool `pulumi:"self"`
+	// The end range port (or ICMP code if protocol is "icmp").
+	ToPort int `pulumi:"toPort"`
 }
 
 type SecurityGroupIngressInput interface {
@@ -6319,19 +6687,27 @@ type SecurityGroupIngressInput interface {
 }
 
 type SecurityGroupIngressArgs struct {
+	// List of CIDR blocks.
 	CidrBlocks pulumi.StringArrayInput `pulumi:"cidrBlocks"`
-	// The security group description. Defaults to
-	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-	// `GroupDescription` attribute, for which there is no Update API. If you'd like
-	// to classify your security groups in a way that can be updated, use `tags`.
-	Description    pulumi.StringPtrInput   `pulumi:"description"`
-	FromPort       pulumi.IntInput         `pulumi:"fromPort"`
+	// Description of this egress rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The start port (or ICMP type number if protocol is "icmp")
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
-	PrefixListIds  pulumi.StringArrayInput `pulumi:"prefixListIds"`
-	Protocol       pulumi.StringInput      `pulumi:"protocol"`
+	// List of prefix list IDs (for allowing access to VPC endpoints)
+	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
+	// The protocol. If you select a protocol of
+	// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// List of security group Group Names if using
+	// EC2-Classic, or Group IDs if using a VPC.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	Self           pulumi.BoolPtrInput     `pulumi:"self"`
-	ToPort         pulumi.IntInput         `pulumi:"toPort"`
+	// If true, the security group itself will be added as
+	// a source to this egress rule.
+	Self pulumi.BoolPtrInput `pulumi:"self"`
+	// The end range port (or ICMP code if protocol is "icmp").
+	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
 func (SecurityGroupIngressArgs) ElementType() reflect.Type {
@@ -6381,42 +6757,50 @@ func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutputWithContext(ctx 
 	return o
 }
 
+// List of CIDR blocks.
 func (o SecurityGroupIngressOutput) CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) []string { return v.CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// The security group description. Defaults to
-// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-// `GroupDescription` attribute, for which there is no Update API. If you'd like
-// to classify your security groups in a way that can be updated, use `tags`.
+// Description of this egress rule.
 func (o SecurityGroupIngressOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The start port (or ICMP type number if protocol is "icmp")
 func (o SecurityGroupIngressOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) int { return v.FromPort }).(pulumi.IntOutput)
 }
 
+// List of IPv6 CIDR blocks.
 func (o SecurityGroupIngressOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) []string { return v.Ipv6CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
+// List of prefix list IDs (for allowing access to VPC endpoints)
 func (o SecurityGroupIngressOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
 
+// The protocol. If you select a protocol of
+// "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "fromPort" and "toPort" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 func (o SecurityGroupIngressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
+// List of security group Group Names if using
+// EC2-Classic, or Group IDs if using a VPC.
 func (o SecurityGroupIngressOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// If true, the security group itself will be added as
+// a source to this egress rule.
 func (o SecurityGroupIngressOutput) Self() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) *bool { return v.Self }).(pulumi.BoolPtrOutput)
 }
 
+// The end range port (or ICMP code if protocol is "icmp").
 func (o SecurityGroupIngressOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) int { return v.ToPort }).(pulumi.IntOutput)
 }
@@ -6990,6 +7374,7 @@ func (o SpotFleetRequestLaunchSpecificationRootBlockDeviceArrayOutput) Index(i p
 }
 
 type SpotInstanceRequestCreditSpecification struct {
+	// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 	CpuCredits *string `pulumi:"cpuCredits"`
 }
 
@@ -7001,6 +7386,7 @@ type SpotInstanceRequestCreditSpecificationInput interface {
 }
 
 type SpotInstanceRequestCreditSpecificationArgs struct {
+	// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 	CpuCredits pulumi.StringPtrInput `pulumi:"cpuCredits"`
 }
 
@@ -7072,6 +7458,8 @@ func (o SpotInstanceRequestCreditSpecificationOutput) ToSpotInstanceRequestCredi
 		return &v
 	}).(SpotInstanceRequestCreditSpecificationPtrOutput)
 }
+
+// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 func (o SpotInstanceRequestCreditSpecificationOutput) CpuCredits() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestCreditSpecification) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
 }
@@ -7094,6 +7482,7 @@ func (o SpotInstanceRequestCreditSpecificationPtrOutput) Elem() SpotInstanceRequ
 	return o.ApplyT(func(v *SpotInstanceRequestCreditSpecification) SpotInstanceRequestCreditSpecification { return *v }).(SpotInstanceRequestCreditSpecificationOutput)
 }
 
+// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 func (o SpotInstanceRequestCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestCreditSpecification) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
 }
@@ -7102,7 +7491,7 @@ type SpotInstanceRequestEbsBlockDevice struct {
 	// Whether the volume should be destroyed
 	// on instance termination (Default: `true`).
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	// The name of the block device to mount on the instance.
+	// The name of the device to mount.
 	DeviceName string `pulumi:"deviceName"`
 	// Enables [EBS
 	// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
@@ -7135,7 +7524,7 @@ type SpotInstanceRequestEbsBlockDeviceArgs struct {
 	// Whether the volume should be destroyed
 	// on instance termination (Default: `true`).
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	// The name of the block device to mount on the instance.
+	// The name of the device to mount.
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// Enables [EBS
 	// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
@@ -7210,7 +7599,7 @@ func (o SpotInstanceRequestEbsBlockDeviceOutput) DeleteOnTermination() pulumi.Bo
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the block device to mount on the instance.
+// The name of the device to mount.
 func (o SpotInstanceRequestEbsBlockDeviceOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
@@ -7388,11 +7777,12 @@ func (o SpotInstanceRequestEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntIn
 }
 
 type SpotInstanceRequestNetworkInterface struct {
-	// Whether the volume should be destroyed
-	// on instance termination (Default: `true`).
-	DeleteOnTermination *bool  `pulumi:"deleteOnTermination"`
-	DeviceIndex         int    `pulumi:"deviceIndex"`
-	NetworkInterfaceId  string `pulumi:"networkInterfaceId"`
+	// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// The integer index of the network interface attachment. Limited by instance type.
+	DeviceIndex int `pulumi:"deviceIndex"`
+	// The ID of the network interface to attach.
+	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 }
 
 type SpotInstanceRequestNetworkInterfaceInput interface {
@@ -7403,11 +7793,12 @@ type SpotInstanceRequestNetworkInterfaceInput interface {
 }
 
 type SpotInstanceRequestNetworkInterfaceArgs struct {
-	// Whether the volume should be destroyed
-	// on instance termination (Default: `true`).
+	// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	DeviceIndex         pulumi.IntInput     `pulumi:"deviceIndex"`
-	NetworkInterfaceId  pulumi.StringInput  `pulumi:"networkInterfaceId"`
+	// The integer index of the network interface attachment. Limited by instance type.
+	DeviceIndex pulumi.IntInput `pulumi:"deviceIndex"`
+	// The ID of the network interface to attach.
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 }
 
 func (SpotInstanceRequestNetworkInterfaceArgs) ElementType() reflect.Type {
@@ -7457,16 +7848,17 @@ func (o SpotInstanceRequestNetworkInterfaceOutput) ToSpotInstanceRequestNetworkI
 	return o
 }
 
-// Whether the volume should be destroyed
-// on instance termination (Default: `true`).
+// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
 func (o SpotInstanceRequestNetworkInterfaceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestNetworkInterface) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+// The integer index of the network interface attachment. Limited by instance type.
 func (o SpotInstanceRequestNetworkInterfaceOutput) DeviceIndex() pulumi.IntOutput {
 	return o.ApplyT(func(v SpotInstanceRequestNetworkInterface) int { return v.DeviceIndex }).(pulumi.IntOutput)
 }
 
+// The ID of the network interface to attach.
 func (o SpotInstanceRequestNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotInstanceRequestNetworkInterface) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
@@ -7495,21 +7887,19 @@ type SpotInstanceRequestRootBlockDevice struct {
 	// Whether the volume should be destroyed
 	// on instance termination (Default: `true`).
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	// Enables [EBS
-	// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-	// on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
+	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 	Encrypted *bool `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1"`.
+	// This is only valid for `volumeType` of `"io1"`, and must be specified if
+	// using that type
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	VolumeId *string `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -7524,21 +7914,19 @@ type SpotInstanceRequestRootBlockDeviceArgs struct {
 	// Whether the volume should be destroyed
 	// on instance termination (Default: `true`).
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	// Enables [EBS
-	// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-	// on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
+	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The amount of provisioned
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-	// This must be set with a `volumeType` of `"io1"`.
+	// This is only valid for `volumeType` of `"io1"`, and must be specified if
+	// using that type
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	VolumeId pulumi.StringPtrInput `pulumi:"volumeId"`
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"gp2"`).
+	// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -7617,16 +8005,15 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) DeleteOnTermination() pulumi.B
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// Enables [EBS
-// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-// on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
+// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 func (o SpotInstanceRequestRootBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This must be set with a `volumeType` of `"io1"`.
+// This is only valid for `volumeType` of `"io1"`, and must be specified if
+// using that type
 func (o SpotInstanceRequestRootBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -7645,8 +8032,7 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutp
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`,
-// or `"io1"`. (Default: `"gp2"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
 func (o SpotInstanceRequestRootBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -7675,16 +8061,15 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) DeleteOnTermination() pulum
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// Enables [EBS
-// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-// on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
+// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
 // The amount of provisioned
 // [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-// This must be set with a `volumeType` of `"io1"`.
+// This is only valid for `volumeType` of `"io1"`, and must be specified if
+// using that type
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -7703,8 +8088,7 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrO
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The type of volume. Can be `"standard"`, `"gp2"`,
-// or `"io1"`. (Default: `"gp2"`).
+// The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }

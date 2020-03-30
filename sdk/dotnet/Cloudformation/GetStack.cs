@@ -17,7 +17,19 @@ namespace Pulumi.Aws.CloudFormation
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudformation_stack.html.markdown.
         /// </summary>
+        [Obsolete("Use GetStack.InvokeAsync() instead")]
         public static Task<GetStackResult> GetStack(GetStackArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStackResult>("aws:cloudformation/getStack:getStack", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetStack
+    {
+        /// <summary>
+        /// The CloudFormation Stack data source allows access to stack
+        /// outputs and other useful data including the template body.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudformation_stack.html.markdown.
+        /// </summary>
+        public static Task<GetStackResult> InvokeAsync(GetStackArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStackResult>("aws:cloudformation/getStack:getStack", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -31,6 +43,10 @@ namespace Pulumi.Aws.CloudFormation
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// A map of tags associated with this stack.
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

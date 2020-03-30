@@ -44,6 +44,9 @@ export interface GetRepositoryArgs {
      * The name of the ECR Repository.
      */
     readonly name: string;
+    /**
+     * A mapping of tags assigned to the resource.
+     */
     readonly tags?: {[key: string]: any};
 }
 

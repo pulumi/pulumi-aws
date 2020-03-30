@@ -535,18 +535,30 @@ namespace Pulumi.Aws.OpsWorks
         [Input("password")]
         public Input<string>? Password { get; set; }
 
+        /// <summary>
+        /// For sources that are version-aware, the revision to use.
+        /// </summary>
         [Input("revision")]
         public Input<string>? Revision { get; set; }
 
         [Input("sshKey")]
         public Input<string>? SshKey { get; set; }
 
+        /// <summary>
+        /// The type of source to use. For example, "archive".
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The URL where the cookbooks resource can be found.
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
+        /// <summary>
+        /// Username to use when authenticating to the source.
+        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 
@@ -560,18 +572,30 @@ namespace Pulumi.Aws.OpsWorks
         [Input("password")]
         public Input<string>? Password { get; set; }
 
+        /// <summary>
+        /// For sources that are version-aware, the revision to use.
+        /// </summary>
         [Input("revision")]
         public Input<string>? Revision { get; set; }
 
         [Input("sshKey")]
         public Input<string>? SshKey { get; set; }
 
+        /// <summary>
+        /// The type of source to use. For example, "archive".
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The URL where the cookbooks resource can be found.
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
+        /// <summary>
+        /// Username to use when authenticating to the source.
+        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 
@@ -588,10 +612,22 @@ namespace Pulumi.Aws.OpsWorks
     public sealed class StackCustomCookbooksSources
     {
         public readonly string? Password;
+        /// <summary>
+        /// For sources that are version-aware, the revision to use.
+        /// </summary>
         public readonly string? Revision;
         public readonly string? SshKey;
+        /// <summary>
+        /// The type of source to use. For example, "archive".
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The URL where the cookbooks resource can be found.
+        /// </summary>
         public readonly string Url;
+        /// <summary>
+        /// Username to use when authenticating to the source.
+        /// </summary>
         public readonly string? Username;
 
         [OutputConstructor]

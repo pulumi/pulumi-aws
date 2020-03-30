@@ -307,9 +307,15 @@ namespace Pulumi.Aws.Ec2
         [Input("attachmentId")]
         public Input<string>? AttachmentId { get; set; }
 
+        /// <summary>
+        /// Integer to define the devices index.
+        /// </summary>
         [Input("deviceIndex", required: true)]
         public Input<int> DeviceIndex { get; set; } = null!;
 
+        /// <summary>
+        /// ID of the instance to attach to.
+        /// </summary>
         [Input("instance", required: true)]
         public Input<string> Instance { get; set; } = null!;
 
@@ -323,9 +329,15 @@ namespace Pulumi.Aws.Ec2
         [Input("attachmentId")]
         public Input<string>? AttachmentId { get; set; }
 
+        /// <summary>
+        /// Integer to define the devices index.
+        /// </summary>
         [Input("deviceIndex", required: true)]
         public Input<int> DeviceIndex { get; set; } = null!;
 
+        /// <summary>
+        /// ID of the instance to attach to.
+        /// </summary>
         [Input("instance", required: true)]
         public Input<string> Instance { get; set; } = null!;
 
@@ -342,7 +354,13 @@ namespace Pulumi.Aws.Ec2
     public sealed class NetworkInterfaceAttachments
     {
         public readonly string AttachmentId;
+        /// <summary>
+        /// Integer to define the devices index.
+        /// </summary>
         public readonly int DeviceIndex;
+        /// <summary>
+        /// ID of the instance to attach to.
+        /// </summary>
         public readonly string Instance;
 
         [OutputConstructor]

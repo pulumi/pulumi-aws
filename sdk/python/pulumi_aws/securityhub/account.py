@@ -16,8 +16,6 @@ class Account(pulumi.CustomResource):
 
         > **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
 
-        > **NOTE:** This AWS service is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between AWS Provider releases.
-
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_account.markdown.
 
         :param str resource_name: The name of the resource.

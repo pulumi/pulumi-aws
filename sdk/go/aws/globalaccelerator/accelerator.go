@@ -32,6 +32,8 @@ type Accelerator struct {
 	IpSets AcceleratorIpSetArrayOutput `pulumi:"ipSets"`
 	// The name of the accelerator.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewAccelerator registers a new resource with the given unique name, arguments, and options.
@@ -78,6 +80,8 @@ type acceleratorState struct {
 	IpSets []AcceleratorIpSet `pulumi:"ipSets"`
 	// The name of the accelerator.
 	Name *string `pulumi:"name"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 type AcceleratorState struct {
@@ -97,6 +101,8 @@ type AcceleratorState struct {
 	IpSets AcceleratorIpSetArrayInput
 	// The name of the accelerator.
 	Name pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapInput
 }
 
 func (AcceleratorState) ElementType() reflect.Type {
@@ -112,6 +118,8 @@ type acceleratorArgs struct {
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The name of the accelerator.
 	Name *string `pulumi:"name"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Accelerator resource.
@@ -124,6 +132,8 @@ type AcceleratorArgs struct {
 	IpAddressType pulumi.StringPtrInput
 	// The name of the accelerator.
 	Name pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapInput
 }
 
 func (AcceleratorArgs) ElementType() reflect.Type {

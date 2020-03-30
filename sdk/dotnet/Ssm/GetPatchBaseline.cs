@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_patch_baseline.html.markdown.
         /// </summary>
+        [Obsolete("Use GetPatchBaseline.InvokeAsync() instead")]
         public static Task<GetPatchBaselineResult> GetPatchBaseline(GetPatchBaselineArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPatchBaselineResult>("aws:ssm/getPatchBaseline:getPatchBaseline", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetPatchBaseline
+    {
+        /// <summary>
+        /// Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_patch_baseline.html.markdown.
+        /// </summary>
+        public static Task<GetPatchBaselineResult> InvokeAsync(GetPatchBaselineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPatchBaselineResult>("aws:ssm/getPatchBaseline:getPatchBaseline", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

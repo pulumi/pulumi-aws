@@ -98,7 +98,7 @@ export class UserPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastModifiedDate!: pulumi.Output<string>;
     /**
-     * Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
+     * Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
      */
     public readonly mfaConfiguration!: pulumi.Output<string | undefined>;
     /**
@@ -114,17 +114,21 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly schemas!: pulumi.Output<outputs.cognito.UserPoolSchema[] | undefined>;
     /**
-     * A string representing the SMS authentication message.
+     * A string representing the SMS authentication message. The message must contain the `{####}` placeholder, which will be replaced with the code.
      */
     public readonly smsAuthenticationMessage!: pulumi.Output<string | undefined>;
     /**
-     * The SMS Configuration.
+     * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the [`up` command and use --replace](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
      */
-    public readonly smsConfiguration!: pulumi.Output<outputs.cognito.UserPoolSmsConfiguration | undefined>;
+    public readonly smsConfiguration!: pulumi.Output<outputs.cognito.UserPoolSmsConfiguration>;
     /**
      * A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
      */
     public readonly smsVerificationMessage!: pulumi.Output<string>;
+    /**
+     * Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+     */
+    public readonly softwareTokenMfaConfiguration!: pulumi.Output<outputs.cognito.UserPoolSoftwareTokenMfaConfiguration | undefined>;
     /**
      * A mapping of tags to assign to the User Pool.
      */
@@ -173,6 +177,7 @@ export class UserPool extends pulumi.CustomResource {
             inputs["smsAuthenticationMessage"] = state ? state.smsAuthenticationMessage : undefined;
             inputs["smsConfiguration"] = state ? state.smsConfiguration : undefined;
             inputs["smsVerificationMessage"] = state ? state.smsVerificationMessage : undefined;
+            inputs["softwareTokenMfaConfiguration"] = state ? state.softwareTokenMfaConfiguration : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["userPoolAddOns"] = state ? state.userPoolAddOns : undefined;
             inputs["usernameAttributes"] = state ? state.usernameAttributes : undefined;
@@ -194,6 +199,7 @@ export class UserPool extends pulumi.CustomResource {
             inputs["smsAuthenticationMessage"] = args ? args.smsAuthenticationMessage : undefined;
             inputs["smsConfiguration"] = args ? args.smsConfiguration : undefined;
             inputs["smsVerificationMessage"] = args ? args.smsVerificationMessage : undefined;
+            inputs["softwareTokenMfaConfiguration"] = args ? args.softwareTokenMfaConfiguration : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userPoolAddOns"] = args ? args.userPoolAddOns : undefined;
             inputs["usernameAttributes"] = args ? args.usernameAttributes : undefined;
@@ -267,7 +273,7 @@ export interface UserPoolState {
      */
     readonly lastModifiedDate?: pulumi.Input<string>;
     /**
-     * Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
+     * Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
      */
     readonly mfaConfiguration?: pulumi.Input<string>;
     /**
@@ -283,17 +289,21 @@ export interface UserPoolState {
      */
     readonly schemas?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolSchema>[]>;
     /**
-     * A string representing the SMS authentication message.
+     * A string representing the SMS authentication message. The message must contain the `{####}` placeholder, which will be replaced with the code.
      */
     readonly smsAuthenticationMessage?: pulumi.Input<string>;
     /**
-     * The SMS Configuration.
+     * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the [`up` command and use --replace](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
      */
     readonly smsConfiguration?: pulumi.Input<inputs.cognito.UserPoolSmsConfiguration>;
     /**
      * A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
      */
     readonly smsVerificationMessage?: pulumi.Input<string>;
+    /**
+     * Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+     */
+    readonly softwareTokenMfaConfiguration?: pulumi.Input<inputs.cognito.UserPoolSoftwareTokenMfaConfiguration>;
     /**
      * A mapping of tags to assign to the User Pool.
      */
@@ -349,7 +359,7 @@ export interface UserPoolArgs {
      */
     readonly lambdaConfig?: pulumi.Input<inputs.cognito.UserPoolLambdaConfig>;
     /**
-     * Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
+     * Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
      */
     readonly mfaConfiguration?: pulumi.Input<string>;
     /**
@@ -365,17 +375,21 @@ export interface UserPoolArgs {
      */
     readonly schemas?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolSchema>[]>;
     /**
-     * A string representing the SMS authentication message.
+     * A string representing the SMS authentication message. The message must contain the `{####}` placeholder, which will be replaced with the code.
      */
     readonly smsAuthenticationMessage?: pulumi.Input<string>;
     /**
-     * The SMS Configuration.
+     * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the [`up` command and use --replace](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
      */
     readonly smsConfiguration?: pulumi.Input<inputs.cognito.UserPoolSmsConfiguration>;
     /**
      * A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
      */
     readonly smsVerificationMessage?: pulumi.Input<string>;
+    /**
+     * Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+     */
+    readonly softwareTokenMfaConfiguration?: pulumi.Input<inputs.cognito.UserPoolSoftwareTokenMfaConfiguration>;
     /**
      * A mapping of tags to assign to the User Pool.
      */

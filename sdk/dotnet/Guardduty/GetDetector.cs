@@ -16,7 +16,18 @@ namespace Pulumi.Aws.GuardDuty
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/guardduty_detector.html.markdown.
         /// </summary>
+        [Obsolete("Use GetDetector.InvokeAsync() instead")]
         public static Task<GetDetectorResult> GetDetector(GetDetectorArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDetectorResult>("aws:guardduty/getDetector:getDetector", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetDetector
+    {
+        /// <summary>
+        /// Retrieve information about a GuardDuty detector.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/guardduty_detector.html.markdown.
+        /// </summary>
+        public static Task<GetDetectorResult> InvokeAsync(GetDetectorArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDetectorResult>("aws:guardduty/getDetector:getDetector", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

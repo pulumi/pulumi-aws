@@ -22,6 +22,9 @@ namespace Pulumi.Aws.S3
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
+        /// <summary>
+        /// The text of the policy.
+        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -77,6 +80,9 @@ namespace Pulumi.Aws.S3
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// The text of the policy.
+        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
@@ -93,6 +99,9 @@ namespace Pulumi.Aws.S3
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
+        /// <summary>
+        /// The text of the policy.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

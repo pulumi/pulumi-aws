@@ -16,7 +16,18 @@ namespace Pulumi.Aws.ElastiCache
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_replication_group.html.markdown.
         /// </summary>
+        [Obsolete("Use GetReplicationGroup.InvokeAsync() instead")]
         public static Task<GetReplicationGroupResult> GetReplicationGroup(GetReplicationGroupArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationGroupResult>("aws:elasticache/getReplicationGroup:getReplicationGroup", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetReplicationGroup
+    {
+        /// <summary>
+        /// Use this data source to get information about an Elasticache Replication Group.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_replication_group.html.markdown.
+        /// </summary>
+        public static Task<GetReplicationGroupResult> InvokeAsync(GetReplicationGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationGroupResult>("aws:elasticache/getReplicationGroup:getReplicationGroup", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

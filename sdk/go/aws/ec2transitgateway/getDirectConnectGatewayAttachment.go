@@ -23,8 +23,9 @@ func GetDirectConnectGatewayAttachment(ctx *pulumi.Context, args *GetDirectConne
 // A collection of arguments for invoking getDirectConnectGatewayAttachment.
 type GetDirectConnectGatewayAttachmentArgs struct {
 	// Identifier of the Direct Connect Gateway.
-	DxGatewayId string                 `pulumi:"dxGatewayId"`
-	Tags        map[string]interface{} `pulumi:"tags"`
+	DxGatewayId string `pulumi:"dxGatewayId"`
+	// Key-value tags for the EC2 Transit Gateway Attachment
+	Tags map[string]interface{} `pulumi:"tags"`
 	// Identifier of the EC2 Transit Gateway.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 }

@@ -139,6 +139,7 @@ def get_snapshot(filters=None,most_recent=None,owners=None,restorable_by_user_id
     :param list owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
     :param list restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
     :param list snapshot_ids: Returns information on a specific snapshot_id.
+    :param dict tags: A mapping of tags for the resource.
 
     The **filters** object supports the following:
 

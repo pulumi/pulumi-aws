@@ -23,8 +23,9 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
 	// Name of the cluster.
-	ClusterName string                 `pulumi:"clusterName"`
-	Tags        map[string]interface{} `pulumi:"tags"`
+	ClusterName string `pulumi:"clusterName"`
+	// Map of key-value pairs assigned to the cluster.
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // A collection of values returned by getCluster.

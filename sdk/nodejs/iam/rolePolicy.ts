@@ -50,7 +50,7 @@ export class RolePolicy extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
-     * The policy document attached to the role.
+     * The policy document. This is a JSON formatted string.
      */
     public readonly policy!: pulumi.Output<string>;
     /**
@@ -113,7 +113,7 @@ export interface RolePolicyState {
      */
     readonly namePrefix?: pulumi.Input<string>;
     /**
-     * The policy document attached to the role.
+     * The policy document. This is a JSON formatted string.
      */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
@@ -137,7 +137,7 @@ export interface RolePolicyArgs {
      */
     readonly namePrefix?: pulumi.Input<string>;
     /**
-     * The policy document attached to the role.
+     * The policy document. This is a JSON formatted string.
      */
     readonly policy: pulumi.Input<string | PolicyDocument>;
     /**

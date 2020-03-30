@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organizational_units.html.markdown.
         /// </summary>
+        [Obsolete("Use GetOrganizationalUnits.InvokeAsync() instead")]
         public static Task<GetOrganizationalUnitsResult> GetOrganizationalUnits(GetOrganizationalUnitsArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationalUnitsResult>("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetOrganizationalUnits
+    {
+        /// <summary>
+        /// Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organizational_units.html.markdown.
+        /// </summary>
+        public static Task<GetOrganizationalUnitsResult> InvokeAsync(GetOrganizationalUnitsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationalUnitsResult>("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

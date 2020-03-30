@@ -18,7 +18,20 @@ namespace Pulumi.Aws.Route53
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_zone.html.markdown.
         /// </summary>
+        [Obsolete("Use GetZone.InvokeAsync() instead")]
         public static Task<GetZoneResult> GetZone(GetZoneArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("aws:route53/getZone:getZone", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetZone
+    {
+        /// <summary>
+        /// `aws.route53.Zone` provides details about a specific Route 53 Hosted Zone.
+        /// 
+        /// This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_zone.html.markdown.
+        /// </summary>
+        public static Task<GetZoneResult> InvokeAsync(GetZoneArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("aws:route53/getZone:getZone", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -36,6 +49,9 @@ namespace Pulumi.Aws.Route53
         [Input("privateZone")]
         public bool? PrivateZone { get; set; }
 
+        /// <summary>
+        /// The number of Record Set in the Hosted Zone.
+        /// </summary>
         [Input("resourceRecordSetCount")]
         public int? ResourceRecordSetCount { get; set; }
 

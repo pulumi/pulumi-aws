@@ -136,6 +136,10 @@ export class FlowLog extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      */
     public readonly trafficType!: pulumi.Output<string>;
@@ -163,6 +167,7 @@ export class FlowLog extends pulumi.CustomResource {
             inputs["logFormat"] = state ? state.logFormat : undefined;
             inputs["logGroupName"] = state ? state.logGroupName : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["trafficType"] = state ? state.trafficType : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
@@ -177,6 +182,7 @@ export class FlowLog extends pulumi.CustomResource {
             inputs["logFormat"] = args ? args.logFormat : undefined;
             inputs["logGroupName"] = args ? args.logGroupName : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["trafficType"] = args ? args.trafficType : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
         }
@@ -226,6 +232,10 @@ export interface FlowLogState {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      */
     readonly trafficType?: pulumi.Input<string>;
@@ -269,6 +279,10 @@ export interface FlowLogArgs {
      * Subnet ID to attach to
      */
     readonly subnetId?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      */

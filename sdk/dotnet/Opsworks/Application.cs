@@ -113,7 +113,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<string> StackId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of source to use. For example, "archive".
+        /// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -285,7 +285,7 @@ namespace Pulumi.Aws.OpsWorks
         public Input<string> StackId { get; set; } = null!;
 
         /// <summary>
-        /// The type of source to use. For example, "archive".
+        /// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -418,7 +418,7 @@ namespace Pulumi.Aws.OpsWorks
         public Input<string>? StackId { get; set; }
 
         /// <summary>
-        /// The type of source to use. For example, "archive".
+        /// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -433,6 +433,9 @@ namespace Pulumi.Aws.OpsWorks
 
     public sealed class ApplicationAppSourcesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
@@ -442,6 +445,9 @@ namespace Pulumi.Aws.OpsWorks
         [Input("revision")]
         public Input<string>? Revision { get; set; }
 
+        /// <summary>
+        /// SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        /// </summary>
         [Input("sshKey")]
         public Input<string>? SshKey { get; set; }
 
@@ -470,6 +476,9 @@ namespace Pulumi.Aws.OpsWorks
 
     public sealed class ApplicationAppSourcesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
@@ -479,6 +488,9 @@ namespace Pulumi.Aws.OpsWorks
         [Input("revision")]
         public Input<string>? Revision { get; set; }
 
+        /// <summary>
+        /// SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        /// </summary>
         [Input("sshKey")]
         public Input<string>? SshKey { get; set; }
 
@@ -507,12 +519,21 @@ namespace Pulumi.Aws.OpsWorks
 
     public sealed class ApplicationEnvironmentsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Variable name.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// Set visibility of the variable value to `true` or `false`.
+        /// </summary>
         [Input("secure")]
         public Input<bool>? Secure { get; set; }
 
+        /// <summary>
+        /// Variable value.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -523,12 +544,21 @@ namespace Pulumi.Aws.OpsWorks
 
     public sealed class ApplicationEnvironmentsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Variable name.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// Set visibility of the variable value to `true` or `false`.
+        /// </summary>
         [Input("secure")]
         public Input<bool>? Secure { get; set; }
 
+        /// <summary>
+        /// Variable value.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -539,12 +569,21 @@ namespace Pulumi.Aws.OpsWorks
 
     public sealed class ApplicationSslConfigurationsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The contents of the certificate's domain.crt file.
+        /// </summary>
         [Input("certificate", required: true)]
         public Input<string> Certificate { get; set; } = null!;
 
+        /// <summary>
+        /// Can be used to specify an intermediate certificate authority key or client authentication.
+        /// </summary>
         [Input("chain")]
         public Input<string>? Chain { get; set; }
 
+        /// <summary>
+        /// The private key; the contents of the certificate's domain.key file.
+        /// </summary>
         [Input("privateKey", required: true)]
         public Input<string> PrivateKey { get; set; } = null!;
 
@@ -555,12 +594,21 @@ namespace Pulumi.Aws.OpsWorks
 
     public sealed class ApplicationSslConfigurationsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The contents of the certificate's domain.crt file.
+        /// </summary>
         [Input("certificate", required: true)]
         public Input<string> Certificate { get; set; } = null!;
 
+        /// <summary>
+        /// Can be used to specify an intermediate certificate authority key or client authentication.
+        /// </summary>
         [Input("chain")]
         public Input<string>? Chain { get; set; }
 
+        /// <summary>
+        /// The private key; the contents of the certificate's domain.key file.
+        /// </summary>
         [Input("privateKey", required: true)]
         public Input<string> PrivateKey { get; set; } = null!;
 
@@ -576,11 +624,17 @@ namespace Pulumi.Aws.OpsWorks
     [OutputType]
     public sealed class ApplicationAppSources
     {
+        /// <summary>
+        /// Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        /// </summary>
         public readonly string? Password;
         /// <summary>
         /// For sources that are version-aware, the revision to use.
         /// </summary>
         public readonly string? Revision;
+        /// <summary>
+        /// SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        /// </summary>
         public readonly string? SshKey;
         /// <summary>
         /// The type of source to use. For example, "archive".
@@ -616,8 +670,17 @@ namespace Pulumi.Aws.OpsWorks
     [OutputType]
     public sealed class ApplicationEnvironments
     {
+        /// <summary>
+        /// Variable name.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// Set visibility of the variable value to `true` or `false`.
+        /// </summary>
         public readonly bool? Secure;
+        /// <summary>
+        /// Variable value.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]
@@ -635,8 +698,17 @@ namespace Pulumi.Aws.OpsWorks
     [OutputType]
     public sealed class ApplicationSslConfigurations
     {
+        /// <summary>
+        /// The contents of the certificate's domain.crt file.
+        /// </summary>
         public readonly string Certificate;
+        /// <summary>
+        /// Can be used to specify an intermediate certificate authority key or client authentication.
+        /// </summary>
         public readonly string? Chain;
+        /// <summary>
+        /// The private key; the contents of the certificate's domain.key file.
+        /// </summary>
         public readonly string PrivateKey;
 
         [OutputConstructor]

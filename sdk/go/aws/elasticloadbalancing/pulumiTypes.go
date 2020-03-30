@@ -18,7 +18,7 @@ type LoadBalancerAccessLogs struct {
 	BucketPrefix *string `pulumi:"bucketPrefix"`
 	// Boolean to enable / disable `accessLogs`. Default is `true`
 	Enabled *bool `pulumi:"enabled"`
-	// The interval between checks.
+	// The publishing interval in minutes. Default: 60 minutes.
 	Interval *int `pulumi:"interval"`
 }
 
@@ -36,7 +36,7 @@ type LoadBalancerAccessLogsArgs struct {
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
 	// Boolean to enable / disable `accessLogs`. Default is `true`
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The interval between checks.
+	// The publishing interval in minutes. Default: 60 minutes.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
 }
 
@@ -124,7 +124,7 @@ func (o LoadBalancerAccessLogsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LoadBalancerAccessLogs) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The interval between checks.
+// The publishing interval in minutes. Default: 60 minutes.
 func (o LoadBalancerAccessLogsOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LoadBalancerAccessLogs) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
@@ -162,7 +162,7 @@ func (o LoadBalancerAccessLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LoadBalancerAccessLogs) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The interval between checks.
+// The publishing interval in minutes. Default: 60 minutes.
 func (o LoadBalancerAccessLogsPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LoadBalancerAccessLogs) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }

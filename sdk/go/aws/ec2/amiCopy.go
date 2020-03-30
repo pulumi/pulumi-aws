@@ -36,7 +36,7 @@ type AmiCopy struct {
 	EbsBlockDevices AmiCopyEbsBlockDeviceArrayOutput `pulumi:"ebsBlockDevices"`
 	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
 	EnaSupport pulumi.BoolOutput `pulumi:"enaSupport"`
-	// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
 	Encrypted pulumi.BoolPtrOutput `pulumi:"encrypted"`
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
@@ -47,7 +47,9 @@ type AmiCopy struct {
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId pulumi.StringOutput `pulumi:"kernelId"`
-	// The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+	// The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+	// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+	// if this parameter is not specified, the default CMK for EBS is used
 	KmsKeyId           pulumi.StringOutput `pulumi:"kmsKeyId"`
 	ManageEbsSnapshots pulumi.BoolOutput   `pulumi:"manageEbsSnapshots"`
 	// A region-unique name for the AMI.
@@ -118,7 +120,7 @@ type amiCopyState struct {
 	EbsBlockDevices []AmiCopyEbsBlockDevice `pulumi:"ebsBlockDevices"`
 	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
 	EnaSupport *bool `pulumi:"enaSupport"`
-	// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
 	Encrypted *bool `pulumi:"encrypted"`
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
@@ -129,7 +131,9 @@ type amiCopyState struct {
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId *string `pulumi:"kernelId"`
-	// The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+	// The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+	// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+	// if this parameter is not specified, the default CMK for EBS is used
 	KmsKeyId           *string `pulumi:"kmsKeyId"`
 	ManageEbsSnapshots *bool   `pulumi:"manageEbsSnapshots"`
 	// A region-unique name for the AMI.
@@ -167,7 +171,7 @@ type AmiCopyState struct {
 	EbsBlockDevices AmiCopyEbsBlockDeviceArrayInput
 	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
 	EnaSupport pulumi.BoolPtrInput
-	// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
 	Encrypted pulumi.BoolPtrInput
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
@@ -178,7 +182,9 @@ type AmiCopyState struct {
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId pulumi.StringPtrInput
-	// The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+	// The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+	// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+	// if this parameter is not specified, the default CMK for EBS is used
 	KmsKeyId           pulumi.StringPtrInput
 	ManageEbsSnapshots pulumi.BoolPtrInput
 	// A region-unique name for the AMI.
@@ -216,12 +222,14 @@ type amiCopyArgs struct {
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices []AmiCopyEbsBlockDevice `pulumi:"ebsBlockDevices"`
-	// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
 	Encrypted *bool `pulumi:"encrypted"`
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices []AmiCopyEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
-	// The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+	// The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+	// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+	// if this parameter is not specified, the default CMK for EBS is used
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A region-unique name for the AMI.
 	Name *string `pulumi:"name"`
@@ -242,12 +250,14 @@ type AmiCopyArgs struct {
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices AmiCopyEbsBlockDeviceArrayInput
-	// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
 	Encrypted pulumi.BoolPtrInput
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices AmiCopyEphemeralBlockDeviceArrayInput
-	// The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+	// The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+	// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+	// if this parameter is not specified, the default CMK for EBS is used
 	KmsKeyId pulumi.StringPtrInput
 	// A region-unique name for the AMI.
 	Name pulumi.StringPtrInput

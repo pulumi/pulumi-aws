@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-type ClusterClusterCertificates struct {
+type ClusterClusterCertificate struct {
 	AwsHardwareCertificate          *string `pulumi:"awsHardwareCertificate"`
 	ClusterCertificate              *string `pulumi:"clusterCertificate"`
 	ClusterCsr                      *string `pulumi:"clusterCsr"`
@@ -19,14 +19,14 @@ type ClusterClusterCertificates struct {
 	ManufacturerHardwareCertificate *string `pulumi:"manufacturerHardwareCertificate"`
 }
 
-type ClusterClusterCertificatesInput interface {
+type ClusterClusterCertificateInput interface {
 	pulumi.Input
 
-	ToClusterClusterCertificatesOutput() ClusterClusterCertificatesOutput
-	ToClusterClusterCertificatesOutputWithContext(context.Context) ClusterClusterCertificatesOutput
+	ToClusterClusterCertificateOutput() ClusterClusterCertificateOutput
+	ToClusterClusterCertificateOutputWithContext(context.Context) ClusterClusterCertificateOutput
 }
 
-type ClusterClusterCertificatesArgs struct {
+type ClusterClusterCertificateArgs struct {
 	AwsHardwareCertificate          pulumi.StringPtrInput `pulumi:"awsHardwareCertificate"`
 	ClusterCertificate              pulumi.StringPtrInput `pulumi:"clusterCertificate"`
 	ClusterCsr                      pulumi.StringPtrInput `pulumi:"clusterCsr"`
@@ -34,130 +34,91 @@ type ClusterClusterCertificatesArgs struct {
 	ManufacturerHardwareCertificate pulumi.StringPtrInput `pulumi:"manufacturerHardwareCertificate"`
 }
 
-func (ClusterClusterCertificatesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterClusterCertificates)(nil)).Elem()
+func (ClusterClusterCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterClusterCertificate)(nil)).Elem()
 }
 
-func (i ClusterClusterCertificatesArgs) ToClusterClusterCertificatesOutput() ClusterClusterCertificatesOutput {
-	return i.ToClusterClusterCertificatesOutputWithContext(context.Background())
+func (i ClusterClusterCertificateArgs) ToClusterClusterCertificateOutput() ClusterClusterCertificateOutput {
+	return i.ToClusterClusterCertificateOutputWithContext(context.Background())
 }
 
-func (i ClusterClusterCertificatesArgs) ToClusterClusterCertificatesOutputWithContext(ctx context.Context) ClusterClusterCertificatesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterCertificatesOutput)
+func (i ClusterClusterCertificateArgs) ToClusterClusterCertificateOutputWithContext(ctx context.Context) ClusterClusterCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterCertificateOutput)
 }
 
-func (i ClusterClusterCertificatesArgs) ToClusterClusterCertificatesPtrOutput() ClusterClusterCertificatesPtrOutput {
-	return i.ToClusterClusterCertificatesPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterClusterCertificatesArgs) ToClusterClusterCertificatesPtrOutputWithContext(ctx context.Context) ClusterClusterCertificatesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterCertificatesOutput).ToClusterClusterCertificatesPtrOutputWithContext(ctx)
-}
-
-type ClusterClusterCertificatesPtrInput interface {
+type ClusterClusterCertificateArrayInput interface {
 	pulumi.Input
 
-	ToClusterClusterCertificatesPtrOutput() ClusterClusterCertificatesPtrOutput
-	ToClusterClusterCertificatesPtrOutputWithContext(context.Context) ClusterClusterCertificatesPtrOutput
+	ToClusterClusterCertificateArrayOutput() ClusterClusterCertificateArrayOutput
+	ToClusterClusterCertificateArrayOutputWithContext(context.Context) ClusterClusterCertificateArrayOutput
 }
 
-type clusterClusterCertificatesPtrType ClusterClusterCertificatesArgs
+type ClusterClusterCertificateArray []ClusterClusterCertificateInput
 
-func ClusterClusterCertificatesPtr(v *ClusterClusterCertificatesArgs) ClusterClusterCertificatesPtrInput {
-	return (*clusterClusterCertificatesPtrType)(v)
+func (ClusterClusterCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterClusterCertificate)(nil)).Elem()
 }
 
-func (*clusterClusterCertificatesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterClusterCertificates)(nil)).Elem()
+func (i ClusterClusterCertificateArray) ToClusterClusterCertificateArrayOutput() ClusterClusterCertificateArrayOutput {
+	return i.ToClusterClusterCertificateArrayOutputWithContext(context.Background())
 }
 
-func (i *clusterClusterCertificatesPtrType) ToClusterClusterCertificatesPtrOutput() ClusterClusterCertificatesPtrOutput {
-	return i.ToClusterClusterCertificatesPtrOutputWithContext(context.Background())
+func (i ClusterClusterCertificateArray) ToClusterClusterCertificateArrayOutputWithContext(ctx context.Context) ClusterClusterCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterCertificateArrayOutput)
 }
 
-func (i *clusterClusterCertificatesPtrType) ToClusterClusterCertificatesPtrOutputWithContext(ctx context.Context) ClusterClusterCertificatesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterCertificatesPtrOutput)
+type ClusterClusterCertificateOutput struct{ *pulumi.OutputState }
+
+func (ClusterClusterCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterClusterCertificate)(nil)).Elem()
 }
 
-type ClusterClusterCertificatesOutput struct{ *pulumi.OutputState }
-
-func (ClusterClusterCertificatesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterClusterCertificates)(nil)).Elem()
-}
-
-func (o ClusterClusterCertificatesOutput) ToClusterClusterCertificatesOutput() ClusterClusterCertificatesOutput {
+func (o ClusterClusterCertificateOutput) ToClusterClusterCertificateOutput() ClusterClusterCertificateOutput {
 	return o
 }
 
-func (o ClusterClusterCertificatesOutput) ToClusterClusterCertificatesOutputWithContext(ctx context.Context) ClusterClusterCertificatesOutput {
+func (o ClusterClusterCertificateOutput) ToClusterClusterCertificateOutputWithContext(ctx context.Context) ClusterClusterCertificateOutput {
 	return o
 }
 
-func (o ClusterClusterCertificatesOutput) ToClusterClusterCertificatesPtrOutput() ClusterClusterCertificatesPtrOutput {
-	return o.ToClusterClusterCertificatesPtrOutputWithContext(context.Background())
+func (o ClusterClusterCertificateOutput) AwsHardwareCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterClusterCertificate) *string { return v.AwsHardwareCertificate }).(pulumi.StringPtrOutput)
 }
 
-func (o ClusterClusterCertificatesOutput) ToClusterClusterCertificatesPtrOutputWithContext(ctx context.Context) ClusterClusterCertificatesPtrOutput {
-	return o.ApplyT(func(v ClusterClusterCertificates) *ClusterClusterCertificates {
-		return &v
-	}).(ClusterClusterCertificatesPtrOutput)
-}
-func (o ClusterClusterCertificatesOutput) AwsHardwareCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterClusterCertificates) *string { return v.AwsHardwareCertificate }).(pulumi.StringPtrOutput)
+func (o ClusterClusterCertificateOutput) ClusterCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterClusterCertificate) *string { return v.ClusterCertificate }).(pulumi.StringPtrOutput)
 }
 
-func (o ClusterClusterCertificatesOutput) ClusterCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterClusterCertificates) *string { return v.ClusterCertificate }).(pulumi.StringPtrOutput)
+func (o ClusterClusterCertificateOutput) ClusterCsr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterClusterCertificate) *string { return v.ClusterCsr }).(pulumi.StringPtrOutput)
 }
 
-func (o ClusterClusterCertificatesOutput) ClusterCsr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterClusterCertificates) *string { return v.ClusterCsr }).(pulumi.StringPtrOutput)
+func (o ClusterClusterCertificateOutput) HsmCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterClusterCertificate) *string { return v.HsmCertificate }).(pulumi.StringPtrOutput)
 }
 
-func (o ClusterClusterCertificatesOutput) HsmCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterClusterCertificates) *string { return v.HsmCertificate }).(pulumi.StringPtrOutput)
+func (o ClusterClusterCertificateOutput) ManufacturerHardwareCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterClusterCertificate) *string { return v.ManufacturerHardwareCertificate }).(pulumi.StringPtrOutput)
 }
 
-func (o ClusterClusterCertificatesOutput) ManufacturerHardwareCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterClusterCertificates) *string { return v.ManufacturerHardwareCertificate }).(pulumi.StringPtrOutput)
+type ClusterClusterCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterClusterCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterClusterCertificate)(nil)).Elem()
 }
 
-type ClusterClusterCertificatesPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterClusterCertificatesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterClusterCertificates)(nil)).Elem()
-}
-
-func (o ClusterClusterCertificatesPtrOutput) ToClusterClusterCertificatesPtrOutput() ClusterClusterCertificatesPtrOutput {
+func (o ClusterClusterCertificateArrayOutput) ToClusterClusterCertificateArrayOutput() ClusterClusterCertificateArrayOutput {
 	return o
 }
 
-func (o ClusterClusterCertificatesPtrOutput) ToClusterClusterCertificatesPtrOutputWithContext(ctx context.Context) ClusterClusterCertificatesPtrOutput {
+func (o ClusterClusterCertificateArrayOutput) ToClusterClusterCertificateArrayOutputWithContext(ctx context.Context) ClusterClusterCertificateArrayOutput {
 	return o
 }
 
-func (o ClusterClusterCertificatesPtrOutput) Elem() ClusterClusterCertificatesOutput {
-	return o.ApplyT(func(v *ClusterClusterCertificates) ClusterClusterCertificates { return *v }).(ClusterClusterCertificatesOutput)
-}
-
-func (o ClusterClusterCertificatesPtrOutput) AwsHardwareCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterClusterCertificates) *string { return v.AwsHardwareCertificate }).(pulumi.StringPtrOutput)
-}
-
-func (o ClusterClusterCertificatesPtrOutput) ClusterCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterClusterCertificates) *string { return v.ClusterCertificate }).(pulumi.StringPtrOutput)
-}
-
-func (o ClusterClusterCertificatesPtrOutput) ClusterCsr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterClusterCertificates) *string { return v.ClusterCsr }).(pulumi.StringPtrOutput)
-}
-
-func (o ClusterClusterCertificatesPtrOutput) HsmCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterClusterCertificates) *string { return v.HsmCertificate }).(pulumi.StringPtrOutput)
-}
-
-func (o ClusterClusterCertificatesPtrOutput) ManufacturerHardwareCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterClusterCertificates) *string { return v.ManufacturerHardwareCertificate }).(pulumi.StringPtrOutput)
+func (o ClusterClusterCertificateArrayOutput) Index(i pulumi.IntInput) ClusterClusterCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterClusterCertificate {
+		return vs[0].([]ClusterClusterCertificate)[vs[1].(int)]
+	}).(ClusterClusterCertificateOutput)
 }
 
 type GetClusterClusterCertificates struct {
@@ -230,7 +191,7 @@ func (o GetClusterClusterCertificatesOutput) ManufacturerHardwareCertificate() p
 }
 
 func init() {
-	pulumi.RegisterOutputType(ClusterClusterCertificatesOutput{})
-	pulumi.RegisterOutputType(ClusterClusterCertificatesPtrOutput{})
+	pulumi.RegisterOutputType(ClusterClusterCertificateOutput{})
+	pulumi.RegisterOutputType(ClusterClusterCertificateArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterClusterCertificatesOutput{})
 }

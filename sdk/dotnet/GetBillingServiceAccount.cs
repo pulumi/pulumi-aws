@@ -16,7 +16,18 @@ namespace Pulumi.Aws
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/billing_service_account.html.markdown.
         /// </summary>
+        [Obsolete("Use GetBillingServiceAccount.InvokeAsync() instead")]
         public static Task<GetBillingServiceAccountResult> GetBillingServiceAccount(InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBillingServiceAccountResult>("aws:index/getBillingServiceAccount:getBillingServiceAccount", InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetBillingServiceAccount
+    {
+        /// <summary>
+        /// Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of whitelisting in S3 bucket policy.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/billing_service_account.html.markdown.
+        /// </summary>
+        public static Task<GetBillingServiceAccountResult> InvokeAsync(InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBillingServiceAccountResult>("aws:index/getBillingServiceAccount:getBillingServiceAccount", InvokeArgs.Empty, options.WithVersion());
     }
 

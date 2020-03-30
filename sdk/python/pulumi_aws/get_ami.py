@@ -264,6 +264,9 @@ def get_ami(executable_users=None,filters=None,most_recent=None,name_regex=None,
            impact if the result is large. It is recommended to combine this with other
            options to narrow down the list AWS returns.
     :param list owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
+    :param dict tags: Any tags assigned to the image.
+           * `tags.#.key` - The key name of the tag.
+           * `tags.#.value` - The value of the tag.
 
     The **filters** object supports the following:
 

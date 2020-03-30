@@ -89,6 +89,7 @@ def get_resolver_rule(domain_name=None,name=None,resolver_endpoint_id=None,resol
     :param str resolver_endpoint_id: The ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
     :param str resolver_rule_id: The ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
     :param str rule_type: The rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
+    :param dict tags: A mapping of tags assigned to the resolver rule.
     """
     __args__ = dict()
 

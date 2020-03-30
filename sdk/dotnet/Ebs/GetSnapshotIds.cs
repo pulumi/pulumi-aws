@@ -17,7 +17,19 @@ namespace Pulumi.Aws.Ebs
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot_ids.html.markdown.
         /// </summary>
+        [Obsolete("Use GetSnapshotIds.InvokeAsync() instead")]
         public static Task<GetSnapshotIdsResult> GetSnapshotIds(GetSnapshotIdsArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotIdsResult>("aws:ebs/getSnapshotIds:getSnapshotIds", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetSnapshotIds
+    {
+        /// <summary>
+        /// Use this data source to get a list of EBS Snapshot IDs matching the specified
+        /// criteria.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot_ids.html.markdown.
+        /// </summary>
+        public static Task<GetSnapshotIdsResult> InvokeAsync(GetSnapshotIdsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotIdsResult>("aws:ebs/getSnapshotIds:getSnapshotIds", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

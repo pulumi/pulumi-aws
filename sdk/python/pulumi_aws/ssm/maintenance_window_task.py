@@ -32,7 +32,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    The parameter name.
+    The name of the maintenance window task.
     """
     priority: pulumi.Output[float]
     """
@@ -40,14 +40,14 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     """
     service_role_arn: pulumi.Output[str]
     """
-    The IAM service role to assume during task execution.
+    The role that should be assumed when executing the task.
     """
     targets: pulumi.Output[list]
     """
     The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 
       * `key` (`str`)
-      * `values` (`list`) - The array of strings.
+      * `values` (`list`)
     """
     task_arn: pulumi.Output[str]
     """
@@ -88,14 +88,14 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
       * `stepFunctionsParameters` (`dict`) - The parameters for a STEP_FUNCTIONS task type. Documented below.
         * `input` (`str`) - The inputs for the STEP_FUNCTION task.
-        * `name` (`str`) - The parameter name.
+        * `name` (`str`) - The name of the STEP_FUNCTION task.
     """
     task_parameters: pulumi.Output[list]
     """
     A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
 
-      * `name` (`str`) - The parameter name.
-      * `values` (`list`) - The array of strings.
+      * `name` (`str`) - The name of the maintenance window task.
+      * `values` (`list`)
     """
     task_type: pulumi.Output[str]
     """
@@ -117,9 +117,9 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[dict] logging_info: A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
         :param pulumi.Input[str] max_concurrency: The maximum number of targets this task can be run for in parallel.
         :param pulumi.Input[str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
-        :param pulumi.Input[str] name: The parameter name.
+        :param pulumi.Input[str] name: The name of the maintenance window task.
         :param pulumi.Input[float] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-        :param pulumi.Input[str] service_role_arn: The IAM service role to assume during task execution.
+        :param pulumi.Input[str] service_role_arn: The role that should be assumed when executing the task.
         :param pulumi.Input[list] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input[str] task_arn: The ARN of the task to execute.
         :param pulumi.Input[dict] task_invocation_parameters: The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
@@ -136,7 +136,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         The **targets** object supports the following:
 
           * `key` (`pulumi.Input[str]`)
-          * `values` (`pulumi.Input[list]`) - The array of strings.
+          * `values` (`pulumi.Input[list]`)
 
         The **task_invocation_parameters** object supports the following:
 
@@ -171,12 +171,12 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
           * `stepFunctionsParameters` (`pulumi.Input[dict]`) - The parameters for a STEP_FUNCTIONS task type. Documented below.
             * `input` (`pulumi.Input[str]`) - The inputs for the STEP_FUNCTION task.
-            * `name` (`pulumi.Input[str]`) - The parameter name.
+            * `name` (`pulumi.Input[str]`) - The name of the STEP_FUNCTION task.
 
         The **task_parameters** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The parameter name.
-          * `values` (`pulumi.Input[list]`) - The array of strings.
+          * `name` (`pulumi.Input[str]`) - The name of the maintenance window task.
+          * `values` (`pulumi.Input[list]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -241,9 +241,9 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[dict] logging_info: A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
         :param pulumi.Input[str] max_concurrency: The maximum number of targets this task can be run for in parallel.
         :param pulumi.Input[str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
-        :param pulumi.Input[str] name: The parameter name.
+        :param pulumi.Input[str] name: The name of the maintenance window task.
         :param pulumi.Input[float] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-        :param pulumi.Input[str] service_role_arn: The IAM service role to assume during task execution.
+        :param pulumi.Input[str] service_role_arn: The role that should be assumed when executing the task.
         :param pulumi.Input[list] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input[str] task_arn: The ARN of the task to execute.
         :param pulumi.Input[dict] task_invocation_parameters: The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
@@ -260,7 +260,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         The **targets** object supports the following:
 
           * `key` (`pulumi.Input[str]`)
-          * `values` (`pulumi.Input[list]`) - The array of strings.
+          * `values` (`pulumi.Input[list]`)
 
         The **task_invocation_parameters** object supports the following:
 
@@ -295,12 +295,12 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
           * `stepFunctionsParameters` (`pulumi.Input[dict]`) - The parameters for a STEP_FUNCTIONS task type. Documented below.
             * `input` (`pulumi.Input[str]`) - The inputs for the STEP_FUNCTION task.
-            * `name` (`pulumi.Input[str]`) - The parameter name.
+            * `name` (`pulumi.Input[str]`) - The name of the STEP_FUNCTION task.
 
         The **task_parameters** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The parameter name.
-          * `values` (`pulumi.Input[list]`) - The array of strings.
+          * `name` (`pulumi.Input[str]`) - The name of the maintenance window task.
+          * `values` (`pulumi.Input[list]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

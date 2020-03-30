@@ -20,7 +20,22 @@ namespace Pulumi.Aws.Cur
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cur_report_definition.html.markdown.
         /// </summary>
+        [Obsolete("Use GetReportDefinition.InvokeAsync() instead")]
         public static Task<GetReportDefinitionResult> GetReportDefinition(GetReportDefinitionArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReportDefinitionResult>("aws:cur/getReportDefinition:getReportDefinition", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetReportDefinition
+    {
+        /// <summary>
+        /// Use this data source to get information on an AWS Cost and Usage Report Definition.
+        /// 
+        /// &gt; *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
+        /// 
+        /// &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cur_report_definition.html.markdown.
+        /// </summary>
+        public static Task<GetReportDefinitionResult> InvokeAsync(GetReportDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReportDefinitionResult>("aws:cur/getReportDefinition:getReportDefinition", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

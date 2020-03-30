@@ -32,7 +32,7 @@ type Cluster struct {
 	// * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
 	// * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
 	// * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
-	ClusterCertificates ClusterClusterCertificatesOutput `pulumi:"clusterCertificates"`
+	ClusterCertificates ClusterClusterCertificateArrayOutput `pulumi:"clusterCertificates"`
 	// The id of the CloudHSM cluster.
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// The state of the cluster.
@@ -91,7 +91,7 @@ type clusterState struct {
 	// * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
 	// * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
 	// * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
-	ClusterCertificates *ClusterClusterCertificates `pulumi:"clusterCertificates"`
+	ClusterCertificates []ClusterClusterCertificate `pulumi:"clusterCertificates"`
 	// The id of the CloudHSM cluster.
 	ClusterId *string `pulumi:"clusterId"`
 	// The state of the cluster.
@@ -117,7 +117,7 @@ type ClusterState struct {
 	// * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
 	// * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
 	// * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
-	ClusterCertificates ClusterClusterCertificatesPtrInput
+	ClusterCertificates ClusterClusterCertificateArrayInput
 	// The id of the CloudHSM cluster.
 	ClusterId pulumi.StringPtrInput
 	// The state of the cluster.

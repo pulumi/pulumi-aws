@@ -48,12 +48,12 @@ class GangliaLayer(pulumi.CustomResource):
     `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 
       * `encrypted` (`bool`)
-      * `iops` (`float`)
-      * `mountPoint` (`str`)
-      * `numberOfDisks` (`float`)
-      * `raidLevel` (`str`)
-      * `size` (`float`)
-      * `type` (`str`)
+      * `iops` (`float`) - For PIOPS volumes, the IOPS per disk.
+      * `mountPoint` (`str`) - The path to mount the EBS volume on the layer's instances.
+      * `numberOfDisks` (`float`) - The number of disks to use for the EBS volume.
+      * `raidLevel` (`str`) - The RAID level to use for the volume.
+      * `size` (`float`) - The size of the volume in gigabytes.
+      * `type` (`str`) - The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
     """
     elastic_load_balancer: pulumi.Output[str]
     """
@@ -125,12 +125,12 @@ class GangliaLayer(pulumi.CustomResource):
         The **ebs_volumes** object supports the following:
 
           * `encrypted` (`pulumi.Input[bool]`)
-          * `iops` (`pulumi.Input[float]`)
-          * `mountPoint` (`pulumi.Input[str]`)
-          * `numberOfDisks` (`pulumi.Input[float]`)
-          * `raidLevel` (`pulumi.Input[str]`)
-          * `size` (`pulumi.Input[float]`)
-          * `type` (`pulumi.Input[str]`)
+          * `iops` (`pulumi.Input[float]`) - For PIOPS volumes, the IOPS per disk.
+          * `mountPoint` (`pulumi.Input[str]`) - The path to mount the EBS volume on the layer's instances.
+          * `numberOfDisks` (`pulumi.Input[float]`) - The number of disks to use for the EBS volume.
+          * `raidLevel` (`pulumi.Input[str]`) - The RAID level to use for the volume.
+          * `size` (`pulumi.Input[float]`) - The size of the volume in gigabytes.
+          * `type` (`pulumi.Input[str]`) - The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -213,12 +213,12 @@ class GangliaLayer(pulumi.CustomResource):
         The **ebs_volumes** object supports the following:
 
           * `encrypted` (`pulumi.Input[bool]`)
-          * `iops` (`pulumi.Input[float]`)
-          * `mountPoint` (`pulumi.Input[str]`)
-          * `numberOfDisks` (`pulumi.Input[float]`)
-          * `raidLevel` (`pulumi.Input[str]`)
-          * `size` (`pulumi.Input[float]`)
-          * `type` (`pulumi.Input[str]`)
+          * `iops` (`pulumi.Input[float]`) - For PIOPS volumes, the IOPS per disk.
+          * `mountPoint` (`pulumi.Input[str]`) - The path to mount the EBS volume on the layer's instances.
+          * `numberOfDisks` (`pulumi.Input[float]`) - The number of disks to use for the EBS volume.
+          * `raidLevel` (`pulumi.Input[str]`) - The RAID level to use for the volume.
+          * `size` (`pulumi.Input[float]`) - The size of the volume in gigabytes.
+          * `type` (`pulumi.Input[str]`) - The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -127,7 +127,7 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly configuration!: pulumi.Output<string | undefined>;
     /**
-     * The name of the Glue database to be synchronized.
+     * Glue database where results are written.
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
@@ -257,7 +257,7 @@ export interface CrawlerState {
      */
     readonly configuration?: pulumi.Input<string>;
     /**
-     * The name of the Glue database to be synchronized.
+     * Glue database where results are written.
      */
     readonly databaseName?: pulumi.Input<string>;
     /**
@@ -320,7 +320,7 @@ export interface CrawlerArgs {
      */
     readonly configuration?: pulumi.Input<string>;
     /**
-     * The name of the Glue database to be synchronized.
+     * Glue database where results are written.
      */
     readonly databaseName: pulumi.Input<string>;
     /**

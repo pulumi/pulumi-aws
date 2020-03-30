@@ -63,6 +63,9 @@ export interface GetCustomerGatewayArgs {
      * The ID of the gateway.
      */
     readonly id?: string;
+    /**
+     * Map of key-value pairs assigned to the gateway.
+     */
     readonly tags?: {[key: string]: any};
 }
 

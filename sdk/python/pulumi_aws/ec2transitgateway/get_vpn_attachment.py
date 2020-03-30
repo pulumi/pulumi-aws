@@ -50,6 +50,7 @@ def get_vpn_attachment(tags=None,transit_gateway_id=None,vpn_connection_id=None,
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpn_attachment.html.markdown.
 
 
+    :param dict tags: Key-value tags for the EC2 Transit Gateway VPN Attachment
     :param str transit_gateway_id: Identifier of the EC2 Transit Gateway.
     :param str vpn_connection_id: Identifier of the EC2 VPN Connection.
     """

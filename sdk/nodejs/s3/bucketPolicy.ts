@@ -75,6 +75,9 @@ export class BucketPolicy extends pulumi.CustomResource {
      * The name of the bucket to which to apply the policy.
      */
     public readonly bucket!: pulumi.Output<string>;
+    /**
+     * The text of the policy.
+     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -121,6 +124,9 @@ export interface BucketPolicyState {
      * The name of the bucket to which to apply the policy.
      */
     readonly bucket?: pulumi.Input<string>;
+    /**
+     * The text of the policy.
+     */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
 }
 
@@ -132,5 +138,8 @@ export interface BucketPolicyArgs {
      * The name of the bucket to which to apply the policy.
      */
     readonly bucket: pulumi.Input<string>;
+    /**
+     * The text of the policy.
+     */
     readonly policy: pulumi.Input<string | PolicyDocument>;
 }

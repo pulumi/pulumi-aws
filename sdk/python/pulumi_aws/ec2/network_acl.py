@@ -13,7 +13,6 @@ class NetworkAcl(pulumi.CustomResource):
     egress: pulumi.Output[list]
     """
     Specifies an egress rule. Parameters defined below.
-    This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 
       * `action` (`str`) - The action to take.
       * `cidr_block` (`str`) - The CIDR block to match. This must be a
@@ -30,7 +29,6 @@ class NetworkAcl(pulumi.CustomResource):
     ingress: pulumi.Output[list]
     """
     Specifies an ingress rule. Parameters defined below.
-    This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 
       * `action` (`str`) - The action to take.
       * `cidr_block` (`str`) - The CIDR block to match. This must be a
@@ -76,9 +74,7 @@ class NetworkAcl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] egress: Specifies an egress rule. Parameters defined below.
-               This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[list] ingress: Specifies an ingress rule. Parameters defined below.
-               This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[list] subnet_ids: A list of Subnet IDs to apply the ACL to
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the associated VPC.
@@ -152,9 +148,7 @@ class NetworkAcl(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] egress: Specifies an egress rule. Parameters defined below.
-               This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[list] ingress: Specifies an ingress rule. Parameters defined below.
-               This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the network ACL.
         :param pulumi.Input[list] subnet_ids: A list of Subnet IDs to apply the ACL to
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.

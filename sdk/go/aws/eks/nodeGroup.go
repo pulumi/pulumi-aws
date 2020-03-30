@@ -17,12 +17,15 @@ import (
 type NodeGroup struct {
 	pulumi.CustomResourceState
 
+	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
 	AmiType pulumi.StringOutput `pulumi:"amiType"`
 	// Amazon Resource Name (ARN) of the EKS Node Group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the EKS Cluster.
-	ClusterName   pulumi.StringOutput `pulumi:"clusterName"`
-	DiskSize      pulumi.IntOutput    `pulumi:"diskSize"`
+	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+	// Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+	DiskSize pulumi.IntOutput `pulumi:"diskSize"`
+	// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
 	InstanceTypes pulumi.StringOutput `pulumi:"instanceTypes"`
 	// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
@@ -43,7 +46,8 @@ type NodeGroup struct {
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Key-value mapping of resource tags.
-	Tags    pulumi.MapOutput    `pulumi:"tags"`
+	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -87,12 +91,15 @@ func GetNodeGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NodeGroup resources.
 type nodeGroupState struct {
+	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
 	AmiType *string `pulumi:"amiType"`
 	// Amazon Resource Name (ARN) of the EKS Node Group.
 	Arn *string `pulumi:"arn"`
 	// Name of the EKS Cluster.
-	ClusterName   *string `pulumi:"clusterName"`
-	DiskSize      *int    `pulumi:"diskSize"`
+	ClusterName *string `pulumi:"clusterName"`
+	// Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+	DiskSize *int `pulumi:"diskSize"`
+	// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
 	InstanceTypes *string `pulumi:"instanceTypes"`
 	// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels map[string]string `pulumi:"labels"`
@@ -113,17 +120,21 @@ type nodeGroupState struct {
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value mapping of resource tags.
-	Tags    map[string]interface{} `pulumi:"tags"`
-	Version *string                `pulumi:"version"`
+	Tags map[string]interface{} `pulumi:"tags"`
+	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
+	Version *string `pulumi:"version"`
 }
 
 type NodeGroupState struct {
+	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
 	AmiType pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the EKS Node Group.
 	Arn pulumi.StringPtrInput
 	// Name of the EKS Cluster.
-	ClusterName   pulumi.StringPtrInput
-	DiskSize      pulumi.IntPtrInput
+	ClusterName pulumi.StringPtrInput
+	// Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+	DiskSize pulumi.IntPtrInput
+	// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
 	InstanceTypes pulumi.StringPtrInput
 	// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapInput
@@ -144,7 +155,8 @@ type NodeGroupState struct {
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds pulumi.StringArrayInput
 	// Key-value mapping of resource tags.
-	Tags    pulumi.MapInput
+	Tags pulumi.MapInput
+	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
 	Version pulumi.StringPtrInput
 }
 
@@ -153,10 +165,13 @@ func (NodeGroupState) ElementType() reflect.Type {
 }
 
 type nodeGroupArgs struct {
+	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
 	AmiType *string `pulumi:"amiType"`
 	// Name of the EKS Cluster.
-	ClusterName   string  `pulumi:"clusterName"`
-	DiskSize      *int    `pulumi:"diskSize"`
+	ClusterName string `pulumi:"clusterName"`
+	// Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+	DiskSize *int `pulumi:"diskSize"`
+	// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
 	InstanceTypes *string `pulumi:"instanceTypes"`
 	// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels map[string]string `pulumi:"labels"`
@@ -173,16 +188,20 @@ type nodeGroupArgs struct {
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value mapping of resource tags.
-	Tags    map[string]interface{} `pulumi:"tags"`
-	Version *string                `pulumi:"version"`
+	Tags map[string]interface{} `pulumi:"tags"`
+	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
+	Version *string `pulumi:"version"`
 }
 
 // The set of arguments for constructing a NodeGroup resource.
 type NodeGroupArgs struct {
+	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
 	AmiType pulumi.StringPtrInput
 	// Name of the EKS Cluster.
-	ClusterName   pulumi.StringInput
-	DiskSize      pulumi.IntPtrInput
+	ClusterName pulumi.StringInput
+	// Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+	DiskSize pulumi.IntPtrInput
+	// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
 	InstanceTypes pulumi.StringPtrInput
 	// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapInput
@@ -199,7 +218,8 @@ type NodeGroupArgs struct {
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds pulumi.StringArrayInput
 	// Key-value mapping of resource tags.
-	Tags    pulumi.MapInput
+	Tags pulumi.MapInput
+	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
 	Version pulumi.StringPtrInput
 }
 

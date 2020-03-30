@@ -18,7 +18,20 @@ namespace Pulumi.Aws.Sfn
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_state_machine.html.markdown.
         /// </summary>
+        [Obsolete("Use GetStateMachine.InvokeAsync() instead")]
         public static Task<GetStateMachineResult> GetStateMachine(GetStateMachineArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStateMachineResult>("aws:sfn/getStateMachine:getStateMachine", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetStateMachine
+    {
+        /// <summary>
+        /// Use this data source to get the ARN of a State Machine in AWS Step
+        /// Function (SFN). By using this data source, you can reference a
+        /// state machine without having to hard code the ARNs as input.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_state_machine.html.markdown.
+        /// </summary>
+        public static Task<GetStateMachineResult> InvokeAsync(GetStateMachineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStateMachineResult>("aws:sfn/getStateMachine:getStateMachine", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

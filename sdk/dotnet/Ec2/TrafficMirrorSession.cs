@@ -42,6 +42,12 @@ namespace Pulumi.Aws.Ec2
         public Output<int> SessionNumber { get; private set; } = null!;
 
         /// <summary>
+        /// Key-value mapping of resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// ID of the traffic mirror filter to be used
         /// </summary>
         [Output("trafficMirrorFilterId")]
@@ -129,6 +135,18 @@ namespace Pulumi.Aws.Ec2
         [Input("sessionNumber", required: true)]
         public Input<int> SessionNumber { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags.
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// ID of the traffic mirror filter to be used
         /// </summary>
@@ -177,6 +195,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("sessionNumber")]
         public Input<int>? SessionNumber { get; set; }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags.
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// ID of the traffic mirror filter to be used

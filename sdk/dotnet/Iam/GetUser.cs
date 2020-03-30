@@ -18,7 +18,20 @@ namespace Pulumi.Aws.Iam
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_user.html.markdown.
         /// </summary>
+        [Obsolete("Use GetUser.InvokeAsync() instead")]
         public static Task<GetUserResult> GetUser(GetUserArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws:iam/getUser:getUser", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetUser
+    {
+        /// <summary>
+        /// This data source can be used to fetch information about a specific
+        /// IAM user. By using this data source, you can reference IAM user
+        /// properties without having to hard code ARNs or unique IDs as input.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_user.html.markdown.
+        /// </summary>
+        public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws:iam/getUser:getUser", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

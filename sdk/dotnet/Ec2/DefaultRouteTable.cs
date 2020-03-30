@@ -65,7 +65,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A list of route objects. Their keys are documented below.
-        /// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         /// </summary>
         [Output("routes")]
         public Output<ImmutableArray<Outputs.DefaultRouteTableRoutes>> Routes { get; private set; } = null!;
@@ -148,7 +147,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A list of route objects. Their keys are documented below.
-        /// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         /// </summary>
         public InputList<Inputs.DefaultRouteTableRoutesArgs> Routes
         {
@@ -204,7 +202,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A list of route objects. Their keys are documented below.
-        /// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         /// </summary>
         public InputList<Inputs.DefaultRouteTableRoutesGetArgs> Routes
         {

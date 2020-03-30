@@ -22,7 +22,24 @@ namespace Pulumi.Aws
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/prefix_list.html.markdown.
         /// </summary>
+        [Obsolete("Use GetPrefixList.InvokeAsync() instead")]
         public static Task<GetPrefixListResult> GetPrefixList(GetPrefixListArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrefixListResult>("aws:index/getPrefixList:getPrefixList", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetPrefixList
+    {
+        /// <summary>
+        /// `aws..getPrefixList` provides details about a specific prefix list (PL)
+        /// in the current region.
+        /// 
+        /// This can be used both to validate a prefix list given in a variable
+        /// and to obtain the CIDR blocks (IP address ranges) for the associated
+        /// AWS service. The latter may be useful e.g. for adding network ACL
+        /// rules.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/prefix_list.html.markdown.
+        /// </summary>
+        public static Task<GetPrefixListResult> InvokeAsync(GetPrefixListArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrefixListResult>("aws:index/getPrefixList:getPrefixList", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

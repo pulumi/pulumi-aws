@@ -18,7 +18,20 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet_ids.html.markdown.
         /// </summary>
+        [Obsolete("Use GetSubnetIds.InvokeAsync() instead")]
         public static Task<GetSubnetIdsResult> GetSubnetIds(GetSubnetIdsArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetIdsResult>("aws:ec2/getSubnetIds:getSubnetIds", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetSubnetIds
+    {
+        /// <summary>
+        /// `aws.ec2.getSubnetIds` provides a set of ids for a vpc_id
+        /// 
+        /// This resource can be useful for getting back a set of subnet ids for a vpc.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet_ids.html.markdown.
+        /// </summary>
+        public static Task<GetSubnetIdsResult> InvokeAsync(GetSubnetIdsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetIdsResult>("aws:ec2/getSubnetIds:getSubnetIds", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

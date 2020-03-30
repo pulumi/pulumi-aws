@@ -11,7 +11,77 @@ namespace Pulumi.Aws.Iam
 {
     public static partial class Invokes
     {
+        /// <summary>
+        /// Generates an IAM policy document in JSON format.
+        /// 
+        /// This is a data source which can be used to construct a JSON representation of
+        /// an IAM policy document, for use with resources which expect policy documents,
+        /// such as the `aws.iam.Policy` resource.
+        /// 
+        /// 
+        /// Using this data source to generate policy documents is *optional*. It is also
+        /// valid to use literal JSON strings within your configuration, or to use the
+        /// `file` interpolation function to read a raw JSON policy document from a file.
+        /// 
+        /// ## Context Variable Interpolation
+        /// 
+        /// The IAM policy document format allows context variables to be interpolated
+        /// into various strings within a statement. The native IAM policy document format
+        /// uses `${...}`-style syntax that is in conflict with interpolation
+        /// syntax, so this data source instead uses `&amp;{...}` syntax for interpolations that
+        /// should be processed by AWS rather than by this provider.
+        /// 
+        /// ## Wildcard Principal
+        /// 
+        /// In order to define wildcard principal (a.k.a. anonymous user) use `type = "*"` and
+        /// `identifiers = ["*"]`. In that case the rendered json will contain `"Principal": "*"`.
+        /// Note, that even though the [IAM Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html)
+        /// states that `"Principal": "*"` and `"Principal": {"AWS": "*"}` are equivalent,
+        /// those principals have different behavior for IAM Role Trust Policy. Therefore
+        /// this provider will normalize the principal field only in above-mentioned case and principals
+        /// like `type = "AWS"` and `identifiers = ["*"]` will be rendered as `"Principal": {"AWS": "*"}`.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy_document.html.markdown.
+        /// </summary>
+        [Obsolete("Use GetPolicyDocument.InvokeAsync() instead")]
         public static Task<GetPolicyDocumentResult> GetPolicyDocument(GetPolicyDocumentArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDocumentResult>("aws:iam/getPolicyDocument:getPolicyDocument", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetPolicyDocument
+    {
+        /// <summary>
+        /// Generates an IAM policy document in JSON format.
+        /// 
+        /// This is a data source which can be used to construct a JSON representation of
+        /// an IAM policy document, for use with resources which expect policy documents,
+        /// such as the `aws.iam.Policy` resource.
+        /// 
+        /// 
+        /// Using this data source to generate policy documents is *optional*. It is also
+        /// valid to use literal JSON strings within your configuration, or to use the
+        /// `file` interpolation function to read a raw JSON policy document from a file.
+        /// 
+        /// ## Context Variable Interpolation
+        /// 
+        /// The IAM policy document format allows context variables to be interpolated
+        /// into various strings within a statement. The native IAM policy document format
+        /// uses `${...}`-style syntax that is in conflict with interpolation
+        /// syntax, so this data source instead uses `&amp;{...}` syntax for interpolations that
+        /// should be processed by AWS rather than by this provider.
+        /// 
+        /// ## Wildcard Principal
+        /// 
+        /// In order to define wildcard principal (a.k.a. anonymous user) use `type = "*"` and
+        /// `identifiers = ["*"]`. In that case the rendered json will contain `"Principal": "*"`.
+        /// Note, that even though the [IAM Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html)
+        /// states that `"Principal": "*"` and `"Principal": {"AWS": "*"}` are equivalent,
+        /// those principals have different behavior for IAM Role Trust Policy. Therefore
+        /// this provider will normalize the principal field only in above-mentioned case and principals
+        /// like `type = "AWS"` and `identifiers = ["*"]` will be rendered as `"Principal": {"AWS": "*"}`.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy_document.html.markdown.
+        /// </summary>
+        public static Task<GetPolicyDocumentResult> InvokeAsync(GetPolicyDocumentArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDocumentResult>("aws:iam/getPolicyDocument:getPolicyDocument", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

@@ -25,7 +25,8 @@ func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getQueue.
 type LookupQueueArgs struct {
 	// The name of the queue to match.
-	Name string                 `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// A mapping of tags for the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 

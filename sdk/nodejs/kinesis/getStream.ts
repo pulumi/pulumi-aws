@@ -47,6 +47,9 @@ export interface GetStreamArgs {
      * The name of the Kinesis Stream.
      */
     readonly name: string;
+    /**
+     * A mapping of tags to assigned to the stream.
+     */
     readonly tags?: {[key: string]: any};
 }
 

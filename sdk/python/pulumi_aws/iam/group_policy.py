@@ -26,7 +26,7 @@ class GroupPolicy(pulumi.CustomResource):
     """
     policy: pulumi.Output[str]
     """
-    The policy document attached to the group.
+    The policy document. This is a JSON formatted string.
     """
     def __init__(__self__, resource_name, opts=None, group=None, name=None, name_prefix=None, policy=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -41,7 +41,7 @@ class GroupPolicy(pulumi.CustomResource):
                assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
-        :param pulumi.Input[dict] policy: The policy document attached to the group.
+        :param pulumi.Input[dict] policy: The policy document. This is a JSON formatted string.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -88,7 +88,7 @@ class GroupPolicy(pulumi.CustomResource):
                assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
-        :param pulumi.Input[dict] policy: The policy document attached to the group.
+        :param pulumi.Input[dict] policy: The policy document. This is a JSON formatted string.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

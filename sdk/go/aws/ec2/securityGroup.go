@@ -10,23 +10,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Provides a security group resource.
+//
+// > **NOTE on Security Groups and Security Group Rules:** This provider currently
+// provides both a standalone Security Group Rule resource (a single `ingress` or
+// `egress` rule), and a Security Group resource with `ingress` and `egress` rules
+// defined in-line. At this time you cannot use a Security Group with in-line rules
+// in conjunction with any Security Group Rule resources. Doing so will cause
+// a conflict of rule settings and will overwrite rules.
+//
+// > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
+//
+// > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group.html.markdown.
 type SecurityGroup struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the security group
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The security group description. Defaults to
-	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-	// `GroupDescription` attribute, for which there is no Update API. If you'd like
-	// to classify your security groups in a way that can be updated, use `tags`.
+	// Description of this egress rule.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Egress SecurityGroupEgressArrayOutput `pulumi:"egress"`
 	// Can be specified multiple times for each
 	// ingress rule. Each ingress block supports fields documented below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Ingress SecurityGroupIngressArrayOutput `pulumi:"ingress"`
 	// The name of the security group. If omitted, this provider will
 	// assign a random, unique name
@@ -83,18 +92,13 @@ func GetSecurityGroup(ctx *pulumi.Context,
 type securityGroupState struct {
 	// The ARN of the security group
 	Arn *string `pulumi:"arn"`
-	// The security group description. Defaults to
-	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-	// `GroupDescription` attribute, for which there is no Update API. If you'd like
-	// to classify your security groups in a way that can be updated, use `tags`.
+	// Description of this egress rule.
 	Description *string `pulumi:"description"`
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Egress []SecurityGroupEgress `pulumi:"egress"`
 	// Can be specified multiple times for each
 	// ingress rule. Each ingress block supports fields documented below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Ingress []SecurityGroupIngress `pulumi:"ingress"`
 	// The name of the security group. If omitted, this provider will
 	// assign a random, unique name
@@ -121,18 +125,13 @@ type securityGroupState struct {
 type SecurityGroupState struct {
 	// The ARN of the security group
 	Arn pulumi.StringPtrInput
-	// The security group description. Defaults to
-	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-	// `GroupDescription` attribute, for which there is no Update API. If you'd like
-	// to classify your security groups in a way that can be updated, use `tags`.
+	// Description of this egress rule.
 	Description pulumi.StringPtrInput
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Egress SecurityGroupEgressArrayInput
 	// Can be specified multiple times for each
 	// ingress rule. Each ingress block supports fields documented below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Ingress SecurityGroupIngressArrayInput
 	// The name of the security group. If omitted, this provider will
 	// assign a random, unique name
@@ -161,18 +160,13 @@ func (SecurityGroupState) ElementType() reflect.Type {
 }
 
 type securityGroupArgs struct {
-	// The security group description. Defaults to
-	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-	// `GroupDescription` attribute, for which there is no Update API. If you'd like
-	// to classify your security groups in a way that can be updated, use `tags`.
+	// Description of this egress rule.
 	Description *string `pulumi:"description"`
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Egress []SecurityGroupEgress `pulumi:"egress"`
 	// Can be specified multiple times for each
 	// ingress rule. Each ingress block supports fields documented below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Ingress []SecurityGroupIngress `pulumi:"ingress"`
 	// The name of the security group. If omitted, this provider will
 	// assign a random, unique name
@@ -196,18 +190,13 @@ type securityGroupArgs struct {
 
 // The set of arguments for constructing a SecurityGroup resource.
 type SecurityGroupArgs struct {
-	// The security group description. Defaults to
-	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-	// `GroupDescription` attribute, for which there is no Update API. If you'd like
-	// to classify your security groups in a way that can be updated, use `tags`.
+	// Description of this egress rule.
 	Description pulumi.StringPtrInput
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Egress SecurityGroupEgressArrayInput
 	// Can be specified multiple times for each
 	// ingress rule. Each ingress block supports fields documented below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Ingress SecurityGroupIngressArrayInput
 	// The name of the security group. If omitted, this provider will
 	// assign a random, unique name

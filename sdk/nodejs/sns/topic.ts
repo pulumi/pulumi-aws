@@ -150,6 +150,9 @@ export class Topic extends pulumi.CustomResource {
      * The friendly name for the SNS topic. Conflicts with `name`.
      */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
+    /**
+     * The fully-formed AWS policy as JSON.
+     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * IAM role for failure feedback
@@ -298,6 +301,9 @@ export interface TopicState {
      * The friendly name for the SNS topic. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
+    /**
+     * The fully-formed AWS policy as JSON.
+     */
     readonly policy?: pulumi.Input<string>;
     /**
      * IAM role for failure feedback
@@ -377,6 +383,9 @@ export interface TopicArgs {
      * The friendly name for the SNS topic. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
+    /**
+     * The fully-formed AWS policy as JSON.
+     */
     readonly policy?: pulumi.Input<string>;
     /**
      * IAM role for failure feedback

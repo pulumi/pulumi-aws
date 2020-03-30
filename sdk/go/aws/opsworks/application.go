@@ -49,7 +49,7 @@ type Application struct {
 	SslConfigurations ApplicationSslConfigurationArrayOutput `pulumi:"sslConfigurations"`
 	// The id of the stack the application will belong to.
 	StackId pulumi.StringOutput `pulumi:"stackId"`
-	// The type of source to use. For example, "archive".
+	// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -119,7 +119,7 @@ type applicationState struct {
 	SslConfigurations []ApplicationSslConfiguration `pulumi:"sslConfigurations"`
 	// The id of the stack the application will belong to.
 	StackId *string `pulumi:"stackId"`
-	// The type of source to use. For example, "archive".
+	// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
 	Type *string `pulumi:"type"`
 }
 
@@ -156,7 +156,7 @@ type ApplicationState struct {
 	SslConfigurations ApplicationSslConfigurationArrayInput
 	// The id of the stack the application will belong to.
 	StackId pulumi.StringPtrInput
-	// The type of source to use. For example, "archive".
+	// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
 	Type pulumi.StringPtrInput
 }
 
@@ -197,7 +197,7 @@ type applicationArgs struct {
 	SslConfigurations []ApplicationSslConfiguration `pulumi:"sslConfigurations"`
 	// The id of the stack the application will belong to.
 	StackId string `pulumi:"stackId"`
-	// The type of source to use. For example, "archive".
+	// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
 	Type string `pulumi:"type"`
 }
 
@@ -235,7 +235,7 @@ type ApplicationArgs struct {
 	SslConfigurations ApplicationSslConfigurationArrayInput
 	// The id of the stack the application will belong to.
 	StackId pulumi.StringInput
-	// The type of source to use. For example, "archive".
+	// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
 	Type pulumi.StringInput
 }
 

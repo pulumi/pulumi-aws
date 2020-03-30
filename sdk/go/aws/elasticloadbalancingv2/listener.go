@@ -27,9 +27,9 @@ type Listener struct {
 	DefaultActions ListenerDefaultActionArrayOutput `pulumi:"defaultActions"`
 	// The ARN of the load balancer.
 	LoadBalancerArn pulumi.StringOutput `pulumi:"loadBalancerArn"`
-	// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+	// The port on which the load balancer is listening.
 	Port pulumi.IntOutput `pulumi:"port"`
-	// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+	// The protocol for connections from clients to the load balancer. Valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
 	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
 	// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy pulumi.StringOutput `pulumi:"sslPolicy"`
@@ -80,9 +80,9 @@ type listenerState struct {
 	DefaultActions []ListenerDefaultAction `pulumi:"defaultActions"`
 	// The ARN of the load balancer.
 	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
-	// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+	// The port on which the load balancer is listening.
 	Port *int `pulumi:"port"`
-	// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+	// The protocol for connections from clients to the load balancer. Valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
 	Protocol *string `pulumi:"protocol"`
 	// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy *string `pulumi:"sslPolicy"`
@@ -97,9 +97,9 @@ type ListenerState struct {
 	DefaultActions ListenerDefaultActionArrayInput
 	// The ARN of the load balancer.
 	LoadBalancerArn pulumi.StringPtrInput
-	// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+	// The port on which the load balancer is listening.
 	Port pulumi.IntPtrInput
-	// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+	// The protocol for connections from clients to the load balancer. Valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
 	Protocol pulumi.StringPtrInput
 	// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy pulumi.StringPtrInput
@@ -116,9 +116,9 @@ type listenerArgs struct {
 	DefaultActions []ListenerDefaultAction `pulumi:"defaultActions"`
 	// The ARN of the load balancer.
 	LoadBalancerArn string `pulumi:"loadBalancerArn"`
-	// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+	// The port on which the load balancer is listening.
 	Port int `pulumi:"port"`
-	// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+	// The protocol for connections from clients to the load balancer. Valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
 	Protocol *string `pulumi:"protocol"`
 	// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy *string `pulumi:"sslPolicy"`
@@ -132,9 +132,9 @@ type ListenerArgs struct {
 	DefaultActions ListenerDefaultActionArrayInput
 	// The ARN of the load balancer.
 	LoadBalancerArn pulumi.StringInput
-	// The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+	// The port on which the load balancer is listening.
 	Port pulumi.IntInput
-	// The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+	// The protocol for connections from clients to the load balancer. Valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
 	Protocol pulumi.StringPtrInput
 	// The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy pulumi.StringPtrInput

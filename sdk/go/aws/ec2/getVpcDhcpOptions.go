@@ -26,7 +26,8 @@ type LookupVpcDhcpOptionsArgs struct {
 	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
 	// List of custom filters as described below.
 	Filters []GetVpcDhcpOptionsFilter `pulumi:"filters"`
-	Tags    map[string]interface{}    `pulumi:"tags"`
+	// A mapping of tags assigned to the resource.
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpcDhcpOptions.

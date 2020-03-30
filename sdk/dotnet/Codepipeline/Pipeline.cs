@@ -199,12 +199,21 @@ namespace Pulumi.Aws.CodePipeline
 
     public sealed class PipelineArtifactStoreArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryption_key` block is documented below.
+        /// </summary>
         [Input("encryptionKey")]
         public Input<PipelineArtifactStoreEncryptionKeyArgs>? EncryptionKey { get; set; }
 
+        /// <summary>
+        /// The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3 bucket.
+        /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
+        /// <summary>
+        /// The type of the artifact store, such as Amazon S3
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -216,11 +225,14 @@ namespace Pulumi.Aws.CodePipeline
     public sealed class PipelineArtifactStoreEncryptionKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The codepipeline ID.
+        /// The KMS key ARN or ID
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// The type of key; currently only `KMS` is supported
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -232,11 +244,14 @@ namespace Pulumi.Aws.CodePipeline
     public sealed class PipelineArtifactStoreEncryptionKeyGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The codepipeline ID.
+        /// The KMS key ARN or ID
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// The type of key; currently only `KMS` is supported
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -247,12 +262,21 @@ namespace Pulumi.Aws.CodePipeline
 
     public sealed class PipelineArtifactStoreGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryption_key` block is documented below.
+        /// </summary>
         [Input("encryptionKey")]
         public Input<PipelineArtifactStoreEncryptionKeyGetArgs>? EncryptionKey { get; set; }
 
+        /// <summary>
+        /// The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3 bucket.
+        /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
+        /// <summary>
+        /// The type of the artifact store, such as Amazon S3
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -263,11 +287,18 @@ namespace Pulumi.Aws.CodePipeline
 
     public sealed class PipelineStagesActionsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
+        /// </summary>
         [Input("category", required: true)]
         public Input<string> Category { get; set; } = null!;
 
         [Input("configuration")]
         private InputMap<object>? _configuration;
+
+        /// <summary>
+        /// A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
+        /// </summary>
         public InputMap<object> Configuration
         {
             get => _configuration ?? (_configuration = new InputMap<object>());
@@ -276,6 +307,10 @@ namespace Pulumi.Aws.CodePipeline
 
         [Input("inputArtifacts")]
         private InputList<string>? _inputArtifacts;
+
+        /// <summary>
+        /// A list of artifact names to be worked on.
+        /// </summary>
         public InputList<string> InputArtifacts
         {
             get => _inputArtifacts ?? (_inputArtifacts = new InputList<string>());
@@ -283,34 +318,50 @@ namespace Pulumi.Aws.CodePipeline
         }
 
         /// <summary>
-        /// The name of the pipeline.
+        /// The action declaration's name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("outputArtifacts")]
         private InputList<string>? _outputArtifacts;
+
+        /// <summary>
+        /// A list of artifact names to output. Output artifact names must be unique within a pipeline.
+        /// </summary>
         public InputList<string> OutputArtifacts
         {
             get => _outputArtifacts ?? (_outputArtifacts = new InputList<string>());
             set => _outputArtifacts = value;
         }
 
+        /// <summary>
+        /// The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
+        /// </summary>
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
 
+        /// <summary>
+        /// The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+        /// </summary>
         [Input("provider", required: true)]
         public Input<string> Provider { get; set; } = null!;
 
         /// <summary>
-        /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        /// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
+        /// <summary>
+        /// The order in which actions are run.
+        /// </summary>
         [Input("runOrder")]
         public Input<int>? RunOrder { get; set; }
 
+        /// <summary>
+        /// A string that identifies the action type.
+        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
@@ -321,11 +372,18 @@ namespace Pulumi.Aws.CodePipeline
 
     public sealed class PipelineStagesActionsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
+        /// </summary>
         [Input("category", required: true)]
         public Input<string> Category { get; set; } = null!;
 
         [Input("configuration")]
         private InputMap<object>? _configuration;
+
+        /// <summary>
+        /// A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
+        /// </summary>
         public InputMap<object> Configuration
         {
             get => _configuration ?? (_configuration = new InputMap<object>());
@@ -334,6 +392,10 @@ namespace Pulumi.Aws.CodePipeline
 
         [Input("inputArtifacts")]
         private InputList<string>? _inputArtifacts;
+
+        /// <summary>
+        /// A list of artifact names to be worked on.
+        /// </summary>
         public InputList<string> InputArtifacts
         {
             get => _inputArtifacts ?? (_inputArtifacts = new InputList<string>());
@@ -341,34 +403,50 @@ namespace Pulumi.Aws.CodePipeline
         }
 
         /// <summary>
-        /// The name of the pipeline.
+        /// The action declaration's name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("outputArtifacts")]
         private InputList<string>? _outputArtifacts;
+
+        /// <summary>
+        /// A list of artifact names to output. Output artifact names must be unique within a pipeline.
+        /// </summary>
         public InputList<string> OutputArtifacts
         {
             get => _outputArtifacts ?? (_outputArtifacts = new InputList<string>());
             set => _outputArtifacts = value;
         }
 
+        /// <summary>
+        /// The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
+        /// </summary>
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
 
+        /// <summary>
+        /// The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+        /// </summary>
         [Input("provider", required: true)]
         public Input<string> Provider { get; set; } = null!;
 
         /// <summary>
-        /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        /// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
+        /// <summary>
+        /// The order in which actions are run.
+        /// </summary>
         [Input("runOrder")]
         public Input<int>? RunOrder { get; set; }
 
+        /// <summary>
+        /// A string that identifies the action type.
+        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
@@ -381,6 +459,10 @@ namespace Pulumi.Aws.CodePipeline
     {
         [Input("actions", required: true)]
         private InputList<PipelineStagesActionsArgs>? _actions;
+
+        /// <summary>
+        /// The action(s) to include in the stage. Defined as an `action` block below
+        /// </summary>
         public InputList<PipelineStagesActionsArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<PipelineStagesActionsArgs>());
@@ -388,7 +470,7 @@ namespace Pulumi.Aws.CodePipeline
         }
 
         /// <summary>
-        /// The name of the pipeline.
+        /// The name of the stage.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -402,6 +484,10 @@ namespace Pulumi.Aws.CodePipeline
     {
         [Input("actions", required: true)]
         private InputList<PipelineStagesActionsGetArgs>? _actions;
+
+        /// <summary>
+        /// The action(s) to include in the stage. Defined as an `action` block below
+        /// </summary>
         public InputList<PipelineStagesActionsGetArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<PipelineStagesActionsGetArgs>());
@@ -409,7 +495,7 @@ namespace Pulumi.Aws.CodePipeline
         }
 
         /// <summary>
-        /// The name of the pipeline.
+        /// The name of the stage.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -426,8 +512,17 @@ namespace Pulumi.Aws.CodePipeline
     [OutputType]
     public sealed class PipelineArtifactStore
     {
+        /// <summary>
+        /// The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryption_key` block is documented below.
+        /// </summary>
         public readonly PipelineArtifactStoreEncryptionKey? EncryptionKey;
+        /// <summary>
+        /// The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3 bucket.
+        /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The type of the artifact store, such as Amazon S3
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
@@ -446,9 +541,12 @@ namespace Pulumi.Aws.CodePipeline
     public sealed class PipelineArtifactStoreEncryptionKey
     {
         /// <summary>
-        /// The codepipeline ID.
+        /// The KMS key ARN or ID
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The type of key; currently only `KMS` is supported
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
@@ -464,9 +562,12 @@ namespace Pulumi.Aws.CodePipeline
     [OutputType]
     public sealed class PipelineStages
     {
+        /// <summary>
+        /// The action(s) to include in the stage. Defined as an `action` block below
+        /// </summary>
         public readonly ImmutableArray<PipelineStagesActions> Actions;
         /// <summary>
-        /// The name of the pipeline.
+        /// The name of the stage.
         /// </summary>
         public readonly string Name;
 
@@ -483,21 +584,45 @@ namespace Pulumi.Aws.CodePipeline
     [OutputType]
     public sealed class PipelineStagesActions
     {
+        /// <summary>
+        /// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
+        /// </summary>
         public readonly string Category;
+        /// <summary>
+        /// A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
+        /// </summary>
         public readonly ImmutableDictionary<string, object>? Configuration;
+        /// <summary>
+        /// A list of artifact names to be worked on.
+        /// </summary>
         public readonly ImmutableArray<string> InputArtifacts;
         /// <summary>
-        /// The name of the pipeline.
+        /// The action declaration's name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A list of artifact names to output. Output artifact names must be unique within a pipeline.
+        /// </summary>
         public readonly ImmutableArray<string> OutputArtifacts;
+        /// <summary>
+        /// The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
+        /// </summary>
         public readonly string Owner;
+        /// <summary>
+        /// The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+        /// </summary>
         public readonly string Provider;
         /// <summary>
-        /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        /// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
         /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The order in which actions are run.
+        /// </summary>
         public readonly int RunOrder;
+        /// <summary>
+        /// A string that identifies the action type.
+        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]

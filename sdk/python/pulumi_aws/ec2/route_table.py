@@ -20,7 +20,7 @@ class RouteTable(pulumi.CustomResource):
     """
     routes: pulumi.Output[list]
     """
-    A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+    A list of route objects. Their keys are documented below.
 
       * `cidr_block` (`str`) - The CIDR block of the route.
       * `egress_only_gateway_id` (`str`) - Identifier of a VPC Egress Only Internet Gateway.
@@ -68,7 +68,7 @@ class RouteTable(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] propagating_vgws: A list of virtual gateways for propagation.
-        :param pulumi.Input[list] routes: A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+        :param pulumi.Input[list] routes: A list of route objects. Their keys are documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID.
 
@@ -125,7 +125,7 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the route table.
         :param pulumi.Input[list] propagating_vgws: A list of virtual gateways for propagation.
-        :param pulumi.Input[list] routes: A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+        :param pulumi.Input[list] routes: A list of route objects. Their keys are documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID.
 

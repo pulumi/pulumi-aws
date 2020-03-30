@@ -20,7 +20,22 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_group.html.markdown.
         /// </summary>
+        [Obsolete("Use GetSecurityGroup.InvokeAsync() instead")]
         public static Task<GetSecurityGroupResult> GetSecurityGroup(GetSecurityGroupArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupResult>("aws:ec2/getSecurityGroup:getSecurityGroup", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetSecurityGroup
+    {
+        /// <summary>
+        /// `aws.ec2.SecurityGroup` provides details about a specific Security Group.
+        /// 
+        /// This resource can prove useful when a module accepts a Security Group id as
+        /// an input variable and needs to, for example, determine the id of the
+        /// VPC that the security group belongs to.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_group.html.markdown.
+        /// </summary>
+        public static Task<GetSecurityGroupResult> InvokeAsync(GetSecurityGroupArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupResult>("aws:ec2/getSecurityGroup:getSecurityGroup", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

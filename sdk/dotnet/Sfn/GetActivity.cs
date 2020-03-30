@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Sfn
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_activity.html.markdown.
         /// </summary>
+        [Obsolete("Use GetActivity.InvokeAsync() instead")]
         public static Task<GetActivityResult> GetActivity(GetActivityArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActivityResult>("aws:sfn/getActivity:getActivity", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetActivity
+    {
+        /// <summary>
+        /// Provides a Step Functions Activity data source
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_activity.html.markdown.
+        /// </summary>
+        public static Task<GetActivityResult> InvokeAsync(GetActivityArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetActivityResult>("aws:sfn/getActivity:getActivity", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

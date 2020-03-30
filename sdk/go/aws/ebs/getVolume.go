@@ -29,8 +29,9 @@ type LookupVolumeArgs struct {
 	Filters []GetVolumeFilter `pulumi:"filters"`
 	// If more than one result is returned, use the most
 	// recent Volume.
-	MostRecent *bool                  `pulumi:"mostRecent"`
-	Tags       map[string]interface{} `pulumi:"tags"`
+	MostRecent *bool `pulumi:"mostRecent"`
+	// A mapping of tags for the resource.
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // A collection of values returned by getVolume.

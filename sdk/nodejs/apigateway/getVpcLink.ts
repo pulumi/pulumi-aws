@@ -48,6 +48,9 @@ export interface GetVpcLinkArgs {
      * If multiple API Gateway VPC Links are found with this name, an error will be returned.
      */
     readonly name: string;
+    /**
+     * Key-value mapping of resource tags
+     */
     readonly tags?: {[key: string]: any};
 }
 

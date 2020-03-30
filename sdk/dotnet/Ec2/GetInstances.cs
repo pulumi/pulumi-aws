@@ -11,7 +11,35 @@ namespace Pulumi.Aws.Ec2
 {
     public static partial class Invokes
     {
+        /// <summary>
+        /// Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
+        /// e.g. to allow easier migration from another management solution
+        /// or to make it easier for an operator to connect through bastion host(s).
+        /// 
+        /// &gt; **Note:** It's strongly discouraged to use this data source for querying ephemeral
+        /// instances (e.g. managed via autoscaling group), as the output may change at any time
+        /// and you'd need to re-run `apply` every time an instance comes up or dies.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instances.html.markdown.
+        /// </summary>
+        [Obsolete("Use GetInstances.InvokeAsync() instead")]
         public static Task<GetInstancesResult> GetInstances(GetInstancesArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ec2/getInstances:getInstances", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetInstances
+    {
+        /// <summary>
+        /// Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
+        /// e.g. to allow easier migration from another management solution
+        /// or to make it easier for an operator to connect through bastion host(s).
+        /// 
+        /// &gt; **Note:** It's strongly discouraged to use this data source for querying ephemeral
+        /// instances (e.g. managed via autoscaling group), as the output may change at any time
+        /// and you'd need to re-run `apply` every time an instance comes up or dies.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instances.html.markdown.
+        /// </summary>
+        public static Task<GetInstancesResult> InvokeAsync(GetInstancesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ec2/getInstances:getInstances", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

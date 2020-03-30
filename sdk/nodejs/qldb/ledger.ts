@@ -4,6 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an AWS Quantum Ledger Database (QLDB) resource
+ * 
+ * > **NOTE:** Deletion protection is enabled by default. To successfully delete this resource via this provider, `deletionProtection = false` must be applied before attempting deletion.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const sampleLedger = new aws.qldb.Ledger("sample-ledger", {});
+ * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/qldb_ledger.html.markdown.
+ */
 export class Ledger extends pulumi.CustomResource {
     /**
      * Get an existing Ledger resource's state with the given name, ID, and optional extra
@@ -35,7 +51,13 @@ export class Ledger extends pulumi.CustomResource {
      * The ARN of the QLDB Ledger
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via this provider, this value must be configured to `false` and applied first before attempting deletion.
+     */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
+    /**
+     * The friendly name for the QLDB Ledger instance.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags
@@ -84,7 +106,13 @@ export interface LedgerState {
      * The ARN of the QLDB Ledger
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via this provider, this value must be configured to `false` and applied first before attempting deletion.
+     */
     readonly deletionProtection?: pulumi.Input<boolean>;
+    /**
+     * The friendly name for the QLDB Ledger instance.
+     */
     readonly name?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags
@@ -96,7 +124,13 @@ export interface LedgerState {
  * The set of arguments for constructing a Ledger resource.
  */
 export interface LedgerArgs {
+    /**
+     * The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via this provider, this value must be configured to `false` and applied first before attempting deletion.
+     */
     readonly deletionProtection?: pulumi.Input<boolean>;
+    /**
+     * The friendly name for the QLDB Ledger instance.
+     */
     readonly name?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags

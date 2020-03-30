@@ -19,7 +19,21 @@ namespace Pulumi.Aws.S3
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket.html.markdown.
         /// </summary>
+        [Obsolete("Use GetBucket.InvokeAsync() instead")]
         public static Task<GetBucketResult> GetBucket(GetBucketArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBucketResult>("aws:s3/getBucket:getBucket", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetBucket
+    {
+        /// <summary>
+        /// Provides details about a specific S3 bucket.
+        /// 
+        /// This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
+        /// Distribution.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket.html.markdown.
+        /// </summary>
+        public static Task<GetBucketResult> InvokeAsync(GetBucketArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBucketResult>("aws:s3/getBucket:getBucket", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

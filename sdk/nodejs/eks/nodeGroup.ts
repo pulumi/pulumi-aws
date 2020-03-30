@@ -38,6 +38,9 @@ export class NodeGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === NodeGroup.__pulumiType;
     }
 
+    /**
+     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
+     */
     public readonly amiType!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the EKS Node Group.
@@ -47,7 +50,13 @@ export class NodeGroup extends pulumi.CustomResource {
      * Name of the EKS Cluster.
      */
     public readonly clusterName!: pulumi.Output<string>;
+    /**
+     * Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+     */
     public readonly diskSize!: pulumi.Output<number>;
+    /**
+     * Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
+     */
     public readonly instanceTypes!: pulumi.Output<string>;
     /**
      * Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
@@ -89,6 +98,9 @@ export class NodeGroup extends pulumi.CustomResource {
      * Key-value mapping of resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
+     */
     public readonly version!: pulumi.Output<string>;
 
     /**
@@ -165,6 +177,9 @@ export class NodeGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NodeGroup resources.
  */
 export interface NodeGroupState {
+    /**
+     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
+     */
     readonly amiType?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the EKS Node Group.
@@ -174,7 +189,13 @@ export interface NodeGroupState {
      * Name of the EKS Cluster.
      */
     readonly clusterName?: pulumi.Input<string>;
+    /**
+     * Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+     */
     readonly diskSize?: pulumi.Input<number>;
+    /**
+     * Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
+     */
     readonly instanceTypes?: pulumi.Input<string>;
     /**
      * Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
@@ -216,6 +237,9 @@ export interface NodeGroupState {
      * Key-value mapping of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
+     */
     readonly version?: pulumi.Input<string>;
 }
 
@@ -223,12 +247,21 @@ export interface NodeGroupState {
  * The set of arguments for constructing a NodeGroup resource.
  */
 export interface NodeGroupArgs {
+    /**
+     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
+     */
     readonly amiType?: pulumi.Input<string>;
     /**
      * Name of the EKS Cluster.
      */
     readonly clusterName: pulumi.Input<string>;
+    /**
+     * Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+     */
     readonly diskSize?: pulumi.Input<number>;
+    /**
+     * Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
+     */
     readonly instanceTypes?: pulumi.Input<string>;
     /**
      * Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
@@ -262,5 +295,8 @@ export interface NodeGroupArgs {
      * Key-value mapping of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
+     */
     readonly version?: pulumi.Input<string>;
 }

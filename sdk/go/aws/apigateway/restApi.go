@@ -12,6 +12,8 @@ import (
 
 // Provides an API Gateway REST API.
 //
+// > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2.
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_rest_api.html.markdown.
 type RestApi struct {
 	pulumi.CustomResourceState
@@ -37,7 +39,8 @@ type RestApi struct {
 	// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
 	MinimumCompressionSize pulumi.IntPtrOutput `pulumi:"minimumCompressionSize"`
 	// The name of the REST API
-	Name   pulumi.StringOutput    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// JSON formatted policy document that controls access to the API Gateway.
 	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// The resource ID of the REST API's root
 	RootResourceId pulumi.StringOutput `pulumi:"rootResourceId"`
@@ -94,7 +97,8 @@ type restApiState struct {
 	// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
 	MinimumCompressionSize *int `pulumi:"minimumCompressionSize"`
 	// The name of the REST API
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// JSON formatted policy document that controls access to the API Gateway.
 	Policy *string `pulumi:"policy"`
 	// The resource ID of the REST API's root
 	RootResourceId *string `pulumi:"rootResourceId"`
@@ -124,7 +128,8 @@ type RestApiState struct {
 	// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
 	MinimumCompressionSize pulumi.IntPtrInput
 	// The name of the REST API
-	Name   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// JSON formatted policy document that controls access to the API Gateway.
 	Policy pulumi.StringPtrInput
 	// The resource ID of the REST API's root
 	RootResourceId pulumi.StringPtrInput
@@ -150,7 +155,8 @@ type restApiArgs struct {
 	// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
 	MinimumCompressionSize *int `pulumi:"minimumCompressionSize"`
 	// The name of the REST API
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// JSON formatted policy document that controls access to the API Gateway.
 	Policy *string `pulumi:"policy"`
 	// Key-value mapping of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -171,7 +177,8 @@ type RestApiArgs struct {
 	// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
 	MinimumCompressionSize pulumi.IntPtrInput
 	// The name of the REST API
-	Name   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// JSON formatted policy document that controls access to the API Gateway.
 	Policy pulumi.StringPtrInput
 	// Key-value mapping of resource tags
 	Tags pulumi.MapInput

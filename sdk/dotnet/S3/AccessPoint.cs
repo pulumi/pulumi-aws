@@ -9,8 +9,16 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
+    /// <summary>
+    /// Provides a resource to manage an S3 Access Point.
+    /// 
+    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_access_point.html.markdown.
+    /// </summary>
     public partial class AccessPoint : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
+        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
@@ -115,6 +123,9 @@ namespace Pulumi.Aws.S3
 
     public sealed class AccessPointArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
@@ -155,6 +166,9 @@ namespace Pulumi.Aws.S3
 
     public sealed class AccessPointState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 

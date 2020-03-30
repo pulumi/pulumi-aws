@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool> EnaSupport { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
         /// </summary>
         [Output("encrypted")]
         public Output<bool?> Encrypted { get; private set; } = null!;
@@ -79,7 +79,9 @@ namespace Pulumi.Aws.Ec2
         public Output<string> KernelId { get; private set; } = null!;
 
         /// <summary>
-        /// The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+        /// The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+        /// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+        /// if this parameter is not specified, the default CMK for EBS is used
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
@@ -210,7 +212,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -229,7 +231,9 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+        /// The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+        /// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+        /// if this parameter is not specified, the default CMK for EBS is used
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -305,7 +309,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EnaSupport { get; set; }
 
         /// <summary>
-        /// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -338,7 +342,9 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? KernelId { get; set; }
 
         /// <summary>
-        /// The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+        /// The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
+        /// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
+        /// if this parameter is not specified, the default CMK for EBS is used
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -419,27 +425,52 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class AmiCopyEbsBlockDevicesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Boolean controlling whether the EBS volumes created to
+        /// support each created instance will be deleted once that instance is terminated.
+        /// </summary>
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
 
+        /// <summary>
+        /// The path at which the device is exposed to created instances.
+        /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
-        /// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
 
+        /// <summary>
+        /// Number of I/O operations per second the
+        /// created volumes will support.
+        /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
+        /// <summary>
+        /// The id of an EBS snapshot that will be used to initialize the created
+        /// EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
+        /// snapshot.
+        /// </summary>
         [Input("snapshotId")]
         public Input<string>? SnapshotId { get; set; }
 
+        /// <summary>
+        /// The size of created volumes in GiB.
+        /// If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
+        /// as the selected snapshot.
+        /// </summary>
         [Input("volumeSize")]
         public Input<int>? VolumeSize { get; set; }
 
+        /// <summary>
+        /// The type of EBS volume to create. Can be one of "standard" (the
+        /// default), "io1" or "gp2".
+        /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
 
@@ -450,27 +481,52 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class AmiCopyEbsBlockDevicesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Boolean controlling whether the EBS volumes created to
+        /// support each created instance will be deleted once that instance is terminated.
+        /// </summary>
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
 
+        /// <summary>
+        /// The path at which the device is exposed to created instances.
+        /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
-        /// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
 
+        /// <summary>
+        /// Number of I/O operations per second the
+        /// created volumes will support.
+        /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
+        /// <summary>
+        /// The id of an EBS snapshot that will be used to initialize the created
+        /// EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
+        /// snapshot.
+        /// </summary>
         [Input("snapshotId")]
         public Input<string>? SnapshotId { get; set; }
 
+        /// <summary>
+        /// The size of created volumes in GiB.
+        /// If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
+        /// as the selected snapshot.
+        /// </summary>
         [Input("volumeSize")]
         public Input<int>? VolumeSize { get; set; }
 
+        /// <summary>
+        /// The type of EBS volume to create. Can be one of "standard" (the
+        /// default), "io1" or "gp2".
+        /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
 
@@ -481,9 +537,16 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class AmiCopyEphemeralBlockDevicesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path at which the device is exposed to created instances.
+        /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
+        /// <summary>
+        /// A name for the ephemeral device, of the form "ephemeralN" where
+        /// *N* is a volume number starting from zero.
+        /// </summary>
         [Input("virtualName")]
         public Input<string>? VirtualName { get; set; }
 
@@ -494,9 +557,16 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class AmiCopyEphemeralBlockDevicesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path at which the device is exposed to created instances.
+        /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
+        /// <summary>
+        /// A name for the ephemeral device, of the form "ephemeralN" where
+        /// *N* is a volume number starting from zero.
+        /// </summary>
         [Input("virtualName")]
         public Input<string>? VirtualName { get; set; }
 
@@ -512,15 +582,40 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class AmiCopyEbsBlockDevices
     {
+        /// <summary>
+        /// Boolean controlling whether the EBS volumes created to
+        /// support each created instance will be deleted once that instance is terminated.
+        /// </summary>
         public readonly bool DeleteOnTermination;
+        /// <summary>
+        /// The path at which the device is exposed to created instances.
+        /// </summary>
         public readonly string DeviceName;
         /// <summary>
-        /// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
         /// </summary>
         public readonly bool Encrypted;
+        /// <summary>
+        /// Number of I/O operations per second the
+        /// created volumes will support.
+        /// </summary>
         public readonly int Iops;
+        /// <summary>
+        /// The id of an EBS snapshot that will be used to initialize the created
+        /// EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
+        /// snapshot.
+        /// </summary>
         public readonly string SnapshotId;
+        /// <summary>
+        /// The size of created volumes in GiB.
+        /// If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
+        /// as the selected snapshot.
+        /// </summary>
         public readonly int VolumeSize;
+        /// <summary>
+        /// The type of EBS volume to create. Can be one of "standard" (the
+        /// default), "io1" or "gp2".
+        /// </summary>
         public readonly string VolumeType;
 
         [OutputConstructor]
@@ -546,7 +641,14 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class AmiCopyEphemeralBlockDevices
     {
+        /// <summary>
+        /// The path at which the device is exposed to created instances.
+        /// </summary>
         public readonly string DeviceName;
+        /// <summary>
+        /// A name for the ephemeral device, of the form "ephemeralN" where
+        /// *N* is a volume number starting from zero.
+        /// </summary>
         public readonly string VirtualName;
 
         [OutputConstructor]

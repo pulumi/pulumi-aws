@@ -17,7 +17,19 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instance.html.markdown.
         /// </summary>
+        [Obsolete("Use GetInstance.InvokeAsync() instead")]
         public static Task<GetInstanceResult> GetInstance(GetInstanceArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("aws:ec2/getInstance:getInstance", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetInstance
+    {
+        /// <summary>
+        /// Use this data source to get the ID of an Amazon EC2 Instance for use in other
+        /// resources.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instance.html.markdown.
+        /// </summary>
+        public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("aws:ec2/getInstance:getInstance", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -70,6 +82,10 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the Instance.
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());
@@ -209,7 +225,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string UserData;
         /// <summary>
-        /// Base64 encoded contents of User Data supplied to the Instance. Valid UTF-8 contents can be decoded with the [`base64decode` function](https://www.terraform.io/docs/configuration/functions/base64decode.html). This attribute is only exported if `get_user_data` is true.
+        /// Base64 encoded contents of User Data supplied to the Instance. This attribute is only exported if `get_user_data` is true.
         /// </summary>
         public readonly string UserDataBase64;
         /// <summary>

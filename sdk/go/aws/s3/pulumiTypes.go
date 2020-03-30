@@ -956,20 +956,19 @@ func (o BucketGrantArrayOutput) Index(i pulumi.IntInput) BucketGrantOutput {
 type BucketLifecycleRule struct {
 	// Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
 	AbortIncompleteMultipartUploadDays *int `pulumi:"abortIncompleteMultipartUploadDays"`
-	// Boolean which indicates if this criteria is enabled.
+	// Specifies lifecycle rule status.
 	Enabled bool `pulumi:"enabled"`
 	// Specifies a period in the object's expire (documented below).
 	Expiration *BucketLifecycleRuleExpiration `pulumi:"expiration"`
-	// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+	// Unique identifier for the rule.
 	Id *string `pulumi:"id"`
 	// Specifies when noncurrent object versions expire (documented below).
 	NoncurrentVersionExpiration *BucketLifecycleRuleNoncurrentVersionExpiration `pulumi:"noncurrentVersionExpiration"`
 	// Specifies when noncurrent object versions transitions (documented below).
 	NoncurrentVersionTransitions []BucketLifecycleRuleNoncurrentVersionTransition `pulumi:"noncurrentVersionTransitions"`
-	// Object keyname prefix that identifies subset of objects to which the rule applies.
+	// Object key prefix identifying one or more objects to which the rule applies.
 	Prefix *string `pulumi:"prefix"`
-	// A mapping of tags that identifies subset of objects to which the rule applies.
-	// The rule applies only to objects having all the tags in its tagset.
+	// Specifies object tags key and value.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Specifies a period in the object's transitions (documented below).
 	Transitions []BucketLifecycleRuleTransition `pulumi:"transitions"`
@@ -985,20 +984,19 @@ type BucketLifecycleRuleInput interface {
 type BucketLifecycleRuleArgs struct {
 	// Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
 	AbortIncompleteMultipartUploadDays pulumi.IntPtrInput `pulumi:"abortIncompleteMultipartUploadDays"`
-	// Boolean which indicates if this criteria is enabled.
+	// Specifies lifecycle rule status.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Specifies a period in the object's expire (documented below).
 	Expiration BucketLifecycleRuleExpirationPtrInput `pulumi:"expiration"`
-	// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+	// Unique identifier for the rule.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Specifies when noncurrent object versions expire (documented below).
 	NoncurrentVersionExpiration BucketLifecycleRuleNoncurrentVersionExpirationPtrInput `pulumi:"noncurrentVersionExpiration"`
 	// Specifies when noncurrent object versions transitions (documented below).
 	NoncurrentVersionTransitions BucketLifecycleRuleNoncurrentVersionTransitionArrayInput `pulumi:"noncurrentVersionTransitions"`
-	// Object keyname prefix that identifies subset of objects to which the rule applies.
+	// Object key prefix identifying one or more objects to which the rule applies.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// A mapping of tags that identifies subset of objects to which the rule applies.
-	// The rule applies only to objects having all the tags in its tagset.
+	// Specifies object tags key and value.
 	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies a period in the object's transitions (documented below).
 	Transitions BucketLifecycleRuleTransitionArrayInput `pulumi:"transitions"`
@@ -1056,7 +1054,7 @@ func (o BucketLifecycleRuleOutput) AbortIncompleteMultipartUploadDays() pulumi.I
 	return o.ApplyT(func(v BucketLifecycleRule) *int { return v.AbortIncompleteMultipartUploadDays }).(pulumi.IntPtrOutput)
 }
 
-// Boolean which indicates if this criteria is enabled.
+// Specifies lifecycle rule status.
 func (o BucketLifecycleRuleOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BucketLifecycleRule) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -1066,7 +1064,7 @@ func (o BucketLifecycleRuleOutput) Expiration() BucketLifecycleRuleExpirationPtr
 	return o.ApplyT(func(v BucketLifecycleRule) *BucketLifecycleRuleExpiration { return v.Expiration }).(BucketLifecycleRuleExpirationPtrOutput)
 }
 
-// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+// Unique identifier for the rule.
 func (o BucketLifecycleRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -1085,13 +1083,12 @@ func (o BucketLifecycleRuleOutput) NoncurrentVersionTransitions() BucketLifecycl
 	}).(BucketLifecycleRuleNoncurrentVersionTransitionArrayOutput)
 }
 
-// Object keyname prefix that identifies subset of objects to which the rule applies.
+// Object key prefix identifying one or more objects to which the rule applies.
 func (o BucketLifecycleRuleOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRule) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// A mapping of tags that identifies subset of objects to which the rule applies.
-// The rule applies only to objects having all the tags in its tagset.
+// Specifies object tags key and value.
 func (o BucketLifecycleRuleOutput) Tags() pulumi.MapOutput {
 	return o.ApplyT(func(v BucketLifecycleRule) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
 }
@@ -1124,7 +1121,7 @@ func (o BucketLifecycleRuleArrayOutput) Index(i pulumi.IntInput) BucketLifecycle
 type BucketLifecycleRuleExpiration struct {
 	// Specifies the date after which you want the corresponding action to take effect.
 	Date *string `pulumi:"date"`
-	// The number of days that you want to specify for the default retention period.
+	// Specifies the number of days after object creation when the specific rule action takes effect.
 	Days *int `pulumi:"days"`
 	// On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers.
 	ExpiredObjectDeleteMarker *bool `pulumi:"expiredObjectDeleteMarker"`
@@ -1140,7 +1137,7 @@ type BucketLifecycleRuleExpirationInput interface {
 type BucketLifecycleRuleExpirationArgs struct {
 	// Specifies the date after which you want the corresponding action to take effect.
 	Date pulumi.StringPtrInput `pulumi:"date"`
-	// The number of days that you want to specify for the default retention period.
+	// Specifies the number of days after object creation when the specific rule action takes effect.
 	Days pulumi.IntPtrInput `pulumi:"days"`
 	// On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers.
 	ExpiredObjectDeleteMarker pulumi.BoolPtrInput `pulumi:"expiredObjectDeleteMarker"`
@@ -1220,7 +1217,7 @@ func (o BucketLifecycleRuleExpirationOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleExpiration) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
 
-// The number of days that you want to specify for the default retention period.
+// Specifies the number of days after object creation when the specific rule action takes effect.
 func (o BucketLifecycleRuleExpirationOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
@@ -1253,7 +1250,7 @@ func (o BucketLifecycleRuleExpirationPtrOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleExpiration) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
 
-// The number of days that you want to specify for the default retention period.
+// Specifies the number of days after object creation when the specific rule action takes effect.
 func (o BucketLifecycleRuleExpirationPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
@@ -1264,7 +1261,7 @@ func (o BucketLifecycleRuleExpirationPtrOutput) ExpiredObjectDeleteMarker() pulu
 }
 
 type BucketLifecycleRuleNoncurrentVersionExpiration struct {
-	// The number of days that you want to specify for the default retention period.
+	// Specifies the number of days an object is noncurrent object versions expire.
 	Days *int `pulumi:"days"`
 }
 
@@ -1276,7 +1273,7 @@ type BucketLifecycleRuleNoncurrentVersionExpirationInput interface {
 }
 
 type BucketLifecycleRuleNoncurrentVersionExpirationArgs struct {
-	// The number of days that you want to specify for the default retention period.
+	// Specifies the number of days an object is noncurrent object versions expire.
 	Days pulumi.IntPtrInput `pulumi:"days"`
 }
 
@@ -1349,7 +1346,7 @@ func (o BucketLifecycleRuleNoncurrentVersionExpirationOutput) ToBucketLifecycleR
 	}).(BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput)
 }
 
-// The number of days that you want to specify for the default retention period.
+// Specifies the number of days an object is noncurrent object versions expire.
 func (o BucketLifecycleRuleNoncurrentVersionExpirationOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleNoncurrentVersionExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
@@ -1374,15 +1371,15 @@ func (o BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput) Elem() BucketLi
 	}).(BucketLifecycleRuleNoncurrentVersionExpirationOutput)
 }
 
-// The number of days that you want to specify for the default retention period.
+// Specifies the number of days an object is noncurrent object versions expire.
 func (o BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleNoncurrentVersionExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
 type BucketLifecycleRuleNoncurrentVersionTransition struct {
-	// The number of days that you want to specify for the default retention period.
+	// Specifies the number of days an object is noncurrent object versions expire.
 	Days *int `pulumi:"days"`
-	// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+	// Specifies the Amazon S3 storage class to which you want the noncurrent versions object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
 	StorageClass string `pulumi:"storageClass"`
 }
 
@@ -1394,9 +1391,9 @@ type BucketLifecycleRuleNoncurrentVersionTransitionInput interface {
 }
 
 type BucketLifecycleRuleNoncurrentVersionTransitionArgs struct {
-	// The number of days that you want to specify for the default retention period.
+	// Specifies the number of days an object is noncurrent object versions expire.
 	Days pulumi.IntPtrInput `pulumi:"days"`
-	// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+	// Specifies the Amazon S3 storage class to which you want the noncurrent versions object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
 	StorageClass pulumi.StringInput `pulumi:"storageClass"`
 }
 
@@ -1447,12 +1444,12 @@ func (o BucketLifecycleRuleNoncurrentVersionTransitionOutput) ToBucketLifecycleR
 	return o
 }
 
-// The number of days that you want to specify for the default retention period.
+// Specifies the number of days an object is noncurrent object versions expire.
 func (o BucketLifecycleRuleNoncurrentVersionTransitionOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleNoncurrentVersionTransition) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+// Specifies the Amazon S3 storage class to which you want the noncurrent versions object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
 func (o BucketLifecycleRuleNoncurrentVersionTransitionOutput) StorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleNoncurrentVersionTransition) string { return v.StorageClass }).(pulumi.StringOutput)
 }
@@ -1480,9 +1477,9 @@ func (o BucketLifecycleRuleNoncurrentVersionTransitionArrayOutput) Index(i pulum
 type BucketLifecycleRuleTransition struct {
 	// Specifies the date after which you want the corresponding action to take effect.
 	Date *string `pulumi:"date"`
-	// The number of days that you want to specify for the default retention period.
+	// Specifies the number of days after object creation when the specific rule action takes effect.
 	Days *int `pulumi:"days"`
-	// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+	// Specifies the Amazon S3 storage class to which you want the object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
 	StorageClass string `pulumi:"storageClass"`
 }
 
@@ -1496,9 +1493,9 @@ type BucketLifecycleRuleTransitionInput interface {
 type BucketLifecycleRuleTransitionArgs struct {
 	// Specifies the date after which you want the corresponding action to take effect.
 	Date pulumi.StringPtrInput `pulumi:"date"`
-	// The number of days that you want to specify for the default retention period.
+	// Specifies the number of days after object creation when the specific rule action takes effect.
 	Days pulumi.IntPtrInput `pulumi:"days"`
-	// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+	// Specifies the Amazon S3 storage class to which you want the object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
 	StorageClass pulumi.StringInput `pulumi:"storageClass"`
 }
 
@@ -1554,12 +1551,12 @@ func (o BucketLifecycleRuleTransitionOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleTransition) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
 
-// The number of days that you want to specify for the default retention period.
+// Specifies the number of days after object creation when the specific rule action takes effect.
 func (o BucketLifecycleRuleTransitionOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleTransition) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+// Specifies the Amazon S3 storage class to which you want the object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
 func (o BucketLifecycleRuleTransitionOutput) StorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleTransition) string { return v.StorageClass }).(pulumi.StringOutput)
 }
@@ -2630,9 +2627,9 @@ type BucketReplicationConfigurationRule struct {
 	Destination BucketReplicationConfigurationRuleDestination `pulumi:"destination"`
 	// Filter that identifies subset of objects to which the replication rule applies (documented below).
 	Filter *BucketReplicationConfigurationRuleFilter `pulumi:"filter"`
-	// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+	// Unique identifier for the rule.
 	Id *string `pulumi:"id"`
-	// Object keyname prefix that identifies subset of objects to which the rule applies.
+	// Object keyname prefix identifying one or more objects to which the rule applies.
 	Prefix *string `pulumi:"prefix"`
 	// The priority associated with the rule.
 	Priority *int `pulumi:"priority"`
@@ -2654,9 +2651,9 @@ type BucketReplicationConfigurationRuleArgs struct {
 	Destination BucketReplicationConfigurationRuleDestinationInput `pulumi:"destination"`
 	// Filter that identifies subset of objects to which the replication rule applies (documented below).
 	Filter BucketReplicationConfigurationRuleFilterPtrInput `pulumi:"filter"`
-	// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+	// Unique identifier for the rule.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Object keyname prefix that identifies subset of objects to which the rule applies.
+	// Object keyname prefix identifying one or more objects to which the rule applies.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// The priority associated with the rule.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
@@ -2725,12 +2722,12 @@ func (o BucketReplicationConfigurationRuleOutput) Filter() BucketReplicationConf
 	return o.ApplyT(func(v BucketReplicationConfigurationRule) *BucketReplicationConfigurationRuleFilter { return v.Filter }).(BucketReplicationConfigurationRuleFilterPtrOutput)
 }
 
-// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+// Unique identifier for the rule.
 func (o BucketReplicationConfigurationRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Object keyname prefix that identifies subset of objects to which the rule applies.
+// Object keyname prefix identifying one or more objects to which the rule applies.
 func (o BucketReplicationConfigurationRuleOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRule) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -3354,7 +3351,7 @@ func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypted
 }
 
 type BucketServerSideEncryptionConfiguration struct {
-	// The Object Lock rule in place for this bucket.
+	// A single object for server-side encryption by default configuration. (documented below)
 	Rule BucketServerSideEncryptionConfigurationRule `pulumi:"rule"`
 }
 
@@ -3366,7 +3363,7 @@ type BucketServerSideEncryptionConfigurationInput interface {
 }
 
 type BucketServerSideEncryptionConfigurationArgs struct {
-	// The Object Lock rule in place for this bucket.
+	// A single object for server-side encryption by default configuration. (documented below)
 	Rule BucketServerSideEncryptionConfigurationRuleInput `pulumi:"rule"`
 }
 
@@ -3439,7 +3436,7 @@ func (o BucketServerSideEncryptionConfigurationOutput) ToBucketServerSideEncrypt
 	}).(BucketServerSideEncryptionConfigurationPtrOutput)
 }
 
-// The Object Lock rule in place for this bucket.
+// A single object for server-side encryption by default configuration. (documented below)
 func (o BucketServerSideEncryptionConfigurationOutput) Rule() BucketServerSideEncryptionConfigurationRuleOutput {
 	return o.ApplyT(func(v BucketServerSideEncryptionConfiguration) BucketServerSideEncryptionConfigurationRule {
 		return v.Rule
@@ -3464,7 +3461,7 @@ func (o BucketServerSideEncryptionConfigurationPtrOutput) Elem() BucketServerSid
 	return o.ApplyT(func(v *BucketServerSideEncryptionConfiguration) BucketServerSideEncryptionConfiguration { return *v }).(BucketServerSideEncryptionConfigurationOutput)
 }
 
-// The Object Lock rule in place for this bucket.
+// A single object for server-side encryption by default configuration. (documented below)
 func (o BucketServerSideEncryptionConfigurationPtrOutput) Rule() BucketServerSideEncryptionConfigurationRuleOutput {
 	return o.ApplyT(func(v BucketServerSideEncryptionConfiguration) BucketServerSideEncryptionConfigurationRule {
 		return v.Rule
@@ -3583,7 +3580,7 @@ func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDe
 }
 
 type BucketVersioning struct {
-	// Boolean which indicates if this criteria is enabled.
+	// Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
 	Enabled *bool `pulumi:"enabled"`
 	// Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`.
 	MfaDelete *bool `pulumi:"mfaDelete"`
@@ -3597,7 +3594,7 @@ type BucketVersioningInput interface {
 }
 
 type BucketVersioningArgs struct {
-	// Boolean which indicates if this criteria is enabled.
+	// Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`.
 	MfaDelete pulumi.BoolPtrInput `pulumi:"mfaDelete"`
@@ -3672,7 +3669,7 @@ func (o BucketVersioningOutput) ToBucketVersioningPtrOutputWithContext(ctx conte
 	}).(BucketVersioningPtrOutput)
 }
 
-// Boolean which indicates if this criteria is enabled.
+// Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
 func (o BucketVersioningOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BucketVersioning) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -3700,7 +3697,7 @@ func (o BucketVersioningPtrOutput) Elem() BucketVersioningOutput {
 	return o.ApplyT(func(v *BucketVersioning) BucketVersioning { return *v }).(BucketVersioningOutput)
 }
 
-// Boolean which indicates if this criteria is enabled.
+// Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
 func (o BucketVersioningPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BucketVersioning) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -4423,7 +4420,7 @@ func (o InventoryDestinationBucketEncryptionSseS3PtrOutput) Elem() InventoryDest
 }
 
 type InventoryFilter struct {
-	// The prefix that is prepended to all inventory results.
+	// The prefix that an object must have to be included in the inventory results.
 	Prefix *string `pulumi:"prefix"`
 }
 
@@ -4435,7 +4432,7 @@ type InventoryFilterInput interface {
 }
 
 type InventoryFilterArgs struct {
-	// The prefix that is prepended to all inventory results.
+	// The prefix that an object must have to be included in the inventory results.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
@@ -4508,7 +4505,7 @@ func (o InventoryFilterOutput) ToInventoryFilterPtrOutputWithContext(ctx context
 	}).(InventoryFilterPtrOutput)
 }
 
-// The prefix that is prepended to all inventory results.
+// The prefix that an object must have to be included in the inventory results.
 func (o InventoryFilterOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InventoryFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -4531,7 +4528,7 @@ func (o InventoryFilterPtrOutput) Elem() InventoryFilterOutput {
 	return o.ApplyT(func(v *InventoryFilter) InventoryFilter { return *v }).(InventoryFilterOutput)
 }
 
-// The prefix that is prepended to all inventory results.
+// The prefix that an object must have to be included in the inventory results.
 func (o InventoryFilterPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InventoryFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }

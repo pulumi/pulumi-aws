@@ -24,7 +24,8 @@ func LookupStack(ctx *pulumi.Context, args *LookupStackArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getStack.
 type LookupStackArgs struct {
 	// The name of the stack
-	Name string                 `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// A map of tags associated with this stack.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 

@@ -25,7 +25,8 @@ type LookupNetworkInterfaceArgs struct {
 	// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
 	Filters []GetNetworkInterfaceFilter `pulumi:"filters"`
 	// The identifier for the network interface.
-	Id   *string                `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Any tags assigned to the network interface.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 

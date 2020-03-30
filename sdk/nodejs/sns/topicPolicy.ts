@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * }));
  * const defaultTopicPolicy = new aws.sns.TopicPolicy("default", {
  *     arn: test.arn,
- *     policy: sns_topic_policy.json,
+ *     policy: snsTopicPolicy.json,
  * });
  * ```
  *
@@ -83,6 +83,9 @@ export class TopicPolicy extends pulumi.CustomResource {
      * The ARN of the SNS topic
      */
     public readonly arn!: pulumi.Output<string>;
+    /**
+     * The fully-formed AWS policy as JSON.
+     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -129,6 +132,9 @@ export interface TopicPolicyState {
      * The ARN of the SNS topic
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The fully-formed AWS policy as JSON.
+     */
     readonly policy?: pulumi.Input<string>;
 }
 
@@ -140,5 +146,8 @@ export interface TopicPolicyArgs {
      * The ARN of the SNS topic
      */
     readonly arn: pulumi.Input<string>;
+    /**
+     * The fully-formed AWS policy as JSON.
+     */
     readonly policy: pulumi.Input<string>;
 }

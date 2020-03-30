@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Route53
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rule.html.markdown.
         /// </summary>
+        [Obsolete("Use GetResolverRule.InvokeAsync() instead")]
         public static Task<GetResolverRuleResult> GetResolverRule(GetResolverRuleArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResolverRuleResult>("aws:route53/getResolverRule:getResolverRule", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetResolverRule
+    {
+        /// <summary>
+        /// `aws.route53.ResolverRule` provides details about a specific Route53 Resolver rule.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rule.html.markdown.
+        /// </summary>
+        public static Task<GetResolverRuleResult> InvokeAsync(GetResolverRuleArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResolverRuleResult>("aws:route53/getResolverRule:getResolverRule", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -54,6 +65,10 @@ namespace Pulumi.Aws.Route53
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the resolver rule.
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

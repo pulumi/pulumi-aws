@@ -17,6 +17,9 @@ namespace Pulumi.Aws.Sqs
     /// </summary>
     public partial class QueuePolicy : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The JSON policy for the SQS queue.
+        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -72,6 +75,9 @@ namespace Pulumi.Aws.Sqs
 
     public sealed class QueuePolicyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The JSON policy for the SQS queue.
+        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
@@ -88,6 +94,9 @@ namespace Pulumi.Aws.Sqs
 
     public sealed class QueuePolicyState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The JSON policy for the SQS queue.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

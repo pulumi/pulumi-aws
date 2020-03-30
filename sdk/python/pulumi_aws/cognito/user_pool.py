@@ -86,7 +86,7 @@ class UserPool(pulumi.CustomResource):
     """
     mfa_configuration: pulumi.Output[str]
     """
-    Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
+    Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
     """
     name: pulumi.Output[str]
     """
@@ -122,11 +122,11 @@ class UserPool(pulumi.CustomResource):
     """
     sms_authentication_message: pulumi.Output[str]
     """
-    A string representing the SMS authentication message.
+    A string representing the SMS authentication message. The message must contain the `{####}` placeholder, which will be replaced with the code.
     """
     sms_configuration: pulumi.Output[dict]
     """
-    The SMS Configuration.
+    Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the [`up` command and use --replace](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
 
       * `externalId` (`str`) - The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
       * `snsCallerArn` (`str`) - The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
@@ -134,6 +134,12 @@ class UserPool(pulumi.CustomResource):
     sms_verification_message: pulumi.Output[str]
     """
     A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+    """
+    software_token_mfa_configuration: pulumi.Output[dict]
+    """
+    Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+
+      * `enabled` (`bool`) - Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
     """
     tags: pulumi.Output[dict]
     """
@@ -160,7 +166,7 @@ class UserPool(pulumi.CustomResource):
       * `emailSubjectByLink` (`str`) - The subject line for the email message template for sending a confirmation link to the user.
       * `smsMessage` (`str`) - The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
     """
-    def __init__(__self__, resource_name, opts=None, admin_create_user_config=None, alias_attributes=None, auto_verified_attributes=None, device_configuration=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, lambda_config=None, mfa_configuration=None, name=None, password_policy=None, schemas=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, tags=None, user_pool_add_ons=None, username_attributes=None, verification_message_template=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, admin_create_user_config=None, alias_attributes=None, auto_verified_attributes=None, device_configuration=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, lambda_config=None, mfa_configuration=None, name=None, password_policy=None, schemas=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, software_token_mfa_configuration=None, tags=None, user_pool_add_ons=None, username_attributes=None, verification_message_template=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Cognito User Pool resource.
 
@@ -176,13 +182,14 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[str] email_verification_message: A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
         :param pulumi.Input[str] email_verification_subject: A string representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
         :param pulumi.Input[dict] lambda_config: A container for the AWS Lambda triggers associated with the user pool.
-        :param pulumi.Input[str] mfa_configuration: Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
+        :param pulumi.Input[str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
         :param pulumi.Input[str] name: The name of the attribute.
         :param pulumi.Input[dict] password_policy: A container for information about the user pool password policy.
         :param pulumi.Input[list] schemas: A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
-        :param pulumi.Input[str] sms_authentication_message: A string representing the SMS authentication message.
-        :param pulumi.Input[dict] sms_configuration: The SMS Configuration.
+        :param pulumi.Input[str] sms_authentication_message: A string representing the SMS authentication message. The message must contain the `{####}` placeholder, which will be replaced with the code.
+        :param pulumi.Input[dict] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the [`up` command and use --replace](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
         :param pulumi.Input[str] sms_verification_message: A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+        :param pulumi.Input[dict] software_token_mfa_configuration: Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the User Pool.
         :param pulumi.Input[dict] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features.
         :param pulumi.Input[list] username_attributes: Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
@@ -250,6 +257,10 @@ class UserPool(pulumi.CustomResource):
 
           * `externalId` (`pulumi.Input[str]`) - The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
           * `snsCallerArn` (`pulumi.Input[str]`) - The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
+
+        The **software_token_mfa_configuration** object supports the following:
+
+          * `enabled` (`pulumi.Input[bool]`) - Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
 
         The **user_pool_add_ons** object supports the following:
 
@@ -296,6 +307,7 @@ class UserPool(pulumi.CustomResource):
             __props__['sms_authentication_message'] = sms_authentication_message
             __props__['sms_configuration'] = sms_configuration
             __props__['sms_verification_message'] = sms_verification_message
+            __props__['software_token_mfa_configuration'] = software_token_mfa_configuration
             __props__['tags'] = tags
             __props__['user_pool_add_ons'] = user_pool_add_ons
             __props__['username_attributes'] = username_attributes
@@ -311,7 +323,7 @@ class UserPool(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, admin_create_user_config=None, alias_attributes=None, arn=None, auto_verified_attributes=None, creation_date=None, device_configuration=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, endpoint=None, lambda_config=None, last_modified_date=None, mfa_configuration=None, name=None, password_policy=None, schemas=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, tags=None, user_pool_add_ons=None, username_attributes=None, verification_message_template=None):
+    def get(resource_name, id, opts=None, admin_create_user_config=None, alias_attributes=None, arn=None, auto_verified_attributes=None, creation_date=None, device_configuration=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, endpoint=None, lambda_config=None, last_modified_date=None, mfa_configuration=None, name=None, password_policy=None, schemas=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, software_token_mfa_configuration=None, tags=None, user_pool_add_ons=None, username_attributes=None, verification_message_template=None):
         """
         Get an existing UserPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -331,13 +343,14 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint: The endpoint name of the user pool. Example format: cognito-idp.REGION.amazonaws.com/xxxx_yyyyy
         :param pulumi.Input[dict] lambda_config: A container for the AWS Lambda triggers associated with the user pool.
         :param pulumi.Input[str] last_modified_date: The date the user pool was last modified.
-        :param pulumi.Input[str] mfa_configuration: Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
+        :param pulumi.Input[str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
         :param pulumi.Input[str] name: The name of the attribute.
         :param pulumi.Input[dict] password_policy: A container for information about the user pool password policy.
         :param pulumi.Input[list] schemas: A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
-        :param pulumi.Input[str] sms_authentication_message: A string representing the SMS authentication message.
-        :param pulumi.Input[dict] sms_configuration: The SMS Configuration.
+        :param pulumi.Input[str] sms_authentication_message: A string representing the SMS authentication message. The message must contain the `{####}` placeholder, which will be replaced with the code.
+        :param pulumi.Input[dict] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the [`up` command and use --replace](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
         :param pulumi.Input[str] sms_verification_message: A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+        :param pulumi.Input[dict] software_token_mfa_configuration: Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the User Pool.
         :param pulumi.Input[dict] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features.
         :param pulumi.Input[list] username_attributes: Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
@@ -406,6 +419,10 @@ class UserPool(pulumi.CustomResource):
           * `externalId` (`pulumi.Input[str]`) - The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
           * `snsCallerArn` (`pulumi.Input[str]`) - The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
 
+        The **software_token_mfa_configuration** object supports the following:
+
+          * `enabled` (`pulumi.Input[bool]`) - Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
+
         The **user_pool_add_ons** object supports the following:
 
           * `advancedSecurityMode` (`pulumi.Input[str]`) - The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
@@ -442,6 +459,7 @@ class UserPool(pulumi.CustomResource):
         __props__["sms_authentication_message"] = sms_authentication_message
         __props__["sms_configuration"] = sms_configuration
         __props__["sms_verification_message"] = sms_verification_message
+        __props__["software_token_mfa_configuration"] = software_token_mfa_configuration
         __props__["tags"] = tags
         __props__["user_pool_add_ons"] = user_pool_add_ons
         __props__["username_attributes"] = username_attributes

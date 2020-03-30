@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * });
  * 
  * export const endpoint = example.endpoint;
- * export const kubeconfigCertificateAuthorityData = example.certificateAuthority.data;
+ * export const kubeconfigCertificateAuthorityData = example.certificateAuthorities.data;
  * // Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
  * export const identityOidcIssuer = example.identities[0].oidcs[0].issuer;
  * ```
@@ -49,6 +49,9 @@ export interface GetClusterArgs {
      * The name of the cluster
      */
     readonly name: string;
+    /**
+     * Key-value mapping of resource tags.
+     */
     readonly tags?: {[key: string]: any};
 }
 

@@ -24,6 +24,9 @@ class SnapshotSchedule(pulumi.CustomResource):
     Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
     """
     identifier: pulumi.Output[str]
+    """
+    The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
+    """
     identifier_prefix: pulumi.Output[str]
     """
     Creates a unique
@@ -41,6 +44,7 @@ class SnapshotSchedule(pulumi.CustomResource):
         :param pulumi.Input[list] definitions: The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
         :param pulumi.Input[str] description: The description of the snapshot schedule.
         :param pulumi.Input[bool] force_destroy: Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
+        :param pulumi.Input[str] identifier: The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique
                identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
@@ -89,6 +93,7 @@ class SnapshotSchedule(pulumi.CustomResource):
         :param pulumi.Input[list] definitions: The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
         :param pulumi.Input[str] description: The description of the snapshot schedule.
         :param pulumi.Input[bool] force_destroy: Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
+        :param pulumi.Input[str] identifier: The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique
                identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.

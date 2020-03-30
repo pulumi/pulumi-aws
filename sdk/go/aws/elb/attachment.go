@@ -42,6 +42,12 @@ func NewAttachment(ctx *pulumi.Context,
 	if args == nil {
 		args = &AttachmentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("aws:elasticloadbalancing/attachment:Attachment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Attachment
 	err := ctx.RegisterResource("aws:elb/attachment:Attachment", name, args, &resource, opts...)
 	if err != nil {

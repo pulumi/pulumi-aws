@@ -27,8 +27,9 @@ type LookupResourceShareArgs struct {
 	// The name of the tag key to filter on.
 	Name string `pulumi:"name"`
 	// The owner of the resource share. Valid values are SELF or OTHER-ACCOUNTS
-	ResourceOwner string                 `pulumi:"resourceOwner"`
-	Tags          map[string]interface{} `pulumi:"tags"`
+	ResourceOwner string `pulumi:"resourceOwner"`
+	// The Tags attached to the RAM share
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // A collection of values returned by getResourceShare.

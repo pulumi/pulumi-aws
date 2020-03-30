@@ -237,6 +237,10 @@ namespace Pulumi.Aws.AppSync
     {
         [Input("functions")]
         private InputList<string>? _functions;
+
+        /// <summary>
+        /// The list of Function ID.
+        /// </summary>
         public InputList<string> Functions
         {
             get => _functions ?? (_functions = new InputList<string>());
@@ -252,6 +256,10 @@ namespace Pulumi.Aws.AppSync
     {
         [Input("functions")]
         private InputList<string>? _functions;
+
+        /// <summary>
+        /// The list of Function ID.
+        /// </summary>
         public InputList<string> Functions
         {
             get => _functions ?? (_functions = new InputList<string>());
@@ -270,6 +278,9 @@ namespace Pulumi.Aws.AppSync
     [OutputType]
     public sealed class ResolverPipelineConfig
     {
+        /// <summary>
+        /// The list of Function ID.
+        /// </summary>
         public readonly ImmutableArray<string> Functions;
 
         [OutputConstructor]

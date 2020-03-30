@@ -187,21 +187,39 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class EndpointConfigurationProductionVariantsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The size of the Elastic Inference (EI) instance to use for the production variant.
+        /// </summary>
         [Input("acceleratorType")]
         public Input<string>? AcceleratorType { get; set; }
 
+        /// <summary>
+        /// Initial number of instances used for auto-scaling.
+        /// </summary>
         [Input("initialInstanceCount", required: true)]
         public Input<int> InitialInstanceCount { get; set; } = null!;
 
+        /// <summary>
+        /// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
+        /// </summary>
         [Input("initialVariantWeight")]
         public Input<double>? InitialVariantWeight { get; set; }
 
+        /// <summary>
+        /// The type of instance to start.
+        /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the model to use.
+        /// </summary>
         [Input("modelName", required: true)]
         public Input<string> ModelName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the variant. If omitted, this provider will assign a random, unique name.
+        /// </summary>
         [Input("variantName")]
         public Input<string>? VariantName { get; set; }
 
@@ -212,21 +230,39 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class EndpointConfigurationProductionVariantsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The size of the Elastic Inference (EI) instance to use for the production variant.
+        /// </summary>
         [Input("acceleratorType")]
         public Input<string>? AcceleratorType { get; set; }
 
+        /// <summary>
+        /// Initial number of instances used for auto-scaling.
+        /// </summary>
         [Input("initialInstanceCount", required: true)]
         public Input<int> InitialInstanceCount { get; set; } = null!;
 
+        /// <summary>
+        /// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
+        /// </summary>
         [Input("initialVariantWeight")]
         public Input<double>? InitialVariantWeight { get; set; }
 
+        /// <summary>
+        /// The type of instance to start.
+        /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the model to use.
+        /// </summary>
         [Input("modelName", required: true)]
         public Input<string> ModelName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the variant. If omitted, this provider will assign a random, unique name.
+        /// </summary>
         [Input("variantName")]
         public Input<string>? VariantName { get; set; }
 
@@ -242,11 +278,29 @@ namespace Pulumi.Aws.Sagemaker
     [OutputType]
     public sealed class EndpointConfigurationProductionVariants
     {
+        /// <summary>
+        /// The size of the Elastic Inference (EI) instance to use for the production variant.
+        /// </summary>
         public readonly string? AcceleratorType;
+        /// <summary>
+        /// Initial number of instances used for auto-scaling.
+        /// </summary>
         public readonly int InitialInstanceCount;
+        /// <summary>
+        /// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
+        /// </summary>
         public readonly double? InitialVariantWeight;
+        /// <summary>
+        /// The type of instance to start.
+        /// </summary>
         public readonly string InstanceType;
+        /// <summary>
+        /// The name of the model to use.
+        /// </summary>
         public readonly string ModelName;
+        /// <summary>
+        /// The name of the variant. If omitted, this provider will assign a random, unique name.
+        /// </summary>
         public readonly string VariantName;
 
         [OutputConstructor]

@@ -18,7 +18,20 @@ namespace Pulumi.Aws.Iam
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_group.html.markdown.
         /// </summary>
+        [Obsolete("Use GetGroup.InvokeAsync() instead")]
         public static Task<GetGroupResult> GetGroup(GetGroupArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("aws:iam/getGroup:getGroup", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetGroup
+    {
+        /// <summary>
+        /// This data source can be used to fetch information about a specific
+        /// IAM group. By using this data source, you can reference IAM group
+        /// properties without having to hard code ARNs as input.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_group.html.markdown.
+        /// </summary>
+        public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("aws:iam/getGroup:getGroup", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

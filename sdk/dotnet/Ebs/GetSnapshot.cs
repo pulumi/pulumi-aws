@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Ebs
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot.html.markdown.
         /// </summary>
+        [Obsolete("Use GetSnapshot.InvokeAsync() instead")]
         public static Task<GetSnapshotResult> GetSnapshot(GetSnapshotArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:ebs/getSnapshot:getSnapshot", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetSnapshot
+    {
+        /// <summary>
+        /// Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot.html.markdown.
+        /// </summary>
+        public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:ebs/getSnapshot:getSnapshot", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -80,6 +91,10 @@ namespace Pulumi.Aws.Ebs
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// A mapping of tags for the resource.
+        /// </summary>
         public Dictionary<string, object> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, object>());

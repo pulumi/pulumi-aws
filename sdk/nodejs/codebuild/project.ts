@@ -262,7 +262,7 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly logsConfig!: pulumi.Output<outputs.codebuild.ProjectLogsConfig | undefined>;
     /**
-     * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+     * The projects name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -419,7 +419,7 @@ export interface ProjectState {
      */
     readonly logsConfig?: pulumi.Input<inputs.codebuild.ProjectLogsConfig>;
     /**
-     * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+     * The projects name.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -493,7 +493,7 @@ export interface ProjectArgs {
      */
     readonly logsConfig?: pulumi.Input<inputs.codebuild.ProjectLogsConfig>;
     /**
-     * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+     * The projects name.
      */
     readonly name?: pulumi.Input<string>;
     /**

@@ -60,6 +60,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> SubnetId { get; private set; } = null!;
 
         /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
         /// </summary>
         [Output("trafficType")]
@@ -159,6 +165,18 @@ namespace Pulumi.Aws.Ec2
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
         /// </summary>
@@ -219,6 +237,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.

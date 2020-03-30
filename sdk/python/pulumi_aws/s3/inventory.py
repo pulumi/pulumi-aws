@@ -12,7 +12,7 @@ from .. import utilities, tables
 class Inventory(pulumi.CustomResource):
     bucket: pulumi.Output[str]
     """
-    The S3 bucket configuration where inventory results are published (documented below).
+    The name of the bucket where the inventory configuration will be stored.
     """
     destination: pulumi.Output[dict]
     """
@@ -38,7 +38,7 @@ class Inventory(pulumi.CustomResource):
     """
     Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
 
-      * `prefix` (`str`) - The prefix that is prepended to all inventory results.
+      * `prefix` (`str`) - The prefix that an object must have to be included in the inventory results.
     """
     included_object_versions: pulumi.Output[str]
     """
@@ -67,7 +67,7 @@ class Inventory(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The S3 bucket configuration where inventory results are published (documented below).
+        :param pulumi.Input[str] bucket: The name of the bucket where the inventory configuration will be stored.
         :param pulumi.Input[dict] destination: Contains information about where to publish the inventory results (documented below).
         :param pulumi.Input[bool] enabled: Specifies whether the inventory is enabled or disabled.
         :param pulumi.Input[dict] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
@@ -93,7 +93,7 @@ class Inventory(pulumi.CustomResource):
 
         The **filter** object supports the following:
 
-          * `prefix` (`pulumi.Input[str]`) - The prefix that is prepended to all inventory results.
+          * `prefix` (`pulumi.Input[str]`) - The prefix that an object must have to be included in the inventory results.
 
         The **schedule** object supports the following:
 
@@ -147,7 +147,7 @@ class Inventory(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The S3 bucket configuration where inventory results are published (documented below).
+        :param pulumi.Input[str] bucket: The name of the bucket where the inventory configuration will be stored.
         :param pulumi.Input[dict] destination: Contains information about where to publish the inventory results (documented below).
         :param pulumi.Input[bool] enabled: Specifies whether the inventory is enabled or disabled.
         :param pulumi.Input[dict] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
@@ -173,7 +173,7 @@ class Inventory(pulumi.CustomResource):
 
         The **filter** object supports the following:
 
-          * `prefix` (`pulumi.Input[str]`) - The prefix that is prepended to all inventory results.
+          * `prefix` (`pulumi.Input[str]`) - The prefix that an object must have to be included in the inventory results.
 
         The **schedule** object supports the following:
 

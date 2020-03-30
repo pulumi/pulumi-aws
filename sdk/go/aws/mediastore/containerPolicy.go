@@ -19,7 +19,8 @@ type ContainerPolicy struct {
 
 	// The name of the container.
 	ContainerName pulumi.StringOutput `pulumi:"containerName"`
-	Policy        pulumi.StringOutput `pulumi:"policy"`
+	// The contents of the policy.
+	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
 // NewContainerPolicy registers a new resource with the given unique name, arguments, and options.
@@ -58,13 +59,15 @@ func GetContainerPolicy(ctx *pulumi.Context,
 type containerPolicyState struct {
 	// The name of the container.
 	ContainerName *string `pulumi:"containerName"`
-	Policy        *string `pulumi:"policy"`
+	// The contents of the policy.
+	Policy *string `pulumi:"policy"`
 }
 
 type ContainerPolicyState struct {
 	// The name of the container.
 	ContainerName pulumi.StringPtrInput
-	Policy        pulumi.StringPtrInput
+	// The contents of the policy.
+	Policy pulumi.StringPtrInput
 }
 
 func (ContainerPolicyState) ElementType() reflect.Type {
@@ -74,14 +77,16 @@ func (ContainerPolicyState) ElementType() reflect.Type {
 type containerPolicyArgs struct {
 	// The name of the container.
 	ContainerName string `pulumi:"containerName"`
-	Policy        string `pulumi:"policy"`
+	// The contents of the policy.
+	Policy string `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a ContainerPolicy resource.
 type ContainerPolicyArgs struct {
 	// The name of the container.
 	ContainerName pulumi.StringInput
-	Policy        pulumi.StringInput
+	// The contents of the policy.
+	Policy pulumi.StringInput
 }
 
 func (ContainerPolicyArgs) ElementType() reflect.Type {

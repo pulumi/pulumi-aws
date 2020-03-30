@@ -485,8 +485,9 @@ type ClusterVpcConfig struct {
 	// Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
 	EndpointPrivateAccess *bool `pulumi:"endpointPrivateAccess"`
 	// Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
-	EndpointPublicAccess *bool    `pulumi:"endpointPublicAccess"`
-	PublicAccessCidrs    []string `pulumi:"publicAccessCidrs"`
+	EndpointPublicAccess *bool `pulumi:"endpointPublicAccess"`
+	// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
+	PublicAccessCidrs []string `pulumi:"publicAccessCidrs"`
 	// List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
@@ -508,8 +509,9 @@ type ClusterVpcConfigArgs struct {
 	// Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
 	EndpointPrivateAccess pulumi.BoolPtrInput `pulumi:"endpointPrivateAccess"`
 	// Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
-	EndpointPublicAccess pulumi.BoolPtrInput     `pulumi:"endpointPublicAccess"`
-	PublicAccessCidrs    pulumi.StringArrayInput `pulumi:"publicAccessCidrs"`
+	EndpointPublicAccess pulumi.BoolPtrInput `pulumi:"endpointPublicAccess"`
+	// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
+	PublicAccessCidrs pulumi.StringArrayInput `pulumi:"publicAccessCidrs"`
 	// List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
@@ -602,6 +604,7 @@ func (o ClusterVpcConfigOutput) EndpointPublicAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterVpcConfig) *bool { return v.EndpointPublicAccess }).(pulumi.BoolPtrOutput)
 }
 
+// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
 func (o ClusterVpcConfigOutput) PublicAccessCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterVpcConfig) []string { return v.PublicAccessCidrs }).(pulumi.StringArrayOutput)
 }
@@ -654,6 +657,7 @@ func (o ClusterVpcConfigPtrOutput) EndpointPublicAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterVpcConfig) *bool { return v.EndpointPublicAccess }).(pulumi.BoolPtrOutput)
 }
 
+// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
 func (o ClusterVpcConfigPtrOutput) PublicAccessCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterVpcConfig) []string { return v.PublicAccessCidrs }).(pulumi.StringArrayOutput)
 }

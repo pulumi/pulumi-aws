@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_document.html.markdown.
         /// </summary>
+        [Obsolete("Use GetDocument.InvokeAsync() instead")]
         public static Task<GetDocumentResult> GetDocument(GetDocumentArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDocumentResult>("aws:ssm/getDocument:getDocument", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetDocument
+    {
+        /// <summary>
+        /// Gets the contents of the specified Systems Manager document.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_document.html.markdown.
+        /// </summary>
+        public static Task<GetDocumentResult> InvokeAsync(GetDocumentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDocumentResult>("aws:ssm/getDocument:getDocument", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

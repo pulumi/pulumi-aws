@@ -41,8 +41,9 @@ type LookupClusterSnapshotArgs struct {
 	// The type of snapshots to be returned. If you don't specify a SnapshotType
 	// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared` and `public`.
-	SnapshotType *string                `pulumi:"snapshotType"`
-	Tags         map[string]interface{} `pulumi:"tags"`
+	SnapshotType *string `pulumi:"snapshotType"`
+	// A mapping of tags for the resource.
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // A collection of values returned by getClusterSnapshot.

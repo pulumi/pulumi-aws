@@ -11,7 +11,27 @@ namespace Pulumi.Aws.S3
 {
     public static partial class Invokes
     {
+        /// <summary>
+        /// &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
+        /// 
+        /// The bucket-objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_objects.html.markdown.
+        /// </summary>
+        [Obsolete("Use GetBucketObjects.InvokeAsync() instead")]
         public static Task<GetBucketObjectsResult> GetBucketObjects(GetBucketObjectsArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBucketObjectsResult>("aws:s3/getBucketObjects:getBucketObjects", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetBucketObjects
+    {
+        /// <summary>
+        /// &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
+        /// 
+        /// The bucket-objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_objects.html.markdown.
+        /// </summary>
+        public static Task<GetBucketObjectsResult> InvokeAsync(GetBucketObjectsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBucketObjectsResult>("aws:s3/getBucketObjects:getBucketObjects", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

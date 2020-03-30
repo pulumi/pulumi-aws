@@ -26,12 +26,12 @@ class EndpointConfiguration(pulumi.CustomResource):
     """
     Fields are documented below.
 
-      * `acceleratorType` (`str`)
-      * `initialInstanceCount` (`float`)
-      * `initialVariantWeight` (`float`)
-      * `instance_type` (`str`)
-      * `modelName` (`str`)
-      * `variantName` (`str`)
+      * `acceleratorType` (`str`) - The size of the Elastic Inference (EI) instance to use for the production variant.
+      * `initialInstanceCount` (`float`) - Initial number of instances used for auto-scaling.
+      * `initialVariantWeight` (`float`) - Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
+      * `instance_type` (`str`) - The type of instance to start.
+      * `modelName` (`str`) - The name of the model to use.
+      * `variantName` (`str`) - The name of the variant. If omitted, this provider will assign a random, unique name.
     """
     tags: pulumi.Output[dict]
     """
@@ -52,12 +52,12 @@ class EndpointConfiguration(pulumi.CustomResource):
 
         The **production_variants** object supports the following:
 
-          * `acceleratorType` (`pulumi.Input[str]`)
-          * `initialInstanceCount` (`pulumi.Input[float]`)
-          * `initialVariantWeight` (`pulumi.Input[float]`)
-          * `instance_type` (`pulumi.Input[str]`)
-          * `modelName` (`pulumi.Input[str]`)
-          * `variantName` (`pulumi.Input[str]`)
+          * `acceleratorType` (`pulumi.Input[str]`) - The size of the Elastic Inference (EI) instance to use for the production variant.
+          * `initialInstanceCount` (`pulumi.Input[float]`) - Initial number of instances used for auto-scaling.
+          * `initialVariantWeight` (`pulumi.Input[float]`) - Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
+          * `instance_type` (`pulumi.Input[str]`) - The type of instance to start.
+          * `modelName` (`pulumi.Input[str]`) - The name of the model to use.
+          * `variantName` (`pulumi.Input[str]`) - The name of the variant. If omitted, this provider will assign a random, unique name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -106,12 +106,12 @@ class EndpointConfiguration(pulumi.CustomResource):
 
         The **production_variants** object supports the following:
 
-          * `acceleratorType` (`pulumi.Input[str]`)
-          * `initialInstanceCount` (`pulumi.Input[float]`)
-          * `initialVariantWeight` (`pulumi.Input[float]`)
-          * `instance_type` (`pulumi.Input[str]`)
-          * `modelName` (`pulumi.Input[str]`)
-          * `variantName` (`pulumi.Input[str]`)
+          * `acceleratorType` (`pulumi.Input[str]`) - The size of the Elastic Inference (EI) instance to use for the production variant.
+          * `initialInstanceCount` (`pulumi.Input[float]`) - Initial number of instances used for auto-scaling.
+          * `initialVariantWeight` (`pulumi.Input[float]`) - Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
+          * `instance_type` (`pulumi.Input[str]`) - The type of instance to start.
+          * `modelName` (`pulumi.Input[str]`) - The name of the model to use.
+          * `variantName` (`pulumi.Input[str]`) - The name of the variant. If omitted, this provider will assign a random, unique name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

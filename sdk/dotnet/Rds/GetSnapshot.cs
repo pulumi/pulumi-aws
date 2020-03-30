@@ -19,7 +19,21 @@ namespace Pulumi.Aws.Rds
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_snapshot.html.markdown.
         /// </summary>
+        [Obsolete("Use GetSnapshot.InvokeAsync() instead")]
         public static Task<GetSnapshotResult> GetSnapshot(GetSnapshotArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:rds/getSnapshot:getSnapshot", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetSnapshot
+    {
+        /// <summary>
+        /// Use this data source to get information about a DB Snapshot for use when provisioning DB instances
+        /// 
+        /// &gt; **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
+        /// See the [`aws.rds.ClusterSnapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_cluster_snapshot.html) for DB Cluster snapshots.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_snapshot.html.markdown.
+        /// </summary>
+        public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:rds/getSnapshot:getSnapshot", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

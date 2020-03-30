@@ -16,48 +16,43 @@ class SecurityGroup(pulumi.CustomResource):
     """
     description: pulumi.Output[str]
     """
-    The security group description. Defaults to
-    "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-    `GroupDescription` attribute, for which there is no Update API. If you'd like
-    to classify your security groups in a way that can be updated, use `tags`.
+    Description of this egress rule.
     """
     egress: pulumi.Output[list]
     """
     Can be specified multiple times for each
     egress rule. Each egress block supports fields documented below.
-    This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 
-      * `cidr_blocks` (`list`)
-      * `description` (`str`) - The security group description. Defaults to
-        "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-        `GroupDescription` attribute, for which there is no Update API. If you'd like
-        to classify your security groups in a way that can be updated, use `tags`.
-      * `from_port` (`float`)
-      * `ipv6_cidr_blocks` (`list`)
-      * `prefix_list_ids` (`list`)
-      * `protocol` (`str`)
-      * `security_groups` (`list`)
-      * `self` (`bool`)
-      * `to_port` (`float`)
+      * `cidr_blocks` (`list`) - List of CIDR blocks.
+      * `description` (`str`) - Description of this egress rule.
+      * `from_port` (`float`) - The start port (or ICMP type number if protocol is "icmp")
+      * `ipv6_cidr_blocks` (`list`) - List of IPv6 CIDR blocks.
+      * `prefix_list_ids` (`list`) - List of prefix list IDs (for allowing access to VPC endpoints)
+      * `protocol` (`str`) - The protocol. If you select a protocol of
+        "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+      * `security_groups` (`list`) - List of security group Group Names if using
+        EC2-Classic, or Group IDs if using a VPC.
+      * `self` (`bool`) - If true, the security group itself will be added as
+        a source to this egress rule.
+      * `to_port` (`float`) - The end range port (or ICMP code if protocol is "icmp").
     """
     ingress: pulumi.Output[list]
     """
     Can be specified multiple times for each
     ingress rule. Each ingress block supports fields documented below.
-    This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 
-      * `cidr_blocks` (`list`)
-      * `description` (`str`) - The security group description. Defaults to
-        "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-        `GroupDescription` attribute, for which there is no Update API. If you'd like
-        to classify your security groups in a way that can be updated, use `tags`.
-      * `from_port` (`float`)
-      * `ipv6_cidr_blocks` (`list`)
-      * `prefix_list_ids` (`list`)
-      * `protocol` (`str`)
-      * `security_groups` (`list`)
-      * `self` (`bool`)
-      * `to_port` (`float`)
+      * `cidr_blocks` (`list`) - List of CIDR blocks.
+      * `description` (`str`) - Description of this egress rule.
+      * `from_port` (`float`) - The start port (or ICMP type number if protocol is "icmp")
+      * `ipv6_cidr_blocks` (`list`) - List of IPv6 CIDR blocks.
+      * `prefix_list_ids` (`list`) - List of prefix list IDs (for allowing access to VPC endpoints)
+      * `protocol` (`str`) - The protocol. If you select a protocol of
+        "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+      * `security_groups` (`list`) - List of security group Group Names if using
+        EC2-Classic, or Group IDs if using a VPC.
+      * `self` (`bool`) - If true, the security group itself will be added as
+        a source to this egress rule.
+      * `to_port` (`float`) - The end range port (or ICMP code if protocol is "icmp").
     """
     name: pulumi.Output[str]
     """
@@ -93,19 +88,28 @@ class SecurityGroup(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, description=None, egress=None, ingress=None, name=None, name_prefix=None, revoke_rules_on_delete=None, tags=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a SecurityGroup resource with the given unique name, props, and options.
+        Provides a security group resource.
+
+        > **NOTE on Security Groups and Security Group Rules:** This provider currently
+        provides both a standalone Security Group Rule resource (a single `ingress` or
+        `egress` rule), and a Security Group resource with `ingress` and `egress` rules
+        defined in-line. At this time you cannot use a Security Group with in-line rules
+        in conjunction with any Security Group Rule resources. Doing so will cause
+        a conflict of rule settings and will overwrite rules.
+
+        > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
+
+        > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The security group description. Defaults to
-               "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-               `GroupDescription` attribute, for which there is no Update API. If you'd like
-               to classify your security groups in a way that can be updated, use `tags`.
+        :param pulumi.Input[str] description: Description of this egress rule.
         :param pulumi.Input[list] egress: Can be specified multiple times for each
                egress rule. Each egress block supports fields documented below.
-               This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[list] ingress: Can be specified multiple times for each
                ingress rule. Each ingress block supports fields documented below.
-               This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[str] name: The name of the security group. If omitted, this provider will
                assign a random, unique name
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
@@ -122,33 +126,33 @@ class SecurityGroup(pulumi.CustomResource):
 
         The **egress** object supports the following:
 
-          * `cidr_blocks` (`pulumi.Input[list]`)
-          * `description` (`pulumi.Input[str]`) - The security group description. Defaults to
-            "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-            `GroupDescription` attribute, for which there is no Update API. If you'd like
-            to classify your security groups in a way that can be updated, use `tags`.
-          * `from_port` (`pulumi.Input[float]`)
-          * `ipv6_cidr_blocks` (`pulumi.Input[list]`)
-          * `prefix_list_ids` (`pulumi.Input[list]`)
-          * `protocol` (`pulumi.Input[str]`)
-          * `security_groups` (`pulumi.Input[list]`)
-          * `self` (`pulumi.Input[bool]`)
-          * `to_port` (`pulumi.Input[float]`)
+          * `cidr_blocks` (`pulumi.Input[list]`) - List of CIDR blocks.
+          * `description` (`pulumi.Input[str]`) - Description of this egress rule.
+          * `from_port` (`pulumi.Input[float]`) - The start port (or ICMP type number if protocol is "icmp")
+          * `ipv6_cidr_blocks` (`pulumi.Input[list]`) - List of IPv6 CIDR blocks.
+          * `prefix_list_ids` (`pulumi.Input[list]`) - List of prefix list IDs (for allowing access to VPC endpoints)
+          * `protocol` (`pulumi.Input[str]`) - The protocol. If you select a protocol of
+            "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+          * `security_groups` (`pulumi.Input[list]`) - List of security group Group Names if using
+            EC2-Classic, or Group IDs if using a VPC.
+          * `self` (`pulumi.Input[bool]`) - If true, the security group itself will be added as
+            a source to this egress rule.
+          * `to_port` (`pulumi.Input[float]`) - The end range port (or ICMP code if protocol is "icmp").
 
         The **ingress** object supports the following:
 
-          * `cidr_blocks` (`pulumi.Input[list]`)
-          * `description` (`pulumi.Input[str]`) - The security group description. Defaults to
-            "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-            `GroupDescription` attribute, for which there is no Update API. If you'd like
-            to classify your security groups in a way that can be updated, use `tags`.
-          * `from_port` (`pulumi.Input[float]`)
-          * `ipv6_cidr_blocks` (`pulumi.Input[list]`)
-          * `prefix_list_ids` (`pulumi.Input[list]`)
-          * `protocol` (`pulumi.Input[str]`)
-          * `security_groups` (`pulumi.Input[list]`)
-          * `self` (`pulumi.Input[bool]`)
-          * `to_port` (`pulumi.Input[float]`)
+          * `cidr_blocks` (`pulumi.Input[list]`) - List of CIDR blocks.
+          * `description` (`pulumi.Input[str]`) - Description of this egress rule.
+          * `from_port` (`pulumi.Input[float]`) - The start port (or ICMP type number if protocol is "icmp")
+          * `ipv6_cidr_blocks` (`pulumi.Input[list]`) - List of IPv6 CIDR blocks.
+          * `prefix_list_ids` (`pulumi.Input[list]`) - List of prefix list IDs (for allowing access to VPC endpoints)
+          * `protocol` (`pulumi.Input[str]`) - The protocol. If you select a protocol of
+            "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+          * `security_groups` (`pulumi.Input[list]`) - List of security group Group Names if using
+            EC2-Classic, or Group IDs if using a VPC.
+          * `self` (`pulumi.Input[bool]`) - If true, the security group itself will be added as
+            a source to this egress rule.
+          * `to_port` (`pulumi.Input[float]`) - The end range port (or ICMP code if protocol is "icmp").
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -195,16 +199,11 @@ class SecurityGroup(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the security group
-        :param pulumi.Input[str] description: The security group description. Defaults to
-               "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-               `GroupDescription` attribute, for which there is no Update API. If you'd like
-               to classify your security groups in a way that can be updated, use `tags`.
+        :param pulumi.Input[str] description: Description of this egress rule.
         :param pulumi.Input[list] egress: Can be specified multiple times for each
                egress rule. Each egress block supports fields documented below.
-               This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[list] ingress: Can be specified multiple times for each
                ingress rule. Each ingress block supports fields documented below.
-               This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[str] name: The name of the security group. If omitted, this provider will
                assign a random, unique name
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
@@ -222,33 +221,33 @@ class SecurityGroup(pulumi.CustomResource):
 
         The **egress** object supports the following:
 
-          * `cidr_blocks` (`pulumi.Input[list]`)
-          * `description` (`pulumi.Input[str]`) - The security group description. Defaults to
-            "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-            `GroupDescription` attribute, for which there is no Update API. If you'd like
-            to classify your security groups in a way that can be updated, use `tags`.
-          * `from_port` (`pulumi.Input[float]`)
-          * `ipv6_cidr_blocks` (`pulumi.Input[list]`)
-          * `prefix_list_ids` (`pulumi.Input[list]`)
-          * `protocol` (`pulumi.Input[str]`)
-          * `security_groups` (`pulumi.Input[list]`)
-          * `self` (`pulumi.Input[bool]`)
-          * `to_port` (`pulumi.Input[float]`)
+          * `cidr_blocks` (`pulumi.Input[list]`) - List of CIDR blocks.
+          * `description` (`pulumi.Input[str]`) - Description of this egress rule.
+          * `from_port` (`pulumi.Input[float]`) - The start port (or ICMP type number if protocol is "icmp")
+          * `ipv6_cidr_blocks` (`pulumi.Input[list]`) - List of IPv6 CIDR blocks.
+          * `prefix_list_ids` (`pulumi.Input[list]`) - List of prefix list IDs (for allowing access to VPC endpoints)
+          * `protocol` (`pulumi.Input[str]`) - The protocol. If you select a protocol of
+            "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+          * `security_groups` (`pulumi.Input[list]`) - List of security group Group Names if using
+            EC2-Classic, or Group IDs if using a VPC.
+          * `self` (`pulumi.Input[bool]`) - If true, the security group itself will be added as
+            a source to this egress rule.
+          * `to_port` (`pulumi.Input[float]`) - The end range port (or ICMP code if protocol is "icmp").
 
         The **ingress** object supports the following:
 
-          * `cidr_blocks` (`pulumi.Input[list]`)
-          * `description` (`pulumi.Input[str]`) - The security group description. Defaults to
-            "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-            `GroupDescription` attribute, for which there is no Update API. If you'd like
-            to classify your security groups in a way that can be updated, use `tags`.
-          * `from_port` (`pulumi.Input[float]`)
-          * `ipv6_cidr_blocks` (`pulumi.Input[list]`)
-          * `prefix_list_ids` (`pulumi.Input[list]`)
-          * `protocol` (`pulumi.Input[str]`)
-          * `security_groups` (`pulumi.Input[list]`)
-          * `self` (`pulumi.Input[bool]`)
-          * `to_port` (`pulumi.Input[float]`)
+          * `cidr_blocks` (`pulumi.Input[list]`) - List of CIDR blocks.
+          * `description` (`pulumi.Input[str]`) - Description of this egress rule.
+          * `from_port` (`pulumi.Input[float]`) - The start port (or ICMP type number if protocol is "icmp")
+          * `ipv6_cidr_blocks` (`pulumi.Input[list]`) - List of IPv6 CIDR blocks.
+          * `prefix_list_ids` (`pulumi.Input[list]`) - List of prefix list IDs (for allowing access to VPC endpoints)
+          * `protocol` (`pulumi.Input[str]`) - The protocol. If you select a protocol of
+            "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+          * `security_groups` (`pulumi.Input[list]`) - List of security group Group Names if using
+            EC2-Classic, or Group IDs if using a VPC.
+          * `self` (`pulumi.Input[bool]`) - If true, the security group itself will be added as
+            a source to this egress rule.
+          * `to_port` (`pulumi.Input[float]`) - The end range port (or ICMP code if protocol is "icmp").
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

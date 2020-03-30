@@ -18,10 +18,11 @@ class Model(pulumi.CustomResource):
     """
     Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
 
-      * `containerHostname` (`str`)
-      * `environment` (`dict`)
-      * `image` (`str`)
-      * `modelDataUrl` (`str`)
+      * `containerHostname` (`str`) - The DNS host name for the container.
+      * `environment` (`dict`) - Environment variables for the Docker container.
+        A list of key value pairs.
+      * `image` (`str`) - The registry path where the inference code image is stored in Amazon ECR.
+      * `modelDataUrl` (`str`) - The URL for the S3 location where model artifacts are stored.
     """
     enable_network_isolation: pulumi.Output[bool]
     """
@@ -39,10 +40,11 @@ class Model(pulumi.CustomResource):
     """
     The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 
-      * `containerHostname` (`str`)
-      * `environment` (`dict`)
-      * `image` (`str`)
-      * `modelDataUrl` (`str`)
+      * `containerHostname` (`str`) - The DNS host name for the container.
+      * `environment` (`dict`) - Environment variables for the Docker container.
+        A list of key value pairs.
+      * `image` (`str`) - The registry path where the inference code image is stored in Amazon ECR.
+      * `modelDataUrl` (`str`) - The URL for the S3 location where model artifacts are stored.
     """
     tags: pulumi.Output[dict]
     """
@@ -73,17 +75,19 @@ class Model(pulumi.CustomResource):
 
         The **containers** object supports the following:
 
-          * `containerHostname` (`pulumi.Input[str]`)
-          * `environment` (`pulumi.Input[dict]`)
-          * `image` (`pulumi.Input[str]`)
-          * `modelDataUrl` (`pulumi.Input[str]`)
+          * `containerHostname` (`pulumi.Input[str]`) - The DNS host name for the container.
+          * `environment` (`pulumi.Input[dict]`) - Environment variables for the Docker container.
+            A list of key value pairs.
+          * `image` (`pulumi.Input[str]`) - The registry path where the inference code image is stored in Amazon ECR.
+          * `modelDataUrl` (`pulumi.Input[str]`) - The URL for the S3 location where model artifacts are stored.
 
         The **primary_container** object supports the following:
 
-          * `containerHostname` (`pulumi.Input[str]`)
-          * `environment` (`pulumi.Input[dict]`)
-          * `image` (`pulumi.Input[str]`)
-          * `modelDataUrl` (`pulumi.Input[str]`)
+          * `containerHostname` (`pulumi.Input[str]`) - The DNS host name for the container.
+          * `environment` (`pulumi.Input[dict]`) - Environment variables for the Docker container.
+            A list of key value pairs.
+          * `image` (`pulumi.Input[str]`) - The registry path where the inference code image is stored in Amazon ECR.
+          * `modelDataUrl` (`pulumi.Input[str]`) - The URL for the S3 location where model artifacts are stored.
 
         The **vpc_config** object supports the following:
 
@@ -143,17 +147,19 @@ class Model(pulumi.CustomResource):
 
         The **containers** object supports the following:
 
-          * `containerHostname` (`pulumi.Input[str]`)
-          * `environment` (`pulumi.Input[dict]`)
-          * `image` (`pulumi.Input[str]`)
-          * `modelDataUrl` (`pulumi.Input[str]`)
+          * `containerHostname` (`pulumi.Input[str]`) - The DNS host name for the container.
+          * `environment` (`pulumi.Input[dict]`) - Environment variables for the Docker container.
+            A list of key value pairs.
+          * `image` (`pulumi.Input[str]`) - The registry path where the inference code image is stored in Amazon ECR.
+          * `modelDataUrl` (`pulumi.Input[str]`) - The URL for the S3 location where model artifacts are stored.
 
         The **primary_container** object supports the following:
 
-          * `containerHostname` (`pulumi.Input[str]`)
-          * `environment` (`pulumi.Input[dict]`)
-          * `image` (`pulumi.Input[str]`)
-          * `modelDataUrl` (`pulumi.Input[str]`)
+          * `containerHostname` (`pulumi.Input[str]`) - The DNS host name for the container.
+          * `environment` (`pulumi.Input[dict]`) - Environment variables for the Docker container.
+            A list of key value pairs.
+          * `image` (`pulumi.Input[str]`) - The registry path where the inference code image is stored in Amazon ECR.
+          * `modelDataUrl` (`pulumi.Input[str]`) - The URL for the S3 location where model artifacts are stored.
 
         The **vpc_config** object supports the following:
 

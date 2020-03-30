@@ -78,6 +78,9 @@ export interface GetSnapshotArgs {
      * Returns information on a specific snapshot_id.
      */
     readonly snapshotIds?: string[];
+    /**
+     * A mapping of tags for the resource.
+     */
     readonly tags?: {[key: string]: any};
 }
 

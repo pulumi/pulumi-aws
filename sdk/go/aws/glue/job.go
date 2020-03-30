@@ -39,7 +39,7 @@ type Job struct {
 	MaxCapacity pulumi.Float64Output `pulumi:"maxCapacity"`
 	// The maximum number of times to retry this job if it fails.
 	MaxRetries pulumi.IntPtrOutput `pulumi:"maxRetries"`
-	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
+	// The name you assign to this job. It must be unique in your account.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Notification property of the job. Defined below.
 	NotificationProperty JobNotificationPropertyOutput `pulumi:"notificationProperty"`
@@ -111,7 +111,7 @@ type jobState struct {
 	MaxCapacity *float64 `pulumi:"maxCapacity"`
 	// The maximum number of times to retry this job if it fails.
 	MaxRetries *int `pulumi:"maxRetries"`
-	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
+	// The name you assign to this job. It must be unique in your account.
 	Name *string `pulumi:"name"`
 	// Notification property of the job. Defined below.
 	NotificationProperty *JobNotificationProperty `pulumi:"notificationProperty"`
@@ -150,7 +150,7 @@ type JobState struct {
 	MaxCapacity pulumi.Float64PtrInput
 	// The maximum number of times to retry this job if it fails.
 	MaxRetries pulumi.IntPtrInput
-	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
+	// The name you assign to this job. It must be unique in your account.
 	Name pulumi.StringPtrInput
 	// Notification property of the job. Defined below.
 	NotificationProperty JobNotificationPropertyPtrInput
@@ -191,7 +191,7 @@ type jobArgs struct {
 	MaxCapacity *float64 `pulumi:"maxCapacity"`
 	// The maximum number of times to retry this job if it fails.
 	MaxRetries *int `pulumi:"maxRetries"`
-	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
+	// The name you assign to this job. It must be unique in your account.
 	Name *string `pulumi:"name"`
 	// Notification property of the job. Defined below.
 	NotificationProperty *JobNotificationProperty `pulumi:"notificationProperty"`
@@ -229,7 +229,7 @@ type JobArgs struct {
 	MaxCapacity pulumi.Float64PtrInput
 	// The maximum number of times to retry this job if it fails.
 	MaxRetries pulumi.IntPtrInput
-	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
+	// The name you assign to this job. It must be unique in your account.
 	Name pulumi.StringPtrInput
 	// Notification property of the job. Defined below.
 	NotificationProperty JobNotificationPropertyPtrInput

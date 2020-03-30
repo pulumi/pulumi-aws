@@ -28,7 +28,7 @@ class Route(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    A name for the HTTP header in the client request that will be matched on.
+    The name to use for the route.
     """
     spec: pulumi.Output[dict]
     """
@@ -41,12 +41,13 @@ class Route(pulumi.CustomResource):
             * `virtualNode` (`str`) - The virtual node to associate with the weighted target.
             * `weight` (`float`) - The relative weight of the weighted target. An integer between 0 and 100.
 
-        * `match` (`dict`) - The method and value to match the header value sent with a request. Specify one match method.
+        * `match` (`dict`) - The criteria for determining an HTTP request match.
           * `headers` (`list`) - The client request headers to match on.
             * `invert` (`bool`) - If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
             * `match` (`dict`) - The method and value to match the header value sent with a request. Specify one match method.
               * `exact` (`str`) - The header value sent by the client must match the specified value exactly.
-              * `prefix` (`str`) - The header value sent by the client must begin with the specified characters.
+              * `prefix` (`str`) - Specifies the path with which to match requests.
+                This parameter must always start with /, which by itself matches all requests to the virtual router service name.
                 * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
               * `range` (`dict`)
                 * `end` (`float`) - The end of the range.
@@ -58,7 +59,8 @@ class Route(pulumi.CustomResource):
             * `name` (`str`) - A name for the HTTP header in the client request that will be matched on.
 
           * `method` (`str`) - The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
-          * `prefix` (`str`) - The header value sent by the client must begin with the specified characters.
+          * `prefix` (`str`) - Specifies the path with which to match requests.
+            This parameter must always start with /, which by itself matches all requests to the virtual router service name.
             * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
           * `scheme` (`str`) - The client request header scheme to match on. Valid values: `http`, `https`.
 
@@ -88,7 +90,7 @@ class Route(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the route.
-        :param pulumi.Input[str] name: A name for the HTTP header in the client request that will be matched on.
+        :param pulumi.Input[str] name: The name to use for the route.
         :param pulumi.Input[dict] spec: The route specification to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_router_name: The name of the virtual router in which to create the route.
@@ -102,12 +104,13 @@ class Route(pulumi.CustomResource):
                 * `virtualNode` (`pulumi.Input[str]`) - The virtual node to associate with the weighted target.
                 * `weight` (`pulumi.Input[float]`) - The relative weight of the weighted target. An integer between 0 and 100.
 
-            * `match` (`pulumi.Input[dict]`) - The method and value to match the header value sent with a request. Specify one match method.
+            * `match` (`pulumi.Input[dict]`) - The criteria for determining an HTTP request match.
               * `headers` (`pulumi.Input[list]`) - The client request headers to match on.
                 * `invert` (`pulumi.Input[bool]`) - If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
                 * `match` (`pulumi.Input[dict]`) - The method and value to match the header value sent with a request. Specify one match method.
                   * `exact` (`pulumi.Input[str]`) - The header value sent by the client must match the specified value exactly.
-                  * `prefix` (`pulumi.Input[str]`) - The header value sent by the client must begin with the specified characters.
+                  * `prefix` (`pulumi.Input[str]`) - Specifies the path with which to match requests.
+                    This parameter must always start with /, which by itself matches all requests to the virtual router service name.
                     * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
                   * `range` (`pulumi.Input[dict]`)
                     * `end` (`pulumi.Input[float]`) - The end of the range.
@@ -119,7 +122,8 @@ class Route(pulumi.CustomResource):
                 * `name` (`pulumi.Input[str]`) - A name for the HTTP header in the client request that will be matched on.
 
               * `method` (`pulumi.Input[str]`) - The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
-              * `prefix` (`pulumi.Input[str]`) - The header value sent by the client must begin with the specified characters.
+              * `prefix` (`pulumi.Input[str]`) - Specifies the path with which to match requests.
+                This parameter must always start with /, which by itself matches all requests to the virtual router service name.
                 * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
               * `scheme` (`pulumi.Input[str]`) - The client request header scheme to match on. Valid values: `http`, `https`.
 
@@ -182,7 +186,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] created_date: The creation date of the route.
         :param pulumi.Input[str] last_updated_date: The last update date of the route.
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the route.
-        :param pulumi.Input[str] name: A name for the HTTP header in the client request that will be matched on.
+        :param pulumi.Input[str] name: The name to use for the route.
         :param pulumi.Input[dict] spec: The route specification to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_router_name: The name of the virtual router in which to create the route.
@@ -196,12 +200,13 @@ class Route(pulumi.CustomResource):
                 * `virtualNode` (`pulumi.Input[str]`) - The virtual node to associate with the weighted target.
                 * `weight` (`pulumi.Input[float]`) - The relative weight of the weighted target. An integer between 0 and 100.
 
-            * `match` (`pulumi.Input[dict]`) - The method and value to match the header value sent with a request. Specify one match method.
+            * `match` (`pulumi.Input[dict]`) - The criteria for determining an HTTP request match.
               * `headers` (`pulumi.Input[list]`) - The client request headers to match on.
                 * `invert` (`pulumi.Input[bool]`) - If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
                 * `match` (`pulumi.Input[dict]`) - The method and value to match the header value sent with a request. Specify one match method.
                   * `exact` (`pulumi.Input[str]`) - The header value sent by the client must match the specified value exactly.
-                  * `prefix` (`pulumi.Input[str]`) - The header value sent by the client must begin with the specified characters.
+                  * `prefix` (`pulumi.Input[str]`) - Specifies the path with which to match requests.
+                    This parameter must always start with /, which by itself matches all requests to the virtual router service name.
                     * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
                   * `range` (`pulumi.Input[dict]`)
                     * `end` (`pulumi.Input[float]`) - The end of the range.
@@ -213,7 +218,8 @@ class Route(pulumi.CustomResource):
                 * `name` (`pulumi.Input[str]`) - A name for the HTTP header in the client request that will be matched on.
 
               * `method` (`pulumi.Input[str]`) - The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
-              * `prefix` (`pulumi.Input[str]`) - The header value sent by the client must begin with the specified characters.
+              * `prefix` (`pulumi.Input[str]`) - Specifies the path with which to match requests.
+                This parameter must always start with /, which by itself matches all requests to the virtual router service name.
                 * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
               * `scheme` (`pulumi.Input[str]`) - The client request header scheme to match on. Valid values: `http`, `https`.
 

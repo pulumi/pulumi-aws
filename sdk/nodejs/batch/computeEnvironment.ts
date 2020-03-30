@@ -126,6 +126,9 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the compute environment.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+     */
     public readonly computeEnvironmentName!: pulumi.Output<string>;
     /**
      * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
@@ -220,6 +223,9 @@ export interface ComputeEnvironmentState {
      * The Amazon Resource Name (ARN) of the compute environment.
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+     */
     readonly computeEnvironmentName?: pulumi.Input<string>;
     /**
      * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
@@ -259,6 +265,9 @@ export interface ComputeEnvironmentState {
  * The set of arguments for constructing a ComputeEnvironment resource.
  */
 export interface ComputeEnvironmentArgs {
+    /**
+     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
+     */
     readonly computeEnvironmentName?: pulumi.Input<string>;
     /**
      * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.

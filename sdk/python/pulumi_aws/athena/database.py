@@ -18,8 +18,8 @@ class Database(pulumi.CustomResource):
     """
     The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
 
-      * `encryptionOption` (`str`)
-      * `kmsKey` (`str`)
+      * `encryptionOption` (`str`) - The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
+      * `kmsKey` (`str`) - The KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
     """
     force_destroy: pulumi.Output[bool]
     """
@@ -44,8 +44,8 @@ class Database(pulumi.CustomResource):
 
         The **encryption_configuration** object supports the following:
 
-          * `encryptionOption` (`pulumi.Input[str]`)
-          * `kmsKey` (`pulumi.Input[str]`)
+          * `encryptionOption` (`pulumi.Input[str]`) - The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
+          * `kmsKey` (`pulumi.Input[str]`) - The KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -92,8 +92,8 @@ class Database(pulumi.CustomResource):
 
         The **encryption_configuration** object supports the following:
 
-          * `encryptionOption` (`pulumi.Input[str]`)
-          * `kmsKey` (`pulumi.Input[str]`)
+          * `encryptionOption` (`pulumi.Input[str]`) - The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
+          * `kmsKey` (`pulumi.Input[str]`) - The KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

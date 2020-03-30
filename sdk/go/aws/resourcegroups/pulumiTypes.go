@@ -12,8 +12,10 @@ import (
 )
 
 type GroupResourceQuery struct {
-	Query string  `pulumi:"query"`
-	Type  *string `pulumi:"type"`
+	// The resource query as a JSON string.
+	Query string `pulumi:"query"`
+	// The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
+	Type *string `pulumi:"type"`
 }
 
 type GroupResourceQueryInput interface {
@@ -24,8 +26,10 @@ type GroupResourceQueryInput interface {
 }
 
 type GroupResourceQueryArgs struct {
-	Query pulumi.StringInput    `pulumi:"query"`
-	Type  pulumi.StringPtrInput `pulumi:"type"`
+	// The resource query as a JSON string.
+	Query pulumi.StringInput `pulumi:"query"`
+	// The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GroupResourceQueryArgs) ElementType() reflect.Type {
@@ -96,10 +100,13 @@ func (o GroupResourceQueryOutput) ToGroupResourceQueryPtrOutputWithContext(ctx c
 		return &v
 	}).(GroupResourceQueryPtrOutput)
 }
+
+// The resource query as a JSON string.
 func (o GroupResourceQueryOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupResourceQuery) string { return v.Query }).(pulumi.StringOutput)
 }
 
+// The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
 func (o GroupResourceQueryOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupResourceQuery) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -122,10 +129,12 @@ func (o GroupResourceQueryPtrOutput) Elem() GroupResourceQueryOutput {
 	return o.ApplyT(func(v *GroupResourceQuery) GroupResourceQuery { return *v }).(GroupResourceQueryOutput)
 }
 
+// The resource query as a JSON string.
 func (o GroupResourceQueryPtrOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupResourceQuery) string { return v.Query }).(pulumi.StringOutput)
 }
 
+// The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
 func (o GroupResourceQueryPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupResourceQuery) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

@@ -11,6 +11,9 @@ from .. import utilities, tables
 
 class AccessPoint(pulumi.CustomResource):
     account_id: pulumi.Output[str]
+    """
+    The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
+    """
     arn: pulumi.Output[str]
     """
     Amazon Resource Name (ARN) of the S3 Access Point.
@@ -63,9 +66,13 @@ class AccessPoint(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, account_id=None, bucket=None, name=None, policy=None, public_access_block_configuration=None, vpc_configuration=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a AccessPoint resource with the given unique name, props, and options.
+        Provides a resource to manage an S3 Access Point.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_access_point.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_id: The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
         :param pulumi.Input[str] bucket: The name of the bucket that you want to associate this access point with.
         :param pulumi.Input[str] name: The name you want to assign to this access point.
         :param pulumi.Input[str] policy: A valid JSON document that specifies the policy that you want to apply to this access point.
@@ -133,6 +140,7 @@ class AccessPoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_id: The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the S3 Access Point.
         :param pulumi.Input[str] bucket: The name of the bucket that you want to associate this access point with.
         :param pulumi.Input[str] domain_name: The DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.

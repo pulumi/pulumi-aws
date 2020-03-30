@@ -34,7 +34,7 @@ class Resolver(pulumi.CustomResource):
     """
     The PipelineConfig. A `pipeline_config` block is documented below.
 
-      * `functions` (`list`)
+      * `functions` (`list`) - The list of Function ID.
     """
     request_template: pulumi.Output[str]
     """
@@ -67,7 +67,7 @@ class Resolver(pulumi.CustomResource):
 
         The **pipeline_config** object supports the following:
 
-          * `functions` (`pulumi.Input[list]`)
+          * `functions` (`pulumi.Input[list]`) - The list of Function ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -132,7 +132,7 @@ class Resolver(pulumi.CustomResource):
 
         The **pipeline_config** object supports the following:
 
-          * `functions` (`pulumi.Input[list]`)
+          * `functions` (`pulumi.Input[list]`) - The list of Function ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

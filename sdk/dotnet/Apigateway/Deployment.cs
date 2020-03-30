@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGateway
 {
     /// <summary>
-    /// Provides an API Gateway Deployment.
+    /// Provides an API Gateway REST Deployment.
     /// 
     /// &gt; **Note:** Depends on having `aws.apigateway.Integration` inside your rest api (which in turn depends on `aws.apigateway.Method`). To avoid race conditions
     /// you might need to add an explicit `depends_on = ["aws_api_gateway_integration.name"]`.

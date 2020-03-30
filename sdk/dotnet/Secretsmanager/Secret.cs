@@ -46,6 +46,9 @@ namespace Pulumi.Aws.SecretsManager
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
 
+        /// <summary>
+        /// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+        /// </summary>
         [Output("policy")]
         public Output<string?> Policy { get; private set; } = null!;
 
@@ -149,6 +152,9 @@ namespace Pulumi.Aws.SecretsManager
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
+        /// <summary>
+        /// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
@@ -219,6 +225,9 @@ namespace Pulumi.Aws.SecretsManager
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
+        /// <summary>
+        /// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

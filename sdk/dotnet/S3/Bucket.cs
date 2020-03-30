@@ -35,7 +35,7 @@ namespace Pulumi.Aws.S3
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+        /// The name of the bucket. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Output("bucket")]
         public Output<string> BucketName { get; private set; } = null!;
@@ -134,8 +134,7 @@ namespace Pulumi.Aws.S3
         public Output<Outputs.BucketServerSideEncryptionConfiguration?> ServerSideEncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags that identifies subset of objects to which the rule applies.
-        /// The rule applies only to objects having all the tags in its tagset.
+        /// A mapping of tags to assign to the bucket.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -229,7 +228,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+        /// The name of the bucket. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("bucket")]
         public Input<string>? BucketName { get; set; }
@@ -343,8 +342,7 @@ namespace Pulumi.Aws.S3
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags that identifies subset of objects to which the rule applies.
-        /// The rule applies only to objects having all the tags in its tagset.
+        /// A mapping of tags to assign to the bucket.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -402,7 +400,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+        /// The name of the bucket. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("bucket")]
         public Input<string>? BucketName { get; set; }
@@ -528,8 +526,7 @@ namespace Pulumi.Aws.S3
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags that identifies subset of objects to which the rule applies.
-        /// The rule applies only to objects having all the tags in its tagset.
+        /// A mapping of tags to assign to the bucket.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -774,7 +771,7 @@ namespace Pulumi.Aws.S3
         public Input<int>? AbortIncompleteMultipartUploadDays { get; set; }
 
         /// <summary>
-        /// Boolean which indicates if this criteria is enabled.
+        /// Specifies lifecycle rule status.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -786,7 +783,7 @@ namespace Pulumi.Aws.S3
         public Input<BucketLifecycleRulesExpirationArgs>? Expiration { get; set; }
 
         /// <summary>
-        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+        /// Unique identifier for the rule.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -810,7 +807,7 @@ namespace Pulumi.Aws.S3
         }
 
         /// <summary>
-        /// Object keyname prefix that identifies subset of objects to which the rule applies.
+        /// Object key prefix identifying one or more objects to which the rule applies.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
@@ -819,8 +816,7 @@ namespace Pulumi.Aws.S3
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags that identifies subset of objects to which the rule applies.
-        /// The rule applies only to objects having all the tags in its tagset.
+        /// Specifies object tags key and value.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -854,7 +850,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Date { get; set; }
 
         /// <summary>
-        /// The number of days that you want to specify for the default retention period.
+        /// Specifies the number of days after object creation when the specific rule action takes effect.
         /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
@@ -879,7 +875,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Date { get; set; }
 
         /// <summary>
-        /// The number of days that you want to specify for the default retention period.
+        /// Specifies the number of days after object creation when the specific rule action takes effect.
         /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
@@ -904,7 +900,7 @@ namespace Pulumi.Aws.S3
         public Input<int>? AbortIncompleteMultipartUploadDays { get; set; }
 
         /// <summary>
-        /// Boolean which indicates if this criteria is enabled.
+        /// Specifies lifecycle rule status.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -916,7 +912,7 @@ namespace Pulumi.Aws.S3
         public Input<BucketLifecycleRulesExpirationGetArgs>? Expiration { get; set; }
 
         /// <summary>
-        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+        /// Unique identifier for the rule.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -940,7 +936,7 @@ namespace Pulumi.Aws.S3
         }
 
         /// <summary>
-        /// Object keyname prefix that identifies subset of objects to which the rule applies.
+        /// Object key prefix identifying one or more objects to which the rule applies.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
@@ -949,8 +945,7 @@ namespace Pulumi.Aws.S3
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags that identifies subset of objects to which the rule applies.
-        /// The rule applies only to objects having all the tags in its tagset.
+        /// Specifies object tags key and value.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -978,7 +973,7 @@ namespace Pulumi.Aws.S3
     public sealed class BucketLifecycleRulesNoncurrentVersionExpirationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of days that you want to specify for the default retention period.
+        /// Specifies the number of days an object is noncurrent object versions expire.
         /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
@@ -991,7 +986,7 @@ namespace Pulumi.Aws.S3
     public sealed class BucketLifecycleRulesNoncurrentVersionExpirationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of days that you want to specify for the default retention period.
+        /// Specifies the number of days an object is noncurrent object versions expire.
         /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
@@ -1004,13 +999,13 @@ namespace Pulumi.Aws.S3
     public sealed class BucketLifecycleRulesNoncurrentVersionTransitionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of days that you want to specify for the default retention period.
+        /// Specifies the number of days an object is noncurrent object versions expire.
         /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
         /// <summary>
-        /// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+        /// Specifies the Amazon S3 storage class to which you want the noncurrent versions object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
         /// </summary>
         [Input("storageClass", required: true)]
         public Input<string> StorageClass { get; set; } = null!;
@@ -1023,13 +1018,13 @@ namespace Pulumi.Aws.S3
     public sealed class BucketLifecycleRulesNoncurrentVersionTransitionsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of days that you want to specify for the default retention period.
+        /// Specifies the number of days an object is noncurrent object versions expire.
         /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
         /// <summary>
-        /// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+        /// Specifies the Amazon S3 storage class to which you want the noncurrent versions object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
         /// </summary>
         [Input("storageClass", required: true)]
         public Input<string> StorageClass { get; set; } = null!;
@@ -1048,13 +1043,13 @@ namespace Pulumi.Aws.S3
         public Input<string>? Date { get; set; }
 
         /// <summary>
-        /// The number of days that you want to specify for the default retention period.
+        /// Specifies the number of days after object creation when the specific rule action takes effect.
         /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
         /// <summary>
-        /// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+        /// Specifies the Amazon S3 storage class to which you want the object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
         /// </summary>
         [Input("storageClass", required: true)]
         public Input<string> StorageClass { get; set; } = null!;
@@ -1073,13 +1068,13 @@ namespace Pulumi.Aws.S3
         public Input<string>? Date { get; set; }
 
         /// <summary>
-        /// The number of days that you want to specify for the default retention period.
+        /// Specifies the number of days after object creation when the specific rule action takes effect.
         /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
         /// <summary>
-        /// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+        /// Specifies the Amazon S3 storage class to which you want the object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
         /// </summary>
         [Input("storageClass", required: true)]
         public Input<string> StorageClass { get; set; } = null!;
@@ -1306,13 +1301,13 @@ namespace Pulumi.Aws.S3
         public Input<BucketReplicationConfigurationRulesFilterArgs>? Filter { get; set; }
 
         /// <summary>
-        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+        /// Unique identifier for the rule.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Object keyname prefix that identifies subset of objects to which the rule applies.
+        /// Object keyname prefix identifying one or more objects to which the rule applies.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
@@ -1509,13 +1504,13 @@ namespace Pulumi.Aws.S3
         public Input<BucketReplicationConfigurationRulesFilterGetArgs>? Filter { get; set; }
 
         /// <summary>
-        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+        /// Unique identifier for the rule.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Object keyname prefix that identifies subset of objects to which the rule applies.
+        /// Object keyname prefix identifying one or more objects to which the rule applies.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
@@ -1600,7 +1595,7 @@ namespace Pulumi.Aws.S3
     public sealed class BucketServerSideEncryptionConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Object Lock rule in place for this bucket.
+        /// A single object for server-side encryption by default configuration. (documented below)
         /// </summary>
         [Input("rule", required: true)]
         public Input<BucketServerSideEncryptionConfigurationRuleArgs> Rule { get; set; } = null!;
@@ -1613,7 +1608,7 @@ namespace Pulumi.Aws.S3
     public sealed class BucketServerSideEncryptionConfigurationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Object Lock rule in place for this bucket.
+        /// A single object for server-side encryption by default configuration. (documented below)
         /// </summary>
         [Input("rule", required: true)]
         public Input<BucketServerSideEncryptionConfigurationRuleGetArgs> Rule { get; set; } = null!;
@@ -1690,7 +1685,7 @@ namespace Pulumi.Aws.S3
     public sealed class BucketVersioningArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean which indicates if this criteria is enabled.
+        /// Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -1709,7 +1704,7 @@ namespace Pulumi.Aws.S3
     public sealed class BucketVersioningGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean which indicates if this criteria is enabled.
+        /// Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -1875,7 +1870,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly int? AbortIncompleteMultipartUploadDays;
         /// <summary>
-        /// Boolean which indicates if this criteria is enabled.
+        /// Specifies lifecycle rule status.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
@@ -1883,7 +1878,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly BucketLifecycleRulesExpiration? Expiration;
         /// <summary>
-        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+        /// Unique identifier for the rule.
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -1895,12 +1890,11 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly ImmutableArray<BucketLifecycleRulesNoncurrentVersionTransitions> NoncurrentVersionTransitions;
         /// <summary>
-        /// Object keyname prefix that identifies subset of objects to which the rule applies.
+        /// Object key prefix identifying one or more objects to which the rule applies.
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
-        /// A mapping of tags that identifies subset of objects to which the rule applies.
-        /// The rule applies only to objects having all the tags in its tagset.
+        /// Specifies object tags key and value.
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Tags;
         /// <summary>
@@ -1940,7 +1934,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string? Date;
         /// <summary>
-        /// The number of days that you want to specify for the default retention period.
+        /// Specifies the number of days after object creation when the specific rule action takes effect.
         /// </summary>
         public readonly int? Days;
         /// <summary>
@@ -1964,7 +1958,7 @@ namespace Pulumi.Aws.S3
     public sealed class BucketLifecycleRulesNoncurrentVersionExpiration
     {
         /// <summary>
-        /// The number of days that you want to specify for the default retention period.
+        /// Specifies the number of days an object is noncurrent object versions expire.
         /// </summary>
         public readonly int? Days;
 
@@ -1979,11 +1973,11 @@ namespace Pulumi.Aws.S3
     public sealed class BucketLifecycleRulesNoncurrentVersionTransitions
     {
         /// <summary>
-        /// The number of days that you want to specify for the default retention period.
+        /// Specifies the number of days an object is noncurrent object versions expire.
         /// </summary>
         public readonly int? Days;
         /// <summary>
-        /// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+        /// Specifies the Amazon S3 storage class to which you want the noncurrent versions object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
         /// </summary>
         public readonly string StorageClass;
 
@@ -2005,11 +1999,11 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string? Date;
         /// <summary>
-        /// The number of days that you want to specify for the default retention period.
+        /// Specifies the number of days after object creation when the specific rule action takes effect.
         /// </summary>
         public readonly int? Days;
         /// <summary>
-        /// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+        /// Specifies the Amazon S3 storage class to which you want the object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
         /// </summary>
         public readonly string StorageClass;
 
@@ -2146,11 +2140,11 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly BucketReplicationConfigurationRulesFilter? Filter;
         /// <summary>
-        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+        /// Unique identifier for the rule.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Object keyname prefix that identifies subset of objects to which the rule applies.
+        /// Object keyname prefix identifying one or more objects to which the rule applies.
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
@@ -2300,7 +2294,7 @@ namespace Pulumi.Aws.S3
     public sealed class BucketServerSideEncryptionConfiguration
     {
         /// <summary>
-        /// The Object Lock rule in place for this bucket.
+        /// A single object for server-side encryption by default configuration. (documented below)
         /// </summary>
         public readonly BucketServerSideEncryptionConfigurationRule Rule;
 
@@ -2352,7 +2346,7 @@ namespace Pulumi.Aws.S3
     public sealed class BucketVersioning
     {
         /// <summary>
-        /// Boolean which indicates if this criteria is enabled.
+        /// Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

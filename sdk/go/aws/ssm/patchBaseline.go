@@ -36,7 +36,8 @@ type PatchBaseline struct {
 	OperatingSystem pulumi.StringPtrOutput `pulumi:"operatingSystem"`
 	// A list of rejected patches.
 	RejectedPatches pulumi.StringArrayOutput `pulumi:"rejectedPatches"`
-	Tags            pulumi.MapOutput         `pulumi:"tags"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewPatchBaseline registers a new resource with the given unique name, arguments, and options.
@@ -82,8 +83,9 @@ type patchBaselineState struct {
 	// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// A list of rejected patches.
-	RejectedPatches []string               `pulumi:"rejectedPatches"`
-	Tags            map[string]interface{} `pulumi:"tags"`
+	RejectedPatches []string `pulumi:"rejectedPatches"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 type PatchBaselineState struct {
@@ -103,7 +105,8 @@ type PatchBaselineState struct {
 	OperatingSystem pulumi.StringPtrInput
 	// A list of rejected patches.
 	RejectedPatches pulumi.StringArrayInput
-	Tags            pulumi.MapInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapInput
 }
 
 func (PatchBaselineState) ElementType() reflect.Type {
@@ -126,8 +129,9 @@ type patchBaselineArgs struct {
 	// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// A list of rejected patches.
-	RejectedPatches []string               `pulumi:"rejectedPatches"`
-	Tags            map[string]interface{} `pulumi:"tags"`
+	RejectedPatches []string `pulumi:"rejectedPatches"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PatchBaseline resource.
@@ -148,7 +152,8 @@ type PatchBaselineArgs struct {
 	OperatingSystem pulumi.StringPtrInput
 	// A list of rejected patches.
 	RejectedPatches pulumi.StringArrayInput
-	Tags            pulumi.MapInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapInput
 }
 
 func (PatchBaselineArgs) ElementType() reflect.Type {

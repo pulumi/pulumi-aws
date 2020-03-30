@@ -25,11 +25,11 @@ type MaintenanceWindowTask struct {
 	MaxConcurrency pulumi.StringOutput `pulumi:"maxConcurrency"`
 	// The maximum number of errors allowed before this task stops being scheduled.
 	MaxErrors pulumi.StringOutput `pulumi:"maxErrors"`
-	// The parameter name.
+	// The name of the maintenance window task.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
-	// The IAM service role to assume during task execution.
+	// The role that should be assumed when executing the task.
 	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
 	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 	Targets MaintenanceWindowTaskTargetArrayOutput `pulumi:"targets"`
@@ -102,11 +102,11 @@ type maintenanceWindowTaskState struct {
 	MaxConcurrency *string `pulumi:"maxConcurrency"`
 	// The maximum number of errors allowed before this task stops being scheduled.
 	MaxErrors *string `pulumi:"maxErrors"`
-	// The parameter name.
+	// The name of the maintenance window task.
 	Name *string `pulumi:"name"`
 	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
 	Priority *int `pulumi:"priority"`
-	// The IAM service role to assume during task execution.
+	// The role that should be assumed when executing the task.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
 	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 	Targets []MaintenanceWindowTaskTarget `pulumi:"targets"`
@@ -131,11 +131,11 @@ type MaintenanceWindowTaskState struct {
 	MaxConcurrency pulumi.StringPtrInput
 	// The maximum number of errors allowed before this task stops being scheduled.
 	MaxErrors pulumi.StringPtrInput
-	// The parameter name.
+	// The name of the maintenance window task.
 	Name pulumi.StringPtrInput
 	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
 	Priority pulumi.IntPtrInput
-	// The IAM service role to assume during task execution.
+	// The role that should be assumed when executing the task.
 	ServiceRoleArn pulumi.StringPtrInput
 	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 	Targets MaintenanceWindowTaskTargetArrayInput
@@ -164,11 +164,11 @@ type maintenanceWindowTaskArgs struct {
 	MaxConcurrency string `pulumi:"maxConcurrency"`
 	// The maximum number of errors allowed before this task stops being scheduled.
 	MaxErrors string `pulumi:"maxErrors"`
-	// The parameter name.
+	// The name of the maintenance window task.
 	Name *string `pulumi:"name"`
 	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
 	Priority *int `pulumi:"priority"`
-	// The IAM service role to assume during task execution.
+	// The role that should be assumed when executing the task.
 	ServiceRoleArn string `pulumi:"serviceRoleArn"`
 	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 	Targets []MaintenanceWindowTaskTarget `pulumi:"targets"`
@@ -194,11 +194,11 @@ type MaintenanceWindowTaskArgs struct {
 	MaxConcurrency pulumi.StringInput
 	// The maximum number of errors allowed before this task stops being scheduled.
 	MaxErrors pulumi.StringInput
-	// The parameter name.
+	// The name of the maintenance window task.
 	Name pulumi.StringPtrInput
 	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
 	Priority pulumi.IntPtrInput
-	// The IAM service role to assume during task execution.
+	// The role that should be assumed when executing the task.
 	ServiceRoleArn pulumi.StringInput
 	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 	Targets MaintenanceWindowTaskTargetArrayInput

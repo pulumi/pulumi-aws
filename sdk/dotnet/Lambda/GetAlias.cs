@@ -16,7 +16,18 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_alias.html.markdown.
         /// </summary>
+        [Obsolete("Use GetAlias.InvokeAsync() instead")]
         public static Task<GetAliasResult> GetAlias(GetAliasArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:lambda/getAlias:getAlias", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetAlias
+    {
+        /// <summary>
+        /// Provides information about a Lambda Alias.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_alias.html.markdown.
+        /// </summary>
+        public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:lambda/getAlias:getAlias", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

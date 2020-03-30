@@ -43,9 +43,9 @@ class NotificationRule(pulumi.CustomResource):
     """
     Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
 
-      * `address` (`str`)
+      * `address` (`str`) - The ARN of notification rule target. For example, a SNS Topic ARN.
       * `status` (`str`) - The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-      * `type` (`str`)
+      * `type` (`str`) - The type of the notification target. Default value is `SNS`.
     """
     def __init__(__self__, resource_name, opts=None, detail_type=None, event_type_ids=None, name=None, resource=None, status=None, tags=None, targets=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -66,9 +66,9 @@ class NotificationRule(pulumi.CustomResource):
 
         The **targets** object supports the following:
 
-          * `address` (`pulumi.Input[str]`)
+          * `address` (`pulumi.Input[str]`) - The ARN of notification rule target. For example, a SNS Topic ARN.
           * `status` (`pulumi.Input[str]`) - The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The type of the notification target. Default value is `SNS`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -128,9 +128,9 @@ class NotificationRule(pulumi.CustomResource):
 
         The **targets** object supports the following:
 
-          * `address` (`pulumi.Input[str]`)
+          * `address` (`pulumi.Input[str]`) - The ARN of notification rule target. For example, a SNS Topic ARN.
           * `status` (`pulumi.Input[str]`) - The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The type of the notification target. Default value is `SNS`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
