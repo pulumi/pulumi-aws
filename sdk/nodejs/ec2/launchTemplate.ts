@@ -126,6 +126,10 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly licenseSpecifications!: pulumi.Output<outputs.ec2.LaunchTemplateLicenseSpecification[] | undefined>;
     /**
+     * Customize the metadata options for the instance. See Metadata Options below for more details.
+     */
+    public readonly metadataOptions!: pulumi.Output<outputs.ec2.LaunchTemplateMetadataOptions>;
+    /**
      * The monitoring option for the instance. See Monitoring below for more details.
      */
     public readonly monitoring!: pulumi.Output<outputs.ec2.LaunchTemplateMonitoring | undefined>;
@@ -204,6 +208,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["keyName"] = state ? state.keyName : undefined;
             inputs["latestVersion"] = state ? state.latestVersion : undefined;
             inputs["licenseSpecifications"] = state ? state.licenseSpecifications : undefined;
+            inputs["metadataOptions"] = state ? state.metadataOptions : undefined;
             inputs["monitoring"] = state ? state.monitoring : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
@@ -234,6 +239,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["kernelId"] = args ? args.kernelId : undefined;
             inputs["keyName"] = args ? args.keyName : undefined;
             inputs["licenseSpecifications"] = args ? args.licenseSpecifications : undefined;
+            inputs["metadataOptions"] = args ? args.metadataOptions : undefined;
             inputs["monitoring"] = args ? args.monitoring : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
@@ -351,6 +357,10 @@ export interface LaunchTemplateState {
      * A list of license specifications to associate with. See License Specification below for more details.
      */
     readonly licenseSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateLicenseSpecification>[]>;
+    /**
+     * Customize the metadata options for the instance. See Metadata Options below for more details.
+     */
+    readonly metadataOptions?: pulumi.Input<inputs.ec2.LaunchTemplateMetadataOptions>;
     /**
      * The monitoring option for the instance. See Monitoring below for more details.
      */
@@ -478,6 +488,10 @@ export interface LaunchTemplateArgs {
      * A list of license specifications to associate with. See License Specification below for more details.
      */
     readonly licenseSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateLicenseSpecification>[]>;
+    /**
+     * Customize the metadata options for the instance. See Metadata Options below for more details.
+     */
+    readonly metadataOptions?: pulumi.Input<inputs.ec2.LaunchTemplateMetadataOptions>;
     /**
      * The monitoring option for the instance. See Monitoring below for more details.
      */

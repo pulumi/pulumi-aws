@@ -4,5 +4,6 @@
 
 # Export this package's modules as members:
 from .account import *
+from .member import *
 from .product_subscription import *
 from .standards_subscription import *

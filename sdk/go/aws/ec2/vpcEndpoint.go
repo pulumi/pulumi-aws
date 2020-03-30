@@ -47,7 +47,7 @@ type VpcEndpoint struct {
 	RouteTableIds pulumi.StringArrayOutput `pulumi:"routeTableIds"`
 	// The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// The service name, in the form `com.amazonaws.region.service` for AWS services.
+	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
 	// The state of the VPC endpoint.
 	State pulumi.StringOutput `pulumi:"state"`
@@ -118,7 +118,7 @@ type vpcEndpointState struct {
 	RouteTableIds []string `pulumi:"routeTableIds"`
 	// The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The service name, in the form `com.amazonaws.region.service` for AWS services.
+	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName *string `pulumi:"serviceName"`
 	// The state of the VPC endpoint.
 	State *string `pulumi:"state"`
@@ -156,7 +156,7 @@ type VpcEndpointState struct {
 	RouteTableIds pulumi.StringArrayInput
 	// The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
 	SecurityGroupIds pulumi.StringArrayInput
-	// The service name, in the form `com.amazonaws.region.service` for AWS services.
+	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName pulumi.StringPtrInput
 	// The state of the VPC endpoint.
 	State pulumi.StringPtrInput
@@ -186,7 +186,7 @@ type vpcEndpointArgs struct {
 	RouteTableIds []string `pulumi:"routeTableIds"`
 	// The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The service name, in the form `com.amazonaws.region.service` for AWS services.
+	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName string `pulumi:"serviceName"`
 	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -211,7 +211,7 @@ type VpcEndpointArgs struct {
 	RouteTableIds pulumi.StringArrayInput
 	// The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
 	SecurityGroupIds pulumi.StringArrayInput
-	// The service name, in the form `com.amazonaws.region.service` for AWS services.
+	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName pulumi.StringInput
 	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
 	SubnetIds pulumi.StringArrayInput

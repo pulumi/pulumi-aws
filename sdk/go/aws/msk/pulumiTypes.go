@@ -793,6 +793,579 @@ func (o ClusterEncryptionInfoEncryptionInTransitPtrOutput) InCluster() pulumi.Bo
 	return o.ApplyT(func(v ClusterEncryptionInfoEncryptionInTransit) *bool { return v.InCluster }).(pulumi.BoolPtrOutput)
 }
 
+type ClusterLoggingInfo struct {
+	// Configuration block for Broker Logs settings for logging info. See below.
+	BrokerLogs ClusterLoggingInfoBrokerLogs `pulumi:"brokerLogs"`
+}
+
+type ClusterLoggingInfoInput interface {
+	pulumi.Input
+
+	ToClusterLoggingInfoOutput() ClusterLoggingInfoOutput
+	ToClusterLoggingInfoOutputWithContext(context.Context) ClusterLoggingInfoOutput
+}
+
+type ClusterLoggingInfoArgs struct {
+	// Configuration block for Broker Logs settings for logging info. See below.
+	BrokerLogs ClusterLoggingInfoBrokerLogsInput `pulumi:"brokerLogs"`
+}
+
+func (ClusterLoggingInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLoggingInfo)(nil)).Elem()
+}
+
+func (i ClusterLoggingInfoArgs) ToClusterLoggingInfoOutput() ClusterLoggingInfoOutput {
+	return i.ToClusterLoggingInfoOutputWithContext(context.Background())
+}
+
+func (i ClusterLoggingInfoArgs) ToClusterLoggingInfoOutputWithContext(ctx context.Context) ClusterLoggingInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoOutput)
+}
+
+func (i ClusterLoggingInfoArgs) ToClusterLoggingInfoPtrOutput() ClusterLoggingInfoPtrOutput {
+	return i.ToClusterLoggingInfoPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterLoggingInfoArgs) ToClusterLoggingInfoPtrOutputWithContext(ctx context.Context) ClusterLoggingInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoOutput).ToClusterLoggingInfoPtrOutputWithContext(ctx)
+}
+
+type ClusterLoggingInfoPtrInput interface {
+	pulumi.Input
+
+	ToClusterLoggingInfoPtrOutput() ClusterLoggingInfoPtrOutput
+	ToClusterLoggingInfoPtrOutputWithContext(context.Context) ClusterLoggingInfoPtrOutput
+}
+
+type clusterLoggingInfoPtrType ClusterLoggingInfoArgs
+
+func ClusterLoggingInfoPtr(v *ClusterLoggingInfoArgs) ClusterLoggingInfoPtrInput {
+	return (*clusterLoggingInfoPtrType)(v)
+}
+
+func (*clusterLoggingInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLoggingInfo)(nil)).Elem()
+}
+
+func (i *clusterLoggingInfoPtrType) ToClusterLoggingInfoPtrOutput() ClusterLoggingInfoPtrOutput {
+	return i.ToClusterLoggingInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterLoggingInfoPtrType) ToClusterLoggingInfoPtrOutputWithContext(ctx context.Context) ClusterLoggingInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoPtrOutput)
+}
+
+type ClusterLoggingInfoOutput struct{ *pulumi.OutputState }
+
+func (ClusterLoggingInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLoggingInfo)(nil)).Elem()
+}
+
+func (o ClusterLoggingInfoOutput) ToClusterLoggingInfoOutput() ClusterLoggingInfoOutput {
+	return o
+}
+
+func (o ClusterLoggingInfoOutput) ToClusterLoggingInfoOutputWithContext(ctx context.Context) ClusterLoggingInfoOutput {
+	return o
+}
+
+func (o ClusterLoggingInfoOutput) ToClusterLoggingInfoPtrOutput() ClusterLoggingInfoPtrOutput {
+	return o.ToClusterLoggingInfoPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterLoggingInfoOutput) ToClusterLoggingInfoPtrOutputWithContext(ctx context.Context) ClusterLoggingInfoPtrOutput {
+	return o.ApplyT(func(v ClusterLoggingInfo) *ClusterLoggingInfo {
+		return &v
+	}).(ClusterLoggingInfoPtrOutput)
+}
+
+// Configuration block for Broker Logs settings for logging info. See below.
+func (o ClusterLoggingInfoOutput) BrokerLogs() ClusterLoggingInfoBrokerLogsOutput {
+	return o.ApplyT(func(v ClusterLoggingInfo) ClusterLoggingInfoBrokerLogs { return v.BrokerLogs }).(ClusterLoggingInfoBrokerLogsOutput)
+}
+
+type ClusterLoggingInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterLoggingInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLoggingInfo)(nil)).Elem()
+}
+
+func (o ClusterLoggingInfoPtrOutput) ToClusterLoggingInfoPtrOutput() ClusterLoggingInfoPtrOutput {
+	return o
+}
+
+func (o ClusterLoggingInfoPtrOutput) ToClusterLoggingInfoPtrOutputWithContext(ctx context.Context) ClusterLoggingInfoPtrOutput {
+	return o
+}
+
+func (o ClusterLoggingInfoPtrOutput) Elem() ClusterLoggingInfoOutput {
+	return o.ApplyT(func(v *ClusterLoggingInfo) ClusterLoggingInfo { return *v }).(ClusterLoggingInfoOutput)
+}
+
+// Configuration block for Broker Logs settings for logging info. See below.
+func (o ClusterLoggingInfoPtrOutput) BrokerLogs() ClusterLoggingInfoBrokerLogsOutput {
+	return o.ApplyT(func(v ClusterLoggingInfo) ClusterLoggingInfoBrokerLogs { return v.BrokerLogs }).(ClusterLoggingInfoBrokerLogsOutput)
+}
+
+type ClusterLoggingInfoBrokerLogs struct {
+	CloudwatchLogs *ClusterLoggingInfoBrokerLogsCloudwatchLogs `pulumi:"cloudwatchLogs"`
+	Firehose       *ClusterLoggingInfoBrokerLogsFirehose       `pulumi:"firehose"`
+	S3             *ClusterLoggingInfoBrokerLogsS3             `pulumi:"s3"`
+}
+
+type ClusterLoggingInfoBrokerLogsInput interface {
+	pulumi.Input
+
+	ToClusterLoggingInfoBrokerLogsOutput() ClusterLoggingInfoBrokerLogsOutput
+	ToClusterLoggingInfoBrokerLogsOutputWithContext(context.Context) ClusterLoggingInfoBrokerLogsOutput
+}
+
+type ClusterLoggingInfoBrokerLogsArgs struct {
+	CloudwatchLogs ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrInput `pulumi:"cloudwatchLogs"`
+	Firehose       ClusterLoggingInfoBrokerLogsFirehosePtrInput       `pulumi:"firehose"`
+	S3             ClusterLoggingInfoBrokerLogsS3PtrInput             `pulumi:"s3"`
+}
+
+func (ClusterLoggingInfoBrokerLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLoggingInfoBrokerLogs)(nil)).Elem()
+}
+
+func (i ClusterLoggingInfoBrokerLogsArgs) ToClusterLoggingInfoBrokerLogsOutput() ClusterLoggingInfoBrokerLogsOutput {
+	return i.ToClusterLoggingInfoBrokerLogsOutputWithContext(context.Background())
+}
+
+func (i ClusterLoggingInfoBrokerLogsArgs) ToClusterLoggingInfoBrokerLogsOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsOutput)
+}
+
+type ClusterLoggingInfoBrokerLogsOutput struct{ *pulumi.OutputState }
+
+func (ClusterLoggingInfoBrokerLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLoggingInfoBrokerLogs)(nil)).Elem()
+}
+
+func (o ClusterLoggingInfoBrokerLogsOutput) ToClusterLoggingInfoBrokerLogsOutput() ClusterLoggingInfoBrokerLogsOutput {
+	return o
+}
+
+func (o ClusterLoggingInfoBrokerLogsOutput) ToClusterLoggingInfoBrokerLogsOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsOutput {
+	return o
+}
+
+func (o ClusterLoggingInfoBrokerLogsOutput) CloudwatchLogs() ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogs) *ClusterLoggingInfoBrokerLogsCloudwatchLogs {
+		return v.CloudwatchLogs
+	}).(ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput)
+}
+
+func (o ClusterLoggingInfoBrokerLogsOutput) Firehose() ClusterLoggingInfoBrokerLogsFirehosePtrOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogs) *ClusterLoggingInfoBrokerLogsFirehose { return v.Firehose }).(ClusterLoggingInfoBrokerLogsFirehosePtrOutput)
+}
+
+func (o ClusterLoggingInfoBrokerLogsOutput) S3() ClusterLoggingInfoBrokerLogsS3PtrOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogs) *ClusterLoggingInfoBrokerLogsS3 { return v.S3 }).(ClusterLoggingInfoBrokerLogsS3PtrOutput)
+}
+
+type ClusterLoggingInfoBrokerLogsCloudwatchLogs struct {
+	// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+	Enabled bool `pulumi:"enabled"`
+	// Name of the Cloudwatch Log Group to deliver logs to.
+	LogGroup *string `pulumi:"logGroup"`
+}
+
+type ClusterLoggingInfoBrokerLogsCloudwatchLogsInput interface {
+	pulumi.Input
+
+	ToClusterLoggingInfoBrokerLogsCloudwatchLogsOutput() ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput
+	ToClusterLoggingInfoBrokerLogsCloudwatchLogsOutputWithContext(context.Context) ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput
+}
+
+type ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs struct {
+	// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Name of the Cloudwatch Log Group to deliver logs to.
+	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
+}
+
+func (ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLoggingInfoBrokerLogsCloudwatchLogs)(nil)).Elem()
+}
+
+func (i ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs) ToClusterLoggingInfoBrokerLogsCloudwatchLogsOutput() ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput {
+	return i.ToClusterLoggingInfoBrokerLogsCloudwatchLogsOutputWithContext(context.Background())
+}
+
+func (i ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs) ToClusterLoggingInfoBrokerLogsCloudwatchLogsOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput)
+}
+
+func (i ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs) ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput() ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput {
+	return i.ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs) ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput).ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutputWithContext(ctx)
+}
+
+type ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrInput interface {
+	pulumi.Input
+
+	ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput() ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput
+	ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutputWithContext(context.Context) ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput
+}
+
+type clusterLoggingInfoBrokerLogsCloudwatchLogsPtrType ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs
+
+func ClusterLoggingInfoBrokerLogsCloudwatchLogsPtr(v *ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs) ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrInput {
+	return (*clusterLoggingInfoBrokerLogsCloudwatchLogsPtrType)(v)
+}
+
+func (*clusterLoggingInfoBrokerLogsCloudwatchLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLoggingInfoBrokerLogsCloudwatchLogs)(nil)).Elem()
+}
+
+func (i *clusterLoggingInfoBrokerLogsCloudwatchLogsPtrType) ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput() ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput {
+	return i.ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterLoggingInfoBrokerLogsCloudwatchLogsPtrType) ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput)
+}
+
+type ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput struct{ *pulumi.OutputState }
+
+func (ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLoggingInfoBrokerLogsCloudwatchLogs)(nil)).Elem()
+}
+
+func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) ToClusterLoggingInfoBrokerLogsCloudwatchLogsOutput() ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput {
+	return o
+}
+
+func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) ToClusterLoggingInfoBrokerLogsCloudwatchLogsOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput {
+	return o
+}
+
+func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput() ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput {
+	return o.ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsCloudwatchLogs) *ClusterLoggingInfoBrokerLogsCloudwatchLogs {
+		return &v
+	}).(ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput)
+}
+
+// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsCloudwatchLogs) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Name of the Cloudwatch Log Group to deliver logs to.
+func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsCloudwatchLogs) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
+}
+
+type ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLoggingInfoBrokerLogsCloudwatchLogs)(nil)).Elem()
+}
+
+func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput() ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput {
+	return o
+}
+
+func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput {
+	return o
+}
+
+func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) Elem() ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput {
+	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogsCloudwatchLogs) ClusterLoggingInfoBrokerLogsCloudwatchLogs {
+		return *v
+	}).(ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput)
+}
+
+// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsCloudwatchLogs) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Name of the Cloudwatch Log Group to deliver logs to.
+func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsCloudwatchLogs) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
+}
+
+type ClusterLoggingInfoBrokerLogsFirehose struct {
+	// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
+	DeliveryStream *string `pulumi:"deliveryStream"`
+	// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+	Enabled bool `pulumi:"enabled"`
+}
+
+type ClusterLoggingInfoBrokerLogsFirehoseInput interface {
+	pulumi.Input
+
+	ToClusterLoggingInfoBrokerLogsFirehoseOutput() ClusterLoggingInfoBrokerLogsFirehoseOutput
+	ToClusterLoggingInfoBrokerLogsFirehoseOutputWithContext(context.Context) ClusterLoggingInfoBrokerLogsFirehoseOutput
+}
+
+type ClusterLoggingInfoBrokerLogsFirehoseArgs struct {
+	// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
+	DeliveryStream pulumi.StringPtrInput `pulumi:"deliveryStream"`
+	// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ClusterLoggingInfoBrokerLogsFirehoseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLoggingInfoBrokerLogsFirehose)(nil)).Elem()
+}
+
+func (i ClusterLoggingInfoBrokerLogsFirehoseArgs) ToClusterLoggingInfoBrokerLogsFirehoseOutput() ClusterLoggingInfoBrokerLogsFirehoseOutput {
+	return i.ToClusterLoggingInfoBrokerLogsFirehoseOutputWithContext(context.Background())
+}
+
+func (i ClusterLoggingInfoBrokerLogsFirehoseArgs) ToClusterLoggingInfoBrokerLogsFirehoseOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsFirehoseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsFirehoseOutput)
+}
+
+func (i ClusterLoggingInfoBrokerLogsFirehoseArgs) ToClusterLoggingInfoBrokerLogsFirehosePtrOutput() ClusterLoggingInfoBrokerLogsFirehosePtrOutput {
+	return i.ToClusterLoggingInfoBrokerLogsFirehosePtrOutputWithContext(context.Background())
+}
+
+func (i ClusterLoggingInfoBrokerLogsFirehoseArgs) ToClusterLoggingInfoBrokerLogsFirehosePtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsFirehosePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsFirehoseOutput).ToClusterLoggingInfoBrokerLogsFirehosePtrOutputWithContext(ctx)
+}
+
+type ClusterLoggingInfoBrokerLogsFirehosePtrInput interface {
+	pulumi.Input
+
+	ToClusterLoggingInfoBrokerLogsFirehosePtrOutput() ClusterLoggingInfoBrokerLogsFirehosePtrOutput
+	ToClusterLoggingInfoBrokerLogsFirehosePtrOutputWithContext(context.Context) ClusterLoggingInfoBrokerLogsFirehosePtrOutput
+}
+
+type clusterLoggingInfoBrokerLogsFirehosePtrType ClusterLoggingInfoBrokerLogsFirehoseArgs
+
+func ClusterLoggingInfoBrokerLogsFirehosePtr(v *ClusterLoggingInfoBrokerLogsFirehoseArgs) ClusterLoggingInfoBrokerLogsFirehosePtrInput {
+	return (*clusterLoggingInfoBrokerLogsFirehosePtrType)(v)
+}
+
+func (*clusterLoggingInfoBrokerLogsFirehosePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLoggingInfoBrokerLogsFirehose)(nil)).Elem()
+}
+
+func (i *clusterLoggingInfoBrokerLogsFirehosePtrType) ToClusterLoggingInfoBrokerLogsFirehosePtrOutput() ClusterLoggingInfoBrokerLogsFirehosePtrOutput {
+	return i.ToClusterLoggingInfoBrokerLogsFirehosePtrOutputWithContext(context.Background())
+}
+
+func (i *clusterLoggingInfoBrokerLogsFirehosePtrType) ToClusterLoggingInfoBrokerLogsFirehosePtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsFirehosePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsFirehosePtrOutput)
+}
+
+type ClusterLoggingInfoBrokerLogsFirehoseOutput struct{ *pulumi.OutputState }
+
+func (ClusterLoggingInfoBrokerLogsFirehoseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLoggingInfoBrokerLogsFirehose)(nil)).Elem()
+}
+
+func (o ClusterLoggingInfoBrokerLogsFirehoseOutput) ToClusterLoggingInfoBrokerLogsFirehoseOutput() ClusterLoggingInfoBrokerLogsFirehoseOutput {
+	return o
+}
+
+func (o ClusterLoggingInfoBrokerLogsFirehoseOutput) ToClusterLoggingInfoBrokerLogsFirehoseOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsFirehoseOutput {
+	return o
+}
+
+func (o ClusterLoggingInfoBrokerLogsFirehoseOutput) ToClusterLoggingInfoBrokerLogsFirehosePtrOutput() ClusterLoggingInfoBrokerLogsFirehosePtrOutput {
+	return o.ToClusterLoggingInfoBrokerLogsFirehosePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterLoggingInfoBrokerLogsFirehoseOutput) ToClusterLoggingInfoBrokerLogsFirehosePtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsFirehosePtrOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsFirehose) *ClusterLoggingInfoBrokerLogsFirehose {
+		return &v
+	}).(ClusterLoggingInfoBrokerLogsFirehosePtrOutput)
+}
+
+// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
+func (o ClusterLoggingInfoBrokerLogsFirehoseOutput) DeliveryStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsFirehose) *string { return v.DeliveryStream }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+func (o ClusterLoggingInfoBrokerLogsFirehoseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsFirehose) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ClusterLoggingInfoBrokerLogsFirehosePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterLoggingInfoBrokerLogsFirehosePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLoggingInfoBrokerLogsFirehose)(nil)).Elem()
+}
+
+func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) ToClusterLoggingInfoBrokerLogsFirehosePtrOutput() ClusterLoggingInfoBrokerLogsFirehosePtrOutput {
+	return o
+}
+
+func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) ToClusterLoggingInfoBrokerLogsFirehosePtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsFirehosePtrOutput {
+	return o
+}
+
+func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) Elem() ClusterLoggingInfoBrokerLogsFirehoseOutput {
+	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogsFirehose) ClusterLoggingInfoBrokerLogsFirehose { return *v }).(ClusterLoggingInfoBrokerLogsFirehoseOutput)
+}
+
+// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
+func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) DeliveryStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsFirehose) *string { return v.DeliveryStream }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsFirehose) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ClusterLoggingInfoBrokerLogsS3 struct {
+	// Name of the S3 bucket to deliver logs to.
+	Bucket *string `pulumi:"bucket"`
+	// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+	Enabled bool `pulumi:"enabled"`
+	// Prefix to append to the folder name.
+	Prefix *string `pulumi:"prefix"`
+}
+
+type ClusterLoggingInfoBrokerLogsS3Input interface {
+	pulumi.Input
+
+	ToClusterLoggingInfoBrokerLogsS3Output() ClusterLoggingInfoBrokerLogsS3Output
+	ToClusterLoggingInfoBrokerLogsS3OutputWithContext(context.Context) ClusterLoggingInfoBrokerLogsS3Output
+}
+
+type ClusterLoggingInfoBrokerLogsS3Args struct {
+	// Name of the S3 bucket to deliver logs to.
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Prefix to append to the folder name.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (ClusterLoggingInfoBrokerLogsS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLoggingInfoBrokerLogsS3)(nil)).Elem()
+}
+
+func (i ClusterLoggingInfoBrokerLogsS3Args) ToClusterLoggingInfoBrokerLogsS3Output() ClusterLoggingInfoBrokerLogsS3Output {
+	return i.ToClusterLoggingInfoBrokerLogsS3OutputWithContext(context.Background())
+}
+
+func (i ClusterLoggingInfoBrokerLogsS3Args) ToClusterLoggingInfoBrokerLogsS3OutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsS3Output)
+}
+
+func (i ClusterLoggingInfoBrokerLogsS3Args) ToClusterLoggingInfoBrokerLogsS3PtrOutput() ClusterLoggingInfoBrokerLogsS3PtrOutput {
+	return i.ToClusterLoggingInfoBrokerLogsS3PtrOutputWithContext(context.Background())
+}
+
+func (i ClusterLoggingInfoBrokerLogsS3Args) ToClusterLoggingInfoBrokerLogsS3PtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsS3Output).ToClusterLoggingInfoBrokerLogsS3PtrOutputWithContext(ctx)
+}
+
+type ClusterLoggingInfoBrokerLogsS3PtrInput interface {
+	pulumi.Input
+
+	ToClusterLoggingInfoBrokerLogsS3PtrOutput() ClusterLoggingInfoBrokerLogsS3PtrOutput
+	ToClusterLoggingInfoBrokerLogsS3PtrOutputWithContext(context.Context) ClusterLoggingInfoBrokerLogsS3PtrOutput
+}
+
+type clusterLoggingInfoBrokerLogsS3PtrType ClusterLoggingInfoBrokerLogsS3Args
+
+func ClusterLoggingInfoBrokerLogsS3Ptr(v *ClusterLoggingInfoBrokerLogsS3Args) ClusterLoggingInfoBrokerLogsS3PtrInput {
+	return (*clusterLoggingInfoBrokerLogsS3PtrType)(v)
+}
+
+func (*clusterLoggingInfoBrokerLogsS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLoggingInfoBrokerLogsS3)(nil)).Elem()
+}
+
+func (i *clusterLoggingInfoBrokerLogsS3PtrType) ToClusterLoggingInfoBrokerLogsS3PtrOutput() ClusterLoggingInfoBrokerLogsS3PtrOutput {
+	return i.ToClusterLoggingInfoBrokerLogsS3PtrOutputWithContext(context.Background())
+}
+
+func (i *clusterLoggingInfoBrokerLogsS3PtrType) ToClusterLoggingInfoBrokerLogsS3PtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsS3PtrOutput)
+}
+
+type ClusterLoggingInfoBrokerLogsS3Output struct{ *pulumi.OutputState }
+
+func (ClusterLoggingInfoBrokerLogsS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLoggingInfoBrokerLogsS3)(nil)).Elem()
+}
+
+func (o ClusterLoggingInfoBrokerLogsS3Output) ToClusterLoggingInfoBrokerLogsS3Output() ClusterLoggingInfoBrokerLogsS3Output {
+	return o
+}
+
+func (o ClusterLoggingInfoBrokerLogsS3Output) ToClusterLoggingInfoBrokerLogsS3OutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsS3Output {
+	return o
+}
+
+func (o ClusterLoggingInfoBrokerLogsS3Output) ToClusterLoggingInfoBrokerLogsS3PtrOutput() ClusterLoggingInfoBrokerLogsS3PtrOutput {
+	return o.ToClusterLoggingInfoBrokerLogsS3PtrOutputWithContext(context.Background())
+}
+
+func (o ClusterLoggingInfoBrokerLogsS3Output) ToClusterLoggingInfoBrokerLogsS3PtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsS3PtrOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsS3) *ClusterLoggingInfoBrokerLogsS3 {
+		return &v
+	}).(ClusterLoggingInfoBrokerLogsS3PtrOutput)
+}
+
+// Name of the S3 bucket to deliver logs to.
+func (o ClusterLoggingInfoBrokerLogsS3Output) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsS3) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+func (o ClusterLoggingInfoBrokerLogsS3Output) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsS3) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Prefix to append to the folder name.
+func (o ClusterLoggingInfoBrokerLogsS3Output) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsS3) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type ClusterLoggingInfoBrokerLogsS3PtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterLoggingInfoBrokerLogsS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLoggingInfoBrokerLogsS3)(nil)).Elem()
+}
+
+func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) ToClusterLoggingInfoBrokerLogsS3PtrOutput() ClusterLoggingInfoBrokerLogsS3PtrOutput {
+	return o
+}
+
+func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) ToClusterLoggingInfoBrokerLogsS3PtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsS3PtrOutput {
+	return o
+}
+
+func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) Elem() ClusterLoggingInfoBrokerLogsS3Output {
+	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogsS3) ClusterLoggingInfoBrokerLogsS3 { return *v }).(ClusterLoggingInfoBrokerLogsS3Output)
+}
+
+// Name of the S3 bucket to deliver logs to.
+func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsS3) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsS3) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Prefix to append to the folder name.
+func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsS3) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
 type ClusterOpenMonitoring struct {
 	// Configuration block for Prometheus settings for open monitoring. See below.
 	Prometheus ClusterOpenMonitoringPrometheus `pulumi:"prometheus"`
@@ -1213,6 +1786,15 @@ func init() {
 	pulumi.RegisterOutputType(ClusterEncryptionInfoPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionInfoEncryptionInTransitOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionInfoEncryptionInTransitPtrOutput{})
+	pulumi.RegisterOutputType(ClusterLoggingInfoOutput{})
+	pulumi.RegisterOutputType(ClusterLoggingInfoPtrOutput{})
+	pulumi.RegisterOutputType(ClusterLoggingInfoBrokerLogsOutput{})
+	pulumi.RegisterOutputType(ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput{})
+	pulumi.RegisterOutputType(ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput{})
+	pulumi.RegisterOutputType(ClusterLoggingInfoBrokerLogsFirehoseOutput{})
+	pulumi.RegisterOutputType(ClusterLoggingInfoBrokerLogsFirehosePtrOutput{})
+	pulumi.RegisterOutputType(ClusterLoggingInfoBrokerLogsS3Output{})
+	pulumi.RegisterOutputType(ClusterLoggingInfoBrokerLogsS3PtrOutput{})
 	pulumi.RegisterOutputType(ClusterOpenMonitoringOutput{})
 	pulumi.RegisterOutputType(ClusterOpenMonitoringPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOpenMonitoringPrometheusOutput{})

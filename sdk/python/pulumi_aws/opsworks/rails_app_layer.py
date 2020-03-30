@@ -14,6 +14,10 @@ class RailsAppLayer(pulumi.CustomResource):
     """
     Keyword for the app server to use. Defaults to "apache_passenger".
     """
+    arn: pulumi.Output[str]
+    """
+    The Amazon Resource Name(ARN) of the layer.
+    """
     auto_assign_elastic_ips: pulumi.Output[bool]
     """
     Whether to automatically assign an elastic IP address to the layer's instances.
@@ -103,11 +107,15 @@ class RailsAppLayer(pulumi.CustomResource):
     """
     Names of a set of system packages to install on the layer's instances.
     """
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
     use_ebs_optimized_instances: pulumi.Output[bool]
     """
     Whether to use EBS-optimized instances.
     """
-    def __init__(__self__, resource_name, opts=None, app_server=None, auto_assign_elastic_ips=None, auto_assign_public_ips=None, auto_healing=None, bundler_version=None, custom_configure_recipes=None, custom_deploy_recipes=None, custom_instance_profile_arn=None, custom_json=None, custom_security_group_ids=None, custom_setup_recipes=None, custom_shutdown_recipes=None, custom_undeploy_recipes=None, drain_elb_on_shutdown=None, ebs_volumes=None, elastic_load_balancer=None, install_updates_on_boot=None, instance_shutdown_timeout=None, manage_bundler=None, name=None, passenger_version=None, ruby_version=None, rubygems_version=None, stack_id=None, system_packages=None, use_ebs_optimized_instances=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, app_server=None, auto_assign_elastic_ips=None, auto_assign_public_ips=None, auto_healing=None, bundler_version=None, custom_configure_recipes=None, custom_deploy_recipes=None, custom_instance_profile_arn=None, custom_json=None, custom_security_group_ids=None, custom_setup_recipes=None, custom_shutdown_recipes=None, custom_undeploy_recipes=None, drain_elb_on_shutdown=None, ebs_volumes=None, elastic_load_balancer=None, install_updates_on_boot=None, instance_shutdown_timeout=None, manage_bundler=None, name=None, passenger_version=None, ruby_version=None, rubygems_version=None, stack_id=None, system_packages=None, tags=None, use_ebs_optimized_instances=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an OpsWorks Ruby on Rails application layer resource.
 
@@ -135,6 +143,7 @@ class RailsAppLayer(pulumi.CustomResource):
         :param pulumi.Input[str] rubygems_version: The version of RubyGems to use. Defaults to "2.2.2".
         :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
         :param pulumi.Input[list] system_packages: Names of a set of system packages to install on the layer's instances.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
 
         The **ebs_volumes** object supports the following:
@@ -191,7 +200,9 @@ class RailsAppLayer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'stack_id'")
             __props__['stack_id'] = stack_id
             __props__['system_packages'] = system_packages
+            __props__['tags'] = tags
             __props__['use_ebs_optimized_instances'] = use_ebs_optimized_instances
+            __props__['arn'] = None
         super(RailsAppLayer, __self__).__init__(
             'aws:opsworks/railsAppLayer:RailsAppLayer',
             resource_name,
@@ -199,7 +210,7 @@ class RailsAppLayer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_server=None, auto_assign_elastic_ips=None, auto_assign_public_ips=None, auto_healing=None, bundler_version=None, custom_configure_recipes=None, custom_deploy_recipes=None, custom_instance_profile_arn=None, custom_json=None, custom_security_group_ids=None, custom_setup_recipes=None, custom_shutdown_recipes=None, custom_undeploy_recipes=None, drain_elb_on_shutdown=None, ebs_volumes=None, elastic_load_balancer=None, install_updates_on_boot=None, instance_shutdown_timeout=None, manage_bundler=None, name=None, passenger_version=None, ruby_version=None, rubygems_version=None, stack_id=None, system_packages=None, use_ebs_optimized_instances=None):
+    def get(resource_name, id, opts=None, app_server=None, arn=None, auto_assign_elastic_ips=None, auto_assign_public_ips=None, auto_healing=None, bundler_version=None, custom_configure_recipes=None, custom_deploy_recipes=None, custom_instance_profile_arn=None, custom_json=None, custom_security_group_ids=None, custom_setup_recipes=None, custom_shutdown_recipes=None, custom_undeploy_recipes=None, drain_elb_on_shutdown=None, ebs_volumes=None, elastic_load_balancer=None, install_updates_on_boot=None, instance_shutdown_timeout=None, manage_bundler=None, name=None, passenger_version=None, ruby_version=None, rubygems_version=None, stack_id=None, system_packages=None, tags=None, use_ebs_optimized_instances=None):
         """
         Get an existing RailsAppLayer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -208,6 +219,7 @@ class RailsAppLayer(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_server: Keyword for the app server to use. Defaults to "apache_passenger".
+        :param pulumi.Input[str] arn: The Amazon Resource Name(ARN) of the layer.
         :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.
         :param pulumi.Input[bool] auto_assign_public_ips: For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
         :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
@@ -227,6 +239,7 @@ class RailsAppLayer(pulumi.CustomResource):
         :param pulumi.Input[str] rubygems_version: The version of RubyGems to use. Defaults to "2.2.2".
         :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
         :param pulumi.Input[list] system_packages: Names of a set of system packages to install on the layer's instances.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
 
         The **ebs_volumes** object supports the following:
@@ -244,6 +257,7 @@ class RailsAppLayer(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["app_server"] = app_server
+        __props__["arn"] = arn
         __props__["auto_assign_elastic_ips"] = auto_assign_elastic_ips
         __props__["auto_assign_public_ips"] = auto_assign_public_ips
         __props__["auto_healing"] = auto_healing
@@ -268,6 +282,7 @@ class RailsAppLayer(pulumi.CustomResource):
         __props__["rubygems_version"] = rubygems_version
         __props__["stack_id"] = stack_id
         __props__["system_packages"] = system_packages
+        __props__["tags"] = tags
         __props__["use_ebs_optimized_instances"] = use_ebs_optimized_instances
         return RailsAppLayer(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

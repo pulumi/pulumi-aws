@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Ec2
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_template.html.markdown.
         /// </summary>
         [Obsolete("Use GetLaunchTemplate.InvokeAsync() instead")]
-        public static Task<GetLaunchTemplateResult> GetLaunchTemplate(GetLaunchTemplateArgs args, InvokeOptions? options = null)
+        public static Task<GetLaunchTemplateResult> GetLaunchTemplate(GetLaunchTemplateArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchTemplateResult>("aws:ec2/getLaunchTemplate:getLaunchTemplate", args ?? InvokeArgs.Empty, options.WithVersion());
     }
     public static class GetLaunchTemplate
@@ -27,23 +27,35 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_template.html.markdown.
         /// </summary>
-        public static Task<GetLaunchTemplateResult> InvokeAsync(GetLaunchTemplateArgs args, InvokeOptions? options = null)
+        public static Task<GetLaunchTemplateResult> InvokeAsync(GetLaunchTemplateArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchTemplateResult>("aws:ec2/getLaunchTemplate:getLaunchTemplate", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetLaunchTemplateArgs : Pulumi.InvokeArgs
     {
+        [Input("filters")]
+        private List<Inputs.GetLaunchTemplateFiltersArgs>? _filters;
+
         /// <summary>
-        /// The name of the launch template.
+        /// Configuration block(s) for filtering. Detailed below.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        public List<Inputs.GetLaunchTemplateFiltersArgs> Filters
+        {
+            get => _filters ?? (_filters = new List<Inputs.GetLaunchTemplateFiltersArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+        /// </summary>
+        [Input("name")]
+        public string? Name { get; set; }
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
 
         /// <summary>
-        /// (Optional) A mapping of tags to assign to the launch template.
+        /// A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
         /// </summary>
         public Dictionary<string, object> Tags
         {
@@ -94,6 +106,7 @@ namespace Pulumi.Aws.Ec2
         /// below for more details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchTemplateElasticGpuSpecificationsResult> ElasticGpuSpecifications;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateFiltersResult> Filters;
         /// <summary>
         /// The IAM Instance Profile to launch the instance with. See Instance Profile
         /// below for more details.
@@ -130,10 +143,14 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly int LatestVersion;
         /// <summary>
+        /// The metadata options for the instance.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateMetadataOptionsResult> MetadataOptions;
+        /// <summary>
         /// The monitoring option for the instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchTemplateMonitoringsResult> Monitorings;
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network
         /// Interfaces below for more details.
@@ -183,6 +200,7 @@ namespace Pulumi.Aws.Ec2
             bool disableApiTermination,
             string ebsOptimized,
             ImmutableArray<Outputs.GetLaunchTemplateElasticGpuSpecificationsResult> elasticGpuSpecifications,
+            ImmutableArray<Outputs.GetLaunchTemplateFiltersResult> filters,
             ImmutableArray<Outputs.GetLaunchTemplateIamInstanceProfilesResult> iamInstanceProfiles,
             string imageId,
             string instanceInitiatedShutdownBehavior,
@@ -191,8 +209,9 @@ namespace Pulumi.Aws.Ec2
             string kernelId,
             string keyName,
             int latestVersion,
+            ImmutableArray<Outputs.GetLaunchTemplateMetadataOptionsResult> metadataOptions,
             ImmutableArray<Outputs.GetLaunchTemplateMonitoringsResult> monitorings,
-            string name,
+            string? name,
             ImmutableArray<Outputs.GetLaunchTemplateNetworkInterfacesResult> networkInterfaces,
             ImmutableArray<Outputs.GetLaunchTemplatePlacementsResult> placements,
             string ramDiskId,
@@ -211,6 +230,7 @@ namespace Pulumi.Aws.Ec2
             DisableApiTermination = disableApiTermination;
             EbsOptimized = ebsOptimized;
             ElasticGpuSpecifications = elasticGpuSpecifications;
+            Filters = filters;
             IamInstanceProfiles = iamInstanceProfiles;
             ImageId = imageId;
             InstanceInitiatedShutdownBehavior = instanceInitiatedShutdownBehavior;
@@ -219,6 +239,7 @@ namespace Pulumi.Aws.Ec2
             KernelId = kernelId;
             KeyName = keyName;
             LatestVersion = latestVersion;
+            MetadataOptions = metadataOptions;
             Monitorings = monitorings;
             Name = name;
             NetworkInterfaces = networkInterfaces;
@@ -231,6 +252,35 @@ namespace Pulumi.Aws.Ec2
             VpcSecurityGroupIds = vpcSecurityGroupIds;
             Id = id;
         }
+    }
+
+    namespace Inputs
+    {
+
+    public sealed class GetLaunchTemplateFiltersArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+        /// </summary>
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
+
+        [Input("values", required: true)]
+        private List<string>? _values;
+
+        /// <summary>
+        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        /// </summary>
+        public List<string> Values
+        {
+            get => _values ?? (_values = new List<string>());
+            set => _values = value;
+        }
+
+        public GetLaunchTemplateFiltersArgs()
+        {
+        }
+    }
     }
 
     namespace Outputs
@@ -314,6 +364,28 @@ namespace Pulumi.Aws.Ec2
     }
 
     [OutputType]
+    public sealed class GetLaunchTemplateFiltersResult
+    {
+        /// <summary>
+        /// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
+        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        /// </summary>
+        public readonly ImmutableArray<string> Values;
+
+        [OutputConstructor]
+        private GetLaunchTemplateFiltersResult(
+            string name,
+            ImmutableArray<string> values)
+        {
+            Name = name;
+            Values = values;
+        }
+    }
+
+    [OutputType]
     public sealed class GetLaunchTemplateIamInstanceProfilesResult
     {
         /// <summary>
@@ -321,7 +393,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The name of the launch template.
+        /// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
         /// </summary>
         public readonly string Name;
 
@@ -373,6 +445,34 @@ namespace Pulumi.Aws.Ec2
             MaxPrice = maxPrice;
             SpotInstanceType = spotInstanceType;
             ValidUntil = validUntil;
+        }
+    }
+
+    [OutputType]
+    public sealed class GetLaunchTemplateMetadataOptionsResult
+    {
+        /// <summary>
+        /// The state of the metadata service: `enabled`, `disabled`.
+        /// </summary>
+        public readonly string HttpEndpoint;
+        /// <summary>
+        /// The desired HTTP PUT response hop limit for instance metadata requests.
+        /// </summary>
+        public readonly int HttpPutResponseHopLimit;
+        /// <summary>
+        /// If session tokens are required: `optional`, `required`.
+        /// </summary>
+        public readonly string HttpTokens;
+
+        [OutputConstructor]
+        private GetLaunchTemplateMetadataOptionsResult(
+            string httpEndpoint,
+            int httpPutResponseHopLimit,
+            string httpTokens)
+        {
+            HttpEndpoint = httpEndpoint;
+            HttpPutResponseHopLimit = httpPutResponseHopLimit;
+            HttpTokens = httpTokens;
         }
     }
 
@@ -470,7 +570,7 @@ namespace Pulumi.Aws.Ec2
     {
         public readonly string ResourceType;
         /// <summary>
-        /// (Optional) A mapping of tags to assign to the launch template.
+        /// A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
 

@@ -13,7 +13,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, iam_instance_profile=None, id=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, key_name=None, monitoring=None, network_interface_id=None, password_data=None, placement_group=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None):
+    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, iam_instance_profile=None, id=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, key_name=None, metadata_options=None, monitoring=None, network_interface_id=None, password_data=None, placement_group=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None):
         if ami and not isinstance(ami, str):
             raise TypeError("Expected argument 'ami' to be a str")
         __self__.ami = ami
@@ -115,6 +115,12 @@ class GetInstanceResult:
         __self__.key_name = key_name
         """
         The key name of the Instance.
+        """
+        if metadata_options and not isinstance(metadata_options, list):
+            raise TypeError("Expected argument 'metadata_options' to be a list")
+        __self__.metadata_options = metadata_options
+        """
+        The metadata options of the Instance.
         """
         if monitoring and not isinstance(monitoring, bool):
             raise TypeError("Expected argument 'monitoring' to be a bool")
@@ -250,6 +256,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             instance_tags=self.instance_tags,
             instance_type=self.instance_type,
             key_name=self.key_name,
+            metadata_options=self.metadata_options,
             monitoring=self.monitoring,
             network_interface_id=self.network_interface_id,
             password_data=self.password_data,
@@ -327,6 +334,7 @@ def get_instance(filters=None,get_password_data=None,get_user_data=None,instance
         instance_tags=__ret__.get('instanceTags'),
         instance_type=__ret__.get('instanceType'),
         key_name=__ret__.get('keyName'),
+        metadata_options=__ret__.get('metadataOptions'),
         monitoring=__ret__.get('monitoring'),
         network_interface_id=__ret__.get('networkInterfaceId'),
         password_data=__ret__.get('passwordData'),

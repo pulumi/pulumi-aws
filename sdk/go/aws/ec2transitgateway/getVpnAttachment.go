@@ -22,20 +22,23 @@ func GetVpnAttachment(ctx *pulumi.Context, args *GetVpnAttachmentArgs, opts ...p
 
 // A collection of arguments for invoking getVpnAttachment.
 type GetVpnAttachmentArgs struct {
-	// Key-value tags for the EC2 Transit Gateway VPN Attachment
+	// Configuration block(s) for filtering. Detailed below.
+	Filters []GetVpnAttachmentFilter `pulumi:"filters"`
+	// A mapping of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Identifier of the EC2 Transit Gateway.
-	TransitGatewayId string `pulumi:"transitGatewayId"`
+	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// Identifier of the EC2 VPN Connection.
-	VpnConnectionId string `pulumi:"vpnConnectionId"`
+	VpnConnectionId *string `pulumi:"vpnConnectionId"`
 }
 
 // A collection of values returned by getVpnAttachment.
 type GetVpnAttachmentResult struct {
+	Filters []GetVpnAttachmentFilter `pulumi:"filters"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Key-value tags for the EC2 Transit Gateway VPN Attachment
 	Tags             map[string]interface{} `pulumi:"tags"`
-	TransitGatewayId string                 `pulumi:"transitGatewayId"`
-	VpnConnectionId  string                 `pulumi:"vpnConnectionId"`
+	TransitGatewayId *string                `pulumi:"transitGatewayId"`
+	VpnConnectionId  *string                `pulumi:"vpnConnectionId"`
 }

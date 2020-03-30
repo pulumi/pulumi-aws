@@ -132,6 +132,13 @@ export class FlowLog extends pulumi.CustomResource {
      */
     public readonly logGroupName!: pulumi.Output<string>;
     /**
+     * The maximum interval of time
+     * during which a flow of packets is captured and aggregated into a flow
+     * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
+     * minutes). Default: `600`.
+     */
+    public readonly maxAggregationInterval!: pulumi.Output<number | undefined>;
+    /**
      * Subnet ID to attach to
      */
     public readonly subnetId!: pulumi.Output<string | undefined>;
@@ -166,6 +173,7 @@ export class FlowLog extends pulumi.CustomResource {
             inputs["logDestinationType"] = state ? state.logDestinationType : undefined;
             inputs["logFormat"] = state ? state.logFormat : undefined;
             inputs["logGroupName"] = state ? state.logGroupName : undefined;
+            inputs["maxAggregationInterval"] = state ? state.maxAggregationInterval : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["trafficType"] = state ? state.trafficType : undefined;
@@ -181,6 +189,7 @@ export class FlowLog extends pulumi.CustomResource {
             inputs["logDestinationType"] = args ? args.logDestinationType : undefined;
             inputs["logFormat"] = args ? args.logFormat : undefined;
             inputs["logGroupName"] = args ? args.logGroupName : undefined;
+            inputs["maxAggregationInterval"] = args ? args.maxAggregationInterval : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["trafficType"] = args ? args.trafficType : undefined;
@@ -227,6 +236,13 @@ export interface FlowLogState {
      * @deprecated use 'log_destination' argument instead
      */
     readonly logGroupName?: pulumi.Input<string>;
+    /**
+     * The maximum interval of time
+     * during which a flow of packets is captured and aggregated into a flow
+     * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
+     * minutes). Default: `600`.
+     */
+    readonly maxAggregationInterval?: pulumi.Input<number>;
     /**
      * Subnet ID to attach to
      */
@@ -275,6 +291,13 @@ export interface FlowLogArgs {
      * @deprecated use 'log_destination' argument instead
      */
     readonly logGroupName?: pulumi.Input<string>;
+    /**
+     * The maximum interval of time
+     * during which a flow of packets is captured and aggregated into a flow
+     * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
+     * minutes). Default: `600`.
+     */
+    readonly maxAggregationInterval?: pulumi.Input<number>;
     /**
      * Subnet ID to attach to
      */

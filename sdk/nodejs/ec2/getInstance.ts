@@ -150,6 +150,10 @@ export interface GetInstanceResult {
      */
     readonly keyName: string;
     /**
+     * The metadata options of the Instance.
+     */
+    readonly metadataOptions: outputs.ec2.GetInstanceMetadataOption[];
+    /**
      * Whether detailed monitoring is enabled or disabled for the Instance (Boolean).
      */
     readonly monitoring: boolean;

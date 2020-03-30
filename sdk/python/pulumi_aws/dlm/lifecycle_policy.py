@@ -30,7 +30,7 @@ class LifecyclePolicy(pulumi.CustomResource):
       * `schedules` (`list`) - See the `schedule` configuration block.
         * `copyTags` (`bool`) - Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
         * `createRule` (`dict`) - See the `create_rule` block. Max of 1 per schedule.
-          * `interval` (`float`) - How often this lifecycle policy should be evaluated. `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+          * `interval` (`float`) - How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
           * `intervalUnit` (`str`) - The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
           * `times` (`str`) - A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
 
@@ -70,7 +70,7 @@ class LifecyclePolicy(pulumi.CustomResource):
           * `schedules` (`pulumi.Input[list]`) - See the `schedule` configuration block.
             * `copyTags` (`pulumi.Input[bool]`) - Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
             * `createRule` (`pulumi.Input[dict]`) - See the `create_rule` block. Max of 1 per schedule.
-              * `interval` (`pulumi.Input[float]`) - How often this lifecycle policy should be evaluated. `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+              * `interval` (`pulumi.Input[float]`) - How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
               * `intervalUnit` (`pulumi.Input[str]`) - The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
               * `times` (`pulumi.Input[str]`) - A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
 
@@ -139,7 +139,7 @@ class LifecyclePolicy(pulumi.CustomResource):
           * `schedules` (`pulumi.Input[list]`) - See the `schedule` configuration block.
             * `copyTags` (`pulumi.Input[bool]`) - Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
             * `createRule` (`pulumi.Input[dict]`) - See the `create_rule` block. Max of 1 per schedule.
-              * `interval` (`pulumi.Input[float]`) - How often this lifecycle policy should be evaluated. `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+              * `interval` (`pulumi.Input[float]`) - How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
               * `intervalUnit` (`pulumi.Input[str]`) - The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
               * `times` (`pulumi.Input[str]`) - A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
 

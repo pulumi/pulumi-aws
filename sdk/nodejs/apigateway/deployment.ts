@@ -12,42 +12,7 @@ import {RestApi} from "./restApi";
  * Provides an API Gateway REST Deployment.
  * 
  * > **Note:** Depends on having `aws.apigateway.Integration` inside your rest api (which in turn depends on `aws.apigateway.Method`). To avoid race conditions
- * you might need to add an explicit `dependsOn = ["aws_api_gateway_integration.name"]`.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
- *     description: "This is my API for demonstration purposes",
- * });
- * const myDemoResource = new aws.apigateway.Resource("MyDemoResource", {
- *     parentId: myDemoAPI.rootResourceId,
- *     pathPart: "test",
- *     restApi: myDemoAPI.id,
- * });
- * const myDemoMethod = new aws.apigateway.Method("MyDemoMethod", {
- *     authorization: "NONE",
- *     httpMethod: "GET",
- *     resourceId: myDemoResource.id,
- *     restApi: myDemoAPI.id,
- * });
- * const myDemoIntegration = new aws.apigateway.Integration("MyDemoIntegration", {
- *     httpMethod: myDemoMethod.httpMethod,
- *     resourceId: myDemoResource.id,
- *     restApi: myDemoAPI.id,
- *     type: "MOCK",
- * });
- * const myDemoDeployment = new aws.apigateway.Deployment("MyDemoDeployment", {
- *     restApi: myDemoAPI.id,
- *     stageName: "test",
- *     variables: {
- *         answer: "42",
- *     },
- * }, {dependsOn: [myDemoIntegration]});
- * ```
+ * you might need to add an explicit `dependsOn = ["${aws_api_gateway_integration.name}"]`.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_deployment.html.markdown.
  */

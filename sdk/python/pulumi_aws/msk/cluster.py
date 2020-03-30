@@ -72,6 +72,24 @@ class Cluster(pulumi.CustomResource):
     """
     Specify the desired Kafka software version.
     """
+    logging_info: pulumi.Output[dict]
+    """
+    Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+
+      * `brokerLogs` (`dict`) - Configuration block for Broker Logs settings for logging info. See below.
+        * `cloudwatchLogs` (`dict`)
+          * `enabled` (`bool`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+          * `log_group` (`str`) - Name of the Cloudwatch Log Group to deliver logs to.
+
+        * `firehose` (`dict`)
+          * `deliveryStream` (`str`) - Name of the Kinesis Data Firehose delivery stream to deliver logs to.
+          * `enabled` (`bool`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+
+        * `s3` (`dict`)
+          * `bucket` (`str`) - Name of the S3 bucket to deliver logs to. 
+          * `enabled` (`bool`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+          * `prefix` (`str`) - Prefix to append to the folder name. 
+    """
     number_of_broker_nodes: pulumi.Output[float]
     """
     The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
@@ -95,7 +113,7 @@ class Cluster(pulumi.CustomResource):
     """
     A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
     """
-    def __init__(__self__, resource_name, opts=None, broker_node_group_info=None, client_authentication=None, cluster_name=None, configuration_info=None, encryption_info=None, enhanced_monitoring=None, kafka_version=None, number_of_broker_nodes=None, open_monitoring=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, broker_node_group_info=None, client_authentication=None, cluster_name=None, configuration_info=None, encryption_info=None, enhanced_monitoring=None, kafka_version=None, logging_info=None, number_of_broker_nodes=None, open_monitoring=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages AWS Managed Streaming for Kafka cluster
 
@@ -110,6 +128,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] encryption_info: Configuration block for specifying encryption. See below.
         :param pulumi.Input[str] enhanced_monitoring: Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
         :param pulumi.Input[str] kafka_version: Specify the desired Kafka software version.
+        :param pulumi.Input[dict] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
         :param pulumi.Input[float] number_of_broker_nodes: The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
         :param pulumi.Input[dict] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
@@ -138,6 +157,22 @@ class Cluster(pulumi.CustomResource):
           * `encryptionInTransit` (`pulumi.Input[dict]`) - Configuration block to specify encryption in transit. See below.
             * `clientBroker` (`pulumi.Input[str]`) - Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS_PLAINTEXT` when `encryption_in_transit` block defined, but `TLS` when `encryption_in_transit` block omitted.
             * `inCluster` (`pulumi.Input[bool]`) - Whether data communication among broker nodes is encrypted. Default value: `true`.
+
+        The **logging_info** object supports the following:
+
+          * `brokerLogs` (`pulumi.Input[dict]`) - Configuration block for Broker Logs settings for logging info. See below.
+            * `cloudwatchLogs` (`pulumi.Input[dict]`)
+              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+              * `log_group` (`pulumi.Input[str]`) - Name of the Cloudwatch Log Group to deliver logs to.
+
+            * `firehose` (`pulumi.Input[dict]`)
+              * `deliveryStream` (`pulumi.Input[str]`) - Name of the Kinesis Data Firehose delivery stream to deliver logs to.
+              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+
+            * `s3` (`pulumi.Input[dict]`)
+              * `bucket` (`pulumi.Input[str]`) - Name of the S3 bucket to deliver logs to. 
+              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+              * `prefix` (`pulumi.Input[str]`) - Prefix to append to the folder name. 
 
         The **open_monitoring** object supports the following:
 
@@ -178,6 +213,7 @@ class Cluster(pulumi.CustomResource):
             if kafka_version is None:
                 raise TypeError("Missing required property 'kafka_version'")
             __props__['kafka_version'] = kafka_version
+            __props__['logging_info'] = logging_info
             if number_of_broker_nodes is None:
                 raise TypeError("Missing required property 'number_of_broker_nodes'")
             __props__['number_of_broker_nodes'] = number_of_broker_nodes
@@ -195,7 +231,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, bootstrap_brokers=None, bootstrap_brokers_tls=None, broker_node_group_info=None, client_authentication=None, cluster_name=None, configuration_info=None, current_version=None, encryption_info=None, enhanced_monitoring=None, kafka_version=None, number_of_broker_nodes=None, open_monitoring=None, tags=None, zookeeper_connect_string=None):
+    def get(resource_name, id, opts=None, arn=None, bootstrap_brokers=None, bootstrap_brokers_tls=None, broker_node_group_info=None, client_authentication=None, cluster_name=None, configuration_info=None, current_version=None, encryption_info=None, enhanced_monitoring=None, kafka_version=None, logging_info=None, number_of_broker_nodes=None, open_monitoring=None, tags=None, zookeeper_connect_string=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -215,6 +251,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] encryption_info: Configuration block for specifying encryption. See below.
         :param pulumi.Input[str] enhanced_monitoring: Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
         :param pulumi.Input[str] kafka_version: Specify the desired Kafka software version.
+        :param pulumi.Input[dict] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
         :param pulumi.Input[float] number_of_broker_nodes: The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
         :param pulumi.Input[dict] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
@@ -245,6 +282,22 @@ class Cluster(pulumi.CustomResource):
             * `clientBroker` (`pulumi.Input[str]`) - Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS_PLAINTEXT` when `encryption_in_transit` block defined, but `TLS` when `encryption_in_transit` block omitted.
             * `inCluster` (`pulumi.Input[bool]`) - Whether data communication among broker nodes is encrypted. Default value: `true`.
 
+        The **logging_info** object supports the following:
+
+          * `brokerLogs` (`pulumi.Input[dict]`) - Configuration block for Broker Logs settings for logging info. See below.
+            * `cloudwatchLogs` (`pulumi.Input[dict]`)
+              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+              * `log_group` (`pulumi.Input[str]`) - Name of the Cloudwatch Log Group to deliver logs to.
+
+            * `firehose` (`pulumi.Input[dict]`)
+              * `deliveryStream` (`pulumi.Input[str]`) - Name of the Kinesis Data Firehose delivery stream to deliver logs to.
+              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+
+            * `s3` (`pulumi.Input[dict]`)
+              * `bucket` (`pulumi.Input[str]`) - Name of the S3 bucket to deliver logs to. 
+              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+              * `prefix` (`pulumi.Input[str]`) - Prefix to append to the folder name. 
+
         The **open_monitoring** object supports the following:
 
           * `prometheus` (`pulumi.Input[dict]`) - Configuration block for Prometheus settings for open monitoring. See below.
@@ -269,6 +322,7 @@ class Cluster(pulumi.CustomResource):
         __props__["encryption_info"] = encryption_info
         __props__["enhanced_monitoring"] = enhanced_monitoring
         __props__["kafka_version"] = kafka_version
+        __props__["logging_info"] = logging_info
         __props__["number_of_broker_nodes"] = number_of_broker_nodes
         __props__["open_monitoring"] = open_monitoring
         __props__["tags"] = tags

@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpn_attachment.html.markdown.
         /// </summary>
         [Obsolete("Use GetVpnAttachment.InvokeAsync() instead")]
-        public static Task<GetVpnAttachmentResult> GetVpnAttachment(GetVpnAttachmentArgs args, InvokeOptions? options = null)
+        public static Task<GetVpnAttachmentResult> GetVpnAttachment(GetVpnAttachmentArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpnAttachmentResult>("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", args ?? InvokeArgs.Empty, options.WithVersion());
     }
     public static class GetVpnAttachment
@@ -27,17 +27,29 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpn_attachment.html.markdown.
         /// </summary>
-        public static Task<GetVpnAttachmentResult> InvokeAsync(GetVpnAttachmentArgs args, InvokeOptions? options = null)
+        public static Task<GetVpnAttachmentResult> InvokeAsync(GetVpnAttachmentArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpnAttachmentResult>("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetVpnAttachmentArgs : Pulumi.InvokeArgs
     {
+        [Input("filters")]
+        private List<Inputs.GetVpnAttachmentFiltersArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
+        public List<Inputs.GetVpnAttachmentFiltersArgs> Filters
+        {
+            get => _filters ?? (_filters = new List<Inputs.GetVpnAttachmentFiltersArgs>());
+            set => _filters = value;
+        }
+
         [Input("tags")]
         private Dictionary<string, object>? _tags;
 
         /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway VPN Attachment
+        /// A mapping of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
         /// </summary>
         public Dictionary<string, object> Tags
         {
@@ -48,14 +60,14 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Identifier of the EC2 Transit Gateway.
         /// </summary>
-        [Input("transitGatewayId", required: true)]
-        public string TransitGatewayId { get; set; } = null!;
+        [Input("transitGatewayId")]
+        public string? TransitGatewayId { get; set; }
 
         /// <summary>
         /// Identifier of the EC2 VPN Connection.
         /// </summary>
-        [Input("vpnConnectionId", required: true)]
-        public string VpnConnectionId { get; set; } = null!;
+        [Input("vpnConnectionId")]
+        public string? VpnConnectionId { get; set; }
 
         public GetVpnAttachmentArgs()
         {
@@ -65,12 +77,13 @@ namespace Pulumi.Aws.Ec2TransitGateway
     [OutputType]
     public sealed class GetVpnAttachmentResult
     {
+        public readonly ImmutableArray<Outputs.GetVpnAttachmentFiltersResult> Filters;
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway VPN Attachment
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
-        public readonly string TransitGatewayId;
-        public readonly string VpnConnectionId;
+        public readonly string? TransitGatewayId;
+        public readonly string? VpnConnectionId;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -78,15 +91,72 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         [OutputConstructor]
         private GetVpnAttachmentResult(
+            ImmutableArray<Outputs.GetVpnAttachmentFiltersResult> filters,
             ImmutableDictionary<string, object> tags,
-            string transitGatewayId,
-            string vpnConnectionId,
+            string? transitGatewayId,
+            string? vpnConnectionId,
             string id)
         {
+            Filters = filters;
             Tags = tags;
             TransitGatewayId = transitGatewayId;
             VpnConnectionId = vpnConnectionId;
             Id = id;
         }
+    }
+
+    namespace Inputs
+    {
+
+    public sealed class GetVpnAttachmentFiltersArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+        /// </summary>
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
+
+        [Input("values", required: true)]
+        private List<string>? _values;
+
+        /// <summary>
+        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        /// </summary>
+        public List<string> Values
+        {
+            get => _values ?? (_values = new List<string>());
+            set => _values = value;
+        }
+
+        public GetVpnAttachmentFiltersArgs()
+        {
+        }
+    }
+    }
+
+    namespace Outputs
+    {
+
+    [OutputType]
+    public sealed class GetVpnAttachmentFiltersResult
+    {
+        /// <summary>
+        /// The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
+        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        /// </summary>
+        public readonly ImmutableArray<string> Values;
+
+        [OutputConstructor]
+        private GetVpnAttachmentFiltersResult(
+            string name,
+            ImmutableArray<string> values)
+        {
+            Name = name;
+            Values = values;
+        }
+    }
     }
 }

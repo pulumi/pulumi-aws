@@ -2722,6 +2722,148 @@ func (o InstanceEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntInput) Instan
 	}).(InstanceEphemeralBlockDeviceOutput)
 }
 
+type InstanceMetadataOptions struct {
+	// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+	HttpEndpoint *string `pulumi:"httpEndpoint"`
+	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+	HttpTokens *string `pulumi:"httpTokens"`
+}
+
+type InstanceMetadataOptionsInput interface {
+	pulumi.Input
+
+	ToInstanceMetadataOptionsOutput() InstanceMetadataOptionsOutput
+	ToInstanceMetadataOptionsOutputWithContext(context.Context) InstanceMetadataOptionsOutput
+}
+
+type InstanceMetadataOptionsArgs struct {
+	// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+	HttpEndpoint pulumi.StringPtrInput `pulumi:"httpEndpoint"`
+	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
+}
+
+func (InstanceMetadataOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceMetadataOptions)(nil)).Elem()
+}
+
+func (i InstanceMetadataOptionsArgs) ToInstanceMetadataOptionsOutput() InstanceMetadataOptionsOutput {
+	return i.ToInstanceMetadataOptionsOutputWithContext(context.Background())
+}
+
+func (i InstanceMetadataOptionsArgs) ToInstanceMetadataOptionsOutputWithContext(ctx context.Context) InstanceMetadataOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceMetadataOptionsOutput)
+}
+
+func (i InstanceMetadataOptionsArgs) ToInstanceMetadataOptionsPtrOutput() InstanceMetadataOptionsPtrOutput {
+	return i.ToInstanceMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceMetadataOptionsArgs) ToInstanceMetadataOptionsPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceMetadataOptionsOutput).ToInstanceMetadataOptionsPtrOutputWithContext(ctx)
+}
+
+type InstanceMetadataOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceMetadataOptionsPtrOutput() InstanceMetadataOptionsPtrOutput
+	ToInstanceMetadataOptionsPtrOutputWithContext(context.Context) InstanceMetadataOptionsPtrOutput
+}
+
+type instanceMetadataOptionsPtrType InstanceMetadataOptionsArgs
+
+func InstanceMetadataOptionsPtr(v *InstanceMetadataOptionsArgs) InstanceMetadataOptionsPtrInput {
+	return (*instanceMetadataOptionsPtrType)(v)
+}
+
+func (*instanceMetadataOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceMetadataOptions)(nil)).Elem()
+}
+
+func (i *instanceMetadataOptionsPtrType) ToInstanceMetadataOptionsPtrOutput() InstanceMetadataOptionsPtrOutput {
+	return i.ToInstanceMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceMetadataOptionsPtrType) ToInstanceMetadataOptionsPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceMetadataOptionsPtrOutput)
+}
+
+type InstanceMetadataOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstanceMetadataOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceMetadataOptions)(nil)).Elem()
+}
+
+func (o InstanceMetadataOptionsOutput) ToInstanceMetadataOptionsOutput() InstanceMetadataOptionsOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsOutput) ToInstanceMetadataOptionsOutputWithContext(ctx context.Context) InstanceMetadataOptionsOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsOutput) ToInstanceMetadataOptionsPtrOutput() InstanceMetadataOptionsPtrOutput {
+	return o.ToInstanceMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceMetadataOptionsOutput) ToInstanceMetadataOptionsPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v InstanceMetadataOptions) *InstanceMetadataOptions {
+		return &v
+	}).(InstanceMetadataOptionsPtrOutput)
+}
+
+// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+func (o InstanceMetadataOptionsOutput) HttpEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+func (o InstanceMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
+}
+
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+func (o InstanceMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
+}
+
+type InstanceMetadataOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceMetadataOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceMetadataOptions)(nil)).Elem()
+}
+
+func (o InstanceMetadataOptionsPtrOutput) ToInstanceMetadataOptionsPtrOutput() InstanceMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsPtrOutput) ToInstanceMetadataOptionsPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceMetadataOptionsPtrOutput) Elem() InstanceMetadataOptionsOutput {
+	return o.ApplyT(func(v *InstanceMetadataOptions) InstanceMetadataOptions { return *v }).(InstanceMetadataOptionsOutput)
+}
+
+// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+func (o InstanceMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+func (o InstanceMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
+}
+
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+func (o InstanceMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
+}
+
 type InstanceNetworkInterface struct {
 	// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
@@ -4976,6 +5118,148 @@ func (o LaunchTemplateLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateLicenseSpecification {
 		return vs[0].([]LaunchTemplateLicenseSpecification)[vs[1].(int)]
 	}).(LaunchTemplateLicenseSpecificationOutput)
+}
+
+type LaunchTemplateMetadataOptions struct {
+	// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+	HttpEndpoint *string `pulumi:"httpEndpoint"`
+	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+	HttpTokens *string `pulumi:"httpTokens"`
+}
+
+type LaunchTemplateMetadataOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMetadataOptionsOutput() LaunchTemplateMetadataOptionsOutput
+	ToLaunchTemplateMetadataOptionsOutputWithContext(context.Context) LaunchTemplateMetadataOptionsOutput
+}
+
+type LaunchTemplateMetadataOptionsArgs struct {
+	// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+	HttpEndpoint pulumi.StringPtrInput `pulumi:"httpEndpoint"`
+	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
+}
+
+func (LaunchTemplateMetadataOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMetadataOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateMetadataOptionsArgs) ToLaunchTemplateMetadataOptionsOutput() LaunchTemplateMetadataOptionsOutput {
+	return i.ToLaunchTemplateMetadataOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMetadataOptionsArgs) ToLaunchTemplateMetadataOptionsOutputWithContext(ctx context.Context) LaunchTemplateMetadataOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMetadataOptionsOutput)
+}
+
+func (i LaunchTemplateMetadataOptionsArgs) ToLaunchTemplateMetadataOptionsPtrOutput() LaunchTemplateMetadataOptionsPtrOutput {
+	return i.ToLaunchTemplateMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMetadataOptionsArgs) ToLaunchTemplateMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMetadataOptionsOutput).ToLaunchTemplateMetadataOptionsPtrOutputWithContext(ctx)
+}
+
+type LaunchTemplateMetadataOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMetadataOptionsPtrOutput() LaunchTemplateMetadataOptionsPtrOutput
+	ToLaunchTemplateMetadataOptionsPtrOutputWithContext(context.Context) LaunchTemplateMetadataOptionsPtrOutput
+}
+
+type launchTemplateMetadataOptionsPtrType LaunchTemplateMetadataOptionsArgs
+
+func LaunchTemplateMetadataOptionsPtr(v *LaunchTemplateMetadataOptionsArgs) LaunchTemplateMetadataOptionsPtrInput {
+	return (*launchTemplateMetadataOptionsPtrType)(v)
+}
+
+func (*launchTemplateMetadataOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMetadataOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateMetadataOptionsPtrType) ToLaunchTemplateMetadataOptionsPtrOutput() LaunchTemplateMetadataOptionsPtrOutput {
+	return i.ToLaunchTemplateMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateMetadataOptionsPtrType) ToLaunchTemplateMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMetadataOptionsPtrOutput)
+}
+
+type LaunchTemplateMetadataOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMetadataOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMetadataOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateMetadataOptionsOutput) ToLaunchTemplateMetadataOptionsOutput() LaunchTemplateMetadataOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateMetadataOptionsOutput) ToLaunchTemplateMetadataOptionsOutputWithContext(ctx context.Context) LaunchTemplateMetadataOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateMetadataOptionsOutput) ToLaunchTemplateMetadataOptionsPtrOutput() LaunchTemplateMetadataOptionsPtrOutput {
+	return o.ToLaunchTemplateMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateMetadataOptionsOutput) ToLaunchTemplateMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *LaunchTemplateMetadataOptions {
+		return &v
+	}).(LaunchTemplateMetadataOptionsPtrOutput)
+}
+
+// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+func (o LaunchTemplateMetadataOptionsOutput) HttpEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+func (o LaunchTemplateMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
+}
+
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+func (o LaunchTemplateMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateMetadataOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMetadataOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMetadataOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateMetadataOptionsPtrOutput) ToLaunchTemplateMetadataOptionsPtrOutput() LaunchTemplateMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMetadataOptionsPtrOutput) ToLaunchTemplateMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMetadataOptionsPtrOutput) Elem() LaunchTemplateMetadataOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) LaunchTemplateMetadataOptions { return *v }).(LaunchTemplateMetadataOptionsOutput)
+}
+
+// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+func (o LaunchTemplateMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+func (o LaunchTemplateMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
+}
+
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+func (o LaunchTemplateMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
 }
 
 type LaunchTemplateMonitoring struct {
@@ -7776,6 +8060,148 @@ func (o SpotInstanceRequestEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntIn
 	}).(SpotInstanceRequestEphemeralBlockDeviceOutput)
 }
 
+type SpotInstanceRequestMetadataOptions struct {
+	// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+	HttpEndpoint *string `pulumi:"httpEndpoint"`
+	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+	HttpTokens *string `pulumi:"httpTokens"`
+}
+
+type SpotInstanceRequestMetadataOptionsInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestMetadataOptionsOutput() SpotInstanceRequestMetadataOptionsOutput
+	ToSpotInstanceRequestMetadataOptionsOutputWithContext(context.Context) SpotInstanceRequestMetadataOptionsOutput
+}
+
+type SpotInstanceRequestMetadataOptionsArgs struct {
+	// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+	HttpEndpoint pulumi.StringPtrInput `pulumi:"httpEndpoint"`
+	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
+}
+
+func (SpotInstanceRequestMetadataOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequestMetadataOptions)(nil)).Elem()
+}
+
+func (i SpotInstanceRequestMetadataOptionsArgs) ToSpotInstanceRequestMetadataOptionsOutput() SpotInstanceRequestMetadataOptionsOutput {
+	return i.ToSpotInstanceRequestMetadataOptionsOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestMetadataOptionsArgs) ToSpotInstanceRequestMetadataOptionsOutputWithContext(ctx context.Context) SpotInstanceRequestMetadataOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestMetadataOptionsOutput)
+}
+
+func (i SpotInstanceRequestMetadataOptionsArgs) ToSpotInstanceRequestMetadataOptionsPtrOutput() SpotInstanceRequestMetadataOptionsPtrOutput {
+	return i.ToSpotInstanceRequestMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestMetadataOptionsArgs) ToSpotInstanceRequestMetadataOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestMetadataOptionsOutput).ToSpotInstanceRequestMetadataOptionsPtrOutputWithContext(ctx)
+}
+
+type SpotInstanceRequestMetadataOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestMetadataOptionsPtrOutput() SpotInstanceRequestMetadataOptionsPtrOutput
+	ToSpotInstanceRequestMetadataOptionsPtrOutputWithContext(context.Context) SpotInstanceRequestMetadataOptionsPtrOutput
+}
+
+type spotInstanceRequestMetadataOptionsPtrType SpotInstanceRequestMetadataOptionsArgs
+
+func SpotInstanceRequestMetadataOptionsPtr(v *SpotInstanceRequestMetadataOptionsArgs) SpotInstanceRequestMetadataOptionsPtrInput {
+	return (*spotInstanceRequestMetadataOptionsPtrType)(v)
+}
+
+func (*spotInstanceRequestMetadataOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequestMetadataOptions)(nil)).Elem()
+}
+
+func (i *spotInstanceRequestMetadataOptionsPtrType) ToSpotInstanceRequestMetadataOptionsPtrOutput() SpotInstanceRequestMetadataOptionsPtrOutput {
+	return i.ToSpotInstanceRequestMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *spotInstanceRequestMetadataOptionsPtrType) ToSpotInstanceRequestMetadataOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestMetadataOptionsPtrOutput)
+}
+
+type SpotInstanceRequestMetadataOptionsOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestMetadataOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequestMetadataOptions)(nil)).Elem()
+}
+
+func (o SpotInstanceRequestMetadataOptionsOutput) ToSpotInstanceRequestMetadataOptionsOutput() SpotInstanceRequestMetadataOptionsOutput {
+	return o
+}
+
+func (o SpotInstanceRequestMetadataOptionsOutput) ToSpotInstanceRequestMetadataOptionsOutputWithContext(ctx context.Context) SpotInstanceRequestMetadataOptionsOutput {
+	return o
+}
+
+func (o SpotInstanceRequestMetadataOptionsOutput) ToSpotInstanceRequestMetadataOptionsPtrOutput() SpotInstanceRequestMetadataOptionsPtrOutput {
+	return o.ToSpotInstanceRequestMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SpotInstanceRequestMetadataOptionsOutput) ToSpotInstanceRequestMetadataOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *SpotInstanceRequestMetadataOptions {
+		return &v
+	}).(SpotInstanceRequestMetadataOptionsPtrOutput)
+}
+
+// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+func (o SpotInstanceRequestMetadataOptionsOutput) HttpEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+func (o SpotInstanceRequestMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
+}
+
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+func (o SpotInstanceRequestMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
+}
+
+type SpotInstanceRequestMetadataOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestMetadataOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequestMetadataOptions)(nil)).Elem()
+}
+
+func (o SpotInstanceRequestMetadataOptionsPtrOutput) ToSpotInstanceRequestMetadataOptionsPtrOutput() SpotInstanceRequestMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o SpotInstanceRequestMetadataOptionsPtrOutput) ToSpotInstanceRequestMetadataOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o SpotInstanceRequestMetadataOptionsPtrOutput) Elem() SpotInstanceRequestMetadataOptionsOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestMetadataOptions) SpotInstanceRequestMetadataOptions { return *v }).(SpotInstanceRequestMetadataOptionsOutput)
+}
+
+// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+func (o SpotInstanceRequestMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+func (o SpotInstanceRequestMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
+}
+
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+func (o SpotInstanceRequestMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
+}
+
 type SpotInstanceRequestNetworkInterface struct {
 	// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
@@ -9837,6 +10263,113 @@ func (o GetInstanceFilterArrayOutput) Index(i pulumi.IntInput) GetInstanceFilter
 	}).(GetInstanceFilterOutput)
 }
 
+type GetInstanceMetadataOption struct {
+	// The state of the metadata service: `enabled`, `disabled`.
+	HttpEndpoint string `pulumi:"httpEndpoint"`
+	// The desired HTTP PUT response hop limit for instance metadata requests.
+	HttpPutResponseHopLimit int `pulumi:"httpPutResponseHopLimit"`
+	// If session tokens are required: `optional`, `required`.
+	HttpTokens string `pulumi:"httpTokens"`
+}
+
+type GetInstanceMetadataOptionInput interface {
+	pulumi.Input
+
+	ToGetInstanceMetadataOptionOutput() GetInstanceMetadataOptionOutput
+	ToGetInstanceMetadataOptionOutputWithContext(context.Context) GetInstanceMetadataOptionOutput
+}
+
+type GetInstanceMetadataOptionArgs struct {
+	// The state of the metadata service: `enabled`, `disabled`.
+	HttpEndpoint pulumi.StringInput `pulumi:"httpEndpoint"`
+	// The desired HTTP PUT response hop limit for instance metadata requests.
+	HttpPutResponseHopLimit pulumi.IntInput `pulumi:"httpPutResponseHopLimit"`
+	// If session tokens are required: `optional`, `required`.
+	HttpTokens pulumi.StringInput `pulumi:"httpTokens"`
+}
+
+func (GetInstanceMetadataOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceMetadataOption)(nil)).Elem()
+}
+
+func (i GetInstanceMetadataOptionArgs) ToGetInstanceMetadataOptionOutput() GetInstanceMetadataOptionOutput {
+	return i.ToGetInstanceMetadataOptionOutputWithContext(context.Background())
+}
+
+func (i GetInstanceMetadataOptionArgs) ToGetInstanceMetadataOptionOutputWithContext(ctx context.Context) GetInstanceMetadataOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceMetadataOptionOutput)
+}
+
+type GetInstanceMetadataOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceMetadataOptionArrayOutput() GetInstanceMetadataOptionArrayOutput
+	ToGetInstanceMetadataOptionArrayOutputWithContext(context.Context) GetInstanceMetadataOptionArrayOutput
+}
+
+type GetInstanceMetadataOptionArray []GetInstanceMetadataOptionInput
+
+func (GetInstanceMetadataOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceMetadataOption)(nil)).Elem()
+}
+
+func (i GetInstanceMetadataOptionArray) ToGetInstanceMetadataOptionArrayOutput() GetInstanceMetadataOptionArrayOutput {
+	return i.ToGetInstanceMetadataOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceMetadataOptionArray) ToGetInstanceMetadataOptionArrayOutputWithContext(ctx context.Context) GetInstanceMetadataOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceMetadataOptionArrayOutput)
+}
+
+type GetInstanceMetadataOptionOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceMetadataOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceMetadataOption)(nil)).Elem()
+}
+
+func (o GetInstanceMetadataOptionOutput) ToGetInstanceMetadataOptionOutput() GetInstanceMetadataOptionOutput {
+	return o
+}
+
+func (o GetInstanceMetadataOptionOutput) ToGetInstanceMetadataOptionOutputWithContext(ctx context.Context) GetInstanceMetadataOptionOutput {
+	return o
+}
+
+// The state of the metadata service: `enabled`, `disabled`.
+func (o GetInstanceMetadataOptionOutput) HttpEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceMetadataOption) string { return v.HttpEndpoint }).(pulumi.StringOutput)
+}
+
+// The desired HTTP PUT response hop limit for instance metadata requests.
+func (o GetInstanceMetadataOptionOutput) HttpPutResponseHopLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceMetadataOption) int { return v.HttpPutResponseHopLimit }).(pulumi.IntOutput)
+}
+
+// If session tokens are required: `optional`, `required`.
+func (o GetInstanceMetadataOptionOutput) HttpTokens() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceMetadataOption) string { return v.HttpTokens }).(pulumi.StringOutput)
+}
+
+type GetInstanceMetadataOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceMetadataOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceMetadataOption)(nil)).Elem()
+}
+
+func (o GetInstanceMetadataOptionArrayOutput) ToGetInstanceMetadataOptionArrayOutput() GetInstanceMetadataOptionArrayOutput {
+	return o
+}
+
+func (o GetInstanceMetadataOptionArrayOutput) ToGetInstanceMetadataOptionArrayOutputWithContext(ctx context.Context) GetInstanceMetadataOptionArrayOutput {
+	return o
+}
+
+func (o GetInstanceMetadataOptionArrayOutput) Index(i pulumi.IntInput) GetInstanceMetadataOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceMetadataOption {
+		return vs[0].([]GetInstanceMetadataOption)[vs[1].(int)]
+	}).(GetInstanceMetadataOptionOutput)
+}
+
 type GetInstanceRootBlockDevice struct {
 	// If the root block device will be deleted on termination.
 	DeleteOnTermination bool `pulumi:"deleteOnTermination"`
@@ -11228,10 +11761,108 @@ func (o GetLaunchTemplateElasticGpuSpecificationArrayOutput) Index(i pulumi.IntI
 	}).(GetLaunchTemplateElasticGpuSpecificationOutput)
 }
 
+type GetLaunchTemplateFilter struct {
+	// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+type GetLaunchTemplateFilterInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateFilterOutput() GetLaunchTemplateFilterOutput
+	ToGetLaunchTemplateFilterOutputWithContext(context.Context) GetLaunchTemplateFilterOutput
+}
+
+type GetLaunchTemplateFilterArgs struct {
+	// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetLaunchTemplateFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateFilter)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateFilterArgs) ToGetLaunchTemplateFilterOutput() GetLaunchTemplateFilterOutput {
+	return i.ToGetLaunchTemplateFilterOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateFilterArgs) ToGetLaunchTemplateFilterOutputWithContext(ctx context.Context) GetLaunchTemplateFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateFilterOutput)
+}
+
+type GetLaunchTemplateFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateFilterArrayOutput() GetLaunchTemplateFilterArrayOutput
+	ToGetLaunchTemplateFilterArrayOutputWithContext(context.Context) GetLaunchTemplateFilterArrayOutput
+}
+
+type GetLaunchTemplateFilterArray []GetLaunchTemplateFilterInput
+
+func (GetLaunchTemplateFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateFilter)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateFilterArray) ToGetLaunchTemplateFilterArrayOutput() GetLaunchTemplateFilterArrayOutput {
+	return i.ToGetLaunchTemplateFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateFilterArray) ToGetLaunchTemplateFilterArrayOutputWithContext(ctx context.Context) GetLaunchTemplateFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateFilterArrayOutput)
+}
+
+type GetLaunchTemplateFilterOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateFilter)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateFilterOutput) ToGetLaunchTemplateFilterOutput() GetLaunchTemplateFilterOutput {
+	return o
+}
+
+func (o GetLaunchTemplateFilterOutput) ToGetLaunchTemplateFilterOutputWithContext(ctx context.Context) GetLaunchTemplateFilterOutput {
+	return o
+}
+
+// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+func (o GetLaunchTemplateFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplateFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetLaunchTemplateFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetLaunchTemplateFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateFilter)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateFilterArrayOutput) ToGetLaunchTemplateFilterArrayOutput() GetLaunchTemplateFilterArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateFilterArrayOutput) ToGetLaunchTemplateFilterArrayOutputWithContext(ctx context.Context) GetLaunchTemplateFilterArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateFilterArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateFilter {
+		return vs[0].([]GetLaunchTemplateFilter)[vs[1].(int)]
+	}).(GetLaunchTemplateFilterOutput)
+}
+
 type GetLaunchTemplateIamInstanceProfile struct {
 	// Amazon Resource Name (ARN) of the launch template.
 	Arn string `pulumi:"arn"`
-	// The name of the launch template.
+	// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
 	Name string `pulumi:"name"`
 }
 
@@ -11245,7 +11876,7 @@ type GetLaunchTemplateIamInstanceProfileInput interface {
 type GetLaunchTemplateIamInstanceProfileArgs struct {
 	// Amazon Resource Name (ARN) of the launch template.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The name of the launch template.
+	// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -11301,7 +11932,7 @@ func (o GetLaunchTemplateIamInstanceProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchTemplateIamInstanceProfile) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the launch template.
+// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
 func (o GetLaunchTemplateIamInstanceProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchTemplateIamInstanceProfile) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -11528,6 +12159,113 @@ func (o GetLaunchTemplateInstanceMarketOptionSpotOptionArrayOutput) Index(i pulu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateInstanceMarketOptionSpotOption {
 		return vs[0].([]GetLaunchTemplateInstanceMarketOptionSpotOption)[vs[1].(int)]
 	}).(GetLaunchTemplateInstanceMarketOptionSpotOptionOutput)
+}
+
+type GetLaunchTemplateMetadataOption struct {
+	// The state of the metadata service: `enabled`, `disabled`.
+	HttpEndpoint string `pulumi:"httpEndpoint"`
+	// The desired HTTP PUT response hop limit for instance metadata requests.
+	HttpPutResponseHopLimit int `pulumi:"httpPutResponseHopLimit"`
+	// If session tokens are required: `optional`, `required`.
+	HttpTokens string `pulumi:"httpTokens"`
+}
+
+type GetLaunchTemplateMetadataOptionInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateMetadataOptionOutput() GetLaunchTemplateMetadataOptionOutput
+	ToGetLaunchTemplateMetadataOptionOutputWithContext(context.Context) GetLaunchTemplateMetadataOptionOutput
+}
+
+type GetLaunchTemplateMetadataOptionArgs struct {
+	// The state of the metadata service: `enabled`, `disabled`.
+	HttpEndpoint pulumi.StringInput `pulumi:"httpEndpoint"`
+	// The desired HTTP PUT response hop limit for instance metadata requests.
+	HttpPutResponseHopLimit pulumi.IntInput `pulumi:"httpPutResponseHopLimit"`
+	// If session tokens are required: `optional`, `required`.
+	HttpTokens pulumi.StringInput `pulumi:"httpTokens"`
+}
+
+func (GetLaunchTemplateMetadataOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateMetadataOption)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateMetadataOptionArgs) ToGetLaunchTemplateMetadataOptionOutput() GetLaunchTemplateMetadataOptionOutput {
+	return i.ToGetLaunchTemplateMetadataOptionOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateMetadataOptionArgs) ToGetLaunchTemplateMetadataOptionOutputWithContext(ctx context.Context) GetLaunchTemplateMetadataOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateMetadataOptionOutput)
+}
+
+type GetLaunchTemplateMetadataOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateMetadataOptionArrayOutput() GetLaunchTemplateMetadataOptionArrayOutput
+	ToGetLaunchTemplateMetadataOptionArrayOutputWithContext(context.Context) GetLaunchTemplateMetadataOptionArrayOutput
+}
+
+type GetLaunchTemplateMetadataOptionArray []GetLaunchTemplateMetadataOptionInput
+
+func (GetLaunchTemplateMetadataOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateMetadataOption)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateMetadataOptionArray) ToGetLaunchTemplateMetadataOptionArrayOutput() GetLaunchTemplateMetadataOptionArrayOutput {
+	return i.ToGetLaunchTemplateMetadataOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateMetadataOptionArray) ToGetLaunchTemplateMetadataOptionArrayOutputWithContext(ctx context.Context) GetLaunchTemplateMetadataOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateMetadataOptionArrayOutput)
+}
+
+type GetLaunchTemplateMetadataOptionOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateMetadataOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateMetadataOption)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateMetadataOptionOutput) ToGetLaunchTemplateMetadataOptionOutput() GetLaunchTemplateMetadataOptionOutput {
+	return o
+}
+
+func (o GetLaunchTemplateMetadataOptionOutput) ToGetLaunchTemplateMetadataOptionOutputWithContext(ctx context.Context) GetLaunchTemplateMetadataOptionOutput {
+	return o
+}
+
+// The state of the metadata service: `enabled`, `disabled`.
+func (o GetLaunchTemplateMetadataOptionOutput) HttpEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplateMetadataOption) string { return v.HttpEndpoint }).(pulumi.StringOutput)
+}
+
+// The desired HTTP PUT response hop limit for instance metadata requests.
+func (o GetLaunchTemplateMetadataOptionOutput) HttpPutResponseHopLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateMetadataOption) int { return v.HttpPutResponseHopLimit }).(pulumi.IntOutput)
+}
+
+// If session tokens are required: `optional`, `required`.
+func (o GetLaunchTemplateMetadataOptionOutput) HttpTokens() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplateMetadataOption) string { return v.HttpTokens }).(pulumi.StringOutput)
+}
+
+type GetLaunchTemplateMetadataOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateMetadataOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateMetadataOption)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateMetadataOptionArrayOutput) ToGetLaunchTemplateMetadataOptionArrayOutput() GetLaunchTemplateMetadataOptionArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateMetadataOptionArrayOutput) ToGetLaunchTemplateMetadataOptionArrayOutputWithContext(ctx context.Context) GetLaunchTemplateMetadataOptionArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateMetadataOptionArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateMetadataOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateMetadataOption {
+		return vs[0].([]GetLaunchTemplateMetadataOption)[vs[1].(int)]
+	}).(GetLaunchTemplateMetadataOptionOutput)
 }
 
 type GetLaunchTemplateMonitoring struct {
@@ -11889,7 +12627,7 @@ func (o GetLaunchTemplatePlacementArrayOutput) Index(i pulumi.IntInput) GetLaunc
 
 type GetLaunchTemplateTagSpecification struct {
 	ResourceType string `pulumi:"resourceType"`
-	// (Optional) A mapping of tags to assign to the launch template.
+	// A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -11902,7 +12640,7 @@ type GetLaunchTemplateTagSpecificationInput interface {
 
 type GetLaunchTemplateTagSpecificationArgs struct {
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// (Optional) A mapping of tags to assign to the launch template.
+	// A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
 	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
@@ -11957,7 +12695,7 @@ func (o GetLaunchTemplateTagSpecificationOutput) ResourceType() pulumi.StringOut
 	return o.ApplyT(func(v GetLaunchTemplateTagSpecification) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// (Optional) A mapping of tags to assign to the launch template.
+// A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
 func (o GetLaunchTemplateTagSpecificationOutput) Tags() pulumi.MapOutput {
 	return o.ApplyT(func(v GetLaunchTemplateTagSpecification) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
 }
@@ -13824,7 +14562,7 @@ func (o GetVpcEndpointDnsEntryArrayOutput) Index(i pulumi.IntInput) GetVpcEndpoi
 
 type GetVpcEndpointFilter struct {
 	// The name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// A VPC Endpoint will be selected if any one of the given values matches.
@@ -13840,7 +14578,7 @@ type GetVpcEndpointFilterInput interface {
 
 type GetVpcEndpointFilterArgs struct {
 	// The name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// A VPC Endpoint will be selected if any one of the given values matches.
@@ -13895,7 +14633,7 @@ func (o GetVpcEndpointFilterOutput) ToGetVpcEndpointFilterOutputWithContext(ctx 
 }
 
 // The name of the field to filter by, as defined by
-// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
 func (o GetVpcEndpointFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcEndpointFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -13924,6 +14662,104 @@ func (o GetVpcEndpointFilterArrayOutput) Index(i pulumi.IntInput) GetVpcEndpoint
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcEndpointFilter {
 		return vs[0].([]GetVpcEndpointFilter)[vs[1].(int)]
 	}).(GetVpcEndpointFilterOutput)
+}
+
+type GetVpcEndpointServiceFilter struct {
+	// The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+type GetVpcEndpointServiceFilterInput interface {
+	pulumi.Input
+
+	ToGetVpcEndpointServiceFilterOutput() GetVpcEndpointServiceFilterOutput
+	ToGetVpcEndpointServiceFilterOutputWithContext(context.Context) GetVpcEndpointServiceFilterOutput
+}
+
+type GetVpcEndpointServiceFilterArgs struct {
+	// The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetVpcEndpointServiceFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcEndpointServiceFilter)(nil)).Elem()
+}
+
+func (i GetVpcEndpointServiceFilterArgs) ToGetVpcEndpointServiceFilterOutput() GetVpcEndpointServiceFilterOutput {
+	return i.ToGetVpcEndpointServiceFilterOutputWithContext(context.Background())
+}
+
+func (i GetVpcEndpointServiceFilterArgs) ToGetVpcEndpointServiceFilterOutputWithContext(ctx context.Context) GetVpcEndpointServiceFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcEndpointServiceFilterOutput)
+}
+
+type GetVpcEndpointServiceFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcEndpointServiceFilterArrayOutput() GetVpcEndpointServiceFilterArrayOutput
+	ToGetVpcEndpointServiceFilterArrayOutputWithContext(context.Context) GetVpcEndpointServiceFilterArrayOutput
+}
+
+type GetVpcEndpointServiceFilterArray []GetVpcEndpointServiceFilterInput
+
+func (GetVpcEndpointServiceFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcEndpointServiceFilter)(nil)).Elem()
+}
+
+func (i GetVpcEndpointServiceFilterArray) ToGetVpcEndpointServiceFilterArrayOutput() GetVpcEndpointServiceFilterArrayOutput {
+	return i.ToGetVpcEndpointServiceFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcEndpointServiceFilterArray) ToGetVpcEndpointServiceFilterArrayOutputWithContext(ctx context.Context) GetVpcEndpointServiceFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcEndpointServiceFilterArrayOutput)
+}
+
+type GetVpcEndpointServiceFilterOutput struct{ *pulumi.OutputState }
+
+func (GetVpcEndpointServiceFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcEndpointServiceFilter)(nil)).Elem()
+}
+
+func (o GetVpcEndpointServiceFilterOutput) ToGetVpcEndpointServiceFilterOutput() GetVpcEndpointServiceFilterOutput {
+	return o
+}
+
+func (o GetVpcEndpointServiceFilterOutput) ToGetVpcEndpointServiceFilterOutputWithContext(ctx context.Context) GetVpcEndpointServiceFilterOutput {
+	return o
+}
+
+// The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
+func (o GetVpcEndpointServiceFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcEndpointServiceFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetVpcEndpointServiceFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpcEndpointServiceFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetVpcEndpointServiceFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcEndpointServiceFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcEndpointServiceFilter)(nil)).Elem()
+}
+
+func (o GetVpcEndpointServiceFilterArrayOutput) ToGetVpcEndpointServiceFilterArrayOutput() GetVpcEndpointServiceFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcEndpointServiceFilterArrayOutput) ToGetVpcEndpointServiceFilterArrayOutputWithContext(ctx context.Context) GetVpcEndpointServiceFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcEndpointServiceFilterArrayOutput) Index(i pulumi.IntInput) GetVpcEndpointServiceFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcEndpointServiceFilter {
+		return vs[0].([]GetVpcEndpointServiceFilter)[vs[1].(int)]
+	}).(GetVpcEndpointServiceFilterOutput)
 }
 
 type GetVpcFilter struct {
@@ -14382,6 +15218,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceEbsBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(InstanceEphemeralBlockDeviceOutput{})
 	pulumi.RegisterOutputType(InstanceEphemeralBlockDeviceArrayOutput{})
+	pulumi.RegisterOutputType(InstanceMetadataOptionsOutput{})
+	pulumi.RegisterOutputType(InstanceMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(InstanceNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(InstanceRootBlockDeviceOutput{})
@@ -14416,6 +15254,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMetadataOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateMonitoringOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateMonitoringPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceOutput{})
@@ -14454,6 +15294,8 @@ func init() {
 	pulumi.RegisterOutputType(SpotInstanceRequestEbsBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestEphemeralBlockDeviceOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestEphemeralBlockDeviceArrayOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestMetadataOptionsOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestRootBlockDeviceOutput{})
@@ -14486,6 +15328,8 @@ func init() {
 	pulumi.RegisterOutputType(GetInstanceEphemeralBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceFilterOutput{})
 	pulumi.RegisterOutputType(GetInstanceFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceMetadataOptionOutput{})
+	pulumi.RegisterOutputType(GetInstanceMetadataOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceRootBlockDeviceOutput{})
 	pulumi.RegisterOutputType(GetInstanceRootBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceTypeOfferingFilterOutput{})
@@ -14512,12 +15356,16 @@ func init() {
 	pulumi.RegisterOutputType(GetLaunchTemplateCreditSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateElasticGpuSpecificationOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateElasticGpuSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateFilterOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateIamInstanceProfileOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateIamInstanceProfileArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateInstanceMarketOptionOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateInstanceMarketOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateInstanceMarketOptionSpotOptionOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateInstanceMarketOptionSpotOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateMetadataOptionOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateMetadataOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateMonitoringOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateMonitoringArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateNetworkInterfaceOutput{})
@@ -14562,6 +15410,8 @@ func init() {
 	pulumi.RegisterOutputType(GetVpcEndpointDnsEntryArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcEndpointFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcEndpointFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcEndpointServiceFilterOutput{})
+	pulumi.RegisterOutputType(GetVpcEndpointServiceFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionFilterOutput{})

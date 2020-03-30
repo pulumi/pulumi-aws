@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * ### Custom Service
+ * ### Non-AWS Service
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -165,7 +165,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
     /**
-     * The service name, in the form `com.amazonaws.region.service` for AWS services.
+     * The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
     public readonly serviceName!: pulumi.Output<string>;
     /**
@@ -305,7 +305,7 @@ export interface VpcEndpointState {
      */
     readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The service name, in the form `com.amazonaws.region.service` for AWS services.
+     * The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
     readonly serviceName?: pulumi.Input<string>;
     /**
@@ -356,7 +356,7 @@ export interface VpcEndpointArgs {
      */
     readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The service name, in the form `com.amazonaws.region.service` for AWS services.
+     * The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
     readonly serviceName: pulumi.Input<string>;
     /**

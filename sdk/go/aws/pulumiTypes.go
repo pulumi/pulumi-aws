@@ -492,6 +492,202 @@ func (o GetAutoscalingGroupsFilterArrayOutput) Index(i pulumi.IntInput) GetAutos
 	}).(GetAutoscalingGroupsFilterOutput)
 }
 
+type GetAvailabilityZoneFilter struct {
+	// The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+type GetAvailabilityZoneFilterInput interface {
+	pulumi.Input
+
+	ToGetAvailabilityZoneFilterOutput() GetAvailabilityZoneFilterOutput
+	ToGetAvailabilityZoneFilterOutputWithContext(context.Context) GetAvailabilityZoneFilterOutput
+}
+
+type GetAvailabilityZoneFilterArgs struct {
+	// The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetAvailabilityZoneFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAvailabilityZoneFilter)(nil)).Elem()
+}
+
+func (i GetAvailabilityZoneFilterArgs) ToGetAvailabilityZoneFilterOutput() GetAvailabilityZoneFilterOutput {
+	return i.ToGetAvailabilityZoneFilterOutputWithContext(context.Background())
+}
+
+func (i GetAvailabilityZoneFilterArgs) ToGetAvailabilityZoneFilterOutputWithContext(ctx context.Context) GetAvailabilityZoneFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAvailabilityZoneFilterOutput)
+}
+
+type GetAvailabilityZoneFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetAvailabilityZoneFilterArrayOutput() GetAvailabilityZoneFilterArrayOutput
+	ToGetAvailabilityZoneFilterArrayOutputWithContext(context.Context) GetAvailabilityZoneFilterArrayOutput
+}
+
+type GetAvailabilityZoneFilterArray []GetAvailabilityZoneFilterInput
+
+func (GetAvailabilityZoneFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAvailabilityZoneFilter)(nil)).Elem()
+}
+
+func (i GetAvailabilityZoneFilterArray) ToGetAvailabilityZoneFilterArrayOutput() GetAvailabilityZoneFilterArrayOutput {
+	return i.ToGetAvailabilityZoneFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetAvailabilityZoneFilterArray) ToGetAvailabilityZoneFilterArrayOutputWithContext(ctx context.Context) GetAvailabilityZoneFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAvailabilityZoneFilterArrayOutput)
+}
+
+type GetAvailabilityZoneFilterOutput struct{ *pulumi.OutputState }
+
+func (GetAvailabilityZoneFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAvailabilityZoneFilter)(nil)).Elem()
+}
+
+func (o GetAvailabilityZoneFilterOutput) ToGetAvailabilityZoneFilterOutput() GetAvailabilityZoneFilterOutput {
+	return o
+}
+
+func (o GetAvailabilityZoneFilterOutput) ToGetAvailabilityZoneFilterOutputWithContext(ctx context.Context) GetAvailabilityZoneFilterOutput {
+	return o
+}
+
+// The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+func (o GetAvailabilityZoneFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAvailabilityZoneFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetAvailabilityZoneFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAvailabilityZoneFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetAvailabilityZoneFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAvailabilityZoneFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAvailabilityZoneFilter)(nil)).Elem()
+}
+
+func (o GetAvailabilityZoneFilterArrayOutput) ToGetAvailabilityZoneFilterArrayOutput() GetAvailabilityZoneFilterArrayOutput {
+	return o
+}
+
+func (o GetAvailabilityZoneFilterArrayOutput) ToGetAvailabilityZoneFilterArrayOutputWithContext(ctx context.Context) GetAvailabilityZoneFilterArrayOutput {
+	return o
+}
+
+func (o GetAvailabilityZoneFilterArrayOutput) Index(i pulumi.IntInput) GetAvailabilityZoneFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAvailabilityZoneFilter {
+		return vs[0].([]GetAvailabilityZoneFilter)[vs[1].(int)]
+	}).(GetAvailabilityZoneFilterOutput)
+}
+
+type GetAvailabilityZonesFilter struct {
+	// The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+type GetAvailabilityZonesFilterInput interface {
+	pulumi.Input
+
+	ToGetAvailabilityZonesFilterOutput() GetAvailabilityZonesFilterOutput
+	ToGetAvailabilityZonesFilterOutputWithContext(context.Context) GetAvailabilityZonesFilterOutput
+}
+
+type GetAvailabilityZonesFilterArgs struct {
+	// The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetAvailabilityZonesFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAvailabilityZonesFilter)(nil)).Elem()
+}
+
+func (i GetAvailabilityZonesFilterArgs) ToGetAvailabilityZonesFilterOutput() GetAvailabilityZonesFilterOutput {
+	return i.ToGetAvailabilityZonesFilterOutputWithContext(context.Background())
+}
+
+func (i GetAvailabilityZonesFilterArgs) ToGetAvailabilityZonesFilterOutputWithContext(ctx context.Context) GetAvailabilityZonesFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAvailabilityZonesFilterOutput)
+}
+
+type GetAvailabilityZonesFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetAvailabilityZonesFilterArrayOutput() GetAvailabilityZonesFilterArrayOutput
+	ToGetAvailabilityZonesFilterArrayOutputWithContext(context.Context) GetAvailabilityZonesFilterArrayOutput
+}
+
+type GetAvailabilityZonesFilterArray []GetAvailabilityZonesFilterInput
+
+func (GetAvailabilityZonesFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAvailabilityZonesFilter)(nil)).Elem()
+}
+
+func (i GetAvailabilityZonesFilterArray) ToGetAvailabilityZonesFilterArrayOutput() GetAvailabilityZonesFilterArrayOutput {
+	return i.ToGetAvailabilityZonesFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetAvailabilityZonesFilterArray) ToGetAvailabilityZonesFilterArrayOutputWithContext(ctx context.Context) GetAvailabilityZonesFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAvailabilityZonesFilterArrayOutput)
+}
+
+type GetAvailabilityZonesFilterOutput struct{ *pulumi.OutputState }
+
+func (GetAvailabilityZonesFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAvailabilityZonesFilter)(nil)).Elem()
+}
+
+func (o GetAvailabilityZonesFilterOutput) ToGetAvailabilityZonesFilterOutput() GetAvailabilityZonesFilterOutput {
+	return o
+}
+
+func (o GetAvailabilityZonesFilterOutput) ToGetAvailabilityZonesFilterOutputWithContext(ctx context.Context) GetAvailabilityZonesFilterOutput {
+	return o
+}
+
+// The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+func (o GetAvailabilityZonesFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAvailabilityZonesFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetAvailabilityZonesFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAvailabilityZonesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetAvailabilityZonesFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAvailabilityZonesFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAvailabilityZonesFilter)(nil)).Elem()
+}
+
+func (o GetAvailabilityZonesFilterArrayOutput) ToGetAvailabilityZonesFilterArrayOutput() GetAvailabilityZonesFilterArrayOutput {
+	return o
+}
+
+func (o GetAvailabilityZonesFilterArrayOutput) ToGetAvailabilityZonesFilterArrayOutputWithContext(ctx context.Context) GetAvailabilityZonesFilterArrayOutput {
+	return o
+}
+
+func (o GetAvailabilityZonesFilterArrayOutput) Index(i pulumi.IntInput) GetAvailabilityZonesFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAvailabilityZonesFilter {
+		return vs[0].([]GetAvailabilityZonesFilter)[vs[1].(int)]
+	}).(GetAvailabilityZonesFilterOutput)
+}
+
 type GetElasticIpFilter struct {
 	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
@@ -582,6 +778,104 @@ func (o GetElasticIpFilterArrayOutput) Index(i pulumi.IntInput) GetElasticIpFilt
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetElasticIpFilter {
 		return vs[0].([]GetElasticIpFilter)[vs[1].(int)]
 	}).(GetElasticIpFilterOutput)
+}
+
+type GetPrefixListFilter struct {
+	// The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+type GetPrefixListFilterInput interface {
+	pulumi.Input
+
+	ToGetPrefixListFilterOutput() GetPrefixListFilterOutput
+	ToGetPrefixListFilterOutputWithContext(context.Context) GetPrefixListFilterOutput
+}
+
+type GetPrefixListFilterArgs struct {
+	// The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetPrefixListFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrefixListFilter)(nil)).Elem()
+}
+
+func (i GetPrefixListFilterArgs) ToGetPrefixListFilterOutput() GetPrefixListFilterOutput {
+	return i.ToGetPrefixListFilterOutputWithContext(context.Background())
+}
+
+func (i GetPrefixListFilterArgs) ToGetPrefixListFilterOutputWithContext(ctx context.Context) GetPrefixListFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrefixListFilterOutput)
+}
+
+type GetPrefixListFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetPrefixListFilterArrayOutput() GetPrefixListFilterArrayOutput
+	ToGetPrefixListFilterArrayOutputWithContext(context.Context) GetPrefixListFilterArrayOutput
+}
+
+type GetPrefixListFilterArray []GetPrefixListFilterInput
+
+func (GetPrefixListFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrefixListFilter)(nil)).Elem()
+}
+
+func (i GetPrefixListFilterArray) ToGetPrefixListFilterArrayOutput() GetPrefixListFilterArrayOutput {
+	return i.ToGetPrefixListFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrefixListFilterArray) ToGetPrefixListFilterArrayOutputWithContext(ctx context.Context) GetPrefixListFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrefixListFilterArrayOutput)
+}
+
+type GetPrefixListFilterOutput struct{ *pulumi.OutputState }
+
+func (GetPrefixListFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrefixListFilter)(nil)).Elem()
+}
+
+func (o GetPrefixListFilterOutput) ToGetPrefixListFilterOutput() GetPrefixListFilterOutput {
+	return o
+}
+
+func (o GetPrefixListFilterOutput) ToGetPrefixListFilterOutputWithContext(ctx context.Context) GetPrefixListFilterOutput {
+	return o
+}
+
+// The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+func (o GetPrefixListFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrefixListFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetPrefixListFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPrefixListFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetPrefixListFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrefixListFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrefixListFilter)(nil)).Elem()
+}
+
+func (o GetPrefixListFilterArrayOutput) ToGetPrefixListFilterArrayOutput() GetPrefixListFilterArrayOutput {
+	return o
+}
+
+func (o GetPrefixListFilterArrayOutput) ToGetPrefixListFilterArrayOutputWithContext(ctx context.Context) GetPrefixListFilterArrayOutput {
+	return o
+}
+
+func (o GetPrefixListFilterArrayOutput) Index(i pulumi.IntInput) GetPrefixListFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrefixListFilter {
+		return vs[0].([]GetPrefixListFilter)[vs[1].(int)]
+	}).(GetPrefixListFilterOutput)
 }
 
 type ProviderAssumeRole struct {
@@ -1618,8 +1912,14 @@ func init() {
 	pulumi.RegisterOutputType(GetAmiProductCodeArrayOutput{})
 	pulumi.RegisterOutputType(GetAutoscalingGroupsFilterOutput{})
 	pulumi.RegisterOutputType(GetAutoscalingGroupsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetAvailabilityZoneFilterOutput{})
+	pulumi.RegisterOutputType(GetAvailabilityZoneFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetAvailabilityZonesFilterOutput{})
+	pulumi.RegisterOutputType(GetAvailabilityZonesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetElasticIpFilterOutput{})
 	pulumi.RegisterOutputType(GetElasticIpFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetPrefixListFilterOutput{})
+	pulumi.RegisterOutputType(GetPrefixListFilterArrayOutput{})
 	pulumi.RegisterOutputType(ProviderAssumeRoleOutput{})
 	pulumi.RegisterOutputType(ProviderAssumeRolePtrOutput{})
 	pulumi.RegisterOutputType(ProviderEndpointOutput{})

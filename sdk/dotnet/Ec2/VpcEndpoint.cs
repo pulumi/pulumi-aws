@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// The service name, in the form `com.amazonaws.region.service` for AWS services.
+        /// The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
         /// </summary>
         [Output("serviceName")]
         public Output<string> ServiceName { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The service name, in the form `com.amazonaws.region.service` for AWS services.
+        /// The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
@@ -362,7 +362,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The service name, in the form `com.amazonaws.region.service` for AWS services.
+        /// The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }

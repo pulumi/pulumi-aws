@@ -129,6 +129,14 @@ class Instance(pulumi.CustomResource):
     """
     The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
     """
+    metadata_options: pulumi.Output[dict]
+    """
+    Customize the metadata options of the instance. See Metadata Options below for more details.
+
+      * `httpEndpoint` (`str`) - Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+      * `httpPutResponseHopLimit` (`float`) - The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+      * `httpTokens` (`str`) - Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+    """
     monitoring: pulumi.Output[bool]
     """
     If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -231,7 +239,7 @@ class Instance(pulumi.CustomResource):
     """
     A list of security group IDs to associate with.
     """
-    def __init__(__self__, resource_name, opts=None, ami=None, associate_public_ip_address=None, availability_zone=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, monitoring=None, network_interfaces=None, placement_group=None, private_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, volume_tags=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, ami=None, associate_public_ip_address=None, availability_zone=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, metadata_options=None, monitoring=None, network_interfaces=None, placement_group=None, private_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, volume_tags=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an EC2 instance resource. This allows instances to be created, updated,
         and deleted. Instances also support [provisioning](https://www.terraform.io/docs/provisioners/index.html).
@@ -272,6 +280,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] instance_type: The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[list] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         :param pulumi.Input[str] key_name: The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
+        :param pulumi.Input[dict] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[list] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[str] placement_group: The Placement Group to start the instance in.
@@ -319,6 +328,12 @@ class Instance(pulumi.CustomResource):
           * `virtualName` (`pulumi.Input[str]`) - The [Instance Store Device
             Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
             (e.g. `"ephemeral0"`).
+
+        The **metadata_options** object supports the following:
+
+          * `httpEndpoint` (`pulumi.Input[str]`) - Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+          * `httpPutResponseHopLimit` (`pulumi.Input[float]`) - The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+          * `httpTokens` (`pulumi.Input[str]`) - Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 
         The **network_interfaces** object supports the following:
 
@@ -380,6 +395,7 @@ class Instance(pulumi.CustomResource):
             __props__['ipv6_address_count'] = ipv6_address_count
             __props__['ipv6_addresses'] = ipv6_addresses
             __props__['key_name'] = key_name
+            __props__['metadata_options'] = metadata_options
             __props__['monitoring'] = monitoring
             __props__['network_interfaces'] = network_interfaces
             __props__['placement_group'] = placement_group
@@ -408,7 +424,7 @@ class Instance(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_state=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, monitoring=None, network_interfaces=None, password_data=None, placement_group=None, primary_network_interface_id=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, volume_tags=None, vpc_security_group_ids=None):
+    def get(resource_name, id, opts=None, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_state=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, metadata_options=None, monitoring=None, network_interfaces=None, password_data=None, placement_group=None, primary_network_interface_id=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, volume_tags=None, vpc_security_group_ids=None):
         """
         Get an existing Instance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -450,6 +466,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] instance_type: The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[list] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         :param pulumi.Input[str] key_name: The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
+        :param pulumi.Input[dict] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[list] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[str] password_data: Base-64 encoded encrypted password data for the instance.
@@ -510,6 +527,12 @@ class Instance(pulumi.CustomResource):
             Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
             (e.g. `"ephemeral0"`).
 
+        The **metadata_options** object supports the following:
+
+          * `httpEndpoint` (`pulumi.Input[str]`) - Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+          * `httpPutResponseHopLimit` (`pulumi.Input[float]`) - The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+          * `httpTokens` (`pulumi.Input[str]`) - Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+
         The **network_interfaces** object supports the following:
 
           * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
@@ -555,6 +578,7 @@ class Instance(pulumi.CustomResource):
         __props__["ipv6_address_count"] = ipv6_address_count
         __props__["ipv6_addresses"] = ipv6_addresses
         __props__["key_name"] = key_name
+        __props__["metadata_options"] = metadata_options
         __props__["monitoring"] = monitoring
         __props__["network_interfaces"] = network_interfaces
         __props__["password_data"] = password_data

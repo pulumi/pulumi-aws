@@ -22,6 +22,8 @@ type Workgroup struct {
 	Configuration WorkgroupConfigurationPtrOutput `pulumi:"configuration"`
 	// Description of the workgroup.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// Name of the workgroup.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
@@ -64,6 +66,8 @@ type workgroupState struct {
 	Configuration *WorkgroupConfiguration `pulumi:"configuration"`
 	// Description of the workgroup.
 	Description *string `pulumi:"description"`
+	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Name of the workgroup.
 	Name *string `pulumi:"name"`
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
@@ -79,6 +83,8 @@ type WorkgroupState struct {
 	Configuration WorkgroupConfigurationPtrInput
 	// Description of the workgroup.
 	Description pulumi.StringPtrInput
+	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+	ForceDestroy pulumi.BoolPtrInput
 	// Name of the workgroup.
 	Name pulumi.StringPtrInput
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
@@ -96,6 +102,8 @@ type workgroupArgs struct {
 	Configuration *WorkgroupConfiguration `pulumi:"configuration"`
 	// Description of the workgroup.
 	Description *string `pulumi:"description"`
+	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Name of the workgroup.
 	Name *string `pulumi:"name"`
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
@@ -110,6 +118,8 @@ type WorkgroupArgs struct {
 	Configuration WorkgroupConfigurationPtrInput
 	// Description of the workgroup.
 	Description pulumi.StringPtrInput
+	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+	ForceDestroy pulumi.BoolPtrInput
 	// Name of the workgroup.
 	Name pulumi.StringPtrInput
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.

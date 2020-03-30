@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ApiGateway
     /// Provides an API Gateway REST Deployment.
     /// 
     /// &gt; **Note:** Depends on having `aws.apigateway.Integration` inside your rest api (which in turn depends on `aws.apigateway.Method`). To avoid race conditions
-    /// you might need to add an explicit `depends_on = ["aws_api_gateway_integration.name"]`.
+    /// you might need to add an explicit `depends_on = ["${aws_api_gateway_integration.name}"]`.
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_deployment.html.markdown.
     /// </summary>

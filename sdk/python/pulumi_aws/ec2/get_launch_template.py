@@ -13,7 +13,7 @@ class GetLaunchTemplateResult:
     """
     A collection of values returned by getLaunchTemplate.
     """
-    def __init__(__self__, arn=None, block_device_mappings=None, credit_specifications=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, iam_instance_profiles=None, id=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, monitorings=None, name=None, network_interfaces=None, placements=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
+    def __init__(__self__, arn=None, block_device_mappings=None, credit_specifications=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, filters=None, iam_instance_profiles=None, id=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, metadata_options=None, monitorings=None, name=None, network_interfaces=None, placements=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -65,6 +65,9 @@ class GetLaunchTemplateResult:
         The elastic GPU to attach to the instance. See Elastic GPU
         below for more details.
         """
+        if filters and not isinstance(filters, list):
+            raise TypeError("Expected argument 'filters' to be a list")
+        __self__.filters = filters
         if iam_instance_profiles and not isinstance(iam_instance_profiles, list):
             raise TypeError("Expected argument 'iam_instance_profiles' to be a list")
         __self__.iam_instance_profiles = iam_instance_profiles
@@ -121,6 +124,12 @@ class GetLaunchTemplateResult:
         __self__.latest_version = latest_version
         """
         The latest version of the launch template.
+        """
+        if metadata_options and not isinstance(metadata_options, list):
+            raise TypeError("Expected argument 'metadata_options' to be a list")
+        __self__.metadata_options = metadata_options
+        """
+        The metadata options for the instance.
         """
         if monitorings and not isinstance(monitorings, list):
             raise TypeError("Expected argument 'monitorings' to be a list")
@@ -195,6 +204,7 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
             disable_api_termination=self.disable_api_termination,
             ebs_optimized=self.ebs_optimized,
             elastic_gpu_specifications=self.elastic_gpu_specifications,
+            filters=self.filters,
             iam_instance_profiles=self.iam_instance_profiles,
             id=self.id,
             image_id=self.image_id,
@@ -204,6 +214,7 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
             kernel_id=self.kernel_id,
             key_name=self.key_name,
             latest_version=self.latest_version,
+            metadata_options=self.metadata_options,
             monitorings=self.monitorings,
             name=self.name,
             network_interfaces=self.network_interfaces,
@@ -215,19 +226,26 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
             user_data=self.user_data,
             vpc_security_group_ids=self.vpc_security_group_ids)
 
-def get_launch_template(name=None,tags=None,opts=None):
+def get_launch_template(filters=None,name=None,tags=None,opts=None):
     """
     Provides information about a Launch Template.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_template.html.markdown.
 
 
-    :param str name: The name of the launch template.
-    :param dict tags: (Optional) A mapping of tags to assign to the launch template.
+    :param list filters: Configuration block(s) for filtering. Detailed below.
+    :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+    :param dict tags: A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
+
+    The **filters** object supports the following:
+
+      * `name` (`str`) - The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+      * `values` (`list`) - Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
     """
     __args__ = dict()
 
 
+    __args__['filters'] = filters
     __args__['name'] = name
     __args__['tags'] = tags
     if opts is None:
@@ -245,6 +263,7 @@ def get_launch_template(name=None,tags=None,opts=None):
         disable_api_termination=__ret__.get('disableApiTermination'),
         ebs_optimized=__ret__.get('ebsOptimized'),
         elastic_gpu_specifications=__ret__.get('elasticGpuSpecifications'),
+        filters=__ret__.get('filters'),
         iam_instance_profiles=__ret__.get('iamInstanceProfiles'),
         id=__ret__.get('id'),
         image_id=__ret__.get('imageId'),
@@ -254,6 +273,7 @@ def get_launch_template(name=None,tags=None,opts=None):
         kernel_id=__ret__.get('kernelId'),
         key_name=__ret__.get('keyName'),
         latest_version=__ret__.get('latestVersion'),
+        metadata_options=__ret__.get('metadataOptions'),
         monitorings=__ret__.get('monitorings'),
         name=__ret__.get('name'),
         network_interfaces=__ret__.get('networkInterfaces'),

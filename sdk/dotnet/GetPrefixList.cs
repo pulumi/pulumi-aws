@@ -45,8 +45,20 @@ namespace Pulumi.Aws
 
     public sealed class GetPrefixListArgs : Pulumi.InvokeArgs
     {
+        [Input("filters")]
+        private List<Inputs.GetPrefixListFiltersArgs>? _filters;
+
         /// <summary>
-        /// The name of the prefix list to select.
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
+        public List<Inputs.GetPrefixListFiltersArgs> Filters
+        {
+            get => _filters ?? (_filters = new List<Inputs.GetPrefixListFiltersArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -66,10 +78,10 @@ namespace Pulumi.Aws
     public sealed class GetPrefixListResult
     {
         /// <summary>
-        /// The list of CIDR blocks for the AWS service associated
-        /// with the prefix list.
+        /// The list of CIDR blocks for the AWS service associated with the prefix list.
         /// </summary>
         public readonly ImmutableArray<string> CidrBlocks;
+        public readonly ImmutableArray<Outputs.GetPrefixListFiltersResult> Filters;
         /// <summary>
         /// The name of the selected prefix list.
         /// </summary>
@@ -83,14 +95,71 @@ namespace Pulumi.Aws
         [OutputConstructor]
         private GetPrefixListResult(
             ImmutableArray<string> cidrBlocks,
+            ImmutableArray<Outputs.GetPrefixListFiltersResult> filters,
             string name,
             string? prefixListId,
             string id)
         {
             CidrBlocks = cidrBlocks;
+            Filters = filters;
             Name = name;
             PrefixListId = prefixListId;
             Id = id;
         }
+    }
+
+    namespace Inputs
+    {
+
+    public sealed class GetPrefixListFiltersArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+        /// </summary>
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
+
+        [Input("values", required: true)]
+        private List<string>? _values;
+
+        /// <summary>
+        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        /// </summary>
+        public List<string> Values
+        {
+            get => _values ?? (_values = new List<string>());
+            set => _values = value;
+        }
+
+        public GetPrefixListFiltersArgs()
+        {
+        }
+    }
+    }
+
+    namespace Outputs
+    {
+
+    [OutputType]
+    public sealed class GetPrefixListFiltersResult
+    {
+        /// <summary>
+        /// The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
+        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        /// </summary>
+        public readonly ImmutableArray<string> Values;
+
+        [OutputConstructor]
+        private GetPrefixListFiltersResult(
+            string name,
+            ImmutableArray<string> values)
+        {
+            Name = name;
+            Values = values;
+        }
+    }
     }
 }

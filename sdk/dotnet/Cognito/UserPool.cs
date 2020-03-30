@@ -155,6 +155,12 @@ namespace Pulumi.Aws.Cognito
         public Output<ImmutableArray<string>> UsernameAttributes { get; private set; } = null!;
 
         /// <summary>
+        /// The Username Configuration.
+        /// </summary>
+        [Output("usernameConfiguration")]
+        public Output<Outputs.UserPoolUsernameConfiguration?> UsernameConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The verification message templates configuration.
         /// </summary>
         [Output("verificationMessageTemplate")]
@@ -351,6 +357,12 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
+        /// The Username Configuration.
+        /// </summary>
+        [Input("usernameConfiguration")]
+        public Input<Inputs.UserPoolUsernameConfigurationArgs>? UsernameConfiguration { get; set; }
+
+        /// <summary>
         /// The verification message templates configuration.
         /// </summary>
         [Input("verificationMessageTemplate")]
@@ -532,6 +544,12 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
+        /// The Username Configuration.
+        /// </summary>
+        [Input("usernameConfiguration")]
+        public Input<Inputs.UserPoolUsernameConfigurationGetArgs>? UsernameConfiguration { get; set; }
+
+        /// <summary>
         /// The verification message templates configuration.
         /// </summary>
         [Input("verificationMessageTemplate")]
@@ -692,6 +710,12 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? EmailSendingAccount { get; set; }
 
         /// <summary>
+        /// Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith &lt;john@smith.com&gt;")
+        /// </summary>
+        [Input("fromEmailAddress")]
+        public Input<string>? FromEmailAddress { get; set; }
+
+        /// <summary>
         /// The REPLY-TO email address.
         /// </summary>
         [Input("replyToEmailAddress")]
@@ -715,6 +739,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("emailSendingAccount")]
         public Input<string>? EmailSendingAccount { get; set; }
+
+        /// <summary>
+        /// Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith &lt;john@smith.com&gt;")
+        /// </summary>
+        [Input("fromEmailAddress")]
+        public Input<string>? FromEmailAddress { get; set; }
 
         /// <summary>
         /// The REPLY-TO email address.
@@ -1217,6 +1247,32 @@ namespace Pulumi.Aws.Cognito
         }
     }
 
+    public sealed class UserPoolUsernameConfigurationArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+        /// </summary>
+        [Input("caseSensitive", required: true)]
+        public Input<bool> CaseSensitive { get; set; } = null!;
+
+        public UserPoolUsernameConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class UserPoolUsernameConfigurationGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+        /// </summary>
+        [Input("caseSensitive", required: true)]
+        public Input<bool> CaseSensitive { get; set; } = null!;
+
+        public UserPoolUsernameConfigurationGetArgs()
+        {
+        }
+    }
+
     public sealed class UserPoolVerificationMessageTemplateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -1393,6 +1449,10 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         public readonly string? EmailSendingAccount;
         /// <summary>
+        /// Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith &lt;john@smith.com&gt;")
+        /// </summary>
+        public readonly string? FromEmailAddress;
+        /// <summary>
         /// The REPLY-TO email address.
         /// </summary>
         public readonly string? ReplyToEmailAddress;
@@ -1404,10 +1464,12 @@ namespace Pulumi.Aws.Cognito
         [OutputConstructor]
         private UserPoolEmailConfiguration(
             string? emailSendingAccount,
+            string? fromEmailAddress,
             string? replyToEmailAddress,
             string? sourceArn)
         {
             EmailSendingAccount = emailSendingAccount;
+            FromEmailAddress = fromEmailAddress;
             ReplyToEmailAddress = replyToEmailAddress;
             SourceArn = sourceArn;
         }
@@ -1674,6 +1736,21 @@ namespace Pulumi.Aws.Cognito
         private UserPoolUserPoolAddOns(string advancedSecurityMode)
         {
             AdvancedSecurityMode = advancedSecurityMode;
+        }
+    }
+
+    [OutputType]
+    public sealed class UserPoolUsernameConfiguration
+    {
+        /// <summary>
+        /// Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+        /// </summary>
+        public readonly bool CaseSensitive;
+
+        [OutputConstructor]
+        private UserPoolUsernameConfiguration(bool caseSensitive)
+        {
+            CaseSensitive = caseSensitive;
         }
     }
 

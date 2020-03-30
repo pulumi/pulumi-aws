@@ -13,7 +13,7 @@ class GetVpcEndpointServiceResult:
     """
     A collection of values returned by getVpcEndpointService.
     """
-    def __init__(__self__, acceptance_required=None, availability_zones=None, base_endpoint_dns_names=None, id=None, manages_vpc_endpoints=None, owner=None, private_dns_name=None, service=None, service_id=None, service_name=None, service_type=None, tags=None, vpc_endpoint_policy_supported=None):
+    def __init__(__self__, acceptance_required=None, availability_zones=None, base_endpoint_dns_names=None, filters=None, id=None, manages_vpc_endpoints=None, owner=None, private_dns_name=None, service=None, service_id=None, service_name=None, service_type=None, tags=None, vpc_endpoint_policy_supported=None):
         if acceptance_required and not isinstance(acceptance_required, bool):
             raise TypeError("Expected argument 'acceptance_required' to be a bool")
         __self__.acceptance_required = acceptance_required
@@ -32,6 +32,9 @@ class GetVpcEndpointServiceResult:
         """
         The DNS names for the service.
         """
+        if filters and not isinstance(filters, list):
+            raise TypeError("Expected argument 'filters' to be a list")
+        __self__.filters = filters
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
@@ -95,6 +98,7 @@ class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
             acceptance_required=self.acceptance_required,
             availability_zones=self.availability_zones,
             base_endpoint_dns_names=self.base_endpoint_dns_names,
+            filters=self.filters,
             id=self.id,
             manages_vpc_endpoints=self.manages_vpc_endpoints,
             owner=self.owner,
@@ -106,7 +110,7 @@ class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
             tags=self.tags,
             vpc_endpoint_policy_supported=self.vpc_endpoint_policy_supported)
 
-def get_vpc_endpoint_service(service=None,service_name=None,tags=None,opts=None):
+def get_vpc_endpoint_service(filters=None,service=None,service_name=None,tags=None,opts=None):
     """
     The VPC Endpoint Service data source details about a specific service that
     can be specified when creating a VPC endpoint within the region configured in the provider.
@@ -114,13 +118,20 @@ def get_vpc_endpoint_service(service=None,service_name=None,tags=None,opts=None)
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint_service.html.markdown.
 
 
+    :param list filters: Configuration block(s) for filtering. Detailed below.
     :param str service: The common name of an AWS service (e.g. `s3`).
-    :param str service_name: The service name that can be specified when creating a VPC endpoint.
-    :param dict tags: A mapping of tags assigned to the resource.
+    :param str service_name: The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+    :param dict tags: A mapping of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+
+    The **filters** object supports the following:
+
+      * `name` (`str`) - The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
+      * `values` (`list`) - Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
     """
     __args__ = dict()
 
 
+    __args__['filters'] = filters
     __args__['service'] = service
     __args__['serviceName'] = service_name
     __args__['tags'] = tags
@@ -134,6 +145,7 @@ def get_vpc_endpoint_service(service=None,service_name=None,tags=None,opts=None)
         acceptance_required=__ret__.get('acceptanceRequired'),
         availability_zones=__ret__.get('availabilityZones'),
         base_endpoint_dns_names=__ret__.get('baseEndpointDnsNames'),
+        filters=__ret__.get('filters'),
         id=__ret__.get('id'),
         manages_vpc_endpoints=__ret__.get('managesVpcEndpoints'),
         owner=__ret__.get('owner'),

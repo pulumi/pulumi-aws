@@ -76,6 +76,8 @@ type LookupInstanceResult struct {
 	InstanceType string `pulumi:"instanceType"`
 	// The key name of the Instance.
 	KeyName string `pulumi:"keyName"`
+	// The metadata options of the Instance.
+	MetadataOptions []GetInstanceMetadataOption `pulumi:"metadataOptions"`
 	// Whether detailed monitoring is enabled or disabled for the Instance (Boolean).
 	Monitoring bool `pulumi:"monitoring"`
 	// The ID of the network interface that was created with the Instance.

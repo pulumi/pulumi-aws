@@ -30,6 +30,11 @@ type FlowLog struct {
 	LogFormat pulumi.StringOutput `pulumi:"logFormat"`
 	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
 	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
+	// The maximum interval of time
+	// during which a flow of packets is captured and aggregated into a flow
+	// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
+	// minutes). Default: `600`.
+	MaxAggregationInterval pulumi.IntPtrOutput `pulumi:"maxAggregationInterval"`
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// Key-value mapping of resource tags
@@ -83,6 +88,11 @@ type flowLogState struct {
 	LogFormat *string `pulumi:"logFormat"`
 	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
 	LogGroupName *string `pulumi:"logGroupName"`
+	// The maximum interval of time
+	// during which a flow of packets is captured and aggregated into a flow
+	// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
+	// minutes). Default: `600`.
+	MaxAggregationInterval *int `pulumi:"maxAggregationInterval"`
 	// Subnet ID to attach to
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value mapping of resource tags
@@ -106,6 +116,11 @@ type FlowLogState struct {
 	LogFormat pulumi.StringPtrInput
 	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
 	LogGroupName pulumi.StringPtrInput
+	// The maximum interval of time
+	// during which a flow of packets is captured and aggregated into a flow
+	// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
+	// minutes). Default: `600`.
+	MaxAggregationInterval pulumi.IntPtrInput
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrInput
 	// Key-value mapping of resource tags
@@ -133,6 +148,11 @@ type flowLogArgs struct {
 	LogFormat *string `pulumi:"logFormat"`
 	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
 	LogGroupName *string `pulumi:"logGroupName"`
+	// The maximum interval of time
+	// during which a flow of packets is captured and aggregated into a flow
+	// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
+	// minutes). Default: `600`.
+	MaxAggregationInterval *int `pulumi:"maxAggregationInterval"`
 	// Subnet ID to attach to
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value mapping of resource tags
@@ -157,6 +177,11 @@ type FlowLogArgs struct {
 	LogFormat pulumi.StringPtrInput
 	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
 	LogGroupName pulumi.StringPtrInput
+	// The maximum interval of time
+	// during which a flow of packets is captured and aggregated into a flow
+	// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
+	// minutes). Default: `600`.
+	MaxAggregationInterval pulumi.IntPtrInput
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrInput
 	// Key-value mapping of resource tags

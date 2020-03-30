@@ -50,6 +50,10 @@ export class PhpAppLayer extends pulumi.CustomResource {
     }
 
     /**
+     * The Amazon Resource Name(ARN) of the layer.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Whether to automatically assign an elastic IP address to the layer's instances.
      */
     public readonly autoAssignElasticIps!: pulumi.Output<boolean | undefined>;
@@ -111,6 +115,10 @@ export class PhpAppLayer extends pulumi.CustomResource {
      */
     public readonly systemPackages!: pulumi.Output<string[] | undefined>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * Whether to use EBS-optimized instances.
      */
     public readonly useEbsOptimizedInstances!: pulumi.Output<boolean | undefined>;
@@ -127,6 +135,7 @@ export class PhpAppLayer extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as PhpAppLayerState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
             inputs["autoAssignPublicIps"] = state ? state.autoAssignPublicIps : undefined;
             inputs["autoHealing"] = state ? state.autoHealing : undefined;
@@ -146,6 +155,7 @@ export class PhpAppLayer extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["stackId"] = state ? state.stackId : undefined;
             inputs["systemPackages"] = state ? state.systemPackages : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["useEbsOptimizedInstances"] = state ? state.useEbsOptimizedInstances : undefined;
         } else {
             const args = argsOrState as PhpAppLayerArgs | undefined;
@@ -171,7 +181,9 @@ export class PhpAppLayer extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["stackId"] = args ? args.stackId : undefined;
             inputs["systemPackages"] = args ? args.systemPackages : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -188,6 +200,10 @@ export class PhpAppLayer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PhpAppLayer resources.
  */
 export interface PhpAppLayerState {
+    /**
+     * The Amazon Resource Name(ARN) of the layer.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Whether to automatically assign an elastic IP address to the layer's instances.
      */
@@ -249,6 +265,10 @@ export interface PhpAppLayerState {
      * Names of a set of system packages to install on the layer's instances.
      */
     readonly systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Whether to use EBS-optimized instances.
      */
@@ -320,6 +340,10 @@ export interface PhpAppLayerArgs {
      * Names of a set of system packages to install on the layer's instances.
      */
     readonly systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Whether to use EBS-optimized instances.
      */

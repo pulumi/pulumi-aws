@@ -40,8 +40,41 @@ export interface GetAutoscalingGroupsFilter {
     values: string[];
 }
 
+export interface GetAvailabilityZoneFilter {
+    /**
+     * The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+     */
+    name: string;
+    /**
+     * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+     */
+    values: string[];
+}
+
+export interface GetAvailabilityZonesFilter {
+    /**
+     * The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+     */
+    name: string;
+    /**
+     * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+     */
+    values: string[];
+}
+
 export interface GetElasticIpFilter {
     name: string;
+    values: string[];
+}
+
+export interface GetPrefixListFilter {
+    /**
+     * The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+     */
+    name: string;
+    /**
+     * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+     */
     values: string[];
 }
 
@@ -2017,11 +2050,11 @@ export namespace athena {
 
     export interface WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
         /**
-         * Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE-S3), server-side encryption with KMS-managed keys (SSE-KMS), or client-side encryption with KMS-managed keys (CSE-KMS) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
+         * Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
          */
         encryptionOption?: string;
         /**
-         * For SSE-KMS and CSE-KMS, this is the KMS key Amazon Resource Name (ARN).
+         * For `SSE_KMS` and `CSE_KMS`, this is the KMS key Amazon Resource Name (ARN).
          */
         kmsKeyArn?: string;
     }
@@ -4171,6 +4204,25 @@ export namespace cognito {
         smsMessage?: string;
     }
 
+    export interface UserPoolClientAnalyticsConfiguration {
+        /**
+         * The application ID for an Amazon Pinpoint application.
+         */
+        applicationId: string;
+        /**
+         * An ID for the Analytics Configuration.
+         */
+        externalId: string;
+        /**
+         * The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+         */
+        roleArn: string;
+        /**
+         * If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+         */
+        userDataShared?: boolean;
+    }
+
     export interface UserPoolDeviceConfiguration {
         /**
          * Indicates whether a challenge is required on a new device. Only applicable to a new device.
@@ -4187,6 +4239,10 @@ export namespace cognito {
          * Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
          */
         emailSendingAccount?: string;
+        /**
+         * Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith <john@smith.com>")
+         */
+        fromEmailAddress?: string;
         /**
          * The REPLY-TO email address.
          */
@@ -4343,6 +4399,13 @@ export namespace cognito {
          * The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
          */
         advancedSecurityMode: string;
+    }
+
+    export interface UserPoolUsernameConfiguration {
+        /**
+         * Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+         */
+        caseSensitive: boolean;
     }
 
     export interface UserPoolVerificationMessageTemplate {
@@ -4576,7 +4639,7 @@ export namespace dlm {
 
     export interface LifecyclePolicyPolicyDetailsScheduleCreateRule {
         /**
-         * How often this lifecycle policy should be evaluated. `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
          */
         interval: number;
         /**
@@ -5268,6 +5331,21 @@ export namespace ec2 {
         values: string[];
     }
 
+    export interface GetInstanceMetadataOption {
+        /**
+         * The state of the metadata service: `enabled`, `disabled`.
+         */
+        httpEndpoint: string;
+        /**
+         * The desired HTTP PUT response hop limit for instance metadata requests.
+         */
+        httpPutResponseHopLimit: number;
+        /**
+         * If session tokens are required: `optional`, `required`.
+         */
+        httpTokens: string;
+    }
+
     export interface GetInstanceRootBlockDevice {
         /**
          * If the root block device will be deleted on termination.
@@ -5434,13 +5512,24 @@ export namespace ec2 {
         type: string;
     }
 
+    export interface GetLaunchTemplateFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
+    }
+
     export interface GetLaunchTemplateIamInstanceProfile {
         /**
          * Amazon Resource Name (ARN) of the launch template.
          */
         arn: string;
         /**
-         * The name of the launch template.
+         * The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
          */
         name: string;
     }
@@ -5456,6 +5545,21 @@ export namespace ec2 {
         maxPrice: string;
         spotInstanceType: string;
         validUntil: string;
+    }
+
+    export interface GetLaunchTemplateMetadataOption {
+        /**
+         * The state of the metadata service: `enabled`, `disabled`.
+         */
+        httpEndpoint: string;
+        /**
+         * The desired HTTP PUT response hop limit for instance metadata requests.
+         */
+        httpPutResponseHopLimit: number;
+        /**
+         * If session tokens are required: `optional`, `required`.
+         */
+        httpTokens: string;
     }
 
     export interface GetLaunchTemplateMonitoring {
@@ -5492,7 +5596,7 @@ export namespace ec2 {
     export interface GetLaunchTemplateTagSpecification {
         resourceType: string;
         /**
-         * (Optional) A mapping of tags to assign to the launch template.
+         * A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
          */
         tags: {[key: string]: any};
     }
@@ -5745,12 +5849,23 @@ export namespace ec2 {
     export interface GetVpcEndpointFilter {
         /**
          * The name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
          */
         name: string;
         /**
          * Set of values that are accepted for the given field.
          * A VPC Endpoint will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
+    export interface GetVpcEndpointServiceFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: string[];
     }
@@ -5871,6 +5986,21 @@ export namespace ec2 {
          * (e.g. `"ephemeral0"`).
          */
         virtualName?: string;
+    }
+
+    export interface InstanceMetadataOptions {
+        /**
+         * Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+         */
+        httpEndpoint: string;
+        /**
+         * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+         */
+        httpPutResponseHopLimit: number;
+        /**
+         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+         */
+        httpTokens: string;
     }
 
     export interface InstanceNetworkInterface {
@@ -6102,6 +6232,21 @@ export namespace ec2 {
          * ARN of the license configuration.
          */
         licenseConfigurationArn: string;
+    }
+
+    export interface LaunchTemplateMetadataOptions {
+        /**
+         * Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+         */
+        httpEndpoint: string;
+        /**
+         * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+         */
+        httpPutResponseHopLimit: number;
+        /**
+         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+         */
+        httpTokens: string;
     }
 
     export interface LaunchTemplateMonitoring {
@@ -6577,6 +6722,21 @@ export namespace ec2 {
         virtualName?: string;
     }
 
+    export interface SpotInstanceRequestMetadataOptions {
+        /**
+         * Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+         */
+        httpEndpoint: string;
+        /**
+         * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+         */
+        httpPutResponseHopLimit: number;
+        /**
+         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+         */
+        httpTokens: string;
+    }
+
     export interface SpotInstanceRequestNetworkInterface {
         /**
          * Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
@@ -6785,6 +6945,17 @@ export namespace ec2clientvpn {
 }
 
 export namespace ec2transitgateway {
+    export interface GetDirectConnectGatewayAttachmentFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
+    }
+
     export interface GetRouteTableFilter {
         /**
          * Name of the filter.
@@ -6814,6 +6985,17 @@ export namespace ec2transitgateway {
         name: string;
         /**
          * List of one or more values for the filter.
+         */
+        values: string[];
+    }
+
+    export interface GetVpnAttachmentFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: string[];
     }
@@ -6899,6 +7081,17 @@ export namespace ecs {
         containerPort?: number;
         port?: number;
         registryArn: string;
+    }
+
+    export interface TaskDefinitionInferenceAccelerator {
+        /**
+         * The Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+         */
+        deviceName: string;
+        /**
+         * The Elastic Inference accelerator type to use.
+         */
+        deviceType: string;
     }
 
     export interface TaskDefinitionPlacementConstraint {
@@ -11700,6 +11893,56 @@ export namespace msk {
         inCluster?: boolean;
     }
 
+    export interface ClusterLoggingInfo {
+        /**
+         * Configuration block for Broker Logs settings for logging info. See below.
+         */
+        brokerLogs: outputs.msk.ClusterLoggingInfoBrokerLogs;
+    }
+
+    export interface ClusterLoggingInfoBrokerLogs {
+        cloudwatchLogs?: outputs.msk.ClusterLoggingInfoBrokerLogsCloudwatchLogs;
+        firehose?: outputs.msk.ClusterLoggingInfoBrokerLogsFirehose;
+        s3?: outputs.msk.ClusterLoggingInfoBrokerLogsS3;
+    }
+
+    export interface ClusterLoggingInfoBrokerLogsCloudwatchLogs {
+        /**
+         * Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+         */
+        enabled: boolean;
+        /**
+         * Name of the Cloudwatch Log Group to deliver logs to.
+         */
+        logGroup?: string;
+    }
+
+    export interface ClusterLoggingInfoBrokerLogsFirehose {
+        /**
+         * Name of the Kinesis Data Firehose delivery stream to deliver logs to.
+         */
+        deliveryStream?: string;
+        /**
+         * Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+         */
+        enabled: boolean;
+    }
+
+    export interface ClusterLoggingInfoBrokerLogsS3 {
+        /**
+         * Name of the S3 bucket to deliver logs to. 
+         */
+        bucket?: string;
+        /**
+         * Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+         */
+        enabled: boolean;
+        /**
+         * Prefix to append to the folder name. 
+         */
+        prefix?: string;
+    }
+
     export interface ClusterOpenMonitoring {
         /**
          * Configuration block for Prometheus settings for open monitoring. See below.
@@ -12100,11 +12343,17 @@ export namespace opsworks {
     }
 
     export interface StackCustomCookbooksSource {
+        /**
+         * Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+         */
         password?: string;
         /**
          * For sources that are version-aware, the revision to use.
          */
         revision?: string;
+        /**
+         * SSH key to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+         */
         sshKey?: string;
         /**
          * The type of source to use. For example, "archive".
