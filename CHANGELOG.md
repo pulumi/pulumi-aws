@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.55.0 of the AWS Terraform Provider
-* Upgrade to Pulumi v1.13.1
+_(none)_
 
 ---
+
+## v1.29.0 (2020-03-30)
+* Upgrade to v2.55.0 of the AWS Terraform Provider
+* Upgrade to Pulumi v1.13.1
 
 ## v1.28.0 (2020-03-27)
 * Add deprecation message for `ec2.Instance` `SecurityGroups` - the messages will be added
