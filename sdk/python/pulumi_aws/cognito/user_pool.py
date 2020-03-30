@@ -50,6 +50,7 @@ class UserPool(pulumi.CustomResource):
     The Email Configuration.
 
       * `emailSendingAccount` (`str`) - Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
+      * `fromEmailAddress` (`str`) - Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith <john@smith.com>")
       * `replyToEmailAddress` (`str`) - The REPLY-TO email address.
       * `source_arn` (`str`) - The ARN of the email source.
     """
@@ -155,6 +156,12 @@ class UserPool(pulumi.CustomResource):
     """
     Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
     """
+    username_configuration: pulumi.Output[dict]
+    """
+    The Username Configuration.
+
+      * `caseSensitive` (`bool`) - Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+    """
     verification_message_template: pulumi.Output[dict]
     """
     The verification message templates configuration.
@@ -166,7 +173,7 @@ class UserPool(pulumi.CustomResource):
       * `emailSubjectByLink` (`str`) - The subject line for the email message template for sending a confirmation link to the user.
       * `smsMessage` (`str`) - The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
     """
-    def __init__(__self__, resource_name, opts=None, admin_create_user_config=None, alias_attributes=None, auto_verified_attributes=None, device_configuration=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, lambda_config=None, mfa_configuration=None, name=None, password_policy=None, schemas=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, software_token_mfa_configuration=None, tags=None, user_pool_add_ons=None, username_attributes=None, verification_message_template=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, admin_create_user_config=None, alias_attributes=None, auto_verified_attributes=None, device_configuration=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, lambda_config=None, mfa_configuration=None, name=None, password_policy=None, schemas=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, software_token_mfa_configuration=None, tags=None, user_pool_add_ons=None, username_attributes=None, username_configuration=None, verification_message_template=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Cognito User Pool resource.
 
@@ -193,6 +200,7 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the User Pool.
         :param pulumi.Input[dict] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features.
         :param pulumi.Input[list] username_attributes: Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+        :param pulumi.Input[dict] username_configuration: The Username Configuration.
         :param pulumi.Input[dict] verification_message_template: The verification message templates configuration.
 
         The **admin_create_user_config** object supports the following:
@@ -213,6 +221,7 @@ class UserPool(pulumi.CustomResource):
         The **email_configuration** object supports the following:
 
           * `emailSendingAccount` (`pulumi.Input[str]`) - Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
+          * `fromEmailAddress` (`pulumi.Input[str]`) - Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith <john@smith.com>")
           * `replyToEmailAddress` (`pulumi.Input[str]`) - The REPLY-TO email address.
           * `source_arn` (`pulumi.Input[str]`) - The ARN of the email source.
 
@@ -265,6 +274,10 @@ class UserPool(pulumi.CustomResource):
         The **user_pool_add_ons** object supports the following:
 
           * `advancedSecurityMode` (`pulumi.Input[str]`) - The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+
+        The **username_configuration** object supports the following:
+
+          * `caseSensitive` (`pulumi.Input[bool]`) - Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
 
         The **verification_message_template** object supports the following:
 
@@ -311,6 +324,7 @@ class UserPool(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['user_pool_add_ons'] = user_pool_add_ons
             __props__['username_attributes'] = username_attributes
+            __props__['username_configuration'] = username_configuration
             __props__['verification_message_template'] = verification_message_template
             __props__['arn'] = None
             __props__['creation_date'] = None
@@ -323,7 +337,7 @@ class UserPool(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, admin_create_user_config=None, alias_attributes=None, arn=None, auto_verified_attributes=None, creation_date=None, device_configuration=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, endpoint=None, lambda_config=None, last_modified_date=None, mfa_configuration=None, name=None, password_policy=None, schemas=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, software_token_mfa_configuration=None, tags=None, user_pool_add_ons=None, username_attributes=None, verification_message_template=None):
+    def get(resource_name, id, opts=None, admin_create_user_config=None, alias_attributes=None, arn=None, auto_verified_attributes=None, creation_date=None, device_configuration=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, endpoint=None, lambda_config=None, last_modified_date=None, mfa_configuration=None, name=None, password_policy=None, schemas=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, software_token_mfa_configuration=None, tags=None, user_pool_add_ons=None, username_attributes=None, username_configuration=None, verification_message_template=None):
         """
         Get an existing UserPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -354,6 +368,7 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the User Pool.
         :param pulumi.Input[dict] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features.
         :param pulumi.Input[list] username_attributes: Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+        :param pulumi.Input[dict] username_configuration: The Username Configuration.
         :param pulumi.Input[dict] verification_message_template: The verification message templates configuration.
 
         The **admin_create_user_config** object supports the following:
@@ -374,6 +389,7 @@ class UserPool(pulumi.CustomResource):
         The **email_configuration** object supports the following:
 
           * `emailSendingAccount` (`pulumi.Input[str]`) - Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
+          * `fromEmailAddress` (`pulumi.Input[str]`) - Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith <john@smith.com>")
           * `replyToEmailAddress` (`pulumi.Input[str]`) - The REPLY-TO email address.
           * `source_arn` (`pulumi.Input[str]`) - The ARN of the email source.
 
@@ -427,6 +443,10 @@ class UserPool(pulumi.CustomResource):
 
           * `advancedSecurityMode` (`pulumi.Input[str]`) - The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
 
+        The **username_configuration** object supports the following:
+
+          * `caseSensitive` (`pulumi.Input[bool]`) - Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+
         The **verification_message_template** object supports the following:
 
           * `defaultEmailOption` (`pulumi.Input[str]`) - The default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
@@ -463,6 +483,7 @@ class UserPool(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["user_pool_add_ons"] = user_pool_add_ons
         __props__["username_attributes"] = username_attributes
+        __props__["username_configuration"] = username_configuration
         __props__["verification_message_template"] = verification_message_template
         return UserPool(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

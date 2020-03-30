@@ -34,6 +34,13 @@ class FlowLog(pulumi.CustomResource):
     """
     *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
     """
+    max_aggregation_interval: pulumi.Output[float]
+    """
+    The maximum interval of time
+    during which a flow of packets is captured and aggregated into a flow
+    log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
+    minutes). Default: `600`.
+    """
     subnet_id: pulumi.Output[str]
     """
     Subnet ID to attach to
@@ -50,7 +57,7 @@ class FlowLog(pulumi.CustomResource):
     """
     VPC ID to attach to
     """
-    def __init__(__self__, resource_name, opts=None, eni_id=None, iam_role_arn=None, log_destination=None, log_destination_type=None, log_format=None, log_group_name=None, subnet_id=None, tags=None, traffic_type=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, eni_id=None, iam_role_arn=None, log_destination=None, log_destination_type=None, log_format=None, log_group_name=None, max_aggregation_interval=None, subnet_id=None, tags=None, traffic_type=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a VPC/Subnet/ENI Flow Log to capture IP traffic for a specific network
         interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
@@ -65,6 +72,10 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
         :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
         :param pulumi.Input[str] log_group_name: *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
+        :param pulumi.Input[float] max_aggregation_interval: The maximum interval of time
+               during which a flow of packets is captured and aggregated into a flow
+               log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
+               minutes). Default: `600`.
         :param pulumi.Input[str] subnet_id: Subnet ID to attach to
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
@@ -93,6 +104,7 @@ class FlowLog(pulumi.CustomResource):
             __props__['log_destination_type'] = log_destination_type
             __props__['log_format'] = log_format
             __props__['log_group_name'] = log_group_name
+            __props__['max_aggregation_interval'] = max_aggregation_interval
             __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags
             if traffic_type is None:
@@ -106,7 +118,7 @@ class FlowLog(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, eni_id=None, iam_role_arn=None, log_destination=None, log_destination_type=None, log_format=None, log_group_name=None, subnet_id=None, tags=None, traffic_type=None, vpc_id=None):
+    def get(resource_name, id, opts=None, eni_id=None, iam_role_arn=None, log_destination=None, log_destination_type=None, log_format=None, log_group_name=None, max_aggregation_interval=None, subnet_id=None, tags=None, traffic_type=None, vpc_id=None):
         """
         Get an existing FlowLog resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -120,6 +132,10 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
         :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
         :param pulumi.Input[str] log_group_name: *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
+        :param pulumi.Input[float] max_aggregation_interval: The maximum interval of time
+               during which a flow of packets is captured and aggregated into a flow
+               log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
+               minutes). Default: `600`.
         :param pulumi.Input[str] subnet_id: Subnet ID to attach to
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
@@ -135,6 +151,7 @@ class FlowLog(pulumi.CustomResource):
         __props__["log_destination_type"] = log_destination_type
         __props__["log_format"] = log_format
         __props__["log_group_name"] = log_group_name
+        __props__["max_aggregation_interval"] = max_aggregation_interval
         __props__["subnet_id"] = subnet_id
         __props__["tags"] = tags
         __props__["traffic_type"] = traffic_type

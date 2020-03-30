@@ -1241,6 +1241,104 @@ func (o ServiceServiceRegistriesPtrOutput) RegistryArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceServiceRegistries) string { return v.RegistryArn }).(pulumi.StringOutput)
 }
 
+type TaskDefinitionInferenceAccelerator struct {
+	// The Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+	DeviceName string `pulumi:"deviceName"`
+	// The Elastic Inference accelerator type to use.
+	DeviceType string `pulumi:"deviceType"`
+}
+
+type TaskDefinitionInferenceAcceleratorInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionInferenceAcceleratorOutput() TaskDefinitionInferenceAcceleratorOutput
+	ToTaskDefinitionInferenceAcceleratorOutputWithContext(context.Context) TaskDefinitionInferenceAcceleratorOutput
+}
+
+type TaskDefinitionInferenceAcceleratorArgs struct {
+	// The Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// The Elastic Inference accelerator type to use.
+	DeviceType pulumi.StringInput `pulumi:"deviceType"`
+}
+
+func (TaskDefinitionInferenceAcceleratorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionInferenceAccelerator)(nil)).Elem()
+}
+
+func (i TaskDefinitionInferenceAcceleratorArgs) ToTaskDefinitionInferenceAcceleratorOutput() TaskDefinitionInferenceAcceleratorOutput {
+	return i.ToTaskDefinitionInferenceAcceleratorOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionInferenceAcceleratorArgs) ToTaskDefinitionInferenceAcceleratorOutputWithContext(ctx context.Context) TaskDefinitionInferenceAcceleratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionInferenceAcceleratorOutput)
+}
+
+type TaskDefinitionInferenceAcceleratorArrayInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionInferenceAcceleratorArrayOutput() TaskDefinitionInferenceAcceleratorArrayOutput
+	ToTaskDefinitionInferenceAcceleratorArrayOutputWithContext(context.Context) TaskDefinitionInferenceAcceleratorArrayOutput
+}
+
+type TaskDefinitionInferenceAcceleratorArray []TaskDefinitionInferenceAcceleratorInput
+
+func (TaskDefinitionInferenceAcceleratorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskDefinitionInferenceAccelerator)(nil)).Elem()
+}
+
+func (i TaskDefinitionInferenceAcceleratorArray) ToTaskDefinitionInferenceAcceleratorArrayOutput() TaskDefinitionInferenceAcceleratorArrayOutput {
+	return i.ToTaskDefinitionInferenceAcceleratorArrayOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionInferenceAcceleratorArray) ToTaskDefinitionInferenceAcceleratorArrayOutputWithContext(ctx context.Context) TaskDefinitionInferenceAcceleratorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionInferenceAcceleratorArrayOutput)
+}
+
+type TaskDefinitionInferenceAcceleratorOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionInferenceAcceleratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionInferenceAccelerator)(nil)).Elem()
+}
+
+func (o TaskDefinitionInferenceAcceleratorOutput) ToTaskDefinitionInferenceAcceleratorOutput() TaskDefinitionInferenceAcceleratorOutput {
+	return o
+}
+
+func (o TaskDefinitionInferenceAcceleratorOutput) ToTaskDefinitionInferenceAcceleratorOutputWithContext(ctx context.Context) TaskDefinitionInferenceAcceleratorOutput {
+	return o
+}
+
+// The Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+func (o TaskDefinitionInferenceAcceleratorOutput) DeviceName() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskDefinitionInferenceAccelerator) string { return v.DeviceName }).(pulumi.StringOutput)
+}
+
+// The Elastic Inference accelerator type to use.
+func (o TaskDefinitionInferenceAcceleratorOutput) DeviceType() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskDefinitionInferenceAccelerator) string { return v.DeviceType }).(pulumi.StringOutput)
+}
+
+type TaskDefinitionInferenceAcceleratorArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionInferenceAcceleratorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskDefinitionInferenceAccelerator)(nil)).Elem()
+}
+
+func (o TaskDefinitionInferenceAcceleratorArrayOutput) ToTaskDefinitionInferenceAcceleratorArrayOutput() TaskDefinitionInferenceAcceleratorArrayOutput {
+	return o
+}
+
+func (o TaskDefinitionInferenceAcceleratorArrayOutput) ToTaskDefinitionInferenceAcceleratorArrayOutputWithContext(ctx context.Context) TaskDefinitionInferenceAcceleratorArrayOutput {
+	return o
+}
+
+func (o TaskDefinitionInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput) TaskDefinitionInferenceAcceleratorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskDefinitionInferenceAccelerator {
+		return vs[0].([]TaskDefinitionInferenceAccelerator)[vs[1].(int)]
+	}).(TaskDefinitionInferenceAcceleratorOutput)
+}
+
 type TaskDefinitionPlacementConstraint struct {
 	// Cluster Query Language expression to apply to the constraint.
 	// For more information, see [Cluster Query Language in the Amazon EC2 Container
@@ -2030,6 +2128,8 @@ func init() {
 	pulumi.RegisterOutputType(ServicePlacementConstraintArrayOutput{})
 	pulumi.RegisterOutputType(ServiceServiceRegistriesOutput{})
 	pulumi.RegisterOutputType(ServiceServiceRegistriesPtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionInferenceAcceleratorOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionInferenceAcceleratorArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionPlacementConstraintOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionPlacementConstraintArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionProxyConfigurationOutput{})

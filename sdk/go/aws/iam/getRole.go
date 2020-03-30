@@ -26,6 +26,8 @@ func LookupRole(ctx *pulumi.Context, args *LookupRoleArgs, opts ...pulumi.Invoke
 type LookupRoleArgs struct {
 	// The friendly IAM role name to match.
 	Name string `pulumi:"name"`
+	// The tags attached to the role.
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // A collection of values returned by getRole.
@@ -47,6 +49,8 @@ type LookupRoleResult struct {
 	Path string `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary string `pulumi:"permissionsBoundary"`
+	// The tags attached to the role.
+	Tags map[string]interface{} `pulumi:"tags"`
 	// The stable and unique string identifying the role.
 	UniqueId string `pulumi:"uniqueId"`
 }

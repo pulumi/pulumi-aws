@@ -19,10 +19,25 @@ import * as utilities from "../utilities";
  *     name: "my-launch-template",
  * });
  * ```
+ * 
+ * ### Filter
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const test = aws.ec2.getLaunchTemplate({
+ *     filters: [{
+ *         name: "launch-template-name",
+ *         values: ["some-template"],
+ *     }],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_template.html.markdown.
  */
-export function getLaunchTemplate(args: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> & GetLaunchTemplateResult {
+export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> & GetLaunchTemplateResult {
+    args = args || {};
     if (!opts) {
         opts = {}
     }
@@ -31,6 +46,7 @@ export function getLaunchTemplate(args: GetLaunchTemplateArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     const promise: Promise<GetLaunchTemplateResult> = pulumi.runtime.invoke("aws:ec2/getLaunchTemplate:getLaunchTemplate", {
+        "filters": args.filters,
         "name": args.name,
         "tags": args.tags,
     }, opts);
@@ -43,11 +59,15 @@ export function getLaunchTemplate(args: GetLaunchTemplateArgs, opts?: pulumi.Inv
  */
 export interface GetLaunchTemplateArgs {
     /**
-     * The name of the launch template.
+     * Configuration block(s) for filtering. Detailed below.
      */
-    readonly name: string;
+    readonly filters?: inputs.ec2.GetLaunchTemplateFilter[];
     /**
-     * (Optional) A mapping of tags to assign to the launch template.
+     * The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+     */
+    readonly name?: string;
+    /**
+     * A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
      */
     readonly tags?: {[key: string]: any};
 }
@@ -91,6 +111,7 @@ export interface GetLaunchTemplateResult {
      * below for more details.
      */
     readonly elasticGpuSpecifications: outputs.ec2.GetLaunchTemplateElasticGpuSpecification[];
+    readonly filters?: outputs.ec2.GetLaunchTemplateFilter[];
     /**
      * The IAM Instance Profile to launch the instance with. See Instance Profile
      * below for more details.
@@ -127,10 +148,14 @@ export interface GetLaunchTemplateResult {
      */
     readonly latestVersion: number;
     /**
+     * The metadata options for the instance.
+     */
+    readonly metadataOptions: outputs.ec2.GetLaunchTemplateMetadataOption[];
+    /**
      * The monitoring option for the instance.
      */
     readonly monitorings: outputs.ec2.GetLaunchTemplateMonitoring[];
-    readonly name: string;
+    readonly name?: string;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network
      * Interfaces below for more details.

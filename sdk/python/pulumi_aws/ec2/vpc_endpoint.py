@@ -60,7 +60,7 @@ class VpcEndpoint(pulumi.CustomResource):
     """
     service_name: pulumi.Output[str]
     """
-    The service name, in the form `com.amazonaws.region.service` for AWS services.
+    The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
     """
     state: pulumi.Output[str]
     """
@@ -103,7 +103,7 @@ class VpcEndpoint(pulumi.CustomResource):
                Defaults to `false`.
         :param pulumi.Input[list] route_table_ids: One or more route table IDs. Applicable for endpoints of type `Gateway`.
         :param pulumi.Input[list] security_group_ids: The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
-        :param pulumi.Input[str] service_name: The service name, in the form `com.amazonaws.region.service` for AWS services.
+        :param pulumi.Input[str] service_name: The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
         :param pulumi.Input[list] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_endpoint_type: The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
@@ -174,7 +174,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] requester_managed: Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
         :param pulumi.Input[list] route_table_ids: One or more route table IDs. Applicable for endpoints of type `Gateway`.
         :param pulumi.Input[list] security_group_ids: The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
-        :param pulumi.Input[str] service_name: The service name, in the form `com.amazonaws.region.service` for AWS services.
+        :param pulumi.Input[str] service_name: The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
         :param pulumi.Input[str] state: The state of the VPC endpoint.
         :param pulumi.Input[list] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.

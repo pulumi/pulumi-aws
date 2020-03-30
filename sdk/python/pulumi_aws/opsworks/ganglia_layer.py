@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class GangliaLayer(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The Amazon Resource Name(ARN) of the layer.
+    """
     auto_assign_elastic_ips: pulumi.Output[bool]
     """
     Whether to automatically assign an elastic IP address to the layer's instances.
@@ -83,6 +87,10 @@ class GangliaLayer(pulumi.CustomResource):
     """
     Names of a set of system packages to install on the layer's instances.
     """
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
     url: pulumi.Output[str]
     """
     The URL path to use for Ganglia. Defaults to "/ganglia".
@@ -95,7 +103,7 @@ class GangliaLayer(pulumi.CustomResource):
     """
     The username to use for Ganglia. Defaults to "opsworks".
     """
-    def __init__(__self__, resource_name, opts=None, auto_assign_elastic_ips=None, auto_assign_public_ips=None, auto_healing=None, custom_configure_recipes=None, custom_deploy_recipes=None, custom_instance_profile_arn=None, custom_json=None, custom_security_group_ids=None, custom_setup_recipes=None, custom_shutdown_recipes=None, custom_undeploy_recipes=None, drain_elb_on_shutdown=None, ebs_volumes=None, elastic_load_balancer=None, install_updates_on_boot=None, instance_shutdown_timeout=None, name=None, password=None, stack_id=None, system_packages=None, url=None, use_ebs_optimized_instances=None, username=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_assign_elastic_ips=None, auto_assign_public_ips=None, auto_healing=None, custom_configure_recipes=None, custom_deploy_recipes=None, custom_instance_profile_arn=None, custom_json=None, custom_security_group_ids=None, custom_setup_recipes=None, custom_shutdown_recipes=None, custom_undeploy_recipes=None, drain_elb_on_shutdown=None, ebs_volumes=None, elastic_load_balancer=None, install_updates_on_boot=None, instance_shutdown_timeout=None, name=None, password=None, stack_id=None, system_packages=None, tags=None, url=None, use_ebs_optimized_instances=None, username=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an OpsWorks Ganglia layer resource.
 
@@ -118,6 +126,7 @@ class GangliaLayer(pulumi.CustomResource):
         :param pulumi.Input[str] password: The password to use for Ganglia.
         :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
         :param pulumi.Input[list] system_packages: Names of a set of system packages to install on the layer's instances.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] url: The URL path to use for Ganglia. Defaults to "/ganglia".
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         :param pulumi.Input[str] username: The username to use for Ganglia. Defaults to "opsworks".
@@ -173,9 +182,11 @@ class GangliaLayer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'stack_id'")
             __props__['stack_id'] = stack_id
             __props__['system_packages'] = system_packages
+            __props__['tags'] = tags
             __props__['url'] = url
             __props__['use_ebs_optimized_instances'] = use_ebs_optimized_instances
             __props__['username'] = username
+            __props__['arn'] = None
         super(GangliaLayer, __self__).__init__(
             'aws:opsworks/gangliaLayer:GangliaLayer',
             resource_name,
@@ -183,7 +194,7 @@ class GangliaLayer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auto_assign_elastic_ips=None, auto_assign_public_ips=None, auto_healing=None, custom_configure_recipes=None, custom_deploy_recipes=None, custom_instance_profile_arn=None, custom_json=None, custom_security_group_ids=None, custom_setup_recipes=None, custom_shutdown_recipes=None, custom_undeploy_recipes=None, drain_elb_on_shutdown=None, ebs_volumes=None, elastic_load_balancer=None, install_updates_on_boot=None, instance_shutdown_timeout=None, name=None, password=None, stack_id=None, system_packages=None, url=None, use_ebs_optimized_instances=None, username=None):
+    def get(resource_name, id, opts=None, arn=None, auto_assign_elastic_ips=None, auto_assign_public_ips=None, auto_healing=None, custom_configure_recipes=None, custom_deploy_recipes=None, custom_instance_profile_arn=None, custom_json=None, custom_security_group_ids=None, custom_setup_recipes=None, custom_shutdown_recipes=None, custom_undeploy_recipes=None, drain_elb_on_shutdown=None, ebs_volumes=None, elastic_load_balancer=None, install_updates_on_boot=None, instance_shutdown_timeout=None, name=None, password=None, stack_id=None, system_packages=None, tags=None, url=None, use_ebs_optimized_instances=None, username=None):
         """
         Get an existing GangliaLayer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -191,6 +202,7 @@ class GangliaLayer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name(ARN) of the layer.
         :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.
         :param pulumi.Input[bool] auto_assign_public_ips: For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
         :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
@@ -206,6 +218,7 @@ class GangliaLayer(pulumi.CustomResource):
         :param pulumi.Input[str] password: The password to use for Ganglia.
         :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
         :param pulumi.Input[list] system_packages: Names of a set of system packages to install on the layer's instances.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] url: The URL path to use for Ganglia. Defaults to "/ganglia".
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         :param pulumi.Input[str] username: The username to use for Ganglia. Defaults to "opsworks".
@@ -224,6 +237,7 @@ class GangliaLayer(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["auto_assign_elastic_ips"] = auto_assign_elastic_ips
         __props__["auto_assign_public_ips"] = auto_assign_public_ips
         __props__["auto_healing"] = auto_healing
@@ -244,6 +258,7 @@ class GangliaLayer(pulumi.CustomResource):
         __props__["password"] = password
         __props__["stack_id"] = stack_id
         __props__["system_packages"] = system_packages
+        __props__["tags"] = tags
         __props__["url"] = url
         __props__["use_ebs_optimized_instances"] = use_ebs_optimized_instances
         __props__["username"] = username

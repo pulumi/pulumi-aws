@@ -63,6 +63,8 @@ type LaunchTemplate struct {
 	LatestVersion pulumi.IntOutput `pulumi:"latestVersion"`
 	// A list of license specifications to associate with. See License Specification below for more details.
 	LicenseSpecifications LaunchTemplateLicenseSpecificationArrayOutput `pulumi:"licenseSpecifications"`
+	// Customize the metadata options for the instance. See Metadata Options below for more details.
+	MetadataOptions LaunchTemplateMetadataOptionsOutput `pulumi:"metadataOptions"`
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring LaunchTemplateMonitoringPtrOutput `pulumi:"monitoring"`
 	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
@@ -164,6 +166,8 @@ type launchTemplateState struct {
 	LatestVersion *int `pulumi:"latestVersion"`
 	// A list of license specifications to associate with. See License Specification below for more details.
 	LicenseSpecifications []LaunchTemplateLicenseSpecification `pulumi:"licenseSpecifications"`
+	// Customize the metadata options for the instance. See Metadata Options below for more details.
+	MetadataOptions *LaunchTemplateMetadataOptions `pulumi:"metadataOptions"`
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring *LaunchTemplateMonitoring `pulumi:"monitoring"`
 	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
@@ -238,6 +242,8 @@ type LaunchTemplateState struct {
 	LatestVersion pulumi.IntPtrInput
 	// A list of license specifications to associate with. See License Specification below for more details.
 	LicenseSpecifications LaunchTemplateLicenseSpecificationArrayInput
+	// Customize the metadata options for the instance. See Metadata Options below for more details.
+	MetadataOptions LaunchTemplateMetadataOptionsPtrInput
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring LaunchTemplateMonitoringPtrInput
 	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
@@ -310,6 +316,8 @@ type launchTemplateArgs struct {
 	KeyName *string `pulumi:"keyName"`
 	// A list of license specifications to associate with. See License Specification below for more details.
 	LicenseSpecifications []LaunchTemplateLicenseSpecification `pulumi:"licenseSpecifications"`
+	// Customize the metadata options for the instance. See Metadata Options below for more details.
+	MetadataOptions *LaunchTemplateMetadataOptions `pulumi:"metadataOptions"`
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring *LaunchTemplateMonitoring `pulumi:"monitoring"`
 	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
@@ -379,6 +387,8 @@ type LaunchTemplateArgs struct {
 	KeyName pulumi.StringPtrInput
 	// A list of license specifications to associate with. See License Specification below for more details.
 	LicenseSpecifications LaunchTemplateLicenseSpecificationArrayInput
+	// Customize the metadata options for the instance. See Metadata Options below for more details.
+	MetadataOptions LaunchTemplateMetadataOptionsPtrInput
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring LaunchTemplateMonitoringPtrInput
 	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.

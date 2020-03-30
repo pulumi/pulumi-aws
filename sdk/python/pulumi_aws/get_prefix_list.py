@@ -13,14 +13,16 @@ class GetPrefixListResult:
     """
     A collection of values returned by getPrefixList.
     """
-    def __init__(__self__, cidr_blocks=None, id=None, name=None, prefix_list_id=None):
+    def __init__(__self__, cidr_blocks=None, filters=None, id=None, name=None, prefix_list_id=None):
         if cidr_blocks and not isinstance(cidr_blocks, list):
             raise TypeError("Expected argument 'cidr_blocks' to be a list")
         __self__.cidr_blocks = cidr_blocks
         """
-        The list of CIDR blocks for the AWS service associated
-        with the prefix list.
+        The list of CIDR blocks for the AWS service associated with the prefix list.
         """
+        if filters and not isinstance(filters, list):
+            raise TypeError("Expected argument 'filters' to be a list")
+        __self__.filters = filters
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
@@ -43,11 +45,12 @@ class AwaitableGetPrefixListResult(GetPrefixListResult):
             yield self
         return GetPrefixListResult(
             cidr_blocks=self.cidr_blocks,
+            filters=self.filters,
             id=self.id,
             name=self.name,
             prefix_list_id=self.prefix_list_id)
 
-def get_prefix_list(name=None,prefix_list_id=None,opts=None):
+def get_prefix_list(filters=None,name=None,prefix_list_id=None,opts=None):
     """
     `.getPrefixList` provides details about a specific prefix list (PL)
     in the current region.
@@ -60,12 +63,19 @@ def get_prefix_list(name=None,prefix_list_id=None,opts=None):
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/prefix_list.html.markdown.
 
 
-    :param str name: The name of the prefix list to select.
+    :param list filters: Configuration block(s) for filtering. Detailed below.
+    :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
     :param str prefix_list_id: The ID of the prefix list to select.
+
+    The **filters** object supports the following:
+
+      * `name` (`str`) - The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+      * `values` (`list`) - Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
     """
     __args__ = dict()
 
 
+    __args__['filters'] = filters
     __args__['name'] = name
     __args__['prefixListId'] = prefix_list_id
     if opts is None:
@@ -76,6 +86,7 @@ def get_prefix_list(name=None,prefix_list_id=None,opts=None):
 
     return AwaitableGetPrefixListResult(
         cidr_blocks=__ret__.get('cidrBlocks'),
+        filters=__ret__.get('filters'),
         id=__ret__.get('id'),
         name=__ret__.get('name'),
         prefix_list_id=__ret__.get('prefixListId'))

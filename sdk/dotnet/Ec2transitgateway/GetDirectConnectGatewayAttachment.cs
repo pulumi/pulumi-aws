@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_dx_gateway_attachment.html.markdown.
         /// </summary>
         [Obsolete("Use GetDirectConnectGatewayAttachment.InvokeAsync() instead")]
-        public static Task<GetDirectConnectGatewayAttachmentResult> GetDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs args, InvokeOptions? options = null)
+        public static Task<GetDirectConnectGatewayAttachmentResult> GetDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDirectConnectGatewayAttachmentResult>("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", args ?? InvokeArgs.Empty, options.WithVersion());
     }
     public static class GetDirectConnectGatewayAttachment
@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_dx_gateway_attachment.html.markdown.
         /// </summary>
-        public static Task<GetDirectConnectGatewayAttachmentResult> InvokeAsync(GetDirectConnectGatewayAttachmentArgs args, InvokeOptions? options = null)
+        public static Task<GetDirectConnectGatewayAttachmentResult> InvokeAsync(GetDirectConnectGatewayAttachmentArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDirectConnectGatewayAttachmentResult>("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -36,14 +36,26 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Identifier of the Direct Connect Gateway.
         /// </summary>
-        [Input("dxGatewayId", required: true)]
-        public string DxGatewayId { get; set; } = null!;
+        [Input("dxGatewayId")]
+        public string? DxGatewayId { get; set; }
+
+        [Input("filters")]
+        private List<Inputs.GetDirectConnectGatewayAttachmentFiltersArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
+        public List<Inputs.GetDirectConnectGatewayAttachmentFiltersArgs> Filters
+        {
+            get => _filters ?? (_filters = new List<Inputs.GetDirectConnectGatewayAttachmentFiltersArgs>());
+            set => _filters = value;
+        }
 
         [Input("tags")]
         private Dictionary<string, object>? _tags;
 
         /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway Attachment
+        /// A mapping of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
         /// </summary>
         public Dictionary<string, object> Tags
         {
@@ -54,8 +66,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Identifier of the EC2 Transit Gateway.
         /// </summary>
-        [Input("transitGatewayId", required: true)]
-        public string TransitGatewayId { get; set; } = null!;
+        [Input("transitGatewayId")]
+        public string? TransitGatewayId { get; set; }
 
         public GetDirectConnectGatewayAttachmentArgs()
         {
@@ -65,12 +77,13 @@ namespace Pulumi.Aws.Ec2TransitGateway
     [OutputType]
     public sealed class GetDirectConnectGatewayAttachmentResult
     {
-        public readonly string DxGatewayId;
+        public readonly string? DxGatewayId;
+        public readonly ImmutableArray<Outputs.GetDirectConnectGatewayAttachmentFiltersResult> Filters;
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Attachment
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
-        public readonly string TransitGatewayId;
+        public readonly string? TransitGatewayId;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -78,15 +91,72 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         [OutputConstructor]
         private GetDirectConnectGatewayAttachmentResult(
-            string dxGatewayId,
+            string? dxGatewayId,
+            ImmutableArray<Outputs.GetDirectConnectGatewayAttachmentFiltersResult> filters,
             ImmutableDictionary<string, object> tags,
-            string transitGatewayId,
+            string? transitGatewayId,
             string id)
         {
             DxGatewayId = dxGatewayId;
+            Filters = filters;
             Tags = tags;
             TransitGatewayId = transitGatewayId;
             Id = id;
         }
+    }
+
+    namespace Inputs
+    {
+
+    public sealed class GetDirectConnectGatewayAttachmentFiltersArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+        /// </summary>
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
+
+        [Input("values", required: true)]
+        private List<string>? _values;
+
+        /// <summary>
+        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        /// </summary>
+        public List<string> Values
+        {
+            get => _values ?? (_values = new List<string>());
+            set => _values = value;
+        }
+
+        public GetDirectConnectGatewayAttachmentFiltersArgs()
+        {
+        }
+    }
+    }
+
+    namespace Outputs
+    {
+
+    [OutputType]
+    public sealed class GetDirectConnectGatewayAttachmentFiltersResult
+    {
+        /// <summary>
+        /// The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
+        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        /// </summary>
+        public readonly ImmutableArray<string> Values;
+
+        [OutputConstructor]
+        private GetDirectConnectGatewayAttachmentFiltersResult(
+            string name,
+            ImmutableArray<string> values)
+        {
+            Name = name;
+            Values = values;
+        }
+    }
     }
 }

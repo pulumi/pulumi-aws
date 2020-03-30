@@ -31,6 +31,8 @@ export function getAvailabilityZone(args?: GetAvailabilityZoneArgs, opts?: pulum
         opts.version = utilities.getVersion();
     }
     const promise: Promise<GetAvailabilityZoneResult> = pulumi.runtime.invoke("aws:index/getAvailabilityZone:getAvailabilityZone", {
+        "allAvailabilityZones": args.allAvailabilityZones,
+        "filters": args.filters,
         "name": args.name,
         "state": args.state,
         "zoneId": args.zoneId,
@@ -44,12 +46,19 @@ export function getAvailabilityZone(args?: GetAvailabilityZoneArgs, opts?: pulum
  */
 export interface GetAvailabilityZoneArgs {
     /**
-     * The full name of the availability zone to select.
+     * Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
+     */
+    readonly allAvailabilityZones?: boolean;
+    /**
+     * Configuration block(s) for filtering. Detailed below.
+     */
+    readonly filters?: inputs.GetAvailabilityZoneFilter[];
+    /**
+     * The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
      */
     readonly name?: string;
     /**
-     * A specific availability zone state to require. May
-     * be any of `"available"`, `"information"` or `"impaired"`.
+     * A specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
      */
     readonly state?: string;
     /**
@@ -62,28 +71,30 @@ export interface GetAvailabilityZoneArgs {
  * A collection of values returned by getAvailabilityZone.
  */
 export interface GetAvailabilityZoneResult {
+    readonly allAvailabilityZones?: boolean;
+    readonly filters?: outputs.GetAvailabilityZoneFilter[];
     /**
-     * The name of the selected availability zone.
+     * For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
      */
+    readonly groupName: string;
     readonly name: string;
     /**
-     * The part of the AZ name that appears after the region name,
-     * uniquely identifying the AZ within its region.
+     * The part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
      */
     readonly nameSuffix: string;
     /**
-     * The region where the selected availability zone resides.
-     * This is always the region selected on the provider, since this data source
-     * searches only within that region.
+     * The name of the location from which the address is advertised.
+     */
+    readonly networkBorderGroup: string;
+    /**
+     * For Availability Zones, this always has the value of `opt-in-not-required`. For Local Zones, this is the opt in status. The possible values are `opted-in` and `not-opted-in`.
+     */
+    readonly optInStatus: string;
+    /**
+     * The region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
      */
     readonly region: string;
-    /**
-     * The current state of the AZ.
-     */
     readonly state: string;
-    /**
-     * (Optional) The zone ID of the selected availability zone.
-     */
     readonly zoneId: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.

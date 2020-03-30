@@ -51,6 +51,10 @@ export class GangliaLayer extends pulumi.CustomResource {
     }
 
     /**
+     * The Amazon Resource Name(ARN) of the layer.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Whether to automatically assign an elastic IP address to the layer's instances.
      */
     public readonly autoAssignElasticIps!: pulumi.Output<boolean | undefined>;
@@ -116,6 +120,10 @@ export class GangliaLayer extends pulumi.CustomResource {
      */
     public readonly systemPackages!: pulumi.Output<string[] | undefined>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The URL path to use for Ganglia. Defaults to "/ganglia".
      */
     public readonly url!: pulumi.Output<string | undefined>;
@@ -140,6 +148,7 @@ export class GangliaLayer extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as GangliaLayerState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
             inputs["autoAssignPublicIps"] = state ? state.autoAssignPublicIps : undefined;
             inputs["autoHealing"] = state ? state.autoHealing : undefined;
@@ -160,6 +169,7 @@ export class GangliaLayer extends pulumi.CustomResource {
             inputs["password"] = state ? state.password : undefined;
             inputs["stackId"] = state ? state.stackId : undefined;
             inputs["systemPackages"] = state ? state.systemPackages : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["url"] = state ? state.url : undefined;
             inputs["useEbsOptimizedInstances"] = state ? state.useEbsOptimizedInstances : undefined;
             inputs["username"] = state ? state.username : undefined;
@@ -191,9 +201,11 @@ export class GangliaLayer extends pulumi.CustomResource {
             inputs["password"] = args ? args.password : undefined;
             inputs["stackId"] = args ? args.stackId : undefined;
             inputs["systemPackages"] = args ? args.systemPackages : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
             inputs["username"] = args ? args.username : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -210,6 +222,10 @@ export class GangliaLayer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GangliaLayer resources.
  */
 export interface GangliaLayerState {
+    /**
+     * The Amazon Resource Name(ARN) of the layer.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Whether to automatically assign an elastic IP address to the layer's instances.
      */
@@ -275,6 +291,10 @@ export interface GangliaLayerState {
      * Names of a set of system packages to install on the layer's instances.
      */
     readonly systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The URL path to use for Ganglia. Defaults to "/ganglia".
      */
@@ -358,6 +378,10 @@ export interface GangliaLayerArgs {
      * Names of a set of system packages to install on the layer's instances.
      */
     readonly systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The URL path to use for Ganglia. Defaults to "/ganglia".
      */

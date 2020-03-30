@@ -7,6 +7,7 @@ from .ami import *
 from .ami_copy import *
 from .ami_from_instance import *
 from .ami_launch_permission import *
+from .availability_zone_group import *
 from .capacity_reservation import *
 from .customer_gateway import *
 from .default_network_acl import *

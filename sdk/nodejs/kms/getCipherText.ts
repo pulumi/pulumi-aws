@@ -12,9 +12,6 @@ import * as utilities from "../utilities";
  * changes every apply. For a stable ciphertext value, see the [`aws.kms.Ciphertext`
  * resource](https://www.terraform.io/docs/providers/aws/r/kms_ciphertext.html).
  * 
- * > **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
  * ## Example Usage
  * 
  * ```typescript

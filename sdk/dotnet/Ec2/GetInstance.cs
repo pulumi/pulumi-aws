@@ -159,6 +159,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string KeyName;
         /// <summary>
+        /// The metadata options of the Instance.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetInstanceMetadataOptionsResult> MetadataOptions;
+        /// <summary>
         /// Whether detailed monitoring is enabled or disabled for the Instance (Boolean).
         /// </summary>
         public readonly bool Monitoring;
@@ -258,6 +262,7 @@ namespace Pulumi.Aws.Ec2
             ImmutableDictionary<string, object> instanceTags,
             string instanceType,
             string keyName,
+            ImmutableArray<Outputs.GetInstanceMetadataOptionsResult> metadataOptions,
             bool monitoring,
             string networkInterfaceId,
             string passwordData,
@@ -296,6 +301,7 @@ namespace Pulumi.Aws.Ec2
             InstanceTags = instanceTags;
             InstanceType = instanceType;
             KeyName = keyName;
+            MetadataOptions = metadataOptions;
             Monitoring = monitoring;
             NetworkInterfaceId = networkInterfaceId;
             PasswordData = passwordData;
@@ -453,6 +459,34 @@ namespace Pulumi.Aws.Ec2
         {
             Name = name;
             Values = values;
+        }
+    }
+
+    [OutputType]
+    public sealed class GetInstanceMetadataOptionsResult
+    {
+        /// <summary>
+        /// The state of the metadata service: `enabled`, `disabled`.
+        /// </summary>
+        public readonly string HttpEndpoint;
+        /// <summary>
+        /// The desired HTTP PUT response hop limit for instance metadata requests.
+        /// </summary>
+        public readonly int HttpPutResponseHopLimit;
+        /// <summary>
+        /// If session tokens are required: `optional`, `required`.
+        /// </summary>
+        public readonly string HttpTokens;
+
+        [OutputConstructor]
+        private GetInstanceMetadataOptionsResult(
+            string httpEndpoint,
+            int httpPutResponseHopLimit,
+            string httpTokens)
+        {
+            HttpEndpoint = httpEndpoint;
+            HttpPutResponseHopLimit = httpPutResponseHopLimit;
+            HttpTokens = httpTokens;
         }
     }
 

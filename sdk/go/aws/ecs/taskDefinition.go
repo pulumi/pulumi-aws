@@ -32,6 +32,8 @@ type TaskDefinition struct {
 	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
 	// A unique name for your task definition.
 	Family pulumi.StringOutput `pulumi:"family"`
+	// Configuration block(s) with Inference Accelerators settings. Detailed below.
+	InferenceAccelerators TaskDefinitionInferenceAcceleratorArrayOutput `pulumi:"inferenceAccelerators"`
 	// The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
 	IpcMode pulumi.StringPtrOutput `pulumi:"ipcMode"`
 	// The amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
@@ -105,6 +107,8 @@ type taskDefinitionState struct {
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// A unique name for your task definition.
 	Family *string `pulumi:"family"`
+	// Configuration block(s) with Inference Accelerators settings. Detailed below.
+	InferenceAccelerators []TaskDefinitionInferenceAccelerator `pulumi:"inferenceAccelerators"`
 	// The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
 	IpcMode *string `pulumi:"ipcMode"`
 	// The amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
@@ -145,6 +149,8 @@ type TaskDefinitionState struct {
 	ExecutionRoleArn pulumi.StringPtrInput
 	// A unique name for your task definition.
 	Family pulumi.StringPtrInput
+	// Configuration block(s) with Inference Accelerators settings. Detailed below.
+	InferenceAccelerators TaskDefinitionInferenceAcceleratorArrayInput
 	// The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
 	IpcMode pulumi.StringPtrInput
 	// The amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
@@ -187,6 +193,8 @@ type taskDefinitionArgs struct {
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// A unique name for your task definition.
 	Family string `pulumi:"family"`
+	// Configuration block(s) with Inference Accelerators settings. Detailed below.
+	InferenceAccelerators []TaskDefinitionInferenceAccelerator `pulumi:"inferenceAccelerators"`
 	// The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
 	IpcMode *string `pulumi:"ipcMode"`
 	// The amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
@@ -224,6 +232,8 @@ type TaskDefinitionArgs struct {
 	ExecutionRoleArn pulumi.StringPtrInput
 	// A unique name for your task definition.
 	Family pulumi.StringInput
+	// Configuration block(s) with Inference Accelerators settings. Detailed below.
+	InferenceAccelerators TaskDefinitionInferenceAcceleratorArrayInput
 	// The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
 	IpcMode pulumi.StringPtrInput
 	// The amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.

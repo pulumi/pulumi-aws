@@ -54,6 +54,15 @@ namespace Pulumi.Aws.Ec2
         public Output<string> LogGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum interval of time
+        /// during which a flow of packets is captured and aggregated into a flow
+        /// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
+        /// minutes). Default: `600`.
+        /// </summary>
+        [Output("maxAggregationInterval")]
+        public Output<int?> MaxAggregationInterval { get; private set; } = null!;
+
+        /// <summary>
         /// Subnet ID to attach to
         /// </summary>
         [Output("subnetId")]
@@ -160,6 +169,15 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LogGroupName { get; set; }
 
         /// <summary>
+        /// The maximum interval of time
+        /// during which a flow of packets is captured and aggregated into a flow
+        /// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
+        /// minutes). Default: `600`.
+        /// </summary>
+        [Input("maxAggregationInterval")]
+        public Input<int>? MaxAggregationInterval { get; set; }
+
+        /// <summary>
         /// Subnet ID to attach to
         /// </summary>
         [Input("subnetId")]
@@ -231,6 +249,15 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
+
+        /// <summary>
+        /// The maximum interval of time
+        /// during which a flow of packets is captured and aggregated into a flow
+        /// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
+        /// minutes). Default: `600`.
+        /// </summary>
+        [Input("maxAggregationInterval")]
+        public Input<int>? MaxAggregationInterval { get; set; }
 
         /// <summary>
         /// Subnet ID to attach to

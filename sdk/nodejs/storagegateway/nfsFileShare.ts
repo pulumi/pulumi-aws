@@ -97,6 +97,10 @@ export class NfsFileShare extends pulumi.CustomResource {
      */
     public readonly objectAcl!: pulumi.Output<string | undefined>;
     /**
+     * File share path used by the NFS client to identify the mount point.
+     */
+    public /*out*/ readonly path!: pulumi.Output<string>;
+    /**
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      */
     public readonly readOnly!: pulumi.Output<boolean | undefined>;
@@ -140,6 +144,7 @@ export class NfsFileShare extends pulumi.CustomResource {
             inputs["locationArn"] = state ? state.locationArn : undefined;
             inputs["nfsFileShareDefaults"] = state ? state.nfsFileShareDefaults : undefined;
             inputs["objectAcl"] = state ? state.objectAcl : undefined;
+            inputs["path"] = state ? state.path : undefined;
             inputs["readOnly"] = state ? state.readOnly : undefined;
             inputs["requesterPays"] = state ? state.requesterPays : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
@@ -175,6 +180,7 @@ export class NfsFileShare extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["fileshareId"] = undefined /*out*/;
+            inputs["path"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -235,6 +241,10 @@ export interface NfsFileShareState {
      * Access Control List permission for S3 bucket objects. Defaults to `private`.
      */
     readonly objectAcl?: pulumi.Input<string>;
+    /**
+     * File share path used by the NFS client to identify the mount point.
+     */
+    readonly path?: pulumi.Input<string>;
     /**
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      */

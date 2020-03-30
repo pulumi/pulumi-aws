@@ -43,6 +43,18 @@ namespace Pulumi.Aws.Iam
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// The tags attached to the role.
+        /// </summary>
+        public Dictionary<string, object> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, object>());
+            set => _tags = value;
+        }
+
         public GetRoleArgs()
         {
         }
@@ -81,6 +93,10 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly string PermissionsBoundary;
         /// <summary>
+        /// The tags attached to the role.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> Tags;
+        /// <summary>
         /// The stable and unique string identifying the role.
         /// </summary>
         public readonly string UniqueId;
@@ -99,6 +115,7 @@ namespace Pulumi.Aws.Iam
             string name,
             string path,
             string permissionsBoundary,
+            ImmutableDictionary<string, object> tags,
             string uniqueId,
             string id)
         {
@@ -110,6 +127,7 @@ namespace Pulumi.Aws.Iam
             Name = name;
             Path = path;
             PermissionsBoundary = permissionsBoundary;
+            Tags = tags;
             UniqueId = uniqueId;
             Id = id;
         }

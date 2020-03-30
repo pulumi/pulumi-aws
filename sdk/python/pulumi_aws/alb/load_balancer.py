@@ -30,6 +30,10 @@ class LoadBalancer(pulumi.CustomResource):
     """
     The DNS name of the load balancer.
     """
+    drop_invalid_header_fields: pulumi.Output[bool]
+    """
+    Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+    """
     enable_cross_zone_load_balancing: pulumi.Output[bool]
     """
     If true, cross-zone load balancing of the load balancer will be enabled.
@@ -96,7 +100,7 @@ class LoadBalancer(pulumi.CustomResource):
     """
     The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
     """
-    def __init__(__self__, resource_name, opts=None, access_logs=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, name_prefix=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_logs=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, name_prefix=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Load Balancer resource.
 
@@ -107,6 +111,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] access_logs: An Access Logs block. Access Logs documented below.
+        :param pulumi.Input[bool] drop_invalid_header_fields: Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled.
                This is a `network` load balancer feature. Defaults to `false`.
         :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via
@@ -156,6 +161,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['access_logs'] = access_logs
+            __props__['drop_invalid_header_fields'] = drop_invalid_header_fields
             __props__['enable_cross_zone_load_balancing'] = enable_cross_zone_load_balancing
             __props__['enable_deletion_protection'] = enable_deletion_protection
             __props__['enable_http2'] = enable_http2
@@ -183,7 +189,7 @@ class LoadBalancer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, access_logs=None, arn=None, arn_suffix=None, dns_name=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, name_prefix=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, zone_id=None):
+    def get(resource_name, id, opts=None, access_logs=None, arn=None, arn_suffix=None, dns_name=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, name_prefix=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, zone_id=None):
         """
         Get an existing LoadBalancer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -195,6 +201,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the load balancer (matches `id`).
         :param pulumi.Input[str] arn_suffix: The ARN suffix for use with CloudWatch Metrics.
         :param pulumi.Input[str] dns_name: The DNS name of the load balancer.
+        :param pulumi.Input[bool] drop_invalid_header_fields: Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled.
                This is a `network` load balancer feature. Defaults to `false`.
         :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via
@@ -235,6 +242,7 @@ class LoadBalancer(pulumi.CustomResource):
         __props__["arn"] = arn
         __props__["arn_suffix"] = arn_suffix
         __props__["dns_name"] = dns_name
+        __props__["drop_invalid_header_fields"] = drop_invalid_header_fields
         __props__["enable_cross_zone_load_balancing"] = enable_cross_zone_load_balancing
         __props__["enable_deletion_protection"] = enable_deletion_protection
         __props__["enable_http2"] = enable_http2

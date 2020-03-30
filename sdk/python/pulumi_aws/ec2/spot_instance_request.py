@@ -138,6 +138,14 @@ class SpotInstanceRequest(pulumi.CustomResource):
     A launch group is a group of spot instances that launch together and terminate together.
     If left empty instances are launched and terminated individually.
     """
+    metadata_options: pulumi.Output[dict]
+    """
+    Customize the metadata options of the instance. See Metadata Options below for more details.
+
+      * `httpEndpoint` (`str`) - Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+      * `httpPutResponseHopLimit` (`float`) - The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+      * `httpTokens` (`str`) - Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+    """
     monitoring: pulumi.Output[bool]
     """
     If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -268,7 +276,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
     wait for the Spot Request to be fulfilled, and will throw an error if the
     timeout of 10m is reached.
     """
-    def __init__(__self__, resource_name, opts=None, ami=None, associate_public_ip_address=None, availability_zone=None, block_duration_minutes=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_interruption_behaviour=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, launch_group=None, monitoring=None, network_interfaces=None, placement_group=None, private_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, spot_price=None, spot_type=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, valid_from=None, valid_until=None, volume_tags=None, vpc_security_group_ids=None, wait_for_fulfillment=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, ami=None, associate_public_ip_address=None, availability_zone=None, block_duration_minutes=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_interruption_behaviour=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, launch_group=None, metadata_options=None, monitoring=None, network_interfaces=None, placement_group=None, private_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, spot_price=None, spot_type=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, valid_from=None, valid_until=None, volume_tags=None, vpc_security_group_ids=None, wait_for_fulfillment=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an EC2 Spot Instance Request resource. This allows instances to be
         requested on the spot market.
@@ -335,6 +343,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         :param pulumi.Input[str] launch_group: A launch group is a group of spot instances that launch together and terminate together.
                If left empty instances are launched and terminated individually.
+        :param pulumi.Input[dict] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[list] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[str] placement_group: The Placement Group to start the instance in.
@@ -390,6 +399,12 @@ class SpotInstanceRequest(pulumi.CustomResource):
           * `virtualName` (`pulumi.Input[str]`) - The [Instance Store Device
             Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
             (e.g. `"ephemeral0"`).
+
+        The **metadata_options** object supports the following:
+
+          * `httpEndpoint` (`pulumi.Input[str]`) - Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+          * `httpPutResponseHopLimit` (`pulumi.Input[float]`) - The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+          * `httpTokens` (`pulumi.Input[str]`) - Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 
         The **network_interfaces** object supports the following:
 
@@ -454,6 +469,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             __props__['ipv6_addresses'] = ipv6_addresses
             __props__['key_name'] = key_name
             __props__['launch_group'] = launch_group
+            __props__['metadata_options'] = metadata_options
             __props__['monitoring'] = monitoring
             __props__['network_interfaces'] = network_interfaces
             __props__['placement_group'] = placement_group
@@ -490,7 +506,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, block_duration_minutes=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_interruption_behaviour=None, instance_state=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, launch_group=None, monitoring=None, network_interfaces=None, password_data=None, placement_group=None, primary_network_interface_id=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, spot_bid_status=None, spot_instance_id=None, spot_price=None, spot_request_state=None, spot_type=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, valid_from=None, valid_until=None, volume_tags=None, vpc_security_group_ids=None, wait_for_fulfillment=None):
+    def get(resource_name, id, opts=None, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, block_duration_minutes=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_interruption_behaviour=None, instance_state=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, launch_group=None, metadata_options=None, monitoring=None, network_interfaces=None, password_data=None, placement_group=None, primary_network_interface_id=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, spot_bid_status=None, spot_instance_id=None, spot_price=None, spot_request_state=None, spot_type=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, valid_from=None, valid_until=None, volume_tags=None, vpc_security_group_ids=None, wait_for_fulfillment=None):
         """
         Get an existing SpotInstanceRequest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -536,6 +552,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         :param pulumi.Input[str] launch_group: A launch group is a group of spot instances that launch together and terminate together.
                If left empty instances are launched and terminated individually.
+        :param pulumi.Input[dict] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[list] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[str] placement_group: The Placement Group to start the instance in.
@@ -606,6 +623,12 @@ class SpotInstanceRequest(pulumi.CustomResource):
             Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
             (e.g. `"ephemeral0"`).
 
+        The **metadata_options** object supports the following:
+
+          * `httpEndpoint` (`pulumi.Input[str]`) - Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+          * `httpPutResponseHopLimit` (`pulumi.Input[float]`) - The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+          * `httpTokens` (`pulumi.Input[str]`) - Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+
         The **network_interfaces** object supports the following:
 
           * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
@@ -654,6 +677,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__["ipv6_addresses"] = ipv6_addresses
         __props__["key_name"] = key_name
         __props__["launch_group"] = launch_group
+        __props__["metadata_options"] = metadata_options
         __props__["monitoring"] = monitoring
         __props__["network_interfaces"] = network_interfaces
         __props__["password_data"] = password_data

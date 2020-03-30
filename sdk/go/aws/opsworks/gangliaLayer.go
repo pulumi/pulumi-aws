@@ -17,6 +17,8 @@ import (
 type GangliaLayer struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name(ARN) of the layer.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether to automatically assign an elastic IP address to the layer's instances.
 	AutoAssignElasticIps pulumi.BoolPtrOutput `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
@@ -52,6 +54,8 @@ type GangliaLayer struct {
 	StackId pulumi.StringOutput `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The URL path to use for Ganglia. Defaults to "/ganglia".
 	Url pulumi.StringPtrOutput `pulumi:"url"`
 	// Whether to use EBS-optimized instances.
@@ -94,6 +98,8 @@ func GetGangliaLayer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GangliaLayer resources.
 type gangliaLayerState struct {
+	// The Amazon Resource Name(ARN) of the layer.
+	Arn *string `pulumi:"arn"`
 	// Whether to automatically assign an elastic IP address to the layer's instances.
 	AutoAssignElasticIps *bool `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
@@ -129,6 +135,8 @@ type gangliaLayerState struct {
 	StackId *string `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]interface{} `pulumi:"tags"`
 	// The URL path to use for Ganglia. Defaults to "/ganglia".
 	Url *string `pulumi:"url"`
 	// Whether to use EBS-optimized instances.
@@ -138,6 +146,8 @@ type gangliaLayerState struct {
 }
 
 type GangliaLayerState struct {
+	// The Amazon Resource Name(ARN) of the layer.
+	Arn pulumi.StringPtrInput
 	// Whether to automatically assign an elastic IP address to the layer's instances.
 	AutoAssignElasticIps pulumi.BoolPtrInput
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
@@ -173,6 +183,8 @@ type GangliaLayerState struct {
 	StackId pulumi.StringPtrInput
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapInput
 	// The URL path to use for Ganglia. Defaults to "/ganglia".
 	Url pulumi.StringPtrInput
 	// Whether to use EBS-optimized instances.
@@ -221,6 +233,8 @@ type gangliaLayerArgs struct {
 	StackId string `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]interface{} `pulumi:"tags"`
 	// The URL path to use for Ganglia. Defaults to "/ganglia".
 	Url *string `pulumi:"url"`
 	// Whether to use EBS-optimized instances.
@@ -266,6 +280,8 @@ type GangliaLayerArgs struct {
 	StackId pulumi.StringInput
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapInput
 	// The URL path to use for Ganglia. Defaults to "/ganglia".
 	Url pulumi.StringPtrInput
 	// Whether to use EBS-optimized instances.

@@ -26,6 +26,8 @@ type LoadBalancer struct {
 	ArnSuffix pulumi.StringOutput `pulumi:"arnSuffix"`
 	// The DNS name of the load balancer.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+	DropInvalidHeaderFields pulumi.BoolPtrOutput `pulumi:"dropInvalidHeaderFields"`
 	// If true, cross-zone load balancing of the load balancer will be enabled.
 	// This is a `network` load balancer feature. Defaults to `false`.
 	EnableCrossZoneLoadBalancing pulumi.BoolPtrOutput `pulumi:"enableCrossZoneLoadBalancing"`
@@ -99,6 +101,8 @@ type loadBalancerState struct {
 	ArnSuffix *string `pulumi:"arnSuffix"`
 	// The DNS name of the load balancer.
 	DnsName *string `pulumi:"dnsName"`
+	// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+	DropInvalidHeaderFields *bool `pulumi:"dropInvalidHeaderFields"`
 	// If true, cross-zone load balancing of the load balancer will be enabled.
 	// This is a `network` load balancer feature. Defaults to `false`.
 	EnableCrossZoneLoadBalancing *bool `pulumi:"enableCrossZoneLoadBalancing"`
@@ -145,6 +149,8 @@ type LoadBalancerState struct {
 	ArnSuffix pulumi.StringPtrInput
 	// The DNS name of the load balancer.
 	DnsName pulumi.StringPtrInput
+	// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+	DropInvalidHeaderFields pulumi.BoolPtrInput
 	// If true, cross-zone load balancing of the load balancer will be enabled.
 	// This is a `network` load balancer feature. Defaults to `false`.
 	EnableCrossZoneLoadBalancing pulumi.BoolPtrInput
@@ -189,6 +195,8 @@ func (LoadBalancerState) ElementType() reflect.Type {
 type loadBalancerArgs struct {
 	// An Access Logs block. Access Logs documented below.
 	AccessLogs *LoadBalancerAccessLogs `pulumi:"accessLogs"`
+	// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+	DropInvalidHeaderFields *bool `pulumi:"dropInvalidHeaderFields"`
 	// If true, cross-zone load balancing of the load balancer will be enabled.
 	// This is a `network` load balancer feature. Defaults to `false`.
 	EnableCrossZoneLoadBalancing *bool `pulumi:"enableCrossZoneLoadBalancing"`
@@ -227,6 +235,8 @@ type loadBalancerArgs struct {
 type LoadBalancerArgs struct {
 	// An Access Logs block. Access Logs documented below.
 	AccessLogs LoadBalancerAccessLogsPtrInput
+	// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+	DropInvalidHeaderFields pulumi.BoolPtrInput
 	// If true, cross-zone load balancing of the load balancer will be enabled.
 	// This is a `network` load balancer feature. Defaults to `false`.
 	EnableCrossZoneLoadBalancing pulumi.BoolPtrInput

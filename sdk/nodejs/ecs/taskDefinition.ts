@@ -90,6 +90,10 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public readonly family!: pulumi.Output<string>;
     /**
+     * Configuration block(s) with Inference Accelerators settings. Detailed below.
+     */
+    public readonly inferenceAccelerators!: pulumi.Output<outputs.ecs.TaskDefinitionInferenceAccelerator[] | undefined>;
+    /**
      * The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      */
     public readonly ipcMode!: pulumi.Output<string | undefined>;
@@ -151,6 +155,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["cpu"] = state ? state.cpu : undefined;
             inputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
             inputs["family"] = state ? state.family : undefined;
+            inputs["inferenceAccelerators"] = state ? state.inferenceAccelerators : undefined;
             inputs["ipcMode"] = state ? state.ipcMode : undefined;
             inputs["memory"] = state ? state.memory : undefined;
             inputs["networkMode"] = state ? state.networkMode : undefined;
@@ -174,6 +179,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["cpu"] = args ? args.cpu : undefined;
             inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             inputs["family"] = args ? args.family : undefined;
+            inputs["inferenceAccelerators"] = args ? args.inferenceAccelerators : undefined;
             inputs["ipcMode"] = args ? args.ipcMode : undefined;
             inputs["memory"] = args ? args.memory : undefined;
             inputs["networkMode"] = args ? args.networkMode : undefined;
@@ -227,6 +233,10 @@ export interface TaskDefinitionState {
      * A unique name for your task definition.
      */
     readonly family?: pulumi.Input<string>;
+    /**
+     * Configuration block(s) with Inference Accelerators settings. Detailed below.
+     */
+    readonly inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionInferenceAccelerator>[]>;
     /**
      * The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      */
@@ -298,6 +308,10 @@ export interface TaskDefinitionArgs {
      * A unique name for your task definition.
      */
     readonly family: pulumi.Input<string>;
+    /**
+     * Configuration block(s) with Inference Accelerators settings. Detailed below.
+     */
+    readonly inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionInferenceAccelerator>[]>;
     /**
      * The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      */

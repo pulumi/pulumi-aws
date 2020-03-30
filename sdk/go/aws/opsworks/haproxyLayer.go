@@ -17,6 +17,8 @@ import (
 type HaproxyLayer struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name(ARN) of the layer.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether to automatically assign an elastic IP address to the layer's instances.
 	AutoAssignElasticIps pulumi.BoolPtrOutput `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
@@ -62,6 +64,8 @@ type HaproxyLayer struct {
 	StatsUser pulumi.StringPtrOutput `pulumi:"statsUser"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrOutput `pulumi:"useEbsOptimizedInstances"`
 }
@@ -100,6 +104,8 @@ func GetHaproxyLayer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HaproxyLayer resources.
 type haproxyLayerState struct {
+	// The Amazon Resource Name(ARN) of the layer.
+	Arn *string `pulumi:"arn"`
 	// Whether to automatically assign an elastic IP address to the layer's instances.
 	AutoAssignElasticIps *bool `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
@@ -145,11 +151,15 @@ type haproxyLayerState struct {
 	StatsUser *string `pulumi:"statsUser"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]interface{} `pulumi:"tags"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
 }
 
 type HaproxyLayerState struct {
+	// The Amazon Resource Name(ARN) of the layer.
+	Arn pulumi.StringPtrInput
 	// Whether to automatically assign an elastic IP address to the layer's instances.
 	AutoAssignElasticIps pulumi.BoolPtrInput
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
@@ -195,6 +205,8 @@ type HaproxyLayerState struct {
 	StatsUser pulumi.StringPtrInput
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
 }
@@ -249,6 +261,8 @@ type haproxyLayerArgs struct {
 	StatsUser *string `pulumi:"statsUser"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]interface{} `pulumi:"tags"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
 }
@@ -300,6 +314,8 @@ type HaproxyLayerArgs struct {
 	StatsUser pulumi.StringPtrInput
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
 }

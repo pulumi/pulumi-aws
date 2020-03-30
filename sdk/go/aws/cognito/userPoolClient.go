@@ -23,6 +23,8 @@ type UserPoolClient struct {
 	AllowedOauthFlowsUserPoolClient pulumi.BoolPtrOutput `pulumi:"allowedOauthFlowsUserPoolClient"`
 	// List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
 	AllowedOauthScopes pulumi.StringArrayOutput `pulumi:"allowedOauthScopes"`
+	// The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+	AnalyticsConfiguration UserPoolClientAnalyticsConfigurationPtrOutput `pulumi:"analyticsConfiguration"`
 	// List of allowed callback URLs for the identity providers.
 	CallbackUrls pulumi.StringArrayOutput `pulumi:"callbackUrls"`
 	// The client secret of the user pool client.
@@ -37,6 +39,8 @@ type UserPoolClient struct {
 	LogoutUrls pulumi.StringArrayOutput `pulumi:"logoutUrls"`
 	// The name of the application client.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+	PreventUserExistenceErrors pulumi.StringOutput `pulumi:"preventUserExistenceErrors"`
 	// List of user pool attributes the application client can read from.
 	ReadAttributes pulumi.StringArrayOutput `pulumi:"readAttributes"`
 	// The time limit in days refresh tokens are valid for.
@@ -86,6 +90,8 @@ type userPoolClientState struct {
 	AllowedOauthFlowsUserPoolClient *bool `pulumi:"allowedOauthFlowsUserPoolClient"`
 	// List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
 	AllowedOauthScopes []string `pulumi:"allowedOauthScopes"`
+	// The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+	AnalyticsConfiguration *UserPoolClientAnalyticsConfiguration `pulumi:"analyticsConfiguration"`
 	// List of allowed callback URLs for the identity providers.
 	CallbackUrls []string `pulumi:"callbackUrls"`
 	// The client secret of the user pool client.
@@ -100,6 +106,8 @@ type userPoolClientState struct {
 	LogoutUrls []string `pulumi:"logoutUrls"`
 	// The name of the application client.
 	Name *string `pulumi:"name"`
+	// Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+	PreventUserExistenceErrors *string `pulumi:"preventUserExistenceErrors"`
 	// List of user pool attributes the application client can read from.
 	ReadAttributes []string `pulumi:"readAttributes"`
 	// The time limit in days refresh tokens are valid for.
@@ -119,6 +127,8 @@ type UserPoolClientState struct {
 	AllowedOauthFlowsUserPoolClient pulumi.BoolPtrInput
 	// List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
 	AllowedOauthScopes pulumi.StringArrayInput
+	// The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+	AnalyticsConfiguration UserPoolClientAnalyticsConfigurationPtrInput
 	// List of allowed callback URLs for the identity providers.
 	CallbackUrls pulumi.StringArrayInput
 	// The client secret of the user pool client.
@@ -133,6 +143,8 @@ type UserPoolClientState struct {
 	LogoutUrls pulumi.StringArrayInput
 	// The name of the application client.
 	Name pulumi.StringPtrInput
+	// Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+	PreventUserExistenceErrors pulumi.StringPtrInput
 	// List of user pool attributes the application client can read from.
 	ReadAttributes pulumi.StringArrayInput
 	// The time limit in days refresh tokens are valid for.
@@ -156,6 +168,8 @@ type userPoolClientArgs struct {
 	AllowedOauthFlowsUserPoolClient *bool `pulumi:"allowedOauthFlowsUserPoolClient"`
 	// List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
 	AllowedOauthScopes []string `pulumi:"allowedOauthScopes"`
+	// The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+	AnalyticsConfiguration *UserPoolClientAnalyticsConfiguration `pulumi:"analyticsConfiguration"`
 	// List of allowed callback URLs for the identity providers.
 	CallbackUrls []string `pulumi:"callbackUrls"`
 	// The default redirect URI. Must be in the list of callback URLs.
@@ -168,6 +182,8 @@ type userPoolClientArgs struct {
 	LogoutUrls []string `pulumi:"logoutUrls"`
 	// The name of the application client.
 	Name *string `pulumi:"name"`
+	// Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+	PreventUserExistenceErrors *string `pulumi:"preventUserExistenceErrors"`
 	// List of user pool attributes the application client can read from.
 	ReadAttributes []string `pulumi:"readAttributes"`
 	// The time limit in days refresh tokens are valid for.
@@ -188,6 +204,8 @@ type UserPoolClientArgs struct {
 	AllowedOauthFlowsUserPoolClient pulumi.BoolPtrInput
 	// List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
 	AllowedOauthScopes pulumi.StringArrayInput
+	// The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+	AnalyticsConfiguration UserPoolClientAnalyticsConfigurationPtrInput
 	// List of allowed callback URLs for the identity providers.
 	CallbackUrls pulumi.StringArrayInput
 	// The default redirect URI. Must be in the list of callback URLs.
@@ -200,6 +218,8 @@ type UserPoolClientArgs struct {
 	LogoutUrls pulumi.StringArrayInput
 	// The name of the application client.
 	Name pulumi.StringPtrInput
+	// Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+	PreventUserExistenceErrors pulumi.StringPtrInput
 	// List of user pool attributes the application client can read from.
 	ReadAttributes pulumi.StringArrayInput
 	// The time limit in days refresh tokens are valid for.

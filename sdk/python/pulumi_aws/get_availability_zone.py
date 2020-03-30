@@ -13,7 +13,19 @@ class GetAvailabilityZoneResult:
     """
     A collection of values returned by getAvailabilityZone.
     """
-    def __init__(__self__, id=None, name=None, name_suffix=None, region=None, state=None, zone_id=None):
+    def __init__(__self__, all_availability_zones=None, filters=None, group_name=None, id=None, name=None, name_suffix=None, network_border_group=None, opt_in_status=None, region=None, state=None, zone_id=None):
+        if all_availability_zones and not isinstance(all_availability_zones, bool):
+            raise TypeError("Expected argument 'all_availability_zones' to be a bool")
+        __self__.all_availability_zones = all_availability_zones
+        if filters and not isinstance(filters, list):
+            raise TypeError("Expected argument 'filters' to be a list")
+        __self__.filters = filters
+        if group_name and not isinstance(group_name, str):
+            raise TypeError("Expected argument 'group_name' to be a str")
+        __self__.group_name = group_name
+        """
+        For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
+        """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
@@ -23,50 +35,55 @@ class GetAvailabilityZoneResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
-        """
-        The name of the selected availability zone.
-        """
         if name_suffix and not isinstance(name_suffix, str):
             raise TypeError("Expected argument 'name_suffix' to be a str")
         __self__.name_suffix = name_suffix
         """
-        The part of the AZ name that appears after the region name,
-        uniquely identifying the AZ within its region.
+        The part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
+        """
+        if network_border_group and not isinstance(network_border_group, str):
+            raise TypeError("Expected argument 'network_border_group' to be a str")
+        __self__.network_border_group = network_border_group
+        """
+        The name of the location from which the address is advertised.
+        """
+        if opt_in_status and not isinstance(opt_in_status, str):
+            raise TypeError("Expected argument 'opt_in_status' to be a str")
+        __self__.opt_in_status = opt_in_status
+        """
+        For Availability Zones, this always has the value of `opt-in-not-required`. For Local Zones, this is the opt in status. The possible values are `opted-in` and `not-opted-in`.
         """
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         __self__.region = region
         """
-        The region where the selected availability zone resides.
-        This is always the region selected on the provider, since this data source
-        searches only within that region.
+        The region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
         """
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         __self__.state = state
-        """
-        The current state of the AZ.
-        """
         if zone_id and not isinstance(zone_id, str):
             raise TypeError("Expected argument 'zone_id' to be a str")
         __self__.zone_id = zone_id
-        """
-        (Optional) The zone ID of the selected availability zone.
-        """
 class AwaitableGetAvailabilityZoneResult(GetAvailabilityZoneResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetAvailabilityZoneResult(
+            all_availability_zones=self.all_availability_zones,
+            filters=self.filters,
+            group_name=self.group_name,
             id=self.id,
             name=self.name,
             name_suffix=self.name_suffix,
+            network_border_group=self.network_border_group,
+            opt_in_status=self.opt_in_status,
             region=self.region,
             state=self.state,
             zone_id=self.zone_id)
 
-def get_availability_zone(name=None,state=None,zone_id=None,opts=None):
+def get_availability_zone(all_availability_zones=None,filters=None,name=None,state=None,zone_id=None,opts=None):
     """
     `.getAvailabilityZone` provides details about a specific availability zone (AZ)
     in the current region.
@@ -83,14 +100,22 @@ def get_availability_zone(name=None,state=None,zone_id=None,opts=None):
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zone.html.markdown.
 
 
-    :param str name: The full name of the availability zone to select.
-    :param str state: A specific availability zone state to require. May
-           be any of `"available"`, `"information"` or `"impaired"`.
+    :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
+    :param list filters: Configuration block(s) for filtering. Detailed below.
+    :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+    :param str state: A specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
     :param str zone_id: The zone ID of the availability zone to select.
+
+    The **filters** object supports the following:
+
+      * `name` (`str`) - The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+      * `values` (`list`) - Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
     """
     __args__ = dict()
 
 
+    __args__['allAvailabilityZones'] = all_availability_zones
+    __args__['filters'] = filters
     __args__['name'] = name
     __args__['state'] = state
     __args__['zoneId'] = zone_id
@@ -101,9 +126,14 @@ def get_availability_zone(name=None,state=None,zone_id=None,opts=None):
     __ret__ = pulumi.runtime.invoke('aws:index/getAvailabilityZone:getAvailabilityZone', __args__, opts=opts).value
 
     return AwaitableGetAvailabilityZoneResult(
+        all_availability_zones=__ret__.get('allAvailabilityZones'),
+        filters=__ret__.get('filters'),
+        group_name=__ret__.get('groupName'),
         id=__ret__.get('id'),
         name=__ret__.get('name'),
         name_suffix=__ret__.get('nameSuffix'),
+        network_border_group=__ret__.get('networkBorderGroup'),
+        opt_in_status=__ret__.get('optInStatus'),
         region=__ret__.get('region'),
         state=__ret__.get('state'),
         zone_id=__ret__.get('zoneId'))

@@ -42,6 +42,20 @@ import * as utilities from "./utilities";
  *     toPort: 443,
  * });
  * ```
+ * 
+ * ### Filter
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const test = aws.getPrefixList({
+ *     filters: [{
+ *         name: "prefix-list-id",
+ *         values: ["pl-68a54001"],
+ *     }],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/prefix_list.html.markdown.
  */
@@ -55,6 +69,7 @@ export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOpti
         opts.version = utilities.getVersion();
     }
     const promise: Promise<GetPrefixListResult> = pulumi.runtime.invoke("aws:index/getPrefixList:getPrefixList", {
+        "filters": args.filters,
         "name": args.name,
         "prefixListId": args.prefixListId,
     }, opts);
@@ -67,7 +82,11 @@ export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetPrefixListArgs {
     /**
-     * The name of the prefix list to select.
+     * Configuration block(s) for filtering. Detailed below.
+     */
+    readonly filters?: inputs.GetPrefixListFilter[];
+    /**
+     * The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
      */
     readonly name?: string;
     /**
@@ -81,10 +100,10 @@ export interface GetPrefixListArgs {
  */
 export interface GetPrefixListResult {
     /**
-     * The list of CIDR blocks for the AWS service associated
-     * with the prefix list.
+     * The list of CIDR blocks for the AWS service associated with the prefix list.
      */
     readonly cidrBlocks: string[];
+    readonly filters?: outputs.GetPrefixListFilter[];
     /**
      * The name of the selected prefix list.
      */

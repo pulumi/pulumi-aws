@@ -35,6 +35,18 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class GetVpcEndpointServiceArgs : Pulumi.InvokeArgs
     {
+        [Input("filters")]
+        private List<Inputs.GetVpcEndpointServiceFiltersArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
+        public List<Inputs.GetVpcEndpointServiceFiltersArgs> Filters
+        {
+            get => _filters ?? (_filters = new List<Inputs.GetVpcEndpointServiceFiltersArgs>());
+            set => _filters = value;
+        }
+
         /// <summary>
         /// The common name of an AWS service (e.g. `s3`).
         /// </summary>
@@ -42,7 +54,7 @@ namespace Pulumi.Aws.Ec2
         public string? Service { get; set; }
 
         /// <summary>
-        /// The service name that can be specified when creating a VPC endpoint.
+        /// The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
         /// </summary>
         [Input("serviceName")]
         public string? ServiceName { get; set; }
@@ -51,7 +63,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, object>? _tags;
 
         /// <summary>
-        /// A mapping of tags assigned to the resource.
+        /// A mapping of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
         /// </summary>
         public Dictionary<string, object> Tags
         {
@@ -79,6 +91,7 @@ namespace Pulumi.Aws.Ec2
         /// The DNS names for the service.
         /// </summary>
         public readonly ImmutableArray<string> BaseEndpointDnsNames;
+        public readonly ImmutableArray<Outputs.GetVpcEndpointServiceFiltersResult> Filters;
         /// <summary>
         /// Whether or not the service manages its VPC endpoints - `true` or `false`.
         /// </summary>
@@ -119,6 +132,7 @@ namespace Pulumi.Aws.Ec2
             bool acceptanceRequired,
             ImmutableArray<string> availabilityZones,
             ImmutableArray<string> baseEndpointDnsNames,
+            ImmutableArray<Outputs.GetVpcEndpointServiceFiltersResult> filters,
             bool managesVpcEndpoints,
             string owner,
             string privateDnsName,
@@ -133,6 +147,7 @@ namespace Pulumi.Aws.Ec2
             AcceptanceRequired = acceptanceRequired;
             AvailabilityZones = availabilityZones;
             BaseEndpointDnsNames = baseEndpointDnsNames;
+            Filters = filters;
             ManagesVpcEndpoints = managesVpcEndpoints;
             Owner = owner;
             PrivateDnsName = privateDnsName;
@@ -144,5 +159,60 @@ namespace Pulumi.Aws.Ec2
             VpcEndpointPolicySupported = vpcEndpointPolicySupported;
             Id = id;
         }
+    }
+
+    namespace Inputs
+    {
+
+    public sealed class GetVpcEndpointServiceFiltersArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
+        /// </summary>
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
+
+        [Input("values", required: true)]
+        private List<string>? _values;
+
+        /// <summary>
+        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        /// </summary>
+        public List<string> Values
+        {
+            get => _values ?? (_values = new List<string>());
+            set => _values = value;
+        }
+
+        public GetVpcEndpointServiceFiltersArgs()
+        {
+        }
+    }
+    }
+
+    namespace Outputs
+    {
+
+    [OutputType]
+    public sealed class GetVpcEndpointServiceFiltersResult
+    {
+        /// <summary>
+        /// The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
+        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        /// </summary>
+        public readonly ImmutableArray<string> Values;
+
+        [OutputConstructor]
+        private GetVpcEndpointServiceFiltersResult(
+            string name,
+            ImmutableArray<string> values)
+        {
+            Name = name;
+            Values = values;
+        }
+    }
     }
 }

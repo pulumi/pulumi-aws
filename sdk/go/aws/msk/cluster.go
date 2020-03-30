@@ -40,6 +40,8 @@ type Cluster struct {
 	EnhancedMonitoring pulumi.StringPtrOutput `pulumi:"enhancedMonitoring"`
 	// Specify the desired Kafka software version.
 	KafkaVersion pulumi.StringOutput `pulumi:"kafkaVersion"`
+	// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+	LoggingInfo ClusterLoggingInfoPtrOutput `pulumi:"loggingInfo"`
 	// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
 	NumberOfBrokerNodes pulumi.IntOutput `pulumi:"numberOfBrokerNodes"`
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
@@ -113,6 +115,8 @@ type clusterState struct {
 	EnhancedMonitoring *string `pulumi:"enhancedMonitoring"`
 	// Specify the desired Kafka software version.
 	KafkaVersion *string `pulumi:"kafkaVersion"`
+	// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+	LoggingInfo *ClusterLoggingInfo `pulumi:"loggingInfo"`
 	// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
 	NumberOfBrokerNodes *int `pulumi:"numberOfBrokerNodes"`
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
@@ -147,6 +151,8 @@ type ClusterState struct {
 	EnhancedMonitoring pulumi.StringPtrInput
 	// Specify the desired Kafka software version.
 	KafkaVersion pulumi.StringPtrInput
+	// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+	LoggingInfo ClusterLoggingInfoPtrInput
 	// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
 	NumberOfBrokerNodes pulumi.IntPtrInput
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
@@ -176,6 +182,8 @@ type clusterArgs struct {
 	EnhancedMonitoring *string `pulumi:"enhancedMonitoring"`
 	// Specify the desired Kafka software version.
 	KafkaVersion string `pulumi:"kafkaVersion"`
+	// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+	LoggingInfo *ClusterLoggingInfo `pulumi:"loggingInfo"`
 	// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
 	NumberOfBrokerNodes int `pulumi:"numberOfBrokerNodes"`
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
@@ -200,6 +208,8 @@ type ClusterArgs struct {
 	EnhancedMonitoring pulumi.StringPtrInput
 	// Specify the desired Kafka software version.
 	KafkaVersion pulumi.StringInput
+	// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+	LoggingInfo ClusterLoggingInfoPtrInput
 	// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
 	NumberOfBrokerNodes pulumi.IntInput
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.

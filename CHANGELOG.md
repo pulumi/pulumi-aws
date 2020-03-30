@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v2.55.0 of the AWS Terraform Provider
+* Upgrade to Pulumi v1.13.1
 
 ---
 

@@ -25,6 +25,8 @@ type AssessmentTemplate struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The rules to be used during the run.
 	RulesPackageArns pulumi.StringArrayOutput `pulumi:"rulesPackageArns"`
+	// Key-value mapping of tags for the Inspector assessment template.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The assessment target ARN to attach the template to.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 }
@@ -74,6 +76,8 @@ type assessmentTemplateState struct {
 	Name *string `pulumi:"name"`
 	// The rules to be used during the run.
 	RulesPackageArns []string `pulumi:"rulesPackageArns"`
+	// Key-value mapping of tags for the Inspector assessment template.
+	Tags map[string]interface{} `pulumi:"tags"`
 	// The assessment target ARN to attach the template to.
 	TargetArn *string `pulumi:"targetArn"`
 }
@@ -87,6 +91,8 @@ type AssessmentTemplateState struct {
 	Name pulumi.StringPtrInput
 	// The rules to be used during the run.
 	RulesPackageArns pulumi.StringArrayInput
+	// Key-value mapping of tags for the Inspector assessment template.
+	Tags pulumi.MapInput
 	// The assessment target ARN to attach the template to.
 	TargetArn pulumi.StringPtrInput
 }
@@ -102,6 +108,8 @@ type assessmentTemplateArgs struct {
 	Name *string `pulumi:"name"`
 	// The rules to be used during the run.
 	RulesPackageArns []string `pulumi:"rulesPackageArns"`
+	// Key-value mapping of tags for the Inspector assessment template.
+	Tags map[string]interface{} `pulumi:"tags"`
 	// The assessment target ARN to attach the template to.
 	TargetArn string `pulumi:"targetArn"`
 }
@@ -114,6 +122,8 @@ type AssessmentTemplateArgs struct {
 	Name pulumi.StringPtrInput
 	// The rules to be used during the run.
 	RulesPackageArns pulumi.StringArrayInput
+	// Key-value mapping of tags for the Inspector assessment template.
+	Tags pulumi.MapInput
 	// The assessment target ARN to attach the template to.
 	TargetArn pulumi.StringInput
 }

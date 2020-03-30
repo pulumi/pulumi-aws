@@ -323,7 +323,7 @@ namespace Pulumi.Aws.Dlm
     public sealed class LifecyclePolicyPolicyDetailsSchedulesCreateRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// How often this lifecycle policy should be evaluated. `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+        /// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
         /// </summary>
         [Input("interval", required: true)]
         public Input<int> Interval { get; set; } = null!;
@@ -348,7 +348,7 @@ namespace Pulumi.Aws.Dlm
     public sealed class LifecyclePolicyPolicyDetailsSchedulesCreateRuleGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// How often this lifecycle policy should be evaluated. `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+        /// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
         /// </summary>
         [Input("interval", required: true)]
         public Input<int> Interval { get; set; } = null!;
@@ -515,7 +515,7 @@ namespace Pulumi.Aws.Dlm
     public sealed class LifecyclePolicyPolicyDetailsSchedulesCreateRule
     {
         /// <summary>
-        /// How often this lifecycle policy should be evaluated. `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+        /// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
         /// </summary>
         public readonly int Interval;
         /// <summary>

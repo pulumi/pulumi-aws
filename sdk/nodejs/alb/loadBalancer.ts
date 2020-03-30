@@ -123,6 +123,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
+     * Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+     */
+    public readonly dropInvalidHeaderFields!: pulumi.Output<boolean | undefined>;
+    /**
      * If true, cross-zone load balancing of the load balancer will be enabled.
      * This is a `network` load balancer feature. Defaults to `false`.
      */
@@ -202,6 +206,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["arnSuffix"] = state ? state.arnSuffix : undefined;
             inputs["dnsName"] = state ? state.dnsName : undefined;
+            inputs["dropInvalidHeaderFields"] = state ? state.dropInvalidHeaderFields : undefined;
             inputs["enableCrossZoneLoadBalancing"] = state ? state.enableCrossZoneLoadBalancing : undefined;
             inputs["enableDeletionProtection"] = state ? state.enableDeletionProtection : undefined;
             inputs["enableHttp2"] = state ? state.enableHttp2 : undefined;
@@ -220,6 +225,7 @@ export class LoadBalancer extends pulumi.CustomResource {
         } else {
             const args = argsOrState as LoadBalancerArgs | undefined;
             inputs["accessLogs"] = args ? args.accessLogs : undefined;
+            inputs["dropInvalidHeaderFields"] = args ? args.dropInvalidHeaderFields : undefined;
             inputs["enableCrossZoneLoadBalancing"] = args ? args.enableCrossZoneLoadBalancing : undefined;
             inputs["enableDeletionProtection"] = args ? args.enableDeletionProtection : undefined;
             inputs["enableHttp2"] = args ? args.enableHttp2 : undefined;
@@ -272,6 +278,10 @@ export interface LoadBalancerState {
      * The DNS name of the load balancer.
      */
     readonly dnsName?: pulumi.Input<string>;
+    /**
+     * Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+     */
+    readonly dropInvalidHeaderFields?: pulumi.Input<boolean>;
     /**
      * If true, cross-zone load balancing of the load balancer will be enabled.
      * This is a `network` load balancer feature. Defaults to `false`.
@@ -345,6 +355,10 @@ export interface LoadBalancerArgs {
      * An Access Logs block. Access Logs documented below.
      */
     readonly accessLogs?: pulumi.Input<inputs.alb.LoadBalancerAccessLogs>;
+    /**
+     * Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+     */
+    readonly dropInvalidHeaderFields?: pulumi.Input<boolean>;
     /**
      * If true, cross-zone load balancing of the load balancer will be enabled.
      * This is a `network` load balancer feature. Defaults to `false`.

@@ -22,10 +22,25 @@ import * as utilities from "../utilities";
  *     vpnConnectionId: aws_vpn_connection_exampleId,
  * }));
  * ```
+ * 
+ * ### Filter
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const test = aws.ec2transitgateway.getVpnAttachment({
+ *     filters: [{
+ *         name: "resource-id",
+ *         values: ["some-resource"],
+ *     }],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpn_attachment.html.markdown.
  */
-export function getVpnAttachment(args: GetVpnAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnAttachmentResult> & GetVpnAttachmentResult {
+export function getVpnAttachment(args?: GetVpnAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnAttachmentResult> & GetVpnAttachmentResult {
+    args = args || {};
     if (!opts) {
         opts = {}
     }
@@ -34,6 +49,7 @@ export function getVpnAttachment(args: GetVpnAttachmentArgs, opts?: pulumi.Invok
         opts.version = utilities.getVersion();
     }
     const promise: Promise<GetVpnAttachmentResult> = pulumi.runtime.invoke("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", {
+        "filters": args.filters,
         "tags": args.tags,
         "transitGatewayId": args.transitGatewayId,
         "vpnConnectionId": args.vpnConnectionId,
@@ -47,29 +63,34 @@ export function getVpnAttachment(args: GetVpnAttachmentArgs, opts?: pulumi.Invok
  */
 export interface GetVpnAttachmentArgs {
     /**
-     * Key-value tags for the EC2 Transit Gateway VPN Attachment
+     * Configuration block(s) for filtering. Detailed below.
+     */
+    readonly filters?: inputs.ec2transitgateway.GetVpnAttachmentFilter[];
+    /**
+     * A mapping of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
      */
     readonly tags?: {[key: string]: any};
     /**
      * Identifier of the EC2 Transit Gateway.
      */
-    readonly transitGatewayId: string;
+    readonly transitGatewayId?: string;
     /**
      * Identifier of the EC2 VPN Connection.
      */
-    readonly vpnConnectionId: string;
+    readonly vpnConnectionId?: string;
 }
 
 /**
  * A collection of values returned by getVpnAttachment.
  */
 export interface GetVpnAttachmentResult {
+    readonly filters?: outputs.ec2transitgateway.GetVpnAttachmentFilter[];
     /**
      * Key-value tags for the EC2 Transit Gateway VPN Attachment
      */
     readonly tags: {[key: string]: any};
-    readonly transitGatewayId: string;
-    readonly vpnConnectionId: string;
+    readonly transitGatewayId?: string;
+    readonly vpnConnectionId?: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

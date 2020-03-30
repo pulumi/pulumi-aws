@@ -43,6 +43,12 @@ namespace Pulumi.Aws.LB
         public Output<string> DnsName { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+        /// </summary>
+        [Output("dropInvalidHeaderFields")]
+        public Output<bool?> DropInvalidHeaderFields { get; private set; } = null!;
+
+        /// <summary>
         /// If true, cross-zone load balancing of the load balancer will be enabled.
         /// This is a `network` load balancer feature. Defaults to `false`.
         /// </summary>
@@ -188,6 +194,12 @@ namespace Pulumi.Aws.LB
         public Input<Inputs.LoadBalancerAccessLogsArgs>? AccessLogs { get; set; }
 
         /// <summary>
+        /// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+        /// </summary>
+        [Input("dropInvalidHeaderFields")]
+        public Input<bool>? DropInvalidHeaderFields { get; set; }
+
+        /// <summary>
         /// If true, cross-zone load balancing of the load balancer will be enabled.
         /// This is a `network` load balancer feature. Defaults to `false`.
         /// </summary>
@@ -325,6 +337,12 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
+
+        /// <summary>
+        /// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+        /// </summary>
+        [Input("dropInvalidHeaderFields")]
+        public Input<bool>? DropInvalidHeaderFields { get; set; }
 
         /// <summary>
         /// If true, cross-zone load balancing of the load balancer will be enabled.

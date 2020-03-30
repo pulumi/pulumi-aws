@@ -23,14 +23,18 @@ class Workgroup(pulumi.CustomResource):
       * `publishCloudwatchMetricsEnabled` (`bool`) - Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
       * `resultConfiguration` (`dict`) - Configuration block with result settings. Documented below.
         * `encryption_configuration` (`dict`) - Configuration block with encryption settings. Documented below.
-          * `encryptionOption` (`str`) - Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE-S3), server-side encryption with KMS-managed keys (SSE-KMS), or client-side encryption with KMS-managed keys (CSE-KMS) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
-          * `kms_key_arn` (`str`) - For SSE-KMS and CSE-KMS, this is the KMS key Amazon Resource Name (ARN).
+          * `encryptionOption` (`str`) - Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
+          * `kms_key_arn` (`str`) - For `SSE_KMS` and `CSE_KMS`, this is the KMS key Amazon Resource Name (ARN).
 
         * `output_location` (`str`) - The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
     """
     description: pulumi.Output[str]
     """
     Description of the workgroup.
+    """
+    force_destroy: pulumi.Output[bool]
+    """
+    The option to delete the workgroup and its contents even if the workgroup contains any named queries.
     """
     name: pulumi.Output[str]
     """
@@ -44,7 +48,7 @@ class Workgroup(pulumi.CustomResource):
     """
     Key-value mapping of resource tags for the workgroup.
     """
-    def __init__(__self__, resource_name, opts=None, configuration=None, description=None, name=None, state=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, configuration=None, description=None, force_destroy=None, name=None, state=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Athena Workgroup.
 
@@ -54,6 +58,7 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] configuration: Configuration block with various settings for the workgroup. Documented below.
         :param pulumi.Input[str] description: Description of the workgroup.
+        :param pulumi.Input[bool] force_destroy: The option to delete the workgroup and its contents even if the workgroup contains any named queries.
         :param pulumi.Input[str] name: Name of the workgroup.
         :param pulumi.Input[str] state: State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags for the workgroup.
@@ -65,8 +70,8 @@ class Workgroup(pulumi.CustomResource):
           * `publishCloudwatchMetricsEnabled` (`pulumi.Input[bool]`) - Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
           * `resultConfiguration` (`pulumi.Input[dict]`) - Configuration block with result settings. Documented below.
             * `encryption_configuration` (`pulumi.Input[dict]`) - Configuration block with encryption settings. Documented below.
-              * `encryptionOption` (`pulumi.Input[str]`) - Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE-S3), server-side encryption with KMS-managed keys (SSE-KMS), or client-side encryption with KMS-managed keys (CSE-KMS) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
-              * `kms_key_arn` (`pulumi.Input[str]`) - For SSE-KMS and CSE-KMS, this is the KMS key Amazon Resource Name (ARN).
+              * `encryptionOption` (`pulumi.Input[str]`) - Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
+              * `kms_key_arn` (`pulumi.Input[str]`) - For `SSE_KMS` and `CSE_KMS`, this is the KMS key Amazon Resource Name (ARN).
 
             * `output_location` (`pulumi.Input[str]`) - The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
         """
@@ -89,6 +94,7 @@ class Workgroup(pulumi.CustomResource):
 
             __props__['configuration'] = configuration
             __props__['description'] = description
+            __props__['force_destroy'] = force_destroy
             __props__['name'] = name
             __props__['state'] = state
             __props__['tags'] = tags
@@ -100,7 +106,7 @@ class Workgroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, configuration=None, description=None, name=None, state=None, tags=None):
+    def get(resource_name, id, opts=None, arn=None, configuration=None, description=None, force_destroy=None, name=None, state=None, tags=None):
         """
         Get an existing Workgroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -111,6 +117,7 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the workgroup
         :param pulumi.Input[dict] configuration: Configuration block with various settings for the workgroup. Documented below.
         :param pulumi.Input[str] description: Description of the workgroup.
+        :param pulumi.Input[bool] force_destroy: The option to delete the workgroup and its contents even if the workgroup contains any named queries.
         :param pulumi.Input[str] name: Name of the workgroup.
         :param pulumi.Input[str] state: State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags for the workgroup.
@@ -122,8 +129,8 @@ class Workgroup(pulumi.CustomResource):
           * `publishCloudwatchMetricsEnabled` (`pulumi.Input[bool]`) - Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
           * `resultConfiguration` (`pulumi.Input[dict]`) - Configuration block with result settings. Documented below.
             * `encryption_configuration` (`pulumi.Input[dict]`) - Configuration block with encryption settings. Documented below.
-              * `encryptionOption` (`pulumi.Input[str]`) - Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE-S3), server-side encryption with KMS-managed keys (SSE-KMS), or client-side encryption with KMS-managed keys (CSE-KMS) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
-              * `kms_key_arn` (`pulumi.Input[str]`) - For SSE-KMS and CSE-KMS, this is the KMS key Amazon Resource Name (ARN).
+              * `encryptionOption` (`pulumi.Input[str]`) - Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
+              * `kms_key_arn` (`pulumi.Input[str]`) - For `SSE_KMS` and `CSE_KMS`, this is the KMS key Amazon Resource Name (ARN).
 
             * `output_location` (`pulumi.Input[str]`) - The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
         """
@@ -134,6 +141,7 @@ class Workgroup(pulumi.CustomResource):
         __props__["arn"] = arn
         __props__["configuration"] = configuration
         __props__["description"] = description
+        __props__["force_destroy"] = force_destroy
         __props__["name"] = name
         __props__["state"] = state
         __props__["tags"] = tags

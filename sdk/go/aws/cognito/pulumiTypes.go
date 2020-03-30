@@ -859,6 +859,162 @@ func (o UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput) SmsMessage(
 	return o.ApplyT(func(v UserPoolAdminCreateUserConfigInviteMessageTemplate) *string { return v.SmsMessage }).(pulumi.StringPtrOutput)
 }
 
+type UserPoolClientAnalyticsConfiguration struct {
+	// The application ID for an Amazon Pinpoint application.
+	ApplicationId string `pulumi:"applicationId"`
+	// An ID for the Analytics Configuration.
+	ExternalId string `pulumi:"externalId"`
+	// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+	RoleArn string `pulumi:"roleArn"`
+	// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+	UserDataShared *bool `pulumi:"userDataShared"`
+}
+
+type UserPoolClientAnalyticsConfigurationInput interface {
+	pulumi.Input
+
+	ToUserPoolClientAnalyticsConfigurationOutput() UserPoolClientAnalyticsConfigurationOutput
+	ToUserPoolClientAnalyticsConfigurationOutputWithContext(context.Context) UserPoolClientAnalyticsConfigurationOutput
+}
+
+type UserPoolClientAnalyticsConfigurationArgs struct {
+	// The application ID for an Amazon Pinpoint application.
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	// An ID for the Analytics Configuration.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+	UserDataShared pulumi.BoolPtrInput `pulumi:"userDataShared"`
+}
+
+func (UserPoolClientAnalyticsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolClientAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (i UserPoolClientAnalyticsConfigurationArgs) ToUserPoolClientAnalyticsConfigurationOutput() UserPoolClientAnalyticsConfigurationOutput {
+	return i.ToUserPoolClientAnalyticsConfigurationOutputWithContext(context.Background())
+}
+
+func (i UserPoolClientAnalyticsConfigurationArgs) ToUserPoolClientAnalyticsConfigurationOutputWithContext(ctx context.Context) UserPoolClientAnalyticsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientAnalyticsConfigurationOutput)
+}
+
+func (i UserPoolClientAnalyticsConfigurationArgs) ToUserPoolClientAnalyticsConfigurationPtrOutput() UserPoolClientAnalyticsConfigurationPtrOutput {
+	return i.ToUserPoolClientAnalyticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolClientAnalyticsConfigurationArgs) ToUserPoolClientAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolClientAnalyticsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientAnalyticsConfigurationOutput).ToUserPoolClientAnalyticsConfigurationPtrOutputWithContext(ctx)
+}
+
+type UserPoolClientAnalyticsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolClientAnalyticsConfigurationPtrOutput() UserPoolClientAnalyticsConfigurationPtrOutput
+	ToUserPoolClientAnalyticsConfigurationPtrOutputWithContext(context.Context) UserPoolClientAnalyticsConfigurationPtrOutput
+}
+
+type userPoolClientAnalyticsConfigurationPtrType UserPoolClientAnalyticsConfigurationArgs
+
+func UserPoolClientAnalyticsConfigurationPtr(v *UserPoolClientAnalyticsConfigurationArgs) UserPoolClientAnalyticsConfigurationPtrInput {
+	return (*userPoolClientAnalyticsConfigurationPtrType)(v)
+}
+
+func (*userPoolClientAnalyticsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolClientAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (i *userPoolClientAnalyticsConfigurationPtrType) ToUserPoolClientAnalyticsConfigurationPtrOutput() UserPoolClientAnalyticsConfigurationPtrOutput {
+	return i.ToUserPoolClientAnalyticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolClientAnalyticsConfigurationPtrType) ToUserPoolClientAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolClientAnalyticsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientAnalyticsConfigurationPtrOutput)
+}
+
+type UserPoolClientAnalyticsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (UserPoolClientAnalyticsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolClientAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolClientAnalyticsConfigurationOutput) ToUserPoolClientAnalyticsConfigurationOutput() UserPoolClientAnalyticsConfigurationOutput {
+	return o
+}
+
+func (o UserPoolClientAnalyticsConfigurationOutput) ToUserPoolClientAnalyticsConfigurationOutputWithContext(ctx context.Context) UserPoolClientAnalyticsConfigurationOutput {
+	return o
+}
+
+func (o UserPoolClientAnalyticsConfigurationOutput) ToUserPoolClientAnalyticsConfigurationPtrOutput() UserPoolClientAnalyticsConfigurationPtrOutput {
+	return o.ToUserPoolClientAnalyticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolClientAnalyticsConfigurationOutput) ToUserPoolClientAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolClientAnalyticsConfigurationPtrOutput {
+	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) *UserPoolClientAnalyticsConfiguration {
+		return &v
+	}).(UserPoolClientAnalyticsConfigurationPtrOutput)
+}
+
+// The application ID for an Amazon Pinpoint application.
+func (o UserPoolClientAnalyticsConfigurationOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) string { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+// An ID for the Analytics Configuration.
+func (o UserPoolClientAnalyticsConfigurationOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+func (o UserPoolClientAnalyticsConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+func (o UserPoolClientAnalyticsConfigurationOutput) UserDataShared() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) *bool { return v.UserDataShared }).(pulumi.BoolPtrOutput)
+}
+
+type UserPoolClientAnalyticsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolClientAnalyticsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolClientAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolClientAnalyticsConfigurationPtrOutput) ToUserPoolClientAnalyticsConfigurationPtrOutput() UserPoolClientAnalyticsConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolClientAnalyticsConfigurationPtrOutput) ToUserPoolClientAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolClientAnalyticsConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolClientAnalyticsConfigurationPtrOutput) Elem() UserPoolClientAnalyticsConfigurationOutput {
+	return o.ApplyT(func(v *UserPoolClientAnalyticsConfiguration) UserPoolClientAnalyticsConfiguration { return *v }).(UserPoolClientAnalyticsConfigurationOutput)
+}
+
+// The application ID for an Amazon Pinpoint application.
+func (o UserPoolClientAnalyticsConfigurationPtrOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) string { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+// An ID for the Analytics Configuration.
+func (o UserPoolClientAnalyticsConfigurationPtrOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+func (o UserPoolClientAnalyticsConfigurationPtrOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+func (o UserPoolClientAnalyticsConfigurationPtrOutput) UserDataShared() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) *bool { return v.UserDataShared }).(pulumi.BoolPtrOutput)
+}
+
 type UserPoolDeviceConfiguration struct {
 	// Indicates whether a challenge is required on a new device. Only applicable to a new device.
 	ChallengeRequiredOnNewDevice *bool `pulumi:"challengeRequiredOnNewDevice"`
@@ -990,6 +1146,8 @@ func (o UserPoolDeviceConfigurationPtrOutput) DeviceOnlyRememberedOnUserPrompt()
 type UserPoolEmailConfiguration struct {
 	// Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
 	EmailSendingAccount *string `pulumi:"emailSendingAccount"`
+	// Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith <john@smith.com>")
+	FromEmailAddress *string `pulumi:"fromEmailAddress"`
 	// The REPLY-TO email address.
 	ReplyToEmailAddress *string `pulumi:"replyToEmailAddress"`
 	// The ARN of the email source.
@@ -1006,6 +1164,8 @@ type UserPoolEmailConfigurationInput interface {
 type UserPoolEmailConfigurationArgs struct {
 	// Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
 	EmailSendingAccount pulumi.StringPtrInput `pulumi:"emailSendingAccount"`
+	// Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith <john@smith.com>")
+	FromEmailAddress pulumi.StringPtrInput `pulumi:"fromEmailAddress"`
 	// The REPLY-TO email address.
 	ReplyToEmailAddress pulumi.StringPtrInput `pulumi:"replyToEmailAddress"`
 	// The ARN of the email source.
@@ -1086,6 +1246,11 @@ func (o UserPoolEmailConfigurationOutput) EmailSendingAccount() pulumi.StringPtr
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.EmailSendingAccount }).(pulumi.StringPtrOutput)
 }
 
+// Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith <john@smith.com>")
+func (o UserPoolEmailConfigurationOutput) FromEmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.FromEmailAddress }).(pulumi.StringPtrOutput)
+}
+
 // The REPLY-TO email address.
 func (o UserPoolEmailConfigurationOutput) ReplyToEmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.ReplyToEmailAddress }).(pulumi.StringPtrOutput)
@@ -1117,6 +1282,11 @@ func (o UserPoolEmailConfigurationPtrOutput) Elem() UserPoolEmailConfigurationOu
 // Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
 func (o UserPoolEmailConfigurationPtrOutput) EmailSendingAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.EmailSendingAccount }).(pulumi.StringPtrOutput)
+}
+
+// Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith <john@smith.com>")
+func (o UserPoolEmailConfigurationPtrOutput) FromEmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.FromEmailAddress }).(pulumi.StringPtrOutput)
 }
 
 // The REPLY-TO email address.
@@ -2308,6 +2478,120 @@ func (o UserPoolUserPoolAddOnsPtrOutput) AdvancedSecurityMode() pulumi.StringOut
 	return o.ApplyT(func(v UserPoolUserPoolAddOns) string { return v.AdvancedSecurityMode }).(pulumi.StringOutput)
 }
 
+type UserPoolUsernameConfiguration struct {
+	// Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+	CaseSensitive bool `pulumi:"caseSensitive"`
+}
+
+type UserPoolUsernameConfigurationInput interface {
+	pulumi.Input
+
+	ToUserPoolUsernameConfigurationOutput() UserPoolUsernameConfigurationOutput
+	ToUserPoolUsernameConfigurationOutputWithContext(context.Context) UserPoolUsernameConfigurationOutput
+}
+
+type UserPoolUsernameConfigurationArgs struct {
+	// Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+	CaseSensitive pulumi.BoolInput `pulumi:"caseSensitive"`
+}
+
+func (UserPoolUsernameConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolUsernameConfiguration)(nil)).Elem()
+}
+
+func (i UserPoolUsernameConfigurationArgs) ToUserPoolUsernameConfigurationOutput() UserPoolUsernameConfigurationOutput {
+	return i.ToUserPoolUsernameConfigurationOutputWithContext(context.Background())
+}
+
+func (i UserPoolUsernameConfigurationArgs) ToUserPoolUsernameConfigurationOutputWithContext(ctx context.Context) UserPoolUsernameConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUsernameConfigurationOutput)
+}
+
+func (i UserPoolUsernameConfigurationArgs) ToUserPoolUsernameConfigurationPtrOutput() UserPoolUsernameConfigurationPtrOutput {
+	return i.ToUserPoolUsernameConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolUsernameConfigurationArgs) ToUserPoolUsernameConfigurationPtrOutputWithContext(ctx context.Context) UserPoolUsernameConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUsernameConfigurationOutput).ToUserPoolUsernameConfigurationPtrOutputWithContext(ctx)
+}
+
+type UserPoolUsernameConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolUsernameConfigurationPtrOutput() UserPoolUsernameConfigurationPtrOutput
+	ToUserPoolUsernameConfigurationPtrOutputWithContext(context.Context) UserPoolUsernameConfigurationPtrOutput
+}
+
+type userPoolUsernameConfigurationPtrType UserPoolUsernameConfigurationArgs
+
+func UserPoolUsernameConfigurationPtr(v *UserPoolUsernameConfigurationArgs) UserPoolUsernameConfigurationPtrInput {
+	return (*userPoolUsernameConfigurationPtrType)(v)
+}
+
+func (*userPoolUsernameConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolUsernameConfiguration)(nil)).Elem()
+}
+
+func (i *userPoolUsernameConfigurationPtrType) ToUserPoolUsernameConfigurationPtrOutput() UserPoolUsernameConfigurationPtrOutput {
+	return i.ToUserPoolUsernameConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolUsernameConfigurationPtrType) ToUserPoolUsernameConfigurationPtrOutputWithContext(ctx context.Context) UserPoolUsernameConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUsernameConfigurationPtrOutput)
+}
+
+type UserPoolUsernameConfigurationOutput struct{ *pulumi.OutputState }
+
+func (UserPoolUsernameConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolUsernameConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolUsernameConfigurationOutput) ToUserPoolUsernameConfigurationOutput() UserPoolUsernameConfigurationOutput {
+	return o
+}
+
+func (o UserPoolUsernameConfigurationOutput) ToUserPoolUsernameConfigurationOutputWithContext(ctx context.Context) UserPoolUsernameConfigurationOutput {
+	return o
+}
+
+func (o UserPoolUsernameConfigurationOutput) ToUserPoolUsernameConfigurationPtrOutput() UserPoolUsernameConfigurationPtrOutput {
+	return o.ToUserPoolUsernameConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolUsernameConfigurationOutput) ToUserPoolUsernameConfigurationPtrOutputWithContext(ctx context.Context) UserPoolUsernameConfigurationPtrOutput {
+	return o.ApplyT(func(v UserPoolUsernameConfiguration) *UserPoolUsernameConfiguration {
+		return &v
+	}).(UserPoolUsernameConfigurationPtrOutput)
+}
+
+// Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+func (o UserPoolUsernameConfigurationOutput) CaseSensitive() pulumi.BoolOutput {
+	return o.ApplyT(func(v UserPoolUsernameConfiguration) bool { return v.CaseSensitive }).(pulumi.BoolOutput)
+}
+
+type UserPoolUsernameConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolUsernameConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolUsernameConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolUsernameConfigurationPtrOutput) ToUserPoolUsernameConfigurationPtrOutput() UserPoolUsernameConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolUsernameConfigurationPtrOutput) ToUserPoolUsernameConfigurationPtrOutputWithContext(ctx context.Context) UserPoolUsernameConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolUsernameConfigurationPtrOutput) Elem() UserPoolUsernameConfigurationOutput {
+	return o.ApplyT(func(v *UserPoolUsernameConfiguration) UserPoolUsernameConfiguration { return *v }).(UserPoolUsernameConfigurationOutput)
+}
+
+// Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+func (o UserPoolUsernameConfigurationPtrOutput) CaseSensitive() pulumi.BoolOutput {
+	return o.ApplyT(func(v UserPoolUsernameConfiguration) bool { return v.CaseSensitive }).(pulumi.BoolOutput)
+}
+
 type UserPoolVerificationMessageTemplate struct {
 	// The default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
 	DefaultEmailOption *string `pulumi:"defaultEmailOption"`
@@ -2507,6 +2791,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolAdminCreateUserConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolAdminCreateUserConfigInviteMessageTemplateOutput{})
 	pulumi.RegisterOutputType(UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput{})
+	pulumi.RegisterOutputType(UserPoolClientAnalyticsConfigurationOutput{})
+	pulumi.RegisterOutputType(UserPoolClientAnalyticsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolDeviceConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolDeviceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolEmailConfigurationOutput{})
@@ -2527,6 +2813,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolSoftwareTokenMfaConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolUserPoolAddOnsOutput{})
 	pulumi.RegisterOutputType(UserPoolUserPoolAddOnsPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolUsernameConfigurationOutput{})
+	pulumi.RegisterOutputType(UserPoolUsernameConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolVerificationMessageTemplateOutput{})
 	pulumi.RegisterOutputType(UserPoolVerificationMessageTemplatePtrOutput{})
 }

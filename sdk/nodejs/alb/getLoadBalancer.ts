@@ -74,6 +74,7 @@ export interface GetLoadBalancerResult {
     readonly arn: string;
     readonly arnSuffix: string;
     readonly dnsName: string;
+    readonly dropInvalidHeaderFields: boolean;
     readonly enableDeletionProtection: boolean;
     readonly idleTimeout: number;
     readonly internal: boolean;

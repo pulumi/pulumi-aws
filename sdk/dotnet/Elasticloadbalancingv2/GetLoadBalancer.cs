@@ -77,6 +77,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public readonly string Arn;
         public readonly string ArnSuffix;
         public readonly string DnsName;
+        public readonly bool DropInvalidHeaderFields;
         public readonly bool EnableDeletionProtection;
         public readonly int IdleTimeout;
         public readonly bool Internal;
@@ -99,6 +100,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
             string arn,
             string arnSuffix,
             string dnsName,
+            bool dropInvalidHeaderFields,
             bool enableDeletionProtection,
             int idleTimeout,
             bool @internal,
@@ -116,6 +118,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
             Arn = arn;
             ArnSuffix = arnSuffix;
             DnsName = dnsName;
+            DropInvalidHeaderFields = dropInvalidHeaderFields;
             EnableDeletionProtection = enableDeletionProtection;
             IdleTimeout = idleTimeout;
             Internal = @internal;

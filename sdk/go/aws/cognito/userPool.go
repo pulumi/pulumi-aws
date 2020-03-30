@@ -62,6 +62,8 @@ type UserPool struct {
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrOutput `pulumi:"userPoolAddOns"`
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 	UsernameAttributes pulumi.StringArrayOutput `pulumi:"usernameAttributes"`
+	// The Username Configuration.
+	UsernameConfiguration UserPoolUsernameConfigurationPtrOutput `pulumi:"usernameConfiguration"`
 	// The verification message templates configuration.
 	VerificationMessageTemplate UserPoolVerificationMessageTemplateOutput `pulumi:"verificationMessageTemplate"`
 }
@@ -140,6 +142,8 @@ type userPoolState struct {
 	UserPoolAddOns *UserPoolUserPoolAddOns `pulumi:"userPoolAddOns"`
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 	UsernameAttributes []string `pulumi:"usernameAttributes"`
+	// The Username Configuration.
+	UsernameConfiguration *UserPoolUsernameConfiguration `pulumi:"usernameConfiguration"`
 	// The verification message templates configuration.
 	VerificationMessageTemplate *UserPoolVerificationMessageTemplate `pulumi:"verificationMessageTemplate"`
 }
@@ -191,6 +195,8 @@ type UserPoolState struct {
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrInput
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 	UsernameAttributes pulumi.StringArrayInput
+	// The Username Configuration.
+	UsernameConfiguration UserPoolUsernameConfigurationPtrInput
 	// The verification message templates configuration.
 	VerificationMessageTemplate UserPoolVerificationMessageTemplatePtrInput
 }
@@ -238,6 +244,8 @@ type userPoolArgs struct {
 	UserPoolAddOns *UserPoolUserPoolAddOns `pulumi:"userPoolAddOns"`
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 	UsernameAttributes []string `pulumi:"usernameAttributes"`
+	// The Username Configuration.
+	UsernameConfiguration *UserPoolUsernameConfiguration `pulumi:"usernameConfiguration"`
 	// The verification message templates configuration.
 	VerificationMessageTemplate *UserPoolVerificationMessageTemplate `pulumi:"verificationMessageTemplate"`
 }
@@ -282,6 +290,8 @@ type UserPoolArgs struct {
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrInput
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 	UsernameAttributes pulumi.StringArrayInput
+	// The Username Configuration.
+	UsernameConfiguration UserPoolUsernameConfigurationPtrInput
 	// The verification message templates configuration.
 	VerificationMessageTemplate UserPoolVerificationMessageTemplatePtrInput
 }
