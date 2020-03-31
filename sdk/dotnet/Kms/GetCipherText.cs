@@ -17,9 +17,6 @@ namespace Pulumi.Aws.Kms
         /// changes every apply. For a stable ciphertext value, see the [`aws.kms.Ciphertext`
         /// resource](https://www.terraform.io/docs/providers/aws/r/kms_ciphertext.html).
         /// 
-        /// &gt; **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
-        /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_ciphertext.html.markdown.
         /// </summary>
         [Obsolete("Use GetCipherText.InvokeAsync() instead")]
@@ -33,9 +30,6 @@ namespace Pulumi.Aws.Kms
         /// by using an AWS KMS customer master key. The value returned by this data source
         /// changes every apply. For a stable ciphertext value, see the [`aws.kms.Ciphertext`
         /// resource](https://www.terraform.io/docs/providers/aws/r/kms_ciphertext.html).
-        /// 
-        /// &gt; **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
-        /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_ciphertext.html.markdown.
         /// </summary>

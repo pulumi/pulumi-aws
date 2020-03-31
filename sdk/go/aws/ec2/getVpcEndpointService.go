@@ -23,11 +23,13 @@ func LookupVpcEndpointService(ctx *pulumi.Context, args *LookupVpcEndpointServic
 
 // A collection of arguments for invoking getVpcEndpointService.
 type LookupVpcEndpointServiceArgs struct {
+	// Configuration block(s) for filtering. Detailed below.
+	Filters []GetVpcEndpointServiceFilter `pulumi:"filters"`
 	// The common name of an AWS service (e.g. `s3`).
 	Service *string `pulumi:"service"`
-	// The service name that can be specified when creating a VPC endpoint.
+	// The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName *string `pulumi:"serviceName"`
-	// A mapping of tags assigned to the resource.
+	// A mapping of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -38,7 +40,8 @@ type LookupVpcEndpointServiceResult struct {
 	// The Availability Zones in which the service is available.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The DNS names for the service.
-	BaseEndpointDnsNames []string `pulumi:"baseEndpointDnsNames"`
+	BaseEndpointDnsNames []string                      `pulumi:"baseEndpointDnsNames"`
+	Filters              []GetVpcEndpointServiceFilter `pulumi:"filters"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Whether or not the service manages its VPC endpoints - `true` or `false`.

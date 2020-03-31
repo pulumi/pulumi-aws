@@ -72,6 +72,10 @@ export class Workgroup extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+     */
+    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
+    /**
      * Name of the workgroup.
      */
     public readonly name!: pulumi.Output<string>;
@@ -99,6 +103,7 @@ export class Workgroup extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["configuration"] = state ? state.configuration : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["state"] = state ? state.state : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -106,6 +111,7 @@ export class Workgroup extends pulumi.CustomResource {
             const args = argsOrState as WorkgroupArgs | undefined;
             inputs["configuration"] = args ? args.configuration : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["state"] = args ? args.state : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -139,6 +145,10 @@ export interface WorkgroupState {
      */
     readonly description?: pulumi.Input<string>;
     /**
+     * The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+     */
+    readonly forceDestroy?: pulumi.Input<boolean>;
+    /**
      * Name of the workgroup.
      */
     readonly name?: pulumi.Input<string>;
@@ -164,6 +174,10 @@ export interface WorkgroupArgs {
      * Description of the workgroup.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * The option to delete the workgroup and its contents even if the workgroup contains any named queries.
+     */
+    readonly forceDestroy?: pulumi.Input<boolean>;
     /**
      * Name of the workgroup.
      */

@@ -84,6 +84,12 @@ namespace Pulumi.Aws.Msk
         public Output<string> KafkaVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+        /// </summary>
+        [Output("loggingInfo")]
+        public Output<Outputs.ClusterLoggingInfo?> LoggingInfo { get; private set; } = null!;
+
+        /// <summary>
         /// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
         /// </summary>
         [Output("numberOfBrokerNodes")]
@@ -196,6 +202,12 @@ namespace Pulumi.Aws.Msk
         public Input<string> KafkaVersion { get; set; } = null!;
 
         /// <summary>
+        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+        /// </summary>
+        [Input("loggingInfo")]
+        public Input<Inputs.ClusterLoggingInfoArgs>? LoggingInfo { get; set; }
+
+        /// <summary>
         /// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
         /// </summary>
         [Input("numberOfBrokerNodes", required: true)]
@@ -292,6 +304,12 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         [Input("kafkaVersion")]
         public Input<string>? KafkaVersion { get; set; }
+
+        /// <summary>
+        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+        /// </summary>
+        [Input("loggingInfo")]
+        public Input<Inputs.ClusterLoggingInfoGetArgs>? LoggingInfo { get; set; }
 
         /// <summary>
         /// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
@@ -607,6 +625,190 @@ namespace Pulumi.Aws.Msk
         }
     }
 
+    public sealed class ClusterLoggingInfoArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Configuration block for Broker Logs settings for logging info. See below.
+        /// </summary>
+        [Input("brokerLogs", required: true)]
+        public Input<ClusterLoggingInfoBrokerLogsArgs> BrokerLogs { get; set; } = null!;
+
+        public ClusterLoggingInfoArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterLoggingInfoBrokerLogsArgs : Pulumi.ResourceArgs
+    {
+        [Input("cloudwatchLogs")]
+        public Input<ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs>? CloudwatchLogs { get; set; }
+
+        [Input("firehose")]
+        public Input<ClusterLoggingInfoBrokerLogsFirehoseArgs>? Firehose { get; set; }
+
+        [Input("s3")]
+        public Input<ClusterLoggingInfoBrokerLogsS3Args>? S3 { get; set; }
+
+        public ClusterLoggingInfoBrokerLogsArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+        /// </summary>
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Cloudwatch Log Group to deliver logs to.
+        /// </summary>
+        [Input("logGroup")]
+        public Input<string>? LogGroup { get; set; }
+
+        public ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterLoggingInfoBrokerLogsCloudwatchLogsGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+        /// </summary>
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Cloudwatch Log Group to deliver logs to.
+        /// </summary>
+        [Input("logGroup")]
+        public Input<string>? LogGroup { get; set; }
+
+        public ClusterLoggingInfoBrokerLogsCloudwatchLogsGetArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterLoggingInfoBrokerLogsFirehoseArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
+        /// </summary>
+        [Input("deliveryStream")]
+        public Input<string>? DeliveryStream { get; set; }
+
+        /// <summary>
+        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+        /// </summary>
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
+
+        public ClusterLoggingInfoBrokerLogsFirehoseArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterLoggingInfoBrokerLogsFirehoseGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
+        /// </summary>
+        [Input("deliveryStream")]
+        public Input<string>? DeliveryStream { get; set; }
+
+        /// <summary>
+        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+        /// </summary>
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
+
+        public ClusterLoggingInfoBrokerLogsFirehoseGetArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterLoggingInfoBrokerLogsGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("cloudwatchLogs")]
+        public Input<ClusterLoggingInfoBrokerLogsCloudwatchLogsGetArgs>? CloudwatchLogs { get; set; }
+
+        [Input("firehose")]
+        public Input<ClusterLoggingInfoBrokerLogsFirehoseGetArgs>? Firehose { get; set; }
+
+        [Input("s3")]
+        public Input<ClusterLoggingInfoBrokerLogsS3GetArgs>? S3 { get; set; }
+
+        public ClusterLoggingInfoBrokerLogsGetArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterLoggingInfoBrokerLogsS3Args : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Name of the S3 bucket to deliver logs to. 
+        /// </summary>
+        [Input("bucket")]
+        public Input<string>? Bucket { get; set; }
+
+        /// <summary>
+        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+        /// </summary>
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
+
+        /// <summary>
+        /// Prefix to append to the folder name. 
+        /// </summary>
+        [Input("prefix")]
+        public Input<string>? Prefix { get; set; }
+
+        public ClusterLoggingInfoBrokerLogsS3Args()
+        {
+        }
+    }
+
+    public sealed class ClusterLoggingInfoBrokerLogsS3GetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Name of the S3 bucket to deliver logs to. 
+        /// </summary>
+        [Input("bucket")]
+        public Input<string>? Bucket { get; set; }
+
+        /// <summary>
+        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+        /// </summary>
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
+
+        /// <summary>
+        /// Prefix to append to the folder name. 
+        /// </summary>
+        [Input("prefix")]
+        public Input<string>? Prefix { get; set; }
+
+        public ClusterLoggingInfoBrokerLogsS3GetArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterLoggingInfoGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Configuration block for Broker Logs settings for logging info. See below.
+        /// </summary>
+        [Input("brokerLogs", required: true)]
+        public Input<ClusterLoggingInfoBrokerLogsGetArgs> BrokerLogs { get; set; } = null!;
+
+        public ClusterLoggingInfoGetArgs()
+        {
+        }
+    }
+
     public sealed class ClusterOpenMonitoringArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -860,6 +1062,112 @@ namespace Pulumi.Aws.Msk
         {
             ClientBroker = clientBroker;
             InCluster = inCluster;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterLoggingInfo
+    {
+        /// <summary>
+        /// Configuration block for Broker Logs settings for logging info. See below.
+        /// </summary>
+        public readonly ClusterLoggingInfoBrokerLogs BrokerLogs;
+
+        [OutputConstructor]
+        private ClusterLoggingInfo(ClusterLoggingInfoBrokerLogs brokerLogs)
+        {
+            BrokerLogs = brokerLogs;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterLoggingInfoBrokerLogs
+    {
+        public readonly ClusterLoggingInfoBrokerLogsCloudwatchLogs? CloudwatchLogs;
+        public readonly ClusterLoggingInfoBrokerLogsFirehose? Firehose;
+        public readonly ClusterLoggingInfoBrokerLogsS3? S3;
+
+        [OutputConstructor]
+        private ClusterLoggingInfoBrokerLogs(
+            ClusterLoggingInfoBrokerLogsCloudwatchLogs? cloudwatchLogs,
+            ClusterLoggingInfoBrokerLogsFirehose? firehose,
+            ClusterLoggingInfoBrokerLogsS3? s3)
+        {
+            CloudwatchLogs = cloudwatchLogs;
+            Firehose = firehose;
+            S3 = s3;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterLoggingInfoBrokerLogsCloudwatchLogs
+    {
+        /// <summary>
+        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+        /// </summary>
+        public readonly bool Enabled;
+        /// <summary>
+        /// Name of the Cloudwatch Log Group to deliver logs to.
+        /// </summary>
+        public readonly string? LogGroup;
+
+        [OutputConstructor]
+        private ClusterLoggingInfoBrokerLogsCloudwatchLogs(
+            bool enabled,
+            string? logGroup)
+        {
+            Enabled = enabled;
+            LogGroup = logGroup;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterLoggingInfoBrokerLogsFirehose
+    {
+        /// <summary>
+        /// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
+        /// </summary>
+        public readonly string? DeliveryStream;
+        /// <summary>
+        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+        /// </summary>
+        public readonly bool Enabled;
+
+        [OutputConstructor]
+        private ClusterLoggingInfoBrokerLogsFirehose(
+            string? deliveryStream,
+            bool enabled)
+        {
+            DeliveryStream = deliveryStream;
+            Enabled = enabled;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterLoggingInfoBrokerLogsS3
+    {
+        /// <summary>
+        /// Name of the S3 bucket to deliver logs to. 
+        /// </summary>
+        public readonly string? Bucket;
+        /// <summary>
+        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+        /// </summary>
+        public readonly bool Enabled;
+        /// <summary>
+        /// Prefix to append to the folder name. 
+        /// </summary>
+        public readonly string? Prefix;
+
+        [OutputConstructor]
+        private ClusterLoggingInfoBrokerLogsS3(
+            string? bucket,
+            bool enabled,
+            string? prefix)
+        {
+            Bucket = bucket;
+            Enabled = enabled;
+            Prefix = prefix;
         }
     }
 

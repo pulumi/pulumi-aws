@@ -6,6 +6,7 @@ export * from "./ami";
 export * from "./amiCopy";
 export * from "./amiFromInstance";
 export * from "./amiLaunchPermission";
+export * from "./availabilityZoneGroup";
 export * from "./capacityReservation";
 export * from "./customerGateway";
 export * from "./defaultNetworkAcl";

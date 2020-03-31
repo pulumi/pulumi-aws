@@ -17,6 +17,12 @@ namespace Pulumi.Aws.OpsWorks
     public partial class NodejsAppLayer : Pulumi.CustomResource
     {
         /// <summary>
+        /// The Amazon Resource Name(ARN) of the layer.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to automatically assign an elastic IP address to the layer's instances.
         /// </summary>
         [Output("autoAssignElasticIps")]
@@ -120,6 +126,12 @@ namespace Pulumi.Aws.OpsWorks
         /// </summary>
         [Output("systemPackages")]
         public Output<ImmutableArray<string>> SystemPackages { get; private set; } = null!;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Whether to use EBS-optimized instances.
@@ -321,6 +333,18 @@ namespace Pulumi.Aws.OpsWorks
             set => _systemPackages = value;
         }
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// Whether to use EBS-optimized instances.
         /// </summary>
@@ -334,6 +358,12 @@ namespace Pulumi.Aws.OpsWorks
 
     public sealed class NodejsAppLayerState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name(ARN) of the layer.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// Whether to automatically assign an elastic IP address to the layer's instances.
         /// </summary>
@@ -480,6 +510,18 @@ namespace Pulumi.Aws.OpsWorks
         {
             get => _systemPackages ?? (_systemPackages = new InputList<string>());
             set => _systemPackages = value;
+        }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
         }
 
         /// <summary>

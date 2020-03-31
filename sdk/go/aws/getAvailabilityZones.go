@@ -15,6 +15,8 @@ import (
 // This is different from the `.getAvailabilityZone` (singular) data source,
 // which provides some details about a specific availability zone.
 //
+// > When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
 func GetAvailabilityZones(ctx *pulumi.Context, args *GetAvailabilityZonesArgs, opts ...pulumi.InvokeOption) (*GetAvailabilityZonesResult, error) {
 	var rv GetAvailabilityZonesResult
@@ -27,10 +29,15 @@ func GetAvailabilityZones(ctx *pulumi.Context, args *GetAvailabilityZonesArgs, o
 
 // A collection of arguments for invoking getAvailabilityZones.
 type GetAvailabilityZonesArgs struct {
+	// Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
+	AllAvailabilityZones *bool `pulumi:"allAvailabilityZones"`
 	// List of blacklisted Availability Zone names.
 	BlacklistedNames []string `pulumi:"blacklistedNames"`
 	// List of blacklisted Availability Zone IDs.
 	BlacklistedZoneIds []string `pulumi:"blacklistedZoneIds"`
+	// Configuration block(s) for filtering. Detailed below.
+	Filters    []GetAvailabilityZonesFilter `pulumi:"filters"`
+	GroupNames []string                     `pulumi:"groupNames"`
 	// Allows to filter list of Availability Zones based on their
 	// current state. Can be either `"available"`, `"information"`, `"impaired"` or
 	// `"unavailable"`. By default the list includes a complete set of Availability Zones
@@ -40,8 +47,11 @@ type GetAvailabilityZonesArgs struct {
 
 // A collection of values returned by getAvailabilityZones.
 type GetAvailabilityZonesResult struct {
-	BlacklistedNames   []string `pulumi:"blacklistedNames"`
-	BlacklistedZoneIds []string `pulumi:"blacklistedZoneIds"`
+	AllAvailabilityZones *bool                        `pulumi:"allAvailabilityZones"`
+	BlacklistedNames     []string                     `pulumi:"blacklistedNames"`
+	BlacklistedZoneIds   []string                     `pulumi:"blacklistedZoneIds"`
+	Filters              []GetAvailabilityZonesFilter `pulumi:"filters"`
+	GroupNames           []string                     `pulumi:"groupNames"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of the Availability Zone names available to the account.

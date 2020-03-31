@@ -26,11 +26,15 @@ class AssessmentTemplate(pulumi.CustomResource):
     """
     The rules to be used during the run.
     """
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of tags for the Inspector assessment template.
+    """
     target_arn: pulumi.Output[str]
     """
     The assessment target ARN to attach the template to.
     """
-    def __init__(__self__, resource_name, opts=None, duration=None, name=None, rules_package_arns=None, target_arn=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, duration=None, name=None, rules_package_arns=None, tags=None, target_arn=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Inspector assessment template
 
@@ -41,6 +45,7 @@ class AssessmentTemplate(pulumi.CustomResource):
         :param pulumi.Input[float] duration: The duration of the inspector run.
         :param pulumi.Input[str] name: The name of the assessment template.
         :param pulumi.Input[list] rules_package_arns: The rules to be used during the run.
+        :param pulumi.Input[dict] tags: Key-value mapping of tags for the Inspector assessment template.
         :param pulumi.Input[str] target_arn: The assessment target ARN to attach the template to.
         """
         if __name__ is not None:
@@ -67,6 +72,7 @@ class AssessmentTemplate(pulumi.CustomResource):
             if rules_package_arns is None:
                 raise TypeError("Missing required property 'rules_package_arns'")
             __props__['rules_package_arns'] = rules_package_arns
+            __props__['tags'] = tags
             if target_arn is None:
                 raise TypeError("Missing required property 'target_arn'")
             __props__['target_arn'] = target_arn
@@ -78,7 +84,7 @@ class AssessmentTemplate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, duration=None, name=None, rules_package_arns=None, target_arn=None):
+    def get(resource_name, id, opts=None, arn=None, duration=None, name=None, rules_package_arns=None, tags=None, target_arn=None):
         """
         Get an existing AssessmentTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -90,6 +96,7 @@ class AssessmentTemplate(pulumi.CustomResource):
         :param pulumi.Input[float] duration: The duration of the inspector run.
         :param pulumi.Input[str] name: The name of the assessment template.
         :param pulumi.Input[list] rules_package_arns: The rules to be used during the run.
+        :param pulumi.Input[dict] tags: Key-value mapping of tags for the Inspector assessment template.
         :param pulumi.Input[str] target_arn: The assessment target ARN to attach the template to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -100,6 +107,7 @@ class AssessmentTemplate(pulumi.CustomResource):
         __props__["duration"] = duration
         __props__["name"] = name
         __props__["rules_package_arns"] = rules_package_arns
+        __props__["tags"] = tags
         __props__["target_arn"] = target_arn
         return AssessmentTemplate(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

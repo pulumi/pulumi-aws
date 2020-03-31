@@ -144,6 +144,14 @@ class LaunchTemplate(pulumi.CustomResource):
 
       * `license_configuration_arn` (`str`) - ARN of the license configuration.
     """
+    metadata_options: pulumi.Output[dict]
+    """
+    Customize the metadata options for the instance. See Metadata Options below for more details.
+
+      * `httpEndpoint` (`str`) - Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+      * `httpPutResponseHopLimit` (`float`) - The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+      * `httpTokens` (`str`) - Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+    """
     monitoring: pulumi.Output[dict]
     """
     The monitoring option for the instance. See Monitoring below for more details.
@@ -215,7 +223,7 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     A list of security group IDs to associate with.
     """
-    def __init__(__self__, resource_name, opts=None, block_device_mappings=None, capacity_reservation_specification=None, cpu_options=None, credit_specification=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, license_specifications=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, block_device_mappings=None, capacity_reservation_specification=None, cpu_options=None, credit_specification=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, license_specifications=None, metadata_options=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
 
@@ -247,6 +255,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] kernel_id: The kernel ID.
         :param pulumi.Input[str] key_name: The key name to use for the instance.
         :param pulumi.Input[list] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
+        :param pulumi.Input[dict] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
         :param pulumi.Input[dict] monitoring: The monitoring option for the instance. See Monitoring below for more details.
         :param pulumi.Input[str] name: The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -325,6 +334,12 @@ class LaunchTemplate(pulumi.CustomResource):
         The **license_specifications** object supports the following:
 
           * `license_configuration_arn` (`pulumi.Input[str]`) - ARN of the license configuration.
+
+        The **metadata_options** object supports the following:
+
+          * `httpEndpoint` (`pulumi.Input[str]`) - Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+          * `httpPutResponseHopLimit` (`pulumi.Input[float]`) - The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+          * `httpTokens` (`pulumi.Input[str]`) - Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 
         The **monitoring** object supports the following:
 
@@ -393,6 +408,7 @@ class LaunchTemplate(pulumi.CustomResource):
             __props__['kernel_id'] = kernel_id
             __props__['key_name'] = key_name
             __props__['license_specifications'] = license_specifications
+            __props__['metadata_options'] = metadata_options
             __props__['monitoring'] = monitoring
             __props__['name'] = name
             __props__['name_prefix'] = name_prefix
@@ -414,7 +430,7 @@ class LaunchTemplate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, block_device_mappings=None, capacity_reservation_specification=None, cpu_options=None, credit_specification=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, license_specifications=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
+    def get(resource_name, id, opts=None, arn=None, block_device_mappings=None, capacity_reservation_specification=None, cpu_options=None, credit_specification=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, license_specifications=None, metadata_options=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
         """
         Get an existing LaunchTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -449,6 +465,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: The key name to use for the instance.
         :param pulumi.Input[float] latest_version: The latest version of the launch template.
         :param pulumi.Input[list] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
+        :param pulumi.Input[dict] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
         :param pulumi.Input[dict] monitoring: The monitoring option for the instance. See Monitoring below for more details.
         :param pulumi.Input[str] name: The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -528,6 +545,12 @@ class LaunchTemplate(pulumi.CustomResource):
 
           * `license_configuration_arn` (`pulumi.Input[str]`) - ARN of the license configuration.
 
+        The **metadata_options** object supports the following:
+
+          * `httpEndpoint` (`pulumi.Input[str]`) - Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+          * `httpPutResponseHopLimit` (`pulumi.Input[float]`) - The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+          * `httpTokens` (`pulumi.Input[str]`) - Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+
         The **monitoring** object supports the following:
 
           * `enabled` (`pulumi.Input[bool]`) - If `true`, the launched EC2 instance will have detailed monitoring enabled.
@@ -585,6 +608,7 @@ class LaunchTemplate(pulumi.CustomResource):
         __props__["key_name"] = key_name
         __props__["latest_version"] = latest_version
         __props__["license_specifications"] = license_specifications
+        __props__["metadata_options"] = metadata_options
         __props__["monitoring"] = monitoring
         __props__["name"] = name
         __props__["name_prefix"] = name_prefix

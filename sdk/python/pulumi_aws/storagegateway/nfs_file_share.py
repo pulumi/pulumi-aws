@@ -59,6 +59,10 @@ class NfsFileShare(pulumi.CustomResource):
     """
     Access Control List permission for S3 bucket objects. Defaults to `private`.
     """
+    path: pulumi.Output[str]
+    """
+    File share path used by the NFS client to identify the mount point.
+    """
     read_only: pulumi.Output[bool]
     """
     Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
@@ -150,6 +154,7 @@ class NfsFileShare(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['arn'] = None
             __props__['fileshare_id'] = None
+            __props__['path'] = None
         super(NfsFileShare, __self__).__init__(
             'aws:storagegateway/nfsFileShare:NfsFileShare',
             resource_name,
@@ -157,7 +162,7 @@ class NfsFileShare(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, client_lists=None, default_storage_class=None, fileshare_id=None, gateway_arn=None, guess_mime_type_enabled=None, kms_encrypted=None, kms_key_arn=None, location_arn=None, nfs_file_share_defaults=None, object_acl=None, read_only=None, requester_pays=None, role_arn=None, squash=None, tags=None):
+    def get(resource_name, id, opts=None, arn=None, client_lists=None, default_storage_class=None, fileshare_id=None, gateway_arn=None, guess_mime_type_enabled=None, kms_encrypted=None, kms_key_arn=None, location_arn=None, nfs_file_share_defaults=None, object_acl=None, path=None, read_only=None, requester_pays=None, role_arn=None, squash=None, tags=None):
         """
         Get an existing NfsFileShare resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -176,6 +181,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input[dict] nfs_file_share_defaults: Nested argument with file share default values. More information below.
         :param pulumi.Input[str] object_acl: Access Control List permission for S3 bucket objects. Defaults to `private`.
+        :param pulumi.Input[str] path: File share path used by the NFS client to identify the mount point.
         :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
@@ -204,6 +210,7 @@ class NfsFileShare(pulumi.CustomResource):
         __props__["location_arn"] = location_arn
         __props__["nfs_file_share_defaults"] = nfs_file_share_defaults
         __props__["object_acl"] = object_acl
+        __props__["path"] = path
         __props__["read_only"] = read_only
         __props__["requester_pays"] = requester_pays
         __props__["role_arn"] = role_arn

@@ -139,7 +139,7 @@ def get_vpc_endpoint(filters=None,id=None,service_name=None,state=None,tags=None
 
     :param list filters: Custom filter block as described below.
     :param str id: The ID of the specific VPC Endpoint to retrieve.
-    :param str service_name: The AWS service name of the specific VPC Endpoint to retrieve.
+    :param str service_name: The service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
     :param str state: The state of the specific VPC Endpoint to retrieve.
     :param dict tags: A mapping of tags, each pair of which must exactly match
            a pair on the specific VPC Endpoint to retrieve.
@@ -148,7 +148,7 @@ def get_vpc_endpoint(filters=None,id=None,service_name=None,state=None,tags=None
     The **filters** object supports the following:
 
       * `name` (`str`) - The name of the field to filter by, as defined by
-        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
       * `values` (`list`) - Set of values that are accepted for the given field.
         A VPC Endpoint will be selected if any one of the given values matches.
     """

@@ -36,6 +36,59 @@ import * as utilities from "../utilities";
  *     userPoolId: pool.id,
  * });
  * ```
+ * 
+ * ### Create a user pool client with pinpoint analytics
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const current = aws.getCallerIdentity();
+ * const testUserPool = new aws.cognito.UserPool("test", {});
+ * const testApp = new aws.pinpoint.App("test", {});
+ * const testRole = new aws.iam.Role("test", {
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "cognito-idp.amazonaws.com"
+ *       },
+ *       "Effect": "Allow",
+ *       "Sid": ""
+ *     }
+ *   ]
+ * }
+ * `,
+ * });
+ * const testRolePolicy = new aws.iam.RolePolicy("test", {
+ *     policy: pulumi.interpolate`{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": [
+ *         "mobiletargeting:UpdateEndpoint",
+ *         "mobiletargeting:PutItems"
+ *       ],
+ *       "Effect": "Allow",
+ *       "Resource": "arn:aws:mobiletargeting:*:${current.accountId}:apps/${testApp.applicationId}*"
+ *     }
+ *   ]
+ * }
+ * `,
+ *     role: testRole.id,
+ * });
+ * const testUserPoolClient = new aws.cognito.UserPoolClient("test", {
+ *     analyticsConfiguration: {
+ *         applicationId: testApp.applicationId,
+ *         externalId: "someId",
+ *         roleArn: testRole.arn,
+ *         userDataShared: true,
+ *     },
+ *     userPoolId: testUserPool.id,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_client.markdown.
  */
@@ -79,6 +132,10 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly allowedOauthScopes!: pulumi.Output<string[] | undefined>;
     /**
+     * The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+     */
+    public readonly analyticsConfiguration!: pulumi.Output<outputs.cognito.UserPoolClientAnalyticsConfiguration | undefined>;
+    /**
      * List of allowed callback URLs for the identity providers.
      */
     public readonly callbackUrls!: pulumi.Output<string[] | undefined>;
@@ -106,6 +163,10 @@ export class UserPoolClient extends pulumi.CustomResource {
      * The name of the application client.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+     */
+    public readonly preventUserExistenceErrors!: pulumi.Output<string>;
     /**
      * List of user pool attributes the application client can read from.
      */
@@ -142,6 +203,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             inputs["allowedOauthFlows"] = state ? state.allowedOauthFlows : undefined;
             inputs["allowedOauthFlowsUserPoolClient"] = state ? state.allowedOauthFlowsUserPoolClient : undefined;
             inputs["allowedOauthScopes"] = state ? state.allowedOauthScopes : undefined;
+            inputs["analyticsConfiguration"] = state ? state.analyticsConfiguration : undefined;
             inputs["callbackUrls"] = state ? state.callbackUrls : undefined;
             inputs["clientSecret"] = state ? state.clientSecret : undefined;
             inputs["defaultRedirectUri"] = state ? state.defaultRedirectUri : undefined;
@@ -149,6 +211,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             inputs["generateSecret"] = state ? state.generateSecret : undefined;
             inputs["logoutUrls"] = state ? state.logoutUrls : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["preventUserExistenceErrors"] = state ? state.preventUserExistenceErrors : undefined;
             inputs["readAttributes"] = state ? state.readAttributes : undefined;
             inputs["refreshTokenValidity"] = state ? state.refreshTokenValidity : undefined;
             inputs["supportedIdentityProviders"] = state ? state.supportedIdentityProviders : undefined;
@@ -162,12 +225,14 @@ export class UserPoolClient extends pulumi.CustomResource {
             inputs["allowedOauthFlows"] = args ? args.allowedOauthFlows : undefined;
             inputs["allowedOauthFlowsUserPoolClient"] = args ? args.allowedOauthFlowsUserPoolClient : undefined;
             inputs["allowedOauthScopes"] = args ? args.allowedOauthScopes : undefined;
+            inputs["analyticsConfiguration"] = args ? args.analyticsConfiguration : undefined;
             inputs["callbackUrls"] = args ? args.callbackUrls : undefined;
             inputs["defaultRedirectUri"] = args ? args.defaultRedirectUri : undefined;
             inputs["explicitAuthFlows"] = args ? args.explicitAuthFlows : undefined;
             inputs["generateSecret"] = args ? args.generateSecret : undefined;
             inputs["logoutUrls"] = args ? args.logoutUrls : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["preventUserExistenceErrors"] = args ? args.preventUserExistenceErrors : undefined;
             inputs["readAttributes"] = args ? args.readAttributes : undefined;
             inputs["refreshTokenValidity"] = args ? args.refreshTokenValidity : undefined;
             inputs["supportedIdentityProviders"] = args ? args.supportedIdentityProviders : undefined;
@@ -203,6 +268,10 @@ export interface UserPoolClientState {
      */
     readonly allowedOauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+     */
+    readonly analyticsConfiguration?: pulumi.Input<inputs.cognito.UserPoolClientAnalyticsConfiguration>;
+    /**
      * List of allowed callback URLs for the identity providers.
      */
     readonly callbackUrls?: pulumi.Input<pulumi.Input<string>[]>;
@@ -230,6 +299,10 @@ export interface UserPoolClientState {
      * The name of the application client.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+     */
+    readonly preventUserExistenceErrors?: pulumi.Input<string>;
     /**
      * List of user pool attributes the application client can read from.
      */
@@ -269,6 +342,10 @@ export interface UserPoolClientArgs {
      */
     readonly allowedOauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+     */
+    readonly analyticsConfiguration?: pulumi.Input<inputs.cognito.UserPoolClientAnalyticsConfiguration>;
+    /**
      * List of allowed callback URLs for the identity providers.
      */
     readonly callbackUrls?: pulumi.Input<pulumi.Input<string>[]>;
@@ -292,6 +369,10 @@ export interface UserPoolClientArgs {
      * The name of the application client.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+     */
+    readonly preventUserExistenceErrors?: pulumi.Input<string>;
     /**
      * List of user pool attributes the application client can read from.
      */

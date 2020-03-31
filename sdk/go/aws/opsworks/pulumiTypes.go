@@ -1935,10 +1935,12 @@ func (o RailsAppLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) RailsAppLaye
 }
 
 type StackCustomCookbooksSource struct {
+	// Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
 	Password *string `pulumi:"password"`
 	// For sources that are version-aware, the revision to use.
 	Revision *string `pulumi:"revision"`
-	SshKey   *string `pulumi:"sshKey"`
+	// SSH key to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+	SshKey *string `pulumi:"sshKey"`
 	// The type of source to use. For example, "archive".
 	Type string `pulumi:"type"`
 	// The URL where the cookbooks resource can be found.
@@ -1955,10 +1957,12 @@ type StackCustomCookbooksSourceInput interface {
 }
 
 type StackCustomCookbooksSourceArgs struct {
+	// Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// For sources that are version-aware, the revision to use.
 	Revision pulumi.StringPtrInput `pulumi:"revision"`
-	SshKey   pulumi.StringPtrInput `pulumi:"sshKey"`
+	// SSH key to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+	SshKey pulumi.StringPtrInput `pulumi:"sshKey"`
 	// The type of source to use. For example, "archive".
 	Type pulumi.StringInput `pulumi:"type"`
 	// The URL where the cookbooks resource can be found.
@@ -2014,6 +2018,7 @@ func (o StackCustomCookbooksSourceOutput) ToStackCustomCookbooksSourceOutputWith
 	return o
 }
 
+// Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
 func (o StackCustomCookbooksSourceOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackCustomCookbooksSource) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -2023,6 +2028,7 @@ func (o StackCustomCookbooksSourceOutput) Revision() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackCustomCookbooksSource) *string { return v.Revision }).(pulumi.StringPtrOutput)
 }
 
+// SSH key to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
 func (o StackCustomCookbooksSourceOutput) SshKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackCustomCookbooksSource) *string { return v.SshKey }).(pulumi.StringPtrOutput)
 }

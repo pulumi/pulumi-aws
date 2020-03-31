@@ -182,6 +182,10 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly launchGroup!: pulumi.Output<string | undefined>;
     /**
+     * Customize the metadata options of the instance. See Metadata Options below for more details.
+     */
+    public readonly metadataOptions!: pulumi.Output<outputs.ec2.SpotInstanceRequestMetadataOptions>;
+    /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      */
     public readonly monitoring!: pulumi.Output<boolean | undefined>;
@@ -332,6 +336,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["ipv6Addresses"] = state ? state.ipv6Addresses : undefined;
             inputs["keyName"] = state ? state.keyName : undefined;
             inputs["launchGroup"] = state ? state.launchGroup : undefined;
+            inputs["metadataOptions"] = state ? state.metadataOptions : undefined;
             inputs["monitoring"] = state ? state.monitoring : undefined;
             inputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
             inputs["passwordData"] = state ? state.passwordData : undefined;
@@ -389,6 +394,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["ipv6Addresses"] = args ? args.ipv6Addresses : undefined;
             inputs["keyName"] = args ? args.keyName : undefined;
             inputs["launchGroup"] = args ? args.launchGroup : undefined;
+            inputs["metadataOptions"] = args ? args.metadataOptions : undefined;
             inputs["monitoring"] = args ? args.monitoring : undefined;
             inputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
             inputs["placementGroup"] = args ? args.placementGroup : undefined;
@@ -538,6 +544,10 @@ export interface SpotInstanceRequestState {
      * If left empty instances are launched and terminated individually.
      */
     readonly launchGroup?: pulumi.Input<string>;
+    /**
+     * Customize the metadata options of the instance. See Metadata Options below for more details.
+     */
+    readonly metadataOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestMetadataOptions>;
     /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      */
@@ -760,6 +770,10 @@ export interface SpotInstanceRequestArgs {
      * If left empty instances are launched and terminated individually.
      */
     readonly launchGroup?: pulumi.Input<string>;
+    /**
+     * Customize the metadata options of the instance. See Metadata Options below for more details.
+     */
+    readonly metadataOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestMetadataOptions>;
     /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      */

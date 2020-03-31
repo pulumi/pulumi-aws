@@ -52,6 +52,12 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Family { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block(s) with Inference Accelerators settings. Detailed below.
+        /// </summary>
+        [Output("inferenceAccelerators")]
+        public Output<ImmutableArray<Outputs.TaskDefinitionInferenceAccelerators>> InferenceAccelerators { get; private set; } = null!;
+
+        /// <summary>
         /// The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         /// </summary>
         [Output("ipcMode")]
@@ -192,6 +198,18 @@ namespace Pulumi.Aws.Ecs
         [Input("family", required: true)]
         public Input<string> Family { get; set; } = null!;
 
+        [Input("inferenceAccelerators")]
+        private InputList<Inputs.TaskDefinitionInferenceAcceleratorsArgs>? _inferenceAccelerators;
+
+        /// <summary>
+        /// Configuration block(s) with Inference Accelerators settings. Detailed below.
+        /// </summary>
+        public InputList<Inputs.TaskDefinitionInferenceAcceleratorsArgs> InferenceAccelerators
+        {
+            get => _inferenceAccelerators ?? (_inferenceAccelerators = new InputList<Inputs.TaskDefinitionInferenceAcceleratorsArgs>());
+            set => _inferenceAccelerators = value;
+        }
+
         /// <summary>
         /// The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         /// </summary>
@@ -318,6 +336,18 @@ namespace Pulumi.Aws.Ecs
         [Input("family")]
         public Input<string>? Family { get; set; }
 
+        [Input("inferenceAccelerators")]
+        private InputList<Inputs.TaskDefinitionInferenceAcceleratorsGetArgs>? _inferenceAccelerators;
+
+        /// <summary>
+        /// Configuration block(s) with Inference Accelerators settings. Detailed below.
+        /// </summary>
+        public InputList<Inputs.TaskDefinitionInferenceAcceleratorsGetArgs> InferenceAccelerators
+        {
+            get => _inferenceAccelerators ?? (_inferenceAccelerators = new InputList<Inputs.TaskDefinitionInferenceAcceleratorsGetArgs>());
+            set => _inferenceAccelerators = value;
+        }
+
         /// <summary>
         /// The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         /// </summary>
@@ -415,6 +445,44 @@ namespace Pulumi.Aws.Ecs
 
     namespace Inputs
     {
+
+    public sealed class TaskDefinitionInferenceAcceleratorsArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The Elastic Inference accelerator type to use.
+        /// </summary>
+        [Input("deviceType", required: true)]
+        public Input<string> DeviceType { get; set; } = null!;
+
+        public TaskDefinitionInferenceAcceleratorsArgs()
+        {
+        }
+    }
+
+    public sealed class TaskDefinitionInferenceAcceleratorsGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+        /// </summary>
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The Elastic Inference accelerator type to use.
+        /// </summary>
+        [Input("deviceType", required: true)]
+        public Input<string> DeviceType { get; set; } = null!;
+
+        public TaskDefinitionInferenceAcceleratorsGetArgs()
+        {
+        }
+    }
 
     public sealed class TaskDefinitionPlacementConstraintsArgs : Pulumi.ResourceArgs
     {
@@ -725,6 +793,28 @@ namespace Pulumi.Aws.Ecs
 
     namespace Outputs
     {
+
+    [OutputType]
+    public sealed class TaskDefinitionInferenceAccelerators
+    {
+        /// <summary>
+        /// The Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+        /// </summary>
+        public readonly string DeviceName;
+        /// <summary>
+        /// The Elastic Inference accelerator type to use.
+        /// </summary>
+        public readonly string DeviceType;
+
+        [OutputConstructor]
+        private TaskDefinitionInferenceAccelerators(
+            string deviceName,
+            string deviceType)
+        {
+            DeviceName = deviceName;
+            DeviceType = deviceType;
+        }
+    }
 
     [OutputType]
     public sealed class TaskDefinitionPlacementConstraints

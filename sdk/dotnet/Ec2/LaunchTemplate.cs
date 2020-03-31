@@ -144,6 +144,12 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.LaunchTemplateLicenseSpecifications>> LicenseSpecifications { get; private set; } = null!;
 
         /// <summary>
+        /// Customize the metadata options for the instance. See Metadata Options below for more details.
+        /// </summary>
+        [Output("metadataOptions")]
+        public Output<Outputs.LaunchTemplateMetadataOptions> MetadataOptions { get; private set; } = null!;
+
+        /// <summary>
         /// The monitoring option for the instance. See Monitoring below for more details.
         /// </summary>
         [Output("monitoring")]
@@ -383,6 +389,12 @@ namespace Pulumi.Aws.Ec2
             get => _licenseSpecifications ?? (_licenseSpecifications = new InputList<Inputs.LaunchTemplateLicenseSpecificationsArgs>());
             set => _licenseSpecifications = value;
         }
+
+        /// <summary>
+        /// Customize the metadata options for the instance. See Metadata Options below for more details.
+        /// </summary>
+        [Input("metadataOptions")]
+        public Input<Inputs.LaunchTemplateMetadataOptionsArgs>? MetadataOptions { get; set; }
 
         /// <summary>
         /// The monitoring option for the instance. See Monitoring below for more details.
@@ -633,6 +645,12 @@ namespace Pulumi.Aws.Ec2
             get => _licenseSpecifications ?? (_licenseSpecifications = new InputList<Inputs.LaunchTemplateLicenseSpecificationsGetArgs>());
             set => _licenseSpecifications = value;
         }
+
+        /// <summary>
+        /// Customize the metadata options for the instance. See Metadata Options below for more details.
+        /// </summary>
+        [Input("metadataOptions")]
+        public Input<Inputs.LaunchTemplateMetadataOptionsGetArgs>? MetadataOptions { get; set; }
 
         /// <summary>
         /// The monitoring option for the instance. See Monitoring below for more details.
@@ -1268,6 +1286,56 @@ namespace Pulumi.Aws.Ec2
         public Input<string> LicenseConfigurationArn { get; set; } = null!;
 
         public LaunchTemplateLicenseSpecificationsGetArgs()
+        {
+        }
+    }
+
+    public sealed class LaunchTemplateMetadataOptionsArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+        /// </summary>
+        [Input("httpEndpoint")]
+        public Input<string>? HttpEndpoint { get; set; }
+
+        /// <summary>
+        /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+        /// </summary>
+        [Input("httpPutResponseHopLimit")]
+        public Input<int>? HttpPutResponseHopLimit { get; set; }
+
+        /// <summary>
+        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        /// </summary>
+        [Input("httpTokens")]
+        public Input<string>? HttpTokens { get; set; }
+
+        public LaunchTemplateMetadataOptionsArgs()
+        {
+        }
+    }
+
+    public sealed class LaunchTemplateMetadataOptionsGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+        /// </summary>
+        [Input("httpEndpoint")]
+        public Input<string>? HttpEndpoint { get; set; }
+
+        /// <summary>
+        /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+        /// </summary>
+        [Input("httpPutResponseHopLimit")]
+        public Input<int>? HttpPutResponseHopLimit { get; set; }
+
+        /// <summary>
+        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        /// </summary>
+        [Input("httpTokens")]
+        public Input<string>? HttpTokens { get; set; }
+
+        public LaunchTemplateMetadataOptionsGetArgs()
         {
         }
     }
@@ -1926,6 +1994,34 @@ namespace Pulumi.Aws.Ec2
         private LaunchTemplateLicenseSpecifications(string licenseConfigurationArn)
         {
             LicenseConfigurationArn = licenseConfigurationArn;
+        }
+    }
+
+    [OutputType]
+    public sealed class LaunchTemplateMetadataOptions
+    {
+        /// <summary>
+        /// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+        /// </summary>
+        public readonly string HttpEndpoint;
+        /// <summary>
+        /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+        /// </summary>
+        public readonly int HttpPutResponseHopLimit;
+        /// <summary>
+        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        /// </summary>
+        public readonly string HttpTokens;
+
+        [OutputConstructor]
+        private LaunchTemplateMetadataOptions(
+            string httpEndpoint,
+            int httpPutResponseHopLimit,
+            string httpTokens)
+        {
+            HttpEndpoint = httpEndpoint;
+            HttpPutResponseHopLimit = httpPutResponseHopLimit;
+            HttpTokens = httpTokens;
         }
     }
 

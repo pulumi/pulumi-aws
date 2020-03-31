@@ -35,6 +35,12 @@ namespace Pulumi.Aws.Cognito
         public Output<ImmutableArray<string>> AllowedOauthScopes { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+        /// </summary>
+        [Output("analyticsConfiguration")]
+        public Output<Outputs.UserPoolClientAnalyticsConfiguration?> AnalyticsConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// List of allowed callback URLs for the identity providers.
         /// </summary>
         [Output("callbackUrls")]
@@ -75,6 +81,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+        /// </summary>
+        [Output("preventUserExistenceErrors")]
+        public Output<string> PreventUserExistenceErrors { get; private set; } = null!;
 
         /// <summary>
         /// List of user pool attributes the application client can read from.
@@ -182,6 +194,12 @@ namespace Pulumi.Aws.Cognito
             set => _allowedOauthScopes = value;
         }
 
+        /// <summary>
+        /// The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+        /// </summary>
+        [Input("analyticsConfiguration")]
+        public Input<Inputs.UserPoolClientAnalyticsConfigurationArgs>? AnalyticsConfiguration { get; set; }
+
         [Input("callbackUrls")]
         private InputList<string>? _callbackUrls;
 
@@ -235,6 +253,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+        /// </summary>
+        [Input("preventUserExistenceErrors")]
+        public Input<string>? PreventUserExistenceErrors { get; set; }
 
         [Input("readAttributes")]
         private InputList<string>? _readAttributes;
@@ -321,6 +345,12 @@ namespace Pulumi.Aws.Cognito
             set => _allowedOauthScopes = value;
         }
 
+        /// <summary>
+        /// The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+        /// </summary>
+        [Input("analyticsConfiguration")]
+        public Input<Inputs.UserPoolClientAnalyticsConfigurationGetArgs>? AnalyticsConfiguration { get; set; }
+
         [Input("callbackUrls")]
         private InputList<string>? _callbackUrls;
 
@@ -381,6 +411,12 @@ namespace Pulumi.Aws.Cognito
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+        /// </summary>
+        [Input("preventUserExistenceErrors")]
+        public Input<string>? PreventUserExistenceErrors { get; set; }
+
         [Input("readAttributes")]
         private InputList<string>? _readAttributes;
 
@@ -432,5 +468,109 @@ namespace Pulumi.Aws.Cognito
         public UserPoolClientState()
         {
         }
+    }
+
+    namespace Inputs
+    {
+
+    public sealed class UserPoolClientAnalyticsConfigurationArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The application ID for an Amazon Pinpoint application.
+        /// </summary>
+        [Input("applicationId", required: true)]
+        public Input<string> ApplicationId { get; set; } = null!;
+
+        /// <summary>
+        /// An ID for the Analytics Configuration.
+        /// </summary>
+        [Input("externalId", required: true)]
+        public Input<string> ExternalId { get; set; } = null!;
+
+        /// <summary>
+        /// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+        /// </summary>
+        [Input("roleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
+
+        /// <summary>
+        /// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+        /// </summary>
+        [Input("userDataShared")]
+        public Input<bool>? UserDataShared { get; set; }
+
+        public UserPoolClientAnalyticsConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class UserPoolClientAnalyticsConfigurationGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The application ID for an Amazon Pinpoint application.
+        /// </summary>
+        [Input("applicationId", required: true)]
+        public Input<string> ApplicationId { get; set; } = null!;
+
+        /// <summary>
+        /// An ID for the Analytics Configuration.
+        /// </summary>
+        [Input("externalId", required: true)]
+        public Input<string> ExternalId { get; set; } = null!;
+
+        /// <summary>
+        /// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+        /// </summary>
+        [Input("roleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
+
+        /// <summary>
+        /// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+        /// </summary>
+        [Input("userDataShared")]
+        public Input<bool>? UserDataShared { get; set; }
+
+        public UserPoolClientAnalyticsConfigurationGetArgs()
+        {
+        }
+    }
+    }
+
+    namespace Outputs
+    {
+
+    [OutputType]
+    public sealed class UserPoolClientAnalyticsConfiguration
+    {
+        /// <summary>
+        /// The application ID for an Amazon Pinpoint application.
+        /// </summary>
+        public readonly string ApplicationId;
+        /// <summary>
+        /// An ID for the Analytics Configuration.
+        /// </summary>
+        public readonly string ExternalId;
+        /// <summary>
+        /// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+        /// </summary>
+        public readonly string RoleArn;
+        /// <summary>
+        /// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+        /// </summary>
+        public readonly bool? UserDataShared;
+
+        [OutputConstructor]
+        private UserPoolClientAnalyticsConfiguration(
+            string applicationId,
+            string externalId,
+            string roleArn,
+            bool? userDataShared)
+        {
+            ApplicationId = applicationId;
+            ExternalId = externalId;
+            RoleArn = roleArn;
+            UserDataShared = userDataShared;
+        }
+    }
     }
 }

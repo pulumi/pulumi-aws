@@ -142,6 +142,10 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly usernameAttributes!: pulumi.Output<string[] | undefined>;
     /**
+     * The Username Configuration.
+     */
+    public readonly usernameConfiguration!: pulumi.Output<outputs.cognito.UserPoolUsernameConfiguration | undefined>;
+    /**
      * The verification message templates configuration.
      */
     public readonly verificationMessageTemplate!: pulumi.Output<outputs.cognito.UserPoolVerificationMessageTemplate>;
@@ -181,6 +185,7 @@ export class UserPool extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
             inputs["userPoolAddOns"] = state ? state.userPoolAddOns : undefined;
             inputs["usernameAttributes"] = state ? state.usernameAttributes : undefined;
+            inputs["usernameConfiguration"] = state ? state.usernameConfiguration : undefined;
             inputs["verificationMessageTemplate"] = state ? state.verificationMessageTemplate : undefined;
         } else {
             const args = argsOrState as UserPoolArgs | undefined;
@@ -203,6 +208,7 @@ export class UserPool extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userPoolAddOns"] = args ? args.userPoolAddOns : undefined;
             inputs["usernameAttributes"] = args ? args.usernameAttributes : undefined;
+            inputs["usernameConfiguration"] = args ? args.usernameConfiguration : undefined;
             inputs["verificationMessageTemplate"] = args ? args.verificationMessageTemplate : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
@@ -317,6 +323,10 @@ export interface UserPoolState {
      */
     readonly usernameAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The Username Configuration.
+     */
+    readonly usernameConfiguration?: pulumi.Input<inputs.cognito.UserPoolUsernameConfiguration>;
+    /**
      * The verification message templates configuration.
      */
     readonly verificationMessageTemplate?: pulumi.Input<inputs.cognito.UserPoolVerificationMessageTemplate>;
@@ -402,6 +412,10 @@ export interface UserPoolArgs {
      * Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
      */
     readonly usernameAttributes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Username Configuration.
+     */
+    readonly usernameConfiguration?: pulumi.Input<inputs.cognito.UserPoolUsernameConfiguration>;
     /**
      * The verification message templates configuration.
      */

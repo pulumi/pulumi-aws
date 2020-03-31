@@ -34,6 +34,7 @@ export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise
     }
     return pulumi.runtime.invoke("aws:iam/getRole:getRole", {
         "name": args.name,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -45,6 +46,10 @@ export interface GetRoleArgs {
      * The friendly IAM role name to match.
      */
     readonly name: string;
+    /**
+     * The tags attached to the role.
+     */
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -80,6 +85,10 @@ export interface GetRoleResult {
      * The ARN of the policy that is used to set the permissions boundary for the role.
      */
     readonly permissionsBoundary: string;
+    /**
+     * The tags attached to the role.
+     */
+    readonly tags: {[key: string]: any};
     /**
      * The stable and unique string identifying the role.
      */

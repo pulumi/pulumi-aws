@@ -14,6 +14,10 @@ class MemcachedLayer(pulumi.CustomResource):
     """
     Amount of memory to allocate for the cache on each instance, in megabytes. Defaults to 512MB.
     """
+    arn: pulumi.Output[str]
+    """
+    The Amazon Resource Name(ARN) of the layer.
+    """
     auto_assign_elastic_ips: pulumi.Output[bool]
     """
     Whether to automatically assign an elastic IP address to the layer's instances.
@@ -83,11 +87,15 @@ class MemcachedLayer(pulumi.CustomResource):
     """
     Names of a set of system packages to install on the layer's instances.
     """
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
     use_ebs_optimized_instances: pulumi.Output[bool]
     """
     Whether to use EBS-optimized instances.
     """
-    def __init__(__self__, resource_name, opts=None, allocated_memory=None, auto_assign_elastic_ips=None, auto_assign_public_ips=None, auto_healing=None, custom_configure_recipes=None, custom_deploy_recipes=None, custom_instance_profile_arn=None, custom_json=None, custom_security_group_ids=None, custom_setup_recipes=None, custom_shutdown_recipes=None, custom_undeploy_recipes=None, drain_elb_on_shutdown=None, ebs_volumes=None, elastic_load_balancer=None, install_updates_on_boot=None, instance_shutdown_timeout=None, name=None, stack_id=None, system_packages=None, use_ebs_optimized_instances=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allocated_memory=None, auto_assign_elastic_ips=None, auto_assign_public_ips=None, auto_healing=None, custom_configure_recipes=None, custom_deploy_recipes=None, custom_instance_profile_arn=None, custom_json=None, custom_security_group_ids=None, custom_setup_recipes=None, custom_shutdown_recipes=None, custom_undeploy_recipes=None, drain_elb_on_shutdown=None, ebs_volumes=None, elastic_load_balancer=None, install_updates_on_boot=None, instance_shutdown_timeout=None, name=None, stack_id=None, system_packages=None, tags=None, use_ebs_optimized_instances=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an OpsWorks memcached layer resource.
 
@@ -110,6 +118,7 @@ class MemcachedLayer(pulumi.CustomResource):
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
         :param pulumi.Input[list] system_packages: Names of a set of system packages to install on the layer's instances.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
 
         The **ebs_volumes** object supports the following:
@@ -161,7 +170,9 @@ class MemcachedLayer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'stack_id'")
             __props__['stack_id'] = stack_id
             __props__['system_packages'] = system_packages
+            __props__['tags'] = tags
             __props__['use_ebs_optimized_instances'] = use_ebs_optimized_instances
+            __props__['arn'] = None
         super(MemcachedLayer, __self__).__init__(
             'aws:opsworks/memcachedLayer:MemcachedLayer',
             resource_name,
@@ -169,7 +180,7 @@ class MemcachedLayer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allocated_memory=None, auto_assign_elastic_ips=None, auto_assign_public_ips=None, auto_healing=None, custom_configure_recipes=None, custom_deploy_recipes=None, custom_instance_profile_arn=None, custom_json=None, custom_security_group_ids=None, custom_setup_recipes=None, custom_shutdown_recipes=None, custom_undeploy_recipes=None, drain_elb_on_shutdown=None, ebs_volumes=None, elastic_load_balancer=None, install_updates_on_boot=None, instance_shutdown_timeout=None, name=None, stack_id=None, system_packages=None, use_ebs_optimized_instances=None):
+    def get(resource_name, id, opts=None, allocated_memory=None, arn=None, auto_assign_elastic_ips=None, auto_assign_public_ips=None, auto_healing=None, custom_configure_recipes=None, custom_deploy_recipes=None, custom_instance_profile_arn=None, custom_json=None, custom_security_group_ids=None, custom_setup_recipes=None, custom_shutdown_recipes=None, custom_undeploy_recipes=None, drain_elb_on_shutdown=None, ebs_volumes=None, elastic_load_balancer=None, install_updates_on_boot=None, instance_shutdown_timeout=None, name=None, stack_id=None, system_packages=None, tags=None, use_ebs_optimized_instances=None):
         """
         Get an existing MemcachedLayer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -178,6 +189,7 @@ class MemcachedLayer(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] allocated_memory: Amount of memory to allocate for the cache on each instance, in megabytes. Defaults to 512MB.
+        :param pulumi.Input[str] arn: The Amazon Resource Name(ARN) of the layer.
         :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.
         :param pulumi.Input[bool] auto_assign_public_ips: For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
         :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
@@ -192,6 +204,7 @@ class MemcachedLayer(pulumi.CustomResource):
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
         :param pulumi.Input[list] system_packages: Names of a set of system packages to install on the layer's instances.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
 
         The **ebs_volumes** object supports the following:
@@ -209,6 +222,7 @@ class MemcachedLayer(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["allocated_memory"] = allocated_memory
+        __props__["arn"] = arn
         __props__["auto_assign_elastic_ips"] = auto_assign_elastic_ips
         __props__["auto_assign_public_ips"] = auto_assign_public_ips
         __props__["auto_healing"] = auto_healing
@@ -228,6 +242,7 @@ class MemcachedLayer(pulumi.CustomResource):
         __props__["name"] = name
         __props__["stack_id"] = stack_id
         __props__["system_packages"] = system_packages
+        __props__["tags"] = tags
         __props__["use_ebs_optimized_instances"] = use_ebs_optimized_instances
         return MemcachedLayer(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

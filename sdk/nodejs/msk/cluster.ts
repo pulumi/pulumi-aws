@@ -8,76 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages AWS Managed Streaming for Kafka cluster
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const vpc = new aws.ec2.Vpc("vpc", {
- *     cidrBlock: "192.168.0.0/22",
- * });
- * const azs = aws.getAvailabilityZones({
- *     state: "available",
- * });
- * const subnetAz1 = new aws.ec2.Subnet("subnetAz1", {
- *     availabilityZone: azs.names[0],
- *     cidrBlock: "192.168.0.0/24",
- *     vpcId: vpc.id,
- * });
- * const subnetAz2 = new aws.ec2.Subnet("subnetAz2", {
- *     availabilityZone: azs.names[1],
- *     cidrBlock: "192.168.1.0/24",
- *     vpcId: vpc.id,
- * });
- * const subnetAz3 = new aws.ec2.Subnet("subnetAz3", {
- *     availabilityZone: azs.names[2],
- *     cidrBlock: "192.168.2.0/24",
- *     vpcId: vpc.id,
- * });
- * const sg = new aws.ec2.SecurityGroup("sg", {
- *     vpcId: vpc.id,
- * });
- * const kms = new aws.kms.Key("kms", {
- *     description: "example",
- * });
- * const example = new aws.msk.Cluster("example", {
- *     brokerNodeGroupInfo: {
- *         clientSubnets: [
- *             subnetAz1.id,
- *             subnetAz2.id,
- *             subnetAz3.id,
- *         ],
- *         ebsVolumeSize: 1000,
- *         instanceType: "kafka.m5.large",
- *         securityGroups: [sg.id],
- *     },
- *     clusterName: "example",
- *     encryptionInfo: {
- *         encryptionAtRestKmsKeyArn: kms.arn,
- *     },
- *     kafkaVersion: "2.1.0",
- *     numberOfBrokerNodes: 3,
- *     openMonitoring: {
- *         prometheus: {
- *             jmxExporter: {
- *                 enabledInBroker: true,
- *             },
- *             nodeExporter: {
- *                 enabledInBroker: true,
- *             },
- *         },
- *     },
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * 
- * export const zookeeperConnectString = example.zookeeperConnectString;
- * export const bootstrapBrokers = example.bootstrapBrokers;
- * export const bootstrapBrokersTls = example.bootstrapBrokersTls;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/msk_cluster.html.markdown.
  */
@@ -154,6 +84,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly kafkaVersion!: pulumi.Output<string>;
     /**
+     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+     */
+    public readonly loggingInfo!: pulumi.Output<outputs.msk.ClusterLoggingInfo | undefined>;
+    /**
      * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
      */
     public readonly numberOfBrokerNodes!: pulumi.Output<number>;
@@ -193,6 +127,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["encryptionInfo"] = state ? state.encryptionInfo : undefined;
             inputs["enhancedMonitoring"] = state ? state.enhancedMonitoring : undefined;
             inputs["kafkaVersion"] = state ? state.kafkaVersion : undefined;
+            inputs["loggingInfo"] = state ? state.loggingInfo : undefined;
             inputs["numberOfBrokerNodes"] = state ? state.numberOfBrokerNodes : undefined;
             inputs["openMonitoring"] = state ? state.openMonitoring : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -218,6 +153,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["encryptionInfo"] = args ? args.encryptionInfo : undefined;
             inputs["enhancedMonitoring"] = args ? args.enhancedMonitoring : undefined;
             inputs["kafkaVersion"] = args ? args.kafkaVersion : undefined;
+            inputs["loggingInfo"] = args ? args.loggingInfo : undefined;
             inputs["numberOfBrokerNodes"] = args ? args.numberOfBrokerNodes : undefined;
             inputs["openMonitoring"] = args ? args.openMonitoring : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -288,6 +224,10 @@ export interface ClusterState {
      */
     readonly kafkaVersion?: pulumi.Input<string>;
     /**
+     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+     */
+    readonly loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfo>;
+    /**
      * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
      */
     readonly numberOfBrokerNodes?: pulumi.Input<number>;
@@ -337,6 +277,10 @@ export interface ClusterArgs {
      * Specify the desired Kafka software version.
      */
     readonly kafkaVersion: pulumi.Input<string>;
+    /**
+     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+     */
+    readonly loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfo>;
     /**
      * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
      */

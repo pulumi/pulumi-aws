@@ -190,6 +190,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> LaunchGroup { get; private set; } = null!;
 
         /// <summary>
+        /// Customize the metadata options of the instance. See Metadata Options below for more details.
+        /// </summary>
+        [Output("metadataOptions")]
+        public Output<Outputs.SpotInstanceRequestMetadataOptions> MetadataOptions { get; private set; } = null!;
+
+        /// <summary>
         /// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         /// </summary>
         [Output("monitoring")]
@@ -568,6 +574,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LaunchGroup { get; set; }
 
         /// <summary>
+        /// Customize the metadata options of the instance. See Metadata Options below for more details.
+        /// </summary>
+        [Input("metadataOptions")]
+        public Input<Inputs.SpotInstanceRequestMetadataOptionsArgs>? MetadataOptions { get; set; }
+
+        /// <summary>
         /// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         /// </summary>
         [Input("monitoring")]
@@ -893,6 +905,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("launchGroup")]
         public Input<string>? LaunchGroup { get; set; }
+
+        /// <summary>
+        /// Customize the metadata options of the instance. See Metadata Options below for more details.
+        /// </summary>
+        [Input("metadataOptions")]
+        public Input<Inputs.SpotInstanceRequestMetadataOptionsGetArgs>? MetadataOptions { get; set; }
 
         /// <summary>
         /// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -1308,6 +1326,56 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+    public sealed class SpotInstanceRequestMetadataOptionsArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+        /// </summary>
+        [Input("httpEndpoint")]
+        public Input<string>? HttpEndpoint { get; set; }
+
+        /// <summary>
+        /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+        /// </summary>
+        [Input("httpPutResponseHopLimit")]
+        public Input<int>? HttpPutResponseHopLimit { get; set; }
+
+        /// <summary>
+        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        /// </summary>
+        [Input("httpTokens")]
+        public Input<string>? HttpTokens { get; set; }
+
+        public SpotInstanceRequestMetadataOptionsArgs()
+        {
+        }
+    }
+
+    public sealed class SpotInstanceRequestMetadataOptionsGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+        /// </summary>
+        [Input("httpEndpoint")]
+        public Input<string>? HttpEndpoint { get; set; }
+
+        /// <summary>
+        /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+        /// </summary>
+        [Input("httpPutResponseHopLimit")]
+        public Input<int>? HttpPutResponseHopLimit { get; set; }
+
+        /// <summary>
+        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        /// </summary>
+        [Input("httpTokens")]
+        public Input<string>? HttpTokens { get; set; }
+
+        public SpotInstanceRequestMetadataOptionsGetArgs()
+        {
+        }
+    }
+
     public sealed class SpotInstanceRequestNetworkInterfacesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -1571,6 +1639,34 @@ namespace Pulumi.Aws.Ec2
             DeviceName = deviceName;
             NoDevice = noDevice;
             VirtualName = virtualName;
+        }
+    }
+
+    [OutputType]
+    public sealed class SpotInstanceRequestMetadataOptions
+    {
+        /// <summary>
+        /// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+        /// </summary>
+        public readonly string HttpEndpoint;
+        /// <summary>
+        /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+        /// </summary>
+        public readonly int HttpPutResponseHopLimit;
+        /// <summary>
+        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        /// </summary>
+        public readonly string HttpTokens;
+
+        [OutputConstructor]
+        private SpotInstanceRequestMetadataOptions(
+            string httpEndpoint,
+            int httpPutResponseHopLimit,
+            string httpTokens)
+        {
+            HttpEndpoint = httpEndpoint;
+            HttpPutResponseHopLimit = httpPutResponseHopLimit;
+            HttpTokens = httpTokens;
         }
     }
 

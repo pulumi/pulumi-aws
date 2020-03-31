@@ -30,8 +30,41 @@ export interface GetAutoscalingGroupsFilter {
     values: string[];
 }
 
+export interface GetAvailabilityZoneFilter {
+    /**
+     * The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+     */
+    name: string;
+    /**
+     * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+     */
+    values: string[];
+}
+
+export interface GetAvailabilityZonesFilter {
+    /**
+     * The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+     */
+    name: string;
+    /**
+     * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+     */
+    values: string[];
+}
+
 export interface GetElasticIpFilter {
     name: string;
+    values: string[];
+}
+
+export interface GetPrefixListFilter {
+    /**
+     * The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+     */
+    name: string;
+    /**
+     * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+     */
     values: string[];
 }
 
@@ -1982,11 +2015,11 @@ export namespace athena {
 
     export interface WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
         /**
-         * Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE-S3), server-side encryption with KMS-managed keys (SSE-KMS), or client-side encryption with KMS-managed keys (CSE-KMS) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
+         * Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
          */
         encryptionOption?: pulumi.Input<string>;
         /**
-         * For SSE-KMS and CSE-KMS, this is the KMS key Amazon Resource Name (ARN).
+         * For `SSE_KMS` and `CSE_KMS`, this is the KMS key Amazon Resource Name (ARN).
          */
         kmsKeyArn?: pulumi.Input<string>;
     }
@@ -4123,6 +4156,25 @@ export namespace cognito {
         smsMessage?: pulumi.Input<string>;
     }
 
+    export interface UserPoolClientAnalyticsConfiguration {
+        /**
+         * The application ID for an Amazon Pinpoint application.
+         */
+        applicationId: pulumi.Input<string>;
+        /**
+         * An ID for the Analytics Configuration.
+         */
+        externalId: pulumi.Input<string>;
+        /**
+         * The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+         */
+        userDataShared?: pulumi.Input<boolean>;
+    }
+
     export interface UserPoolDeviceConfiguration {
         /**
          * Indicates whether a challenge is required on a new device. Only applicable to a new device.
@@ -4139,6 +4191,10 @@ export namespace cognito {
          * Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
          */
         emailSendingAccount?: pulumi.Input<string>;
+        /**
+         * Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith <john@smith.com>")
+         */
+        fromEmailAddress?: pulumi.Input<string>;
         /**
          * The REPLY-TO email address.
          */
@@ -4295,6 +4351,13 @@ export namespace cognito {
          * The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
          */
         advancedSecurityMode: pulumi.Input<string>;
+    }
+
+    export interface UserPoolUsernameConfiguration {
+        /**
+         * Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+         */
+        caseSensitive: pulumi.Input<boolean>;
     }
 
     export interface UserPoolVerificationMessageTemplate {
@@ -4498,7 +4561,7 @@ export namespace dlm {
 
     export interface LifecyclePolicyPolicyDetailsScheduleCreateRule {
         /**
-         * How often this lifecycle policy should be evaluated. `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
          */
         interval: pulumi.Input<number>;
         /**
@@ -5138,6 +5201,17 @@ export namespace ec2 {
         values: string[];
     }
 
+    export interface GetLaunchTemplateFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
+    }
+
     export interface GetNatGatewayFilter {
         /**
          * The name of the field to filter by, as defined by
@@ -5267,12 +5341,23 @@ export namespace ec2 {
     export interface GetVpcEndpointFilter {
         /**
          * The name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
          */
         name: string;
         /**
          * Set of values that are accepted for the given field.
          * A VPC Endpoint will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
+    export interface GetVpcEndpointServiceFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: string[];
     }
@@ -5393,6 +5478,21 @@ export namespace ec2 {
          * (e.g. `"ephemeral0"`).
          */
         virtualName?: pulumi.Input<string>;
+    }
+
+    export interface InstanceMetadataOptions {
+        /**
+         * Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+         */
+        httpEndpoint?: pulumi.Input<string>;
+        /**
+         * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+         */
+        httpPutResponseHopLimit?: pulumi.Input<number>;
+        /**
+         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+         */
+        httpTokens?: pulumi.Input<string>;
     }
 
     export interface InstanceNetworkInterface {
@@ -5624,6 +5724,21 @@ export namespace ec2 {
          * ARN of the license configuration.
          */
         licenseConfigurationArn: pulumi.Input<string>;
+    }
+
+    export interface LaunchTemplateMetadataOptions {
+        /**
+         * Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+         */
+        httpEndpoint?: pulumi.Input<string>;
+        /**
+         * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+         */
+        httpPutResponseHopLimit?: pulumi.Input<number>;
+        /**
+         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+         */
+        httpTokens?: pulumi.Input<string>;
     }
 
     export interface LaunchTemplateMonitoring {
@@ -6099,6 +6214,21 @@ export namespace ec2 {
         virtualName?: pulumi.Input<string>;
     }
 
+    export interface SpotInstanceRequestMetadataOptions {
+        /**
+         * Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+         */
+        httpEndpoint?: pulumi.Input<string>;
+        /**
+         * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+         */
+        httpPutResponseHopLimit?: pulumi.Input<number>;
+        /**
+         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+         */
+        httpTokens?: pulumi.Input<string>;
+    }
+
     export interface SpotInstanceRequestNetworkInterface {
         /**
          * Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
@@ -6307,6 +6437,17 @@ export namespace ec2clientvpn {
 }
 
 export namespace ec2transitgateway {
+    export interface GetDirectConnectGatewayAttachmentFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
+    }
+
     export interface GetRouteTableFilter {
         /**
          * Name of the filter.
@@ -6336,6 +6477,17 @@ export namespace ec2transitgateway {
         name: string;
         /**
          * List of one or more values for the filter.
+         */
+        values: string[];
+    }
+
+    export interface GetVpnAttachmentFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: string[];
     }
@@ -6416,6 +6568,17 @@ export namespace ecs {
         containerPort?: pulumi.Input<number>;
         port?: pulumi.Input<number>;
         registryArn: pulumi.Input<string>;
+    }
+
+    export interface TaskDefinitionInferenceAccelerator {
+        /**
+         * The Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+         */
+        deviceName: pulumi.Input<string>;
+        /**
+         * The Elastic Inference accelerator type to use.
+         */
+        deviceType: pulumi.Input<string>;
     }
 
     export interface TaskDefinitionPlacementConstraint {
@@ -10716,6 +10879,56 @@ export namespace msk {
         inCluster?: pulumi.Input<boolean>;
     }
 
+    export interface ClusterLoggingInfo {
+        /**
+         * Configuration block for Broker Logs settings for logging info. See below.
+         */
+        brokerLogs: pulumi.Input<inputs.msk.ClusterLoggingInfoBrokerLogs>;
+    }
+
+    export interface ClusterLoggingInfoBrokerLogs {
+        cloudwatchLogs?: pulumi.Input<inputs.msk.ClusterLoggingInfoBrokerLogsCloudwatchLogs>;
+        firehose?: pulumi.Input<inputs.msk.ClusterLoggingInfoBrokerLogsFirehose>;
+        s3?: pulumi.Input<inputs.msk.ClusterLoggingInfoBrokerLogsS3>;
+    }
+
+    export interface ClusterLoggingInfoBrokerLogsCloudwatchLogs {
+        /**
+         * Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * Name of the Cloudwatch Log Group to deliver logs to.
+         */
+        logGroup?: pulumi.Input<string>;
+    }
+
+    export interface ClusterLoggingInfoBrokerLogsFirehose {
+        /**
+         * Name of the Kinesis Data Firehose delivery stream to deliver logs to.
+         */
+        deliveryStream?: pulumi.Input<string>;
+        /**
+         * Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+         */
+        enabled: pulumi.Input<boolean>;
+    }
+
+    export interface ClusterLoggingInfoBrokerLogsS3 {
+        /**
+         * Name of the S3 bucket to deliver logs to. 
+         */
+        bucket?: pulumi.Input<string>;
+        /**
+         * Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * Prefix to append to the folder name. 
+         */
+        prefix?: pulumi.Input<string>;
+    }
+
     export interface ClusterOpenMonitoring {
         /**
          * Configuration block for Prometheus settings for open monitoring. See below.
@@ -11116,11 +11329,17 @@ export namespace opsworks {
     }
 
     export interface StackCustomCookbooksSource {
+        /**
+         * Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+         */
         password?: pulumi.Input<string>;
         /**
          * For sources that are version-aware, the revision to use.
          */
         revision?: pulumi.Input<string>;
+        /**
+         * SSH key to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+         */
         sshKey?: pulumi.Input<string>;
         /**
          * The type of source to use. For example, "archive".

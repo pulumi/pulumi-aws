@@ -283,7 +283,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleArrayOutput) Index(i pulumi.IntInput
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCreateRule struct {
-	// How often this lifecycle policy should be evaluated. `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 	Interval int `pulumi:"interval"`
 	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 	IntervalUnit *string `pulumi:"intervalUnit"`
@@ -299,7 +299,7 @@ type LifecyclePolicyPolicyDetailsScheduleCreateRuleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs struct {
-	// How often this lifecycle policy should be evaluated. `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 	Interval pulumi.IntInput `pulumi:"interval"`
 	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 	IntervalUnit pulumi.StringPtrInput `pulumi:"intervalUnit"`
@@ -333,7 +333,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) ToLifecyclePolicyP
 	return o
 }
 
-// How often this lifecycle policy should be evaluated. `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) int { return v.Interval }).(pulumi.IntOutput)
 }

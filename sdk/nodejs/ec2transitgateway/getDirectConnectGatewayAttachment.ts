@@ -25,7 +25,12 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_dx_gateway_attachment.html.markdown.
  */
+<<<<<<< HEAD
 export function getDirectConnectGatewayAttachment(args: GetDirectConnectGatewayAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectConnectGatewayAttachmentResult> {
+=======
+export function getDirectConnectGatewayAttachment(args?: GetDirectConnectGatewayAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectConnectGatewayAttachmentResult> & GetDirectConnectGatewayAttachmentResult {
+    args = args || {};
+>>>>>>> master
     if (!opts) {
         opts = {}
     }
@@ -35,6 +40,7 @@ export function getDirectConnectGatewayAttachment(args: GetDirectConnectGatewayA
     }
     return pulumi.runtime.invoke("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", {
         "dxGatewayId": args.dxGatewayId,
+        "filters": args.filters,
         "tags": args.tags,
         "transitGatewayId": args.transitGatewayId,
     }, opts);
@@ -47,27 +53,32 @@ export interface GetDirectConnectGatewayAttachmentArgs {
     /**
      * Identifier of the Direct Connect Gateway.
      */
-    readonly dxGatewayId: string;
+    readonly dxGatewayId?: string;
     /**
-     * Key-value tags for the EC2 Transit Gateway Attachment
+     * Configuration block(s) for filtering. Detailed below.
+     */
+    readonly filters?: inputs.ec2transitgateway.GetDirectConnectGatewayAttachmentFilter[];
+    /**
+     * A mapping of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
      */
     readonly tags?: {[key: string]: any};
     /**
      * Identifier of the EC2 Transit Gateway.
      */
-    readonly transitGatewayId: string;
+    readonly transitGatewayId?: string;
 }
 
 /**
  * A collection of values returned by getDirectConnectGatewayAttachment.
  */
 export interface GetDirectConnectGatewayAttachmentResult {
-    readonly dxGatewayId: string;
+    readonly dxGatewayId?: string;
+    readonly filters?: outputs.ec2transitgateway.GetDirectConnectGatewayAttachmentFilter[];
     /**
      * Key-value tags for the EC2 Transit Gateway Attachment
      */
     readonly tags: {[key: string]: any};
-    readonly transitGatewayId: string;
+    readonly transitGatewayId?: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

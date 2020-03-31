@@ -22,9 +22,11 @@ func LookupLaunchTemplate(ctx *pulumi.Context, args *LookupLaunchTemplateArgs, o
 
 // A collection of arguments for invoking getLaunchTemplate.
 type LookupLaunchTemplateArgs struct {
-	// The name of the launch template.
-	Name string `pulumi:"name"`
-	// (Optional) A mapping of tags to assign to the launch template.
+	// Configuration block(s) for filtering. Detailed below.
+	Filters []GetLaunchTemplateFilter `pulumi:"filters"`
+	// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+	Name *string `pulumi:"name"`
+	// A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -49,6 +51,7 @@ type LookupLaunchTemplateResult struct {
 	// The elastic GPU to attach to the instance. See Elastic GPU
 	// below for more details.
 	ElasticGpuSpecifications []GetLaunchTemplateElasticGpuSpecification `pulumi:"elasticGpuSpecifications"`
+	Filters                  []GetLaunchTemplateFilter                  `pulumi:"filters"`
 	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
 	IamInstanceProfiles []GetLaunchTemplateIamInstanceProfile `pulumi:"iamInstanceProfiles"`
@@ -70,9 +73,11 @@ type LookupLaunchTemplateResult struct {
 	KeyName string `pulumi:"keyName"`
 	// The latest version of the launch template.
 	LatestVersion int `pulumi:"latestVersion"`
+	// The metadata options for the instance.
+	MetadataOptions []GetLaunchTemplateMetadataOption `pulumi:"metadataOptions"`
 	// The monitoring option for the instance.
 	Monitorings []GetLaunchTemplateMonitoring `pulumi:"monitorings"`
-	Name        string                        `pulumi:"name"`
+	Name        *string                       `pulumi:"name"`
 	// Customize network interfaces to be attached at instance boot time. See Network
 	// Interfaces below for more details.
 	NetworkInterfaces []GetLaunchTemplateNetworkInterface `pulumi:"networkInterfaces"`

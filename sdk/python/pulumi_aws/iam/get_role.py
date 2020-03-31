@@ -13,7 +13,7 @@ class GetRoleResult:
     """
     A collection of values returned by getRole.
     """
-    def __init__(__self__, arn=None, assume_role_policy=None, create_date=None, description=None, id=None, max_session_duration=None, name=None, path=None, permissions_boundary=None, unique_id=None):
+    def __init__(__self__, arn=None, assume_role_policy=None, create_date=None, description=None, id=None, max_session_duration=None, name=None, path=None, permissions_boundary=None, tags=None, unique_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -65,6 +65,12 @@ class GetRoleResult:
         """
         The ARN of the policy that is used to set the permissions boundary for the role.
         """
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        __self__.tags = tags
+        """
+        The tags attached to the role.
+        """
         if unique_id and not isinstance(unique_id, str):
             raise TypeError("Expected argument 'unique_id' to be a str")
         __self__.unique_id = unique_id
@@ -86,9 +92,10 @@ class AwaitableGetRoleResult(GetRoleResult):
             name=self.name,
             path=self.path,
             permissions_boundary=self.permissions_boundary,
+            tags=self.tags,
             unique_id=self.unique_id)
 
-def get_role(name=None,opts=None):
+def get_role(name=None,tags=None,opts=None):
     """
     This data source can be used to fetch information about a specific
     IAM role. By using this data source, you can reference IAM role
@@ -98,11 +105,13 @@ def get_role(name=None,opts=None):
 
 
     :param str name: The friendly IAM role name to match.
+    :param dict tags: The tags attached to the role.
     """
     __args__ = dict()
 
 
     __args__['name'] = name
+    __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -119,4 +128,5 @@ def get_role(name=None,opts=None):
         name=__ret__.get('name'),
         path=__ret__.get('path'),
         permissions_boundary=__ret__.get('permissionsBoundary'),
+        tags=__ret__.get('tags'),
         unique_id=__ret__.get('uniqueId'))

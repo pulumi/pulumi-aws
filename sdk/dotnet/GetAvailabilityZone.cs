@@ -54,14 +54,31 @@ namespace Pulumi.Aws
     public sealed class GetAvailabilityZoneArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The full name of the availability zone to select.
+        /// Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
+        /// </summary>
+        [Input("allAvailabilityZones")]
+        public bool? AllAvailabilityZones { get; set; }
+
+        [Input("filters")]
+        private List<Inputs.GetAvailabilityZoneFiltersArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
+        public List<Inputs.GetAvailabilityZoneFiltersArgs> Filters
+        {
+            get => _filters ?? (_filters = new List<Inputs.GetAvailabilityZoneFiltersArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// A specific availability zone state to require. May
-        /// be any of `"available"`, `"information"` or `"impaired"`.
+        /// A specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
         /// </summary>
         [Input("state")]
         public string? State { get; set; }
@@ -80,28 +97,30 @@ namespace Pulumi.Aws
     [OutputType]
     public sealed class GetAvailabilityZoneResult
     {
+        public readonly bool? AllAvailabilityZones;
+        public readonly ImmutableArray<Outputs.GetAvailabilityZoneFiltersResult> Filters;
         /// <summary>
-        /// The name of the selected availability zone.
+        /// For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
         /// </summary>
+        public readonly string GroupName;
         public readonly string Name;
         /// <summary>
-        /// The part of the AZ name that appears after the region name,
-        /// uniquely identifying the AZ within its region.
+        /// The part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
         /// </summary>
         public readonly string NameSuffix;
         /// <summary>
-        /// The region where the selected availability zone resides.
-        /// This is always the region selected on the provider, since this data source
-        /// searches only within that region.
+        /// The name of the location from which the address is advertised.
+        /// </summary>
+        public readonly string NetworkBorderGroup;
+        /// <summary>
+        /// For Availability Zones, this always has the value of `opt-in-not-required`. For Local Zones, this is the opt in status. The possible values are `opted-in` and `not-opted-in`.
+        /// </summary>
+        public readonly string OptInStatus;
+        /// <summary>
+        /// The region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
         /// </summary>
         public readonly string Region;
-        /// <summary>
-        /// The current state of the AZ.
-        /// </summary>
         public readonly string State;
-        /// <summary>
-        /// (Optional) The zone ID of the selected availability zone.
-        /// </summary>
         public readonly string ZoneId;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
@@ -110,19 +129,84 @@ namespace Pulumi.Aws
 
         [OutputConstructor]
         private GetAvailabilityZoneResult(
+            bool? allAvailabilityZones,
+            ImmutableArray<Outputs.GetAvailabilityZoneFiltersResult> filters,
+            string groupName,
             string name,
             string nameSuffix,
+            string networkBorderGroup,
+            string optInStatus,
             string region,
             string state,
             string zoneId,
             string id)
         {
+            AllAvailabilityZones = allAvailabilityZones;
+            Filters = filters;
+            GroupName = groupName;
             Name = name;
             NameSuffix = nameSuffix;
+            NetworkBorderGroup = networkBorderGroup;
+            OptInStatus = optInStatus;
             Region = region;
             State = state;
             ZoneId = zoneId;
             Id = id;
         }
+    }
+
+    namespace Inputs
+    {
+
+    public sealed class GetAvailabilityZoneFiltersArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+        /// </summary>
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
+
+        [Input("values", required: true)]
+        private List<string>? _values;
+
+        /// <summary>
+        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        /// </summary>
+        public List<string> Values
+        {
+            get => _values ?? (_values = new List<string>());
+            set => _values = value;
+        }
+
+        public GetAvailabilityZoneFiltersArgs()
+        {
+        }
+    }
+    }
+
+    namespace Outputs
+    {
+
+    [OutputType]
+    public sealed class GetAvailabilityZoneFiltersResult
+    {
+        /// <summary>
+        /// The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
+        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        /// </summary>
+        public readonly ImmutableArray<string> Values;
+
+        [OutputConstructor]
+        private GetAvailabilityZoneFiltersResult(
+            string name,
+            ImmutableArray<string> values)
+        {
+            Name = name;
+            Values = values;
+        }
+    }
     }
 }

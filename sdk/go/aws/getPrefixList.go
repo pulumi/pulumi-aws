@@ -28,7 +28,9 @@ func GetPrefixList(ctx *pulumi.Context, args *GetPrefixListArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getPrefixList.
 type GetPrefixListArgs struct {
-	// The name of the prefix list to select.
+	// Configuration block(s) for filtering. Detailed below.
+	Filters []GetPrefixListFilter `pulumi:"filters"`
+	// The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
 	Name *string `pulumi:"name"`
 	// The ID of the prefix list to select.
 	PrefixListId *string `pulumi:"prefixListId"`
@@ -36,9 +38,9 @@ type GetPrefixListArgs struct {
 
 // A collection of values returned by getPrefixList.
 type GetPrefixListResult struct {
-	// The list of CIDR blocks for the AWS service associated
-	// with the prefix list.
-	CidrBlocks []string `pulumi:"cidrBlocks"`
+	// The list of CIDR blocks for the AWS service associated with the prefix list.
+	CidrBlocks []string              `pulumi:"cidrBlocks"`
+	Filters    []GetPrefixListFilter `pulumi:"filters"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the selected prefix list.

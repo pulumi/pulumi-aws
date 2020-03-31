@@ -73,6 +73,8 @@ type Instance struct {
 	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
 	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
 	KeyName pulumi.StringOutput `pulumi:"keyName"`
+	// Customize the metadata options of the instance. See Metadata Options below for more details.
+	MetadataOptions InstanceMetadataOptionsOutput `pulumi:"metadataOptions"`
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring pulumi.BoolPtrOutput `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -212,6 +214,8 @@ type instanceState struct {
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
 	KeyName *string `pulumi:"keyName"`
+	// Customize the metadata options of the instance. See Metadata Options below for more details.
+	MetadataOptions *InstanceMetadataOptions `pulumi:"metadataOptions"`
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring *bool `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -318,6 +322,8 @@ type InstanceState struct {
 	Ipv6Addresses pulumi.StringArrayInput
 	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
 	KeyName pulumi.StringPtrInput
+	// Customize the metadata options of the instance. See Metadata Options below for more details.
+	MetadataOptions InstanceMetadataOptionsPtrInput
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring pulumi.BoolPtrInput
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -424,6 +430,8 @@ type instanceArgs struct {
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
 	KeyName *string `pulumi:"keyName"`
+	// Customize the metadata options of the instance. See Metadata Options below for more details.
+	MetadataOptions *InstanceMetadataOptions `pulumi:"metadataOptions"`
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring *bool `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -510,6 +518,8 @@ type InstanceArgs struct {
 	Ipv6Addresses pulumi.StringArrayInput
 	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
 	KeyName pulumi.StringPtrInput
+	// Customize the metadata options of the instance. See Metadata Options below for more details.
+	MetadataOptions InstanceMetadataOptionsPtrInput
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
 	Monitoring pulumi.BoolPtrInput
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.

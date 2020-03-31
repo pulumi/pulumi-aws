@@ -1049,6 +1049,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_traffic_mirror_filter_rule":         {Tok: awsResource(ec2Mod, "TrafficMirrorFilterRule")},
 			"aws_ec2_traffic_mirror_session":             {Tok: awsResource(ec2Mod, "TrafficMirrorSession")},
 			"aws_ec2_traffic_mirror_target":              {Tok: awsResource(ec2Mod, "TrafficMirrorTarget")},
+			"aws_ec2_availability_zone_group":            {Tok: awsResource(ec2Mod, "AvailabilityZoneGroup")},
 			// EC2 Client VPN
 			"aws_ec2_client_vpn_endpoint":            {Tok: awsResource(ec2ClientVpnMod, "Endpoint")},
 			"aws_ec2_client_vpn_network_association": {Tok: awsResource(ec2ClientVpnMod, "NetworkAssociation")},
@@ -1485,6 +1486,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Kinesis
 			"aws_kinesis_firehose_delivery_stream": {Tok: awsResource(kinesisMod, "FirehoseDeliveryStream")},
 			"aws_kinesis_stream":                   {Tok: awsResource(kinesisMod, "Stream")},
+			"aws_kinesis_video_stream":             {Tok: awsResource(kinesisMod, "VideoStream")},
 			"aws_kinesis_analytics_application": {
 				Tok: awsResource(kinesisMod, "AnalyticsApplication"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1813,6 +1815,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_securityhub_account":                {Tok: awsResource(securityhubMod, "Account")},
 			"aws_securityhub_product_subscription":   {Tok: awsResource(securityhubMod, "ProductSubscription")},
 			"aws_securityhub_standards_subscription": {Tok: awsResource(securityhubMod, "StandardsSubscription")},
+			"aws_securityhub_member":                 {Tok: awsResource(securityhubMod, "Member")},
 			// Service Discovery
 			"aws_service_discovery_http_namespace":        {Tok: awsResource(servicediscoveryMod, "HttpNamespace")},
 			"aws_service_discovery_private_dns_namespace": {Tok: awsResource(servicediscoveryMod, "PrivateDnsNamespace")},

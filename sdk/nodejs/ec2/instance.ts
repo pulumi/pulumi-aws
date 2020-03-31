@@ -167,6 +167,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly keyName!: pulumi.Output<string>;
     /**
+     * Customize the metadata options of the instance. See Metadata Options below for more details.
+     */
+    public readonly metadataOptions!: pulumi.Output<outputs.ec2.InstanceMetadataOptions>;
+    /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      */
     public readonly monitoring!: pulumi.Output<boolean | undefined>;
@@ -286,6 +290,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["ipv6AddressCount"] = state ? state.ipv6AddressCount : undefined;
             inputs["ipv6Addresses"] = state ? state.ipv6Addresses : undefined;
             inputs["keyName"] = state ? state.keyName : undefined;
+            inputs["metadataOptions"] = state ? state.metadataOptions : undefined;
             inputs["monitoring"] = state ? state.monitoring : undefined;
             inputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
             inputs["passwordData"] = state ? state.passwordData : undefined;
@@ -332,6 +337,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["ipv6AddressCount"] = args ? args.ipv6AddressCount : undefined;
             inputs["ipv6Addresses"] = args ? args.ipv6Addresses : undefined;
             inputs["keyName"] = args ? args.keyName : undefined;
+            inputs["metadataOptions"] = args ? args.metadataOptions : undefined;
             inputs["monitoring"] = args ? args.monitoring : undefined;
             inputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
             inputs["placementGroup"] = args ? args.placementGroup : undefined;
@@ -464,6 +470,10 @@ export interface InstanceState {
      * The key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
      */
     readonly keyName?: pulumi.Input<string>;
+    /**
+     * Customize the metadata options of the instance. See Metadata Options below for more details.
+     */
+    readonly metadataOptions?: pulumi.Input<inputs.ec2.InstanceMetadataOptions>;
     /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      */
@@ -645,6 +655,10 @@ export interface InstanceArgs {
      * The key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
      */
     readonly keyName?: pulumi.Input<string>;
+    /**
+     * Customize the metadata options of the instance. See Metadata Options below for more details.
+     */
+    readonly metadataOptions?: pulumi.Input<inputs.ec2.InstanceMetadataOptions>;
     /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      */

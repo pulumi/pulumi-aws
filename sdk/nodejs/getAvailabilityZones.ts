@@ -13,6 +13,44 @@ import * as utilities from "./utilities";
  * 
  * This is different from the `aws..getAvailabilityZone` (singular) data source,
  * which provides some details about a specific availability zone.
+ * 
+ * > When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
+ * 
+ * ## Example Usage
+ * 
+ * ### By Filter
+ * 
+ * All Local Zones (regardless of opt-in status):
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = aws.getAvailabilityZones({
+ *     allAvailabilityZones: true,
+ *     filters: [{
+ *         name: "opt-in-status",
+ *         values: [
+ *             "not-opted-in",
+ *             "opted-in",
+ *         ],
+ *     }],
+ * });
+ * ```
+ * 
+ * Only Availability Zones (no Local Zones):
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = aws.getAvailabilityZones({
+ *     filters: [{
+ *         name: "opt-in-status",
+ *         values: ["opt-in-not-required"],
+ *     }],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
  */
@@ -25,9 +63,16 @@ export function getAvailabilityZones(args?: GetAvailabilityZonesArgs, opts?: pul
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
+<<<<<<< HEAD
     return pulumi.runtime.invoke("aws:index/getAvailabilityZones:getAvailabilityZones", {
+=======
+    const promise: Promise<GetAvailabilityZonesResult> = pulumi.runtime.invoke("aws:index/getAvailabilityZones:getAvailabilityZones", {
+        "allAvailabilityZones": args.allAvailabilityZones,
+>>>>>>> master
         "blacklistedNames": args.blacklistedNames,
         "blacklistedZoneIds": args.blacklistedZoneIds,
+        "filters": args.filters,
+        "groupNames": args.groupNames,
         "state": args.state,
     }, opts);
 }
@@ -37,6 +82,10 @@ export function getAvailabilityZones(args?: GetAvailabilityZonesArgs, opts?: pul
  */
 export interface GetAvailabilityZonesArgs {
     /**
+     * Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
+     */
+    readonly allAvailabilityZones?: boolean;
+    /**
      * List of blacklisted Availability Zone names.
      */
     readonly blacklistedNames?: string[];
@@ -44,6 +93,11 @@ export interface GetAvailabilityZonesArgs {
      * List of blacklisted Availability Zone IDs.
      */
     readonly blacklistedZoneIds?: string[];
+    /**
+     * Configuration block(s) for filtering. Detailed below.
+     */
+    readonly filters?: inputs.GetAvailabilityZonesFilter[];
+    readonly groupNames?: string[];
     /**
      * Allows to filter list of Availability Zones based on their
      * current state. Can be either `"available"`, `"information"`, `"impaired"` or
@@ -57,8 +111,11 @@ export interface GetAvailabilityZonesArgs {
  * A collection of values returned by getAvailabilityZones.
  */
 export interface GetAvailabilityZonesResult {
+    readonly allAvailabilityZones?: boolean;
     readonly blacklistedNames?: string[];
     readonly blacklistedZoneIds?: string[];
+    readonly filters?: outputs.GetAvailabilityZonesFilter[];
+    readonly groupNames?: string[];
     /**
      * A list of the Availability Zone names available to the account.
      */

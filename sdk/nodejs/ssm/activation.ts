@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const testAttach = new aws.iam.RolePolicyAttachment("testAttach", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM",
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
  *     role: testRole.name,
  * });
  * const foo = new aws.ssm.Activation("foo", {

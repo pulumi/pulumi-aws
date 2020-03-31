@@ -35,6 +35,13 @@ class TaskDefinition(pulumi.CustomResource):
     """
     A unique name for your task definition.
     """
+    inference_accelerators: pulumi.Output[list]
+    """
+    Configuration block(s) with Inference Accelerators settings. Detailed below.
+
+      * `device_name` (`str`) - The Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+      * `deviceType` (`str`) - The Elastic Inference accelerator type to use.
+    """
     ipc_mode: pulumi.Output[str]
     """
     The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
@@ -104,7 +111,7 @@ class TaskDefinition(pulumi.CustomResource):
       * `name` (`str`) - The name of the volume. This name is referenced in the `sourceVolume`
         parameter of container definition in the `mountPoints` section.
     """
-    def __init__(__self__, resource_name, opts=None, container_definitions=None, cpu=None, execution_role_arn=None, family=None, ipc_mode=None, memory=None, network_mode=None, pid_mode=None, placement_constraints=None, proxy_configuration=None, requires_compatibilities=None, tags=None, task_role_arn=None, volumes=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, container_definitions=None, cpu=None, execution_role_arn=None, family=None, inference_accelerators=None, ipc_mode=None, memory=None, network_mode=None, pid_mode=None, placement_constraints=None, proxy_configuration=None, requires_compatibilities=None, tags=None, task_role_arn=None, volumes=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a revision of an ECS task definition to be used in `ecs.Service`.
 
@@ -121,6 +128,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] cpu: The number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[str] family: A unique name for your task definition.
+        :param pulumi.Input[list] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
         :param pulumi.Input[str] ipc_mode: The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         :param pulumi.Input[str] memory: The amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[str] network_mode: The Docker networking mode to use for the containers in the task. The valid values are `none`, `bridge`, `awsvpc`, and `host`.
@@ -131,6 +139,11 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] task_role_arn: The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         :param pulumi.Input[list] volumes: A set of volume blocks that containers in your task may use.
+
+        The **inference_accelerators** object supports the following:
+
+          * `device_name` (`pulumi.Input[str]`) - The Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+          * `deviceType` (`pulumi.Input[str]`) - The Elastic Inference accelerator type to use.
 
         The **placement_constraints** object supports the following:
 
@@ -188,6 +201,7 @@ class TaskDefinition(pulumi.CustomResource):
             if family is None:
                 raise TypeError("Missing required property 'family'")
             __props__['family'] = family
+            __props__['inference_accelerators'] = inference_accelerators
             __props__['ipc_mode'] = ipc_mode
             __props__['memory'] = memory
             __props__['network_mode'] = network_mode
@@ -207,7 +221,7 @@ class TaskDefinition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, container_definitions=None, cpu=None, execution_role_arn=None, family=None, ipc_mode=None, memory=None, network_mode=None, pid_mode=None, placement_constraints=None, proxy_configuration=None, requires_compatibilities=None, revision=None, tags=None, task_role_arn=None, volumes=None):
+    def get(resource_name, id, opts=None, arn=None, container_definitions=None, cpu=None, execution_role_arn=None, family=None, inference_accelerators=None, ipc_mode=None, memory=None, network_mode=None, pid_mode=None, placement_constraints=None, proxy_configuration=None, requires_compatibilities=None, revision=None, tags=None, task_role_arn=None, volumes=None):
         """
         Get an existing TaskDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -225,6 +239,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] cpu: The number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[str] family: A unique name for your task definition.
+        :param pulumi.Input[list] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
         :param pulumi.Input[str] ipc_mode: The IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         :param pulumi.Input[str] memory: The amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[str] network_mode: The Docker networking mode to use for the containers in the task. The valid values are `none`, `bridge`, `awsvpc`, and `host`.
@@ -236,6 +251,11 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] task_role_arn: The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         :param pulumi.Input[list] volumes: A set of volume blocks that containers in your task may use.
+
+        The **inference_accelerators** object supports the following:
+
+          * `device_name` (`pulumi.Input[str]`) - The Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+          * `deviceType` (`pulumi.Input[str]`) - The Elastic Inference accelerator type to use.
 
         The **placement_constraints** object supports the following:
 
@@ -277,6 +297,7 @@ class TaskDefinition(pulumi.CustomResource):
         __props__["cpu"] = cpu
         __props__["execution_role_arn"] = execution_role_arn
         __props__["family"] = family
+        __props__["inference_accelerators"] = inference_accelerators
         __props__["ipc_mode"] = ipc_mode
         __props__["memory"] = memory
         __props__["network_mode"] = network_mode

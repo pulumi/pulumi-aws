@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
- * AWS service usage:
+ * ### AWS Service
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * Non-AWS service usage:
+ * ### Non-AWS Service
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -41,6 +41,20 @@ import * as utilities from "../utilities";
  * 
  * const custome = aws.ec2.getVpcEndpointService({
  *     serviceName: "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8",
+ * });
+ * ```
+ * 
+ * ### Filter
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const test = aws.ec2.getVpcEndpointService({
+ *     filters: [{
+ *         name: "service-name",
+ *         values: ["some-service"],
+ *     }],
  * });
  * ```
  *
@@ -55,7 +69,12 @@ export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: p
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
+<<<<<<< HEAD
     return pulumi.runtime.invoke("aws:ec2/getVpcEndpointService:getVpcEndpointService", {
+=======
+    const promise: Promise<GetVpcEndpointServiceResult> = pulumi.runtime.invoke("aws:ec2/getVpcEndpointService:getVpcEndpointService", {
+        "filters": args.filters,
+>>>>>>> master
         "service": args.service,
         "serviceName": args.serviceName,
         "tags": args.tags,
@@ -67,15 +86,19 @@ export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: p
  */
 export interface GetVpcEndpointServiceArgs {
     /**
+     * Configuration block(s) for filtering. Detailed below.
+     */
+    readonly filters?: inputs.ec2.GetVpcEndpointServiceFilter[];
+    /**
      * The common name of an AWS service (e.g. `s3`).
      */
     readonly service?: string;
     /**
-     * The service name that can be specified when creating a VPC endpoint.
+     * The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
     readonly serviceName?: string;
     /**
-     * A mapping of tags assigned to the resource.
+     * A mapping of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
      */
     readonly tags?: {[key: string]: any};
 }
@@ -96,6 +119,7 @@ export interface GetVpcEndpointServiceResult {
      * The DNS names for the service.
      */
     readonly baseEndpointDnsNames: string[];
+    readonly filters?: outputs.ec2.GetVpcEndpointServiceFilter[];
     /**
      * Whether or not the service manages its VPC endpoints - `true` or `false`.
      */

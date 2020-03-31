@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Ec2
         public string? Id { get; set; }
 
         /// <summary>
-        /// The AWS service name of the specific VPC Endpoint to retrieve.
+        /// The service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
         /// </summary>
         [Input("serviceName")]
         public string? ServiceName { get; set; }
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+        /// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+        /// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
         /// </summary>
         public readonly string Name;
         /// <summary>
