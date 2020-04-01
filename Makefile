@@ -15,22 +15,22 @@ DOTNET_PREFIX  := $(firstword $(subst -, ,${VERSION:v%=%})) # e.g. 1.5.0
 DOTNET_SUFFIX  := $(word 2,$(subst -, ,${VERSION:v%=%}))    # e.g. alpha.1
 
 ifeq ($(strip ${DOTNET_SUFFIX}),)
-	DOTNET_VERSION := $(strip ${DOTNET_PREFIX})-preview
+	DOTNET_VERSION := $(strip ${DOTNET_PREFIX})
 else
-	DOTNET_VERSION := $(strip ${DOTNET_PREFIX})-preview-$(strip ${DOTNET_SUFFIX})
+	DOTNET_VERSION := $(strip ${DOTNET_PREFIX})-$(strip ${DOTNET_SUFFIX})
 endif
 
 TESTPARALLELISM := 10
 
 tfgen::
-	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}" ${PROJECT}/provider/cmd/${TFGEN}
+	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/v2/pkg/version.Version=${VERSION}" ${PROJECT}/provider/v2/cmd/${TFGEN}
 
 generate_schema:: tfgen
 	$(TFGEN) schema --out ./provider/cmd/${PROVIDER}
 
 provider:: generate_schema
 	go generate ${PROJECT}/provider/cmd/${PROVIDER}
-	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}" ${PROJECT}/provider/cmd/${PROVIDER}
+	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/v2/pkg/version.Version=${VERSION}" ${PROJECT}/provider/v2/cmd/${PROVIDER}
 
 # NOTE: Since the plugin is published using the nodejs style semver version
 # We set the PLUGIN_VERSION to be the same as the version we use when building
@@ -90,7 +90,7 @@ publish_tgz:
 publish_packages:
 	$(call STEP_MESSAGE)
 	$$(go env GOPATH)/src/github.com/pulumi/scripts/ci/publish-tfgen-package .
-	$$(go env GOPATH)/src/github.com/pulumi/scripts/ci/build-package-docs.sh ${PACK}
+	#$$(go env GOPATH)/src/github.com/pulumi/scripts/ci/build-package-docs.sh ${PACK}
 	$$(go env GOPATH)/src/github.com/pulumi/scripts/ci/publish-github-release.sh pulumi-${PACK} ${VERSION}
 
 .PHONY: check_clean_worktree

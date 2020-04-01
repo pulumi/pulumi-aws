@@ -3,9 +3,9 @@
 package main
 
 import (
-	"github.com/pulumi/pulumi-aws/sdk/go/aws"
-	"github.com/pulumi/pulumi-aws/sdk/go/aws/ec2"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 const size = "t2.micro"

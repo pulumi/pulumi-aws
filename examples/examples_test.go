@@ -16,7 +16,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/lambda"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/pulumi/pulumi/pkg/testing/integration"
+	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
 )
 
 func TestAccMinimal(t *testing.T) {
@@ -173,7 +173,7 @@ func TestAccEcr(t *testing.T) {
 func TestAccAlbLegacy(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "alb-legacy"),
+			Dir: path.Join(getCwd(t), "alb-legacy"),
 			// RunUpdateTest: true,
 		})
 
@@ -183,7 +183,7 @@ func TestAccAlbLegacy(t *testing.T) {
 func TestAccAlbNew(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "alb-new"),
+			Dir: path.Join(getCwd(t), "alb-new"),
 			// RunUpdateTest: true,
 			EditDirs: []integration.EditDir{
 				{
@@ -357,7 +357,7 @@ func TestAccMultipleRegions(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "multiple-regions"),
+			Dir: path.Join(getCwd(t), "multiple-regions"),
 			// RunUpdateTest: true,
 		})
 
