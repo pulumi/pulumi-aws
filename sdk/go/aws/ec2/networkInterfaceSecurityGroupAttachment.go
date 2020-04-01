@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // This resource attaches a security group to an Elastic Network Interface (ENI).
@@ -24,6 +24,7 @@ import (
 //
 // [1]: https://www.terraform.io/docs/providers/aws/d/instance.html
 // [2]: https://www.terraform.io/docs/providers/aws/r/network_interface.html
+//
 //
 // ## Output Reference
 //

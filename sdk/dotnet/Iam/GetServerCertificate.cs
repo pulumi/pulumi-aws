@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// Use this data source to lookup information about IAM Server Certificates.
         /// 
+        /// 
         /// ## Import 
         /// 
         /// The import function will read in certificate body, certificate chain (if it exists), id, name, path, and arn. 
@@ -29,6 +30,7 @@ namespace Pulumi.Aws.Iam
     {
         /// <summary>
         /// Use this data source to lookup information about IAM Server Certificates.
+        /// 
         /// 
         /// ## Import 
         /// 

@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Provides information about a RDS cluster.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/rds_cluster.html.markdown.
         /// </summary>
         [Obsolete("Use GetCluster.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// Provides information about a RDS cluster.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/rds_cluster.html.markdown.
         /// </summary>

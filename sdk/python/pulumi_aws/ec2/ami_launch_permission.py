@@ -22,6 +22,8 @@ class AmiLaunchPermission(pulumi.CustomResource):
         """
         Adds launch permission to Amazon Machine Image (AMI) from another AWS account.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_launch_permission.html.markdown.
 
         :param str resource_name: The name of the resource.

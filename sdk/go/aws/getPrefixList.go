@@ -5,7 +5,7 @@
 package aws
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // `.getPrefixList` provides details about a specific prefix list (PL)
@@ -15,6 +15,8 @@ import (
 // and to obtain the CIDR blocks (IP address ranges) for the associated
 // AWS service. The latter may be useful e.g. for adding network ACL
 // rules.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/prefix_list.html.markdown.
 func GetPrefixList(ctx *pulumi.Context, args *GetPrefixListArgs, opts ...pulumi.InvokeOption) (*GetPrefixListResult, error) {

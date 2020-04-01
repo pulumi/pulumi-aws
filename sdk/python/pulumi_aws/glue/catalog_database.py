@@ -34,6 +34,8 @@ class CatalogDatabase(pulumi.CustomResource):
         """
         Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_catalog_database.html.markdown.
 
         :param str resource_name: The name of the resource.

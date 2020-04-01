@@ -7,7 +7,7 @@ package elasticache
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an ElastiCache Cluster resource, which manages a Memcached cluster or Redis instance.
@@ -20,6 +20,8 @@ import (
 // place. You can use the `applyImmediately` flag to instruct the service to apply the
 // change immediately. Using `applyImmediately` can result in a brief downtime as the server reboots.
 // See the AWS Docs on [Modifying an ElastiCache Cache Cluster][2] for more information.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_cluster.html.markdown.
 type Cluster struct {

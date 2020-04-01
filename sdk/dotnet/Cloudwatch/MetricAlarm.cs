@@ -12,6 +12,8 @@ namespace Pulumi.Aws.CloudWatch
     /// <summary>
     /// Provides a CloudWatch Metric Alarm resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_metric_alarm.html.markdown.
     /// </summary>
     public partial class MetricAlarm : Pulumi.CustomResource

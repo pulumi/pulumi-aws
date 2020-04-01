@@ -7,12 +7,14 @@ package applicationloadbalancing
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Target Group resource for use with Load Balancer resources.
 //
 // > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group.html.markdown.
 type TargetGroup struct {

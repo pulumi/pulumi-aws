@@ -53,6 +53,8 @@ class Accelerator(pulumi.CustomResource):
         """
         Creates a Global Accelerator accelerator.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_accelerator.markdown.
 
         :param str resource_name: The name of the resource.

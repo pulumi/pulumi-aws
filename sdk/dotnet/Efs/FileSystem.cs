@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Efs
     /// <summary>
     /// Provides an Elastic File System (EFS) resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/efs_file_system.html.markdown.
     /// </summary>
     public partial class FileSystem : Pulumi.CustomResource

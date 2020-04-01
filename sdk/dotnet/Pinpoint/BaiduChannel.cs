@@ -15,6 +15,9 @@ namespace Pulumi.Aws.Pinpoint
     /// &gt; **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
     /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
+    /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_baidu_channel.markdown.
     /// </summary>
     public partial class BaiduChannel : Pulumi.CustomResource

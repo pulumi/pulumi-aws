@@ -19,6 +19,8 @@ namespace Pulumi.Aws.Ec2
     /// and the accepter can use the `aws.ec2.VpcPeeringConnectionAccepter` resource to "adopt" its side of the
     /// connection into management.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_accepter.html.markdown.
     /// </summary>
     public partial class VpcPeeringConnectionAccepter : Pulumi.CustomResource

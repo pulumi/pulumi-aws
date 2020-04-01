@@ -7,7 +7,7 @@ package neptune
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an Neptune Cluster Resource. A Cluster Resource defines attributes that are
@@ -19,6 +19,8 @@ import (
 // phase because a modification has not yet taken place. You can use the
 // `applyImmediately` flag to instruct the service to apply the change immediately
 // (see documentation below).
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster.html.markdown.
 type Cluster struct {

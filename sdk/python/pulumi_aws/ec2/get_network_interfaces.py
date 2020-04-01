@@ -45,7 +45,10 @@ class AwaitableGetNetworkInterfacesResult(GetNetworkInterfacesResult):
 
 def get_network_interfaces(filters=None,tags=None,opts=None):
     """
-    Use this data source to access information about an existing resource.
+
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_interfaces.html.markdown.
+
 
     :param list filters: Custom filter block as described below.
     :param dict tags: A mapping of tags, each pair of which must exactly match

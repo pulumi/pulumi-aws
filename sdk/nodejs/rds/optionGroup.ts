@@ -16,6 +16,8 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -45,8 +47,6 @@ import * as utilities from "../utilities";
  *     optionGroupDescription: "Option Group",
  * });
  * ```
- * 
- * > **Note**: Any modifications to the `dbOptionGroup` are set to happen immediately as we default to applying immediately.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_option_group.html.markdown.
  */

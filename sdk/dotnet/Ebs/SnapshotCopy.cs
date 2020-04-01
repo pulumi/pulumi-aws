@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Ebs
     /// <summary>
     /// Creates a Snapshot of a snapshot.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_snapshot_copy.html.markdown.
     /// </summary>
     public partial class SnapshotCopy : Pulumi.CustomResource

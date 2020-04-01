@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Dax
     /// <summary>
     /// Provides a DAX Cluster resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_cluster.html.markdown.
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource

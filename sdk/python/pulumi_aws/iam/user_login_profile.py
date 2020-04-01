@@ -40,6 +40,8 @@ class UserLoginProfile(pulumi.CustomResource):
 
         > To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_login_profile.html.markdown.
 
         :param str resource_name: The name of the resource.

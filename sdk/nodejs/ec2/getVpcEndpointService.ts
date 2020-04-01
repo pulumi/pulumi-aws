@@ -69,12 +69,8 @@ export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: p
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-<<<<<<< HEAD
     return pulumi.runtime.invoke("aws:ec2/getVpcEndpointService:getVpcEndpointService", {
-=======
-    const promise: Promise<GetVpcEndpointServiceResult> = pulumi.runtime.invoke("aws:ec2/getVpcEndpointService:getVpcEndpointService", {
         "filters": args.filters,
->>>>>>> master
         "service": args.service,
         "serviceName": args.serviceName,
         "tags": args.tags,

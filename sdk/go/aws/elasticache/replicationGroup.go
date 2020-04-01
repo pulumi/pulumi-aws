@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an ElastiCache Replication Group resource.
@@ -22,6 +22,8 @@ import (
 // `applyImmediately` flag to instruct the service to apply the change
 // immediately. Using `applyImmediately` can result in a brief downtime as
 // servers reboots.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_replication_group.html.markdown.
 type ReplicationGroup struct {

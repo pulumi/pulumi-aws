@@ -12,6 +12,8 @@ namespace Pulumi.Aws.RedShift
     /// <summary>
     /// Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_subnet_group.html.markdown.
     /// </summary>
     public partial class SubnetGroup : Pulumi.CustomResource

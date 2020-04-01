@@ -33,6 +33,8 @@ class Attachment(pulumi.CustomResource):
         load balancers in conjunction with an ASG Attachment resource. Doing so will cause a
         conflict and will overwrite attachments.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_attachment.html.markdown.
 
         :param str resource_name: The name of the resource.

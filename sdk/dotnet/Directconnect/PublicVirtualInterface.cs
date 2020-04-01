@@ -12,6 +12,8 @@ namespace Pulumi.Aws.DirectConnect
     /// <summary>
     /// Provides a Direct Connect public virtual interface resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_public_virtual_interface.html.markdown.
     /// </summary>
     public partial class PublicVirtualInterface : Pulumi.CustomResource

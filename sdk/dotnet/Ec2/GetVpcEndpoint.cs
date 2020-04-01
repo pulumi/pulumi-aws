@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Ec2
         /// The VPC Endpoint data source provides details about
         /// a specific VPC endpoint.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint.html.markdown.
         /// </summary>
         [Obsolete("Use GetVpcEndpoint.InvokeAsync() instead")]
@@ -26,6 +28,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The VPC Endpoint data source provides details about
         /// a specific VPC endpoint.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint.html.markdown.
         /// </summary>

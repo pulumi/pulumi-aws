@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Retrieve information about an EC2 DHCP Options configuration.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_dhcp_options.html.markdown.
         /// </summary>
         [Obsolete("Use GetVpcDhcpOptions.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Retrieve information about an EC2 DHCP Options configuration.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_dhcp_options.html.markdown.
         /// </summary>

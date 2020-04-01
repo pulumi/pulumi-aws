@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,12 +38,8 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_template.html.markdown.
  */
-<<<<<<< HEAD
-export function getLaunchTemplate(args: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> {
-=======
-export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> & GetLaunchTemplateResult {
+export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> {
     args = args || {};
->>>>>>> master
     if (!opts) {
         opts = {}
     }
@@ -49,12 +47,8 @@ export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.In
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-<<<<<<< HEAD
     return pulumi.runtime.invoke("aws:ec2/getLaunchTemplate:getLaunchTemplate", {
-=======
-    const promise: Promise<GetLaunchTemplateResult> = pulumi.runtime.invoke("aws:ec2/getLaunchTemplate:getLaunchTemplate", {
         "filters": args.filters,
->>>>>>> master
         "name": args.name,
         "tags": args.tags,
     }, opts);

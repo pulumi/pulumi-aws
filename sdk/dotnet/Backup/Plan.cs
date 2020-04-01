@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Backup
     /// <summary>
     /// Provides an AWS Backup plan resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_plan.html.markdown.
     /// </summary>
     public partial class Plan : Pulumi.CustomResource

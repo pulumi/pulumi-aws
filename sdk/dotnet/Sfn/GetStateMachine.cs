@@ -16,6 +16,8 @@ namespace Pulumi.Aws.Sfn
         /// Function (SFN). By using this data source, you can reference a
         /// state machine without having to hard code the ARNs as input.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_state_machine.html.markdown.
         /// </summary>
         [Obsolete("Use GetStateMachine.InvokeAsync() instead")]
@@ -28,6 +30,8 @@ namespace Pulumi.Aws.Sfn
         /// Use this data source to get the ARN of a State Machine in AWS Step
         /// Function (SFN). By using this data source, you can reference a
         /// state machine without having to hard code the ARNs as input.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_state_machine.html.markdown.
         /// </summary>

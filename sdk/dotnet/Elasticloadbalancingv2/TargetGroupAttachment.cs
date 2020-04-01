@@ -14,6 +14,8 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// 
     /// &gt; **Note:** `aws.alb.TargetGroupAttachment` is known as `aws.lb.TargetGroupAttachment`. The functionality is identical.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group_attachment.html.markdown.
     /// </summary>
     public partial class TargetGroupAttachment : Pulumi.CustomResource

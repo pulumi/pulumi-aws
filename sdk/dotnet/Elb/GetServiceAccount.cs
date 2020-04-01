@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Elb
         /// Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
         /// in a given region for the purpose of whitelisting in S3 bucket policy.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_service_account.html.markdown.
         /// </summary>
         [Obsolete("Use GetServiceAccount.InvokeAsync() instead")]
@@ -26,6 +28,8 @@ namespace Pulumi.Aws.Elb
         /// <summary>
         /// Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
         /// in a given region for the purpose of whitelisting in S3 bucket policy.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_service_account.html.markdown.
         /// </summary>

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// &gt; **NOTE:** The AWS API does not currently support deleting ECS cluster capacity providers. Removing this resource will only remove the state for it.
     /// 
+    /// 
     /// ## auto_scaling_group_provider
     /// 
     /// The `auto_scaling_group_provider` block supports the following:

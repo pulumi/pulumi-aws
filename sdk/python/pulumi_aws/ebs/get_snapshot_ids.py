@@ -49,6 +49,8 @@ def get_snapshot_ids(filters=None,owners=None,restorable_by_user_ids=None,opts=N
     Use this data source to get a list of EBS Snapshot IDs matching the specified
     criteria.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot_ids.html.markdown.
 
 

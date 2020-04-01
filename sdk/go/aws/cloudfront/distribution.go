@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Creates an Amazon CloudFront web distribution.
@@ -22,6 +22,8 @@ import (
 // after creation or modification. During this time, deletes to resources will be
 // blocked. If you need to delete a distribution that is enabled and you do not
 // want to wait, you need to use the `retainOnDelete` flag.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudfront_distribution.html.markdown.
 type Distribution struct {

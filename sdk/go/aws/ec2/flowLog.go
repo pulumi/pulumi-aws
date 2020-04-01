@@ -8,11 +8,13 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a VPC/Subnet/ENI Flow Log to capture IP traffic for a specific network
 // interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/flow_log.html.markdown.
 type FlowLog struct {

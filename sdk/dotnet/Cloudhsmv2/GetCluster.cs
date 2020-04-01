@@ -14,6 +14,8 @@ namespace Pulumi.Aws.CloudHsmV2
         /// <summary>
         /// Use this data source to get information about a CloudHSM v2 cluster
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudhsm_v2_cluster.html.markdown.
         /// </summary>
         [Obsolete("Use GetCluster.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.CloudHsmV2
     {
         /// <summary>
         /// Use this data source to get information about a CloudHSM v2 cluster
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudhsm_v2_cluster.html.markdown.
         /// </summary>

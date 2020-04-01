@@ -46,6 +46,7 @@ class EventSubscription(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, enabled=None, event_categories=None, name=None, name_prefix=None, sns_topic_arn=None, source_ids=None, source_type=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
+
         ## Attributes
 
         The following additional atttributes are provided:

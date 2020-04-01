@@ -36,6 +36,8 @@ def get_rule(name=None,opts=None):
     """
     `waf.Rule` Retrieves a WAF Rule Resource Id.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rule.html.markdown.
 
 

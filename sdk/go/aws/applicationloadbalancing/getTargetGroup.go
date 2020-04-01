@@ -5,7 +5,7 @@
 package applicationloadbalancing
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
@@ -15,6 +15,8 @@ import (
 // This data source can prove useful when a module accepts an LB Target Group as an
 // input variable and needs to know its attributes. It can also be used to get the ARN of
 // an LB Target Group for use in other resources, given LB Target Group name.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_target_group.html.markdown.
 func LookupTargetGroup(ctx *pulumi.Context, args *LookupTargetGroupArgs, opts ...pulumi.InvokeOption) (*LookupTargetGroupResult, error) {

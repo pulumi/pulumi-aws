@@ -28,7 +28,10 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, certificate=None, display_name=None, fleet_arn=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a WebsiteCertificateAuthorityAssociation resource with the given unique name, props, and options.
+
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/worklink_website_certificate_authority_association.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate: The root certificate of the Certificate Authority.

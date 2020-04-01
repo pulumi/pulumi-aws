@@ -56,6 +56,8 @@ class ResolverRule(pulumi.CustomResource):
         """
         Provides a Route53 Resolver rule.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_rule.html.markdown.
 
         :param str resource_name: The name of the resource.

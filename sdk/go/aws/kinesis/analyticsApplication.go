@@ -7,13 +7,15 @@ package kinesis
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Kinesis Analytics Application resource. Kinesis Analytics is a managed service that
 // allows processing and analyzing streaming data using standard SQL.
 //
 // For more details, see the [Amazon Kinesis Analytics Documentation][1].
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_analytics_application.html.markdown.
 type AnalyticsApplication struct {

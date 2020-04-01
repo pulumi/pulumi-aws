@@ -124,6 +124,8 @@ def get_vpc(cidr_block=None,default=None,dhcp_options_id=None,filters=None,id=No
     an input variable and needs to, for example, determine the CIDR block of that
     VPC.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc.html.markdown.
 
 

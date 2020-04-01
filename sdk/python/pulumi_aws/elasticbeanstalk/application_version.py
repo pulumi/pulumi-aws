@@ -57,6 +57,8 @@ class ApplicationVersion(pulumi.CustomResource):
         when attempting to delete an Application Version while it is still in use by a different environment.
         To work around this you can either create each environment in a separate AWS account or create your `elasticbeanstalk.ApplicationVersion` resources with a unique names in your Elastic Beanstalk Application. For example &lt;revision&gt;-&lt;environment&gt;.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application_version.html.markdown.
 
         :param str resource_name: The name of the resource.

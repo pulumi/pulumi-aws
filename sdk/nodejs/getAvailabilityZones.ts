@@ -20,8 +20,6 @@ import * as utilities from "./utilities";
  * 
  * ### By Filter
  * 
- * All Local Zones (regardless of opt-in status):
- * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,20 +35,6 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- * 
- * Only Availability Zones (no Local Zones):
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.getAvailabilityZones({
- *     filters: [{
- *         name: "opt-in-status",
- *         values: ["opt-in-not-required"],
- *     }],
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
  */
@@ -63,12 +47,8 @@ export function getAvailabilityZones(args?: GetAvailabilityZonesArgs, opts?: pul
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-<<<<<<< HEAD
     return pulumi.runtime.invoke("aws:index/getAvailabilityZones:getAvailabilityZones", {
-=======
-    const promise: Promise<GetAvailabilityZonesResult> = pulumi.runtime.invoke("aws:index/getAvailabilityZones:getAvailabilityZones", {
         "allAvailabilityZones": args.allAvailabilityZones,
->>>>>>> master
         "blacklistedNames": args.blacklistedNames,
         "blacklistedZoneIds": args.blacklistedZoneIds,
         "filters": args.filters,

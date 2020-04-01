@@ -206,6 +206,7 @@ class Cluster(pulumi.CustomResource):
 
         > Support for [Instance Fleets](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-fleets) will be made available in an upcoming release.
 
+
         ## core_instance_group Configuration Block
 
         Supported arguments for the `core_instance_group` configuration block:

@@ -96,6 +96,8 @@ def get_report_definition(report_name=None,opts=None):
 
     > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cur_report_definition.html.markdown.
 
 

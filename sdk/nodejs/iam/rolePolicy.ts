@@ -9,6 +9,7 @@ import {Role} from "./role";
 
 /**
  * Provides an IAM role policy.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role_policy.html.markdown.
  */

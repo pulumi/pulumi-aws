@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Ec2
     /// When a VPC is created, a primary IPv4 CIDR block for the VPC must be specified.
     /// The `aws.ec2.VpcIpv4CidrBlockAssociation` resource allows further IPv4 CIDR blocks to be added to the VPC.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_ipv4_cidr_block_association.html.markdown.
     /// </summary>
     public partial class VpcIpv4CidrBlockAssociation : Pulumi.CustomResource

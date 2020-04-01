@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_capacity_reservation.markdown.
     /// </summary>
     public partial class CapacityReservation : Pulumi.CustomResource

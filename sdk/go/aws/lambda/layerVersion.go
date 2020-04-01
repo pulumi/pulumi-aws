@@ -8,12 +8,13 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Lambda Layer Version resource. Lambda Layers allow you to reuse shared bits of code across multiple lambda functions.
 //
 // For information about Lambda Layers and how to use them, see [AWS Lambda Layers][1]
+//
 //
 // ## Specifying the Deployment Package
 //

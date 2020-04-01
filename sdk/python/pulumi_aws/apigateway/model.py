@@ -34,6 +34,8 @@ class Model(pulumi.CustomResource):
         """
         Provides a Model for a REST API Gateway.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_model.html.markdown.
 
         :param str resource_name: The name of the resource.

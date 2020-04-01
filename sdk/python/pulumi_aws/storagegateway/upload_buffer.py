@@ -24,6 +24,8 @@ class UploadBuffer(pulumi.CustomResource):
 
         > **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_upload_buffer.html.markdown.
 
         :param str resource_name: The name of the resource.

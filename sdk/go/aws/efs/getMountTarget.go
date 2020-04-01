@@ -5,10 +5,12 @@
 package efs
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides information about an Elastic File System Mount Target (EFS).
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_mount_target.html.markdown.
 func LookupMountTarget(ctx *pulumi.Context, args *LookupMountTargetArgs, opts ...pulumi.InvokeOption) (*LookupMountTargetResult, error) {

@@ -44,6 +44,7 @@ class LicenseConfiguration(pulumi.CustomResource):
 
         > **Note:** Removing the `license_count` attribute is not supported by the License Manager API - recreate the resource instead.
 
+
         ## Rules
 
         License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:

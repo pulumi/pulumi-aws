@@ -33,6 +33,8 @@ class Database(pulumi.CustomResource):
         """
         Provides an Athena database.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_database.html.markdown.
 
         :param str resource_name: The name of the resource.

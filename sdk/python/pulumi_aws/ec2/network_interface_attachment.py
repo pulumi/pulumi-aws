@@ -34,6 +34,8 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         """
         Attach an Elastic network interface (ENI) resource with EC2 instance.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_interface_attachment.html.markdown.
 
         :param str resource_name: The name of the resource.

@@ -5,11 +5,13 @@
 package aws
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get the ID of a registered AMI for use in other
 // resources.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami.html.markdown.
 func GetAmi(ctx *pulumi.Context, args *GetAmiArgs, opts ...pulumi.InvokeOption) (*GetAmiResult, error) {

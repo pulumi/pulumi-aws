@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Inspector
     /// <summary>
     /// Provides a Inspector assessment target
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/inspector_assessment_target.html.markdown.
     /// </summary>
     public partial class AssessmentTarget : Pulumi.CustomResource

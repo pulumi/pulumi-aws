@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Iam
         /// This data source can be used to fetch information about a specific
         /// IAM policy.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy.html.markdown.
         /// </summary>
         [Obsolete("Use GetPolicy.InvokeAsync() instead")]
@@ -26,6 +28,8 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// This data source can be used to fetch information about a specific
         /// IAM policy.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy.html.markdown.
         /// </summary>

@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a resource to manage EC2 Fleets.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_fleet.html.markdown.
     /// </summary>
     public partial class Fleet : Pulumi.CustomResource

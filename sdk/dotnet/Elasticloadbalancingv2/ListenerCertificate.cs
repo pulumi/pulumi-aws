@@ -16,6 +16,8 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// 
     /// &gt; **Note:** `aws.alb.ListenerCertificate` is known as `aws.lb.ListenerCertificate`. The functionality is identical.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_listener_certificate.html.markdown.
     /// </summary>
     public partial class ListenerCertificate : Pulumi.CustomResource

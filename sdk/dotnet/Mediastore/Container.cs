@@ -12,6 +12,8 @@ namespace Pulumi.Aws.MediaStore
     /// <summary>
     /// Provides a MediaStore Container.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/media_store_container.html.markdown.
     /// </summary>
     public partial class Container : Pulumi.CustomResource

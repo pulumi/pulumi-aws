@@ -14,6 +14,8 @@ namespace Pulumi.Aws.DynamoDB
         /// <summary>
         /// Provides information about a DynamoDB table.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dynamodb_table.html.markdown.
         /// </summary>
         [Obsolete("Use GetTable.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.DynamoDB
     {
         /// <summary>
         /// Provides information about a DynamoDB table.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dynamodb_table.html.markdown.
         /// </summary>

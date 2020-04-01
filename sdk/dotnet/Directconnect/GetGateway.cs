@@ -14,6 +14,8 @@ namespace Pulumi.Aws.DirectConnect
         /// <summary>
         /// Retrieve information about a Direct Connect Gateway.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dx_gateway.html.markdown.
         /// </summary>
         [Obsolete("Use GetGateway.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.DirectConnect
     {
         /// <summary>
         /// Retrieve information about a Direct Connect Gateway.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dx_gateway.html.markdown.
         /// </summary>

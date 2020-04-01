@@ -24,6 +24,8 @@ class GroupPolicyAttachment(pulumi.CustomResource):
 
         > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_policy_attachment.markdown.
 
         :param str resource_name: The name of the resource.

@@ -12,6 +12,8 @@ namespace Pulumi.Aws.AppSync
     /// <summary>
     /// Provides an AppSync DataSource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_datasource.html.markdown.
     /// </summary>
     public partial class DataSource : Pulumi.CustomResource

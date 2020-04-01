@@ -5,10 +5,12 @@
 package ebs
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_encryption_by_default.html.markdown.
 func LookupEncryptionByDefault(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupEncryptionByDefaultResult, error) {

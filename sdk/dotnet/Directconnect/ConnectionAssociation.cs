@@ -12,6 +12,8 @@ namespace Pulumi.Aws.DirectConnect
     /// <summary>
     /// Associates a Direct Connect Connection with a LAG.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_connection_association.html.markdown.
     /// </summary>
     public partial class ConnectionAssociation : Pulumi.CustomResource

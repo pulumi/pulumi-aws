@@ -12,6 +12,8 @@ namespace Pulumi.Aws.OpsWorks
     /// <summary>
     /// Provides an OpsWorks memcached layer resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_memcached_layer.html.markdown.
     /// </summary>
     public partial class MemcachedLayer : Pulumi.CustomResource

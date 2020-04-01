@@ -71,6 +71,8 @@ def get_log_group(name=None,tags=None,opts=None):
     """
     Use this data source to get information about an AWS Cloudwatch Log Group
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudwatch_log_group.html.markdown.
 
 

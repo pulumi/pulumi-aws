@@ -60,6 +60,8 @@ def get_prefix_list(filters=None,name=None,prefix_list_id=None,opts=None):
     AWS service. The latter may be useful e.g. for adding network ACL
     rules.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/prefix_list.html.markdown.
 
 

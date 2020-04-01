@@ -30,6 +30,8 @@ class AggregateAuthorization(pulumi.CustomResource):
         """
         Manages an AWS Config Aggregate Authorization
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_aggregate_authorization.markdown.
 
         :param str resource_name: The name of the resource.

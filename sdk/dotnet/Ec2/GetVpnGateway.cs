@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Ec2
         /// The VPN Gateway data source provides details about
         /// a specific VPN gateway.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpn_gateway.html.markdown.
         /// </summary>
         [Obsolete("Use GetVpnGateway.InvokeAsync() instead")]
@@ -26,6 +28,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The VPN Gateway data source provides details about
         /// a specific VPN gateway.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpn_gateway.html.markdown.
         /// </summary>

@@ -55,6 +55,8 @@ def get_resolver_rules(owner_id=None,resolver_endpoint_id=None,rule_type=None,sh
     """
     `route53.getResolverRules` provides details about a set of Route53 Resolver rules.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rules.html.markdown.
 
 

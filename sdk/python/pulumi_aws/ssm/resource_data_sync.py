@@ -28,6 +28,7 @@ class ResourceDataSync(pulumi.CustomResource):
         """
         Provides a SSM resource data sync.
 
+
         ## s3_destination
 
         `s3_destination` supports the following:

@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Fms
     /// <summary>
     /// Provides a resource to associate/disassociate an AWS Firewall Manager administrator account. This operation must be performed in the `us-east-1` region.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/fms_admin_account.html.markdown.
     /// </summary>
     public partial class AdminAccount : Pulumi.CustomResource

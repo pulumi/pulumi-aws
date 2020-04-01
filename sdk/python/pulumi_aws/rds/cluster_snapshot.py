@@ -72,6 +72,8 @@ class ClusterSnapshot(pulumi.CustomResource):
         """
         Manages a RDS database cluster snapshot for Aurora clusters. For managing RDS database instance snapshots, see the [`rds.Snapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_snapshot.html).
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_cluster_snapshot.html.markdown.
 
         :param str resource_name: The name of the resource.

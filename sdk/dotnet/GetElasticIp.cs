@@ -14,6 +14,8 @@ namespace Pulumi.Aws
         /// <summary>
         /// `aws.ec2.Eip` provides details about a specific Elastic IP.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eip.html.markdown.
         /// </summary>
         [Obsolete("Use GetElasticIp.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws
     {
         /// <summary>
         /// `aws.ec2.Eip` provides details about a specific Elastic IP.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eip.html.markdown.
         /// </summary>

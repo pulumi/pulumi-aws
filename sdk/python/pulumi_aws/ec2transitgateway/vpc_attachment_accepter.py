@@ -60,6 +60,8 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
         and the accepter can use the `ec2transitgateway.VpcAttachmentAccepter` resource to "adopt" its side of the
         connection into management.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_vpc_attachment_accepter.html.markdown.
 
         :param str resource_name: The name of the resource.

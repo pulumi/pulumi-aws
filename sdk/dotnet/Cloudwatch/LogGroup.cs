@@ -12,6 +12,8 @@ namespace Pulumi.Aws.CloudWatch
     /// <summary>
     /// Provides a CloudWatch Log Group resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_group.html.markdown.
     /// </summary>
     public partial class LogGroup : Pulumi.CustomResource

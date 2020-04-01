@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Qldb
     /// 
     /// &gt; **NOTE:** Deletion protection is enabled by default. To successfully delete this resource via this provider, `deletion_protection = false` must be applied before attempting deletion.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/qldb_ledger.html.markdown.
     /// </summary>
     public partial class Ledger : Pulumi.CustomResource

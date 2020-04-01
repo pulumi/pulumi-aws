@@ -15,6 +15,8 @@ namespace Pulumi.Aws
         /// Use this data source to get the ID of a registered AMI for use in other
         /// resources.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami.html.markdown.
         /// </summary>
         [Obsolete("Use GetAmi.InvokeAsync() instead")]
@@ -26,6 +28,8 @@ namespace Pulumi.Aws
         /// <summary>
         /// Use this data source to get the ID of a registered AMI for use in other
         /// resources.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami.html.markdown.
         /// </summary>

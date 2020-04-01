@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// Get information about the organization that the user's account belongs to
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organization.html.markdown.
         /// </summary>
         [Obsolete("Use GetOrganization.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.Organizations
     {
         /// <summary>
         /// Get information about the organization that the user's account belongs to
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organization.html.markdown.
         /// </summary>

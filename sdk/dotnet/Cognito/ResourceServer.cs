@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Cognito
     /// <summary>
     /// Provides a Cognito Resource Server.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_resource_server.markdown.
     /// </summary>
     public partial class ResourceServer : Pulumi.CustomResource

@@ -5,7 +5,7 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // `ec2.Subnet` provides details about a specific VPC subnet.
@@ -13,6 +13,8 @@ import (
 // This resource can prove useful when a module accepts a subnet id as
 // an input variable and needs to, for example, determine the id of the
 // VPC that the subnet belongs to.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet.html.markdown.
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {

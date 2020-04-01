@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a resource to manage the default customer master key (CMK) that your AWS account uses to encrypt EBS volumes.
@@ -19,6 +19,8 @@ import (
 // > **NOTE:** Creating an `ebs.DefaultKmsKey` resource does not enable default EBS encryption. Use the `ebs.EncryptionByDefault` to enable default EBS encryption.
 //
 // > **NOTE:** Destroying this resource will reset the default CMK to the account's AWS-managed default CMK for EBS.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_default_kms_key.html.markdown.
 type DefaultKmsKey struct {

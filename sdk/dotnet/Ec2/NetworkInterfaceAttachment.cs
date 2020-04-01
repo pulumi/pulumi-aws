@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Attach an Elastic network interface (ENI) resource with EC2 instance.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_interface_attachment.html.markdown.
     /// </summary>
     public partial class NetworkInterfaceAttachment : Pulumi.CustomResource

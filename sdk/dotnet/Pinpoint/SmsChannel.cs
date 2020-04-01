@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Pinpoint
     /// <summary>
     /// Provides a Pinpoint SMS Channel resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_sms_channel.markdown.
     /// </summary>
     public partial class SmsChannel : Pulumi.CustomResource

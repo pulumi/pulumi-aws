@@ -66,6 +66,8 @@ def get_group(group_name=None,opts=None):
     IAM group. By using this data source, you can reference IAM group
     properties without having to hard code ARNs as input.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_group.html.markdown.
 
 

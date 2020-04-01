@@ -14,6 +14,8 @@ namespace Pulumi.Aws.WafRegional
         /// <summary>
         /// `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_web_acl.html.markdown.
         /// </summary>
         [Obsolete("Use GetWebAcl.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.WafRegional
     {
         /// <summary>
         /// `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_web_acl.html.markdown.
         /// </summary>

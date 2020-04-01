@@ -2476,7 +2476,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=2.0.0-beta.2,<3.0.0",
+				"pulumi": ">=2.0.0b2,<3.0.0",
 			},
 		},
 		CSharp: &tfbridge.CSharpInfo{

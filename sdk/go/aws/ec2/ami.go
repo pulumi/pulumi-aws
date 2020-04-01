@@ -7,7 +7,7 @@ package ec2
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // The AMI resource allows the creation and management of a completely-custom
@@ -18,6 +18,8 @@ import (
 //
 // If you just want to share an existing AMI with another AWS account,
 // it's better to use `ec2.AmiLaunchPermission` instead.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami.html.markdown.
 type Ami struct {

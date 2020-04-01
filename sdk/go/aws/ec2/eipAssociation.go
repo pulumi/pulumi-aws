@@ -7,7 +7,7 @@ package ec2
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an AWS EIP Association as a top level resource, to associate and
@@ -17,6 +17,8 @@ import (
 //
 // > **NOTE:** `ec2.EipAssociation` is useful in scenarios where EIPs are either
 // pre-existing or distributed to customers or users and therefore cannot be changed.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eip_association.html.markdown.
 type EipAssociation struct {

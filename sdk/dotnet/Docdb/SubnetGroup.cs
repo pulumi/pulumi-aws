@@ -12,6 +12,8 @@ namespace Pulumi.Aws.DocDB
     /// <summary>
     /// Provides an DocumentDB subnet group resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_subnet_group.html.markdown.
     /// </summary>
     public partial class SubnetGroup : Pulumi.CustomResource

@@ -12,6 +12,7 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a resource for managing the main routing table of a VPC.
     /// 
+    /// 
     /// ## Notes
     /// 
     /// On VPC creation, the AWS API always creates an initial Main Route Table. This

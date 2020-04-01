@@ -120,6 +120,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         """
         Provides a resource to create a new launch configuration, used for autoscaling groups.
 
+
         ## Block devices
 
         Each of the `*_block_device` attributes controls a portion of the AWS

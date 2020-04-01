@@ -5,12 +5,14 @@
 package route53
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // `route53.DelegationSet` provides details about a specific Route 53 Delegation Set.
 //
 // This data source allows to find a list of name servers associated with a specific delegation set.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_delegation_set.html.markdown.
 func LookupDelegationSet(ctx *pulumi.Context, args *LookupDelegationSetArgs, opts ...pulumi.InvokeOption) (*LookupDelegationSetResult, error) {

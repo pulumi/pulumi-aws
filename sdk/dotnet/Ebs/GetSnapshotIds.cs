@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Ebs
         /// Use this data source to get a list of EBS Snapshot IDs matching the specified
         /// criteria.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot_ids.html.markdown.
         /// </summary>
         [Obsolete("Use GetSnapshotIds.InvokeAsync() instead")]
@@ -26,6 +28,8 @@ namespace Pulumi.Aws.Ebs
         /// <summary>
         /// Use this data source to get a list of EBS Snapshot IDs matching the specified
         /// criteria.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot_ids.html.markdown.
         /// </summary>

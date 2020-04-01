@@ -15,8 +15,7 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
- * The following example shows how one might accept a Security Group id as a variable
- * and use this data source to obtain the data necessary to create a subnet.
+ * 
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -42,6 +42,8 @@ class Hsm(pulumi.CustomResource):
         """
         Creates an HSM module in Amazon CloudHSM v2 cluster.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudhsm_v2_hsm.html.markdown.
 
         :param str resource_name: The name of the resource.

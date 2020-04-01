@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // The "AMI from instance" resource allows the creation of an Amazon Machine
@@ -28,6 +28,8 @@ import (
 // resource. Ongoing updates to the referenced instance will not be propagated into
 // the generated AMI. Users may taint or otherwise recreate the resource in order
 // to produce a fresh snapshot.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_from_instance.html.markdown.
 type AmiFromInstance struct {

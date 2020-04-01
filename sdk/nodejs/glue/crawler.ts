@@ -57,7 +57,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * 
  * ### Catalog Target
  * 
  * ```typescript

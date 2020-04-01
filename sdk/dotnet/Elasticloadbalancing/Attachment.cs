@@ -19,6 +19,8 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// instances in conjunction with an ELB Attachment resource. Doing so will cause a
     /// conflict and will overwrite attachments.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elb_attachment.html.markdown.
     /// </summary>
     public partial class Attachment : Pulumi.CustomResource

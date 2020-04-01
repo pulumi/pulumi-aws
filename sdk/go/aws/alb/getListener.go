@@ -5,7 +5,7 @@
 package alb
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
@@ -15,6 +15,8 @@ import (
 // This data source can prove useful when a module accepts an LB Listener as an
 // input variable and needs to know the LB it is attached to, or other
 // information specific to the listener in question.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_listener.html.markdown.
 func LookupListener(ctx *pulumi.Context, args *LookupListenerArgs, opts ...pulumi.InvokeOption) (*LookupListenerResult, error) {

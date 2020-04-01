@@ -40,6 +40,8 @@ class EfsLocation(pulumi.CustomResource):
 
         > **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_efs.html.markdown.
 
         :param str resource_name: The name of the resource.

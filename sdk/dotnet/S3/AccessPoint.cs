@@ -12,6 +12,8 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Provides a resource to manage an S3 Access Point.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_access_point.html.markdown.
     /// </summary>
     public partial class AccessPoint : Pulumi.CustomResource

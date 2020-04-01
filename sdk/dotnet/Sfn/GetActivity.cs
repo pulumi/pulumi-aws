@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Sfn
         /// <summary>
         /// Provides a Step Functions Activity data source
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_activity.html.markdown.
         /// </summary>
         [Obsolete("Use GetActivity.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.Sfn
     {
         /// <summary>
         /// Provides a Step Functions Activity data source
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_activity.html.markdown.
         /// </summary>

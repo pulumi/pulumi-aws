@@ -119,6 +119,8 @@ class RailsAppLayer(pulumi.CustomResource):
         """
         Provides an OpsWorks Ruby on Rails application layer resource.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_rails_app_layer.html.markdown.
 
         :param str resource_name: The name of the resource.

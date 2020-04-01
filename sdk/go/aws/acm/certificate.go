@@ -7,7 +7,7 @@ package acm
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // The ACM certificate resource allows requesting and management of certificates
@@ -27,6 +27,7 @@ import (
 //
 // It's recommended to specify `createBeforeDestroy = true` in a [lifecycle][1] block to replace a certificate
 // which is currently in use (eg, by `lb.Listener`).
+//
 //
 // ## options Configuration Block
 //

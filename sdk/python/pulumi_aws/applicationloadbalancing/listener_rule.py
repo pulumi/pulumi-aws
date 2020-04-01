@@ -99,6 +99,8 @@ class ListenerRule(pulumi.CustomResource):
 
         > **Note:** `alb.ListenerRule` is known as `lb.ListenerRule`. The functionality is identical.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_listener_rule.html.markdown.
 
         :param str resource_name: The name of the resource.

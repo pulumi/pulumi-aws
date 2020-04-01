@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Ecr
     /// <summary>
     /// Provides an Elastic Container Registry Repository.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_repository.html.markdown.
     /// </summary>
     public partial class Repository : Pulumi.CustomResource

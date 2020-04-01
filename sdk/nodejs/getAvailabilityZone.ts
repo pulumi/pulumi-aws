@@ -18,6 +18,7 @@ import * as utilities from "./utilities";
  * 
  * This is different from the `aws..getAvailabilityZones` (plural) data source,
  * which provides a list of the available zones.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zone.html.markdown.
  */
@@ -30,13 +31,9 @@ export function getAvailabilityZone(args?: GetAvailabilityZoneArgs, opts?: pulum
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-<<<<<<< HEAD
     return pulumi.runtime.invoke("aws:index/getAvailabilityZone:getAvailabilityZone", {
-=======
-    const promise: Promise<GetAvailabilityZoneResult> = pulumi.runtime.invoke("aws:index/getAvailabilityZone:getAvailabilityZone", {
         "allAvailabilityZones": args.allAvailabilityZones,
         "filters": args.filters,
->>>>>>> master
         "name": args.name,
         "state": args.state,
         "zoneId": args.zoneId,

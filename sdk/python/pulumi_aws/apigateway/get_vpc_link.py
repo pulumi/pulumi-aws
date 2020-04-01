@@ -74,6 +74,8 @@ def get_vpc_link(name=None,tags=None,opts=None):
     As there is no unique name constraint on API Gateway VPC Links this data source will 
     error if there is more than one match.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_vpc_link.html.markdown.
 
 

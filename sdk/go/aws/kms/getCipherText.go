@@ -5,13 +5,15 @@
 package kms
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
 // by using an AWS KMS customer master key. The value returned by this data source
 // changes every apply. For a stable ciphertext value, see the [`kms.Ciphertext`
 // resource](https://www.terraform.io/docs/providers/aws/r/kms_ciphertext.html).
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_ciphertext.html.markdown.
 func GetCipherText(ctx *pulumi.Context, args *GetCipherTextArgs, opts ...pulumi.InvokeOption) (*GetCipherTextResult, error) {

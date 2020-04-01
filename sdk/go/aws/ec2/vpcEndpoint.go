@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a VPC Endpoint resource.
@@ -19,6 +19,8 @@ import (
 // a VPC Endpoint resource with `routeTableIds` and `subnetIds` attributes.
 // Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
 // Doing so will cause a conflict of associations and will overwrite the association.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint.html.markdown.
 type VpcEndpoint struct {

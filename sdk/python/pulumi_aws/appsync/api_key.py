@@ -30,6 +30,8 @@ class ApiKey(pulumi.CustomResource):
         """
         Provides an AppSync API Key.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_api_key.html.markdown.
 
         :param str resource_name: The name of the resource.

@@ -113,6 +113,8 @@ def get_elastic_ip(filters=None,id=None,public_ip=None,tags=None,opts=None):
     """
     `ec2.Eip` provides details about a specific Elastic IP.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eip.html.markdown.
 
 

@@ -13,6 +13,8 @@ namespace Pulumi.Aws.Ec2
     /// Provides a VPC Endpoint connection notification resource.
     /// Connection notifications notify subscribers of VPC Endpoint events.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_connection_notification.html.markdown.
     /// </summary>
     public partial class VpcEndpointConnectionNotification : Pulumi.CustomResource

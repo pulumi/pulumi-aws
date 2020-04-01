@@ -18,6 +18,8 @@ namespace Pulumi.Aws.Ec2
         /// associated with a CIDR. For example, finding the peering
         /// connection associated with a CIDR value.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route.html.markdown.
         /// </summary>
         [Obsolete("Use GetRoute.InvokeAsync() instead")]
@@ -32,6 +34,8 @@ namespace Pulumi.Aws.Ec2
         /// This resource can prove useful when finding the resource
         /// associated with a CIDR. For example, finding the peering
         /// connection associated with a CIDR value.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route.html.markdown.
         /// </summary>

@@ -36,6 +36,8 @@ class Directory(pulumi.CustomResource):
         """
         Provides a directory registration in AWS WorkSpaces Service
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/workspaces_directory.html.markdown.
 
         :param str resource_name: The name of the resource.

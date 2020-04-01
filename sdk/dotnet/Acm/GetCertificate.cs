@@ -16,6 +16,8 @@ namespace Pulumi.Aws.Acm
         /// Manager (ACM), you can reference
         /// it by domain without having to hard code the ARNs as input.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acm_certificate.html.markdown.
         /// </summary>
         [Obsolete("Use GetCertificate.InvokeAsync() instead")]
@@ -28,6 +30,8 @@ namespace Pulumi.Aws.Acm
         /// Use this data source to get the ARN of a certificate in AWS Certificate
         /// Manager (ACM), you can reference
         /// it by domain without having to hard code the ARNs as input.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acm_certificate.html.markdown.
         /// </summary>

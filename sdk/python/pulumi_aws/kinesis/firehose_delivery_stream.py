@@ -235,6 +235,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
         For more details, see the [Amazon Kinesis Firehose Documentation][1].
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_firehose_delivery_stream.html.markdown.
 
         :param str resource_name: The name of the resource.

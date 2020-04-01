@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Backup
     /// <summary>
     /// Provides an AWS Backup vault resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_vault.html.markdown.
     /// </summary>
     public partial class Vault : Pulumi.CustomResource

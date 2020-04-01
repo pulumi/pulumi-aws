@@ -49,6 +49,8 @@ class FargateProfile(pulumi.CustomResource):
         """
         Manages an EKS Fargate Profile.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_fargate_profile.html.markdown.
 
         :param str resource_name: The name of the resource.

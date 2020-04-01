@@ -16,6 +16,8 @@ namespace Pulumi.Aws.Kms
         /// By using this data source, you can reference key alias
         /// without having to hard code the ARN as input.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_alias.html.markdown.
         /// </summary>
         [Obsolete("Use GetAlias.InvokeAsync() instead")]
@@ -28,6 +30,8 @@ namespace Pulumi.Aws.Kms
         /// Use this data source to get the ARN of a KMS key alias.
         /// By using this data source, you can reference key alias
         /// without having to hard code the ARN as input.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_alias.html.markdown.
         /// </summary>

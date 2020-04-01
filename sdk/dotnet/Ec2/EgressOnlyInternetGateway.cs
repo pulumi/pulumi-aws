@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Ec2
     /// over IPv6 from instances in your VPC to the Internet, and prevents hosts
     /// outside of your VPC from initiating an IPv6 connection with your instance.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/egress_only_internet_gateway.html.markdown.
     /// </summary>
     public partial class EgressOnlyInternetGateway : Pulumi.CustomResource

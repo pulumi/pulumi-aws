@@ -39,6 +39,8 @@ def get_delegation_set(id=None,opts=None):
 
     This data source allows to find a list of name servers associated with a specific delegation set.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_delegation_set.html.markdown.
 
 

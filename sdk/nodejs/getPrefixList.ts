@@ -17,6 +17,8 @@ import * as utilities from "./utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -68,12 +70,8 @@ export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOpti
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-<<<<<<< HEAD
     return pulumi.runtime.invoke("aws:index/getPrefixList:getPrefixList", {
-=======
-    const promise: Promise<GetPrefixListResult> = pulumi.runtime.invoke("aws:index/getPrefixList:getPrefixList", {
         "filters": args.filters,
->>>>>>> master
         "name": args.name,
         "prefixListId": args.prefixListId,
     }, opts);

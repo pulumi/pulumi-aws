@@ -46,6 +46,8 @@ class SizeConstraintSet(pulumi.CustomResource):
         """
         Provides a WAF Size Constraint Set Resource
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_size_constraint_set.html.markdown.
 
         :param str resource_name: The name of the resource.

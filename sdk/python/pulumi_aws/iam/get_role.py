@@ -101,6 +101,8 @@ def get_role(name=None,tags=None,opts=None):
     IAM role. By using this data source, you can reference IAM role
     properties without having to hard code ARNs as input.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_role.html.markdown.
 
 

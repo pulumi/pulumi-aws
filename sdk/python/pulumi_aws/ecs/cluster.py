@@ -45,6 +45,7 @@ class Cluster(pulumi.CustomResource):
         """
         Provides an ECS cluster.
 
+
         ## setting
 
         The `setting` configuration block supports the following:

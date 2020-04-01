@@ -50,6 +50,8 @@ class User(pulumi.CustomResource):
         """
         Resource for managing QuickSight User
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/quicksight_user.html.markdown.
 
         :param str resource_name: The name of the resource.

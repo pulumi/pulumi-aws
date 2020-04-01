@@ -30,6 +30,8 @@ class LogDestination(pulumi.CustomResource):
         """
         Provides a CloudWatch Logs destination resource.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_destination.html.markdown.
 
         :param str resource_name: The name of the resource.

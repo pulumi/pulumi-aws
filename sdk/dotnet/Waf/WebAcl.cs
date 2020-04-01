@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Waf
     /// <summary>
     /// Provides a WAF Web ACL Resource
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_web_acl.html.markdown.
     /// </summary>
     public partial class WebAcl : Pulumi.CustomResource

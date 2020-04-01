@@ -11,12 +11,22 @@ namespace Pulumi.Aws.Ec2
 {
     public static partial class Invokes
     {
+        /// <summary>
+        /// 
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_acls.html.markdown.
+        /// </summary>
         [Obsolete("Use GetNetworkAcls.InvokeAsync() instead")]
         public static Task<GetNetworkAclsResult> GetNetworkAcls(GetNetworkAclsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkAclsResult>("aws:ec2/getNetworkAcls:getNetworkAcls", args ?? InvokeArgs.Empty, options.WithVersion());
     }
     public static class GetNetworkAcls
     {
+        /// <summary>
+        /// 
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_acls.html.markdown.
+        /// </summary>
         public static Task<GetNetworkAclsResult> InvokeAsync(GetNetworkAclsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkAclsResult>("aws:ec2/getNetworkAcls:getNetworkAcls", args ?? InvokeArgs.Empty, options.WithVersion());
     }

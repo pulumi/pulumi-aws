@@ -5,7 +5,7 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
@@ -15,6 +15,8 @@ import (
 // > **Note:** It's strongly discouraged to use this data source for querying ephemeral
 // instances (e.g. managed via autoscaling group), as the output may change at any time
 // and you'd need to re-run `apply` every time an instance comes up or dies.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instances.html.markdown.
 func GetInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.InvokeOption) (*GetInstancesResult, error) {

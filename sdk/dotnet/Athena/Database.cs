@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Athena
     /// <summary>
     /// Provides an Athena database.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_database.html.markdown.
     /// </summary>
     public partial class Database : Pulumi.CustomResource

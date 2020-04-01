@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an AutoScaling Lifecycle Hook resource.
@@ -24,6 +24,8 @@ import (
 // `initialLifecycleHook` in
 // [`autoscaling.Group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
 // but take care to not duplicate those hooks with this resource.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_lifecycle_hook.html.markdown.
 type LifecycleHook struct {

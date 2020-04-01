@@ -12,6 +12,8 @@ namespace Pulumi.Aws.ApiGateway
     /// <summary>
     /// Provides an HTTP Method Integration for an API Gateway Integration.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_integration.html.markdown.
     /// </summary>
     public partial class Integration : Pulumi.CustomResource

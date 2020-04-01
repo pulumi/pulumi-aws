@@ -36,7 +36,10 @@ class PublicKey(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, comment=None, encoded_key=None, name=None, name_prefix=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a PublicKey resource with the given unique name, props, and options.
+
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudfront_public_key.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: An optional comment about the public key.

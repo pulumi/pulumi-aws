@@ -30,6 +30,8 @@ class SubnetGroup(pulumi.CustomResource):
         """
         Provides a DAX Subnet Group resource.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_subnet_group.html.markdown.
 
         :param str resource_name: The name of the resource.

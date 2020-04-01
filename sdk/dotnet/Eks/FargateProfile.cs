@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Eks
     /// <summary>
     /// Manages an EKS Fargate Profile.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_fargate_profile.html.markdown.
     /// </summary>
     public partial class FargateProfile : Pulumi.CustomResource

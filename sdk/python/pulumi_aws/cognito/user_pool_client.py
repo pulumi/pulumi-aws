@@ -87,6 +87,8 @@ class UserPoolClient(pulumi.CustomResource):
         """
         Provides a Cognito User Pool Client resource.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_client.markdown.
 
         :param str resource_name: The name of the resource.

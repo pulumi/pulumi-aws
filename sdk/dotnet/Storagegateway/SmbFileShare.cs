@@ -12,6 +12,8 @@ namespace Pulumi.Aws.StorageGateway
     /// <summary>
     /// Manages an AWS Storage Gateway SMB File Share.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_smb_file_share.html.markdown.
     /// </summary>
     public partial class SmbFileShare : Pulumi.CustomResource

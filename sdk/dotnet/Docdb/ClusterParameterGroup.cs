@@ -12,6 +12,8 @@ namespace Pulumi.Aws.DocDB
     /// <summary>
     /// Manages a DocumentDB Cluster Parameter Group
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster_parameter_group.html.markdown.
     /// </summary>
     public partial class ClusterParameterGroup : Pulumi.CustomResource

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an SSM Document resource
@@ -16,6 +16,7 @@ import (
 // > **NOTE on updating SSM documents:** Only documents with a schema version of 2.0
 // or greater can update their content once created, see [SSM Schema Features][1]. To update a document with an older
 // schema version you must recreate the resource.
+//
 //
 // ## attachmentsSource
 //

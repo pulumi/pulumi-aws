@@ -15,7 +15,7 @@ import {NotificationType} from "./notificationType";
  * 
  * ## Example Usage
  * 
- * Basic usage:
+ * 
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

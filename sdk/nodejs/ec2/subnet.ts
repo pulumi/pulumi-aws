@@ -30,9 +30,6 @@ import * as utilities from "../utilities";
  * 
  * ### Subnets In Secondary VPC CIDR Blocks
  * 
- * When managing subnets in one of a VPC's secondary CIDR blocks created using a `aws.ec2.VpcIpv4CidrBlockAssociation`
- * resource, it is recommended to reference that resource's `vpcId` attribute to ensure correct dependency ordering.
- * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";

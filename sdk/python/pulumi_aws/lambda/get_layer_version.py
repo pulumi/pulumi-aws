@@ -103,6 +103,8 @@ def get_layer_version(compatible_runtime=None,layer_name=None,version=None,opts=
     """
     Provides information about a Lambda Layer Version.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_layer_version.html.markdown.
 
 

@@ -227,6 +227,8 @@ class LaunchTemplate(pulumi.CustomResource):
         """
         Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_template.html.markdown.
 
         :param str resource_name: The name of the resource.

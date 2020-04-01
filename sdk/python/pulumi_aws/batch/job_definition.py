@@ -52,6 +52,7 @@ class JobDefinition(pulumi.CustomResource):
         """
         Provides a Batch Job Definition resource.
 
+
         ## retry_strategy
 
         `retry_strategy` supports the following:

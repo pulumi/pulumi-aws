@@ -9,45 +9,13 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  * 
- * The following shows outputing all network interface ids in a region.
+ * 
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
  * const exampleNetworkInterfaces = aws.ec2.getNetworkInterfaces();
- * 
- * export const example = exampleNetworkInterfaces.ids;
- * ```
- * 
- * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.ec2.getNetworkInterfaces({
- *     tags: {
- *         Name: "test",
- *     },
- * });
- * 
- * export const example1 = example.ids;
- * ```
- * 
- * The following example retrieves a network interface ids which associated
- * with specific subnet.
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleNetworkInterfaces = aws_subnet_test.id.apply(id => aws.ec2.getNetworkInterfaces({
- *     filters: [{
- *         name: "subnet-id",
- *         values: [id],
- *     }],
- * }));
  * 
  * export const example = exampleNetworkInterfaces.ids;
  * ```

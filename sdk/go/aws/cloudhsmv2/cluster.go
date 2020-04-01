@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Creates an Amazon CloudHSM v2 cluster.
@@ -21,6 +21,8 @@ import (
 // Practically no single attribute can be updated except TAGS.
 // If you need to delete a cluster, you have to remove its HSM modules first.
 // To initialize cluster, you have to add an hsm instance to the cluster then sign CSR and upload it.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudhsm_v2_cluster.html.markdown.
 type Cluster struct {

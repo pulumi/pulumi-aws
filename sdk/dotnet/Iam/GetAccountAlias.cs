@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Iam
         /// The IAM Account Alias data source allows access to the account alias
         /// for the effective account in which this provider is working.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_account_alias.html.markdown.
         /// </summary>
         [Obsolete("Use GetAccountAlias.InvokeAsync() instead")]
@@ -26,6 +28,8 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// The IAM Account Alias data source allows access to the account alias
         /// for the effective account in which this provider is working.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_account_alias.html.markdown.
         /// </summary>

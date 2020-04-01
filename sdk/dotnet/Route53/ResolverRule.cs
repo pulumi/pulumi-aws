@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Route53
     /// <summary>
     /// Provides a Route53 Resolver rule.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_rule.html.markdown.
     /// </summary>
     public partial class ResolverRule : Pulumi.CustomResource

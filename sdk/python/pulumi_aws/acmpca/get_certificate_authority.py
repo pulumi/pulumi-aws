@@ -111,6 +111,8 @@ def get_certificate_authority(arn=None,revocation_configurations=None,tags=None,
     """
     Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acmpca_certificate_authority.html.markdown.
 
 

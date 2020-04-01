@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Msk
     /// <summary>
     /// Manages AWS Managed Streaming for Kafka cluster
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/msk_cluster.html.markdown.
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource

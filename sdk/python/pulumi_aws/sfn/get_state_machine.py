@@ -73,6 +73,8 @@ def get_state_machine(name=None,opts=None):
     Function (SFN). By using this data source, you can reference a
     state machine without having to hard code the ARNs as input.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_state_machine.html.markdown.
 
 

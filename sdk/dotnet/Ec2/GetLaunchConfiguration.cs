@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Provides information about a Launch Configuration.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_configuration.html.markdown.
         /// </summary>
         [Obsolete("Use GetLaunchConfiguration.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Provides information about a Launch Configuration.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_configuration.html.markdown.
         /// </summary>

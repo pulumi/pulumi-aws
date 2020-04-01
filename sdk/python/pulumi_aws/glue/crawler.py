@@ -87,6 +87,8 @@ class Crawler(pulumi.CustomResource):
         """
         Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_crawler.html.markdown.
 
         :param str resource_name: The name of the resource.

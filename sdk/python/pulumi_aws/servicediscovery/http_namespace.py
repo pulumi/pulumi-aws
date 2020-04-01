@@ -24,7 +24,10 @@ class HttpNamespace(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, description=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a HttpNamespace resource with the given unique name, props, and options.
+
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/service_discovery_http_namespace.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.

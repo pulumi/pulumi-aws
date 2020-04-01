@@ -82,6 +82,7 @@ class Certificate(pulumi.CustomResource):
         It's recommended to specify `create_before_destroy = true` in a [lifecycle][1] block to replace a certificate
         which is currently in use (eg, by `lb.Listener`).
 
+
         ## options Configuration Block
 
         Supported nested arguments for the `options` configuration block:

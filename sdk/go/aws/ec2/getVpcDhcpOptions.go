@@ -5,10 +5,12 @@
 package ec2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Retrieve information about an EC2 DHCP Options configuration.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_dhcp_options.html.markdown.
 func LookupVpcDhcpOptions(ctx *pulumi.Context, args *LookupVpcDhcpOptionsArgs, opts ...pulumi.InvokeOption) (*LookupVpcDhcpOptionsResult, error) {

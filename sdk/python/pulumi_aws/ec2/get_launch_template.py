@@ -230,6 +230,8 @@ def get_launch_template(filters=None,name=None,tags=None,opts=None):
     """
     Provides information about a Launch Template.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_template.html.markdown.
 
 

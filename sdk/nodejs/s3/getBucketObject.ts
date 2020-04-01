@@ -14,8 +14,7 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
- * The following example retrieves a text object (which must have a `Content-Type`
- * value starting with `text/`) and uses it as the `userData` for an EC2 instance:
+ * 
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -29,29 +28,6 @@ import * as utilities from "../utilities";
  *     ami: "ami-2757f631",
  *     instanceType: "t2.micro",
  *     userData: bootstrapScript.body,
- * });
- * ```
- * 
- * The following, more-complex example retrieves only the metadata for a zip
- * file stored in S3, which is then used to pass the most recent `versionId`
- * to AWS Lambda for use as a function implementation. More information about
- * Lambda functions is available in the documentation for
- * [`aws.lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html).
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const lambda = aws.s3.getBucketObject({
- *     bucket: "ourcorp-lambda-functions",
- *     key: "hello-world.zip",
- * });
- * const testLambda = new aws.lambda.Function("testLambda", {
- *     handler: "exports.test",
- *     role: aws_iam_role_iam_for_lambda.arn, // (not shown)
- *     s3Bucket: lambda.bucket,
- *     s3Key: lambda.key,
- *     s3ObjectVersion: lambda.versionId!,
  * });
  * ```
  *

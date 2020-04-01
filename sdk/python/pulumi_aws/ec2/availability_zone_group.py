@@ -24,6 +24,8 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
 
         > **NOTE:** This is an advanced resource. The provider will automatically assume management of the EC2 Availability Zone Group without import and perform no actions on removal from configuration.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_availability_zone_group.html.markdown.
 
         :param str resource_name: The name of the resource.

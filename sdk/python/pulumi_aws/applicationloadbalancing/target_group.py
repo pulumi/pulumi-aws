@@ -100,6 +100,8 @@ class TargetGroup(pulumi.CustomResource):
 
         > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group.html.markdown.
 
         :param str resource_name: The name of the resource.

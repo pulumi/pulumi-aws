@@ -107,6 +107,7 @@ class Document(pulumi.CustomResource):
         or greater can update their content once created, see [SSM Schema Features][1]. To update a document with an older
         schema version you must recreate the resource.
 
+
         ## attachments_source
 
         The `attachments_source` block supports the following:

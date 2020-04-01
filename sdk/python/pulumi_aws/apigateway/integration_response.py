@@ -53,6 +53,8 @@ class IntegrationResponse(pulumi.CustomResource):
         > **Note:** Depends on having `apigateway.Integration` inside your rest api. To ensure this
         you might need to add an explicit `depends_on` for clean runs.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_integration_response.html.markdown.
 
         :param str resource_name: The name of the resource.

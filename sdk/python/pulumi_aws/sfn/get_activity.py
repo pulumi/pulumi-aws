@@ -47,6 +47,8 @@ def get_activity(arn=None,name=None,opts=None):
     """
     Provides a Step Functions Activity data source
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_activity.html.markdown.
 
 

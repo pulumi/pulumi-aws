@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Waf
         /// <summary>
         /// `aws.waf.Rule` Retrieves a WAF Rule Resource Id.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rule.html.markdown.
         /// </summary>
         [Obsolete("Use GetRule.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.Waf
     {
         /// <summary>
         /// `aws.waf.Rule` Retrieves a WAF Rule Resource Id.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rule.html.markdown.
         /// </summary>

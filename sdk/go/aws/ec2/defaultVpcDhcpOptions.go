@@ -7,7 +7,7 @@ package ec2
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a resource to manage the [default AWS DHCP Options Set](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html#AmazonDNS)
@@ -20,6 +20,8 @@ import (
 // The `ec2.DefaultVpcDhcpOptions` behaves differently from normal resources, in that
 // this provider does not _create_ this resource, but instead "adopts" it
 // into management.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_vpc_dhcp_options.html.markdown.
 type DefaultVpcDhcpOptions struct {

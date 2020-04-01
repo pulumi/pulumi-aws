@@ -12,6 +12,8 @@ namespace Pulumi.Aws.GameLift
     /// <summary>
     /// Provides an Gamelift Game Session Queue resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_game_session_queue.html.markdown.
     /// </summary>
     public partial class GameSessionQueue : Pulumi.CustomResource

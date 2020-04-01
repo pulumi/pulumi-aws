@@ -43,6 +43,8 @@ def get_secrets(secrets=None,opts=None):
     """
     Decrypt multiple secrets from data encrypted with the AWS KMS service.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_secrets.html.markdown.
 
 

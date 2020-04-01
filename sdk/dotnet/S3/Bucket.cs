@@ -12,6 +12,8 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Provides a S3 bucket resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket.html.markdown.
     /// </summary>
     public partial class Bucket : Pulumi.CustomResource

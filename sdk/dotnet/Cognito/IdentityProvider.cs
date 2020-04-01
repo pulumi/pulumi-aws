@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Cognito
     /// <summary>
     /// Provides a Cognito User Identity Provider resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_provider.html.markdown.
     /// </summary>
     public partial class IdentityProvider : Pulumi.CustomResource

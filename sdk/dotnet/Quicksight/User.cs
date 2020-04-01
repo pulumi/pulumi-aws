@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Quicksight
     /// <summary>
     /// Resource for managing QuickSight User
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/quicksight_user.html.markdown.
     /// </summary>
     public partial class User : Pulumi.CustomResource

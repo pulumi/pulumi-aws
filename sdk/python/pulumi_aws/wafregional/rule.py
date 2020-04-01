@@ -38,6 +38,7 @@ class Rule(pulumi.CustomResource):
         """
         Provides an WAF Regional Rule Resource for use with Application Load Balancer.
 
+
         ## Nested Fields
 
         ### `predicate`

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a resource to manage the accepter's side of a VPC Peering Connection.
@@ -19,6 +19,8 @@ import (
 // The requester can use the `ec2.VpcPeeringConnection` resource to manage its side of the connection
 // and the accepter can use the `ec2.VpcPeeringConnectionAccepter` resource to "adopt" its side of the
 // connection into management.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_accepter.html.markdown.
 type VpcPeeringConnectionAccepter struct {

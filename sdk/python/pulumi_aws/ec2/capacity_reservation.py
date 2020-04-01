@@ -58,6 +58,8 @@ class CapacityReservation(pulumi.CustomResource):
         """
         Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_capacity_reservation.markdown.
 
         :param str resource_name: The name of the resource.

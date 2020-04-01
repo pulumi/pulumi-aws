@@ -15,6 +15,9 @@ namespace Pulumi.Aws.Neptune
     /// You can simply add neptune instances and Neptune manages the replication. You can use the [count][1]
     /// meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instance_class` sizes.
     /// 
+    /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster_instance.html.markdown.
     /// </summary>
     public partial class ClusterInstance : Pulumi.CustomResource

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an DocDB Cluster Resource Instance. A Cluster Instance Resource defines
@@ -19,6 +19,8 @@ import (
 // meta-parameter to make multiple instances and join them all to the same DocDB
 // Cluster, or you may specify different Cluster Instance resources with various
 // `instanceClass` sizes.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster_instance.html.markdown.
 type ClusterInstance struct {

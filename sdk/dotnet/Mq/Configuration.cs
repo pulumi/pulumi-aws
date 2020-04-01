@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Mq
     /// 
     /// For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/mq_configuration.html.markdown.
     /// </summary>
     public partial class Configuration : Pulumi.CustomResource

@@ -115,6 +115,8 @@ class TaskDefinition(pulumi.CustomResource):
         """
         Manages a revision of an ECS task definition to be used in `ecs.Service`.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_task_definition.html.markdown.
 
         :param str resource_name: The name of the resource.

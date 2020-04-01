@@ -14,6 +14,8 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// Note that the grant must exist in the destination region, and not in the region of the cluster.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_snapshot_copy_grant.html.markdown.
     /// </summary>
     public partial class SnapshotCopyGrant : Pulumi.CustomResource

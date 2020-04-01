@@ -58,6 +58,8 @@ def get_region(endpoint=None,name=None,opts=None):
     can be useful in a child module which is inheriting an AWS provider
     configuration from its parent module.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/region.html.markdown.
 
 

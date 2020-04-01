@@ -12,6 +12,8 @@ namespace Pulumi.Aws.ElasticSearch
     /// <summary>
     /// Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g. ARN)
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticsearch_domain_policy.html.markdown.
     /// </summary>
     public partial class DomainPolicy : Pulumi.CustomResource

@@ -12,6 +12,8 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// <summary>
     /// Provides a Service Discovery Service resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/service_discovery_service.html.markdown.
     /// </summary>
     public partial class Service : Pulumi.CustomResource

@@ -13,8 +13,6 @@ import * as utilities from "../utilities";
  * 
  * ### Retrieve Current Secret Version
  * 
- * By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
- * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";

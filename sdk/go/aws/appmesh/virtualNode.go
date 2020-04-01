@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an AWS App Mesh virtual node resource.
@@ -23,6 +23,8 @@ import (
 // setting `virtualServiceName` to the name of the service.
 //
 // The state associated with existing resources will automatically be migrated.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_virtual_node.html.markdown.
 type VirtualNode struct {

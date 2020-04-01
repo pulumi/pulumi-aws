@@ -14,6 +14,8 @@ namespace Pulumi.Aws.WafRegional
         /// <summary>
         /// `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_ipset.html.markdown.
         /// </summary>
         [Obsolete("Use GetIpset.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.WafRegional
     {
         /// <summary>
         /// `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_ipset.html.markdown.
         /// </summary>

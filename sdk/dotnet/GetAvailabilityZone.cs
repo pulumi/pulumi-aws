@@ -24,6 +24,8 @@ namespace Pulumi.Aws
         /// This is different from the `aws..getAvailabilityZones` (plural) data source,
         /// which provides a list of the available zones.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zone.html.markdown.
         /// </summary>
         [Obsolete("Use GetAvailabilityZone.InvokeAsync() instead")]
@@ -44,6 +46,8 @@ namespace Pulumi.Aws
         /// 
         /// This is different from the `aws..getAvailabilityZones` (plural) data source,
         /// which provides a list of the available zones.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zone.html.markdown.
         /// </summary>

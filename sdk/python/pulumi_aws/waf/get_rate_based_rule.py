@@ -36,6 +36,8 @@ def get_rate_based_rule(name=None,opts=None):
     """
     `waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rate_based_rule.html.markdown.
 
 

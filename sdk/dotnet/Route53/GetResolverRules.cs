@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Route53
         /// <summary>
         /// `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rules.html.markdown.
         /// </summary>
         [Obsolete("Use GetResolverRules.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rules.html.markdown.
         /// </summary>

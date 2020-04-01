@@ -5,13 +5,15 @@
 package apigateway
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get the id and rootResourceId of a REST API in
 // API Gateway. To fetch the REST API you must provide a name to match against.
 // As there is no unique name constraint on REST APIs this data source will
 // error if there is more than one match.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_rest_api.html.markdown.
 func LookupRestApi(ctx *pulumi.Context, args *LookupRestApiArgs, opts ...pulumi.InvokeOption) (*LookupRestApiResult, error) {

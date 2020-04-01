@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Workspaces
     /// <summary>
     /// Provides an IP access control group in AWS WorkSpaces Service
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/workspaces_ip_group.html.markdown.
     /// </summary>
     public partial class IpGroup : Pulumi.CustomResource

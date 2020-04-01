@@ -16,8 +16,7 @@ import * as utilities from "./utilities";
  * 
  * ## Example Usage
  * 
- * The following example shows how the resource might be used to obtain
- * the name of the AWS region configured on the provider.
+ * 
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

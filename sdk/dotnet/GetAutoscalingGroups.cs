@@ -15,6 +15,8 @@ namespace Pulumi.Aws
         /// The Autoscaling Groups data source allows access to the list of AWS
         /// ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_groups.html.markdown.
         /// </summary>
         [Obsolete("Use GetAutoscalingGroups.InvokeAsync() instead")]
@@ -26,6 +28,8 @@ namespace Pulumi.Aws
         /// <summary>
         /// The Autoscaling Groups data source allows access to the list of AWS
         /// ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_groups.html.markdown.
         /// </summary>

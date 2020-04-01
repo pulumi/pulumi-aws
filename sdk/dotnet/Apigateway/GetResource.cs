@@ -15,6 +15,8 @@ namespace Pulumi.Aws.ApiGateway
         /// Use this data source to get the id of a Resource in API Gateway. 
         /// To fetch the Resource, you must provide the REST API id as well as the full path.  
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_resource.html.markdown.
         /// </summary>
         [Obsolete("Use GetResource.InvokeAsync() instead")]
@@ -26,6 +28,8 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// Use this data source to get the id of a Resource in API Gateway. 
         /// To fetch the Resource, you must provide the REST API id as well as the full path.  
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_resource.html.markdown.
         /// </summary>

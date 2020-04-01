@@ -71,6 +71,8 @@ def get_instances(filters=None,instance_state_names=None,instance_tags=None,opts
     instances (e.g. managed via autoscaling group), as the output may change at any time
     and you'd need to re-run `apply` every time an instance comes up or dies.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instances.html.markdown.
 
 

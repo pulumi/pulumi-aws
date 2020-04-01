@@ -39,12 +39,8 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpn_attachment.html.markdown.
  */
-<<<<<<< HEAD
-export function getVpnAttachment(args: GetVpnAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnAttachmentResult> {
-=======
-export function getVpnAttachment(args?: GetVpnAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnAttachmentResult> & GetVpnAttachmentResult {
+export function getVpnAttachment(args?: GetVpnAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnAttachmentResult> {
     args = args || {};
->>>>>>> master
     if (!opts) {
         opts = {}
     }
@@ -52,12 +48,8 @@ export function getVpnAttachment(args?: GetVpnAttachmentArgs, opts?: pulumi.Invo
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-<<<<<<< HEAD
     return pulumi.runtime.invoke("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", {
-=======
-    const promise: Promise<GetVpnAttachmentResult> = pulumi.runtime.invoke("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", {
         "filters": args.filters,
->>>>>>> master
         "tags": args.tags,
         "transitGatewayId": args.transitGatewayId,
         "vpnConnectionId": args.vpnConnectionId,

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an Elastic Load Balancer resource, also known as a "Classic
@@ -21,6 +21,7 @@ import (
 // `instances` defined in-line. At this time you cannot use an ELB with in-line
 // instances in conjunction with a ELB Attachment resources. Doing so will cause a
 // conflict and will overwrite attachments.
+//
 //
 // ## Note on ECDSA Key Algorithm
 //

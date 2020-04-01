@@ -12,6 +12,8 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_public_access_block.html.markdown.
     /// </summary>
     public partial class BucketPublicAccessBlock : Pulumi.CustomResource
