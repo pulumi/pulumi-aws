@@ -53,8 +53,6 @@ import * as utilities from "../utilities";
  * 
  * ### Redis Cluster Mode Disabled Read Replica Instance
  * 
- * These inherit their settings from the replication group.
- * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";

@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// Provides an IAM policy attached to a user.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_policy.html.markdown.
     /// </summary>
     public partial class UserPolicy : Pulumi.CustomResource

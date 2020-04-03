@@ -14,6 +14,8 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// &gt; **NOTE:** Since the API Gateway usage plans feature was launched on August 11, 2016, usage plans are now **required** to associate an API key with an API stage.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_api_key.html.markdown.
     /// </summary>
     public partial class ApiKey : Pulumi.CustomResource

@@ -54,8 +54,6 @@ import {ARN} from "../index";
  * 
  * ### Lambda Layers
  * 
- * > **NOTE:** The `aws.lambda.LayerVersion` attribute values for `arn` and `layerArn` were swapped in version 2.0.0 of the this provider AWS Provider. For version 1.x, use `layerArn` references. For version 2.x, use `arn` references.
- * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";

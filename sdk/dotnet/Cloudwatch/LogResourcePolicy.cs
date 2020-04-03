@@ -12,6 +12,8 @@ namespace Pulumi.Aws.CloudWatch
     /// <summary>
     /// Provides a resource to manage a CloudWatch log resource policy.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_resource_policy.html.markdown.
     /// </summary>
     public partial class LogResourcePolicy : Pulumi.CustomResource

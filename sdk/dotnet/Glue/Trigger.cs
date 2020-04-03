@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// Manages a Glue Trigger resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_trigger.html.markdown.
     /// </summary>
     public partial class Trigger : Pulumi.CustomResource

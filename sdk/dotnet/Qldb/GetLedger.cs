@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Qldb
         /// <summary>
         /// Use this data source to fetch information about a Quantum Ledger Database.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/qldb_ledger.html.markdown.
         /// </summary>
         [Obsolete("Use GetLedger.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.Qldb
     {
         /// <summary>
         /// Use this data source to fetch information about a Quantum Ledger Database.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/qldb_ledger.html.markdown.
         /// </summary>

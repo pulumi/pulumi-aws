@@ -157,7 +157,7 @@ class Cluster(pulumi.CustomResource):
         change immediately. Using `apply_immediately` can result in a brief downtime as the server reboots.
         See the AWS Docs on [Modifying an ElastiCache Cache Cluster][2] for more information.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_cluster.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -24,6 +24,8 @@ namespace Pulumi.Aws.AutoScaling
     /// [`aws.autoscaling.Group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
     /// but take care to not duplicate those hooks with this resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_lifecycle_hook.html.markdown.
     /// </summary>
     public partial class LifecycleHook : Pulumi.CustomResource

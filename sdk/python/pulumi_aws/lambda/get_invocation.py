@@ -60,7 +60,7 @@ def get_invocation(function_name=None,input=None,qualifier=None,opts=None):
     The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
     invocation type.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_invocation.html.markdown.
+
 
 
     :param str function_name: The name of the lambda function.

@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Waf
         /// <summary>
         /// `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rate_based_rule.html.markdown.
         /// </summary>
         [Obsolete("Use GetRateBasedRule.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.Waf
     {
         /// <summary>
         /// `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rate_based_rule.html.markdown.
         /// </summary>

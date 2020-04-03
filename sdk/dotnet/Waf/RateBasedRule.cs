@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Waf
     /// <summary>
     /// Provides a WAF Rate Based Rule Resource
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_rate_based_rule.html.markdown.
     /// </summary>
     public partial class RateBasedRule : Pulumi.CustomResource

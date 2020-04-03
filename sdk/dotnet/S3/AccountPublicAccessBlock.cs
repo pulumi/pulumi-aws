@@ -16,6 +16,8 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; Advanced usage: To use a custom API endpoint for this resource, use the [`s3control` endpoint provider configuration](https://www.terraform.io/docs/providers/aws/index.html#s3control), not the `s3` endpoint provider configuration.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_account_public_access_block.html.markdown.
     /// </summary>
     public partial class AccountPublicAccessBlock : Pulumi.CustomResource

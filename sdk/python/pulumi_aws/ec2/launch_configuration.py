@@ -120,6 +120,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         """
         Provides a resource to create a new launch configuration, used for autoscaling groups.
 
+
         ## Block devices
 
         Each of the `*_block_device` attributes controls a portion of the AWS
@@ -175,8 +176,6 @@ class LaunchConfiguration(pulumi.CustomResource):
         cannot currently be detected by this provider. After updating to block device
         configuration, resource recreation can be manually triggered by using the
         [`up` command with the --replace argument](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_configuration.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

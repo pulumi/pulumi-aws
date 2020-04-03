@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `aws.ec2.InternetGateway` provides details about a specific Internet Gateway.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/internet_gateway.html.markdown.
         /// </summary>
         [Obsolete("Use GetInternetGateway.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// `aws.ec2.InternetGateway` provides details about a specific Internet Gateway.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/internet_gateway.html.markdown.
         /// </summary>

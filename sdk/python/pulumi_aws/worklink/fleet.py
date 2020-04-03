@@ -63,7 +63,8 @@ class Fleet(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, audit_stream_arn=None, device_ca_certificate=None, display_name=None, identity_provider=None, name=None, network=None, optimize_for_end_user_location=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a Fleet resource with the given unique name, props, and options.
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] audit_stream_arn: The ARN of the Amazon Kinesis data stream that receives the audit events.

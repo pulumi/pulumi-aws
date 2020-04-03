@@ -12,6 +12,7 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a VPC DHCP Options resource.
     /// 
+    /// 
     /// ## Remarks
     /// 
     /// * Notice that all arguments are optional but you have to specify at least one argument.

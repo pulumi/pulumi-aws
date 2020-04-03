@@ -37,7 +37,7 @@ def get_hosted_zone_id(region=None,opts=None):
     Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
     in a given region for the purpose of using in an AWS Route53 Alias.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_hosted_zone_id.html.markdown.
+
 
 
     :param str region: Name of the region whose AWS ELB HostedZoneId is desired.

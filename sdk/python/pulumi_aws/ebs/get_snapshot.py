@@ -129,7 +129,7 @@ def get_snapshot(filters=None,most_recent=None,owners=None,restorable_by_user_id
     """
     Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot.html.markdown.
+
 
 
     :param list filters: One or more name/value pairs to filter off of. There are

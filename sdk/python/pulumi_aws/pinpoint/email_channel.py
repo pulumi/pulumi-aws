@@ -38,7 +38,7 @@ class EmailChannel(pulumi.CustomResource):
         """
         Provides a Pinpoint SMS Channel resource.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_email_channel.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

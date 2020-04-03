@@ -14,6 +14,8 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// &gt; **Note:** License configurations can also be associated with launch templates by specifying the `license_specifications` block for an `aws.ec2.LaunchTemplate`.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/licensemanager_association.markdown.
     /// </summary>
     public partial class Association : Pulumi.CustomResource

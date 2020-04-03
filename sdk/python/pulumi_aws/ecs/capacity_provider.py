@@ -41,6 +41,7 @@ class CapacityProvider(pulumi.CustomResource):
 
         > **NOTE:** The AWS API does not currently support deleting ECS cluster capacity providers. Removing this resource will only remove the state for it.
 
+
         ## auto_scaling_group_provider
 
         The `auto_scaling_group_provider` block supports the following:
@@ -57,8 +58,6 @@ class CapacityProvider(pulumi.CustomResource):
         * `minimum_scaling_step_size` - (Optional) The minimum step adjustment size. A number between 1 and 10,000.
         * `status` - (Optional) Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
         * `target_capacity` - (Optional) The target utilization for the capacity provider. A number between 1 and 100.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_capacity_provider.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

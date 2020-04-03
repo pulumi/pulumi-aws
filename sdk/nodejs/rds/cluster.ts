@@ -100,8 +100,6 @@ import {EngineType} from "./engineType";
  * 
  * ### Aurora Multi-Master Cluster
  * 
- * > More information about Aurora Multi-Master Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html).
- * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// &gt; **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
     /// 
+    /// 
     /// ## Waiting for Capacity
     /// 
     /// A newly-created ASG is initially empty and begins to scale to `min_size` (or

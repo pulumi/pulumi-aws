@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Get an existing AWS Customer Gateway.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/customer_gateway.html.markdown.
         /// </summary>
         [Obsolete("Use GetCustomerGateway.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Get an existing AWS Customer Gateway.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/customer_gateway.html.markdown.
         /// </summary>

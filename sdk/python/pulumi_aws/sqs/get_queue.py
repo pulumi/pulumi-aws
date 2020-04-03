@@ -59,7 +59,7 @@ def get_queue(name=None,tags=None,opts=None):
     By using this data source, you can reference SQS queues without having to hardcode
     the ARNs as input.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sqs_queue.html.markdown.
+
 
 
     :param str name: The name of the queue to match.

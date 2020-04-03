@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Lambda Provisioned Concurrency Configuration.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_provisioned_concurrency_config.html.markdown.
  */

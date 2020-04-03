@@ -13,6 +13,8 @@ namespace Pulumi.Aws.Ec2
     /// Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
     /// instances to be requested on the Spot market.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_fleet_request.html.markdown.
     /// </summary>
     public partial class SpotFleetRequest : Pulumi.CustomResource

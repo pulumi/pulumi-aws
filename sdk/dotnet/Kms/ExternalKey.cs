@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Kms
     /// 
     /// &gt; **Note:** All arguments including the key material will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_external_key.html.markdown.
     /// </summary>
     public partial class ExternalKey : Pulumi.CustomResource

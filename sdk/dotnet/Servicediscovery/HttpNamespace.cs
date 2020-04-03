@@ -9,6 +9,11 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceDiscovery
 {
+    /// <summary>
+    /// 
+    /// 
+    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/service_discovery_http_namespace.html.markdown.
+    /// </summary>
     public partial class HttpNamespace : Pulumi.CustomResource
     {
         /// <summary>

@@ -12,6 +12,8 @@ namespace Pulumi.Aws.ResourceGroups
     /// <summary>
     /// Provides a Resource Group.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/resourcegroups_group.html.markdown.
     /// </summary>
     public partial class Group : Pulumi.CustomResource

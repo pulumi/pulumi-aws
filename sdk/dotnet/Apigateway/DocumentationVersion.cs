@@ -12,6 +12,8 @@ namespace Pulumi.Aws.ApiGateway
     /// <summary>
     /// Provides a resource to manage an API Gateway Documentation Version.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_documentation_version.html.markdown.
     /// </summary>
     public partial class DocumentationVersion : Pulumi.CustomResource

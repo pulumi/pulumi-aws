@@ -62,8 +62,6 @@ import * as utilities from "../utilities";
  * 
  * ### Conditional Trigger with Crawler Action
  * 
- * **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
- * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -83,8 +81,6 @@ import * as utilities from "../utilities";
  * ```
  * 
  * ### Conditional Trigger with Crawler Condition 
- * 
- * **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

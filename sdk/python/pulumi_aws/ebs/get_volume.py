@@ -111,7 +111,7 @@ def get_volume(filters=None,most_recent=None,tags=None,opts=None):
     Use this data source to get information about an EBS volume for use in other
     resources.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.
+
 
 
     :param list filters: One or more name/value pairs to filter off of. There are

@@ -16,6 +16,8 @@ namespace Pulumi.Aws.Iam
         /// IAM role. By using this data source, you can reference IAM role
         /// properties without having to hard code ARNs as input.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_role.html.markdown.
         /// </summary>
         [Obsolete("Use GetRole.InvokeAsync() instead")]
@@ -28,6 +30,8 @@ namespace Pulumi.Aws.Iam
         /// This data source can be used to fetch information about a specific
         /// IAM role. By using this data source, you can reference IAM role
         /// properties without having to hard code ARNs as input.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_role.html.markdown.
         /// </summary>

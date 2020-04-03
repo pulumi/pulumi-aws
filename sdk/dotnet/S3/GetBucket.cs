@@ -17,6 +17,8 @@ namespace Pulumi.Aws.S3
         /// This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
         /// Distribution.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket.html.markdown.
         /// </summary>
         [Obsolete("Use GetBucket.InvokeAsync() instead")]
@@ -30,6 +32,8 @@ namespace Pulumi.Aws.S3
         /// 
         /// This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
         /// Distribution.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket.html.markdown.
         /// </summary>

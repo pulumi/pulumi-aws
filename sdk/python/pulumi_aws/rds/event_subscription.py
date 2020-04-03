@@ -48,6 +48,7 @@ class EventSubscription(pulumi.CustomResource):
         """
         Provides a DB event subscription resource.
 
+
         ## Attributes
 
         The following additional atttributes are provided:
@@ -55,8 +56,6 @@ class EventSubscription(pulumi.CustomResource):
         * `id` - The name of the RDS event notification subscription
         * `arn` - The Amazon Resource Name of the RDS event notification subscription
         * `customer_aws_id` - The AWS customer account associated with the RDS event notification subscription
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_event_subscription.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -96,7 +96,7 @@ def get_zone(name=None,private_zone=None,resource_record_set_count=None,tags=Non
 
     This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_zone.html.markdown.
+
 
 
     :param str name: The Hosted Zone name of the desired Hosted Zone.

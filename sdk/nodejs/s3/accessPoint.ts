@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage an S3 Access Point.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_access_point.html.markdown.
  */

@@ -16,6 +16,8 @@ namespace Pulumi.Aws.CodeCommit
     /// in all regions - available regions are listed
     /// [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region).
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codecommit_repository.html.markdown.
     /// </summary>
     public partial class Repository : Pulumi.CustomResource

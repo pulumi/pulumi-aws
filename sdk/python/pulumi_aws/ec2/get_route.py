@@ -76,7 +76,7 @@ def get_route(destination_cidr_block=None,destination_ipv6_cidr_block=None,egres
     associated with a CIDR. For example, finding the peering
     connection associated with a CIDR value.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route.html.markdown.
+
 
 
     :param str destination_cidr_block: The CIDR block of the Route belonging to the Route Table.

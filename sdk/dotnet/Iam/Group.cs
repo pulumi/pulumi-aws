@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// Provides an IAM group.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group.html.markdown.
     /// </summary>
     public partial class Group : Pulumi.CustomResource

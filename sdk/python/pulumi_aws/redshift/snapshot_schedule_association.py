@@ -20,7 +20,8 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, cluster_identifier=None, schedule_identifier=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a SnapshotScheduleAssociation resource with the given unique name, props, and options.
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_identifier: The cluster identifier.

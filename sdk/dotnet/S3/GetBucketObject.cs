@@ -17,6 +17,8 @@ namespace Pulumi.Aws.S3
         /// 
         /// &gt; **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type` (`text/*` and `application/json`). This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favour of metadata.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_object.html.markdown.
         /// </summary>
         [Obsolete("Use GetBucketObject.InvokeAsync() instead")]
@@ -30,6 +32,8 @@ namespace Pulumi.Aws.S3
         /// _optionally_ (see below) content of an object stored inside S3 bucket.
         /// 
         /// &gt; **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type` (`text/*` and `application/json`). This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favour of metadata.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_object.html.markdown.
         /// </summary>

@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Rds
     /// [`aws_db_instance.vpc_security_group_ids`](https://www.terraform.io/docs/providers/aws/r/db_instance.html#vpc_security_group_ids)
     /// attribute instead.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_security_group.html.markdown.
     /// </summary>
     public partial class SecurityGroup : Pulumi.CustomResource

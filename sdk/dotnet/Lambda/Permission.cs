@@ -13,6 +13,8 @@ namespace Pulumi.Aws.Lambda
     /// Creates a Lambda permission to allow external sources invoking the Lambda function
     /// (e.g. CloudWatch Event Rule, SNS or S3).
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_permission.html.markdown.
     /// </summary>
     public partial class Permission : Pulumi.CustomResource

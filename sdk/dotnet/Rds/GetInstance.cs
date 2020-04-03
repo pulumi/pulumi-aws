@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Use this data source to get information about an RDS instance
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_instance.html.markdown.
         /// </summary>
         [Obsolete("Use GetInstance.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// Use this data source to get information about an RDS instance
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_instance.html.markdown.
         /// </summary>

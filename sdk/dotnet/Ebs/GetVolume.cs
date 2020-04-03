@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Ebs
         /// Use this data source to get information about an EBS volume for use in other
         /// resources.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.
         /// </summary>
         [Obsolete("Use GetVolume.InvokeAsync() instead")]
@@ -26,6 +28,8 @@ namespace Pulumi.Aws.Ebs
         /// <summary>
         /// Use this data source to get information about an EBS volume for use in other
         /// resources.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.
         /// </summary>

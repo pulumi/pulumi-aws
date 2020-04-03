@@ -128,7 +128,7 @@ def get_directory(directory_id=None,tags=None,opts=None):
     """
     Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration. 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/directory_service_directory.html.markdown.
+
 
 
     :param str directory_id: The ID of the directory.

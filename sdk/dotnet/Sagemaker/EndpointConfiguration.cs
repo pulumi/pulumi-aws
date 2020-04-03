@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Sagemaker
     /// <summary>
     /// Provides a SageMaker endpoint configuration resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_endpoint_configuration.html.markdown.
     /// </summary>
     public partial class EndpointConfiguration : Pulumi.CustomResource

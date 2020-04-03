@@ -206,6 +206,7 @@ class Cluster(pulumi.CustomResource):
 
         > Support for [Instance Fleets](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-fleets) will be made available in an upcoming release.
 
+
         ## core_instance_group Configuration Block
 
         Supported arguments for the `core_instance_group` configuration block:
@@ -308,8 +309,6 @@ class Cluster(pulumi.CustomResource):
         * `jar` - (Required) Path to a JAR file run during the step.
         * `main_class` - (Optional) Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
         * `properties` - (Optional) Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/emr_cluster.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

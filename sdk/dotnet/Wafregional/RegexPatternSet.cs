@@ -12,6 +12,8 @@ namespace Pulumi.Aws.WafRegional
     /// <summary>
     /// Provides a WAF Regional Regex Pattern Set Resource
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_regex_pattern_set.html.markdown.
     /// </summary>
     public partial class RegexPatternSet : Pulumi.CustomResource

@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Provides information about a Lambda Function.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_function.html.markdown.
         /// </summary>
         [Obsolete("Use GetFunction.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.Lambda
     {
         /// <summary>
         /// Provides information about a Lambda Function.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_function.html.markdown.
         /// </summary>

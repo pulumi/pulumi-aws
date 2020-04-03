@@ -56,7 +56,7 @@ def get_security_groups(filters=None,tags=None,opts=None):
     Use this data source to get IDs and VPC membership of Security Groups that are created
     outside of this provider.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_groups.html.markdown.
+
 
 
     :param list filters: One or more name/value pairs to use as filters. There are

@@ -18,6 +18,8 @@ namespace Pulumi.Aws.Route53
     /// the Route53 hosted zone must be public.
     /// See [Configuring Logging for DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html?console_help=true#query-logs-configuring) for additional details.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_query_log.html.markdown.
     /// </summary>
     public partial class QueryLog : Pulumi.CustomResource

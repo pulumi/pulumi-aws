@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// &gt; **Note:** Starting Configuration Recorder requires a [Delivery Channel](https://www.terraform.io/docs/providers/aws/r/config_delivery_channel.html) to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_recorder_status.html.markdown.
     /// </summary>
     public partial class RecorderStatus : Pulumi.CustomResource

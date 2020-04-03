@@ -16,6 +16,8 @@ namespace Pulumi.Aws.Ssm
     /// both marked as optional fields, but the Patch Baseline requires that at least one
     /// of them is specified.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_patch_baseline.html.markdown.
     /// </summary>
     public partial class PatchBaseline : Pulumi.CustomResource

@@ -107,6 +107,7 @@ class Document(pulumi.CustomResource):
         or greater can update their content once created, see [SSM Schema Features][1]. To update a document with an older
         schema version you must recreate the resource.
 
+
         ## attachments_source
 
         The `attachments_source` block supports the following:
@@ -125,8 +126,6 @@ class Document(pulumi.CustomResource):
 
         * `type` - The permission type for the document. The permission type can be `Share`.
         * `account_ids` - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or `All`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_document.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

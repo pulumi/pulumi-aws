@@ -13,6 +13,8 @@ namespace Pulumi.Aws.Ec2
     /// Provides an EC2 instance resource. This allows instances to be created, updated,
     /// and deleted. Instances also support [provisioning](https://www.terraform.io/docs/provisioners/index.html).
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/instance.html.markdown.
     /// </summary>
     public partial class Instance : Pulumi.CustomResource

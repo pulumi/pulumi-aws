@@ -21,6 +21,8 @@ namespace Pulumi.Aws.ElastiCache
     /// change immediately. Using `apply_immediately` can result in a brief downtime as the server reboots.
     /// See the AWS Docs on [Modifying an ElastiCache Cache Cluster][2] for more information.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_cluster.html.markdown.
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource

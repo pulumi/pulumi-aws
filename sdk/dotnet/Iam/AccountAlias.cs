@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Iam
     /// 
     /// Manages the account alias for the AWS Account.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_account_alias.html.markdown.
     /// </summary>
     public partial class AccountAlias : Pulumi.CustomResource

@@ -16,6 +16,8 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// &gt; **NOTE:** All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudformation_stack_set.html.markdown.
     /// </summary>
     public partial class StackSet : Pulumi.CustomResource

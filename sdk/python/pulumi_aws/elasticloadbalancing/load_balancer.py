@@ -132,6 +132,7 @@ class LoadBalancer(pulumi.CustomResource):
         instances in conjunction with a ELB Attachment resources. Doing so will cause a
         conflict and will overwrite attachments.
 
+
         ## Note on ECDSA Key Algorithm
 
         If the ARN of the `ssl_certificate_id` that is pointed to references a
@@ -139,8 +140,6 @@ class LoadBalancer(pulumi.CustomResource):
         P256 and P384 curves.  Using a certificate signed by a key using a different
         curve could produce the error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your
         browser.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elb.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

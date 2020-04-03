@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Msk
     /// 
     /// &gt; **NOTE:** The API does not support deleting MSK configurations. Removing this resource will only remove the this provider state for it.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/msk_configuration.html.markdown.
     /// </summary>
     public partial class Configuration : Pulumi.CustomResource

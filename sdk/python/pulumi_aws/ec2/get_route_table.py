@@ -84,7 +84,7 @@ def get_route_table(filters=None,gateway_id=None,route_table_id=None,subnet_id=N
     an input variable and needs to, for example, add a route in
     the Route Table.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_table.html.markdown.
+
 
 
     :param list filters: Custom filter block as described below.

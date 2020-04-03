@@ -12,6 +12,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// <summary>
     /// Provides an Application AutoScaling Policy resource.
     /// 
+    /// 
     /// ## Nested fields
     /// 
     /// ### `target_tracking_scaling_policy_configuration`

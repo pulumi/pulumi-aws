@@ -18,6 +18,8 @@ namespace Pulumi.Aws.Ec2
         /// an input variable and needs to, for example, add a route in
         /// the Route Table.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_table.html.markdown.
         /// </summary>
         [Obsolete("Use GetRouteTable.InvokeAsync() instead")]
@@ -32,6 +34,8 @@ namespace Pulumi.Aws.Ec2
         /// This resource can prove useful when a module accepts a Subnet id as
         /// an input variable and needs to, for example, add a route in
         /// the Route Table.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_table.html.markdown.
         /// </summary>

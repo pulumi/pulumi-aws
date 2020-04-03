@@ -30,7 +30,7 @@ class SubnetGroup(pulumi.CustomResource):
         ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
         ElastiCache Security Group resource.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_subnet_group.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

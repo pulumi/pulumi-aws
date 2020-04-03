@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Manages a VPC Endpoint Route Table Association
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_route_table_association.html.markdown.
     /// </summary>
     public partial class VpcEndpointRouteTableAssociation : Pulumi.CustomResource

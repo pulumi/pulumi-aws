@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
- * The following example below creates a CloudFront origin access identity.
+ * 
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -83,7 +83,7 @@ def get_bucket_objects(bucket=None,delimiter=None,encoding_type=None,fetch_owner
 
     The bucket-objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_objects.html.markdown.
+
 
 
     :param str bucket: Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified

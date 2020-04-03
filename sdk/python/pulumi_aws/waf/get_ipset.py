@@ -36,7 +36,7 @@ def get_ipset(name=None,opts=None):
     """
     `waf.IpSet` Retrieves a WAF IP Set Resource Id.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_ipset.html.markdown.
+
 
 
     :param str name: The name of the WAF IP set.

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
- * The following example will create a neptune cluster with two neptune instances(one writer and one reader).
+ * 
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

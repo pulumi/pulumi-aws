@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Ses
     /// <summary>
     /// Provides an SES configuration set resource
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_configuration_set.markdown.
     /// </summary>
     public partial class ConfigurationSet : Pulumi.CustomResource

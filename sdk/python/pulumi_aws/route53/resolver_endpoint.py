@@ -49,7 +49,7 @@ class ResolverEndpoint(pulumi.CustomResource):
         """
         Provides a Route 53 Resolver endpoint resource.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_endpoint.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

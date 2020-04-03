@@ -15,6 +15,8 @@ namespace Pulumi.Aws.DynamoDB
     /// &gt; **Note:** This resource is not meant to be used for managing large amounts of data in your table, it is not designed to scale.
     ///   You should perform **regular backups** of all data in the table, see [AWS docs for more](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html).
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_table_item.html.markdown.
     /// </summary>
     public partial class TableItem : Pulumi.CustomResource

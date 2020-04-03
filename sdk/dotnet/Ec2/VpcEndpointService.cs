@@ -19,6 +19,8 @@ namespace Pulumi.Aws.Ec2
     /// a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
     /// and will overwrite the association.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_service.html.markdown.
     /// </summary>
     public partial class VpcEndpointService : Pulumi.CustomResource

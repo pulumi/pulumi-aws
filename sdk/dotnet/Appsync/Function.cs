@@ -12,6 +12,8 @@ namespace Pulumi.Aws.AppSync
     /// <summary>
     /// Provides an AppSync Function.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_function.html.markdown.
     /// </summary>
     public partial class Function : Pulumi.CustomResource

@@ -38,6 +38,7 @@ class Rule(pulumi.CustomResource):
         """
         Provides an WAF Regional Rule Resource for use with Application Load Balancer.
 
+
         ## Nested Fields
 
         ### `predicate`
@@ -49,8 +50,6 @@ class Rule(pulumi.CustomResource):
         * `type` - (Required) The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
         * `data_id` - (Required) The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
         * `negated` - (Required) Whether to use the settings or the negated settings that you specified in the objects.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_rule.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -22,10 +22,6 @@ import * as utilities from "../utilities";
  * 
  * ### Public Subdomain Zone
  * 
- * For use in subdomains, note that you need to create a
- * `aws.route53.Record` of type `NS` as well as the subdomain
- * zone.
- * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,10 +47,6 @@ import * as utilities from "../utilities";
  * ```
  * 
  * ### Private Zone
- * 
- * > **NOTE:** This provider provides both exclusive VPC associations defined in-line in this resource via `vpc` configuration blocks and a separate [Zone VPC Association](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) resource. At this time, you cannot use in-line VPC associations in conjunction with any `aws.route53.ZoneAssociation` resources with the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to manage additional associations via the `aws.route53.ZoneAssociation` resource.
- * 
- * > **NOTE:** Private zones require at least one VPC association at all times.
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

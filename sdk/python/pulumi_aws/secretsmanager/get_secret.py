@@ -92,7 +92,7 @@ def get_secret(arn=None,name=None,opts=None):
     """
     Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`secretsmanager.SecretVersion` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret.html.markdown.
+
 
 
     :param str arn: The Amazon Resource Name (ARN) of the secret to retrieve.

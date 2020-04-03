@@ -22,6 +22,8 @@ namespace Pulumi.Aws.ElastiCache
     /// immediately. Using `apply_immediately` can result in a brief downtime as
     /// servers reboots.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_replication_group.html.markdown.
     /// </summary>
     public partial class ReplicationGroup : Pulumi.CustomResource

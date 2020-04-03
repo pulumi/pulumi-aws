@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Acmpca
         /// <summary>
         /// Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acmpca_certificate_authority.html.markdown.
         /// </summary>
         [Obsolete("Use GetCertificateAuthority.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.Acmpca
     {
         /// <summary>
         /// Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acmpca_certificate_authority.html.markdown.
         /// </summary>

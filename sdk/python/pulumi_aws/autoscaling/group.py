@@ -202,6 +202,7 @@ class Group(pulumi.CustomResource):
 
         > **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
 
+
         ## Waiting for Capacity
 
         A newly-created ASG is initially empty and begins to scale to `min_size` (or
@@ -263,8 +264,6 @@ class Group(pulumi.CustomResource):
         number of configuration problems. See the [AWS Docs on Load Balancer
         Troubleshooting](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-troubleshooting.html)
         for more information.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_group.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

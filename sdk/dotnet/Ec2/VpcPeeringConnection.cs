@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Ec2
     /// VPC Peering Connections use the `aws.ec2.VpcPeeringConnection` resource to manage the requester's side of the
     /// connection and use the `aws.ec2.VpcPeeringConnectionAccepter` resource to manage the accepter's side of the connection.
     /// 
+    /// 
     /// ## Notes
     /// 
     /// If both VPCs are not in the same AWS account do not enable the `auto_accept` attribute.

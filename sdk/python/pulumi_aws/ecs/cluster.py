@@ -45,6 +45,7 @@ class Cluster(pulumi.CustomResource):
         """
         Provides an ECS cluster.
 
+
         ## setting
 
         The `setting` configuration block supports the following:
@@ -59,8 +60,6 @@ class Cluster(pulumi.CustomResource):
         * `capacity_provider` - (Required) The short name of the capacity provider.
         * `weight` - (Optional) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
         * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_cluster.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

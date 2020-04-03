@@ -33,6 +33,9 @@ namespace Pulumi.Aws.Ec2
     /// documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
     /// for more information.
     /// 
+    /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_instance_request.html.markdown.
     /// </summary>
     public partial class SpotInstanceRequest : Pulumi.CustomResource

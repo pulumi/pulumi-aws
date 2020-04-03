@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Ec2
         /// The VPC Peering Connection data source provides details about
         /// a specific VPC peering connection.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_peering_connection.html.markdown.
         /// </summary>
         [Obsolete("Use GetVpcPeeringConnection.InvokeAsync() instead")]
@@ -26,6 +28,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The VPC Peering Connection data source provides details about
         /// a specific VPC peering connection.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_peering_connection.html.markdown.
         /// </summary>

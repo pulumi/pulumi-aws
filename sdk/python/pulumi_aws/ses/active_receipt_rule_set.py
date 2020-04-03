@@ -18,7 +18,7 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
         """
         Provides a resource to designate the active SES receipt rule set
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_active_receipt_rule_set.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

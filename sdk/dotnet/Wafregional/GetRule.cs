@@ -14,6 +14,8 @@ namespace Pulumi.Aws.WafRegional
         /// <summary>
         /// `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_rule.html.markdown.
         /// </summary>
         [Obsolete("Use GetRule.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.WafRegional
     {
         /// <summary>
         /// `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_rule.html.markdown.
         /// </summary>

@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Backup
     /// <summary>
     /// Manages selection conditions for AWS Backup plan resources.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_selection.html.markdown.
     /// </summary>
     public partial class Selection : Pulumi.CustomResource

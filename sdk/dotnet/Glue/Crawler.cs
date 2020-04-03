@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_crawler.html.markdown.
     /// </summary>
     public partial class Crawler : Pulumi.CustomResource

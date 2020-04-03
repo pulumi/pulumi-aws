@@ -138,6 +138,7 @@ class Environment(pulumi.CustomResource):
         Environments are often things such as `development`, `integration`, or
         `production`.
 
+
         ## Option Settings
 
         Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
@@ -149,8 +150,6 @@ class Environment(pulumi.CustomResource):
         * `name` - name of the configuration option
         * `value` - value for the configuration option
         * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_environment.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

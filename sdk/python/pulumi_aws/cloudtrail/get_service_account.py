@@ -44,7 +44,7 @@ def get_service_account(region=None,opts=None):
     Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
     in a given region for the purpose of allowing CloudTrail to store trail data in S3.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudtrail_service_account.html.markdown.
+
 
 
     :param str region: Name of the region whose AWS CloudTrail account ID is desired.

@@ -15,6 +15,9 @@ namespace Pulumi.Aws.Ecs
         /// The ECS task definition data source allows access to details of
         /// a specific AWS ECS task definition.
         /// 
+        /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_task_definition.html.markdown.
         /// </summary>
         [Obsolete("Use GetTaskDefinition.InvokeAsync() instead")]
@@ -26,6 +29,9 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// The ECS task definition data source allows access to details of
         /// a specific AWS ECS task definition.
+        /// 
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_task_definition.html.markdown.
         /// </summary>
