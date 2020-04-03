@@ -112,6 +112,10 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<Outputs.GetLaunchTemplateElasticGpuSpecificationsResult> ElasticGpuSpecifications;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateFiltersResult> Filters;
         /// <summary>
+        /// The hibernation options for the instance.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateHibernationOptionsResult> HibernationOptions;
+        /// <summary>
         /// The IAM Instance Profile to launch the instance with. See Instance Profile
         /// below for more details.
         /// </summary>
@@ -205,6 +209,7 @@ namespace Pulumi.Aws.Ec2
             string ebsOptimized,
             ImmutableArray<Outputs.GetLaunchTemplateElasticGpuSpecificationsResult> elasticGpuSpecifications,
             ImmutableArray<Outputs.GetLaunchTemplateFiltersResult> filters,
+            ImmutableArray<Outputs.GetLaunchTemplateHibernationOptionsResult> hibernationOptions,
             ImmutableArray<Outputs.GetLaunchTemplateIamInstanceProfilesResult> iamInstanceProfiles,
             string imageId,
             string instanceInitiatedShutdownBehavior,
@@ -235,6 +240,7 @@ namespace Pulumi.Aws.Ec2
             EbsOptimized = ebsOptimized;
             ElasticGpuSpecifications = elasticGpuSpecifications;
             Filters = filters;
+            HibernationOptions = hibernationOptions;
             IamInstanceProfiles = iamInstanceProfiles;
             ImageId = imageId;
             InstanceInitiatedShutdownBehavior = instanceInitiatedShutdownBehavior;
@@ -386,6 +392,18 @@ namespace Pulumi.Aws.Ec2
         {
             Name = name;
             Values = values;
+        }
+    }
+
+    [OutputType]
+    public sealed class GetLaunchTemplateHibernationOptionsResult
+    {
+        public readonly bool Configured;
+
+        [OutputConstructor]
+        private GetLaunchTemplateHibernationOptionsResult(bool configured)
+        {
+            Configured = configured;
         }
     }
 

@@ -18,7 +18,7 @@ type Connection struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Direct Connect endpoint on which the physical connection terminates.
 	AwsDevice pulumi.StringOutput `pulumi:"awsDevice"`
-	// The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
+	// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
 	Bandwidth pulumi.StringOutput `pulumi:"bandwidth"`
 	// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
 	HasLogicalRedundancy pulumi.StringOutput `pulumi:"hasLogicalRedundancy"`
@@ -70,7 +70,7 @@ type connectionState struct {
 	Arn *string `pulumi:"arn"`
 	// The Direct Connect endpoint on which the physical connection terminates.
 	AwsDevice *string `pulumi:"awsDevice"`
-	// The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
+	// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
 	Bandwidth *string `pulumi:"bandwidth"`
 	// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
 	HasLogicalRedundancy *string `pulumi:"hasLogicalRedundancy"`
@@ -89,7 +89,7 @@ type ConnectionState struct {
 	Arn pulumi.StringPtrInput
 	// The Direct Connect endpoint on which the physical connection terminates.
 	AwsDevice pulumi.StringPtrInput
-	// The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
+	// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
 	Bandwidth pulumi.StringPtrInput
 	// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
 	HasLogicalRedundancy pulumi.StringPtrInput
@@ -108,7 +108,7 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
-	// The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
+	// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
 	Bandwidth string `pulumi:"bandwidth"`
 	// The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
 	Location string `pulumi:"location"`
@@ -120,7 +120,7 @@ type connectionArgs struct {
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
-	// The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
+	// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
 	Bandwidth pulumi.StringInput
 	// The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
 	Location pulumi.StringInput

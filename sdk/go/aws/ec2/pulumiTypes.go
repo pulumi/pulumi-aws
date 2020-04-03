@@ -4594,6 +4594,120 @@ func (o LaunchTemplateElasticInferenceAcceleratorPtrOutput) Type() pulumi.String
 	return o.ApplyT(func(v LaunchTemplateElasticInferenceAccelerator) string { return v.Type }).(pulumi.StringOutput)
 }
 
+type LaunchTemplateHibernationOptions struct {
+	// If set to `true`, the launched EC2 instance will hibernation enabled.
+	Configured bool `pulumi:"configured"`
+}
+
+type LaunchTemplateHibernationOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateHibernationOptionsOutput() LaunchTemplateHibernationOptionsOutput
+	ToLaunchTemplateHibernationOptionsOutputWithContext(context.Context) LaunchTemplateHibernationOptionsOutput
+}
+
+type LaunchTemplateHibernationOptionsArgs struct {
+	// If set to `true`, the launched EC2 instance will hibernation enabled.
+	Configured pulumi.BoolInput `pulumi:"configured"`
+}
+
+func (LaunchTemplateHibernationOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateHibernationOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateHibernationOptionsArgs) ToLaunchTemplateHibernationOptionsOutput() LaunchTemplateHibernationOptionsOutput {
+	return i.ToLaunchTemplateHibernationOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateHibernationOptionsArgs) ToLaunchTemplateHibernationOptionsOutputWithContext(ctx context.Context) LaunchTemplateHibernationOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateHibernationOptionsOutput)
+}
+
+func (i LaunchTemplateHibernationOptionsArgs) ToLaunchTemplateHibernationOptionsPtrOutput() LaunchTemplateHibernationOptionsPtrOutput {
+	return i.ToLaunchTemplateHibernationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateHibernationOptionsArgs) ToLaunchTemplateHibernationOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateHibernationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateHibernationOptionsOutput).ToLaunchTemplateHibernationOptionsPtrOutputWithContext(ctx)
+}
+
+type LaunchTemplateHibernationOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateHibernationOptionsPtrOutput() LaunchTemplateHibernationOptionsPtrOutput
+	ToLaunchTemplateHibernationOptionsPtrOutputWithContext(context.Context) LaunchTemplateHibernationOptionsPtrOutput
+}
+
+type launchTemplateHibernationOptionsPtrType LaunchTemplateHibernationOptionsArgs
+
+func LaunchTemplateHibernationOptionsPtr(v *LaunchTemplateHibernationOptionsArgs) LaunchTemplateHibernationOptionsPtrInput {
+	return (*launchTemplateHibernationOptionsPtrType)(v)
+}
+
+func (*launchTemplateHibernationOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateHibernationOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateHibernationOptionsPtrType) ToLaunchTemplateHibernationOptionsPtrOutput() LaunchTemplateHibernationOptionsPtrOutput {
+	return i.ToLaunchTemplateHibernationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateHibernationOptionsPtrType) ToLaunchTemplateHibernationOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateHibernationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateHibernationOptionsPtrOutput)
+}
+
+type LaunchTemplateHibernationOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateHibernationOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateHibernationOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateHibernationOptionsOutput) ToLaunchTemplateHibernationOptionsOutput() LaunchTemplateHibernationOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateHibernationOptionsOutput) ToLaunchTemplateHibernationOptionsOutputWithContext(ctx context.Context) LaunchTemplateHibernationOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateHibernationOptionsOutput) ToLaunchTemplateHibernationOptionsPtrOutput() LaunchTemplateHibernationOptionsPtrOutput {
+	return o.ToLaunchTemplateHibernationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateHibernationOptionsOutput) ToLaunchTemplateHibernationOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateHibernationOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateHibernationOptions) *LaunchTemplateHibernationOptions {
+		return &v
+	}).(LaunchTemplateHibernationOptionsPtrOutput)
+}
+
+// If set to `true`, the launched EC2 instance will hibernation enabled.
+func (o LaunchTemplateHibernationOptionsOutput) Configured() pulumi.BoolOutput {
+	return o.ApplyT(func(v LaunchTemplateHibernationOptions) bool { return v.Configured }).(pulumi.BoolOutput)
+}
+
+type LaunchTemplateHibernationOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateHibernationOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateHibernationOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateHibernationOptionsPtrOutput) ToLaunchTemplateHibernationOptionsPtrOutput() LaunchTemplateHibernationOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateHibernationOptionsPtrOutput) ToLaunchTemplateHibernationOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateHibernationOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateHibernationOptionsPtrOutput) Elem() LaunchTemplateHibernationOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateHibernationOptions) LaunchTemplateHibernationOptions { return *v }).(LaunchTemplateHibernationOptionsOutput)
+}
+
+// If set to `true`, the launched EC2 instance will hibernation enabled.
+func (o LaunchTemplateHibernationOptionsPtrOutput) Configured() pulumi.BoolOutput {
+	return o.ApplyT(func(v LaunchTemplateHibernationOptions) bool { return v.Configured }).(pulumi.BoolOutput)
+}
+
 type LaunchTemplateIamInstanceProfile struct {
 	// The Amazon Resource Name (ARN) of the instance profile.
 	Arn *string `pulumi:"arn"`
@@ -11858,6 +11972,92 @@ func (o GetLaunchTemplateFilterArrayOutput) Index(i pulumi.IntInput) GetLaunchTe
 	}).(GetLaunchTemplateFilterOutput)
 }
 
+type GetLaunchTemplateHibernationOption struct {
+	Configured bool `pulumi:"configured"`
+}
+
+type GetLaunchTemplateHibernationOptionInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateHibernationOptionOutput() GetLaunchTemplateHibernationOptionOutput
+	ToGetLaunchTemplateHibernationOptionOutputWithContext(context.Context) GetLaunchTemplateHibernationOptionOutput
+}
+
+type GetLaunchTemplateHibernationOptionArgs struct {
+	Configured pulumi.BoolInput `pulumi:"configured"`
+}
+
+func (GetLaunchTemplateHibernationOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateHibernationOption)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateHibernationOptionArgs) ToGetLaunchTemplateHibernationOptionOutput() GetLaunchTemplateHibernationOptionOutput {
+	return i.ToGetLaunchTemplateHibernationOptionOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateHibernationOptionArgs) ToGetLaunchTemplateHibernationOptionOutputWithContext(ctx context.Context) GetLaunchTemplateHibernationOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateHibernationOptionOutput)
+}
+
+type GetLaunchTemplateHibernationOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateHibernationOptionArrayOutput() GetLaunchTemplateHibernationOptionArrayOutput
+	ToGetLaunchTemplateHibernationOptionArrayOutputWithContext(context.Context) GetLaunchTemplateHibernationOptionArrayOutput
+}
+
+type GetLaunchTemplateHibernationOptionArray []GetLaunchTemplateHibernationOptionInput
+
+func (GetLaunchTemplateHibernationOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateHibernationOption)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateHibernationOptionArray) ToGetLaunchTemplateHibernationOptionArrayOutput() GetLaunchTemplateHibernationOptionArrayOutput {
+	return i.ToGetLaunchTemplateHibernationOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateHibernationOptionArray) ToGetLaunchTemplateHibernationOptionArrayOutputWithContext(ctx context.Context) GetLaunchTemplateHibernationOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateHibernationOptionArrayOutput)
+}
+
+type GetLaunchTemplateHibernationOptionOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateHibernationOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateHibernationOption)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateHibernationOptionOutput) ToGetLaunchTemplateHibernationOptionOutput() GetLaunchTemplateHibernationOptionOutput {
+	return o
+}
+
+func (o GetLaunchTemplateHibernationOptionOutput) ToGetLaunchTemplateHibernationOptionOutputWithContext(ctx context.Context) GetLaunchTemplateHibernationOptionOutput {
+	return o
+}
+
+func (o GetLaunchTemplateHibernationOptionOutput) Configured() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLaunchTemplateHibernationOption) bool { return v.Configured }).(pulumi.BoolOutput)
+}
+
+type GetLaunchTemplateHibernationOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateHibernationOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateHibernationOption)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateHibernationOptionArrayOutput) ToGetLaunchTemplateHibernationOptionArrayOutput() GetLaunchTemplateHibernationOptionArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateHibernationOptionArrayOutput) ToGetLaunchTemplateHibernationOptionArrayOutputWithContext(ctx context.Context) GetLaunchTemplateHibernationOptionArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateHibernationOptionArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateHibernationOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateHibernationOption {
+		return vs[0].([]GetLaunchTemplateHibernationOption)[vs[1].(int)]
+	}).(GetLaunchTemplateHibernationOptionOutput)
+}
+
 type GetLaunchTemplateIamInstanceProfile struct {
 	// Amazon Resource Name (ARN) of the launch template.
 	Arn string `pulumi:"arn"`
@@ -15245,6 +15445,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateElasticGpuSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateElasticInferenceAcceleratorOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateElasticInferenceAcceleratorPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateHibernationOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateHibernationOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateIamInstanceProfileOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateIamInstanceProfilePtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateInstanceMarketOptionsOutput{})
@@ -15357,6 +15559,8 @@ func init() {
 	pulumi.RegisterOutputType(GetLaunchTemplateElasticGpuSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateFilterOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateHibernationOptionOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateHibernationOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateIamInstanceProfileOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateIamInstanceProfileArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateInstanceMarketOptionOutput{})

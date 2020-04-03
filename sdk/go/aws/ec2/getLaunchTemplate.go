@@ -49,6 +49,8 @@ type LookupLaunchTemplateResult struct {
 	// below for more details.
 	ElasticGpuSpecifications []GetLaunchTemplateElasticGpuSpecification `pulumi:"elasticGpuSpecifications"`
 	Filters                  []GetLaunchTemplateFilter                  `pulumi:"filters"`
+	// The hibernation options for the instance.
+	HibernationOptions []GetLaunchTemplateHibernationOption `pulumi:"hibernationOptions"`
 	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
 	IamInstanceProfiles []GetLaunchTemplateIamInstanceProfile `pulumi:"iamInstanceProfiles"`

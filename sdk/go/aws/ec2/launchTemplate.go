@@ -39,6 +39,8 @@ type LaunchTemplate struct {
 	ElasticGpuSpecifications LaunchTemplateElasticGpuSpecificationArrayOutput `pulumi:"elasticGpuSpecifications"`
 	// Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
 	ElasticInferenceAccelerator LaunchTemplateElasticInferenceAcceleratorPtrOutput `pulumi:"elasticInferenceAccelerator"`
+	// The hibernation options for the instance. See Hibernation Options below for more details.
+	HibernationOptions LaunchTemplateHibernationOptionsPtrOutput `pulumi:"hibernationOptions"`
 	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
 	IamInstanceProfile LaunchTemplateIamInstanceProfilePtrOutput `pulumi:"iamInstanceProfile"`
@@ -142,6 +144,8 @@ type launchTemplateState struct {
 	ElasticGpuSpecifications []LaunchTemplateElasticGpuSpecification `pulumi:"elasticGpuSpecifications"`
 	// Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
 	ElasticInferenceAccelerator *LaunchTemplateElasticInferenceAccelerator `pulumi:"elasticInferenceAccelerator"`
+	// The hibernation options for the instance. See Hibernation Options below for more details.
+	HibernationOptions *LaunchTemplateHibernationOptions `pulumi:"hibernationOptions"`
 	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
 	IamInstanceProfile *LaunchTemplateIamInstanceProfile `pulumi:"iamInstanceProfile"`
@@ -218,6 +222,8 @@ type LaunchTemplateState struct {
 	ElasticGpuSpecifications LaunchTemplateElasticGpuSpecificationArrayInput
 	// Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
 	ElasticInferenceAccelerator LaunchTemplateElasticInferenceAcceleratorPtrInput
+	// The hibernation options for the instance. See Hibernation Options below for more details.
+	HibernationOptions LaunchTemplateHibernationOptionsPtrInput
 	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
 	IamInstanceProfile LaunchTemplateIamInstanceProfilePtrInput
@@ -294,6 +300,8 @@ type launchTemplateArgs struct {
 	ElasticGpuSpecifications []LaunchTemplateElasticGpuSpecification `pulumi:"elasticGpuSpecifications"`
 	// Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
 	ElasticInferenceAccelerator *LaunchTemplateElasticInferenceAccelerator `pulumi:"elasticInferenceAccelerator"`
+	// The hibernation options for the instance. See Hibernation Options below for more details.
+	HibernationOptions *LaunchTemplateHibernationOptions `pulumi:"hibernationOptions"`
 	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
 	IamInstanceProfile *LaunchTemplateIamInstanceProfile `pulumi:"iamInstanceProfile"`
@@ -365,6 +373,8 @@ type LaunchTemplateArgs struct {
 	ElasticGpuSpecifications LaunchTemplateElasticGpuSpecificationArrayInput
 	// Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
 	ElasticInferenceAccelerator LaunchTemplateElasticInferenceAcceleratorPtrInput
+	// The hibernation options for the instance. See Hibernation Options below for more details.
+	HibernationOptions LaunchTemplateHibernationOptionsPtrInput
 	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
 	IamInstanceProfile LaunchTemplateIamInstanceProfilePtrInput

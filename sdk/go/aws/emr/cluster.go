@@ -131,7 +131,7 @@ type Cluster struct {
 	Arn          pulumi.StringOutput      `pulumi:"arn"`
 	// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole pulumi.StringPtrOutput `pulumi:"autoscalingRole"`
-	// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
+	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
 	BootstrapActions ClusterBootstrapActionArrayOutput `pulumi:"bootstrapActions"`
 	ClusterState     pulumi.StringOutput               `pulumi:"clusterState"`
 	// List of configurations supplied for the EMR cluster you are creating
@@ -228,7 +228,7 @@ type clusterState struct {
 	Arn          *string  `pulumi:"arn"`
 	// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole *string `pulumi:"autoscalingRole"`
-	// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
+	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
 	BootstrapActions []ClusterBootstrapAction `pulumi:"bootstrapActions"`
 	ClusterState     *string                  `pulumi:"clusterState"`
 	// List of configurations supplied for the EMR cluster you are creating
@@ -292,7 +292,7 @@ type ClusterState struct {
 	Arn          pulumi.StringPtrInput
 	// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole pulumi.StringPtrInput
-	// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
+	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
 	BootstrapActions ClusterBootstrapActionArrayInput
 	ClusterState     pulumi.StringPtrInput
 	// List of configurations supplied for the EMR cluster you are creating
@@ -359,7 +359,7 @@ type clusterArgs struct {
 	Applications []string `pulumi:"applications"`
 	// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole *string `pulumi:"autoscalingRole"`
-	// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
+	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
 	BootstrapActions []ClusterBootstrapAction `pulumi:"bootstrapActions"`
 	// List of configurations supplied for the EMR cluster you are creating
 	Configurations *string `pulumi:"configurations"`
@@ -419,7 +419,7 @@ type ClusterArgs struct {
 	Applications pulumi.StringArrayInput
 	// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole pulumi.StringPtrInput
-	// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
+	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
 	BootstrapActions ClusterBootstrapActionArrayInput
 	// List of configurations supplied for the EMR cluster you are creating
 	Configurations pulumi.StringPtrInput

@@ -89,6 +89,12 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.LaunchTemplateElasticInferenceAccelerator?> ElasticInferenceAccelerator { get; private set; } = null!;
 
         /// <summary>
+        /// The hibernation options for the instance. See Hibernation Options below for more details.
+        /// </summary>
+        [Output("hibernationOptions")]
+        public Output<Outputs.LaunchTemplateHibernationOptions?> HibernationOptions { get; private set; } = null!;
+
+        /// <summary>
         /// The IAM Instance Profile to launch the instance with. See Instance Profile
         /// below for more details.
         /// </summary>
@@ -334,6 +340,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("elasticInferenceAccelerator")]
         public Input<Inputs.LaunchTemplateElasticInferenceAcceleratorArgs>? ElasticInferenceAccelerator { get; set; }
+
+        /// <summary>
+        /// The hibernation options for the instance. See Hibernation Options below for more details.
+        /// </summary>
+        [Input("hibernationOptions")]
+        public Input<Inputs.LaunchTemplateHibernationOptionsArgs>? HibernationOptions { get; set; }
 
         /// <summary>
         /// The IAM Instance Profile to launch the instance with. See Instance Profile
@@ -584,6 +596,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("elasticInferenceAccelerator")]
         public Input<Inputs.LaunchTemplateElasticInferenceAcceleratorGetArgs>? ElasticInferenceAccelerator { get; set; }
+
+        /// <summary>
+        /// The hibernation options for the instance. See Hibernation Options below for more details.
+        /// </summary>
+        [Input("hibernationOptions")]
+        public Input<Inputs.LaunchTemplateHibernationOptionsGetArgs>? HibernationOptions { get; set; }
 
         /// <summary>
         /// The IAM Instance Profile to launch the instance with. See Instance Profile
@@ -1110,6 +1128,32 @@ namespace Pulumi.Aws.Ec2
         public Input<string> Type { get; set; } = null!;
 
         public LaunchTemplateElasticInferenceAcceleratorGetArgs()
+        {
+        }
+    }
+
+    public sealed class LaunchTemplateHibernationOptionsArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// If set to `true`, the launched EC2 instance will hibernation enabled.
+        /// </summary>
+        [Input("configured", required: true)]
+        public Input<bool> Configured { get; set; } = null!;
+
+        public LaunchTemplateHibernationOptionsArgs()
+        {
+        }
+    }
+
+    public sealed class LaunchTemplateHibernationOptionsGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// If set to `true`, the launched EC2 instance will hibernation enabled.
+        /// </summary>
+        [Input("configured", required: true)]
+        public Input<bool> Configured { get; set; } = null!;
+
+        public LaunchTemplateHibernationOptionsGetArgs()
         {
         }
     }
@@ -1896,6 +1940,21 @@ namespace Pulumi.Aws.Ec2
         private LaunchTemplateElasticInferenceAccelerator(string type)
         {
             Type = type;
+        }
+    }
+
+    [OutputType]
+    public sealed class LaunchTemplateHibernationOptions
+    {
+        /// <summary>
+        /// If set to `true`, the launched EC2 instance will hibernation enabled.
+        /// </summary>
+        public readonly bool Configured;
+
+        [OutputConstructor]
+        private LaunchTemplateHibernationOptions(bool configured)
+        {
+            Configured = configured;
         }
     }
 

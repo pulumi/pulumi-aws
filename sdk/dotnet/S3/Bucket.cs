@@ -702,7 +702,7 @@ namespace Pulumi.Aws.S3
         private InputList<string>? _permissions;
 
         /// <summary>
-        /// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+        /// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
         /// </summary>
         public InputList<string> Permissions
         {
@@ -739,7 +739,7 @@ namespace Pulumi.Aws.S3
         private InputList<string>? _permissions;
 
         /// <summary>
-        /// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+        /// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
         /// </summary>
         public InputList<string> Permissions
         {
@@ -1838,7 +1838,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+        /// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
         /// </summary>
         public readonly ImmutableArray<string> Permissions;
         /// <summary>
