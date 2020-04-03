@@ -32,7 +32,7 @@ class PrincipalAssociation(pulumi.CustomResource):
         - Organization and Organizational Unit principals cannot be used.
         - For AWS Account ID principals, a resource share invitation is sent and must be accepted before resources become available. See the [`ram.ResourceShareAccepter` resource](https://www.terraform.io/docs/providers/aws/r/ram_resource_share_accepter.html) to accept these invitations.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ram_principal_association.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

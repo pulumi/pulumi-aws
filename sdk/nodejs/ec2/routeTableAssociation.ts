@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to create an association between a route table and a subnet or a route table and an
  * internet gateway or virtual private gateway.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route_table_association.html.markdown.
  */

@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// Note that currently only one policy may be applied to a repository.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_repository_policy.html.markdown.
     /// </summary>
     public partial class RepositoryPolicy : Pulumi.CustomResource

@@ -14,6 +14,8 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// &gt; **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_account.markdown.
     /// </summary>
     public partial class Account : Pulumi.CustomResource

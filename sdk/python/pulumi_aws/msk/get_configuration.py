@@ -71,7 +71,7 @@ def get_configuration(name=None,opts=None):
     """
     Get information on an Amazon MSK Configuration.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_configuration.html.markdown.
+
 
 
     :param str name: Name of the configuration.

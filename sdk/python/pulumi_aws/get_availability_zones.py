@@ -77,7 +77,7 @@ def get_availability_zones(all_availability_zones=None,blacklisted_names=None,bl
 
     > When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
+
 
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.

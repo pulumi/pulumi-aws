@@ -74,6 +74,7 @@ class Policy(pulumi.CustomResource):
         """
         Provides an Application AutoScaling Policy resource.
 
+
         ## Nested fields
 
         ### `target_tracking_scaling_policy_configuration`
@@ -97,8 +98,6 @@ class Policy(pulumi.CustomResource):
 
         * `predefined_metric_type` - (Required) The metric type.
         * `resource_label` - (Optional) Reserved for future use.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appautoscaling_policy.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

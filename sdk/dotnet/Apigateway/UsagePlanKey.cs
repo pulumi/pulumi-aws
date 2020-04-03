@@ -12,6 +12,8 @@ namespace Pulumi.Aws.ApiGateway
     /// <summary>
     /// Provides an API Gateway Usage Plan Key.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_usage_plan_key.html.markdown.
     /// </summary>
     public partial class UsagePlanKey : Pulumi.CustomResource

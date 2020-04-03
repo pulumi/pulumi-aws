@@ -12,6 +12,8 @@ namespace Pulumi.Aws.SecurityHub
     /// <summary>
     /// Subscribes to a Security Hub standard.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_standards_subscription.markdown.
     /// </summary>
     public partial class StandardsSubscription : Pulumi.CustomResource

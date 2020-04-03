@@ -22,6 +22,8 @@ namespace Pulumi.Aws.Ec2
     /// Copying an AMI can take several minutes. The creation of this resource will
     /// block until the new AMI is available for use on new instances.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_copy.html.markdown.
     /// </summary>
     public partial class AmiCopy : Pulumi.CustomResource

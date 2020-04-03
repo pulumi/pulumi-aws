@@ -14,6 +14,8 @@ namespace Pulumi.Aws.CodeCommit
         /// <summary>
         /// The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/codecommit_repository.html.markdown.
         /// </summary>
         [Obsolete("Use GetRepository.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.CodeCommit
     {
         /// <summary>
         /// The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/codecommit_repository.html.markdown.
         /// </summary>

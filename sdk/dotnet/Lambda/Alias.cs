@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Lambda
     /// For information about Lambda and how to use it, see [What is AWS Lambda?][1]
     /// For information about function aliases, see [CreateAlias][2] and [AliasRoutingConfiguration][3] in the API docs.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_alias.html.markdown.
     /// </summary>
     public partial class Alias : Pulumi.CustomResource

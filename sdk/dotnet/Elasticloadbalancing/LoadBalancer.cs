@@ -21,6 +21,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// instances in conjunction with a ELB Attachment resources. Doing so will cause a
     /// conflict and will overwrite attachments.
     /// 
+    /// 
     /// ## Note on ECDSA Key Algorithm
     /// 
     /// If the ARN of the `ssl_certificate_id` that is pointed to references a

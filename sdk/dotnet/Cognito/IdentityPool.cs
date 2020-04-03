@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Cognito
     /// <summary>
     /// Provides an AWS Cognito Identity Pool.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_pool.markdown.
     /// </summary>
     public partial class IdentityPool : Pulumi.CustomResource

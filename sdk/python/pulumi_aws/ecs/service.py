@@ -133,6 +133,7 @@ class Service(pulumi.CustomResource):
 
         See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
 
+
         ## capacity_provider_strategy
 
         The `capacity_provider_strategy` configuration block supports the following:
@@ -199,8 +200,6 @@ class Service(pulumi.CustomResource):
         * `port` - (Optional) The port value used if your Service Discovery service specified an SRV record.
         * `container_port` - (Optional) The port value, already specified in the task definition, to be used for your service discovery service.
         * `container_name` - (Optional) The container name value, already specified in the task definition, to be used for your service discovery service.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_service.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

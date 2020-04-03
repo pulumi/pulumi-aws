@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Lambda
     /// For information about Lambda and how to use it, see [What is AWS Lambda?][1].
     /// For information about event source mappings, see [CreateEventSourceMapping][2] in the API docs.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_event_source_mapping.html.markdown.
     /// </summary>
     public partial class EventSourceMapping : Pulumi.CustomResource

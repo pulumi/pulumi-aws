@@ -72,12 +72,11 @@ def get_server_certificate(latest=None,name=None,name_prefix=None,path_prefix=No
     """
     Use this data source to lookup information about IAM Server Certificates.
 
+
     ## Import 
 
     The import function will read in certificate body, certificate chain (if it exists), id, name, path, and arn. 
     It will not retrieve the private key which is not available through the AWS API.   
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_server_certificate.html.markdown.
 
 
     :param bool latest: sort results by expiration date. returns the certificate with expiration date in furthest in the future.

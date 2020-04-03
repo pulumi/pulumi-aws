@@ -82,13 +82,12 @@ class Certificate(pulumi.CustomResource):
         It's recommended to specify `create_before_destroy = true` in a [lifecycle][1] block to replace a certificate
         which is currently in use (eg, by `lb.Listener`).
 
+
         ## options Configuration Block
 
         Supported nested arguments for the `options` configuration block:
 
         * `certificate_transparency_logging_preference` - (Optional) Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -20,6 +20,8 @@ namespace Pulumi.Aws.Ec2
         /// instances (e.g. managed via autoscaling group), as the output may change at any time
         /// and you'd need to re-run `apply` every time an instance comes up or dies.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instances.html.markdown.
         /// </summary>
         [Obsolete("Use GetInstances.InvokeAsync() instead")]
@@ -36,6 +38,8 @@ namespace Pulumi.Aws.Ec2
         /// &gt; **Note:** It's strongly discouraged to use this data source for querying ephemeral
         /// instances (e.g. managed via autoscaling group), as the output may change at any time
         /// and you'd need to re-run `apply` every time an instance comes up or dies.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instances.html.markdown.
         /// </summary>

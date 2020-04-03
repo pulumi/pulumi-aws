@@ -163,6 +163,7 @@ class Instance(pulumi.CustomResource):
         """
         Provides an OpsWorks instance resource.
 
+
         ## Block devices
 
         Each of the `*_block_device` attributes controls a portion of the AWS
@@ -216,8 +217,6 @@ class Instance(pulumi.CustomResource):
         resources cannot be automatically detected by this provider. After making updates
         to block device configuration, resource recreation can be manually triggered by
         using the [`up` command with the --replace argument](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_instance.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

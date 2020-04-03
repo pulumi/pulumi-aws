@@ -97,7 +97,7 @@ def get_availability_zone(all_availability_zones=None,filters=None,name=None,sta
     This is different from the `.getAvailabilityZones` (plural) data source,
     which provides a list of the available zones.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zone.html.markdown.
+
 
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.

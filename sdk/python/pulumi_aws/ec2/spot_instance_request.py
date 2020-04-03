@@ -301,7 +301,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
         documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
         for more information.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_instance_request.html.markdown.
+
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

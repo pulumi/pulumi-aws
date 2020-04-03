@@ -120,7 +120,7 @@ def get_cluster(name=None,tags=None,opts=None):
     """
     Retrieve information about an EKS Cluster.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eks_cluster.html.markdown.
+
 
 
     :param str name: The name of the cluster

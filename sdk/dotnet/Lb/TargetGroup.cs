@@ -14,6 +14,8 @@ namespace Pulumi.Aws.LB
     /// 
     /// &gt; **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group.html.markdown.
     /// </summary>
     public partial class TargetGroup : Pulumi.CustomResource

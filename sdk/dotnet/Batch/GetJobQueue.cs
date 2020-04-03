@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Batch
         /// The Batch Job Queue data source allows access to details of a specific
         /// job queue within AWS Batch.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_job_queue.html.markdown.
         /// </summary>
         [Obsolete("Use GetJobQueue.InvokeAsync() instead")]
@@ -26,6 +28,8 @@ namespace Pulumi.Aws.Batch
         /// <summary>
         /// The Batch Job Queue data source allows access to details of a specific
         /// job queue within AWS Batch.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_job_queue.html.markdown.
         /// </summary>

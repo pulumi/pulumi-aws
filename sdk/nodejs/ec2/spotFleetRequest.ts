@@ -12,6 +12,8 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,35 +50,6 @@ import * as utilities from "../utilities";
  *     ],
  *     spotPrice: "0.03",
  *     targetCapacity: 6,
- *     validUntil: "2019-11-04T20:44:20Z",
- * });
- * ```
- * 
- * > **NOTE:** This provider does not support the functionality where multiple `subnetId` or `availabilityZone` parameters can be specified in the same
- * launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const foo = new aws.ec2.SpotFleetRequest("foo", {
- *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
- *     launchSpecifications: [
- *         {
- *             ami: "ami-d06a90b0",
- *             availabilityZone: "us-west-2a",
- *             instanceType: "m1.small",
- *             keyName: "my-key",
- *         },
- *         {
- *             ami: "ami-d06a90b0",
- *             availabilityZone: "us-west-2a",
- *             instanceType: "m5.large",
- *             keyName: "my-key",
- *         },
- *     ],
- *     spotPrice: "0.005",
- *     targetCapacity: 2,
  *     validUntil: "2019-11-04T20:44:20Z",
  * });
  * ```

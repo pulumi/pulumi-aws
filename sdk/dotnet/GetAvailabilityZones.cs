@@ -21,6 +21,8 @@ namespace Pulumi.Aws
         /// 
         /// &gt; When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
         /// </summary>
         [Obsolete("Use GetAvailabilityZones.InvokeAsync() instead")]
@@ -38,6 +40,8 @@ namespace Pulumi.Aws
         /// which provides some details about a specific availability zone.
         /// 
         /// &gt; When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
         /// </summary>

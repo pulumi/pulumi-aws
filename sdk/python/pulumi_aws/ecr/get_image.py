@@ -69,7 +69,7 @@ def get_image(image_digest=None,image_tag=None,registry_id=None,repository_name=
     """
     The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_image.html.markdown.
+
 
 
     :param str image_digest: The sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.

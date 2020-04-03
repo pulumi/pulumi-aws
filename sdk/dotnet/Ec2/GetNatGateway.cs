@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Provides details about a specific Nat Gateway.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/nat_gateway.html.markdown.
         /// </summary>
         [Obsolete("Use GetNatGateway.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Provides details about a specific Nat Gateway.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/nat_gateway.html.markdown.
         /// </summary>

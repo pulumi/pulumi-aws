@@ -14,6 +14,8 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// &gt; **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_rest_api.html.markdown.
     /// </summary>
     public partial class RestApi : Pulumi.CustomResource

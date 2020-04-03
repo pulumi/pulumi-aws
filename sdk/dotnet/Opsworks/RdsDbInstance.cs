@@ -15,6 +15,8 @@ namespace Pulumi.Aws.OpsWorks
     /// &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
     /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_rds_db_instance.html.markdown.
     /// </summary>
     public partial class RdsDbInstance : Pulumi.CustomResource

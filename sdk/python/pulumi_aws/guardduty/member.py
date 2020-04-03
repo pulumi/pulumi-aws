@@ -42,7 +42,7 @@ class Member(pulumi.CustomResource):
         """
         Provides a resource to manage a GuardDuty member. To accept invitations in member accounts, see the [`guardduty.InviteAccepter` resource](https://www.terraform.io/docs/providers/aws/r/guardduty_invite_accepter.html).
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/guardduty_member.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -11,12 +11,22 @@ namespace Pulumi.Aws.Ec2
 {
     public static partial class Invokes
     {
+        /// <summary>
+        /// 
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_interfaces.html.markdown.
+        /// </summary>
         [Obsolete("Use GetNetworkInterfaces.InvokeAsync() instead")]
         public static Task<GetNetworkInterfacesResult> GetNetworkInterfaces(GetNetworkInterfacesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfacesResult>("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", args ?? InvokeArgs.Empty, options.WithVersion());
     }
     public static class GetNetworkInterfaces
     {
+        /// <summary>
+        /// 
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_interfaces.html.markdown.
+        /// </summary>
         public static Task<GetNetworkInterfacesResult> InvokeAsync(GetNetworkInterfacesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfacesResult>("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", args ?? InvokeArgs.Empty, options.WithVersion());
     }

@@ -30,7 +30,7 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
         """
         Provides a lifecycle configuration for SageMaker Notebook Instances.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_notebook_instance_lifecycle_configuration.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

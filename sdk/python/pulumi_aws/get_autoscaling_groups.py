@@ -51,7 +51,7 @@ def get_autoscaling_groups(filters=None,opts=None):
     The Autoscaling Groups data source allows access to the list of AWS
     ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_groups.html.markdown.
+
 
 
     :param list filters: A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).

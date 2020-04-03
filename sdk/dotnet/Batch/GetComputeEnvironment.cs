@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Batch
         /// The Batch Compute Environment data source allows access to details of a specific
         /// compute environment within AWS Batch.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_compute_environment.html.markdown.
         /// </summary>
         [Obsolete("Use GetComputeEnvironment.InvokeAsync() instead")]
@@ -26,6 +28,8 @@ namespace Pulumi.Aws.Batch
         /// <summary>
         /// The Batch Compute Environment data source allows access to details of a specific
         /// compute environment within AWS Batch.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_compute_environment.html.markdown.
         /// </summary>

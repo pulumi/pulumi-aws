@@ -52,7 +52,7 @@ class Deployment(pulumi.CustomResource):
         > **Note:** Depends on having `apigateway.Integration` inside your rest api (which in turn depends on `apigateway.Method`). To avoid race conditions
         you might need to add an explicit `depends_on = ["${aws_api_gateway_integration.name}"]`.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_deployment.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

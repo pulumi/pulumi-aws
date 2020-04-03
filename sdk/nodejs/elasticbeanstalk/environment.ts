@@ -19,6 +19,8 @@ import {ApplicationVersion} from "./applicationVersion";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";

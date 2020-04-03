@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** The AWS API does not currently support deleting ECS cluster capacity providers. Removing this resource will only remove the state for it.
  * 
+ * 
  * ## autoScalingGroupProvider
  * 
  * The `autoScalingGroupProvider` block supports the following:

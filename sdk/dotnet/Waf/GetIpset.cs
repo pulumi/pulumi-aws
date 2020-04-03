@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Waf
         /// <summary>
         /// `aws.waf.IpSet` Retrieves a WAF IP Set Resource Id.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_ipset.html.markdown.
         /// </summary>
         [Obsolete("Use GetIpset.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.Waf
     {
         /// <summary>
         /// `aws.waf.IpSet` Retrieves a WAF IP Set Resource Id.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_ipset.html.markdown.
         /// </summary>

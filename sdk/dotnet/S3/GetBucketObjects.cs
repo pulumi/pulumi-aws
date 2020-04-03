@@ -16,6 +16,8 @@ namespace Pulumi.Aws.S3
         /// 
         /// The bucket-objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_objects.html.markdown.
         /// </summary>
         [Obsolete("Use GetBucketObjects.InvokeAsync() instead")]
@@ -28,6 +30,8 @@ namespace Pulumi.Aws.S3
         /// &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
         /// 
         /// The bucket-objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_objects.html.markdown.
         /// </summary>

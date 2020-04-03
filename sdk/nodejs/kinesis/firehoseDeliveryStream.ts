@@ -191,7 +191,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * 
  * ### Splunk Destination
  * 
  * ```typescript

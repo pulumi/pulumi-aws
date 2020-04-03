@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Ecs
         /// The ECS container definition data source allows access to details of
         /// a specific container within an AWS ECS service.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_container_definition.html.markdown.
         /// </summary>
         [Obsolete("Use GetContainerDefinition.InvokeAsync() instead")]
@@ -26,6 +28,8 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// The ECS container definition data source allows access to details of
         /// a specific container within an AWS ECS service.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_container_definition.html.markdown.
         /// </summary>

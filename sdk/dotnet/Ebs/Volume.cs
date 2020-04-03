@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Ebs
     /// <summary>
     /// Manages a single EBS volume.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_volume.html.markdown.
     /// </summary>
     public partial class Volume : Pulumi.CustomResource

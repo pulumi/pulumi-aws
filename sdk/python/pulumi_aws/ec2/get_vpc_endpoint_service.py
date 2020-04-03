@@ -115,7 +115,7 @@ def get_vpc_endpoint_service(filters=None,service=None,service_name=None,tags=No
     The VPC Endpoint Service data source details about a specific service that
     can be specified when creating a VPC endpoint within the region configured in the provider.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint_service.html.markdown.
+
 
 
     :param list filters: Configuration block(s) for filtering. Detailed below.

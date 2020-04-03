@@ -15,6 +15,8 @@ namespace Pulumi.Aws
         /// The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
         /// for the effective account in which this provider is working.  
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/canonical_user_id.html.markdown.
         /// </summary>
         [Obsolete("Use GetCanonicalUserId.InvokeAsync() instead")]
@@ -26,6 +28,8 @@ namespace Pulumi.Aws
         /// <summary>
         /// The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
         /// for the effective account in which this provider is working.  
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/canonical_user_id.html.markdown.
         /// </summary>

@@ -23,11 +23,7 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
- * The following provides a very basic example of setting up an instance (provided
- * by `instance`) in the default security group, creating a security group
- * (provided by `sg`) and then attaching the security group to the instance's
- * primary network interface via the `aws.ec2.NetworkInterfaceSecurityGroupAttachment` resource,
- * named `sgAttachment`:
+ * 
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -55,28 +51,6 @@ import * as utilities from "../utilities";
  * });
  * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", {
  *     networkInterfaceId: instance.primaryNetworkInterfaceId,
- *     securityGroupId: sg.id,
- * });
- * ```
- * 
- * In this example, `instance` is provided by the `aws.ec2.Instance` data source,
- * fetching an external instance, possibly not managed by this provider.
- * `sgAttachment` then attaches to the output instance's `networkInterfaceId`:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const instance = aws.ec2.getInstance({
- *     instanceId: "i-1234567890abcdef0",
- * });
- * const sg = new aws.ec2.SecurityGroup("sg", {
- *     tags: {
- *         type: "test-security-group",
- *     },
- * });
- * const sgAttachment = new aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", {
- *     networkInterfaceId: instance.networkInterfaceId,
  *     securityGroupId: sg.id,
  * });
  * ```

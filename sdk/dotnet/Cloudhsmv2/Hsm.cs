@@ -12,6 +12,8 @@ namespace Pulumi.Aws.CloudHsmV2
     /// <summary>
     /// Creates an HSM module in Amazon CloudHSM v2 cluster.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudhsm_v2_hsm.html.markdown.
     /// </summary>
     public partial class Hsm : Pulumi.CustomResource

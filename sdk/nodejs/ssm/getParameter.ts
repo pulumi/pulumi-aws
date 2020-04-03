@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,9 +21,6 @@ import * as utilities from "../utilities";
  *     name: "foo",
  * });
  * ```
- * 
- * 
- * > **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_parameter.html.markdown.
  */

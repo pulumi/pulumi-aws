@@ -44,6 +44,7 @@ class LicenseConfiguration(pulumi.CustomResource):
 
         > **Note:** Removing the `license_count` attribute is not supported by the License Manager API - recreate the resource instead.
 
+
         ## Rules
 
         License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
@@ -55,8 +56,6 @@ class LicenseConfiguration(pulumi.CustomResource):
         * `minimumSockets` - Resource must have minimum socket count in order to use the license. Default: 1
         * `maximumSockets` - Resource must have maximum socket count in order to use the license. Default: unbounded, limit: 10000
         * `allowedTenancy` - Defines where the license can be used. If set, restricts license usage to selected tenancies. Specify a comma delimited list of `EC2-Default`, `EC2-DedicatedHost`, `EC2-DedicatedInstance`
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/licensemanager_license_configuration.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

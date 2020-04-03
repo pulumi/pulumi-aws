@@ -14,6 +14,8 @@ namespace Pulumi.Aws
         /// <summary>
         /// Use this data source to lookup current AWS partition in which this provider is working
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/partition.html.markdown.
         /// </summary>
         [Obsolete("Use GetPartition.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws
     {
         /// <summary>
         /// Use this data source to lookup current AWS partition in which this provider is working
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/partition.html.markdown.
         /// </summary>

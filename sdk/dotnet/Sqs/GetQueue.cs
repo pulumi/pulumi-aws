@@ -16,6 +16,8 @@ namespace Pulumi.Aws.Sqs
         /// By using this data source, you can reference SQS queues without having to hardcode
         /// the ARNs as input.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sqs_queue.html.markdown.
         /// </summary>
         [Obsolete("Use GetQueue.InvokeAsync() instead")]
@@ -28,6 +30,8 @@ namespace Pulumi.Aws.Sqs
         /// Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
         /// By using this data source, you can reference SQS queues without having to hardcode
         /// the ARNs as input.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sqs_queue.html.markdown.
         /// </summary>

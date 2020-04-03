@@ -19,6 +19,8 @@ namespace Pulumi.Aws.Ec2
     /// Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
     /// Doing so will cause a conflict of associations and will overwrite the association.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint.html.markdown.
     /// </summary>
     public partial class VpcEndpoint : Pulumi.CustomResource

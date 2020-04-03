@@ -19,6 +19,8 @@ namespace Pulumi.Aws.Iam
     /// &gt; **Note:** `aws.iam.GroupMembership` will conflict with itself if used more than once with the same group. To non-exclusively manage the users in a group, see the
     /// [`aws.iam.UserGroupMembership` resource][3].
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_membership.html.markdown.
     /// </summary>
     public partial class GroupMembership : Pulumi.CustomResource

@@ -49,7 +49,8 @@ class AwaitableGetNetworkAclsResult(GetNetworkAclsResult):
 
 def get_network_acls(filters=None,tags=None,vpc_id=None,opts=None):
     """
-    Use this data source to access information about an existing resource.
+
+
 
     :param list filters: Custom filter block as described below.
     :param dict tags: A mapping of tags, each pair of which must exactly match

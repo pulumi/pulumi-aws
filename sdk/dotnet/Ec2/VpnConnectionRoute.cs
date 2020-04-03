@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a static route between a VPN connection and a customer gateway.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_connection_route.html.markdown.
     /// </summary>
     public partial class VpnConnectionRoute : Pulumi.CustomResource

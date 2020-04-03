@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Ecr
         /// <summary>
         /// The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_repository.html.markdown.
         /// </summary>
         [Obsolete("Use GetRepository.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.Ecr
     {
         /// <summary>
         /// The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_repository.html.markdown.
         /// </summary>

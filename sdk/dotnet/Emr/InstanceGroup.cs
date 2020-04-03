@@ -17,6 +17,8 @@ namespace Pulumi.Aws.Emr
     /// web interface. Instance Groups are destroyed when the EMR Cluster is destroyed.
     /// this provider will resize any Instance Group to zero when destroying the resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/emr_instance_group.html.markdown.
     /// </summary>
     public partial class InstanceGroup : Pulumi.CustomResource

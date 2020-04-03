@@ -68,7 +68,7 @@ def get_alias(function_name=None,name=None,opts=None):
     """
     Provides information about a Lambda Alias.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_alias.html.markdown.
+
 
 
     :param str function_name: Name of the aliased Lambda function.

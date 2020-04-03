@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
- * To create a basic traffic mirror filter
+ * 
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

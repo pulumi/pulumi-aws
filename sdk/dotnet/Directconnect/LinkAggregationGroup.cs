@@ -14,6 +14,8 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// &gt; *NOTE:* When creating a LAG, Direct Connect requires creating a Connection. This provider will remove this unmanaged connection during resource creation.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_lag.html.markdown.
     /// </summary>
     public partial class LinkAggregationGroup : Pulumi.CustomResource

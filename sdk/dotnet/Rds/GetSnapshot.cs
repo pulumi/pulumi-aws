@@ -17,6 +17,8 @@ namespace Pulumi.Aws.Rds
         /// &gt; **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
         /// See the [`aws.rds.ClusterSnapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_cluster_snapshot.html) for DB Cluster snapshots.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_snapshot.html.markdown.
         /// </summary>
         [Obsolete("Use GetSnapshot.InvokeAsync() instead")]
@@ -30,6 +32,8 @@ namespace Pulumi.Aws.Rds
         /// 
         /// &gt; **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
         /// See the [`aws.rds.ClusterSnapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_cluster_snapshot.html) for DB Cluster snapshots.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_snapshot.html.markdown.
         /// </summary>

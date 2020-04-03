@@ -69,7 +69,7 @@ def get_user(user_name=None,opts=None):
     IAM user. By using this data source, you can reference IAM user
     properties without having to hard code ARNs or unique IDs as input.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_user.html.markdown.
+
 
 
     :param str user_name: The friendly IAM user name to match.

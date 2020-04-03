@@ -14,6 +14,8 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// Provides details about a specific redshift cluster.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/redshift_cluster.html.markdown.
         /// </summary>
         [Obsolete("Use GetCluster.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.RedShift
     {
         /// <summary>
         /// Provides details about a specific redshift cluster.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/redshift_cluster.html.markdown.
         /// </summary>

@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on an EC2 Transit Gateway VPC Attachment.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpc_attachment.html.markdown.
         /// </summary>
         [Obsolete("Use GetVpcAttachment.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         /// <summary>
         /// Get information on an EC2 Transit Gateway VPC Attachment.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpc_attachment.html.markdown.
         /// </summary>

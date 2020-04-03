@@ -54,7 +54,7 @@ def get_cipher_text(context=None,key_id=None,plaintext=None,opts=None):
     changes every apply. For a stable ciphertext value, see the [`kms.Ciphertext`
     resource](https://www.terraform.io/docs/providers/aws/r/kms_ciphertext.html).
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_ciphertext.html.markdown.
+
 
 
     :param dict context: An optional mapping that makes up the encryption context.

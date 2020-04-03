@@ -12,6 +12,7 @@ namespace Pulumi.Aws.Ecs
     /// <summary>
     /// Provides an ECS cluster.
     /// 
+    /// 
     /// ## setting
     /// 
     /// The `setting` configuration block supports the following:

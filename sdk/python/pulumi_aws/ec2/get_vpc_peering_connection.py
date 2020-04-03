@@ -90,7 +90,7 @@ def get_vpc_peering_connection(cidr_block=None,filters=None,id=None,owner_id=Non
     The VPC Peering Connection data source provides details about
     a specific VPC peering connection.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_peering_connection.html.markdown.
+
 
 
     :param str cidr_block: The CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.

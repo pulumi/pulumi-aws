@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Waf
     /// <summary>
     /// Provides a WAF SQL Injection Match Set Resource
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_sql_injection_match_set.html.markdown.
     /// </summary>
     public partial class SqlInjectionMatchSet : Pulumi.CustomResource

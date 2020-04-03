@@ -12,6 +12,8 @@ namespace Pulumi.Aws.WafRegional
     /// <summary>
     /// Provides a WAF Regional SQL Injection Match Set Resource for use with Application Load Balancer.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_sql_injection_match_set.html.markdown.
     /// </summary>
     public partial class SqlInjectionMatchSet : Pulumi.CustomResource

@@ -49,7 +49,7 @@ def get_vpcs(filters=None,tags=None,opts=None):
 
     The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpcs.html.markdown.
+
 
 
     :param list filters: Custom filter block as described below.

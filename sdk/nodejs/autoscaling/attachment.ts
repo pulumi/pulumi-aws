@@ -16,6 +16,8 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,17 +26,6 @@ import * as utilities from "../utilities";
  * const asgAttachmentBar = new aws.autoscaling.Attachment("asgAttachmentBar", {
  *     autoscalingGroupName: aws_autoscaling_group_asg.id,
  *     elb: aws_elb_bar.id,
- * });
- * ```
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * // Create a new ALB Target Group attachment
- * const asgAttachmentBar = new aws.autoscaling.Attachment("asgAttachmentBar", {
- *     albTargetGroupArn: aws_alb_target_group_test.arn,
- *     autoscalingGroupName: aws_autoscaling_group_asg.id,
  * });
  * ```
  *

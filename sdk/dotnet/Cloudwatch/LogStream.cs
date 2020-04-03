@@ -12,6 +12,8 @@ namespace Pulumi.Aws.CloudWatch
     /// <summary>
     /// Provides a CloudWatch Log Stream resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_stream.html.markdown.
     /// </summary>
     public partial class LogStream : Pulumi.CustomResource

@@ -14,6 +14,8 @@ namespace Pulumi.Aws.DirectoryService
         /// <summary>
         /// Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration. 
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/directory_service_directory.html.markdown.
         /// </summary>
         [Obsolete("Use GetDirectory.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.DirectoryService
     {
         /// <summary>
         /// Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration. 
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/directory_service_directory.html.markdown.
         /// </summary>

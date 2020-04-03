@@ -109,8 +109,6 @@ import * as utilities from "../utilities";
  * 
  * ### Email Validation
  * 
- * In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
- * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";

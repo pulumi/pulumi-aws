@@ -20,8 +20,6 @@ import * as utilities from "./utilities";
  * 
  * ### By Filter
  * 
- * All Local Zones (regardless of opt-in status):
- * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,20 +32,6 @@ import * as utilities from "./utilities";
  *             "not-opted-in",
  *             "opted-in",
  *         ],
- *     }],
- * });
- * ```
- * 
- * Only Availability Zones (no Local Zones):
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = aws.getAvailabilityZones({
- *     filters: [{
- *         name: "opt-in-status",
- *         values: ["opt-in-not-required"],
  *     }],
  * });
  * ```

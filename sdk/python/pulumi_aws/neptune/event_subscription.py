@@ -46,6 +46,7 @@ class EventSubscription(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, enabled=None, event_categories=None, name=None, name_prefix=None, sns_topic_arn=None, source_ids=None, source_type=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
+
         ## Attributes
 
         The following additional atttributes are provided:
@@ -53,8 +54,6 @@ class EventSubscription(pulumi.CustomResource):
         * `id` - The name of the Neptune event notification subscription.
         * `arn` - The Amazon Resource Name of the Neptune event notification subscription.
         * `customer_aws_id` - The AWS customer account associated with the Neptune event notification subscription.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_event_subscription.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

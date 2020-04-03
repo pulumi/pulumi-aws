@@ -47,7 +47,8 @@ class TopicRule(pulumi.CustomResource):
     sqs: pulumi.Output[dict]
     def __init__(__self__, resource_name, opts=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, elasticsearch=None, enabled=None, firehose=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a TopicRule resource with the given unique name, props, and options.
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the rule.

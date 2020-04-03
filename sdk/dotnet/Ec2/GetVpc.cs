@@ -18,6 +18,8 @@ namespace Pulumi.Aws.Ec2
         /// an input variable and needs to, for example, determine the CIDR block of that
         /// VPC.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc.html.markdown.
         /// </summary>
         [Obsolete("Use GetVpc.InvokeAsync() instead")]
@@ -32,6 +34,8 @@ namespace Pulumi.Aws.Ec2
         /// This resource can prove useful when a module accepts a vpc id as
         /// an input variable and needs to, for example, determine the CIDR block of that
         /// VPC.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc.html.markdown.
         /// </summary>

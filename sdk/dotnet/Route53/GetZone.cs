@@ -16,6 +16,8 @@ namespace Pulumi.Aws.Route53
         /// 
         /// This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_zone.html.markdown.
         /// </summary>
         [Obsolete("Use GetZone.InvokeAsync() instead")]
@@ -28,6 +30,8 @@ namespace Pulumi.Aws.Route53
         /// `aws.route53.Zone` provides details about a specific Route 53 Hosted Zone.
         /// 
         /// This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_zone.html.markdown.
         /// </summary>

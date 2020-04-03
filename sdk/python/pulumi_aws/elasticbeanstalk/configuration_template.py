@@ -48,6 +48,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
         a specific application and are used to deploy different versions of the
         application with the same configuration settings.
 
+
         ## Option Settings
 
         The `setting` field supports the following format:
@@ -56,8 +57,6 @@ class ConfigurationTemplate(pulumi.CustomResource):
         * `name` - name of the configuration option
         * `value` - value for the configuration option
         * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_configuration_template.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

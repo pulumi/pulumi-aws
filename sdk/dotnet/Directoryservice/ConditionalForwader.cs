@@ -12,6 +12,8 @@ namespace Pulumi.Aws.DirectoryService
     /// <summary>
     /// Provides a conditional forwarder for managed Microsoft AD in AWS Directory Service.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/directory_service_conditional_forwarder.html.markdown.
     /// </summary>
     public partial class ConditionalForwader : Pulumi.CustomResource

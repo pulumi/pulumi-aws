@@ -35,8 +35,6 @@ import {PolicyDocument} from "../iam/documents";
  * 
  * ### Access Policy
  * 
- * > See also: [`aws.elasticsearch.DomainPolicy` resource](https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain_policy.html)
- * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";

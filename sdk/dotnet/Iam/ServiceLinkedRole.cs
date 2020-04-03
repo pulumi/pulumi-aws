@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// Provides an [IAM service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html).
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_service_linked_role.html.markdown.
     /// </summary>
     public partial class ServiceLinkedRole : Pulumi.CustomResource

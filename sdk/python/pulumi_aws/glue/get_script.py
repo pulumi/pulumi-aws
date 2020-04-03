@@ -58,7 +58,7 @@ def get_script(dag_edges=None,dag_nodes=None,language=None,opts=None):
     """
     Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/glue_script.html.markdown.
+
 
 
     :param list dag_edges: A list of the edges in the DAG. Defined below.

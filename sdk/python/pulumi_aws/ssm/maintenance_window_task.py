@@ -109,7 +109,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         """
         Provides an SSM Maintenance Window Task resource
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window_task.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

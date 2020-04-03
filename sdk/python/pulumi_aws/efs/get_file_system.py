@@ -101,7 +101,7 @@ def get_file_system(creation_token=None,file_system_id=None,tags=None,opts=None)
     """
     Provides information about an Elastic File System (EFS).
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_file_system.html.markdown.
+
 
 
     :param str creation_token: Restricts the list to the file system with this creation token.

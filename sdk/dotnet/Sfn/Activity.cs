@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Sfn
     /// <summary>
     /// Provides a Step Function Activity resource
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sfn_activity.html.markdown.
     /// </summary>
     public partial class Activity : Pulumi.CustomResource

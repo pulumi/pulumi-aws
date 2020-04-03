@@ -14,6 +14,8 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// &gt; **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_efs.html.markdown.
     /// </summary>
     public partial class EfsLocation : Pulumi.CustomResource

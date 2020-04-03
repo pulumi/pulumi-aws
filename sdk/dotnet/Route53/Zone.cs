@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Route53
     /// <summary>
     /// Manages a Route53 Hosted Zone.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone.html.markdown.
     /// </summary>
     public partial class Zone : Pulumi.CustomResource

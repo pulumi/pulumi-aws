@@ -14,6 +14,8 @@ namespace Pulumi.Aws
         /// <summary>
         /// Use this data source to get a list of AMI IDs matching the specified criteria.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami_ids.html.markdown.
         /// </summary>
         [Obsolete("Use GetAmiIds.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws
     {
         /// <summary>
         /// Use this data source to get a list of AMI IDs matching the specified criteria.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami_ids.html.markdown.
         /// </summary>

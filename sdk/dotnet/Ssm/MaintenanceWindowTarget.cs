@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Ssm
     /// <summary>
     /// Provides an SSM Maintenance Window Target resource
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window_target.html.markdown.
     /// </summary>
     public partial class MaintenanceWindowTarget : Pulumi.CustomResource

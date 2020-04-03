@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Cloud9
     /// <summary>
     /// Provides a Cloud9 EC2 Development Environment.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloud9_environment_ec2.html.markdown.
     /// </summary>
     public partial class EnvironmentEC2 : Pulumi.CustomResource

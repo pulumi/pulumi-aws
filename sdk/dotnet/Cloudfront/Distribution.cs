@@ -22,6 +22,8 @@ namespace Pulumi.Aws.CloudFront
     /// blocked. If you need to delete a distribution that is enabled and you do not
     /// want to wait, you need to use the `retain_on_delete` flag.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudfront_distribution.html.markdown.
     /// </summary>
     public partial class Distribution : Pulumi.CustomResource

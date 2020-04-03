@@ -69,6 +69,7 @@ class Instance(pulumi.CustomResource):
 
         > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
 
+
         ## Availability Zones
 
         Lightsail currently supports the following Availability Zones (e.g. `us-east-1a`):
@@ -151,8 +152,6 @@ class Instance(pulumi.CustomResource):
         - us-east-1: `2_0`
         - us-east-2: `2_0`
         - us-west-2: `2_0`
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_instance.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

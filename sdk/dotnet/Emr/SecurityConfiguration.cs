@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Emr
     /// <summary>
     /// Provides a resource to manage AWS EMR Security Configurations
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/emr_security_configuration.html.markdown.
     /// </summary>
     public partial class SecurityConfiguration : Pulumi.CustomResource

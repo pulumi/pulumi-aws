@@ -35,7 +35,7 @@ class OrganizationalUnit(pulumi.CustomResource):
         """
         Provides a resource to create an organizational unit.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_organizational_unit.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

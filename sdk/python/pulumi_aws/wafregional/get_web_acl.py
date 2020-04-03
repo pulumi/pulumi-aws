@@ -36,7 +36,7 @@ def get_web_acl(name=None,opts=None):
     """
     `wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_web_acl.html.markdown.
+
 
 
     :param str name: The name of the WAF Regional Web ACL.

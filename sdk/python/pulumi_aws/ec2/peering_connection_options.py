@@ -62,8 +62,6 @@ class PeeringConnectionOptions(pulumi.CustomResource):
 
         Basic cross-account usage:
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_options.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] accepter: An optional configuration block that allows for [VPC Peering Connection]

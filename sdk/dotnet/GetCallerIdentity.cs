@@ -15,6 +15,8 @@ namespace Pulumi.Aws
         /// Use this data source to get the access to the effective Account ID, User ID, and ARN in
         /// which this provider is authorized.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/caller_identity.html.markdown.
         /// </summary>
         [Obsolete("Use GetCallerIdentity.InvokeAsync() instead")]
@@ -26,6 +28,8 @@ namespace Pulumi.Aws
         /// <summary>
         /// Use this data source to get the access to the effective Account ID, User ID, and ARN in
         /// which this provider is authorized.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/caller_identity.html.markdown.
         /// </summary>

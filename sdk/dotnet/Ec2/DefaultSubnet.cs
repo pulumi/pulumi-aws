@@ -17,6 +17,8 @@ namespace Pulumi.Aws.Ec2
     /// this provider does not _create_ this resource, but instead "adopts" it
     /// into management.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_subnet.html.markdown.
     /// </summary>
     public partial class DefaultSubnet : Pulumi.CustomResource

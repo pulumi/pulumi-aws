@@ -16,6 +16,8 @@ namespace Pulumi.Aws.Iam
     /// 
     /// &gt; **NOTE:** The usage of this resource conflicts with the `aws.iam.GroupPolicyAttachment`, `aws.iam.RolePolicyAttachment`, and `aws.iam.UserPolicyAttachment` resources and will permanently show a difference if both are defined.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_policy_attachment.html.markdown.
     /// </summary>
     public partial class PolicyAttachment : Pulumi.CustomResource

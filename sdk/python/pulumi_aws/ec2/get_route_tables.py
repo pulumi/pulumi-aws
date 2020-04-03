@@ -51,7 +51,7 @@ def get_route_tables(filters=None,tags=None,vpc_id=None,opts=None):
     """
     This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_tables.html.markdown.
+
 
 
     :param list filters: Custom filter block as described below.

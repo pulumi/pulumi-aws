@@ -14,6 +14,8 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// Use this data source to get information about an Elasticache Cluster
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_cluster.html.markdown.
         /// </summary>
         [Obsolete("Use GetCluster.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Aws.ElastiCache
     {
         /// <summary>
         /// Use this data source to get information about an Elasticache Cluster
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_cluster.html.markdown.
         /// </summary>

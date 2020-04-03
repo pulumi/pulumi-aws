@@ -12,6 +12,7 @@ namespace Pulumi.Aws.Rds
     /// <summary>
     /// Provides a DB event subscription resource.
     /// 
+    /// 
     /// ## Attributes
     /// 
     /// The following additional atttributes are provided:

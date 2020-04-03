@@ -17,6 +17,8 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// This resource creates an application that has one configuration template named
     /// `default`, and no application versions
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application.html.markdown.
     /// </summary>
     public partial class Application : Pulumi.CustomResource

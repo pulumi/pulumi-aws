@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Cognito
     /// <summary>
     /// Provides a Cognito User Pool resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool.markdown.
     /// </summary>
     public partial class UserPool : Pulumi.CustomResource

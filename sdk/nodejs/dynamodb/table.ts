@@ -13,8 +13,7 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
- * The following dynamodb table description models the table and GSI shown
- * in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
+ * 
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

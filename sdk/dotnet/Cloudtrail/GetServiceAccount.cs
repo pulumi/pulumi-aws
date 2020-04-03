@@ -15,6 +15,8 @@ namespace Pulumi.Aws.CloudTrail
         /// Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
         /// in a given region for the purpose of allowing CloudTrail to store trail data in S3.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudtrail_service_account.html.markdown.
         /// </summary>
         [Obsolete("Use GetServiceAccount.InvokeAsync() instead")]
@@ -26,6 +28,8 @@ namespace Pulumi.Aws.CloudTrail
         /// <summary>
         /// Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
         /// in a given region for the purpose of allowing CloudTrail to store trail data in S3.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudtrail_service_account.html.markdown.
         /// </summary>

@@ -13,8 +13,6 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
- * > **NOTE:** These examples are referencing the [`aws.storagegateway.Cache`](https://www.terraform.io/docs/providers/aws/r/storagegateway_cache.html) resource `gatewayArn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `dependsOn = ["aws_storagegateway_cache.example"]`) to ensure proper ordering.
- * 
  * ### Create Empty Cached iSCSI Volume
  * 
  * ```typescript
