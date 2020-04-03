@@ -18,7 +18,7 @@ type Pipeline struct {
 
 	// The codepipeline ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// An artifactStore block. Artifact stores are documented below.
+	// One or more artifactStore blocks. Artifact stores are documented below.
 	// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	ArtifactStore PipelineArtifactStoreOutput `pulumi:"artifactStore"`
 	// The name of the pipeline.
@@ -69,7 +69,7 @@ func GetPipeline(ctx *pulumi.Context,
 type pipelineState struct {
 	// The codepipeline ARN.
 	Arn *string `pulumi:"arn"`
-	// An artifactStore block. Artifact stores are documented below.
+	// One or more artifactStore blocks. Artifact stores are documented below.
 	// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	ArtifactStore *PipelineArtifactStore `pulumi:"artifactStore"`
 	// The name of the pipeline.
@@ -84,7 +84,7 @@ type pipelineState struct {
 type PipelineState struct {
 	// The codepipeline ARN.
 	Arn pulumi.StringPtrInput
-	// An artifactStore block. Artifact stores are documented below.
+	// One or more artifactStore blocks. Artifact stores are documented below.
 	// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	ArtifactStore PipelineArtifactStorePtrInput
 	// The name of the pipeline.
@@ -101,7 +101,7 @@ func (PipelineState) ElementType() reflect.Type {
 }
 
 type pipelineArgs struct {
-	// An artifactStore block. Artifact stores are documented below.
+	// One or more artifactStore blocks. Artifact stores are documented below.
 	// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	ArtifactStore PipelineArtifactStore `pulumi:"artifactStore"`
 	// The name of the pipeline.
@@ -115,7 +115,7 @@ type pipelineArgs struct {
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
-	// An artifactStore block. Artifact stores are documented below.
+	// One or more artifactStore blocks. Artifact stores are documented below.
 	// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	ArtifactStore PipelineArtifactStoreInput
 	// The name of the pipeline.

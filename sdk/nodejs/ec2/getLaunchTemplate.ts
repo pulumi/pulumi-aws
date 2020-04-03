@@ -115,6 +115,10 @@ export interface GetLaunchTemplateResult {
     readonly elasticGpuSpecifications: outputs.ec2.GetLaunchTemplateElasticGpuSpecification[];
     readonly filters?: outputs.ec2.GetLaunchTemplateFilter[];
     /**
+     * The hibernation options for the instance.
+     */
+    readonly hibernationOptions: outputs.ec2.GetLaunchTemplateHibernationOption[];
+    /**
      * The IAM Instance Profile to launch the instance with. See Instance Profile
      * below for more details.
      */

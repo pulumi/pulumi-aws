@@ -13,8 +13,10 @@ import (
 type PipelineArtifactStore struct {
 	// The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
 	EncryptionKey *PipelineArtifactStoreEncryptionKey `pulumi:"encryptionKey"`
-	// The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3 bucket.
+	// The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
 	Location string `pulumi:"location"`
+	// The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
+	Region *string `pulumi:"region"`
 	// The type of the artifact store, such as Amazon S3
 	Type string `pulumi:"type"`
 }
@@ -29,8 +31,10 @@ type PipelineArtifactStoreInput interface {
 type PipelineArtifactStoreArgs struct {
 	// The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
 	EncryptionKey PipelineArtifactStoreEncryptionKeyPtrInput `pulumi:"encryptionKey"`
-	// The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3 bucket.
+	// The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
 	Location pulumi.StringInput `pulumi:"location"`
+	// The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The type of the artifact store, such as Amazon S3
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -109,9 +113,14 @@ func (o PipelineArtifactStoreOutput) EncryptionKey() PipelineArtifactStoreEncryp
 	return o.ApplyT(func(v PipelineArtifactStore) *PipelineArtifactStoreEncryptionKey { return v.EncryptionKey }).(PipelineArtifactStoreEncryptionKeyPtrOutput)
 }
 
-// The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3 bucket.
+// The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
 func (o PipelineArtifactStoreOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineArtifactStore) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
+func (o PipelineArtifactStoreOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineArtifactStore) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // The type of the artifact store, such as Amazon S3
@@ -142,9 +151,14 @@ func (o PipelineArtifactStorePtrOutput) EncryptionKey() PipelineArtifactStoreEnc
 	return o.ApplyT(func(v PipelineArtifactStore) *PipelineArtifactStoreEncryptionKey { return v.EncryptionKey }).(PipelineArtifactStoreEncryptionKeyPtrOutput)
 }
 
-// The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3 bucket.
+// The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
 func (o PipelineArtifactStorePtrOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineArtifactStore) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
+func (o PipelineArtifactStorePtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineArtifactStore) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // The type of the artifact store, such as Amazon S3
@@ -382,7 +396,7 @@ type PipelineStageAction struct {
 	// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
 	Category string `pulumi:"category"`
 	// A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
-	Configuration map[string]interface{} `pulumi:"configuration"`
+	Configuration map[string]string `pulumi:"configuration"`
 	// A list of artifact names to be worked on.
 	InputArtifacts []string `pulumi:"inputArtifacts"`
 	// The action declaration's name.
@@ -393,6 +407,8 @@ type PipelineStageAction struct {
 	Owner string `pulumi:"owner"`
 	// The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
 	Provider string `pulumi:"provider"`
+	// The region in which to run the action.
+	Region *string `pulumi:"region"`
 	// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
 	RoleArn *string `pulumi:"roleArn"`
 	// The order in which actions are run.
@@ -412,7 +428,7 @@ type PipelineStageActionArgs struct {
 	// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
 	Category pulumi.StringInput `pulumi:"category"`
 	// A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
-	Configuration pulumi.MapInput `pulumi:"configuration"`
+	Configuration pulumi.StringMapInput `pulumi:"configuration"`
 	// A list of artifact names to be worked on.
 	InputArtifacts pulumi.StringArrayInput `pulumi:"inputArtifacts"`
 	// The action declaration's name.
@@ -423,6 +439,8 @@ type PipelineStageActionArgs struct {
 	Owner pulumi.StringInput `pulumi:"owner"`
 	// The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
 	Provider pulumi.StringInput `pulumi:"provider"`
+	// The region in which to run the action.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// The order in which actions are run.
@@ -484,8 +502,8 @@ func (o PipelineStageActionOutput) Category() pulumi.StringOutput {
 }
 
 // A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
-func (o PipelineStageActionOutput) Configuration() pulumi.MapOutput {
-	return o.ApplyT(func(v PipelineStageAction) map[string]interface{} { return v.Configuration }).(pulumi.MapOutput)
+func (o PipelineStageActionOutput) Configuration() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PipelineStageAction) map[string]string { return v.Configuration }).(pulumi.StringMapOutput)
 }
 
 // A list of artifact names to be worked on.
@@ -511,6 +529,11 @@ func (o PipelineStageActionOutput) Owner() pulumi.StringOutput {
 // The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
 func (o PipelineStageActionOutput) Provider() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageAction) string { return v.Provider }).(pulumi.StringOutput)
+}
+
+// The region in which to run the action.
+func (o PipelineStageActionOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageAction) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.

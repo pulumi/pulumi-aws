@@ -679,7 +679,14 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// CodePipeline
-			"aws_codepipeline":         {Tok: awsResource(codepipelineMod, "Pipeline")},
+			"aws_codepipeline": {
+				Tok: awsResource(codepipelineMod, "Pipeline"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"artifact_store": {
+						MaxItemsOne: boolRef(true),
+					},
+				},
+			},
 			"aws_codepipeline_webhook": {Tok: awsResource(codepipelineMod, "Webhook")},
 			// Cognito
 			"aws_cognito_identity_pool":                  {Tok: awsResource(cognitoMod, "IdentityPool")},

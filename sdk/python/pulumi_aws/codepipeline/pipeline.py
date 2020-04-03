@@ -16,14 +16,15 @@ class Pipeline(pulumi.CustomResource):
     """
     artifact_store: pulumi.Output[dict]
     """
-    An artifact_store block. Artifact stores are documented below.
+    One or more artifact_store blocks. Artifact stores are documented below.
     * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 
       * `encryption_key` (`dict`) - The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryption_key` block is documented below.
         * `id` (`str`) - The KMS key ARN or ID
         * `type` (`str`) - The type of key; currently only `KMS` is supported
 
-      * `location` (`str`) - The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3 bucket.
+      * `location` (`str`) - The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
+      * `region` (`str`) - The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
       * `type` (`str`) - The type of the artifact store, such as Amazon S3
     """
     name: pulumi.Output[str]
@@ -49,7 +50,7 @@ class Pipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] artifact_store: An artifact_store block. Artifact stores are documented below.
+        :param pulumi.Input[dict] artifact_store: One or more artifact_store blocks. Artifact stores are documented below.
                * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
@@ -61,7 +62,8 @@ class Pipeline(pulumi.CustomResource):
             * `id` (`pulumi.Input[str]`) - The KMS key ARN or ID
             * `type` (`pulumi.Input[str]`) - The type of key; currently only `KMS` is supported
 
-          * `location` (`pulumi.Input[str]`) - The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3 bucket.
+          * `location` (`pulumi.Input[str]`) - The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
+          * `region` (`pulumi.Input[str]`) - The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
           * `type` (`pulumi.Input[str]`) - The type of the artifact store, such as Amazon S3
 
         The **stages** object supports the following:
@@ -74,6 +76,7 @@ class Pipeline(pulumi.CustomResource):
             * `outputArtifacts` (`pulumi.Input[list]`) - A list of artifact names to output. Output artifact names must be unique within a pipeline.
             * `owner` (`pulumi.Input[str]`) - The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
             * `provider` (`pulumi.Input[str]`) - The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+            * `region` (`pulumi.Input[str]`) - The region in which to run the action.
             * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
             * `runOrder` (`pulumi.Input[float]`) - The order in which actions are run.
             * `version` (`pulumi.Input[str]`) - A string that identifies the action type.
@@ -125,7 +128,7 @@ class Pipeline(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The codepipeline ARN.
-        :param pulumi.Input[dict] artifact_store: An artifact_store block. Artifact stores are documented below.
+        :param pulumi.Input[dict] artifact_store: One or more artifact_store blocks. Artifact stores are documented below.
                * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
@@ -137,7 +140,8 @@ class Pipeline(pulumi.CustomResource):
             * `id` (`pulumi.Input[str]`) - The KMS key ARN or ID
             * `type` (`pulumi.Input[str]`) - The type of key; currently only `KMS` is supported
 
-          * `location` (`pulumi.Input[str]`) - The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3 bucket.
+          * `location` (`pulumi.Input[str]`) - The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
+          * `region` (`pulumi.Input[str]`) - The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
           * `type` (`pulumi.Input[str]`) - The type of the artifact store, such as Amazon S3
 
         The **stages** object supports the following:
@@ -150,6 +154,7 @@ class Pipeline(pulumi.CustomResource):
             * `outputArtifacts` (`pulumi.Input[list]`) - A list of artifact names to output. Output artifact names must be unique within a pipeline.
             * `owner` (`pulumi.Input[str]`) - The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
             * `provider` (`pulumi.Input[str]`) - The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+            * `region` (`pulumi.Input[str]`) - The region in which to run the action.
             * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
             * `runOrder` (`pulumi.Input[float]`) - The order in which actions are run.
             * `version` (`pulumi.Input[str]`) - A string that identifies the action type.

@@ -71,7 +71,7 @@ import * as utilities from "../utilities";
  *     name: "alias/myKmsKey",
  * });
  * const codepipeline = new aws.codepipeline.Pipeline("codepipeline", {
- *     artifactStore: {
+ *     artifactStores: {
  *         encryptionKey: {
  *             id: s3kmskey.arn,
  *             type: "KMS",
@@ -168,7 +168,7 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * An artifactStore block. Artifact stores are documented below.
+     * One or more artifactStore blocks. Artifact stores are documented below.
      * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
     public readonly artifactStore!: pulumi.Output<outputs.codepipeline.PipelineArtifactStore>;
@@ -242,7 +242,7 @@ export interface PipelineState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * An artifactStore block. Artifact stores are documented below.
+     * One or more artifactStore blocks. Artifact stores are documented below.
      * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
     readonly artifactStore?: pulumi.Input<inputs.codepipeline.PipelineArtifactStore>;
@@ -266,7 +266,7 @@ export interface PipelineState {
  */
 export interface PipelineArgs {
     /**
-     * An artifactStore block. Artifact stores are documented below.
+     * One or more artifactStore blocks. Artifact stores are documented below.
      * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
     readonly artifactStore: pulumi.Input<inputs.codepipeline.PipelineArtifactStore>;
