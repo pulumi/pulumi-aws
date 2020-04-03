@@ -73,9 +73,11 @@ export interface PolicyStatement {
     // Indicate the account, user, role, or federated user to which this policy does not apply.
     NotPrincipal?: Input<Principal>;
 
-    // Include a list of actions that the policy allows or denies.
+    // Include a list of actions that the policy allows or denies. Required (either Action or NotAction)
+    // Reference: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_action.html
     Action?: Input<string> | Input<Input<string>[]>;
-    // Include a list of actions that are not covered by this policy.
+    // Include a list of actions that are not covered by this policy. Required (either Action or NotAction)
+    // Reference: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html
     NotAction?: Input<string> | Input<Input<string>[]>;
 
     // A list of resources to which the actions apply.
