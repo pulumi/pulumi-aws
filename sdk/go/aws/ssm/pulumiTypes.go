@@ -17,8 +17,11 @@ type AssociationOutputLocation struct {
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 }
 
-// Construct a concrete instance of AssociationOutputLocationInput via:
-// 	AssociationOutputLocationArgs{...}
+// AssociationOutputLocationInput is an input type that accepts AssociationOutputLocationArgs and AssociationOutputLocationOutput values.
+// You can construct a concrete instance of `AssociationOutputLocationInput` via:
+//
+// 		 AssociationOutputLocationArgs{...}
+//
 type AssociationOutputLocationInput interface {
 	pulumi.Input
 
@@ -53,8 +56,15 @@ func (i AssociationOutputLocationArgs) ToAssociationOutputLocationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AssociationOutputLocationOutput).ToAssociationOutputLocationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of AssociationOutputLocationPtrInput via:
-// 	AssociationOutputLocationArgs{...}.ToAssociationOutputLocationPtrOutput()
+// AssociationOutputLocationPtrInput is an input type that accepts AssociationOutputLocationArgs, AssociationOutputLocationPtr and AssociationOutputLocationPtrOutput values.
+// You can construct a concrete instance of `AssociationOutputLocationPtrInput` via:
+//
+// 		 AssociationOutputLocationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AssociationOutputLocationPtrInput interface {
 	pulumi.Input
 
@@ -149,8 +159,11 @@ type AssociationTarget struct {
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of AssociationTargetInput via:
-// 	AssociationTargetArgs{...}
+// AssociationTargetInput is an input type that accepts AssociationTargetArgs and AssociationTargetOutput values.
+// You can construct a concrete instance of `AssociationTargetInput` via:
+//
+// 		 AssociationTargetArgs{...}
+//
 type AssociationTargetInput interface {
 	pulumi.Input
 
@@ -177,8 +190,11 @@ func (i AssociationTargetArgs) ToAssociationTargetOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AssociationTargetOutput)
 }
 
-// Construct a concrete instance of AssociationTargetArrayInput via:
-// 	AssociationTargetArray{ AssociationTargetArgs{...} }
+// AssociationTargetArrayInput is an input type that accepts AssociationTargetArray and AssociationTargetArrayOutput values.
+// You can construct a concrete instance of `AssociationTargetArrayInput` via:
+//
+// 		 AssociationTargetArray{ AssociationTargetArgs{...} }
+//
 type AssociationTargetArrayInput interface {
 	pulumi.Input
 
@@ -251,8 +267,11 @@ type DocumentAttachmentsSource struct {
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of DocumentAttachmentsSourceInput via:
-// 	DocumentAttachmentsSourceArgs{...}
+// DocumentAttachmentsSourceInput is an input type that accepts DocumentAttachmentsSourceArgs and DocumentAttachmentsSourceOutput values.
+// You can construct a concrete instance of `DocumentAttachmentsSourceInput` via:
+//
+// 		 DocumentAttachmentsSourceArgs{...}
+//
 type DocumentAttachmentsSourceInput interface {
 	pulumi.Input
 
@@ -279,8 +298,11 @@ func (i DocumentAttachmentsSourceArgs) ToDocumentAttachmentsSourceOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentAttachmentsSourceOutput)
 }
 
-// Construct a concrete instance of DocumentAttachmentsSourceArrayInput via:
-// 	DocumentAttachmentsSourceArray{ DocumentAttachmentsSourceArgs{...} }
+// DocumentAttachmentsSourceArrayInput is an input type that accepts DocumentAttachmentsSourceArray and DocumentAttachmentsSourceArrayOutput values.
+// You can construct a concrete instance of `DocumentAttachmentsSourceArrayInput` via:
+//
+// 		 DocumentAttachmentsSourceArray{ DocumentAttachmentsSourceArgs{...} }
+//
 type DocumentAttachmentsSourceArrayInput interface {
 	pulumi.Input
 
@@ -358,8 +380,11 @@ type DocumentParameter struct {
 	Type *string `pulumi:"type"`
 }
 
-// Construct a concrete instance of DocumentParameterInput via:
-// 	DocumentParameterArgs{...}
+// DocumentParameterInput is an input type that accepts DocumentParameterArgs and DocumentParameterOutput values.
+// You can construct a concrete instance of `DocumentParameterInput` via:
+//
+// 		 DocumentParameterArgs{...}
+//
 type DocumentParameterInput interface {
 	pulumi.Input
 
@@ -388,8 +413,11 @@ func (i DocumentParameterArgs) ToDocumentParameterOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentParameterOutput)
 }
 
-// Construct a concrete instance of DocumentParameterArrayInput via:
-// 	DocumentParameterArray{ DocumentParameterArgs{...} }
+// DocumentParameterArrayInput is an input type that accepts DocumentParameterArray and DocumentParameterArrayOutput values.
+// You can construct a concrete instance of `DocumentParameterArrayInput` via:
+//
+// 		 DocumentParameterArray{ DocumentParameterArgs{...} }
+//
 type DocumentParameterArrayInput interface {
 	pulumi.Input
 
@@ -468,8 +496,11 @@ type DocumentPermissions struct {
 	Type       string `pulumi:"type"`
 }
 
-// Construct a concrete instance of DocumentPermissionsInput via:
-// 	DocumentPermissionsArgs{...}
+// DocumentPermissionsInput is an input type that accepts DocumentPermissionsArgs and DocumentPermissionsOutput values.
+// You can construct a concrete instance of `DocumentPermissionsInput` via:
+//
+// 		 DocumentPermissionsArgs{...}
+//
 type DocumentPermissionsInput interface {
 	pulumi.Input
 
@@ -502,8 +533,15 @@ func (i DocumentPermissionsArgs) ToDocumentPermissionsPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentPermissionsOutput).ToDocumentPermissionsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of DocumentPermissionsPtrInput via:
-// 	DocumentPermissionsArgs{...}.ToDocumentPermissionsPtrOutput()
+// DocumentPermissionsPtrInput is an input type that accepts DocumentPermissionsArgs, DocumentPermissionsPtr and DocumentPermissionsPtrOutput values.
+// You can construct a concrete instance of `DocumentPermissionsPtrInput` via:
+//
+// 		 DocumentPermissionsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type DocumentPermissionsPtrInput interface {
 	pulumi.Input
 
@@ -591,8 +629,11 @@ type MaintenanceWindowTargetTarget struct {
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of MaintenanceWindowTargetTargetInput via:
-// 	MaintenanceWindowTargetTargetArgs{...}
+// MaintenanceWindowTargetTargetInput is an input type that accepts MaintenanceWindowTargetTargetArgs and MaintenanceWindowTargetTargetOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTargetTargetInput` via:
+//
+// 		 MaintenanceWindowTargetTargetArgs{...}
+//
 type MaintenanceWindowTargetTargetInput interface {
 	pulumi.Input
 
@@ -617,8 +658,11 @@ func (i MaintenanceWindowTargetTargetArgs) ToMaintenanceWindowTargetTargetOutput
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTargetTargetOutput)
 }
 
-// Construct a concrete instance of MaintenanceWindowTargetTargetArrayInput via:
-// 	MaintenanceWindowTargetTargetArray{ MaintenanceWindowTargetTargetArgs{...} }
+// MaintenanceWindowTargetTargetArrayInput is an input type that accepts MaintenanceWindowTargetTargetArray and MaintenanceWindowTargetTargetArrayOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTargetTargetArrayInput` via:
+//
+// 		 MaintenanceWindowTargetTargetArray{ MaintenanceWindowTargetTargetArgs{...} }
+//
 type MaintenanceWindowTargetTargetArrayInput interface {
 	pulumi.Input
 
@@ -688,8 +732,11 @@ type MaintenanceWindowTaskLoggingInfo struct {
 	S3Region       string  `pulumi:"s3Region"`
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskLoggingInfoInput via:
-// 	MaintenanceWindowTaskLoggingInfoArgs{...}
+// MaintenanceWindowTaskLoggingInfoInput is an input type that accepts MaintenanceWindowTaskLoggingInfoArgs and MaintenanceWindowTaskLoggingInfoOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskLoggingInfoInput` via:
+//
+// 		 MaintenanceWindowTaskLoggingInfoArgs{...}
+//
 type MaintenanceWindowTaskLoggingInfoInput interface {
 	pulumi.Input
 
@@ -723,8 +770,15 @@ func (i MaintenanceWindowTaskLoggingInfoArgs) ToMaintenanceWindowTaskLoggingInfo
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskLoggingInfoOutput).ToMaintenanceWindowTaskLoggingInfoPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskLoggingInfoPtrInput via:
-// 	MaintenanceWindowTaskLoggingInfoArgs{...}.ToMaintenanceWindowTaskLoggingInfoPtrOutput()
+// MaintenanceWindowTaskLoggingInfoPtrInput is an input type that accepts MaintenanceWindowTaskLoggingInfoArgs, MaintenanceWindowTaskLoggingInfoPtr and MaintenanceWindowTaskLoggingInfoPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskLoggingInfoPtrInput` via:
+//
+// 		 MaintenanceWindowTaskLoggingInfoArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type MaintenanceWindowTaskLoggingInfoPtrInput interface {
 	pulumi.Input
 
@@ -820,8 +874,11 @@ type MaintenanceWindowTaskTarget struct {
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTargetInput via:
-// 	MaintenanceWindowTaskTargetArgs{...}
+// MaintenanceWindowTaskTargetInput is an input type that accepts MaintenanceWindowTaskTargetArgs and MaintenanceWindowTaskTargetOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTargetInput` via:
+//
+// 		 MaintenanceWindowTaskTargetArgs{...}
+//
 type MaintenanceWindowTaskTargetInput interface {
 	pulumi.Input
 
@@ -846,8 +903,11 @@ func (i MaintenanceWindowTaskTargetArgs) ToMaintenanceWindowTaskTargetOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTargetOutput)
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTargetArrayInput via:
-// 	MaintenanceWindowTaskTargetArray{ MaintenanceWindowTaskTargetArgs{...} }
+// MaintenanceWindowTaskTargetArrayInput is an input type that accepts MaintenanceWindowTaskTargetArray and MaintenanceWindowTaskTargetArrayOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTargetArrayInput` via:
+//
+// 		 MaintenanceWindowTaskTargetArray{ MaintenanceWindowTaskTargetArgs{...} }
+//
 type MaintenanceWindowTaskTargetArrayInput interface {
 	pulumi.Input
 
@@ -922,8 +982,11 @@ type MaintenanceWindowTaskTaskInvocationParameters struct {
 	StepFunctionsParameters *MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters `pulumi:"stepFunctionsParameters"`
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTaskInvocationParametersInput via:
-// 	MaintenanceWindowTaskTaskInvocationParametersArgs{...}
+// MaintenanceWindowTaskTaskInvocationParametersInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersArgs and MaintenanceWindowTaskTaskInvocationParametersOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersInput` via:
+//
+// 		 MaintenanceWindowTaskTaskInvocationParametersArgs{...}
+//
 type MaintenanceWindowTaskTaskInvocationParametersInput interface {
 	pulumi.Input
 
@@ -962,8 +1025,15 @@ func (i MaintenanceWindowTaskTaskInvocationParametersArgs) ToMaintenanceWindowTa
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersOutput).ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTaskInvocationParametersPtrInput via:
-// 	MaintenanceWindowTaskTaskInvocationParametersArgs{...}.ToMaintenanceWindowTaskTaskInvocationParametersPtrOutput()
+// MaintenanceWindowTaskTaskInvocationParametersPtrInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersArgs, MaintenanceWindowTaskTaskInvocationParametersPtr and MaintenanceWindowTaskTaskInvocationParametersPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersPtrInput` via:
+//
+// 		 MaintenanceWindowTaskTaskInvocationParametersArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type MaintenanceWindowTaskTaskInvocationParametersPtrInput interface {
 	pulumi.Input
 
@@ -1096,8 +1166,11 @@ type MaintenanceWindowTaskTaskInvocationParametersAutomationParameters struct {
 	Parameters []MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter `pulumi:"parameters"`
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTaskInvocationParametersAutomationParametersInput via:
-// 	MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs{...}
+// MaintenanceWindowTaskTaskInvocationParametersAutomationParametersInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs and MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersAutomationParametersInput` via:
+//
+// 		 MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs{...}
+//
 type MaintenanceWindowTaskTaskInvocationParametersAutomationParametersInput interface {
 	pulumi.Input
 
@@ -1132,8 +1205,15 @@ func (i MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput).ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrInput via:
-// 	MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs{...}.ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutput()
+// MaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs, MaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtr and MaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrInput` via:
+//
+// 		 MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type MaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrInput interface {
 	pulumi.Input
 
@@ -1238,8 +1318,11 @@ type MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter 
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterInput via:
-// 	MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs{...}
+// MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs and MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterInput` via:
+//
+// 		 MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs{...}
+//
 type MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterInput interface {
 	pulumi.Input
 
@@ -1266,8 +1349,11 @@ func (i MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParamet
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterOutput)
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrayInput via:
-// 	MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArray{ MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs{...} }
+// MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrayInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArray and MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrayOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrayInput` via:
+//
+// 		 MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArray{ MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs{...} }
+//
 type MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrayInput interface {
 	pulumi.Input
 
@@ -1346,8 +1432,11 @@ type MaintenanceWindowTaskTaskInvocationParametersLambdaParameters struct {
 	Qualifier *string `pulumi:"qualifier"`
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTaskInvocationParametersLambdaParametersInput via:
-// 	MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs{...}
+// MaintenanceWindowTaskTaskInvocationParametersLambdaParametersInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs and MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersLambdaParametersInput` via:
+//
+// 		 MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs{...}
+//
 type MaintenanceWindowTaskTaskInvocationParametersLambdaParametersInput interface {
 	pulumi.Input
 
@@ -1384,8 +1473,15 @@ func (i MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs) ToMai
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput).ToMaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrInput via:
-// 	MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs{...}.ToMaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutput()
+// MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs, MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtr and MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrInput` via:
+//
+// 		 MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrInput interface {
 	pulumi.Input
 
@@ -1506,8 +1602,11 @@ type MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters struct {
 	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersInput via:
-// 	MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs{...}
+// MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs and MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersInput` via:
+//
+// 		 MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs{...}
+//
 type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersInput interface {
 	pulumi.Input
 
@@ -1556,8 +1655,15 @@ func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput).ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrInput via:
-// 	MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs{...}.ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput()
+// MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs, MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtr and MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrInput` via:
+//
+// 		 MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrInput interface {
 	pulumi.Input
 
@@ -1758,8 +1864,11 @@ type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificati
 	NotificationType *string `pulumi:"notificationType"`
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigInput via:
-// 	MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs{...}
+// MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs and MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigInput` via:
+//
+// 		 MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs{...}
+//
 type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigInput interface {
 	pulumi.Input
 
@@ -1796,8 +1905,15 @@ func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotific
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput).ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrInput via:
-// 	MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs{...}.ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutput()
+// MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs, MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtr and MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrInput` via:
+//
+// 		 MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrInput interface {
 	pulumi.Input
 
@@ -1916,8 +2032,11 @@ type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter 
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterInput via:
-// 	MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs{...}
+// MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs and MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterInput` via:
+//
+// 		 MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs{...}
+//
 type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterInput interface {
 	pulumi.Input
 
@@ -1944,8 +2063,11 @@ func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParamet
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterOutput)
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayInput via:
-// 	MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArray{ MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs{...} }
+// MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArray and MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayInput` via:
+//
+// 		 MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArray{ MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs{...} }
+//
 type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayInput interface {
 	pulumi.Input
 
@@ -2022,8 +2144,11 @@ type MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters struct
 	Name *string `pulumi:"name"`
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersInput via:
-// 	MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs{...}
+// MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs and MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersInput` via:
+//
+// 		 MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs{...}
+//
 type MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersInput interface {
 	pulumi.Input
 
@@ -2058,8 +2183,15 @@ func (i MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput).ToMaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrInput via:
-// 	MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs{...}.ToMaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrOutput()
+// MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs, MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtr and MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrInput` via:
+//
+// 		 MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrInput interface {
 	pulumi.Input
 
@@ -2155,8 +2287,11 @@ type MaintenanceWindowTaskTaskParameter struct {
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTaskParameterInput via:
-// 	MaintenanceWindowTaskTaskParameterArgs{...}
+// MaintenanceWindowTaskTaskParameterInput is an input type that accepts MaintenanceWindowTaskTaskParameterArgs and MaintenanceWindowTaskTaskParameterOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskParameterInput` via:
+//
+// 		 MaintenanceWindowTaskTaskParameterArgs{...}
+//
 type MaintenanceWindowTaskTaskParameterInput interface {
 	pulumi.Input
 
@@ -2182,8 +2317,11 @@ func (i MaintenanceWindowTaskTaskParameterArgs) ToMaintenanceWindowTaskTaskParam
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskParameterOutput)
 }
 
-// Construct a concrete instance of MaintenanceWindowTaskTaskParameterArrayInput via:
-// 	MaintenanceWindowTaskTaskParameterArray{ MaintenanceWindowTaskTaskParameterArgs{...} }
+// MaintenanceWindowTaskTaskParameterArrayInput is an input type that accepts MaintenanceWindowTaskTaskParameterArray and MaintenanceWindowTaskTaskParameterArrayOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskParameterArrayInput` via:
+//
+// 		 MaintenanceWindowTaskTaskParameterArray{ MaintenanceWindowTaskTaskParameterArgs{...} }
+//
 type MaintenanceWindowTaskTaskParameterArrayInput interface {
 	pulumi.Input
 
@@ -2260,8 +2398,11 @@ type PatchBaselineApprovalRule struct {
 	PatchFilters []PatchBaselineApprovalRulePatchFilter `pulumi:"patchFilters"`
 }
 
-// Construct a concrete instance of PatchBaselineApprovalRuleInput via:
-// 	PatchBaselineApprovalRuleArgs{...}
+// PatchBaselineApprovalRuleInput is an input type that accepts PatchBaselineApprovalRuleArgs and PatchBaselineApprovalRuleOutput values.
+// You can construct a concrete instance of `PatchBaselineApprovalRuleInput` via:
+//
+// 		 PatchBaselineApprovalRuleArgs{...}
+//
 type PatchBaselineApprovalRuleInput interface {
 	pulumi.Input
 
@@ -2293,8 +2434,11 @@ func (i PatchBaselineApprovalRuleArgs) ToPatchBaselineApprovalRuleOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineApprovalRuleOutput)
 }
 
-// Construct a concrete instance of PatchBaselineApprovalRuleArrayInput via:
-// 	PatchBaselineApprovalRuleArray{ PatchBaselineApprovalRuleArgs{...} }
+// PatchBaselineApprovalRuleArrayInput is an input type that accepts PatchBaselineApprovalRuleArray and PatchBaselineApprovalRuleArrayOutput values.
+// You can construct a concrete instance of `PatchBaselineApprovalRuleArrayInput` via:
+//
+// 		 PatchBaselineApprovalRuleArray{ PatchBaselineApprovalRuleArgs{...} }
+//
 type PatchBaselineApprovalRuleArrayInput interface {
 	pulumi.Input
 
@@ -2376,8 +2520,11 @@ type PatchBaselineApprovalRulePatchFilter struct {
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of PatchBaselineApprovalRulePatchFilterInput via:
-// 	PatchBaselineApprovalRulePatchFilterArgs{...}
+// PatchBaselineApprovalRulePatchFilterInput is an input type that accepts PatchBaselineApprovalRulePatchFilterArgs and PatchBaselineApprovalRulePatchFilterOutput values.
+// You can construct a concrete instance of `PatchBaselineApprovalRulePatchFilterInput` via:
+//
+// 		 PatchBaselineApprovalRulePatchFilterArgs{...}
+//
 type PatchBaselineApprovalRulePatchFilterInput interface {
 	pulumi.Input
 
@@ -2402,8 +2549,11 @@ func (i PatchBaselineApprovalRulePatchFilterArgs) ToPatchBaselineApprovalRulePat
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineApprovalRulePatchFilterOutput)
 }
 
-// Construct a concrete instance of PatchBaselineApprovalRulePatchFilterArrayInput via:
-// 	PatchBaselineApprovalRulePatchFilterArray{ PatchBaselineApprovalRulePatchFilterArgs{...} }
+// PatchBaselineApprovalRulePatchFilterArrayInput is an input type that accepts PatchBaselineApprovalRulePatchFilterArray and PatchBaselineApprovalRulePatchFilterArrayOutput values.
+// You can construct a concrete instance of `PatchBaselineApprovalRulePatchFilterArrayInput` via:
+//
+// 		 PatchBaselineApprovalRulePatchFilterArray{ PatchBaselineApprovalRulePatchFilterArgs{...} }
+//
 type PatchBaselineApprovalRulePatchFilterArrayInput interface {
 	pulumi.Input
 
@@ -2472,8 +2622,11 @@ type PatchBaselineGlobalFilter struct {
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of PatchBaselineGlobalFilterInput via:
-// 	PatchBaselineGlobalFilterArgs{...}
+// PatchBaselineGlobalFilterInput is an input type that accepts PatchBaselineGlobalFilterArgs and PatchBaselineGlobalFilterOutput values.
+// You can construct a concrete instance of `PatchBaselineGlobalFilterInput` via:
+//
+// 		 PatchBaselineGlobalFilterArgs{...}
+//
 type PatchBaselineGlobalFilterInput interface {
 	pulumi.Input
 
@@ -2498,8 +2651,11 @@ func (i PatchBaselineGlobalFilterArgs) ToPatchBaselineGlobalFilterOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineGlobalFilterOutput)
 }
 
-// Construct a concrete instance of PatchBaselineGlobalFilterArrayInput via:
-// 	PatchBaselineGlobalFilterArray{ PatchBaselineGlobalFilterArgs{...} }
+// PatchBaselineGlobalFilterArrayInput is an input type that accepts PatchBaselineGlobalFilterArray and PatchBaselineGlobalFilterArrayOutput values.
+// You can construct a concrete instance of `PatchBaselineGlobalFilterArrayInput` via:
+//
+// 		 PatchBaselineGlobalFilterArray{ PatchBaselineGlobalFilterArgs{...} }
+//
 type PatchBaselineGlobalFilterArrayInput interface {
 	pulumi.Input
 
@@ -2571,8 +2727,11 @@ type ResourceDataSyncS3Destination struct {
 	SyncFormat *string `pulumi:"syncFormat"`
 }
 
-// Construct a concrete instance of ResourceDataSyncS3DestinationInput via:
-// 	ResourceDataSyncS3DestinationArgs{...}
+// ResourceDataSyncS3DestinationInput is an input type that accepts ResourceDataSyncS3DestinationArgs and ResourceDataSyncS3DestinationOutput values.
+// You can construct a concrete instance of `ResourceDataSyncS3DestinationInput` via:
+//
+// 		 ResourceDataSyncS3DestinationArgs{...}
+//
 type ResourceDataSyncS3DestinationInput interface {
 	pulumi.Input
 
@@ -2608,8 +2767,15 @@ func (i ResourceDataSyncS3DestinationArgs) ToResourceDataSyncS3DestinationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncS3DestinationOutput).ToResourceDataSyncS3DestinationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ResourceDataSyncS3DestinationPtrInput via:
-// 	ResourceDataSyncS3DestinationArgs{...}.ToResourceDataSyncS3DestinationPtrOutput()
+// ResourceDataSyncS3DestinationPtrInput is an input type that accepts ResourceDataSyncS3DestinationArgs, ResourceDataSyncS3DestinationPtr and ResourceDataSyncS3DestinationPtrOutput values.
+// You can construct a concrete instance of `ResourceDataSyncS3DestinationPtrInput` via:
+//
+// 		 ResourceDataSyncS3DestinationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ResourceDataSyncS3DestinationPtrInput interface {
 	pulumi.Input
 

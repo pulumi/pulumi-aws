@@ -19,8 +19,11 @@ type CertificateAuthorityCertificateAuthorityConfiguration struct {
 	Subject CertificateAuthorityCertificateAuthorityConfigurationSubject `pulumi:"subject"`
 }
 
-// Construct a concrete instance of CertificateAuthorityCertificateAuthorityConfigurationInput via:
-// 	CertificateAuthorityCertificateAuthorityConfigurationArgs{...}
+// CertificateAuthorityCertificateAuthorityConfigurationInput is an input type that accepts CertificateAuthorityCertificateAuthorityConfigurationArgs and CertificateAuthorityCertificateAuthorityConfigurationOutput values.
+// You can construct a concrete instance of `CertificateAuthorityCertificateAuthorityConfigurationInput` via:
+//
+// 		 CertificateAuthorityCertificateAuthorityConfigurationArgs{...}
+//
 type CertificateAuthorityCertificateAuthorityConfigurationInput interface {
 	pulumi.Input
 
@@ -57,8 +60,15 @@ func (i CertificateAuthorityCertificateAuthorityConfigurationArgs) ToCertificate
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCertificateAuthorityConfigurationOutput).ToCertificateAuthorityCertificateAuthorityConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of CertificateAuthorityCertificateAuthorityConfigurationPtrInput via:
-// 	CertificateAuthorityCertificateAuthorityConfigurationArgs{...}.ToCertificateAuthorityCertificateAuthorityConfigurationPtrOutput()
+// CertificateAuthorityCertificateAuthorityConfigurationPtrInput is an input type that accepts CertificateAuthorityCertificateAuthorityConfigurationArgs, CertificateAuthorityCertificateAuthorityConfigurationPtr and CertificateAuthorityCertificateAuthorityConfigurationPtrOutput values.
+// You can construct a concrete instance of `CertificateAuthorityCertificateAuthorityConfigurationPtrInput` via:
+//
+// 		 CertificateAuthorityCertificateAuthorityConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type CertificateAuthorityCertificateAuthorityConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -191,8 +201,11 @@ type CertificateAuthorityCertificateAuthorityConfigurationSubject struct {
 	Title *string `pulumi:"title"`
 }
 
-// Construct a concrete instance of CertificateAuthorityCertificateAuthorityConfigurationSubjectInput via:
-// 	CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{...}
+// CertificateAuthorityCertificateAuthorityConfigurationSubjectInput is an input type that accepts CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs and CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput values.
+// You can construct a concrete instance of `CertificateAuthorityCertificateAuthorityConfigurationSubjectInput` via:
+//
+// 		 CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{...}
+//
 type CertificateAuthorityCertificateAuthorityConfigurationSubjectInput interface {
 	pulumi.Input
 
@@ -331,8 +344,11 @@ type CertificateAuthorityRevocationConfiguration struct {
 	CrlConfiguration *CertificateAuthorityRevocationConfigurationCrlConfiguration `pulumi:"crlConfiguration"`
 }
 
-// Construct a concrete instance of CertificateAuthorityRevocationConfigurationInput via:
-// 	CertificateAuthorityRevocationConfigurationArgs{...}
+// CertificateAuthorityRevocationConfigurationInput is an input type that accepts CertificateAuthorityRevocationConfigurationArgs and CertificateAuthorityRevocationConfigurationOutput values.
+// You can construct a concrete instance of `CertificateAuthorityRevocationConfigurationInput` via:
+//
+// 		 CertificateAuthorityRevocationConfigurationArgs{...}
+//
 type CertificateAuthorityRevocationConfigurationInput interface {
 	pulumi.Input
 
@@ -365,8 +381,15 @@ func (i CertificateAuthorityRevocationConfigurationArgs) ToCertificateAuthorityR
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityRevocationConfigurationOutput).ToCertificateAuthorityRevocationConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of CertificateAuthorityRevocationConfigurationPtrInput via:
-// 	CertificateAuthorityRevocationConfigurationArgs{...}.ToCertificateAuthorityRevocationConfigurationPtrOutput()
+// CertificateAuthorityRevocationConfigurationPtrInput is an input type that accepts CertificateAuthorityRevocationConfigurationArgs, CertificateAuthorityRevocationConfigurationPtr and CertificateAuthorityRevocationConfigurationPtrOutput values.
+// You can construct a concrete instance of `CertificateAuthorityRevocationConfigurationPtrInput` via:
+//
+// 		 CertificateAuthorityRevocationConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type CertificateAuthorityRevocationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -461,8 +484,11 @@ type CertificateAuthorityRevocationConfigurationCrlConfiguration struct {
 	S3BucketName *string `pulumi:"s3BucketName"`
 }
 
-// Construct a concrete instance of CertificateAuthorityRevocationConfigurationCrlConfigurationInput via:
-// 	CertificateAuthorityRevocationConfigurationCrlConfigurationArgs{...}
+// CertificateAuthorityRevocationConfigurationCrlConfigurationInput is an input type that accepts CertificateAuthorityRevocationConfigurationCrlConfigurationArgs and CertificateAuthorityRevocationConfigurationCrlConfigurationOutput values.
+// You can construct a concrete instance of `CertificateAuthorityRevocationConfigurationCrlConfigurationInput` via:
+//
+// 		 CertificateAuthorityRevocationConfigurationCrlConfigurationArgs{...}
+//
 type CertificateAuthorityRevocationConfigurationCrlConfigurationInput interface {
 	pulumi.Input
 
@@ -501,8 +527,15 @@ func (i CertificateAuthorityRevocationConfigurationCrlConfigurationArgs) ToCerti
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityRevocationConfigurationCrlConfigurationOutput).ToCertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of CertificateAuthorityRevocationConfigurationCrlConfigurationPtrInput via:
-// 	CertificateAuthorityRevocationConfigurationCrlConfigurationArgs{...}.ToCertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput()
+// CertificateAuthorityRevocationConfigurationCrlConfigurationPtrInput is an input type that accepts CertificateAuthorityRevocationConfigurationCrlConfigurationArgs, CertificateAuthorityRevocationConfigurationCrlConfigurationPtr and CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput values.
+// You can construct a concrete instance of `CertificateAuthorityRevocationConfigurationCrlConfigurationPtrInput` via:
+//
+// 		 CertificateAuthorityRevocationConfigurationCrlConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type CertificateAuthorityRevocationConfigurationCrlConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -616,8 +649,11 @@ type GetCertificateAuthorityRevocationConfiguration struct {
 	CrlConfigurations []GetCertificateAuthorityRevocationConfigurationCrlConfiguration `pulumi:"crlConfigurations"`
 }
 
-// Construct a concrete instance of GetCertificateAuthorityRevocationConfigurationInput via:
-// 	GetCertificateAuthorityRevocationConfigurationArgs{...}
+// GetCertificateAuthorityRevocationConfigurationInput is an input type that accepts GetCertificateAuthorityRevocationConfigurationArgs and GetCertificateAuthorityRevocationConfigurationOutput values.
+// You can construct a concrete instance of `GetCertificateAuthorityRevocationConfigurationInput` via:
+//
+// 		 GetCertificateAuthorityRevocationConfigurationArgs{...}
+//
 type GetCertificateAuthorityRevocationConfigurationInput interface {
 	pulumi.Input
 
@@ -641,8 +677,11 @@ func (i GetCertificateAuthorityRevocationConfigurationArgs) ToGetCertificateAuth
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateAuthorityRevocationConfigurationOutput)
 }
 
-// Construct a concrete instance of GetCertificateAuthorityRevocationConfigurationArrayInput via:
-// 	GetCertificateAuthorityRevocationConfigurationArray{ GetCertificateAuthorityRevocationConfigurationArgs{...} }
+// GetCertificateAuthorityRevocationConfigurationArrayInput is an input type that accepts GetCertificateAuthorityRevocationConfigurationArray and GetCertificateAuthorityRevocationConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetCertificateAuthorityRevocationConfigurationArrayInput` via:
+//
+// 		 GetCertificateAuthorityRevocationConfigurationArray{ GetCertificateAuthorityRevocationConfigurationArgs{...} }
+//
 type GetCertificateAuthorityRevocationConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -711,8 +750,11 @@ type GetCertificateAuthorityRevocationConfigurationCrlConfiguration struct {
 	S3BucketName     string `pulumi:"s3BucketName"`
 }
 
-// Construct a concrete instance of GetCertificateAuthorityRevocationConfigurationCrlConfigurationInput via:
-// 	GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs{...}
+// GetCertificateAuthorityRevocationConfigurationCrlConfigurationInput is an input type that accepts GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs and GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput values.
+// You can construct a concrete instance of `GetCertificateAuthorityRevocationConfigurationCrlConfigurationInput` via:
+//
+// 		 GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs{...}
+//
 type GetCertificateAuthorityRevocationConfigurationCrlConfigurationInput interface {
 	pulumi.Input
 
@@ -739,8 +781,11 @@ func (i GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs) ToGe
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput)
 }
 
-// Construct a concrete instance of GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayInput via:
-// 	GetCertificateAuthorityRevocationConfigurationCrlConfigurationArray{ GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs{...} }
+// GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayInput is an input type that accepts GetCertificateAuthorityRevocationConfigurationCrlConfigurationArray and GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayInput` via:
+//
+// 		 GetCertificateAuthorityRevocationConfigurationCrlConfigurationArray{ GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs{...} }
+//
 type GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayInput interface {
 	pulumi.Input
 

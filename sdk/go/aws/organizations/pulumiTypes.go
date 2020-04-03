@@ -23,8 +23,11 @@ type OrganizationAccount struct {
 	Status *string `pulumi:"status"`
 }
 
-// Construct a concrete instance of OrganizationAccountInput via:
-// 	OrganizationAccountArgs{...}
+// OrganizationAccountInput is an input type that accepts OrganizationAccountArgs and OrganizationAccountOutput values.
+// You can construct a concrete instance of `OrganizationAccountInput` via:
+//
+// 		 OrganizationAccountArgs{...}
+//
 type OrganizationAccountInput interface {
 	pulumi.Input
 
@@ -57,8 +60,11 @@ func (i OrganizationAccountArgs) ToOrganizationAccountOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAccountOutput)
 }
 
-// Construct a concrete instance of OrganizationAccountArrayInput via:
-// 	OrganizationAccountArray{ OrganizationAccountArgs{...} }
+// OrganizationAccountArrayInput is an input type that accepts OrganizationAccountArray and OrganizationAccountArrayOutput values.
+// You can construct a concrete instance of `OrganizationAccountArrayInput` via:
+//
+// 		 OrganizationAccountArray{ OrganizationAccountArgs{...} }
+//
 type OrganizationAccountArrayInput interface {
 	pulumi.Input
 
@@ -152,8 +158,11 @@ type OrganizationNonMasterAccount struct {
 	Status *string `pulumi:"status"`
 }
 
-// Construct a concrete instance of OrganizationNonMasterAccountInput via:
-// 	OrganizationNonMasterAccountArgs{...}
+// OrganizationNonMasterAccountInput is an input type that accepts OrganizationNonMasterAccountArgs and OrganizationNonMasterAccountOutput values.
+// You can construct a concrete instance of `OrganizationNonMasterAccountInput` via:
+//
+// 		 OrganizationNonMasterAccountArgs{...}
+//
 type OrganizationNonMasterAccountInput interface {
 	pulumi.Input
 
@@ -186,8 +195,11 @@ func (i OrganizationNonMasterAccountArgs) ToOrganizationNonMasterAccountOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationNonMasterAccountOutput)
 }
 
-// Construct a concrete instance of OrganizationNonMasterAccountArrayInput via:
-// 	OrganizationNonMasterAccountArray{ OrganizationNonMasterAccountArgs{...} }
+// OrganizationNonMasterAccountArrayInput is an input type that accepts OrganizationNonMasterAccountArray and OrganizationNonMasterAccountArrayOutput values.
+// You can construct a concrete instance of `OrganizationNonMasterAccountArrayInput` via:
+//
+// 		 OrganizationNonMasterAccountArray{ OrganizationNonMasterAccountArgs{...} }
+//
 type OrganizationNonMasterAccountArrayInput interface {
 	pulumi.Input
 
@@ -279,8 +291,11 @@ type OrganizationRoot struct {
 	PolicyTypes []OrganizationRootPolicyType `pulumi:"policyTypes"`
 }
 
-// Construct a concrete instance of OrganizationRootInput via:
-// 	OrganizationRootArgs{...}
+// OrganizationRootInput is an input type that accepts OrganizationRootArgs and OrganizationRootOutput values.
+// You can construct a concrete instance of `OrganizationRootInput` via:
+//
+// 		 OrganizationRootArgs{...}
+//
 type OrganizationRootInput interface {
 	pulumi.Input
 
@@ -311,8 +326,11 @@ func (i OrganizationRootArgs) ToOrganizationRootOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRootOutput)
 }
 
-// Construct a concrete instance of OrganizationRootArrayInput via:
-// 	OrganizationRootArray{ OrganizationRootArgs{...} }
+// OrganizationRootArrayInput is an input type that accepts OrganizationRootArray and OrganizationRootArrayOutput values.
+// You can construct a concrete instance of `OrganizationRootArrayInput` via:
+//
+// 		 OrganizationRootArray{ OrganizationRootArgs{...} }
+//
 type OrganizationRootArrayInput interface {
 	pulumi.Input
 
@@ -394,8 +412,11 @@ type OrganizationRootPolicyType struct {
 	Type   *string `pulumi:"type"`
 }
 
-// Construct a concrete instance of OrganizationRootPolicyTypeInput via:
-// 	OrganizationRootPolicyTypeArgs{...}
+// OrganizationRootPolicyTypeInput is an input type that accepts OrganizationRootPolicyTypeArgs and OrganizationRootPolicyTypeOutput values.
+// You can construct a concrete instance of `OrganizationRootPolicyTypeInput` via:
+//
+// 		 OrganizationRootPolicyTypeArgs{...}
+//
 type OrganizationRootPolicyTypeInput interface {
 	pulumi.Input
 
@@ -421,8 +442,11 @@ func (i OrganizationRootPolicyTypeArgs) ToOrganizationRootPolicyTypeOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRootPolicyTypeOutput)
 }
 
-// Construct a concrete instance of OrganizationRootPolicyTypeArrayInput via:
-// 	OrganizationRootPolicyTypeArray{ OrganizationRootPolicyTypeArgs{...} }
+// OrganizationRootPolicyTypeArrayInput is an input type that accepts OrganizationRootPolicyTypeArray and OrganizationRootPolicyTypeArrayOutput values.
+// You can construct a concrete instance of `OrganizationRootPolicyTypeArrayInput` via:
+//
+// 		 OrganizationRootPolicyTypeArray{ OrganizationRootPolicyTypeArgs{...} }
+//
 type OrganizationRootPolicyTypeArrayInput interface {
 	pulumi.Input
 
@@ -498,8 +522,11 @@ type OrganizationalUnitAccount struct {
 	Name *string `pulumi:"name"`
 }
 
-// Construct a concrete instance of OrganizationalUnitAccountInput via:
-// 	OrganizationalUnitAccountArgs{...}
+// OrganizationalUnitAccountInput is an input type that accepts OrganizationalUnitAccountArgs and OrganizationalUnitAccountOutput values.
+// You can construct a concrete instance of `OrganizationalUnitAccountInput` via:
+//
+// 		 OrganizationalUnitAccountArgs{...}
+//
 type OrganizationalUnitAccountInput interface {
 	pulumi.Input
 
@@ -530,8 +557,11 @@ func (i OrganizationalUnitAccountArgs) ToOrganizationalUnitAccountOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationalUnitAccountOutput)
 }
 
-// Construct a concrete instance of OrganizationalUnitAccountArrayInput via:
-// 	OrganizationalUnitAccountArray{ OrganizationalUnitAccountArgs{...} }
+// OrganizationalUnitAccountArrayInput is an input type that accepts OrganizationalUnitAccountArray and OrganizationalUnitAccountArrayOutput values.
+// You can construct a concrete instance of `OrganizationalUnitAccountArrayInput` via:
+//
+// 		 OrganizationalUnitAccountArray{ OrganizationalUnitAccountArgs{...} }
+//
 type OrganizationalUnitAccountArrayInput interface {
 	pulumi.Input
 
@@ -620,8 +650,11 @@ type GetOrganizationAccount struct {
 	Status string `pulumi:"status"`
 }
 
-// Construct a concrete instance of GetOrganizationAccountInput via:
-// 	GetOrganizationAccountArgs{...}
+// GetOrganizationAccountInput is an input type that accepts GetOrganizationAccountArgs and GetOrganizationAccountOutput values.
+// You can construct a concrete instance of `GetOrganizationAccountInput` via:
+//
+// 		 GetOrganizationAccountArgs{...}
+//
 type GetOrganizationAccountInput interface {
 	pulumi.Input
 
@@ -654,8 +687,11 @@ func (i GetOrganizationAccountArgs) ToGetOrganizationAccountOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationAccountOutput)
 }
 
-// Construct a concrete instance of GetOrganizationAccountArrayInput via:
-// 	GetOrganizationAccountArray{ GetOrganizationAccountArgs{...} }
+// GetOrganizationAccountArrayInput is an input type that accepts GetOrganizationAccountArray and GetOrganizationAccountArrayOutput values.
+// You can construct a concrete instance of `GetOrganizationAccountArrayInput` via:
+//
+// 		 GetOrganizationAccountArray{ GetOrganizationAccountArgs{...} }
+//
 type GetOrganizationAccountArrayInput interface {
 	pulumi.Input
 
@@ -749,8 +785,11 @@ type GetOrganizationNonMasterAccount struct {
 	Status string `pulumi:"status"`
 }
 
-// Construct a concrete instance of GetOrganizationNonMasterAccountInput via:
-// 	GetOrganizationNonMasterAccountArgs{...}
+// GetOrganizationNonMasterAccountInput is an input type that accepts GetOrganizationNonMasterAccountArgs and GetOrganizationNonMasterAccountOutput values.
+// You can construct a concrete instance of `GetOrganizationNonMasterAccountInput` via:
+//
+// 		 GetOrganizationNonMasterAccountArgs{...}
+//
 type GetOrganizationNonMasterAccountInput interface {
 	pulumi.Input
 
@@ -783,8 +822,11 @@ func (i GetOrganizationNonMasterAccountArgs) ToGetOrganizationNonMasterAccountOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationNonMasterAccountOutput)
 }
 
-// Construct a concrete instance of GetOrganizationNonMasterAccountArrayInput via:
-// 	GetOrganizationNonMasterAccountArray{ GetOrganizationNonMasterAccountArgs{...} }
+// GetOrganizationNonMasterAccountArrayInput is an input type that accepts GetOrganizationNonMasterAccountArray and GetOrganizationNonMasterAccountArrayOutput values.
+// You can construct a concrete instance of `GetOrganizationNonMasterAccountArrayInput` via:
+//
+// 		 GetOrganizationNonMasterAccountArray{ GetOrganizationNonMasterAccountArgs{...} }
+//
 type GetOrganizationNonMasterAccountArrayInput interface {
 	pulumi.Input
 
@@ -876,8 +918,11 @@ type GetOrganizationRoot struct {
 	PolicyTypes []GetOrganizationRootPolicyType `pulumi:"policyTypes"`
 }
 
-// Construct a concrete instance of GetOrganizationRootInput via:
-// 	GetOrganizationRootArgs{...}
+// GetOrganizationRootInput is an input type that accepts GetOrganizationRootArgs and GetOrganizationRootOutput values.
+// You can construct a concrete instance of `GetOrganizationRootInput` via:
+//
+// 		 GetOrganizationRootArgs{...}
+//
 type GetOrganizationRootInput interface {
 	pulumi.Input
 
@@ -908,8 +953,11 @@ func (i GetOrganizationRootArgs) ToGetOrganizationRootOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationRootOutput)
 }
 
-// Construct a concrete instance of GetOrganizationRootArrayInput via:
-// 	GetOrganizationRootArray{ GetOrganizationRootArgs{...} }
+// GetOrganizationRootArrayInput is an input type that accepts GetOrganizationRootArray and GetOrganizationRootArrayOutput values.
+// You can construct a concrete instance of `GetOrganizationRootArrayInput` via:
+//
+// 		 GetOrganizationRootArray{ GetOrganizationRootArgs{...} }
+//
 type GetOrganizationRootArrayInput interface {
 	pulumi.Input
 
@@ -991,8 +1039,11 @@ type GetOrganizationRootPolicyType struct {
 	Type   string `pulumi:"type"`
 }
 
-// Construct a concrete instance of GetOrganizationRootPolicyTypeInput via:
-// 	GetOrganizationRootPolicyTypeArgs{...}
+// GetOrganizationRootPolicyTypeInput is an input type that accepts GetOrganizationRootPolicyTypeArgs and GetOrganizationRootPolicyTypeOutput values.
+// You can construct a concrete instance of `GetOrganizationRootPolicyTypeInput` via:
+//
+// 		 GetOrganizationRootPolicyTypeArgs{...}
+//
 type GetOrganizationRootPolicyTypeInput interface {
 	pulumi.Input
 
@@ -1018,8 +1069,11 @@ func (i GetOrganizationRootPolicyTypeArgs) ToGetOrganizationRootPolicyTypeOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationRootPolicyTypeOutput)
 }
 
-// Construct a concrete instance of GetOrganizationRootPolicyTypeArrayInput via:
-// 	GetOrganizationRootPolicyTypeArray{ GetOrganizationRootPolicyTypeArgs{...} }
+// GetOrganizationRootPolicyTypeArrayInput is an input type that accepts GetOrganizationRootPolicyTypeArray and GetOrganizationRootPolicyTypeArrayOutput values.
+// You can construct a concrete instance of `GetOrganizationRootPolicyTypeArrayInput` via:
+//
+// 		 GetOrganizationRootPolicyTypeArray{ GetOrganizationRootPolicyTypeArgs{...} }
+//
 type GetOrganizationRootPolicyTypeArrayInput interface {
 	pulumi.Input
 
@@ -1093,8 +1147,11 @@ type GetOrganizationalUnitsChildren struct {
 	Name string `pulumi:"name"`
 }
 
-// Construct a concrete instance of GetOrganizationalUnitsChildrenInput via:
-// 	GetOrganizationalUnitsChildrenArgs{...}
+// GetOrganizationalUnitsChildrenInput is an input type that accepts GetOrganizationalUnitsChildrenArgs and GetOrganizationalUnitsChildrenOutput values.
+// You can construct a concrete instance of `GetOrganizationalUnitsChildrenInput` via:
+//
+// 		 GetOrganizationalUnitsChildrenArgs{...}
+//
 type GetOrganizationalUnitsChildrenInput interface {
 	pulumi.Input
 
@@ -1123,8 +1180,11 @@ func (i GetOrganizationalUnitsChildrenArgs) ToGetOrganizationalUnitsChildrenOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationalUnitsChildrenOutput)
 }
 
-// Construct a concrete instance of GetOrganizationalUnitsChildrenArrayInput via:
-// 	GetOrganizationalUnitsChildrenArray{ GetOrganizationalUnitsChildrenArgs{...} }
+// GetOrganizationalUnitsChildrenArrayInput is an input type that accepts GetOrganizationalUnitsChildrenArray and GetOrganizationalUnitsChildrenArrayOutput values.
+// You can construct a concrete instance of `GetOrganizationalUnitsChildrenArrayInput` via:
+//
+// 		 GetOrganizationalUnitsChildrenArray{ GetOrganizationalUnitsChildrenArgs{...} }
+//
 type GetOrganizationalUnitsChildrenArrayInput interface {
 	pulumi.Input
 

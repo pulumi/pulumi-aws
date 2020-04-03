@@ -19,8 +19,11 @@ type QueueReservationPlanSettings struct {
 	ReservedSlots int `pulumi:"reservedSlots"`
 }
 
-// Construct a concrete instance of QueueReservationPlanSettingsInput via:
-// 	QueueReservationPlanSettingsArgs{...}
+// QueueReservationPlanSettingsInput is an input type that accepts QueueReservationPlanSettingsArgs and QueueReservationPlanSettingsOutput values.
+// You can construct a concrete instance of `QueueReservationPlanSettingsInput` via:
+//
+// 		 QueueReservationPlanSettingsArgs{...}
+//
 type QueueReservationPlanSettingsInput interface {
 	pulumi.Input
 
@@ -57,8 +60,15 @@ func (i QueueReservationPlanSettingsArgs) ToQueueReservationPlanSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(QueueReservationPlanSettingsOutput).ToQueueReservationPlanSettingsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of QueueReservationPlanSettingsPtrInput via:
-// 	QueueReservationPlanSettingsArgs{...}.ToQueueReservationPlanSettingsPtrOutput()
+// QueueReservationPlanSettingsPtrInput is an input type that accepts QueueReservationPlanSettingsArgs, QueueReservationPlanSettingsPtr and QueueReservationPlanSettingsPtrOutput values.
+// You can construct a concrete instance of `QueueReservationPlanSettingsPtrInput` via:
+//
+// 		 QueueReservationPlanSettingsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type QueueReservationPlanSettingsPtrInput interface {
 	pulumi.Input
 

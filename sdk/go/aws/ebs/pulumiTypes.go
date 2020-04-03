@@ -15,8 +15,11 @@ type GetSnapshotFilter struct {
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of GetSnapshotFilterInput via:
-// 	GetSnapshotFilterArgs{...}
+// GetSnapshotFilterInput is an input type that accepts GetSnapshotFilterArgs and GetSnapshotFilterOutput values.
+// You can construct a concrete instance of `GetSnapshotFilterInput` via:
+//
+// 		 GetSnapshotFilterArgs{...}
+//
 type GetSnapshotFilterInput interface {
 	pulumi.Input
 
@@ -41,8 +44,11 @@ func (i GetSnapshotFilterArgs) ToGetSnapshotFilterOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotFilterOutput)
 }
 
-// Construct a concrete instance of GetSnapshotFilterArrayInput via:
-// 	GetSnapshotFilterArray{ GetSnapshotFilterArgs{...} }
+// GetSnapshotFilterArrayInput is an input type that accepts GetSnapshotFilterArray and GetSnapshotFilterArrayOutput values.
+// You can construct a concrete instance of `GetSnapshotFilterArrayInput` via:
+//
+// 		 GetSnapshotFilterArray{ GetSnapshotFilterArgs{...} }
+//
 type GetSnapshotFilterArrayInput interface {
 	pulumi.Input
 
@@ -111,8 +117,11 @@ type GetSnapshotIdsFilter struct {
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of GetSnapshotIdsFilterInput via:
-// 	GetSnapshotIdsFilterArgs{...}
+// GetSnapshotIdsFilterInput is an input type that accepts GetSnapshotIdsFilterArgs and GetSnapshotIdsFilterOutput values.
+// You can construct a concrete instance of `GetSnapshotIdsFilterInput` via:
+//
+// 		 GetSnapshotIdsFilterArgs{...}
+//
 type GetSnapshotIdsFilterInput interface {
 	pulumi.Input
 
@@ -137,8 +146,11 @@ func (i GetSnapshotIdsFilterArgs) ToGetSnapshotIdsFilterOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotIdsFilterOutput)
 }
 
-// Construct a concrete instance of GetSnapshotIdsFilterArrayInput via:
-// 	GetSnapshotIdsFilterArray{ GetSnapshotIdsFilterArgs{...} }
+// GetSnapshotIdsFilterArrayInput is an input type that accepts GetSnapshotIdsFilterArray and GetSnapshotIdsFilterArrayOutput values.
+// You can construct a concrete instance of `GetSnapshotIdsFilterArrayInput` via:
+//
+// 		 GetSnapshotIdsFilterArray{ GetSnapshotIdsFilterArgs{...} }
+//
 type GetSnapshotIdsFilterArrayInput interface {
 	pulumi.Input
 
@@ -207,8 +219,11 @@ type GetVolumeFilter struct {
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of GetVolumeFilterInput via:
-// 	GetVolumeFilterArgs{...}
+// GetVolumeFilterInput is an input type that accepts GetVolumeFilterArgs and GetVolumeFilterOutput values.
+// You can construct a concrete instance of `GetVolumeFilterInput` via:
+//
+// 		 GetVolumeFilterArgs{...}
+//
 type GetVolumeFilterInput interface {
 	pulumi.Input
 
@@ -233,8 +248,11 @@ func (i GetVolumeFilterArgs) ToGetVolumeFilterOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeFilterOutput)
 }
 
-// Construct a concrete instance of GetVolumeFilterArrayInput via:
-// 	GetVolumeFilterArray{ GetVolumeFilterArgs{...} }
+// GetVolumeFilterArrayInput is an input type that accepts GetVolumeFilterArray and GetVolumeFilterArrayOutput values.
+// You can construct a concrete instance of `GetVolumeFilterArrayInput` via:
+//
+// 		 GetVolumeFilterArray{ GetVolumeFilterArgs{...} }
+//
 type GetVolumeFilterArrayInput interface {
 	pulumi.Input
 

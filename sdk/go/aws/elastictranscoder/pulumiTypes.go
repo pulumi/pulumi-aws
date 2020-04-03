@@ -17,8 +17,11 @@ type PipelineContentConfig struct {
 	StorageClass *string `pulumi:"storageClass"`
 }
 
-// Construct a concrete instance of PipelineContentConfigInput via:
-// 	PipelineContentConfigArgs{...}
+// PipelineContentConfigInput is an input type that accepts PipelineContentConfigArgs and PipelineContentConfigOutput values.
+// You can construct a concrete instance of `PipelineContentConfigInput` via:
+//
+// 		 PipelineContentConfigArgs{...}
+//
 type PipelineContentConfigInput interface {
 	pulumi.Input
 
@@ -53,8 +56,15 @@ func (i PipelineContentConfigArgs) ToPipelineContentConfigPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineContentConfigOutput).ToPipelineContentConfigPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of PipelineContentConfigPtrInput via:
-// 	PipelineContentConfigArgs{...}.ToPipelineContentConfigPtrOutput()
+// PipelineContentConfigPtrInput is an input type that accepts PipelineContentConfigArgs, PipelineContentConfigPtr and PipelineContentConfigPtrOutput values.
+// You can construct a concrete instance of `PipelineContentConfigPtrInput` via:
+//
+// 		 PipelineContentConfigArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type PipelineContentConfigPtrInput interface {
 	pulumi.Input
 
@@ -151,8 +161,11 @@ type PipelineContentConfigPermission struct {
 	GranteeType *string `pulumi:"granteeType"`
 }
 
-// Construct a concrete instance of PipelineContentConfigPermissionInput via:
-// 	PipelineContentConfigPermissionArgs{...}
+// PipelineContentConfigPermissionInput is an input type that accepts PipelineContentConfigPermissionArgs and PipelineContentConfigPermissionOutput values.
+// You can construct a concrete instance of `PipelineContentConfigPermissionInput` via:
+//
+// 		 PipelineContentConfigPermissionArgs{...}
+//
 type PipelineContentConfigPermissionInput interface {
 	pulumi.Input
 
@@ -181,8 +194,11 @@ func (i PipelineContentConfigPermissionArgs) ToPipelineContentConfigPermissionOu
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineContentConfigPermissionOutput)
 }
 
-// Construct a concrete instance of PipelineContentConfigPermissionArrayInput via:
-// 	PipelineContentConfigPermissionArray{ PipelineContentConfigPermissionArgs{...} }
+// PipelineContentConfigPermissionArrayInput is an input type that accepts PipelineContentConfigPermissionArray and PipelineContentConfigPermissionArrayOutput values.
+// You can construct a concrete instance of `PipelineContentConfigPermissionArrayInput` via:
+//
+// 		 PipelineContentConfigPermissionArray{ PipelineContentConfigPermissionArgs{...} }
+//
 type PipelineContentConfigPermissionArrayInput interface {
 	pulumi.Input
 
@@ -264,8 +280,11 @@ type PipelineNotifications struct {
 	Warning *string `pulumi:"warning"`
 }
 
-// Construct a concrete instance of PipelineNotificationsInput via:
-// 	PipelineNotificationsArgs{...}
+// PipelineNotificationsInput is an input type that accepts PipelineNotificationsArgs and PipelineNotificationsOutput values.
+// You can construct a concrete instance of `PipelineNotificationsInput` via:
+//
+// 		 PipelineNotificationsArgs{...}
+//
 type PipelineNotificationsInput interface {
 	pulumi.Input
 
@@ -304,8 +323,15 @@ func (i PipelineNotificationsArgs) ToPipelineNotificationsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineNotificationsOutput).ToPipelineNotificationsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of PipelineNotificationsPtrInput via:
-// 	PipelineNotificationsArgs{...}.ToPipelineNotificationsPtrOutput()
+// PipelineNotificationsPtrInput is an input type that accepts PipelineNotificationsArgs, PipelineNotificationsPtr and PipelineNotificationsPtrOutput values.
+// You can construct a concrete instance of `PipelineNotificationsPtrInput` via:
+//
+// 		 PipelineNotificationsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type PipelineNotificationsPtrInput interface {
 	pulumi.Input
 
@@ -420,8 +446,11 @@ type PipelineThumbnailConfig struct {
 	StorageClass *string `pulumi:"storageClass"`
 }
 
-// Construct a concrete instance of PipelineThumbnailConfigInput via:
-// 	PipelineThumbnailConfigArgs{...}
+// PipelineThumbnailConfigInput is an input type that accepts PipelineThumbnailConfigArgs and PipelineThumbnailConfigOutput values.
+// You can construct a concrete instance of `PipelineThumbnailConfigInput` via:
+//
+// 		 PipelineThumbnailConfigArgs{...}
+//
 type PipelineThumbnailConfigInput interface {
 	pulumi.Input
 
@@ -456,8 +485,15 @@ func (i PipelineThumbnailConfigArgs) ToPipelineThumbnailConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineThumbnailConfigOutput).ToPipelineThumbnailConfigPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of PipelineThumbnailConfigPtrInput via:
-// 	PipelineThumbnailConfigArgs{...}.ToPipelineThumbnailConfigPtrOutput()
+// PipelineThumbnailConfigPtrInput is an input type that accepts PipelineThumbnailConfigArgs, PipelineThumbnailConfigPtr and PipelineThumbnailConfigPtrOutput values.
+// You can construct a concrete instance of `PipelineThumbnailConfigPtrInput` via:
+//
+// 		 PipelineThumbnailConfigArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type PipelineThumbnailConfigPtrInput interface {
 	pulumi.Input
 
@@ -554,8 +590,11 @@ type PipelineThumbnailConfigPermission struct {
 	GranteeType *string `pulumi:"granteeType"`
 }
 
-// Construct a concrete instance of PipelineThumbnailConfigPermissionInput via:
-// 	PipelineThumbnailConfigPermissionArgs{...}
+// PipelineThumbnailConfigPermissionInput is an input type that accepts PipelineThumbnailConfigPermissionArgs and PipelineThumbnailConfigPermissionOutput values.
+// You can construct a concrete instance of `PipelineThumbnailConfigPermissionInput` via:
+//
+// 		 PipelineThumbnailConfigPermissionArgs{...}
+//
 type PipelineThumbnailConfigPermissionInput interface {
 	pulumi.Input
 
@@ -584,8 +623,11 @@ func (i PipelineThumbnailConfigPermissionArgs) ToPipelineThumbnailConfigPermissi
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineThumbnailConfigPermissionOutput)
 }
 
-// Construct a concrete instance of PipelineThumbnailConfigPermissionArrayInput via:
-// 	PipelineThumbnailConfigPermissionArray{ PipelineThumbnailConfigPermissionArgs{...} }
+// PipelineThumbnailConfigPermissionArrayInput is an input type that accepts PipelineThumbnailConfigPermissionArray and PipelineThumbnailConfigPermissionArrayOutput values.
+// You can construct a concrete instance of `PipelineThumbnailConfigPermissionArrayInput` via:
+//
+// 		 PipelineThumbnailConfigPermissionArray{ PipelineThumbnailConfigPermissionArgs{...} }
+//
 type PipelineThumbnailConfigPermissionArrayInput interface {
 	pulumi.Input
 
@@ -669,8 +711,11 @@ type PresetAudio struct {
 	SampleRate *string `pulumi:"sampleRate"`
 }
 
-// Construct a concrete instance of PresetAudioInput via:
-// 	PresetAudioArgs{...}
+// PresetAudioInput is an input type that accepts PresetAudioArgs and PresetAudioOutput values.
+// You can construct a concrete instance of `PresetAudioInput` via:
+//
+// 		 PresetAudioArgs{...}
+//
 type PresetAudioInput interface {
 	pulumi.Input
 
@@ -711,8 +756,15 @@ func (i PresetAudioArgs) ToPresetAudioPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PresetAudioOutput).ToPresetAudioPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of PresetAudioPtrInput via:
-// 	PresetAudioArgs{...}.ToPresetAudioPtrOutput()
+// PresetAudioPtrInput is an input type that accepts PresetAudioArgs, PresetAudioPtr and PresetAudioPtrOutput values.
+// You can construct a concrete instance of `PresetAudioPtrInput` via:
+//
+// 		 PresetAudioArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type PresetAudioPtrInput interface {
 	pulumi.Input
 
@@ -841,8 +893,11 @@ type PresetAudioCodecOptions struct {
 	Signed *string `pulumi:"signed"`
 }
 
-// Construct a concrete instance of PresetAudioCodecOptionsInput via:
-// 	PresetAudioCodecOptionsArgs{...}
+// PresetAudioCodecOptionsInput is an input type that accepts PresetAudioCodecOptionsArgs and PresetAudioCodecOptionsOutput values.
+// You can construct a concrete instance of `PresetAudioCodecOptionsInput` via:
+//
+// 		 PresetAudioCodecOptionsArgs{...}
+//
 type PresetAudioCodecOptionsInput interface {
 	pulumi.Input
 
@@ -881,8 +936,15 @@ func (i PresetAudioCodecOptionsArgs) ToPresetAudioCodecOptionsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(PresetAudioCodecOptionsOutput).ToPresetAudioCodecOptionsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of PresetAudioCodecOptionsPtrInput via:
-// 	PresetAudioCodecOptionsArgs{...}.ToPresetAudioCodecOptionsPtrOutput()
+// PresetAudioCodecOptionsPtrInput is an input type that accepts PresetAudioCodecOptionsArgs, PresetAudioCodecOptionsPtr and PresetAudioCodecOptionsPtrOutput values.
+// You can construct a concrete instance of `PresetAudioCodecOptionsPtrInput` via:
+//
+// 		 PresetAudioCodecOptionsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type PresetAudioCodecOptionsPtrInput interface {
 	pulumi.Input
 
@@ -1009,8 +1071,11 @@ type PresetThumbnails struct {
 	SizingPolicy *string `pulumi:"sizingPolicy"`
 }
 
-// Construct a concrete instance of PresetThumbnailsInput via:
-// 	PresetThumbnailsArgs{...}
+// PresetThumbnailsInput is an input type that accepts PresetThumbnailsArgs and PresetThumbnailsOutput values.
+// You can construct a concrete instance of `PresetThumbnailsInput` via:
+//
+// 		 PresetThumbnailsArgs{...}
+//
 type PresetThumbnailsInput interface {
 	pulumi.Input
 
@@ -1057,8 +1122,15 @@ func (i PresetThumbnailsArgs) ToPresetThumbnailsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PresetThumbnailsOutput).ToPresetThumbnailsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of PresetThumbnailsPtrInput via:
-// 	PresetThumbnailsArgs{...}.ToPresetThumbnailsPtrOutput()
+// PresetThumbnailsPtrInput is an input type that accepts PresetThumbnailsArgs, PresetThumbnailsPtr and PresetThumbnailsPtrOutput values.
+// You can construct a concrete instance of `PresetThumbnailsPtrInput` via:
+//
+// 		 PresetThumbnailsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type PresetThumbnailsPtrInput interface {
 	pulumi.Input
 
@@ -1235,8 +1307,11 @@ type PresetVideo struct {
 	SizingPolicy *string `pulumi:"sizingPolicy"`
 }
 
-// Construct a concrete instance of PresetVideoInput via:
-// 	PresetVideoArgs{...}
+// PresetVideoInput is an input type that accepts PresetVideoArgs and PresetVideoOutput values.
+// You can construct a concrete instance of `PresetVideoInput` via:
+//
+// 		 PresetVideoArgs{...}
+//
 type PresetVideoInput interface {
 	pulumi.Input
 
@@ -1293,8 +1368,15 @@ func (i PresetVideoArgs) ToPresetVideoPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PresetVideoOutput).ToPresetVideoPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of PresetVideoPtrInput via:
-// 	PresetVideoArgs{...}.ToPresetVideoPtrOutput()
+// PresetVideoPtrInput is an input type that accepts PresetVideoArgs, PresetVideoPtr and PresetVideoPtrOutput values.
+// You can construct a concrete instance of `PresetVideoPtrInput` via:
+//
+// 		 PresetVideoArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type PresetVideoPtrInput interface {
 	pulumi.Input
 
@@ -1515,8 +1597,11 @@ type PresetVideoWatermark struct {
 	VerticalOffset *string `pulumi:"verticalOffset"`
 }
 
-// Construct a concrete instance of PresetVideoWatermarkInput via:
-// 	PresetVideoWatermarkArgs{...}
+// PresetVideoWatermarkInput is an input type that accepts PresetVideoWatermarkArgs and PresetVideoWatermarkOutput values.
+// You can construct a concrete instance of `PresetVideoWatermarkInput` via:
+//
+// 		 PresetVideoWatermarkArgs{...}
+//
 type PresetVideoWatermarkInput interface {
 	pulumi.Input
 
@@ -1559,8 +1644,11 @@ func (i PresetVideoWatermarkArgs) ToPresetVideoWatermarkOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PresetVideoWatermarkOutput)
 }
 
-// Construct a concrete instance of PresetVideoWatermarkArrayInput via:
-// 	PresetVideoWatermarkArray{ PresetVideoWatermarkArgs{...} }
+// PresetVideoWatermarkArrayInput is an input type that accepts PresetVideoWatermarkArray and PresetVideoWatermarkArrayOutput values.
+// You can construct a concrete instance of `PresetVideoWatermarkArrayInput` via:
+//
+// 		 PresetVideoWatermarkArray{ PresetVideoWatermarkArgs{...} }
+//
 type PresetVideoWatermarkArrayInput interface {
 	pulumi.Input
 

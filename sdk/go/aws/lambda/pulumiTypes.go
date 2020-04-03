@@ -15,8 +15,11 @@ type AliasRoutingConfig struct {
 	AdditionalVersionWeights map[string]float64 `pulumi:"additionalVersionWeights"`
 }
 
-// Construct a concrete instance of AliasRoutingConfigInput via:
-// 	AliasRoutingConfigArgs{...}
+// AliasRoutingConfigInput is an input type that accepts AliasRoutingConfigArgs and AliasRoutingConfigOutput values.
+// You can construct a concrete instance of `AliasRoutingConfigInput` via:
+//
+// 		 AliasRoutingConfigArgs{...}
+//
 type AliasRoutingConfigInput interface {
 	pulumi.Input
 
@@ -49,8 +52,15 @@ func (i AliasRoutingConfigArgs) ToAliasRoutingConfigPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingConfigOutput).ToAliasRoutingConfigPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of AliasRoutingConfigPtrInput via:
-// 	AliasRoutingConfigArgs{...}.ToAliasRoutingConfigPtrOutput()
+// AliasRoutingConfigPtrInput is an input type that accepts AliasRoutingConfigArgs, AliasRoutingConfigPtr and AliasRoutingConfigPtrOutput values.
+// You can construct a concrete instance of `AliasRoutingConfigPtrInput` via:
+//
+// 		 AliasRoutingConfigArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AliasRoutingConfigPtrInput interface {
 	pulumi.Input
 
@@ -133,8 +143,11 @@ type EventSourceMappingDestinationConfig struct {
 	OnFailure *EventSourceMappingDestinationConfigOnFailure `pulumi:"onFailure"`
 }
 
-// Construct a concrete instance of EventSourceMappingDestinationConfigInput via:
-// 	EventSourceMappingDestinationConfigArgs{...}
+// EventSourceMappingDestinationConfigInput is an input type that accepts EventSourceMappingDestinationConfigArgs and EventSourceMappingDestinationConfigOutput values.
+// You can construct a concrete instance of `EventSourceMappingDestinationConfigInput` via:
+//
+// 		 EventSourceMappingDestinationConfigArgs{...}
+//
 type EventSourceMappingDestinationConfigInput interface {
 	pulumi.Input
 
@@ -167,8 +180,15 @@ func (i EventSourceMappingDestinationConfigArgs) ToEventSourceMappingDestination
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingDestinationConfigOutput).ToEventSourceMappingDestinationConfigPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of EventSourceMappingDestinationConfigPtrInput via:
-// 	EventSourceMappingDestinationConfigArgs{...}.ToEventSourceMappingDestinationConfigPtrOutput()
+// EventSourceMappingDestinationConfigPtrInput is an input type that accepts EventSourceMappingDestinationConfigArgs, EventSourceMappingDestinationConfigPtr and EventSourceMappingDestinationConfigPtrOutput values.
+// You can construct a concrete instance of `EventSourceMappingDestinationConfigPtrInput` via:
+//
+// 		 EventSourceMappingDestinationConfigArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type EventSourceMappingDestinationConfigPtrInput interface {
 	pulumi.Input
 
@@ -255,8 +275,11 @@ type EventSourceMappingDestinationConfigOnFailure struct {
 	DestinationArn string `pulumi:"destinationArn"`
 }
 
-// Construct a concrete instance of EventSourceMappingDestinationConfigOnFailureInput via:
-// 	EventSourceMappingDestinationConfigOnFailureArgs{...}
+// EventSourceMappingDestinationConfigOnFailureInput is an input type that accepts EventSourceMappingDestinationConfigOnFailureArgs and EventSourceMappingDestinationConfigOnFailureOutput values.
+// You can construct a concrete instance of `EventSourceMappingDestinationConfigOnFailureInput` via:
+//
+// 		 EventSourceMappingDestinationConfigOnFailureArgs{...}
+//
 type EventSourceMappingDestinationConfigOnFailureInput interface {
 	pulumi.Input
 
@@ -289,8 +312,15 @@ func (i EventSourceMappingDestinationConfigOnFailureArgs) ToEventSourceMappingDe
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingDestinationConfigOnFailureOutput).ToEventSourceMappingDestinationConfigOnFailurePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of EventSourceMappingDestinationConfigOnFailurePtrInput via:
-// 	EventSourceMappingDestinationConfigOnFailureArgs{...}.ToEventSourceMappingDestinationConfigOnFailurePtrOutput()
+// EventSourceMappingDestinationConfigOnFailurePtrInput is an input type that accepts EventSourceMappingDestinationConfigOnFailureArgs, EventSourceMappingDestinationConfigOnFailurePtr and EventSourceMappingDestinationConfigOnFailurePtrOutput values.
+// You can construct a concrete instance of `EventSourceMappingDestinationConfigOnFailurePtrInput` via:
+//
+// 		 EventSourceMappingDestinationConfigOnFailureArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type EventSourceMappingDestinationConfigOnFailurePtrInput interface {
 	pulumi.Input
 
@@ -378,8 +408,11 @@ type FunctionDeadLetterConfig struct {
 	TargetArn string `pulumi:"targetArn"`
 }
 
-// Construct a concrete instance of FunctionDeadLetterConfigInput via:
-// 	FunctionDeadLetterConfigArgs{...}
+// FunctionDeadLetterConfigInput is an input type that accepts FunctionDeadLetterConfigArgs and FunctionDeadLetterConfigOutput values.
+// You can construct a concrete instance of `FunctionDeadLetterConfigInput` via:
+//
+// 		 FunctionDeadLetterConfigArgs{...}
+//
 type FunctionDeadLetterConfigInput interface {
 	pulumi.Input
 
@@ -415,8 +448,15 @@ func (i FunctionDeadLetterConfigArgs) ToFunctionDeadLetterConfigPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDeadLetterConfigOutput).ToFunctionDeadLetterConfigPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FunctionDeadLetterConfigPtrInput via:
-// 	FunctionDeadLetterConfigArgs{...}.ToFunctionDeadLetterConfigPtrOutput()
+// FunctionDeadLetterConfigPtrInput is an input type that accepts FunctionDeadLetterConfigArgs, FunctionDeadLetterConfigPtr and FunctionDeadLetterConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionDeadLetterConfigPtrInput` via:
+//
+// 		 FunctionDeadLetterConfigArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FunctionDeadLetterConfigPtrInput interface {
 	pulumi.Input
 
@@ -505,8 +545,11 @@ type FunctionEnvironment struct {
 	Variables map[string]string `pulumi:"variables"`
 }
 
-// Construct a concrete instance of FunctionEnvironmentInput via:
-// 	FunctionEnvironmentArgs{...}
+// FunctionEnvironmentInput is an input type that accepts FunctionEnvironmentArgs and FunctionEnvironmentOutput values.
+// You can construct a concrete instance of `FunctionEnvironmentInput` via:
+//
+// 		 FunctionEnvironmentArgs{...}
+//
 type FunctionEnvironmentInput interface {
 	pulumi.Input
 
@@ -539,8 +582,15 @@ func (i FunctionEnvironmentArgs) ToFunctionEnvironmentPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEnvironmentOutput).ToFunctionEnvironmentPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FunctionEnvironmentPtrInput via:
-// 	FunctionEnvironmentArgs{...}.ToFunctionEnvironmentPtrOutput()
+// FunctionEnvironmentPtrInput is an input type that accepts FunctionEnvironmentArgs, FunctionEnvironmentPtr and FunctionEnvironmentPtrOutput values.
+// You can construct a concrete instance of `FunctionEnvironmentPtrInput` via:
+//
+// 		 FunctionEnvironmentArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FunctionEnvironmentPtrInput interface {
 	pulumi.Input
 
@@ -625,8 +675,11 @@ type FunctionEventInvokeConfigDestinationConfig struct {
 	OnSuccess *FunctionEventInvokeConfigDestinationConfigOnSuccess `pulumi:"onSuccess"`
 }
 
-// Construct a concrete instance of FunctionEventInvokeConfigDestinationConfigInput via:
-// 	FunctionEventInvokeConfigDestinationConfigArgs{...}
+// FunctionEventInvokeConfigDestinationConfigInput is an input type that accepts FunctionEventInvokeConfigDestinationConfigArgs and FunctionEventInvokeConfigDestinationConfigOutput values.
+// You can construct a concrete instance of `FunctionEventInvokeConfigDestinationConfigInput` via:
+//
+// 		 FunctionEventInvokeConfigDestinationConfigArgs{...}
+//
 type FunctionEventInvokeConfigDestinationConfigInput interface {
 	pulumi.Input
 
@@ -661,8 +714,15 @@ func (i FunctionEventInvokeConfigDestinationConfigArgs) ToFunctionEventInvokeCon
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigDestinationConfigOutput).ToFunctionEventInvokeConfigDestinationConfigPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FunctionEventInvokeConfigDestinationConfigPtrInput via:
-// 	FunctionEventInvokeConfigDestinationConfigArgs{...}.ToFunctionEventInvokeConfigDestinationConfigPtrOutput()
+// FunctionEventInvokeConfigDestinationConfigPtrInput is an input type that accepts FunctionEventInvokeConfigDestinationConfigArgs, FunctionEventInvokeConfigDestinationConfigPtr and FunctionEventInvokeConfigDestinationConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionEventInvokeConfigDestinationConfigPtrInput` via:
+//
+// 		 FunctionEventInvokeConfigDestinationConfigArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FunctionEventInvokeConfigDestinationConfigPtrInput interface {
 	pulumi.Input
 
@@ -765,8 +825,11 @@ type FunctionEventInvokeConfigDestinationConfigOnFailure struct {
 	Destination string `pulumi:"destination"`
 }
 
-// Construct a concrete instance of FunctionEventInvokeConfigDestinationConfigOnFailureInput via:
-// 	FunctionEventInvokeConfigDestinationConfigOnFailureArgs{...}
+// FunctionEventInvokeConfigDestinationConfigOnFailureInput is an input type that accepts FunctionEventInvokeConfigDestinationConfigOnFailureArgs and FunctionEventInvokeConfigDestinationConfigOnFailureOutput values.
+// You can construct a concrete instance of `FunctionEventInvokeConfigDestinationConfigOnFailureInput` via:
+//
+// 		 FunctionEventInvokeConfigDestinationConfigOnFailureArgs{...}
+//
 type FunctionEventInvokeConfigDestinationConfigOnFailureInput interface {
 	pulumi.Input
 
@@ -799,8 +862,15 @@ func (i FunctionEventInvokeConfigDestinationConfigOnFailureArgs) ToFunctionEvent
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigDestinationConfigOnFailureOutput).ToFunctionEventInvokeConfigDestinationConfigOnFailurePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FunctionEventInvokeConfigDestinationConfigOnFailurePtrInput via:
-// 	FunctionEventInvokeConfigDestinationConfigOnFailureArgs{...}.ToFunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput()
+// FunctionEventInvokeConfigDestinationConfigOnFailurePtrInput is an input type that accepts FunctionEventInvokeConfigDestinationConfigOnFailureArgs, FunctionEventInvokeConfigDestinationConfigOnFailurePtr and FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput values.
+// You can construct a concrete instance of `FunctionEventInvokeConfigDestinationConfigOnFailurePtrInput` via:
+//
+// 		 FunctionEventInvokeConfigDestinationConfigOnFailureArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FunctionEventInvokeConfigDestinationConfigOnFailurePtrInput interface {
 	pulumi.Input
 
@@ -885,8 +955,11 @@ type FunctionEventInvokeConfigDestinationConfigOnSuccess struct {
 	Destination string `pulumi:"destination"`
 }
 
-// Construct a concrete instance of FunctionEventInvokeConfigDestinationConfigOnSuccessInput via:
-// 	FunctionEventInvokeConfigDestinationConfigOnSuccessArgs{...}
+// FunctionEventInvokeConfigDestinationConfigOnSuccessInput is an input type that accepts FunctionEventInvokeConfigDestinationConfigOnSuccessArgs and FunctionEventInvokeConfigDestinationConfigOnSuccessOutput values.
+// You can construct a concrete instance of `FunctionEventInvokeConfigDestinationConfigOnSuccessInput` via:
+//
+// 		 FunctionEventInvokeConfigDestinationConfigOnSuccessArgs{...}
+//
 type FunctionEventInvokeConfigDestinationConfigOnSuccessInput interface {
 	pulumi.Input
 
@@ -919,8 +992,15 @@ func (i FunctionEventInvokeConfigDestinationConfigOnSuccessArgs) ToFunctionEvent
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigDestinationConfigOnSuccessOutput).ToFunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FunctionEventInvokeConfigDestinationConfigOnSuccessPtrInput via:
-// 	FunctionEventInvokeConfigDestinationConfigOnSuccessArgs{...}.ToFunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput()
+// FunctionEventInvokeConfigDestinationConfigOnSuccessPtrInput is an input type that accepts FunctionEventInvokeConfigDestinationConfigOnSuccessArgs, FunctionEventInvokeConfigDestinationConfigOnSuccessPtr and FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput values.
+// You can construct a concrete instance of `FunctionEventInvokeConfigDestinationConfigOnSuccessPtrInput` via:
+//
+// 		 FunctionEventInvokeConfigDestinationConfigOnSuccessArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FunctionEventInvokeConfigDestinationConfigOnSuccessPtrInput interface {
 	pulumi.Input
 
@@ -1009,8 +1089,11 @@ type FunctionTracingConfig struct {
 	Mode string `pulumi:"mode"`
 }
 
-// Construct a concrete instance of FunctionTracingConfigInput via:
-// 	FunctionTracingConfigArgs{...}
+// FunctionTracingConfigInput is an input type that accepts FunctionTracingConfigArgs and FunctionTracingConfigOutput values.
+// You can construct a concrete instance of `FunctionTracingConfigInput` via:
+//
+// 		 FunctionTracingConfigArgs{...}
+//
 type FunctionTracingConfigInput interface {
 	pulumi.Input
 
@@ -1047,8 +1130,15 @@ func (i FunctionTracingConfigArgs) ToFunctionTracingConfigPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionTracingConfigOutput).ToFunctionTracingConfigPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FunctionTracingConfigPtrInput via:
-// 	FunctionTracingConfigArgs{...}.ToFunctionTracingConfigPtrOutput()
+// FunctionTracingConfigPtrInput is an input type that accepts FunctionTracingConfigArgs, FunctionTracingConfigPtr and FunctionTracingConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionTracingConfigPtrInput` via:
+//
+// 		 FunctionTracingConfigArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FunctionTracingConfigPtrInput interface {
 	pulumi.Input
 
@@ -1142,8 +1232,11 @@ type FunctionVpcConfig struct {
 	VpcId     *string  `pulumi:"vpcId"`
 }
 
-// Construct a concrete instance of FunctionVpcConfigInput via:
-// 	FunctionVpcConfigArgs{...}
+// FunctionVpcConfigInput is an input type that accepts FunctionVpcConfigArgs and FunctionVpcConfigOutput values.
+// You can construct a concrete instance of `FunctionVpcConfigInput` via:
+//
+// 		 FunctionVpcConfigArgs{...}
+//
 type FunctionVpcConfigInput interface {
 	pulumi.Input
 
@@ -1179,8 +1272,15 @@ func (i FunctionVpcConfigArgs) ToFunctionVpcConfigPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionVpcConfigOutput).ToFunctionVpcConfigPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FunctionVpcConfigPtrInput via:
-// 	FunctionVpcConfigArgs{...}.ToFunctionVpcConfigPtrOutput()
+// FunctionVpcConfigPtrInput is an input type that accepts FunctionVpcConfigArgs, FunctionVpcConfigPtr and FunctionVpcConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionVpcConfigPtrInput` via:
+//
+// 		 FunctionVpcConfigArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FunctionVpcConfigPtrInput interface {
 	pulumi.Input
 
@@ -1280,8 +1380,11 @@ type GetFunctionDeadLetterConfig struct {
 	TargetArn string `pulumi:"targetArn"`
 }
 
-// Construct a concrete instance of GetFunctionDeadLetterConfigInput via:
-// 	GetFunctionDeadLetterConfigArgs{...}
+// GetFunctionDeadLetterConfigInput is an input type that accepts GetFunctionDeadLetterConfigArgs and GetFunctionDeadLetterConfigOutput values.
+// You can construct a concrete instance of `GetFunctionDeadLetterConfigInput` via:
+//
+// 		 GetFunctionDeadLetterConfigArgs{...}
+//
 type GetFunctionDeadLetterConfigInput interface {
 	pulumi.Input
 
@@ -1327,8 +1430,11 @@ type GetFunctionEnvironment struct {
 	Variables map[string]string `pulumi:"variables"`
 }
 
-// Construct a concrete instance of GetFunctionEnvironmentInput via:
-// 	GetFunctionEnvironmentArgs{...}
+// GetFunctionEnvironmentInput is an input type that accepts GetFunctionEnvironmentArgs and GetFunctionEnvironmentOutput values.
+// You can construct a concrete instance of `GetFunctionEnvironmentInput` via:
+//
+// 		 GetFunctionEnvironmentArgs{...}
+//
 type GetFunctionEnvironmentInput interface {
 	pulumi.Input
 
@@ -1374,8 +1480,11 @@ type GetFunctionTracingConfig struct {
 	Mode string `pulumi:"mode"`
 }
 
-// Construct a concrete instance of GetFunctionTracingConfigInput via:
-// 	GetFunctionTracingConfigArgs{...}
+// GetFunctionTracingConfigInput is an input type that accepts GetFunctionTracingConfigArgs and GetFunctionTracingConfigOutput values.
+// You can construct a concrete instance of `GetFunctionTracingConfigInput` via:
+//
+// 		 GetFunctionTracingConfigArgs{...}
+//
 type GetFunctionTracingConfigInput interface {
 	pulumi.Input
 
@@ -1423,8 +1532,11 @@ type GetFunctionVpcConfig struct {
 	VpcId            string   `pulumi:"vpcId"`
 }
 
-// Construct a concrete instance of GetFunctionVpcConfigInput via:
-// 	GetFunctionVpcConfigArgs{...}
+// GetFunctionVpcConfigInput is an input type that accepts GetFunctionVpcConfigArgs and GetFunctionVpcConfigOutput values.
+// You can construct a concrete instance of `GetFunctionVpcConfigInput` via:
+//
+// 		 GetFunctionVpcConfigArgs{...}
+//
 type GetFunctionVpcConfigInput interface {
 	pulumi.Input
 

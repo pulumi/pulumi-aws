@@ -19,8 +19,11 @@ type LifecyclePolicyPolicyDetails struct {
 	TargetTags map[string]interface{} `pulumi:"targetTags"`
 }
 
-// Construct a concrete instance of LifecyclePolicyPolicyDetailsInput via:
-// 	LifecyclePolicyPolicyDetailsArgs{...}
+// LifecyclePolicyPolicyDetailsInput is an input type that accepts LifecyclePolicyPolicyDetailsArgs and LifecyclePolicyPolicyDetailsOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsInput` via:
+//
+// 		 LifecyclePolicyPolicyDetailsArgs{...}
+//
 type LifecyclePolicyPolicyDetailsInput interface {
 	pulumi.Input
 
@@ -57,8 +60,15 @@ func (i LifecyclePolicyPolicyDetailsArgs) ToLifecyclePolicyPolicyDetailsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsOutput).ToLifecyclePolicyPolicyDetailsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of LifecyclePolicyPolicyDetailsPtrInput via:
-// 	LifecyclePolicyPolicyDetailsArgs{...}.ToLifecyclePolicyPolicyDetailsPtrOutput()
+// LifecyclePolicyPolicyDetailsPtrInput is an input type that accepts LifecyclePolicyPolicyDetailsArgs, LifecyclePolicyPolicyDetailsPtr and LifecyclePolicyPolicyDetailsPtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsPtrInput` via:
+//
+// 		 LifecyclePolicyPolicyDetailsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type LifecyclePolicyPolicyDetailsPtrInput interface {
 	pulumi.Input
 
@@ -169,8 +179,11 @@ type LifecyclePolicyPolicyDetailsSchedule struct {
 	TagsToAdd map[string]interface{} `pulumi:"tagsToAdd"`
 }
 
-// Construct a concrete instance of LifecyclePolicyPolicyDetailsScheduleInput via:
-// 	LifecyclePolicyPolicyDetailsScheduleArgs{...}
+// LifecyclePolicyPolicyDetailsScheduleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleArgs and LifecyclePolicyPolicyDetailsScheduleOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleInput` via:
+//
+// 		 LifecyclePolicyPolicyDetailsScheduleArgs{...}
+//
 type LifecyclePolicyPolicyDetailsScheduleInput interface {
 	pulumi.Input
 
@@ -203,8 +216,11 @@ func (i LifecyclePolicyPolicyDetailsScheduleArgs) ToLifecyclePolicyPolicyDetails
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleOutput)
 }
 
-// Construct a concrete instance of LifecyclePolicyPolicyDetailsScheduleArrayInput via:
-// 	LifecyclePolicyPolicyDetailsScheduleArray{ LifecyclePolicyPolicyDetailsScheduleArgs{...} }
+// LifecyclePolicyPolicyDetailsScheduleArrayInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleArray and LifecyclePolicyPolicyDetailsScheduleArrayOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleArrayInput` via:
+//
+// 		 LifecyclePolicyPolicyDetailsScheduleArray{ LifecyclePolicyPolicyDetailsScheduleArgs{...} }
+//
 type LifecyclePolicyPolicyDetailsScheduleArrayInput interface {
 	pulumi.Input
 
@@ -298,8 +314,11 @@ type LifecyclePolicyPolicyDetailsScheduleCreateRule struct {
 	Times *string `pulumi:"times"`
 }
 
-// Construct a concrete instance of LifecyclePolicyPolicyDetailsScheduleCreateRuleInput via:
-// 	LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs{...}
+// LifecyclePolicyPolicyDetailsScheduleCreateRuleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs and LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleCreateRuleInput` via:
+//
+// 		 LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs{...}
+//
 type LifecyclePolicyPolicyDetailsScheduleCreateRuleInput interface {
 	pulumi.Input
 
@@ -362,8 +381,11 @@ type LifecyclePolicyPolicyDetailsScheduleRetainRule struct {
 	Count int `pulumi:"count"`
 }
 
-// Construct a concrete instance of LifecyclePolicyPolicyDetailsScheduleRetainRuleInput via:
-// 	LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs{...}
+// LifecyclePolicyPolicyDetailsScheduleRetainRuleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs and LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleRetainRuleInput` via:
+//
+// 		 LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs{...}
+//
 type LifecyclePolicyPolicyDetailsScheduleRetainRuleInput interface {
 	pulumi.Input
 

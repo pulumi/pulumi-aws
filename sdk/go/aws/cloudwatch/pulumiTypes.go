@@ -19,8 +19,11 @@ type EventPermissionCondition struct {
 	Value string `pulumi:"value"`
 }
 
-// Construct a concrete instance of EventPermissionConditionInput via:
-// 	EventPermissionConditionArgs{...}
+// EventPermissionConditionInput is an input type that accepts EventPermissionConditionArgs and EventPermissionConditionOutput values.
+// You can construct a concrete instance of `EventPermissionConditionInput` via:
+//
+// 		 EventPermissionConditionArgs{...}
+//
 type EventPermissionConditionInput interface {
 	pulumi.Input
 
@@ -57,8 +60,15 @@ func (i EventPermissionConditionArgs) ToEventPermissionConditionPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(EventPermissionConditionOutput).ToEventPermissionConditionPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of EventPermissionConditionPtrInput via:
-// 	EventPermissionConditionArgs{...}.ToEventPermissionConditionPtrOutput()
+// EventPermissionConditionPtrInput is an input type that accepts EventPermissionConditionArgs, EventPermissionConditionPtr and EventPermissionConditionPtrOutput values.
+// You can construct a concrete instance of `EventPermissionConditionPtrInput` via:
+//
+// 		 EventPermissionConditionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type EventPermissionConditionPtrInput interface {
 	pulumi.Input
 
@@ -167,8 +177,11 @@ type EventTargetBatchTarget struct {
 	JobName string `pulumi:"jobName"`
 }
 
-// Construct a concrete instance of EventTargetBatchTargetInput via:
-// 	EventTargetBatchTargetArgs{...}
+// EventTargetBatchTargetInput is an input type that accepts EventTargetBatchTargetArgs and EventTargetBatchTargetOutput values.
+// You can construct a concrete instance of `EventTargetBatchTargetInput` via:
+//
+// 		 EventTargetBatchTargetArgs{...}
+//
 type EventTargetBatchTargetInput interface {
 	pulumi.Input
 
@@ -207,8 +220,15 @@ func (i EventTargetBatchTargetArgs) ToEventTargetBatchTargetPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetBatchTargetOutput).ToEventTargetBatchTargetPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of EventTargetBatchTargetPtrInput via:
-// 	EventTargetBatchTargetArgs{...}.ToEventTargetBatchTargetPtrOutput()
+// EventTargetBatchTargetPtrInput is an input type that accepts EventTargetBatchTargetArgs, EventTargetBatchTargetPtr and EventTargetBatchTargetPtrOutput values.
+// You can construct a concrete instance of `EventTargetBatchTargetPtrInput` via:
+//
+// 		 EventTargetBatchTargetArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type EventTargetBatchTargetPtrInput interface {
 	pulumi.Input
 
@@ -331,8 +351,11 @@ type EventTargetEcsTarget struct {
 	TaskDefinitionArn string `pulumi:"taskDefinitionArn"`
 }
 
-// Construct a concrete instance of EventTargetEcsTargetInput via:
-// 	EventTargetEcsTargetArgs{...}
+// EventTargetEcsTargetInput is an input type that accepts EventTargetEcsTargetArgs and EventTargetEcsTargetOutput values.
+// You can construct a concrete instance of `EventTargetEcsTargetInput` via:
+//
+// 		 EventTargetEcsTargetArgs{...}
+//
 type EventTargetEcsTargetInput interface {
 	pulumi.Input
 
@@ -375,8 +398,15 @@ func (i EventTargetEcsTargetArgs) ToEventTargetEcsTargetPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetEcsTargetOutput).ToEventTargetEcsTargetPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of EventTargetEcsTargetPtrInput via:
-// 	EventTargetEcsTargetArgs{...}.ToEventTargetEcsTargetPtrOutput()
+// EventTargetEcsTargetPtrInput is an input type that accepts EventTargetEcsTargetArgs, EventTargetEcsTargetPtr and EventTargetEcsTargetPtrOutput values.
+// You can construct a concrete instance of `EventTargetEcsTargetPtrInput` via:
+//
+// 		 EventTargetEcsTargetArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type EventTargetEcsTargetPtrInput interface {
 	pulumi.Input
 
@@ -513,8 +543,11 @@ type EventTargetEcsTargetNetworkConfiguration struct {
 	Subnets []string `pulumi:"subnets"`
 }
 
-// Construct a concrete instance of EventTargetEcsTargetNetworkConfigurationInput via:
-// 	EventTargetEcsTargetNetworkConfigurationArgs{...}
+// EventTargetEcsTargetNetworkConfigurationInput is an input type that accepts EventTargetEcsTargetNetworkConfigurationArgs and EventTargetEcsTargetNetworkConfigurationOutput values.
+// You can construct a concrete instance of `EventTargetEcsTargetNetworkConfigurationInput` via:
+//
+// 		 EventTargetEcsTargetNetworkConfigurationArgs{...}
+//
 type EventTargetEcsTargetNetworkConfigurationInput interface {
 	pulumi.Input
 
@@ -551,8 +584,15 @@ func (i EventTargetEcsTargetNetworkConfigurationArgs) ToEventTargetEcsTargetNetw
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetEcsTargetNetworkConfigurationOutput).ToEventTargetEcsTargetNetworkConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of EventTargetEcsTargetNetworkConfigurationPtrInput via:
-// 	EventTargetEcsTargetNetworkConfigurationArgs{...}.ToEventTargetEcsTargetNetworkConfigurationPtrOutput()
+// EventTargetEcsTargetNetworkConfigurationPtrInput is an input type that accepts EventTargetEcsTargetNetworkConfigurationArgs, EventTargetEcsTargetNetworkConfigurationPtr and EventTargetEcsTargetNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `EventTargetEcsTargetNetworkConfigurationPtrInput` via:
+//
+// 		 EventTargetEcsTargetNetworkConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type EventTargetEcsTargetNetworkConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -657,8 +697,11 @@ type EventTargetInputTransformer struct {
 	InputTemplate string `pulumi:"inputTemplate"`
 }
 
-// Construct a concrete instance of EventTargetInputTransformerInput via:
-// 	EventTargetInputTransformerArgs{...}
+// EventTargetInputTransformerInput is an input type that accepts EventTargetInputTransformerArgs and EventTargetInputTransformerOutput values.
+// You can construct a concrete instance of `EventTargetInputTransformerInput` via:
+//
+// 		 EventTargetInputTransformerArgs{...}
+//
 type EventTargetInputTransformerInput interface {
 	pulumi.Input
 
@@ -693,8 +736,15 @@ func (i EventTargetInputTransformerArgs) ToEventTargetInputTransformerPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetInputTransformerOutput).ToEventTargetInputTransformerPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of EventTargetInputTransformerPtrInput via:
-// 	EventTargetInputTransformerArgs{...}.ToEventTargetInputTransformerPtrOutput()
+// EventTargetInputTransformerPtrInput is an input type that accepts EventTargetInputTransformerArgs, EventTargetInputTransformerPtr and EventTargetInputTransformerPtrOutput values.
+// You can construct a concrete instance of `EventTargetInputTransformerPtrInput` via:
+//
+// 		 EventTargetInputTransformerArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type EventTargetInputTransformerPtrInput interface {
 	pulumi.Input
 
@@ -787,8 +837,11 @@ type EventTargetKinesisTarget struct {
 	PartitionKeyPath *string `pulumi:"partitionKeyPath"`
 }
 
-// Construct a concrete instance of EventTargetKinesisTargetInput via:
-// 	EventTargetKinesisTargetArgs{...}
+// EventTargetKinesisTargetInput is an input type that accepts EventTargetKinesisTargetArgs and EventTargetKinesisTargetOutput values.
+// You can construct a concrete instance of `EventTargetKinesisTargetInput` via:
+//
+// 		 EventTargetKinesisTargetArgs{...}
+//
 type EventTargetKinesisTargetInput interface {
 	pulumi.Input
 
@@ -821,8 +874,15 @@ func (i EventTargetKinesisTargetArgs) ToEventTargetKinesisTargetPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetKinesisTargetOutput).ToEventTargetKinesisTargetPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of EventTargetKinesisTargetPtrInput via:
-// 	EventTargetKinesisTargetArgs{...}.ToEventTargetKinesisTargetPtrOutput()
+// EventTargetKinesisTargetPtrInput is an input type that accepts EventTargetKinesisTargetArgs, EventTargetKinesisTargetPtr and EventTargetKinesisTargetPtrOutput values.
+// You can construct a concrete instance of `EventTargetKinesisTargetPtrInput` via:
+//
+// 		 EventTargetKinesisTargetArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type EventTargetKinesisTargetPtrInput interface {
 	pulumi.Input
 
@@ -907,8 +967,11 @@ type EventTargetRunCommandTarget struct {
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of EventTargetRunCommandTargetInput via:
-// 	EventTargetRunCommandTargetArgs{...}
+// EventTargetRunCommandTargetInput is an input type that accepts EventTargetRunCommandTargetArgs and EventTargetRunCommandTargetOutput values.
+// You can construct a concrete instance of `EventTargetRunCommandTargetInput` via:
+//
+// 		 EventTargetRunCommandTargetArgs{...}
+//
 type EventTargetRunCommandTargetInput interface {
 	pulumi.Input
 
@@ -935,8 +998,11 @@ func (i EventTargetRunCommandTargetArgs) ToEventTargetRunCommandTargetOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetRunCommandTargetOutput)
 }
 
-// Construct a concrete instance of EventTargetRunCommandTargetArrayInput via:
-// 	EventTargetRunCommandTargetArray{ EventTargetRunCommandTargetArgs{...} }
+// EventTargetRunCommandTargetArrayInput is an input type that accepts EventTargetRunCommandTargetArray and EventTargetRunCommandTargetArrayOutput values.
+// You can construct a concrete instance of `EventTargetRunCommandTargetArrayInput` via:
+//
+// 		 EventTargetRunCommandTargetArray{ EventTargetRunCommandTargetArgs{...} }
+//
 type EventTargetRunCommandTargetArrayInput interface {
 	pulumi.Input
 
@@ -1007,8 +1073,11 @@ type EventTargetSqsTarget struct {
 	MessageGroupId *string `pulumi:"messageGroupId"`
 }
 
-// Construct a concrete instance of EventTargetSqsTargetInput via:
-// 	EventTargetSqsTargetArgs{...}
+// EventTargetSqsTargetInput is an input type that accepts EventTargetSqsTargetArgs and EventTargetSqsTargetOutput values.
+// You can construct a concrete instance of `EventTargetSqsTargetInput` via:
+//
+// 		 EventTargetSqsTargetArgs{...}
+//
 type EventTargetSqsTargetInput interface {
 	pulumi.Input
 
@@ -1041,8 +1110,15 @@ func (i EventTargetSqsTargetArgs) ToEventTargetSqsTargetPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetSqsTargetOutput).ToEventTargetSqsTargetPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of EventTargetSqsTargetPtrInput via:
-// 	EventTargetSqsTargetArgs{...}.ToEventTargetSqsTargetPtrOutput()
+// EventTargetSqsTargetPtrInput is an input type that accepts EventTargetSqsTargetArgs, EventTargetSqsTargetPtr and EventTargetSqsTargetPtrOutput values.
+// You can construct a concrete instance of `EventTargetSqsTargetPtrInput` via:
+//
+// 		 EventTargetSqsTargetArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type EventTargetSqsTargetPtrInput interface {
 	pulumi.Input
 
@@ -1131,8 +1207,11 @@ type LogMetricFilterMetricTransformation struct {
 	Value string `pulumi:"value"`
 }
 
-// Construct a concrete instance of LogMetricFilterMetricTransformationInput via:
-// 	LogMetricFilterMetricTransformationArgs{...}
+// LogMetricFilterMetricTransformationInput is an input type that accepts LogMetricFilterMetricTransformationArgs and LogMetricFilterMetricTransformationOutput values.
+// You can construct a concrete instance of `LogMetricFilterMetricTransformationInput` via:
+//
+// 		 LogMetricFilterMetricTransformationArgs{...}
+//
 type LogMetricFilterMetricTransformationInput interface {
 	pulumi.Input
 
@@ -1171,8 +1250,15 @@ func (i LogMetricFilterMetricTransformationArgs) ToLogMetricFilterMetricTransfor
 	return pulumi.ToOutputWithContext(ctx, i).(LogMetricFilterMetricTransformationOutput).ToLogMetricFilterMetricTransformationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of LogMetricFilterMetricTransformationPtrInput via:
-// 	LogMetricFilterMetricTransformationArgs{...}.ToLogMetricFilterMetricTransformationPtrOutput()
+// LogMetricFilterMetricTransformationPtrInput is an input type that accepts LogMetricFilterMetricTransformationArgs, LogMetricFilterMetricTransformationPtr and LogMetricFilterMetricTransformationPtrOutput values.
+// You can construct a concrete instance of `LogMetricFilterMetricTransformationPtrInput` via:
+//
+// 		 LogMetricFilterMetricTransformationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type LogMetricFilterMetricTransformationPtrInput interface {
 	pulumi.Input
 
@@ -1293,8 +1379,11 @@ type MetricAlarmMetricQuery struct {
 	ReturnData *bool `pulumi:"returnData"`
 }
 
-// Construct a concrete instance of MetricAlarmMetricQueryInput via:
-// 	MetricAlarmMetricQueryArgs{...}
+// MetricAlarmMetricQueryInput is an input type that accepts MetricAlarmMetricQueryArgs and MetricAlarmMetricQueryOutput values.
+// You can construct a concrete instance of `MetricAlarmMetricQueryInput` via:
+//
+// 		 MetricAlarmMetricQueryArgs{...}
+//
 type MetricAlarmMetricQueryInput interface {
 	pulumi.Input
 
@@ -1327,8 +1416,11 @@ func (i MetricAlarmMetricQueryArgs) ToMetricAlarmMetricQueryOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmMetricQueryOutput)
 }
 
-// Construct a concrete instance of MetricAlarmMetricQueryArrayInput via:
-// 	MetricAlarmMetricQueryArray{ MetricAlarmMetricQueryArgs{...} }
+// MetricAlarmMetricQueryArrayInput is an input type that accepts MetricAlarmMetricQueryArray and MetricAlarmMetricQueryArrayOutput values.
+// You can construct a concrete instance of `MetricAlarmMetricQueryArrayInput` via:
+//
+// 		 MetricAlarmMetricQueryArray{ MetricAlarmMetricQueryArgs{...} }
+//
 type MetricAlarmMetricQueryArrayInput interface {
 	pulumi.Input
 
@@ -1427,8 +1519,11 @@ type MetricAlarmMetricQueryMetric struct {
 	Unit *string `pulumi:"unit"`
 }
 
-// Construct a concrete instance of MetricAlarmMetricQueryMetricInput via:
-// 	MetricAlarmMetricQueryMetricArgs{...}
+// MetricAlarmMetricQueryMetricInput is an input type that accepts MetricAlarmMetricQueryMetricArgs and MetricAlarmMetricQueryMetricOutput values.
+// You can construct a concrete instance of `MetricAlarmMetricQueryMetricInput` via:
+//
+// 		 MetricAlarmMetricQueryMetricArgs{...}
+//
 type MetricAlarmMetricQueryMetricInput interface {
 	pulumi.Input
 
@@ -1474,8 +1569,15 @@ func (i MetricAlarmMetricQueryMetricArgs) ToMetricAlarmMetricQueryMetricPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmMetricQueryMetricOutput).ToMetricAlarmMetricQueryMetricPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of MetricAlarmMetricQueryMetricPtrInput via:
-// 	MetricAlarmMetricQueryMetricArgs{...}.ToMetricAlarmMetricQueryMetricPtrOutput()
+// MetricAlarmMetricQueryMetricPtrInput is an input type that accepts MetricAlarmMetricQueryMetricArgs, MetricAlarmMetricQueryMetricPtr and MetricAlarmMetricQueryMetricPtrOutput values.
+// You can construct a concrete instance of `MetricAlarmMetricQueryMetricPtrInput` via:
+//
+// 		 MetricAlarmMetricQueryMetricArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type MetricAlarmMetricQueryMetricPtrInput interface {
 	pulumi.Input
 

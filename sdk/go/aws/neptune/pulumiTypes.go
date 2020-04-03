@@ -19,8 +19,11 @@ type ClusterParameterGroupParameter struct {
 	Value string `pulumi:"value"`
 }
 
-// Construct a concrete instance of ClusterParameterGroupParameterInput via:
-// 	ClusterParameterGroupParameterArgs{...}
+// ClusterParameterGroupParameterInput is an input type that accepts ClusterParameterGroupParameterArgs and ClusterParameterGroupParameterOutput values.
+// You can construct a concrete instance of `ClusterParameterGroupParameterInput` via:
+//
+// 		 ClusterParameterGroupParameterArgs{...}
+//
 type ClusterParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -49,8 +52,11 @@ func (i ClusterParameterGroupParameterArgs) ToClusterParameterGroupParameterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupParameterOutput)
 }
 
-// Construct a concrete instance of ClusterParameterGroupParameterArrayInput via:
-// 	ClusterParameterGroupParameterArray{ ClusterParameterGroupParameterArgs{...} }
+// ClusterParameterGroupParameterArrayInput is an input type that accepts ClusterParameterGroupParameterArray and ClusterParameterGroupParameterArrayOutput values.
+// You can construct a concrete instance of `ClusterParameterGroupParameterArrayInput` via:
+//
+// 		 ClusterParameterGroupParameterArray{ ClusterParameterGroupParameterArgs{...} }
+//
 type ClusterParameterGroupParameterArrayInput interface {
 	pulumi.Input
 
@@ -130,8 +136,11 @@ type ParameterGroupParameter struct {
 	Value string `pulumi:"value"`
 }
 
-// Construct a concrete instance of ParameterGroupParameterInput via:
-// 	ParameterGroupParameterArgs{...}
+// ParameterGroupParameterInput is an input type that accepts ParameterGroupParameterArgs and ParameterGroupParameterOutput values.
+// You can construct a concrete instance of `ParameterGroupParameterInput` via:
+//
+// 		 ParameterGroupParameterArgs{...}
+//
 type ParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -160,8 +169,11 @@ func (i ParameterGroupParameterArgs) ToParameterGroupParameterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupParameterOutput)
 }
 
-// Construct a concrete instance of ParameterGroupParameterArrayInput via:
-// 	ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
+// ParameterGroupParameterArrayInput is an input type that accepts ParameterGroupParameterArray and ParameterGroupParameterArrayOutput values.
+// You can construct a concrete instance of `ParameterGroupParameterArrayInput` via:
+//
+// 		 ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
+//
 type ParameterGroupParameterArrayInput interface {
 	pulumi.Input
 

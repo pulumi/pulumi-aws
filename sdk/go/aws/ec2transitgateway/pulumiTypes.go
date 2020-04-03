@@ -17,8 +17,11 @@ type GetDirectConnectGatewayAttachmentFilter struct {
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of GetDirectConnectGatewayAttachmentFilterInput via:
-// 	GetDirectConnectGatewayAttachmentFilterArgs{...}
+// GetDirectConnectGatewayAttachmentFilterInput is an input type that accepts GetDirectConnectGatewayAttachmentFilterArgs and GetDirectConnectGatewayAttachmentFilterOutput values.
+// You can construct a concrete instance of `GetDirectConnectGatewayAttachmentFilterInput` via:
+//
+// 		 GetDirectConnectGatewayAttachmentFilterArgs{...}
+//
 type GetDirectConnectGatewayAttachmentFilterInput interface {
 	pulumi.Input
 
@@ -45,8 +48,11 @@ func (i GetDirectConnectGatewayAttachmentFilterArgs) ToGetDirectConnectGatewayAt
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectConnectGatewayAttachmentFilterOutput)
 }
 
-// Construct a concrete instance of GetDirectConnectGatewayAttachmentFilterArrayInput via:
-// 	GetDirectConnectGatewayAttachmentFilterArray{ GetDirectConnectGatewayAttachmentFilterArgs{...} }
+// GetDirectConnectGatewayAttachmentFilterArrayInput is an input type that accepts GetDirectConnectGatewayAttachmentFilterArray and GetDirectConnectGatewayAttachmentFilterArrayOutput values.
+// You can construct a concrete instance of `GetDirectConnectGatewayAttachmentFilterArrayInput` via:
+//
+// 		 GetDirectConnectGatewayAttachmentFilterArray{ GetDirectConnectGatewayAttachmentFilterArgs{...} }
+//
 type GetDirectConnectGatewayAttachmentFilterArrayInput interface {
 	pulumi.Input
 
@@ -119,8 +125,11 @@ type GetRouteTableFilter struct {
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of GetRouteTableFilterInput via:
-// 	GetRouteTableFilterArgs{...}
+// GetRouteTableFilterInput is an input type that accepts GetRouteTableFilterArgs and GetRouteTableFilterOutput values.
+// You can construct a concrete instance of `GetRouteTableFilterInput` via:
+//
+// 		 GetRouteTableFilterArgs{...}
+//
 type GetRouteTableFilterInput interface {
 	pulumi.Input
 
@@ -147,8 +156,11 @@ func (i GetRouteTableFilterArgs) ToGetRouteTableFilterOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableFilterOutput)
 }
 
-// Construct a concrete instance of GetRouteTableFilterArrayInput via:
-// 	GetRouteTableFilterArray{ GetRouteTableFilterArgs{...} }
+// GetRouteTableFilterArrayInput is an input type that accepts GetRouteTableFilterArray and GetRouteTableFilterArrayOutput values.
+// You can construct a concrete instance of `GetRouteTableFilterArrayInput` via:
+//
+// 		 GetRouteTableFilterArray{ GetRouteTableFilterArgs{...} }
+//
 type GetRouteTableFilterArrayInput interface {
 	pulumi.Input
 
@@ -221,8 +233,11 @@ type GetTransitGatewayFilter struct {
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of GetTransitGatewayFilterInput via:
-// 	GetTransitGatewayFilterArgs{...}
+// GetTransitGatewayFilterInput is an input type that accepts GetTransitGatewayFilterArgs and GetTransitGatewayFilterOutput values.
+// You can construct a concrete instance of `GetTransitGatewayFilterInput` via:
+//
+// 		 GetTransitGatewayFilterArgs{...}
+//
 type GetTransitGatewayFilterInput interface {
 	pulumi.Input
 
@@ -249,8 +264,11 @@ func (i GetTransitGatewayFilterArgs) ToGetTransitGatewayFilterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetTransitGatewayFilterOutput)
 }
 
-// Construct a concrete instance of GetTransitGatewayFilterArrayInput via:
-// 	GetTransitGatewayFilterArray{ GetTransitGatewayFilterArgs{...} }
+// GetTransitGatewayFilterArrayInput is an input type that accepts GetTransitGatewayFilterArray and GetTransitGatewayFilterArrayOutput values.
+// You can construct a concrete instance of `GetTransitGatewayFilterArrayInput` via:
+//
+// 		 GetTransitGatewayFilterArray{ GetTransitGatewayFilterArgs{...} }
+//
 type GetTransitGatewayFilterArrayInput interface {
 	pulumi.Input
 
@@ -323,8 +341,11 @@ type GetVpcAttachmentFilter struct {
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of GetVpcAttachmentFilterInput via:
-// 	GetVpcAttachmentFilterArgs{...}
+// GetVpcAttachmentFilterInput is an input type that accepts GetVpcAttachmentFilterArgs and GetVpcAttachmentFilterOutput values.
+// You can construct a concrete instance of `GetVpcAttachmentFilterInput` via:
+//
+// 		 GetVpcAttachmentFilterArgs{...}
+//
 type GetVpcAttachmentFilterInput interface {
 	pulumi.Input
 
@@ -351,8 +372,11 @@ func (i GetVpcAttachmentFilterArgs) ToGetVpcAttachmentFilterOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpcAttachmentFilterOutput)
 }
 
-// Construct a concrete instance of GetVpcAttachmentFilterArrayInput via:
-// 	GetVpcAttachmentFilterArray{ GetVpcAttachmentFilterArgs{...} }
+// GetVpcAttachmentFilterArrayInput is an input type that accepts GetVpcAttachmentFilterArray and GetVpcAttachmentFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpcAttachmentFilterArrayInput` via:
+//
+// 		 GetVpcAttachmentFilterArray{ GetVpcAttachmentFilterArgs{...} }
+//
 type GetVpcAttachmentFilterArrayInput interface {
 	pulumi.Input
 
@@ -425,8 +449,11 @@ type GetVpnAttachmentFilter struct {
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of GetVpnAttachmentFilterInput via:
-// 	GetVpnAttachmentFilterArgs{...}
+// GetVpnAttachmentFilterInput is an input type that accepts GetVpnAttachmentFilterArgs and GetVpnAttachmentFilterOutput values.
+// You can construct a concrete instance of `GetVpnAttachmentFilterInput` via:
+//
+// 		 GetVpnAttachmentFilterArgs{...}
+//
 type GetVpnAttachmentFilterInput interface {
 	pulumi.Input
 
@@ -453,8 +480,11 @@ func (i GetVpnAttachmentFilterArgs) ToGetVpnAttachmentFilterOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpnAttachmentFilterOutput)
 }
 
-// Construct a concrete instance of GetVpnAttachmentFilterArrayInput via:
-// 	GetVpnAttachmentFilterArray{ GetVpnAttachmentFilterArgs{...} }
+// GetVpnAttachmentFilterArrayInput is an input type that accepts GetVpnAttachmentFilterArray and GetVpnAttachmentFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpnAttachmentFilterArrayInput` via:
+//
+// 		 GetVpnAttachmentFilterArray{ GetVpnAttachmentFilterArgs{...} }
+//
 type GetVpnAttachmentFilterArrayInput interface {
 	pulumi.Input
 

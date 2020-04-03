@@ -19,8 +19,11 @@ type CatalogTablePartitionKey struct {
 	Type *string `pulumi:"type"`
 }
 
-// Construct a concrete instance of CatalogTablePartitionKeyInput via:
-// 	CatalogTablePartitionKeyArgs{...}
+// CatalogTablePartitionKeyInput is an input type that accepts CatalogTablePartitionKeyArgs and CatalogTablePartitionKeyOutput values.
+// You can construct a concrete instance of `CatalogTablePartitionKeyInput` via:
+//
+// 		 CatalogTablePartitionKeyArgs{...}
+//
 type CatalogTablePartitionKeyInput interface {
 	pulumi.Input
 
@@ -49,8 +52,11 @@ func (i CatalogTablePartitionKeyArgs) ToCatalogTablePartitionKeyOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTablePartitionKeyOutput)
 }
 
-// Construct a concrete instance of CatalogTablePartitionKeyArrayInput via:
-// 	CatalogTablePartitionKeyArray{ CatalogTablePartitionKeyArgs{...} }
+// CatalogTablePartitionKeyArrayInput is an input type that accepts CatalogTablePartitionKeyArray and CatalogTablePartitionKeyArrayOutput values.
+// You can construct a concrete instance of `CatalogTablePartitionKeyArrayInput` via:
+//
+// 		 CatalogTablePartitionKeyArray{ CatalogTablePartitionKeyArgs{...} }
+//
 type CatalogTablePartitionKeyArrayInput interface {
 	pulumi.Input
 
@@ -148,8 +154,11 @@ type CatalogTableStorageDescriptor struct {
 	StoredAsSubDirectories *bool `pulumi:"storedAsSubDirectories"`
 }
 
-// Construct a concrete instance of CatalogTableStorageDescriptorInput via:
-// 	CatalogTableStorageDescriptorArgs{...}
+// CatalogTableStorageDescriptorInput is an input type that accepts CatalogTableStorageDescriptorArgs and CatalogTableStorageDescriptorOutput values.
+// You can construct a concrete instance of `CatalogTableStorageDescriptorInput` via:
+//
+// 		 CatalogTableStorageDescriptorArgs{...}
+//
 type CatalogTableStorageDescriptorInput interface {
 	pulumi.Input
 
@@ -204,8 +213,15 @@ func (i CatalogTableStorageDescriptorArgs) ToCatalogTableStorageDescriptorPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableStorageDescriptorOutput).ToCatalogTableStorageDescriptorPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of CatalogTableStorageDescriptorPtrInput via:
-// 	CatalogTableStorageDescriptorArgs{...}.ToCatalogTableStorageDescriptorPtrOutput()
+// CatalogTableStorageDescriptorPtrInput is an input type that accepts CatalogTableStorageDescriptorArgs, CatalogTableStorageDescriptorPtr and CatalogTableStorageDescriptorPtrOutput values.
+// You can construct a concrete instance of `CatalogTableStorageDescriptorPtrInput` via:
+//
+// 		 CatalogTableStorageDescriptorArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type CatalogTableStorageDescriptorPtrInput interface {
 	pulumi.Input
 
@@ -402,8 +418,11 @@ type CatalogTableStorageDescriptorColumn struct {
 	Type *string `pulumi:"type"`
 }
 
-// Construct a concrete instance of CatalogTableStorageDescriptorColumnInput via:
-// 	CatalogTableStorageDescriptorColumnArgs{...}
+// CatalogTableStorageDescriptorColumnInput is an input type that accepts CatalogTableStorageDescriptorColumnArgs and CatalogTableStorageDescriptorColumnOutput values.
+// You can construct a concrete instance of `CatalogTableStorageDescriptorColumnInput` via:
+//
+// 		 CatalogTableStorageDescriptorColumnArgs{...}
+//
 type CatalogTableStorageDescriptorColumnInput interface {
 	pulumi.Input
 
@@ -432,8 +451,11 @@ func (i CatalogTableStorageDescriptorColumnArgs) ToCatalogTableStorageDescriptor
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableStorageDescriptorColumnOutput)
 }
 
-// Construct a concrete instance of CatalogTableStorageDescriptorColumnArrayInput via:
-// 	CatalogTableStorageDescriptorColumnArray{ CatalogTableStorageDescriptorColumnArgs{...} }
+// CatalogTableStorageDescriptorColumnArrayInput is an input type that accepts CatalogTableStorageDescriptorColumnArray and CatalogTableStorageDescriptorColumnArrayOutput values.
+// You can construct a concrete instance of `CatalogTableStorageDescriptorColumnArrayInput` via:
+//
+// 		 CatalogTableStorageDescriptorColumnArray{ CatalogTableStorageDescriptorColumnArgs{...} }
+//
 type CatalogTableStorageDescriptorColumnArrayInput interface {
 	pulumi.Input
 
@@ -513,8 +535,11 @@ type CatalogTableStorageDescriptorSerDeInfo struct {
 	SerializationLibrary *string `pulumi:"serializationLibrary"`
 }
 
-// Construct a concrete instance of CatalogTableStorageDescriptorSerDeInfoInput via:
-// 	CatalogTableStorageDescriptorSerDeInfoArgs{...}
+// CatalogTableStorageDescriptorSerDeInfoInput is an input type that accepts CatalogTableStorageDescriptorSerDeInfoArgs and CatalogTableStorageDescriptorSerDeInfoOutput values.
+// You can construct a concrete instance of `CatalogTableStorageDescriptorSerDeInfoInput` via:
+//
+// 		 CatalogTableStorageDescriptorSerDeInfoArgs{...}
+//
 type CatalogTableStorageDescriptorSerDeInfoInput interface {
 	pulumi.Input
 
@@ -551,8 +576,15 @@ func (i CatalogTableStorageDescriptorSerDeInfoArgs) ToCatalogTableStorageDescrip
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableStorageDescriptorSerDeInfoOutput).ToCatalogTableStorageDescriptorSerDeInfoPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of CatalogTableStorageDescriptorSerDeInfoPtrInput via:
-// 	CatalogTableStorageDescriptorSerDeInfoArgs{...}.ToCatalogTableStorageDescriptorSerDeInfoPtrOutput()
+// CatalogTableStorageDescriptorSerDeInfoPtrInput is an input type that accepts CatalogTableStorageDescriptorSerDeInfoArgs, CatalogTableStorageDescriptorSerDeInfoPtr and CatalogTableStorageDescriptorSerDeInfoPtrOutput values.
+// You can construct a concrete instance of `CatalogTableStorageDescriptorSerDeInfoPtrInput` via:
+//
+// 		 CatalogTableStorageDescriptorSerDeInfoArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type CatalogTableStorageDescriptorSerDeInfoPtrInput interface {
 	pulumi.Input
 
@@ -659,8 +691,11 @@ type CatalogTableStorageDescriptorSkewedInfo struct {
 	SkewedColumnValues []string `pulumi:"skewedColumnValues"`
 }
 
-// Construct a concrete instance of CatalogTableStorageDescriptorSkewedInfoInput via:
-// 	CatalogTableStorageDescriptorSkewedInfoArgs{...}
+// CatalogTableStorageDescriptorSkewedInfoInput is an input type that accepts CatalogTableStorageDescriptorSkewedInfoArgs and CatalogTableStorageDescriptorSkewedInfoOutput values.
+// You can construct a concrete instance of `CatalogTableStorageDescriptorSkewedInfoInput` via:
+//
+// 		 CatalogTableStorageDescriptorSkewedInfoArgs{...}
+//
 type CatalogTableStorageDescriptorSkewedInfoInput interface {
 	pulumi.Input
 
@@ -697,8 +732,15 @@ func (i CatalogTableStorageDescriptorSkewedInfoArgs) ToCatalogTableStorageDescri
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableStorageDescriptorSkewedInfoOutput).ToCatalogTableStorageDescriptorSkewedInfoPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of CatalogTableStorageDescriptorSkewedInfoPtrInput via:
-// 	CatalogTableStorageDescriptorSkewedInfoArgs{...}.ToCatalogTableStorageDescriptorSkewedInfoPtrOutput()
+// CatalogTableStorageDescriptorSkewedInfoPtrInput is an input type that accepts CatalogTableStorageDescriptorSkewedInfoArgs, CatalogTableStorageDescriptorSkewedInfoPtr and CatalogTableStorageDescriptorSkewedInfoPtrOutput values.
+// You can construct a concrete instance of `CatalogTableStorageDescriptorSkewedInfoPtrInput` via:
+//
+// 		 CatalogTableStorageDescriptorSkewedInfoArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type CatalogTableStorageDescriptorSkewedInfoPtrInput interface {
 	pulumi.Input
 
@@ -807,8 +849,11 @@ type CatalogTableStorageDescriptorSortColumn struct {
 	SortOrder int `pulumi:"sortOrder"`
 }
 
-// Construct a concrete instance of CatalogTableStorageDescriptorSortColumnInput via:
-// 	CatalogTableStorageDescriptorSortColumnArgs{...}
+// CatalogTableStorageDescriptorSortColumnInput is an input type that accepts CatalogTableStorageDescriptorSortColumnArgs and CatalogTableStorageDescriptorSortColumnOutput values.
+// You can construct a concrete instance of `CatalogTableStorageDescriptorSortColumnInput` via:
+//
+// 		 CatalogTableStorageDescriptorSortColumnArgs{...}
+//
 type CatalogTableStorageDescriptorSortColumnInput interface {
 	pulumi.Input
 
@@ -835,8 +880,11 @@ func (i CatalogTableStorageDescriptorSortColumnArgs) ToCatalogTableStorageDescri
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableStorageDescriptorSortColumnOutput)
 }
 
-// Construct a concrete instance of CatalogTableStorageDescriptorSortColumnArrayInput via:
-// 	CatalogTableStorageDescriptorSortColumnArray{ CatalogTableStorageDescriptorSortColumnArgs{...} }
+// CatalogTableStorageDescriptorSortColumnArrayInput is an input type that accepts CatalogTableStorageDescriptorSortColumnArray and CatalogTableStorageDescriptorSortColumnArrayOutput values.
+// You can construct a concrete instance of `CatalogTableStorageDescriptorSortColumnArrayInput` via:
+//
+// 		 CatalogTableStorageDescriptorSortColumnArray{ CatalogTableStorageDescriptorSortColumnArgs{...} }
+//
 type CatalogTableStorageDescriptorSortColumnArrayInput interface {
 	pulumi.Input
 
@@ -917,8 +965,11 @@ type ClassifierCsvClassifier struct {
 	QuoteSymbol *string `pulumi:"quoteSymbol"`
 }
 
-// Construct a concrete instance of ClassifierCsvClassifierInput via:
-// 	ClassifierCsvClassifierArgs{...}
+// ClassifierCsvClassifierInput is an input type that accepts ClassifierCsvClassifierArgs and ClassifierCsvClassifierOutput values.
+// You can construct a concrete instance of `ClassifierCsvClassifierInput` via:
+//
+// 		 ClassifierCsvClassifierArgs{...}
+//
 type ClassifierCsvClassifierInput interface {
 	pulumi.Input
 
@@ -961,8 +1012,15 @@ func (i ClassifierCsvClassifierArgs) ToClassifierCsvClassifierPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ClassifierCsvClassifierOutput).ToClassifierCsvClassifierPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClassifierCsvClassifierPtrInput via:
-// 	ClassifierCsvClassifierArgs{...}.ToClassifierCsvClassifierPtrOutput()
+// ClassifierCsvClassifierPtrInput is an input type that accepts ClassifierCsvClassifierArgs, ClassifierCsvClassifierPtr and ClassifierCsvClassifierPtrOutput values.
+// You can construct a concrete instance of `ClassifierCsvClassifierPtrInput` via:
+//
+// 		 ClassifierCsvClassifierArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClassifierCsvClassifierPtrInput interface {
 	pulumi.Input
 
@@ -1099,8 +1157,11 @@ type ClassifierGrokClassifier struct {
 	GrokPattern string `pulumi:"grokPattern"`
 }
 
-// Construct a concrete instance of ClassifierGrokClassifierInput via:
-// 	ClassifierGrokClassifierArgs{...}
+// ClassifierGrokClassifierInput is an input type that accepts ClassifierGrokClassifierArgs and ClassifierGrokClassifierOutput values.
+// You can construct a concrete instance of `ClassifierGrokClassifierInput` via:
+//
+// 		 ClassifierGrokClassifierArgs{...}
+//
 type ClassifierGrokClassifierInput interface {
 	pulumi.Input
 
@@ -1137,8 +1198,15 @@ func (i ClassifierGrokClassifierArgs) ToClassifierGrokClassifierPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ClassifierGrokClassifierOutput).ToClassifierGrokClassifierPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClassifierGrokClassifierPtrInput via:
-// 	ClassifierGrokClassifierArgs{...}.ToClassifierGrokClassifierPtrOutput()
+// ClassifierGrokClassifierPtrInput is an input type that accepts ClassifierGrokClassifierArgs, ClassifierGrokClassifierPtr and ClassifierGrokClassifierPtrOutput values.
+// You can construct a concrete instance of `ClassifierGrokClassifierPtrInput` via:
+//
+// 		 ClassifierGrokClassifierArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClassifierGrokClassifierPtrInput interface {
 	pulumi.Input
 
@@ -1241,8 +1309,11 @@ type ClassifierJsonClassifier struct {
 	JsonPath string `pulumi:"jsonPath"`
 }
 
-// Construct a concrete instance of ClassifierJsonClassifierInput via:
-// 	ClassifierJsonClassifierArgs{...}
+// ClassifierJsonClassifierInput is an input type that accepts ClassifierJsonClassifierArgs and ClassifierJsonClassifierOutput values.
+// You can construct a concrete instance of `ClassifierJsonClassifierInput` via:
+//
+// 		 ClassifierJsonClassifierArgs{...}
+//
 type ClassifierJsonClassifierInput interface {
 	pulumi.Input
 
@@ -1275,8 +1346,15 @@ func (i ClassifierJsonClassifierArgs) ToClassifierJsonClassifierPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ClassifierJsonClassifierOutput).ToClassifierJsonClassifierPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClassifierJsonClassifierPtrInput via:
-// 	ClassifierJsonClassifierArgs{...}.ToClassifierJsonClassifierPtrOutput()
+// ClassifierJsonClassifierPtrInput is an input type that accepts ClassifierJsonClassifierArgs, ClassifierJsonClassifierPtr and ClassifierJsonClassifierPtrOutput values.
+// You can construct a concrete instance of `ClassifierJsonClassifierPtrInput` via:
+//
+// 		 ClassifierJsonClassifierArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClassifierJsonClassifierPtrInput interface {
 	pulumi.Input
 
@@ -1361,8 +1439,11 @@ type ClassifierXmlClassifier struct {
 	RowTag string `pulumi:"rowTag"`
 }
 
-// Construct a concrete instance of ClassifierXmlClassifierInput via:
-// 	ClassifierXmlClassifierArgs{...}
+// ClassifierXmlClassifierInput is an input type that accepts ClassifierXmlClassifierArgs and ClassifierXmlClassifierOutput values.
+// You can construct a concrete instance of `ClassifierXmlClassifierInput` via:
+//
+// 		 ClassifierXmlClassifierArgs{...}
+//
 type ClassifierXmlClassifierInput interface {
 	pulumi.Input
 
@@ -1397,8 +1478,15 @@ func (i ClassifierXmlClassifierArgs) ToClassifierXmlClassifierPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ClassifierXmlClassifierOutput).ToClassifierXmlClassifierPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClassifierXmlClassifierPtrInput via:
-// 	ClassifierXmlClassifierArgs{...}.ToClassifierXmlClassifierPtrOutput()
+// ClassifierXmlClassifierPtrInput is an input type that accepts ClassifierXmlClassifierArgs, ClassifierXmlClassifierPtr and ClassifierXmlClassifierPtrOutput values.
+// You can construct a concrete instance of `ClassifierXmlClassifierPtrInput` via:
+//
+// 		 ClassifierXmlClassifierArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClassifierXmlClassifierPtrInput interface {
 	pulumi.Input
 
@@ -1495,8 +1583,11 @@ type ConnectionPhysicalConnectionRequirements struct {
 	SubnetId *string `pulumi:"subnetId"`
 }
 
-// Construct a concrete instance of ConnectionPhysicalConnectionRequirementsInput via:
-// 	ConnectionPhysicalConnectionRequirementsArgs{...}
+// ConnectionPhysicalConnectionRequirementsInput is an input type that accepts ConnectionPhysicalConnectionRequirementsArgs and ConnectionPhysicalConnectionRequirementsOutput values.
+// You can construct a concrete instance of `ConnectionPhysicalConnectionRequirementsInput` via:
+//
+// 		 ConnectionPhysicalConnectionRequirementsArgs{...}
+//
 type ConnectionPhysicalConnectionRequirementsInput interface {
 	pulumi.Input
 
@@ -1533,8 +1624,15 @@ func (i ConnectionPhysicalConnectionRequirementsArgs) ToConnectionPhysicalConnec
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPhysicalConnectionRequirementsOutput).ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ConnectionPhysicalConnectionRequirementsPtrInput via:
-// 	ConnectionPhysicalConnectionRequirementsArgs{...}.ToConnectionPhysicalConnectionRequirementsPtrOutput()
+// ConnectionPhysicalConnectionRequirementsPtrInput is an input type that accepts ConnectionPhysicalConnectionRequirementsArgs, ConnectionPhysicalConnectionRequirementsPtr and ConnectionPhysicalConnectionRequirementsPtrOutput values.
+// You can construct a concrete instance of `ConnectionPhysicalConnectionRequirementsPtrInput` via:
+//
+// 		 ConnectionPhysicalConnectionRequirementsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ConnectionPhysicalConnectionRequirementsPtrInput interface {
 	pulumi.Input
 
@@ -1639,8 +1737,11 @@ type CrawlerCatalogTarget struct {
 	Tables []string `pulumi:"tables"`
 }
 
-// Construct a concrete instance of CrawlerCatalogTargetInput via:
-// 	CrawlerCatalogTargetArgs{...}
+// CrawlerCatalogTargetInput is an input type that accepts CrawlerCatalogTargetArgs and CrawlerCatalogTargetOutput values.
+// You can construct a concrete instance of `CrawlerCatalogTargetInput` via:
+//
+// 		 CrawlerCatalogTargetArgs{...}
+//
 type CrawlerCatalogTargetInput interface {
 	pulumi.Input
 
@@ -1667,8 +1768,11 @@ func (i CrawlerCatalogTargetArgs) ToCrawlerCatalogTargetOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerCatalogTargetOutput)
 }
 
-// Construct a concrete instance of CrawlerCatalogTargetArrayInput via:
-// 	CrawlerCatalogTargetArray{ CrawlerCatalogTargetArgs{...} }
+// CrawlerCatalogTargetArrayInput is an input type that accepts CrawlerCatalogTargetArray and CrawlerCatalogTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerCatalogTargetArrayInput` via:
+//
+// 		 CrawlerCatalogTargetArray{ CrawlerCatalogTargetArgs{...} }
+//
 type CrawlerCatalogTargetArrayInput interface {
 	pulumi.Input
 
@@ -1739,8 +1843,11 @@ type CrawlerDynamodbTarget struct {
 	Path string `pulumi:"path"`
 }
 
-// Construct a concrete instance of CrawlerDynamodbTargetInput via:
-// 	CrawlerDynamodbTargetArgs{...}
+// CrawlerDynamodbTargetInput is an input type that accepts CrawlerDynamodbTargetArgs and CrawlerDynamodbTargetOutput values.
+// You can construct a concrete instance of `CrawlerDynamodbTargetInput` via:
+//
+// 		 CrawlerDynamodbTargetArgs{...}
+//
 type CrawlerDynamodbTargetInput interface {
 	pulumi.Input
 
@@ -1765,8 +1872,11 @@ func (i CrawlerDynamodbTargetArgs) ToCrawlerDynamodbTargetOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerDynamodbTargetOutput)
 }
 
-// Construct a concrete instance of CrawlerDynamodbTargetArrayInput via:
-// 	CrawlerDynamodbTargetArray{ CrawlerDynamodbTargetArgs{...} }
+// CrawlerDynamodbTargetArrayInput is an input type that accepts CrawlerDynamodbTargetArray and CrawlerDynamodbTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerDynamodbTargetArrayInput` via:
+//
+// 		 CrawlerDynamodbTargetArray{ CrawlerDynamodbTargetArgs{...} }
+//
 type CrawlerDynamodbTargetArrayInput interface {
 	pulumi.Input
 
@@ -1836,8 +1946,11 @@ type CrawlerJdbcTarget struct {
 	Path string `pulumi:"path"`
 }
 
-// Construct a concrete instance of CrawlerJdbcTargetInput via:
-// 	CrawlerJdbcTargetArgs{...}
+// CrawlerJdbcTargetInput is an input type that accepts CrawlerJdbcTargetArgs and CrawlerJdbcTargetOutput values.
+// You can construct a concrete instance of `CrawlerJdbcTargetInput` via:
+//
+// 		 CrawlerJdbcTargetArgs{...}
+//
 type CrawlerJdbcTargetInput interface {
 	pulumi.Input
 
@@ -1866,8 +1979,11 @@ func (i CrawlerJdbcTargetArgs) ToCrawlerJdbcTargetOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerJdbcTargetOutput)
 }
 
-// Construct a concrete instance of CrawlerJdbcTargetArrayInput via:
-// 	CrawlerJdbcTargetArray{ CrawlerJdbcTargetArgs{...} }
+// CrawlerJdbcTargetArrayInput is an input type that accepts CrawlerJdbcTargetArray and CrawlerJdbcTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerJdbcTargetArrayInput` via:
+//
+// 		 CrawlerJdbcTargetArray{ CrawlerJdbcTargetArgs{...} }
+//
 type CrawlerJdbcTargetArrayInput interface {
 	pulumi.Input
 
@@ -1945,8 +2061,11 @@ type CrawlerS3Target struct {
 	Path string `pulumi:"path"`
 }
 
-// Construct a concrete instance of CrawlerS3TargetInput via:
-// 	CrawlerS3TargetArgs{...}
+// CrawlerS3TargetInput is an input type that accepts CrawlerS3TargetArgs and CrawlerS3TargetOutput values.
+// You can construct a concrete instance of `CrawlerS3TargetInput` via:
+//
+// 		 CrawlerS3TargetArgs{...}
+//
 type CrawlerS3TargetInput interface {
 	pulumi.Input
 
@@ -1973,8 +2092,11 @@ func (i CrawlerS3TargetArgs) ToCrawlerS3TargetOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerS3TargetOutput)
 }
 
-// Construct a concrete instance of CrawlerS3TargetArrayInput via:
-// 	CrawlerS3TargetArray{ CrawlerS3TargetArgs{...} }
+// CrawlerS3TargetArrayInput is an input type that accepts CrawlerS3TargetArray and CrawlerS3TargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerS3TargetArrayInput` via:
+//
+// 		 CrawlerS3TargetArray{ CrawlerS3TargetArgs{...} }
+//
 type CrawlerS3TargetArrayInput interface {
 	pulumi.Input
 
@@ -2047,8 +2169,11 @@ type CrawlerSchemaChangePolicy struct {
 	UpdateBehavior *string `pulumi:"updateBehavior"`
 }
 
-// Construct a concrete instance of CrawlerSchemaChangePolicyInput via:
-// 	CrawlerSchemaChangePolicyArgs{...}
+// CrawlerSchemaChangePolicyInput is an input type that accepts CrawlerSchemaChangePolicyArgs and CrawlerSchemaChangePolicyOutput values.
+// You can construct a concrete instance of `CrawlerSchemaChangePolicyInput` via:
+//
+// 		 CrawlerSchemaChangePolicyArgs{...}
+//
 type CrawlerSchemaChangePolicyInput interface {
 	pulumi.Input
 
@@ -2083,8 +2208,15 @@ func (i CrawlerSchemaChangePolicyArgs) ToCrawlerSchemaChangePolicyPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerSchemaChangePolicyOutput).ToCrawlerSchemaChangePolicyPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of CrawlerSchemaChangePolicyPtrInput via:
-// 	CrawlerSchemaChangePolicyArgs{...}.ToCrawlerSchemaChangePolicyPtrOutput()
+// CrawlerSchemaChangePolicyPtrInput is an input type that accepts CrawlerSchemaChangePolicyArgs, CrawlerSchemaChangePolicyPtr and CrawlerSchemaChangePolicyPtrOutput values.
+// You can construct a concrete instance of `CrawlerSchemaChangePolicyPtrInput` via:
+//
+// 		 CrawlerSchemaChangePolicyArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type CrawlerSchemaChangePolicyPtrInput interface {
 	pulumi.Input
 
@@ -2181,8 +2313,11 @@ type JobCommand struct {
 	ScriptLocation string `pulumi:"scriptLocation"`
 }
 
-// Construct a concrete instance of JobCommandInput via:
-// 	JobCommandArgs{...}
+// JobCommandInput is an input type that accepts JobCommandArgs and JobCommandOutput values.
+// You can construct a concrete instance of `JobCommandInput` via:
+//
+// 		 JobCommandArgs{...}
+//
 type JobCommandInput interface {
 	pulumi.Input
 
@@ -2219,8 +2354,15 @@ func (i JobCommandArgs) ToJobCommandPtrOutputWithContext(ctx context.Context) Jo
 	return pulumi.ToOutputWithContext(ctx, i).(JobCommandOutput).ToJobCommandPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of JobCommandPtrInput via:
-// 	JobCommandArgs{...}.ToJobCommandPtrOutput()
+// JobCommandPtrInput is an input type that accepts JobCommandArgs, JobCommandPtr and JobCommandPtrOutput values.
+// You can construct a concrete instance of `JobCommandPtrInput` via:
+//
+// 		 JobCommandArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type JobCommandPtrInput interface {
 	pulumi.Input
 
@@ -2323,8 +2465,11 @@ type JobExecutionProperty struct {
 	MaxConcurrentRuns *int `pulumi:"maxConcurrentRuns"`
 }
 
-// Construct a concrete instance of JobExecutionPropertyInput via:
-// 	JobExecutionPropertyArgs{...}
+// JobExecutionPropertyInput is an input type that accepts JobExecutionPropertyArgs and JobExecutionPropertyOutput values.
+// You can construct a concrete instance of `JobExecutionPropertyInput` via:
+//
+// 		 JobExecutionPropertyArgs{...}
+//
 type JobExecutionPropertyInput interface {
 	pulumi.Input
 
@@ -2357,8 +2502,15 @@ func (i JobExecutionPropertyArgs) ToJobExecutionPropertyPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(JobExecutionPropertyOutput).ToJobExecutionPropertyPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of JobExecutionPropertyPtrInput via:
-// 	JobExecutionPropertyArgs{...}.ToJobExecutionPropertyPtrOutput()
+// JobExecutionPropertyPtrInput is an input type that accepts JobExecutionPropertyArgs, JobExecutionPropertyPtr and JobExecutionPropertyPtrOutput values.
+// You can construct a concrete instance of `JobExecutionPropertyPtrInput` via:
+//
+// 		 JobExecutionPropertyArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type JobExecutionPropertyPtrInput interface {
 	pulumi.Input
 
@@ -2441,8 +2593,11 @@ type JobNotificationProperty struct {
 	NotifyDelayAfter *int `pulumi:"notifyDelayAfter"`
 }
 
-// Construct a concrete instance of JobNotificationPropertyInput via:
-// 	JobNotificationPropertyArgs{...}
+// JobNotificationPropertyInput is an input type that accepts JobNotificationPropertyArgs and JobNotificationPropertyOutput values.
+// You can construct a concrete instance of `JobNotificationPropertyInput` via:
+//
+// 		 JobNotificationPropertyArgs{...}
+//
 type JobNotificationPropertyInput interface {
 	pulumi.Input
 
@@ -2475,8 +2630,15 @@ func (i JobNotificationPropertyArgs) ToJobNotificationPropertyPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(JobNotificationPropertyOutput).ToJobNotificationPropertyPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of JobNotificationPropertyPtrInput via:
-// 	JobNotificationPropertyArgs{...}.ToJobNotificationPropertyPtrOutput()
+// JobNotificationPropertyPtrInput is an input type that accepts JobNotificationPropertyArgs, JobNotificationPropertyPtr and JobNotificationPropertyPtrOutput values.
+// You can construct a concrete instance of `JobNotificationPropertyPtrInput` via:
+//
+// 		 JobNotificationPropertyArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type JobNotificationPropertyPtrInput interface {
 	pulumi.Input
 
@@ -2561,8 +2723,11 @@ type SecurityConfigurationEncryptionConfiguration struct {
 	S3Encryption SecurityConfigurationEncryptionConfigurationS3Encryption `pulumi:"s3Encryption"`
 }
 
-// Construct a concrete instance of SecurityConfigurationEncryptionConfigurationInput via:
-// 	SecurityConfigurationEncryptionConfigurationArgs{...}
+// SecurityConfigurationEncryptionConfigurationInput is an input type that accepts SecurityConfigurationEncryptionConfigurationArgs and SecurityConfigurationEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `SecurityConfigurationEncryptionConfigurationInput` via:
+//
+// 		 SecurityConfigurationEncryptionConfigurationArgs{...}
+//
 type SecurityConfigurationEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -2597,8 +2762,15 @@ func (i SecurityConfigurationEncryptionConfigurationArgs) ToSecurityConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationOutput).ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of SecurityConfigurationEncryptionConfigurationPtrInput via:
-// 	SecurityConfigurationEncryptionConfigurationArgs{...}.ToSecurityConfigurationEncryptionConfigurationPtrOutput()
+// SecurityConfigurationEncryptionConfigurationPtrInput is an input type that accepts SecurityConfigurationEncryptionConfigurationArgs, SecurityConfigurationEncryptionConfigurationPtr and SecurityConfigurationEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationEncryptionConfigurationPtrInput` via:
+//
+// 		 SecurityConfigurationEncryptionConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type SecurityConfigurationEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2712,8 +2884,11 @@ type SecurityConfigurationEncryptionConfigurationCloudwatchEncryption struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
-// Construct a concrete instance of SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionInput via:
-// 	SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs{...}
+// SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionInput is an input type that accepts SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs and SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput values.
+// You can construct a concrete instance of `SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionInput` via:
+//
+// 		 SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs{...}
+//
 type SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionInput interface {
 	pulumi.Input
 
@@ -2773,8 +2948,11 @@ type SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
-// Construct a concrete instance of SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionInput via:
-// 	SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs{...}
+// SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionInput is an input type that accepts SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs and SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput values.
+// You can construct a concrete instance of `SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionInput` via:
+//
+// 		 SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs{...}
+//
 type SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionInput interface {
 	pulumi.Input
 
@@ -2836,8 +3014,11 @@ type SecurityConfigurationEncryptionConfigurationS3Encryption struct {
 	S3EncryptionMode *string `pulumi:"s3EncryptionMode"`
 }
 
-// Construct a concrete instance of SecurityConfigurationEncryptionConfigurationS3EncryptionInput via:
-// 	SecurityConfigurationEncryptionConfigurationS3EncryptionArgs{...}
+// SecurityConfigurationEncryptionConfigurationS3EncryptionInput is an input type that accepts SecurityConfigurationEncryptionConfigurationS3EncryptionArgs and SecurityConfigurationEncryptionConfigurationS3EncryptionOutput values.
+// You can construct a concrete instance of `SecurityConfigurationEncryptionConfigurationS3EncryptionInput` via:
+//
+// 		 SecurityConfigurationEncryptionConfigurationS3EncryptionArgs{...}
+//
 type SecurityConfigurationEncryptionConfigurationS3EncryptionInput interface {
 	pulumi.Input
 
@@ -2899,8 +3080,11 @@ type TriggerAction struct {
 	Timeout *int `pulumi:"timeout"`
 }
 
-// Construct a concrete instance of TriggerActionInput via:
-// 	TriggerActionArgs{...}
+// TriggerActionInput is an input type that accepts TriggerActionArgs and TriggerActionOutput values.
+// You can construct a concrete instance of `TriggerActionInput` via:
+//
+// 		 TriggerActionArgs{...}
+//
 type TriggerActionInput interface {
 	pulumi.Input
 
@@ -2931,8 +3115,11 @@ func (i TriggerActionArgs) ToTriggerActionOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerActionOutput)
 }
 
-// Construct a concrete instance of TriggerActionArrayInput via:
-// 	TriggerActionArray{ TriggerActionArgs{...} }
+// TriggerActionArrayInput is an input type that accepts TriggerActionArray and TriggerActionArrayOutput values.
+// You can construct a concrete instance of `TriggerActionArrayInput` via:
+//
+// 		 TriggerActionArray{ TriggerActionArgs{...} }
+//
 type TriggerActionArrayInput interface {
 	pulumi.Input
 
@@ -3015,8 +3202,11 @@ type TriggerPredicate struct {
 	Logical *string `pulumi:"logical"`
 }
 
-// Construct a concrete instance of TriggerPredicateInput via:
-// 	TriggerPredicateArgs{...}
+// TriggerPredicateInput is an input type that accepts TriggerPredicateArgs and TriggerPredicateOutput values.
+// You can construct a concrete instance of `TriggerPredicateInput` via:
+//
+// 		 TriggerPredicateArgs{...}
+//
 type TriggerPredicateInput interface {
 	pulumi.Input
 
@@ -3051,8 +3241,15 @@ func (i TriggerPredicateArgs) ToTriggerPredicatePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerPredicateOutput).ToTriggerPredicatePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of TriggerPredicatePtrInput via:
-// 	TriggerPredicateArgs{...}.ToTriggerPredicatePtrOutput()
+// TriggerPredicatePtrInput is an input type that accepts TriggerPredicateArgs, TriggerPredicatePtr and TriggerPredicatePtrOutput values.
+// You can construct a concrete instance of `TriggerPredicatePtrInput` via:
+//
+// 		 TriggerPredicateArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type TriggerPredicatePtrInput interface {
 	pulumi.Input
 
@@ -3153,8 +3350,11 @@ type TriggerPredicateCondition struct {
 	State *string `pulumi:"state"`
 }
 
-// Construct a concrete instance of TriggerPredicateConditionInput via:
-// 	TriggerPredicateConditionArgs{...}
+// TriggerPredicateConditionInput is an input type that accepts TriggerPredicateConditionArgs and TriggerPredicateConditionOutput values.
+// You can construct a concrete instance of `TriggerPredicateConditionInput` via:
+//
+// 		 TriggerPredicateConditionArgs{...}
+//
 type TriggerPredicateConditionInput interface {
 	pulumi.Input
 
@@ -3187,8 +3387,11 @@ func (i TriggerPredicateConditionArgs) ToTriggerPredicateConditionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerPredicateConditionOutput)
 }
 
-// Construct a concrete instance of TriggerPredicateConditionArrayInput via:
-// 	TriggerPredicateConditionArray{ TriggerPredicateConditionArgs{...} }
+// TriggerPredicateConditionArrayInput is an input type that accepts TriggerPredicateConditionArray and TriggerPredicateConditionArrayOutput values.
+// You can construct a concrete instance of `TriggerPredicateConditionArrayInput` via:
+//
+// 		 TriggerPredicateConditionArray{ TriggerPredicateConditionArgs{...} }
+//
 type TriggerPredicateConditionArrayInput interface {
 	pulumi.Input
 
@@ -3278,8 +3481,11 @@ type GetScriptDagEdge struct {
 	TargetParameter *string `pulumi:"targetParameter"`
 }
 
-// Construct a concrete instance of GetScriptDagEdgeInput via:
-// 	GetScriptDagEdgeArgs{...}
+// GetScriptDagEdgeInput is an input type that accepts GetScriptDagEdgeArgs and GetScriptDagEdgeOutput values.
+// You can construct a concrete instance of `GetScriptDagEdgeInput` via:
+//
+// 		 GetScriptDagEdgeArgs{...}
+//
 type GetScriptDagEdgeInput interface {
 	pulumi.Input
 
@@ -3308,8 +3514,11 @@ func (i GetScriptDagEdgeArgs) ToGetScriptDagEdgeOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetScriptDagEdgeOutput)
 }
 
-// Construct a concrete instance of GetScriptDagEdgeArrayInput via:
-// 	GetScriptDagEdgeArray{ GetScriptDagEdgeArgs{...} }
+// GetScriptDagEdgeArrayInput is an input type that accepts GetScriptDagEdgeArray and GetScriptDagEdgeArrayOutput values.
+// You can construct a concrete instance of `GetScriptDagEdgeArrayInput` via:
+//
+// 		 GetScriptDagEdgeArray{ GetScriptDagEdgeArgs{...} }
+//
 type GetScriptDagEdgeArrayInput interface {
 	pulumi.Input
 
@@ -3391,8 +3600,11 @@ type GetScriptDagNode struct {
 	NodeType string `pulumi:"nodeType"`
 }
 
-// Construct a concrete instance of GetScriptDagNodeInput via:
-// 	GetScriptDagNodeArgs{...}
+// GetScriptDagNodeInput is an input type that accepts GetScriptDagNodeArgs and GetScriptDagNodeOutput values.
+// You can construct a concrete instance of `GetScriptDagNodeInput` via:
+//
+// 		 GetScriptDagNodeArgs{...}
+//
 type GetScriptDagNodeInput interface {
 	pulumi.Input
 
@@ -3423,8 +3635,11 @@ func (i GetScriptDagNodeArgs) ToGetScriptDagNodeOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetScriptDagNodeOutput)
 }
 
-// Construct a concrete instance of GetScriptDagNodeArrayInput via:
-// 	GetScriptDagNodeArray{ GetScriptDagNodeArgs{...} }
+// GetScriptDagNodeArrayInput is an input type that accepts GetScriptDagNodeArray and GetScriptDagNodeArrayOutput values.
+// You can construct a concrete instance of `GetScriptDagNodeArrayInput` via:
+//
+// 		 GetScriptDagNodeArray{ GetScriptDagNodeArgs{...} }
+//
 type GetScriptDagNodeArrayInput interface {
 	pulumi.Input
 
@@ -3509,8 +3724,11 @@ type GetScriptDagNodeArg struct {
 	Value string `pulumi:"value"`
 }
 
-// Construct a concrete instance of GetScriptDagNodeArgInput via:
-// 	GetScriptDagNodeArgArgs{...}
+// GetScriptDagNodeArgInput is an input type that accepts GetScriptDagNodeArgArgs and GetScriptDagNodeArgOutput values.
+// You can construct a concrete instance of `GetScriptDagNodeArgInput` via:
+//
+// 		 GetScriptDagNodeArgArgs{...}
+//
 type GetScriptDagNodeArgInput interface {
 	pulumi.Input
 
@@ -3539,8 +3757,11 @@ func (i GetScriptDagNodeArgArgs) ToGetScriptDagNodeArgOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetScriptDagNodeArgOutput)
 }
 
-// Construct a concrete instance of GetScriptDagNodeArgArrayInput via:
-// 	GetScriptDagNodeArgArray{ GetScriptDagNodeArgArgs{...} }
+// GetScriptDagNodeArgArrayInput is an input type that accepts GetScriptDagNodeArgArray and GetScriptDagNodeArgArrayOutput values.
+// You can construct a concrete instance of `GetScriptDagNodeArgArrayInput` via:
+//
+// 		 GetScriptDagNodeArgArray{ GetScriptDagNodeArgArgs{...} }
+//
 type GetScriptDagNodeArgArrayInput interface {
 	pulumi.Input
 

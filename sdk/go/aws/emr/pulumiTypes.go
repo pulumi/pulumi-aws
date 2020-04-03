@@ -17,8 +17,11 @@ type ClusterBootstrapAction struct {
 	Path string `pulumi:"path"`
 }
 
-// Construct a concrete instance of ClusterBootstrapActionInput via:
-// 	ClusterBootstrapActionArgs{...}
+// ClusterBootstrapActionInput is an input type that accepts ClusterBootstrapActionArgs and ClusterBootstrapActionOutput values.
+// You can construct a concrete instance of `ClusterBootstrapActionInput` via:
+//
+// 		 ClusterBootstrapActionArgs{...}
+//
 type ClusterBootstrapActionInput interface {
 	pulumi.Input
 
@@ -45,8 +48,11 @@ func (i ClusterBootstrapActionArgs) ToClusterBootstrapActionOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBootstrapActionOutput)
 }
 
-// Construct a concrete instance of ClusterBootstrapActionArrayInput via:
-// 	ClusterBootstrapActionArray{ ClusterBootstrapActionArgs{...} }
+// ClusterBootstrapActionArrayInput is an input type that accepts ClusterBootstrapActionArray and ClusterBootstrapActionArrayOutput values.
+// You can construct a concrete instance of `ClusterBootstrapActionArrayInput` via:
+//
+// 		 ClusterBootstrapActionArray{ ClusterBootstrapActionArgs{...} }
+//
 type ClusterBootstrapActionArrayInput interface {
 	pulumi.Input
 
@@ -127,8 +133,11 @@ type ClusterCoreInstanceGroup struct {
 	Name *string `pulumi:"name"`
 }
 
-// Construct a concrete instance of ClusterCoreInstanceGroupInput via:
-// 	ClusterCoreInstanceGroupArgs{...}
+// ClusterCoreInstanceGroupInput is an input type that accepts ClusterCoreInstanceGroupArgs and ClusterCoreInstanceGroupOutput values.
+// You can construct a concrete instance of `ClusterCoreInstanceGroupInput` via:
+//
+// 		 ClusterCoreInstanceGroupArgs{...}
+//
 type ClusterCoreInstanceGroupInput interface {
 	pulumi.Input
 
@@ -168,8 +177,15 @@ func (i ClusterCoreInstanceGroupArgs) ToClusterCoreInstanceGroupPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceGroupOutput).ToClusterCoreInstanceGroupPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClusterCoreInstanceGroupPtrInput via:
-// 	ClusterCoreInstanceGroupArgs{...}.ToClusterCoreInstanceGroupPtrOutput()
+// ClusterCoreInstanceGroupPtrInput is an input type that accepts ClusterCoreInstanceGroupArgs, ClusterCoreInstanceGroupPtr and ClusterCoreInstanceGroupPtrOutput values.
+// You can construct a concrete instance of `ClusterCoreInstanceGroupPtrInput` via:
+//
+// 		 ClusterCoreInstanceGroupArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClusterCoreInstanceGroupPtrInput interface {
 	pulumi.Input
 
@@ -303,8 +319,11 @@ type ClusterCoreInstanceGroupEbsConfig struct {
 	VolumesPerInstance *int   `pulumi:"volumesPerInstance"`
 }
 
-// Construct a concrete instance of ClusterCoreInstanceGroupEbsConfigInput via:
-// 	ClusterCoreInstanceGroupEbsConfigArgs{...}
+// ClusterCoreInstanceGroupEbsConfigInput is an input type that accepts ClusterCoreInstanceGroupEbsConfigArgs and ClusterCoreInstanceGroupEbsConfigOutput values.
+// You can construct a concrete instance of `ClusterCoreInstanceGroupEbsConfigInput` via:
+//
+// 		 ClusterCoreInstanceGroupEbsConfigArgs{...}
+//
 type ClusterCoreInstanceGroupEbsConfigInput interface {
 	pulumi.Input
 
@@ -331,8 +350,11 @@ func (i ClusterCoreInstanceGroupEbsConfigArgs) ToClusterCoreInstanceGroupEbsConf
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceGroupEbsConfigOutput)
 }
 
-// Construct a concrete instance of ClusterCoreInstanceGroupEbsConfigArrayInput via:
-// 	ClusterCoreInstanceGroupEbsConfigArray{ ClusterCoreInstanceGroupEbsConfigArgs{...} }
+// ClusterCoreInstanceGroupEbsConfigArrayInput is an input type that accepts ClusterCoreInstanceGroupEbsConfigArray and ClusterCoreInstanceGroupEbsConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterCoreInstanceGroupEbsConfigArrayInput` via:
+//
+// 		 ClusterCoreInstanceGroupEbsConfigArray{ ClusterCoreInstanceGroupEbsConfigArgs{...} }
+//
 type ClusterCoreInstanceGroupEbsConfigArrayInput interface {
 	pulumi.Input
 
@@ -415,8 +437,11 @@ type ClusterEc2Attributes struct {
 	SubnetId                       *string `pulumi:"subnetId"`
 }
 
-// Construct a concrete instance of ClusterEc2AttributesInput via:
-// 	ClusterEc2AttributesArgs{...}
+// ClusterEc2AttributesInput is an input type that accepts ClusterEc2AttributesArgs and ClusterEc2AttributesOutput values.
+// You can construct a concrete instance of `ClusterEc2AttributesInput` via:
+//
+// 		 ClusterEc2AttributesArgs{...}
+//
 type ClusterEc2AttributesInput interface {
 	pulumi.Input
 
@@ -455,8 +480,15 @@ func (i ClusterEc2AttributesArgs) ToClusterEc2AttributesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEc2AttributesOutput).ToClusterEc2AttributesPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClusterEc2AttributesPtrInput via:
-// 	ClusterEc2AttributesArgs{...}.ToClusterEc2AttributesPtrOutput()
+// ClusterEc2AttributesPtrInput is an input type that accepts ClusterEc2AttributesArgs, ClusterEc2AttributesPtr and ClusterEc2AttributesPtrOutput values.
+// You can construct a concrete instance of `ClusterEc2AttributesPtrInput` via:
+//
+// 		 ClusterEc2AttributesArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClusterEc2AttributesPtrInput interface {
 	pulumi.Input
 
@@ -600,8 +632,11 @@ type ClusterInstanceGroup struct {
 	Name *string `pulumi:"name"`
 }
 
-// Construct a concrete instance of ClusterInstanceGroupInput via:
-// 	ClusterInstanceGroupArgs{...}
+// ClusterInstanceGroupInput is an input type that accepts ClusterInstanceGroupArgs and ClusterInstanceGroupOutput values.
+// You can construct a concrete instance of `ClusterInstanceGroupInput` via:
+//
+// 		 ClusterInstanceGroupArgs{...}
+//
 type ClusterInstanceGroupInput interface {
 	pulumi.Input
 
@@ -634,8 +669,11 @@ func (i ClusterInstanceGroupArgs) ToClusterInstanceGroupOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceGroupOutput)
 }
 
-// Construct a concrete instance of ClusterInstanceGroupArrayInput via:
-// 	ClusterInstanceGroupArray{ ClusterInstanceGroupArgs{...} }
+// ClusterInstanceGroupArrayInput is an input type that accepts ClusterInstanceGroupArray and ClusterInstanceGroupArrayOutput values.
+// You can construct a concrete instance of `ClusterInstanceGroupArrayInput` via:
+//
+// 		 ClusterInstanceGroupArray{ ClusterInstanceGroupArgs{...} }
+//
 type ClusterInstanceGroupArrayInput interface {
 	pulumi.Input
 
@@ -732,8 +770,11 @@ type ClusterInstanceGroupEbsConfig struct {
 	VolumesPerInstance *int   `pulumi:"volumesPerInstance"`
 }
 
-// Construct a concrete instance of ClusterInstanceGroupEbsConfigInput via:
-// 	ClusterInstanceGroupEbsConfigArgs{...}
+// ClusterInstanceGroupEbsConfigInput is an input type that accepts ClusterInstanceGroupEbsConfigArgs and ClusterInstanceGroupEbsConfigOutput values.
+// You can construct a concrete instance of `ClusterInstanceGroupEbsConfigInput` via:
+//
+// 		 ClusterInstanceGroupEbsConfigArgs{...}
+//
 type ClusterInstanceGroupEbsConfigInput interface {
 	pulumi.Input
 
@@ -760,8 +801,11 @@ func (i ClusterInstanceGroupEbsConfigArgs) ToClusterInstanceGroupEbsConfigOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceGroupEbsConfigOutput)
 }
 
-// Construct a concrete instance of ClusterInstanceGroupEbsConfigArrayInput via:
-// 	ClusterInstanceGroupEbsConfigArray{ ClusterInstanceGroupEbsConfigArgs{...} }
+// ClusterInstanceGroupEbsConfigArrayInput is an input type that accepts ClusterInstanceGroupEbsConfigArray and ClusterInstanceGroupEbsConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterInstanceGroupEbsConfigArrayInput` via:
+//
+// 		 ClusterInstanceGroupEbsConfigArray{ ClusterInstanceGroupEbsConfigArgs{...} }
+//
 type ClusterInstanceGroupEbsConfigArrayInput interface {
 	pulumi.Input
 
@@ -841,8 +885,11 @@ type ClusterKerberosAttributes struct {
 	Realm                            string  `pulumi:"realm"`
 }
 
-// Construct a concrete instance of ClusterKerberosAttributesInput via:
-// 	ClusterKerberosAttributesArgs{...}
+// ClusterKerberosAttributesInput is an input type that accepts ClusterKerberosAttributesArgs and ClusterKerberosAttributesOutput values.
+// You can construct a concrete instance of `ClusterKerberosAttributesInput` via:
+//
+// 		 ClusterKerberosAttributesArgs{...}
+//
 type ClusterKerberosAttributesInput interface {
 	pulumi.Input
 
@@ -878,8 +925,15 @@ func (i ClusterKerberosAttributesArgs) ToClusterKerberosAttributesPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterKerberosAttributesOutput).ToClusterKerberosAttributesPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClusterKerberosAttributesPtrInput via:
-// 	ClusterKerberosAttributesArgs{...}.ToClusterKerberosAttributesPtrOutput()
+// ClusterKerberosAttributesPtrInput is an input type that accepts ClusterKerberosAttributesArgs, ClusterKerberosAttributesPtr and ClusterKerberosAttributesPtrOutput values.
+// You can construct a concrete instance of `ClusterKerberosAttributesPtrInput` via:
+//
+// 		 ClusterKerberosAttributesArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClusterKerberosAttributesPtrInput interface {
 	pulumi.Input
 
@@ -997,8 +1051,11 @@ type ClusterMasterInstanceGroup struct {
 	Name *string `pulumi:"name"`
 }
 
-// Construct a concrete instance of ClusterMasterInstanceGroupInput via:
-// 	ClusterMasterInstanceGroupArgs{...}
+// ClusterMasterInstanceGroupInput is an input type that accepts ClusterMasterInstanceGroupArgs and ClusterMasterInstanceGroupOutput values.
+// You can construct a concrete instance of `ClusterMasterInstanceGroupInput` via:
+//
+// 		 ClusterMasterInstanceGroupArgs{...}
+//
 type ClusterMasterInstanceGroupInput interface {
 	pulumi.Input
 
@@ -1037,8 +1094,15 @@ func (i ClusterMasterInstanceGroupArgs) ToClusterMasterInstanceGroupPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceGroupOutput).ToClusterMasterInstanceGroupPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClusterMasterInstanceGroupPtrInput via:
-// 	ClusterMasterInstanceGroupArgs{...}.ToClusterMasterInstanceGroupPtrOutput()
+// ClusterMasterInstanceGroupPtrInput is an input type that accepts ClusterMasterInstanceGroupArgs, ClusterMasterInstanceGroupPtr and ClusterMasterInstanceGroupPtrOutput values.
+// You can construct a concrete instance of `ClusterMasterInstanceGroupPtrInput` via:
+//
+// 		 ClusterMasterInstanceGroupArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClusterMasterInstanceGroupPtrInput interface {
 	pulumi.Input
 
@@ -1164,8 +1228,11 @@ type ClusterMasterInstanceGroupEbsConfig struct {
 	VolumesPerInstance *int   `pulumi:"volumesPerInstance"`
 }
 
-// Construct a concrete instance of ClusterMasterInstanceGroupEbsConfigInput via:
-// 	ClusterMasterInstanceGroupEbsConfigArgs{...}
+// ClusterMasterInstanceGroupEbsConfigInput is an input type that accepts ClusterMasterInstanceGroupEbsConfigArgs and ClusterMasterInstanceGroupEbsConfigOutput values.
+// You can construct a concrete instance of `ClusterMasterInstanceGroupEbsConfigInput` via:
+//
+// 		 ClusterMasterInstanceGroupEbsConfigArgs{...}
+//
 type ClusterMasterInstanceGroupEbsConfigInput interface {
 	pulumi.Input
 
@@ -1192,8 +1259,11 @@ func (i ClusterMasterInstanceGroupEbsConfigArgs) ToClusterMasterInstanceGroupEbs
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceGroupEbsConfigOutput)
 }
 
-// Construct a concrete instance of ClusterMasterInstanceGroupEbsConfigArrayInput via:
-// 	ClusterMasterInstanceGroupEbsConfigArray{ ClusterMasterInstanceGroupEbsConfigArgs{...} }
+// ClusterMasterInstanceGroupEbsConfigArrayInput is an input type that accepts ClusterMasterInstanceGroupEbsConfigArray and ClusterMasterInstanceGroupEbsConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterMasterInstanceGroupEbsConfigArrayInput` via:
+//
+// 		 ClusterMasterInstanceGroupEbsConfigArray{ ClusterMasterInstanceGroupEbsConfigArgs{...} }
+//
 type ClusterMasterInstanceGroupEbsConfigArrayInput interface {
 	pulumi.Input
 
@@ -1272,8 +1342,11 @@ type ClusterStep struct {
 	Name string `pulumi:"name"`
 }
 
-// Construct a concrete instance of ClusterStepInput via:
-// 	ClusterStepArgs{...}
+// ClusterStepInput is an input type that accepts ClusterStepArgs and ClusterStepOutput values.
+// You can construct a concrete instance of `ClusterStepInput` via:
+//
+// 		 ClusterStepArgs{...}
+//
 type ClusterStepInput interface {
 	pulumi.Input
 
@@ -1300,8 +1373,11 @@ func (i ClusterStepArgs) ToClusterStepOutputWithContext(ctx context.Context) Clu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterStepOutput)
 }
 
-// Construct a concrete instance of ClusterStepArrayInput via:
-// 	ClusterStepArray{ ClusterStepArgs{...} }
+// ClusterStepArrayInput is an input type that accepts ClusterStepArray and ClusterStepArrayOutput values.
+// You can construct a concrete instance of `ClusterStepArrayInput` via:
+//
+// 		 ClusterStepArray{ ClusterStepArgs{...} }
+//
 type ClusterStepArrayInput interface {
 	pulumi.Input
 
@@ -1377,8 +1453,11 @@ type ClusterStepHadoopJarStep struct {
 	Properties map[string]interface{} `pulumi:"properties"`
 }
 
-// Construct a concrete instance of ClusterStepHadoopJarStepInput via:
-// 	ClusterStepHadoopJarStepArgs{...}
+// ClusterStepHadoopJarStepInput is an input type that accepts ClusterStepHadoopJarStepArgs and ClusterStepHadoopJarStepOutput values.
+// You can construct a concrete instance of `ClusterStepHadoopJarStepInput` via:
+//
+// 		 ClusterStepHadoopJarStepArgs{...}
+//
 type ClusterStepHadoopJarStepInput interface {
 	pulumi.Input
 
@@ -1446,8 +1525,11 @@ type InstanceGroupEbsConfig struct {
 	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
 }
 
-// Construct a concrete instance of InstanceGroupEbsConfigInput via:
-// 	InstanceGroupEbsConfigArgs{...}
+// InstanceGroupEbsConfigInput is an input type that accepts InstanceGroupEbsConfigArgs and InstanceGroupEbsConfigOutput values.
+// You can construct a concrete instance of `InstanceGroupEbsConfigInput` via:
+//
+// 		 InstanceGroupEbsConfigArgs{...}
+//
 type InstanceGroupEbsConfigInput interface {
 	pulumi.Input
 
@@ -1478,8 +1560,11 @@ func (i InstanceGroupEbsConfigArgs) ToInstanceGroupEbsConfigOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupEbsConfigOutput)
 }
 
-// Construct a concrete instance of InstanceGroupEbsConfigArrayInput via:
-// 	InstanceGroupEbsConfigArray{ InstanceGroupEbsConfigArgs{...} }
+// InstanceGroupEbsConfigArrayInput is an input type that accepts InstanceGroupEbsConfigArray and InstanceGroupEbsConfigArrayOutput values.
+// You can construct a concrete instance of `InstanceGroupEbsConfigArrayInput` via:
+//
+// 		 InstanceGroupEbsConfigArray{ InstanceGroupEbsConfigArgs{...} }
+//
 type InstanceGroupEbsConfigArrayInput interface {
 	pulumi.Input
 

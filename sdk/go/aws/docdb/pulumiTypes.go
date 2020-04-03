@@ -19,8 +19,11 @@ type ClusterParameterGroupParameter struct {
 	Value string `pulumi:"value"`
 }
 
-// Construct a concrete instance of ClusterParameterGroupParameterInput via:
-// 	ClusterParameterGroupParameterArgs{...}
+// ClusterParameterGroupParameterInput is an input type that accepts ClusterParameterGroupParameterArgs and ClusterParameterGroupParameterOutput values.
+// You can construct a concrete instance of `ClusterParameterGroupParameterInput` via:
+//
+// 		 ClusterParameterGroupParameterArgs{...}
+//
 type ClusterParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -49,8 +52,11 @@ func (i ClusterParameterGroupParameterArgs) ToClusterParameterGroupParameterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupParameterOutput)
 }
 
-// Construct a concrete instance of ClusterParameterGroupParameterArrayInput via:
-// 	ClusterParameterGroupParameterArray{ ClusterParameterGroupParameterArgs{...} }
+// ClusterParameterGroupParameterArrayInput is an input type that accepts ClusterParameterGroupParameterArray and ClusterParameterGroupParameterArrayOutput values.
+// You can construct a concrete instance of `ClusterParameterGroupParameterArrayInput` via:
+//
+// 		 ClusterParameterGroupParameterArray{ ClusterParameterGroupParameterArgs{...} }
+//
 type ClusterParameterGroupParameterArrayInput interface {
 	pulumi.Input
 

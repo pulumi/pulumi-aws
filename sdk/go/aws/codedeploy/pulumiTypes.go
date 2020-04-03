@@ -20,8 +20,11 @@ type DeploymentConfigMinimumHealthyHosts struct {
 	Value *int `pulumi:"value"`
 }
 
-// Construct a concrete instance of DeploymentConfigMinimumHealthyHostsInput via:
-// 	DeploymentConfigMinimumHealthyHostsArgs{...}
+// DeploymentConfigMinimumHealthyHostsInput is an input type that accepts DeploymentConfigMinimumHealthyHostsArgs and DeploymentConfigMinimumHealthyHostsOutput values.
+// You can construct a concrete instance of `DeploymentConfigMinimumHealthyHostsInput` via:
+//
+// 		 DeploymentConfigMinimumHealthyHostsArgs{...}
+//
 type DeploymentConfigMinimumHealthyHostsInput interface {
 	pulumi.Input
 
@@ -59,8 +62,15 @@ func (i DeploymentConfigMinimumHealthyHostsArgs) ToDeploymentConfigMinimumHealth
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigMinimumHealthyHostsOutput).ToDeploymentConfigMinimumHealthyHostsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of DeploymentConfigMinimumHealthyHostsPtrInput via:
-// 	DeploymentConfigMinimumHealthyHostsArgs{...}.ToDeploymentConfigMinimumHealthyHostsPtrOutput()
+// DeploymentConfigMinimumHealthyHostsPtrInput is an input type that accepts DeploymentConfigMinimumHealthyHostsArgs, DeploymentConfigMinimumHealthyHostsPtr and DeploymentConfigMinimumHealthyHostsPtrOutput values.
+// You can construct a concrete instance of `DeploymentConfigMinimumHealthyHostsPtrInput` via:
+//
+// 		 DeploymentConfigMinimumHealthyHostsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type DeploymentConfigMinimumHealthyHostsPtrInput interface {
 	pulumi.Input
 
@@ -163,8 +173,11 @@ type DeploymentConfigTrafficRoutingConfig struct {
 	Type *string `pulumi:"type"`
 }
 
-// Construct a concrete instance of DeploymentConfigTrafficRoutingConfigInput via:
-// 	DeploymentConfigTrafficRoutingConfigArgs{...}
+// DeploymentConfigTrafficRoutingConfigInput is an input type that accepts DeploymentConfigTrafficRoutingConfigArgs and DeploymentConfigTrafficRoutingConfigOutput values.
+// You can construct a concrete instance of `DeploymentConfigTrafficRoutingConfigInput` via:
+//
+// 		 DeploymentConfigTrafficRoutingConfigArgs{...}
+//
 type DeploymentConfigTrafficRoutingConfigInput interface {
 	pulumi.Input
 
@@ -201,8 +214,15 @@ func (i DeploymentConfigTrafficRoutingConfigArgs) ToDeploymentConfigTrafficRouti
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigTrafficRoutingConfigOutput).ToDeploymentConfigTrafficRoutingConfigPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of DeploymentConfigTrafficRoutingConfigPtrInput via:
-// 	DeploymentConfigTrafficRoutingConfigArgs{...}.ToDeploymentConfigTrafficRoutingConfigPtrOutput()
+// DeploymentConfigTrafficRoutingConfigPtrInput is an input type that accepts DeploymentConfigTrafficRoutingConfigArgs, DeploymentConfigTrafficRoutingConfigPtr and DeploymentConfigTrafficRoutingConfigPtrOutput values.
+// You can construct a concrete instance of `DeploymentConfigTrafficRoutingConfigPtrInput` via:
+//
+// 		 DeploymentConfigTrafficRoutingConfigArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type DeploymentConfigTrafficRoutingConfigPtrInput interface {
 	pulumi.Input
 
@@ -315,8 +335,11 @@ type DeploymentConfigTrafficRoutingConfigTimeBasedCanary struct {
 	Percentage *int `pulumi:"percentage"`
 }
 
-// Construct a concrete instance of DeploymentConfigTrafficRoutingConfigTimeBasedCanaryInput via:
-// 	DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs{...}
+// DeploymentConfigTrafficRoutingConfigTimeBasedCanaryInput is an input type that accepts DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs and DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput values.
+// You can construct a concrete instance of `DeploymentConfigTrafficRoutingConfigTimeBasedCanaryInput` via:
+//
+// 		 DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs{...}
+//
 type DeploymentConfigTrafficRoutingConfigTimeBasedCanaryInput interface {
 	pulumi.Input
 
@@ -351,8 +374,15 @@ func (i DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs) ToDeploymentCon
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput).ToDeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrInput via:
-// 	DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs{...}.ToDeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput()
+// DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrInput is an input type that accepts DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs, DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtr and DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput values.
+// You can construct a concrete instance of `DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrInput` via:
+//
+// 		 DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrInput interface {
 	pulumi.Input
 
@@ -449,8 +479,11 @@ type DeploymentConfigTrafficRoutingConfigTimeBasedLinear struct {
 	Percentage *int `pulumi:"percentage"`
 }
 
-// Construct a concrete instance of DeploymentConfigTrafficRoutingConfigTimeBasedLinearInput via:
-// 	DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs{...}
+// DeploymentConfigTrafficRoutingConfigTimeBasedLinearInput is an input type that accepts DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs and DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput values.
+// You can construct a concrete instance of `DeploymentConfigTrafficRoutingConfigTimeBasedLinearInput` via:
+//
+// 		 DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs{...}
+//
 type DeploymentConfigTrafficRoutingConfigTimeBasedLinearInput interface {
 	pulumi.Input
 
@@ -485,8 +518,15 @@ func (i DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs) ToDeploymentCon
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput).ToDeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrInput via:
-// 	DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs{...}.ToDeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput()
+// DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrInput is an input type that accepts DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs, DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtr and DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput values.
+// You can construct a concrete instance of `DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrInput` via:
+//
+// 		 DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrInput interface {
 	pulumi.Input
 
@@ -587,8 +627,11 @@ type DeploymentGroupAlarmConfiguration struct {
 	IgnorePollAlarmFailure *bool `pulumi:"ignorePollAlarmFailure"`
 }
 
-// Construct a concrete instance of DeploymentGroupAlarmConfigurationInput via:
-// 	DeploymentGroupAlarmConfigurationArgs{...}
+// DeploymentGroupAlarmConfigurationInput is an input type that accepts DeploymentGroupAlarmConfigurationArgs and DeploymentGroupAlarmConfigurationOutput values.
+// You can construct a concrete instance of `DeploymentGroupAlarmConfigurationInput` via:
+//
+// 		 DeploymentGroupAlarmConfigurationArgs{...}
+//
 type DeploymentGroupAlarmConfigurationInput interface {
 	pulumi.Input
 
@@ -627,8 +670,15 @@ func (i DeploymentGroupAlarmConfigurationArgs) ToDeploymentGroupAlarmConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupAlarmConfigurationOutput).ToDeploymentGroupAlarmConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of DeploymentGroupAlarmConfigurationPtrInput via:
-// 	DeploymentGroupAlarmConfigurationArgs{...}.ToDeploymentGroupAlarmConfigurationPtrOutput()
+// DeploymentGroupAlarmConfigurationPtrInput is an input type that accepts DeploymentGroupAlarmConfigurationArgs, DeploymentGroupAlarmConfigurationPtr and DeploymentGroupAlarmConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupAlarmConfigurationPtrInput` via:
+//
+// 		 DeploymentGroupAlarmConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type DeploymentGroupAlarmConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -737,8 +787,11 @@ type DeploymentGroupAutoRollbackConfiguration struct {
 	Events []string `pulumi:"events"`
 }
 
-// Construct a concrete instance of DeploymentGroupAutoRollbackConfigurationInput via:
-// 	DeploymentGroupAutoRollbackConfigurationArgs{...}
+// DeploymentGroupAutoRollbackConfigurationInput is an input type that accepts DeploymentGroupAutoRollbackConfigurationArgs and DeploymentGroupAutoRollbackConfigurationOutput values.
+// You can construct a concrete instance of `DeploymentGroupAutoRollbackConfigurationInput` via:
+//
+// 		 DeploymentGroupAutoRollbackConfigurationArgs{...}
+//
 type DeploymentGroupAutoRollbackConfigurationInput interface {
 	pulumi.Input
 
@@ -773,8 +826,15 @@ func (i DeploymentGroupAutoRollbackConfigurationArgs) ToDeploymentGroupAutoRollb
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupAutoRollbackConfigurationOutput).ToDeploymentGroupAutoRollbackConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of DeploymentGroupAutoRollbackConfigurationPtrInput via:
-// 	DeploymentGroupAutoRollbackConfigurationArgs{...}.ToDeploymentGroupAutoRollbackConfigurationPtrOutput()
+// DeploymentGroupAutoRollbackConfigurationPtrInput is an input type that accepts DeploymentGroupAutoRollbackConfigurationArgs, DeploymentGroupAutoRollbackConfigurationPtr and DeploymentGroupAutoRollbackConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupAutoRollbackConfigurationPtrInput` via:
+//
+// 		 DeploymentGroupAutoRollbackConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type DeploymentGroupAutoRollbackConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -871,8 +931,11 @@ type DeploymentGroupBlueGreenDeploymentConfig struct {
 	TerminateBlueInstancesOnDeploymentSuccess *DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess `pulumi:"terminateBlueInstancesOnDeploymentSuccess"`
 }
 
-// Construct a concrete instance of DeploymentGroupBlueGreenDeploymentConfigInput via:
-// 	DeploymentGroupBlueGreenDeploymentConfigArgs{...}
+// DeploymentGroupBlueGreenDeploymentConfigInput is an input type that accepts DeploymentGroupBlueGreenDeploymentConfigArgs and DeploymentGroupBlueGreenDeploymentConfigOutput values.
+// You can construct a concrete instance of `DeploymentGroupBlueGreenDeploymentConfigInput` via:
+//
+// 		 DeploymentGroupBlueGreenDeploymentConfigArgs{...}
+//
 type DeploymentGroupBlueGreenDeploymentConfigInput interface {
 	pulumi.Input
 
@@ -909,8 +972,15 @@ func (i DeploymentGroupBlueGreenDeploymentConfigArgs) ToDeploymentGroupBlueGreen
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueGreenDeploymentConfigOutput).ToDeploymentGroupBlueGreenDeploymentConfigPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of DeploymentGroupBlueGreenDeploymentConfigPtrInput via:
-// 	DeploymentGroupBlueGreenDeploymentConfigArgs{...}.ToDeploymentGroupBlueGreenDeploymentConfigPtrOutput()
+// DeploymentGroupBlueGreenDeploymentConfigPtrInput is an input type that accepts DeploymentGroupBlueGreenDeploymentConfigArgs, DeploymentGroupBlueGreenDeploymentConfigPtr and DeploymentGroupBlueGreenDeploymentConfigPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupBlueGreenDeploymentConfigPtrInput` via:
+//
+// 		 DeploymentGroupBlueGreenDeploymentConfigArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type DeploymentGroupBlueGreenDeploymentConfigPtrInput interface {
 	pulumi.Input
 
@@ -1029,8 +1099,11 @@ type DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption struct {
 	WaitTimeInMinutes *int `pulumi:"waitTimeInMinutes"`
 }
 
-// Construct a concrete instance of DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionInput via:
-// 	DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs{...}
+// DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionInput is an input type that accepts DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs and DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput values.
+// You can construct a concrete instance of `DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionInput` via:
+//
+// 		 DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs{...}
+//
 type DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionInput interface {
 	pulumi.Input
 
@@ -1067,8 +1140,15 @@ func (i DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs) ToDep
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput).ToDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrInput via:
-// 	DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs{...}.ToDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput()
+// DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrInput is an input type that accepts DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs, DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtr and DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrInput` via:
+//
+// 		 DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrInput interface {
 	pulumi.Input
 
@@ -1177,8 +1257,11 @@ type DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption struct
 	Action *string `pulumi:"action"`
 }
 
-// Construct a concrete instance of DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionInput via:
-// 	DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs{...}
+// DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionInput is an input type that accepts DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs and DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput values.
+// You can construct a concrete instance of `DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionInput` via:
+//
+// 		 DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs{...}
+//
 type DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionInput interface {
 	pulumi.Input
 
@@ -1213,8 +1296,15 @@ func (i DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput).ToDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrInput via:
-// 	DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs{...}.ToDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput()
+// DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrInput is an input type that accepts DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs, DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtr and DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrInput` via:
+//
+// 		 DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrInput interface {
 	pulumi.Input
 
@@ -1307,8 +1397,11 @@ type DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentS
 	TerminationWaitTimeInMinutes *int `pulumi:"terminationWaitTimeInMinutes"`
 }
 
-// Construct a concrete instance of DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessInput via:
-// 	DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs{...}
+// DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessInput is an input type that accepts DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs and DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput values.
+// You can construct a concrete instance of `DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessInput` via:
+//
+// 		 DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs{...}
+//
 type DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessInput interface {
 	pulumi.Input
 
@@ -1345,8 +1438,15 @@ func (i DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeployme
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput).ToDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrInput via:
-// 	DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs{...}.ToDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput()
+// DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrInput is an input type that accepts DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs, DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtr and DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrInput` via:
+//
+// 		 DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrInput interface {
 	pulumi.Input
 
@@ -1455,8 +1555,11 @@ type DeploymentGroupDeploymentStyle struct {
 	DeploymentType *string `pulumi:"deploymentType"`
 }
 
-// Construct a concrete instance of DeploymentGroupDeploymentStyleInput via:
-// 	DeploymentGroupDeploymentStyleArgs{...}
+// DeploymentGroupDeploymentStyleInput is an input type that accepts DeploymentGroupDeploymentStyleArgs and DeploymentGroupDeploymentStyleOutput values.
+// You can construct a concrete instance of `DeploymentGroupDeploymentStyleInput` via:
+//
+// 		 DeploymentGroupDeploymentStyleArgs{...}
+//
 type DeploymentGroupDeploymentStyleInput interface {
 	pulumi.Input
 
@@ -1491,8 +1594,15 @@ func (i DeploymentGroupDeploymentStyleArgs) ToDeploymentGroupDeploymentStylePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupDeploymentStyleOutput).ToDeploymentGroupDeploymentStylePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of DeploymentGroupDeploymentStylePtrInput via:
-// 	DeploymentGroupDeploymentStyleArgs{...}.ToDeploymentGroupDeploymentStylePtrOutput()
+// DeploymentGroupDeploymentStylePtrInput is an input type that accepts DeploymentGroupDeploymentStyleArgs, DeploymentGroupDeploymentStylePtr and DeploymentGroupDeploymentStylePtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupDeploymentStylePtrInput` via:
+//
+// 		 DeploymentGroupDeploymentStyleArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type DeploymentGroupDeploymentStylePtrInput interface {
 	pulumi.Input
 
@@ -1589,8 +1699,11 @@ type DeploymentGroupEc2TagFilter struct {
 	Value *string `pulumi:"value"`
 }
 
-// Construct a concrete instance of DeploymentGroupEc2TagFilterInput via:
-// 	DeploymentGroupEc2TagFilterArgs{...}
+// DeploymentGroupEc2TagFilterInput is an input type that accepts DeploymentGroupEc2TagFilterArgs and DeploymentGroupEc2TagFilterOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2TagFilterInput` via:
+//
+// 		 DeploymentGroupEc2TagFilterArgs{...}
+//
 type DeploymentGroupEc2TagFilterInput interface {
 	pulumi.Input
 
@@ -1619,8 +1732,11 @@ func (i DeploymentGroupEc2TagFilterArgs) ToDeploymentGroupEc2TagFilterOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagFilterOutput)
 }
 
-// Construct a concrete instance of DeploymentGroupEc2TagFilterArrayInput via:
-// 	DeploymentGroupEc2TagFilterArray{ DeploymentGroupEc2TagFilterArgs{...} }
+// DeploymentGroupEc2TagFilterArrayInput is an input type that accepts DeploymentGroupEc2TagFilterArray and DeploymentGroupEc2TagFilterArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2TagFilterArrayInput` via:
+//
+// 		 DeploymentGroupEc2TagFilterArray{ DeploymentGroupEc2TagFilterArgs{...} }
+//
 type DeploymentGroupEc2TagFilterArrayInput interface {
 	pulumi.Input
 
@@ -1696,8 +1812,11 @@ type DeploymentGroupEc2TagSet struct {
 	Ec2TagFilters []DeploymentGroupEc2TagSetEc2TagFilter `pulumi:"ec2TagFilters"`
 }
 
-// Construct a concrete instance of DeploymentGroupEc2TagSetInput via:
-// 	DeploymentGroupEc2TagSetArgs{...}
+// DeploymentGroupEc2TagSetInput is an input type that accepts DeploymentGroupEc2TagSetArgs and DeploymentGroupEc2TagSetOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2TagSetInput` via:
+//
+// 		 DeploymentGroupEc2TagSetArgs{...}
+//
 type DeploymentGroupEc2TagSetInput interface {
 	pulumi.Input
 
@@ -1722,8 +1841,11 @@ func (i DeploymentGroupEc2TagSetArgs) ToDeploymentGroupEc2TagSetOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagSetOutput)
 }
 
-// Construct a concrete instance of DeploymentGroupEc2TagSetArrayInput via:
-// 	DeploymentGroupEc2TagSetArray{ DeploymentGroupEc2TagSetArgs{...} }
+// DeploymentGroupEc2TagSetArrayInput is an input type that accepts DeploymentGroupEc2TagSetArray and DeploymentGroupEc2TagSetArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2TagSetArrayInput` via:
+//
+// 		 DeploymentGroupEc2TagSetArray{ DeploymentGroupEc2TagSetArgs{...} }
+//
 type DeploymentGroupEc2TagSetArrayInput interface {
 	pulumi.Input
 
@@ -1793,8 +1915,11 @@ type DeploymentGroupEc2TagSetEc2TagFilter struct {
 	Value *string `pulumi:"value"`
 }
 
-// Construct a concrete instance of DeploymentGroupEc2TagSetEc2TagFilterInput via:
-// 	DeploymentGroupEc2TagSetEc2TagFilterArgs{...}
+// DeploymentGroupEc2TagSetEc2TagFilterInput is an input type that accepts DeploymentGroupEc2TagSetEc2TagFilterArgs and DeploymentGroupEc2TagSetEc2TagFilterOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2TagSetEc2TagFilterInput` via:
+//
+// 		 DeploymentGroupEc2TagSetEc2TagFilterArgs{...}
+//
 type DeploymentGroupEc2TagSetEc2TagFilterInput interface {
 	pulumi.Input
 
@@ -1823,8 +1948,11 @@ func (i DeploymentGroupEc2TagSetEc2TagFilterArgs) ToDeploymentGroupEc2TagSetEc2T
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagSetEc2TagFilterOutput)
 }
 
-// Construct a concrete instance of DeploymentGroupEc2TagSetEc2TagFilterArrayInput via:
-// 	DeploymentGroupEc2TagSetEc2TagFilterArray{ DeploymentGroupEc2TagSetEc2TagFilterArgs{...} }
+// DeploymentGroupEc2TagSetEc2TagFilterArrayInput is an input type that accepts DeploymentGroupEc2TagSetEc2TagFilterArray and DeploymentGroupEc2TagSetEc2TagFilterArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupEc2TagSetEc2TagFilterArrayInput` via:
+//
+// 		 DeploymentGroupEc2TagSetEc2TagFilterArray{ DeploymentGroupEc2TagSetEc2TagFilterArgs{...} }
+//
 type DeploymentGroupEc2TagSetEc2TagFilterArrayInput interface {
 	pulumi.Input
 
@@ -1902,8 +2030,11 @@ type DeploymentGroupEcsService struct {
 	ServiceName string `pulumi:"serviceName"`
 }
 
-// Construct a concrete instance of DeploymentGroupEcsServiceInput via:
-// 	DeploymentGroupEcsServiceArgs{...}
+// DeploymentGroupEcsServiceInput is an input type that accepts DeploymentGroupEcsServiceArgs and DeploymentGroupEcsServiceOutput values.
+// You can construct a concrete instance of `DeploymentGroupEcsServiceInput` via:
+//
+// 		 DeploymentGroupEcsServiceArgs{...}
+//
 type DeploymentGroupEcsServiceInput interface {
 	pulumi.Input
 
@@ -1938,8 +2069,15 @@ func (i DeploymentGroupEcsServiceArgs) ToDeploymentGroupEcsServicePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEcsServiceOutput).ToDeploymentGroupEcsServicePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of DeploymentGroupEcsServicePtrInput via:
-// 	DeploymentGroupEcsServiceArgs{...}.ToDeploymentGroupEcsServicePtrOutput()
+// DeploymentGroupEcsServicePtrInput is an input type that accepts DeploymentGroupEcsServiceArgs, DeploymentGroupEcsServicePtr and DeploymentGroupEcsServicePtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupEcsServicePtrInput` via:
+//
+// 		 DeploymentGroupEcsServiceArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type DeploymentGroupEcsServicePtrInput interface {
 	pulumi.Input
 
@@ -2036,8 +2174,11 @@ type DeploymentGroupLoadBalancerInfo struct {
 	TargetGroupPairInfo *DeploymentGroupLoadBalancerInfoTargetGroupPairInfo `pulumi:"targetGroupPairInfo"`
 }
 
-// Construct a concrete instance of DeploymentGroupLoadBalancerInfoInput via:
-// 	DeploymentGroupLoadBalancerInfoArgs{...}
+// DeploymentGroupLoadBalancerInfoInput is an input type that accepts DeploymentGroupLoadBalancerInfoArgs and DeploymentGroupLoadBalancerInfoOutput values.
+// You can construct a concrete instance of `DeploymentGroupLoadBalancerInfoInput` via:
+//
+// 		 DeploymentGroupLoadBalancerInfoArgs{...}
+//
 type DeploymentGroupLoadBalancerInfoInput interface {
 	pulumi.Input
 
@@ -2074,8 +2215,15 @@ func (i DeploymentGroupLoadBalancerInfoArgs) ToDeploymentGroupLoadBalancerInfoPt
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoOutput).ToDeploymentGroupLoadBalancerInfoPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of DeploymentGroupLoadBalancerInfoPtrInput via:
-// 	DeploymentGroupLoadBalancerInfoArgs{...}.ToDeploymentGroupLoadBalancerInfoPtrOutput()
+// DeploymentGroupLoadBalancerInfoPtrInput is an input type that accepts DeploymentGroupLoadBalancerInfoArgs, DeploymentGroupLoadBalancerInfoPtr and DeploymentGroupLoadBalancerInfoPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupLoadBalancerInfoPtrInput` via:
+//
+// 		 DeploymentGroupLoadBalancerInfoArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type DeploymentGroupLoadBalancerInfoPtrInput interface {
 	pulumi.Input
 
@@ -2186,8 +2334,11 @@ type DeploymentGroupLoadBalancerInfoElbInfo struct {
 	Name *string `pulumi:"name"`
 }
 
-// Construct a concrete instance of DeploymentGroupLoadBalancerInfoElbInfoInput via:
-// 	DeploymentGroupLoadBalancerInfoElbInfoArgs{...}
+// DeploymentGroupLoadBalancerInfoElbInfoInput is an input type that accepts DeploymentGroupLoadBalancerInfoElbInfoArgs and DeploymentGroupLoadBalancerInfoElbInfoOutput values.
+// You can construct a concrete instance of `DeploymentGroupLoadBalancerInfoElbInfoInput` via:
+//
+// 		 DeploymentGroupLoadBalancerInfoElbInfoArgs{...}
+//
 type DeploymentGroupLoadBalancerInfoElbInfoInput interface {
 	pulumi.Input
 
@@ -2212,8 +2363,11 @@ func (i DeploymentGroupLoadBalancerInfoElbInfoArgs) ToDeploymentGroupLoadBalance
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoElbInfoOutput)
 }
 
-// Construct a concrete instance of DeploymentGroupLoadBalancerInfoElbInfoArrayInput via:
-// 	DeploymentGroupLoadBalancerInfoElbInfoArray{ DeploymentGroupLoadBalancerInfoElbInfoArgs{...} }
+// DeploymentGroupLoadBalancerInfoElbInfoArrayInput is an input type that accepts DeploymentGroupLoadBalancerInfoElbInfoArray and DeploymentGroupLoadBalancerInfoElbInfoArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupLoadBalancerInfoElbInfoArrayInput` via:
+//
+// 		 DeploymentGroupLoadBalancerInfoElbInfoArray{ DeploymentGroupLoadBalancerInfoElbInfoArgs{...} }
+//
 type DeploymentGroupLoadBalancerInfoElbInfoArrayInput interface {
 	pulumi.Input
 
@@ -2279,8 +2433,11 @@ type DeploymentGroupLoadBalancerInfoTargetGroupInfo struct {
 	Name *string `pulumi:"name"`
 }
 
-// Construct a concrete instance of DeploymentGroupLoadBalancerInfoTargetGroupInfoInput via:
-// 	DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs{...}
+// DeploymentGroupLoadBalancerInfoTargetGroupInfoInput is an input type that accepts DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs and DeploymentGroupLoadBalancerInfoTargetGroupInfoOutput values.
+// You can construct a concrete instance of `DeploymentGroupLoadBalancerInfoTargetGroupInfoInput` via:
+//
+// 		 DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs{...}
+//
 type DeploymentGroupLoadBalancerInfoTargetGroupInfoInput interface {
 	pulumi.Input
 
@@ -2305,8 +2462,11 @@ func (i DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs) ToDeploymentGroupLoa
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoTargetGroupInfoOutput)
 }
 
-// Construct a concrete instance of DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayInput via:
-// 	DeploymentGroupLoadBalancerInfoTargetGroupInfoArray{ DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs{...} }
+// DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayInput is an input type that accepts DeploymentGroupLoadBalancerInfoTargetGroupInfoArray and DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayInput` via:
+//
+// 		 DeploymentGroupLoadBalancerInfoTargetGroupInfoArray{ DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs{...} }
+//
 type DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayInput interface {
 	pulumi.Input
 
@@ -2376,8 +2536,11 @@ type DeploymentGroupLoadBalancerInfoTargetGroupPairInfo struct {
 	TestTrafficRoute *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute `pulumi:"testTrafficRoute"`
 }
 
-// Construct a concrete instance of DeploymentGroupLoadBalancerInfoTargetGroupPairInfoInput via:
-// 	DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs{...}
+// DeploymentGroupLoadBalancerInfoTargetGroupPairInfoInput is an input type that accepts DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs and DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput values.
+// You can construct a concrete instance of `DeploymentGroupLoadBalancerInfoTargetGroupPairInfoInput` via:
+//
+// 		 DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs{...}
+//
 type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoInput interface {
 	pulumi.Input
 
@@ -2414,8 +2577,15 @@ func (i DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs) ToDeploymentGrou
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput).ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrInput via:
-// 	DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs{...}.ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput()
+// DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrInput is an input type that accepts DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs, DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtr and DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrInput` via:
+//
+// 		 DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrInput interface {
 	pulumi.Input
 
@@ -2532,8 +2702,11 @@ type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute struct {
 	ListenerArns []string `pulumi:"listenerArns"`
 }
 
-// Construct a concrete instance of DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteInput via:
-// 	DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs{...}
+// DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteInput is an input type that accepts DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs and DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput values.
+// You can construct a concrete instance of `DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteInput` via:
+//
+// 		 DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs{...}
+//
 type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteInput interface {
 	pulumi.Input
 
@@ -2584,8 +2757,11 @@ type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup struct {
 	Name string `pulumi:"name"`
 }
 
-// Construct a concrete instance of DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupInput via:
-// 	DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs{...}
+// DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupInput is an input type that accepts DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs and DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutput values.
+// You can construct a concrete instance of `DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupInput` via:
+//
+// 		 DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs{...}
+//
 type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupInput interface {
 	pulumi.Input
 
@@ -2610,8 +2786,11 @@ func (i DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs) ToDep
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutput)
 }
 
-// Construct a concrete instance of DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayInput via:
-// 	DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArray{ DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs{...} }
+// DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayInput is an input type that accepts DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArray and DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayInput` via:
+//
+// 		 DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArray{ DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs{...} }
+//
 type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayInput interface {
 	pulumi.Input
 
@@ -2677,8 +2856,11 @@ type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute struct {
 	ListenerArns []string `pulumi:"listenerArns"`
 }
 
-// Construct a concrete instance of DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteInput via:
-// 	DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs{...}
+// DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteInput is an input type that accepts DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs and DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput values.
+// You can construct a concrete instance of `DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteInput` via:
+//
+// 		 DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs{...}
+//
 type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteInput interface {
 	pulumi.Input
 
@@ -2711,8 +2893,15 @@ func (i DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput).ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrInput via:
-// 	DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs{...}.ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput()
+// DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrInput is an input type that accepts DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs, DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtr and DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput values.
+// You can construct a concrete instance of `DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrInput` via:
+//
+// 		 DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrInput interface {
 	pulumi.Input
 
@@ -2805,8 +2994,11 @@ type DeploymentGroupOnPremisesInstanceTagFilter struct {
 	Value *string `pulumi:"value"`
 }
 
-// Construct a concrete instance of DeploymentGroupOnPremisesInstanceTagFilterInput via:
-// 	DeploymentGroupOnPremisesInstanceTagFilterArgs{...}
+// DeploymentGroupOnPremisesInstanceTagFilterInput is an input type that accepts DeploymentGroupOnPremisesInstanceTagFilterArgs and DeploymentGroupOnPremisesInstanceTagFilterOutput values.
+// You can construct a concrete instance of `DeploymentGroupOnPremisesInstanceTagFilterInput` via:
+//
+// 		 DeploymentGroupOnPremisesInstanceTagFilterArgs{...}
+//
 type DeploymentGroupOnPremisesInstanceTagFilterInput interface {
 	pulumi.Input
 
@@ -2835,8 +3027,11 @@ func (i DeploymentGroupOnPremisesInstanceTagFilterArgs) ToDeploymentGroupOnPremi
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupOnPremisesInstanceTagFilterOutput)
 }
 
-// Construct a concrete instance of DeploymentGroupOnPremisesInstanceTagFilterArrayInput via:
-// 	DeploymentGroupOnPremisesInstanceTagFilterArray{ DeploymentGroupOnPremisesInstanceTagFilterArgs{...} }
+// DeploymentGroupOnPremisesInstanceTagFilterArrayInput is an input type that accepts DeploymentGroupOnPremisesInstanceTagFilterArray and DeploymentGroupOnPremisesInstanceTagFilterArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupOnPremisesInstanceTagFilterArrayInput` via:
+//
+// 		 DeploymentGroupOnPremisesInstanceTagFilterArray{ DeploymentGroupOnPremisesInstanceTagFilterArgs{...} }
+//
 type DeploymentGroupOnPremisesInstanceTagFilterArrayInput interface {
 	pulumi.Input
 
@@ -2916,8 +3111,11 @@ type DeploymentGroupTriggerConfiguration struct {
 	TriggerTargetArn string `pulumi:"triggerTargetArn"`
 }
 
-// Construct a concrete instance of DeploymentGroupTriggerConfigurationInput via:
-// 	DeploymentGroupTriggerConfigurationArgs{...}
+// DeploymentGroupTriggerConfigurationInput is an input type that accepts DeploymentGroupTriggerConfigurationArgs and DeploymentGroupTriggerConfigurationOutput values.
+// You can construct a concrete instance of `DeploymentGroupTriggerConfigurationInput` via:
+//
+// 		 DeploymentGroupTriggerConfigurationArgs{...}
+//
 type DeploymentGroupTriggerConfigurationInput interface {
 	pulumi.Input
 
@@ -2946,8 +3144,11 @@ func (i DeploymentGroupTriggerConfigurationArgs) ToDeploymentGroupTriggerConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTriggerConfigurationOutput)
 }
 
-// Construct a concrete instance of DeploymentGroupTriggerConfigurationArrayInput via:
-// 	DeploymentGroupTriggerConfigurationArray{ DeploymentGroupTriggerConfigurationArgs{...} }
+// DeploymentGroupTriggerConfigurationArrayInput is an input type that accepts DeploymentGroupTriggerConfigurationArray and DeploymentGroupTriggerConfigurationArrayOutput values.
+// You can construct a concrete instance of `DeploymentGroupTriggerConfigurationArrayInput` via:
+//
+// 		 DeploymentGroupTriggerConfigurationArray{ DeploymentGroupTriggerConfigurationArgs{...} }
+//
 type DeploymentGroupTriggerConfigurationArrayInput interface {
 	pulumi.Input
 

@@ -17,8 +17,11 @@ type GetResourceShareFilter struct {
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of GetResourceShareFilterInput via:
-// 	GetResourceShareFilterArgs{...}
+// GetResourceShareFilterInput is an input type that accepts GetResourceShareFilterArgs and GetResourceShareFilterOutput values.
+// You can construct a concrete instance of `GetResourceShareFilterInput` via:
+//
+// 		 GetResourceShareFilterArgs{...}
+//
 type GetResourceShareFilterInput interface {
 	pulumi.Input
 
@@ -45,8 +48,11 @@ func (i GetResourceShareFilterArgs) ToGetResourceShareFilterOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetResourceShareFilterOutput)
 }
 
-// Construct a concrete instance of GetResourceShareFilterArrayInput via:
-// 	GetResourceShareFilterArray{ GetResourceShareFilterArgs{...} }
+// GetResourceShareFilterArrayInput is an input type that accepts GetResourceShareFilterArray and GetResourceShareFilterArrayOutput values.
+// You can construct a concrete instance of `GetResourceShareFilterArrayInput` via:
+//
+// 		 GetResourceShareFilterArray{ GetResourceShareFilterArgs{...} }
+//
 type GetResourceShareFilterArrayInput interface {
 	pulumi.Input
 

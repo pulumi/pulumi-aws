@@ -15,8 +15,11 @@ type RepositoryImageScanningConfiguration struct {
 	ScanOnPush bool `pulumi:"scanOnPush"`
 }
 
-// Construct a concrete instance of RepositoryImageScanningConfigurationInput via:
-// 	RepositoryImageScanningConfigurationArgs{...}
+// RepositoryImageScanningConfigurationInput is an input type that accepts RepositoryImageScanningConfigurationArgs and RepositoryImageScanningConfigurationOutput values.
+// You can construct a concrete instance of `RepositoryImageScanningConfigurationInput` via:
+//
+// 		 RepositoryImageScanningConfigurationArgs{...}
+//
 type RepositoryImageScanningConfigurationInput interface {
 	pulumi.Input
 
@@ -49,8 +52,15 @@ func (i RepositoryImageScanningConfigurationArgs) ToRepositoryImageScanningConfi
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryImageScanningConfigurationOutput).ToRepositoryImageScanningConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of RepositoryImageScanningConfigurationPtrInput via:
-// 	RepositoryImageScanningConfigurationArgs{...}.ToRepositoryImageScanningConfigurationPtrOutput()
+// RepositoryImageScanningConfigurationPtrInput is an input type that accepts RepositoryImageScanningConfigurationArgs, RepositoryImageScanningConfigurationPtr and RepositoryImageScanningConfigurationPtrOutput values.
+// You can construct a concrete instance of `RepositoryImageScanningConfigurationPtrInput` via:
+//
+// 		 RepositoryImageScanningConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type RepositoryImageScanningConfigurationPtrInput interface {
 	pulumi.Input
 

@@ -23,8 +23,11 @@ type TriggerTrigger struct {
 	Name string `pulumi:"name"`
 }
 
-// Construct a concrete instance of TriggerTriggerInput via:
-// 	TriggerTriggerArgs{...}
+// TriggerTriggerInput is an input type that accepts TriggerTriggerArgs and TriggerTriggerOutput values.
+// You can construct a concrete instance of `TriggerTriggerInput` via:
+//
+// 		 TriggerTriggerArgs{...}
+//
 type TriggerTriggerInput interface {
 	pulumi.Input
 
@@ -57,8 +60,11 @@ func (i TriggerTriggerArgs) ToTriggerTriggerOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerTriggerOutput)
 }
 
-// Construct a concrete instance of TriggerTriggerArrayInput via:
-// 	TriggerTriggerArray{ TriggerTriggerArgs{...} }
+// TriggerTriggerArrayInput is an input type that accepts TriggerTriggerArray and TriggerTriggerArrayOutput values.
+// You can construct a concrete instance of `TriggerTriggerArrayInput` via:
+//
+// 		 TriggerTriggerArray{ TriggerTriggerArgs{...} }
+//
 type TriggerTriggerArrayInput interface {
 	pulumi.Input
 

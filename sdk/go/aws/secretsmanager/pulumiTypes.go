@@ -15,8 +15,11 @@ type SecretRotationRules struct {
 	AutomaticallyAfterDays int `pulumi:"automaticallyAfterDays"`
 }
 
-// Construct a concrete instance of SecretRotationRulesInput via:
-// 	SecretRotationRulesArgs{...}
+// SecretRotationRulesInput is an input type that accepts SecretRotationRulesArgs and SecretRotationRulesOutput values.
+// You can construct a concrete instance of `SecretRotationRulesInput` via:
+//
+// 		 SecretRotationRulesArgs{...}
+//
 type SecretRotationRulesInput interface {
 	pulumi.Input
 
@@ -49,8 +52,15 @@ func (i SecretRotationRulesArgs) ToSecretRotationRulesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SecretRotationRulesOutput).ToSecretRotationRulesPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of SecretRotationRulesPtrInput via:
-// 	SecretRotationRulesArgs{...}.ToSecretRotationRulesPtrOutput()
+// SecretRotationRulesPtrInput is an input type that accepts SecretRotationRulesArgs, SecretRotationRulesPtr and SecretRotationRulesPtrOutput values.
+// You can construct a concrete instance of `SecretRotationRulesPtrInput` via:
+//
+// 		 SecretRotationRulesArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type SecretRotationRulesPtrInput interface {
 	pulumi.Input
 
@@ -132,8 +142,11 @@ type GetSecretRotationRule struct {
 	AutomaticallyAfterDays int `pulumi:"automaticallyAfterDays"`
 }
 
-// Construct a concrete instance of GetSecretRotationRuleInput via:
-// 	GetSecretRotationRuleArgs{...}
+// GetSecretRotationRuleInput is an input type that accepts GetSecretRotationRuleArgs and GetSecretRotationRuleOutput values.
+// You can construct a concrete instance of `GetSecretRotationRuleInput` via:
+//
+// 		 GetSecretRotationRuleArgs{...}
+//
 type GetSecretRotationRuleInput interface {
 	pulumi.Input
 
@@ -157,8 +170,11 @@ func (i GetSecretRotationRuleArgs) ToGetSecretRotationRuleOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecretRotationRuleOutput)
 }
 
-// Construct a concrete instance of GetSecretRotationRuleArrayInput via:
-// 	GetSecretRotationRuleArray{ GetSecretRotationRuleArgs{...} }
+// GetSecretRotationRuleArrayInput is an input type that accepts GetSecretRotationRuleArray and GetSecretRotationRuleArrayOutput values.
+// You can construct a concrete instance of `GetSecretRotationRuleArrayInput` via:
+//
+// 		 GetSecretRotationRuleArray{ GetSecretRotationRuleArgs{...} }
+//
 type GetSecretRotationRuleArrayInput interface {
 	pulumi.Input
 

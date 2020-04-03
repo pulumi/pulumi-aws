@@ -21,8 +21,11 @@ type ApplicationAppversionLifecycle struct {
 	ServiceRole string `pulumi:"serviceRole"`
 }
 
-// Construct a concrete instance of ApplicationAppversionLifecycleInput via:
-// 	ApplicationAppversionLifecycleArgs{...}
+// ApplicationAppversionLifecycleInput is an input type that accepts ApplicationAppversionLifecycleArgs and ApplicationAppversionLifecycleOutput values.
+// You can construct a concrete instance of `ApplicationAppversionLifecycleInput` via:
+//
+// 		 ApplicationAppversionLifecycleArgs{...}
+//
 type ApplicationAppversionLifecycleInput interface {
 	pulumi.Input
 
@@ -61,8 +64,15 @@ func (i ApplicationAppversionLifecycleArgs) ToApplicationAppversionLifecyclePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAppversionLifecycleOutput).ToApplicationAppversionLifecyclePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ApplicationAppversionLifecyclePtrInput via:
-// 	ApplicationAppversionLifecycleArgs{...}.ToApplicationAppversionLifecyclePtrOutput()
+// ApplicationAppversionLifecyclePtrInput is an input type that accepts ApplicationAppversionLifecycleArgs, ApplicationAppversionLifecyclePtr and ApplicationAppversionLifecyclePtrOutput values.
+// You can construct a concrete instance of `ApplicationAppversionLifecyclePtrInput` via:
+//
+// 		 ApplicationAppversionLifecycleArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ApplicationAppversionLifecyclePtrInput interface {
 	pulumi.Input
 
@@ -178,8 +188,11 @@ type ConfigurationTemplateSetting struct {
 	Value     string  `pulumi:"value"`
 }
 
-// Construct a concrete instance of ConfigurationTemplateSettingInput via:
-// 	ConfigurationTemplateSettingArgs{...}
+// ConfigurationTemplateSettingInput is an input type that accepts ConfigurationTemplateSettingArgs and ConfigurationTemplateSettingOutput values.
+// You can construct a concrete instance of `ConfigurationTemplateSettingInput` via:
+//
+// 		 ConfigurationTemplateSettingArgs{...}
+//
 type ConfigurationTemplateSettingInput interface {
 	pulumi.Input
 
@@ -207,8 +220,11 @@ func (i ConfigurationTemplateSettingArgs) ToConfigurationTemplateSettingOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplateSettingOutput)
 }
 
-// Construct a concrete instance of ConfigurationTemplateSettingArrayInput via:
-// 	ConfigurationTemplateSettingArray{ ConfigurationTemplateSettingArgs{...} }
+// ConfigurationTemplateSettingArrayInput is an input type that accepts ConfigurationTemplateSettingArray and ConfigurationTemplateSettingArrayOutput values.
+// You can construct a concrete instance of `ConfigurationTemplateSettingArrayInput` via:
+//
+// 		 ConfigurationTemplateSettingArray{ ConfigurationTemplateSettingArgs{...} }
+//
 type ConfigurationTemplateSettingArrayInput interface {
 	pulumi.Input
 
@@ -290,8 +306,11 @@ type EnvironmentAllSetting struct {
 	Value     string  `pulumi:"value"`
 }
 
-// Construct a concrete instance of EnvironmentAllSettingInput via:
-// 	EnvironmentAllSettingArgs{...}
+// EnvironmentAllSettingInput is an input type that accepts EnvironmentAllSettingArgs and EnvironmentAllSettingOutput values.
+// You can construct a concrete instance of `EnvironmentAllSettingInput` via:
+//
+// 		 EnvironmentAllSettingArgs{...}
+//
 type EnvironmentAllSettingInput interface {
 	pulumi.Input
 
@@ -320,8 +339,11 @@ func (i EnvironmentAllSettingArgs) ToEnvironmentAllSettingOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentAllSettingOutput)
 }
 
-// Construct a concrete instance of EnvironmentAllSettingArrayInput via:
-// 	EnvironmentAllSettingArray{ EnvironmentAllSettingArgs{...} }
+// EnvironmentAllSettingArrayInput is an input type that accepts EnvironmentAllSettingArray and EnvironmentAllSettingArrayOutput values.
+// You can construct a concrete instance of `EnvironmentAllSettingArrayInput` via:
+//
+// 		 EnvironmentAllSettingArray{ EnvironmentAllSettingArgs{...} }
+//
 type EnvironmentAllSettingArrayInput interface {
 	pulumi.Input
 
@@ -404,8 +426,11 @@ type EnvironmentSetting struct {
 	Value     string  `pulumi:"value"`
 }
 
-// Construct a concrete instance of EnvironmentSettingInput via:
-// 	EnvironmentSettingArgs{...}
+// EnvironmentSettingInput is an input type that accepts EnvironmentSettingArgs and EnvironmentSettingOutput values.
+// You can construct a concrete instance of `EnvironmentSettingInput` via:
+//
+// 		 EnvironmentSettingArgs{...}
+//
 type EnvironmentSettingInput interface {
 	pulumi.Input
 
@@ -434,8 +459,11 @@ func (i EnvironmentSettingArgs) ToEnvironmentSettingOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentSettingOutput)
 }
 
-// Construct a concrete instance of EnvironmentSettingArrayInput via:
-// 	EnvironmentSettingArray{ EnvironmentSettingArgs{...} }
+// EnvironmentSettingArrayInput is an input type that accepts EnvironmentSettingArray and EnvironmentSettingArrayOutput values.
+// You can construct a concrete instance of `EnvironmentSettingArrayInput` via:
+//
+// 		 EnvironmentSettingArray{ EnvironmentSettingArgs{...} }
+//
 type EnvironmentSettingArrayInput interface {
 	pulumi.Input
 
@@ -520,8 +548,11 @@ type GetApplicationAppversionLifecycle struct {
 	ServiceRole string `pulumi:"serviceRole"`
 }
 
-// Construct a concrete instance of GetApplicationAppversionLifecycleInput via:
-// 	GetApplicationAppversionLifecycleArgs{...}
+// GetApplicationAppversionLifecycleInput is an input type that accepts GetApplicationAppversionLifecycleArgs and GetApplicationAppversionLifecycleOutput values.
+// You can construct a concrete instance of `GetApplicationAppversionLifecycleInput` via:
+//
+// 		 GetApplicationAppversionLifecycleArgs{...}
+//
 type GetApplicationAppversionLifecycleInput interface {
 	pulumi.Input
 

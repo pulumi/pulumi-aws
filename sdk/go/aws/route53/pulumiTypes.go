@@ -19,8 +19,11 @@ type RecordAlias struct {
 	ZoneId string `pulumi:"zoneId"`
 }
 
-// Construct a concrete instance of RecordAliasInput via:
-// 	RecordAliasArgs{...}
+// RecordAliasInput is an input type that accepts RecordAliasArgs and RecordAliasOutput values.
+// You can construct a concrete instance of `RecordAliasInput` via:
+//
+// 		 RecordAliasArgs{...}
+//
 type RecordAliasInput interface {
 	pulumi.Input
 
@@ -49,8 +52,11 @@ func (i RecordAliasArgs) ToRecordAliasOutputWithContext(ctx context.Context) Rec
 	return pulumi.ToOutputWithContext(ctx, i).(RecordAliasOutput)
 }
 
-// Construct a concrete instance of RecordAliasArrayInput via:
-// 	RecordAliasArray{ RecordAliasArgs{...} }
+// RecordAliasArrayInput is an input type that accepts RecordAliasArray and RecordAliasArrayOutput values.
+// You can construct a concrete instance of `RecordAliasArrayInput` via:
+//
+// 		 RecordAliasArray{ RecordAliasArgs{...} }
+//
 type RecordAliasArrayInput interface {
 	pulumi.Input
 
@@ -126,8 +132,11 @@ type RecordFailoverRoutingPolicy struct {
 	Type string `pulumi:"type"`
 }
 
-// Construct a concrete instance of RecordFailoverRoutingPolicyInput via:
-// 	RecordFailoverRoutingPolicyArgs{...}
+// RecordFailoverRoutingPolicyInput is an input type that accepts RecordFailoverRoutingPolicyArgs and RecordFailoverRoutingPolicyOutput values.
+// You can construct a concrete instance of `RecordFailoverRoutingPolicyInput` via:
+//
+// 		 RecordFailoverRoutingPolicyArgs{...}
+//
 type RecordFailoverRoutingPolicyInput interface {
 	pulumi.Input
 
@@ -152,8 +161,11 @@ func (i RecordFailoverRoutingPolicyArgs) ToRecordFailoverRoutingPolicyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RecordFailoverRoutingPolicyOutput)
 }
 
-// Construct a concrete instance of RecordFailoverRoutingPolicyArrayInput via:
-// 	RecordFailoverRoutingPolicyArray{ RecordFailoverRoutingPolicyArgs{...} }
+// RecordFailoverRoutingPolicyArrayInput is an input type that accepts RecordFailoverRoutingPolicyArray and RecordFailoverRoutingPolicyArrayOutput values.
+// You can construct a concrete instance of `RecordFailoverRoutingPolicyArrayInput` via:
+//
+// 		 RecordFailoverRoutingPolicyArray{ RecordFailoverRoutingPolicyArgs{...} }
+//
 type RecordFailoverRoutingPolicyArrayInput interface {
 	pulumi.Input
 
@@ -223,8 +235,11 @@ type RecordGeolocationRoutingPolicy struct {
 	Subdivision *string `pulumi:"subdivision"`
 }
 
-// Construct a concrete instance of RecordGeolocationRoutingPolicyInput via:
-// 	RecordGeolocationRoutingPolicyArgs{...}
+// RecordGeolocationRoutingPolicyInput is an input type that accepts RecordGeolocationRoutingPolicyArgs and RecordGeolocationRoutingPolicyOutput values.
+// You can construct a concrete instance of `RecordGeolocationRoutingPolicyInput` via:
+//
+// 		 RecordGeolocationRoutingPolicyArgs{...}
+//
 type RecordGeolocationRoutingPolicyInput interface {
 	pulumi.Input
 
@@ -253,8 +268,11 @@ func (i RecordGeolocationRoutingPolicyArgs) ToRecordGeolocationRoutingPolicyOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RecordGeolocationRoutingPolicyOutput)
 }
 
-// Construct a concrete instance of RecordGeolocationRoutingPolicyArrayInput via:
-// 	RecordGeolocationRoutingPolicyArray{ RecordGeolocationRoutingPolicyArgs{...} }
+// RecordGeolocationRoutingPolicyArrayInput is an input type that accepts RecordGeolocationRoutingPolicyArray and RecordGeolocationRoutingPolicyArrayOutput values.
+// You can construct a concrete instance of `RecordGeolocationRoutingPolicyArrayInput` via:
+//
+// 		 RecordGeolocationRoutingPolicyArray{ RecordGeolocationRoutingPolicyArgs{...} }
+//
 type RecordGeolocationRoutingPolicyArrayInput interface {
 	pulumi.Input
 
@@ -330,8 +348,11 @@ type RecordLatencyRoutingPolicy struct {
 	Region string `pulumi:"region"`
 }
 
-// Construct a concrete instance of RecordLatencyRoutingPolicyInput via:
-// 	RecordLatencyRoutingPolicyArgs{...}
+// RecordLatencyRoutingPolicyInput is an input type that accepts RecordLatencyRoutingPolicyArgs and RecordLatencyRoutingPolicyOutput values.
+// You can construct a concrete instance of `RecordLatencyRoutingPolicyInput` via:
+//
+// 		 RecordLatencyRoutingPolicyArgs{...}
+//
 type RecordLatencyRoutingPolicyInput interface {
 	pulumi.Input
 
@@ -356,8 +377,11 @@ func (i RecordLatencyRoutingPolicyArgs) ToRecordLatencyRoutingPolicyOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RecordLatencyRoutingPolicyOutput)
 }
 
-// Construct a concrete instance of RecordLatencyRoutingPolicyArrayInput via:
-// 	RecordLatencyRoutingPolicyArray{ RecordLatencyRoutingPolicyArgs{...} }
+// RecordLatencyRoutingPolicyArrayInput is an input type that accepts RecordLatencyRoutingPolicyArray and RecordLatencyRoutingPolicyArrayOutput values.
+// You can construct a concrete instance of `RecordLatencyRoutingPolicyArrayInput` via:
+//
+// 		 RecordLatencyRoutingPolicyArray{ RecordLatencyRoutingPolicyArgs{...} }
+//
 type RecordLatencyRoutingPolicyArrayInput interface {
 	pulumi.Input
 
@@ -423,8 +447,11 @@ type RecordWeightedRoutingPolicy struct {
 	Weight int `pulumi:"weight"`
 }
 
-// Construct a concrete instance of RecordWeightedRoutingPolicyInput via:
-// 	RecordWeightedRoutingPolicyArgs{...}
+// RecordWeightedRoutingPolicyInput is an input type that accepts RecordWeightedRoutingPolicyArgs and RecordWeightedRoutingPolicyOutput values.
+// You can construct a concrete instance of `RecordWeightedRoutingPolicyInput` via:
+//
+// 		 RecordWeightedRoutingPolicyArgs{...}
+//
 type RecordWeightedRoutingPolicyInput interface {
 	pulumi.Input
 
@@ -449,8 +476,11 @@ func (i RecordWeightedRoutingPolicyArgs) ToRecordWeightedRoutingPolicyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RecordWeightedRoutingPolicyOutput)
 }
 
-// Construct a concrete instance of RecordWeightedRoutingPolicyArrayInput via:
-// 	RecordWeightedRoutingPolicyArray{ RecordWeightedRoutingPolicyArgs{...} }
+// RecordWeightedRoutingPolicyArrayInput is an input type that accepts RecordWeightedRoutingPolicyArray and RecordWeightedRoutingPolicyArrayOutput values.
+// You can construct a concrete instance of `RecordWeightedRoutingPolicyArrayInput` via:
+//
+// 		 RecordWeightedRoutingPolicyArray{ RecordWeightedRoutingPolicyArgs{...} }
+//
 type RecordWeightedRoutingPolicyArrayInput interface {
 	pulumi.Input
 
@@ -519,8 +549,11 @@ type ResolverEndpointIpAddress struct {
 	SubnetId string `pulumi:"subnetId"`
 }
 
-// Construct a concrete instance of ResolverEndpointIpAddressInput via:
-// 	ResolverEndpointIpAddressArgs{...}
+// ResolverEndpointIpAddressInput is an input type that accepts ResolverEndpointIpAddressArgs and ResolverEndpointIpAddressOutput values.
+// You can construct a concrete instance of `ResolverEndpointIpAddressInput` via:
+//
+// 		 ResolverEndpointIpAddressArgs{...}
+//
 type ResolverEndpointIpAddressInput interface {
 	pulumi.Input
 
@@ -548,8 +581,11 @@ func (i ResolverEndpointIpAddressArgs) ToResolverEndpointIpAddressOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointIpAddressOutput)
 }
 
-// Construct a concrete instance of ResolverEndpointIpAddressArrayInput via:
-// 	ResolverEndpointIpAddressArray{ ResolverEndpointIpAddressArgs{...} }
+// ResolverEndpointIpAddressArrayInput is an input type that accepts ResolverEndpointIpAddressArray and ResolverEndpointIpAddressArrayOutput values.
+// You can construct a concrete instance of `ResolverEndpointIpAddressArrayInput` via:
+//
+// 		 ResolverEndpointIpAddressArray{ ResolverEndpointIpAddressArgs{...} }
+//
 type ResolverEndpointIpAddressArrayInput interface {
 	pulumi.Input
 
@@ -626,8 +662,11 @@ type ResolverRuleTargetIp struct {
 	Port *int `pulumi:"port"`
 }
 
-// Construct a concrete instance of ResolverRuleTargetIpInput via:
-// 	ResolverRuleTargetIpArgs{...}
+// ResolverRuleTargetIpInput is an input type that accepts ResolverRuleTargetIpArgs and ResolverRuleTargetIpOutput values.
+// You can construct a concrete instance of `ResolverRuleTargetIpInput` via:
+//
+// 		 ResolverRuleTargetIpArgs{...}
+//
 type ResolverRuleTargetIpInput interface {
 	pulumi.Input
 
@@ -654,8 +693,11 @@ func (i ResolverRuleTargetIpArgs) ToResolverRuleTargetIpOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleTargetIpOutput)
 }
 
-// Construct a concrete instance of ResolverRuleTargetIpArrayInput via:
-// 	ResolverRuleTargetIpArray{ ResolverRuleTargetIpArgs{...} }
+// ResolverRuleTargetIpArrayInput is an input type that accepts ResolverRuleTargetIpArray and ResolverRuleTargetIpArrayOutput values.
+// You can construct a concrete instance of `ResolverRuleTargetIpArrayInput` via:
+//
+// 		 ResolverRuleTargetIpArray{ ResolverRuleTargetIpArgs{...} }
+//
 type ResolverRuleTargetIpArrayInput interface {
 	pulumi.Input
 
@@ -728,8 +770,11 @@ type ZoneVpc struct {
 	VpcRegion *string `pulumi:"vpcRegion"`
 }
 
-// Construct a concrete instance of ZoneVpcInput via:
-// 	ZoneVpcArgs{...}
+// ZoneVpcInput is an input type that accepts ZoneVpcArgs and ZoneVpcOutput values.
+// You can construct a concrete instance of `ZoneVpcInput` via:
+//
+// 		 ZoneVpcArgs{...}
+//
 type ZoneVpcInput interface {
 	pulumi.Input
 
@@ -756,8 +801,11 @@ func (i ZoneVpcArgs) ToZoneVpcOutputWithContext(ctx context.Context) ZoneVpcOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneVpcOutput)
 }
 
-// Construct a concrete instance of ZoneVpcArrayInput via:
-// 	ZoneVpcArray{ ZoneVpcArgs{...} }
+// ZoneVpcArrayInput is an input type that accepts ZoneVpcArray and ZoneVpcArrayOutput values.
+// You can construct a concrete instance of `ZoneVpcArrayInput` via:
+//
+// 		 ZoneVpcArray{ ZoneVpcArgs{...} }
+//
 type ZoneVpcArrayInput interface {
 	pulumi.Input
 

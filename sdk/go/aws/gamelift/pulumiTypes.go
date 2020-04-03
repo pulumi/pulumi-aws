@@ -19,8 +19,11 @@ type AliasRoutingStrategy struct {
 	Type string `pulumi:"type"`
 }
 
-// Construct a concrete instance of AliasRoutingStrategyInput via:
-// 	AliasRoutingStrategyArgs{...}
+// AliasRoutingStrategyInput is an input type that accepts AliasRoutingStrategyArgs and AliasRoutingStrategyOutput values.
+// You can construct a concrete instance of `AliasRoutingStrategyInput` via:
+//
+// 		 AliasRoutingStrategyArgs{...}
+//
 type AliasRoutingStrategyInput interface {
 	pulumi.Input
 
@@ -57,8 +60,15 @@ func (i AliasRoutingStrategyArgs) ToAliasRoutingStrategyPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingStrategyOutput).ToAliasRoutingStrategyPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of AliasRoutingStrategyPtrInput via:
-// 	AliasRoutingStrategyArgs{...}.ToAliasRoutingStrategyPtrOutput()
+// AliasRoutingStrategyPtrInput is an input type that accepts AliasRoutingStrategyArgs, AliasRoutingStrategyPtr and AliasRoutingStrategyPtrOutput values.
+// You can construct a concrete instance of `AliasRoutingStrategyPtrInput` via:
+//
+// 		 AliasRoutingStrategyArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AliasRoutingStrategyPtrInput interface {
 	pulumi.Input
 
@@ -165,8 +175,11 @@ type BuildStorageLocation struct {
 	RoleArn string `pulumi:"roleArn"`
 }
 
-// Construct a concrete instance of BuildStorageLocationInput via:
-// 	BuildStorageLocationArgs{...}
+// BuildStorageLocationInput is an input type that accepts BuildStorageLocationArgs and BuildStorageLocationOutput values.
+// You can construct a concrete instance of `BuildStorageLocationInput` via:
+//
+// 		 BuildStorageLocationArgs{...}
+//
 type BuildStorageLocationInput interface {
 	pulumi.Input
 
@@ -203,8 +216,15 @@ func (i BuildStorageLocationArgs) ToBuildStorageLocationPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(BuildStorageLocationOutput).ToBuildStorageLocationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of BuildStorageLocationPtrInput via:
-// 	BuildStorageLocationArgs{...}.ToBuildStorageLocationPtrOutput()
+// BuildStorageLocationPtrInput is an input type that accepts BuildStorageLocationArgs, BuildStorageLocationPtr and BuildStorageLocationPtrOutput values.
+// You can construct a concrete instance of `BuildStorageLocationPtrInput` via:
+//
+// 		 BuildStorageLocationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type BuildStorageLocationPtrInput interface {
 	pulumi.Input
 
@@ -313,8 +333,11 @@ type FleetEc2InboundPermission struct {
 	ToPort int `pulumi:"toPort"`
 }
 
-// Construct a concrete instance of FleetEc2InboundPermissionInput via:
-// 	FleetEc2InboundPermissionArgs{...}
+// FleetEc2InboundPermissionInput is an input type that accepts FleetEc2InboundPermissionArgs and FleetEc2InboundPermissionOutput values.
+// You can construct a concrete instance of `FleetEc2InboundPermissionInput` via:
+//
+// 		 FleetEc2InboundPermissionArgs{...}
+//
 type FleetEc2InboundPermissionInput interface {
 	pulumi.Input
 
@@ -345,8 +368,11 @@ func (i FleetEc2InboundPermissionArgs) ToFleetEc2InboundPermissionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FleetEc2InboundPermissionOutput)
 }
 
-// Construct a concrete instance of FleetEc2InboundPermissionArrayInput via:
-// 	FleetEc2InboundPermissionArray{ FleetEc2InboundPermissionArgs{...} }
+// FleetEc2InboundPermissionArrayInput is an input type that accepts FleetEc2InboundPermissionArray and FleetEc2InboundPermissionArrayOutput values.
+// You can construct a concrete instance of `FleetEc2InboundPermissionArrayInput` via:
+//
+// 		 FleetEc2InboundPermissionArray{ FleetEc2InboundPermissionArgs{...} }
+//
 type FleetEc2InboundPermissionArrayInput interface {
 	pulumi.Input
 
@@ -429,8 +455,11 @@ type FleetResourceCreationLimitPolicy struct {
 	PolicyPeriodInMinutes *int `pulumi:"policyPeriodInMinutes"`
 }
 
-// Construct a concrete instance of FleetResourceCreationLimitPolicyInput via:
-// 	FleetResourceCreationLimitPolicyArgs{...}
+// FleetResourceCreationLimitPolicyInput is an input type that accepts FleetResourceCreationLimitPolicyArgs and FleetResourceCreationLimitPolicyOutput values.
+// You can construct a concrete instance of `FleetResourceCreationLimitPolicyInput` via:
+//
+// 		 FleetResourceCreationLimitPolicyArgs{...}
+//
 type FleetResourceCreationLimitPolicyInput interface {
 	pulumi.Input
 
@@ -465,8 +494,15 @@ func (i FleetResourceCreationLimitPolicyArgs) ToFleetResourceCreationLimitPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(FleetResourceCreationLimitPolicyOutput).ToFleetResourceCreationLimitPolicyPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FleetResourceCreationLimitPolicyPtrInput via:
-// 	FleetResourceCreationLimitPolicyArgs{...}.ToFleetResourceCreationLimitPolicyPtrOutput()
+// FleetResourceCreationLimitPolicyPtrInput is an input type that accepts FleetResourceCreationLimitPolicyArgs, FleetResourceCreationLimitPolicyPtr and FleetResourceCreationLimitPolicyPtrOutput values.
+// You can construct a concrete instance of `FleetResourceCreationLimitPolicyPtrInput` via:
+//
+// 		 FleetResourceCreationLimitPolicyArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FleetResourceCreationLimitPolicyPtrInput interface {
 	pulumi.Input
 
@@ -563,8 +599,11 @@ type FleetRuntimeConfiguration struct {
 	ServerProcesses []FleetRuntimeConfigurationServerProcess `pulumi:"serverProcesses"`
 }
 
-// Construct a concrete instance of FleetRuntimeConfigurationInput via:
-// 	FleetRuntimeConfigurationArgs{...}
+// FleetRuntimeConfigurationInput is an input type that accepts FleetRuntimeConfigurationArgs and FleetRuntimeConfigurationOutput values.
+// You can construct a concrete instance of `FleetRuntimeConfigurationInput` via:
+//
+// 		 FleetRuntimeConfigurationArgs{...}
+//
 type FleetRuntimeConfigurationInput interface {
 	pulumi.Input
 
@@ -601,8 +640,15 @@ func (i FleetRuntimeConfigurationArgs) ToFleetRuntimeConfigurationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(FleetRuntimeConfigurationOutput).ToFleetRuntimeConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FleetRuntimeConfigurationPtrInput via:
-// 	FleetRuntimeConfigurationArgs{...}.ToFleetRuntimeConfigurationPtrOutput()
+// FleetRuntimeConfigurationPtrInput is an input type that accepts FleetRuntimeConfigurationArgs, FleetRuntimeConfigurationPtr and FleetRuntimeConfigurationPtrOutput values.
+// You can construct a concrete instance of `FleetRuntimeConfigurationPtrInput` via:
+//
+// 		 FleetRuntimeConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FleetRuntimeConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -709,8 +755,11 @@ type FleetRuntimeConfigurationServerProcess struct {
 	Parameters *string `pulumi:"parameters"`
 }
 
-// Construct a concrete instance of FleetRuntimeConfigurationServerProcessInput via:
-// 	FleetRuntimeConfigurationServerProcessArgs{...}
+// FleetRuntimeConfigurationServerProcessInput is an input type that accepts FleetRuntimeConfigurationServerProcessArgs and FleetRuntimeConfigurationServerProcessOutput values.
+// You can construct a concrete instance of `FleetRuntimeConfigurationServerProcessInput` via:
+//
+// 		 FleetRuntimeConfigurationServerProcessArgs{...}
+//
 type FleetRuntimeConfigurationServerProcessInput interface {
 	pulumi.Input
 
@@ -739,8 +788,11 @@ func (i FleetRuntimeConfigurationServerProcessArgs) ToFleetRuntimeConfigurationS
 	return pulumi.ToOutputWithContext(ctx, i).(FleetRuntimeConfigurationServerProcessOutput)
 }
 
-// Construct a concrete instance of FleetRuntimeConfigurationServerProcessArrayInput via:
-// 	FleetRuntimeConfigurationServerProcessArray{ FleetRuntimeConfigurationServerProcessArgs{...} }
+// FleetRuntimeConfigurationServerProcessArrayInput is an input type that accepts FleetRuntimeConfigurationServerProcessArray and FleetRuntimeConfigurationServerProcessArrayOutput values.
+// You can construct a concrete instance of `FleetRuntimeConfigurationServerProcessArrayInput` via:
+//
+// 		 FleetRuntimeConfigurationServerProcessArray{ FleetRuntimeConfigurationServerProcessArgs{...} }
+//
 type FleetRuntimeConfigurationServerProcessArrayInput interface {
 	pulumi.Input
 
@@ -818,8 +870,11 @@ type GameSessionQueuePlayerLatencyPolicy struct {
 	PolicyDurationSeconds *int `pulumi:"policyDurationSeconds"`
 }
 
-// Construct a concrete instance of GameSessionQueuePlayerLatencyPolicyInput via:
-// 	GameSessionQueuePlayerLatencyPolicyArgs{...}
+// GameSessionQueuePlayerLatencyPolicyInput is an input type that accepts GameSessionQueuePlayerLatencyPolicyArgs and GameSessionQueuePlayerLatencyPolicyOutput values.
+// You can construct a concrete instance of `GameSessionQueuePlayerLatencyPolicyInput` via:
+//
+// 		 GameSessionQueuePlayerLatencyPolicyArgs{...}
+//
 type GameSessionQueuePlayerLatencyPolicyInput interface {
 	pulumi.Input
 
@@ -846,8 +901,11 @@ func (i GameSessionQueuePlayerLatencyPolicyArgs) ToGameSessionQueuePlayerLatency
 	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueuePlayerLatencyPolicyOutput)
 }
 
-// Construct a concrete instance of GameSessionQueuePlayerLatencyPolicyArrayInput via:
-// 	GameSessionQueuePlayerLatencyPolicyArray{ GameSessionQueuePlayerLatencyPolicyArgs{...} }
+// GameSessionQueuePlayerLatencyPolicyArrayInput is an input type that accepts GameSessionQueuePlayerLatencyPolicyArray and GameSessionQueuePlayerLatencyPolicyArrayOutput values.
+// You can construct a concrete instance of `GameSessionQueuePlayerLatencyPolicyArrayInput` via:
+//
+// 		 GameSessionQueuePlayerLatencyPolicyArray{ GameSessionQueuePlayerLatencyPolicyArgs{...} }
+//
 type GameSessionQueuePlayerLatencyPolicyArrayInput interface {
 	pulumi.Input
 

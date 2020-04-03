@@ -23,8 +23,11 @@ type DirectorySelfServicePermissions struct {
 	SwitchRunningMode *bool `pulumi:"switchRunningMode"`
 }
 
-// Construct a concrete instance of DirectorySelfServicePermissionsInput via:
-// 	DirectorySelfServicePermissionsArgs{...}
+// DirectorySelfServicePermissionsInput is an input type that accepts DirectorySelfServicePermissionsArgs and DirectorySelfServicePermissionsOutput values.
+// You can construct a concrete instance of `DirectorySelfServicePermissionsInput` via:
+//
+// 		 DirectorySelfServicePermissionsArgs{...}
+//
 type DirectorySelfServicePermissionsInput interface {
 	pulumi.Input
 
@@ -65,8 +68,15 @@ func (i DirectorySelfServicePermissionsArgs) ToDirectorySelfServicePermissionsPt
 	return pulumi.ToOutputWithContext(ctx, i).(DirectorySelfServicePermissionsOutput).ToDirectorySelfServicePermissionsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of DirectorySelfServicePermissionsPtrInput via:
-// 	DirectorySelfServicePermissionsArgs{...}.ToDirectorySelfServicePermissionsPtrOutput()
+// DirectorySelfServicePermissionsPtrInput is an input type that accepts DirectorySelfServicePermissionsArgs, DirectorySelfServicePermissionsPtr and DirectorySelfServicePermissionsPtrOutput values.
+// You can construct a concrete instance of `DirectorySelfServicePermissionsPtrInput` via:
+//
+// 		 DirectorySelfServicePermissionsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type DirectorySelfServicePermissionsPtrInput interface {
 	pulumi.Input
 
@@ -191,8 +201,11 @@ type IpGroupRule struct {
 	Source string `pulumi:"source"`
 }
 
-// Construct a concrete instance of IpGroupRuleInput via:
-// 	IpGroupRuleArgs{...}
+// IpGroupRuleInput is an input type that accepts IpGroupRuleArgs and IpGroupRuleOutput values.
+// You can construct a concrete instance of `IpGroupRuleInput` via:
+//
+// 		 IpGroupRuleArgs{...}
+//
 type IpGroupRuleInput interface {
 	pulumi.Input
 
@@ -219,8 +232,11 @@ func (i IpGroupRuleArgs) ToIpGroupRuleOutputWithContext(ctx context.Context) IpG
 	return pulumi.ToOutputWithContext(ctx, i).(IpGroupRuleOutput)
 }
 
-// Construct a concrete instance of IpGroupRuleArrayInput via:
-// 	IpGroupRuleArray{ IpGroupRuleArgs{...} }
+// IpGroupRuleArrayInput is an input type that accepts IpGroupRuleArray and IpGroupRuleArrayOutput values.
+// You can construct a concrete instance of `IpGroupRuleArrayInput` via:
+//
+// 		 IpGroupRuleArray{ IpGroupRuleArgs{...} }
+//
 type IpGroupRuleArrayInput interface {
 	pulumi.Input
 
@@ -291,8 +307,11 @@ type GetBundleComputeType struct {
 	Name string `pulumi:"name"`
 }
 
-// Construct a concrete instance of GetBundleComputeTypeInput via:
-// 	GetBundleComputeTypeArgs{...}
+// GetBundleComputeTypeInput is an input type that accepts GetBundleComputeTypeArgs and GetBundleComputeTypeOutput values.
+// You can construct a concrete instance of `GetBundleComputeTypeInput` via:
+//
+// 		 GetBundleComputeTypeArgs{...}
+//
 type GetBundleComputeTypeInput interface {
 	pulumi.Input
 
@@ -317,8 +336,11 @@ func (i GetBundleComputeTypeArgs) ToGetBundleComputeTypeOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetBundleComputeTypeOutput)
 }
 
-// Construct a concrete instance of GetBundleComputeTypeArrayInput via:
-// 	GetBundleComputeTypeArray{ GetBundleComputeTypeArgs{...} }
+// GetBundleComputeTypeArrayInput is an input type that accepts GetBundleComputeTypeArray and GetBundleComputeTypeArrayOutput values.
+// You can construct a concrete instance of `GetBundleComputeTypeArrayInput` via:
+//
+// 		 GetBundleComputeTypeArray{ GetBundleComputeTypeArgs{...} }
+//
 type GetBundleComputeTypeArrayInput interface {
 	pulumi.Input
 
@@ -384,8 +406,11 @@ type GetBundleRootStorage struct {
 	Capacity string `pulumi:"capacity"`
 }
 
-// Construct a concrete instance of GetBundleRootStorageInput via:
-// 	GetBundleRootStorageArgs{...}
+// GetBundleRootStorageInput is an input type that accepts GetBundleRootStorageArgs and GetBundleRootStorageOutput values.
+// You can construct a concrete instance of `GetBundleRootStorageInput` via:
+//
+// 		 GetBundleRootStorageArgs{...}
+//
 type GetBundleRootStorageInput interface {
 	pulumi.Input
 
@@ -410,8 +435,11 @@ func (i GetBundleRootStorageArgs) ToGetBundleRootStorageOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetBundleRootStorageOutput)
 }
 
-// Construct a concrete instance of GetBundleRootStorageArrayInput via:
-// 	GetBundleRootStorageArray{ GetBundleRootStorageArgs{...} }
+// GetBundleRootStorageArrayInput is an input type that accepts GetBundleRootStorageArray and GetBundleRootStorageArrayOutput values.
+// You can construct a concrete instance of `GetBundleRootStorageArrayInput` via:
+//
+// 		 GetBundleRootStorageArray{ GetBundleRootStorageArgs{...} }
+//
 type GetBundleRootStorageArrayInput interface {
 	pulumi.Input
 
@@ -477,8 +505,11 @@ type GetBundleUserStorage struct {
 	Capacity string `pulumi:"capacity"`
 }
 
-// Construct a concrete instance of GetBundleUserStorageInput via:
-// 	GetBundleUserStorageArgs{...}
+// GetBundleUserStorageInput is an input type that accepts GetBundleUserStorageArgs and GetBundleUserStorageOutput values.
+// You can construct a concrete instance of `GetBundleUserStorageInput` via:
+//
+// 		 GetBundleUserStorageArgs{...}
+//
 type GetBundleUserStorageInput interface {
 	pulumi.Input
 
@@ -503,8 +534,11 @@ func (i GetBundleUserStorageArgs) ToGetBundleUserStorageOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetBundleUserStorageOutput)
 }
 
-// Construct a concrete instance of GetBundleUserStorageArrayInput via:
-// 	GetBundleUserStorageArray{ GetBundleUserStorageArgs{...} }
+// GetBundleUserStorageArrayInput is an input type that accepts GetBundleUserStorageArray and GetBundleUserStorageArrayOutput values.
+// You can construct a concrete instance of `GetBundleUserStorageArrayInput` via:
+//
+// 		 GetBundleUserStorageArray{ GetBundleUserStorageArgs{...} }
+//
 type GetBundleUserStorageArrayInput interface {
 	pulumi.Input
 

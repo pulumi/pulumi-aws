@@ -23,8 +23,11 @@ type ClusterBrokerNodeGroupInfo struct {
 	SecurityGroups []string `pulumi:"securityGroups"`
 }
 
-// Construct a concrete instance of ClusterBrokerNodeGroupInfoInput via:
-// 	ClusterBrokerNodeGroupInfoArgs{...}
+// ClusterBrokerNodeGroupInfoInput is an input type that accepts ClusterBrokerNodeGroupInfoArgs and ClusterBrokerNodeGroupInfoOutput values.
+// You can construct a concrete instance of `ClusterBrokerNodeGroupInfoInput` via:
+//
+// 		 ClusterBrokerNodeGroupInfoArgs{...}
+//
 type ClusterBrokerNodeGroupInfoInput interface {
 	pulumi.Input
 
@@ -65,8 +68,15 @@ func (i ClusterBrokerNodeGroupInfoArgs) ToClusterBrokerNodeGroupInfoPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoOutput).ToClusterBrokerNodeGroupInfoPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClusterBrokerNodeGroupInfoPtrInput via:
-// 	ClusterBrokerNodeGroupInfoArgs{...}.ToClusterBrokerNodeGroupInfoPtrOutput()
+// ClusterBrokerNodeGroupInfoPtrInput is an input type that accepts ClusterBrokerNodeGroupInfoArgs, ClusterBrokerNodeGroupInfoPtr and ClusterBrokerNodeGroupInfoPtrOutput values.
+// You can construct a concrete instance of `ClusterBrokerNodeGroupInfoPtrInput` via:
+//
+// 		 ClusterBrokerNodeGroupInfoArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClusterBrokerNodeGroupInfoPtrInput interface {
 	pulumi.Input
 
@@ -189,8 +199,11 @@ type ClusterClientAuthentication struct {
 	Tls *ClusterClientAuthenticationTls `pulumi:"tls"`
 }
 
-// Construct a concrete instance of ClusterClientAuthenticationInput via:
-// 	ClusterClientAuthenticationArgs{...}
+// ClusterClientAuthenticationInput is an input type that accepts ClusterClientAuthenticationArgs and ClusterClientAuthenticationOutput values.
+// You can construct a concrete instance of `ClusterClientAuthenticationInput` via:
+//
+// 		 ClusterClientAuthenticationArgs{...}
+//
 type ClusterClientAuthenticationInput interface {
 	pulumi.Input
 
@@ -223,8 +236,15 @@ func (i ClusterClientAuthenticationArgs) ToClusterClientAuthenticationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientAuthenticationOutput).ToClusterClientAuthenticationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClusterClientAuthenticationPtrInput via:
-// 	ClusterClientAuthenticationArgs{...}.ToClusterClientAuthenticationPtrOutput()
+// ClusterClientAuthenticationPtrInput is an input type that accepts ClusterClientAuthenticationArgs, ClusterClientAuthenticationPtr and ClusterClientAuthenticationPtrOutput values.
+// You can construct a concrete instance of `ClusterClientAuthenticationPtrInput` via:
+//
+// 		 ClusterClientAuthenticationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClusterClientAuthenticationPtrInput interface {
 	pulumi.Input
 
@@ -307,8 +327,11 @@ type ClusterClientAuthenticationTls struct {
 	CertificateAuthorityArns []string `pulumi:"certificateAuthorityArns"`
 }
 
-// Construct a concrete instance of ClusterClientAuthenticationTlsInput via:
-// 	ClusterClientAuthenticationTlsArgs{...}
+// ClusterClientAuthenticationTlsInput is an input type that accepts ClusterClientAuthenticationTlsArgs and ClusterClientAuthenticationTlsOutput values.
+// You can construct a concrete instance of `ClusterClientAuthenticationTlsInput` via:
+//
+// 		 ClusterClientAuthenticationTlsArgs{...}
+//
 type ClusterClientAuthenticationTlsInput interface {
 	pulumi.Input
 
@@ -341,8 +364,15 @@ func (i ClusterClientAuthenticationTlsArgs) ToClusterClientAuthenticationTlsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientAuthenticationTlsOutput).ToClusterClientAuthenticationTlsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClusterClientAuthenticationTlsPtrInput via:
-// 	ClusterClientAuthenticationTlsArgs{...}.ToClusterClientAuthenticationTlsPtrOutput()
+// ClusterClientAuthenticationTlsPtrInput is an input type that accepts ClusterClientAuthenticationTlsArgs, ClusterClientAuthenticationTlsPtr and ClusterClientAuthenticationTlsPtrOutput values.
+// You can construct a concrete instance of `ClusterClientAuthenticationTlsPtrInput` via:
+//
+// 		 ClusterClientAuthenticationTlsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClusterClientAuthenticationTlsPtrInput interface {
 	pulumi.Input
 
@@ -427,8 +457,11 @@ type ClusterConfigurationInfo struct {
 	Revision int `pulumi:"revision"`
 }
 
-// Construct a concrete instance of ClusterConfigurationInfoInput via:
-// 	ClusterConfigurationInfoArgs{...}
+// ClusterConfigurationInfoInput is an input type that accepts ClusterConfigurationInfoArgs and ClusterConfigurationInfoOutput values.
+// You can construct a concrete instance of `ClusterConfigurationInfoInput` via:
+//
+// 		 ClusterConfigurationInfoArgs{...}
+//
 type ClusterConfigurationInfoInput interface {
 	pulumi.Input
 
@@ -463,8 +496,15 @@ func (i ClusterConfigurationInfoArgs) ToClusterConfigurationInfoPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationInfoOutput).ToClusterConfigurationInfoPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClusterConfigurationInfoPtrInput via:
-// 	ClusterConfigurationInfoArgs{...}.ToClusterConfigurationInfoPtrOutput()
+// ClusterConfigurationInfoPtrInput is an input type that accepts ClusterConfigurationInfoArgs, ClusterConfigurationInfoPtr and ClusterConfigurationInfoPtrOutput values.
+// You can construct a concrete instance of `ClusterConfigurationInfoPtrInput` via:
+//
+// 		 ClusterConfigurationInfoArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClusterConfigurationInfoPtrInput interface {
 	pulumi.Input
 
@@ -559,8 +599,11 @@ type ClusterEncryptionInfo struct {
 	EncryptionInTransit *ClusterEncryptionInfoEncryptionInTransit `pulumi:"encryptionInTransit"`
 }
 
-// Construct a concrete instance of ClusterEncryptionInfoInput via:
-// 	ClusterEncryptionInfoArgs{...}
+// ClusterEncryptionInfoInput is an input type that accepts ClusterEncryptionInfoArgs and ClusterEncryptionInfoOutput values.
+// You can construct a concrete instance of `ClusterEncryptionInfoInput` via:
+//
+// 		 ClusterEncryptionInfoArgs{...}
+//
 type ClusterEncryptionInfoInput interface {
 	pulumi.Input
 
@@ -595,8 +638,15 @@ func (i ClusterEncryptionInfoArgs) ToClusterEncryptionInfoPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionInfoOutput).ToClusterEncryptionInfoPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClusterEncryptionInfoPtrInput via:
-// 	ClusterEncryptionInfoArgs{...}.ToClusterEncryptionInfoPtrOutput()
+// ClusterEncryptionInfoPtrInput is an input type that accepts ClusterEncryptionInfoArgs, ClusterEncryptionInfoPtr and ClusterEncryptionInfoPtrOutput values.
+// You can construct a concrete instance of `ClusterEncryptionInfoPtrInput` via:
+//
+// 		 ClusterEncryptionInfoArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClusterEncryptionInfoPtrInput interface {
 	pulumi.Input
 
@@ -691,8 +741,11 @@ type ClusterEncryptionInfoEncryptionInTransit struct {
 	InCluster *bool `pulumi:"inCluster"`
 }
 
-// Construct a concrete instance of ClusterEncryptionInfoEncryptionInTransitInput via:
-// 	ClusterEncryptionInfoEncryptionInTransitArgs{...}
+// ClusterEncryptionInfoEncryptionInTransitInput is an input type that accepts ClusterEncryptionInfoEncryptionInTransitArgs and ClusterEncryptionInfoEncryptionInTransitOutput values.
+// You can construct a concrete instance of `ClusterEncryptionInfoEncryptionInTransitInput` via:
+//
+// 		 ClusterEncryptionInfoEncryptionInTransitArgs{...}
+//
 type ClusterEncryptionInfoEncryptionInTransitInput interface {
 	pulumi.Input
 
@@ -727,8 +780,15 @@ func (i ClusterEncryptionInfoEncryptionInTransitArgs) ToClusterEncryptionInfoEnc
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionInfoEncryptionInTransitOutput).ToClusterEncryptionInfoEncryptionInTransitPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClusterEncryptionInfoEncryptionInTransitPtrInput via:
-// 	ClusterEncryptionInfoEncryptionInTransitArgs{...}.ToClusterEncryptionInfoEncryptionInTransitPtrOutput()
+// ClusterEncryptionInfoEncryptionInTransitPtrInput is an input type that accepts ClusterEncryptionInfoEncryptionInTransitArgs, ClusterEncryptionInfoEncryptionInTransitPtr and ClusterEncryptionInfoEncryptionInTransitPtrOutput values.
+// You can construct a concrete instance of `ClusterEncryptionInfoEncryptionInTransitPtrInput` via:
+//
+// 		 ClusterEncryptionInfoEncryptionInTransitArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClusterEncryptionInfoEncryptionInTransitPtrInput interface {
 	pulumi.Input
 
@@ -821,8 +881,11 @@ type ClusterLoggingInfo struct {
 	BrokerLogs ClusterLoggingInfoBrokerLogs `pulumi:"brokerLogs"`
 }
 
-// Construct a concrete instance of ClusterLoggingInfoInput via:
-// 	ClusterLoggingInfoArgs{...}
+// ClusterLoggingInfoInput is an input type that accepts ClusterLoggingInfoArgs and ClusterLoggingInfoOutput values.
+// You can construct a concrete instance of `ClusterLoggingInfoInput` via:
+//
+// 		 ClusterLoggingInfoArgs{...}
+//
 type ClusterLoggingInfoInput interface {
 	pulumi.Input
 
@@ -855,8 +918,15 @@ func (i ClusterLoggingInfoArgs) ToClusterLoggingInfoPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoOutput).ToClusterLoggingInfoPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClusterLoggingInfoPtrInput via:
-// 	ClusterLoggingInfoArgs{...}.ToClusterLoggingInfoPtrOutput()
+// ClusterLoggingInfoPtrInput is an input type that accepts ClusterLoggingInfoArgs, ClusterLoggingInfoPtr and ClusterLoggingInfoPtrOutput values.
+// You can construct a concrete instance of `ClusterLoggingInfoPtrInput` via:
+//
+// 		 ClusterLoggingInfoArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClusterLoggingInfoPtrInput interface {
 	pulumi.Input
 
@@ -940,8 +1010,11 @@ type ClusterLoggingInfoBrokerLogs struct {
 	S3             *ClusterLoggingInfoBrokerLogsS3             `pulumi:"s3"`
 }
 
-// Construct a concrete instance of ClusterLoggingInfoBrokerLogsInput via:
-// 	ClusterLoggingInfoBrokerLogsArgs{...}
+// ClusterLoggingInfoBrokerLogsInput is an input type that accepts ClusterLoggingInfoBrokerLogsArgs and ClusterLoggingInfoBrokerLogsOutput values.
+// You can construct a concrete instance of `ClusterLoggingInfoBrokerLogsInput` via:
+//
+// 		 ClusterLoggingInfoBrokerLogsArgs{...}
+//
 type ClusterLoggingInfoBrokerLogsInput interface {
 	pulumi.Input
 
@@ -1002,8 +1075,11 @@ type ClusterLoggingInfoBrokerLogsCloudwatchLogs struct {
 	LogGroup *string `pulumi:"logGroup"`
 }
 
-// Construct a concrete instance of ClusterLoggingInfoBrokerLogsCloudwatchLogsInput via:
-// 	ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs{...}
+// ClusterLoggingInfoBrokerLogsCloudwatchLogsInput is an input type that accepts ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs and ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput values.
+// You can construct a concrete instance of `ClusterLoggingInfoBrokerLogsCloudwatchLogsInput` via:
+//
+// 		 ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs{...}
+//
 type ClusterLoggingInfoBrokerLogsCloudwatchLogsInput interface {
 	pulumi.Input
 
@@ -1038,8 +1114,15 @@ func (i ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs) ToClusterLoggingInfoBrok
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput).ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrInput via:
-// 	ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs{...}.ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput()
+// ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrInput is an input type that accepts ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs, ClusterLoggingInfoBrokerLogsCloudwatchLogsPtr and ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput values.
+// You can construct a concrete instance of `ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrInput` via:
+//
+// 		 ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrInput interface {
 	pulumi.Input
 
@@ -1136,8 +1219,11 @@ type ClusterLoggingInfoBrokerLogsFirehose struct {
 	Enabled bool `pulumi:"enabled"`
 }
 
-// Construct a concrete instance of ClusterLoggingInfoBrokerLogsFirehoseInput via:
-// 	ClusterLoggingInfoBrokerLogsFirehoseArgs{...}
+// ClusterLoggingInfoBrokerLogsFirehoseInput is an input type that accepts ClusterLoggingInfoBrokerLogsFirehoseArgs and ClusterLoggingInfoBrokerLogsFirehoseOutput values.
+// You can construct a concrete instance of `ClusterLoggingInfoBrokerLogsFirehoseInput` via:
+//
+// 		 ClusterLoggingInfoBrokerLogsFirehoseArgs{...}
+//
 type ClusterLoggingInfoBrokerLogsFirehoseInput interface {
 	pulumi.Input
 
@@ -1172,8 +1258,15 @@ func (i ClusterLoggingInfoBrokerLogsFirehoseArgs) ToClusterLoggingInfoBrokerLogs
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsFirehoseOutput).ToClusterLoggingInfoBrokerLogsFirehosePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClusterLoggingInfoBrokerLogsFirehosePtrInput via:
-// 	ClusterLoggingInfoBrokerLogsFirehoseArgs{...}.ToClusterLoggingInfoBrokerLogsFirehosePtrOutput()
+// ClusterLoggingInfoBrokerLogsFirehosePtrInput is an input type that accepts ClusterLoggingInfoBrokerLogsFirehoseArgs, ClusterLoggingInfoBrokerLogsFirehosePtr and ClusterLoggingInfoBrokerLogsFirehosePtrOutput values.
+// You can construct a concrete instance of `ClusterLoggingInfoBrokerLogsFirehosePtrInput` via:
+//
+// 		 ClusterLoggingInfoBrokerLogsFirehoseArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClusterLoggingInfoBrokerLogsFirehosePtrInput interface {
 	pulumi.Input
 
@@ -1270,8 +1363,11 @@ type ClusterLoggingInfoBrokerLogsS3 struct {
 	Prefix *string `pulumi:"prefix"`
 }
 
-// Construct a concrete instance of ClusterLoggingInfoBrokerLogsS3Input via:
-// 	ClusterLoggingInfoBrokerLogsS3Args{...}
+// ClusterLoggingInfoBrokerLogsS3Input is an input type that accepts ClusterLoggingInfoBrokerLogsS3Args and ClusterLoggingInfoBrokerLogsS3Output values.
+// You can construct a concrete instance of `ClusterLoggingInfoBrokerLogsS3Input` via:
+//
+// 		 ClusterLoggingInfoBrokerLogsS3Args{...}
+//
 type ClusterLoggingInfoBrokerLogsS3Input interface {
 	pulumi.Input
 
@@ -1308,8 +1404,15 @@ func (i ClusterLoggingInfoBrokerLogsS3Args) ToClusterLoggingInfoBrokerLogsS3PtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsS3Output).ToClusterLoggingInfoBrokerLogsS3PtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClusterLoggingInfoBrokerLogsS3PtrInput via:
-// 	ClusterLoggingInfoBrokerLogsS3Args{...}.ToClusterLoggingInfoBrokerLogsS3PtrOutput()
+// ClusterLoggingInfoBrokerLogsS3PtrInput is an input type that accepts ClusterLoggingInfoBrokerLogsS3Args, ClusterLoggingInfoBrokerLogsS3Ptr and ClusterLoggingInfoBrokerLogsS3PtrOutput values.
+// You can construct a concrete instance of `ClusterLoggingInfoBrokerLogsS3PtrInput` via:
+//
+// 		 ClusterLoggingInfoBrokerLogsS3Args{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClusterLoggingInfoBrokerLogsS3PtrInput interface {
 	pulumi.Input
 
@@ -1412,8 +1515,11 @@ type ClusterOpenMonitoring struct {
 	Prometheus ClusterOpenMonitoringPrometheus `pulumi:"prometheus"`
 }
 
-// Construct a concrete instance of ClusterOpenMonitoringInput via:
-// 	ClusterOpenMonitoringArgs{...}
+// ClusterOpenMonitoringInput is an input type that accepts ClusterOpenMonitoringArgs and ClusterOpenMonitoringOutput values.
+// You can construct a concrete instance of `ClusterOpenMonitoringInput` via:
+//
+// 		 ClusterOpenMonitoringArgs{...}
+//
 type ClusterOpenMonitoringInput interface {
 	pulumi.Input
 
@@ -1446,8 +1552,15 @@ func (i ClusterOpenMonitoringArgs) ToClusterOpenMonitoringPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringOutput).ToClusterOpenMonitoringPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClusterOpenMonitoringPtrInput via:
-// 	ClusterOpenMonitoringArgs{...}.ToClusterOpenMonitoringPtrOutput()
+// ClusterOpenMonitoringPtrInput is an input type that accepts ClusterOpenMonitoringArgs, ClusterOpenMonitoringPtr and ClusterOpenMonitoringPtrOutput values.
+// You can construct a concrete instance of `ClusterOpenMonitoringPtrInput` via:
+//
+// 		 ClusterOpenMonitoringArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClusterOpenMonitoringPtrInput interface {
 	pulumi.Input
 
@@ -1532,8 +1645,11 @@ type ClusterOpenMonitoringPrometheus struct {
 	NodeExporter *ClusterOpenMonitoringPrometheusNodeExporter `pulumi:"nodeExporter"`
 }
 
-// Construct a concrete instance of ClusterOpenMonitoringPrometheusInput via:
-// 	ClusterOpenMonitoringPrometheusArgs{...}
+// ClusterOpenMonitoringPrometheusInput is an input type that accepts ClusterOpenMonitoringPrometheusArgs and ClusterOpenMonitoringPrometheusOutput values.
+// You can construct a concrete instance of `ClusterOpenMonitoringPrometheusInput` via:
+//
+// 		 ClusterOpenMonitoringPrometheusArgs{...}
+//
 type ClusterOpenMonitoringPrometheusInput interface {
 	pulumi.Input
 
@@ -1593,8 +1709,11 @@ type ClusterOpenMonitoringPrometheusJmxExporter struct {
 	EnabledInBroker bool `pulumi:"enabledInBroker"`
 }
 
-// Construct a concrete instance of ClusterOpenMonitoringPrometheusJmxExporterInput via:
-// 	ClusterOpenMonitoringPrometheusJmxExporterArgs{...}
+// ClusterOpenMonitoringPrometheusJmxExporterInput is an input type that accepts ClusterOpenMonitoringPrometheusJmxExporterArgs and ClusterOpenMonitoringPrometheusJmxExporterOutput values.
+// You can construct a concrete instance of `ClusterOpenMonitoringPrometheusJmxExporterInput` via:
+//
+// 		 ClusterOpenMonitoringPrometheusJmxExporterArgs{...}
+//
 type ClusterOpenMonitoringPrometheusJmxExporterInput interface {
 	pulumi.Input
 
@@ -1627,8 +1746,15 @@ func (i ClusterOpenMonitoringPrometheusJmxExporterArgs) ToClusterOpenMonitoringP
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPrometheusJmxExporterOutput).ToClusterOpenMonitoringPrometheusJmxExporterPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClusterOpenMonitoringPrometheusJmxExporterPtrInput via:
-// 	ClusterOpenMonitoringPrometheusJmxExporterArgs{...}.ToClusterOpenMonitoringPrometheusJmxExporterPtrOutput()
+// ClusterOpenMonitoringPrometheusJmxExporterPtrInput is an input type that accepts ClusterOpenMonitoringPrometheusJmxExporterArgs, ClusterOpenMonitoringPrometheusJmxExporterPtr and ClusterOpenMonitoringPrometheusJmxExporterPtrOutput values.
+// You can construct a concrete instance of `ClusterOpenMonitoringPrometheusJmxExporterPtrInput` via:
+//
+// 		 ClusterOpenMonitoringPrometheusJmxExporterArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClusterOpenMonitoringPrometheusJmxExporterPtrInput interface {
 	pulumi.Input
 
@@ -1713,8 +1839,11 @@ type ClusterOpenMonitoringPrometheusNodeExporter struct {
 	EnabledInBroker bool `pulumi:"enabledInBroker"`
 }
 
-// Construct a concrete instance of ClusterOpenMonitoringPrometheusNodeExporterInput via:
-// 	ClusterOpenMonitoringPrometheusNodeExporterArgs{...}
+// ClusterOpenMonitoringPrometheusNodeExporterInput is an input type that accepts ClusterOpenMonitoringPrometheusNodeExporterArgs and ClusterOpenMonitoringPrometheusNodeExporterOutput values.
+// You can construct a concrete instance of `ClusterOpenMonitoringPrometheusNodeExporterInput` via:
+//
+// 		 ClusterOpenMonitoringPrometheusNodeExporterArgs{...}
+//
 type ClusterOpenMonitoringPrometheusNodeExporterInput interface {
 	pulumi.Input
 
@@ -1747,8 +1876,15 @@ func (i ClusterOpenMonitoringPrometheusNodeExporterArgs) ToClusterOpenMonitoring
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPrometheusNodeExporterOutput).ToClusterOpenMonitoringPrometheusNodeExporterPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClusterOpenMonitoringPrometheusNodeExporterPtrInput via:
-// 	ClusterOpenMonitoringPrometheusNodeExporterArgs{...}.ToClusterOpenMonitoringPrometheusNodeExporterPtrOutput()
+// ClusterOpenMonitoringPrometheusNodeExporterPtrInput is an input type that accepts ClusterOpenMonitoringPrometheusNodeExporterArgs, ClusterOpenMonitoringPrometheusNodeExporterPtr and ClusterOpenMonitoringPrometheusNodeExporterPtrOutput values.
+// You can construct a concrete instance of `ClusterOpenMonitoringPrometheusNodeExporterPtrInput` via:
+//
+// 		 ClusterOpenMonitoringPrometheusNodeExporterArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClusterOpenMonitoringPrometheusNodeExporterPtrInput interface {
 	pulumi.Input
 

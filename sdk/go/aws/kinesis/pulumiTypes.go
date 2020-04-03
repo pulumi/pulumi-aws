@@ -19,8 +19,11 @@ type AnalyticsApplicationCloudwatchLoggingOptions struct {
 	RoleArn string `pulumi:"roleArn"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationCloudwatchLoggingOptionsInput via:
-// 	AnalyticsApplicationCloudwatchLoggingOptionsArgs{...}
+// AnalyticsApplicationCloudwatchLoggingOptionsInput is an input type that accepts AnalyticsApplicationCloudwatchLoggingOptionsArgs and AnalyticsApplicationCloudwatchLoggingOptionsOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationCloudwatchLoggingOptionsInput` via:
+//
+// 		 AnalyticsApplicationCloudwatchLoggingOptionsArgs{...}
+//
 type AnalyticsApplicationCloudwatchLoggingOptionsInput interface {
 	pulumi.Input
 
@@ -57,8 +60,15 @@ func (i AnalyticsApplicationCloudwatchLoggingOptionsArgs) ToAnalyticsApplication
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationCloudwatchLoggingOptionsOutput).ToAnalyticsApplicationCloudwatchLoggingOptionsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of AnalyticsApplicationCloudwatchLoggingOptionsPtrInput via:
-// 	AnalyticsApplicationCloudwatchLoggingOptionsArgs{...}.ToAnalyticsApplicationCloudwatchLoggingOptionsPtrOutput()
+// AnalyticsApplicationCloudwatchLoggingOptionsPtrInput is an input type that accepts AnalyticsApplicationCloudwatchLoggingOptionsArgs, AnalyticsApplicationCloudwatchLoggingOptionsPtr and AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationCloudwatchLoggingOptionsPtrInput` via:
+//
+// 		 AnalyticsApplicationCloudwatchLoggingOptionsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AnalyticsApplicationCloudwatchLoggingOptionsPtrInput interface {
 	pulumi.Input
 
@@ -181,8 +191,11 @@ type AnalyticsApplicationInputs struct {
 	StreamNames                    []string                                                  `pulumi:"streamNames"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsInput via:
-// 	AnalyticsApplicationInputsArgs{...}
+// AnalyticsApplicationInputsInput is an input type that accepts AnalyticsApplicationInputsArgs and AnalyticsApplicationInputsOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsInput` via:
+//
+// 		 AnalyticsApplicationInputsArgs{...}
+//
 type AnalyticsApplicationInputsInput interface {
 	pulumi.Input
 
@@ -233,8 +246,15 @@ func (i AnalyticsApplicationInputsArgs) ToAnalyticsApplicationInputsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsOutput).ToAnalyticsApplicationInputsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsPtrInput via:
-// 	AnalyticsApplicationInputsArgs{...}.ToAnalyticsApplicationInputsPtrOutput()
+// AnalyticsApplicationInputsPtrInput is an input type that accepts AnalyticsApplicationInputsArgs, AnalyticsApplicationInputsPtr and AnalyticsApplicationInputsPtrOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsPtrInput` via:
+//
+// 		 AnalyticsApplicationInputsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AnalyticsApplicationInputsPtrInput interface {
 	pulumi.Input
 
@@ -415,8 +435,11 @@ type AnalyticsApplicationInputsKinesisFirehose struct {
 	RoleArn string `pulumi:"roleArn"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsKinesisFirehoseInput via:
-// 	AnalyticsApplicationInputsKinesisFirehoseArgs{...}
+// AnalyticsApplicationInputsKinesisFirehoseInput is an input type that accepts AnalyticsApplicationInputsKinesisFirehoseArgs and AnalyticsApplicationInputsKinesisFirehoseOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsKinesisFirehoseInput` via:
+//
+// 		 AnalyticsApplicationInputsKinesisFirehoseArgs{...}
+//
 type AnalyticsApplicationInputsKinesisFirehoseInput interface {
 	pulumi.Input
 
@@ -451,8 +474,15 @@ func (i AnalyticsApplicationInputsKinesisFirehoseArgs) ToAnalyticsApplicationInp
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsKinesisFirehoseOutput).ToAnalyticsApplicationInputsKinesisFirehosePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsKinesisFirehosePtrInput via:
-// 	AnalyticsApplicationInputsKinesisFirehoseArgs{...}.ToAnalyticsApplicationInputsKinesisFirehosePtrOutput()
+// AnalyticsApplicationInputsKinesisFirehosePtrInput is an input type that accepts AnalyticsApplicationInputsKinesisFirehoseArgs, AnalyticsApplicationInputsKinesisFirehosePtr and AnalyticsApplicationInputsKinesisFirehosePtrOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsKinesisFirehosePtrInput` via:
+//
+// 		 AnalyticsApplicationInputsKinesisFirehoseArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AnalyticsApplicationInputsKinesisFirehosePtrInput interface {
 	pulumi.Input
 
@@ -549,8 +579,11 @@ type AnalyticsApplicationInputsKinesisStream struct {
 	RoleArn string `pulumi:"roleArn"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsKinesisStreamInput via:
-// 	AnalyticsApplicationInputsKinesisStreamArgs{...}
+// AnalyticsApplicationInputsKinesisStreamInput is an input type that accepts AnalyticsApplicationInputsKinesisStreamArgs and AnalyticsApplicationInputsKinesisStreamOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsKinesisStreamInput` via:
+//
+// 		 AnalyticsApplicationInputsKinesisStreamArgs{...}
+//
 type AnalyticsApplicationInputsKinesisStreamInput interface {
 	pulumi.Input
 
@@ -585,8 +618,15 @@ func (i AnalyticsApplicationInputsKinesisStreamArgs) ToAnalyticsApplicationInput
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsKinesisStreamOutput).ToAnalyticsApplicationInputsKinesisStreamPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsKinesisStreamPtrInput via:
-// 	AnalyticsApplicationInputsKinesisStreamArgs{...}.ToAnalyticsApplicationInputsKinesisStreamPtrOutput()
+// AnalyticsApplicationInputsKinesisStreamPtrInput is an input type that accepts AnalyticsApplicationInputsKinesisStreamArgs, AnalyticsApplicationInputsKinesisStreamPtr and AnalyticsApplicationInputsKinesisStreamPtrOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsKinesisStreamPtrInput` via:
+//
+// 		 AnalyticsApplicationInputsKinesisStreamArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AnalyticsApplicationInputsKinesisStreamPtrInput interface {
 	pulumi.Input
 
@@ -679,8 +719,11 @@ type AnalyticsApplicationInputsParallelism struct {
 	Count int `pulumi:"count"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsParallelismInput via:
-// 	AnalyticsApplicationInputsParallelismArgs{...}
+// AnalyticsApplicationInputsParallelismInput is an input type that accepts AnalyticsApplicationInputsParallelismArgs and AnalyticsApplicationInputsParallelismOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsParallelismInput` via:
+//
+// 		 AnalyticsApplicationInputsParallelismArgs{...}
+//
 type AnalyticsApplicationInputsParallelismInput interface {
 	pulumi.Input
 
@@ -713,8 +756,15 @@ func (i AnalyticsApplicationInputsParallelismArgs) ToAnalyticsApplicationInputsP
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsParallelismOutput).ToAnalyticsApplicationInputsParallelismPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsParallelismPtrInput via:
-// 	AnalyticsApplicationInputsParallelismArgs{...}.ToAnalyticsApplicationInputsParallelismPtrOutput()
+// AnalyticsApplicationInputsParallelismPtrInput is an input type that accepts AnalyticsApplicationInputsParallelismArgs, AnalyticsApplicationInputsParallelismPtr and AnalyticsApplicationInputsParallelismPtrOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsParallelismPtrInput` via:
+//
+// 		 AnalyticsApplicationInputsParallelismArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AnalyticsApplicationInputsParallelismPtrInput interface {
 	pulumi.Input
 
@@ -797,8 +847,11 @@ type AnalyticsApplicationInputsProcessingConfiguration struct {
 	Lambda AnalyticsApplicationInputsProcessingConfigurationLambda `pulumi:"lambda"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsProcessingConfigurationInput via:
-// 	AnalyticsApplicationInputsProcessingConfigurationArgs{...}
+// AnalyticsApplicationInputsProcessingConfigurationInput is an input type that accepts AnalyticsApplicationInputsProcessingConfigurationArgs and AnalyticsApplicationInputsProcessingConfigurationOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsProcessingConfigurationInput` via:
+//
+// 		 AnalyticsApplicationInputsProcessingConfigurationArgs{...}
+//
 type AnalyticsApplicationInputsProcessingConfigurationInput interface {
 	pulumi.Input
 
@@ -831,8 +884,15 @@ func (i AnalyticsApplicationInputsProcessingConfigurationArgs) ToAnalyticsApplic
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsProcessingConfigurationOutput).ToAnalyticsApplicationInputsProcessingConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsProcessingConfigurationPtrInput via:
-// 	AnalyticsApplicationInputsProcessingConfigurationArgs{...}.ToAnalyticsApplicationInputsProcessingConfigurationPtrOutput()
+// AnalyticsApplicationInputsProcessingConfigurationPtrInput is an input type that accepts AnalyticsApplicationInputsProcessingConfigurationArgs, AnalyticsApplicationInputsProcessingConfigurationPtr and AnalyticsApplicationInputsProcessingConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsProcessingConfigurationPtrInput` via:
+//
+// 		 AnalyticsApplicationInputsProcessingConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AnalyticsApplicationInputsProcessingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -923,8 +983,11 @@ type AnalyticsApplicationInputsProcessingConfigurationLambda struct {
 	RoleArn string `pulumi:"roleArn"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsProcessingConfigurationLambdaInput via:
-// 	AnalyticsApplicationInputsProcessingConfigurationLambdaArgs{...}
+// AnalyticsApplicationInputsProcessingConfigurationLambdaInput is an input type that accepts AnalyticsApplicationInputsProcessingConfigurationLambdaArgs and AnalyticsApplicationInputsProcessingConfigurationLambdaOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsProcessingConfigurationLambdaInput` via:
+//
+// 		 AnalyticsApplicationInputsProcessingConfigurationLambdaArgs{...}
+//
 type AnalyticsApplicationInputsProcessingConfigurationLambdaInput interface {
 	pulumi.Input
 
@@ -986,8 +1049,11 @@ type AnalyticsApplicationInputsSchema struct {
 	RecordFormat AnalyticsApplicationInputsSchemaRecordFormat `pulumi:"recordFormat"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsSchemaInput via:
-// 	AnalyticsApplicationInputsSchemaArgs{...}
+// AnalyticsApplicationInputsSchemaInput is an input type that accepts AnalyticsApplicationInputsSchemaArgs and AnalyticsApplicationInputsSchemaOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsSchemaInput` via:
+//
+// 		 AnalyticsApplicationInputsSchemaArgs{...}
+//
 type AnalyticsApplicationInputsSchemaInput interface {
 	pulumi.Input
 
@@ -1062,8 +1128,11 @@ type AnalyticsApplicationInputsSchemaRecordColumn struct {
 	SqlType string `pulumi:"sqlType"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsSchemaRecordColumnInput via:
-// 	AnalyticsApplicationInputsSchemaRecordColumnArgs{...}
+// AnalyticsApplicationInputsSchemaRecordColumnInput is an input type that accepts AnalyticsApplicationInputsSchemaRecordColumnArgs and AnalyticsApplicationInputsSchemaRecordColumnOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsSchemaRecordColumnInput` via:
+//
+// 		 AnalyticsApplicationInputsSchemaRecordColumnArgs{...}
+//
 type AnalyticsApplicationInputsSchemaRecordColumnInput interface {
 	pulumi.Input
 
@@ -1092,8 +1161,11 @@ func (i AnalyticsApplicationInputsSchemaRecordColumnArgs) ToAnalyticsApplication
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsSchemaRecordColumnOutput)
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsSchemaRecordColumnArrayInput via:
-// 	AnalyticsApplicationInputsSchemaRecordColumnArray{ AnalyticsApplicationInputsSchemaRecordColumnArgs{...} }
+// AnalyticsApplicationInputsSchemaRecordColumnArrayInput is an input type that accepts AnalyticsApplicationInputsSchemaRecordColumnArray and AnalyticsApplicationInputsSchemaRecordColumnArrayOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsSchemaRecordColumnArrayInput` via:
+//
+// 		 AnalyticsApplicationInputsSchemaRecordColumnArray{ AnalyticsApplicationInputsSchemaRecordColumnArgs{...} }
+//
 type AnalyticsApplicationInputsSchemaRecordColumnArrayInput interface {
 	pulumi.Input
 
@@ -1172,8 +1244,11 @@ type AnalyticsApplicationInputsSchemaRecordFormat struct {
 	RecordFormatType *string `pulumi:"recordFormatType"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsSchemaRecordFormatInput via:
-// 	AnalyticsApplicationInputsSchemaRecordFormatArgs{...}
+// AnalyticsApplicationInputsSchemaRecordFormatInput is an input type that accepts AnalyticsApplicationInputsSchemaRecordFormatArgs and AnalyticsApplicationInputsSchemaRecordFormatOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsSchemaRecordFormatInput` via:
+//
+// 		 AnalyticsApplicationInputsSchemaRecordFormatArgs{...}
+//
 type AnalyticsApplicationInputsSchemaRecordFormatInput interface {
 	pulumi.Input
 
@@ -1237,8 +1312,11 @@ type AnalyticsApplicationInputsSchemaRecordFormatMappingParameters struct {
 	Json *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson `pulumi:"json"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsSchemaRecordFormatMappingParametersInput via:
-// 	AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs{...}
+// AnalyticsApplicationInputsSchemaRecordFormatMappingParametersInput is an input type that accepts AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs and AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsSchemaRecordFormatMappingParametersInput` via:
+//
+// 		 AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs{...}
+//
 type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersInput interface {
 	pulumi.Input
 
@@ -1275,8 +1353,15 @@ func (i AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs) ToAna
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput).ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrInput via:
-// 	AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs{...}.ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput()
+// AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrInput is an input type that accepts AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs, AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtr and AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrInput` via:
+//
+// 		 AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrInput interface {
 	pulumi.Input
 
@@ -1385,8 +1470,11 @@ type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv struct {
 	RecordRowDelimiter string `pulumi:"recordRowDelimiter"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvInput via:
-// 	AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs{...}
+// AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvInput is an input type that accepts AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs and AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvInput` via:
+//
+// 		 AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs{...}
+//
 type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvInput interface {
 	pulumi.Input
 
@@ -1421,8 +1509,15 @@ func (i AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput).ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrInput via:
-// 	AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs{...}.ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput()
+// AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrInput is an input type that accepts AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs, AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtr and AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrInput` via:
+//
+// 		 AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrInput interface {
 	pulumi.Input
 
@@ -1525,8 +1620,11 @@ type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson struct {
 	RecordRowPath string `pulumi:"recordRowPath"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonInput via:
-// 	AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs{...}
+// AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonInput is an input type that accepts AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs and AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonInput` via:
+//
+// 		 AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs{...}
+//
 type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonInput interface {
 	pulumi.Input
 
@@ -1559,8 +1657,15 @@ func (i AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput).ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrInput via:
-// 	AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs{...}.ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutput()
+// AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrInput is an input type that accepts AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs, AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtr and AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrInput` via:
+//
+// 		 AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrInput interface {
 	pulumi.Input
 
@@ -1648,8 +1753,11 @@ type AnalyticsApplicationInputsStartingPositionConfiguration struct {
 	StartingPosition *string `pulumi:"startingPosition"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsStartingPositionConfigurationInput via:
-// 	AnalyticsApplicationInputsStartingPositionConfigurationArgs{...}
+// AnalyticsApplicationInputsStartingPositionConfigurationInput is an input type that accepts AnalyticsApplicationInputsStartingPositionConfigurationArgs and AnalyticsApplicationInputsStartingPositionConfigurationOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsStartingPositionConfigurationInput` via:
+//
+// 		 AnalyticsApplicationInputsStartingPositionConfigurationArgs{...}
+//
 type AnalyticsApplicationInputsStartingPositionConfigurationInput interface {
 	pulumi.Input
 
@@ -1673,8 +1781,11 @@ func (i AnalyticsApplicationInputsStartingPositionConfigurationArgs) ToAnalytics
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsStartingPositionConfigurationOutput)
 }
 
-// Construct a concrete instance of AnalyticsApplicationInputsStartingPositionConfigurationArrayInput via:
-// 	AnalyticsApplicationInputsStartingPositionConfigurationArray{ AnalyticsApplicationInputsStartingPositionConfigurationArgs{...} }
+// AnalyticsApplicationInputsStartingPositionConfigurationArrayInput is an input type that accepts AnalyticsApplicationInputsStartingPositionConfigurationArray and AnalyticsApplicationInputsStartingPositionConfigurationArrayOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationInputsStartingPositionConfigurationArrayInput` via:
+//
+// 		 AnalyticsApplicationInputsStartingPositionConfigurationArray{ AnalyticsApplicationInputsStartingPositionConfigurationArgs{...} }
+//
 type AnalyticsApplicationInputsStartingPositionConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -1751,8 +1862,11 @@ type AnalyticsApplicationOutput struct {
 	Schema AnalyticsApplicationOutputSchema `pulumi:"schema"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationOutputInput via:
-// 	AnalyticsApplicationOutputArgs{...}
+// AnalyticsApplicationOutputInput is an input type that accepts AnalyticsApplicationOutputArgs and AnalyticsApplicationOutputOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationOutputInput` via:
+//
+// 		 AnalyticsApplicationOutputArgs{...}
+//
 type AnalyticsApplicationOutputInput interface {
 	pulumi.Input
 
@@ -1789,8 +1903,11 @@ func (i AnalyticsApplicationOutputArgs) ToAnalyticsApplicationOutputOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationOutputOutput)
 }
 
-// Construct a concrete instance of AnalyticsApplicationOutputArrayInput via:
-// 	AnalyticsApplicationOutputArray{ AnalyticsApplicationOutputArgs{...} }
+// AnalyticsApplicationOutputArrayInput is an input type that accepts AnalyticsApplicationOutputArray and AnalyticsApplicationOutputArrayOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationOutputArrayInput` via:
+//
+// 		 AnalyticsApplicationOutputArray{ AnalyticsApplicationOutputArgs{...} }
+//
 type AnalyticsApplicationOutputArrayInput interface {
 	pulumi.Input
 
@@ -1887,8 +2004,11 @@ type AnalyticsApplicationOutputKinesisFirehose struct {
 	RoleArn string `pulumi:"roleArn"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationOutputKinesisFirehoseInput via:
-// 	AnalyticsApplicationOutputKinesisFirehoseArgs{...}
+// AnalyticsApplicationOutputKinesisFirehoseInput is an input type that accepts AnalyticsApplicationOutputKinesisFirehoseArgs and AnalyticsApplicationOutputKinesisFirehoseOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationOutputKinesisFirehoseInput` via:
+//
+// 		 AnalyticsApplicationOutputKinesisFirehoseArgs{...}
+//
 type AnalyticsApplicationOutputKinesisFirehoseInput interface {
 	pulumi.Input
 
@@ -1923,8 +2043,15 @@ func (i AnalyticsApplicationOutputKinesisFirehoseArgs) ToAnalyticsApplicationOut
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationOutputKinesisFirehoseOutput).ToAnalyticsApplicationOutputKinesisFirehosePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of AnalyticsApplicationOutputKinesisFirehosePtrInput via:
-// 	AnalyticsApplicationOutputKinesisFirehoseArgs{...}.ToAnalyticsApplicationOutputKinesisFirehosePtrOutput()
+// AnalyticsApplicationOutputKinesisFirehosePtrInput is an input type that accepts AnalyticsApplicationOutputKinesisFirehoseArgs, AnalyticsApplicationOutputKinesisFirehosePtr and AnalyticsApplicationOutputKinesisFirehosePtrOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationOutputKinesisFirehosePtrInput` via:
+//
+// 		 AnalyticsApplicationOutputKinesisFirehoseArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AnalyticsApplicationOutputKinesisFirehosePtrInput interface {
 	pulumi.Input
 
@@ -2021,8 +2148,11 @@ type AnalyticsApplicationOutputKinesisStream struct {
 	RoleArn string `pulumi:"roleArn"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationOutputKinesisStreamInput via:
-// 	AnalyticsApplicationOutputKinesisStreamArgs{...}
+// AnalyticsApplicationOutputKinesisStreamInput is an input type that accepts AnalyticsApplicationOutputKinesisStreamArgs and AnalyticsApplicationOutputKinesisStreamOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationOutputKinesisStreamInput` via:
+//
+// 		 AnalyticsApplicationOutputKinesisStreamArgs{...}
+//
 type AnalyticsApplicationOutputKinesisStreamInput interface {
 	pulumi.Input
 
@@ -2057,8 +2187,15 @@ func (i AnalyticsApplicationOutputKinesisStreamArgs) ToAnalyticsApplicationOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationOutputKinesisStreamOutput).ToAnalyticsApplicationOutputKinesisStreamPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of AnalyticsApplicationOutputKinesisStreamPtrInput via:
-// 	AnalyticsApplicationOutputKinesisStreamArgs{...}.ToAnalyticsApplicationOutputKinesisStreamPtrOutput()
+// AnalyticsApplicationOutputKinesisStreamPtrInput is an input type that accepts AnalyticsApplicationOutputKinesisStreamArgs, AnalyticsApplicationOutputKinesisStreamPtr and AnalyticsApplicationOutputKinesisStreamPtrOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationOutputKinesisStreamPtrInput` via:
+//
+// 		 AnalyticsApplicationOutputKinesisStreamArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AnalyticsApplicationOutputKinesisStreamPtrInput interface {
 	pulumi.Input
 
@@ -2153,8 +2290,11 @@ type AnalyticsApplicationOutputLambda struct {
 	RoleArn string `pulumi:"roleArn"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationOutputLambdaInput via:
-// 	AnalyticsApplicationOutputLambdaArgs{...}
+// AnalyticsApplicationOutputLambdaInput is an input type that accepts AnalyticsApplicationOutputLambdaArgs and AnalyticsApplicationOutputLambdaOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationOutputLambdaInput` via:
+//
+// 		 AnalyticsApplicationOutputLambdaArgs{...}
+//
 type AnalyticsApplicationOutputLambdaInput interface {
 	pulumi.Input
 
@@ -2189,8 +2329,15 @@ func (i AnalyticsApplicationOutputLambdaArgs) ToAnalyticsApplicationOutputLambda
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationOutputLambdaOutput).ToAnalyticsApplicationOutputLambdaPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of AnalyticsApplicationOutputLambdaPtrInput via:
-// 	AnalyticsApplicationOutputLambdaArgs{...}.ToAnalyticsApplicationOutputLambdaPtrOutput()
+// AnalyticsApplicationOutputLambdaPtrInput is an input type that accepts AnalyticsApplicationOutputLambdaArgs, AnalyticsApplicationOutputLambdaPtr and AnalyticsApplicationOutputLambdaPtrOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationOutputLambdaPtrInput` via:
+//
+// 		 AnalyticsApplicationOutputLambdaArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AnalyticsApplicationOutputLambdaPtrInput interface {
 	pulumi.Input
 
@@ -2283,8 +2430,11 @@ type AnalyticsApplicationOutputSchema struct {
 	RecordFormatType *string `pulumi:"recordFormatType"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationOutputSchemaInput via:
-// 	AnalyticsApplicationOutputSchemaArgs{...}
+// AnalyticsApplicationOutputSchemaInput is an input type that accepts AnalyticsApplicationOutputSchemaArgs and AnalyticsApplicationOutputSchemaOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationOutputSchemaInput` via:
+//
+// 		 AnalyticsApplicationOutputSchemaArgs{...}
+//
 type AnalyticsApplicationOutputSchemaInput interface {
 	pulumi.Input
 
@@ -2339,8 +2489,11 @@ type AnalyticsApplicationReferenceDataSources struct {
 	TableName string `pulumi:"tableName"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationReferenceDataSourcesInput via:
-// 	AnalyticsApplicationReferenceDataSourcesArgs{...}
+// AnalyticsApplicationReferenceDataSourcesInput is an input type that accepts AnalyticsApplicationReferenceDataSourcesArgs and AnalyticsApplicationReferenceDataSourcesOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationReferenceDataSourcesInput` via:
+//
+// 		 AnalyticsApplicationReferenceDataSourcesArgs{...}
+//
 type AnalyticsApplicationReferenceDataSourcesInput interface {
 	pulumi.Input
 
@@ -2379,8 +2532,15 @@ func (i AnalyticsApplicationReferenceDataSourcesArgs) ToAnalyticsApplicationRefe
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesOutput).ToAnalyticsApplicationReferenceDataSourcesPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of AnalyticsApplicationReferenceDataSourcesPtrInput via:
-// 	AnalyticsApplicationReferenceDataSourcesArgs{...}.ToAnalyticsApplicationReferenceDataSourcesPtrOutput()
+// AnalyticsApplicationReferenceDataSourcesPtrInput is an input type that accepts AnalyticsApplicationReferenceDataSourcesArgs, AnalyticsApplicationReferenceDataSourcesPtr and AnalyticsApplicationReferenceDataSourcesPtrOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationReferenceDataSourcesPtrInput` via:
+//
+// 		 AnalyticsApplicationReferenceDataSourcesArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AnalyticsApplicationReferenceDataSourcesPtrInput interface {
 	pulumi.Input
 
@@ -2505,8 +2665,11 @@ type AnalyticsApplicationReferenceDataSourcesS3 struct {
 	RoleArn string `pulumi:"roleArn"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationReferenceDataSourcesS3Input via:
-// 	AnalyticsApplicationReferenceDataSourcesS3Args{...}
+// AnalyticsApplicationReferenceDataSourcesS3Input is an input type that accepts AnalyticsApplicationReferenceDataSourcesS3Args and AnalyticsApplicationReferenceDataSourcesS3Output values.
+// You can construct a concrete instance of `AnalyticsApplicationReferenceDataSourcesS3Input` via:
+//
+// 		 AnalyticsApplicationReferenceDataSourcesS3Args{...}
+//
 type AnalyticsApplicationReferenceDataSourcesS3Input interface {
 	pulumi.Input
 
@@ -2575,8 +2738,11 @@ type AnalyticsApplicationReferenceDataSourcesSchema struct {
 	RecordFormat AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat `pulumi:"recordFormat"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationReferenceDataSourcesSchemaInput via:
-// 	AnalyticsApplicationReferenceDataSourcesSchemaArgs{...}
+// AnalyticsApplicationReferenceDataSourcesSchemaInput is an input type that accepts AnalyticsApplicationReferenceDataSourcesSchemaArgs and AnalyticsApplicationReferenceDataSourcesSchemaOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationReferenceDataSourcesSchemaInput` via:
+//
+// 		 AnalyticsApplicationReferenceDataSourcesSchemaArgs{...}
+//
 type AnalyticsApplicationReferenceDataSourcesSchemaInput interface {
 	pulumi.Input
 
@@ -2651,8 +2817,11 @@ type AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn struct {
 	SqlType string `pulumi:"sqlType"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnInput via:
-// 	AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs{...}
+// AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnInput is an input type that accepts AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs and AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnInput` via:
+//
+// 		 AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs{...}
+//
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnInput interface {
 	pulumi.Input
 
@@ -2681,8 +2850,11 @@ func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs) ToAnalyt
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnOutput)
 }
 
-// Construct a concrete instance of AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayInput via:
-// 	AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArray{ AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs{...} }
+// AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayInput is an input type that accepts AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArray and AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayInput` via:
+//
+// 		 AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArray{ AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs{...} }
+//
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayInput interface {
 	pulumi.Input
 
@@ -2761,8 +2933,11 @@ type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat struct {
 	RecordFormatType *string `pulumi:"recordFormatType"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatInput via:
-// 	AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs{...}
+// AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatInput is an input type that accepts AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs and AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatInput` via:
+//
+// 		 AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs{...}
+//
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatInput interface {
 	pulumi.Input
 
@@ -2826,8 +3001,11 @@ type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters
 	Json *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson `pulumi:"json"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersInput via:
-// 	AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs{...}
+// AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersInput is an input type that accepts AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs and AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersInput` via:
+//
+// 		 AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs{...}
+//
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersInput interface {
 	pulumi.Input
 
@@ -2864,8 +3042,15 @@ func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput).ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrInput via:
-// 	AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs{...}.ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput()
+// AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrInput is an input type that accepts AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs, AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtr and AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrInput` via:
+//
+// 		 AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrInput interface {
 	pulumi.Input
 
@@ -2974,8 +3159,11 @@ type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters
 	RecordRowDelimiter string `pulumi:"recordRowDelimiter"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvInput via:
-// 	AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs{...}
+// AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvInput is an input type that accepts AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs and AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvInput` via:
+//
+// 		 AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs{...}
+//
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvInput interface {
 	pulumi.Input
 
@@ -3010,8 +3198,15 @@ func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput).ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrInput via:
-// 	AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs{...}.ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput()
+// AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrInput is an input type that accepts AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs, AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtr and AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrInput` via:
+//
+// 		 AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrInput interface {
 	pulumi.Input
 
@@ -3114,8 +3309,11 @@ type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters
 	RecordRowPath string `pulumi:"recordRowPath"`
 }
 
-// Construct a concrete instance of AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonInput via:
-// 	AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs{...}
+// AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonInput is an input type that accepts AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs and AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonInput` via:
+//
+// 		 AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs{...}
+//
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonInput interface {
 	pulumi.Input
 
@@ -3148,8 +3346,15 @@ func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput).ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrInput via:
-// 	AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs{...}.ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutput()
+// AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrInput is an input type that accepts AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs, AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtr and AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutput values.
+// You can construct a concrete instance of `AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrInput` via:
+//
+// 		 AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrInput interface {
 	pulumi.Input
 
@@ -3258,8 +3463,11 @@ type FirehoseDeliveryStreamElasticsearchConfiguration struct {
 	TypeName *string `pulumi:"typeName"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamElasticsearchConfigurationInput via:
-// 	FirehoseDeliveryStreamElasticsearchConfigurationArgs{...}
+// FirehoseDeliveryStreamElasticsearchConfigurationInput is an input type that accepts FirehoseDeliveryStreamElasticsearchConfigurationArgs and FirehoseDeliveryStreamElasticsearchConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamElasticsearchConfigurationInput` via:
+//
+// 		 FirehoseDeliveryStreamElasticsearchConfigurationArgs{...}
+//
 type FirehoseDeliveryStreamElasticsearchConfigurationInput interface {
 	pulumi.Input
 
@@ -3312,8 +3520,15 @@ func (i FirehoseDeliveryStreamElasticsearchConfigurationArgs) ToFirehoseDelivery
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationOutput).ToFirehoseDeliveryStreamElasticsearchConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamElasticsearchConfigurationPtrInput via:
-// 	FirehoseDeliveryStreamElasticsearchConfigurationArgs{...}.ToFirehoseDeliveryStreamElasticsearchConfigurationPtrOutput()
+// FirehoseDeliveryStreamElasticsearchConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamElasticsearchConfigurationArgs, FirehoseDeliveryStreamElasticsearchConfigurationPtr and FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamElasticsearchConfigurationPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamElasticsearchConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamElasticsearchConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3510,8 +3725,11 @@ type FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions st
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsInput via:
-// 	FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs{...}
+// FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsInput is an input type that accepts FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs and FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsInput` via:
+//
+// 		 FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs{...}
+//
 type FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsInput interface {
 	pulumi.Input
 
@@ -3548,8 +3766,15 @@ func (i FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsOutput).ToFirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrInput via:
-// 	FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs{...}.ToFirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput()
+// FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrInput is an input type that accepts FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs, FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtr and FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrInput interface {
 	pulumi.Input
 
@@ -3668,8 +3893,11 @@ type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration str
 	Processors []FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor `pulumi:"processors"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationInput via:
-// 	FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs{...}
+// FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationInput is an input type that accepts FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs and FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationInput` via:
+//
+// 		 FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs{...}
+//
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationInput interface {
 	pulumi.Input
 
@@ -3704,8 +3932,15 @@ func (i FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationA
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationOutput).ToFirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrInput via:
-// 	FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs{...}.ToFirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutput()
+// FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs, FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtr and FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3810,8 +4045,11 @@ type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProc
 	Type string `pulumi:"type"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorInput via:
-// 	FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs{...}
+// FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorInput is an input type that accepts FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs and FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorInput` via:
+//
+// 		 FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs{...}
+//
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorInput interface {
 	pulumi.Input
 
@@ -3838,8 +4076,11 @@ func (i FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorOutput)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArrayInput via:
-// 	FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArray{ FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs{...} }
+// FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArrayInput is an input type that accepts FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArray and FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArrayOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArrayInput` via:
+//
+// 		 FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArray{ FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs{...} }
+//
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArrayInput interface {
 	pulumi.Input
 
@@ -3916,8 +4157,11 @@ type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProc
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterInput via:
-// 	FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs{...}
+// FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterInput is an input type that accepts FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs and FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterInput` via:
+//
+// 		 FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs{...}
+//
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterInput interface {
 	pulumi.Input
 
@@ -3944,8 +4188,11 @@ func (i FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterOutput)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayInput via:
-// 	FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArray{ FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs{...} }
+// FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayInput is an input type that accepts FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArray and FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayInput` via:
+//
+// 		 FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArray{ FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs{...} }
+//
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayInput interface {
 	pulumi.Input
 
@@ -4046,8 +4293,11 @@ type FirehoseDeliveryStreamExtendedS3Configuration struct {
 	S3BackupMode *string `pulumi:"s3BackupMode"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationArgs{...}
+// FirehoseDeliveryStreamExtendedS3ConfigurationInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationArgs and FirehoseDeliveryStreamExtendedS3ConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationArgs{...}
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationInput interface {
 	pulumi.Input
 
@@ -4106,8 +4356,15 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationArgs) ToFirehoseDeliveryStr
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationOutput).ToFirehoseDeliveryStreamExtendedS3ConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationPtrInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationArgs{...}.ToFirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput()
+// FirehoseDeliveryStreamExtendedS3ConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationArgs, FirehoseDeliveryStreamExtendedS3ConfigurationPtr and FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -4336,8 +4593,11 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions struc
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs{...}
+// FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs and FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs{...}
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsInput interface {
 	pulumi.Input
 
@@ -4374,8 +4634,15 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArg
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsOutput).ToFirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs{...}.ToFirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput()
+// FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs, FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtr and FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrInput interface {
 	pulumi.Input
 
@@ -4494,8 +4761,11 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 	SchemaConfiguration FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration `pulumi:"schemaConfiguration"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs{...}
+// FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs and FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs{...}
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInput interface {
 	pulumi.Input
 
@@ -4534,8 +4804,15 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutput).ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs{...}.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput()
+// FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs, FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtr and FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -4666,8 +4943,11 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 	Deserializer FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer `pulumi:"deserializer"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs{...}
+// FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs and FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs{...}
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationInput interface {
 	pulumi.Input
 
@@ -4720,8 +5000,11 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 	OpenXJsonSerDe *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe `pulumi:"openXJsonSerDe"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs{...}
+// FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs and FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs{...}
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerInput interface {
 	pulumi.Input
 
@@ -4781,8 +5064,11 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 	TimestampFormats []string `pulumi:"timestampFormats"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs{...}
+// FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs and FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs{...}
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeInput interface {
 	pulumi.Input
 
@@ -4815,8 +5101,15 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeOutput).ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs{...}.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutput()
+// FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs, FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtr and FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrInput interface {
 	pulumi.Input
 
@@ -4909,8 +5202,11 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 	ConvertDotsInJsonKeysToUnderscores *bool `pulumi:"convertDotsInJsonKeysToUnderscores"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs{...}
+// FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs and FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs{...}
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeInput interface {
 	pulumi.Input
 
@@ -4947,8 +5243,15 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeOutput).ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs{...}.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutput()
+// FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs, FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtr and FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrInput interface {
 	pulumi.Input
 
@@ -5065,8 +5368,11 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 	Serializer FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer `pulumi:"serializer"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs{...}
+// FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs and FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs{...}
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationInput interface {
 	pulumi.Input
 
@@ -5119,8 +5425,11 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 	ParquetSerDe *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe `pulumi:"parquetSerDe"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerArgs{...}
+// FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerArgs and FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerArgs{...}
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerInput interface {
 	pulumi.Input
 
@@ -5198,8 +5507,11 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 	StripeSizeBytes *int `pulumi:"stripeSizeBytes"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs{...}
+// FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs and FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs{...}
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeInput interface {
 	pulumi.Input
 
@@ -5250,8 +5562,15 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput).ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs{...}.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput()
+// FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs, FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtr and FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrInput interface {
 	pulumi.Input
 
@@ -5476,8 +5795,11 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 	WriterVersion *string `pulumi:"writerVersion"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs{...}
+// FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs and FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs{...}
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeInput interface {
 	pulumi.Input
 
@@ -5520,8 +5842,15 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeOutput).ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs{...}.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput()
+// FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs, FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtr and FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrInput interface {
 	pulumi.Input
 
@@ -5690,8 +6019,11 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurat
 	VersionId *string `pulumi:"versionId"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs{...}
+// FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs and FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs{...}
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationInput interface {
 	pulumi.Input
 
@@ -5789,8 +6121,11 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration struct
 	Processors []FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor `pulumi:"processors"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs{...}
+// FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs and FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs{...}
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationInput interface {
 	pulumi.Input
 
@@ -5825,8 +6160,15 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationOutput).ToFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs{...}.ToFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput()
+// FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs, FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtr and FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -5927,8 +6269,11 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcess
 	Type string `pulumi:"type"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs{...}
+// FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs and FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs{...}
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorInput interface {
 	pulumi.Input
 
@@ -5955,8 +6300,11 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorOutput)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArrayInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArray{ FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs{...} }
+// FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArrayInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArray and FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArrayOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArrayInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArray{ FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs{...} }
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArrayInput interface {
 	pulumi.Input
 
@@ -6033,8 +6381,11 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcess
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs{...}
+// FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs and FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs{...}
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterInput interface {
 	pulumi.Input
 
@@ -6061,8 +6412,11 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterOutput)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArray{ FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs{...} }
+// FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArray and FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArray{ FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs{...} }
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayInput interface {
 	pulumi.Input
 
@@ -6153,8 +6507,11 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration struct {
 	RoleArn string `pulumi:"roleArn"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs{...}
+// FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs and FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs{...}
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationInput interface {
 	pulumi.Input
 
@@ -6203,8 +6560,15 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput).ToFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs{...}.ToFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput()
+// FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs, FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtr and FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -6383,8 +6747,11 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatc
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs{...}
+// FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs and FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs{...}
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsInput interface {
 	pulumi.Input
 
@@ -6421,8 +6788,15 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudw
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput).ToFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrInput via:
-// 	FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs{...}.ToFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput()
+// FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs, FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtr and FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrInput interface {
 	pulumi.Input
 
@@ -6541,8 +6915,11 @@ type FirehoseDeliveryStreamKinesisSourceConfiguration struct {
 	RoleArn string `pulumi:"roleArn"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamKinesisSourceConfigurationInput via:
-// 	FirehoseDeliveryStreamKinesisSourceConfigurationArgs{...}
+// FirehoseDeliveryStreamKinesisSourceConfigurationInput is an input type that accepts FirehoseDeliveryStreamKinesisSourceConfigurationArgs and FirehoseDeliveryStreamKinesisSourceConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamKinesisSourceConfigurationInput` via:
+//
+// 		 FirehoseDeliveryStreamKinesisSourceConfigurationArgs{...}
+//
 type FirehoseDeliveryStreamKinesisSourceConfigurationInput interface {
 	pulumi.Input
 
@@ -6577,8 +6954,15 @@ func (i FirehoseDeliveryStreamKinesisSourceConfigurationArgs) ToFirehoseDelivery
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamKinesisSourceConfigurationOutput).ToFirehoseDeliveryStreamKinesisSourceConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamKinesisSourceConfigurationPtrInput via:
-// 	FirehoseDeliveryStreamKinesisSourceConfigurationArgs{...}.ToFirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput()
+// FirehoseDeliveryStreamKinesisSourceConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamKinesisSourceConfigurationArgs, FirehoseDeliveryStreamKinesisSourceConfigurationPtr and FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamKinesisSourceConfigurationPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamKinesisSourceConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamKinesisSourceConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -6695,8 +7079,11 @@ type FirehoseDeliveryStreamRedshiftConfiguration struct {
 	Username string `pulumi:"username"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamRedshiftConfigurationInput via:
-// 	FirehoseDeliveryStreamRedshiftConfigurationArgs{...}
+// FirehoseDeliveryStreamRedshiftConfigurationInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationArgs and FirehoseDeliveryStreamRedshiftConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamRedshiftConfigurationInput` via:
+//
+// 		 FirehoseDeliveryStreamRedshiftConfigurationArgs{...}
+//
 type FirehoseDeliveryStreamRedshiftConfigurationInput interface {
 	pulumi.Input
 
@@ -6751,8 +7138,15 @@ func (i FirehoseDeliveryStreamRedshiftConfigurationArgs) ToFirehoseDeliveryStrea
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationOutput).ToFirehoseDeliveryStreamRedshiftConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamRedshiftConfigurationPtrInput via:
-// 	FirehoseDeliveryStreamRedshiftConfigurationArgs{...}.ToFirehoseDeliveryStreamRedshiftConfigurationPtrOutput()
+// FirehoseDeliveryStreamRedshiftConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationArgs, FirehoseDeliveryStreamRedshiftConfigurationPtr and FirehoseDeliveryStreamRedshiftConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamRedshiftConfigurationPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamRedshiftConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamRedshiftConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -6963,8 +7357,11 @@ type FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions struct 
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsInput via:
-// 	FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs{...}
+// FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs and FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsInput` via:
+//
+// 		 FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs{...}
+//
 type FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsInput interface {
 	pulumi.Input
 
@@ -7001,8 +7398,15 @@ func (i FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs)
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsOutput).ToFirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrInput via:
-// 	FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs{...}.ToFirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutput()
+// FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs, FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtr and FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrInput interface {
 	pulumi.Input
 
@@ -7117,8 +7521,11 @@ type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration struct {
 	Processors []FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor `pulumi:"processors"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationInput via:
-// 	FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs{...}
+// FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs and FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationInput` via:
+//
+// 		 FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs{...}
+//
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationInput interface {
 	pulumi.Input
 
@@ -7153,8 +7560,15 @@ func (i FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationOutput).ToFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrInput via:
-// 	FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs{...}.ToFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput()
+// FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs, FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtr and FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -7255,8 +7669,11 @@ type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor
 	Type string `pulumi:"type"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorInput via:
-// 	FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgs{...}
+// FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgs and FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorInput` via:
+//
+// 		 FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgs{...}
+//
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorInput interface {
 	pulumi.Input
 
@@ -7283,8 +7700,11 @@ func (i FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorOutput)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArrayInput via:
-// 	FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArray{ FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgs{...} }
+// FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArrayInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArray and FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArrayOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArrayInput` via:
+//
+// 		 FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArray{ FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgs{...} }
+//
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArrayInput interface {
 	pulumi.Input
 
@@ -7361,8 +7781,11 @@ type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterInput via:
-// 	FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgs{...}
+// FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgs and FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterInput` via:
+//
+// 		 FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgs{...}
+//
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterInput interface {
 	pulumi.Input
 
@@ -7389,8 +7812,11 @@ func (i FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterOutput)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayInput via:
-// 	FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArray{ FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgs{...} }
+// FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArray and FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayInput` via:
+//
+// 		 FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArray{ FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgs{...} }
+//
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayInput interface {
 	pulumi.Input
 
@@ -7481,8 +7907,11 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration struct {
 	RoleArn string `pulumi:"roleArn"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationInput via:
-// 	FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs{...}
+// FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs and FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationInput` via:
+//
+// 		 FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs{...}
+//
 type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationInput interface {
 	pulumi.Input
 
@@ -7531,8 +7960,15 @@ func (i FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput).ToFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrInput via:
-// 	FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs{...}.ToFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput()
+// FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs, FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtr and FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -7707,8 +8143,11 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchL
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsInput via:
-// 	FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs{...}
+// FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs and FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsInput` via:
+//
+// 		 FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs{...}
+//
 type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsInput interface {
 	pulumi.Input
 
@@ -7745,8 +8184,15 @@ func (i FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwat
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput).ToFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrInput via:
-// 	FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs{...}.ToFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput()
+// FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs, FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtr and FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrInput interface {
 	pulumi.Input
 
@@ -7879,8 +8325,11 @@ type FirehoseDeliveryStreamS3Configuration struct {
 	RoleArn string `pulumi:"roleArn"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamS3ConfigurationInput via:
-// 	FirehoseDeliveryStreamS3ConfigurationArgs{...}
+// FirehoseDeliveryStreamS3ConfigurationInput is an input type that accepts FirehoseDeliveryStreamS3ConfigurationArgs and FirehoseDeliveryStreamS3ConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamS3ConfigurationInput` via:
+//
+// 		 FirehoseDeliveryStreamS3ConfigurationArgs{...}
+//
 type FirehoseDeliveryStreamS3ConfigurationInput interface {
 	pulumi.Input
 
@@ -7929,8 +8378,15 @@ func (i FirehoseDeliveryStreamS3ConfigurationArgs) ToFirehoseDeliveryStreamS3Con
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamS3ConfigurationOutput).ToFirehoseDeliveryStreamS3ConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamS3ConfigurationPtrInput via:
-// 	FirehoseDeliveryStreamS3ConfigurationArgs{...}.ToFirehoseDeliveryStreamS3ConfigurationPtrOutput()
+// FirehoseDeliveryStreamS3ConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamS3ConfigurationArgs, FirehoseDeliveryStreamS3ConfigurationPtr and FirehoseDeliveryStreamS3ConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamS3ConfigurationPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamS3ConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamS3ConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -8095,8 +8551,11 @@ type FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions struct {
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsInput via:
-// 	FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsArgs{...}
+// FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsInput is an input type that accepts FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsArgs and FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsInput` via:
+//
+// 		 FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsArgs{...}
+//
 type FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsInput interface {
 	pulumi.Input
 
@@ -8133,8 +8592,15 @@ func (i FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsArgs) ToFir
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsOutput).ToFirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrInput via:
-// 	FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsArgs{...}.ToFirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput()
+// FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrInput is an input type that accepts FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsArgs, FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtr and FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrInput interface {
 	pulumi.Input
 
@@ -8239,8 +8705,11 @@ type FirehoseDeliveryStreamServerSideEncryption struct {
 	Enabled *bool `pulumi:"enabled"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamServerSideEncryptionInput via:
-// 	FirehoseDeliveryStreamServerSideEncryptionArgs{...}
+// FirehoseDeliveryStreamServerSideEncryptionInput is an input type that accepts FirehoseDeliveryStreamServerSideEncryptionArgs and FirehoseDeliveryStreamServerSideEncryptionOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamServerSideEncryptionInput` via:
+//
+// 		 FirehoseDeliveryStreamServerSideEncryptionArgs{...}
+//
 type FirehoseDeliveryStreamServerSideEncryptionInput interface {
 	pulumi.Input
 
@@ -8273,8 +8742,15 @@ func (i FirehoseDeliveryStreamServerSideEncryptionArgs) ToFirehoseDeliveryStream
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamServerSideEncryptionOutput).ToFirehoseDeliveryStreamServerSideEncryptionPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamServerSideEncryptionPtrInput via:
-// 	FirehoseDeliveryStreamServerSideEncryptionArgs{...}.ToFirehoseDeliveryStreamServerSideEncryptionPtrOutput()
+// FirehoseDeliveryStreamServerSideEncryptionPtrInput is an input type that accepts FirehoseDeliveryStreamServerSideEncryptionArgs, FirehoseDeliveryStreamServerSideEncryptionPtr and FirehoseDeliveryStreamServerSideEncryptionPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamServerSideEncryptionPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamServerSideEncryptionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamServerSideEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -8373,8 +8849,11 @@ type FirehoseDeliveryStreamSplunkConfiguration struct {
 	S3BackupMode *string `pulumi:"s3BackupMode"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamSplunkConfigurationInput via:
-// 	FirehoseDeliveryStreamSplunkConfigurationArgs{...}
+// FirehoseDeliveryStreamSplunkConfigurationInput is an input type that accepts FirehoseDeliveryStreamSplunkConfigurationArgs and FirehoseDeliveryStreamSplunkConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSplunkConfigurationInput` via:
+//
+// 		 FirehoseDeliveryStreamSplunkConfigurationArgs{...}
+//
 type FirehoseDeliveryStreamSplunkConfigurationInput interface {
 	pulumi.Input
 
@@ -8421,8 +8900,15 @@ func (i FirehoseDeliveryStreamSplunkConfigurationArgs) ToFirehoseDeliveryStreamS
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSplunkConfigurationOutput).ToFirehoseDeliveryStreamSplunkConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamSplunkConfigurationPtrInput via:
-// 	FirehoseDeliveryStreamSplunkConfigurationArgs{...}.ToFirehoseDeliveryStreamSplunkConfigurationPtrOutput()
+// FirehoseDeliveryStreamSplunkConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamSplunkConfigurationArgs, FirehoseDeliveryStreamSplunkConfigurationPtr and FirehoseDeliveryStreamSplunkConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSplunkConfigurationPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamSplunkConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamSplunkConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -8589,8 +9075,11 @@ type FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions struct {
 	LogStreamName *string `pulumi:"logStreamName"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsInput via:
-// 	FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs{...}
+// FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsInput is an input type that accepts FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs and FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsInput` via:
+//
+// 		 FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs{...}
+//
 type FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsInput interface {
 	pulumi.Input
 
@@ -8627,8 +9116,15 @@ func (i FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsOutput).ToFirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrInput via:
-// 	FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs{...}.ToFirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput()
+// FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrInput is an input type that accepts FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs, FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtr and FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrInput interface {
 	pulumi.Input
 
@@ -8743,8 +9239,11 @@ type FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration struct {
 	Processors []FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor `pulumi:"processors"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationInput via:
-// 	FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs{...}
+// FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationInput is an input type that accepts FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs and FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationInput` via:
+//
+// 		 FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs{...}
+//
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationInput interface {
 	pulumi.Input
 
@@ -8779,8 +9278,15 @@ func (i FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationOutput).ToFirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrInput via:
-// 	FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs{...}.ToFirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutput()
+// FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs, FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtr and FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrInput` via:
+//
+// 		 FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -8881,8 +9387,11 @@ type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor s
 	Type string `pulumi:"type"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorInput via:
-// 	FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs{...}
+// FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorInput is an input type that accepts FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs and FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorInput` via:
+//
+// 		 FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs{...}
+//
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorInput interface {
 	pulumi.Input
 
@@ -8909,8 +9418,11 @@ func (i FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorOutput)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArrayInput via:
-// 	FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArray{ FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs{...} }
+// FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArrayInput is an input type that accepts FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArray and FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArrayOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArrayInput` via:
+//
+// 		 FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArray{ FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs{...} }
+//
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArrayInput interface {
 	pulumi.Input
 
@@ -8987,8 +9499,11 @@ type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorPa
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterInput via:
-// 	FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs{...}
+// FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterInput is an input type that accepts FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs and FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterInput` via:
+//
+// 		 FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs{...}
+//
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterInput interface {
 	pulumi.Input
 
@@ -9015,8 +9530,11 @@ func (i FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterOutput)
 }
 
-// Construct a concrete instance of FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayInput via:
-// 	FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArray{ FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs{...} }
+// FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayInput is an input type that accepts FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArray and FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayInput` via:
+//
+// 		 FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArray{ FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs{...} }
+//
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayInput interface {
 	pulumi.Input
 

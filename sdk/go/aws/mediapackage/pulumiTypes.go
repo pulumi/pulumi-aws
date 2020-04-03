@@ -15,8 +15,11 @@ type ChannelHlsIngest struct {
 	IngestEndpoints []ChannelHlsIngestIngestEndpoint `pulumi:"ingestEndpoints"`
 }
 
-// Construct a concrete instance of ChannelHlsIngestInput via:
-// 	ChannelHlsIngestArgs{...}
+// ChannelHlsIngestInput is an input type that accepts ChannelHlsIngestArgs and ChannelHlsIngestOutput values.
+// You can construct a concrete instance of `ChannelHlsIngestInput` via:
+//
+// 		 ChannelHlsIngestArgs{...}
+//
 type ChannelHlsIngestInput interface {
 	pulumi.Input
 
@@ -41,8 +44,11 @@ func (i ChannelHlsIngestArgs) ToChannelHlsIngestOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestOutput)
 }
 
-// Construct a concrete instance of ChannelHlsIngestArrayInput via:
-// 	ChannelHlsIngestArray{ ChannelHlsIngestArgs{...} }
+// ChannelHlsIngestArrayInput is an input type that accepts ChannelHlsIngestArray and ChannelHlsIngestArrayOutput values.
+// You can construct a concrete instance of `ChannelHlsIngestArrayInput` via:
+//
+// 		 ChannelHlsIngestArray{ ChannelHlsIngestArgs{...} }
+//
 type ChannelHlsIngestArrayInput interface {
 	pulumi.Input
 
@@ -112,8 +118,11 @@ type ChannelHlsIngestIngestEndpoint struct {
 	Username *string `pulumi:"username"`
 }
 
-// Construct a concrete instance of ChannelHlsIngestIngestEndpointInput via:
-// 	ChannelHlsIngestIngestEndpointArgs{...}
+// ChannelHlsIngestIngestEndpointInput is an input type that accepts ChannelHlsIngestIngestEndpointArgs and ChannelHlsIngestIngestEndpointOutput values.
+// You can construct a concrete instance of `ChannelHlsIngestIngestEndpointInput` via:
+//
+// 		 ChannelHlsIngestIngestEndpointArgs{...}
+//
 type ChannelHlsIngestIngestEndpointInput interface {
 	pulumi.Input
 
@@ -142,8 +151,11 @@ func (i ChannelHlsIngestIngestEndpointArgs) ToChannelHlsIngestIngestEndpointOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestIngestEndpointOutput)
 }
 
-// Construct a concrete instance of ChannelHlsIngestIngestEndpointArrayInput via:
-// 	ChannelHlsIngestIngestEndpointArray{ ChannelHlsIngestIngestEndpointArgs{...} }
+// ChannelHlsIngestIngestEndpointArrayInput is an input type that accepts ChannelHlsIngestIngestEndpointArray and ChannelHlsIngestIngestEndpointArrayOutput values.
+// You can construct a concrete instance of `ChannelHlsIngestIngestEndpointArrayInput` via:
+//
+// 		 ChannelHlsIngestIngestEndpointArray{ ChannelHlsIngestIngestEndpointArgs{...} }
+//
 type ChannelHlsIngestIngestEndpointArrayInput interface {
 	pulumi.Input
 

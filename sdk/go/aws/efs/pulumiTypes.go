@@ -15,8 +15,11 @@ type FileSystemLifecyclePolicy struct {
 	TransitionToIa *string `pulumi:"transitionToIa"`
 }
 
-// Construct a concrete instance of FileSystemLifecyclePolicyInput via:
-// 	FileSystemLifecyclePolicyArgs{...}
+// FileSystemLifecyclePolicyInput is an input type that accepts FileSystemLifecyclePolicyArgs and FileSystemLifecyclePolicyOutput values.
+// You can construct a concrete instance of `FileSystemLifecyclePolicyInput` via:
+//
+// 		 FileSystemLifecyclePolicyArgs{...}
+//
 type FileSystemLifecyclePolicyInput interface {
 	pulumi.Input
 
@@ -49,8 +52,15 @@ func (i FileSystemLifecyclePolicyArgs) ToFileSystemLifecyclePolicyPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemLifecyclePolicyOutput).ToFileSystemLifecyclePolicyPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of FileSystemLifecyclePolicyPtrInput via:
-// 	FileSystemLifecyclePolicyArgs{...}.ToFileSystemLifecyclePolicyPtrOutput()
+// FileSystemLifecyclePolicyPtrInput is an input type that accepts FileSystemLifecyclePolicyArgs, FileSystemLifecyclePolicyPtr and FileSystemLifecyclePolicyPtrOutput values.
+// You can construct a concrete instance of `FileSystemLifecyclePolicyPtrInput` via:
+//
+// 		 FileSystemLifecyclePolicyArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FileSystemLifecyclePolicyPtrInput interface {
 	pulumi.Input
 
@@ -132,8 +142,11 @@ type GetFileSystemLifecyclePolicy struct {
 	TransitionToIa string `pulumi:"transitionToIa"`
 }
 
-// Construct a concrete instance of GetFileSystemLifecyclePolicyInput via:
-// 	GetFileSystemLifecyclePolicyArgs{...}
+// GetFileSystemLifecyclePolicyInput is an input type that accepts GetFileSystemLifecyclePolicyArgs and GetFileSystemLifecyclePolicyOutput values.
+// You can construct a concrete instance of `GetFileSystemLifecyclePolicyInput` via:
+//
+// 		 GetFileSystemLifecyclePolicyArgs{...}
+//
 type GetFileSystemLifecyclePolicyInput interface {
 	pulumi.Input
 

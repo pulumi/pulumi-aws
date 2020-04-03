@@ -17,8 +17,11 @@ type EfsLocationEc2Config struct {
 	SubnetArn string `pulumi:"subnetArn"`
 }
 
-// Construct a concrete instance of EfsLocationEc2ConfigInput via:
-// 	EfsLocationEc2ConfigArgs{...}
+// EfsLocationEc2ConfigInput is an input type that accepts EfsLocationEc2ConfigArgs and EfsLocationEc2ConfigOutput values.
+// You can construct a concrete instance of `EfsLocationEc2ConfigInput` via:
+//
+// 		 EfsLocationEc2ConfigArgs{...}
+//
 type EfsLocationEc2ConfigInput interface {
 	pulumi.Input
 
@@ -53,8 +56,15 @@ func (i EfsLocationEc2ConfigArgs) ToEfsLocationEc2ConfigPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EfsLocationEc2ConfigOutput).ToEfsLocationEc2ConfigPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of EfsLocationEc2ConfigPtrInput via:
-// 	EfsLocationEc2ConfigArgs{...}.ToEfsLocationEc2ConfigPtrOutput()
+// EfsLocationEc2ConfigPtrInput is an input type that accepts EfsLocationEc2ConfigArgs, EfsLocationEc2ConfigPtr and EfsLocationEc2ConfigPtrOutput values.
+// You can construct a concrete instance of `EfsLocationEc2ConfigPtrInput` via:
+//
+// 		 EfsLocationEc2ConfigArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type EfsLocationEc2ConfigPtrInput interface {
 	pulumi.Input
 
@@ -147,8 +157,11 @@ type LocationSmbMountOptions struct {
 	Version *string `pulumi:"version"`
 }
 
-// Construct a concrete instance of LocationSmbMountOptionsInput via:
-// 	LocationSmbMountOptionsArgs{...}
+// LocationSmbMountOptionsInput is an input type that accepts LocationSmbMountOptionsArgs and LocationSmbMountOptionsOutput values.
+// You can construct a concrete instance of `LocationSmbMountOptionsInput` via:
+//
+// 		 LocationSmbMountOptionsArgs{...}
+//
 type LocationSmbMountOptionsInput interface {
 	pulumi.Input
 
@@ -181,8 +194,15 @@ func (i LocationSmbMountOptionsArgs) ToLocationSmbMountOptionsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbMountOptionsOutput).ToLocationSmbMountOptionsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of LocationSmbMountOptionsPtrInput via:
-// 	LocationSmbMountOptionsArgs{...}.ToLocationSmbMountOptionsPtrOutput()
+// LocationSmbMountOptionsPtrInput is an input type that accepts LocationSmbMountOptionsArgs, LocationSmbMountOptionsPtr and LocationSmbMountOptionsPtrOutput values.
+// You can construct a concrete instance of `LocationSmbMountOptionsPtrInput` via:
+//
+// 		 LocationSmbMountOptionsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type LocationSmbMountOptionsPtrInput interface {
 	pulumi.Input
 
@@ -265,8 +285,11 @@ type NfsLocationOnPremConfig struct {
 	AgentArns []string `pulumi:"agentArns"`
 }
 
-// Construct a concrete instance of NfsLocationOnPremConfigInput via:
-// 	NfsLocationOnPremConfigArgs{...}
+// NfsLocationOnPremConfigInput is an input type that accepts NfsLocationOnPremConfigArgs and NfsLocationOnPremConfigOutput values.
+// You can construct a concrete instance of `NfsLocationOnPremConfigInput` via:
+//
+// 		 NfsLocationOnPremConfigArgs{...}
+//
 type NfsLocationOnPremConfigInput interface {
 	pulumi.Input
 
@@ -299,8 +322,15 @@ func (i NfsLocationOnPremConfigArgs) ToNfsLocationOnPremConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NfsLocationOnPremConfigOutput).ToNfsLocationOnPremConfigPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of NfsLocationOnPremConfigPtrInput via:
-// 	NfsLocationOnPremConfigArgs{...}.ToNfsLocationOnPremConfigPtrOutput()
+// NfsLocationOnPremConfigPtrInput is an input type that accepts NfsLocationOnPremConfigArgs, NfsLocationOnPremConfigPtr and NfsLocationOnPremConfigPtrOutput values.
+// You can construct a concrete instance of `NfsLocationOnPremConfigPtrInput` via:
+//
+// 		 NfsLocationOnPremConfigArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type NfsLocationOnPremConfigPtrInput interface {
 	pulumi.Input
 
@@ -383,8 +413,11 @@ type S3LocationS3Config struct {
 	BucketAccessRoleArn string `pulumi:"bucketAccessRoleArn"`
 }
 
-// Construct a concrete instance of S3LocationS3ConfigInput via:
-// 	S3LocationS3ConfigArgs{...}
+// S3LocationS3ConfigInput is an input type that accepts S3LocationS3ConfigArgs and S3LocationS3ConfigOutput values.
+// You can construct a concrete instance of `S3LocationS3ConfigInput` via:
+//
+// 		 S3LocationS3ConfigArgs{...}
+//
 type S3LocationS3ConfigInput interface {
 	pulumi.Input
 
@@ -417,8 +450,15 @@ func (i S3LocationS3ConfigArgs) ToS3LocationS3ConfigPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(S3LocationS3ConfigOutput).ToS3LocationS3ConfigPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of S3LocationS3ConfigPtrInput via:
-// 	S3LocationS3ConfigArgs{...}.ToS3LocationS3ConfigPtrOutput()
+// S3LocationS3ConfigPtrInput is an input type that accepts S3LocationS3ConfigArgs, S3LocationS3ConfigPtr and S3LocationS3ConfigPtrOutput values.
+// You can construct a concrete instance of `S3LocationS3ConfigPtrInput` via:
+//
+// 		 S3LocationS3ConfigArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type S3LocationS3ConfigPtrInput interface {
 	pulumi.Input
 
@@ -517,8 +557,11 @@ type TaskOptions struct {
 	VerifyMode *string `pulumi:"verifyMode"`
 }
 
-// Construct a concrete instance of TaskOptionsInput via:
-// 	TaskOptionsArgs{...}
+// TaskOptionsInput is an input type that accepts TaskOptionsArgs and TaskOptionsOutput values.
+// You can construct a concrete instance of `TaskOptionsInput` via:
+//
+// 		 TaskOptionsArgs{...}
+//
 type TaskOptionsInput interface {
 	pulumi.Input
 
@@ -567,8 +610,15 @@ func (i TaskOptionsArgs) ToTaskOptionsPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(TaskOptionsOutput).ToTaskOptionsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of TaskOptionsPtrInput via:
-// 	TaskOptionsArgs{...}.ToTaskOptionsPtrOutput()
+// TaskOptionsPtrInput is an input type that accepts TaskOptionsArgs, TaskOptionsPtr and TaskOptionsPtrOutput values.
+// You can construct a concrete instance of `TaskOptionsPtrInput` via:
+//
+// 		 TaskOptionsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type TaskOptionsPtrInput interface {
 	pulumi.Input
 

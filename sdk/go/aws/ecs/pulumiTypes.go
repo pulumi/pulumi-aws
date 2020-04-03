@@ -16,8 +16,11 @@ type CapacityProviderAutoScalingGroupProvider struct {
 	ManagedTerminationProtection *string                                                 `pulumi:"managedTerminationProtection"`
 }
 
-// Construct a concrete instance of CapacityProviderAutoScalingGroupProviderInput via:
-// 	CapacityProviderAutoScalingGroupProviderArgs{...}
+// CapacityProviderAutoScalingGroupProviderInput is an input type that accepts CapacityProviderAutoScalingGroupProviderArgs and CapacityProviderAutoScalingGroupProviderOutput values.
+// You can construct a concrete instance of `CapacityProviderAutoScalingGroupProviderInput` via:
+//
+// 		 CapacityProviderAutoScalingGroupProviderArgs{...}
+//
 type CapacityProviderAutoScalingGroupProviderInput interface {
 	pulumi.Input
 
@@ -51,8 +54,15 @@ func (i CapacityProviderAutoScalingGroupProviderArgs) ToCapacityProviderAutoScal
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderAutoScalingGroupProviderOutput).ToCapacityProviderAutoScalingGroupProviderPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of CapacityProviderAutoScalingGroupProviderPtrInput via:
-// 	CapacityProviderAutoScalingGroupProviderArgs{...}.ToCapacityProviderAutoScalingGroupProviderPtrOutput()
+// CapacityProviderAutoScalingGroupProviderPtrInput is an input type that accepts CapacityProviderAutoScalingGroupProviderArgs, CapacityProviderAutoScalingGroupProviderPtr and CapacityProviderAutoScalingGroupProviderPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderAutoScalingGroupProviderPtrInput` via:
+//
+// 		 CapacityProviderAutoScalingGroupProviderArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type CapacityProviderAutoScalingGroupProviderPtrInput interface {
 	pulumi.Input
 
@@ -154,8 +164,11 @@ type CapacityProviderAutoScalingGroupProviderManagedScaling struct {
 	TargetCapacity         *int    `pulumi:"targetCapacity"`
 }
 
-// Construct a concrete instance of CapacityProviderAutoScalingGroupProviderManagedScalingInput via:
-// 	CapacityProviderAutoScalingGroupProviderManagedScalingArgs{...}
+// CapacityProviderAutoScalingGroupProviderManagedScalingInput is an input type that accepts CapacityProviderAutoScalingGroupProviderManagedScalingArgs and CapacityProviderAutoScalingGroupProviderManagedScalingOutput values.
+// You can construct a concrete instance of `CapacityProviderAutoScalingGroupProviderManagedScalingInput` via:
+//
+// 		 CapacityProviderAutoScalingGroupProviderManagedScalingArgs{...}
+//
 type CapacityProviderAutoScalingGroupProviderManagedScalingInput interface {
 	pulumi.Input
 
@@ -190,8 +203,15 @@ func (i CapacityProviderAutoScalingGroupProviderManagedScalingArgs) ToCapacityPr
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderAutoScalingGroupProviderManagedScalingOutput).ToCapacityProviderAutoScalingGroupProviderManagedScalingPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of CapacityProviderAutoScalingGroupProviderManagedScalingPtrInput via:
-// 	CapacityProviderAutoScalingGroupProviderManagedScalingArgs{...}.ToCapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput()
+// CapacityProviderAutoScalingGroupProviderManagedScalingPtrInput is an input type that accepts CapacityProviderAutoScalingGroupProviderManagedScalingArgs, CapacityProviderAutoScalingGroupProviderManagedScalingPtr and CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderAutoScalingGroupProviderManagedScalingPtrInput` via:
+//
+// 		 CapacityProviderAutoScalingGroupProviderManagedScalingArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type CapacityProviderAutoScalingGroupProviderManagedScalingPtrInput interface {
 	pulumi.Input
 
@@ -298,8 +318,11 @@ type ClusterDefaultCapacityProviderStrategy struct {
 	Weight           *int   `pulumi:"weight"`
 }
 
-// Construct a concrete instance of ClusterDefaultCapacityProviderStrategyInput via:
-// 	ClusterDefaultCapacityProviderStrategyArgs{...}
+// ClusterDefaultCapacityProviderStrategyInput is an input type that accepts ClusterDefaultCapacityProviderStrategyArgs and ClusterDefaultCapacityProviderStrategyOutput values.
+// You can construct a concrete instance of `ClusterDefaultCapacityProviderStrategyInput` via:
+//
+// 		 ClusterDefaultCapacityProviderStrategyArgs{...}
+//
 type ClusterDefaultCapacityProviderStrategyInput interface {
 	pulumi.Input
 
@@ -325,8 +348,11 @@ func (i ClusterDefaultCapacityProviderStrategyArgs) ToClusterDefaultCapacityProv
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterDefaultCapacityProviderStrategyOutput)
 }
 
-// Construct a concrete instance of ClusterDefaultCapacityProviderStrategyArrayInput via:
-// 	ClusterDefaultCapacityProviderStrategyArray{ ClusterDefaultCapacityProviderStrategyArgs{...} }
+// ClusterDefaultCapacityProviderStrategyArrayInput is an input type that accepts ClusterDefaultCapacityProviderStrategyArray and ClusterDefaultCapacityProviderStrategyArrayOutput values.
+// You can construct a concrete instance of `ClusterDefaultCapacityProviderStrategyArrayInput` via:
+//
+// 		 ClusterDefaultCapacityProviderStrategyArray{ ClusterDefaultCapacityProviderStrategyArgs{...} }
+//
 type ClusterDefaultCapacityProviderStrategyArrayInput interface {
 	pulumi.Input
 
@@ -400,8 +426,11 @@ type ClusterSetting struct {
 	Value string `pulumi:"value"`
 }
 
-// Construct a concrete instance of ClusterSettingInput via:
-// 	ClusterSettingArgs{...}
+// ClusterSettingInput is an input type that accepts ClusterSettingArgs and ClusterSettingOutput values.
+// You can construct a concrete instance of `ClusterSettingInput` via:
+//
+// 		 ClusterSettingArgs{...}
+//
 type ClusterSettingInput interface {
 	pulumi.Input
 
@@ -427,8 +456,11 @@ func (i ClusterSettingArgs) ToClusterSettingOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSettingOutput)
 }
 
-// Construct a concrete instance of ClusterSettingArrayInput via:
-// 	ClusterSettingArray{ ClusterSettingArgs{...} }
+// ClusterSettingArrayInput is an input type that accepts ClusterSettingArray and ClusterSettingArrayOutput values.
+// You can construct a concrete instance of `ClusterSettingArrayInput` via:
+//
+// 		 ClusterSettingArray{ ClusterSettingArgs{...} }
+//
 type ClusterSettingArrayInput interface {
 	pulumi.Input
 
@@ -499,8 +531,11 @@ type ServiceCapacityProviderStrategy struct {
 	Weight           *int   `pulumi:"weight"`
 }
 
-// Construct a concrete instance of ServiceCapacityProviderStrategyInput via:
-// 	ServiceCapacityProviderStrategyArgs{...}
+// ServiceCapacityProviderStrategyInput is an input type that accepts ServiceCapacityProviderStrategyArgs and ServiceCapacityProviderStrategyOutput values.
+// You can construct a concrete instance of `ServiceCapacityProviderStrategyInput` via:
+//
+// 		 ServiceCapacityProviderStrategyArgs{...}
+//
 type ServiceCapacityProviderStrategyInput interface {
 	pulumi.Input
 
@@ -526,8 +561,11 @@ func (i ServiceCapacityProviderStrategyArgs) ToServiceCapacityProviderStrategyOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCapacityProviderStrategyOutput)
 }
 
-// Construct a concrete instance of ServiceCapacityProviderStrategyArrayInput via:
-// 	ServiceCapacityProviderStrategyArray{ ServiceCapacityProviderStrategyArgs{...} }
+// ServiceCapacityProviderStrategyArrayInput is an input type that accepts ServiceCapacityProviderStrategyArray and ServiceCapacityProviderStrategyArrayOutput values.
+// You can construct a concrete instance of `ServiceCapacityProviderStrategyArrayInput` via:
+//
+// 		 ServiceCapacityProviderStrategyArray{ ServiceCapacityProviderStrategyArgs{...} }
+//
 type ServiceCapacityProviderStrategyArrayInput interface {
 	pulumi.Input
 
@@ -599,8 +637,11 @@ type ServiceDeploymentController struct {
 	Type *string `pulumi:"type"`
 }
 
-// Construct a concrete instance of ServiceDeploymentControllerInput via:
-// 	ServiceDeploymentControllerArgs{...}
+// ServiceDeploymentControllerInput is an input type that accepts ServiceDeploymentControllerArgs and ServiceDeploymentControllerOutput values.
+// You can construct a concrete instance of `ServiceDeploymentControllerInput` via:
+//
+// 		 ServiceDeploymentControllerArgs{...}
+//
 type ServiceDeploymentControllerInput interface {
 	pulumi.Input
 
@@ -632,8 +673,15 @@ func (i ServiceDeploymentControllerArgs) ToServiceDeploymentControllerPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentControllerOutput).ToServiceDeploymentControllerPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ServiceDeploymentControllerPtrInput via:
-// 	ServiceDeploymentControllerArgs{...}.ToServiceDeploymentControllerPtrOutput()
+// ServiceDeploymentControllerPtrInput is an input type that accepts ServiceDeploymentControllerArgs, ServiceDeploymentControllerPtr and ServiceDeploymentControllerPtrOutput values.
+// You can construct a concrete instance of `ServiceDeploymentControllerPtrInput` via:
+//
+// 		 ServiceDeploymentControllerArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ServiceDeploymentControllerPtrInput interface {
 	pulumi.Input
 
@@ -715,8 +763,11 @@ type ServiceLoadBalancer struct {
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 }
 
-// Construct a concrete instance of ServiceLoadBalancerInput via:
-// 	ServiceLoadBalancerArgs{...}
+// ServiceLoadBalancerInput is an input type that accepts ServiceLoadBalancerArgs and ServiceLoadBalancerOutput values.
+// You can construct a concrete instance of `ServiceLoadBalancerInput` via:
+//
+// 		 ServiceLoadBalancerArgs{...}
+//
 type ServiceLoadBalancerInput interface {
 	pulumi.Input
 
@@ -743,8 +794,11 @@ func (i ServiceLoadBalancerArgs) ToServiceLoadBalancerOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadBalancerOutput)
 }
 
-// Construct a concrete instance of ServiceLoadBalancerArrayInput via:
-// 	ServiceLoadBalancerArray{ ServiceLoadBalancerArgs{...} }
+// ServiceLoadBalancerArrayInput is an input type that accepts ServiceLoadBalancerArray and ServiceLoadBalancerArrayOutput values.
+// You can construct a concrete instance of `ServiceLoadBalancerArrayInput` via:
+//
+// 		 ServiceLoadBalancerArray{ ServiceLoadBalancerArgs{...} }
+//
 type ServiceLoadBalancerArrayInput interface {
 	pulumi.Input
 
@@ -822,8 +876,11 @@ type ServiceNetworkConfiguration struct {
 	Subnets        []string `pulumi:"subnets"`
 }
 
-// Construct a concrete instance of ServiceNetworkConfigurationInput via:
-// 	ServiceNetworkConfigurationArgs{...}
+// ServiceNetworkConfigurationInput is an input type that accepts ServiceNetworkConfigurationArgs and ServiceNetworkConfigurationOutput values.
+// You can construct a concrete instance of `ServiceNetworkConfigurationInput` via:
+//
+// 		 ServiceNetworkConfigurationArgs{...}
+//
 type ServiceNetworkConfigurationInput interface {
 	pulumi.Input
 
@@ -857,8 +914,15 @@ func (i ServiceNetworkConfigurationArgs) ToServiceNetworkConfigurationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkConfigurationOutput).ToServiceNetworkConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ServiceNetworkConfigurationPtrInput via:
-// 	ServiceNetworkConfigurationArgs{...}.ToServiceNetworkConfigurationPtrOutput()
+// ServiceNetworkConfigurationPtrInput is an input type that accepts ServiceNetworkConfigurationArgs, ServiceNetworkConfigurationPtr and ServiceNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceNetworkConfigurationPtrInput` via:
+//
+// 		 ServiceNetworkConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ServiceNetworkConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -954,8 +1018,11 @@ type ServiceOrderedPlacementStrategy struct {
 	Type  string  `pulumi:"type"`
 }
 
-// Construct a concrete instance of ServiceOrderedPlacementStrategyInput via:
-// 	ServiceOrderedPlacementStrategyArgs{...}
+// ServiceOrderedPlacementStrategyInput is an input type that accepts ServiceOrderedPlacementStrategyArgs and ServiceOrderedPlacementStrategyOutput values.
+// You can construct a concrete instance of `ServiceOrderedPlacementStrategyInput` via:
+//
+// 		 ServiceOrderedPlacementStrategyArgs{...}
+//
 type ServiceOrderedPlacementStrategyInput interface {
 	pulumi.Input
 
@@ -980,8 +1047,11 @@ func (i ServiceOrderedPlacementStrategyArgs) ToServiceOrderedPlacementStrategyOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOrderedPlacementStrategyOutput)
 }
 
-// Construct a concrete instance of ServiceOrderedPlacementStrategyArrayInput via:
-// 	ServiceOrderedPlacementStrategyArray{ ServiceOrderedPlacementStrategyArgs{...} }
+// ServiceOrderedPlacementStrategyArrayInput is an input type that accepts ServiceOrderedPlacementStrategyArray and ServiceOrderedPlacementStrategyArrayOutput values.
+// You can construct a concrete instance of `ServiceOrderedPlacementStrategyArrayInput` via:
+//
+// 		 ServiceOrderedPlacementStrategyArray{ ServiceOrderedPlacementStrategyArgs{...} }
+//
 type ServiceOrderedPlacementStrategyArrayInput interface {
 	pulumi.Input
 
@@ -1050,8 +1120,11 @@ type ServicePlacementConstraint struct {
 	Type       string  `pulumi:"type"`
 }
 
-// Construct a concrete instance of ServicePlacementConstraintInput via:
-// 	ServicePlacementConstraintArgs{...}
+// ServicePlacementConstraintInput is an input type that accepts ServicePlacementConstraintArgs and ServicePlacementConstraintOutput values.
+// You can construct a concrete instance of `ServicePlacementConstraintInput` via:
+//
+// 		 ServicePlacementConstraintArgs{...}
+//
 type ServicePlacementConstraintInput interface {
 	pulumi.Input
 
@@ -1076,8 +1149,11 @@ func (i ServicePlacementConstraintArgs) ToServicePlacementConstraintOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementConstraintOutput)
 }
 
-// Construct a concrete instance of ServicePlacementConstraintArrayInput via:
-// 	ServicePlacementConstraintArray{ ServicePlacementConstraintArgs{...} }
+// ServicePlacementConstraintArrayInput is an input type that accepts ServicePlacementConstraintArray and ServicePlacementConstraintArrayOutput values.
+// You can construct a concrete instance of `ServicePlacementConstraintArrayInput` via:
+//
+// 		 ServicePlacementConstraintArray{ ServicePlacementConstraintArgs{...} }
+//
 type ServicePlacementConstraintArrayInput interface {
 	pulumi.Input
 
@@ -1148,8 +1224,11 @@ type ServiceServiceRegistries struct {
 	RegistryArn   string  `pulumi:"registryArn"`
 }
 
-// Construct a concrete instance of ServiceServiceRegistriesInput via:
-// 	ServiceServiceRegistriesArgs{...}
+// ServiceServiceRegistriesInput is an input type that accepts ServiceServiceRegistriesArgs and ServiceServiceRegistriesOutput values.
+// You can construct a concrete instance of `ServiceServiceRegistriesInput` via:
+//
+// 		 ServiceServiceRegistriesArgs{...}
+//
 type ServiceServiceRegistriesInput interface {
 	pulumi.Input
 
@@ -1184,8 +1263,15 @@ func (i ServiceServiceRegistriesArgs) ToServiceServiceRegistriesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceRegistriesOutput).ToServiceServiceRegistriesPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ServiceServiceRegistriesPtrInput via:
-// 	ServiceServiceRegistriesArgs{...}.ToServiceServiceRegistriesPtrOutput()
+// ServiceServiceRegistriesPtrInput is an input type that accepts ServiceServiceRegistriesArgs, ServiceServiceRegistriesPtr and ServiceServiceRegistriesPtrOutput values.
+// You can construct a concrete instance of `ServiceServiceRegistriesPtrInput` via:
+//
+// 		 ServiceServiceRegistriesArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ServiceServiceRegistriesPtrInput interface {
 	pulumi.Input
 
@@ -1291,8 +1377,11 @@ type TaskDefinitionInferenceAccelerator struct {
 	DeviceType string `pulumi:"deviceType"`
 }
 
-// Construct a concrete instance of TaskDefinitionInferenceAcceleratorInput via:
-// 	TaskDefinitionInferenceAcceleratorArgs{...}
+// TaskDefinitionInferenceAcceleratorInput is an input type that accepts TaskDefinitionInferenceAcceleratorArgs and TaskDefinitionInferenceAcceleratorOutput values.
+// You can construct a concrete instance of `TaskDefinitionInferenceAcceleratorInput` via:
+//
+// 		 TaskDefinitionInferenceAcceleratorArgs{...}
+//
 type TaskDefinitionInferenceAcceleratorInput interface {
 	pulumi.Input
 
@@ -1319,8 +1408,11 @@ func (i TaskDefinitionInferenceAcceleratorArgs) ToTaskDefinitionInferenceAcceler
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionInferenceAcceleratorOutput)
 }
 
-// Construct a concrete instance of TaskDefinitionInferenceAcceleratorArrayInput via:
-// 	TaskDefinitionInferenceAcceleratorArray{ TaskDefinitionInferenceAcceleratorArgs{...} }
+// TaskDefinitionInferenceAcceleratorArrayInput is an input type that accepts TaskDefinitionInferenceAcceleratorArray and TaskDefinitionInferenceAcceleratorArrayOutput values.
+// You can construct a concrete instance of `TaskDefinitionInferenceAcceleratorArrayInput` via:
+//
+// 		 TaskDefinitionInferenceAcceleratorArray{ TaskDefinitionInferenceAcceleratorArgs{...} }
+//
 type TaskDefinitionInferenceAcceleratorArrayInput interface {
 	pulumi.Input
 
@@ -1396,8 +1488,11 @@ type TaskDefinitionPlacementConstraint struct {
 	Type string `pulumi:"type"`
 }
 
-// Construct a concrete instance of TaskDefinitionPlacementConstraintInput via:
-// 	TaskDefinitionPlacementConstraintArgs{...}
+// TaskDefinitionPlacementConstraintInput is an input type that accepts TaskDefinitionPlacementConstraintArgs and TaskDefinitionPlacementConstraintOutput values.
+// You can construct a concrete instance of `TaskDefinitionPlacementConstraintInput` via:
+//
+// 		 TaskDefinitionPlacementConstraintArgs{...}
+//
 type TaskDefinitionPlacementConstraintInput interface {
 	pulumi.Input
 
@@ -1427,8 +1522,11 @@ func (i TaskDefinitionPlacementConstraintArgs) ToTaskDefinitionPlacementConstrai
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionPlacementConstraintOutput)
 }
 
-// Construct a concrete instance of TaskDefinitionPlacementConstraintArrayInput via:
-// 	TaskDefinitionPlacementConstraintArray{ TaskDefinitionPlacementConstraintArgs{...} }
+// TaskDefinitionPlacementConstraintArrayInput is an input type that accepts TaskDefinitionPlacementConstraintArray and TaskDefinitionPlacementConstraintArrayOutput values.
+// You can construct a concrete instance of `TaskDefinitionPlacementConstraintArrayInput` via:
+//
+// 		 TaskDefinitionPlacementConstraintArray{ TaskDefinitionPlacementConstraintArgs{...} }
+//
 type TaskDefinitionPlacementConstraintArrayInput interface {
 	pulumi.Input
 
@@ -1506,8 +1604,11 @@ type TaskDefinitionProxyConfiguration struct {
 	Type *string `pulumi:"type"`
 }
 
-// Construct a concrete instance of TaskDefinitionProxyConfigurationInput via:
-// 	TaskDefinitionProxyConfigurationArgs{...}
+// TaskDefinitionProxyConfigurationInput is an input type that accepts TaskDefinitionProxyConfigurationArgs and TaskDefinitionProxyConfigurationOutput values.
+// You can construct a concrete instance of `TaskDefinitionProxyConfigurationInput` via:
+//
+// 		 TaskDefinitionProxyConfigurationArgs{...}
+//
 type TaskDefinitionProxyConfigurationInput interface {
 	pulumi.Input
 
@@ -1544,8 +1645,15 @@ func (i TaskDefinitionProxyConfigurationArgs) ToTaskDefinitionProxyConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionProxyConfigurationOutput).ToTaskDefinitionProxyConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of TaskDefinitionProxyConfigurationPtrInput via:
-// 	TaskDefinitionProxyConfigurationArgs{...}.ToTaskDefinitionProxyConfigurationPtrOutput()
+// TaskDefinitionProxyConfigurationPtrInput is an input type that accepts TaskDefinitionProxyConfigurationArgs, TaskDefinitionProxyConfigurationPtr and TaskDefinitionProxyConfigurationPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionProxyConfigurationPtrInput` via:
+//
+// 		 TaskDefinitionProxyConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type TaskDefinitionProxyConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1655,8 +1763,11 @@ type TaskDefinitionVolume struct {
 	Name string `pulumi:"name"`
 }
 
-// Construct a concrete instance of TaskDefinitionVolumeInput via:
-// 	TaskDefinitionVolumeArgs{...}
+// TaskDefinitionVolumeInput is an input type that accepts TaskDefinitionVolumeArgs and TaskDefinitionVolumeOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeInput` via:
+//
+// 		 TaskDefinitionVolumeArgs{...}
+//
 type TaskDefinitionVolumeInput interface {
 	pulumi.Input
 
@@ -1688,8 +1799,11 @@ func (i TaskDefinitionVolumeArgs) ToTaskDefinitionVolumeOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeOutput)
 }
 
-// Construct a concrete instance of TaskDefinitionVolumeArrayInput via:
-// 	TaskDefinitionVolumeArray{ TaskDefinitionVolumeArgs{...} }
+// TaskDefinitionVolumeArrayInput is an input type that accepts TaskDefinitionVolumeArray and TaskDefinitionVolumeArrayOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeArrayInput` via:
+//
+// 		 TaskDefinitionVolumeArray{ TaskDefinitionVolumeArgs{...} }
+//
 type TaskDefinitionVolumeArrayInput interface {
 	pulumi.Input
 
@@ -1783,8 +1897,11 @@ type TaskDefinitionVolumeDockerVolumeConfiguration struct {
 	Scope *string `pulumi:"scope"`
 }
 
-// Construct a concrete instance of TaskDefinitionVolumeDockerVolumeConfigurationInput via:
-// 	TaskDefinitionVolumeDockerVolumeConfigurationArgs{...}
+// TaskDefinitionVolumeDockerVolumeConfigurationInput is an input type that accepts TaskDefinitionVolumeDockerVolumeConfigurationArgs and TaskDefinitionVolumeDockerVolumeConfigurationOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeDockerVolumeConfigurationInput` via:
+//
+// 		 TaskDefinitionVolumeDockerVolumeConfigurationArgs{...}
+//
 type TaskDefinitionVolumeDockerVolumeConfigurationInput interface {
 	pulumi.Input
 
@@ -1825,8 +1942,15 @@ func (i TaskDefinitionVolumeDockerVolumeConfigurationArgs) ToTaskDefinitionVolum
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeDockerVolumeConfigurationOutput).ToTaskDefinitionVolumeDockerVolumeConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of TaskDefinitionVolumeDockerVolumeConfigurationPtrInput via:
-// 	TaskDefinitionVolumeDockerVolumeConfigurationArgs{...}.ToTaskDefinitionVolumeDockerVolumeConfigurationPtrOutput()
+// TaskDefinitionVolumeDockerVolumeConfigurationPtrInput is an input type that accepts TaskDefinitionVolumeDockerVolumeConfigurationArgs, TaskDefinitionVolumeDockerVolumeConfigurationPtr and TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeDockerVolumeConfigurationPtrInput` via:
+//
+// 		 TaskDefinitionVolumeDockerVolumeConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type TaskDefinitionVolumeDockerVolumeConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1953,8 +2077,11 @@ type TaskDefinitionVolumeEfsVolumeConfiguration struct {
 	RootDirectory *string `pulumi:"rootDirectory"`
 }
 
-// Construct a concrete instance of TaskDefinitionVolumeEfsVolumeConfigurationInput via:
-// 	TaskDefinitionVolumeEfsVolumeConfigurationArgs{...}
+// TaskDefinitionVolumeEfsVolumeConfigurationInput is an input type that accepts TaskDefinitionVolumeEfsVolumeConfigurationArgs and TaskDefinitionVolumeEfsVolumeConfigurationOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeEfsVolumeConfigurationInput` via:
+//
+// 		 TaskDefinitionVolumeEfsVolumeConfigurationArgs{...}
+//
 type TaskDefinitionVolumeEfsVolumeConfigurationInput interface {
 	pulumi.Input
 
@@ -1989,8 +2116,15 @@ func (i TaskDefinitionVolumeEfsVolumeConfigurationArgs) ToTaskDefinitionVolumeEf
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeEfsVolumeConfigurationOutput).ToTaskDefinitionVolumeEfsVolumeConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of TaskDefinitionVolumeEfsVolumeConfigurationPtrInput via:
-// 	TaskDefinitionVolumeEfsVolumeConfigurationArgs{...}.ToTaskDefinitionVolumeEfsVolumeConfigurationPtrOutput()
+// TaskDefinitionVolumeEfsVolumeConfigurationPtrInput is an input type that accepts TaskDefinitionVolumeEfsVolumeConfigurationArgs, TaskDefinitionVolumeEfsVolumeConfigurationPtr and TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeEfsVolumeConfigurationPtrInput` via:
+//
+// 		 TaskDefinitionVolumeEfsVolumeConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type TaskDefinitionVolumeEfsVolumeConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2085,8 +2219,11 @@ type GetClusterSetting struct {
 	Value string `pulumi:"value"`
 }
 
-// Construct a concrete instance of GetClusterSettingInput via:
-// 	GetClusterSettingArgs{...}
+// GetClusterSettingInput is an input type that accepts GetClusterSettingArgs and GetClusterSettingOutput values.
+// You can construct a concrete instance of `GetClusterSettingInput` via:
+//
+// 		 GetClusterSettingArgs{...}
+//
 type GetClusterSettingInput interface {
 	pulumi.Input
 
@@ -2111,8 +2248,11 @@ func (i GetClusterSettingArgs) ToGetClusterSettingOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetClusterSettingOutput)
 }
 
-// Construct a concrete instance of GetClusterSettingArrayInput via:
-// 	GetClusterSettingArray{ GetClusterSettingArgs{...} }
+// GetClusterSettingArrayInput is an input type that accepts GetClusterSettingArray and GetClusterSettingArrayOutput values.
+// You can construct a concrete instance of `GetClusterSettingArrayInput` via:
+//
+// 		 GetClusterSettingArray{ GetClusterSettingArgs{...} }
+//
 type GetClusterSettingArrayInput interface {
 	pulumi.Input
 

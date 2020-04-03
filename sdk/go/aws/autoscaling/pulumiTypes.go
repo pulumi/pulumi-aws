@@ -21,8 +21,11 @@ type GroupInitialLifecycleHook struct {
 	RoleArn               *string `pulumi:"roleArn"`
 }
 
-// Construct a concrete instance of GroupInitialLifecycleHookInput via:
-// 	GroupInitialLifecycleHookArgs{...}
+// GroupInitialLifecycleHookInput is an input type that accepts GroupInitialLifecycleHookArgs and GroupInitialLifecycleHookOutput values.
+// You can construct a concrete instance of `GroupInitialLifecycleHookInput` via:
+//
+// 		 GroupInitialLifecycleHookArgs{...}
+//
 type GroupInitialLifecycleHookInput interface {
 	pulumi.Input
 
@@ -53,8 +56,11 @@ func (i GroupInitialLifecycleHookArgs) ToGroupInitialLifecycleHookOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInitialLifecycleHookOutput)
 }
 
-// Construct a concrete instance of GroupInitialLifecycleHookArrayInput via:
-// 	GroupInitialLifecycleHookArray{ GroupInitialLifecycleHookArgs{...} }
+// GroupInitialLifecycleHookArrayInput is an input type that accepts GroupInitialLifecycleHookArray and GroupInitialLifecycleHookArrayOutput values.
+// You can construct a concrete instance of `GroupInitialLifecycleHookArrayInput` via:
+//
+// 		 GroupInitialLifecycleHookArray{ GroupInitialLifecycleHookArgs{...} }
+//
 type GroupInitialLifecycleHookArrayInput interface {
 	pulumi.Input
 
@@ -148,8 +154,11 @@ type GroupLaunchTemplate struct {
 	Version *string `pulumi:"version"`
 }
 
-// Construct a concrete instance of GroupLaunchTemplateInput via:
-// 	GroupLaunchTemplateArgs{...}
+// GroupLaunchTemplateInput is an input type that accepts GroupLaunchTemplateArgs and GroupLaunchTemplateOutput values.
+// You can construct a concrete instance of `GroupLaunchTemplateInput` via:
+//
+// 		 GroupLaunchTemplateArgs{...}
+//
 type GroupLaunchTemplateInput interface {
 	pulumi.Input
 
@@ -186,8 +195,15 @@ func (i GroupLaunchTemplateArgs) ToGroupLaunchTemplatePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(GroupLaunchTemplateOutput).ToGroupLaunchTemplatePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of GroupLaunchTemplatePtrInput via:
-// 	GroupLaunchTemplateArgs{...}.ToGroupLaunchTemplatePtrOutput()
+// GroupLaunchTemplatePtrInput is an input type that accepts GroupLaunchTemplateArgs, GroupLaunchTemplatePtr and GroupLaunchTemplatePtrOutput values.
+// You can construct a concrete instance of `GroupLaunchTemplatePtrInput` via:
+//
+// 		 GroupLaunchTemplateArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type GroupLaunchTemplatePtrInput interface {
 	pulumi.Input
 
@@ -292,8 +308,11 @@ type GroupMixedInstancesPolicy struct {
 	LaunchTemplate GroupMixedInstancesPolicyLaunchTemplate `pulumi:"launchTemplate"`
 }
 
-// Construct a concrete instance of GroupMixedInstancesPolicyInput via:
-// 	GroupMixedInstancesPolicyArgs{...}
+// GroupMixedInstancesPolicyInput is an input type that accepts GroupMixedInstancesPolicyArgs and GroupMixedInstancesPolicyOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyInput` via:
+//
+// 		 GroupMixedInstancesPolicyArgs{...}
+//
 type GroupMixedInstancesPolicyInput interface {
 	pulumi.Input
 
@@ -328,8 +347,15 @@ func (i GroupMixedInstancesPolicyArgs) ToGroupMixedInstancesPolicyPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyOutput).ToGroupMixedInstancesPolicyPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of GroupMixedInstancesPolicyPtrInput via:
-// 	GroupMixedInstancesPolicyArgs{...}.ToGroupMixedInstancesPolicyPtrOutput()
+// GroupMixedInstancesPolicyPtrInput is an input type that accepts GroupMixedInstancesPolicyArgs, GroupMixedInstancesPolicyPtr and GroupMixedInstancesPolicyPtrOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyPtrInput` via:
+//
+// 		 GroupMixedInstancesPolicyArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type GroupMixedInstancesPolicyPtrInput interface {
 	pulumi.Input
 
@@ -436,8 +462,11 @@ type GroupMixedInstancesPolicyInstancesDistribution struct {
 	SpotMaxPrice *string `pulumi:"spotMaxPrice"`
 }
 
-// Construct a concrete instance of GroupMixedInstancesPolicyInstancesDistributionInput via:
-// 	GroupMixedInstancesPolicyInstancesDistributionArgs{...}
+// GroupMixedInstancesPolicyInstancesDistributionInput is an input type that accepts GroupMixedInstancesPolicyInstancesDistributionArgs and GroupMixedInstancesPolicyInstancesDistributionOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyInstancesDistributionInput` via:
+//
+// 		 GroupMixedInstancesPolicyInstancesDistributionArgs{...}
+//
 type GroupMixedInstancesPolicyInstancesDistributionInput interface {
 	pulumi.Input
 
@@ -480,8 +509,15 @@ func (i GroupMixedInstancesPolicyInstancesDistributionArgs) ToGroupMixedInstance
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyInstancesDistributionOutput).ToGroupMixedInstancesPolicyInstancesDistributionPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of GroupMixedInstancesPolicyInstancesDistributionPtrInput via:
-// 	GroupMixedInstancesPolicyInstancesDistributionArgs{...}.ToGroupMixedInstancesPolicyInstancesDistributionPtrOutput()
+// GroupMixedInstancesPolicyInstancesDistributionPtrInput is an input type that accepts GroupMixedInstancesPolicyInstancesDistributionArgs, GroupMixedInstancesPolicyInstancesDistributionPtr and GroupMixedInstancesPolicyInstancesDistributionPtrOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyInstancesDistributionPtrInput` via:
+//
+// 		 GroupMixedInstancesPolicyInstancesDistributionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type GroupMixedInstancesPolicyInstancesDistributionPtrInput interface {
 	pulumi.Input
 
@@ -622,8 +658,11 @@ type GroupMixedInstancesPolicyLaunchTemplate struct {
 	Overrides []GroupMixedInstancesPolicyLaunchTemplateOverride `pulumi:"overrides"`
 }
 
-// Construct a concrete instance of GroupMixedInstancesPolicyLaunchTemplateInput via:
-// 	GroupMixedInstancesPolicyLaunchTemplateArgs{...}
+// GroupMixedInstancesPolicyLaunchTemplateInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateArgs and GroupMixedInstancesPolicyLaunchTemplateOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateInput` via:
+//
+// 		 GroupMixedInstancesPolicyLaunchTemplateArgs{...}
+//
 type GroupMixedInstancesPolicyLaunchTemplateInput interface {
 	pulumi.Input
 
@@ -687,8 +726,11 @@ type GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification struct {
 	Version *string `pulumi:"version"`
 }
 
-// Construct a concrete instance of GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationInput via:
-// 	GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{...}
+// GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs and GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationInput` via:
+//
+// 		 GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{...}
+//
 type GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationInput interface {
 	pulumi.Input
 
@@ -757,8 +799,11 @@ type GroupMixedInstancesPolicyLaunchTemplateOverride struct {
 	WeightedCapacity *string `pulumi:"weightedCapacity"`
 }
 
-// Construct a concrete instance of GroupMixedInstancesPolicyLaunchTemplateOverrideInput via:
-// 	GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{...}
+// GroupMixedInstancesPolicyLaunchTemplateOverrideInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInput` via:
+//
+// 		 GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{...}
+//
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInput interface {
 	pulumi.Input
 
@@ -785,8 +830,11 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideArgs) ToGroupMixedInstanc
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideOutput)
 }
 
-// Construct a concrete instance of GroupMixedInstancesPolicyLaunchTemplateOverrideArrayInput via:
-// 	GroupMixedInstancesPolicyLaunchTemplateOverrideArray{ GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{...} }
+// GroupMixedInstancesPolicyLaunchTemplateOverrideArrayInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideArray and GroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideArrayInput` via:
+//
+// 		 GroupMixedInstancesPolicyLaunchTemplateOverrideArray{ GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{...} }
+//
 type GroupMixedInstancesPolicyLaunchTemplateOverrideArrayInput interface {
 	pulumi.Input
 
@@ -862,8 +910,11 @@ type GroupTag struct {
 	Value string `pulumi:"value"`
 }
 
-// Construct a concrete instance of GroupTagInput via:
-// 	GroupTagArgs{...}
+// GroupTagInput is an input type that accepts GroupTagArgs and GroupTagOutput values.
+// You can construct a concrete instance of `GroupTagInput` via:
+//
+// 		 GroupTagArgs{...}
+//
 type GroupTagInput interface {
 	pulumi.Input
 
@@ -893,8 +944,11 @@ func (i GroupTagArgs) ToGroupTagOutputWithContext(ctx context.Context) GroupTagO
 	return pulumi.ToOutputWithContext(ctx, i).(GroupTagOutput)
 }
 
-// Construct a concrete instance of GroupTagArrayInput via:
-// 	GroupTagArray{ GroupTagArgs{...} }
+// GroupTagArrayInput is an input type that accepts GroupTagArray and GroupTagArrayOutput values.
+// You can construct a concrete instance of `GroupTagArrayInput` via:
+//
+// 		 GroupTagArray{ GroupTagArgs{...} }
+//
 type GroupTagArrayInput interface {
 	pulumi.Input
 
@@ -982,8 +1036,11 @@ type PolicyStepAdjustment struct {
 	ScalingAdjustment int `pulumi:"scalingAdjustment"`
 }
 
-// Construct a concrete instance of PolicyStepAdjustmentInput via:
-// 	PolicyStepAdjustmentArgs{...}
+// PolicyStepAdjustmentInput is an input type that accepts PolicyStepAdjustmentArgs and PolicyStepAdjustmentOutput values.
+// You can construct a concrete instance of `PolicyStepAdjustmentInput` via:
+//
+// 		 PolicyStepAdjustmentArgs{...}
+//
 type PolicyStepAdjustmentInput interface {
 	pulumi.Input
 
@@ -1019,8 +1076,11 @@ func (i PolicyStepAdjustmentArgs) ToPolicyStepAdjustmentOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyStepAdjustmentOutput)
 }
 
-// Construct a concrete instance of PolicyStepAdjustmentArrayInput via:
-// 	PolicyStepAdjustmentArray{ PolicyStepAdjustmentArgs{...} }
+// PolicyStepAdjustmentArrayInput is an input type that accepts PolicyStepAdjustmentArray and PolicyStepAdjustmentArrayOutput values.
+// You can construct a concrete instance of `PolicyStepAdjustmentArrayInput` via:
+//
+// 		 PolicyStepAdjustmentArray{ PolicyStepAdjustmentArgs{...} }
+//
 type PolicyStepAdjustmentArrayInput interface {
 	pulumi.Input
 
@@ -1109,8 +1169,11 @@ type PolicyTargetTrackingConfiguration struct {
 	TargetValue float64 `pulumi:"targetValue"`
 }
 
-// Construct a concrete instance of PolicyTargetTrackingConfigurationInput via:
-// 	PolicyTargetTrackingConfigurationArgs{...}
+// PolicyTargetTrackingConfigurationInput is an input type that accepts PolicyTargetTrackingConfigurationArgs and PolicyTargetTrackingConfigurationOutput values.
+// You can construct a concrete instance of `PolicyTargetTrackingConfigurationInput` via:
+//
+// 		 PolicyTargetTrackingConfigurationArgs{...}
+//
 type PolicyTargetTrackingConfigurationInput interface {
 	pulumi.Input
 
@@ -1149,8 +1212,15 @@ func (i PolicyTargetTrackingConfigurationArgs) ToPolicyTargetTrackingConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationOutput).ToPolicyTargetTrackingConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of PolicyTargetTrackingConfigurationPtrInput via:
-// 	PolicyTargetTrackingConfigurationArgs{...}.ToPolicyTargetTrackingConfigurationPtrOutput()
+// PolicyTargetTrackingConfigurationPtrInput is an input type that accepts PolicyTargetTrackingConfigurationArgs, PolicyTargetTrackingConfigurationPtr and PolicyTargetTrackingConfigurationPtrOutput values.
+// You can construct a concrete instance of `PolicyTargetTrackingConfigurationPtrInput` via:
+//
+// 		 PolicyTargetTrackingConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type PolicyTargetTrackingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1279,8 +1349,11 @@ type PolicyTargetTrackingConfigurationCustomizedMetricSpecification struct {
 	Unit *string `pulumi:"unit"`
 }
 
-// Construct a concrete instance of PolicyTargetTrackingConfigurationCustomizedMetricSpecificationInput via:
-// 	PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs{...}
+// PolicyTargetTrackingConfigurationCustomizedMetricSpecificationInput is an input type that accepts PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs and PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput values.
+// You can construct a concrete instance of `PolicyTargetTrackingConfigurationCustomizedMetricSpecificationInput` via:
+//
+// 		 PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs{...}
+//
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationInput interface {
 	pulumi.Input
 
@@ -1321,8 +1394,15 @@ func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs) ToPo
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput).ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrInput via:
-// 	PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs{...}.ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput()
+// PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrInput is an input type that accepts PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs, PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtr and PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput values.
+// You can construct a concrete instance of `PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrInput` via:
+//
+// 		 PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -1453,8 +1533,11 @@ type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensi
 	Value string `pulumi:"value"`
 }
 
-// Construct a concrete instance of PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionInput via:
-// 	PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs{...}
+// PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionInput is an input type that accepts PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs and PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionOutput values.
+// You can construct a concrete instance of `PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionInput` via:
+//
+// 		 PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs{...}
+//
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionInput interface {
 	pulumi.Input
 
@@ -1481,8 +1564,11 @@ func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDime
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionOutput)
 }
 
-// Construct a concrete instance of PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayInput via:
-// 	PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArray{ PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs{...} }
+// PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayInput is an input type that accepts PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArray and PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayOutput values.
+// You can construct a concrete instance of `PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayInput` via:
+//
+// 		 PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArray{ PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs{...} }
+//
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayInput interface {
 	pulumi.Input
 
@@ -1559,8 +1645,11 @@ type PolicyTargetTrackingConfigurationPredefinedMetricSpecification struct {
 	ResourceLabel *string `pulumi:"resourceLabel"`
 }
 
-// Construct a concrete instance of PolicyTargetTrackingConfigurationPredefinedMetricSpecificationInput via:
-// 	PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs{...}
+// PolicyTargetTrackingConfigurationPredefinedMetricSpecificationInput is an input type that accepts PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs and PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput values.
+// You can construct a concrete instance of `PolicyTargetTrackingConfigurationPredefinedMetricSpecificationInput` via:
+//
+// 		 PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs{...}
+//
 type PolicyTargetTrackingConfigurationPredefinedMetricSpecificationInput interface {
 	pulumi.Input
 
@@ -1595,8 +1684,15 @@ func (i PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs) ToPo
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput).ToPolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrInput via:
-// 	PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs{...}.ToPolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput()
+// PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrInput is an input type that accepts PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs, PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtr and PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput values.
+// You can construct a concrete instance of `PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrInput` via:
+//
+// 		 PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrInput interface {
 	pulumi.Input
 

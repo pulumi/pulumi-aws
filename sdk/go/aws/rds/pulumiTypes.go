@@ -21,8 +21,11 @@ type ClusterParameterGroupParameter struct {
 	Value string `pulumi:"value"`
 }
 
-// Construct a concrete instance of ClusterParameterGroupParameterInput via:
-// 	ClusterParameterGroupParameterArgs{...}
+// ClusterParameterGroupParameterInput is an input type that accepts ClusterParameterGroupParameterArgs and ClusterParameterGroupParameterOutput values.
+// You can construct a concrete instance of `ClusterParameterGroupParameterInput` via:
+//
+// 		 ClusterParameterGroupParameterArgs{...}
+//
 type ClusterParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -53,8 +56,11 @@ func (i ClusterParameterGroupParameterArgs) ToClusterParameterGroupParameterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupParameterOutput)
 }
 
-// Construct a concrete instance of ClusterParameterGroupParameterArrayInput via:
-// 	ClusterParameterGroupParameterArray{ ClusterParameterGroupParameterArgs{...} }
+// ClusterParameterGroupParameterArrayInput is an input type that accepts ClusterParameterGroupParameterArray and ClusterParameterGroupParameterArrayOutput values.
+// You can construct a concrete instance of `ClusterParameterGroupParameterArrayInput` via:
+//
+// 		 ClusterParameterGroupParameterArray{ ClusterParameterGroupParameterArgs{...} }
+//
 type ClusterParameterGroupParameterArrayInput interface {
 	pulumi.Input
 
@@ -140,8 +146,11 @@ type ClusterS3Import struct {
 	SourceEngineVersion string `pulumi:"sourceEngineVersion"`
 }
 
-// Construct a concrete instance of ClusterS3ImportInput via:
-// 	ClusterS3ImportArgs{...}
+// ClusterS3ImportInput is an input type that accepts ClusterS3ImportArgs and ClusterS3ImportOutput values.
+// You can construct a concrete instance of `ClusterS3ImportInput` via:
+//
+// 		 ClusterS3ImportArgs{...}
+//
 type ClusterS3ImportInput interface {
 	pulumi.Input
 
@@ -182,8 +191,15 @@ func (i ClusterS3ImportArgs) ToClusterS3ImportPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterS3ImportOutput).ToClusterS3ImportPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClusterS3ImportPtrInput via:
-// 	ClusterS3ImportArgs{...}.ToClusterS3ImportPtrOutput()
+// ClusterS3ImportPtrInput is an input type that accepts ClusterS3ImportArgs, ClusterS3ImportPtr and ClusterS3ImportPtrOutput values.
+// You can construct a concrete instance of `ClusterS3ImportPtrInput` via:
+//
+// 		 ClusterS3ImportArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClusterS3ImportPtrInput interface {
 	pulumi.Input
 
@@ -314,8 +330,11 @@ type ClusterScalingConfiguration struct {
 	TimeoutAction *string `pulumi:"timeoutAction"`
 }
 
-// Construct a concrete instance of ClusterScalingConfigurationInput via:
-// 	ClusterScalingConfigurationArgs{...}
+// ClusterScalingConfigurationInput is an input type that accepts ClusterScalingConfigurationArgs and ClusterScalingConfigurationOutput values.
+// You can construct a concrete instance of `ClusterScalingConfigurationInput` via:
+//
+// 		 ClusterScalingConfigurationArgs{...}
+//
 type ClusterScalingConfigurationInput interface {
 	pulumi.Input
 
@@ -356,8 +375,15 @@ func (i ClusterScalingConfigurationArgs) ToClusterScalingConfigurationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterScalingConfigurationOutput).ToClusterScalingConfigurationPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ClusterScalingConfigurationPtrInput via:
-// 	ClusterScalingConfigurationArgs{...}.ToClusterScalingConfigurationPtrOutput()
+// ClusterScalingConfigurationPtrInput is an input type that accepts ClusterScalingConfigurationArgs, ClusterScalingConfigurationPtr and ClusterScalingConfigurationPtrOutput values.
+// You can construct a concrete instance of `ClusterScalingConfigurationPtrInput` via:
+//
+// 		 ClusterScalingConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ClusterScalingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -488,8 +514,11 @@ type InstanceS3Import struct {
 	SourceEngineVersion string `pulumi:"sourceEngineVersion"`
 }
 
-// Construct a concrete instance of InstanceS3ImportInput via:
-// 	InstanceS3ImportArgs{...}
+// InstanceS3ImportInput is an input type that accepts InstanceS3ImportArgs and InstanceS3ImportOutput values.
+// You can construct a concrete instance of `InstanceS3ImportInput` via:
+//
+// 		 InstanceS3ImportArgs{...}
+//
 type InstanceS3ImportInput interface {
 	pulumi.Input
 
@@ -530,8 +559,15 @@ func (i InstanceS3ImportArgs) ToInstanceS3ImportPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceS3ImportOutput).ToInstanceS3ImportPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of InstanceS3ImportPtrInput via:
-// 	InstanceS3ImportArgs{...}.ToInstanceS3ImportPtrOutput()
+// InstanceS3ImportPtrInput is an input type that accepts InstanceS3ImportArgs, InstanceS3ImportPtr and InstanceS3ImportPtrOutput values.
+// You can construct a concrete instance of `InstanceS3ImportPtrInput` via:
+//
+// 		 InstanceS3ImportArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type InstanceS3ImportPtrInput interface {
 	pulumi.Input
 
@@ -664,8 +700,11 @@ type OptionGroupOption struct {
 	VpcSecurityGroupMemberships []string `pulumi:"vpcSecurityGroupMemberships"`
 }
 
-// Construct a concrete instance of OptionGroupOptionInput via:
-// 	OptionGroupOptionArgs{...}
+// OptionGroupOptionInput is an input type that accepts OptionGroupOptionArgs and OptionGroupOptionOutput values.
+// You can construct a concrete instance of `OptionGroupOptionInput` via:
+//
+// 		 OptionGroupOptionArgs{...}
+//
 type OptionGroupOptionInput interface {
 	pulumi.Input
 
@@ -700,8 +739,11 @@ func (i OptionGroupOptionArgs) ToOptionGroupOptionOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionOutput)
 }
 
-// Construct a concrete instance of OptionGroupOptionArrayInput via:
-// 	OptionGroupOptionArray{ OptionGroupOptionArgs{...} }
+// OptionGroupOptionArrayInput is an input type that accepts OptionGroupOptionArray and OptionGroupOptionArrayOutput values.
+// You can construct a concrete instance of `OptionGroupOptionArrayInput` via:
+//
+// 		 OptionGroupOptionArray{ OptionGroupOptionArgs{...} }
+//
 type OptionGroupOptionArrayInput interface {
 	pulumi.Input
 
@@ -794,8 +836,11 @@ type OptionGroupOptionOptionSetting struct {
 	Value string `pulumi:"value"`
 }
 
-// Construct a concrete instance of OptionGroupOptionOptionSettingInput via:
-// 	OptionGroupOptionOptionSettingArgs{...}
+// OptionGroupOptionOptionSettingInput is an input type that accepts OptionGroupOptionOptionSettingArgs and OptionGroupOptionOptionSettingOutput values.
+// You can construct a concrete instance of `OptionGroupOptionOptionSettingInput` via:
+//
+// 		 OptionGroupOptionOptionSettingArgs{...}
+//
 type OptionGroupOptionOptionSettingInput interface {
 	pulumi.Input
 
@@ -822,8 +867,11 @@ func (i OptionGroupOptionOptionSettingArgs) ToOptionGroupOptionOptionSettingOutp
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionOptionSettingOutput)
 }
 
-// Construct a concrete instance of OptionGroupOptionOptionSettingArrayInput via:
-// 	OptionGroupOptionOptionSettingArray{ OptionGroupOptionOptionSettingArgs{...} }
+// OptionGroupOptionOptionSettingArrayInput is an input type that accepts OptionGroupOptionOptionSettingArray and OptionGroupOptionOptionSettingArrayOutput values.
+// You can construct a concrete instance of `OptionGroupOptionOptionSettingArrayInput` via:
+//
+// 		 OptionGroupOptionOptionSettingArray{ OptionGroupOptionOptionSettingArgs{...} }
+//
 type OptionGroupOptionOptionSettingArrayInput interface {
 	pulumi.Input
 
@@ -900,8 +948,11 @@ type ParameterGroupParameter struct {
 	Value string `pulumi:"value"`
 }
 
-// Construct a concrete instance of ParameterGroupParameterInput via:
-// 	ParameterGroupParameterArgs{...}
+// ParameterGroupParameterInput is an input type that accepts ParameterGroupParameterArgs and ParameterGroupParameterOutput values.
+// You can construct a concrete instance of `ParameterGroupParameterInput` via:
+//
+// 		 ParameterGroupParameterArgs{...}
+//
 type ParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -932,8 +983,11 @@ func (i ParameterGroupParameterArgs) ToParameterGroupParameterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupParameterOutput)
 }
 
-// Construct a concrete instance of ParameterGroupParameterArrayInput via:
-// 	ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
+// ParameterGroupParameterArrayInput is an input type that accepts ParameterGroupParameterArray and ParameterGroupParameterArrayOutput values.
+// You can construct a concrete instance of `ParameterGroupParameterArrayInput` via:
+//
+// 		 ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
+//
 type ParameterGroupParameterArrayInput interface {
 	pulumi.Input
 
@@ -1018,8 +1072,11 @@ type SecurityGroupIngress struct {
 	SecurityGroupOwnerId *string `pulumi:"securityGroupOwnerId"`
 }
 
-// Construct a concrete instance of SecurityGroupIngressInput via:
-// 	SecurityGroupIngressArgs{...}
+// SecurityGroupIngressInput is an input type that accepts SecurityGroupIngressArgs and SecurityGroupIngressOutput values.
+// You can construct a concrete instance of `SecurityGroupIngressInput` via:
+//
+// 		 SecurityGroupIngressArgs{...}
+//
 type SecurityGroupIngressInput interface {
 	pulumi.Input
 
@@ -1051,8 +1108,11 @@ func (i SecurityGroupIngressArgs) ToSecurityGroupIngressOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressOutput)
 }
 
-// Construct a concrete instance of SecurityGroupIngressArrayInput via:
-// 	SecurityGroupIngressArray{ SecurityGroupIngressArgs{...} }
+// SecurityGroupIngressArrayInput is an input type that accepts SecurityGroupIngressArray and SecurityGroupIngressArrayOutput values.
+// You can construct a concrete instance of `SecurityGroupIngressArrayInput` via:
+//
+// 		 SecurityGroupIngressArray{ SecurityGroupIngressArgs{...} }
+//
 type SecurityGroupIngressArrayInput interface {
 	pulumi.Input
 

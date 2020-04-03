@@ -17,8 +17,11 @@ type GetProductFilter struct {
 	Value string `pulumi:"value"`
 }
 
-// Construct a concrete instance of GetProductFilterInput via:
-// 	GetProductFilterArgs{...}
+// GetProductFilterInput is an input type that accepts GetProductFilterArgs and GetProductFilterOutput values.
+// You can construct a concrete instance of `GetProductFilterInput` via:
+//
+// 		 GetProductFilterArgs{...}
+//
 type GetProductFilterInput interface {
 	pulumi.Input
 
@@ -45,8 +48,11 @@ func (i GetProductFilterArgs) ToGetProductFilterOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetProductFilterOutput)
 }
 
-// Construct a concrete instance of GetProductFilterArrayInput via:
-// 	GetProductFilterArray{ GetProductFilterArgs{...} }
+// GetProductFilterArrayInput is an input type that accepts GetProductFilterArray and GetProductFilterArrayOutput values.
+// You can construct a concrete instance of `GetProductFilterArrayInput` via:
+//
+// 		 GetProductFilterArray{ GetProductFilterArgs{...} }
+//
 type GetProductFilterArrayInput interface {
 	pulumi.Input
 

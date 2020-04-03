@@ -14,8 +14,11 @@ type MeshSpec struct {
 	EgressFilter *MeshSpecEgressFilter `pulumi:"egressFilter"`
 }
 
-// Construct a concrete instance of MeshSpecInput via:
-// 	MeshSpecArgs{...}
+// MeshSpecInput is an input type that accepts MeshSpecArgs and MeshSpecOutput values.
+// You can construct a concrete instance of `MeshSpecInput` via:
+//
+// 		 MeshSpecArgs{...}
+//
 type MeshSpecInput interface {
 	pulumi.Input
 
@@ -47,8 +50,15 @@ func (i MeshSpecArgs) ToMeshSpecPtrOutputWithContext(ctx context.Context) MeshSp
 	return pulumi.ToOutputWithContext(ctx, i).(MeshSpecOutput).ToMeshSpecPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of MeshSpecPtrInput via:
-// 	MeshSpecArgs{...}.ToMeshSpecPtrOutput()
+// MeshSpecPtrInput is an input type that accepts MeshSpecArgs, MeshSpecPtr and MeshSpecPtrOutput values.
+// You can construct a concrete instance of `MeshSpecPtrInput` via:
+//
+// 		 MeshSpecArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type MeshSpecPtrInput interface {
 	pulumi.Input
 
@@ -129,8 +139,11 @@ type MeshSpecEgressFilter struct {
 	Type *string `pulumi:"type"`
 }
 
-// Construct a concrete instance of MeshSpecEgressFilterInput via:
-// 	MeshSpecEgressFilterArgs{...}
+// MeshSpecEgressFilterInput is an input type that accepts MeshSpecEgressFilterArgs and MeshSpecEgressFilterOutput values.
+// You can construct a concrete instance of `MeshSpecEgressFilterInput` via:
+//
+// 		 MeshSpecEgressFilterArgs{...}
+//
 type MeshSpecEgressFilterInput interface {
 	pulumi.Input
 
@@ -164,8 +177,15 @@ func (i MeshSpecEgressFilterArgs) ToMeshSpecEgressFilterPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(MeshSpecEgressFilterOutput).ToMeshSpecEgressFilterPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of MeshSpecEgressFilterPtrInput via:
-// 	MeshSpecEgressFilterArgs{...}.ToMeshSpecEgressFilterPtrOutput()
+// MeshSpecEgressFilterPtrInput is an input type that accepts MeshSpecEgressFilterArgs, MeshSpecEgressFilterPtr and MeshSpecEgressFilterPtrOutput values.
+// You can construct a concrete instance of `MeshSpecEgressFilterPtrInput` via:
+//
+// 		 MeshSpecEgressFilterArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type MeshSpecEgressFilterPtrInput interface {
 	pulumi.Input
 
@@ -255,8 +275,11 @@ type RouteSpec struct {
 	TcpRoute *RouteSpecTcpRoute `pulumi:"tcpRoute"`
 }
 
-// Construct a concrete instance of RouteSpecInput via:
-// 	RouteSpecArgs{...}
+// RouteSpecInput is an input type that accepts RouteSpecArgs and RouteSpecOutput values.
+// You can construct a concrete instance of `RouteSpecInput` via:
+//
+// 		 RouteSpecArgs{...}
+//
 type RouteSpecInput interface {
 	pulumi.Input
 
@@ -294,8 +317,15 @@ func (i RouteSpecArgs) ToRouteSpecPtrOutputWithContext(ctx context.Context) Rout
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecOutput).ToRouteSpecPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of RouteSpecPtrInput via:
-// 	RouteSpecArgs{...}.ToRouteSpecPtrOutput()
+// RouteSpecPtrInput is an input type that accepts RouteSpecArgs, RouteSpecPtr and RouteSpecPtrOutput values.
+// You can construct a concrete instance of `RouteSpecPtrInput` via:
+//
+// 		 RouteSpecArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type RouteSpecPtrInput interface {
 	pulumi.Input
 
@@ -402,8 +432,11 @@ type RouteSpecHttpRoute struct {
 	Match RouteSpecHttpRouteMatch `pulumi:"match"`
 }
 
-// Construct a concrete instance of RouteSpecHttpRouteInput via:
-// 	RouteSpecHttpRouteArgs{...}
+// RouteSpecHttpRouteInput is an input type that accepts RouteSpecHttpRouteArgs and RouteSpecHttpRouteOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteInput` via:
+//
+// 		 RouteSpecHttpRouteArgs{...}
+//
 type RouteSpecHttpRouteInput interface {
 	pulumi.Input
 
@@ -438,8 +471,15 @@ func (i RouteSpecHttpRouteArgs) ToRouteSpecHttpRoutePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteOutput).ToRouteSpecHttpRoutePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of RouteSpecHttpRoutePtrInput via:
-// 	RouteSpecHttpRouteArgs{...}.ToRouteSpecHttpRoutePtrOutput()
+// RouteSpecHttpRoutePtrInput is an input type that accepts RouteSpecHttpRouteArgs, RouteSpecHttpRoutePtr and RouteSpecHttpRoutePtrOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRoutePtrInput` via:
+//
+// 		 RouteSpecHttpRouteArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type RouteSpecHttpRoutePtrInput interface {
 	pulumi.Input
 
@@ -533,8 +573,11 @@ type RouteSpecHttpRouteAction struct {
 	WeightedTargets []RouteSpecHttpRouteActionWeightedTarget `pulumi:"weightedTargets"`
 }
 
-// Construct a concrete instance of RouteSpecHttpRouteActionInput via:
-// 	RouteSpecHttpRouteActionArgs{...}
+// RouteSpecHttpRouteActionInput is an input type that accepts RouteSpecHttpRouteActionArgs and RouteSpecHttpRouteActionOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteActionInput` via:
+//
+// 		 RouteSpecHttpRouteActionArgs{...}
+//
 type RouteSpecHttpRouteActionInput interface {
 	pulumi.Input
 
@@ -587,8 +630,11 @@ type RouteSpecHttpRouteActionWeightedTarget struct {
 	Weight int `pulumi:"weight"`
 }
 
-// Construct a concrete instance of RouteSpecHttpRouteActionWeightedTargetInput via:
-// 	RouteSpecHttpRouteActionWeightedTargetArgs{...}
+// RouteSpecHttpRouteActionWeightedTargetInput is an input type that accepts RouteSpecHttpRouteActionWeightedTargetArgs and RouteSpecHttpRouteActionWeightedTargetOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteActionWeightedTargetInput` via:
+//
+// 		 RouteSpecHttpRouteActionWeightedTargetArgs{...}
+//
 type RouteSpecHttpRouteActionWeightedTargetInput interface {
 	pulumi.Input
 
@@ -615,8 +661,11 @@ func (i RouteSpecHttpRouteActionWeightedTargetArgs) ToRouteSpecHttpRouteActionWe
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteActionWeightedTargetOutput)
 }
 
-// Construct a concrete instance of RouteSpecHttpRouteActionWeightedTargetArrayInput via:
-// 	RouteSpecHttpRouteActionWeightedTargetArray{ RouteSpecHttpRouteActionWeightedTargetArgs{...} }
+// RouteSpecHttpRouteActionWeightedTargetArrayInput is an input type that accepts RouteSpecHttpRouteActionWeightedTargetArray and RouteSpecHttpRouteActionWeightedTargetArrayOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteActionWeightedTargetArrayInput` via:
+//
+// 		 RouteSpecHttpRouteActionWeightedTargetArray{ RouteSpecHttpRouteActionWeightedTargetArgs{...} }
+//
 type RouteSpecHttpRouteActionWeightedTargetArrayInput interface {
 	pulumi.Input
 
@@ -695,8 +744,11 @@ type RouteSpecHttpRouteMatch struct {
 	Scheme *string `pulumi:"scheme"`
 }
 
-// Construct a concrete instance of RouteSpecHttpRouteMatchInput via:
-// 	RouteSpecHttpRouteMatchArgs{...}
+// RouteSpecHttpRouteMatchInput is an input type that accepts RouteSpecHttpRouteMatchArgs and RouteSpecHttpRouteMatchOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteMatchInput` via:
+//
+// 		 RouteSpecHttpRouteMatchArgs{...}
+//
 type RouteSpecHttpRouteMatchInput interface {
 	pulumi.Input
 
@@ -774,8 +826,11 @@ type RouteSpecHttpRouteMatchHeader struct {
 	Name string `pulumi:"name"`
 }
 
-// Construct a concrete instance of RouteSpecHttpRouteMatchHeaderInput via:
-// 	RouteSpecHttpRouteMatchHeaderArgs{...}
+// RouteSpecHttpRouteMatchHeaderInput is an input type that accepts RouteSpecHttpRouteMatchHeaderArgs and RouteSpecHttpRouteMatchHeaderOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteMatchHeaderInput` via:
+//
+// 		 RouteSpecHttpRouteMatchHeaderArgs{...}
+//
 type RouteSpecHttpRouteMatchHeaderInput interface {
 	pulumi.Input
 
@@ -804,8 +859,11 @@ func (i RouteSpecHttpRouteMatchHeaderArgs) ToRouteSpecHttpRouteMatchHeaderOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteMatchHeaderOutput)
 }
 
-// Construct a concrete instance of RouteSpecHttpRouteMatchHeaderArrayInput via:
-// 	RouteSpecHttpRouteMatchHeaderArray{ RouteSpecHttpRouteMatchHeaderArgs{...} }
+// RouteSpecHttpRouteMatchHeaderArrayInput is an input type that accepts RouteSpecHttpRouteMatchHeaderArray and RouteSpecHttpRouteMatchHeaderArrayOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteMatchHeaderArrayInput` via:
+//
+// 		 RouteSpecHttpRouteMatchHeaderArray{ RouteSpecHttpRouteMatchHeaderArgs{...} }
+//
 type RouteSpecHttpRouteMatchHeaderArrayInput interface {
 	pulumi.Input
 
@@ -890,8 +948,11 @@ type RouteSpecHttpRouteMatchHeaderMatch struct {
 	Suffix *string `pulumi:"suffix"`
 }
 
-// Construct a concrete instance of RouteSpecHttpRouteMatchHeaderMatchInput via:
-// 	RouteSpecHttpRouteMatchHeaderMatchArgs{...}
+// RouteSpecHttpRouteMatchHeaderMatchInput is an input type that accepts RouteSpecHttpRouteMatchHeaderMatchArgs and RouteSpecHttpRouteMatchHeaderMatchOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteMatchHeaderMatchInput` via:
+//
+// 		 RouteSpecHttpRouteMatchHeaderMatchArgs{...}
+//
 type RouteSpecHttpRouteMatchHeaderMatchInput interface {
 	pulumi.Input
 
@@ -933,8 +994,15 @@ func (i RouteSpecHttpRouteMatchHeaderMatchArgs) ToRouteSpecHttpRouteMatchHeaderM
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteMatchHeaderMatchOutput).ToRouteSpecHttpRouteMatchHeaderMatchPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of RouteSpecHttpRouteMatchHeaderMatchPtrInput via:
-// 	RouteSpecHttpRouteMatchHeaderMatchArgs{...}.ToRouteSpecHttpRouteMatchHeaderMatchPtrOutput()
+// RouteSpecHttpRouteMatchHeaderMatchPtrInput is an input type that accepts RouteSpecHttpRouteMatchHeaderMatchArgs, RouteSpecHttpRouteMatchHeaderMatchPtr and RouteSpecHttpRouteMatchHeaderMatchPtrOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteMatchHeaderMatchPtrInput` via:
+//
+// 		 RouteSpecHttpRouteMatchHeaderMatchArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type RouteSpecHttpRouteMatchHeaderMatchPtrInput interface {
 	pulumi.Input
 
@@ -1061,8 +1129,11 @@ type RouteSpecHttpRouteMatchHeaderMatchRange struct {
 	Start int `pulumi:"start"`
 }
 
-// Construct a concrete instance of RouteSpecHttpRouteMatchHeaderMatchRangeInput via:
-// 	RouteSpecHttpRouteMatchHeaderMatchRangeArgs{...}
+// RouteSpecHttpRouteMatchHeaderMatchRangeInput is an input type that accepts RouteSpecHttpRouteMatchHeaderMatchRangeArgs and RouteSpecHttpRouteMatchHeaderMatchRangeOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteMatchHeaderMatchRangeInput` via:
+//
+// 		 RouteSpecHttpRouteMatchHeaderMatchRangeArgs{...}
+//
 type RouteSpecHttpRouteMatchHeaderMatchRangeInput interface {
 	pulumi.Input
 
@@ -1097,8 +1168,15 @@ func (i RouteSpecHttpRouteMatchHeaderMatchRangeArgs) ToRouteSpecHttpRouteMatchHe
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteMatchHeaderMatchRangeOutput).ToRouteSpecHttpRouteMatchHeaderMatchRangePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of RouteSpecHttpRouteMatchHeaderMatchRangePtrInput via:
-// 	RouteSpecHttpRouteMatchHeaderMatchRangeArgs{...}.ToRouteSpecHttpRouteMatchHeaderMatchRangePtrOutput()
+// RouteSpecHttpRouteMatchHeaderMatchRangePtrInput is an input type that accepts RouteSpecHttpRouteMatchHeaderMatchRangeArgs, RouteSpecHttpRouteMatchHeaderMatchRangePtr and RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput values.
+// You can construct a concrete instance of `RouteSpecHttpRouteMatchHeaderMatchRangePtrInput` via:
+//
+// 		 RouteSpecHttpRouteMatchHeaderMatchRangeArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type RouteSpecHttpRouteMatchHeaderMatchRangePtrInput interface {
 	pulumi.Input
 
@@ -1191,8 +1269,11 @@ type RouteSpecTcpRoute struct {
 	Action RouteSpecTcpRouteAction `pulumi:"action"`
 }
 
-// Construct a concrete instance of RouteSpecTcpRouteInput via:
-// 	RouteSpecTcpRouteArgs{...}
+// RouteSpecTcpRouteInput is an input type that accepts RouteSpecTcpRouteArgs and RouteSpecTcpRouteOutput values.
+// You can construct a concrete instance of `RouteSpecTcpRouteInput` via:
+//
+// 		 RouteSpecTcpRouteArgs{...}
+//
 type RouteSpecTcpRouteInput interface {
 	pulumi.Input
 
@@ -1225,8 +1306,15 @@ func (i RouteSpecTcpRouteArgs) ToRouteSpecTcpRoutePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecTcpRouteOutput).ToRouteSpecTcpRoutePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of RouteSpecTcpRoutePtrInput via:
-// 	RouteSpecTcpRouteArgs{...}.ToRouteSpecTcpRoutePtrOutput()
+// RouteSpecTcpRoutePtrInput is an input type that accepts RouteSpecTcpRouteArgs, RouteSpecTcpRoutePtr and RouteSpecTcpRoutePtrOutput values.
+// You can construct a concrete instance of `RouteSpecTcpRoutePtrInput` via:
+//
+// 		 RouteSpecTcpRouteArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type RouteSpecTcpRoutePtrInput interface {
 	pulumi.Input
 
@@ -1310,8 +1398,11 @@ type RouteSpecTcpRouteAction struct {
 	WeightedTargets []RouteSpecTcpRouteActionWeightedTarget `pulumi:"weightedTargets"`
 }
 
-// Construct a concrete instance of RouteSpecTcpRouteActionInput via:
-// 	RouteSpecTcpRouteActionArgs{...}
+// RouteSpecTcpRouteActionInput is an input type that accepts RouteSpecTcpRouteActionArgs and RouteSpecTcpRouteActionOutput values.
+// You can construct a concrete instance of `RouteSpecTcpRouteActionInput` via:
+//
+// 		 RouteSpecTcpRouteActionArgs{...}
+//
 type RouteSpecTcpRouteActionInput interface {
 	pulumi.Input
 
@@ -1364,8 +1455,11 @@ type RouteSpecTcpRouteActionWeightedTarget struct {
 	Weight int `pulumi:"weight"`
 }
 
-// Construct a concrete instance of RouteSpecTcpRouteActionWeightedTargetInput via:
-// 	RouteSpecTcpRouteActionWeightedTargetArgs{...}
+// RouteSpecTcpRouteActionWeightedTargetInput is an input type that accepts RouteSpecTcpRouteActionWeightedTargetArgs and RouteSpecTcpRouteActionWeightedTargetOutput values.
+// You can construct a concrete instance of `RouteSpecTcpRouteActionWeightedTargetInput` via:
+//
+// 		 RouteSpecTcpRouteActionWeightedTargetArgs{...}
+//
 type RouteSpecTcpRouteActionWeightedTargetInput interface {
 	pulumi.Input
 
@@ -1392,8 +1486,11 @@ func (i RouteSpecTcpRouteActionWeightedTargetArgs) ToRouteSpecTcpRouteActionWeig
 	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecTcpRouteActionWeightedTargetOutput)
 }
 
-// Construct a concrete instance of RouteSpecTcpRouteActionWeightedTargetArrayInput via:
-// 	RouteSpecTcpRouteActionWeightedTargetArray{ RouteSpecTcpRouteActionWeightedTargetArgs{...} }
+// RouteSpecTcpRouteActionWeightedTargetArrayInput is an input type that accepts RouteSpecTcpRouteActionWeightedTargetArray and RouteSpecTcpRouteActionWeightedTargetArrayOutput values.
+// You can construct a concrete instance of `RouteSpecTcpRouteActionWeightedTargetArrayInput` via:
+//
+// 		 RouteSpecTcpRouteActionWeightedTargetArray{ RouteSpecTcpRouteActionWeightedTargetArgs{...} }
+//
 type RouteSpecTcpRouteActionWeightedTargetArrayInput interface {
 	pulumi.Input
 
@@ -1470,8 +1567,11 @@ type VirtualNodeSpec struct {
 	ServiceDiscovery *VirtualNodeSpecServiceDiscovery `pulumi:"serviceDiscovery"`
 }
 
-// Construct a concrete instance of VirtualNodeSpecInput via:
-// 	VirtualNodeSpecArgs{...}
+// VirtualNodeSpecInput is an input type that accepts VirtualNodeSpecArgs and VirtualNodeSpecOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecInput` via:
+//
+// 		 VirtualNodeSpecArgs{...}
+//
 type VirtualNodeSpecInput interface {
 	pulumi.Input
 
@@ -1510,8 +1610,15 @@ func (i VirtualNodeSpecArgs) ToVirtualNodeSpecPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecOutput).ToVirtualNodeSpecPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of VirtualNodeSpecPtrInput via:
-// 	VirtualNodeSpecArgs{...}.ToVirtualNodeSpecPtrOutput()
+// VirtualNodeSpecPtrInput is an input type that accepts VirtualNodeSpecArgs, VirtualNodeSpecPtr and VirtualNodeSpecPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecPtrInput` via:
+//
+// 		 VirtualNodeSpecArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type VirtualNodeSpecPtrInput interface {
 	pulumi.Input
 
@@ -1624,8 +1731,11 @@ type VirtualNodeSpecBackend struct {
 	VirtualService *VirtualNodeSpecBackendVirtualService `pulumi:"virtualService"`
 }
 
-// Construct a concrete instance of VirtualNodeSpecBackendInput via:
-// 	VirtualNodeSpecBackendArgs{...}
+// VirtualNodeSpecBackendInput is an input type that accepts VirtualNodeSpecBackendArgs and VirtualNodeSpecBackendOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendInput` via:
+//
+// 		 VirtualNodeSpecBackendArgs{...}
+//
 type VirtualNodeSpecBackendInput interface {
 	pulumi.Input
 
@@ -1650,8 +1760,11 @@ func (i VirtualNodeSpecBackendArgs) ToVirtualNodeSpecBackendOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendOutput)
 }
 
-// Construct a concrete instance of VirtualNodeSpecBackendArrayInput via:
-// 	VirtualNodeSpecBackendArray{ VirtualNodeSpecBackendArgs{...} }
+// VirtualNodeSpecBackendArrayInput is an input type that accepts VirtualNodeSpecBackendArray and VirtualNodeSpecBackendArrayOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendArrayInput` via:
+//
+// 		 VirtualNodeSpecBackendArray{ VirtualNodeSpecBackendArgs{...} }
+//
 type VirtualNodeSpecBackendArrayInput interface {
 	pulumi.Input
 
@@ -1717,8 +1830,11 @@ type VirtualNodeSpecBackendVirtualService struct {
 	VirtualServiceName string `pulumi:"virtualServiceName"`
 }
 
-// Construct a concrete instance of VirtualNodeSpecBackendVirtualServiceInput via:
-// 	VirtualNodeSpecBackendVirtualServiceArgs{...}
+// VirtualNodeSpecBackendVirtualServiceInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceArgs and VirtualNodeSpecBackendVirtualServiceOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServiceInput` via:
+//
+// 		 VirtualNodeSpecBackendVirtualServiceArgs{...}
+//
 type VirtualNodeSpecBackendVirtualServiceInput interface {
 	pulumi.Input
 
@@ -1751,8 +1867,15 @@ func (i VirtualNodeSpecBackendVirtualServiceArgs) ToVirtualNodeSpecBackendVirtua
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecBackendVirtualServiceOutput).ToVirtualNodeSpecBackendVirtualServicePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of VirtualNodeSpecBackendVirtualServicePtrInput via:
-// 	VirtualNodeSpecBackendVirtualServiceArgs{...}.ToVirtualNodeSpecBackendVirtualServicePtrOutput()
+// VirtualNodeSpecBackendVirtualServicePtrInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceArgs, VirtualNodeSpecBackendVirtualServicePtr and VirtualNodeSpecBackendVirtualServicePtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecBackendVirtualServicePtrInput` via:
+//
+// 		 VirtualNodeSpecBackendVirtualServiceArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type VirtualNodeSpecBackendVirtualServicePtrInput interface {
 	pulumi.Input
 
@@ -1837,8 +1960,11 @@ type VirtualNodeSpecListener struct {
 	PortMapping VirtualNodeSpecListenerPortMapping `pulumi:"portMapping"`
 }
 
-// Construct a concrete instance of VirtualNodeSpecListenerInput via:
-// 	VirtualNodeSpecListenerArgs{...}
+// VirtualNodeSpecListenerInput is an input type that accepts VirtualNodeSpecListenerArgs and VirtualNodeSpecListenerOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerInput` via:
+//
+// 		 VirtualNodeSpecListenerArgs{...}
+//
 type VirtualNodeSpecListenerInput interface {
 	pulumi.Input
 
@@ -1873,8 +1999,15 @@ func (i VirtualNodeSpecListenerArgs) ToVirtualNodeSpecListenerPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerOutput).ToVirtualNodeSpecListenerPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of VirtualNodeSpecListenerPtrInput via:
-// 	VirtualNodeSpecListenerArgs{...}.ToVirtualNodeSpecListenerPtrOutput()
+// VirtualNodeSpecListenerPtrInput is an input type that accepts VirtualNodeSpecListenerArgs, VirtualNodeSpecListenerPtr and VirtualNodeSpecListenerPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerPtrInput` via:
+//
+// 		 VirtualNodeSpecListenerArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type VirtualNodeSpecListenerPtrInput interface {
 	pulumi.Input
 
@@ -1979,8 +2112,11 @@ type VirtualNodeSpecListenerHealthCheck struct {
 	UnhealthyThreshold int `pulumi:"unhealthyThreshold"`
 }
 
-// Construct a concrete instance of VirtualNodeSpecListenerHealthCheckInput via:
-// 	VirtualNodeSpecListenerHealthCheckArgs{...}
+// VirtualNodeSpecListenerHealthCheckInput is an input type that accepts VirtualNodeSpecListenerHealthCheckArgs and VirtualNodeSpecListenerHealthCheckOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerHealthCheckInput` via:
+//
+// 		 VirtualNodeSpecListenerHealthCheckArgs{...}
+//
 type VirtualNodeSpecListenerHealthCheckInput interface {
 	pulumi.Input
 
@@ -2025,8 +2161,15 @@ func (i VirtualNodeSpecListenerHealthCheckArgs) ToVirtualNodeSpecListenerHealthC
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerHealthCheckOutput).ToVirtualNodeSpecListenerHealthCheckPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of VirtualNodeSpecListenerHealthCheckPtrInput via:
-// 	VirtualNodeSpecListenerHealthCheckArgs{...}.ToVirtualNodeSpecListenerHealthCheckPtrOutput()
+// VirtualNodeSpecListenerHealthCheckPtrInput is an input type that accepts VirtualNodeSpecListenerHealthCheckArgs, VirtualNodeSpecListenerHealthCheckPtr and VirtualNodeSpecListenerHealthCheckPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerHealthCheckPtrInput` via:
+//
+// 		 VirtualNodeSpecListenerHealthCheckArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type VirtualNodeSpecListenerHealthCheckPtrInput interface {
 	pulumi.Input
 
@@ -2171,8 +2314,11 @@ type VirtualNodeSpecListenerPortMapping struct {
 	Protocol string `pulumi:"protocol"`
 }
 
-// Construct a concrete instance of VirtualNodeSpecListenerPortMappingInput via:
-// 	VirtualNodeSpecListenerPortMappingArgs{...}
+// VirtualNodeSpecListenerPortMappingInput is an input type that accepts VirtualNodeSpecListenerPortMappingArgs and VirtualNodeSpecListenerPortMappingOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerPortMappingInput` via:
+//
+// 		 VirtualNodeSpecListenerPortMappingArgs{...}
+//
 type VirtualNodeSpecListenerPortMappingInput interface {
 	pulumi.Input
 
@@ -2228,8 +2374,11 @@ type VirtualNodeSpecLogging struct {
 	AccessLog *VirtualNodeSpecLoggingAccessLog `pulumi:"accessLog"`
 }
 
-// Construct a concrete instance of VirtualNodeSpecLoggingInput via:
-// 	VirtualNodeSpecLoggingArgs{...}
+// VirtualNodeSpecLoggingInput is an input type that accepts VirtualNodeSpecLoggingArgs and VirtualNodeSpecLoggingOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecLoggingInput` via:
+//
+// 		 VirtualNodeSpecLoggingArgs{...}
+//
 type VirtualNodeSpecLoggingInput interface {
 	pulumi.Input
 
@@ -2262,8 +2411,15 @@ func (i VirtualNodeSpecLoggingArgs) ToVirtualNodeSpecLoggingPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecLoggingOutput).ToVirtualNodeSpecLoggingPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of VirtualNodeSpecLoggingPtrInput via:
-// 	VirtualNodeSpecLoggingArgs{...}.ToVirtualNodeSpecLoggingPtrOutput()
+// VirtualNodeSpecLoggingPtrInput is an input type that accepts VirtualNodeSpecLoggingArgs, VirtualNodeSpecLoggingPtr and VirtualNodeSpecLoggingPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecLoggingPtrInput` via:
+//
+// 		 VirtualNodeSpecLoggingArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type VirtualNodeSpecLoggingPtrInput interface {
 	pulumi.Input
 
@@ -2346,8 +2502,11 @@ type VirtualNodeSpecLoggingAccessLog struct {
 	File *VirtualNodeSpecLoggingAccessLogFile `pulumi:"file"`
 }
 
-// Construct a concrete instance of VirtualNodeSpecLoggingAccessLogInput via:
-// 	VirtualNodeSpecLoggingAccessLogArgs{...}
+// VirtualNodeSpecLoggingAccessLogInput is an input type that accepts VirtualNodeSpecLoggingAccessLogArgs and VirtualNodeSpecLoggingAccessLogOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecLoggingAccessLogInput` via:
+//
+// 		 VirtualNodeSpecLoggingAccessLogArgs{...}
+//
 type VirtualNodeSpecLoggingAccessLogInput interface {
 	pulumi.Input
 
@@ -2380,8 +2539,15 @@ func (i VirtualNodeSpecLoggingAccessLogArgs) ToVirtualNodeSpecLoggingAccessLogPt
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecLoggingAccessLogOutput).ToVirtualNodeSpecLoggingAccessLogPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of VirtualNodeSpecLoggingAccessLogPtrInput via:
-// 	VirtualNodeSpecLoggingAccessLogArgs{...}.ToVirtualNodeSpecLoggingAccessLogPtrOutput()
+// VirtualNodeSpecLoggingAccessLogPtrInput is an input type that accepts VirtualNodeSpecLoggingAccessLogArgs, VirtualNodeSpecLoggingAccessLogPtr and VirtualNodeSpecLoggingAccessLogPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecLoggingAccessLogPtrInput` via:
+//
+// 		 VirtualNodeSpecLoggingAccessLogArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type VirtualNodeSpecLoggingAccessLogPtrInput interface {
 	pulumi.Input
 
@@ -2464,8 +2630,11 @@ type VirtualNodeSpecLoggingAccessLogFile struct {
 	Path string `pulumi:"path"`
 }
 
-// Construct a concrete instance of VirtualNodeSpecLoggingAccessLogFileInput via:
-// 	VirtualNodeSpecLoggingAccessLogFileArgs{...}
+// VirtualNodeSpecLoggingAccessLogFileInput is an input type that accepts VirtualNodeSpecLoggingAccessLogFileArgs and VirtualNodeSpecLoggingAccessLogFileOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecLoggingAccessLogFileInput` via:
+//
+// 		 VirtualNodeSpecLoggingAccessLogFileArgs{...}
+//
 type VirtualNodeSpecLoggingAccessLogFileInput interface {
 	pulumi.Input
 
@@ -2498,8 +2667,15 @@ func (i VirtualNodeSpecLoggingAccessLogFileArgs) ToVirtualNodeSpecLoggingAccessL
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecLoggingAccessLogFileOutput).ToVirtualNodeSpecLoggingAccessLogFilePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of VirtualNodeSpecLoggingAccessLogFilePtrInput via:
-// 	VirtualNodeSpecLoggingAccessLogFileArgs{...}.ToVirtualNodeSpecLoggingAccessLogFilePtrOutput()
+// VirtualNodeSpecLoggingAccessLogFilePtrInput is an input type that accepts VirtualNodeSpecLoggingAccessLogFileArgs, VirtualNodeSpecLoggingAccessLogFilePtr and VirtualNodeSpecLoggingAccessLogFilePtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecLoggingAccessLogFilePtrInput` via:
+//
+// 		 VirtualNodeSpecLoggingAccessLogFileArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type VirtualNodeSpecLoggingAccessLogFilePtrInput interface {
 	pulumi.Input
 
@@ -2584,8 +2760,11 @@ type VirtualNodeSpecServiceDiscovery struct {
 	Dns *VirtualNodeSpecServiceDiscoveryDns `pulumi:"dns"`
 }
 
-// Construct a concrete instance of VirtualNodeSpecServiceDiscoveryInput via:
-// 	VirtualNodeSpecServiceDiscoveryArgs{...}
+// VirtualNodeSpecServiceDiscoveryInput is an input type that accepts VirtualNodeSpecServiceDiscoveryArgs and VirtualNodeSpecServiceDiscoveryOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecServiceDiscoveryInput` via:
+//
+// 		 VirtualNodeSpecServiceDiscoveryArgs{...}
+//
 type VirtualNodeSpecServiceDiscoveryInput interface {
 	pulumi.Input
 
@@ -2620,8 +2799,15 @@ func (i VirtualNodeSpecServiceDiscoveryArgs) ToVirtualNodeSpecServiceDiscoveryPt
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecServiceDiscoveryOutput).ToVirtualNodeSpecServiceDiscoveryPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of VirtualNodeSpecServiceDiscoveryPtrInput via:
-// 	VirtualNodeSpecServiceDiscoveryArgs{...}.ToVirtualNodeSpecServiceDiscoveryPtrOutput()
+// VirtualNodeSpecServiceDiscoveryPtrInput is an input type that accepts VirtualNodeSpecServiceDiscoveryArgs, VirtualNodeSpecServiceDiscoveryPtr and VirtualNodeSpecServiceDiscoveryPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecServiceDiscoveryPtrInput` via:
+//
+// 		 VirtualNodeSpecServiceDiscoveryArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type VirtualNodeSpecServiceDiscoveryPtrInput interface {
 	pulumi.Input
 
@@ -2723,8 +2909,11 @@ type VirtualNodeSpecServiceDiscoveryAwsCloudMap struct {
 	ServiceName string `pulumi:"serviceName"`
 }
 
-// Construct a concrete instance of VirtualNodeSpecServiceDiscoveryAwsCloudMapInput via:
-// 	VirtualNodeSpecServiceDiscoveryAwsCloudMap{ "key": VirtualNodeSpecServiceDiscoveryAwsCloudArgs{...} }
+// VirtualNodeSpecServiceDiscoveryAwsCloudMapInput is an input type that accepts VirtualNodeSpecServiceDiscoveryAwsCloudMap and VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecServiceDiscoveryAwsCloudMapInput` via:
+//
+// 		 VirtualNodeSpecServiceDiscoveryAwsCloudMap{ "key": VirtualNodeSpecServiceDiscoveryAwsCloudArgs{...} }
+//
 type VirtualNodeSpecServiceDiscoveryAwsCloudMapInput interface {
 	pulumi.Input
 
@@ -2762,8 +2951,15 @@ func (i VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs) ToVirtualNodeSpecService
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput).ToVirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrInput via:
-// 	VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs{...}.ToVirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput()
+// VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrInput is an input type that accepts VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs, VirtualNodeSpecServiceDiscoveryAwsCloudMapPtr and VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrInput` via:
+//
+// 		 VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrInput interface {
 	pulumi.Input
 
@@ -2870,8 +3066,11 @@ type VirtualNodeSpecServiceDiscoveryDns struct {
 	Hostname string `pulumi:"hostname"`
 }
 
-// Construct a concrete instance of VirtualNodeSpecServiceDiscoveryDnsInput via:
-// 	VirtualNodeSpecServiceDiscoveryDnsArgs{...}
+// VirtualNodeSpecServiceDiscoveryDnsInput is an input type that accepts VirtualNodeSpecServiceDiscoveryDnsArgs and VirtualNodeSpecServiceDiscoveryDnsOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecServiceDiscoveryDnsInput` via:
+//
+// 		 VirtualNodeSpecServiceDiscoveryDnsArgs{...}
+//
 type VirtualNodeSpecServiceDiscoveryDnsInput interface {
 	pulumi.Input
 
@@ -2904,8 +3103,15 @@ func (i VirtualNodeSpecServiceDiscoveryDnsArgs) ToVirtualNodeSpecServiceDiscover
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecServiceDiscoveryDnsOutput).ToVirtualNodeSpecServiceDiscoveryDnsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of VirtualNodeSpecServiceDiscoveryDnsPtrInput via:
-// 	VirtualNodeSpecServiceDiscoveryDnsArgs{...}.ToVirtualNodeSpecServiceDiscoveryDnsPtrOutput()
+// VirtualNodeSpecServiceDiscoveryDnsPtrInput is an input type that accepts VirtualNodeSpecServiceDiscoveryDnsArgs, VirtualNodeSpecServiceDiscoveryDnsPtr and VirtualNodeSpecServiceDiscoveryDnsPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecServiceDiscoveryDnsPtrInput` via:
+//
+// 		 VirtualNodeSpecServiceDiscoveryDnsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type VirtualNodeSpecServiceDiscoveryDnsPtrInput interface {
 	pulumi.Input
 
@@ -2989,8 +3195,11 @@ type VirtualRouterSpec struct {
 	Listener VirtualRouterSpecListener `pulumi:"listener"`
 }
 
-// Construct a concrete instance of VirtualRouterSpecInput via:
-// 	VirtualRouterSpecArgs{...}
+// VirtualRouterSpecInput is an input type that accepts VirtualRouterSpecArgs and VirtualRouterSpecOutput values.
+// You can construct a concrete instance of `VirtualRouterSpecInput` via:
+//
+// 		 VirtualRouterSpecArgs{...}
+//
 type VirtualRouterSpecInput interface {
 	pulumi.Input
 
@@ -3024,8 +3233,15 @@ func (i VirtualRouterSpecArgs) ToVirtualRouterSpecPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterSpecOutput).ToVirtualRouterSpecPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of VirtualRouterSpecPtrInput via:
-// 	VirtualRouterSpecArgs{...}.ToVirtualRouterSpecPtrOutput()
+// VirtualRouterSpecPtrInput is an input type that accepts VirtualRouterSpecArgs, VirtualRouterSpecPtr and VirtualRouterSpecPtrOutput values.
+// You can construct a concrete instance of `VirtualRouterSpecPtrInput` via:
+//
+// 		 VirtualRouterSpecArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type VirtualRouterSpecPtrInput interface {
 	pulumi.Input
 
@@ -3110,8 +3326,11 @@ type VirtualRouterSpecListener struct {
 	PortMapping VirtualRouterSpecListenerPortMapping `pulumi:"portMapping"`
 }
 
-// Construct a concrete instance of VirtualRouterSpecListenerInput via:
-// 	VirtualRouterSpecListenerArgs{...}
+// VirtualRouterSpecListenerInput is an input type that accepts VirtualRouterSpecListenerArgs and VirtualRouterSpecListenerOutput values.
+// You can construct a concrete instance of `VirtualRouterSpecListenerInput` via:
+//
+// 		 VirtualRouterSpecListenerArgs{...}
+//
 type VirtualRouterSpecListenerInput interface {
 	pulumi.Input
 
@@ -3162,8 +3381,11 @@ type VirtualRouterSpecListenerPortMapping struct {
 	Protocol string `pulumi:"protocol"`
 }
 
-// Construct a concrete instance of VirtualRouterSpecListenerPortMappingInput via:
-// 	VirtualRouterSpecListenerPortMappingArgs{...}
+// VirtualRouterSpecListenerPortMappingInput is an input type that accepts VirtualRouterSpecListenerPortMappingArgs and VirtualRouterSpecListenerPortMappingOutput values.
+// You can construct a concrete instance of `VirtualRouterSpecListenerPortMappingInput` via:
+//
+// 		 VirtualRouterSpecListenerPortMappingArgs{...}
+//
 type VirtualRouterSpecListenerPortMappingInput interface {
 	pulumi.Input
 
@@ -3218,8 +3440,11 @@ type VirtualServiceSpec struct {
 	Provider *VirtualServiceSpecProvider `pulumi:"provider"`
 }
 
-// Construct a concrete instance of VirtualServiceSpecInput via:
-// 	VirtualServiceSpecArgs{...}
+// VirtualServiceSpecInput is an input type that accepts VirtualServiceSpecArgs and VirtualServiceSpecOutput values.
+// You can construct a concrete instance of `VirtualServiceSpecInput` via:
+//
+// 		 VirtualServiceSpecArgs{...}
+//
 type VirtualServiceSpecInput interface {
 	pulumi.Input
 
@@ -3251,8 +3476,15 @@ func (i VirtualServiceSpecArgs) ToVirtualServiceSpecPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceSpecOutput).ToVirtualServiceSpecPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of VirtualServiceSpecPtrInput via:
-// 	VirtualServiceSpecArgs{...}.ToVirtualServiceSpecPtrOutput()
+// VirtualServiceSpecPtrInput is an input type that accepts VirtualServiceSpecArgs, VirtualServiceSpecPtr and VirtualServiceSpecPtrOutput values.
+// You can construct a concrete instance of `VirtualServiceSpecPtrInput` via:
+//
+// 		 VirtualServiceSpecArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type VirtualServiceSpecPtrInput interface {
 	pulumi.Input
 
@@ -3334,8 +3566,11 @@ type VirtualServiceSpecProvider struct {
 	VirtualRouter *VirtualServiceSpecProviderVirtualRouter `pulumi:"virtualRouter"`
 }
 
-// Construct a concrete instance of VirtualServiceSpecProviderInput via:
-// 	VirtualServiceSpecProviderArgs{...}
+// VirtualServiceSpecProviderInput is an input type that accepts VirtualServiceSpecProviderArgs and VirtualServiceSpecProviderOutput values.
+// You can construct a concrete instance of `VirtualServiceSpecProviderInput` via:
+//
+// 		 VirtualServiceSpecProviderArgs{...}
+//
 type VirtualServiceSpecProviderInput interface {
 	pulumi.Input
 
@@ -3370,8 +3605,15 @@ func (i VirtualServiceSpecProviderArgs) ToVirtualServiceSpecProviderPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceSpecProviderOutput).ToVirtualServiceSpecProviderPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of VirtualServiceSpecProviderPtrInput via:
-// 	VirtualServiceSpecProviderArgs{...}.ToVirtualServiceSpecProviderPtrOutput()
+// VirtualServiceSpecProviderPtrInput is an input type that accepts VirtualServiceSpecProviderArgs, VirtualServiceSpecProviderPtr and VirtualServiceSpecProviderPtrOutput values.
+// You can construct a concrete instance of `VirtualServiceSpecProviderPtrInput` via:
+//
+// 		 VirtualServiceSpecProviderArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type VirtualServiceSpecProviderPtrInput interface {
 	pulumi.Input
 
@@ -3464,8 +3706,11 @@ type VirtualServiceSpecProviderVirtualNode struct {
 	VirtualNodeName string `pulumi:"virtualNodeName"`
 }
 
-// Construct a concrete instance of VirtualServiceSpecProviderVirtualNodeInput via:
-// 	VirtualServiceSpecProviderVirtualNodeArgs{...}
+// VirtualServiceSpecProviderVirtualNodeInput is an input type that accepts VirtualServiceSpecProviderVirtualNodeArgs and VirtualServiceSpecProviderVirtualNodeOutput values.
+// You can construct a concrete instance of `VirtualServiceSpecProviderVirtualNodeInput` via:
+//
+// 		 VirtualServiceSpecProviderVirtualNodeArgs{...}
+//
 type VirtualServiceSpecProviderVirtualNodeInput interface {
 	pulumi.Input
 
@@ -3498,8 +3743,15 @@ func (i VirtualServiceSpecProviderVirtualNodeArgs) ToVirtualServiceSpecProviderV
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceSpecProviderVirtualNodeOutput).ToVirtualServiceSpecProviderVirtualNodePtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of VirtualServiceSpecProviderVirtualNodePtrInput via:
-// 	VirtualServiceSpecProviderVirtualNodeArgs{...}.ToVirtualServiceSpecProviderVirtualNodePtrOutput()
+// VirtualServiceSpecProviderVirtualNodePtrInput is an input type that accepts VirtualServiceSpecProviderVirtualNodeArgs, VirtualServiceSpecProviderVirtualNodePtr and VirtualServiceSpecProviderVirtualNodePtrOutput values.
+// You can construct a concrete instance of `VirtualServiceSpecProviderVirtualNodePtrInput` via:
+//
+// 		 VirtualServiceSpecProviderVirtualNodeArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type VirtualServiceSpecProviderVirtualNodePtrInput interface {
 	pulumi.Input
 
@@ -3582,8 +3834,11 @@ type VirtualServiceSpecProviderVirtualRouter struct {
 	VirtualRouterName string `pulumi:"virtualRouterName"`
 }
 
-// Construct a concrete instance of VirtualServiceSpecProviderVirtualRouterInput via:
-// 	VirtualServiceSpecProviderVirtualRouterArgs{...}
+// VirtualServiceSpecProviderVirtualRouterInput is an input type that accepts VirtualServiceSpecProviderVirtualRouterArgs and VirtualServiceSpecProviderVirtualRouterOutput values.
+// You can construct a concrete instance of `VirtualServiceSpecProviderVirtualRouterInput` via:
+//
+// 		 VirtualServiceSpecProviderVirtualRouterArgs{...}
+//
 type VirtualServiceSpecProviderVirtualRouterInput interface {
 	pulumi.Input
 
@@ -3616,8 +3871,15 @@ func (i VirtualServiceSpecProviderVirtualRouterArgs) ToVirtualServiceSpecProvide
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceSpecProviderVirtualRouterOutput).ToVirtualServiceSpecProviderVirtualRouterPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of VirtualServiceSpecProviderVirtualRouterPtrInput via:
-// 	VirtualServiceSpecProviderVirtualRouterArgs{...}.ToVirtualServiceSpecProviderVirtualRouterPtrOutput()
+// VirtualServiceSpecProviderVirtualRouterPtrInput is an input type that accepts VirtualServiceSpecProviderVirtualRouterArgs, VirtualServiceSpecProviderVirtualRouterPtr and VirtualServiceSpecProviderVirtualRouterPtrOutput values.
+// You can construct a concrete instance of `VirtualServiceSpecProviderVirtualRouterPtrInput` via:
+//
+// 		 VirtualServiceSpecProviderVirtualRouterArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type VirtualServiceSpecProviderVirtualRouterPtrInput interface {
 	pulumi.Input
 

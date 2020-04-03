@@ -15,8 +15,11 @@ type GlobalTableReplica struct {
 	RegionName string `pulumi:"regionName"`
 }
 
-// Construct a concrete instance of GlobalTableReplicaInput via:
-// 	GlobalTableReplicaArgs{...}
+// GlobalTableReplicaInput is an input type that accepts GlobalTableReplicaArgs and GlobalTableReplicaOutput values.
+// You can construct a concrete instance of `GlobalTableReplicaInput` via:
+//
+// 		 GlobalTableReplicaArgs{...}
+//
 type GlobalTableReplicaInput interface {
 	pulumi.Input
 
@@ -41,8 +44,11 @@ func (i GlobalTableReplicaArgs) ToGlobalTableReplicaOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaOutput)
 }
 
-// Construct a concrete instance of GlobalTableReplicaArrayInput via:
-// 	GlobalTableReplicaArray{ GlobalTableReplicaArgs{...} }
+// GlobalTableReplicaArrayInput is an input type that accepts GlobalTableReplicaArray and GlobalTableReplicaArrayOutput values.
+// You can construct a concrete instance of `GlobalTableReplicaArrayInput` via:
+//
+// 		 GlobalTableReplicaArray{ GlobalTableReplicaArgs{...} }
+//
 type GlobalTableReplicaArrayInput interface {
 	pulumi.Input
 
@@ -110,8 +116,11 @@ type TableAttribute struct {
 	Type string `pulumi:"type"`
 }
 
-// Construct a concrete instance of TableAttributeInput via:
-// 	TableAttributeArgs{...}
+// TableAttributeInput is an input type that accepts TableAttributeArgs and TableAttributeOutput values.
+// You can construct a concrete instance of `TableAttributeInput` via:
+//
+// 		 TableAttributeArgs{...}
+//
 type TableAttributeInput interface {
 	pulumi.Input
 
@@ -138,8 +147,11 @@ func (i TableAttributeArgs) ToTableAttributeOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TableAttributeOutput)
 }
 
-// Construct a concrete instance of TableAttributeArrayInput via:
-// 	TableAttributeArray{ TableAttributeArgs{...} }
+// TableAttributeArrayInput is an input type that accepts TableAttributeArray and TableAttributeArrayOutput values.
+// You can construct a concrete instance of `TableAttributeArrayInput` via:
+//
+// 		 TableAttributeArray{ TableAttributeArgs{...} }
+//
 type TableAttributeArrayInput interface {
 	pulumi.Input
 
@@ -229,8 +241,11 @@ type TableGlobalSecondaryIndex struct {
 	WriteCapacity *int `pulumi:"writeCapacity"`
 }
 
-// Construct a concrete instance of TableGlobalSecondaryIndexInput via:
-// 	TableGlobalSecondaryIndexArgs{...}
+// TableGlobalSecondaryIndexInput is an input type that accepts TableGlobalSecondaryIndexArgs and TableGlobalSecondaryIndexOutput values.
+// You can construct a concrete instance of `TableGlobalSecondaryIndexInput` via:
+//
+// 		 TableGlobalSecondaryIndexArgs{...}
+//
 type TableGlobalSecondaryIndexInput interface {
 	pulumi.Input
 
@@ -274,8 +289,11 @@ func (i TableGlobalSecondaryIndexArgs) ToTableGlobalSecondaryIndexOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalSecondaryIndexOutput)
 }
 
-// Construct a concrete instance of TableGlobalSecondaryIndexArrayInput via:
-// 	TableGlobalSecondaryIndexArray{ TableGlobalSecondaryIndexArgs{...} }
+// TableGlobalSecondaryIndexArrayInput is an input type that accepts TableGlobalSecondaryIndexArray and TableGlobalSecondaryIndexArrayOutput values.
+// You can construct a concrete instance of `TableGlobalSecondaryIndexArrayInput` via:
+//
+// 		 TableGlobalSecondaryIndexArray{ TableGlobalSecondaryIndexArgs{...} }
+//
 type TableGlobalSecondaryIndexArrayInput interface {
 	pulumi.Input
 
@@ -390,8 +408,11 @@ type TableLocalSecondaryIndex struct {
 	RangeKey string `pulumi:"rangeKey"`
 }
 
-// Construct a concrete instance of TableLocalSecondaryIndexInput via:
-// 	TableLocalSecondaryIndexArgs{...}
+// TableLocalSecondaryIndexInput is an input type that accepts TableLocalSecondaryIndexArgs and TableLocalSecondaryIndexOutput values.
+// You can construct a concrete instance of `TableLocalSecondaryIndexInput` via:
+//
+// 		 TableLocalSecondaryIndexArgs{...}
+//
 type TableLocalSecondaryIndexInput interface {
 	pulumi.Input
 
@@ -428,8 +449,11 @@ func (i TableLocalSecondaryIndexArgs) ToTableLocalSecondaryIndexOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TableLocalSecondaryIndexOutput)
 }
 
-// Construct a concrete instance of TableLocalSecondaryIndexArrayInput via:
-// 	TableLocalSecondaryIndexArray{ TableLocalSecondaryIndexArgs{...} }
+// TableLocalSecondaryIndexArrayInput is an input type that accepts TableLocalSecondaryIndexArray and TableLocalSecondaryIndexArrayOutput values.
+// You can construct a concrete instance of `TableLocalSecondaryIndexArrayInput` via:
+//
+// 		 TableLocalSecondaryIndexArray{ TableLocalSecondaryIndexArgs{...} }
+//
 type TableLocalSecondaryIndexArrayInput interface {
 	pulumi.Input
 
@@ -516,8 +540,11 @@ type TablePointInTimeRecovery struct {
 	Enabled bool `pulumi:"enabled"`
 }
 
-// Construct a concrete instance of TablePointInTimeRecoveryInput via:
-// 	TablePointInTimeRecoveryArgs{...}
+// TablePointInTimeRecoveryInput is an input type that accepts TablePointInTimeRecoveryArgs and TablePointInTimeRecoveryOutput values.
+// You can construct a concrete instance of `TablePointInTimeRecoveryInput` via:
+//
+// 		 TablePointInTimeRecoveryArgs{...}
+//
 type TablePointInTimeRecoveryInput interface {
 	pulumi.Input
 
@@ -550,8 +577,15 @@ func (i TablePointInTimeRecoveryArgs) ToTablePointInTimeRecoveryPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(TablePointInTimeRecoveryOutput).ToTablePointInTimeRecoveryPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of TablePointInTimeRecoveryPtrInput via:
-// 	TablePointInTimeRecoveryArgs{...}.ToTablePointInTimeRecoveryPtrOutput()
+// TablePointInTimeRecoveryPtrInput is an input type that accepts TablePointInTimeRecoveryArgs, TablePointInTimeRecoveryPtr and TablePointInTimeRecoveryPtrOutput values.
+// You can construct a concrete instance of `TablePointInTimeRecoveryPtrInput` via:
+//
+// 		 TablePointInTimeRecoveryArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type TablePointInTimeRecoveryPtrInput interface {
 	pulumi.Input
 
@@ -637,8 +671,11 @@ type TableServerSideEncryption struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
-// Construct a concrete instance of TableServerSideEncryptionInput via:
-// 	TableServerSideEncryptionArgs{...}
+// TableServerSideEncryptionInput is an input type that accepts TableServerSideEncryptionArgs and TableServerSideEncryptionOutput values.
+// You can construct a concrete instance of `TableServerSideEncryptionInput` via:
+//
+// 		 TableServerSideEncryptionArgs{...}
+//
 type TableServerSideEncryptionInput interface {
 	pulumi.Input
 
@@ -674,8 +711,15 @@ func (i TableServerSideEncryptionArgs) ToTableServerSideEncryptionPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(TableServerSideEncryptionOutput).ToTableServerSideEncryptionPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of TableServerSideEncryptionPtrInput via:
-// 	TableServerSideEncryptionArgs{...}.ToTableServerSideEncryptionPtrOutput()
+// TableServerSideEncryptionPtrInput is an input type that accepts TableServerSideEncryptionArgs, TableServerSideEncryptionPtr and TableServerSideEncryptionPtrOutput values.
+// You can construct a concrete instance of `TableServerSideEncryptionPtrInput` via:
+//
+// 		 TableServerSideEncryptionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type TableServerSideEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -772,8 +816,11 @@ type TableTtl struct {
 	Enabled *bool `pulumi:"enabled"`
 }
 
-// Construct a concrete instance of TableTtlInput via:
-// 	TableTtlArgs{...}
+// TableTtlInput is an input type that accepts TableTtlArgs and TableTtlOutput values.
+// You can construct a concrete instance of `TableTtlInput` via:
+//
+// 		 TableTtlArgs{...}
+//
 type TableTtlInput interface {
 	pulumi.Input
 
@@ -808,8 +855,15 @@ func (i TableTtlArgs) ToTableTtlPtrOutputWithContext(ctx context.Context) TableT
 	return pulumi.ToOutputWithContext(ctx, i).(TableTtlOutput).ToTableTtlPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of TableTtlPtrInput via:
-// 	TableTtlArgs{...}.ToTableTtlPtrOutput()
+// TableTtlPtrInput is an input type that accepts TableTtlArgs, TableTtlPtr and TableTtlPtrOutput values.
+// You can construct a concrete instance of `TableTtlPtrInput` via:
+//
+// 		 TableTtlArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type TableTtlPtrInput interface {
 	pulumi.Input
 
@@ -903,8 +957,11 @@ type GetTableAttribute struct {
 	Type string `pulumi:"type"`
 }
 
-// Construct a concrete instance of GetTableAttributeInput via:
-// 	GetTableAttributeArgs{...}
+// GetTableAttributeInput is an input type that accepts GetTableAttributeArgs and GetTableAttributeOutput values.
+// You can construct a concrete instance of `GetTableAttributeInput` via:
+//
+// 		 GetTableAttributeArgs{...}
+//
 type GetTableAttributeInput interface {
 	pulumi.Input
 
@@ -930,8 +987,11 @@ func (i GetTableAttributeArgs) ToGetTableAttributeOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableAttributeOutput)
 }
 
-// Construct a concrete instance of GetTableAttributeArrayInput via:
-// 	GetTableAttributeArray{ GetTableAttributeArgs{...} }
+// GetTableAttributeArrayInput is an input type that accepts GetTableAttributeArray and GetTableAttributeArrayOutput values.
+// You can construct a concrete instance of `GetTableAttributeArrayInput` via:
+//
+// 		 GetTableAttributeArray{ GetTableAttributeArgs{...} }
+//
 type GetTableAttributeArrayInput interface {
 	pulumi.Input
 
@@ -1007,8 +1067,11 @@ type GetTableGlobalSecondaryIndex struct {
 	WriteCapacity    int      `pulumi:"writeCapacity"`
 }
 
-// Construct a concrete instance of GetTableGlobalSecondaryIndexInput via:
-// 	GetTableGlobalSecondaryIndexArgs{...}
+// GetTableGlobalSecondaryIndexInput is an input type that accepts GetTableGlobalSecondaryIndexArgs and GetTableGlobalSecondaryIndexOutput values.
+// You can construct a concrete instance of `GetTableGlobalSecondaryIndexInput` via:
+//
+// 		 GetTableGlobalSecondaryIndexArgs{...}
+//
 type GetTableGlobalSecondaryIndexInput interface {
 	pulumi.Input
 
@@ -1039,8 +1102,11 @@ func (i GetTableGlobalSecondaryIndexArgs) ToGetTableGlobalSecondaryIndexOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableGlobalSecondaryIndexOutput)
 }
 
-// Construct a concrete instance of GetTableGlobalSecondaryIndexArrayInput via:
-// 	GetTableGlobalSecondaryIndexArray{ GetTableGlobalSecondaryIndexArgs{...} }
+// GetTableGlobalSecondaryIndexArrayInput is an input type that accepts GetTableGlobalSecondaryIndexArray and GetTableGlobalSecondaryIndexArrayOutput values.
+// You can construct a concrete instance of `GetTableGlobalSecondaryIndexArrayInput` via:
+//
+// 		 GetTableGlobalSecondaryIndexArray{ GetTableGlobalSecondaryIndexArgs{...} }
+//
 type GetTableGlobalSecondaryIndexArrayInput interface {
 	pulumi.Input
 
@@ -1133,8 +1199,11 @@ type GetTableLocalSecondaryIndex struct {
 	RangeKey         string   `pulumi:"rangeKey"`
 }
 
-// Construct a concrete instance of GetTableLocalSecondaryIndexInput via:
-// 	GetTableLocalSecondaryIndexArgs{...}
+// GetTableLocalSecondaryIndexInput is an input type that accepts GetTableLocalSecondaryIndexArgs and GetTableLocalSecondaryIndexOutput values.
+// You can construct a concrete instance of `GetTableLocalSecondaryIndexInput` via:
+//
+// 		 GetTableLocalSecondaryIndexArgs{...}
+//
 type GetTableLocalSecondaryIndexInput interface {
 	pulumi.Input
 
@@ -1162,8 +1231,11 @@ func (i GetTableLocalSecondaryIndexArgs) ToGetTableLocalSecondaryIndexOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableLocalSecondaryIndexOutput)
 }
 
-// Construct a concrete instance of GetTableLocalSecondaryIndexArrayInput via:
-// 	GetTableLocalSecondaryIndexArray{ GetTableLocalSecondaryIndexArgs{...} }
+// GetTableLocalSecondaryIndexArrayInput is an input type that accepts GetTableLocalSecondaryIndexArray and GetTableLocalSecondaryIndexArrayOutput values.
+// You can construct a concrete instance of `GetTableLocalSecondaryIndexArrayInput` via:
+//
+// 		 GetTableLocalSecondaryIndexArray{ GetTableLocalSecondaryIndexArgs{...} }
+//
 type GetTableLocalSecondaryIndexArrayInput interface {
 	pulumi.Input
 
@@ -1240,8 +1312,11 @@ type GetTablePointInTimeRecovery struct {
 	Enabled bool `pulumi:"enabled"`
 }
 
-// Construct a concrete instance of GetTablePointInTimeRecoveryInput via:
-// 	GetTablePointInTimeRecoveryArgs{...}
+// GetTablePointInTimeRecoveryInput is an input type that accepts GetTablePointInTimeRecoveryArgs and GetTablePointInTimeRecoveryOutput values.
+// You can construct a concrete instance of `GetTablePointInTimeRecoveryInput` via:
+//
+// 		 GetTablePointInTimeRecoveryArgs{...}
+//
 type GetTablePointInTimeRecoveryInput interface {
 	pulumi.Input
 
@@ -1288,8 +1363,11 @@ type GetTableServerSideEncryption struct {
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 }
 
-// Construct a concrete instance of GetTableServerSideEncryptionInput via:
-// 	GetTableServerSideEncryptionArgs{...}
+// GetTableServerSideEncryptionInput is an input type that accepts GetTableServerSideEncryptionArgs and GetTableServerSideEncryptionOutput values.
+// You can construct a concrete instance of `GetTableServerSideEncryptionInput` via:
+//
+// 		 GetTableServerSideEncryptionArgs{...}
+//
 type GetTableServerSideEncryptionInput interface {
 	pulumi.Input
 
@@ -1341,8 +1419,11 @@ type GetTableTtl struct {
 	Enabled       bool   `pulumi:"enabled"`
 }
 
-// Construct a concrete instance of GetTableTtlInput via:
-// 	GetTableTtlArgs{...}
+// GetTableTtlInput is an input type that accepts GetTableTtlArgs and GetTableTtlOutput values.
+// You can construct a concrete instance of `GetTableTtlInput` via:
+//
+// 		 GetTableTtlArgs{...}
+//
 type GetTableTtlInput interface {
 	pulumi.Input
 

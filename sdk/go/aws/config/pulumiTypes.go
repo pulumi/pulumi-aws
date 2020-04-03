@@ -17,8 +17,11 @@ type AssumeRole struct {
 	SessionName *string `pulumi:"sessionName"`
 }
 
-// Construct a concrete instance of AssumeRoleInput via:
-// 	AssumeRoleArgs{...}
+// AssumeRoleInput is an input type that accepts AssumeRoleArgs and AssumeRoleOutput values.
+// You can construct a concrete instance of `AssumeRoleInput` via:
+//
+// 		 AssumeRoleArgs{...}
+//
 type AssumeRoleInput interface {
 	pulumi.Input
 
@@ -212,8 +215,11 @@ type Endpoints struct {
 	Xray                   *string `pulumi:"xray"`
 }
 
-// Construct a concrete instance of EndpointsInput via:
-// 	EndpointsArgs{...}
+// EndpointsInput is an input type that accepts EndpointsArgs and EndpointsOutput values.
+// You can construct a concrete instance of `EndpointsInput` via:
+//
+// 		 EndpointsArgs{...}
+//
 type EndpointsInput interface {
 	pulumi.Input
 
@@ -370,8 +376,11 @@ func (i EndpointsArgs) ToEndpointsOutputWithContext(ctx context.Context) Endpoin
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointsOutput)
 }
 
-// Construct a concrete instance of EndpointsArrayInput via:
-// 	EndpointsArray{ EndpointsArgs{...} }
+// EndpointsArrayInput is an input type that accepts EndpointsArray and EndpointsArrayOutput values.
+// You can construct a concrete instance of `EndpointsArrayInput` via:
+//
+// 		 EndpointsArray{ EndpointsArgs{...} }
+//
 type EndpointsArrayInput interface {
 	pulumi.Input
 

@@ -15,8 +15,11 @@ type ServerEndpointDetails struct {
 	VpcEndpointId string `pulumi:"vpcEndpointId"`
 }
 
-// Construct a concrete instance of ServerEndpointDetailsInput via:
-// 	ServerEndpointDetailsArgs{...}
+// ServerEndpointDetailsInput is an input type that accepts ServerEndpointDetailsArgs and ServerEndpointDetailsOutput values.
+// You can construct a concrete instance of `ServerEndpointDetailsInput` via:
+//
+// 		 ServerEndpointDetailsArgs{...}
+//
 type ServerEndpointDetailsInput interface {
 	pulumi.Input
 
@@ -49,8 +52,15 @@ func (i ServerEndpointDetailsArgs) ToServerEndpointDetailsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointDetailsOutput).ToServerEndpointDetailsPtrOutputWithContext(ctx)
 }
 
-// Construct a concrete instance of ServerEndpointDetailsPtrInput via:
-// 	ServerEndpointDetailsArgs{...}.ToServerEndpointDetailsPtrOutput()
+// ServerEndpointDetailsPtrInput is an input type that accepts ServerEndpointDetailsArgs, ServerEndpointDetailsPtr and ServerEndpointDetailsPtrOutput values.
+// You can construct a concrete instance of `ServerEndpointDetailsPtrInput` via:
+//
+// 		 ServerEndpointDetailsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ServerEndpointDetailsPtrInput interface {
 	pulumi.Input
 

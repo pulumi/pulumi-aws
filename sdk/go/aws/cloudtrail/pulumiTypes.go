@@ -19,8 +19,11 @@ type TrailEventSelector struct {
 	ReadWriteType *string `pulumi:"readWriteType"`
 }
 
-// Construct a concrete instance of TrailEventSelectorInput via:
-// 	TrailEventSelectorArgs{...}
+// TrailEventSelectorInput is an input type that accepts TrailEventSelectorArgs and TrailEventSelectorOutput values.
+// You can construct a concrete instance of `TrailEventSelectorInput` via:
+//
+// 		 TrailEventSelectorArgs{...}
+//
 type TrailEventSelectorInput interface {
 	pulumi.Input
 
@@ -49,8 +52,11 @@ func (i TrailEventSelectorArgs) ToTrailEventSelectorOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(TrailEventSelectorOutput)
 }
 
-// Construct a concrete instance of TrailEventSelectorArrayInput via:
-// 	TrailEventSelectorArray{ TrailEventSelectorArgs{...} }
+// TrailEventSelectorArrayInput is an input type that accepts TrailEventSelectorArray and TrailEventSelectorArrayOutput values.
+// You can construct a concrete instance of `TrailEventSelectorArrayInput` via:
+//
+// 		 TrailEventSelectorArray{ TrailEventSelectorArgs{...} }
+//
 type TrailEventSelectorArrayInput interface {
 	pulumi.Input
 
@@ -128,8 +134,11 @@ type TrailEventSelectorDataResource struct {
 	Values []string `pulumi:"values"`
 }
 
-// Construct a concrete instance of TrailEventSelectorDataResourceInput via:
-// 	TrailEventSelectorDataResourceArgs{...}
+// TrailEventSelectorDataResourceInput is an input type that accepts TrailEventSelectorDataResourceArgs and TrailEventSelectorDataResourceOutput values.
+// You can construct a concrete instance of `TrailEventSelectorDataResourceInput` via:
+//
+// 		 TrailEventSelectorDataResourceArgs{...}
+//
 type TrailEventSelectorDataResourceInput interface {
 	pulumi.Input
 
@@ -156,8 +165,11 @@ func (i TrailEventSelectorDataResourceArgs) ToTrailEventSelectorDataResourceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(TrailEventSelectorDataResourceOutput)
 }
 
-// Construct a concrete instance of TrailEventSelectorDataResourceArrayInput via:
-// 	TrailEventSelectorDataResourceArray{ TrailEventSelectorDataResourceArgs{...} }
+// TrailEventSelectorDataResourceArrayInput is an input type that accepts TrailEventSelectorDataResourceArray and TrailEventSelectorDataResourceArrayOutput values.
+// You can construct a concrete instance of `TrailEventSelectorDataResourceArrayInput` via:
+//
+// 		 TrailEventSelectorDataResourceArray{ TrailEventSelectorDataResourceArgs{...} }
+//
 type TrailEventSelectorDataResourceArrayInput interface {
 	pulumi.Input
 
