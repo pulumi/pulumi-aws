@@ -121,6 +121,12 @@ export module Principals {
     export const EcsPrincipal: Principal = {Service: "ecs.amazonaws.com"};
 
     /**
+     * Service Principal for Elastic Container Service Tasks
+     * Usage: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html
+    */
+    export const EcsTasksPrincipal: Principal = {Service: "ecs-tasks.amazonaws.com"};
+
+    /**
      * Service Principal for Edge Lambda
      */
     export const EdgeLambdaPrincipal: Principal = {Service: "edgelambda.amazonaws.com"};
