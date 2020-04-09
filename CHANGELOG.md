@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add support for DotNet 3.1 Lambda Runtime
 
 ---
 
