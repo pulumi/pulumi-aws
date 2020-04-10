@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
+        /// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`.
         /// </summary>
         [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
+        /// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
+        /// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }

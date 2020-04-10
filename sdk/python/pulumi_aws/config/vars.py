@@ -24,14 +24,9 @@ endpoints = __config__.get('endpoints')
 
 forbidden_account_ids = __config__.get('forbiddenAccountIds')
 
-ignore_tag_prefixes = __config__.get('ignoreTagPrefixes')
-"""
-Resource tag key prefixes to ignore across all resources.
-"""
-
 ignore_tags = __config__.get('ignoreTags')
 """
-Resource tag keys to ignore across all resources.
+Configuration block with settings to ignore resource tags across all resources.
 """
 
 insecure = __config__.get('insecure')

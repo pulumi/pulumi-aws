@@ -957,8 +957,60 @@ func (o EndpointsArrayOutput) Index(i pulumi.IntInput) EndpointsOutput {
 	}).(EndpointsOutput)
 }
 
+type IgnoreTags struct {
+	KeyPrefixes []string `pulumi:"keyPrefixes"`
+	Keys        []string `pulumi:"keys"`
+}
+
+type IgnoreTagsInput interface {
+	pulumi.Input
+
+	ToIgnoreTagsOutput() IgnoreTagsOutput
+	ToIgnoreTagsOutputWithContext(context.Context) IgnoreTagsOutput
+}
+
+type IgnoreTagsArgs struct {
+	KeyPrefixes pulumi.StringArrayInput `pulumi:"keyPrefixes"`
+	Keys        pulumi.StringArrayInput `pulumi:"keys"`
+}
+
+func (IgnoreTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IgnoreTags)(nil)).Elem()
+}
+
+func (i IgnoreTagsArgs) ToIgnoreTagsOutput() IgnoreTagsOutput {
+	return i.ToIgnoreTagsOutputWithContext(context.Background())
+}
+
+func (i IgnoreTagsArgs) ToIgnoreTagsOutputWithContext(ctx context.Context) IgnoreTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IgnoreTagsOutput)
+}
+
+type IgnoreTagsOutput struct{ *pulumi.OutputState }
+
+func (IgnoreTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IgnoreTags)(nil)).Elem()
+}
+
+func (o IgnoreTagsOutput) ToIgnoreTagsOutput() IgnoreTagsOutput {
+	return o
+}
+
+func (o IgnoreTagsOutput) ToIgnoreTagsOutputWithContext(ctx context.Context) IgnoreTagsOutput {
+	return o
+}
+
+func (o IgnoreTagsOutput) KeyPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IgnoreTags) []string { return v.KeyPrefixes }).(pulumi.StringArrayOutput)
+}
+
+func (o IgnoreTagsOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IgnoreTags) []string { return v.Keys }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssumeRoleOutput{})
 	pulumi.RegisterOutputType(EndpointsOutput{})
 	pulumi.RegisterOutputType(EndpointsArrayOutput{})
+	pulumi.RegisterOutputType(IgnoreTagsOutput{})
 }

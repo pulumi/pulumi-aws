@@ -835,7 +835,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? Iops { get; set; }
 
         /// <summary>
-        /// AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+        /// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
         /// `encrypted` must be set to `true` when this is set.
         /// </summary>
         [Input("kmsKeyId")]
@@ -888,7 +888,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? Iops { get; set; }
 
         /// <summary>
-        /// AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+        /// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
         /// `encrypted` must be set to `true` when this is set.
         /// </summary>
         [Input("kmsKeyId")]
@@ -1801,7 +1801,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly int Iops;
         /// <summary>
-        /// AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+        /// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
         /// `encrypted` must be set to `true` when this is set.
         /// </summary>
         public readonly string? KmsKeyId;

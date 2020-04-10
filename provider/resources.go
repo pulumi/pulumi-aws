@@ -491,7 +491,10 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// API Gateway v2
-			"aws_apigatewayv2_api": {Tok: awsResource(apigatewayv2Mod, "Api")},
+			"aws_apigatewayv2_api":         {Tok: awsResource(apigatewayv2Mod, "Api")},
+			"aws_apigatewayv2_authorizer":  {Tok: awsResource(apigatewayv2Mod, "Authorizer")},
+			"aws_apigatewayv2_integration": {Tok: awsResource(apigatewayv2Mod, "Integration")},
+			"aws_apigatewayv2_model":       {Tok: awsResource(apigatewayv2Mod, "Model")},
 			// Application Auto Scaling
 			"aws_appautoscaling_policy":           {Tok: awsResource(appautoscalingMod, "Policy")},
 			"aws_appautoscaling_scheduled_action": {Tok: awsResource(appautoscalingMod, "ScheduledAction")},
@@ -2342,6 +2345,8 @@ func Provider() tfbridge.ProviderInfo {
 			// SFN
 			"aws_sfn_activity":      {Tok: awsDataSource(sfnMod, "getActivity")},
 			"aws_sfn_state_machine": {Tok: awsDataSource(sfnMod, "getStateMachine")},
+			// Cloudfront
+			"aws_cloudfront_distribution": {Tok: awsDataSource(cloudfrontMod, "getDistribution")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

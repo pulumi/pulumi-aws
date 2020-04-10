@@ -27,7 +27,7 @@ class LaunchTemplate(pulumi.CustomResource):
         * `iops` (`float`) - The amount of provisioned
           [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
           This must be set with a `volume_type` of `"io1"`.
-        * `kms_key_id` (`str`) - AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+        * `kms_key_id` (`str`) - The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
           `encrypted` must be set to `true` when this is set.
         * `snapshot_id` (`str`) - The Snapshot ID to mount.
         * `volume_size` (`float`) - The size of the volume in gigabytes.
@@ -287,7 +287,7 @@ class LaunchTemplate(pulumi.CustomResource):
             * `iops` (`pulumi.Input[float]`) - The amount of provisioned
               [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
               This must be set with a `volume_type` of `"io1"`.
-            * `kms_key_id` (`pulumi.Input[str]`) - AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+            * `kms_key_id` (`pulumi.Input[str]`) - The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
               `encrypted` must be set to `true` when this is set.
             * `snapshot_id` (`pulumi.Input[str]`) - The Snapshot ID to mount.
             * `volume_size` (`pulumi.Input[float]`) - The size of the volume in gigabytes.
@@ -503,7 +503,7 @@ class LaunchTemplate(pulumi.CustomResource):
             * `iops` (`pulumi.Input[float]`) - The amount of provisioned
               [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
               This must be set with a `volume_type` of `"io1"`.
-            * `kms_key_id` (`pulumi.Input[str]`) - AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+            * `kms_key_id` (`pulumi.Input[str]`) - The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
               `encrypted` must be set to `true` when this is set.
             * `snapshot_id` (`pulumi.Input[str]`) - The Snapshot ID to mount.
             * `volume_size` (`pulumi.Input[float]`) - The size of the volume in gigabytes.

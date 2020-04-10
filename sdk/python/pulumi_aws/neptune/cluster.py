@@ -43,6 +43,9 @@ class Cluster(pulumi.CustomResource):
     The Neptune Cluster Resource ID
     """
     deletion_protection: pulumi.Output[bool]
+    """
+    A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+    """
     enable_cloudwatch_logs_exports: pulumi.Output[list]
     """
     A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
@@ -148,6 +151,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[float] backup_retention_period: The days to retain backups for. Default `1`
         :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[list] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
         :param pulumi.Input[str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         :param pulumi.Input[str] engine_version: The database engine version.
@@ -237,6 +241,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[list] cluster_members: List of Neptune Instances that are a part of this cluster
         :param pulumi.Input[str] cluster_resource_id: The Neptune Cluster Resource ID
+        :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[list] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
         :param pulumi.Input[str] endpoint: The DNS address of the Neptune instance
         :param pulumi.Input[str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.

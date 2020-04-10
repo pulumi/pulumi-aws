@@ -24,14 +24,9 @@ namespace Pulumi.Aws
         public static ImmutableArray<string> ForbiddenAccountIds { get; set; } = __config.GetObject<ImmutableArray<string>>("forbiddenAccountIds");
 
         /// <summary>
-        /// Resource tag key prefixes to ignore across all resources.
+        /// Configuration block with settings to ignore resource tags across all resources.
         /// </summary>
-        public static ImmutableArray<string> IgnoreTagPrefixes { get; set; } = __config.GetObject<ImmutableArray<string>>("ignoreTagPrefixes");
-
-        /// <summary>
-        /// Resource tag keys to ignore across all resources.
-        /// </summary>
-        public static ImmutableArray<string> IgnoreTags { get; set; } = __config.GetObject<ImmutableArray<string>>("ignoreTags");
+        public static ConfigTypes.IgnoreTags? IgnoreTags { get; set; } = __config.GetObject<ConfigTypes.IgnoreTags>("ignoreTags");
 
         /// <summary>
         /// Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
@@ -251,6 +246,12 @@ namespace Pulumi.Aws
         public string? Workmail { get; set; }
         public string? Workspaces { get; set; }
         public string? Xray { get; set; }
+    }
+
+    public class IgnoreTags
+    {
+        public ImmutableArray<string> KeyPrefixes { get; set; }
+        public ImmutableArray<string> Keys { get; set; }
     }
     }
 }

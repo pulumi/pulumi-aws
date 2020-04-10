@@ -908,6 +908,19 @@ export namespace apigateway {
     }
 }
 
+export namespace apigatewayv2 {
+    export interface AuthorizerJwtConfiguration {
+        /**
+         * A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
+         */
+        audiences?: string[];
+        /**
+         * The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the [`aws.cognito.UserPool`](https://www.terraform.io/docs/providers/aws/r/cognito_user_pool.html) resource.
+         */
+        issuer?: string;
+    }
+}
+
 export namespace appautoscaling {
     export interface PolicyStepScalingPolicyConfiguration {
         adjustmentType?: string;
@@ -6124,7 +6137,7 @@ export namespace ec2 {
          */
         iops: number;
         /**
-         * AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+         * The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
          * `encrypted` must be set to `true` when this is set.
          */
         kmsKeyId?: string;

@@ -25,12 +25,7 @@ func GetForbiddenAccountIds(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:forbiddenAccountIds")
 }
 
-// Resource tag key prefixes to ignore across all resources.
-func GetIgnoreTagPrefixes(ctx *pulumi.Context) string {
-	return config.Get(ctx, "aws:ignoreTagPrefixes")
-}
-
-// Resource tag keys to ignore across all resources.
+// Configuration block with settings to ignore resource tags across all resources.
 func GetIgnoreTags(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:ignoreTags")
 }

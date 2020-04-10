@@ -95,6 +95,9 @@ export class Cluster extends pulumi.CustomResource {
      * The Neptune Cluster Resource ID
      */
     public /*out*/ readonly clusterResourceId!: pulumi.Output<string>;
+    /**
+     * A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     /**
      * A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
@@ -303,6 +306,9 @@ export interface ClusterState {
      * The Neptune Cluster Resource ID
      */
     readonly clusterResourceId?: pulumi.Input<string>;
+    /**
+     * A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     */
     readonly deletionProtection?: pulumi.Input<boolean>;
     /**
      * A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
@@ -414,6 +420,9 @@ export interface ClusterArgs {
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      */
     readonly clusterIdentifierPrefix?: pulumi.Input<string>;
+    /**
+     * A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     */
     readonly deletionProtection?: pulumi.Input<boolean>;
     /**
      * A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.

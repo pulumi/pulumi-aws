@@ -110,6 +110,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly dbSubnetGroupName!: pulumi.Output<string>;
     /**
+     * A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     */
+    public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
+    /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `profiler`.
      */
@@ -207,6 +211,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterResourceId"] = state ? state.clusterResourceId : undefined;
             inputs["dbClusterParameterGroupName"] = state ? state.dbClusterParameterGroupName : undefined;
             inputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
+            inputs["deletionProtection"] = state ? state.deletionProtection : undefined;
             inputs["enabledCloudwatchLogsExports"] = state ? state.enabledCloudwatchLogsExports : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["engine"] = state ? state.engine : undefined;
@@ -235,6 +240,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterMembers"] = args ? args.clusterMembers : undefined;
             inputs["dbClusterParameterGroupName"] = args ? args.dbClusterParameterGroupName : undefined;
             inputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
+            inputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             inputs["enabledCloudwatchLogsExports"] = args ? args.enabledCloudwatchLogsExports : undefined;
             inputs["engine"] = args ? args.engine : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
@@ -314,6 +320,10 @@ export interface ClusterState {
      * A DB subnet group to associate with this DB instance.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
+    /**
+     * A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     */
+    readonly deletionProtection?: pulumi.Input<boolean>;
     /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `profiler`.
@@ -430,6 +440,10 @@ export interface ClusterArgs {
      * A DB subnet group to associate with this DB instance.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
+    /**
+     * A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     */
+    readonly deletionProtection?: pulumi.Input<boolean>;
     /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `profiler`.

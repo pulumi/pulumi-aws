@@ -22,7 +22,7 @@ type GlobalCluster struct {
 	DatabaseName pulumi.StringPtrOutput `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
-	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
+	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// Engine version of the Aurora global database.
 	// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
@@ -72,7 +72,7 @@ type globalClusterState struct {
 	DatabaseName *string `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
-	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
+	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`.
 	Engine *string `pulumi:"engine"`
 	// Engine version of the Aurora global database.
 	// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
@@ -92,7 +92,7 @@ type GlobalClusterState struct {
 	DatabaseName pulumi.StringPtrInput
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrInput
-	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
+	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`.
 	Engine pulumi.StringPtrInput
 	// Engine version of the Aurora global database.
 	// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
@@ -114,7 +114,7 @@ type globalClusterArgs struct {
 	DatabaseName *string `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
-	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
+	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`.
 	Engine *string `pulumi:"engine"`
 	// Engine version of the Aurora global database.
 	// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
@@ -131,7 +131,7 @@ type GlobalClusterArgs struct {
 	DatabaseName pulumi.StringPtrInput
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrInput
-	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
+	// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`.
 	Engine pulumi.StringPtrInput
 	// Engine version of the Aurora global database.
 	// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.

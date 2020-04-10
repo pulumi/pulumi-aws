@@ -80,29 +80,11 @@ namespace Pulumi.Aws
             set => _forbiddenAccountIds = value;
         }
 
-        [Input("ignoreTagPrefixes", json: true)]
-        private InputList<string>? _ignoreTagPrefixes;
-
         /// <summary>
-        /// Resource tag key prefixes to ignore across all resources.
+        /// Configuration block with settings to ignore resource tags across all resources.
         /// </summary>
-        public InputList<string> IgnoreTagPrefixes
-        {
-            get => _ignoreTagPrefixes ?? (_ignoreTagPrefixes = new InputList<string>());
-            set => _ignoreTagPrefixes = value;
-        }
-
         [Input("ignoreTags", json: true)]
-        private InputList<string>? _ignoreTags;
-
-        /// <summary>
-        /// Resource tag keys to ignore across all resources.
-        /// </summary>
-        public InputList<string> IgnoreTags
-        {
-            get => _ignoreTags ?? (_ignoreTags = new InputList<string>());
-            set => _ignoreTags = value;
-        }
+        public Input<Inputs.ProviderIgnoreTagsArgs>? IgnoreTags { get; set; }
 
         /// <summary>
         /// Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
@@ -621,6 +603,29 @@ namespace Pulumi.Aws
         public Input<string>? Xray { get; set; }
 
         public ProviderEndpointsArgs()
+        {
+        }
+    }
+
+    public sealed class ProviderIgnoreTagsArgs : Pulumi.ResourceArgs
+    {
+        [Input("keyPrefixes")]
+        private InputList<string>? _keyPrefixes;
+        public InputList<string> KeyPrefixes
+        {
+            get => _keyPrefixes ?? (_keyPrefixes = new InputList<string>());
+            set => _keyPrefixes = value;
+        }
+
+        [Input("keys")]
+        private InputList<string>? _keys;
+        public InputList<string> Keys
+        {
+            get => _keys ?? (_keys = new InputList<string>());
+            set => _keys = value;
+        }
+
+        public ProviderIgnoreTagsArgs()
         {
         }
     }

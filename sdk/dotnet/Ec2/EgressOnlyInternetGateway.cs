@@ -22,6 +22,12 @@ namespace Pulumi.Aws.Ec2
     public partial class EgressOnlyInternetGateway : Pulumi.CustomResource
     {
         /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The VPC ID to create in.
         /// </summary>
         [Output("vpcId")]
@@ -73,6 +79,18 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class EgressOnlyInternetGatewayArgs : Pulumi.ResourceArgs
     {
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The VPC ID to create in.
         /// </summary>
@@ -86,6 +104,18 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class EgressOnlyInternetGatewayState : Pulumi.ResourceArgs
     {
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The VPC ID to create in.
         /// </summary>

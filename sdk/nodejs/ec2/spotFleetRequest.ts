@@ -145,6 +145,10 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      */
     public /*out*/ readonly spotRequestState!: pulumi.Output<string>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The number of units to request. You can choose to set the
      * target capacity in terms of instances or a performance characteristic that is
      * important to your application workload, such as vCPUs, memory, or I/O.
@@ -198,6 +202,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["replaceUnhealthyInstances"] = state ? state.replaceUnhealthyInstances : undefined;
             inputs["spotPrice"] = state ? state.spotPrice : undefined;
             inputs["spotRequestState"] = state ? state.spotRequestState : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["targetCapacity"] = state ? state.targetCapacity : undefined;
             inputs["targetGroupArns"] = state ? state.targetGroupArns : undefined;
             inputs["terminateInstancesWithExpiration"] = state ? state.terminateInstancesWithExpiration : undefined;
@@ -225,6 +230,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["loadBalancers"] = args ? args.loadBalancers : undefined;
             inputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
             inputs["spotPrice"] = args ? args.spotPrice : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["targetCapacity"] = args ? args.targetCapacity : undefined;
             inputs["targetGroupArns"] = args ? args.targetGroupArns : undefined;
             inputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
@@ -310,6 +316,10 @@ export interface SpotFleetRequestState {
      * The state of the Spot fleet request.
      */
     readonly spotRequestState?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The number of units to request. You can choose to set the
      * target capacity in terms of instances or a performance characteristic that is
@@ -401,6 +411,10 @@ export interface SpotFleetRequestArgs {
      * The maximum bid price per unit hour.
      */
     readonly spotPrice?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The number of units to request. You can choose to set the
      * target capacity in terms of instances or a performance characteristic that is
