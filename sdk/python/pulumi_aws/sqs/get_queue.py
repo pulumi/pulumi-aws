@@ -61,8 +61,6 @@ def get_queue(name=None,tags=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sqs_queue.html.markdown.
-
 
     :param str name: The name of the queue to match.
     :param dict tags: A mapping of tags for the resource.

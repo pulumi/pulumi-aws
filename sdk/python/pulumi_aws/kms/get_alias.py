@@ -61,8 +61,6 @@ def get_alias(name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_alias.html.markdown.
-
 
     :param str name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
     """

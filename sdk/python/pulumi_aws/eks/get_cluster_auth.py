@@ -50,8 +50,6 @@ def get_cluster_auth(name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eks_cluster_auth.html.markdown.
-
 
     :param str name: The name of the cluster
     """

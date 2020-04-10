@@ -98,8 +98,6 @@ def get_zone(name=None,private_zone=None,resource_record_set_count=None,tags=Non
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_zone.html.markdown.
-
 
     :param str name: The Hosted Zone name of the desired Hosted Zone.
     :param bool private_zone: Used with `name` field to get a private Hosted Zone.

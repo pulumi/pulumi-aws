@@ -68,8 +68,6 @@ def get_group(group_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_group.html.markdown.
-
 
     :param str group_name: The friendly IAM group name to match.
     """

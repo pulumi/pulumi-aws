@@ -66,8 +66,6 @@ def get_route_table(filters=None,id=None,tags=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_route_table.html.markdown.
-
 
     :param list filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param str id: Identifier of the EC2 Transit Gateway Route Table.

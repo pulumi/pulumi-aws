@@ -33,8 +33,6 @@ class GeoMatchSet(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_geo_match_set.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] geo_match_constraints: The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.

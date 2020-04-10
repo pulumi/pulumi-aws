@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Emr
         public Output<string?> AutoscalingRole { get; private set; } = null!;
 
         /// <summary>
-        /// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
+        /// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
         /// </summary>
         [Output("bootstrapActions")]
         public Output<ImmutableArray<Outputs.ClusterBootstrapActions>> BootstrapActions { get; private set; } = null!;
@@ -381,7 +381,7 @@ namespace Pulumi.Aws.Emr
         private InputList<Inputs.ClusterBootstrapActionsArgs>? _bootstrapActions;
 
         /// <summary>
-        /// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
+        /// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
         /// </summary>
         public InputList<Inputs.ClusterBootstrapActionsArgs> BootstrapActions
         {
@@ -590,7 +590,7 @@ namespace Pulumi.Aws.Emr
         private InputList<Inputs.ClusterBootstrapActionsGetArgs>? _bootstrapActions;
 
         /// <summary>
-        /// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
+        /// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
         /// </summary>
         public InputList<Inputs.ClusterBootstrapActionsGetArgs> BootstrapActions
         {

@@ -51,8 +51,6 @@ class Rule(pulumi.CustomResource):
         * `data_id` - (Required) The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
         * `negated` - (Required) Whether to use the settings or the negated settings that you specified in the objects.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_rule.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.

@@ -53,8 +53,6 @@ def get_vpn_attachment(filters=None,tags=None,transit_gateway_id=None,vpn_connec
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpn_attachment.html.markdown.
-
 
     :param list filters: Configuration block(s) for filtering. Detailed below.
     :param dict tags: A mapping of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.

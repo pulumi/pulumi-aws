@@ -27,7 +27,7 @@ namespace Pulumi.Aws.CodePipeline
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// An artifact_store block. Artifact stores are documented below.
+        /// One or more artifact_store blocks. Artifact stores are documented below.
         /// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
         /// </summary>
         [Output("artifactStore")]
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.CodePipeline
     public sealed class PipelineArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An artifact_store block. Artifact stores are documented below.
+        /// One or more artifact_store blocks. Artifact stores are documented below.
         /// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
         /// </summary>
         [Input("artifactStore", required: true)]
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.CodePipeline
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// An artifact_store block. Artifact stores are documented below.
+        /// One or more artifact_store blocks. Artifact stores are documented below.
         /// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
         /// </summary>
         [Input("artifactStore")]
@@ -208,10 +208,16 @@ namespace Pulumi.Aws.CodePipeline
         public Input<PipelineArtifactStoreEncryptionKeyArgs>? EncryptionKey { get; set; }
 
         /// <summary>
-        /// The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3 bucket.
+        /// The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The type of the artifact store, such as Amazon S3
@@ -271,10 +277,16 @@ namespace Pulumi.Aws.CodePipeline
         public Input<PipelineArtifactStoreEncryptionKeyGetArgs>? EncryptionKey { get; set; }
 
         /// <summary>
-        /// The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3 bucket.
+        /// The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The type of the artifact store, such as Amazon S3
@@ -296,14 +308,14 @@ namespace Pulumi.Aws.CodePipeline
         public Input<string> Category { get; set; } = null!;
 
         [Input("configuration")]
-        private InputMap<object>? _configuration;
+        private InputMap<string>? _configuration;
 
         /// <summary>
         /// A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
         /// </summary>
-        public InputMap<object> Configuration
+        public InputMap<string> Configuration
         {
-            get => _configuration ?? (_configuration = new InputMap<object>());
+            get => _configuration ?? (_configuration = new InputMap<string>());
             set => _configuration = value;
         }
 
@@ -348,6 +360,12 @@ namespace Pulumi.Aws.CodePipeline
         /// </summary>
         [Input("provider", required: true)]
         public Input<string> Provider { get; set; } = null!;
+
+        /// <summary>
+        /// The region in which to run the action.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
@@ -381,14 +399,14 @@ namespace Pulumi.Aws.CodePipeline
         public Input<string> Category { get; set; } = null!;
 
         [Input("configuration")]
-        private InputMap<object>? _configuration;
+        private InputMap<string>? _configuration;
 
         /// <summary>
         /// A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
         /// </summary>
-        public InputMap<object> Configuration
+        public InputMap<string> Configuration
         {
-            get => _configuration ?? (_configuration = new InputMap<object>());
+            get => _configuration ?? (_configuration = new InputMap<string>());
             set => _configuration = value;
         }
 
@@ -433,6 +451,12 @@ namespace Pulumi.Aws.CodePipeline
         /// </summary>
         [Input("provider", required: true)]
         public Input<string> Provider { get; set; } = null!;
+
+        /// <summary>
+        /// The region in which to run the action.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
@@ -519,9 +543,13 @@ namespace Pulumi.Aws.CodePipeline
         /// </summary>
         public readonly PipelineArtifactStoreEncryptionKey? EncryptionKey;
         /// <summary>
-        /// The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3 bucket.
+        /// The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
+        /// </summary>
+        public readonly string Region;
         /// <summary>
         /// The type of the artifact store, such as Amazon S3
         /// </summary>
@@ -531,10 +559,12 @@ namespace Pulumi.Aws.CodePipeline
         private PipelineArtifactStore(
             PipelineArtifactStoreEncryptionKey? encryptionKey,
             string location,
+            string region,
             string type)
         {
             EncryptionKey = encryptionKey;
             Location = location;
+            Region = region;
             Type = type;
         }
     }
@@ -593,7 +623,7 @@ namespace Pulumi.Aws.CodePipeline
         /// <summary>
         /// A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Configuration;
+        public readonly ImmutableDictionary<string, string>? Configuration;
         /// <summary>
         /// A list of artifact names to be worked on.
         /// </summary>
@@ -615,6 +645,10 @@ namespace Pulumi.Aws.CodePipeline
         /// </summary>
         public readonly string Provider;
         /// <summary>
+        /// The region in which to run the action.
+        /// </summary>
+        public readonly string Region;
+        /// <summary>
         /// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
         /// </summary>
         public readonly string? RoleArn;
@@ -630,12 +664,13 @@ namespace Pulumi.Aws.CodePipeline
         [OutputConstructor]
         private PipelineStagesActions(
             string category,
-            ImmutableDictionary<string, object>? configuration,
+            ImmutableDictionary<string, string>? configuration,
             ImmutableArray<string> inputArtifacts,
             string name,
             ImmutableArray<string> outputArtifacts,
             string owner,
             string provider,
+            string region,
             string? roleArn,
             int runOrder,
             string version)
@@ -647,6 +682,7 @@ namespace Pulumi.Aws.CodePipeline
             OutputArtifacts = outputArtifacts;
             Owner = owner;
             Provider = provider;
+            Region = region;
             RoleArn = roleArn;
             RunOrder = runOrder;
             Version = version;

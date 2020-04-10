@@ -908,6 +908,19 @@ export namespace apigateway {
     }
 }
 
+export namespace apigatewayv2 {
+    export interface AuthorizerJwtConfiguration {
+        /**
+         * A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
+         */
+        audiences?: string[];
+        /**
+         * The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the [`aws.cognito.UserPool`](https://www.terraform.io/docs/providers/aws/r/cognito_user_pool.html) resource.
+         */
+        issuer?: string;
+    }
+}
+
 export namespace appautoscaling {
     export interface PolicyStepScalingPolicyConfiguration {
         adjustmentType?: string;
@@ -3990,9 +4003,13 @@ export namespace codepipeline {
          */
         encryptionKey?: outputs.codepipeline.PipelineArtifactStoreEncryptionKey;
         /**
-         * The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3 bucket.
+         * The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
          */
         location: string;
+        /**
+         * The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
+         */
+        region: string;
         /**
          * The type of the artifact store, such as Amazon S3
          */
@@ -4029,7 +4046,7 @@ export namespace codepipeline {
         /**
          * A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
          */
-        configuration?: {[key: string]: any};
+        configuration?: {[key: string]: string};
         /**
          * A list of artifact names to be worked on.
          */
@@ -4050,6 +4067,10 @@ export namespace codepipeline {
          * The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
          */
         provider: string;
+        /**
+         * The region in which to run the action.
+         */
+        region: string;
         /**
          * The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
          */
@@ -5523,6 +5544,10 @@ export namespace ec2 {
         values: string[];
     }
 
+    export interface GetLaunchTemplateHibernationOption {
+        configured: boolean;
+    }
+
     export interface GetLaunchTemplateIamInstanceProfile {
         /**
          * Amazon Resource Name (ARN) of the launch template.
@@ -6112,7 +6137,7 @@ export namespace ec2 {
          */
         iops: number;
         /**
-         * AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+         * The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
          * `encrypted` must be set to `true` when this is set.
          */
         kmsKeyId?: string;
@@ -6179,6 +6204,13 @@ export namespace ec2 {
          * Accelerator type.
          */
         type: string;
+    }
+
+    export interface LaunchTemplateHibernationOptions {
+        /**
+         * If set to `true`, the launched EC2 instance will hibernation enabled.
+         */
+        configured: boolean;
     }
 
     export interface LaunchTemplateIamInstanceProfile {
@@ -13063,7 +13095,7 @@ export namespace s3 {
          */
         id?: string;
         /**
-         * List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+         * List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
          */
         permissions: string[];
         /**

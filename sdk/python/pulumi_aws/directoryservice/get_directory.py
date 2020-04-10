@@ -130,8 +130,6 @@ def get_directory(directory_id=None,tags=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/directory_service_directory.html.markdown.
-
 
     :param str directory_id: The ID of the directory.
     :param dict tags: A mapping of tags assigned to the directory/connector.

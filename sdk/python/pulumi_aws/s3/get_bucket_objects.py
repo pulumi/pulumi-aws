@@ -85,8 +85,6 @@ def get_bucket_objects(bucket=None,delimiter=None,encoding_type=None,fetch_owner
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_objects.html.markdown.
-
 
     :param str bucket: Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
     :param str delimiter: A character used to group keys (Default: none)

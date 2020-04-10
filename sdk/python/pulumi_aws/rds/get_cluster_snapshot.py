@@ -159,8 +159,6 @@ def get_cluster_snapshot(db_cluster_identifier=None,db_cluster_snapshot_identifi
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_cluster_snapshot.html.markdown.
-
 
     :param str db_cluster_identifier: Returns the list of snapshots created by the specific db_cluster
     :param str db_cluster_snapshot_identifier: Returns information on a specific snapshot_id.

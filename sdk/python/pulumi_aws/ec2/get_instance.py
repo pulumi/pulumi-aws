@@ -282,8 +282,6 @@ def get_instance(filters=None,get_password_data=None,get_user_data=None,instance
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instance.html.markdown.
-
 
     :param list filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out

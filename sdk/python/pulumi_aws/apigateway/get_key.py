@@ -84,8 +84,6 @@ def get_key(id=None,tags=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_api_key.html.markdown.
-
 
     :param str id: The ID of the API Key to look up.
     :param dict tags: A mapping of tags for the resource.

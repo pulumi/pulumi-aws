@@ -64,8 +64,6 @@ class PlatformApplication(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_platform_application.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_delivery_failure_topic_arn: SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.

@@ -29,7 +29,7 @@ generate_schema:: tfgen
 	$(TFGEN) schema --out ./provider/cmd/${PROVIDER}
 
 provider:: generate_schema
-	go generate ${PROJECT}/provider/cmd/${PROVIDER}
+	cd provider && go generate cmd/${PROVIDER}/main.go
 	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/v2/pkg/version.Version=${VERSION}" ${PROJECT}/provider/v2/cmd/${PROVIDER}
 
 # NOTE: Since the plugin is published using the nodejs style semver version
@@ -90,8 +90,8 @@ publish_tgz:
 publish_packages:
 	$(call STEP_MESSAGE)
 	$$(go env GOPATH)/src/github.com/pulumi/scripts/ci/publish-tfgen-package .
-	#$$(go env GOPATH)/src/github.com/pulumi/scripts/ci/build-package-docs.sh ${PACK}
-	$$(go env GOPATH)/src/github.com/pulumi/scripts/ci/publish-github-release.sh pulumi-${PACK} ${VERSION}
+	$$(go env GOPATH)/src/github.com/pulumi/scripts/ci/build-package-docs.sh ${PACK}
+	#$$(go env GOPATH)/src/github.com/pulumi/scripts/ci/publish-github-release.sh pulumi-${PACK} ${VERSION}
 
 .PHONY: check_clean_worktree
 check_clean_worktree:

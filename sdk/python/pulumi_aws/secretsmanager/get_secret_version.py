@@ -74,8 +74,6 @@ def get_secret_version(secret_id=None,version_id=None,version_stage=None,opts=No
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret_version.html.markdown.
-
 
     :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
     :param str version_id: Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.

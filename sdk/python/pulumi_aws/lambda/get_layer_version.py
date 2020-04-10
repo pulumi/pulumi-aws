@@ -105,8 +105,6 @@ def get_layer_version(compatible_runtime=None,layer_name=None,version=None,opts=
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_layer_version.html.markdown.
-
 
     :param str compatible_runtime: Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
     :param str layer_name: Name of the lambda layer.

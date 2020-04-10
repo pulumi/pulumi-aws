@@ -67,8 +67,6 @@ def get_resource_share(filters=None,name=None,resource_owner=None,tags=None,opts
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ram_resource_share.html.markdown.
-
 
     :param list filters: A filter used to scope the list e.g. by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
     :param str name: The name of the tag key to filter on.

@@ -181,8 +181,6 @@ def get_cluster(cluster_id=None,tags=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_cluster.html.markdown.
-
 
     :param str cluster_id: Group identifier.
     :param dict tags: The tags assigned to the resource

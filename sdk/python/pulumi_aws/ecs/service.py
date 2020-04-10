@@ -201,8 +201,6 @@ class Service(pulumi.CustomResource):
         * `container_port` - (Optional) The port value, already specified in the task definition, to be used for your service discovery service.
         * `container_name` - (Optional) The container name value, already specified in the task definition, to be used for your service discovery service.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_service.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.

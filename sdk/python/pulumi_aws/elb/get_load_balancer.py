@@ -116,8 +116,6 @@ def get_load_balancer(name=None,tags=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb.html.markdown.
-
 
     :param str name: The unique name of the load balancer.
     """

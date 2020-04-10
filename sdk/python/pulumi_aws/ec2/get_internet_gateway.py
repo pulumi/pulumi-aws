@@ -57,8 +57,6 @@ def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,opts=No
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/internet_gateway.html.markdown.
-
 
     :param list filters: Custom filter block as described below.
     :param str internet_gateway_id: The id of the specific Internet Gateway to retrieve.

@@ -64,8 +64,6 @@ def get_patch_baseline(default_baseline=None,name_prefix=None,operating_system=N
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_patch_baseline.html.markdown.
-
 
     :param bool default_baseline: Filters the results against the baselines default_baseline field.
     :param str name_prefix: Filter results by the baseline name prefix.

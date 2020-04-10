@@ -50,8 +50,6 @@ class ClusterEndpoint(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_endpoint.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_endpoint_identifier: The identifier to use for the new endpoint. This parameter is stored as a lowercase string.

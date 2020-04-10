@@ -300,11 +300,11 @@ import {RoutingRule} from "./routingRules";
  *     grants: [
  *         {
  *             id: currentUser.id,
- *             permission: ["FULL_ACCESS"],
+ *             permissions: ["FULL_CONTROL"],
  *             type: "CanonicalUser",
  *         },
  *         {
- *             permission: [
+ *             permissions: [
  *                 "READ",
  *                 "WRITE",
  *             ],

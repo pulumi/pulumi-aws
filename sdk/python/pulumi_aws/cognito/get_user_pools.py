@@ -49,8 +49,6 @@ def get_user_pools(name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cognito_user_pools.markdown.
-
 
     :param str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name.
     """

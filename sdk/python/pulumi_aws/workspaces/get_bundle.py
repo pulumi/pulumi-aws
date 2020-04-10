@@ -80,8 +80,6 @@ def get_bundle(bundle_id=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/workspaces_bundle.html.markdown.
-
 
     :param str bundle_id: The ID of the bundle.
     """

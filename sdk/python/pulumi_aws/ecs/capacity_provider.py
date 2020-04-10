@@ -59,8 +59,6 @@ class CapacityProvider(pulumi.CustomResource):
         * `status` - (Optional) Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
         * `target_capacity` - (Optional) The target utilization for the capacity provider. A number between 1 and 100.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_capacity_provider.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] auto_scaling_group_provider: Nested argument defining the provider for the ECS auto scaling group. Defined below.

@@ -83,8 +83,6 @@ def get_resolver_rule(domain_name=None,name=None,resolver_endpoint_id=None,resol
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rule.html.markdown.
-
 
     :param str domain_name: The domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
     :param str name: The friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.

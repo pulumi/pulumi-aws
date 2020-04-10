@@ -97,8 +97,6 @@ def get_subnet(availability_zone=None,availability_zone_id=None,cidr_block=None,
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet.html.markdown.
-
 
     :param str availability_zone: The availability zone where the
            subnet must reside.

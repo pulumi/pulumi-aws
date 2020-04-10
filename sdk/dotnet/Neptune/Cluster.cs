@@ -74,6 +74,9 @@ namespace Pulumi.Aws.Neptune
         [Output("clusterResourceId")]
         public Output<string> ClusterResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        /// </summary>
         [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
@@ -285,6 +288,9 @@ namespace Pulumi.Aws.Neptune
         [Input("clusterIdentifierPrefix")]
         public Input<string>? ClusterIdentifierPrefix { get; set; }
 
+        /// <summary>
+        /// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 
@@ -487,6 +493,9 @@ namespace Pulumi.Aws.Neptune
         [Input("clusterResourceId")]
         public Input<string>? ClusterResourceId { get; set; }
 
+        /// <summary>
+        /// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 

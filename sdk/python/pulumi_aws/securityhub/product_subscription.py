@@ -24,8 +24,6 @@ class ProductSubscription(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_product_subscription.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] product_arn: The ARN of the product that generates findings that you want to import into Security Hub - see below.

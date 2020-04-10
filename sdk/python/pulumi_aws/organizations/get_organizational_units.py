@@ -45,8 +45,6 @@ def get_organizational_units(parent_id=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organizational_units.html.markdown.
-
 
     :param str parent_id: The parent ID of the organizational unit.
     """

@@ -94,8 +94,6 @@ def get_secret(arn=None,name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret.html.markdown.
-
 
     :param str arn: The Amazon Resource Name (ARN) of the secret to retrieve.
     :param str name: The name of the secret to retrieve.

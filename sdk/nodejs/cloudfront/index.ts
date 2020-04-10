@@ -3,5 +3,6 @@
 
 // Export members:
 export * from "./distribution";
+export * from "./getDistribution";
 export * from "./originAccessIdentity";
 export * from "./publicKey";

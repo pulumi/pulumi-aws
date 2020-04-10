@@ -107,8 +107,6 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         will not destroy the Security Group. All ingress or egress rules will be left as
         they are at the time of removal. You can resume managing them via the AWS Console.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_security_group.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] egress: Can be specified multiple times for each

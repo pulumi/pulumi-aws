@@ -117,8 +117,6 @@ def get_vpc_endpoint_service(filters=None,service=None,service_name=None,tags=No
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint_service.html.markdown.
-
 
     :param list filters: Configuration block(s) for filtering. Detailed below.
     :param str service: The common name of an AWS service (e.g. `s3`).

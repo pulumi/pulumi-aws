@@ -111,6 +111,10 @@ class SpotFleetRequest(pulumi.CustomResource):
     """
     The state of the Spot fleet request.
     """
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
     target_capacity: pulumi.Output[float]
     """
     The number of units to request. You can choose to set the
@@ -140,14 +144,12 @@ class SpotFleetRequest(pulumi.CustomResource):
     wait for the Spot Request to be fulfilled, and will throw an error if the
     timeout of 10m is reached.
     """
-    def __init__(__self__, resource_name, opts=None, allocation_strategy=None, excess_capacity_termination_policy=None, fleet_type=None, iam_fleet_role=None, instance_interruption_behaviour=None, instance_pools_to_use_count=None, launch_specifications=None, load_balancers=None, replace_unhealthy_instances=None, spot_price=None, target_capacity=None, target_group_arns=None, terminate_instances_with_expiration=None, valid_from=None, valid_until=None, wait_for_fulfillment=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allocation_strategy=None, excess_capacity_termination_policy=None, fleet_type=None, iam_fleet_role=None, instance_interruption_behaviour=None, instance_pools_to_use_count=None, launch_specifications=None, load_balancers=None, replace_unhealthy_instances=None, spot_price=None, tags=None, target_capacity=None, target_group_arns=None, terminate_instances_with_expiration=None, valid_from=None, valid_until=None, wait_for_fulfillment=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
         instances to be requested on the Spot market.
 
 
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_fleet_request.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,6 +179,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[list] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
         :param pulumi.Input[bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         :param pulumi.Input[str] spot_price: The maximum bid price per unit hour.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] target_capacity: The number of units to request. You can choose to set the
                target capacity in terms of instances or a performance characteristic that is
                important to your application workload, such as vCPUs, memory, or I/O.
@@ -262,6 +265,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             __props__['load_balancers'] = load_balancers
             __props__['replace_unhealthy_instances'] = replace_unhealthy_instances
             __props__['spot_price'] = spot_price
+            __props__['tags'] = tags
             if target_capacity is None:
                 raise TypeError("Missing required property 'target_capacity'")
             __props__['target_capacity'] = target_capacity
@@ -279,7 +283,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allocation_strategy=None, client_token=None, excess_capacity_termination_policy=None, fleet_type=None, iam_fleet_role=None, instance_interruption_behaviour=None, instance_pools_to_use_count=None, launch_specifications=None, load_balancers=None, replace_unhealthy_instances=None, spot_price=None, spot_request_state=None, target_capacity=None, target_group_arns=None, terminate_instances_with_expiration=None, valid_from=None, valid_until=None, wait_for_fulfillment=None):
+    def get(resource_name, id, opts=None, allocation_strategy=None, client_token=None, excess_capacity_termination_policy=None, fleet_type=None, iam_fleet_role=None, instance_interruption_behaviour=None, instance_pools_to_use_count=None, launch_specifications=None, load_balancers=None, replace_unhealthy_instances=None, spot_price=None, spot_request_state=None, tags=None, target_capacity=None, target_group_arns=None, terminate_instances_with_expiration=None, valid_from=None, valid_until=None, wait_for_fulfillment=None):
         """
         Get an existing SpotFleetRequest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -314,6 +318,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         :param pulumi.Input[str] spot_price: The maximum bid price per unit hour.
         :param pulumi.Input[str] spot_request_state: The state of the Spot fleet request.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] target_capacity: The number of units to request. You can choose to set the
                target capacity in terms of instances or a performance characteristic that is
                important to your application workload, such as vCPUs, memory, or I/O.
@@ -384,6 +389,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         __props__["replace_unhealthy_instances"] = replace_unhealthy_instances
         __props__["spot_price"] = spot_price
         __props__["spot_request_state"] = spot_request_state
+        __props__["tags"] = tags
         __props__["target_capacity"] = target_capacity
         __props__["target_group_arns"] = target_group_arns
         __props__["terminate_instances_with_expiration"] = terminate_instances_with_expiration

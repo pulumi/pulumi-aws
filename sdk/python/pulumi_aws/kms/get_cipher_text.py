@@ -56,8 +56,6 @@ def get_cipher_text(context=None,key_id=None,plaintext=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_ciphertext.html.markdown.
-
 
     :param dict context: An optional mapping that makes up the encryption context.
     :param str key_id: Globally unique key ID for the customer master key.

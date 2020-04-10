@@ -55,8 +55,6 @@ class EventSubscription(pulumi.CustomResource):
         * `arn` - The Amazon Resource Name of the Neptune event notification subscription.
         * `customer_aws_id` - The AWS customer account associated with the Neptune event notification subscription.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_event_subscription.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: A boolean flag to enable/disable the subscription. Defaults to true.

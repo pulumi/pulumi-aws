@@ -74,8 +74,6 @@ class DefaultRouteTable(pulumi.CustomResource):
         in conjunction with any Route resources. Doing so will cause
         a conflict of rule settings and will overwrite routes.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_route_table.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_route_table_id: The ID of the Default Routing Table.

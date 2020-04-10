@@ -70,8 +70,6 @@ def get_policy(arn=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy.html.markdown.
-
 
     :param str arn: ARN of the IAM policy.
     """

@@ -241,8 +241,6 @@ def get_cluster(cluster_identifier=None,tags=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/redshift_cluster.html.markdown.
-
 
     :param str cluster_identifier: The cluster identifier
     :param dict tags: The tags associated to the cluster

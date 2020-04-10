@@ -63,8 +63,6 @@ def get_customer_gateway(filters=None,id=None,tags=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/customer_gateway.html.markdown.
-
 
     :param list filters: One or more [name-value pairs][dcg-filters] to filter by.
     :param str id: The ID of the gateway.

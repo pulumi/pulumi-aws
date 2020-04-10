@@ -78,8 +78,6 @@ def get_route(destination_cidr_block=None,destination_ipv6_cidr_block=None,egres
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route.html.markdown.
-
 
     :param str destination_cidr_block: The CIDR block of the Route belonging to the Route Table.
     :param str destination_ipv6_cidr_block: The IPv6 CIDR block of the Route belonging to the Route Table.

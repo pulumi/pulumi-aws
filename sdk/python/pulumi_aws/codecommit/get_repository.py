@@ -66,8 +66,6 @@ def get_repository(repository_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/codecommit_repository.html.markdown.
-
 
     :param str repository_name: The name for the repository. This needs to be less than 100 characters.
     """

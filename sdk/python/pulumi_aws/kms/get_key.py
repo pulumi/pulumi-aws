@@ -97,8 +97,6 @@ def get_key(grant_tokens=None,key_id=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_key.html.markdown.
-
 
     :param list grant_tokens: List of grant tokens
     :param str key_id: Key identifier which can be one of the following format:

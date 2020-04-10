@@ -86,8 +86,6 @@ def get_route_table(filters=None,gateway_id=None,route_table_id=None,subnet_id=N
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_table.html.markdown.
-
 
     :param list filters: Custom filter block as described below.
     :param str gateway_id: The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).

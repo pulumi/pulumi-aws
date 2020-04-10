@@ -169,8 +169,6 @@ def get_domain(domain_name=None,tags=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticsearch_domain.html.markdown.
-
 
     :param str domain_name: Name of the domain.
     :param dict tags: The tags assigned to the domain.

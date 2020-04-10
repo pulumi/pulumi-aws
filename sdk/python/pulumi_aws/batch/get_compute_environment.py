@@ -88,8 +88,6 @@ def get_compute_environment(compute_environment_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_compute_environment.html.markdown.
-
 
     :param str compute_environment_name: The name of the Batch Compute Environment
     """

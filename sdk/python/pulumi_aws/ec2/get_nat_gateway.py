@@ -79,8 +79,6 @@ def get_nat_gateway(filters=None,id=None,state=None,subnet_id=None,tags=None,vpc
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/nat_gateway.html.markdown.
-
 
     :param list filters: Custom filter block as described below.
     :param str id: The id of the specific Nat Gateway to retrieve.

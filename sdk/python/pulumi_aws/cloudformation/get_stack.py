@@ -109,8 +109,6 @@ def get_stack(name=None,tags=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudformation_stack.html.markdown.
-
 
     :param str name: The name of the stack
     :param dict tags: A map of tags associated with this stack.

@@ -51,8 +51,6 @@ def get_snapshot_ids(filters=None,owners=None,restorable_by_user_ids=None,opts=N
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot_ids.html.markdown.
-
 
     :param list filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out

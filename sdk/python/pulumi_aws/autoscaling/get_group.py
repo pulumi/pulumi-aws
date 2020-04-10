@@ -154,8 +154,6 @@ def get_group(name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_group.html.markdown.
-
 
     :param str name: Specify the exact name of the desired autoscaling group.
     """
