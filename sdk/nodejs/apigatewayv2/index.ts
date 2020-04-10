@@ -3,3 +3,6 @@
 
 // Export members:
 export * from "./api";
+export * from "./authorizer";
+export * from "./integration";
+export * from "./model";

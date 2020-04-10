@@ -36,7 +36,8 @@ type Cluster struct {
 	// List of Neptune Instances that are a part of this cluster
 	ClusterMembers pulumi.StringArrayOutput `pulumi:"clusterMembers"`
 	// The Neptune Cluster Resource ID
-	ClusterResourceId  pulumi.StringOutput  `pulumi:"clusterResourceId"`
+	ClusterResourceId pulumi.StringOutput `pulumi:"clusterResourceId"`
+	// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
 	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
 	EnableCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enableCloudwatchLogsExports"`
@@ -125,8 +126,9 @@ type clusterState struct {
 	// List of Neptune Instances that are a part of this cluster
 	ClusterMembers []string `pulumi:"clusterMembers"`
 	// The Neptune Cluster Resource ID
-	ClusterResourceId  *string `pulumi:"clusterResourceId"`
-	DeletionProtection *bool   `pulumi:"deletionProtection"`
+	ClusterResourceId *string `pulumi:"clusterResourceId"`
+	// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
 	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
 	// The DNS address of the Neptune instance
@@ -187,7 +189,8 @@ type ClusterState struct {
 	// List of Neptune Instances that are a part of this cluster
 	ClusterMembers pulumi.StringArrayInput
 	// The Neptune Cluster Resource ID
-	ClusterResourceId  pulumi.StringPtrInput
+	ClusterResourceId pulumi.StringPtrInput
+	// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection pulumi.BoolPtrInput
 	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
 	EnableCloudwatchLogsExports pulumi.StringArrayInput
@@ -248,7 +251,8 @@ type clusterArgs struct {
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix *string `pulumi:"clusterIdentifierPrefix"`
-	DeletionProtection      *bool   `pulumi:"deletionProtection"`
+	// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
 	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
 	// The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
@@ -299,7 +303,8 @@ type ClusterArgs struct {
 	ClusterIdentifier pulumi.StringPtrInput
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix pulumi.StringPtrInput
-	DeletionProtection      pulumi.BoolPtrInput
+	// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+	DeletionProtection pulumi.BoolPtrInput
 	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
 	EnableCloudwatchLogsExports pulumi.StringArrayInput
 	// The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.

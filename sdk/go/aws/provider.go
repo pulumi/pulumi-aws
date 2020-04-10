@@ -44,10 +44,8 @@ type providerArgs struct {
 	AssumeRole          *ProviderAssumeRole `pulumi:"assumeRole"`
 	Endpoints           []ProviderEndpoint  `pulumi:"endpoints"`
 	ForbiddenAccountIds []string            `pulumi:"forbiddenAccountIds"`
-	// Resource tag key prefixes to ignore across all resources.
-	IgnoreTagPrefixes []string `pulumi:"ignoreTagPrefixes"`
-	// Resource tag keys to ignore across all resources.
-	IgnoreTags []string `pulumi:"ignoreTags"`
+	// Configuration block with settings to ignore resource tags across all resources.
+	IgnoreTags *ProviderIgnoreTags `pulumi:"ignoreTags"`
 	// Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
 	Insecure *bool `pulumi:"insecure"`
 	// The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
@@ -87,10 +85,8 @@ type ProviderArgs struct {
 	AssumeRole          ProviderAssumeRolePtrInput
 	Endpoints           ProviderEndpointArrayInput
 	ForbiddenAccountIds pulumi.StringArrayInput
-	// Resource tag key prefixes to ignore across all resources.
-	IgnoreTagPrefixes pulumi.StringArrayInput
-	// Resource tag keys to ignore across all resources.
-	IgnoreTags pulumi.StringArrayInput
+	// Configuration block with settings to ignore resource tags across all resources.
+	IgnoreTags ProviderIgnoreTagsPtrInput
 	// Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
 	Insecure pulumi.BoolPtrInput
 	// The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.

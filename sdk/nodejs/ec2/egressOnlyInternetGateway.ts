@@ -25,6 +25,9 @@ import * as utilities from "../utilities";
  *     cidrBlock: "10.1.0.0/16",
  * });
  * const exampleEgressOnlyInternetGateway = new aws.ec2.EgressOnlyInternetGateway("example", {
+ *     tags: {
+ *         Name: "main",
+ *     },
  *     vpcId: exampleVpc.id,
  * });
  * ```
@@ -59,6 +62,10 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
     }
 
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The VPC ID to create in.
      */
     public readonly vpcId!: pulumi.Output<string>;
@@ -75,12 +82,14 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as EgressOnlyInternetGatewayState | undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as EgressOnlyInternetGatewayArgs | undefined;
             if (!args || args.vpcId === undefined) {
                 throw new Error("Missing required property 'vpcId'");
             }
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
         }
         if (!opts) {
@@ -99,6 +108,10 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
  */
 export interface EgressOnlyInternetGatewayState {
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The VPC ID to create in.
      */
     readonly vpcId?: pulumi.Input<string>;
@@ -108,6 +121,10 @@ export interface EgressOnlyInternetGatewayState {
  * The set of arguments for constructing a EgressOnlyInternetGateway resource.
  */
 export interface EgressOnlyInternetGatewayArgs {
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The VPC ID to create in.
      */

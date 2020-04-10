@@ -47,6 +47,8 @@ type Cluster struct {
 	DbClusterParameterGroupName pulumi.StringOutput `pulumi:"dbClusterParameterGroupName"`
 	// A DB subnet group to associate with this DB instance.
 	DbSubnetGroupName pulumi.StringOutput `pulumi:"dbSubnetGroupName"`
+	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enabledCloudwatchLogsExports"`
@@ -141,6 +143,8 @@ type clusterState struct {
 	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
 	// A DB subnet group to associate with this DB instance.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
+	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
@@ -208,6 +212,8 @@ type ClusterState struct {
 	DbClusterParameterGroupName pulumi.StringPtrInput
 	// A DB subnet group to associate with this DB instance.
 	DbSubnetGroupName pulumi.StringPtrInput
+	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+	DeletionProtection pulumi.BoolPtrInput
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
@@ -275,6 +281,8 @@ type clusterArgs struct {
 	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
 	// A DB subnet group to associate with this DB instance.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
+	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
@@ -333,6 +341,8 @@ type ClusterArgs struct {
 	DbClusterParameterGroupName pulumi.StringPtrInput
 	// A DB subnet group to associate with this DB instance.
 	DbSubnetGroupName pulumi.StringPtrInput
+	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+	DeletionProtection pulumi.BoolPtrInput
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput

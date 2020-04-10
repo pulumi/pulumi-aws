@@ -10,7 +10,7 @@ from typing import Union
 from . import utilities, tables
 
 class Provider(pulumi.ProviderResource):
-    def __init__(__self__, resource_name, opts=None, access_key=None, allowed_account_ids=None, assume_role=None, endpoints=None, forbidden_account_ids=None, ignore_tag_prefixes=None, ignore_tags=None, insecure=None, max_retries=None, profile=None, region=None, s3_force_path_style=None, secret_key=None, shared_credentials_file=None, skip_credentials_validation=None, skip_get_ec2_platforms=None, skip_metadata_api_check=None, skip_region_validation=None, skip_requesting_account_id=None, token=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_key=None, allowed_account_ids=None, assume_role=None, endpoints=None, forbidden_account_ids=None, ignore_tags=None, insecure=None, max_retries=None, profile=None, region=None, s3_force_path_style=None, secret_key=None, shared_credentials_file=None, skip_credentials_validation=None, skip_get_ec2_platforms=None, skip_metadata_api_check=None, skip_region_validation=None, skip_requesting_account_id=None, token=None, __props__=None, __name__=None, __opts__=None):
         """
         The provider type for the aws package. By default, resources use package-wide configuration
         settings, however an explicit `Provider` instance may be created and passed during resource
@@ -20,8 +20,7 @@ class Provider(pulumi.ProviderResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_key: The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
-        :param pulumi.Input[list] ignore_tag_prefixes: Resource tag key prefixes to ignore across all resources.
-        :param pulumi.Input[list] ignore_tags: Resource tag keys to ignore across all resources.
+        :param pulumi.Input[dict] ignore_tags: Configuration block with settings to ignore resource tags across all resources.
         :param pulumi.Input[bool] insecure: Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
         :param pulumi.Input[float] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
         :param pulumi.Input[str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
@@ -182,6 +181,11 @@ class Provider(pulumi.ProviderResource):
           * `workmail` (`pulumi.Input[str]`)
           * `workspaces` (`pulumi.Input[str]`)
           * `xray` (`pulumi.Input[str]`)
+
+        The **ignore_tags** object supports the following:
+
+          * `keyPrefixes` (`pulumi.Input[list]`)
+          * `keys` (`pulumi.Input[list]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -205,7 +209,6 @@ class Provider(pulumi.ProviderResource):
             __props__['assume_role'] = pulumi.Output.from_input(assume_role).apply(json.dumps) if assume_role is not None else None
             __props__['endpoints'] = pulumi.Output.from_input(endpoints).apply(json.dumps) if endpoints is not None else None
             __props__['forbidden_account_ids'] = pulumi.Output.from_input(forbidden_account_ids).apply(json.dumps) if forbidden_account_ids is not None else None
-            __props__['ignore_tag_prefixes'] = pulumi.Output.from_input(ignore_tag_prefixes).apply(json.dumps) if ignore_tag_prefixes is not None else None
             __props__['ignore_tags'] = pulumi.Output.from_input(ignore_tags).apply(json.dumps) if ignore_tags is not None else None
             __props__['insecure'] = pulumi.Output.from_input(insecure).apply(json.dumps) if insecure is not None else None
             __props__['max_retries'] = pulumi.Output.from_input(max_retries).apply(json.dumps) if max_retries is not None else None

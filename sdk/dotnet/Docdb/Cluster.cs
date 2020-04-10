@@ -93,6 +93,12 @@ namespace Pulumi.Aws.DocDB
         public Output<string> DbSubnetGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        /// </summary>
+        [Output("deletionProtection")]
+        public Output<bool?> DeletionProtection { get; private set; } = null!;
+
+        /// <summary>
         /// List of log types to export to cloudwatch. If omitted, no logs will be exported.
         /// The following log types are supported: `audit`, `profiler`.
         /// </summary>
@@ -312,6 +318,12 @@ namespace Pulumi.Aws.DocDB
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }
 
+        /// <summary>
+        /// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        /// </summary>
+        [Input("deletionProtection")]
+        public Input<bool>? DeletionProtection { get; set; }
+
         [Input("enabledCloudwatchLogsExports")]
         private InputList<string>? _enabledCloudwatchLogsExports;
 
@@ -504,6 +516,12 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }
+
+        /// <summary>
+        /// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        /// </summary>
+        [Input("deletionProtection")]
+        public Input<bool>? DeletionProtection { get; set; }
 
         [Input("enabledCloudwatchLogsExports")]
         private InputList<string>? _enabledCloudwatchLogsExports;

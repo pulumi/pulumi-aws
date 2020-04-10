@@ -1900,6 +1900,125 @@ func (o ProviderEndpointArrayOutput) Index(i pulumi.IntInput) ProviderEndpointOu
 	}).(ProviderEndpointOutput)
 }
 
+type ProviderIgnoreTags struct {
+	KeyPrefixes []string `pulumi:"keyPrefixes"`
+	Keys        []string `pulumi:"keys"`
+}
+
+type ProviderIgnoreTagsInput interface {
+	pulumi.Input
+
+	ToProviderIgnoreTagsOutput() ProviderIgnoreTagsOutput
+	ToProviderIgnoreTagsOutputWithContext(context.Context) ProviderIgnoreTagsOutput
+}
+
+type ProviderIgnoreTagsArgs struct {
+	KeyPrefixes pulumi.StringArrayInput `pulumi:"keyPrefixes"`
+	Keys        pulumi.StringArrayInput `pulumi:"keys"`
+}
+
+func (ProviderIgnoreTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIgnoreTags)(nil)).Elem()
+}
+
+func (i ProviderIgnoreTagsArgs) ToProviderIgnoreTagsOutput() ProviderIgnoreTagsOutput {
+	return i.ToProviderIgnoreTagsOutputWithContext(context.Background())
+}
+
+func (i ProviderIgnoreTagsArgs) ToProviderIgnoreTagsOutputWithContext(ctx context.Context) ProviderIgnoreTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIgnoreTagsOutput)
+}
+
+func (i ProviderIgnoreTagsArgs) ToProviderIgnoreTagsPtrOutput() ProviderIgnoreTagsPtrOutput {
+	return i.ToProviderIgnoreTagsPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderIgnoreTagsArgs) ToProviderIgnoreTagsPtrOutputWithContext(ctx context.Context) ProviderIgnoreTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIgnoreTagsOutput).ToProviderIgnoreTagsPtrOutputWithContext(ctx)
+}
+
+type ProviderIgnoreTagsPtrInput interface {
+	pulumi.Input
+
+	ToProviderIgnoreTagsPtrOutput() ProviderIgnoreTagsPtrOutput
+	ToProviderIgnoreTagsPtrOutputWithContext(context.Context) ProviderIgnoreTagsPtrOutput
+}
+
+type providerIgnoreTagsPtrType ProviderIgnoreTagsArgs
+
+func ProviderIgnoreTagsPtr(v *ProviderIgnoreTagsArgs) ProviderIgnoreTagsPtrInput {
+	return (*providerIgnoreTagsPtrType)(v)
+}
+
+func (*providerIgnoreTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIgnoreTags)(nil)).Elem()
+}
+
+func (i *providerIgnoreTagsPtrType) ToProviderIgnoreTagsPtrOutput() ProviderIgnoreTagsPtrOutput {
+	return i.ToProviderIgnoreTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *providerIgnoreTagsPtrType) ToProviderIgnoreTagsPtrOutputWithContext(ctx context.Context) ProviderIgnoreTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIgnoreTagsPtrOutput)
+}
+
+type ProviderIgnoreTagsOutput struct{ *pulumi.OutputState }
+
+func (ProviderIgnoreTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIgnoreTags)(nil)).Elem()
+}
+
+func (o ProviderIgnoreTagsOutput) ToProviderIgnoreTagsOutput() ProviderIgnoreTagsOutput {
+	return o
+}
+
+func (o ProviderIgnoreTagsOutput) ToProviderIgnoreTagsOutputWithContext(ctx context.Context) ProviderIgnoreTagsOutput {
+	return o
+}
+
+func (o ProviderIgnoreTagsOutput) ToProviderIgnoreTagsPtrOutput() ProviderIgnoreTagsPtrOutput {
+	return o.ToProviderIgnoreTagsPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderIgnoreTagsOutput) ToProviderIgnoreTagsPtrOutputWithContext(ctx context.Context) ProviderIgnoreTagsPtrOutput {
+	return o.ApplyT(func(v ProviderIgnoreTags) *ProviderIgnoreTags {
+		return &v
+	}).(ProviderIgnoreTagsPtrOutput)
+}
+func (o ProviderIgnoreTagsOutput) KeyPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProviderIgnoreTags) []string { return v.KeyPrefixes }).(pulumi.StringArrayOutput)
+}
+
+func (o ProviderIgnoreTagsOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProviderIgnoreTags) []string { return v.Keys }).(pulumi.StringArrayOutput)
+}
+
+type ProviderIgnoreTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderIgnoreTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIgnoreTags)(nil)).Elem()
+}
+
+func (o ProviderIgnoreTagsPtrOutput) ToProviderIgnoreTagsPtrOutput() ProviderIgnoreTagsPtrOutput {
+	return o
+}
+
+func (o ProviderIgnoreTagsPtrOutput) ToProviderIgnoreTagsPtrOutputWithContext(ctx context.Context) ProviderIgnoreTagsPtrOutput {
+	return o
+}
+
+func (o ProviderIgnoreTagsPtrOutput) Elem() ProviderIgnoreTagsOutput {
+	return o.ApplyT(func(v *ProviderIgnoreTags) ProviderIgnoreTags { return *v }).(ProviderIgnoreTagsOutput)
+}
+
+func (o ProviderIgnoreTagsPtrOutput) KeyPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProviderIgnoreTags) []string { return v.KeyPrefixes }).(pulumi.StringArrayOutput)
+}
+
+func (o ProviderIgnoreTagsPtrOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProviderIgnoreTags) []string { return v.Keys }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GetAmiBlockDeviceMappingOutput{})
 	pulumi.RegisterOutputType(GetAmiBlockDeviceMappingArrayOutput{})
@@ -1923,4 +2042,6 @@ func init() {
 	pulumi.RegisterOutputType(ProviderAssumeRolePtrOutput{})
 	pulumi.RegisterOutputType(ProviderEndpointOutput{})
 	pulumi.RegisterOutputType(ProviderEndpointArrayOutput{})
+	pulumi.RegisterOutputType(ProviderIgnoreTagsOutput{})
+	pulumi.RegisterOutputType(ProviderIgnoreTagsPtrOutput{})
 }

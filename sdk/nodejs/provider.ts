@@ -47,7 +47,6 @@ export class Provider extends pulumi.ProviderResource {
             inputs["assumeRole"] = pulumi.output(args ? args.assumeRole : undefined).apply(JSON.stringify);
             inputs["endpoints"] = pulumi.output(args ? args.endpoints : undefined).apply(JSON.stringify);
             inputs["forbiddenAccountIds"] = pulumi.output(args ? args.forbiddenAccountIds : undefined).apply(JSON.stringify);
-            inputs["ignoreTagPrefixes"] = pulumi.output(args ? args.ignoreTagPrefixes : undefined).apply(JSON.stringify);
             inputs["ignoreTags"] = pulumi.output(args ? args.ignoreTags : undefined).apply(JSON.stringify);
             inputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
             inputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
@@ -88,13 +87,9 @@ export interface ProviderArgs {
     readonly endpoints?: pulumi.Input<pulumi.Input<inputs.ProviderEndpoint>[]>;
     readonly forbiddenAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Resource tag key prefixes to ignore across all resources.
+     * Configuration block with settings to ignore resource tags across all resources.
      */
-    readonly ignoreTagPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Resource tag keys to ignore across all resources.
-     */
-    readonly ignoreTags?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly ignoreTags?: pulumi.Input<inputs.ProviderIgnoreTags>;
     /**
      * Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
      */

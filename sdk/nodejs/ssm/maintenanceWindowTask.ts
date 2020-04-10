@@ -89,7 +89,7 @@ import * as utilities from "../utilities";
  *             notificationConfig: {
  *                 notificationArn: aws_sns_topic_example.arn,
  *                 notificationEvents: ["All"],
- *                 notificationType: ["Command"],
+ *                 notificationType: "Command",
  *             },
  *             outputS3Bucket: aws_s3_bucket_example.bucket,
  *             outputS3KeyPrefix: "output",

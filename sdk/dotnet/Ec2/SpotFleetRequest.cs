@@ -105,6 +105,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> SpotRequestState { get; private set; } = null!;
 
         /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The number of units to request. You can choose to set the
         /// target capacity in terms of instances or a performance characteristic that is
         /// important to your application workload, such as vCPUs, memory, or I/O.
@@ -279,6 +285,18 @@ namespace Pulumi.Aws.Ec2
         [Input("spotPrice")]
         public Input<string>? SpotPrice { get; set; }
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The number of units to request. You can choose to set the
         /// target capacity in terms of instances or a performance characteristic that is
@@ -429,6 +447,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("spotRequestState")]
         public Input<string>? SpotRequestState { get; set; }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The number of units to request. You can choose to set the
