@@ -12,10 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides an Traffic mirror filter rule.  
     /// Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_traffic_mirror_filter_rule.html.markdown.
     /// </summary>
     public partial class TrafficMirrorFilterRule : Pulumi.CustomResource
     {
@@ -88,7 +84,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TrafficMirrorFilterRule(string name, TrafficMirrorFilterRuleArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule", name, args ?? new TrafficMirrorFilterRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -255,133 +251,5 @@ namespace Pulumi.Aws.Ec2
         public TrafficMirrorFilterRuleState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class TrafficMirrorFilterRuleDestinationPortRangeArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Starting port of the range
-        /// </summary>
-        [Input("fromPort")]
-        public Input<int>? FromPort { get; set; }
-
-        /// <summary>
-        /// Ending port of the range
-        /// </summary>
-        [Input("toPort")]
-        public Input<int>? ToPort { get; set; }
-
-        public TrafficMirrorFilterRuleDestinationPortRangeArgs()
-        {
-        }
-    }
-
-    public sealed class TrafficMirrorFilterRuleDestinationPortRangeGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Starting port of the range
-        /// </summary>
-        [Input("fromPort")]
-        public Input<int>? FromPort { get; set; }
-
-        /// <summary>
-        /// Ending port of the range
-        /// </summary>
-        [Input("toPort")]
-        public Input<int>? ToPort { get; set; }
-
-        public TrafficMirrorFilterRuleDestinationPortRangeGetArgs()
-        {
-        }
-    }
-
-    public sealed class TrafficMirrorFilterRuleSourcePortRangeArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Starting port of the range
-        /// </summary>
-        [Input("fromPort")]
-        public Input<int>? FromPort { get; set; }
-
-        /// <summary>
-        /// Ending port of the range
-        /// </summary>
-        [Input("toPort")]
-        public Input<int>? ToPort { get; set; }
-
-        public TrafficMirrorFilterRuleSourcePortRangeArgs()
-        {
-        }
-    }
-
-    public sealed class TrafficMirrorFilterRuleSourcePortRangeGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Starting port of the range
-        /// </summary>
-        [Input("fromPort")]
-        public Input<int>? FromPort { get; set; }
-
-        /// <summary>
-        /// Ending port of the range
-        /// </summary>
-        [Input("toPort")]
-        public Input<int>? ToPort { get; set; }
-
-        public TrafficMirrorFilterRuleSourcePortRangeGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class TrafficMirrorFilterRuleDestinationPortRange
-    {
-        /// <summary>
-        /// Starting port of the range
-        /// </summary>
-        public readonly int? FromPort;
-        /// <summary>
-        /// Ending port of the range
-        /// </summary>
-        public readonly int? ToPort;
-
-        [OutputConstructor]
-        private TrafficMirrorFilterRuleDestinationPortRange(
-            int? fromPort,
-            int? toPort)
-        {
-            FromPort = fromPort;
-            ToPort = toPort;
-        }
-    }
-
-    [OutputType]
-    public sealed class TrafficMirrorFilterRuleSourcePortRange
-    {
-        /// <summary>
-        /// Starting port of the range
-        /// </summary>
-        public readonly int? FromPort;
-        /// <summary>
-        /// Ending port of the range
-        /// </summary>
-        public readonly int? ToPort;
-
-        [OutputConstructor]
-        private TrafficMirrorFilterRuleSourcePortRange(
-            int? fromPort,
-            int? toPort)
-        {
-            FromPort = fromPort;
-            ToPort = toPort;
-        }
-    }
     }
 }

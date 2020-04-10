@@ -18,10 +18,6 @@ namespace Pulumi.Aws.Ec2
     /// and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
     /// a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
     /// and will overwrite the association.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_service.html.markdown.
     /// </summary>
     public partial class VpcEndpointService : Pulumi.CustomResource
     {
@@ -100,7 +96,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpcEndpointService(string name, VpcEndpointServiceArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpcEndpointService:VpcEndpointService", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpcEndpointService:VpcEndpointService", name, args ?? new VpcEndpointServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 

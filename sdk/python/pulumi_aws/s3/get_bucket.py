@@ -90,8 +90,6 @@ def get_bucket(bucket=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket.html.markdown.
-
 
     :param str bucket: The name of the bucket
     """

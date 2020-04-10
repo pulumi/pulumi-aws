@@ -18,10 +18,6 @@ namespace Pulumi.Aws.Ec2
     /// The requester can use the `aws.ec2.VpcPeeringConnection` resource to manage its side of the connection
     /// and the accepter can use the `aws.ec2.VpcPeeringConnectionAccepter` resource to "adopt" its side of the
     /// connection into management.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_accepter.html.markdown.
     /// </summary>
     public partial class VpcPeeringConnectionAccepter : Pulumi.CustomResource
     {
@@ -96,7 +92,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpcPeeringConnectionAccepter(string name, VpcPeeringConnectionAccepterArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter", name, args ?? new VpcPeeringConnectionAccepterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -249,187 +245,5 @@ namespace Pulumi.Aws.Ec2
         public VpcPeeringConnectionAccepterState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class VpcPeeringConnectionAccepterAccepterArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates whether a local ClassicLink connection can communicate
-        /// with the peer VPC over the VPC Peering Connection.
-        /// </summary>
-        [Input("allowClassicLinkToRemoteVpc")]
-        public Input<bool>? AllowClassicLinkToRemoteVpc { get; set; }
-
-        /// <summary>
-        /// Indicates whether a local VPC can resolve public DNS hostnames to
-        /// private IP addresses when queried from instances in a peer VPC.
-        /// </summary>
-        [Input("allowRemoteVpcDnsResolution")]
-        public Input<bool>? AllowRemoteVpcDnsResolution { get; set; }
-
-        /// <summary>
-        /// Indicates whether a local VPC can communicate with a ClassicLink
-        /// connection in the peer VPC over the VPC Peering Connection.
-        /// </summary>
-        [Input("allowVpcToRemoteClassicLink")]
-        public Input<bool>? AllowVpcToRemoteClassicLink { get; set; }
-
-        public VpcPeeringConnectionAccepterAccepterArgs()
-        {
-        }
-    }
-
-    public sealed class VpcPeeringConnectionAccepterAccepterGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates whether a local ClassicLink connection can communicate
-        /// with the peer VPC over the VPC Peering Connection.
-        /// </summary>
-        [Input("allowClassicLinkToRemoteVpc")]
-        public Input<bool>? AllowClassicLinkToRemoteVpc { get; set; }
-
-        /// <summary>
-        /// Indicates whether a local VPC can resolve public DNS hostnames to
-        /// private IP addresses when queried from instances in a peer VPC.
-        /// </summary>
-        [Input("allowRemoteVpcDnsResolution")]
-        public Input<bool>? AllowRemoteVpcDnsResolution { get; set; }
-
-        /// <summary>
-        /// Indicates whether a local VPC can communicate with a ClassicLink
-        /// connection in the peer VPC over the VPC Peering Connection.
-        /// </summary>
-        [Input("allowVpcToRemoteClassicLink")]
-        public Input<bool>? AllowVpcToRemoteClassicLink { get; set; }
-
-        public VpcPeeringConnectionAccepterAccepterGetArgs()
-        {
-        }
-    }
-
-    public sealed class VpcPeeringConnectionAccepterRequesterArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates whether a local ClassicLink connection can communicate
-        /// with the peer VPC over the VPC Peering Connection.
-        /// </summary>
-        [Input("allowClassicLinkToRemoteVpc")]
-        public Input<bool>? AllowClassicLinkToRemoteVpc { get; set; }
-
-        /// <summary>
-        /// Indicates whether a local VPC can resolve public DNS hostnames to
-        /// private IP addresses when queried from instances in a peer VPC.
-        /// </summary>
-        [Input("allowRemoteVpcDnsResolution")]
-        public Input<bool>? AllowRemoteVpcDnsResolution { get; set; }
-
-        /// <summary>
-        /// Indicates whether a local VPC can communicate with a ClassicLink
-        /// connection in the peer VPC over the VPC Peering Connection.
-        /// </summary>
-        [Input("allowVpcToRemoteClassicLink")]
-        public Input<bool>? AllowVpcToRemoteClassicLink { get; set; }
-
-        public VpcPeeringConnectionAccepterRequesterArgs()
-        {
-        }
-    }
-
-    public sealed class VpcPeeringConnectionAccepterRequesterGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates whether a local ClassicLink connection can communicate
-        /// with the peer VPC over the VPC Peering Connection.
-        /// </summary>
-        [Input("allowClassicLinkToRemoteVpc")]
-        public Input<bool>? AllowClassicLinkToRemoteVpc { get; set; }
-
-        /// <summary>
-        /// Indicates whether a local VPC can resolve public DNS hostnames to
-        /// private IP addresses when queried from instances in a peer VPC.
-        /// </summary>
-        [Input("allowRemoteVpcDnsResolution")]
-        public Input<bool>? AllowRemoteVpcDnsResolution { get; set; }
-
-        /// <summary>
-        /// Indicates whether a local VPC can communicate with a ClassicLink
-        /// connection in the peer VPC over the VPC Peering Connection.
-        /// </summary>
-        [Input("allowVpcToRemoteClassicLink")]
-        public Input<bool>? AllowVpcToRemoteClassicLink { get; set; }
-
-        public VpcPeeringConnectionAccepterRequesterGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class VpcPeeringConnectionAccepterAccepter
-    {
-        /// <summary>
-        /// Indicates whether a local ClassicLink connection can communicate
-        /// with the peer VPC over the VPC Peering Connection.
-        /// </summary>
-        public readonly bool? AllowClassicLinkToRemoteVpc;
-        /// <summary>
-        /// Indicates whether a local VPC can resolve public DNS hostnames to
-        /// private IP addresses when queried from instances in a peer VPC.
-        /// </summary>
-        public readonly bool? AllowRemoteVpcDnsResolution;
-        /// <summary>
-        /// Indicates whether a local VPC can communicate with a ClassicLink
-        /// connection in the peer VPC over the VPC Peering Connection.
-        /// </summary>
-        public readonly bool? AllowVpcToRemoteClassicLink;
-
-        [OutputConstructor]
-        private VpcPeeringConnectionAccepterAccepter(
-            bool? allowClassicLinkToRemoteVpc,
-            bool? allowRemoteVpcDnsResolution,
-            bool? allowVpcToRemoteClassicLink)
-        {
-            AllowClassicLinkToRemoteVpc = allowClassicLinkToRemoteVpc;
-            AllowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
-            AllowVpcToRemoteClassicLink = allowVpcToRemoteClassicLink;
-        }
-    }
-
-    [OutputType]
-    public sealed class VpcPeeringConnectionAccepterRequester
-    {
-        /// <summary>
-        /// Indicates whether a local ClassicLink connection can communicate
-        /// with the peer VPC over the VPC Peering Connection.
-        /// </summary>
-        public readonly bool? AllowClassicLinkToRemoteVpc;
-        /// <summary>
-        /// Indicates whether a local VPC can resolve public DNS hostnames to
-        /// private IP addresses when queried from instances in a peer VPC.
-        /// </summary>
-        public readonly bool? AllowRemoteVpcDnsResolution;
-        /// <summary>
-        /// Indicates whether a local VPC can communicate with a ClassicLink
-        /// connection in the peer VPC over the VPC Peering Connection.
-        /// </summary>
-        public readonly bool? AllowVpcToRemoteClassicLink;
-
-        [OutputConstructor]
-        private VpcPeeringConnectionAccepterRequester(
-            bool? allowClassicLinkToRemoteVpc,
-            bool? allowRemoteVpcDnsResolution,
-            bool? allowVpcToRemoteClassicLink)
-        {
-            AllowClassicLinkToRemoteVpc = allowClassicLinkToRemoteVpc;
-            AllowRemoteVpcDnsResolution = allowRemoteVpcDnsResolution;
-            AllowVpcToRemoteClassicLink = allowVpcToRemoteClassicLink;
-        }
-    }
     }
 }

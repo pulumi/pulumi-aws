@@ -96,8 +96,6 @@ def get_target_group(arn=None,name=None,tags=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_target_group.html.markdown.
-
 
     :param str arn: The full ARN of the target group.
     :param str name: The unique name of the target group.

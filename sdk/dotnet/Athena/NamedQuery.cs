@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Athena
 {
     /// <summary>
     /// Provides an Athena Named Query resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_named_query.html.markdown.
     /// </summary>
     public partial class NamedQuery : Pulumi.CustomResource
     {
@@ -57,7 +53,7 @@ namespace Pulumi.Aws.Athena
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NamedQuery(string name, NamedQueryArgs args, CustomResourceOptions? options = null)
-            : base("aws:athena/namedQuery:NamedQuery", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:athena/namedQuery:NamedQuery", name, args ?? new NamedQueryArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention][1].
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ip_ranges.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetIpRanges.InvokeAsync() instead")]
-        public static Task<GetIpRangesResult> GetIpRanges(GetIpRangesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIpRangesResult>("aws:index/getIpRanges:getIpRanges", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetIpRanges
     {
         /// <summary>
         /// Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention][1].
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ip_ranges.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetIpRangesResult> InvokeAsync(GetIpRangesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIpRangesResult>("aws:index/getIpRanges:getIpRanges", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIpRangesResult>("aws:index/getIpRanges:getIpRanges", args ?? new GetIpRangesArgs(), options.WithVersion());
     }
+
 
     public sealed class GetIpRangesArgs : Pulumi.InvokeArgs
     {
@@ -78,6 +65,7 @@ namespace Pulumi.Aws
         }
     }
 
+
     [OutputType]
     public sealed class GetIpRangesResult
     {
@@ -90,6 +78,10 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string CreateDate;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The lexically ordered list of IPv6 CIDR blocks.
         /// </summary>
         public readonly ImmutableArray<string> Ipv6CidrBlocks;
@@ -101,30 +93,33 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly int SyncToken;
         public readonly string? Url;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetIpRangesResult(
             ImmutableArray<string> cidrBlocks,
+
             string createDate,
+
+            string id,
+
             ImmutableArray<string> ipv6CidrBlocks,
+
             ImmutableArray<string> regions,
+
             ImmutableArray<string> services,
+
             int syncToken,
-            string? url,
-            string id)
+
+            string? url)
         {
             CidrBlocks = cidrBlocks;
             CreateDate = createDate;
+            Id = id;
             Ipv6CidrBlocks = ipv6CidrBlocks;
             Regions = regions;
             Services = services;
             SyncToken = syncToken;
             Url = url;
-            Id = id;
         }
     }
 }

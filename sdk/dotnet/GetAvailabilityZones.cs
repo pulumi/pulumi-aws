@@ -9,26 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// The Availability Zones data source allows access to the list of AWS
-        /// Availability Zones which can be accessed by an AWS account within the region
-        /// configured in the provider.
-        /// 
-        /// This is different from the `aws..getAvailabilityZone` (singular) data source,
-        /// which provides some details about a specific availability zone.
-        /// 
-        /// &gt; When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetAvailabilityZones.InvokeAsync() instead")]
-        public static Task<GetAvailabilityZonesResult> GetAvailabilityZones(GetAvailabilityZonesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityZonesResult>("aws:index/getAvailabilityZones:getAvailabilityZones", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAvailabilityZones
     {
         /// <summary>
@@ -41,13 +21,13 @@ namespace Pulumi.Aws
         /// 
         /// &gt; When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAvailabilityZonesResult> InvokeAsync(GetAvailabilityZonesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityZonesResult>("aws:index/getAvailabilityZones:getAvailabilityZones", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityZonesResult>("aws:index/getAvailabilityZones:getAvailabilityZones", args ?? new GetAvailabilityZonesArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAvailabilityZonesArgs : Pulumi.InvokeArgs
     {
@@ -82,14 +62,14 @@ namespace Pulumi.Aws
         }
 
         [Input("filters")]
-        private List<Inputs.GetAvailabilityZonesFiltersArgs>? _filters;
+        private List<Inputs.GetAvailabilityZonesFilterArgs>? _filters;
 
         /// <summary>
         /// Configuration block(s) for filtering. Detailed below.
         /// </summary>
-        public List<Inputs.GetAvailabilityZonesFiltersArgs> Filters
+        public List<Inputs.GetAvailabilityZonesFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetAvailabilityZonesFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetAvailabilityZonesFilterArgs>());
             set => _filters = value;
         }
 
@@ -115,14 +95,19 @@ namespace Pulumi.Aws
         }
     }
 
+
     [OutputType]
     public sealed class GetAvailabilityZonesResult
     {
         public readonly bool? AllAvailabilityZones;
         public readonly ImmutableArray<string> BlacklistedNames;
         public readonly ImmutableArray<string> BlacklistedZoneIds;
-        public readonly ImmutableArray<Outputs.GetAvailabilityZonesFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetAvailabilityZonesFilterResult> Filters;
         public readonly ImmutableArray<string> GroupNames;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// A list of the Availability Zone names available to the account.
         /// </summary>
@@ -132,87 +117,36 @@ namespace Pulumi.Aws
         /// A list of the Availability Zone IDs available to the account.
         /// </summary>
         public readonly ImmutableArray<string> ZoneIds;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAvailabilityZonesResult(
             bool? allAvailabilityZones,
+
             ImmutableArray<string> blacklistedNames,
+
             ImmutableArray<string> blacklistedZoneIds,
-            ImmutableArray<Outputs.GetAvailabilityZonesFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetAvailabilityZonesFilterResult> filters,
+
             ImmutableArray<string> groupNames,
+
+            string id,
+
             ImmutableArray<string> names,
+
             string? state,
-            ImmutableArray<string> zoneIds,
-            string id)
+
+            ImmutableArray<string> zoneIds)
         {
             AllAvailabilityZones = allAvailabilityZones;
             BlacklistedNames = blacklistedNames;
             BlacklistedZoneIds = blacklistedZoneIds;
             Filters = filters;
             GroupNames = groupNames;
+            Id = id;
             Names = names;
             State = state;
             ZoneIds = zoneIds;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetAvailabilityZonesFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetAvailabilityZonesFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetAvailabilityZonesFiltersResult
-    {
-        /// <summary>
-        /// The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetAvailabilityZonesFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

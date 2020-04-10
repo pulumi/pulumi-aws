@@ -177,8 +177,6 @@ def get_snapshot(db_instance_identifier=None,db_snapshot_identifier=None,include
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_snapshot.html.markdown.
-
 
     :param str db_instance_identifier: Returns the list of snapshots created by the specific db_instance
     :param str db_snapshot_identifier: Returns information on a specific snapshot_id.

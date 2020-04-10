@@ -9,33 +9,19 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// The VPC Peering Connection data source provides details about
-        /// a specific VPC peering connection.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_peering_connection.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetVpcPeeringConnection.InvokeAsync() instead")]
-        public static Task<GetVpcPeeringConnectionResult> GetVpcPeeringConnection(GetVpcPeeringConnectionArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcPeeringConnectionResult>("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetVpcPeeringConnection
     {
         /// <summary>
         /// The VPC Peering Connection data source provides details about
         /// a specific VPC peering connection.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_peering_connection.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpcPeeringConnectionResult> InvokeAsync(GetVpcPeeringConnectionArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcPeeringConnectionResult>("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcPeeringConnectionResult>("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args ?? new GetVpcPeeringConnectionArgs(), options.WithVersion());
     }
+
 
     public sealed class GetVpcPeeringConnectionArgs : Pulumi.InvokeArgs
     {
@@ -46,14 +32,14 @@ namespace Pulumi.Aws.Ec2
         public string? CidrBlock { get; set; }
 
         [Input("filters")]
-        private List<Inputs.GetVpcPeeringConnectionFiltersArgs>? _filters;
+        private List<Inputs.GetVpcPeeringConnectionFilterArgs>? _filters;
 
         /// <summary>
         /// Custom filter block as described below.
         /// </summary>
-        public List<Inputs.GetVpcPeeringConnectionFiltersArgs> Filters
+        public List<Inputs.GetVpcPeeringConnectionFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetVpcPeeringConnectionFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetVpcPeeringConnectionFilterArgs>());
             set => _filters = value;
         }
 
@@ -129,6 +115,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetVpcPeeringConnectionResult
     {
@@ -138,7 +125,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableDictionary<string, bool> Accepter;
         public readonly string CidrBlock;
-        public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionFilterResult> Filters;
         public readonly string Id;
         public readonly string OwnerId;
         public readonly string PeerCidrBlock;
@@ -158,18 +145,31 @@ namespace Pulumi.Aws.Ec2
         [OutputConstructor]
         private GetVpcPeeringConnectionResult(
             ImmutableDictionary<string, bool> accepter,
+
             string cidrBlock,
-            ImmutableArray<Outputs.GetVpcPeeringConnectionFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetVpcPeeringConnectionFilterResult> filters,
+
             string id,
+
             string ownerId,
+
             string peerCidrBlock,
+
             string peerOwnerId,
+
             string peerRegion,
+
             string peerVpcId,
+
             string region,
+
             ImmutableDictionary<string, bool> requester,
+
             string status,
+
             ImmutableDictionary<string, object> tags,
+
             string vpcId)
         {
             Accepter = accepter;
@@ -187,64 +187,5 @@ namespace Pulumi.Aws.Ec2
             Tags = tags;
             VpcId = vpcId;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetVpcPeeringConnectionFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// A VPC Peering Connection will be selected if any one of the given values matches.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetVpcPeeringConnectionFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetVpcPeeringConnectionFiltersResult
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// A VPC Peering Connection will be selected if any one of the given values matches.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetVpcPeeringConnectionFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

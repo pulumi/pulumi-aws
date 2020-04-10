@@ -9,43 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Provides information about a Launch Template.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_template.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetLaunchTemplate.InvokeAsync() instead")]
-        public static Task<GetLaunchTemplateResult> GetLaunchTemplate(GetLaunchTemplateArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchTemplateResult>("aws:ec2/getLaunchTemplate:getLaunchTemplate", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetLaunchTemplate
     {
         /// <summary>
         /// Provides information about a Launch Template.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_template.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetLaunchTemplateResult> InvokeAsync(GetLaunchTemplateArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchTemplateResult>("aws:ec2/getLaunchTemplate:getLaunchTemplate", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchTemplateResult>("aws:ec2/getLaunchTemplate:getLaunchTemplate", args ?? new GetLaunchTemplateArgs(), options.WithVersion());
     }
+
 
     public sealed class GetLaunchTemplateArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetLaunchTemplateFiltersArgs>? _filters;
+        private List<Inputs.GetLaunchTemplateFilterArgs>? _filters;
 
         /// <summary>
         /// Configuration block(s) for filtering. Detailed below.
         /// </summary>
-        public List<Inputs.GetLaunchTemplateFiltersArgs> Filters
+        public List<Inputs.GetLaunchTemplateFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetLaunchTemplateFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetLaunchTemplateFilterArgs>());
             set => _filters = value;
         }
 
@@ -72,6 +59,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetLaunchTemplateResult
     {
@@ -82,12 +70,12 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Specify volumes to attach to the instance besides the volumes specified by the AMI.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetLaunchTemplateBlockDeviceMappingsResult> BlockDeviceMappings;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateBlockDeviceMappingResult> BlockDeviceMappings;
         /// <summary>
         /// Customize the credit specification of the instance. See Credit
         /// Specification below for more details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetLaunchTemplateCreditSpecificationsResult> CreditSpecifications;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateCreditSpecificationResult> CreditSpecifications;
         /// <summary>
         /// The default version of the launch template.
         /// </summary>
@@ -109,13 +97,21 @@ namespace Pulumi.Aws.Ec2
         /// The elastic GPU to attach to the instance. See Elastic GPU
         /// below for more details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetLaunchTemplateElasticGpuSpecificationsResult> ElasticGpuSpecifications;
-        public readonly ImmutableArray<Outputs.GetLaunchTemplateFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateElasticGpuSpecificationResult> ElasticGpuSpecifications;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateFilterResult> Filters;
+        /// <summary>
+        /// The hibernation options for the instance.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateHibernationOptionResult> HibernationOptions;
         /// <summary>
         /// The IAM Instance Profile to launch the instance with. See Instance Profile
         /// below for more details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetLaunchTemplateIamInstanceProfilesResult> IamInstanceProfiles;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateIamInstanceProfileResult> IamInstanceProfiles;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The AMI from which to launch the instance.
         /// </summary>
@@ -129,7 +125,7 @@ namespace Pulumi.Aws.Ec2
         /// The market (purchasing) option for the instance.
         /// below for details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceMarketOptionsResult> InstanceMarketOptions;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceMarketOptionResult> InstanceMarketOptions;
         /// <summary>
         /// The type of the instance.
         /// </summary>
@@ -149,21 +145,21 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The metadata options for the instance.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetLaunchTemplateMetadataOptionsResult> MetadataOptions;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateMetadataOptionResult> MetadataOptions;
         /// <summary>
         /// The monitoring option for the instance.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetLaunchTemplateMonitoringsResult> Monitorings;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateMonitoringResult> Monitorings;
         public readonly string? Name;
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network
         /// Interfaces below for more details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetLaunchTemplateNetworkInterfacesResult> NetworkInterfaces;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateNetworkInterfaceResult> NetworkInterfaces;
         /// <summary>
         /// The placement of the instance.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetLaunchTemplatePlacementsResult> Placements;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplatePlacementResult> Placements;
         /// <summary>
         /// The ID of the RAM disk.
         /// </summary>
@@ -176,7 +172,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The tags to apply to the resources during launch.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetLaunchTemplateTagSpecificationsResult> TagSpecifications;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateTagSpecificationResult> TagSpecifications;
         /// <summary>
         /// (Optional) A mapping of tags to assign to the launch template.
         /// </summary>
@@ -189,42 +185,68 @@ namespace Pulumi.Aws.Ec2
         /// A list of security group IDs to associate with.
         /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetLaunchTemplateResult(
             string arn,
-            ImmutableArray<Outputs.GetLaunchTemplateBlockDeviceMappingsResult> blockDeviceMappings,
-            ImmutableArray<Outputs.GetLaunchTemplateCreditSpecificationsResult> creditSpecifications,
+
+            ImmutableArray<Outputs.GetLaunchTemplateBlockDeviceMappingResult> blockDeviceMappings,
+
+            ImmutableArray<Outputs.GetLaunchTemplateCreditSpecificationResult> creditSpecifications,
+
             int defaultVersion,
+
             string description,
+
             bool disableApiTermination,
+
             string ebsOptimized,
-            ImmutableArray<Outputs.GetLaunchTemplateElasticGpuSpecificationsResult> elasticGpuSpecifications,
-            ImmutableArray<Outputs.GetLaunchTemplateFiltersResult> filters,
-            ImmutableArray<Outputs.GetLaunchTemplateIamInstanceProfilesResult> iamInstanceProfiles,
+
+            ImmutableArray<Outputs.GetLaunchTemplateElasticGpuSpecificationResult> elasticGpuSpecifications,
+
+            ImmutableArray<Outputs.GetLaunchTemplateFilterResult> filters,
+
+            ImmutableArray<Outputs.GetLaunchTemplateHibernationOptionResult> hibernationOptions,
+
+            ImmutableArray<Outputs.GetLaunchTemplateIamInstanceProfileResult> iamInstanceProfiles,
+
+            string id,
+
             string imageId,
+
             string instanceInitiatedShutdownBehavior,
-            ImmutableArray<Outputs.GetLaunchTemplateInstanceMarketOptionsResult> instanceMarketOptions,
+
+            ImmutableArray<Outputs.GetLaunchTemplateInstanceMarketOptionResult> instanceMarketOptions,
+
             string instanceType,
+
             string kernelId,
+
             string keyName,
+
             int latestVersion,
-            ImmutableArray<Outputs.GetLaunchTemplateMetadataOptionsResult> metadataOptions,
-            ImmutableArray<Outputs.GetLaunchTemplateMonitoringsResult> monitorings,
+
+            ImmutableArray<Outputs.GetLaunchTemplateMetadataOptionResult> metadataOptions,
+
+            ImmutableArray<Outputs.GetLaunchTemplateMonitoringResult> monitorings,
+
             string? name,
-            ImmutableArray<Outputs.GetLaunchTemplateNetworkInterfacesResult> networkInterfaces,
-            ImmutableArray<Outputs.GetLaunchTemplatePlacementsResult> placements,
+
+            ImmutableArray<Outputs.GetLaunchTemplateNetworkInterfaceResult> networkInterfaces,
+
+            ImmutableArray<Outputs.GetLaunchTemplatePlacementResult> placements,
+
             string ramDiskId,
+
             ImmutableArray<string> securityGroupNames,
-            ImmutableArray<Outputs.GetLaunchTemplateTagSpecificationsResult> tagSpecifications,
+
+            ImmutableArray<Outputs.GetLaunchTemplateTagSpecificationResult> tagSpecifications,
+
             ImmutableDictionary<string, object> tags,
+
             string userData,
-            ImmutableArray<string> vpcSecurityGroupIds,
-            string id)
+
+            ImmutableArray<string> vpcSecurityGroupIds)
         {
             Arn = arn;
             BlockDeviceMappings = blockDeviceMappings;
@@ -235,7 +257,9 @@ namespace Pulumi.Aws.Ec2
             EbsOptimized = ebsOptimized;
             ElasticGpuSpecifications = elasticGpuSpecifications;
             Filters = filters;
+            HibernationOptions = hibernationOptions;
             IamInstanceProfiles = iamInstanceProfiles;
+            Id = id;
             ImageId = imageId;
             InstanceInitiatedShutdownBehavior = instanceInitiatedShutdownBehavior;
             InstanceMarketOptions = instanceMarketOptions;
@@ -254,338 +278,6 @@ namespace Pulumi.Aws.Ec2
             Tags = tags;
             UserData = userData;
             VpcSecurityGroupIds = vpcSecurityGroupIds;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetLaunchTemplateFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetLaunchTemplateFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetLaunchTemplateBlockDeviceMappingsEbsResult
-    {
-        public readonly string DeleteOnTermination;
-        public readonly string Encrypted;
-        public readonly int Iops;
-        public readonly string KmsKeyId;
-        public readonly string SnapshotId;
-        public readonly int VolumeSize;
-        public readonly string VolumeType;
-
-        [OutputConstructor]
-        private GetLaunchTemplateBlockDeviceMappingsEbsResult(
-            string deleteOnTermination,
-            string encrypted,
-            int iops,
-            string kmsKeyId,
-            string snapshotId,
-            int volumeSize,
-            string volumeType)
-        {
-            DeleteOnTermination = deleteOnTermination;
-            Encrypted = encrypted;
-            Iops = iops;
-            KmsKeyId = kmsKeyId;
-            SnapshotId = snapshotId;
-            VolumeSize = volumeSize;
-            VolumeType = volumeType;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetLaunchTemplateBlockDeviceMappingsResult
-    {
-        public readonly string DeviceName;
-        public readonly ImmutableArray<GetLaunchTemplateBlockDeviceMappingsEbsResult> Ebs;
-        public readonly string NoDevice;
-        public readonly string VirtualName;
-
-        [OutputConstructor]
-        private GetLaunchTemplateBlockDeviceMappingsResult(
-            string deviceName,
-            ImmutableArray<GetLaunchTemplateBlockDeviceMappingsEbsResult> ebs,
-            string noDevice,
-            string virtualName)
-        {
-            DeviceName = deviceName;
-            Ebs = ebs;
-            NoDevice = noDevice;
-            VirtualName = virtualName;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetLaunchTemplateCreditSpecificationsResult
-    {
-        public readonly string CpuCredits;
-
-        [OutputConstructor]
-        private GetLaunchTemplateCreditSpecificationsResult(string cpuCredits)
-        {
-            CpuCredits = cpuCredits;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetLaunchTemplateElasticGpuSpecificationsResult
-    {
-        public readonly string Type;
-
-        [OutputConstructor]
-        private GetLaunchTemplateElasticGpuSpecificationsResult(string type)
-        {
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetLaunchTemplateFiltersResult
-    {
-        /// <summary>
-        /// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetLaunchTemplateFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetLaunchTemplateIamInstanceProfilesResult
-    {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the launch template.
-        /// </summary>
-        public readonly string Arn;
-        /// <summary>
-        /// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private GetLaunchTemplateIamInstanceProfilesResult(
-            string arn,
-            string name)
-        {
-            Arn = arn;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetLaunchTemplateInstanceMarketOptionsResult
-    {
-        public readonly string MarketType;
-        public readonly ImmutableArray<GetLaunchTemplateInstanceMarketOptionsSpotOptionsResult> SpotOptions;
-
-        [OutputConstructor]
-        private GetLaunchTemplateInstanceMarketOptionsResult(
-            string marketType,
-            ImmutableArray<GetLaunchTemplateInstanceMarketOptionsSpotOptionsResult> spotOptions)
-        {
-            MarketType = marketType;
-            SpotOptions = spotOptions;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetLaunchTemplateInstanceMarketOptionsSpotOptionsResult
-    {
-        public readonly int BlockDurationMinutes;
-        public readonly string InstanceInterruptionBehavior;
-        public readonly string MaxPrice;
-        public readonly string SpotInstanceType;
-        public readonly string ValidUntil;
-
-        [OutputConstructor]
-        private GetLaunchTemplateInstanceMarketOptionsSpotOptionsResult(
-            int blockDurationMinutes,
-            string instanceInterruptionBehavior,
-            string maxPrice,
-            string spotInstanceType,
-            string validUntil)
-        {
-            BlockDurationMinutes = blockDurationMinutes;
-            InstanceInterruptionBehavior = instanceInterruptionBehavior;
-            MaxPrice = maxPrice;
-            SpotInstanceType = spotInstanceType;
-            ValidUntil = validUntil;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetLaunchTemplateMetadataOptionsResult
-    {
-        /// <summary>
-        /// The state of the metadata service: `enabled`, `disabled`.
-        /// </summary>
-        public readonly string HttpEndpoint;
-        /// <summary>
-        /// The desired HTTP PUT response hop limit for instance metadata requests.
-        /// </summary>
-        public readonly int HttpPutResponseHopLimit;
-        /// <summary>
-        /// If session tokens are required: `optional`, `required`.
-        /// </summary>
-        public readonly string HttpTokens;
-
-        [OutputConstructor]
-        private GetLaunchTemplateMetadataOptionsResult(
-            string httpEndpoint,
-            int httpPutResponseHopLimit,
-            string httpTokens)
-        {
-            HttpEndpoint = httpEndpoint;
-            HttpPutResponseHopLimit = httpPutResponseHopLimit;
-            HttpTokens = httpTokens;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetLaunchTemplateMonitoringsResult
-    {
-        public readonly bool Enabled;
-
-        [OutputConstructor]
-        private GetLaunchTemplateMonitoringsResult(bool enabled)
-        {
-            Enabled = enabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetLaunchTemplateNetworkInterfacesResult
-    {
-        public readonly bool AssociatePublicIpAddress;
-        public readonly bool DeleteOnTermination;
-        /// <summary>
-        /// Description of the launch template.
-        /// </summary>
-        public readonly string Description;
-        public readonly int DeviceIndex;
-        public readonly int Ipv4AddressCount;
-        public readonly ImmutableArray<string> Ipv4Addresses;
-        public readonly int Ipv6AddressCount;
-        public readonly ImmutableArray<string> Ipv6Addresses;
-        public readonly string NetworkInterfaceId;
-        public readonly string PrivateIpAddress;
-        public readonly ImmutableArray<string> SecurityGroups;
-        public readonly string SubnetId;
-
-        [OutputConstructor]
-        private GetLaunchTemplateNetworkInterfacesResult(
-            bool associatePublicIpAddress,
-            bool deleteOnTermination,
-            string description,
-            int deviceIndex,
-            int ipv4AddressCount,
-            ImmutableArray<string> ipv4Addresses,
-            int ipv6AddressCount,
-            ImmutableArray<string> ipv6Addresses,
-            string networkInterfaceId,
-            string privateIpAddress,
-            ImmutableArray<string> securityGroups,
-            string subnetId)
-        {
-            AssociatePublicIpAddress = associatePublicIpAddress;
-            DeleteOnTermination = deleteOnTermination;
-            Description = description;
-            DeviceIndex = deviceIndex;
-            Ipv4AddressCount = ipv4AddressCount;
-            Ipv4Addresses = ipv4Addresses;
-            Ipv6AddressCount = ipv6AddressCount;
-            Ipv6Addresses = ipv6Addresses;
-            NetworkInterfaceId = networkInterfaceId;
-            PrivateIpAddress = privateIpAddress;
-            SecurityGroups = securityGroups;
-            SubnetId = subnetId;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetLaunchTemplatePlacementsResult
-    {
-        public readonly string Affinity;
-        public readonly string AvailabilityZone;
-        public readonly string GroupName;
-        public readonly string HostId;
-        public readonly string SpreadDomain;
-        public readonly string Tenancy;
-
-        [OutputConstructor]
-        private GetLaunchTemplatePlacementsResult(
-            string affinity,
-            string availabilityZone,
-            string groupName,
-            string hostId,
-            string spreadDomain,
-            string tenancy)
-        {
-            Affinity = affinity;
-            AvailabilityZone = availabilityZone;
-            GroupName = groupName;
-            HostId = hostId;
-            SpreadDomain = spreadDomain;
-            Tenancy = tenancy;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetLaunchTemplateTagSpecificationsResult
-    {
-        public readonly string ResourceType;
-        /// <summary>
-        /// A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
-
-        [OutputConstructor]
-        private GetLaunchTemplateTagSpecificationsResult(
-            string resourceType,
-            ImmutableDictionary<string, object> tags)
-        {
-            ResourceType = resourceType;
-            Tags = tags;
-        }
-    }
     }
 }

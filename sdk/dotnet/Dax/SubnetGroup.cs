@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Dax
 {
     /// <summary>
     /// Provides a DAX Subnet Group resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_subnet_group.html.markdown.
     /// </summary>
     public partial class SubnetGroup : Pulumi.CustomResource
     {
@@ -51,7 +47,7 @@ namespace Pulumi.Aws.Dax
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SubnetGroup(string name, SubnetGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws:dax/subnetGroup:SubnetGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:dax/subnetGroup:SubnetGroup", name, args ?? new SubnetGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 

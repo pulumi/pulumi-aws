@@ -86,8 +86,6 @@ def get_job_queue(name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_job_queue.html.markdown.
-
 
     :param str name: The name of the job queue.
     """

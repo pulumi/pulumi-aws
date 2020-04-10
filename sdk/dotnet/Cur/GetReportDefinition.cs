@@ -9,23 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Cur
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get information on an AWS Cost and Usage Report Definition.
-        /// 
-        /// &gt; *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
-        /// 
-        /// &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cur_report_definition.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetReportDefinition.InvokeAsync() instead")]
-        public static Task<GetReportDefinitionResult> GetReportDefinition(GetReportDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReportDefinitionResult>("aws:cur/getReportDefinition:getReportDefinition", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetReportDefinition
     {
         /// <summary>
@@ -35,13 +18,13 @@ namespace Pulumi.Aws.Cur
         /// 
         /// &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cur_report_definition.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetReportDefinitionResult> InvokeAsync(GetReportDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReportDefinitionResult>("aws:cur/getReportDefinition:getReportDefinition", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReportDefinitionResult>("aws:cur/getReportDefinition:getReportDefinition", args ?? new GetReportDefinitionArgs(), options.WithVersion());
     }
+
 
     public sealed class GetReportDefinitionArgs : Pulumi.InvokeArgs
     {
@@ -55,6 +38,7 @@ namespace Pulumi.Aws.Cur
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetReportDefinitionResult
@@ -75,6 +59,10 @@ namespace Pulumi.Aws.Cur
         /// Preferred compression format for report.
         /// </summary>
         public readonly string Format;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string ReportName;
         /// <summary>
         /// Name of customer S3 bucket.
@@ -92,34 +80,39 @@ namespace Pulumi.Aws.Cur
         /// The frequency on which report data are measured and displayed.
         /// </summary>
         public readonly string TimeUnit;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetReportDefinitionResult(
             ImmutableArray<string> additionalArtifacts,
+
             ImmutableArray<string> additionalSchemaElements,
+
             string compression,
+
             string format,
+
+            string id,
+
             string reportName,
+
             string s3Bucket,
+
             string s3Prefix,
+
             string s3Region,
-            string timeUnit,
-            string id)
+
+            string timeUnit)
         {
             AdditionalArtifacts = additionalArtifacts;
             AdditionalSchemaElements = additionalSchemaElements;
             Compression = compression;
             Format = format;
+            Id = id;
             ReportName = reportName;
             S3Bucket = s3Bucket;
             S3Prefix = s3Prefix;
             S3Region = s3Region;
             TimeUnit = timeUnit;
-            Id = id;
         }
     }
 }

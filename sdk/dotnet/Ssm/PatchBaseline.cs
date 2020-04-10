@@ -15,10 +15,6 @@ namespace Pulumi.Aws.Ssm
     /// &gt; **NOTE on Patch Baselines:** The `approved_patches` and `approval_rule` are 
     /// both marked as optional fields, but the Patch Baseline requires that at least one
     /// of them is specified.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_patch_baseline.html.markdown.
     /// </summary>
     public partial class PatchBaseline : Pulumi.CustomResource
     {
@@ -26,7 +22,7 @@ namespace Pulumi.Aws.Ssm
         /// A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
         /// </summary>
         [Output("approvalRules")]
-        public Output<ImmutableArray<Outputs.PatchBaselineApprovalRules>> ApprovalRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PatchBaselineApprovalRule>> ApprovalRules { get; private set; } = null!;
 
         /// <summary>
         /// A list of explicitly approved patches for the baseline.
@@ -50,7 +46,7 @@ namespace Pulumi.Aws.Ssm
         /// A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
         /// </summary>
         [Output("globalFilters")]
-        public Output<ImmutableArray<Outputs.PatchBaselineGlobalFilters>> GlobalFilters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PatchBaselineGlobalFilter>> GlobalFilters { get; private set; } = null!;
 
         /// <summary>
         /// The name of the patch baseline.
@@ -85,7 +81,7 @@ namespace Pulumi.Aws.Ssm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PatchBaseline(string name, PatchBaselineArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ssm/patchBaseline:PatchBaseline", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ssm/patchBaseline:PatchBaseline", name, args ?? new PatchBaselineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -123,14 +119,14 @@ namespace Pulumi.Aws.Ssm
     public sealed class PatchBaselineArgs : Pulumi.ResourceArgs
     {
         [Input("approvalRules")]
-        private InputList<Inputs.PatchBaselineApprovalRulesArgs>? _approvalRules;
+        private InputList<Inputs.PatchBaselineApprovalRuleArgs>? _approvalRules;
 
         /// <summary>
         /// A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
         /// </summary>
-        public InputList<Inputs.PatchBaselineApprovalRulesArgs> ApprovalRules
+        public InputList<Inputs.PatchBaselineApprovalRuleArgs> ApprovalRules
         {
-            get => _approvalRules ?? (_approvalRules = new InputList<Inputs.PatchBaselineApprovalRulesArgs>());
+            get => _approvalRules ?? (_approvalRules = new InputList<Inputs.PatchBaselineApprovalRuleArgs>());
             set => _approvalRules = value;
         }
 
@@ -159,14 +155,14 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Description { get; set; }
 
         [Input("globalFilters")]
-        private InputList<Inputs.PatchBaselineGlobalFiltersArgs>? _globalFilters;
+        private InputList<Inputs.PatchBaselineGlobalFilterArgs>? _globalFilters;
 
         /// <summary>
         /// A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
         /// </summary>
-        public InputList<Inputs.PatchBaselineGlobalFiltersArgs> GlobalFilters
+        public InputList<Inputs.PatchBaselineGlobalFilterArgs> GlobalFilters
         {
-            get => _globalFilters ?? (_globalFilters = new InputList<Inputs.PatchBaselineGlobalFiltersArgs>());
+            get => _globalFilters ?? (_globalFilters = new InputList<Inputs.PatchBaselineGlobalFilterArgs>());
             set => _globalFilters = value;
         }
 
@@ -214,14 +210,14 @@ namespace Pulumi.Aws.Ssm
     public sealed class PatchBaselineState : Pulumi.ResourceArgs
     {
         [Input("approvalRules")]
-        private InputList<Inputs.PatchBaselineApprovalRulesGetArgs>? _approvalRules;
+        private InputList<Inputs.PatchBaselineApprovalRuleGetArgs>? _approvalRules;
 
         /// <summary>
         /// A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
         /// </summary>
-        public InputList<Inputs.PatchBaselineApprovalRulesGetArgs> ApprovalRules
+        public InputList<Inputs.PatchBaselineApprovalRuleGetArgs> ApprovalRules
         {
-            get => _approvalRules ?? (_approvalRules = new InputList<Inputs.PatchBaselineApprovalRulesGetArgs>());
+            get => _approvalRules ?? (_approvalRules = new InputList<Inputs.PatchBaselineApprovalRuleGetArgs>());
             set => _approvalRules = value;
         }
 
@@ -250,14 +246,14 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Description { get; set; }
 
         [Input("globalFilters")]
-        private InputList<Inputs.PatchBaselineGlobalFiltersGetArgs>? _globalFilters;
+        private InputList<Inputs.PatchBaselineGlobalFilterGetArgs>? _globalFilters;
 
         /// <summary>
         /// A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
         /// </summary>
-        public InputList<Inputs.PatchBaselineGlobalFiltersGetArgs> GlobalFilters
+        public InputList<Inputs.PatchBaselineGlobalFilterGetArgs> GlobalFilters
         {
-            get => _globalFilters ?? (_globalFilters = new InputList<Inputs.PatchBaselineGlobalFiltersGetArgs>());
+            get => _globalFilters ?? (_globalFilters = new InputList<Inputs.PatchBaselineGlobalFilterGetArgs>());
             set => _globalFilters = value;
         }
 
@@ -300,228 +296,5 @@ namespace Pulumi.Aws.Ssm
         public PatchBaselineState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class PatchBaselineApprovalRulesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
-        /// </summary>
-        [Input("approveAfterDays", required: true)]
-        public Input<int> ApproveAfterDays { get; set; } = null!;
-
-        /// <summary>
-        /// Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
-        /// </summary>
-        [Input("complianceLevel")]
-        public Input<string>? ComplianceLevel { get; set; }
-
-        /// <summary>
-        /// Boolean enabling the application of non-security updates. The default value is 'false'. Valid for Linux instances only.
-        /// </summary>
-        [Input("enableNonSecurity")]
-        public Input<bool>? EnableNonSecurity { get; set; }
-
-        [Input("patchFilters", required: true)]
-        private InputList<PatchBaselineApprovalRulesPatchFiltersArgs>? _patchFilters;
-
-        /// <summary>
-        /// The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
-        /// * `PATCH_SET` defaults to `OS` if unspecified
-        /// </summary>
-        public InputList<PatchBaselineApprovalRulesPatchFiltersArgs> PatchFilters
-        {
-            get => _patchFilters ?? (_patchFilters = new InputList<PatchBaselineApprovalRulesPatchFiltersArgs>());
-            set => _patchFilters = value;
-        }
-
-        public PatchBaselineApprovalRulesArgs()
-        {
-        }
-    }
-
-    public sealed class PatchBaselineApprovalRulesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
-        /// </summary>
-        [Input("approveAfterDays", required: true)]
-        public Input<int> ApproveAfterDays { get; set; } = null!;
-
-        /// <summary>
-        /// Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
-        /// </summary>
-        [Input("complianceLevel")]
-        public Input<string>? ComplianceLevel { get; set; }
-
-        /// <summary>
-        /// Boolean enabling the application of non-security updates. The default value is 'false'. Valid for Linux instances only.
-        /// </summary>
-        [Input("enableNonSecurity")]
-        public Input<bool>? EnableNonSecurity { get; set; }
-
-        [Input("patchFilters", required: true)]
-        private InputList<PatchBaselineApprovalRulesPatchFiltersGetArgs>? _patchFilters;
-
-        /// <summary>
-        /// The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
-        /// * `PATCH_SET` defaults to `OS` if unspecified
-        /// </summary>
-        public InputList<PatchBaselineApprovalRulesPatchFiltersGetArgs> PatchFilters
-        {
-            get => _patchFilters ?? (_patchFilters = new InputList<PatchBaselineApprovalRulesPatchFiltersGetArgs>());
-            set => _patchFilters = value;
-        }
-
-        public PatchBaselineApprovalRulesGetArgs()
-        {
-        }
-    }
-
-    public sealed class PatchBaselineApprovalRulesPatchFiltersArgs : Pulumi.ResourceArgs
-    {
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public PatchBaselineApprovalRulesPatchFiltersArgs()
-        {
-        }
-    }
-
-    public sealed class PatchBaselineApprovalRulesPatchFiltersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public PatchBaselineApprovalRulesPatchFiltersGetArgs()
-        {
-        }
-    }
-
-    public sealed class PatchBaselineGlobalFiltersArgs : Pulumi.ResourceArgs
-    {
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public PatchBaselineGlobalFiltersArgs()
-        {
-        }
-    }
-
-    public sealed class PatchBaselineGlobalFiltersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public PatchBaselineGlobalFiltersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class PatchBaselineApprovalRules
-    {
-        /// <summary>
-        /// The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100.
-        /// </summary>
-        public readonly int ApproveAfterDays;
-        /// <summary>
-        /// Defines the compliance level for patches approved by this rule. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
-        /// </summary>
-        public readonly string? ComplianceLevel;
-        /// <summary>
-        /// Boolean enabling the application of non-security updates. The default value is 'false'. Valid for Linux instances only.
-        /// </summary>
-        public readonly bool? EnableNonSecurity;
-        /// <summary>
-        /// The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
-        /// * `PATCH_SET` defaults to `OS` if unspecified
-        /// </summary>
-        public readonly ImmutableArray<PatchBaselineApprovalRulesPatchFilters> PatchFilters;
-
-        [OutputConstructor]
-        private PatchBaselineApprovalRules(
-            int approveAfterDays,
-            string? complianceLevel,
-            bool? enableNonSecurity,
-            ImmutableArray<PatchBaselineApprovalRulesPatchFilters> patchFilters)
-        {
-            ApproveAfterDays = approveAfterDays;
-            ComplianceLevel = complianceLevel;
-            EnableNonSecurity = enableNonSecurity;
-            PatchFilters = patchFilters;
-        }
-    }
-
-    [OutputType]
-    public sealed class PatchBaselineApprovalRulesPatchFilters
-    {
-        public readonly string Key;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private PatchBaselineApprovalRulesPatchFilters(
-            string key,
-            ImmutableArray<string> values)
-        {
-            Key = key;
-            Values = values;
-        }
-    }
-
-    [OutputType]
-    public sealed class PatchBaselineGlobalFilters
-    {
-        public readonly string Key;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private PatchBaselineGlobalFilters(
-            string key,
-            ImmutableArray<string> values)
-        {
-            Key = key;
-            Values = values;
-        }
-    }
     }
 }

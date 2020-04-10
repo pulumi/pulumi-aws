@@ -49,8 +49,6 @@ def get_activity(arn=None,name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_activity.html.markdown.
-
 
     :param str arn: The Amazon Resource Name (ARN) that identifies the activity.
     :param str name: The name that identifies the activity.

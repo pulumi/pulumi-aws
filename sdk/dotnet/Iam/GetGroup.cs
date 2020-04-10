@@ -9,21 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// IAM group. By using this data source, you can reference IAM group
-        /// properties without having to hard code ARNs as input.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_group.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetGroup.InvokeAsync() instead")]
-        public static Task<GetGroupResult> GetGroup(GetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("aws:iam/getGroup:getGroup", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetGroup
     {
         /// <summary>
@@ -31,13 +16,13 @@ namespace Pulumi.Aws.Iam
         /// IAM group. By using this data source, you can reference IAM group
         /// properties without having to hard code ARNs as input.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_group.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("aws:iam/getGroup:getGroup", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("aws:iam/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithVersion());
     }
+
 
     public sealed class GetGroupArgs : Pulumi.InvokeArgs
     {
@@ -52,6 +37,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
+
     [OutputType]
     public sealed class GetGroupResult
     {
@@ -65,71 +51,38 @@ namespace Pulumi.Aws.Iam
         public readonly string GroupId;
         public readonly string GroupName;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The path to the iam user.
         /// </summary>
         public readonly string Path;
         /// <summary>
         /// List of objects containing group member information. See supported fields below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetGroupUsersResult> Users;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
+        public readonly ImmutableArray<Outputs.GetGroupUserResult> Users;
 
         [OutputConstructor]
         private GetGroupResult(
             string arn,
+
             string groupId,
+
             string groupName,
+
+            string id,
+
             string path,
-            ImmutableArray<Outputs.GetGroupUsersResult> users,
-            string id)
+
+            ImmutableArray<Outputs.GetGroupUserResult> users)
         {
             Arn = arn;
             GroupId = groupId;
             GroupName = groupName;
+            Id = id;
             Path = path;
             Users = users;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetGroupUsersResult
-    {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the iam user.
-        /// </summary>
-        public readonly string Arn;
-        /// <summary>
-        /// The path to the iam user.
-        /// </summary>
-        public readonly string Path;
-        /// <summary>
-        /// The stable and unique string identifying the iam user.
-        /// </summary>
-        public readonly string UserId;
-        /// <summary>
-        /// The name of the iam user.
-        /// </summary>
-        public readonly string UserName;
-
-        [OutputConstructor]
-        private GetGroupUsersResult(
-            string arn,
-            string path,
-            string userId,
-            string userName)
-        {
-            Arn = arn;
-            Path = path;
-            UserId = userId;
-            UserName = userName;
-        }
-    }
     }
 }

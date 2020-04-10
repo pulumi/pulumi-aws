@@ -11,10 +11,6 @@ namespace Pulumi.Aws.S3
 {
     /// <summary>
     /// Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_metric.html.markdown.
     /// </summary>
     public partial class BucketMetric : Pulumi.CustomResource
     {
@@ -45,7 +41,7 @@ namespace Pulumi.Aws.S3
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BucketMetric(string name, BucketMetricArgs args, CustomResourceOptions? options = null)
-            : base("aws:s3/bucketMetric:BucketMetric", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:s3/bucketMetric:BucketMetric", name, args ?? new BucketMetricArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -128,85 +124,5 @@ namespace Pulumi.Aws.S3
         public BucketMetricState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class BucketMetricFilterArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Object prefix for filtering (singular).
-        /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        [Input("tags")]
-        private InputMap<object>? _tags;
-
-        /// <summary>
-        /// Object tags for filtering (up to 10).
-        /// </summary>
-        public InputMap<object> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<object>());
-            set => _tags = value;
-        }
-
-        public BucketMetricFilterArgs()
-        {
-        }
-    }
-
-    public sealed class BucketMetricFilterGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Object prefix for filtering (singular).
-        /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        [Input("tags")]
-        private InputMap<object>? _tags;
-
-        /// <summary>
-        /// Object tags for filtering (up to 10).
-        /// </summary>
-        public InputMap<object> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<object>());
-            set => _tags = value;
-        }
-
-        public BucketMetricFilterGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class BucketMetricFilter
-    {
-        /// <summary>
-        /// Object prefix for filtering (singular).
-        /// </summary>
-        public readonly string? Prefix;
-        /// <summary>
-        /// Object tags for filtering (up to 10).
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tags;
-
-        [OutputConstructor]
-        private BucketMetricFilter(
-            string? prefix,
-            ImmutableDictionary<string, object>? tags)
-        {
-            Prefix = prefix;
-            Tags = tags;
-        }
-    }
     }
 }

@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Ses
 {
     /// <summary>
     /// Provides an SES domain identity resource
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_identity.html.markdown.
     /// </summary>
     public partial class DomainIdentity : Pulumi.CustomResource
     {
@@ -51,7 +47,7 @@ namespace Pulumi.Aws.Ses
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DomainIdentity(string name, DomainIdentityArgs args, CustomResourceOptions? options = null)
-            : base("aws:ses/domainIdentity:DomainIdentity", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ses/domainIdentity:DomainIdentity", name, args ?? new DomainIdentityArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// For information about Lambda and how to use it, see [What is AWS Lambda?][1]
     /// For information about function aliases, see [CreateAlias][2] and [AliasRoutingConfiguration][3] in the API docs.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_alias.html.markdown.
     /// </summary>
     public partial class Alias : Pulumi.CustomResource
     {
@@ -72,7 +68,7 @@ namespace Pulumi.Aws.Lambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Alias(string name, AliasArgs args, CustomResourceOptions? options = null)
-            : base("aws:lambda/alias:Alias", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:lambda/alias:Alias", name, args ?? new AliasArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -191,66 +187,5 @@ namespace Pulumi.Aws.Lambda
         public AliasState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class AliasRoutingConfigArgs : Pulumi.ResourceArgs
-    {
-        [Input("additionalVersionWeights")]
-        private InputMap<double>? _additionalVersionWeights;
-
-        /// <summary>
-        /// A map that defines the proportion of events that should be sent to different versions of a lambda function.
-        /// </summary>
-        public InputMap<double> AdditionalVersionWeights
-        {
-            get => _additionalVersionWeights ?? (_additionalVersionWeights = new InputMap<double>());
-            set => _additionalVersionWeights = value;
-        }
-
-        public AliasRoutingConfigArgs()
-        {
-        }
-    }
-
-    public sealed class AliasRoutingConfigGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("additionalVersionWeights")]
-        private InputMap<double>? _additionalVersionWeights;
-
-        /// <summary>
-        /// A map that defines the proportion of events that should be sent to different versions of a lambda function.
-        /// </summary>
-        public InputMap<double> AdditionalVersionWeights
-        {
-            get => _additionalVersionWeights ?? (_additionalVersionWeights = new InputMap<double>());
-            set => _additionalVersionWeights = value;
-        }
-
-        public AliasRoutingConfigGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class AliasRoutingConfig
-    {
-        /// <summary>
-        /// A map that defines the proportion of events that should be sent to different versions of a lambda function.
-        /// </summary>
-        public readonly ImmutableDictionary<string, double>? AdditionalVersionWeights;
-
-        [OutputConstructor]
-        private AliasRoutingConfig(ImmutableDictionary<string, double>? additionalVersionWeights)
-        {
-            AdditionalVersionWeights = additionalVersionWeights;
-        }
-    }
     }
 }

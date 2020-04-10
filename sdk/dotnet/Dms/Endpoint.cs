@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Dms
     /// 
     /// &gt; **Note:** All arguments including the password will be stored in the raw state as plain-text.
     /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_endpoint.html.markdown.
     /// </summary>
     public partial class Endpoint : Pulumi.CustomResource
     {
@@ -132,7 +128,7 @@ namespace Pulumi.Aws.Dms
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Endpoint(string name, EndpointArgs args, CustomResourceOptions? options = null)
-            : base("aws:dms/endpoint:Endpoint", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:dms/endpoint:Endpoint", name, args ?? new EndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -389,178 +385,5 @@ namespace Pulumi.Aws.Dms
         public EndpointState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class EndpointMongodbSettingsArgs : Pulumi.ResourceArgs
-    {
-        [Input("authMechanism")]
-        public Input<string>? AuthMechanism { get; set; }
-
-        [Input("authSource")]
-        public Input<string>? AuthSource { get; set; }
-
-        [Input("authType")]
-        public Input<string>? AuthType { get; set; }
-
-        [Input("docsToInvestigate")]
-        public Input<string>? DocsToInvestigate { get; set; }
-
-        [Input("extractDocId")]
-        public Input<string>? ExtractDocId { get; set; }
-
-        [Input("nestingLevel")]
-        public Input<string>? NestingLevel { get; set; }
-
-        public EndpointMongodbSettingsArgs()
-        {
-        }
-    }
-
-    public sealed class EndpointMongodbSettingsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("authMechanism")]
-        public Input<string>? AuthMechanism { get; set; }
-
-        [Input("authSource")]
-        public Input<string>? AuthSource { get; set; }
-
-        [Input("authType")]
-        public Input<string>? AuthType { get; set; }
-
-        [Input("docsToInvestigate")]
-        public Input<string>? DocsToInvestigate { get; set; }
-
-        [Input("extractDocId")]
-        public Input<string>? ExtractDocId { get; set; }
-
-        [Input("nestingLevel")]
-        public Input<string>? NestingLevel { get; set; }
-
-        public EndpointMongodbSettingsGetArgs()
-        {
-        }
-    }
-
-    public sealed class EndpointS3SettingsArgs : Pulumi.ResourceArgs
-    {
-        [Input("bucketFolder")]
-        public Input<string>? BucketFolder { get; set; }
-
-        [Input("bucketName")]
-        public Input<string>? BucketName { get; set; }
-
-        [Input("compressionType")]
-        public Input<string>? CompressionType { get; set; }
-
-        [Input("csvDelimiter")]
-        public Input<string>? CsvDelimiter { get; set; }
-
-        [Input("csvRowDelimiter")]
-        public Input<string>? CsvRowDelimiter { get; set; }
-
-        [Input("externalTableDefinition")]
-        public Input<string>? ExternalTableDefinition { get; set; }
-
-        [Input("serviceAccessRoleArn")]
-        public Input<string>? ServiceAccessRoleArn { get; set; }
-
-        public EndpointS3SettingsArgs()
-        {
-        }
-    }
-
-    public sealed class EndpointS3SettingsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("bucketFolder")]
-        public Input<string>? BucketFolder { get; set; }
-
-        [Input("bucketName")]
-        public Input<string>? BucketName { get; set; }
-
-        [Input("compressionType")]
-        public Input<string>? CompressionType { get; set; }
-
-        [Input("csvDelimiter")]
-        public Input<string>? CsvDelimiter { get; set; }
-
-        [Input("csvRowDelimiter")]
-        public Input<string>? CsvRowDelimiter { get; set; }
-
-        [Input("externalTableDefinition")]
-        public Input<string>? ExternalTableDefinition { get; set; }
-
-        [Input("serviceAccessRoleArn")]
-        public Input<string>? ServiceAccessRoleArn { get; set; }
-
-        public EndpointS3SettingsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class EndpointMongodbSettings
-    {
-        public readonly string? AuthMechanism;
-        public readonly string? AuthSource;
-        public readonly string? AuthType;
-        public readonly string? DocsToInvestigate;
-        public readonly string? ExtractDocId;
-        public readonly string? NestingLevel;
-
-        [OutputConstructor]
-        private EndpointMongodbSettings(
-            string? authMechanism,
-            string? authSource,
-            string? authType,
-            string? docsToInvestigate,
-            string? extractDocId,
-            string? nestingLevel)
-        {
-            AuthMechanism = authMechanism;
-            AuthSource = authSource;
-            AuthType = authType;
-            DocsToInvestigate = docsToInvestigate;
-            ExtractDocId = extractDocId;
-            NestingLevel = nestingLevel;
-        }
-    }
-
-    [OutputType]
-    public sealed class EndpointS3Settings
-    {
-        public readonly string? BucketFolder;
-        public readonly string? BucketName;
-        public readonly string? CompressionType;
-        public readonly string? CsvDelimiter;
-        public readonly string? CsvRowDelimiter;
-        public readonly string? ExternalTableDefinition;
-        public readonly string? ServiceAccessRoleArn;
-
-        [OutputConstructor]
-        private EndpointS3Settings(
-            string? bucketFolder,
-            string? bucketName,
-            string? compressionType,
-            string? csvDelimiter,
-            string? csvRowDelimiter,
-            string? externalTableDefinition,
-            string? serviceAccessRoleArn)
-        {
-            BucketFolder = bucketFolder;
-            BucketName = bucketName;
-            CompressionType = compressionType;
-            CsvDelimiter = csvDelimiter;
-            CsvRowDelimiter = csvRowDelimiter;
-            ExternalTableDefinition = externalTableDefinition;
-            ServiceAccessRoleArn = serviceAccessRoleArn;
-        }
-    }
     }
 }

@@ -9,21 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sqs
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
-        /// By using this data source, you can reference SQS queues without having to hardcode
-        /// the ARNs as input.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sqs_queue.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetQueue.InvokeAsync() instead")]
-        public static Task<GetQueueResult> GetQueue(GetQueueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("aws:sqs/getQueue:getQueue", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetQueue
     {
         /// <summary>
@@ -31,13 +16,13 @@ namespace Pulumi.Aws.Sqs
         /// By using this data source, you can reference SQS queues without having to hardcode
         /// the ARNs as input.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sqs_queue.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("aws:sqs/getQueue:getQueue", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("aws:sqs/getQueue:getQueue", args ?? new GetQueueArgs(), options.WithVersion());
     }
+
 
     public sealed class GetQueueArgs : Pulumi.InvokeArgs
     {
@@ -64,6 +49,7 @@ namespace Pulumi.Aws.Sqs
         }
     }
 
+
     [OutputType]
     public sealed class GetQueueResult
     {
@@ -71,6 +57,10 @@ namespace Pulumi.Aws.Sqs
         /// The Amazon Resource Name (ARN) of the queue.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// A mapping of tags for the resource.
@@ -80,24 +70,24 @@ namespace Pulumi.Aws.Sqs
         /// The URL of the queue.
         /// </summary>
         public readonly string Url;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetQueueResult(
             string arn,
+
+            string id,
+
             string name,
+
             ImmutableDictionary<string, object> tags,
-            string url,
-            string id)
+
+            string url)
         {
             Arn = arn;
+            Id = id;
             Name = name;
             Tags = tags;
             Url = url;
-            Id = id;
         }
     }
 }

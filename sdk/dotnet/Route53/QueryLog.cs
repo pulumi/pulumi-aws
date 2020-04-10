@@ -17,10 +17,6 @@ namespace Pulumi.Aws.Route53
     /// a permissive CloudWatch log resource policy must be in place, and
     /// the Route53 hosted zone must be public.
     /// See [Configuring Logging for DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html?console_help=true#query-logs-configuring) for additional details.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_query_log.html.markdown.
     /// </summary>
     public partial class QueryLog : Pulumi.CustomResource
     {
@@ -45,7 +41,7 @@ namespace Pulumi.Aws.Route53
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public QueryLog(string name, QueryLogArgs args, CustomResourceOptions? options = null)
-            : base("aws:route53/queryLog:QueryLog", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:route53/queryLog:QueryLog", name, args ?? new QueryLogArgs(), MakeResourceOptions(options, ""))
         {
         }
 

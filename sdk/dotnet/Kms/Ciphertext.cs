@@ -17,10 +17,6 @@ namespace Pulumi.Aws.Kms
     /// 
     /// &gt; **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
     /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_ciphertext.html.markdown.
     /// </summary>
     public partial class Ciphertext : Pulumi.CustomResource
     {
@@ -57,7 +53,7 @@ namespace Pulumi.Aws.Kms
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Ciphertext(string name, CiphertextArgs args, CustomResourceOptions? options = null)
-            : base("aws:kms/ciphertext:Ciphertext", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:kms/ciphertext:Ciphertext", name, args ?? new CiphertextArgs(), MakeResourceOptions(options, ""))
         {
         }
 

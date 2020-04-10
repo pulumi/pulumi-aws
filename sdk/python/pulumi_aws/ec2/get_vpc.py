@@ -126,8 +126,6 @@ def get_vpc(cidr_block=None,default=None,dhcp_options_id=None,filters=None,id=No
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc.html.markdown.
-
 
     :param str cidr_block: The cidr block of the desired VPC.
     :param bool default: Boolean constraint on whether the desired VPC is

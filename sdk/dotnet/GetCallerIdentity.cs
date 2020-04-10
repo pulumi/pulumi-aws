@@ -9,33 +9,19 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get the access to the effective Account ID, User ID, and ARN in
-        /// which this provider is authorized.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/caller_identity.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetCallerIdentity.InvokeAsync() instead")]
-        public static Task<GetCallerIdentityResult> GetCallerIdentity(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCallerIdentityResult>("aws:index/getCallerIdentity:getCallerIdentity", InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetCallerIdentity
     {
         /// <summary>
         /// Use this data source to get the access to the effective Account ID, User ID, and ARN in
         /// which this provider is authorized.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/caller_identity.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCallerIdentityResult> InvokeAsync(InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCallerIdentityResult>("aws:index/getCallerIdentity:getCallerIdentity", InvokeArgs.Empty, options.WithVersion());
     }
+
 
     [OutputType]
     public sealed class GetCallerIdentityResult
@@ -49,25 +35,28 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The unique identifier of the calling entity.
-        /// </summary>
-        public readonly string UserId;
-        /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The unique identifier of the calling entity.
+        /// </summary>
+        public readonly string UserId;
 
         [OutputConstructor]
         private GetCallerIdentityResult(
             string accountId,
+
             string arn,
-            string userId,
-            string id)
+
+            string id,
+
+            string userId)
         {
             AccountId = accountId;
             Arn = arn;
-            UserId = userId;
             Id = id;
+            UserId = userId;
         }
     }
 }

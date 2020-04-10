@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Iam
 {
     /// <summary>
     /// Provides an IAM SAML provider.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_saml_provider.html.markdown.
     /// </summary>
     public partial class SamlProvider : Pulumi.CustomResource
     {
@@ -51,7 +47,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SamlProvider(string name, SamlProviderArgs args, CustomResourceOptions? options = null)
-            : base("aws:iam/samlProvider:SamlProvider", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iam/samlProvider:SamlProvider", name, args ?? new SamlProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 

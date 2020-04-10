@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iot
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Returns a unique endpoint specific to the AWS account making the call.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iot_endpoint.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetEndpoint.InvokeAsync() instead")]
-        public static Task<GetEndpointResult> GetEndpoint(GetEndpointArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("aws:iot/getEndpoint:getEndpoint", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetEndpoint
     {
         /// <summary>
         /// Returns a unique endpoint specific to the AWS account making the call.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iot_endpoint.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("aws:iot/getEndpoint:getEndpoint", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("aws:iot/getEndpoint:getEndpoint", args ?? new GetEndpointArgs(), options.WithVersion());
     }
+
 
     public sealed class GetEndpointArgs : Pulumi.InvokeArgs
     {
@@ -47,6 +34,7 @@ namespace Pulumi.Aws.Iot
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetEndpointResult
@@ -69,7 +57,9 @@ namespace Pulumi.Aws.Iot
         [OutputConstructor]
         private GetEndpointResult(
             string endpointAddress,
+
             string? endpointType,
+
             string id)
         {
             EndpointAddress = endpointAddress;

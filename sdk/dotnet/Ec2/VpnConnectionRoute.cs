@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Ec2
 {
     /// <summary>
     /// Provides a static route between a VPN connection and a customer gateway.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_connection_route.html.markdown.
     /// </summary>
     public partial class VpnConnectionRoute : Pulumi.CustomResource
     {
@@ -39,7 +35,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpnConnectionRoute(string name, VpnConnectionRouteArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpnConnectionRoute:VpnConnectionRoute", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpnConnectionRoute:VpnConnectionRoute", name, args ?? new VpnConnectionRouteArgs(), MakeResourceOptions(options, ""))
         {
         }
 

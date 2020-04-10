@@ -12,10 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a VPC/Subnet/ENI Flow Log to capture IP traffic for a specific network
     /// interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/flow_log.html.markdown.
     /// </summary>
     public partial class FlowLog : Pulumi.CustomResource
     {
@@ -97,7 +93,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FlowLog(string name, FlowLogArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/flowLog:FlowLog", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/flowLog:FlowLog", name, args ?? new FlowLogArgs(), MakeResourceOptions(options, ""))
         {
         }
 

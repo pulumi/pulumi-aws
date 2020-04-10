@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Waf
 {
     /// <summary>
     /// Provides a WAF IPSet Resource
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_ipset.html.markdown.
     /// </summary>
     public partial class IpSet : Pulumi.CustomResource
     {
@@ -28,7 +24,7 @@ namespace Pulumi.Aws.Waf
         /// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
         /// </summary>
         [Output("ipSetDescriptors")]
-        public Output<ImmutableArray<Outputs.IpSetIpSetDescriptors>> IpSetDescriptors { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IpSetIpSetDescriptor>> IpSetDescriptors { get; private set; } = null!;
 
         /// <summary>
         /// The name or description of the IPSet.
@@ -45,7 +41,7 @@ namespace Pulumi.Aws.Waf
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IpSet(string name, IpSetArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:waf/ipSet:IpSet", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:waf/ipSet:IpSet", name, args ?? new IpSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -83,14 +79,14 @@ namespace Pulumi.Aws.Waf
     public sealed class IpSetArgs : Pulumi.ResourceArgs
     {
         [Input("ipSetDescriptors")]
-        private InputList<Inputs.IpSetIpSetDescriptorsArgs>? _ipSetDescriptors;
+        private InputList<Inputs.IpSetIpSetDescriptorArgs>? _ipSetDescriptors;
 
         /// <summary>
         /// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
         /// </summary>
-        public InputList<Inputs.IpSetIpSetDescriptorsArgs> IpSetDescriptors
+        public InputList<Inputs.IpSetIpSetDescriptorArgs> IpSetDescriptors
         {
-            get => _ipSetDescriptors ?? (_ipSetDescriptors = new InputList<Inputs.IpSetIpSetDescriptorsArgs>());
+            get => _ipSetDescriptors ?? (_ipSetDescriptors = new InputList<Inputs.IpSetIpSetDescriptorArgs>());
             set => _ipSetDescriptors = value;
         }
 
@@ -114,14 +110,14 @@ namespace Pulumi.Aws.Waf
         public Input<string>? Arn { get; set; }
 
         [Input("ipSetDescriptors")]
-        private InputList<Inputs.IpSetIpSetDescriptorsGetArgs>? _ipSetDescriptors;
+        private InputList<Inputs.IpSetIpSetDescriptorGetArgs>? _ipSetDescriptors;
 
         /// <summary>
         /// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
         /// </summary>
-        public InputList<Inputs.IpSetIpSetDescriptorsGetArgs> IpSetDescriptors
+        public InputList<Inputs.IpSetIpSetDescriptorGetArgs> IpSetDescriptors
         {
-            get => _ipSetDescriptors ?? (_ipSetDescriptors = new InputList<Inputs.IpSetIpSetDescriptorsGetArgs>());
+            get => _ipSetDescriptors ?? (_ipSetDescriptors = new InputList<Inputs.IpSetIpSetDescriptorGetArgs>());
             set => _ipSetDescriptors = value;
         }
 
@@ -134,76 +130,5 @@ namespace Pulumi.Aws.Waf
         public IpSetState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class IpSetIpSetDescriptorsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Type of the IP address - `IPV4` or `IPV6`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        /// <summary>
-        /// An IPv4 or IPv6 address specified via CIDR notation.
-        /// e.g. `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public IpSetIpSetDescriptorsArgs()
-        {
-        }
-    }
-
-    public sealed class IpSetIpSetDescriptorsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Type of the IP address - `IPV4` or `IPV6`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        /// <summary>
-        /// An IPv4 or IPv6 address specified via CIDR notation.
-        /// e.g. `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public IpSetIpSetDescriptorsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class IpSetIpSetDescriptors
-    {
-        /// <summary>
-        /// Type of the IP address - `IPV4` or `IPV6`.
-        /// </summary>
-        public readonly string Type;
-        /// <summary>
-        /// An IPv4 or IPv6 address specified via CIDR notation.
-        /// e.g. `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private IpSetIpSetDescriptors(
-            string type,
-            string value)
-        {
-            Type = type;
-            Value = value;
-        }
-    }
     }
 }

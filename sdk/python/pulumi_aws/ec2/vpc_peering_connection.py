@@ -97,8 +97,6 @@ class VpcPeeringConnection(pulumi.CustomResource):
         The accepter can manage its side of the connection using the `ec2.VpcPeeringConnectionAccepter` resource
         or accept the connection manually using the AWS Management Console, AWS CLI, through SDKs, etc.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] accepter: An optional configuration block that allows for [VPC Peering Connection]

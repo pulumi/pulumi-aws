@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Ses
 {
     /// <summary>
     /// Provides an SES email identity resource
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_email_identity.html.markdown.
     /// </summary>
     public partial class EmailIdentity : Pulumi.CustomResource
     {
@@ -39,7 +35,7 @@ namespace Pulumi.Aws.Ses
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EmailIdentity(string name, EmailIdentityArgs args, CustomResourceOptions? options = null)
-            : base("aws:ses/emailIdentity:EmailIdentity", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ses/emailIdentity:EmailIdentity", name, args ?? new EmailIdentityArgs(), MakeResourceOptions(options, ""))
         {
         }
 

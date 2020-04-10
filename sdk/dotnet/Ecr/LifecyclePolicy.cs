@@ -15,10 +15,6 @@ namespace Pulumi.Aws.Ecr
     /// &gt; **NOTE:** Only one `aws.ecr.LifecyclePolicy` resource can be used with the same ECR repository. To apply multiple rules, they must be combined in the `policy` JSON.
     /// 
     /// &gt; **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_lifecycle_policy.html.markdown.
     /// </summary>
     public partial class LifecyclePolicy : Pulumi.CustomResource
     {
@@ -49,7 +45,7 @@ namespace Pulumi.Aws.Ecr
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LifecyclePolicy(string name, LifecyclePolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:ecr/lifecyclePolicy:LifecyclePolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ecr/lifecyclePolicy:LifecyclePolicy", name, args ?? new LifecyclePolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

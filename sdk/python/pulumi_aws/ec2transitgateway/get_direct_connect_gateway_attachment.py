@@ -53,8 +53,6 @@ def get_direct_connect_gateway_attachment(dx_gateway_id=None,filters=None,tags=N
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_dx_gateway_attachment.html.markdown.
-
 
     :param str dx_gateway_id: Identifier of the Direct Connect Gateway.
     :param list filters: Configuration block(s) for filtering. Detailed below.

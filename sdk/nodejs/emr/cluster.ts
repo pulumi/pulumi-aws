@@ -322,7 +322,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly autoscalingRole!: pulumi.Output<string | undefined>;
     /**
-     * List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
+     * Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
      */
     public readonly bootstrapActions!: pulumi.Output<outputs.emr.ClusterBootstrapAction[] | undefined>;
     public /*out*/ readonly clusterState!: pulumi.Output<string>;
@@ -540,7 +540,7 @@ export interface ClusterState {
      */
     readonly autoscalingRole?: pulumi.Input<string>;
     /**
-     * List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
+     * Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
      */
     readonly bootstrapActions?: pulumi.Input<pulumi.Input<inputs.emr.ClusterBootstrapAction>[]>;
     readonly clusterState?: pulumi.Input<string>;
@@ -672,7 +672,7 @@ export interface ClusterArgs {
      */
     readonly autoscalingRole?: pulumi.Input<string>;
     /**
-     * List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
+     * Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
      */
     readonly bootstrapActions?: pulumi.Input<pulumi.Input<inputs.emr.ClusterBootstrapAction>[]>;
     /**

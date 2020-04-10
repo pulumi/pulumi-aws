@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ecr
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_repository.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetRepository.InvokeAsync() instead")]
-        public static Task<GetRepositoryResult> GetRepository(GetRepositoryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("aws:ecr/getRepository:getRepository", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetRepository
     {
         /// <summary>
         /// The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_repository.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRepositoryResult> InvokeAsync(GetRepositoryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("aws:ecr/getRepository:getRepository", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("aws:ecr/getRepository:getRepository", args ?? new GetRepositoryArgs(), options.WithVersion());
     }
+
 
     public sealed class GetRepositoryArgs : Pulumi.InvokeArgs
     {
@@ -60,6 +47,7 @@ namespace Pulumi.Aws.Ecr
         }
     }
 
+
     [OutputType]
     public sealed class GetRepositoryResult
     {
@@ -67,6 +55,10 @@ namespace Pulumi.Aws.Ecr
         /// Full ARN of the repository.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// The registry ID where the repository was created.
@@ -80,26 +72,27 @@ namespace Pulumi.Aws.Ecr
         /// A mapping of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetRepositoryResult(
             string arn,
+
+            string id,
+
             string name,
+
             string registryId,
+
             string repositoryUrl,
-            ImmutableDictionary<string, object> tags,
-            string id)
+
+            ImmutableDictionary<string, object> tags)
         {
             Arn = arn;
+            Id = id;
             Name = name;
             RegistryId = registryId;
             RepositoryUrl = repositoryUrl;
             Tags = tags;
-            Id = id;
         }
     }
 }

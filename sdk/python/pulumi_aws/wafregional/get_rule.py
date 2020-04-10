@@ -38,8 +38,6 @@ def get_rule(name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_rule.html.markdown.
-
 
     :param str name: The name of the WAF Regional rule.
     """

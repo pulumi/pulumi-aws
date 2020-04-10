@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Lambda
 {
     /// <summary>
     /// Manages a Lambda Provisioned Concurrency Configuration.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_provisioned_concurrency_config.html.markdown.
     /// </summary>
     public partial class ProvisionedConcurrencyConfig : Pulumi.CustomResource
     {
@@ -45,7 +41,7 @@ namespace Pulumi.Aws.Lambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProvisionedConcurrencyConfig(string name, ProvisionedConcurrencyConfigArgs args, CustomResourceOptions? options = null)
-            : base("aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig", name, args ?? new ProvisionedConcurrencyConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -27,8 +27,6 @@ class Project(pulumi.CustomResource):
         For more information about Device Farm Projects, see the AWS Documentation on
         [Device Farm Projects][aws-get-project].
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/devicefarm_project.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the project

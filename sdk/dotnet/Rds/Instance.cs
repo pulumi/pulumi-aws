@@ -36,10 +36,6 @@ namespace Pulumi.Aws.Rds
     /// Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
     /// and Burstable Performance. For more information please read the AWS RDS documentation
     /// about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_instance.html.markdown.
     /// </summary>
     public partial class Instance : Pulumi.CustomResource
     {
@@ -476,7 +472,7 @@ namespace Pulumi.Aws.Rds
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Instance(string name, InstanceArgs args, CustomResourceOptions? options = null)
-            : base("aws:rds/instance:Instance", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:rds/instance:Instance", name, args ?? new InstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -1384,127 +1380,5 @@ namespace Pulumi.Aws.Rds
         public InstanceState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class InstanceS3ImportArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The bucket name where your backup is stored
-        /// </summary>
-        [Input("bucketName", required: true)]
-        public Input<string> BucketName { get; set; } = null!;
-
-        /// <summary>
-        /// Can be blank, but is the path to your backup
-        /// </summary>
-        [Input("bucketPrefix")]
-        public Input<string>? BucketPrefix { get; set; }
-
-        /// <summary>
-        /// Role applied to load the data.
-        /// </summary>
-        [Input("ingestionRole", required: true)]
-        public Input<string> IngestionRole { get; set; } = null!;
-
-        /// <summary>
-        /// Source engine for the backup
-        /// </summary>
-        [Input("sourceEngine", required: true)]
-        public Input<string> SourceEngine { get; set; } = null!;
-
-        /// <summary>
-        /// Version of the source engine used to make the backup
-        /// </summary>
-        [Input("sourceEngineVersion", required: true)]
-        public Input<string> SourceEngineVersion { get; set; } = null!;
-
-        public InstanceS3ImportArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceS3ImportGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The bucket name where your backup is stored
-        /// </summary>
-        [Input("bucketName", required: true)]
-        public Input<string> BucketName { get; set; } = null!;
-
-        /// <summary>
-        /// Can be blank, but is the path to your backup
-        /// </summary>
-        [Input("bucketPrefix")]
-        public Input<string>? BucketPrefix { get; set; }
-
-        /// <summary>
-        /// Role applied to load the data.
-        /// </summary>
-        [Input("ingestionRole", required: true)]
-        public Input<string> IngestionRole { get; set; } = null!;
-
-        /// <summary>
-        /// Source engine for the backup
-        /// </summary>
-        [Input("sourceEngine", required: true)]
-        public Input<string> SourceEngine { get; set; } = null!;
-
-        /// <summary>
-        /// Version of the source engine used to make the backup
-        /// </summary>
-        [Input("sourceEngineVersion", required: true)]
-        public Input<string> SourceEngineVersion { get; set; } = null!;
-
-        public InstanceS3ImportGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class InstanceS3Import
-    {
-        /// <summary>
-        /// The bucket name where your backup is stored
-        /// </summary>
-        public readonly string BucketName;
-        /// <summary>
-        /// Can be blank, but is the path to your backup
-        /// </summary>
-        public readonly string? BucketPrefix;
-        /// <summary>
-        /// Role applied to load the data.
-        /// </summary>
-        public readonly string IngestionRole;
-        /// <summary>
-        /// Source engine for the backup
-        /// </summary>
-        public readonly string SourceEngine;
-        /// <summary>
-        /// Version of the source engine used to make the backup
-        /// </summary>
-        public readonly string SourceEngineVersion;
-
-        [OutputConstructor]
-        private InstanceS3Import(
-            string bucketName,
-            string? bucketPrefix,
-            string ingestionRole,
-            string sourceEngine,
-            string sourceEngineVersion)
-        {
-            BucketName = bucketName;
-            BucketPrefix = bucketPrefix;
-            IngestionRole = ingestionRole;
-            SourceEngine = sourceEngine;
-            SourceEngineVersion = sourceEngineVersion;
-        }
-    }
     }
 }

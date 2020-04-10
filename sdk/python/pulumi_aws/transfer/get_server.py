@@ -81,8 +81,6 @@ def get_server(server_id=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/transfer_server.html.markdown.
-
 
     :param str server_id: ID for an SFTP server.
     """

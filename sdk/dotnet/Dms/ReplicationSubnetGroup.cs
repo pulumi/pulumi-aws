@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Dms
 {
     /// <summary>
     /// Provides a DMS (Data Migration Service) replication subnet group resource. DMS replication subnet groups can be created, updated, deleted, and imported.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_replication_subnet_group.html.markdown.
     /// </summary>
     public partial class ReplicationSubnetGroup : Pulumi.CustomResource
     {
@@ -60,7 +56,7 @@ namespace Pulumi.Aws.Dms
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationSubnetGroup(string name, ReplicationSubnetGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup", name, args ?? new ReplicationSubnetGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 

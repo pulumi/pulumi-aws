@@ -40,8 +40,6 @@ namespace Pulumi.Aws.Ec2
     /// defined in-line. At this time you cannot use a Route Table with in-line routes
     /// in conjunction with any Route resources. Doing so will cause
     /// a conflict of rule settings and will overwrite routes.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_route_table.html.markdown.
     /// </summary>
     public partial class DefaultRouteTable : Pulumi.CustomResource
     {
@@ -67,7 +65,7 @@ namespace Pulumi.Aws.Ec2
         /// A list of route objects. Their keys are documented below.
         /// </summary>
         [Output("routes")]
-        public Output<ImmutableArray<Outputs.DefaultRouteTableRoutes>> Routes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DefaultRouteTableRoute>> Routes { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -87,7 +85,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DefaultRouteTable(string name, DefaultRouteTableArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/defaultRouteTable:DefaultRouteTable", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/defaultRouteTable:DefaultRouteTable", name, args ?? new DefaultRouteTableArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -143,14 +141,14 @@ namespace Pulumi.Aws.Ec2
         }
 
         [Input("routes")]
-        private InputList<Inputs.DefaultRouteTableRoutesArgs>? _routes;
+        private InputList<Inputs.DefaultRouteTableRouteArgs>? _routes;
 
         /// <summary>
         /// A list of route objects. Their keys are documented below.
         /// </summary>
-        public InputList<Inputs.DefaultRouteTableRoutesArgs> Routes
+        public InputList<Inputs.DefaultRouteTableRouteArgs> Routes
         {
-            get => _routes ?? (_routes = new InputList<Inputs.DefaultRouteTableRoutesArgs>());
+            get => _routes ?? (_routes = new InputList<Inputs.DefaultRouteTableRouteArgs>());
             set => _routes = value;
         }
 
@@ -198,14 +196,14 @@ namespace Pulumi.Aws.Ec2
         }
 
         [Input("routes")]
-        private InputList<Inputs.DefaultRouteTableRoutesGetArgs>? _routes;
+        private InputList<Inputs.DefaultRouteTableRouteGetArgs>? _routes;
 
         /// <summary>
         /// A list of route objects. Their keys are documented below.
         /// </summary>
-        public InputList<Inputs.DefaultRouteTableRoutesGetArgs> Routes
+        public InputList<Inputs.DefaultRouteTableRouteGetArgs> Routes
         {
-            get => _routes ?? (_routes = new InputList<Inputs.DefaultRouteTableRoutesGetArgs>());
+            get => _routes ?? (_routes = new InputList<Inputs.DefaultRouteTableRouteGetArgs>());
             set => _routes = value;
         }
 
@@ -227,199 +225,5 @@ namespace Pulumi.Aws.Ec2
         public DefaultRouteTableState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DefaultRouteTableRoutesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The CIDR block of the route.
-        /// </summary>
-        [Input("cidrBlock")]
-        public Input<string>? CidrBlock { get; set; }
-
-        /// <summary>
-        /// Identifier of a VPC Egress Only Internet Gateway.
-        /// </summary>
-        [Input("egressOnlyGatewayId")]
-        public Input<string>? EgressOnlyGatewayId { get; set; }
-
-        /// <summary>
-        /// Identifier of a VPC internet gateway or a virtual private gateway.
-        /// </summary>
-        [Input("gatewayId")]
-        public Input<string>? GatewayId { get; set; }
-
-        /// <summary>
-        /// Identifier of an EC2 instance.
-        /// </summary>
-        [Input("instanceId")]
-        public Input<string>? InstanceId { get; set; }
-
-        /// <summary>
-        /// The Ipv6 CIDR block of the route
-        /// </summary>
-        [Input("ipv6CidrBlock")]
-        public Input<string>? Ipv6CidrBlock { get; set; }
-
-        /// <summary>
-        /// Identifier of a VPC NAT gateway.
-        /// </summary>
-        [Input("natGatewayId")]
-        public Input<string>? NatGatewayId { get; set; }
-
-        /// <summary>
-        /// Identifier of an EC2 network interface.
-        /// </summary>
-        [Input("networkInterfaceId")]
-        public Input<string>? NetworkInterfaceId { get; set; }
-
-        /// <summary>
-        /// Identifier of an EC2 Transit Gateway.
-        /// </summary>
-        [Input("transitGatewayId")]
-        public Input<string>? TransitGatewayId { get; set; }
-
-        /// <summary>
-        /// Identifier of a VPC peering connection.
-        /// </summary>
-        [Input("vpcPeeringConnectionId")]
-        public Input<string>? VpcPeeringConnectionId { get; set; }
-
-        public DefaultRouteTableRoutesArgs()
-        {
-        }
-    }
-
-    public sealed class DefaultRouteTableRoutesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The CIDR block of the route.
-        /// </summary>
-        [Input("cidrBlock")]
-        public Input<string>? CidrBlock { get; set; }
-
-        /// <summary>
-        /// Identifier of a VPC Egress Only Internet Gateway.
-        /// </summary>
-        [Input("egressOnlyGatewayId")]
-        public Input<string>? EgressOnlyGatewayId { get; set; }
-
-        /// <summary>
-        /// Identifier of a VPC internet gateway or a virtual private gateway.
-        /// </summary>
-        [Input("gatewayId")]
-        public Input<string>? GatewayId { get; set; }
-
-        /// <summary>
-        /// Identifier of an EC2 instance.
-        /// </summary>
-        [Input("instanceId")]
-        public Input<string>? InstanceId { get; set; }
-
-        /// <summary>
-        /// The Ipv6 CIDR block of the route
-        /// </summary>
-        [Input("ipv6CidrBlock")]
-        public Input<string>? Ipv6CidrBlock { get; set; }
-
-        /// <summary>
-        /// Identifier of a VPC NAT gateway.
-        /// </summary>
-        [Input("natGatewayId")]
-        public Input<string>? NatGatewayId { get; set; }
-
-        /// <summary>
-        /// Identifier of an EC2 network interface.
-        /// </summary>
-        [Input("networkInterfaceId")]
-        public Input<string>? NetworkInterfaceId { get; set; }
-
-        /// <summary>
-        /// Identifier of an EC2 Transit Gateway.
-        /// </summary>
-        [Input("transitGatewayId")]
-        public Input<string>? TransitGatewayId { get; set; }
-
-        /// <summary>
-        /// Identifier of a VPC peering connection.
-        /// </summary>
-        [Input("vpcPeeringConnectionId")]
-        public Input<string>? VpcPeeringConnectionId { get; set; }
-
-        public DefaultRouteTableRoutesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DefaultRouteTableRoutes
-    {
-        /// <summary>
-        /// The CIDR block of the route.
-        /// </summary>
-        public readonly string? CidrBlock;
-        /// <summary>
-        /// Identifier of a VPC Egress Only Internet Gateway.
-        /// </summary>
-        public readonly string? EgressOnlyGatewayId;
-        /// <summary>
-        /// Identifier of a VPC internet gateway or a virtual private gateway.
-        /// </summary>
-        public readonly string? GatewayId;
-        /// <summary>
-        /// Identifier of an EC2 instance.
-        /// </summary>
-        public readonly string? InstanceId;
-        /// <summary>
-        /// The Ipv6 CIDR block of the route
-        /// </summary>
-        public readonly string? Ipv6CidrBlock;
-        /// <summary>
-        /// Identifier of a VPC NAT gateway.
-        /// </summary>
-        public readonly string? NatGatewayId;
-        /// <summary>
-        /// Identifier of an EC2 network interface.
-        /// </summary>
-        public readonly string? NetworkInterfaceId;
-        /// <summary>
-        /// Identifier of an EC2 Transit Gateway.
-        /// </summary>
-        public readonly string? TransitGatewayId;
-        /// <summary>
-        /// Identifier of a VPC peering connection.
-        /// </summary>
-        public readonly string? VpcPeeringConnectionId;
-
-        [OutputConstructor]
-        private DefaultRouteTableRoutes(
-            string? cidrBlock,
-            string? egressOnlyGatewayId,
-            string? gatewayId,
-            string? instanceId,
-            string? ipv6CidrBlock,
-            string? natGatewayId,
-            string? networkInterfaceId,
-            string? transitGatewayId,
-            string? vpcPeeringConnectionId)
-        {
-            CidrBlock = cidrBlock;
-            EgressOnlyGatewayId = egressOnlyGatewayId;
-            GatewayId = gatewayId;
-            InstanceId = instanceId;
-            Ipv6CidrBlock = ipv6CidrBlock;
-            NatGatewayId = natGatewayId;
-            NetworkInterfaceId = networkInterfaceId;
-            TransitGatewayId = transitGatewayId;
-            VpcPeeringConnectionId = vpcPeeringConnectionId;
-        }
-    }
     }
 }

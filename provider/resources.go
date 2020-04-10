@@ -491,7 +491,10 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// API Gateway v2
-			"aws_apigatewayv2_api": {Tok: awsResource(apigatewayv2Mod, "Api")},
+			"aws_apigatewayv2_api":         {Tok: awsResource(apigatewayv2Mod, "Api")},
+			"aws_apigatewayv2_authorizer":  {Tok: awsResource(apigatewayv2Mod, "Authorizer")},
+			"aws_apigatewayv2_integration": {Tok: awsResource(apigatewayv2Mod, "Integration")},
+			"aws_apigatewayv2_model":       {Tok: awsResource(apigatewayv2Mod, "Model")},
 			// Application Auto Scaling
 			"aws_appautoscaling_policy":           {Tok: awsResource(appautoscalingMod, "Policy")},
 			"aws_appautoscaling_scheduled_action": {Tok: awsResource(appautoscalingMod, "ScheduledAction")},
@@ -679,7 +682,14 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// CodePipeline
-			"aws_codepipeline":         {Tok: awsResource(codepipelineMod, "Pipeline")},
+			"aws_codepipeline": {
+				Tok: awsResource(codepipelineMod, "Pipeline"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"artifact_store": {
+						MaxItemsOne: boolRef(true),
+					},
+				},
+			},
 			"aws_codepipeline_webhook": {Tok: awsResource(codepipelineMod, "Webhook")},
 			// Cognito
 			"aws_cognito_identity_pool":                  {Tok: awsResource(cognitoMod, "IdentityPool")},
@@ -2335,6 +2345,8 @@ func Provider() tfbridge.ProviderInfo {
 			// SFN
 			"aws_sfn_activity":      {Tok: awsDataSource(sfnMod, "getActivity")},
 			"aws_sfn_state_machine": {Tok: awsDataSource(sfnMod, "getStateMachine")},
+			// Cloudfront
+			"aws_cloudfront_distribution": {Tok: awsDataSource(cloudfrontMod, "getDistribution")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			AsyncDataSources: true,

@@ -76,8 +76,6 @@ def get_cluster(cluster_id=None,cluster_state=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudhsm_v2_cluster.html.markdown.
-
 
     :param str cluster_id: The id of Cloud HSM v2 cluster.
     :param str cluster_state: The state of the cluster to be found.

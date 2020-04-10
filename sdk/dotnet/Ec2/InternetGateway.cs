@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Ec2
 {
     /// <summary>
     /// Provides a resource to create a VPC Internet Gateway.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/internet_gateway.html.markdown.
     /// </summary>
     public partial class InternetGateway : Pulumi.CustomResource
     {
@@ -45,7 +41,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InternetGateway(string name, InternetGatewayArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ec2/internetGateway:InternetGateway", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/internetGateway:InternetGateway", name, args ?? new InternetGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Ec2
 {
     /// <summary>
     /// Adds permission to create volumes off of a given EBS Snapshot.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/snapshot_create_volume_permission.html.markdown.
     /// </summary>
     public partial class SnapshotCreateVolumePermission : Pulumi.CustomResource
     {
@@ -39,7 +35,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SnapshotCreateVolumePermission(string name, SnapshotCreateVolumePermissionArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission", name, args ?? new SnapshotCreateVolumePermissionArgs(), MakeResourceOptions(options, ""))
         {
         }
 

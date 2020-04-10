@@ -9,21 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ecs
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// The ECS task definition data source allows access to details of
-        /// a specific AWS ECS task definition.
-        /// 
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_task_definition.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetTaskDefinition.InvokeAsync() instead")]
-        public static Task<GetTaskDefinitionResult> GetTaskDefinition(GetTaskDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskDefinitionResult>("aws:ecs/getTaskDefinition:getTaskDefinition", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetTaskDefinition
     {
         /// <summary>
@@ -31,13 +16,13 @@ namespace Pulumi.Aws.Ecs
         /// a specific AWS ECS task definition.
         /// 
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_task_definition.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetTaskDefinitionResult> InvokeAsync(GetTaskDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskDefinitionResult>("aws:ecs/getTaskDefinition:getTaskDefinition", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskDefinitionResult>("aws:ecs/getTaskDefinition:getTaskDefinition", args ?? new GetTaskDefinitionArgs(), options.WithVersion());
     }
+
 
     public sealed class GetTaskDefinitionArgs : Pulumi.InvokeArgs
     {
@@ -52,6 +37,7 @@ namespace Pulumi.Aws.Ecs
         }
     }
 
+
     [OutputType]
     public sealed class GetTaskDefinitionResult
     {
@@ -59,6 +45,10 @@ namespace Pulumi.Aws.Ecs
         /// The family of this task definition
         /// </summary>
         public readonly string Family;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Docker networking mode to use for the containers in this task.
         /// </summary>
@@ -76,28 +66,30 @@ namespace Pulumi.Aws.Ecs
         /// The ARN of the IAM role that containers in this task can assume
         /// </summary>
         public readonly string TaskRoleArn;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetTaskDefinitionResult(
             string family,
+
+            string id,
+
             string networkMode,
+
             int revision,
+
             string status,
+
             string taskDefinition,
-            string taskRoleArn,
-            string id)
+
+            string taskRoleArn)
         {
             Family = family;
+            Id = id;
             NetworkMode = networkMode;
             Revision = revision;
             Status = status;
             TaskDefinition = taskDefinition;
             TaskRoleArn = taskRoleArn;
-            Id = id;
         }
     }
 }

@@ -21,8 +21,6 @@ namespace Pulumi.Aws.Ec2
     /// this original table as the Main Route Table for the VPC. You'll see this
     /// additional Route Table in the AWS console; it must remain intact in order for
     /// the `main_route_table_association` delete to work properly.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/main_route_table_association.html.markdown.
     /// </summary>
     public partial class MainRouteTableAssociation : Pulumi.CustomResource
     {
@@ -54,7 +52,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MainRouteTableAssociation(string name, MainRouteTableAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation", name, args ?? new MainRouteTableAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

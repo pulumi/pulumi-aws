@@ -29,8 +29,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
     /// large files efficiently.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_function.html.markdown.
     /// </summary>
     public partial class Function : Pulumi.CustomResource
     {
@@ -39,6 +37,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        /// </summary>
+        [Output("code")]
+        public Output<Archive?> Code { get; private set; } = null!;
 
         /// <summary>
         /// Nested block to configure the function's *dead letter queue*. See details below.
@@ -57,18 +61,6 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("environment")]
         public Output<Outputs.FunctionEnvironment?> Environment { get; private set; } = null!;
-
-        /// <summary>
-        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-        /// </summary>
-        [Output("code")]
-        public Output<Archive?> Code { get; private set; } = null!;
-
-        /// <summary>
-        /// A unique name for your Lambda Function.
-        /// </summary>
-        [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// The function [entrypoint][3] in your code.
@@ -105,6 +97,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("memorySize")]
         public Output<int?> MemorySize { get; private set; } = null!;
+
+        /// <summary>
+        /// A unique name for your Lambda Function.
+        /// </summary>
+        [Output("name")]
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
@@ -203,7 +201,7 @@ namespace Pulumi.Aws.Lambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Function(string name, FunctionArgs args, CustomResourceOptions? options = null)
-            : base("aws:lambda/function:Function", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:lambda/function:Function", name, args ?? new FunctionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -241,6 +239,12 @@ namespace Pulumi.Aws.Lambda
     public sealed class FunctionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        /// </summary>
+        [Input("code")]
+        public Input<Archive>? Code { get; set; }
+
+        /// <summary>
         /// Nested block to configure the function's *dead letter queue*. See details below.
         /// </summary>
         [Input("deadLetterConfig")]
@@ -257,18 +261,6 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("environment")]
         public Input<Inputs.FunctionEnvironmentArgs>? Environment { get; set; }
-
-        /// <summary>
-        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-        /// </summary>
-        [Input("code")]
-        public Input<Archive>? Code { get; set; }
-
-        /// <summary>
-        /// A unique name for your Lambda Function.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The function [entrypoint][3] in your code.
@@ -299,6 +291,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("memorySize")]
         public Input<int>? MemorySize { get; set; }
+
+        /// <summary>
+        /// A unique name for your Lambda Function.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
@@ -389,6 +387,12 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        /// </summary>
+        [Input("code")]
+        public Input<Archive>? Code { get; set; }
+
+        /// <summary>
         /// Nested block to configure the function's *dead letter queue*. See details below.
         /// </summary>
         [Input("deadLetterConfig")]
@@ -405,18 +409,6 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("environment")]
         public Input<Inputs.FunctionEnvironmentGetArgs>? Environment { get; set; }
-
-        /// <summary>
-        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-        /// </summary>
-        [Input("code")]
-        public Input<Archive>? Code { get; set; }
-
-        /// <summary>
-        /// A unique name for your Lambda Function.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The function [entrypoint][3] in your code.
@@ -459,6 +451,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("memorySize")]
         public Input<int>? MemorySize { get; set; }
+
+        /// <summary>
+        /// A unique name for your Lambda Function.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
@@ -557,262 +555,5 @@ namespace Pulumi.Aws.Lambda
         public FunctionState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class FunctionDeadLetterConfigArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this
-        /// option is used, the function's IAM role must be granted suitable access to write to the target object,
-        /// which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
-        /// which service is targeted.
-        /// </summary>
-        [Input("targetArn", required: true)]
-        public Input<string> TargetArn { get; set; } = null!;
-
-        public FunctionDeadLetterConfigArgs()
-        {
-        }
-    }
-
-    public sealed class FunctionDeadLetterConfigGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this
-        /// option is used, the function's IAM role must be granted suitable access to write to the target object,
-        /// which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
-        /// which service is targeted.
-        /// </summary>
-        [Input("targetArn", required: true)]
-        public Input<string> TargetArn { get; set; } = null!;
-
-        public FunctionDeadLetterConfigGetArgs()
-        {
-        }
-    }
-
-    public sealed class FunctionEnvironmentArgs : Pulumi.ResourceArgs
-    {
-        [Input("variables")]
-        private InputMap<string>? _variables;
-
-        /// <summary>
-        /// A map that defines environment variables for the Lambda function.
-        /// </summary>
-        public InputMap<string> Variables
-        {
-            get => _variables ?? (_variables = new InputMap<string>());
-            set => _variables = value;
-        }
-
-        public FunctionEnvironmentArgs()
-        {
-        }
-    }
-
-    public sealed class FunctionEnvironmentGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("variables")]
-        private InputMap<string>? _variables;
-
-        /// <summary>
-        /// A map that defines environment variables for the Lambda function.
-        /// </summary>
-        public InputMap<string> Variables
-        {
-            get => _variables ?? (_variables = new InputMap<string>());
-            set => _variables = value;
-        }
-
-        public FunctionEnvironmentGetArgs()
-        {
-        }
-    }
-
-    public sealed class FunctionTracingConfigArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
-        /// the request from an upstream service if it contains a tracing header with
-        /// "sampled=1". If Active, Lambda will respect any tracing header it receives
-        /// from an upstream service. If no tracing header is received, Lambda will call
-        /// X-Ray for a tracing decision.
-        /// </summary>
-        [Input("mode", required: true)]
-        public Input<string> Mode { get; set; } = null!;
-
-        public FunctionTracingConfigArgs()
-        {
-        }
-    }
-
-    public sealed class FunctionTracingConfigGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
-        /// the request from an upstream service if it contains a tracing header with
-        /// "sampled=1". If Active, Lambda will respect any tracing header it receives
-        /// from an upstream service. If no tracing header is received, Lambda will call
-        /// X-Ray for a tracing decision.
-        /// </summary>
-        [Input("mode", required: true)]
-        public Input<string> Mode { get; set; } = null!;
-
-        public FunctionTracingConfigGetArgs()
-        {
-        }
-    }
-
-    public sealed class FunctionVpcConfigArgs : Pulumi.ResourceArgs
-    {
-        [Input("securityGroupIds", required: true)]
-        private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// A list of security group IDs associated with the Lambda function.
-        /// </summary>
-        public InputList<string> SecurityGroupIds
-        {
-            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
-            set => _securityGroupIds = value;
-        }
-
-        [Input("subnetIds", required: true)]
-        private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// A list of subnet IDs associated with the Lambda function.
-        /// </summary>
-        public InputList<string> SubnetIds
-        {
-            get => _subnetIds ?? (_subnetIds = new InputList<string>());
-            set => _subnetIds = value;
-        }
-
-        [Input("vpcId")]
-        public Input<string>? VpcId { get; set; }
-
-        public FunctionVpcConfigArgs()
-        {
-        }
-    }
-
-    public sealed class FunctionVpcConfigGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("securityGroupIds", required: true)]
-        private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// A list of security group IDs associated with the Lambda function.
-        /// </summary>
-        public InputList<string> SecurityGroupIds
-        {
-            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
-            set => _securityGroupIds = value;
-        }
-
-        [Input("subnetIds", required: true)]
-        private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// A list of subnet IDs associated with the Lambda function.
-        /// </summary>
-        public InputList<string> SubnetIds
-        {
-            get => _subnetIds ?? (_subnetIds = new InputList<string>());
-            set => _subnetIds = value;
-        }
-
-        [Input("vpcId")]
-        public Input<string>? VpcId { get; set; }
-
-        public FunctionVpcConfigGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class FunctionDeadLetterConfig
-    {
-        /// <summary>
-        /// The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this
-        /// option is used, the function's IAM role must be granted suitable access to write to the target object,
-        /// which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
-        /// which service is targeted.
-        /// </summary>
-        public readonly string TargetArn;
-
-        [OutputConstructor]
-        private FunctionDeadLetterConfig(string targetArn)
-        {
-            TargetArn = targetArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class FunctionEnvironment
-    {
-        /// <summary>
-        /// A map that defines environment variables for the Lambda function.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Variables;
-
-        [OutputConstructor]
-        private FunctionEnvironment(ImmutableDictionary<string, string>? variables)
-        {
-            Variables = variables;
-        }
-    }
-
-    [OutputType]
-    public sealed class FunctionTracingConfig
-    {
-        /// <summary>
-        /// Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
-        /// the request from an upstream service if it contains a tracing header with
-        /// "sampled=1". If Active, Lambda will respect any tracing header it receives
-        /// from an upstream service. If no tracing header is received, Lambda will call
-        /// X-Ray for a tracing decision.
-        /// </summary>
-        public readonly string Mode;
-
-        [OutputConstructor]
-        private FunctionTracingConfig(string mode)
-        {
-            Mode = mode;
-        }
-    }
-
-    [OutputType]
-    public sealed class FunctionVpcConfig
-    {
-        /// <summary>
-        /// A list of security group IDs associated with the Lambda function.
-        /// </summary>
-        public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// A list of subnet IDs associated with the Lambda function.
-        /// </summary>
-        public readonly ImmutableArray<string> SubnetIds;
-        public readonly string VpcId;
-
-        [OutputConstructor]
-        private FunctionVpcConfig(
-            ImmutableArray<string> securityGroupIds,
-            ImmutableArray<string> subnetIds,
-            string vpcId)
-        {
-            SecurityGroupIds = securityGroupIds;
-            SubnetIds = subnetIds;
-            VpcId = vpcId;
-        }
-    }
     }
 }

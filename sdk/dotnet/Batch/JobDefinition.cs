@@ -24,8 +24,6 @@ namespace Pulumi.Aws.Batch
     /// `timeout` supports the following:
     /// 
     /// * `attempt_duration_seconds` - (Optional) The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_job_definition.html.markdown.
     /// </summary>
     public partial class JobDefinition : Pulumi.CustomResource
     {
@@ -88,7 +86,7 @@ namespace Pulumi.Aws.Batch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public JobDefinition(string name, JobDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("aws:batch/jobDefinition:JobDefinition", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:batch/jobDefinition:JobDefinition", name, args ?? new JobDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -235,77 +233,5 @@ namespace Pulumi.Aws.Batch
         public JobDefinitionState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class JobDefinitionRetryStrategyArgs : Pulumi.ResourceArgs
-    {
-        [Input("attempts")]
-        public Input<int>? Attempts { get; set; }
-
-        public JobDefinitionRetryStrategyArgs()
-        {
-        }
-    }
-
-    public sealed class JobDefinitionRetryStrategyGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("attempts")]
-        public Input<int>? Attempts { get; set; }
-
-        public JobDefinitionRetryStrategyGetArgs()
-        {
-        }
-    }
-
-    public sealed class JobDefinitionTimeoutArgs : Pulumi.ResourceArgs
-    {
-        [Input("attemptDurationSeconds")]
-        public Input<int>? AttemptDurationSeconds { get; set; }
-
-        public JobDefinitionTimeoutArgs()
-        {
-        }
-    }
-
-    public sealed class JobDefinitionTimeoutGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("attemptDurationSeconds")]
-        public Input<int>? AttemptDurationSeconds { get; set; }
-
-        public JobDefinitionTimeoutGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class JobDefinitionRetryStrategy
-    {
-        public readonly int? Attempts;
-
-        [OutputConstructor]
-        private JobDefinitionRetryStrategy(int? attempts)
-        {
-            Attempts = attempts;
-        }
-    }
-
-    [OutputType]
-    public sealed class JobDefinitionTimeout
-    {
-        public readonly int? AttemptDurationSeconds;
-
-        [OutputConstructor]
-        private JobDefinitionTimeout(int? attemptDurationSeconds)
-        {
-            AttemptDurationSeconds = attemptDurationSeconds;
-        }
-    }
     }
 }

@@ -19,6 +19,7 @@ export type Runtime =
     "dotnetcore1.0"  |
     "dotnetcore2.0"  |
     "dotnetcore2.1"  |
+    "dotnetcore3.1"  |
     "go1.x"          |
     "java8"          |
     "java11"         |
@@ -38,6 +39,7 @@ export type Runtime =
     "provided"       ;
 
 export let DotnetCore2d1Runtime: Runtime = "dotnetcore2.1";
+export let DotnetCore3d1Runtime: Runtime = "dotnetcore3.1";
 export let Go1dxRuntime:         Runtime = "go1.x";
 export let Java8Runtime:         Runtime = "java8";
 export let Java11Runtime:        Runtime = "java11";

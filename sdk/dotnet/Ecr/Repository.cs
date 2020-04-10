@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Ecr
 {
     /// <summary>
     /// Provides an Elastic Container Registry Repository.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_repository.html.markdown.
     /// </summary>
     public partial class Repository : Pulumi.CustomResource
     {
@@ -69,7 +65,7 @@ namespace Pulumi.Aws.Ecr
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Repository(string name, RepositoryArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ecr/repository:Repository", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ecr/repository:Repository", name, args ?? new RepositoryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -194,54 +190,5 @@ namespace Pulumi.Aws.Ecr
         public RepositoryState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class RepositoryImageScanningConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
-        /// </summary>
-        [Input("scanOnPush", required: true)]
-        public Input<bool> ScanOnPush { get; set; } = null!;
-
-        public RepositoryImageScanningConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class RepositoryImageScanningConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
-        /// </summary>
-        [Input("scanOnPush", required: true)]
-        public Input<bool> ScanOnPush { get; set; } = null!;
-
-        public RepositoryImageScanningConfigurationGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class RepositoryImageScanningConfiguration
-    {
-        /// <summary>
-        /// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
-        /// </summary>
-        public readonly bool ScanOnPush;
-
-        [OutputConstructor]
-        private RepositoryImageScanningConfiguration(bool scanOnPush)
-        {
-            ScanOnPush = scanOnPush;
-        }
-    }
     }
 }

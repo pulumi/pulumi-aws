@@ -18,11 +18,6 @@ namespace Pulumi.Aws.Acm
     /// deploy the required validation records and wait for validation to complete.
     /// 
     /// &gt; **WARNING:** This resource implements a part of the validation workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
-    /// 
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate_validation.html.markdown.
     /// </summary>
     public partial class CertificateValidation : Pulumi.CustomResource
     {
@@ -47,7 +42,7 @@ namespace Pulumi.Aws.Acm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CertificateValidation(string name, CertificateValidationArgs args, CustomResourceOptions? options = null)
-            : base("aws:acm/certificateValidation:CertificateValidation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:acm/certificateValidation:CertificateValidation", name, args ?? new CertificateValidationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

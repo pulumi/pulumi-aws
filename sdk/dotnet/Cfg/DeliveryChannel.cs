@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Cfg
     /// Provides an AWS Config Delivery Channel.
     /// 
     /// &gt; **Note:** Delivery Channel requires a [Configuration Recorder](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_delivery_channel.html.markdown.
     /// </summary>
     public partial class DeliveryChannel : Pulumi.CustomResource
     {
@@ -59,7 +55,7 @@ namespace Pulumi.Aws.Cfg
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeliveryChannel(string name, DeliveryChannelArgs args, CustomResourceOptions? options = null)
-            : base("aws:cfg/deliveryChannel:DeliveryChannel", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:cfg/deliveryChannel:DeliveryChannel", name, args ?? new DeliveryChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -166,60 +162,5 @@ namespace Pulumi.Aws.Cfg
         public DeliveryChannelState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DeliveryChannelSnapshotDeliveryPropertiesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// - The frequency with which AWS Config recurringly delivers configuration snapshots.
-        /// e.g. `One_Hour` or `Three_Hours`.
-        /// Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
-        /// </summary>
-        [Input("deliveryFrequency")]
-        public Input<string>? DeliveryFrequency { get; set; }
-
-        public DeliveryChannelSnapshotDeliveryPropertiesArgs()
-        {
-        }
-    }
-
-    public sealed class DeliveryChannelSnapshotDeliveryPropertiesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// - The frequency with which AWS Config recurringly delivers configuration snapshots.
-        /// e.g. `One_Hour` or `Three_Hours`.
-        /// Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
-        /// </summary>
-        [Input("deliveryFrequency")]
-        public Input<string>? DeliveryFrequency { get; set; }
-
-        public DeliveryChannelSnapshotDeliveryPropertiesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DeliveryChannelSnapshotDeliveryProperties
-    {
-        /// <summary>
-        /// - The frequency with which AWS Config recurringly delivers configuration snapshots.
-        /// e.g. `One_Hour` or `Three_Hours`.
-        /// Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
-        /// </summary>
-        public readonly string? DeliveryFrequency;
-
-        [OutputConstructor]
-        private DeliveryChannelSnapshotDeliveryProperties(string? deliveryFrequency)
-        {
-            DeliveryFrequency = deliveryFrequency;
-        }
-    }
     }
 }

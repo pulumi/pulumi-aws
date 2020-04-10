@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Ec2
 {
     /// <summary>
     /// Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_template.html.markdown.
     /// </summary>
     public partial class LaunchTemplate : Pulumi.CustomResource
     {
@@ -29,7 +25,7 @@ namespace Pulumi.Aws.Ec2
         /// See Block Devices below for details.
         /// </summary>
         [Output("blockDeviceMappings")]
-        public Output<ImmutableArray<Outputs.LaunchTemplateBlockDeviceMappings>> BlockDeviceMappings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LaunchTemplateBlockDeviceMapping>> BlockDeviceMappings { get; private set; } = null!;
 
         /// <summary>
         /// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
@@ -80,13 +76,19 @@ namespace Pulumi.Aws.Ec2
         /// below for more details.
         /// </summary>
         [Output("elasticGpuSpecifications")]
-        public Output<ImmutableArray<Outputs.LaunchTemplateElasticGpuSpecifications>> ElasticGpuSpecifications { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LaunchTemplateElasticGpuSpecification>> ElasticGpuSpecifications { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         /// </summary>
         [Output("elasticInferenceAccelerator")]
         public Output<Outputs.LaunchTemplateElasticInferenceAccelerator?> ElasticInferenceAccelerator { get; private set; } = null!;
+
+        /// <summary>
+        /// The hibernation options for the instance. See Hibernation Options below for more details.
+        /// </summary>
+        [Output("hibernationOptions")]
+        public Output<Outputs.LaunchTemplateHibernationOptions?> HibernationOptions { get; private set; } = null!;
 
         /// <summary>
         /// The IAM Instance Profile to launch the instance with. See Instance Profile
@@ -143,7 +145,7 @@ namespace Pulumi.Aws.Ec2
         /// A list of license specifications to associate with. See License Specification below for more details.
         /// </summary>
         [Output("licenseSpecifications")]
-        public Output<ImmutableArray<Outputs.LaunchTemplateLicenseSpecifications>> LicenseSpecifications { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LaunchTemplateLicenseSpecification>> LicenseSpecifications { get; private set; } = null!;
 
         /// <summary>
         /// Customize the metadata options for the instance. See Metadata Options below for more details.
@@ -174,7 +176,7 @@ namespace Pulumi.Aws.Ec2
         /// Interfaces below for more details.
         /// </summary>
         [Output("networkInterfaces")]
-        public Output<ImmutableArray<Outputs.LaunchTemplateNetworkInterfaces>> NetworkInterfaces { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LaunchTemplateNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
 
         /// <summary>
         /// The placement of the instance. See Placement below for more details.
@@ -199,7 +201,7 @@ namespace Pulumi.Aws.Ec2
         /// The tags to apply to the resources during launch. See Tag Specifications below for more details.
         /// </summary>
         [Output("tagSpecifications")]
-        public Output<ImmutableArray<Outputs.LaunchTemplateTagSpecifications>> TagSpecifications { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LaunchTemplateTagSpecification>> TagSpecifications { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the launch template.
@@ -228,7 +230,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LaunchTemplate(string name, LaunchTemplateArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ec2/launchTemplate:LaunchTemplate", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/launchTemplate:LaunchTemplate", name, args ?? new LaunchTemplateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -266,15 +268,15 @@ namespace Pulumi.Aws.Ec2
     public sealed class LaunchTemplateArgs : Pulumi.ResourceArgs
     {
         [Input("blockDeviceMappings")]
-        private InputList<Inputs.LaunchTemplateBlockDeviceMappingsArgs>? _blockDeviceMappings;
+        private InputList<Inputs.LaunchTemplateBlockDeviceMappingArgs>? _blockDeviceMappings;
 
         /// <summary>
         /// Specify volumes to attach to the instance besides the volumes specified by the AMI.
         /// See Block Devices below for details.
         /// </summary>
-        public InputList<Inputs.LaunchTemplateBlockDeviceMappingsArgs> BlockDeviceMappings
+        public InputList<Inputs.LaunchTemplateBlockDeviceMappingArgs> BlockDeviceMappings
         {
-            get => _blockDeviceMappings ?? (_blockDeviceMappings = new InputList<Inputs.LaunchTemplateBlockDeviceMappingsArgs>());
+            get => _blockDeviceMappings ?? (_blockDeviceMappings = new InputList<Inputs.LaunchTemplateBlockDeviceMappingArgs>());
             set => _blockDeviceMappings = value;
         }
 
@@ -317,15 +319,15 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? EbsOptimized { get; set; }
 
         [Input("elasticGpuSpecifications")]
-        private InputList<Inputs.LaunchTemplateElasticGpuSpecificationsArgs>? _elasticGpuSpecifications;
+        private InputList<Inputs.LaunchTemplateElasticGpuSpecificationArgs>? _elasticGpuSpecifications;
 
         /// <summary>
         /// The elastic GPU to attach to the instance. See Elastic GPU
         /// below for more details.
         /// </summary>
-        public InputList<Inputs.LaunchTemplateElasticGpuSpecificationsArgs> ElasticGpuSpecifications
+        public InputList<Inputs.LaunchTemplateElasticGpuSpecificationArgs> ElasticGpuSpecifications
         {
-            get => _elasticGpuSpecifications ?? (_elasticGpuSpecifications = new InputList<Inputs.LaunchTemplateElasticGpuSpecificationsArgs>());
+            get => _elasticGpuSpecifications ?? (_elasticGpuSpecifications = new InputList<Inputs.LaunchTemplateElasticGpuSpecificationArgs>());
             set => _elasticGpuSpecifications = value;
         }
 
@@ -334,6 +336,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("elasticInferenceAccelerator")]
         public Input<Inputs.LaunchTemplateElasticInferenceAcceleratorArgs>? ElasticInferenceAccelerator { get; set; }
+
+        /// <summary>
+        /// The hibernation options for the instance. See Hibernation Options below for more details.
+        /// </summary>
+        [Input("hibernationOptions")]
+        public Input<Inputs.LaunchTemplateHibernationOptionsArgs>? HibernationOptions { get; set; }
 
         /// <summary>
         /// The IAM Instance Profile to launch the instance with. See Instance Profile
@@ -381,14 +389,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? KeyName { get; set; }
 
         [Input("licenseSpecifications")]
-        private InputList<Inputs.LaunchTemplateLicenseSpecificationsArgs>? _licenseSpecifications;
+        private InputList<Inputs.LaunchTemplateLicenseSpecificationArgs>? _licenseSpecifications;
 
         /// <summary>
         /// A list of license specifications to associate with. See License Specification below for more details.
         /// </summary>
-        public InputList<Inputs.LaunchTemplateLicenseSpecificationsArgs> LicenseSpecifications
+        public InputList<Inputs.LaunchTemplateLicenseSpecificationArgs> LicenseSpecifications
         {
-            get => _licenseSpecifications ?? (_licenseSpecifications = new InputList<Inputs.LaunchTemplateLicenseSpecificationsArgs>());
+            get => _licenseSpecifications ?? (_licenseSpecifications = new InputList<Inputs.LaunchTemplateLicenseSpecificationArgs>());
             set => _licenseSpecifications = value;
         }
 
@@ -417,15 +425,15 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? NamePrefix { get; set; }
 
         [Input("networkInterfaces")]
-        private InputList<Inputs.LaunchTemplateNetworkInterfacesArgs>? _networkInterfaces;
+        private InputList<Inputs.LaunchTemplateNetworkInterfaceArgs>? _networkInterfaces;
 
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network
         /// Interfaces below for more details.
         /// </summary>
-        public InputList<Inputs.LaunchTemplateNetworkInterfacesArgs> NetworkInterfaces
+        public InputList<Inputs.LaunchTemplateNetworkInterfaceArgs> NetworkInterfaces
         {
-            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.LaunchTemplateNetworkInterfacesArgs>());
+            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.LaunchTemplateNetworkInterfaceArgs>());
             set => _networkInterfaces = value;
         }
 
@@ -455,14 +463,14 @@ namespace Pulumi.Aws.Ec2
         }
 
         [Input("tagSpecifications")]
-        private InputList<Inputs.LaunchTemplateTagSpecificationsArgs>? _tagSpecifications;
+        private InputList<Inputs.LaunchTemplateTagSpecificationArgs>? _tagSpecifications;
 
         /// <summary>
         /// The tags to apply to the resources during launch. See Tag Specifications below for more details.
         /// </summary>
-        public InputList<Inputs.LaunchTemplateTagSpecificationsArgs> TagSpecifications
+        public InputList<Inputs.LaunchTemplateTagSpecificationArgs> TagSpecifications
         {
-            get => _tagSpecifications ?? (_tagSpecifications = new InputList<Inputs.LaunchTemplateTagSpecificationsArgs>());
+            get => _tagSpecifications ?? (_tagSpecifications = new InputList<Inputs.LaunchTemplateTagSpecificationArgs>());
             set => _tagSpecifications = value;
         }
 
@@ -510,15 +518,15 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Arn { get; set; }
 
         [Input("blockDeviceMappings")]
-        private InputList<Inputs.LaunchTemplateBlockDeviceMappingsGetArgs>? _blockDeviceMappings;
+        private InputList<Inputs.LaunchTemplateBlockDeviceMappingGetArgs>? _blockDeviceMappings;
 
         /// <summary>
         /// Specify volumes to attach to the instance besides the volumes specified by the AMI.
         /// See Block Devices below for details.
         /// </summary>
-        public InputList<Inputs.LaunchTemplateBlockDeviceMappingsGetArgs> BlockDeviceMappings
+        public InputList<Inputs.LaunchTemplateBlockDeviceMappingGetArgs> BlockDeviceMappings
         {
-            get => _blockDeviceMappings ?? (_blockDeviceMappings = new InputList<Inputs.LaunchTemplateBlockDeviceMappingsGetArgs>());
+            get => _blockDeviceMappings ?? (_blockDeviceMappings = new InputList<Inputs.LaunchTemplateBlockDeviceMappingGetArgs>());
             set => _blockDeviceMappings = value;
         }
 
@@ -567,15 +575,15 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? EbsOptimized { get; set; }
 
         [Input("elasticGpuSpecifications")]
-        private InputList<Inputs.LaunchTemplateElasticGpuSpecificationsGetArgs>? _elasticGpuSpecifications;
+        private InputList<Inputs.LaunchTemplateElasticGpuSpecificationGetArgs>? _elasticGpuSpecifications;
 
         /// <summary>
         /// The elastic GPU to attach to the instance. See Elastic GPU
         /// below for more details.
         /// </summary>
-        public InputList<Inputs.LaunchTemplateElasticGpuSpecificationsGetArgs> ElasticGpuSpecifications
+        public InputList<Inputs.LaunchTemplateElasticGpuSpecificationGetArgs> ElasticGpuSpecifications
         {
-            get => _elasticGpuSpecifications ?? (_elasticGpuSpecifications = new InputList<Inputs.LaunchTemplateElasticGpuSpecificationsGetArgs>());
+            get => _elasticGpuSpecifications ?? (_elasticGpuSpecifications = new InputList<Inputs.LaunchTemplateElasticGpuSpecificationGetArgs>());
             set => _elasticGpuSpecifications = value;
         }
 
@@ -584,6 +592,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("elasticInferenceAccelerator")]
         public Input<Inputs.LaunchTemplateElasticInferenceAcceleratorGetArgs>? ElasticInferenceAccelerator { get; set; }
+
+        /// <summary>
+        /// The hibernation options for the instance. See Hibernation Options below for more details.
+        /// </summary>
+        [Input("hibernationOptions")]
+        public Input<Inputs.LaunchTemplateHibernationOptionsGetArgs>? HibernationOptions { get; set; }
 
         /// <summary>
         /// The IAM Instance Profile to launch the instance with. See Instance Profile
@@ -637,14 +651,14 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? LatestVersion { get; set; }
 
         [Input("licenseSpecifications")]
-        private InputList<Inputs.LaunchTemplateLicenseSpecificationsGetArgs>? _licenseSpecifications;
+        private InputList<Inputs.LaunchTemplateLicenseSpecificationGetArgs>? _licenseSpecifications;
 
         /// <summary>
         /// A list of license specifications to associate with. See License Specification below for more details.
         /// </summary>
-        public InputList<Inputs.LaunchTemplateLicenseSpecificationsGetArgs> LicenseSpecifications
+        public InputList<Inputs.LaunchTemplateLicenseSpecificationGetArgs> LicenseSpecifications
         {
-            get => _licenseSpecifications ?? (_licenseSpecifications = new InputList<Inputs.LaunchTemplateLicenseSpecificationsGetArgs>());
+            get => _licenseSpecifications ?? (_licenseSpecifications = new InputList<Inputs.LaunchTemplateLicenseSpecificationGetArgs>());
             set => _licenseSpecifications = value;
         }
 
@@ -673,15 +687,15 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? NamePrefix { get; set; }
 
         [Input("networkInterfaces")]
-        private InputList<Inputs.LaunchTemplateNetworkInterfacesGetArgs>? _networkInterfaces;
+        private InputList<Inputs.LaunchTemplateNetworkInterfaceGetArgs>? _networkInterfaces;
 
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network
         /// Interfaces below for more details.
         /// </summary>
-        public InputList<Inputs.LaunchTemplateNetworkInterfacesGetArgs> NetworkInterfaces
+        public InputList<Inputs.LaunchTemplateNetworkInterfaceGetArgs> NetworkInterfaces
         {
-            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.LaunchTemplateNetworkInterfacesGetArgs>());
+            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.LaunchTemplateNetworkInterfaceGetArgs>());
             set => _networkInterfaces = value;
         }
 
@@ -711,14 +725,14 @@ namespace Pulumi.Aws.Ec2
         }
 
         [Input("tagSpecifications")]
-        private InputList<Inputs.LaunchTemplateTagSpecificationsGetArgs>? _tagSpecifications;
+        private InputList<Inputs.LaunchTemplateTagSpecificationGetArgs>? _tagSpecifications;
 
         /// <summary>
         /// The tags to apply to the resources during launch. See Tag Specifications below for more details.
         /// </summary>
-        public InputList<Inputs.LaunchTemplateTagSpecificationsGetArgs> TagSpecifications
+        public InputList<Inputs.LaunchTemplateTagSpecificationGetArgs> TagSpecifications
         {
-            get => _tagSpecifications ?? (_tagSpecifications = new InputList<Inputs.LaunchTemplateTagSpecificationsGetArgs>());
+            get => _tagSpecifications ?? (_tagSpecifications = new InputList<Inputs.LaunchTemplateTagSpecificationGetArgs>());
             set => _tagSpecifications = value;
         }
 
@@ -755,1441 +769,5 @@ namespace Pulumi.Aws.Ec2
         public LaunchTemplateState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class LaunchTemplateBlockDeviceMappingsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the device to mount.
-        /// </summary>
-        [Input("deviceName")]
-        public Input<string>? DeviceName { get; set; }
-
-        /// <summary>
-        /// Configure EBS volume properties.
-        /// </summary>
-        [Input("ebs")]
-        public Input<LaunchTemplateBlockDeviceMappingsEbsArgs>? Ebs { get; set; }
-
-        /// <summary>
-        /// Suppresses the specified device included in the AMI's block device mapping.
-        /// </summary>
-        [Input("noDevice")]
-        public Input<string>? NoDevice { get; set; }
-
-        /// <summary>
-        /// The [Instance Store Device
-        /// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-        /// (e.g. `"ephemeral0"`).
-        /// </summary>
-        [Input("virtualName")]
-        public Input<string>? VirtualName { get; set; }
-
-        public LaunchTemplateBlockDeviceMappingsArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateBlockDeviceMappingsEbsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
-        /// </summary>
-        [Input("deleteOnTermination")]
-        public Input<string>? DeleteOnTermination { get; set; }
-
-        /// <summary>
-        /// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`.
-        /// </summary>
-        [Input("encrypted")]
-        public Input<string>? Encrypted { get; set; }
-
-        /// <summary>
-        /// The amount of provisioned
-        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1"`.
-        /// </summary>
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        /// <summary>
-        /// AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
-        /// `encrypted` must be set to `true` when this is set.
-        /// </summary>
-        [Input("kmsKeyId")]
-        public Input<string>? KmsKeyId { get; set; }
-
-        /// <summary>
-        /// The Snapshot ID to mount.
-        /// </summary>
-        [Input("snapshotId")]
-        public Input<string>? SnapshotId { get; set; }
-
-        /// <summary>
-        /// The size of the volume in gigabytes.
-        /// </summary>
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
-        /// </summary>
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public LaunchTemplateBlockDeviceMappingsEbsArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateBlockDeviceMappingsEbsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
-        /// </summary>
-        [Input("deleteOnTermination")]
-        public Input<string>? DeleteOnTermination { get; set; }
-
-        /// <summary>
-        /// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`.
-        /// </summary>
-        [Input("encrypted")]
-        public Input<string>? Encrypted { get; set; }
-
-        /// <summary>
-        /// The amount of provisioned
-        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1"`.
-        /// </summary>
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        /// <summary>
-        /// AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
-        /// `encrypted` must be set to `true` when this is set.
-        /// </summary>
-        [Input("kmsKeyId")]
-        public Input<string>? KmsKeyId { get; set; }
-
-        /// <summary>
-        /// The Snapshot ID to mount.
-        /// </summary>
-        [Input("snapshotId")]
-        public Input<string>? SnapshotId { get; set; }
-
-        /// <summary>
-        /// The size of the volume in gigabytes.
-        /// </summary>
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
-        /// </summary>
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public LaunchTemplateBlockDeviceMappingsEbsGetArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateBlockDeviceMappingsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the device to mount.
-        /// </summary>
-        [Input("deviceName")]
-        public Input<string>? DeviceName { get; set; }
-
-        /// <summary>
-        /// Configure EBS volume properties.
-        /// </summary>
-        [Input("ebs")]
-        public Input<LaunchTemplateBlockDeviceMappingsEbsGetArgs>? Ebs { get; set; }
-
-        /// <summary>
-        /// Suppresses the specified device included in the AMI's block device mapping.
-        /// </summary>
-        [Input("noDevice")]
-        public Input<string>? NoDevice { get; set; }
-
-        /// <summary>
-        /// The [Instance Store Device
-        /// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-        /// (e.g. `"ephemeral0"`).
-        /// </summary>
-        [Input("virtualName")]
-        public Input<string>? VirtualName { get; set; }
-
-        public LaunchTemplateBlockDeviceMappingsGetArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateCapacityReservationSpecificationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
-        /// </summary>
-        [Input("capacityReservationPreference")]
-        public Input<string>? CapacityReservationPreference { get; set; }
-
-        /// <summary>
-        /// Used to target a specific Capacity Reservation:
-        /// </summary>
-        [Input("capacityReservationTarget")]
-        public Input<LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs>? CapacityReservationTarget { get; set; }
-
-        public LaunchTemplateCapacityReservationSpecificationArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Capacity Reservation to target.
-        /// </summary>
-        [Input("capacityReservationId")]
-        public Input<string>? CapacityReservationId { get; set; }
-
-        public LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Capacity Reservation to target.
-        /// </summary>
-        [Input("capacityReservationId")]
-        public Input<string>? CapacityReservationId { get; set; }
-
-        public LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetGetArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateCapacityReservationSpecificationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
-        /// </summary>
-        [Input("capacityReservationPreference")]
-        public Input<string>? CapacityReservationPreference { get; set; }
-
-        /// <summary>
-        /// Used to target a specific Capacity Reservation:
-        /// </summary>
-        [Input("capacityReservationTarget")]
-        public Input<LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetGetArgs>? CapacityReservationTarget { get; set; }
-
-        public LaunchTemplateCapacityReservationSpecificationGetArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateCpuOptionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of CPU cores for the instance.
-        /// </summary>
-        [Input("coreCount")]
-        public Input<int>? CoreCount { get; set; }
-
-        /// <summary>
-        /// The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
-        /// Otherwise, specify the default value of 2.
-        /// </summary>
-        [Input("threadsPerCore")]
-        public Input<int>? ThreadsPerCore { get; set; }
-
-        public LaunchTemplateCpuOptionsArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateCpuOptionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of CPU cores for the instance.
-        /// </summary>
-        [Input("coreCount")]
-        public Input<int>? CoreCount { get; set; }
-
-        /// <summary>
-        /// The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
-        /// Otherwise, specify the default value of 2.
-        /// </summary>
-        [Input("threadsPerCore")]
-        public Input<int>? ThreadsPerCore { get; set; }
-
-        public LaunchTemplateCpuOptionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateCreditSpecificationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
-        /// </summary>
-        [Input("cpuCredits")]
-        public Input<string>? CpuCredits { get; set; }
-
-        public LaunchTemplateCreditSpecificationArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateCreditSpecificationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
-        /// </summary>
-        [Input("cpuCredits")]
-        public Input<string>? CpuCredits { get; set; }
-
-        public LaunchTemplateCreditSpecificationGetArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateElasticGpuSpecificationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public LaunchTemplateElasticGpuSpecificationsArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateElasticGpuSpecificationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public LaunchTemplateElasticGpuSpecificationsGetArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateElasticInferenceAcceleratorArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Accelerator type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public LaunchTemplateElasticInferenceAcceleratorArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateElasticInferenceAcceleratorGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Accelerator type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public LaunchTemplateElasticInferenceAcceleratorGetArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateIamInstanceProfileArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the instance profile.
-        /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
-
-        /// <summary>
-        /// The name of the instance profile.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public LaunchTemplateIamInstanceProfileArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateIamInstanceProfileGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the instance profile.
-        /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
-
-        /// <summary>
-        /// The name of the instance profile.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public LaunchTemplateIamInstanceProfileGetArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateInstanceMarketOptionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The market type. Can be `spot`.
-        /// </summary>
-        [Input("marketType")]
-        public Input<string>? MarketType { get; set; }
-
-        /// <summary>
-        /// The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
-        /// </summary>
-        [Input("spotOptions")]
-        public Input<LaunchTemplateInstanceMarketOptionsSpotOptionsArgs>? SpotOptions { get; set; }
-
-        public LaunchTemplateInstanceMarketOptionsArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateInstanceMarketOptionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The market type. Can be `spot`.
-        /// </summary>
-        [Input("marketType")]
-        public Input<string>? MarketType { get; set; }
-
-        /// <summary>
-        /// The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
-        /// </summary>
-        [Input("spotOptions")]
-        public Input<LaunchTemplateInstanceMarketOptionsSpotOptionsGetArgs>? SpotOptions { get; set; }
-
-        public LaunchTemplateInstanceMarketOptionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateInstanceMarketOptionsSpotOptionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The required duration in minutes. This value must be a multiple of 60.
-        /// </summary>
-        [Input("blockDurationMinutes")]
-        public Input<int>? BlockDurationMinutes { get; set; }
-
-        /// <summary>
-        /// The behavior when a Spot Instance is interrupted. Can be `hibernate`,
-        /// `stop`, or `terminate`. (Default: `terminate`).
-        /// </summary>
-        [Input("instanceInterruptionBehavior")]
-        public Input<string>? InstanceInterruptionBehavior { get; set; }
-
-        /// <summary>
-        /// The maximum hourly price you're willing to pay for the Spot Instances.
-        /// </summary>
-        [Input("maxPrice")]
-        public Input<string>? MaxPrice { get; set; }
-
-        /// <summary>
-        /// The Spot Instance request type. Can be `one-time`, or `persistent`.
-        /// </summary>
-        [Input("spotInstanceType")]
-        public Input<string>? SpotInstanceType { get; set; }
-
-        /// <summary>
-        /// The end date of the request.
-        /// </summary>
-        [Input("validUntil")]
-        public Input<string>? ValidUntil { get; set; }
-
-        public LaunchTemplateInstanceMarketOptionsSpotOptionsArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateInstanceMarketOptionsSpotOptionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The required duration in minutes. This value must be a multiple of 60.
-        /// </summary>
-        [Input("blockDurationMinutes")]
-        public Input<int>? BlockDurationMinutes { get; set; }
-
-        /// <summary>
-        /// The behavior when a Spot Instance is interrupted. Can be `hibernate`,
-        /// `stop`, or `terminate`. (Default: `terminate`).
-        /// </summary>
-        [Input("instanceInterruptionBehavior")]
-        public Input<string>? InstanceInterruptionBehavior { get; set; }
-
-        /// <summary>
-        /// The maximum hourly price you're willing to pay for the Spot Instances.
-        /// </summary>
-        [Input("maxPrice")]
-        public Input<string>? MaxPrice { get; set; }
-
-        /// <summary>
-        /// The Spot Instance request type. Can be `one-time`, or `persistent`.
-        /// </summary>
-        [Input("spotInstanceType")]
-        public Input<string>? SpotInstanceType { get; set; }
-
-        /// <summary>
-        /// The end date of the request.
-        /// </summary>
-        [Input("validUntil")]
-        public Input<string>? ValidUntil { get; set; }
-
-        public LaunchTemplateInstanceMarketOptionsSpotOptionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateLicenseSpecificationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// ARN of the license configuration.
-        /// </summary>
-        [Input("licenseConfigurationArn", required: true)]
-        public Input<string> LicenseConfigurationArn { get; set; } = null!;
-
-        public LaunchTemplateLicenseSpecificationsArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateLicenseSpecificationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// ARN of the license configuration.
-        /// </summary>
-        [Input("licenseConfigurationArn", required: true)]
-        public Input<string> LicenseConfigurationArn { get; set; } = null!;
-
-        public LaunchTemplateLicenseSpecificationsGetArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateMetadataOptionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
-        /// </summary>
-        [Input("httpEndpoint")]
-        public Input<string>? HttpEndpoint { get; set; }
-
-        /// <summary>
-        /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
-        /// </summary>
-        [Input("httpPutResponseHopLimit")]
-        public Input<int>? HttpPutResponseHopLimit { get; set; }
-
-        /// <summary>
-        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
-        /// </summary>
-        [Input("httpTokens")]
-        public Input<string>? HttpTokens { get; set; }
-
-        public LaunchTemplateMetadataOptionsArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateMetadataOptionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
-        /// </summary>
-        [Input("httpEndpoint")]
-        public Input<string>? HttpEndpoint { get; set; }
-
-        /// <summary>
-        /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
-        /// </summary>
-        [Input("httpPutResponseHopLimit")]
-        public Input<int>? HttpPutResponseHopLimit { get; set; }
-
-        /// <summary>
-        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
-        /// </summary>
-        [Input("httpTokens")]
-        public Input<string>? HttpTokens { get; set; }
-
-        public LaunchTemplateMetadataOptionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateMonitoringArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// If `true`, the launched EC2 instance will have detailed monitoring enabled.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        public LaunchTemplateMonitoringArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateMonitoringGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// If `true`, the launched EC2 instance will have detailed monitoring enabled.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        public LaunchTemplateMonitoringGetArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateNetworkInterfacesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Associate a public ip address with the network interface.  Boolean value.
-        /// </summary>
-        [Input("associatePublicIpAddress")]
-        public Input<string>? AssociatePublicIpAddress { get; set; }
-
-        /// <summary>
-        /// Whether the network interface should be destroyed on instance termination.
-        /// </summary>
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        /// <summary>
-        /// Description of the network interface.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The integer index of the network interface attachment.
-        /// </summary>
-        [Input("deviceIndex")]
-        public Input<int>? DeviceIndex { get; set; }
-
-        /// <summary>
-        /// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
-        /// </summary>
-        [Input("ipv4AddressCount")]
-        public Input<int>? Ipv4AddressCount { get; set; }
-
-        [Input("ipv4Addresses")]
-        private InputList<string>? _ipv4Addresses;
-
-        /// <summary>
-        /// One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
-        /// </summary>
-        public InputList<string> Ipv4Addresses
-        {
-            get => _ipv4Addresses ?? (_ipv4Addresses = new InputList<string>());
-            set => _ipv4Addresses = value;
-        }
-
-        /// <summary>
-        /// The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
-        /// </summary>
-        [Input("ipv6AddressCount")]
-        public Input<int>? Ipv6AddressCount { get; set; }
-
-        [Input("ipv6Addresses")]
-        private InputList<string>? _ipv6Addresses;
-
-        /// <summary>
-        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
-        /// </summary>
-        public InputList<string> Ipv6Addresses
-        {
-            get => _ipv6Addresses ?? (_ipv6Addresses = new InputList<string>());
-            set => _ipv6Addresses = value;
-        }
-
-        /// <summary>
-        /// The ID of the network interface to attach.
-        /// </summary>
-        [Input("networkInterfaceId")]
-        public Input<string>? NetworkInterfaceId { get; set; }
-
-        /// <summary>
-        /// The primary private IPv4 address.
-        /// </summary>
-        [Input("privateIpAddress")]
-        public Input<string>? PrivateIpAddress { get; set; }
-
-        [Input("securityGroups")]
-        private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// A list of security group IDs to associate.
-        /// </summary>
-        public InputList<string> SecurityGroups
-        {
-            get => _securityGroups ?? (_securityGroups = new InputList<string>());
-            set => _securityGroups = value;
-        }
-
-        /// <summary>
-        /// The VPC Subnet ID to associate.
-        /// </summary>
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
-
-        public LaunchTemplateNetworkInterfacesArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateNetworkInterfacesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Associate a public ip address with the network interface.  Boolean value.
-        /// </summary>
-        [Input("associatePublicIpAddress")]
-        public Input<string>? AssociatePublicIpAddress { get; set; }
-
-        /// <summary>
-        /// Whether the network interface should be destroyed on instance termination.
-        /// </summary>
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        /// <summary>
-        /// Description of the network interface.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The integer index of the network interface attachment.
-        /// </summary>
-        [Input("deviceIndex")]
-        public Input<int>? DeviceIndex { get; set; }
-
-        /// <summary>
-        /// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
-        /// </summary>
-        [Input("ipv4AddressCount")]
-        public Input<int>? Ipv4AddressCount { get; set; }
-
-        [Input("ipv4Addresses")]
-        private InputList<string>? _ipv4Addresses;
-
-        /// <summary>
-        /// One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
-        /// </summary>
-        public InputList<string> Ipv4Addresses
-        {
-            get => _ipv4Addresses ?? (_ipv4Addresses = new InputList<string>());
-            set => _ipv4Addresses = value;
-        }
-
-        /// <summary>
-        /// The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
-        /// </summary>
-        [Input("ipv6AddressCount")]
-        public Input<int>? Ipv6AddressCount { get; set; }
-
-        [Input("ipv6Addresses")]
-        private InputList<string>? _ipv6Addresses;
-
-        /// <summary>
-        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
-        /// </summary>
-        public InputList<string> Ipv6Addresses
-        {
-            get => _ipv6Addresses ?? (_ipv6Addresses = new InputList<string>());
-            set => _ipv6Addresses = value;
-        }
-
-        /// <summary>
-        /// The ID of the network interface to attach.
-        /// </summary>
-        [Input("networkInterfaceId")]
-        public Input<string>? NetworkInterfaceId { get; set; }
-
-        /// <summary>
-        /// The primary private IPv4 address.
-        /// </summary>
-        [Input("privateIpAddress")]
-        public Input<string>? PrivateIpAddress { get; set; }
-
-        [Input("securityGroups")]
-        private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// A list of security group IDs to associate.
-        /// </summary>
-        public InputList<string> SecurityGroups
-        {
-            get => _securityGroups ?? (_securityGroups = new InputList<string>());
-            set => _securityGroups = value;
-        }
-
-        /// <summary>
-        /// The VPC Subnet ID to associate.
-        /// </summary>
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
-
-        public LaunchTemplateNetworkInterfacesGetArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplatePlacementArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The affinity setting for an instance on a Dedicated Host.
-        /// </summary>
-        [Input("affinity")]
-        public Input<string>? Affinity { get; set; }
-
-        /// <summary>
-        /// The Availability Zone for the instance.
-        /// </summary>
-        [Input("availabilityZone")]
-        public Input<string>? AvailabilityZone { get; set; }
-
-        /// <summary>
-        /// The name of the placement group for the instance.
-        /// </summary>
-        [Input("groupName")]
-        public Input<string>? GroupName { get; set; }
-
-        /// <summary>
-        /// The ID of the Dedicated Host for the instance.
-        /// </summary>
-        [Input("hostId")]
-        public Input<string>? HostId { get; set; }
-
-        /// <summary>
-        /// Reserved for future use.
-        /// </summary>
-        [Input("spreadDomain")]
-        public Input<string>? SpreadDomain { get; set; }
-
-        /// <summary>
-        /// The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
-        /// </summary>
-        [Input("tenancy")]
-        public Input<string>? Tenancy { get; set; }
-
-        public LaunchTemplatePlacementArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplatePlacementGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The affinity setting for an instance on a Dedicated Host.
-        /// </summary>
-        [Input("affinity")]
-        public Input<string>? Affinity { get; set; }
-
-        /// <summary>
-        /// The Availability Zone for the instance.
-        /// </summary>
-        [Input("availabilityZone")]
-        public Input<string>? AvailabilityZone { get; set; }
-
-        /// <summary>
-        /// The name of the placement group for the instance.
-        /// </summary>
-        [Input("groupName")]
-        public Input<string>? GroupName { get; set; }
-
-        /// <summary>
-        /// The ID of the Dedicated Host for the instance.
-        /// </summary>
-        [Input("hostId")]
-        public Input<string>? HostId { get; set; }
-
-        /// <summary>
-        /// Reserved for future use.
-        /// </summary>
-        [Input("spreadDomain")]
-        public Input<string>? SpreadDomain { get; set; }
-
-        /// <summary>
-        /// The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
-        /// </summary>
-        [Input("tenancy")]
-        public Input<string>? Tenancy { get; set; }
-
-        public LaunchTemplatePlacementGetArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateTagSpecificationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The type of resource to tag. Valid values are `instance` and `volume`.
-        /// </summary>
-        [Input("resourceType")]
-        public Input<string>? ResourceType { get; set; }
-
-        [Input("tags")]
-        private InputMap<object>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
-        public InputMap<object> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<object>());
-            set => _tags = value;
-        }
-
-        public LaunchTemplateTagSpecificationsArgs()
-        {
-        }
-    }
-
-    public sealed class LaunchTemplateTagSpecificationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The type of resource to tag. Valid values are `instance` and `volume`.
-        /// </summary>
-        [Input("resourceType")]
-        public Input<string>? ResourceType { get; set; }
-
-        [Input("tags")]
-        private InputMap<object>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
-        public InputMap<object> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<object>());
-            set => _tags = value;
-        }
-
-        public LaunchTemplateTagSpecificationsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class LaunchTemplateBlockDeviceMappings
-    {
-        /// <summary>
-        /// The name of the device to mount.
-        /// </summary>
-        public readonly string? DeviceName;
-        /// <summary>
-        /// Configure EBS volume properties.
-        /// </summary>
-        public readonly LaunchTemplateBlockDeviceMappingsEbs? Ebs;
-        /// <summary>
-        /// Suppresses the specified device included in the AMI's block device mapping.
-        /// </summary>
-        public readonly string? NoDevice;
-        /// <summary>
-        /// The [Instance Store Device
-        /// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-        /// (e.g. `"ephemeral0"`).
-        /// </summary>
-        public readonly string? VirtualName;
-
-        [OutputConstructor]
-        private LaunchTemplateBlockDeviceMappings(
-            string? deviceName,
-            LaunchTemplateBlockDeviceMappingsEbs? ebs,
-            string? noDevice,
-            string? virtualName)
-        {
-            DeviceName = deviceName;
-            Ebs = ebs;
-            NoDevice = noDevice;
-            VirtualName = virtualName;
-        }
-    }
-
-    [OutputType]
-    public sealed class LaunchTemplateBlockDeviceMappingsEbs
-    {
-        /// <summary>
-        /// Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
-        /// </summary>
-        public readonly string? DeleteOnTermination;
-        /// <summary>
-        /// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`.
-        /// </summary>
-        public readonly string? Encrypted;
-        /// <summary>
-        /// The amount of provisioned
-        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1"`.
-        /// </summary>
-        public readonly int Iops;
-        /// <summary>
-        /// AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
-        /// `encrypted` must be set to `true` when this is set.
-        /// </summary>
-        public readonly string? KmsKeyId;
-        /// <summary>
-        /// The Snapshot ID to mount.
-        /// </summary>
-        public readonly string? SnapshotId;
-        /// <summary>
-        /// The size of the volume in gigabytes.
-        /// </summary>
-        public readonly int VolumeSize;
-        /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`, or `"io1"`. (Default: `"standard"`).
-        /// </summary>
-        public readonly string VolumeType;
-
-        [OutputConstructor]
-        private LaunchTemplateBlockDeviceMappingsEbs(
-            string? deleteOnTermination,
-            string? encrypted,
-            int iops,
-            string? kmsKeyId,
-            string? snapshotId,
-            int volumeSize,
-            string volumeType)
-        {
-            DeleteOnTermination = deleteOnTermination;
-            Encrypted = encrypted;
-            Iops = iops;
-            KmsKeyId = kmsKeyId;
-            SnapshotId = snapshotId;
-            VolumeSize = volumeSize;
-            VolumeType = volumeType;
-        }
-    }
-
-    [OutputType]
-    public sealed class LaunchTemplateCapacityReservationSpecification
-    {
-        /// <summary>
-        /// Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
-        /// </summary>
-        public readonly string? CapacityReservationPreference;
-        /// <summary>
-        /// Used to target a specific Capacity Reservation:
-        /// </summary>
-        public readonly LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget? CapacityReservationTarget;
-
-        [OutputConstructor]
-        private LaunchTemplateCapacityReservationSpecification(
-            string? capacityReservationPreference,
-            LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget? capacityReservationTarget)
-        {
-            CapacityReservationPreference = capacityReservationPreference;
-            CapacityReservationTarget = capacityReservationTarget;
-        }
-    }
-
-    [OutputType]
-    public sealed class LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget
-    {
-        /// <summary>
-        /// The ID of the Capacity Reservation to target.
-        /// </summary>
-        public readonly string? CapacityReservationId;
-
-        [OutputConstructor]
-        private LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget(string? capacityReservationId)
-        {
-            CapacityReservationId = capacityReservationId;
-        }
-    }
-
-    [OutputType]
-    public sealed class LaunchTemplateCpuOptions
-    {
-        /// <summary>
-        /// The number of CPU cores for the instance.
-        /// </summary>
-        public readonly int? CoreCount;
-        /// <summary>
-        /// The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
-        /// Otherwise, specify the default value of 2.
-        /// </summary>
-        public readonly int? ThreadsPerCore;
-
-        [OutputConstructor]
-        private LaunchTemplateCpuOptions(
-            int? coreCount,
-            int? threadsPerCore)
-        {
-            CoreCount = coreCount;
-            ThreadsPerCore = threadsPerCore;
-        }
-    }
-
-    [OutputType]
-    public sealed class LaunchTemplateCreditSpecification
-    {
-        /// <summary>
-        /// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
-        /// </summary>
-        public readonly string? CpuCredits;
-
-        [OutputConstructor]
-        private LaunchTemplateCreditSpecification(string? cpuCredits)
-        {
-            CpuCredits = cpuCredits;
-        }
-    }
-
-    [OutputType]
-    public sealed class LaunchTemplateElasticGpuSpecifications
-    {
-        /// <summary>
-        /// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private LaunchTemplateElasticGpuSpecifications(string type)
-        {
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class LaunchTemplateElasticInferenceAccelerator
-    {
-        /// <summary>
-        /// Accelerator type.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private LaunchTemplateElasticInferenceAccelerator(string type)
-        {
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class LaunchTemplateIamInstanceProfile
-    {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the instance profile.
-        /// </summary>
-        public readonly string? Arn;
-        /// <summary>
-        /// The name of the instance profile.
-        /// </summary>
-        public readonly string? Name;
-
-        [OutputConstructor]
-        private LaunchTemplateIamInstanceProfile(
-            string? arn,
-            string? name)
-        {
-            Arn = arn;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class LaunchTemplateInstanceMarketOptions
-    {
-        /// <summary>
-        /// The market type. Can be `spot`.
-        /// </summary>
-        public readonly string? MarketType;
-        /// <summary>
-        /// The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
-        /// </summary>
-        public readonly LaunchTemplateInstanceMarketOptionsSpotOptions? SpotOptions;
-
-        [OutputConstructor]
-        private LaunchTemplateInstanceMarketOptions(
-            string? marketType,
-            LaunchTemplateInstanceMarketOptionsSpotOptions? spotOptions)
-        {
-            MarketType = marketType;
-            SpotOptions = spotOptions;
-        }
-    }
-
-    [OutputType]
-    public sealed class LaunchTemplateInstanceMarketOptionsSpotOptions
-    {
-        /// <summary>
-        /// The required duration in minutes. This value must be a multiple of 60.
-        /// </summary>
-        public readonly int? BlockDurationMinutes;
-        /// <summary>
-        /// The behavior when a Spot Instance is interrupted. Can be `hibernate`,
-        /// `stop`, or `terminate`. (Default: `terminate`).
-        /// </summary>
-        public readonly string? InstanceInterruptionBehavior;
-        /// <summary>
-        /// The maximum hourly price you're willing to pay for the Spot Instances.
-        /// </summary>
-        public readonly string? MaxPrice;
-        /// <summary>
-        /// The Spot Instance request type. Can be `one-time`, or `persistent`.
-        /// </summary>
-        public readonly string? SpotInstanceType;
-        /// <summary>
-        /// The end date of the request.
-        /// </summary>
-        public readonly string ValidUntil;
-
-        [OutputConstructor]
-        private LaunchTemplateInstanceMarketOptionsSpotOptions(
-            int? blockDurationMinutes,
-            string? instanceInterruptionBehavior,
-            string? maxPrice,
-            string? spotInstanceType,
-            string validUntil)
-        {
-            BlockDurationMinutes = blockDurationMinutes;
-            InstanceInterruptionBehavior = instanceInterruptionBehavior;
-            MaxPrice = maxPrice;
-            SpotInstanceType = spotInstanceType;
-            ValidUntil = validUntil;
-        }
-    }
-
-    [OutputType]
-    public sealed class LaunchTemplateLicenseSpecifications
-    {
-        /// <summary>
-        /// ARN of the license configuration.
-        /// </summary>
-        public readonly string LicenseConfigurationArn;
-
-        [OutputConstructor]
-        private LaunchTemplateLicenseSpecifications(string licenseConfigurationArn)
-        {
-            LicenseConfigurationArn = licenseConfigurationArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class LaunchTemplateMetadataOptions
-    {
-        /// <summary>
-        /// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
-        /// </summary>
-        public readonly string HttpEndpoint;
-        /// <summary>
-        /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
-        /// </summary>
-        public readonly int HttpPutResponseHopLimit;
-        /// <summary>
-        /// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
-        /// </summary>
-        public readonly string HttpTokens;
-
-        [OutputConstructor]
-        private LaunchTemplateMetadataOptions(
-            string httpEndpoint,
-            int httpPutResponseHopLimit,
-            string httpTokens)
-        {
-            HttpEndpoint = httpEndpoint;
-            HttpPutResponseHopLimit = httpPutResponseHopLimit;
-            HttpTokens = httpTokens;
-        }
-    }
-
-    [OutputType]
-    public sealed class LaunchTemplateMonitoring
-    {
-        /// <summary>
-        /// If `true`, the launched EC2 instance will have detailed monitoring enabled.
-        /// </summary>
-        public readonly bool? Enabled;
-
-        [OutputConstructor]
-        private LaunchTemplateMonitoring(bool? enabled)
-        {
-            Enabled = enabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class LaunchTemplateNetworkInterfaces
-    {
-        /// <summary>
-        /// Associate a public ip address with the network interface.  Boolean value.
-        /// </summary>
-        public readonly string? AssociatePublicIpAddress;
-        /// <summary>
-        /// Whether the network interface should be destroyed on instance termination.
-        /// </summary>
-        public readonly bool? DeleteOnTermination;
-        /// <summary>
-        /// Description of the network interface.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The integer index of the network interface attachment.
-        /// </summary>
-        public readonly int? DeviceIndex;
-        /// <summary>
-        /// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
-        /// </summary>
-        public readonly int? Ipv4AddressCount;
-        /// <summary>
-        /// One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
-        /// </summary>
-        public readonly ImmutableArray<string> Ipv4Addresses;
-        /// <summary>
-        /// The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
-        /// </summary>
-        public readonly int? Ipv6AddressCount;
-        /// <summary>
-        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
-        /// </summary>
-        public readonly ImmutableArray<string> Ipv6Addresses;
-        /// <summary>
-        /// The ID of the network interface to attach.
-        /// </summary>
-        public readonly string? NetworkInterfaceId;
-        /// <summary>
-        /// The primary private IPv4 address.
-        /// </summary>
-        public readonly string? PrivateIpAddress;
-        /// <summary>
-        /// A list of security group IDs to associate.
-        /// </summary>
-        public readonly ImmutableArray<string> SecurityGroups;
-        /// <summary>
-        /// The VPC Subnet ID to associate.
-        /// </summary>
-        public readonly string? SubnetId;
-
-        [OutputConstructor]
-        private LaunchTemplateNetworkInterfaces(
-            string? associatePublicIpAddress,
-            bool? deleteOnTermination,
-            string? description,
-            int? deviceIndex,
-            int? ipv4AddressCount,
-            ImmutableArray<string> ipv4Addresses,
-            int? ipv6AddressCount,
-            ImmutableArray<string> ipv6Addresses,
-            string? networkInterfaceId,
-            string? privateIpAddress,
-            ImmutableArray<string> securityGroups,
-            string? subnetId)
-        {
-            AssociatePublicIpAddress = associatePublicIpAddress;
-            DeleteOnTermination = deleteOnTermination;
-            Description = description;
-            DeviceIndex = deviceIndex;
-            Ipv4AddressCount = ipv4AddressCount;
-            Ipv4Addresses = ipv4Addresses;
-            Ipv6AddressCount = ipv6AddressCount;
-            Ipv6Addresses = ipv6Addresses;
-            NetworkInterfaceId = networkInterfaceId;
-            PrivateIpAddress = privateIpAddress;
-            SecurityGroups = securityGroups;
-            SubnetId = subnetId;
-        }
-    }
-
-    [OutputType]
-    public sealed class LaunchTemplatePlacement
-    {
-        /// <summary>
-        /// The affinity setting for an instance on a Dedicated Host.
-        /// </summary>
-        public readonly string? Affinity;
-        /// <summary>
-        /// The Availability Zone for the instance.
-        /// </summary>
-        public readonly string? AvailabilityZone;
-        /// <summary>
-        /// The name of the placement group for the instance.
-        /// </summary>
-        public readonly string? GroupName;
-        /// <summary>
-        /// The ID of the Dedicated Host for the instance.
-        /// </summary>
-        public readonly string? HostId;
-        /// <summary>
-        /// Reserved for future use.
-        /// </summary>
-        public readonly string? SpreadDomain;
-        /// <summary>
-        /// The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
-        /// </summary>
-        public readonly string? Tenancy;
-
-        [OutputConstructor]
-        private LaunchTemplatePlacement(
-            string? affinity,
-            string? availabilityZone,
-            string? groupName,
-            string? hostId,
-            string? spreadDomain,
-            string? tenancy)
-        {
-            Affinity = affinity;
-            AvailabilityZone = availabilityZone;
-            GroupName = groupName;
-            HostId = hostId;
-            SpreadDomain = spreadDomain;
-            Tenancy = tenancy;
-        }
-    }
-
-    [OutputType]
-    public sealed class LaunchTemplateTagSpecifications
-    {
-        /// <summary>
-        /// The type of resource to tag. Valid values are `instance` and `volume`.
-        /// </summary>
-        public readonly string? ResourceType;
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tags;
-
-        [OutputConstructor]
-        private LaunchTemplateTagSpecifications(
-            string? resourceType,
-            ImmutableDictionary<string, object>? tags)
-        {
-            ResourceType = resourceType;
-            Tags = tags;
-        }
-    }
     }
 }

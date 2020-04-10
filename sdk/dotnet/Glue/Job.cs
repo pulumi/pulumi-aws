@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Glue
     /// Provides a Glue Job resource.
     /// 
     /// &gt; Glue functionality, such as monitoring and logging of jobs, is typically managed with the `default_arguments` argument. See the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the Glue developer guide for additional information.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_job.html.markdown.
     /// </summary>
     public partial class Job : Pulumi.CustomResource
     {
@@ -137,7 +133,7 @@ namespace Pulumi.Aws.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Job(string name, JobArgs args, CustomResourceOptions? options = null)
-            : base("aws:glue/job:Job", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:glue/job:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -430,173 +426,5 @@ namespace Pulumi.Aws.Glue
         public JobState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class JobCommandArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
-        /// </summary>
-        [Input("pythonVersion")]
-        public Input<string>? PythonVersion { get; set; }
-
-        /// <summary>
-        /// Specifies the S3 path to a script that executes a job.
-        /// </summary>
-        [Input("scriptLocation", required: true)]
-        public Input<string> ScriptLocation { get; set; } = null!;
-
-        public JobCommandArgs()
-        {
-        }
-    }
-
-    public sealed class JobCommandGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
-        /// </summary>
-        [Input("pythonVersion")]
-        public Input<string>? PythonVersion { get; set; }
-
-        /// <summary>
-        /// Specifies the S3 path to a script that executes a job.
-        /// </summary>
-        [Input("scriptLocation", required: true)]
-        public Input<string> ScriptLocation { get; set; } = null!;
-
-        public JobCommandGetArgs()
-        {
-        }
-    }
-
-    public sealed class JobExecutionPropertyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The maximum number of concurrent runs allowed for a job. The default is 1.
-        /// </summary>
-        [Input("maxConcurrentRuns")]
-        public Input<int>? MaxConcurrentRuns { get; set; }
-
-        public JobExecutionPropertyArgs()
-        {
-        }
-    }
-
-    public sealed class JobExecutionPropertyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The maximum number of concurrent runs allowed for a job. The default is 1.
-        /// </summary>
-        [Input("maxConcurrentRuns")]
-        public Input<int>? MaxConcurrentRuns { get; set; }
-
-        public JobExecutionPropertyGetArgs()
-        {
-        }
-    }
-
-    public sealed class JobNotificationPropertyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// After a job run starts, the number of minutes to wait before sending a job run delay notification.
-        /// </summary>
-        [Input("notifyDelayAfter")]
-        public Input<int>? NotifyDelayAfter { get; set; }
-
-        public JobNotificationPropertyArgs()
-        {
-        }
-    }
-
-    public sealed class JobNotificationPropertyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// After a job run starts, the number of minutes to wait before sending a job run delay notification.
-        /// </summary>
-        [Input("notifyDelayAfter")]
-        public Input<int>? NotifyDelayAfter { get; set; }
-
-        public JobNotificationPropertyGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class JobCommand
-    {
-        /// <summary>
-        /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
-        /// </summary>
-        public readonly string? Name;
-        /// <summary>
-        /// The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
-        /// </summary>
-        public readonly string PythonVersion;
-        /// <summary>
-        /// Specifies the S3 path to a script that executes a job.
-        /// </summary>
-        public readonly string ScriptLocation;
-
-        [OutputConstructor]
-        private JobCommand(
-            string? name,
-            string pythonVersion,
-            string scriptLocation)
-        {
-            Name = name;
-            PythonVersion = pythonVersion;
-            ScriptLocation = scriptLocation;
-        }
-    }
-
-    [OutputType]
-    public sealed class JobExecutionProperty
-    {
-        /// <summary>
-        /// The maximum number of concurrent runs allowed for a job. The default is 1.
-        /// </summary>
-        public readonly int? MaxConcurrentRuns;
-
-        [OutputConstructor]
-        private JobExecutionProperty(int? maxConcurrentRuns)
-        {
-            MaxConcurrentRuns = maxConcurrentRuns;
-        }
-    }
-
-    [OutputType]
-    public sealed class JobNotificationProperty
-    {
-        /// <summary>
-        /// After a job run starts, the number of minutes to wait before sending a job run delay notification.
-        /// </summary>
-        public readonly int? NotifyDelayAfter;
-
-        [OutputConstructor]
-        private JobNotificationProperty(int? notifyDelayAfter)
-        {
-            NotifyDelayAfter = notifyDelayAfter;
-        }
-    }
     }
 }

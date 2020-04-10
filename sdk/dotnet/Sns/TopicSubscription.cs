@@ -22,10 +22,6 @@ namespace Pulumi.Aws.Sns
     /// &gt; **NOTE:** If SNS topic and SQS queue are in different AWS accounts but the same region it is important for the "aws.sns.TopicSubscription" to use the AWS provider of the account with the SQS queue. If "aws.sns.TopicSubscription" is using a Provider with a different account than the SQS queue, the provider creates the subscriptions but does not keep state and tries to re-create the subscription at every apply.
     /// 
     /// &gt; **NOTE:** If SNS topic and SQS queue are in different AWS accounts and different AWS regions it is important to recognize that the subscription needs to be initiated from the account with the SQS queue but in the region of the SNS topic.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_topic_subscription.html.markdown.
     /// </summary>
     public partial class TopicSubscription : Pulumi.CustomResource
     {
@@ -92,7 +88,7 @@ namespace Pulumi.Aws.Sns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TopicSubscription(string name, TopicSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("aws:sns/topicSubscription:TopicSubscription", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:sns/topicSubscription:TopicSubscription", name, args ?? new TopicSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 

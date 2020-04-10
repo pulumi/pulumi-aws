@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Waf
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rate_based_rule.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetRateBasedRule.InvokeAsync() instead")]
-        public static Task<GetRateBasedRuleResult> GetRateBasedRule(GetRateBasedRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRateBasedRuleResult>("aws:waf/getRateBasedRule:getRateBasedRule", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetRateBasedRule
     {
         /// <summary>
         /// `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rate_based_rule.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRateBasedRuleResult> InvokeAsync(GetRateBasedRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRateBasedRuleResult>("aws:waf/getRateBasedRule:getRateBasedRule", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRateBasedRuleResult>("aws:waf/getRateBasedRule:getRateBasedRule", args ?? new GetRateBasedRuleArgs(), options.WithVersion());
     }
+
 
     public sealed class GetRateBasedRuleArgs : Pulumi.InvokeArgs
     {
@@ -48,22 +35,24 @@ namespace Pulumi.Aws.Waf
         }
     }
 
+
     [OutputType]
     public sealed class GetRateBasedRuleResult
     {
-        public readonly string Name;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
 
         [OutputConstructor]
         private GetRateBasedRuleResult(
-            string name,
-            string id)
+            string id,
+
+            string name)
         {
-            Name = name;
             Id = id;
+            Name = name;
         }
     }
 }

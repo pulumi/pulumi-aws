@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Backup
 {
     /// <summary>
     /// Provides an AWS Backup vault resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_vault.html.markdown.
     /// </summary>
     public partial class Vault : Pulumi.CustomResource
     {
@@ -57,7 +53,7 @@ namespace Pulumi.Aws.Backup
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Vault(string name, VaultArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:backup/vault:Vault", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:backup/vault:Vault", name, args ?? new VaultArgs(), MakeResourceOptions(options, ""))
         {
         }
 

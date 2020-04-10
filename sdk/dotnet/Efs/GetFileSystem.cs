@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Efs
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Provides information about an Elastic File System (EFS).
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_file_system.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetFileSystem.InvokeAsync() instead")]
-        public static Task<GetFileSystemResult> GetFileSystem(GetFileSystemArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileSystemResult>("aws:efs/getFileSystem:getFileSystem", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetFileSystem
     {
         /// <summary>
         /// Provides information about an Elastic File System (EFS).
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_file_system.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFileSystemResult> InvokeAsync(GetFileSystemArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileSystemResult>("aws:efs/getFileSystem:getFileSystem", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFileSystemResult>("aws:efs/getFileSystem:getFileSystem", args ?? new GetFileSystemArgs(), options.WithVersion());
     }
+
 
     public sealed class GetFileSystemArgs : Pulumi.InvokeArgs
     {
@@ -62,6 +49,7 @@ namespace Pulumi.Aws.Efs
         }
     }
 
+
     [OutputType]
     public sealed class GetFileSystemResult
     {
@@ -79,6 +67,10 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         public readonly bool Encrypted;
         public readonly string FileSystemId;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The ARN for the KMS encryption key.
         /// </summary>
@@ -101,54 +93,45 @@ namespace Pulumi.Aws.Efs
         /// Throughput mode for the file system.
         /// </summary>
         public readonly string ThroughputMode;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetFileSystemResult(
             string arn,
+
             string creationToken,
+
             string dnsName,
+
             bool encrypted,
+
             string fileSystemId,
+
+            string id,
+
             string kmsKeyId,
+
             Outputs.GetFileSystemLifecyclePolicyResult lifecyclePolicy,
+
             string performanceMode,
+
             double provisionedThroughputInMibps,
+
             ImmutableDictionary<string, object> tags,
-            string throughputMode,
-            string id)
+
+            string throughputMode)
         {
             Arn = arn;
             CreationToken = creationToken;
             DnsName = dnsName;
             Encrypted = encrypted;
             FileSystemId = fileSystemId;
+            Id = id;
             KmsKeyId = kmsKeyId;
             LifecyclePolicy = lifecyclePolicy;
             PerformanceMode = performanceMode;
             ProvisionedThroughputInMibps = provisionedThroughputInMibps;
             Tags = tags;
             ThroughputMode = throughputMode;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetFileSystemLifecyclePolicyResult
-    {
-        public readonly string TransitionToIa;
-
-        [OutputConstructor]
-        private GetFileSystemLifecyclePolicyResult(string transitionToIa)
-        {
-            TransitionToIa = transitionToIa;
-        }
-    }
     }
 }

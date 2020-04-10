@@ -53,6 +53,10 @@ class Cluster(pulumi.CustomResource):
     """
     A DB subnet group to associate with this DB instance.
     """
+    deletion_protection: pulumi.Output[bool]
+    """
+    A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+    """
     enabled_cloudwatch_logs_exports: pulumi.Output[list]
     """
     List of log types to export to cloudwatch. If omitted, no logs will be exported.
@@ -128,7 +132,7 @@ class Cluster(pulumi.CustomResource):
     List of VPC security groups to associate
     with the Cluster
     """
-    def __init__(__self__, resource_name, opts=None, apply_immediately=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, kms_key_id=None, master_password=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, apply_immediately=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, deletion_protection=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, kms_key_id=None, master_password=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a DocDB Cluster.
 
@@ -145,8 +149,6 @@ class Cluster(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications
@@ -160,6 +162,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[list] cluster_members: List of DocDB Instances that are a part of this cluster
         :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance.
+        :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[list] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported.
                The following log types are supported: `audit`, `profiler`.
         :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
@@ -206,6 +209,7 @@ class Cluster(pulumi.CustomResource):
             __props__['cluster_members'] = cluster_members
             __props__['db_cluster_parameter_group_name'] = db_cluster_parameter_group_name
             __props__['db_subnet_group_name'] = db_subnet_group_name
+            __props__['deletion_protection'] = deletion_protection
             __props__['enabled_cloudwatch_logs_exports'] = enabled_cloudwatch_logs_exports
             __props__['engine'] = engine
             __props__['engine_version'] = engine_version
@@ -233,7 +237,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, apply_immediately=None, arn=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, cluster_resource_id=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, kms_key_id=None, master_password=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
+    def get(resource_name, id, opts=None, apply_immediately=None, arn=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, cluster_resource_id=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, deletion_protection=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, kms_key_id=None, master_password=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -254,6 +258,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_resource_id: The DocDB Cluster Resource ID
         :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance.
+        :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[list] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported.
                The following log types are supported: `audit`, `profiler`.
         :param pulumi.Input[str] endpoint: The DNS address of the DocDB instance
@@ -292,6 +297,7 @@ class Cluster(pulumi.CustomResource):
         __props__["cluster_resource_id"] = cluster_resource_id
         __props__["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         __props__["db_subnet_group_name"] = db_subnet_group_name
+        __props__["deletion_protection"] = deletion_protection
         __props__["enabled_cloudwatch_logs_exports"] = enabled_cloudwatch_logs_exports
         __props__["endpoint"] = endpoint
         __props__["engine"] = engine

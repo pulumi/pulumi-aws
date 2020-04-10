@@ -17,10 +17,6 @@ namespace Pulumi.Aws.Ec2
     /// and a single `subnet_id`) and a VPC Endpoint resource with a `subnet_ids`
     /// attribute. Do not use the same subnet ID in both a VPC Endpoint resource and a VPC Endpoint Subnet
     /// Association resource. Doing so will cause a conflict of associations and will overwrite the association.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_subnet_association.html.markdown.
     /// </summary>
     public partial class VpcEndpointSubnetAssociation : Pulumi.CustomResource
     {
@@ -45,7 +41,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpcEndpointSubnetAssociation(string name, VpcEndpointSubnetAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation", name, args ?? new VpcEndpointSubnetAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

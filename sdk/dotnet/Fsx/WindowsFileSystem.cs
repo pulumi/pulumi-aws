@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Fsx
     /// Manages a FSx Windows File System. See the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html) for more information.
     /// 
     /// &gt; **NOTE:** Either the `active_directory_id` argument or `self_managed_active_directory` configuration block must be specified.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/fsx_windows_file_system.html.markdown.
     /// </summary>
     public partial class WindowsFileSystem : Pulumi.CustomResource
     {
@@ -137,7 +133,7 @@ namespace Pulumi.Aws.Fsx
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WindowsFileSystem(string name, WindowsFileSystemArgs args, CustomResourceOptions? options = null)
-            : base("aws:fsx/windowsFileSystem:WindowsFileSystem", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:fsx/windowsFileSystem:WindowsFileSystem", name, args ?? new WindowsFileSystemArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -400,157 +396,5 @@ namespace Pulumi.Aws.Fsx
         public WindowsFileSystemState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class WindowsFileSystemSelfManagedActiveDirectoryArgs : Pulumi.ResourceArgs
-    {
-        [Input("dnsIps", required: true)]
-        private InputList<string>? _dnsIps;
-
-        /// <summary>
-        /// A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
-        /// </summary>
-        public InputList<string> DnsIps
-        {
-            get => _dnsIps ?? (_dnsIps = new InputList<string>());
-            set => _dnsIps = value;
-        }
-
-        /// <summary>
-        /// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
-        /// </summary>
-        [Input("domainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
-        /// </summary>
-        [Input("fileSystemAdministratorsGroup")]
-        public Input<string>? FileSystemAdministratorsGroup { get; set; }
-
-        /// <summary>
-        /// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
-        /// </summary>
-        [Input("organizationalUnitDistinguishedName")]
-        public Input<string>? OrganizationalUnitDistinguishedName { get; set; }
-
-        /// <summary>
-        /// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
-
-        /// <summary>
-        /// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
-
-        public WindowsFileSystemSelfManagedActiveDirectoryArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsFileSystemSelfManagedActiveDirectoryGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("dnsIps", required: true)]
-        private InputList<string>? _dnsIps;
-
-        /// <summary>
-        /// A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
-        /// </summary>
-        public InputList<string> DnsIps
-        {
-            get => _dnsIps ?? (_dnsIps = new InputList<string>());
-            set => _dnsIps = value;
-        }
-
-        /// <summary>
-        /// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
-        /// </summary>
-        [Input("domainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
-        /// </summary>
-        [Input("fileSystemAdministratorsGroup")]
-        public Input<string>? FileSystemAdministratorsGroup { get; set; }
-
-        /// <summary>
-        /// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
-        /// </summary>
-        [Input("organizationalUnitDistinguishedName")]
-        public Input<string>? OrganizationalUnitDistinguishedName { get; set; }
-
-        /// <summary>
-        /// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
-
-        /// <summary>
-        /// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
-
-        public WindowsFileSystemSelfManagedActiveDirectoryGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class WindowsFileSystemSelfManagedActiveDirectory
-    {
-        /// <summary>
-        /// A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
-        /// </summary>
-        public readonly ImmutableArray<string> DnsIps;
-        /// <summary>
-        /// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
-        /// </summary>
-        public readonly string DomainName;
-        /// <summary>
-        /// The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
-        /// </summary>
-        public readonly string? FileSystemAdministratorsGroup;
-        /// <summary>
-        /// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
-        /// </summary>
-        public readonly string? OrganizationalUnitDistinguishedName;
-        /// <summary>
-        /// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        /// </summary>
-        public readonly string Password;
-        /// <summary>
-        /// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        /// </summary>
-        public readonly string Username;
-
-        [OutputConstructor]
-        private WindowsFileSystemSelfManagedActiveDirectory(
-            ImmutableArray<string> dnsIps,
-            string domainName,
-            string? fileSystemAdministratorsGroup,
-            string? organizationalUnitDistinguishedName,
-            string password,
-            string username)
-        {
-            DnsIps = dnsIps;
-            DomainName = domainName;
-            FileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
-            OrganizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
-            Password = password;
-            Username = username;
-        }
-    }
     }
 }

@@ -12,10 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides an Traffic mirror filter.  
     /// Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_traffic_mirror_filter.html.markdown.
     /// </summary>
     public partial class TrafficMirrorFilter : Pulumi.CustomResource
     {
@@ -46,7 +42,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TrafficMirrorFilter(string name, TrafficMirrorFilterArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ec2/trafficMirrorFilter:TrafficMirrorFilter", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/trafficMirrorFilter:TrafficMirrorFilter", name, args ?? new TrafficMirrorFilterArgs(), MakeResourceOptions(options, ""))
         {
         }
 

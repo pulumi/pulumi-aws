@@ -98,8 +98,6 @@ def get_report_definition(report_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cur_report_definition.html.markdown.
-
 
     :param str report_name: The name of the report definition to match.
     """

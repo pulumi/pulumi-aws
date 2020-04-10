@@ -76,8 +76,6 @@ def get_vpc_link(name=None,tags=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_vpc_link.html.markdown.
-
 
     :param str name: The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned. 
            If multiple API Gateway VPC Links are found with this name, an error will be returned.

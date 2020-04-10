@@ -87,8 +87,6 @@ def get_mount_target(mount_target_id=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_mount_target.html.markdown.
-
 
     :param str mount_target_id: ID of the mount target that you want to have described
     """

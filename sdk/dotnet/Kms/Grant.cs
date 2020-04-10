@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Kms
 {
     /// <summary>
     /// Provides a resource-based access control mechanism for a KMS customer master key.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_grant.html.markdown.
     /// </summary>
     public partial class Grant : Pulumi.CustomResource
     {
@@ -22,7 +18,7 @@ namespace Pulumi.Aws.Kms
         /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
         /// </summary>
         [Output("constraints")]
-        public Output<ImmutableArray<Outputs.GrantConstraints>> Constraints { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GrantConstraint>> Constraints { get; private set; } = null!;
 
         /// <summary>
         /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
@@ -86,7 +82,7 @@ namespace Pulumi.Aws.Kms
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Grant(string name, GrantArgs args, CustomResourceOptions? options = null)
-            : base("aws:kms/grant:Grant", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:kms/grant:Grant", name, args ?? new GrantArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -124,14 +120,14 @@ namespace Pulumi.Aws.Kms
     public sealed class GrantArgs : Pulumi.ResourceArgs
     {
         [Input("constraints")]
-        private InputList<Inputs.GrantConstraintsArgs>? _constraints;
+        private InputList<Inputs.GrantConstraintArgs>? _constraints;
 
         /// <summary>
         /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
         /// </summary>
-        public InputList<Inputs.GrantConstraintsArgs> Constraints
+        public InputList<Inputs.GrantConstraintArgs> Constraints
         {
-            get => _constraints ?? (_constraints = new InputList<Inputs.GrantConstraintsArgs>());
+            get => _constraints ?? (_constraints = new InputList<Inputs.GrantConstraintArgs>());
             set => _constraints = value;
         }
 
@@ -196,14 +192,14 @@ namespace Pulumi.Aws.Kms
     public sealed class GrantState : Pulumi.ResourceArgs
     {
         [Input("constraints")]
-        private InputList<Inputs.GrantConstraintsGetArgs>? _constraints;
+        private InputList<Inputs.GrantConstraintGetArgs>? _constraints;
 
         /// <summary>
         /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
         /// </summary>
-        public InputList<Inputs.GrantConstraintsGetArgs> Constraints
+        public InputList<Inputs.GrantConstraintGetArgs> Constraints
         {
-            get => _constraints ?? (_constraints = new InputList<Inputs.GrantConstraintsGetArgs>());
+            get => _constraints ?? (_constraints = new InputList<Inputs.GrantConstraintGetArgs>());
             set => _constraints = value;
         }
 
@@ -275,97 +271,5 @@ namespace Pulumi.Aws.Kms
         public GrantState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GrantConstraintsArgs : Pulumi.ResourceArgs
-    {
-        [Input("encryptionContextEquals")]
-        private InputMap<string>? _encryptionContextEquals;
-
-        /// <summary>
-        /// A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
-        /// </summary>
-        public InputMap<string> EncryptionContextEquals
-        {
-            get => _encryptionContextEquals ?? (_encryptionContextEquals = new InputMap<string>());
-            set => _encryptionContextEquals = value;
-        }
-
-        [Input("encryptionContextSubset")]
-        private InputMap<string>? _encryptionContextSubset;
-
-        /// <summary>
-        /// A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
-        /// </summary>
-        public InputMap<string> EncryptionContextSubset
-        {
-            get => _encryptionContextSubset ?? (_encryptionContextSubset = new InputMap<string>());
-            set => _encryptionContextSubset = value;
-        }
-
-        public GrantConstraintsArgs()
-        {
-        }
-    }
-
-    public sealed class GrantConstraintsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("encryptionContextEquals")]
-        private InputMap<string>? _encryptionContextEquals;
-
-        /// <summary>
-        /// A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
-        /// </summary>
-        public InputMap<string> EncryptionContextEquals
-        {
-            get => _encryptionContextEquals ?? (_encryptionContextEquals = new InputMap<string>());
-            set => _encryptionContextEquals = value;
-        }
-
-        [Input("encryptionContextSubset")]
-        private InputMap<string>? _encryptionContextSubset;
-
-        /// <summary>
-        /// A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
-        /// </summary>
-        public InputMap<string> EncryptionContextSubset
-        {
-            get => _encryptionContextSubset ?? (_encryptionContextSubset = new InputMap<string>());
-            set => _encryptionContextSubset = value;
-        }
-
-        public GrantConstraintsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GrantConstraints
-    {
-        /// <summary>
-        /// A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? EncryptionContextEquals;
-        /// <summary>
-        /// A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? EncryptionContextSubset;
-
-        [OutputConstructor]
-        private GrantConstraints(
-            ImmutableDictionary<string, string>? encryptionContextEquals,
-            ImmutableDictionary<string, string>? encryptionContextSubset)
-        {
-            EncryptionContextEquals = encryptionContextEquals;
-            EncryptionContextSubset = encryptionContextSubset;
-        }
-    }
     }
 }

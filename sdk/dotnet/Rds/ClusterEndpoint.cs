@@ -12,11 +12,6 @@ namespace Pulumi.Aws.Rds
     /// <summary>
     /// Manages a RDS Aurora Cluster Endpoint.
     /// You can refer to the [User Guide][1].
-    /// 
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_endpoint.html.markdown.
     /// </summary>
     public partial class ClusterEndpoint : Pulumi.CustomResource
     {
@@ -77,7 +72,7 @@ namespace Pulumi.Aws.Rds
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ClusterEndpoint(string name, ClusterEndpointArgs args, CustomResourceOptions? options = null)
-            : base("aws:rds/clusterEndpoint:ClusterEndpoint", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:rds/clusterEndpoint:ClusterEndpoint", name, args ?? new ClusterEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 

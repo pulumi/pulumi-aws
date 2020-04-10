@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Organizations
 {
     /// <summary>
     /// Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_policy_attachment.html.markdown.
     /// </summary>
     public partial class PolicyAttachment : Pulumi.CustomResource
     {
@@ -39,7 +35,7 @@ namespace Pulumi.Aws.Organizations
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PolicyAttachment(string name, PolicyAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:organizations/policyAttachment:PolicyAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:organizations/policyAttachment:PolicyAttachment", name, args ?? new PolicyAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 

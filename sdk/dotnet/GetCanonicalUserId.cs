@@ -9,33 +9,19 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
-        /// for the effective account in which this provider is working.  
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/canonical_user_id.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetCanonicalUserId.InvokeAsync() instead")]
-        public static Task<GetCanonicalUserIdResult> GetCanonicalUserId(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCanonicalUserIdResult>("aws:index/getCanonicalUserId:getCanonicalUserId", InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetCanonicalUserId
     {
         /// <summary>
         /// The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
         /// for the effective account in which this provider is working.  
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/canonical_user_id.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCanonicalUserIdResult> InvokeAsync(InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCanonicalUserIdResult>("aws:index/getCanonicalUserId:getCanonicalUserId", InvokeArgs.Empty, options.WithVersion());
     }
+
 
     [OutputType]
     public sealed class GetCanonicalUserIdResult
@@ -52,6 +38,7 @@ namespace Pulumi.Aws
         [OutputConstructor]
         private GetCanonicalUserIdResult(
             string displayName,
+
             string id)
         {
             DisplayName = displayName;

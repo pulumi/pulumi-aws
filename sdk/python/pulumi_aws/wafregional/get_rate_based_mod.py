@@ -38,8 +38,6 @@ def get_rate_based_mod(name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_rate_based_rule.html.markdown.
-
 
     :param str name: The name of the WAF Regional rate based rule.
     """

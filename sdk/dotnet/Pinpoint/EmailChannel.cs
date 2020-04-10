@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Pinpoint
 {
     /// <summary>
     /// Provides a Pinpoint SMS Channel resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_email_channel.markdown.
     /// </summary>
     public partial class EmailChannel : Pulumi.CustomResource
     {
@@ -63,7 +59,7 @@ namespace Pulumi.Aws.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EmailChannel(string name, EmailChannelArgs args, CustomResourceOptions? options = null)
-            : base("aws:pinpoint/emailChannel:EmailChannel", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:pinpoint/emailChannel:EmailChannel", name, args ?? new EmailChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 

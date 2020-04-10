@@ -71,8 +71,6 @@ def get_user(user_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_user.html.markdown.
-
 
     :param str user_name: The friendly IAM user name to match.
     """

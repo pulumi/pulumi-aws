@@ -83,8 +83,6 @@ def get_instance_profile(name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_instance_profile.html.markdown.
-
 
     :param str name: The friendly IAM instance profile name to match.
     """

@@ -62,8 +62,6 @@ def get_invocation(function_name=None,input=None,qualifier=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_invocation.html.markdown.
-
 
     :param str function_name: The name of the lambda function.
     :param str input: A string in JSON format that is passed as payload to the lambda function.

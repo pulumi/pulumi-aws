@@ -250,8 +250,6 @@ def get_ami(executable_users=None,filters=None,most_recent=None,name_regex=None,
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami.html.markdown.
-
 
     :param list executable_users: Limit search to users with *explicit* launch permission on
            the image. Valid items are the numeric account ID or `self`.

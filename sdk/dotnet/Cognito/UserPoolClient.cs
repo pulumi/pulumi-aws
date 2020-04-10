@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Cognito
 {
     /// <summary>
     /// Provides a Cognito User Pool Client resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_client.markdown.
     /// </summary>
     public partial class UserPoolClient : Pulumi.CustomResource
     {
@@ -129,7 +125,7 @@ namespace Pulumi.Aws.Cognito
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserPoolClient(string name, UserPoolClientArgs args, CustomResourceOptions? options = null)
-            : base("aws:cognito/userPoolClient:UserPoolClient", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:cognito/userPoolClient:UserPoolClient", name, args ?? new UserPoolClientArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -470,109 +466,5 @@ namespace Pulumi.Aws.Cognito
         public UserPoolClientState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class UserPoolClientAnalyticsConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The application ID for an Amazon Pinpoint application.
-        /// </summary>
-        [Input("applicationId", required: true)]
-        public Input<string> ApplicationId { get; set; } = null!;
-
-        /// <summary>
-        /// An ID for the Analytics Configuration.
-        /// </summary>
-        [Input("externalId", required: true)]
-        public Input<string> ExternalId { get; set; } = null!;
-
-        /// <summary>
-        /// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
-        /// </summary>
-        [Input("userDataShared")]
-        public Input<bool>? UserDataShared { get; set; }
-
-        public UserPoolClientAnalyticsConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class UserPoolClientAnalyticsConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The application ID for an Amazon Pinpoint application.
-        /// </summary>
-        [Input("applicationId", required: true)]
-        public Input<string> ApplicationId { get; set; } = null!;
-
-        /// <summary>
-        /// An ID for the Analytics Configuration.
-        /// </summary>
-        [Input("externalId", required: true)]
-        public Input<string> ExternalId { get; set; } = null!;
-
-        /// <summary>
-        /// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
-        /// </summary>
-        [Input("userDataShared")]
-        public Input<bool>? UserDataShared { get; set; }
-
-        public UserPoolClientAnalyticsConfigurationGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class UserPoolClientAnalyticsConfiguration
-    {
-        /// <summary>
-        /// The application ID for an Amazon Pinpoint application.
-        /// </summary>
-        public readonly string ApplicationId;
-        /// <summary>
-        /// An ID for the Analytics Configuration.
-        /// </summary>
-        public readonly string ExternalId;
-        /// <summary>
-        /// The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
-        /// </summary>
-        public readonly string RoleArn;
-        /// <summary>
-        /// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
-        /// </summary>
-        public readonly bool? UserDataShared;
-
-        [OutputConstructor]
-        private UserPoolClientAnalyticsConfiguration(
-            string applicationId,
-            string externalId,
-            string roleArn,
-            bool? userDataShared)
-        {
-            ApplicationId = applicationId;
-            ExternalId = externalId;
-            RoleArn = roleArn;
-            UserDataShared = userDataShared;
-        }
-    }
     }
 }

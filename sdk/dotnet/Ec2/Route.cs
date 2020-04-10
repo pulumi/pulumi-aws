@@ -17,10 +17,6 @@ namespace Pulumi.Aws.Ec2
     /// defined in-line. At this time you cannot use a Route Table with in-line routes
     /// in conjunction with any Route resources. Doing so will cause
     /// a conflict of rule settings and will overwrite rules.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route.html.markdown.
     /// </summary>
     public partial class Route : Pulumi.CustomResource
     {
@@ -105,7 +101,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Route(string name, RouteArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/route:Route", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/route:Route", name, args ?? new RouteArgs(), MakeResourceOptions(options, ""))
         {
         }
 

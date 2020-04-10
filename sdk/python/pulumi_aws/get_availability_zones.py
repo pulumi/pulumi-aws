@@ -79,8 +79,6 @@ def get_availability_zones(all_availability_zones=None,blacklisted_names=None,bl
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
-
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
     :param list blacklisted_names: List of blacklisted Availability Zone names.

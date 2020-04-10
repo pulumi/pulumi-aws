@@ -85,8 +85,6 @@ class GraphQLApi(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_graphql_api.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.

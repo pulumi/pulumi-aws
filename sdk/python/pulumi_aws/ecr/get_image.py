@@ -71,8 +71,6 @@ def get_image(image_digest=None,image_tag=None,registry_id=None,repository_name=
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_image.html.markdown.
-
 
     :param str image_digest: The sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
     :param str image_tag: The tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.

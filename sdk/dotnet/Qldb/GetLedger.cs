@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Qldb
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to fetch information about a Quantum Ledger Database.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/qldb_ledger.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetLedger.InvokeAsync() instead")]
-        public static Task<GetLedgerResult> GetLedger(GetLedgerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("aws:qldb/getLedger:getLedger", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetLedger
     {
         /// <summary>
         /// Use this data source to fetch information about a Quantum Ledger Database.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/qldb_ledger.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetLedgerResult> InvokeAsync(GetLedgerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("aws:qldb/getLedger:getLedger", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("aws:qldb/getLedger:getLedger", args ?? new GetLedgerArgs(), options.WithVersion());
     }
+
 
     public sealed class GetLedgerArgs : Pulumi.InvokeArgs
     {
@@ -48,6 +35,7 @@ namespace Pulumi.Aws.Qldb
         }
     }
 
+
     [OutputType]
     public sealed class GetLedgerResult
     {
@@ -59,23 +47,26 @@ namespace Pulumi.Aws.Qldb
         /// Deletion protection on the QLDB Ledger instance. Set to `true` by default. 
         /// </summary>
         public readonly bool DeletionProtection;
-        public readonly string Name;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
 
         [OutputConstructor]
         private GetLedgerResult(
             string arn,
+
             bool deletionProtection,
-            string name,
-            string id)
+
+            string id,
+
+            string name)
         {
             Arn = arn;
             DeletionProtection = deletionProtection;
-            Name = name;
             Id = id;
+            Name = name;
         }
     }
 }

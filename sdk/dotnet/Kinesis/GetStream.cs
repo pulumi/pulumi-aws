@@ -9,22 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Kinesis
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get information about a Kinesis Stream for use in other
-        /// resources.
-        /// 
-        /// For more details, see the [Amazon Kinesis Documentation][1].
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kinesis_stream.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetStream.InvokeAsync() instead")]
-        public static Task<GetStreamResult> GetStream(GetStreamArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamResult>("aws:kinesis/getStream:getStream", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetStream
     {
         /// <summary>
@@ -33,13 +17,13 @@ namespace Pulumi.Aws.Kinesis
         /// 
         /// For more details, see the [Amazon Kinesis Documentation][1].
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kinesis_stream.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetStreamResult> InvokeAsync(GetStreamArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamResult>("aws:kinesis/getStream:getStream", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamResult>("aws:kinesis/getStream:getStream", args ?? new GetStreamArgs(), options.WithVersion());
     }
+
 
     public sealed class GetStreamArgs : Pulumi.InvokeArgs
     {
@@ -66,6 +50,7 @@ namespace Pulumi.Aws.Kinesis
         }
     }
 
+
     [OutputType]
     public sealed class GetStreamResult
     {
@@ -81,6 +66,10 @@ namespace Pulumi.Aws.Kinesis
         /// The approximate UNIX timestamp that the stream was created.
         /// </summary>
         public readonly int CreationTimestamp;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The name of the Kinesis Stream.
         /// </summary>
@@ -105,34 +94,39 @@ namespace Pulumi.Aws.Kinesis
         /// A mapping of tags to assigned to the stream.
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetStreamResult(
             string arn,
+
             ImmutableArray<string> closedShards,
+
             int creationTimestamp,
+
+            string id,
+
             string name,
+
             ImmutableArray<string> openShards,
+
             int retentionPeriod,
+
             ImmutableArray<string> shardLevelMetrics,
+
             string status,
-            ImmutableDictionary<string, object> tags,
-            string id)
+
+            ImmutableDictionary<string, object> tags)
         {
             Arn = arn;
             ClosedShards = closedShards;
             CreationTimestamp = creationTimestamp;
+            Id = id;
             Name = name;
             OpenShards = openShards;
             RetentionPeriod = retentionPeriod;
             ShardLevelMetrics = shardLevelMetrics;
             Status = status;
             Tags = tags;
-            Id = id;
         }
     }
 }

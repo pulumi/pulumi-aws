@@ -16,10 +16,6 @@ namespace Pulumi.Aws.Ec2
     /// The `aws.ec2.DefaultSubnet` behaves differently from normal resources, in that
     /// this provider does not _create_ this resource, but instead "adopts" it
     /// into management.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_subnet.html.markdown.
     /// </summary>
     public partial class DefaultSubnet : Pulumi.CustomResource
     {
@@ -85,7 +81,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DefaultSubnet(string name, DefaultSubnetArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/defaultSubnet:DefaultSubnet", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/defaultSubnet:DefaultSubnet", name, args ?? new DefaultSubnetArgs(), MakeResourceOptions(options, ""))
         {
         }
 

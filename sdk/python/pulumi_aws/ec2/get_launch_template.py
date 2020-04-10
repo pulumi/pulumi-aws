@@ -13,7 +13,7 @@ class GetLaunchTemplateResult:
     """
     A collection of values returned by getLaunchTemplate.
     """
-    def __init__(__self__, arn=None, block_device_mappings=None, credit_specifications=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, filters=None, iam_instance_profiles=None, id=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, metadata_options=None, monitorings=None, name=None, network_interfaces=None, placements=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
+    def __init__(__self__, arn=None, block_device_mappings=None, credit_specifications=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, filters=None, hibernation_options=None, iam_instance_profiles=None, id=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, metadata_options=None, monitorings=None, name=None, network_interfaces=None, placements=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -68,6 +68,12 @@ class GetLaunchTemplateResult:
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         __self__.filters = filters
+        if hibernation_options and not isinstance(hibernation_options, list):
+            raise TypeError("Expected argument 'hibernation_options' to be a list")
+        __self__.hibernation_options = hibernation_options
+        """
+        The hibernation options for the instance.
+        """
         if iam_instance_profiles and not isinstance(iam_instance_profiles, list):
             raise TypeError("Expected argument 'iam_instance_profiles' to be a list")
         __self__.iam_instance_profiles = iam_instance_profiles
@@ -205,6 +211,7 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
             ebs_optimized=self.ebs_optimized,
             elastic_gpu_specifications=self.elastic_gpu_specifications,
             filters=self.filters,
+            hibernation_options=self.hibernation_options,
             iam_instance_profiles=self.iam_instance_profiles,
             id=self.id,
             image_id=self.image_id,
@@ -231,8 +238,6 @@ def get_launch_template(filters=None,name=None,tags=None,opts=None):
     Provides information about a Launch Template.
 
 
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_template.html.markdown.
 
 
     :param list filters: Configuration block(s) for filtering. Detailed below.
@@ -266,6 +271,7 @@ def get_launch_template(filters=None,name=None,tags=None,opts=None):
         ebs_optimized=__ret__.get('ebsOptimized'),
         elastic_gpu_specifications=__ret__.get('elasticGpuSpecifications'),
         filters=__ret__.get('filters'),
+        hibernation_options=__ret__.get('hibernationOptions'),
         iam_instance_profiles=__ret__.get('iamInstanceProfiles'),
         id=__ret__.get('id'),
         image_id=__ret__.get('imageId'),

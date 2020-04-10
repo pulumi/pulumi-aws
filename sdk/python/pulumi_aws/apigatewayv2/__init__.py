@@ -4,3 +4,6 @@
 
 # Export this package's modules as members:
 from .api import *
+from .authorizer import *
+from .integration import *
+from .model import *

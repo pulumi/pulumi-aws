@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Alb
     /// Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the [`aws.elb.Attachment` resource](https://www.terraform.io/docs/providers/aws/r/elb_attachment.html).
     /// 
     /// &gt; **Note:** `aws.alb.TargetGroupAttachment` is known as `aws.lb.TargetGroupAttachment`. The functionality is identical.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group_attachment.html.markdown.
     /// </summary>
     public partial class TargetGroupAttachment : Pulumi.CustomResource
     {
@@ -53,7 +49,7 @@ namespace Pulumi.Aws.Alb
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TargetGroupAttachment(string name, TargetGroupAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:alb/targetGroupAttachment:TargetGroupAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:alb/targetGroupAttachment:TargetGroupAttachment", name, args ?? new TargetGroupAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -66,7 +62,7 @@ namespace Pulumi.Aws.Alb
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:applicationloadbalancing/targetGroupAttachment:TargetGroupAttachment" } },
+                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:applicationloadbalancing/targetGroupAttachment:TargetGroupAttachment"} },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

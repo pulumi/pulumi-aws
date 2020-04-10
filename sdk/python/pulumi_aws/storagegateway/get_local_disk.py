@@ -53,8 +53,6 @@ def get_local_disk(disk_node=None,disk_path=None,gateway_arn=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/storagegateway_local_disk.html.markdown.
-
 
     :param str disk_node: The device node of the local disk to retrieve. For example, `/dev/sdb`.
     :param str disk_path: The device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.

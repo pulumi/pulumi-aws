@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Fms
 {
     /// <summary>
     /// Provides a resource to associate/disassociate an AWS Firewall Manager administrator account. This operation must be performed in the `us-east-1` region.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/fms_admin_account.html.markdown.
     /// </summary>
     public partial class AdminAccount : Pulumi.CustomResource
     {
@@ -33,7 +29,7 @@ namespace Pulumi.Aws.Fms
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AdminAccount(string name, AdminAccountArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:fms/adminAccount:AdminAccount", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:fms/adminAccount:AdminAccount", name, args ?? new AdminAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 

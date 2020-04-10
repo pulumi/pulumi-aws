@@ -37,8 +37,6 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         additional Route Table in the AWS console; it must remain intact in order for
         the `main_route_table_association` delete to work properly.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/main_route_table_association.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] route_table_id: The ID of the Route Table to set as the new

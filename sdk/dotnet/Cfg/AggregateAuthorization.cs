@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Cfg
 {
     /// <summary>
     /// Manages an AWS Config Aggregate Authorization
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_aggregate_authorization.markdown.
     /// </summary>
     public partial class AggregateAuthorization : Pulumi.CustomResource
     {
@@ -51,7 +47,7 @@ namespace Pulumi.Aws.Cfg
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AggregateAuthorization(string name, AggregateAuthorizationArgs args, CustomResourceOptions? options = null)
-            : base("aws:cfg/aggregateAuthorization:AggregateAuthorization", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:cfg/aggregateAuthorization:AggregateAuthorization", name, args ?? new AggregateAuthorizationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// `aws.route53.ResolverRule` provides details about a specific Route53 Resolver rule.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rule.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetResolverRule.InvokeAsync() instead")]
-        public static Task<GetResolverRuleResult> GetResolverRule(GetResolverRuleArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResolverRuleResult>("aws:route53/getResolverRule:getResolverRule", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetResolverRule
     {
         /// <summary>
         /// `aws.route53.ResolverRule` provides details about a specific Route53 Resolver rule.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rule.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetResolverRuleResult> InvokeAsync(GetResolverRuleArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResolverRuleResult>("aws:route53/getResolverRule:getResolverRule", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResolverRuleResult>("aws:route53/getResolverRule:getResolverRule", args ?? new GetResolverRuleArgs(), options.WithVersion());
     }
+
 
     public sealed class GetResolverRuleArgs : Pulumi.InvokeArgs
     {
@@ -84,6 +71,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
+
     [OutputType]
     public sealed class GetResolverRuleResult
     {
@@ -92,6 +80,10 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         public readonly string Arn;
         public readonly string DomainName;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
@@ -109,26 +101,32 @@ namespace Pulumi.Aws.Route53
         /// A mapping of tags assigned to the resolver rule.
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetResolverRuleResult(
             string arn,
+
             string domainName,
+
+            string id,
+
             string name,
+
             string ownerId,
+
             string resolverEndpointId,
+
             string resolverRuleId,
+
             string ruleType,
+
             string shareStatus,
-            ImmutableDictionary<string, object> tags,
-            string id)
+
+            ImmutableDictionary<string, object> tags)
         {
             Arn = arn;
             DomainName = domainName;
+            Id = id;
             Name = name;
             OwnerId = ownerId;
             ResolverEndpointId = resolverEndpointId;
@@ -136,7 +134,6 @@ namespace Pulumi.Aws.Route53
             RuleType = ruleType;
             ShareStatus = shareStatus;
             Tags = tags;
-            Id = id;
         }
     }
 }

@@ -23,10 +23,6 @@ namespace Pulumi.Aws.Iam
     /// 
     /// &gt; **Note:** All arguments including the private key will be stored in the raw state as plain-text.
     /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_server_certificate.html.markdown.
     /// </summary>
     public partial class ServerCertificate : Pulumi.CustomResource
     {
@@ -89,7 +85,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerCertificate(string name, ServerCertificateArgs args, CustomResourceOptions? options = null)
-            : base("aws:iam/serverCertificate:ServerCertificate", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iam/serverCertificate:ServerCertificate", name, args ?? new ServerCertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 

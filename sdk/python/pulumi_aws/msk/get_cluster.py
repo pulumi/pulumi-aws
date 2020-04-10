@@ -87,8 +87,6 @@ def get_cluster(cluster_name=None,tags=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_cluster.html.markdown.
-
 
     :param str cluster_name: Name of the cluster.
     :param dict tags: Map of key-value pairs assigned to the cluster.

@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Inspector
 {
     /// <summary>
     /// Provides an Amazon Inspector resource group resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/inspector_resource_group.html.markdown.
     /// </summary>
     public partial class ResourceGroup : Pulumi.CustomResource
     {
@@ -39,7 +35,7 @@ namespace Pulumi.Aws.Inspector
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceGroup(string name, ResourceGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws:inspector/resourceGroup:ResourceGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:inspector/resourceGroup:ResourceGroup", name, args ?? new ResourceGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 

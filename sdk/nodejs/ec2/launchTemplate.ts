@@ -88,6 +88,10 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly elasticInferenceAccelerator!: pulumi.Output<outputs.ec2.LaunchTemplateElasticInferenceAccelerator | undefined>;
     /**
+     * The hibernation options for the instance. See Hibernation Options below for more details.
+     */
+    public readonly hibernationOptions!: pulumi.Output<outputs.ec2.LaunchTemplateHibernationOptions | undefined>;
+    /**
      * The IAM Instance Profile to launch the instance with. See Instance Profile
      * below for more details.
      */
@@ -200,6 +204,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
             inputs["elasticGpuSpecifications"] = state ? state.elasticGpuSpecifications : undefined;
             inputs["elasticInferenceAccelerator"] = state ? state.elasticInferenceAccelerator : undefined;
+            inputs["hibernationOptions"] = state ? state.hibernationOptions : undefined;
             inputs["iamInstanceProfile"] = state ? state.iamInstanceProfile : undefined;
             inputs["imageId"] = state ? state.imageId : undefined;
             inputs["instanceInitiatedShutdownBehavior"] = state ? state.instanceInitiatedShutdownBehavior : undefined;
@@ -232,6 +237,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
             inputs["elasticGpuSpecifications"] = args ? args.elasticGpuSpecifications : undefined;
             inputs["elasticInferenceAccelerator"] = args ? args.elasticInferenceAccelerator : undefined;
+            inputs["hibernationOptions"] = args ? args.hibernationOptions : undefined;
             inputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
             inputs["imageId"] = args ? args.imageId : undefined;
             inputs["instanceInitiatedShutdownBehavior"] = args ? args.instanceInitiatedShutdownBehavior : undefined;
@@ -319,6 +325,10 @@ export interface LaunchTemplateState {
      * Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
      */
     readonly elasticInferenceAccelerator?: pulumi.Input<inputs.ec2.LaunchTemplateElasticInferenceAccelerator>;
+    /**
+     * The hibernation options for the instance. See Hibernation Options below for more details.
+     */
+    readonly hibernationOptions?: pulumi.Input<inputs.ec2.LaunchTemplateHibernationOptions>;
     /**
      * The IAM Instance Profile to launch the instance with. See Instance Profile
      * below for more details.
@@ -454,6 +464,10 @@ export interface LaunchTemplateArgs {
      * Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
      */
     readonly elasticInferenceAccelerator?: pulumi.Input<inputs.ec2.LaunchTemplateElasticInferenceAccelerator>;
+    /**
+     * The hibernation options for the instance. See Hibernation Options below for more details.
+     */
+    readonly hibernationOptions?: pulumi.Input<inputs.ec2.LaunchTemplateHibernationOptions>;
     /**
      * The IAM Instance Profile to launch the instance with. See Instance Profile
      * below for more details.

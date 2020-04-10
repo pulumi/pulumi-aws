@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Workspaces
 {
     /// <summary>
     /// Provides a directory registration in AWS WorkSpaces Service
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/workspaces_directory.html.markdown.
     /// </summary>
     public partial class Directory : Pulumi.CustomResource
     {
@@ -51,7 +47,7 @@ namespace Pulumi.Aws.Workspaces
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Directory(string name, DirectoryArgs args, CustomResourceOptions? options = null)
-            : base("aws:workspaces/directory:Directory", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:workspaces/directory:Directory", name, args ?? new DirectoryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -170,127 +166,5 @@ namespace Pulumi.Aws.Workspaces
         public DirectoryState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DirectorySelfServicePermissionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
-        /// </summary>
-        [Input("changeComputeType")]
-        public Input<bool>? ChangeComputeType { get; set; }
-
-        /// <summary>
-        /// Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
-        /// </summary>
-        [Input("increaseVolumeSize")]
-        public Input<bool>? IncreaseVolumeSize { get; set; }
-
-        /// <summary>
-        /// Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
-        /// </summary>
-        [Input("rebuildWorkspace")]
-        public Input<bool>? RebuildWorkspace { get; set; }
-
-        /// <summary>
-        /// Whether WorkSpaces directory users can restart their workspace. Default `true`.
-        /// </summary>
-        [Input("restartWorkspace")]
-        public Input<bool>? RestartWorkspace { get; set; }
-
-        /// <summary>
-        /// Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
-        /// </summary>
-        [Input("switchRunningMode")]
-        public Input<bool>? SwitchRunningMode { get; set; }
-
-        public DirectorySelfServicePermissionsArgs()
-        {
-        }
-    }
-
-    public sealed class DirectorySelfServicePermissionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
-        /// </summary>
-        [Input("changeComputeType")]
-        public Input<bool>? ChangeComputeType { get; set; }
-
-        /// <summary>
-        /// Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
-        /// </summary>
-        [Input("increaseVolumeSize")]
-        public Input<bool>? IncreaseVolumeSize { get; set; }
-
-        /// <summary>
-        /// Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
-        /// </summary>
-        [Input("rebuildWorkspace")]
-        public Input<bool>? RebuildWorkspace { get; set; }
-
-        /// <summary>
-        /// Whether WorkSpaces directory users can restart their workspace. Default `true`.
-        /// </summary>
-        [Input("restartWorkspace")]
-        public Input<bool>? RestartWorkspace { get; set; }
-
-        /// <summary>
-        /// Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
-        /// </summary>
-        [Input("switchRunningMode")]
-        public Input<bool>? SwitchRunningMode { get; set; }
-
-        public DirectorySelfServicePermissionsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DirectorySelfServicePermissions
-    {
-        /// <summary>
-        /// Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
-        /// </summary>
-        public readonly bool? ChangeComputeType;
-        /// <summary>
-        /// Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
-        /// </summary>
-        public readonly bool? IncreaseVolumeSize;
-        /// <summary>
-        /// Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
-        /// </summary>
-        public readonly bool? RebuildWorkspace;
-        /// <summary>
-        /// Whether WorkSpaces directory users can restart their workspace. Default `true`.
-        /// </summary>
-        public readonly bool? RestartWorkspace;
-        /// <summary>
-        /// Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
-        /// </summary>
-        public readonly bool? SwitchRunningMode;
-
-        [OutputConstructor]
-        private DirectorySelfServicePermissions(
-            bool? changeComputeType,
-            bool? increaseVolumeSize,
-            bool? rebuildWorkspace,
-            bool? restartWorkspace,
-            bool? switchRunningMode)
-        {
-            ChangeComputeType = changeComputeType;
-            IncreaseVolumeSize = increaseVolumeSize;
-            RebuildWorkspace = rebuildWorkspace;
-            RestartWorkspace = restartWorkspace;
-            SwitchRunningMode = switchRunningMode;
-        }
-    }
     }
 }

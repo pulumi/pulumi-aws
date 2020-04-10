@@ -9,21 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Inspector
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// The AWS Inspector Rules Packages data source allows access to the list of AWS
-        /// Inspector Rules Packages which can be used by AWS Inspector within the region
-        /// configured in the provider.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/inspector_rules_packages.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetRulesPackages.InvokeAsync() instead")]
-        public static Task<GetRulesPackagesResult> GetRulesPackages(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetRulesPackages
     {
         /// <summary>
@@ -31,13 +16,13 @@ namespace Pulumi.Aws.Inspector
         /// Inspector Rules Packages which can be used by AWS Inspector within the region
         /// configured in the provider.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/inspector_rules_packages.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRulesPackagesResult> InvokeAsync(InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", InvokeArgs.Empty, options.WithVersion());
     }
+
 
     [OutputType]
     public sealed class GetRulesPackagesResult
@@ -54,6 +39,7 @@ namespace Pulumi.Aws.Inspector
         [OutputConstructor]
         private GetRulesPackagesResult(
             ImmutableArray<string> arns,
+
             string id)
         {
             Arns = arns;

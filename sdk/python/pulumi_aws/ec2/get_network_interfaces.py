@@ -47,8 +47,6 @@ def get_network_interfaces(filters=None,tags=None,opts=None):
     """
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_interfaces.html.markdown.
-
 
     :param list filters: Custom filter block as described below.
     :param dict tags: A mapping of tags, each pair of which must exactly match

@@ -17,10 +17,6 @@ namespace Pulumi.Aws.Ec2
     /// defined in-line. At this time you cannot use a Network ACL with in-line rules
     /// in conjunction with any Network ACL Rule resources. Doing so will cause
     /// a conflict of rule settings and will overwrite rules.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_acl_rule.html.markdown.
     /// </summary>
     public partial class NetworkAclRule : Pulumi.CustomResource
     {
@@ -99,7 +95,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkAclRule(string name, NetworkAclRuleArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/networkAclRule:NetworkAclRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/networkAclRule:NetworkAclRule", name, args ?? new NetworkAclRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 

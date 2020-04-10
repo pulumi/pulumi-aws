@@ -92,8 +92,6 @@ def get_vpc_peering_connection(cidr_block=None,filters=None,id=None,owner_id=Non
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_peering_connection.html.markdown.
-
 
     :param str cidr_block: The CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
     :param list filters: Custom filter block as described below.

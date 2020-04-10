@@ -16,10 +16,6 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **Note:** The `aws.ec2.VpnGateway`
     /// resource can also automatically attach the Virtual Private Gateway it creates
     /// to an existing VPC by setting the `vpc_id` attribute accordingly.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_attachment.html.markdown.
     /// </summary>
     public partial class VpnGatewayAttachment : Pulumi.CustomResource
     {
@@ -44,7 +40,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpnGatewayAttachment(string name, VpnGatewayAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment", name, args ?? new VpnGatewayAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 

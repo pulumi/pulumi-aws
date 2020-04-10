@@ -113,8 +113,6 @@ def get_certificate_authority(arn=None,revocation_configurations=None,tags=None,
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acmpca_certificate_authority.html.markdown.
-
 
     :param str arn: Amazon Resource Name (ARN) of the certificate authority.
     :param list revocation_configurations: Nested attribute containing revocation configuration.

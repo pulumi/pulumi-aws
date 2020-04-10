@@ -301,8 +301,6 @@ def get_instance(db_instance_identifier=None,tags=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_instance.html.markdown.
-
 
     :param str db_instance_identifier: The name of the RDS instance
     """

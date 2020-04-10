@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Workspaces
 {
     /// <summary>
     /// Provides an IP access control group in AWS WorkSpaces Service
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/workspaces_ip_group.html.markdown.
     /// </summary>
     public partial class IpGroup : Pulumi.CustomResource
     {
@@ -34,7 +30,7 @@ namespace Pulumi.Aws.Workspaces
         /// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
         /// </summary>
         [Output("rules")]
-        public Output<ImmutableArray<Outputs.IpGroupRules>> Rules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IpGroupRule>> Rules { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -48,7 +44,7 @@ namespace Pulumi.Aws.Workspaces
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IpGroup(string name, IpGroupArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:workspaces/ipGroup:IpGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:workspaces/ipGroup:IpGroup", name, args ?? new IpGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -98,14 +94,14 @@ namespace Pulumi.Aws.Workspaces
         public Input<string>? Name { get; set; }
 
         [Input("rules")]
-        private InputList<Inputs.IpGroupRulesArgs>? _rules;
+        private InputList<Inputs.IpGroupRuleArgs>? _rules;
 
         /// <summary>
         /// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
         /// </summary>
-        public InputList<Inputs.IpGroupRulesArgs> Rules
+        public InputList<Inputs.IpGroupRuleArgs> Rules
         {
-            get => _rules ?? (_rules = new InputList<Inputs.IpGroupRulesArgs>());
+            get => _rules ?? (_rules = new InputList<Inputs.IpGroupRuleArgs>());
             set => _rules = value;
         }
 
@@ -137,14 +133,14 @@ namespace Pulumi.Aws.Workspaces
         public Input<string>? Name { get; set; }
 
         [Input("rules")]
-        private InputList<Inputs.IpGroupRulesGetArgs>? _rules;
+        private InputList<Inputs.IpGroupRuleGetArgs>? _rules;
 
         /// <summary>
         /// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
         /// </summary>
-        public InputList<Inputs.IpGroupRulesGetArgs> Rules
+        public InputList<Inputs.IpGroupRuleGetArgs> Rules
         {
-            get => _rules ?? (_rules = new InputList<Inputs.IpGroupRulesGetArgs>());
+            get => _rules ?? (_rules = new InputList<Inputs.IpGroupRuleGetArgs>());
             set => _rules = value;
         }
 
@@ -159,73 +155,5 @@ namespace Pulumi.Aws.Workspaces
         public IpGroupState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class IpGroupRulesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The description.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The IP address range, in CIDR notation, e.g. `10.0.0.0/16`
-        /// </summary>
-        [Input("source", required: true)]
-        public Input<string> Source { get; set; } = null!;
-
-        public IpGroupRulesArgs()
-        {
-        }
-    }
-
-    public sealed class IpGroupRulesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The description.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The IP address range, in CIDR notation, e.g. `10.0.0.0/16`
-        /// </summary>
-        [Input("source", required: true)]
-        public Input<string> Source { get; set; } = null!;
-
-        public IpGroupRulesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class IpGroupRules
-    {
-        /// <summary>
-        /// The description.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The IP address range, in CIDR notation, e.g. `10.0.0.0/16`
-        /// </summary>
-        public readonly string Source;
-
-        [OutputConstructor]
-        private IpGroupRules(
-            string? description,
-            string source)
-        {
-            Description = description;
-            Source = source;
-        }
-    }
     }
 }

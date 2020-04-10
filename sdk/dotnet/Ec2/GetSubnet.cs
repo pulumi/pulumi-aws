@@ -9,23 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// `aws.ec2.Subnet` provides details about a specific VPC subnet.
-        /// 
-        /// This resource can prove useful when a module accepts a subnet id as
-        /// an input variable and needs to, for example, determine the id of the
-        /// VPC that the subnet belongs to.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetSubnet.InvokeAsync() instead")]
-        public static Task<GetSubnetResult> GetSubnet(GetSubnetArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("aws:ec2/getSubnet:getSubnet", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetSubnet
     {
         /// <summary>
@@ -35,13 +18,13 @@ namespace Pulumi.Aws.Ec2
         /// an input variable and needs to, for example, determine the id of the
         /// VPC that the subnet belongs to.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSubnetResult> InvokeAsync(GetSubnetArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("aws:ec2/getSubnet:getSubnet", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("aws:ec2/getSubnet:getSubnet", args ?? new GetSubnetArgs(), options.WithVersion());
     }
+
 
     public sealed class GetSubnetArgs : Pulumi.InvokeArgs
     {
@@ -72,14 +55,14 @@ namespace Pulumi.Aws.Ec2
         public bool? DefaultForAz { get; set; }
 
         [Input("filters")]
-        private List<Inputs.GetSubnetFiltersArgs>? _filters;
+        private List<Inputs.GetSubnetFilterArgs>? _filters;
 
         /// <summary>
         /// Custom filter block as described below.
         /// </summary>
-        public List<Inputs.GetSubnetFiltersArgs> Filters
+        public List<Inputs.GetSubnetFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetSubnetFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetSubnetFilterArgs>());
             set => _filters = value;
         }
 
@@ -125,6 +108,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetSubnetResult
     {
@@ -137,7 +121,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string AvailabilityZoneId;
         public readonly string CidrBlock;
         public readonly bool DefaultForAz;
-        public readonly ImmutableArray<Outputs.GetSubnetFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetSubnetFilterResult> Filters;
         public readonly string Id;
         public readonly string Ipv6CidrBlock;
         public readonly string Ipv6CidrBlockAssociationId;
@@ -153,19 +137,33 @@ namespace Pulumi.Aws.Ec2
         [OutputConstructor]
         private GetSubnetResult(
             string arn,
+
             bool assignIpv6AddressOnCreation,
+
             string availabilityZone,
+
             string availabilityZoneId,
+
             string cidrBlock,
+
             bool defaultForAz,
-            ImmutableArray<Outputs.GetSubnetFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetSubnetFilterResult> filters,
+
             string id,
+
             string ipv6CidrBlock,
+
             string ipv6CidrBlockAssociationId,
+
             bool mapPublicIpOnLaunch,
+
             string ownerId,
+
             string state,
+
             ImmutableDictionary<string, object> tags,
+
             string vpcId)
         {
             Arn = arn;
@@ -184,66 +182,5 @@ namespace Pulumi.Aws.Ec2
             Tags = tags;
             VpcId = vpcId;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetSubnetFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-        /// For example, if matching against tag `Name`, use:
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// A subnet will be selected if any one of the given values matches.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetSubnetFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetSubnetFiltersResult
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-        /// For example, if matching against tag `Name`, use:
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// A subnet will be selected if any one of the given values matches.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetSubnetFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

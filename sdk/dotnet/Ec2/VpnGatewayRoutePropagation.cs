@@ -15,10 +15,6 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **Note:** This resource should not be used with a route table that has
     /// the `propagating_vgws` argument set. If that argument is set, any route
     /// propagation not explicitly listed in its value will be removed.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_route_propagation.html.markdown.
     /// </summary>
     public partial class VpnGatewayRoutePropagation : Pulumi.CustomResource
     {
@@ -43,7 +39,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpnGatewayRoutePropagation(string name, VpnGatewayRoutePropagationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation", name, args ?? new VpnGatewayRoutePropagationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

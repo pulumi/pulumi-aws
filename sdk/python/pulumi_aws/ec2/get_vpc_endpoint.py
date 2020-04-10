@@ -136,8 +136,6 @@ def get_vpc_endpoint(filters=None,id=None,service_name=None,state=None,tags=None
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint.html.markdown.
-
 
     :param list filters: Custom filter block as described below.
     :param str id: The ID of the specific VPC Endpoint to retrieve.

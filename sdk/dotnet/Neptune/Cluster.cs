@@ -19,10 +19,6 @@ namespace Pulumi.Aws.Neptune
     /// phase because a modification has not yet taken place. You can use the
     /// `apply_immediately` flag to instruct the service to apply the change immediately
     /// (see documentation below).
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster.html.markdown.
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {
@@ -74,6 +70,9 @@ namespace Pulumi.Aws.Neptune
         [Output("clusterResourceId")]
         public Output<string> ClusterResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        /// </summary>
         [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
@@ -212,7 +211,7 @@ namespace Pulumi.Aws.Neptune
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:neptune/cluster:Cluster", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:neptune/cluster:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -285,6 +284,9 @@ namespace Pulumi.Aws.Neptune
         [Input("clusterIdentifierPrefix")]
         public Input<string>? ClusterIdentifierPrefix { get; set; }
 
+        /// <summary>
+        /// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 
@@ -487,6 +489,9 @@ namespace Pulumi.Aws.Neptune
         [Input("clusterResourceId")]
         public Input<string>? ClusterResourceId { get; set; }
 
+        /// <summary>
+        /// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 

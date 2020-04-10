@@ -60,8 +60,6 @@ def get_script(dag_edges=None,dag_nodes=None,language=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/glue_script.html.markdown.
-
 
     :param list dag_edges: A list of the edges in the DAG. Defined below.
     :param list dag_nodes: A list of the nodes in the DAG. Defined below.

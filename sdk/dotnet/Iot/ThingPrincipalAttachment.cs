@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Iot
 {
     /// <summary>
     /// Attaches Principal to AWS IoT Thing.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_thing_principal_attachment.html.markdown.
     /// </summary>
     public partial class ThingPrincipalAttachment : Pulumi.CustomResource
     {
@@ -39,7 +35,7 @@ namespace Pulumi.Aws.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ThingPrincipalAttachment(string name, ThingPrincipalAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment", name, args ?? new ThingPrincipalAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 

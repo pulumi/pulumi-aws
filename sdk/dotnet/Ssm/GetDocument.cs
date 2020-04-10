@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ssm
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Gets the contents of the specified Systems Manager document.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_document.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetDocument.InvokeAsync() instead")]
-        public static Task<GetDocumentResult> GetDocument(GetDocumentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDocumentResult>("aws:ssm/getDocument:getDocument", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetDocument
     {
         /// <summary>
         /// Gets the contents of the specified Systems Manager document.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_document.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDocumentResult> InvokeAsync(GetDocumentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDocumentResult>("aws:ssm/getDocument:getDocument", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDocumentResult>("aws:ssm/getDocument:getDocument", args ?? new GetDocumentArgs(), options.WithVersion());
     }
+
 
     public sealed class GetDocumentArgs : Pulumi.InvokeArgs
     {
@@ -60,6 +47,7 @@ namespace Pulumi.Aws.Ssm
         }
     }
 
+
     [OutputType]
     public sealed class GetDocumentResult
     {
@@ -77,29 +65,35 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public readonly string DocumentType;
         public readonly string? DocumentVersion;
-        public readonly string Name;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
 
         [OutputConstructor]
         private GetDocumentResult(
             string arn,
+
             string content,
+
             string? documentFormat,
+
             string documentType,
+
             string? documentVersion,
-            string name,
-            string id)
+
+            string id,
+
+            string name)
         {
             Arn = arn;
             Content = content;
             DocumentFormat = documentFormat;
             DocumentType = documentType;
             DocumentVersion = documentVersion;
-            Name = name;
             Id = id;
+            Name = name;
         }
     }
 }

@@ -28,8 +28,6 @@ namespace Pulumi.Aws.Ec2
     /// ## Output Reference
     /// 
     /// There are no outputs for this resource.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_interface_sg_attachment.html.markdown.
     /// </summary>
     public partial class NetworkInterfaceSecurityGroupAttachment : Pulumi.CustomResource
     {
@@ -54,7 +52,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkInterfaceSecurityGroupAttachment(string name, NetworkInterfaceSecurityGroupAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", name, args ?? new NetworkInterfaceSecurityGroupAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 

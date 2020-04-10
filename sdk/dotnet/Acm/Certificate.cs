@@ -34,8 +34,6 @@ namespace Pulumi.Aws.Acm
     /// Supported nested arguments for the `options` configuration block:
     /// 
     /// * `certificate_transparency_logging_preference` - (Optional) Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate.html.markdown.
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {
@@ -74,7 +72,7 @@ namespace Pulumi.Aws.Acm
         /// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
         /// </summary>
         [Output("domainValidationOptions")]
-        public Output<ImmutableArray<Outputs.CertificateDomainValidationOptions>> DomainValidationOptions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CertificateDomainValidationOption>> DomainValidationOptions { get; private set; } = null!;
 
         [Output("options")]
         public Output<Outputs.CertificateOptions?> Options { get; private set; } = null!;
@@ -119,7 +117,7 @@ namespace Pulumi.Aws.Acm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:acm/certificate:Certificate", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:acm/certificate:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -260,14 +258,14 @@ namespace Pulumi.Aws.Acm
         public Input<string>? DomainName { get; set; }
 
         [Input("domainValidationOptions")]
-        private InputList<Inputs.CertificateDomainValidationOptionsGetArgs>? _domainValidationOptions;
+        private InputList<Inputs.CertificateDomainValidationOptionGetArgs>? _domainValidationOptions;
 
         /// <summary>
         /// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
         /// </summary>
-        public InputList<Inputs.CertificateDomainValidationOptionsGetArgs> DomainValidationOptions
+        public InputList<Inputs.CertificateDomainValidationOptionGetArgs> DomainValidationOptions
         {
-            get => _domainValidationOptions ?? (_domainValidationOptions = new InputList<Inputs.CertificateDomainValidationOptionsGetArgs>());
+            get => _domainValidationOptions ?? (_domainValidationOptions = new InputList<Inputs.CertificateDomainValidationOptionGetArgs>());
             set => _domainValidationOptions = value;
         }
 
@@ -326,110 +324,5 @@ namespace Pulumi.Aws.Acm
         public CertificateState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class CertificateDomainValidationOptionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A domain name for which the certificate should be issued
-        /// </summary>
-        [Input("domainName")]
-        public Input<string>? DomainName { get; set; }
-
-        /// <summary>
-        /// The name of the DNS record to create to validate the certificate
-        /// </summary>
-        [Input("resourceRecordName")]
-        public Input<string>? ResourceRecordName { get; set; }
-
-        /// <summary>
-        /// The type of DNS record to create
-        /// </summary>
-        [Input("resourceRecordType")]
-        public Input<string>? ResourceRecordType { get; set; }
-
-        /// <summary>
-        /// The value the DNS record needs to have
-        /// </summary>
-        [Input("resourceRecordValue")]
-        public Input<string>? ResourceRecordValue { get; set; }
-
-        public CertificateDomainValidationOptionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class CertificateOptionsArgs : Pulumi.ResourceArgs
-    {
-        [Input("certificateTransparencyLoggingPreference")]
-        public Input<string>? CertificateTransparencyLoggingPreference { get; set; }
-
-        public CertificateOptionsArgs()
-        {
-        }
-    }
-
-    public sealed class CertificateOptionsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("certificateTransparencyLoggingPreference")]
-        public Input<string>? CertificateTransparencyLoggingPreference { get; set; }
-
-        public CertificateOptionsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class CertificateDomainValidationOptions
-    {
-        /// <summary>
-        /// A domain name for which the certificate should be issued
-        /// </summary>
-        public readonly string DomainName;
-        /// <summary>
-        /// The name of the DNS record to create to validate the certificate
-        /// </summary>
-        public readonly string ResourceRecordName;
-        /// <summary>
-        /// The type of DNS record to create
-        /// </summary>
-        public readonly string ResourceRecordType;
-        /// <summary>
-        /// The value the DNS record needs to have
-        /// </summary>
-        public readonly string ResourceRecordValue;
-
-        [OutputConstructor]
-        private CertificateDomainValidationOptions(
-            string domainName,
-            string resourceRecordName,
-            string resourceRecordType,
-            string resourceRecordValue)
-        {
-            DomainName = domainName;
-            ResourceRecordName = resourceRecordName;
-            ResourceRecordType = resourceRecordType;
-            ResourceRecordValue = resourceRecordValue;
-        }
-    }
-
-    [OutputType]
-    public sealed class CertificateOptions
-    {
-        public readonly string? CertificateTransparencyLoggingPreference;
-
-        [OutputConstructor]
-        private CertificateOptions(string? certificateTransparencyLoggingPreference)
-        {
-            CertificateTransparencyLoggingPreference = certificateTransparencyLoggingPreference;
-        }
-    }
     }
 }

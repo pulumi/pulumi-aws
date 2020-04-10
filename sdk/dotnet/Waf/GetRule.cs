@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Waf
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// `aws.waf.Rule` Retrieves a WAF Rule Resource Id.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rule.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetRule.InvokeAsync() instead")]
-        public static Task<GetRuleResult> GetRule(GetRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("aws:waf/getRule:getRule", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetRule
     {
         /// <summary>
         /// `aws.waf.Rule` Retrieves a WAF Rule Resource Id.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rule.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("aws:waf/getRule:getRule", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("aws:waf/getRule:getRule", args ?? new GetRuleArgs(), options.WithVersion());
     }
+
 
     public sealed class GetRuleArgs : Pulumi.InvokeArgs
     {
@@ -48,22 +35,24 @@ namespace Pulumi.Aws.Waf
         }
     }
 
+
     [OutputType]
     public sealed class GetRuleResult
     {
-        public readonly string Name;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
 
         [OutputConstructor]
         private GetRuleResult(
-            string name,
-            string id)
+            string id,
+
+            string name)
         {
-            Name = name;
             Id = id;
+            Name = name;
         }
     }
 }

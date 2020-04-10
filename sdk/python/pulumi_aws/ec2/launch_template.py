@@ -27,7 +27,7 @@ class LaunchTemplate(pulumi.CustomResource):
         * `iops` (`float`) - The amount of provisioned
           [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
           This must be set with a `volume_type` of `"io1"`.
-        * `kms_key_id` (`str`) - AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+        * `kms_key_id` (`str`) - The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
           `encrypted` must be set to `true` when this is set.
         * `snapshot_id` (`str`) - The Snapshot ID to mount.
         * `volume_size` (`float`) - The size of the volume in gigabytes.
@@ -90,6 +90,12 @@ class LaunchTemplate(pulumi.CustomResource):
     Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
 
       * `type` (`str`) - Accelerator type.
+    """
+    hibernation_options: pulumi.Output[dict]
+    """
+    The hibernation options for the instance. See Hibernation Options below for more details.
+
+      * `configured` (`bool`) - If set to `true`, the launched EC2 instance will hibernation enabled.
     """
     iam_instance_profile: pulumi.Output[dict]
     """
@@ -223,13 +229,11 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     A list of security group IDs to associate with.
     """
-    def __init__(__self__, resource_name, opts=None, block_device_mappings=None, capacity_reservation_specification=None, cpu_options=None, credit_specification=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, license_specifications=None, metadata_options=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, block_device_mappings=None, capacity_reservation_specification=None, cpu_options=None, credit_specification=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, hibernation_options=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, license_specifications=None, metadata_options=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
 
 
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_template.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -246,6 +250,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[list] elastic_gpu_specifications: The elastic GPU to attach to the instance. See Elastic GPU
                below for more details.
         :param pulumi.Input[dict] elastic_inference_accelerator: Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+        :param pulumi.Input[dict] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
         :param pulumi.Input[dict] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
                below for more details.
         :param pulumi.Input[str] image_id: The AMI from which to launch the instance.
@@ -282,7 +287,7 @@ class LaunchTemplate(pulumi.CustomResource):
             * `iops` (`pulumi.Input[float]`) - The amount of provisioned
               [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
               This must be set with a `volume_type` of `"io1"`.
-            * `kms_key_id` (`pulumi.Input[str]`) - AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+            * `kms_key_id` (`pulumi.Input[str]`) - The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
               `encrypted` must be set to `true` when this is set.
             * `snapshot_id` (`pulumi.Input[str]`) - The Snapshot ID to mount.
             * `volume_size` (`pulumi.Input[float]`) - The size of the volume in gigabytes.
@@ -316,6 +321,10 @@ class LaunchTemplate(pulumi.CustomResource):
         The **elastic_inference_accelerator** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - Accelerator type.
+
+        The **hibernation_options** object supports the following:
+
+          * `configured` (`pulumi.Input[bool]`) - If set to `true`, the launched EC2 instance will hibernation enabled.
 
         The **iam_instance_profile** object supports the following:
 
@@ -402,6 +411,7 @@ class LaunchTemplate(pulumi.CustomResource):
             __props__['ebs_optimized'] = ebs_optimized
             __props__['elastic_gpu_specifications'] = elastic_gpu_specifications
             __props__['elastic_inference_accelerator'] = elastic_inference_accelerator
+            __props__['hibernation_options'] = hibernation_options
             __props__['iam_instance_profile'] = iam_instance_profile
             __props__['image_id'] = image_id
             __props__['instance_initiated_shutdown_behavior'] = instance_initiated_shutdown_behavior
@@ -432,7 +442,7 @@ class LaunchTemplate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, block_device_mappings=None, capacity_reservation_specification=None, cpu_options=None, credit_specification=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, license_specifications=None, metadata_options=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
+    def get(resource_name, id, opts=None, arn=None, block_device_mappings=None, capacity_reservation_specification=None, cpu_options=None, credit_specification=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, hibernation_options=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, license_specifications=None, metadata_options=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
         """
         Get an existing LaunchTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -455,6 +465,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[list] elastic_gpu_specifications: The elastic GPU to attach to the instance. See Elastic GPU
                below for more details.
         :param pulumi.Input[dict] elastic_inference_accelerator: Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+        :param pulumi.Input[dict] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
         :param pulumi.Input[dict] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
                below for more details.
         :param pulumi.Input[str] image_id: The AMI from which to launch the instance.
@@ -492,7 +503,7 @@ class LaunchTemplate(pulumi.CustomResource):
             * `iops` (`pulumi.Input[float]`) - The amount of provisioned
               [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
               This must be set with a `volume_type` of `"io1"`.
-            * `kms_key_id` (`pulumi.Input[str]`) - AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+            * `kms_key_id` (`pulumi.Input[str]`) - The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
               `encrypted` must be set to `true` when this is set.
             * `snapshot_id` (`pulumi.Input[str]`) - The Snapshot ID to mount.
             * `volume_size` (`pulumi.Input[float]`) - The size of the volume in gigabytes.
@@ -526,6 +537,10 @@ class LaunchTemplate(pulumi.CustomResource):
         The **elastic_inference_accelerator** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - Accelerator type.
+
+        The **hibernation_options** object supports the following:
+
+          * `configured` (`pulumi.Input[bool]`) - If set to `true`, the launched EC2 instance will hibernation enabled.
 
         The **iam_instance_profile** object supports the following:
 
@@ -601,6 +616,7 @@ class LaunchTemplate(pulumi.CustomResource):
         __props__["ebs_optimized"] = ebs_optimized
         __props__["elastic_gpu_specifications"] = elastic_gpu_specifications
         __props__["elastic_inference_accelerator"] = elastic_inference_accelerator
+        __props__["hibernation_options"] = hibernation_options
         __props__["iam_instance_profile"] = iam_instance_profile
         __props__["image_id"] = image_id
         __props__["instance_initiated_shutdown_behavior"] = instance_initiated_shutdown_behavior

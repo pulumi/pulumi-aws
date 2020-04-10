@@ -90,7 +90,7 @@ export class GlobalCluster extends pulumi.CustomResource {
      */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     /**
-     * Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
+     * Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`.
      */
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
@@ -173,7 +173,7 @@ export interface GlobalClusterState {
      */
     readonly deletionProtection?: pulumi.Input<boolean>;
     /**
-     * Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
+     * Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`.
      */
     readonly engine?: pulumi.Input<string>;
     /**
@@ -208,7 +208,7 @@ export interface GlobalClusterArgs {
      */
     readonly deletionProtection?: pulumi.Input<boolean>;
     /**
-     * Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
+     * Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`.
      */
     readonly engine?: pulumi.Input<string>;
     /**

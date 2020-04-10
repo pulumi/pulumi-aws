@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Efs
 {
     /// <summary>
     /// Provides an Elastic File System (EFS) resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/efs_file_system.html.markdown.
     /// </summary>
     public partial class FileSystem : Pulumi.CustomResource
     {
@@ -90,7 +86,7 @@ namespace Pulumi.Aws.Efs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FileSystem(string name, FileSystemArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:efs/fileSystem:FileSystem", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:efs/fileSystem:FileSystem", name, args ?? new FileSystemArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -263,54 +259,5 @@ namespace Pulumi.Aws.Efs
         public FileSystemState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class FileSystemLifecyclePolicyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
-        /// </summary>
-        [Input("transitionToIa")]
-        public Input<string>? TransitionToIa { get; set; }
-
-        public FileSystemLifecyclePolicyArgs()
-        {
-        }
-    }
-
-    public sealed class FileSystemLifecyclePolicyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
-        /// </summary>
-        [Input("transitionToIa")]
-        public Input<string>? TransitionToIa { get; set; }
-
-        public FileSystemLifecyclePolicyGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class FileSystemLifecyclePolicy
-    {
-        /// <summary>
-        /// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
-        /// </summary>
-        public readonly string? TransitionToIa;
-
-        [OutputConstructor]
-        private FileSystemLifecyclePolicy(string? transitionToIa)
-        {
-            TransitionToIa = transitionToIa;
-        }
-    }
     }
 }

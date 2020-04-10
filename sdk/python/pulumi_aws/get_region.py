@@ -60,8 +60,6 @@ def get_region(endpoint=None,name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/region.html.markdown.
-
 
     :param str endpoint: The EC2 endpoint of the region to select.
     :param str name: The full name of the region to select.

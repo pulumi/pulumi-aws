@@ -9,43 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// `aws.ec2.Eip` provides details about a specific Elastic IP.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eip.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetElasticIp.InvokeAsync() instead")]
-        public static Task<GetElasticIpResult> GetElasticIp(GetElasticIpArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetElasticIpResult>("aws:index/getElasticIp:getElasticIp", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetElasticIp
     {
         /// <summary>
         /// `aws.ec2.Eip` provides details about a specific Elastic IP.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eip.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetElasticIpResult> InvokeAsync(GetElasticIpArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetElasticIpResult>("aws:index/getElasticIp:getElasticIp", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetElasticIpResult>("aws:index/getElasticIp:getElasticIp", args ?? new GetElasticIpArgs(), options.WithVersion());
     }
+
 
     public sealed class GetElasticIpArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetElasticIpFiltersArgs>? _filters;
+        private List<Inputs.GetElasticIpFilterArgs>? _filters;
 
         /// <summary>
         /// One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
         /// </summary>
-        public List<Inputs.GetElasticIpFiltersArgs> Filters
+        public List<Inputs.GetElasticIpFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetElasticIpFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetElasticIpFilterArgs>());
             set => _filters = value;
         }
 
@@ -78,6 +65,7 @@ namespace Pulumi.Aws
         }
     }
 
+
     [OutputType]
     public sealed class GetElasticIpResult
     {
@@ -89,7 +77,7 @@ namespace Pulumi.Aws
         /// Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
         /// </summary>
         public readonly string Domain;
-        public readonly ImmutableArray<Outputs.GetElasticIpFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetElasticIpFilterResult> Filters;
         /// <summary>
         /// If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.
         /// </summary>
@@ -134,17 +122,29 @@ namespace Pulumi.Aws
         [OutputConstructor]
         private GetElasticIpResult(
             string associationId,
+
             string domain,
-            ImmutableArray<Outputs.GetElasticIpFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetElasticIpFilterResult> filters,
+
             string id,
+
             string instanceId,
+
             string networkInterfaceId,
+
             string networkInterfaceOwnerId,
+
             string privateDns,
+
             string privateIp,
+
             string publicDns,
+
             string publicIp,
+
             string publicIpv4Pool,
+
             ImmutableDictionary<string, object> tags)
         {
             AssociationId = associationId;
@@ -161,47 +161,5 @@ namespace Pulumi.Aws
             PublicIpv4Pool = publicIpv4Pool;
             Tags = tags;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetElasticIpFiltersArgs : Pulumi.InvokeArgs
-    {
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetElasticIpFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetElasticIpFiltersResult
-    {
-        public readonly string Name;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetElasticIpFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

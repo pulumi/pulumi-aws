@@ -75,8 +75,6 @@ def get_state_machine(name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_state_machine.html.markdown.
-
 
     :param str name: The friendly name of the state machine to match.
     """

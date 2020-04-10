@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Iot
 {
     /// <summary>
     /// Creates and manages an AWS IoT Thing.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_thing.html.markdown.
     /// </summary>
     public partial class Thing : Pulumi.CustomResource
     {
@@ -63,7 +59,7 @@ namespace Pulumi.Aws.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Thing(string name, ThingArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:iot/thing:Thing", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iot/thing:Thing", name, args ?? new ThingArgs(), MakeResourceOptions(options, ""))
         {
         }
 

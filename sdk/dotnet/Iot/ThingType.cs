@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Iot
 {
     /// <summary>
     /// Creates and manages an AWS IoT Thing Type.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_thing_type.html.markdown.
     /// </summary>
     public partial class ThingType : Pulumi.CustomResource
     {
@@ -51,7 +47,7 @@ namespace Pulumi.Aws.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ThingType(string name, ThingTypeArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:iot/thingType:ThingType", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iot/thingType:ThingType", name, args ?? new ThingTypeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -140,85 +136,5 @@ namespace Pulumi.Aws.Iot
         public ThingTypeState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ThingTypePropertiesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The description of the thing type.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        [Input("searchableAttributes")]
-        private InputList<string>? _searchableAttributes;
-
-        /// <summary>
-        /// A list of searchable thing attribute names.
-        /// </summary>
-        public InputList<string> SearchableAttributes
-        {
-            get => _searchableAttributes ?? (_searchableAttributes = new InputList<string>());
-            set => _searchableAttributes = value;
-        }
-
-        public ThingTypePropertiesArgs()
-        {
-        }
-    }
-
-    public sealed class ThingTypePropertiesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The description of the thing type.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        [Input("searchableAttributes")]
-        private InputList<string>? _searchableAttributes;
-
-        /// <summary>
-        /// A list of searchable thing attribute names.
-        /// </summary>
-        public InputList<string> SearchableAttributes
-        {
-            get => _searchableAttributes ?? (_searchableAttributes = new InputList<string>());
-            set => _searchableAttributes = value;
-        }
-
-        public ThingTypePropertiesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ThingTypeProperties
-    {
-        /// <summary>
-        /// The description of the thing type.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// A list of searchable thing attribute names.
-        /// </summary>
-        public readonly ImmutableArray<string> SearchableAttributes;
-
-        [OutputConstructor]
-        private ThingTypeProperties(
-            string? description,
-            ImmutableArray<string> searchableAttributes)
-        {
-            Description = description;
-            SearchableAttributes = searchableAttributes;
-        }
-    }
     }
 }

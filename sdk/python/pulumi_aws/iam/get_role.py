@@ -103,8 +103,6 @@ def get_role(name=None,tags=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_role.html.markdown.
-
 
     :param str name: The friendly IAM role name to match.
     :param dict tags: The tags attached to the role.

@@ -9,43 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ram
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ram_resource_share.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetResourceShare.InvokeAsync() instead")]
-        public static Task<GetResourceShareResult> GetResourceShare(GetResourceShareArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetResourceShare
     {
         /// <summary>
         /// `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ram_resource_share.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetResourceShareResult> InvokeAsync(GetResourceShareArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? new GetResourceShareArgs(), options.WithVersion());
     }
+
 
     public sealed class GetResourceShareArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetResourceShareFiltersArgs>? _filters;
+        private List<Inputs.GetResourceShareFilterArgs>? _filters;
 
         /// <summary>
         /// A filter used to scope the list e.g. by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
         /// </summary>
-        public List<Inputs.GetResourceShareFiltersArgs> Filters
+        public List<Inputs.GetResourceShareFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetResourceShareFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetResourceShareFilterArgs>());
             set => _filters = value;
         }
 
@@ -78,6 +65,7 @@ namespace Pulumi.Aws.Ram
         }
     }
 
+
     [OutputType]
     public sealed class GetResourceShareResult
     {
@@ -85,7 +73,7 @@ namespace Pulumi.Aws.Ram
         /// The Amazon Resource Name (ARN) of the resource share.
         /// </summary>
         public readonly string Arn;
-        public readonly ImmutableArray<Outputs.GetResourceShareFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetResourceShareFilterResult> Filters;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the resource share.
         /// </summary>
@@ -104,11 +92,17 @@ namespace Pulumi.Aws.Ram
         [OutputConstructor]
         private GetResourceShareResult(
             string arn,
-            ImmutableArray<Outputs.GetResourceShareFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetResourceShareFilterResult> filters,
+
             string id,
+
             string name,
+
             string resourceOwner,
+
             string status,
+
             ImmutableDictionary<string, object> tags)
         {
             Arn = arn;
@@ -119,60 +113,5 @@ namespace Pulumi.Aws.Ram
             Status = status;
             Tags = tags;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetResourceShareFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the tag key to filter on.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// The value of the tag key.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetResourceShareFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetResourceShareFiltersResult
-    {
-        /// <summary>
-        /// The name of the tag key to filter on.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The value of the tag key.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetResourceShareFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

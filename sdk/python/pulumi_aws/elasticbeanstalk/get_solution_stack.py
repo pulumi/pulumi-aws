@@ -49,8 +49,6 @@ def get_solution_stack(most_recent=None,name_regex=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_solution_stack.html.markdown.
-
 
     :param bool most_recent: If more than one result is returned, use the most
            recent solution stack.

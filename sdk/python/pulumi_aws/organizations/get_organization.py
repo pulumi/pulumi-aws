@@ -101,10 +101,6 @@ class AwaitableGetOrganizationResult(GetOrganizationResult):
 def get_organization(opts=None):
     """
     Get information about the organization that the user's account belongs to
-
-
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organization.html.markdown.
     """
     __args__ = dict()
 

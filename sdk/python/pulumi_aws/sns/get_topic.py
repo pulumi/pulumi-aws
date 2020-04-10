@@ -47,8 +47,6 @@ def get_topic(name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sns_topic.html.markdown.
-
 
     :param str name: The friendly name of the topic to match.
     """

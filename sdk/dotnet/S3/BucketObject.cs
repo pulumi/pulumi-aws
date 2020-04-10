@@ -11,10 +11,6 @@ namespace Pulumi.Aws.S3
 {
     /// <summary>
     /// Provides a S3 bucket object resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_object.html.markdown.
     /// </summary>
     public partial class BucketObject : Pulumi.CustomResource
     {
@@ -172,7 +168,7 @@ namespace Pulumi.Aws.S3
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BucketObject(string name, BucketObjectArgs args, CustomResourceOptions? options = null)
-            : base("aws:s3/bucketObject:BucketObject", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:s3/bucketObject:BucketObject", name, args ?? new BucketObjectArgs(), MakeResourceOptions(options, ""))
         {
         }
 

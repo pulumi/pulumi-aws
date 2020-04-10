@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Ram
     /// Manages a Resource Access Manager (RAM) Resource Association.
     /// 
     /// &gt; *NOTE:* Certain AWS resources (e.g. EC2 Subnets) can only be shared in an AWS account that is a member of an AWS Organizations organization with organization-wide Resource Access Manager functionality enabled. See the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) and AWS service specific documentation for additional information.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ram_resource_association.html.markdown.
     /// </summary>
     public partial class ResourceAssociation : Pulumi.CustomResource
     {
@@ -41,7 +37,7 @@ namespace Pulumi.Aws.Ram
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceAssociation(string name, ResourceAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ram/resourceAssociation:ResourceAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ram/resourceAssociation:ResourceAssociation", name, args ?? new ResourceAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

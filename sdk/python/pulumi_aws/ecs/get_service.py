@@ -78,8 +78,6 @@ def get_service(cluster_arn=None,service_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_service.html.markdown.
-
 
     :param str cluster_arn: The arn of the ECS Cluster
     :param str service_name: The name of the ECS Service

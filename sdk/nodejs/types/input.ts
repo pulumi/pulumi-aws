@@ -212,6 +212,11 @@ export interface ProviderEndpoint {
     xray?: pulumi.Input<string>;
 }
 
+export interface ProviderIgnoreTags {
+    keyPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    keys?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export namespace acm {
     export interface CertificateDomainValidationOption {
         /**
@@ -952,6 +957,19 @@ export namespace apigateway {
          * The API request steady-state rate limit.
          */
         rateLimit?: pulumi.Input<number>;
+    }
+}
+
+export namespace apigatewayv2 {
+    export interface AuthorizerJwtConfiguration {
+        /**
+         * A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
+         */
+        audiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the [`aws.cognito.UserPool`](https://www.terraform.io/docs/providers/aws/r/cognito_user_pool.html) resource.
+         */
+        issuer?: pulumi.Input<string>;
     }
 }
 
@@ -3942,9 +3960,13 @@ export namespace codepipeline {
          */
         encryptionKey?: pulumi.Input<inputs.codepipeline.PipelineArtifactStoreEncryptionKey>;
         /**
-         * The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3 bucket.
+         * The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
          */
         location: pulumi.Input<string>;
+        /**
+         * The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
+         */
+        region?: pulumi.Input<string>;
         /**
          * The type of the artifact store, such as Amazon S3
          */
@@ -3981,7 +4003,7 @@ export namespace codepipeline {
         /**
          * A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
          */
-        configuration?: pulumi.Input<{[key: string]: any}>;
+        configuration?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * A list of artifact names to be worked on.
          */
@@ -4002,6 +4024,10 @@ export namespace codepipeline {
          * The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
          */
         provider: pulumi.Input<string>;
+        /**
+         * The region in which to run the action.
+         */
+        region?: pulumi.Input<string>;
         /**
          * The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
          */
@@ -5604,7 +5630,7 @@ export namespace ec2 {
          */
         iops?: pulumi.Input<number>;
         /**
-         * AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+         * The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
          * `encrypted` must be set to `true` when this is set.
          */
         kmsKeyId?: pulumi.Input<string>;
@@ -5671,6 +5697,13 @@ export namespace ec2 {
          * Accelerator type.
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface LaunchTemplateHibernationOptions {
+        /**
+         * If set to `true`, the launched EC2 instance will hibernation enabled.
+         */
+        configured: pulumi.Input<boolean>;
     }
 
     export interface LaunchTemplateIamInstanceProfile {
@@ -11961,7 +11994,7 @@ export namespace s3 {
          */
         id?: pulumi.Input<string>;
         /**
-         * List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+         * List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
          */
         permissions: pulumi.Input<pulumi.Input<string>[]>;
         /**

@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Xray
 {
     /// <summary>
     /// Creates and manages an AWS XRay Sampling Rule.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/xray_sampling_rule.html.markdown.
     /// </summary>
     public partial class SamplingRule : Pulumi.CustomResource
     {
@@ -105,7 +101,7 @@ namespace Pulumi.Aws.Xray
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SamplingRule(string name, SamplingRuleArgs args, CustomResourceOptions? options = null)
-            : base("aws:xray/samplingRule:SamplingRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:xray/samplingRule:SamplingRule", name, args ?? new SamplingRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 

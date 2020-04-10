@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Eks
 {
     /// <summary>
     /// Manages an EKS Node Group, which can provision and optionally update an Auto Scaling Group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_node_group.html.markdown.
     /// </summary>
     public partial class NodeGroup : Pulumi.CustomResource
     {
@@ -82,7 +78,7 @@ namespace Pulumi.Aws.Eks
         /// List of objects containing information about underlying resources.
         /// </summary>
         [Output("resources")]
-        public Output<ImmutableArray<Outputs.NodeGroupResources>> Resources { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NodeGroupResource>> Resources { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block with scaling settings. Detailed below.
@@ -123,7 +119,7 @@ namespace Pulumi.Aws.Eks
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NodeGroup(string name, NodeGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws:eks/nodeGroup:NodeGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:eks/nodeGroup:NodeGroup", name, args ?? new NodeGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -330,14 +326,14 @@ namespace Pulumi.Aws.Eks
         public Input<Inputs.NodeGroupRemoteAccessGetArgs>? RemoteAccess { get; set; }
 
         [Input("resources")]
-        private InputList<Inputs.NodeGroupResourcesGetArgs>? _resources;
+        private InputList<Inputs.NodeGroupResourceGetArgs>? _resources;
 
         /// <summary>
         /// List of objects containing information about underlying resources.
         /// </summary>
-        public InputList<Inputs.NodeGroupResourcesGetArgs> Resources
+        public InputList<Inputs.NodeGroupResourceGetArgs> Resources
         {
-            get => _resources ?? (_resources = new InputList<Inputs.NodeGroupResourcesGetArgs>());
+            get => _resources ?? (_resources = new InputList<Inputs.NodeGroupResourceGetArgs>());
             set => _resources = value;
         }
 
@@ -386,238 +382,5 @@ namespace Pulumi.Aws.Eks
         public NodeGroupState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class NodeGroupRemoteAccessArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `source_security_group_ids` when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
-        /// </summary>
-        [Input("ec2SshKey")]
-        public Input<string>? Ec2SshKey { get; set; }
-
-        [Input("sourceSecurityGroupIds")]
-        private InputList<string>? _sourceSecurityGroupIds;
-
-        /// <summary>
-        /// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2_ssh_key`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
-        /// </summary>
-        public InputList<string> SourceSecurityGroupIds
-        {
-            get => _sourceSecurityGroupIds ?? (_sourceSecurityGroupIds = new InputList<string>());
-            set => _sourceSecurityGroupIds = value;
-        }
-
-        public NodeGroupRemoteAccessArgs()
-        {
-        }
-    }
-
-    public sealed class NodeGroupRemoteAccessGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `source_security_group_ids` when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
-        /// </summary>
-        [Input("ec2SshKey")]
-        public Input<string>? Ec2SshKey { get; set; }
-
-        [Input("sourceSecurityGroupIds")]
-        private InputList<string>? _sourceSecurityGroupIds;
-
-        /// <summary>
-        /// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2_ssh_key`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
-        /// </summary>
-        public InputList<string> SourceSecurityGroupIds
-        {
-            get => _sourceSecurityGroupIds ?? (_sourceSecurityGroupIds = new InputList<string>());
-            set => _sourceSecurityGroupIds = value;
-        }
-
-        public NodeGroupRemoteAccessGetArgs()
-        {
-        }
-    }
-
-    public sealed class NodeGroupResourcesAutoscalingGroupsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Name of the AutoScaling Group.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public NodeGroupResourcesAutoscalingGroupsGetArgs()
-        {
-        }
-    }
-
-    public sealed class NodeGroupResourcesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("autoscalingGroups")]
-        private InputList<NodeGroupResourcesAutoscalingGroupsGetArgs>? _autoscalingGroups;
-
-        /// <summary>
-        /// List of objects containing information about AutoScaling Groups.
-        /// </summary>
-        public InputList<NodeGroupResourcesAutoscalingGroupsGetArgs> AutoscalingGroups
-        {
-            get => _autoscalingGroups ?? (_autoscalingGroups = new InputList<NodeGroupResourcesAutoscalingGroupsGetArgs>());
-            set => _autoscalingGroups = value;
-        }
-
-        /// <summary>
-        /// Identifier of the remote access EC2 Security Group.
-        /// </summary>
-        [Input("remoteAccessSecurityGroupId")]
-        public Input<string>? RemoteAccessSecurityGroupId { get; set; }
-
-        public NodeGroupResourcesGetArgs()
-        {
-        }
-    }
-
-    public sealed class NodeGroupScalingConfigArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Desired number of worker nodes.
-        /// </summary>
-        [Input("desiredSize", required: true)]
-        public Input<int> DesiredSize { get; set; } = null!;
-
-        /// <summary>
-        /// Maximum number of worker nodes.
-        /// </summary>
-        [Input("maxSize", required: true)]
-        public Input<int> MaxSize { get; set; } = null!;
-
-        /// <summary>
-        /// Minimum number of worker nodes.
-        /// </summary>
-        [Input("minSize", required: true)]
-        public Input<int> MinSize { get; set; } = null!;
-
-        public NodeGroupScalingConfigArgs()
-        {
-        }
-    }
-
-    public sealed class NodeGroupScalingConfigGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Desired number of worker nodes.
-        /// </summary>
-        [Input("desiredSize", required: true)]
-        public Input<int> DesiredSize { get; set; } = null!;
-
-        /// <summary>
-        /// Maximum number of worker nodes.
-        /// </summary>
-        [Input("maxSize", required: true)]
-        public Input<int> MaxSize { get; set; } = null!;
-
-        /// <summary>
-        /// Minimum number of worker nodes.
-        /// </summary>
-        [Input("minSize", required: true)]
-        public Input<int> MinSize { get; set; } = null!;
-
-        public NodeGroupScalingConfigGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class NodeGroupRemoteAccess
-    {
-        /// <summary>
-        /// EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `source_security_group_ids` when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
-        /// </summary>
-        public readonly string? Ec2SshKey;
-        /// <summary>
-        /// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2_ssh_key`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
-        /// </summary>
-        public readonly ImmutableArray<string> SourceSecurityGroupIds;
-
-        [OutputConstructor]
-        private NodeGroupRemoteAccess(
-            string? ec2SshKey,
-            ImmutableArray<string> sourceSecurityGroupIds)
-        {
-            Ec2SshKey = ec2SshKey;
-            SourceSecurityGroupIds = sourceSecurityGroupIds;
-        }
-    }
-
-    [OutputType]
-    public sealed class NodeGroupResources
-    {
-        /// <summary>
-        /// List of objects containing information about AutoScaling Groups.
-        /// </summary>
-        public readonly ImmutableArray<NodeGroupResourcesAutoscalingGroups> AutoscalingGroups;
-        /// <summary>
-        /// Identifier of the remote access EC2 Security Group.
-        /// </summary>
-        public readonly string RemoteAccessSecurityGroupId;
-
-        [OutputConstructor]
-        private NodeGroupResources(
-            ImmutableArray<NodeGroupResourcesAutoscalingGroups> autoscalingGroups,
-            string remoteAccessSecurityGroupId)
-        {
-            AutoscalingGroups = autoscalingGroups;
-            RemoteAccessSecurityGroupId = remoteAccessSecurityGroupId;
-        }
-    }
-
-    [OutputType]
-    public sealed class NodeGroupResourcesAutoscalingGroups
-    {
-        /// <summary>
-        /// Name of the AutoScaling Group.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private NodeGroupResourcesAutoscalingGroups(string name)
-        {
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class NodeGroupScalingConfig
-    {
-        /// <summary>
-        /// Desired number of worker nodes.
-        /// </summary>
-        public readonly int DesiredSize;
-        /// <summary>
-        /// Maximum number of worker nodes.
-        /// </summary>
-        public readonly int MaxSize;
-        /// <summary>
-        /// Minimum number of worker nodes.
-        /// </summary>
-        public readonly int MinSize;
-
-        [OutputConstructor]
-        private NodeGroupScalingConfig(
-            int desiredSize,
-            int maxSize,
-            int minSize)
-        {
-            DesiredSize = desiredSize;
-            MaxSize = maxSize;
-            MinSize = minSize;
-        }
-    }
     }
 }

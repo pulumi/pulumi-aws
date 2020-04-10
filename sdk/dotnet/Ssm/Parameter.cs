@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Ssm
 {
     /// <summary>
     /// Provides an SSM Parameter resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_parameter.html.markdown.
     /// </summary>
     public partial class Parameter : Pulumi.CustomResource
     {
@@ -93,7 +89,7 @@ namespace Pulumi.Aws.Ssm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Parameter(string name, ParameterArgs args, CustomResourceOptions? options = null)
-            : base("aws:ssm/parameter:Parameter", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ssm/parameter:Parameter", name, args ?? new ParameterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
