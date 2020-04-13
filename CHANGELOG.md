@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add support for DotNet 3.1 Lambda Runtime
-* Upgrade to v2.57.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 1.31.0 (2020-04-13)
+* Add support for DotNet 3.1 Lambda Runtime
+* Upgrade to v2.57.0 of the AWS Terraform Provider
 
 ## 1.30.0 (2020-04-03)
 * Upgrade to v2.56.0 of the AWS Terraform Provider
