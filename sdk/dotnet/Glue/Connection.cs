@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Glue
 {
     /// <summary>
     /// Provides a Glue Connection resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_connection.html.markdown.
     /// </summary>
     public partial class Connection : Pulumi.CustomResource
     {
@@ -69,7 +65,7 @@ namespace Pulumi.Aws.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Connection(string name, ConnectionArgs args, CustomResourceOptions? options = null)
-            : base("aws:glue/connection:Connection", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:glue/connection:Connection", name, args ?? new ConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -224,103 +220,5 @@ namespace Pulumi.Aws.Glue
         public ConnectionState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ConnectionPhysicalConnectionRequirementsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
-        /// </summary>
-        [Input("availabilityZone")]
-        public Input<string>? AvailabilityZone { get; set; }
-
-        [Input("securityGroupIdLists")]
-        private InputList<string>? _securityGroupIdLists;
-
-        /// <summary>
-        /// The security group ID list used by the connection.
-        /// </summary>
-        public InputList<string> SecurityGroupIdLists
-        {
-            get => _securityGroupIdLists ?? (_securityGroupIdLists = new InputList<string>());
-            set => _securityGroupIdLists = value;
-        }
-
-        /// <summary>
-        /// The subnet ID used by the connection.
-        /// </summary>
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
-
-        public ConnectionPhysicalConnectionRequirementsArgs()
-        {
-        }
-    }
-
-    public sealed class ConnectionPhysicalConnectionRequirementsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
-        /// </summary>
-        [Input("availabilityZone")]
-        public Input<string>? AvailabilityZone { get; set; }
-
-        [Input("securityGroupIdLists")]
-        private InputList<string>? _securityGroupIdLists;
-
-        /// <summary>
-        /// The security group ID list used by the connection.
-        /// </summary>
-        public InputList<string> SecurityGroupIdLists
-        {
-            get => _securityGroupIdLists ?? (_securityGroupIdLists = new InputList<string>());
-            set => _securityGroupIdLists = value;
-        }
-
-        /// <summary>
-        /// The subnet ID used by the connection.
-        /// </summary>
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
-
-        public ConnectionPhysicalConnectionRequirementsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ConnectionPhysicalConnectionRequirements
-    {
-        /// <summary>
-        /// The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
-        /// </summary>
-        public readonly string? AvailabilityZone;
-        /// <summary>
-        /// The security group ID list used by the connection.
-        /// </summary>
-        public readonly ImmutableArray<string> SecurityGroupIdLists;
-        /// <summary>
-        /// The subnet ID used by the connection.
-        /// </summary>
-        public readonly string? SubnetId;
-
-        [OutputConstructor]
-        private ConnectionPhysicalConnectionRequirements(
-            string? availabilityZone,
-            ImmutableArray<string> securityGroupIdLists,
-            string? subnetId)
-        {
-            AvailabilityZone = availabilityZone;
-            SecurityGroupIdLists = securityGroupIdLists;
-            SubnetId = subnetId;
-        }
-    }
     }
 }

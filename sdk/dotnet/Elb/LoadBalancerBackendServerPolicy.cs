@@ -11,11 +11,6 @@ namespace Pulumi.Aws.Elb
 {
     /// <summary>
     /// Attaches a load balancer policy to an ELB backend server.
-    /// 
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/load_balancer_backend_server_policy.html.markdown.
     /// </summary>
     public partial class LoadBalancerBackendServerPolicy : Pulumi.CustomResource
     {
@@ -46,7 +41,7 @@ namespace Pulumi.Aws.Elb
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LoadBalancerBackendServerPolicy(string name, LoadBalancerBackendServerPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:elb/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:elb/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy", name, args ?? new LoadBalancerBackendServerPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -59,7 +54,7 @@ namespace Pulumi.Aws.Elb
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy" } },
+                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy"} },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

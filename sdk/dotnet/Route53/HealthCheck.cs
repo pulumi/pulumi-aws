@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Route53
 {
     /// <summary>
     /// Provides a Route53 health check.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_health_check.html.markdown.
     /// </summary>
     public partial class HealthCheck : Pulumi.CustomResource
     {
@@ -142,7 +138,7 @@ namespace Pulumi.Aws.Route53
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HealthCheck(string name, HealthCheckArgs args, CustomResourceOptions? options = null)
-            : base("aws:route53/healthCheck:HealthCheck", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:route53/healthCheck:HealthCheck", name, args ?? new HealthCheckArgs(), MakeResourceOptions(options, ""))
         {
         }
 

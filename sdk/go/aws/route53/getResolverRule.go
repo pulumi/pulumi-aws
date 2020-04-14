@@ -4,7 +4,7 @@
 package route53
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // `route53.ResolverRule` provides details about a specific Route53 Resolver rule.

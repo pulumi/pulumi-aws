@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Iam
     /// Attaches a Managed IAM Policy to an IAM group
     /// 
     /// &gt; **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_policy_attachment.markdown.
     /// </summary>
     public partial class GroupPolicyAttachment : Pulumi.CustomResource
     {
@@ -41,7 +37,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GroupPolicyAttachment(string name, GroupPolicyAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:iam/groupPolicyAttachment:GroupPolicyAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iam/groupPolicyAttachment:GroupPolicyAttachment", name, args ?? new GroupPolicyAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 

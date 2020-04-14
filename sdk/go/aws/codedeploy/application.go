@@ -6,7 +6,7 @@ package codedeploy
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a CodeDeploy application to be used as a basis for deployments

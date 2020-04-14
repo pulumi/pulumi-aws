@@ -6,7 +6,7 @@ package wafregional
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a WAF Regional XSS Match Set Resource for use with Application Load Balancer.

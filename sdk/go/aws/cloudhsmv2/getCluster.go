@@ -4,7 +4,7 @@
 package cloudhsmv2
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get information about a CloudHSM v2 cluster

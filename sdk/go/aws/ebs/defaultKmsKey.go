@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a resource to manage the default customer master key (CMK) that your AWS account uses to encrypt EBS volumes.

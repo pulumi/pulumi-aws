@@ -18,10 +18,6 @@ namespace Pulumi.Aws.Ebs
     /// &gt; **NOTE:** Creating an `aws.ebs.DefaultKmsKey` resource does not enable default EBS encryption. Use the `aws.ebs.EncryptionByDefault` to enable default EBS encryption.
     /// 
     /// &gt; **NOTE:** Destroying this resource will reset the default CMK to the account's AWS-managed default CMK for EBS.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_default_kms_key.html.markdown.
     /// </summary>
     public partial class DefaultKmsKey : Pulumi.CustomResource
     {
@@ -40,7 +36,7 @@ namespace Pulumi.Aws.Ebs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DefaultKmsKey(string name, DefaultKmsKeyArgs args, CustomResourceOptions? options = null)
-            : base("aws:ebs/defaultKmsKey:DefaultKmsKey", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ebs/defaultKmsKey:DefaultKmsKey", name, args ?? new DefaultKmsKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

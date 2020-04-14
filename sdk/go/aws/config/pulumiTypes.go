@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type AssumeRole struct {
@@ -17,6 +17,11 @@ type AssumeRole struct {
 	SessionName *string `pulumi:"sessionName"`
 }
 
+// AssumeRoleInput is an input type that accepts AssumeRoleArgs and AssumeRoleOutput values.
+// You can construct a concrete instance of `AssumeRoleInput` via:
+//
+// 		 AssumeRoleArgs{...}
+//
 type AssumeRoleInput interface {
 	pulumi.Input
 
@@ -210,6 +215,11 @@ type Endpoints struct {
 	Xray                   *string `pulumi:"xray"`
 }
 
+// EndpointsInput is an input type that accepts EndpointsArgs and EndpointsOutput values.
+// You can construct a concrete instance of `EndpointsInput` via:
+//
+// 		 EndpointsArgs{...}
+//
 type EndpointsInput interface {
 	pulumi.Input
 
@@ -366,6 +376,11 @@ func (i EndpointsArgs) ToEndpointsOutputWithContext(ctx context.Context) Endpoin
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointsOutput)
 }
 
+// EndpointsArrayInput is an input type that accepts EndpointsArray and EndpointsArrayOutput values.
+// You can construct a concrete instance of `EndpointsArrayInput` via:
+//
+// 		 EndpointsArray{ EndpointsArgs{...} }
+//
 type EndpointsArrayInput interface {
 	pulumi.Input
 
@@ -962,6 +977,11 @@ type IgnoreTags struct {
 	Keys        []string `pulumi:"keys"`
 }
 
+// IgnoreTagsInput is an input type that accepts IgnoreTagsArgs and IgnoreTagsOutput values.
+// You can construct a concrete instance of `IgnoreTagsInput` via:
+//
+// 		 IgnoreTagsArgs{...}
+//
 type IgnoreTagsInput interface {
 	pulumi.Input
 

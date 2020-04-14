@@ -9,11 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sqs
 {
-    /// <summary>
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sqs_queue.html.markdown.
-    /// </summary>
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>
@@ -115,7 +110,7 @@ namespace Pulumi.Aws.Sqs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Queue(string name, QueueArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:sqs/queue:Queue", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:sqs/queue:Queue", name, args ?? new QueueArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -44,7 +44,7 @@ import * as utilities from "./utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_groups.html.markdown.
  */
-export function getAutoscalingGroups(args?: GetAutoscalingGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoscalingGroupsResult> & GetAutoscalingGroupsResult {
+export function getAutoscalingGroups(args?: GetAutoscalingGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoscalingGroupsResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -53,11 +53,9 @@ export function getAutoscalingGroups(args?: GetAutoscalingGroupsArgs, opts?: pul
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetAutoscalingGroupsResult> = pulumi.runtime.invoke("aws:index/getAutoscalingGroups:getAutoscalingGroups", {
+    return pulumi.runtime.invoke("aws:index/getAutoscalingGroups:getAutoscalingGroups", {
         "filters": args.filters,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

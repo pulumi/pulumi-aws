@@ -15,10 +15,6 @@ namespace Pulumi.Aws.Cfg
     /// &gt; **NOTE:** This resource must be created in the Organization master account and rules will include the master account unless its ID is added to the `excluded_accounts` argument.
     /// 
     /// &gt; **NOTE:** Every Organization account except those configured in the `excluded_accounts` argument must have a Configuration Recorder with proper IAM permissions before the rule will successfully create or update. See also the [`aws.cfg.Recorder` resource](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html).
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_organization_managed_rule.html.markdown.
     /// </summary>
     public partial class OrganizationManagedRule : Pulumi.CustomResource
     {
@@ -97,7 +93,7 @@ namespace Pulumi.Aws.Cfg
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OrganizationManagedRule(string name, OrganizationManagedRuleArgs args, CustomResourceOptions? options = null)
-            : base("aws:cfg/organizationManagedRule:OrganizationManagedRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:cfg/organizationManagedRule:OrganizationManagedRule", name, args ?? new OrganizationManagedRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 

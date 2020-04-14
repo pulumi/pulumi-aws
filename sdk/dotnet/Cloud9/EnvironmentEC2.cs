@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Cloud9
 {
     /// <summary>
     /// Provides a Cloud9 EC2 Development Environment.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloud9_environment_ec2.html.markdown.
     /// </summary>
     public partial class EnvironmentEC2 : Pulumi.CustomResource
     {
@@ -81,7 +77,7 @@ namespace Pulumi.Aws.Cloud9
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EnvironmentEC2(string name, EnvironmentEC2Args args, CustomResourceOptions? options = null)
-            : base("aws:cloud9/environmentEC2:EnvironmentEC2", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:cloud9/environmentEC2:EnvironmentEC2", name, args ?? new EnvironmentEC2Args(), MakeResourceOptions(options, ""))
         {
         }
 

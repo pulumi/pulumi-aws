@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Ec2
 {
     /// <summary>
     /// Provides a resource to create a VPC NAT Gateway.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/nat_gateway.html.markdown.
     /// </summary>
     public partial class NatGateway : Pulumi.CustomResource
     {
@@ -63,7 +59,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NatGateway(string name, NatGatewayArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/natGateway:NatGateway", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/natGateway:NatGateway", name, args ?? new NatGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 

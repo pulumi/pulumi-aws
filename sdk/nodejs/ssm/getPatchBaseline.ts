@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_patch_baseline.html.markdown.
  */
-export function getPatchBaseline(args: GetPatchBaselineArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchBaselineResult> & GetPatchBaselineResult {
+export function getPatchBaseline(args: GetPatchBaselineArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchBaselineResult> {
     if (!opts) {
         opts = {}
     }
@@ -34,14 +34,12 @@ export function getPatchBaseline(args: GetPatchBaselineArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetPatchBaselineResult> = pulumi.runtime.invoke("aws:ssm/getPatchBaseline:getPatchBaseline", {
+    return pulumi.runtime.invoke("aws:ssm/getPatchBaseline:getPatchBaseline", {
         "defaultBaseline": args.defaultBaseline,
         "namePrefix": args.namePrefix,
         "operatingSystem": args.operatingSystem,
         "owner": args.owner,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

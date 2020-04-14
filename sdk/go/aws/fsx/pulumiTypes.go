@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type WindowsFileSystemSelfManagedActiveDirectory struct {
@@ -25,6 +25,11 @@ type WindowsFileSystemSelfManagedActiveDirectory struct {
 	Username string `pulumi:"username"`
 }
 
+// WindowsFileSystemSelfManagedActiveDirectoryInput is an input type that accepts WindowsFileSystemSelfManagedActiveDirectoryArgs and WindowsFileSystemSelfManagedActiveDirectoryOutput values.
+// You can construct a concrete instance of `WindowsFileSystemSelfManagedActiveDirectoryInput` via:
+//
+// 		 WindowsFileSystemSelfManagedActiveDirectoryArgs{...}
+//
 type WindowsFileSystemSelfManagedActiveDirectoryInput interface {
 	pulumi.Input
 
@@ -67,6 +72,15 @@ func (i WindowsFileSystemSelfManagedActiveDirectoryArgs) ToWindowsFileSystemSelf
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemSelfManagedActiveDirectoryOutput).ToWindowsFileSystemSelfManagedActiveDirectoryPtrOutputWithContext(ctx)
 }
 
+// WindowsFileSystemSelfManagedActiveDirectoryPtrInput is an input type that accepts WindowsFileSystemSelfManagedActiveDirectoryArgs, WindowsFileSystemSelfManagedActiveDirectoryPtr and WindowsFileSystemSelfManagedActiveDirectoryPtrOutput values.
+// You can construct a concrete instance of `WindowsFileSystemSelfManagedActiveDirectoryPtrInput` via:
+//
+// 		 WindowsFileSystemSelfManagedActiveDirectoryArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type WindowsFileSystemSelfManagedActiveDirectoryPtrInput interface {
 	pulumi.Input
 

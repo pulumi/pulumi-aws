@@ -18,10 +18,6 @@ namespace Pulumi.Aws.Ec2
     /// a VPC Endpoint resource with `route_table_ids` and `subnet_ids` attributes.
     /// Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
     /// Doing so will cause a conflict of associations and will overwrite the association.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint.html.markdown.
     /// </summary>
     public partial class VpcEndpoint : Pulumi.CustomResource
     {
@@ -41,7 +37,7 @@ namespace Pulumi.Aws.Ec2
         /// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
         /// </summary>
         [Output("dnsEntries")]
-        public Output<ImmutableArray<Outputs.VpcEndpointDnsEntries>> DnsEntries { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VpcEndpointDnsEntry>> DnsEntries { get; private set; } = null!;
 
         /// <summary>
         /// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
@@ -137,7 +133,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpcEndpoint(string name, VpcEndpointArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpcEndpoint:VpcEndpoint", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpcEndpoint:VpcEndpoint", name, args ?? new VpcEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -285,14 +281,14 @@ namespace Pulumi.Aws.Ec2
         }
 
         [Input("dnsEntries")]
-        private InputList<Inputs.VpcEndpointDnsEntriesGetArgs>? _dnsEntries;
+        private InputList<Inputs.VpcEndpointDnsEntryGetArgs>? _dnsEntries;
 
         /// <summary>
         /// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
         /// </summary>
-        public InputList<Inputs.VpcEndpointDnsEntriesGetArgs> DnsEntries
+        public InputList<Inputs.VpcEndpointDnsEntryGetArgs> DnsEntries
         {
-            get => _dnsEntries ?? (_dnsEntries = new InputList<Inputs.VpcEndpointDnsEntriesGetArgs>());
+            get => _dnsEntries ?? (_dnsEntries = new InputList<Inputs.VpcEndpointDnsEntryGetArgs>());
             set => _dnsEntries = value;
         }
 
@@ -414,54 +410,5 @@ namespace Pulumi.Aws.Ec2
         public VpcEndpointState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class VpcEndpointDnsEntriesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The DNS name.
-        /// </summary>
-        [Input("dnsName")]
-        public Input<string>? DnsName { get; set; }
-
-        /// <summary>
-        /// The ID of the private hosted zone.
-        /// </summary>
-        [Input("hostedZoneId")]
-        public Input<string>? HostedZoneId { get; set; }
-
-        public VpcEndpointDnsEntriesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class VpcEndpointDnsEntries
-    {
-        /// <summary>
-        /// The DNS name.
-        /// </summary>
-        public readonly string DnsName;
-        /// <summary>
-        /// The ID of the private hosted zone.
-        /// </summary>
-        public readonly string HostedZoneId;
-
-        [OutputConstructor]
-        private VpcEndpointDnsEntries(
-            string dnsName,
-            string hostedZoneId)
-        {
-            DnsName = dnsName;
-            HostedZoneId = hostedZoneId;
-        }
-    }
     }
 }

@@ -9,21 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// IAM role. By using this data source, you can reference IAM role
-        /// properties without having to hard code ARNs as input.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_role.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetRole.InvokeAsync() instead")]
-        public static Task<GetRoleResult> GetRole(GetRoleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("aws:iam/getRole:getRole", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetRole
     {
         /// <summary>
@@ -31,13 +16,13 @@ namespace Pulumi.Aws.Iam
         /// IAM role. By using this data source, you can reference IAM role
         /// properties without having to hard code ARNs as input.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_role.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRoleResult> InvokeAsync(GetRoleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("aws:iam/getRole:getRole", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("aws:iam/getRole:getRole", args ?? new GetRoleArgs(), options.WithVersion());
     }
+
 
     public sealed class GetRoleArgs : Pulumi.InvokeArgs
     {
@@ -64,6 +49,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
+
     [OutputType]
     public sealed class GetRoleResult
     {
@@ -83,6 +69,10 @@ namespace Pulumi.Aws.Iam
         /// Description for the role.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Maximum session duration.
         /// </summary>
@@ -104,36 +94,42 @@ namespace Pulumi.Aws.Iam
         /// The stable and unique string identifying the role.
         /// </summary>
         public readonly string UniqueId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetRoleResult(
             string arn,
+
             string assumeRolePolicy,
+
             string createDate,
+
             string description,
+
+            string id,
+
             int maxSessionDuration,
+
             string name,
+
             string path,
+
             string permissionsBoundary,
+
             ImmutableDictionary<string, object> tags,
-            string uniqueId,
-            string id)
+
+            string uniqueId)
         {
             Arn = arn;
             AssumeRolePolicy = assumeRolePolicy;
             CreateDate = createDate;
             Description = description;
+            Id = id;
             MaxSessionDuration = maxSessionDuration;
             Name = name;
             Path = path;
             PermissionsBoundary = permissionsBoundary;
             Tags = tags;
             UniqueId = uniqueId;
-            Id = id;
         }
     }
 }

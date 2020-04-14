@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dx_gateway.html.markdown.
  */
-export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> & GetGatewayResult {
+export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
     if (!opts) {
         opts = {}
     }
@@ -30,11 +30,9 @@ export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetGatewayResult> = pulumi.runtime.invoke("aws:directconnect/getGateway:getGateway", {
+    return pulumi.runtime.invoke("aws:directconnect/getGateway:getGateway", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

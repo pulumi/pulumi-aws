@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type AppCampaignHook struct {
@@ -19,6 +19,11 @@ type AppCampaignHook struct {
 	WebUrl *string `pulumi:"webUrl"`
 }
 
+// AppCampaignHookInput is an input type that accepts AppCampaignHookArgs and AppCampaignHookOutput values.
+// You can construct a concrete instance of `AppCampaignHookInput` via:
+//
+// 		 AppCampaignHookArgs{...}
+//
 type AppCampaignHookInput interface {
 	pulumi.Input
 
@@ -55,6 +60,15 @@ func (i AppCampaignHookArgs) ToAppCampaignHookPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AppCampaignHookOutput).ToAppCampaignHookPtrOutputWithContext(ctx)
 }
 
+// AppCampaignHookPtrInput is an input type that accepts AppCampaignHookArgs, AppCampaignHookPtr and AppCampaignHookPtrOutput values.
+// You can construct a concrete instance of `AppCampaignHookPtrInput` via:
+//
+// 		 AppCampaignHookArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AppCampaignHookPtrInput interface {
 	pulumi.Input
 
@@ -163,6 +177,11 @@ type AppLimits struct {
 	Total *int `pulumi:"total"`
 }
 
+// AppLimitsInput is an input type that accepts AppLimitsArgs and AppLimitsOutput values.
+// You can construct a concrete instance of `AppLimitsInput` via:
+//
+// 		 AppLimitsArgs{...}
+//
 type AppLimitsInput interface {
 	pulumi.Input
 
@@ -201,6 +220,15 @@ func (i AppLimitsArgs) ToAppLimitsPtrOutputWithContext(ctx context.Context) AppL
 	return pulumi.ToOutputWithContext(ctx, i).(AppLimitsOutput).ToAppLimitsPtrOutputWithContext(ctx)
 }
 
+// AppLimitsPtrInput is an input type that accepts AppLimitsArgs, AppLimitsPtr and AppLimitsPtrOutput values.
+// You can construct a concrete instance of `AppLimitsPtrInput` via:
+//
+// 		 AppLimitsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AppLimitsPtrInput interface {
 	pulumi.Input
 
@@ -315,6 +343,11 @@ type AppQuietTime struct {
 	Start *string `pulumi:"start"`
 }
 
+// AppQuietTimeInput is an input type that accepts AppQuietTimeArgs and AppQuietTimeOutput values.
+// You can construct a concrete instance of `AppQuietTimeInput` via:
+//
+// 		 AppQuietTimeArgs{...}
+//
 type AppQuietTimeInput interface {
 	pulumi.Input
 
@@ -349,6 +382,15 @@ func (i AppQuietTimeArgs) ToAppQuietTimePtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AppQuietTimeOutput).ToAppQuietTimePtrOutputWithContext(ctx)
 }
 
+// AppQuietTimePtrInput is an input type that accepts AppQuietTimeArgs, AppQuietTimePtr and AppQuietTimePtrOutput values.
+// You can construct a concrete instance of `AppQuietTimePtrInput` via:
+//
+// 		 AppQuietTimeArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AppQuietTimePtrInput interface {
 	pulumi.Input
 

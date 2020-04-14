@@ -9,21 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// IAM instance profile. By using this data source, you can reference IAM
-        /// instance profile properties without having to hard code ARNs as input.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_instance_profile.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetInstanceProfile.InvokeAsync() instead")]
-        public static Task<GetInstanceProfileResult> GetInstanceProfile(GetInstanceProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfileResult>("aws:iam/getInstanceProfile:getInstanceProfile", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetInstanceProfile
     {
         /// <summary>
@@ -31,13 +16,13 @@ namespace Pulumi.Aws.Iam
         /// IAM instance profile. By using this data source, you can reference IAM
         /// instance profile properties without having to hard code ARNs as input.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_instance_profile.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetInstanceProfileResult> InvokeAsync(GetInstanceProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfileResult>("aws:iam/getInstanceProfile:getInstanceProfile", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfileResult>("aws:iam/getInstanceProfile:getInstanceProfile", args ?? new GetInstanceProfileArgs(), options.WithVersion());
     }
+
 
     public sealed class GetInstanceProfileArgs : Pulumi.InvokeArgs
     {
@@ -52,6 +37,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
+
     [OutputType]
     public sealed class GetInstanceProfileResult
     {
@@ -64,6 +50,10 @@ namespace Pulumi.Aws.Iam
         /// was created.
         /// </summary>
         public readonly string CreateDate;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// The path to the instance profile.
@@ -81,30 +71,33 @@ namespace Pulumi.Aws.Iam
         /// The role name associated with this instance profile.
         /// </summary>
         public readonly string RoleName;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetInstanceProfileResult(
             string arn,
+
             string createDate,
+
+            string id,
+
             string name,
+
             string path,
+
             string roleArn,
+
             string roleId,
-            string roleName,
-            string id)
+
+            string roleName)
         {
             Arn = arn;
             CreateDate = createDate;
+            Id = id;
             Name = name;
             Path = path;
             RoleArn = roleArn;
             RoleId = roleId;
             RoleName = roleName;
-            Id = id;
         }
     }
 }

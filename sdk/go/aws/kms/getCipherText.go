@@ -4,7 +4,7 @@
 package kms
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // The KMS ciphertext data source allows you to encrypt plaintext into ciphertext

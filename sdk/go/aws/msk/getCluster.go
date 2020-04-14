@@ -4,7 +4,7 @@
 package msk
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Get information on an Amazon MSK Cluster.

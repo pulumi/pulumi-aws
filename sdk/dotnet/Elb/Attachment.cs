@@ -18,10 +18,6 @@ namespace Pulumi.Aws.Elb
     /// `instances` defined in-line. At this time you cannot use an ELB with in-line
     /// instances in conjunction with an ELB Attachment resource. Doing so will cause a
     /// conflict and will overwrite attachments.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elb_attachment.html.markdown.
     /// </summary>
     public partial class Attachment : Pulumi.CustomResource
     {
@@ -46,7 +42,7 @@ namespace Pulumi.Aws.Elb
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Attachment(string name, AttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws:elb/attachment:Attachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:elb/attachment:Attachment", name, args ?? new AttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -59,7 +55,7 @@ namespace Pulumi.Aws.Elb
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:elasticloadbalancing/attachment:Attachment" } },
+                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:elasticloadbalancing/attachment:Attachment"} },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -4,7 +4,7 @@
 package waf
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // `waf.WebAcl` Retrieves a WAF Web ACL Resource Id.

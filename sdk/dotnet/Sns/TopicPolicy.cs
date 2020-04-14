@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Sns
     /// Provides an SNS topic policy resource
     /// 
     /// &gt; **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_topic_policy.html.markdown.
     /// </summary>
     public partial class TopicPolicy : Pulumi.CustomResource
     {
@@ -41,7 +37,7 @@ namespace Pulumi.Aws.Sns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TopicPolicy(string name, TopicPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:sns/topicPolicy:TopicPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:sns/topicPolicy:TopicPolicy", name, args ?? new TopicPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

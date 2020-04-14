@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type PlanRule struct {
@@ -27,6 +27,11 @@ type PlanRule struct {
 	TargetVaultName string `pulumi:"targetVaultName"`
 }
 
+// PlanRuleInput is an input type that accepts PlanRuleArgs and PlanRuleOutput values.
+// You can construct a concrete instance of `PlanRuleInput` via:
+//
+// 		 PlanRuleArgs{...}
+//
 type PlanRuleInput interface {
 	pulumi.Input
 
@@ -63,6 +68,11 @@ func (i PlanRuleArgs) ToPlanRuleOutputWithContext(ctx context.Context) PlanRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(PlanRuleOutput)
 }
 
+// PlanRuleArrayInput is an input type that accepts PlanRuleArray and PlanRuleArrayOutput values.
+// You can construct a concrete instance of `PlanRuleArrayInput` via:
+//
+// 		 PlanRuleArray{ PlanRuleArgs{...} }
+//
 type PlanRuleArrayInput interface {
 	pulumi.Input
 
@@ -160,6 +170,11 @@ type PlanRuleLifecycle struct {
 	DeleteAfter *int `pulumi:"deleteAfter"`
 }
 
+// PlanRuleLifecycleInput is an input type that accepts PlanRuleLifecycleArgs and PlanRuleLifecycleOutput values.
+// You can construct a concrete instance of `PlanRuleLifecycleInput` via:
+//
+// 		 PlanRuleLifecycleArgs{...}
+//
 type PlanRuleLifecycleInput interface {
 	pulumi.Input
 
@@ -194,6 +209,15 @@ func (i PlanRuleLifecycleArgs) ToPlanRuleLifecyclePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PlanRuleLifecycleOutput).ToPlanRuleLifecyclePtrOutputWithContext(ctx)
 }
 
+// PlanRuleLifecyclePtrInput is an input type that accepts PlanRuleLifecycleArgs, PlanRuleLifecyclePtr and PlanRuleLifecyclePtrOutput values.
+// You can construct a concrete instance of `PlanRuleLifecyclePtrInput` via:
+//
+// 		 PlanRuleLifecycleArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type PlanRuleLifecyclePtrInput interface {
 	pulumi.Input
 
@@ -290,6 +314,11 @@ type SelectionSelectionTag struct {
 	Value string `pulumi:"value"`
 }
 
+// SelectionSelectionTagInput is an input type that accepts SelectionSelectionTagArgs and SelectionSelectionTagOutput values.
+// You can construct a concrete instance of `SelectionSelectionTagInput` via:
+//
+// 		 SelectionSelectionTagArgs{...}
+//
 type SelectionSelectionTagInput interface {
 	pulumi.Input
 
@@ -318,6 +347,11 @@ func (i SelectionSelectionTagArgs) ToSelectionSelectionTagOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionSelectionTagOutput)
 }
 
+// SelectionSelectionTagArrayInput is an input type that accepts SelectionSelectionTagArray and SelectionSelectionTagArrayOutput values.
+// You can construct a concrete instance of `SelectionSelectionTagArrayInput` via:
+//
+// 		 SelectionSelectionTagArray{ SelectionSelectionTagArgs{...} }
+//
 type SelectionSelectionTagArrayInput interface {
 	pulumi.Input
 

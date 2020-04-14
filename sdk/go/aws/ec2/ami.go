@@ -6,7 +6,7 @@ package ec2
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // The AMI resource allows the creation and management of a completely-custom

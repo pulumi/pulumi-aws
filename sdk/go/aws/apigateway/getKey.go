@@ -4,7 +4,7 @@
 package apigateway
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get the name and value of a pre-existing API Key, for

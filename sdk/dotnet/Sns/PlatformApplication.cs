@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Sns
 {
     /// <summary>
     /// Provides an SNS platform application resource
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_platform_application.html.markdown.
     /// </summary>
     public partial class PlatformApplication : Pulumi.CustomResource
     {
@@ -99,7 +95,7 @@ namespace Pulumi.Aws.Sns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PlatformApplication(string name, PlatformApplicationArgs args, CustomResourceOptions? options = null)
-            : base("aws:sns/platformApplication:PlatformApplication", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:sns/platformApplication:PlatformApplication", name, args ?? new PlatformApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

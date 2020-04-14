@@ -12,10 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a resource to create an association between a route table and a subnet or a route table and an
     /// internet gateway or virtual private gateway.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route_table_association.html.markdown.
     /// </summary>
     public partial class RouteTableAssociation : Pulumi.CustomResource
     {
@@ -46,7 +42,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RouteTableAssociation(string name, RouteTableAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/routeTableAssociation:RouteTableAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/routeTableAssociation:RouteTableAssociation", name, args ?? new RouteTableAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudfront_distribution.html.markdown.
  */
-export function getDistribution(args: GetDistributionArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionResult> & GetDistributionResult {
+export function getDistribution(args: GetDistributionArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,12 +32,10 @@ export function getDistribution(args: GetDistributionArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDistributionResult> = pulumi.runtime.invoke("aws:cloudfront/getDistribution:getDistribution", {
+    return pulumi.runtime.invoke("aws:cloudfront/getDistribution:getDistribution", {
         "id": args.id,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

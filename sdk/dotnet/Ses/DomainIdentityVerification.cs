@@ -17,10 +17,6 @@ namespace Pulumi.Aws.Ses
     /// deploy the required DNS verification records, and wait for verification to complete.
     /// 
     /// &gt; **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_identity_verification.html.markdown.
     /// </summary>
     public partial class DomainIdentityVerification : Pulumi.CustomResource
     {
@@ -45,7 +41,7 @@ namespace Pulumi.Aws.Ses
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DomainIdentityVerification(string name, DomainIdentityVerificationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ses/domainIdentityVerification:DomainIdentityVerification", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ses/domainIdentityVerification:DomainIdentityVerification", name, args ?? new DomainIdentityVerificationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

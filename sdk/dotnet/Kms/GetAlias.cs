@@ -9,21 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Kms
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get the ARN of a KMS key alias.
-        /// By using this data source, you can reference key alias
-        /// without having to hard code the ARN as input.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_alias.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetAlias.InvokeAsync() instead")]
-        public static Task<GetAliasResult> GetAlias(GetAliasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:kms/getAlias:getAlias", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAlias
     {
         /// <summary>
@@ -31,13 +16,13 @@ namespace Pulumi.Aws.Kms
         /// By using this data source, you can reference key alias
         /// without having to hard code the ARN as input.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_alias.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:kms/getAlias:getAlias", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:kms/getAlias:getAlias", args ?? new GetAliasArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAliasArgs : Pulumi.InvokeArgs
     {
@@ -52,6 +37,7 @@ namespace Pulumi.Aws.Kms
         }
     }
 
+
     [OutputType]
     public sealed class GetAliasResult
     {
@@ -59,6 +45,10 @@ namespace Pulumi.Aws.Kms
         /// The Amazon Resource Name(ARN) of the key alias.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// ARN pointed to by the alias.
@@ -68,24 +58,24 @@ namespace Pulumi.Aws.Kms
         /// Key identifier pointed to by the alias.
         /// </summary>
         public readonly string TargetKeyId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAliasResult(
             string arn,
+
+            string id,
+
             string name,
+
             string targetKeyArn,
-            string targetKeyId,
-            string id)
+
+            string targetKeyId)
         {
             Arn = arn;
+            Id = id;
             Name = name;
             TargetKeyArn = targetKeyArn;
             TargetKeyId = targetKeyId;
-            Id = id;
         }
     }
 }

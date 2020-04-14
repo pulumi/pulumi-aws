@@ -4,7 +4,7 @@
 package elasticbeanstalk
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get the name of a elastic beanstalk solution stack.

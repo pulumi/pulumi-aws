@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Msk
     /// Manages an Amazon Managed Streaming for Kafka configuration. More information can be found on the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration.html).
     /// 
     /// &gt; **NOTE:** The API does not support deleting MSK configurations. Removing this resource will only remove the this provider state for it.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/msk_configuration.html.markdown.
     /// </summary>
     public partial class Configuration : Pulumi.CustomResource
     {
@@ -65,7 +61,7 @@ namespace Pulumi.Aws.Msk
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Configuration(string name, ConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("aws:msk/configuration:Configuration", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:msk/configuration:Configuration", name, args ?? new ConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -4,7 +4,7 @@
 package wafregional
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // `wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.

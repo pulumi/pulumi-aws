@@ -4,7 +4,7 @@
 package acmpca
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).

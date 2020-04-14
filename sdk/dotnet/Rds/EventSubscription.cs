@@ -20,8 +20,6 @@ namespace Pulumi.Aws.Rds
     /// * `id` - The name of the RDS event notification subscription
     /// * `arn` - The Amazon Resource Name of the RDS event notification subscription
     /// * `customer_aws_id` - The AWS customer account associated with the RDS event notification subscription
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_event_subscription.html.markdown.
     /// </summary>
     public partial class EventSubscription : Pulumi.CustomResource
     {
@@ -88,7 +86,7 @@ namespace Pulumi.Aws.Rds
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventSubscription(string name, EventSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("aws:rds/eventSubscription:EventSubscription", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:rds/eventSubscription:EventSubscription", name, args ?? new EventSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 

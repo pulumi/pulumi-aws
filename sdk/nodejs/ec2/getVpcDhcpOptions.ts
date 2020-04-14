@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_dhcp_options.html.markdown.
  */
-export function getVpcDhcpOptions(args?: GetVpcDhcpOptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcDhcpOptionsResult> & GetVpcDhcpOptionsResult {
+export function getVpcDhcpOptions(args?: GetVpcDhcpOptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcDhcpOptionsResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -53,13 +53,11 @@ export function getVpcDhcpOptions(args?: GetVpcDhcpOptionsArgs, opts?: pulumi.In
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetVpcDhcpOptionsResult> = pulumi.runtime.invoke("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", {
+    return pulumi.runtime.invoke("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", {
         "dhcpOptionsId": args.dhcpOptionsId,
         "filters": args.filters,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

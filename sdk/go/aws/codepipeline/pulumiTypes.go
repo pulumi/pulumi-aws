@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type PipelineArtifactStore struct {
@@ -21,6 +21,11 @@ type PipelineArtifactStore struct {
 	Type string `pulumi:"type"`
 }
 
+// PipelineArtifactStoreInput is an input type that accepts PipelineArtifactStoreArgs and PipelineArtifactStoreOutput values.
+// You can construct a concrete instance of `PipelineArtifactStoreInput` via:
+//
+// 		 PipelineArtifactStoreArgs{...}
+//
 type PipelineArtifactStoreInput interface {
 	pulumi.Input
 
@@ -59,6 +64,15 @@ func (i PipelineArtifactStoreArgs) ToPipelineArtifactStorePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineArtifactStoreOutput).ToPipelineArtifactStorePtrOutputWithContext(ctx)
 }
 
+// PipelineArtifactStorePtrInput is an input type that accepts PipelineArtifactStoreArgs, PipelineArtifactStorePtr and PipelineArtifactStorePtrOutput values.
+// You can construct a concrete instance of `PipelineArtifactStorePtrInput` via:
+//
+// 		 PipelineArtifactStoreArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type PipelineArtifactStorePtrInput interface {
 	pulumi.Input
 
@@ -173,6 +187,11 @@ type PipelineArtifactStoreEncryptionKey struct {
 	Type string `pulumi:"type"`
 }
 
+// PipelineArtifactStoreEncryptionKeyInput is an input type that accepts PipelineArtifactStoreEncryptionKeyArgs and PipelineArtifactStoreEncryptionKeyOutput values.
+// You can construct a concrete instance of `PipelineArtifactStoreEncryptionKeyInput` via:
+//
+// 		 PipelineArtifactStoreEncryptionKeyArgs{...}
+//
 type PipelineArtifactStoreEncryptionKeyInput interface {
 	pulumi.Input
 
@@ -207,6 +226,15 @@ func (i PipelineArtifactStoreEncryptionKeyArgs) ToPipelineArtifactStoreEncryptio
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineArtifactStoreEncryptionKeyOutput).ToPipelineArtifactStoreEncryptionKeyPtrOutputWithContext(ctx)
 }
 
+// PipelineArtifactStoreEncryptionKeyPtrInput is an input type that accepts PipelineArtifactStoreEncryptionKeyArgs, PipelineArtifactStoreEncryptionKeyPtr and PipelineArtifactStoreEncryptionKeyPtrOutput values.
+// You can construct a concrete instance of `PipelineArtifactStoreEncryptionKeyPtrInput` via:
+//
+// 		 PipelineArtifactStoreEncryptionKeyArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type PipelineArtifactStoreEncryptionKeyPtrInput interface {
 	pulumi.Input
 
@@ -301,6 +329,11 @@ type PipelineStage struct {
 	Name string `pulumi:"name"`
 }
 
+// PipelineStageInput is an input type that accepts PipelineStageArgs and PipelineStageOutput values.
+// You can construct a concrete instance of `PipelineStageInput` via:
+//
+// 		 PipelineStageArgs{...}
+//
 type PipelineStageInput interface {
 	pulumi.Input
 
@@ -327,6 +360,11 @@ func (i PipelineStageArgs) ToPipelineStageOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOutput)
 }
 
+// PipelineStageArrayInput is an input type that accepts PipelineStageArray and PipelineStageArrayOutput values.
+// You can construct a concrete instance of `PipelineStageArrayInput` via:
+//
+// 		 PipelineStageArray{ PipelineStageArgs{...} }
+//
 type PipelineStageArrayInput interface {
 	pulumi.Input
 
@@ -417,6 +455,11 @@ type PipelineStageAction struct {
 	Version string `pulumi:"version"`
 }
 
+// PipelineStageActionInput is an input type that accepts PipelineStageActionArgs and PipelineStageActionOutput values.
+// You can construct a concrete instance of `PipelineStageActionInput` via:
+//
+// 		 PipelineStageActionArgs{...}
+//
 type PipelineStageActionInput interface {
 	pulumi.Input
 
@@ -461,6 +504,11 @@ func (i PipelineStageActionArgs) ToPipelineStageActionOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageActionOutput)
 }
 
+// PipelineStageActionArrayInput is an input type that accepts PipelineStageActionArray and PipelineStageActionArrayOutput values.
+// You can construct a concrete instance of `PipelineStageActionArrayInput` via:
+//
+// 		 PipelineStageActionArray{ PipelineStageActionArgs{...} }
+//
 type PipelineStageActionArrayInput interface {
 	pulumi.Input
 
@@ -578,6 +626,11 @@ type WebhookAuthenticationConfiguration struct {
 	SecretToken *string `pulumi:"secretToken"`
 }
 
+// WebhookAuthenticationConfigurationInput is an input type that accepts WebhookAuthenticationConfigurationArgs and WebhookAuthenticationConfigurationOutput values.
+// You can construct a concrete instance of `WebhookAuthenticationConfigurationInput` via:
+//
+// 		 WebhookAuthenticationConfigurationArgs{...}
+//
 type WebhookAuthenticationConfigurationInput interface {
 	pulumi.Input
 
@@ -612,6 +665,15 @@ func (i WebhookAuthenticationConfigurationArgs) ToWebhookAuthenticationConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookAuthenticationConfigurationOutput).ToWebhookAuthenticationConfigurationPtrOutputWithContext(ctx)
 }
 
+// WebhookAuthenticationConfigurationPtrInput is an input type that accepts WebhookAuthenticationConfigurationArgs, WebhookAuthenticationConfigurationPtr and WebhookAuthenticationConfigurationPtrOutput values.
+// You can construct a concrete instance of `WebhookAuthenticationConfigurationPtrInput` via:
+//
+// 		 WebhookAuthenticationConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type WebhookAuthenticationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -706,6 +768,11 @@ type WebhookFilter struct {
 	MatchEquals string `pulumi:"matchEquals"`
 }
 
+// WebhookFilterInput is an input type that accepts WebhookFilterArgs and WebhookFilterOutput values.
+// You can construct a concrete instance of `WebhookFilterInput` via:
+//
+// 		 WebhookFilterArgs{...}
+//
 type WebhookFilterInput interface {
 	pulumi.Input
 
@@ -732,6 +799,11 @@ func (i WebhookFilterArgs) ToWebhookFilterOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookFilterOutput)
 }
 
+// WebhookFilterArrayInput is an input type that accepts WebhookFilterArray and WebhookFilterArrayOutput values.
+// You can construct a concrete instance of `WebhookFilterArrayInput` via:
+//
+// 		 WebhookFilterArray{ WebhookFilterArgs{...} }
+//
 type WebhookFilterArrayInput interface {
 	pulumi.Input
 

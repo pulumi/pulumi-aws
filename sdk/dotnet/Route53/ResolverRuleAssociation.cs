@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Route53
 {
     /// <summary>
     /// Provides a Route53 Resolver rule association.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_rule_association.html.markdown.
     /// </summary>
     public partial class ResolverRuleAssociation : Pulumi.CustomResource
     {
@@ -45,7 +41,7 @@ namespace Pulumi.Aws.Route53
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResolverRuleAssociation(string name, ResolverRuleAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws:route53/resolverRuleAssociation:ResolverRuleAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:route53/resolverRuleAssociation:ResolverRuleAssociation", name, args ?? new ResolverRuleAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

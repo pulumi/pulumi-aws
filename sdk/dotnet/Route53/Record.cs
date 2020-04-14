@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Route53
 {
     /// <summary>
     /// Provides a Route53 record resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_record.html.markdown.
     /// </summary>
     public partial class Record : Pulumi.CustomResource
     {
@@ -23,7 +19,7 @@ namespace Pulumi.Aws.Route53
         /// Alias record documented below.
         /// </summary>
         [Output("aliases")]
-        public Output<ImmutableArray<Outputs.RecordAliases>> Aliases { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RecordAlias>> Aliases { get; private set; } = null!;
 
         /// <summary>
         /// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
@@ -35,7 +31,7 @@ namespace Pulumi.Aws.Route53
         /// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
         /// </summary>
         [Output("failoverRoutingPolicies")]
-        public Output<ImmutableArray<Outputs.RecordFailoverRoutingPolicies>> FailoverRoutingPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RecordFailoverRoutingPolicy>> FailoverRoutingPolicies { get; private set; } = null!;
 
         /// <summary>
         /// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
@@ -47,7 +43,7 @@ namespace Pulumi.Aws.Route53
         /// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
         /// </summary>
         [Output("geolocationRoutingPolicies")]
-        public Output<ImmutableArray<Outputs.RecordGeolocationRoutingPolicies>> GeolocationRoutingPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RecordGeolocationRoutingPolicy>> GeolocationRoutingPolicies { get; private set; } = null!;
 
         /// <summary>
         /// The health check the record should be associated with.
@@ -59,7 +55,7 @@ namespace Pulumi.Aws.Route53
         /// A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
         /// </summary>
         [Output("latencyRoutingPolicies")]
-        public Output<ImmutableArray<Outputs.RecordLatencyRoutingPolicies>> LatencyRoutingPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RecordLatencyRoutingPolicy>> LatencyRoutingPolicies { get; private set; } = null!;
 
         /// <summary>
         /// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
@@ -101,7 +97,7 @@ namespace Pulumi.Aws.Route53
         /// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
         /// </summary>
         [Output("weightedRoutingPolicies")]
-        public Output<ImmutableArray<Outputs.RecordWeightedRoutingPolicies>> WeightedRoutingPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RecordWeightedRoutingPolicy>> WeightedRoutingPolicies { get; private set; } = null!;
 
         /// <summary>
         /// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
@@ -118,7 +114,7 @@ namespace Pulumi.Aws.Route53
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Record(string name, RecordArgs args, CustomResourceOptions? options = null)
-            : base("aws:route53/record:Record", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:route53/record:Record", name, args ?? new RecordArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -156,15 +152,15 @@ namespace Pulumi.Aws.Route53
     public sealed class RecordArgs : Pulumi.ResourceArgs
     {
         [Input("aliases")]
-        private InputList<Inputs.RecordAliasesArgs>? _aliases;
+        private InputList<Inputs.RecordAliasArgs>? _aliases;
 
         /// <summary>
         /// An alias block. Conflicts with `ttl` &amp; `records`.
         /// Alias record documented below.
         /// </summary>
-        public InputList<Inputs.RecordAliasesArgs> Aliases
+        public InputList<Inputs.RecordAliasArgs> Aliases
         {
-            get => _aliases ?? (_aliases = new InputList<Inputs.RecordAliasesArgs>());
+            get => _aliases ?? (_aliases = new InputList<Inputs.RecordAliasArgs>());
             set => _aliases = value;
         }
 
@@ -175,26 +171,26 @@ namespace Pulumi.Aws.Route53
         public Input<bool>? AllowOverwrite { get; set; }
 
         [Input("failoverRoutingPolicies")]
-        private InputList<Inputs.RecordFailoverRoutingPoliciesArgs>? _failoverRoutingPolicies;
+        private InputList<Inputs.RecordFailoverRoutingPolicyArgs>? _failoverRoutingPolicies;
 
         /// <summary>
         /// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        public InputList<Inputs.RecordFailoverRoutingPoliciesArgs> FailoverRoutingPolicies
+        public InputList<Inputs.RecordFailoverRoutingPolicyArgs> FailoverRoutingPolicies
         {
-            get => _failoverRoutingPolicies ?? (_failoverRoutingPolicies = new InputList<Inputs.RecordFailoverRoutingPoliciesArgs>());
+            get => _failoverRoutingPolicies ?? (_failoverRoutingPolicies = new InputList<Inputs.RecordFailoverRoutingPolicyArgs>());
             set => _failoverRoutingPolicies = value;
         }
 
         [Input("geolocationRoutingPolicies")]
-        private InputList<Inputs.RecordGeolocationRoutingPoliciesArgs>? _geolocationRoutingPolicies;
+        private InputList<Inputs.RecordGeolocationRoutingPolicyArgs>? _geolocationRoutingPolicies;
 
         /// <summary>
         /// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        public InputList<Inputs.RecordGeolocationRoutingPoliciesArgs> GeolocationRoutingPolicies
+        public InputList<Inputs.RecordGeolocationRoutingPolicyArgs> GeolocationRoutingPolicies
         {
-            get => _geolocationRoutingPolicies ?? (_geolocationRoutingPolicies = new InputList<Inputs.RecordGeolocationRoutingPoliciesArgs>());
+            get => _geolocationRoutingPolicies ?? (_geolocationRoutingPolicies = new InputList<Inputs.RecordGeolocationRoutingPolicyArgs>());
             set => _geolocationRoutingPolicies = value;
         }
 
@@ -205,14 +201,14 @@ namespace Pulumi.Aws.Route53
         public Input<string>? HealthCheckId { get; set; }
 
         [Input("latencyRoutingPolicies")]
-        private InputList<Inputs.RecordLatencyRoutingPoliciesArgs>? _latencyRoutingPolicies;
+        private InputList<Inputs.RecordLatencyRoutingPolicyArgs>? _latencyRoutingPolicies;
 
         /// <summary>
         /// A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        public InputList<Inputs.RecordLatencyRoutingPoliciesArgs> LatencyRoutingPolicies
+        public InputList<Inputs.RecordLatencyRoutingPolicyArgs> LatencyRoutingPolicies
         {
-            get => _latencyRoutingPolicies ?? (_latencyRoutingPolicies = new InputList<Inputs.RecordLatencyRoutingPoliciesArgs>());
+            get => _latencyRoutingPolicies ?? (_latencyRoutingPolicies = new InputList<Inputs.RecordLatencyRoutingPolicyArgs>());
             set => _latencyRoutingPolicies = value;
         }
 
@@ -259,14 +255,14 @@ namespace Pulumi.Aws.Route53
         public Input<string> Type { get; set; } = null!;
 
         [Input("weightedRoutingPolicies")]
-        private InputList<Inputs.RecordWeightedRoutingPoliciesArgs>? _weightedRoutingPolicies;
+        private InputList<Inputs.RecordWeightedRoutingPolicyArgs>? _weightedRoutingPolicies;
 
         /// <summary>
         /// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        public InputList<Inputs.RecordWeightedRoutingPoliciesArgs> WeightedRoutingPolicies
+        public InputList<Inputs.RecordWeightedRoutingPolicyArgs> WeightedRoutingPolicies
         {
-            get => _weightedRoutingPolicies ?? (_weightedRoutingPolicies = new InputList<Inputs.RecordWeightedRoutingPoliciesArgs>());
+            get => _weightedRoutingPolicies ?? (_weightedRoutingPolicies = new InputList<Inputs.RecordWeightedRoutingPolicyArgs>());
             set => _weightedRoutingPolicies = value;
         }
 
@@ -284,15 +280,15 @@ namespace Pulumi.Aws.Route53
     public sealed class RecordState : Pulumi.ResourceArgs
     {
         [Input("aliases")]
-        private InputList<Inputs.RecordAliasesGetArgs>? _aliases;
+        private InputList<Inputs.RecordAliasGetArgs>? _aliases;
 
         /// <summary>
         /// An alias block. Conflicts with `ttl` &amp; `records`.
         /// Alias record documented below.
         /// </summary>
-        public InputList<Inputs.RecordAliasesGetArgs> Aliases
+        public InputList<Inputs.RecordAliasGetArgs> Aliases
         {
-            get => _aliases ?? (_aliases = new InputList<Inputs.RecordAliasesGetArgs>());
+            get => _aliases ?? (_aliases = new InputList<Inputs.RecordAliasGetArgs>());
             set => _aliases = value;
         }
 
@@ -303,14 +299,14 @@ namespace Pulumi.Aws.Route53
         public Input<bool>? AllowOverwrite { get; set; }
 
         [Input("failoverRoutingPolicies")]
-        private InputList<Inputs.RecordFailoverRoutingPoliciesGetArgs>? _failoverRoutingPolicies;
+        private InputList<Inputs.RecordFailoverRoutingPolicyGetArgs>? _failoverRoutingPolicies;
 
         /// <summary>
         /// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        public InputList<Inputs.RecordFailoverRoutingPoliciesGetArgs> FailoverRoutingPolicies
+        public InputList<Inputs.RecordFailoverRoutingPolicyGetArgs> FailoverRoutingPolicies
         {
-            get => _failoverRoutingPolicies ?? (_failoverRoutingPolicies = new InputList<Inputs.RecordFailoverRoutingPoliciesGetArgs>());
+            get => _failoverRoutingPolicies ?? (_failoverRoutingPolicies = new InputList<Inputs.RecordFailoverRoutingPolicyGetArgs>());
             set => _failoverRoutingPolicies = value;
         }
 
@@ -321,14 +317,14 @@ namespace Pulumi.Aws.Route53
         public Input<string>? Fqdn { get; set; }
 
         [Input("geolocationRoutingPolicies")]
-        private InputList<Inputs.RecordGeolocationRoutingPoliciesGetArgs>? _geolocationRoutingPolicies;
+        private InputList<Inputs.RecordGeolocationRoutingPolicyGetArgs>? _geolocationRoutingPolicies;
 
         /// <summary>
         /// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        public InputList<Inputs.RecordGeolocationRoutingPoliciesGetArgs> GeolocationRoutingPolicies
+        public InputList<Inputs.RecordGeolocationRoutingPolicyGetArgs> GeolocationRoutingPolicies
         {
-            get => _geolocationRoutingPolicies ?? (_geolocationRoutingPolicies = new InputList<Inputs.RecordGeolocationRoutingPoliciesGetArgs>());
+            get => _geolocationRoutingPolicies ?? (_geolocationRoutingPolicies = new InputList<Inputs.RecordGeolocationRoutingPolicyGetArgs>());
             set => _geolocationRoutingPolicies = value;
         }
 
@@ -339,14 +335,14 @@ namespace Pulumi.Aws.Route53
         public Input<string>? HealthCheckId { get; set; }
 
         [Input("latencyRoutingPolicies")]
-        private InputList<Inputs.RecordLatencyRoutingPoliciesGetArgs>? _latencyRoutingPolicies;
+        private InputList<Inputs.RecordLatencyRoutingPolicyGetArgs>? _latencyRoutingPolicies;
 
         /// <summary>
         /// A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        public InputList<Inputs.RecordLatencyRoutingPoliciesGetArgs> LatencyRoutingPolicies
+        public InputList<Inputs.RecordLatencyRoutingPolicyGetArgs> LatencyRoutingPolicies
         {
-            get => _latencyRoutingPolicies ?? (_latencyRoutingPolicies = new InputList<Inputs.RecordLatencyRoutingPoliciesGetArgs>());
+            get => _latencyRoutingPolicies ?? (_latencyRoutingPolicies = new InputList<Inputs.RecordLatencyRoutingPolicyGetArgs>());
             set => _latencyRoutingPolicies = value;
         }
 
@@ -393,14 +389,14 @@ namespace Pulumi.Aws.Route53
         public Input<string>? Type { get; set; }
 
         [Input("weightedRoutingPolicies")]
-        private InputList<Inputs.RecordWeightedRoutingPoliciesGetArgs>? _weightedRoutingPolicies;
+        private InputList<Inputs.RecordWeightedRoutingPolicyGetArgs>? _weightedRoutingPolicies;
 
         /// <summary>
         /// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
         /// </summary>
-        public InputList<Inputs.RecordWeightedRoutingPoliciesGetArgs> WeightedRoutingPolicies
+        public InputList<Inputs.RecordWeightedRoutingPolicyGetArgs> WeightedRoutingPolicies
         {
-            get => _weightedRoutingPolicies ?? (_weightedRoutingPolicies = new InputList<Inputs.RecordWeightedRoutingPoliciesGetArgs>());
+            get => _weightedRoutingPolicies ?? (_weightedRoutingPolicies = new InputList<Inputs.RecordWeightedRoutingPolicyGetArgs>());
             set => _weightedRoutingPolicies = value;
         }
 
@@ -413,292 +409,5 @@ namespace Pulumi.Aws.Route53
         public RecordState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class RecordAliasesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
-        /// </summary>
-        [Input("evaluateTargetHealth", required: true)]
-        public Input<bool> EvaluateTargetHealth { get; set; } = null!;
-
-        /// <summary>
-        /// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
-        /// </summary>
-        [Input("zoneId", required: true)]
-        public Input<string> ZoneId { get; set; } = null!;
-
-        public RecordAliasesArgs()
-        {
-        }
-    }
-
-    public sealed class RecordAliasesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
-        /// </summary>
-        [Input("evaluateTargetHealth", required: true)]
-        public Input<bool> EvaluateTargetHealth { get; set; } = null!;
-
-        /// <summary>
-        /// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
-        /// </summary>
-        [Input("zoneId", required: true)]
-        public Input<string> ZoneId { get; set; } = null!;
-
-        public RecordAliasesGetArgs()
-        {
-        }
-    }
-
-    public sealed class RecordFailoverRoutingPoliciesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public RecordFailoverRoutingPoliciesArgs()
-        {
-        }
-    }
-
-    public sealed class RecordFailoverRoutingPoliciesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public RecordFailoverRoutingPoliciesGetArgs()
-        {
-        }
-    }
-
-    public sealed class RecordGeolocationRoutingPoliciesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
-        /// </summary>
-        [Input("continent")]
-        public Input<string>? Continent { get; set; }
-
-        /// <summary>
-        /// A two-character country code or `*` to indicate a default resource record set.
-        /// </summary>
-        [Input("country")]
-        public Input<string>? Country { get; set; }
-
-        /// <summary>
-        /// A subdivision code for a country.
-        /// </summary>
-        [Input("subdivision")]
-        public Input<string>? Subdivision { get; set; }
-
-        public RecordGeolocationRoutingPoliciesArgs()
-        {
-        }
-    }
-
-    public sealed class RecordGeolocationRoutingPoliciesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
-        /// </summary>
-        [Input("continent")]
-        public Input<string>? Continent { get; set; }
-
-        /// <summary>
-        /// A two-character country code or `*` to indicate a default resource record set.
-        /// </summary>
-        [Input("country")]
-        public Input<string>? Country { get; set; }
-
-        /// <summary>
-        /// A subdivision code for a country.
-        /// </summary>
-        [Input("subdivision")]
-        public Input<string>? Subdivision { get; set; }
-
-        public RecordGeolocationRoutingPoliciesGetArgs()
-        {
-        }
-    }
-
-    public sealed class RecordLatencyRoutingPoliciesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
-        /// </summary>
-        [Input("region", required: true)]
-        public Input<string> Region { get; set; } = null!;
-
-        public RecordLatencyRoutingPoliciesArgs()
-        {
-        }
-    }
-
-    public sealed class RecordLatencyRoutingPoliciesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
-        /// </summary>
-        [Input("region", required: true)]
-        public Input<string> Region { get; set; } = null!;
-
-        public RecordLatencyRoutingPoliciesGetArgs()
-        {
-        }
-    }
-
-    public sealed class RecordWeightedRoutingPoliciesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
-        /// </summary>
-        [Input("weight", required: true)]
-        public Input<int> Weight { get; set; } = null!;
-
-        public RecordWeightedRoutingPoliciesArgs()
-        {
-        }
-    }
-
-    public sealed class RecordWeightedRoutingPoliciesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
-        /// </summary>
-        [Input("weight", required: true)]
-        public Input<int> Weight { get; set; } = null!;
-
-        public RecordWeightedRoutingPoliciesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class RecordAliases
-    {
-        /// <summary>
-        /// Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
-        /// </summary>
-        public readonly bool EvaluateTargetHealth;
-        /// <summary>
-        /// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
-        /// </summary>
-        public readonly string ZoneId;
-
-        [OutputConstructor]
-        private RecordAliases(
-            bool evaluateTargetHealth,
-            string name,
-            string zoneId)
-        {
-            EvaluateTargetHealth = evaluateTargetHealth;
-            Name = name;
-            ZoneId = zoneId;
-        }
-    }
-
-    [OutputType]
-    public sealed class RecordFailoverRoutingPolicies
-    {
-        /// <summary>
-        /// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private RecordFailoverRoutingPolicies(string type)
-        {
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class RecordGeolocationRoutingPolicies
-    {
-        /// <summary>
-        /// A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
-        /// </summary>
-        public readonly string? Continent;
-        /// <summary>
-        /// A two-character country code or `*` to indicate a default resource record set.
-        /// </summary>
-        public readonly string? Country;
-        /// <summary>
-        /// A subdivision code for a country.
-        /// </summary>
-        public readonly string? Subdivision;
-
-        [OutputConstructor]
-        private RecordGeolocationRoutingPolicies(
-            string? continent,
-            string? country,
-            string? subdivision)
-        {
-            Continent = continent;
-            Country = country;
-            Subdivision = subdivision;
-        }
-    }
-
-    [OutputType]
-    public sealed class RecordLatencyRoutingPolicies
-    {
-        /// <summary>
-        /// An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
-        /// </summary>
-        public readonly string Region;
-
-        [OutputConstructor]
-        private RecordLatencyRoutingPolicies(string region)
-        {
-            Region = region;
-        }
-    }
-
-    [OutputType]
-    public sealed class RecordWeightedRoutingPolicies
-    {
-        /// <summary>
-        /// A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
-        /// </summary>
-        public readonly int Weight;
-
-        [OutputConstructor]
-        private RecordWeightedRoutingPolicies(int weight)
-        {
-            Weight = weight;
-        }
-    }
     }
 }

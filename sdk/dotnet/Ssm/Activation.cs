@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Ssm
 {
     /// <summary>
     /// Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_activation.html.markdown.
     /// </summary>
     public partial class Activation : Pulumi.CustomResource
     {
@@ -81,7 +77,7 @@ namespace Pulumi.Aws.Ssm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Activation(string name, ActivationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ssm/activation:Activation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ssm/activation:Activation", name, args ?? new ActivationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

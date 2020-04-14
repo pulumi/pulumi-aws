@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_delegation_set.html.markdown.
  */
-export function getDelegationSet(args: GetDelegationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegationSetResult> & GetDelegationSetResult {
+export function getDelegationSet(args: GetDelegationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegationSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -34,11 +34,9 @@ export function getDelegationSet(args: GetDelegationSetArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDelegationSetResult> = pulumi.runtime.invoke("aws:route53/getDelegationSet:getDelegationSet", {
+    return pulumi.runtime.invoke("aws:route53/getDelegationSet:getDelegationSet", {
         "id": args.id,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

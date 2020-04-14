@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type DatabaseEncryptionConfiguration struct {
@@ -17,6 +17,11 @@ type DatabaseEncryptionConfiguration struct {
 	KmsKey *string `pulumi:"kmsKey"`
 }
 
+// DatabaseEncryptionConfigurationInput is an input type that accepts DatabaseEncryptionConfigurationArgs and DatabaseEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `DatabaseEncryptionConfigurationInput` via:
+//
+// 		 DatabaseEncryptionConfigurationArgs{...}
+//
 type DatabaseEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -51,6 +56,15 @@ func (i DatabaseEncryptionConfigurationArgs) ToDatabaseEncryptionConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseEncryptionConfigurationOutput).ToDatabaseEncryptionConfigurationPtrOutputWithContext(ctx)
 }
 
+// DatabaseEncryptionConfigurationPtrInput is an input type that accepts DatabaseEncryptionConfigurationArgs, DatabaseEncryptionConfigurationPtr and DatabaseEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `DatabaseEncryptionConfigurationPtrInput` via:
+//
+// 		 DatabaseEncryptionConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type DatabaseEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -149,6 +163,11 @@ type WorkgroupConfiguration struct {
 	ResultConfiguration *WorkgroupConfigurationResultConfiguration `pulumi:"resultConfiguration"`
 }
 
+// WorkgroupConfigurationInput is an input type that accepts WorkgroupConfigurationArgs and WorkgroupConfigurationOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationInput` via:
+//
+// 		 WorkgroupConfigurationArgs{...}
+//
 type WorkgroupConfigurationInput interface {
 	pulumi.Input
 
@@ -187,6 +206,15 @@ func (i WorkgroupConfigurationArgs) ToWorkgroupConfigurationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationOutput).ToWorkgroupConfigurationPtrOutputWithContext(ctx)
 }
 
+// WorkgroupConfigurationPtrInput is an input type that accepts WorkgroupConfigurationArgs, WorkgroupConfigurationPtr and WorkgroupConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationPtrInput` via:
+//
+// 		 WorkgroupConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type WorkgroupConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -305,6 +333,11 @@ type WorkgroupConfigurationResultConfiguration struct {
 	OutputLocation *string `pulumi:"outputLocation"`
 }
 
+// WorkgroupConfigurationResultConfigurationInput is an input type that accepts WorkgroupConfigurationResultConfigurationArgs and WorkgroupConfigurationResultConfigurationOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationResultConfigurationInput` via:
+//
+// 		 WorkgroupConfigurationResultConfigurationArgs{...}
+//
 type WorkgroupConfigurationResultConfigurationInput interface {
 	pulumi.Input
 
@@ -339,6 +372,15 @@ func (i WorkgroupConfigurationResultConfigurationArgs) ToWorkgroupConfigurationR
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationResultConfigurationOutput).ToWorkgroupConfigurationResultConfigurationPtrOutputWithContext(ctx)
 }
 
+// WorkgroupConfigurationResultConfigurationPtrInput is an input type that accepts WorkgroupConfigurationResultConfigurationArgs, WorkgroupConfigurationResultConfigurationPtr and WorkgroupConfigurationResultConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationResultConfigurationPtrInput` via:
+//
+// 		 WorkgroupConfigurationResultConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type WorkgroupConfigurationResultConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -439,6 +481,11 @@ type WorkgroupConfigurationResultConfigurationEncryptionConfiguration struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
+// WorkgroupConfigurationResultConfigurationEncryptionConfigurationInput is an input type that accepts WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs and WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationResultConfigurationEncryptionConfigurationInput` via:
+//
+// 		 WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{...}
+//
 type WorkgroupConfigurationResultConfigurationEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -473,6 +520,15 @@ func (i WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput).ToWorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutputWithContext(ctx)
 }
 
+// WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrInput is an input type that accepts WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs, WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtr and WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrInput` via:
+//
+// 		 WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 

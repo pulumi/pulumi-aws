@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type EndpointAuthenticationOptions struct {
@@ -19,6 +19,11 @@ type EndpointAuthenticationOptions struct {
 	Type string `pulumi:"type"`
 }
 
+// EndpointAuthenticationOptionsInput is an input type that accepts EndpointAuthenticationOptionsArgs and EndpointAuthenticationOptionsOutput values.
+// You can construct a concrete instance of `EndpointAuthenticationOptionsInput` via:
+//
+// 		 EndpointAuthenticationOptionsArgs{...}
+//
 type EndpointAuthenticationOptionsInput interface {
 	pulumi.Input
 
@@ -55,6 +60,15 @@ func (i EndpointAuthenticationOptionsArgs) ToEndpointAuthenticationOptionsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointAuthenticationOptionsOutput).ToEndpointAuthenticationOptionsPtrOutputWithContext(ctx)
 }
 
+// EndpointAuthenticationOptionsPtrInput is an input type that accepts EndpointAuthenticationOptionsArgs, EndpointAuthenticationOptionsPtr and EndpointAuthenticationOptionsPtrOutput values.
+// You can construct a concrete instance of `EndpointAuthenticationOptionsPtrInput` via:
+//
+// 		 EndpointAuthenticationOptionsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type EndpointAuthenticationOptionsPtrInput interface {
 	pulumi.Input
 
@@ -161,6 +175,11 @@ type EndpointConnectionLogOptions struct {
 	Enabled bool `pulumi:"enabled"`
 }
 
+// EndpointConnectionLogOptionsInput is an input type that accepts EndpointConnectionLogOptionsArgs and EndpointConnectionLogOptionsOutput values.
+// You can construct a concrete instance of `EndpointConnectionLogOptionsInput` via:
+//
+// 		 EndpointConnectionLogOptionsArgs{...}
+//
 type EndpointConnectionLogOptionsInput interface {
 	pulumi.Input
 
@@ -197,6 +216,15 @@ func (i EndpointConnectionLogOptionsArgs) ToEndpointConnectionLogOptionsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointConnectionLogOptionsOutput).ToEndpointConnectionLogOptionsPtrOutputWithContext(ctx)
 }
 
+// EndpointConnectionLogOptionsPtrInput is an input type that accepts EndpointConnectionLogOptionsArgs, EndpointConnectionLogOptionsPtr and EndpointConnectionLogOptionsPtrOutput values.
+// You can construct a concrete instance of `EndpointConnectionLogOptionsPtrInput` via:
+//
+// 		 EndpointConnectionLogOptionsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type EndpointConnectionLogOptionsPtrInput interface {
 	pulumi.Input
 

@@ -9,24 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Eks
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Get an authentication token to communicate with an EKS cluster.
-        /// 
-        /// Uses IAM credentials from the AWS provider to generate a temporary token that is compatible with
-        /// [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
-        /// This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
-        /// server configured.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eks_cluster_auth.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetClusterAuth.InvokeAsync() instead")]
-        public static Task<GetClusterAuthResult> GetClusterAuth(GetClusterAuthArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterAuthResult>("aws:eks/getClusterAuth:getClusterAuth", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetClusterAuth
     {
         /// <summary>
@@ -37,13 +19,13 @@ namespace Pulumi.Aws.Eks
         /// This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
         /// server configured.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eks_cluster_auth.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterAuthResult> InvokeAsync(GetClusterAuthArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterAuthResult>("aws:eks/getClusterAuth:getClusterAuth", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterAuthResult>("aws:eks/getClusterAuth:getClusterAuth", args ?? new GetClusterAuthArgs(), options.WithVersion());
     }
+
 
     public sealed class GetClusterAuthArgs : Pulumi.InvokeArgs
     {
@@ -58,28 +40,31 @@ namespace Pulumi.Aws.Eks
         }
     }
 
+
     [OutputType]
     public sealed class GetClusterAuthResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// The token to use to authenticate with the cluster.
         /// </summary>
         public readonly string Token;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetClusterAuthResult(
+            string id,
+
             string name,
-            string token,
-            string id)
+
+            string token)
         {
+            Id = id;
             Name = name;
             Token = token;
-            Id = id;
         }
     }
 }

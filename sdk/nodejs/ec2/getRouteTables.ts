@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_tables.html.markdown.
  */
-export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTablesResult> & GetRouteTablesResult {
+export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTablesResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -45,13 +45,11 @@ export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOp
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetRouteTablesResult> = pulumi.runtime.invoke("aws:ec2/getRouteTables:getRouteTables", {
+    return pulumi.runtime.invoke("aws:ec2/getRouteTables:getRouteTables", {
         "filters": args.filters,
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

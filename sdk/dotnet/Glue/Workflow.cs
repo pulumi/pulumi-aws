@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Glue
     /// Provides a Glue Workflow resource.
     /// The workflow graph (DAG) can be build using the `aws.glue.Trigger` resource. 
     /// See the example below for creating a graph with four nodes (two triggers and two jobs). 
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_workflow.html.markdown.
     /// </summary>
     public partial class Workflow : Pulumi.CustomResource
     {
@@ -47,7 +43,7 @@ namespace Pulumi.Aws.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workflow(string name, WorkflowArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:glue/workflow:Workflow", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:glue/workflow:Workflow", name, args ?? new WorkflowArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Kms
     /// Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases &amp; keys,
     /// but API (hence this provider too) allows you to create as many aliases as
     /// the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_alias.html.markdown.
     /// </summary>
     public partial class Alias : Pulumi.CustomResource
     {
@@ -60,7 +56,7 @@ namespace Pulumi.Aws.Kms
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Alias(string name, AliasArgs args, CustomResourceOptions? options = null)
-            : base("aws:kms/alias:Alias", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:kms/alias:Alias", name, args ?? new AliasArgs(), MakeResourceOptions(options, ""))
         {
         }
 

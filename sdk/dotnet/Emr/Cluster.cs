@@ -121,8 +121,6 @@ namespace Pulumi.Aws.Emr
     /// * `jar` - (Required) Path to a JAR file run during the step.
     /// * `main_class` - (Optional) Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
     /// * `properties` - (Optional) Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/emr_cluster.html.markdown.
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {
@@ -151,7 +149,7 @@ namespace Pulumi.Aws.Emr
         /// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
         /// </summary>
         [Output("bootstrapActions")]
-        public Output<ImmutableArray<Outputs.ClusterBootstrapActions>> BootstrapActions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterBootstrapAction>> BootstrapActions { get; private set; } = null!;
 
         [Output("clusterState")]
         public Output<string> State { get; private set; } = null!;
@@ -208,7 +206,7 @@ namespace Pulumi.Aws.Emr
         /// Use the `master_instance_group` configuration block, `core_instance_group` configuration block and [`aws.emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `master_instance_group` or `core_instance_group` configuration blocks are set. Defined below
         /// </summary>
         [Output("instanceGroups")]
-        public Output<ImmutableArray<Outputs.ClusterInstanceGroups>> InstanceGroups { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterInstanceGroup>> InstanceGroups { get; private set; } = null!;
 
         /// <summary>
         /// Switch on/off run cluster with no steps or when all steps are complete (default is on)
@@ -278,16 +276,16 @@ namespace Pulumi.Aws.Emr
         public Output<string> ServiceRole { get; private set; } = null!;
 
         /// <summary>
-        /// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
-        /// </summary>
-        [Output("steps")]
-        public Output<ImmutableArray<Outputs.ClusterSteps>> Steps { get; private set; } = null!;
-
-        /// <summary>
         /// The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater. (default is 1)
         /// </summary>
         [Output("stepConcurrencyLevel")]
         public Output<int?> StepConcurrencyLevel { get; private set; } = null!;
+
+        /// <summary>
+        /// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
+        /// </summary>
+        [Output("steps")]
+        public Output<ImmutableArray<Outputs.ClusterStep>> Steps { get; private set; } = null!;
 
         /// <summary>
         /// list of tags to apply to the EMR Cluster
@@ -316,7 +314,7 @@ namespace Pulumi.Aws.Emr
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("aws:emr/cluster:Cluster", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:emr/cluster:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -378,14 +376,14 @@ namespace Pulumi.Aws.Emr
         public Input<string>? AutoscalingRole { get; set; }
 
         [Input("bootstrapActions")]
-        private InputList<Inputs.ClusterBootstrapActionsArgs>? _bootstrapActions;
+        private InputList<Inputs.ClusterBootstrapActionArgs>? _bootstrapActions;
 
         /// <summary>
         /// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
         /// </summary>
-        public InputList<Inputs.ClusterBootstrapActionsArgs> BootstrapActions
+        public InputList<Inputs.ClusterBootstrapActionArgs> BootstrapActions
         {
-            get => _bootstrapActions ?? (_bootstrapActions = new InputList<Inputs.ClusterBootstrapActionsArgs>());
+            get => _bootstrapActions ?? (_bootstrapActions = new InputList<Inputs.ClusterBootstrapActionArgs>());
             set => _bootstrapActions = value;
         }
 
@@ -438,15 +436,15 @@ namespace Pulumi.Aws.Emr
         public Input<Inputs.ClusterEc2AttributesArgs>? Ec2Attributes { get; set; }
 
         [Input("instanceGroups")]
-        private InputList<Inputs.ClusterInstanceGroupsArgs>? _instanceGroups;
+        private InputList<Inputs.ClusterInstanceGroupArgs>? _instanceGroups;
 
         /// <summary>
         /// Use the `master_instance_group` configuration block, `core_instance_group` configuration block and [`aws.emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `master_instance_group` or `core_instance_group` configuration blocks are set. Defined below
         /// </summary>
         [Obsolete(@"use `master_instance_group` configuration block, `core_instance_group` configuration block, and `aws_emr_instance_group` resource(s) instead")]
-        public InputList<Inputs.ClusterInstanceGroupsArgs> InstanceGroups
+        public InputList<Inputs.ClusterInstanceGroupArgs> InstanceGroups
         {
-            get => _instanceGroups ?? (_instanceGroups = new InputList<Inputs.ClusterInstanceGroupsArgs>());
+            get => _instanceGroups ?? (_instanceGroups = new InputList<Inputs.ClusterInstanceGroupArgs>());
             set => _instanceGroups = value;
         }
 
@@ -510,23 +508,23 @@ namespace Pulumi.Aws.Emr
         [Input("serviceRole", required: true)]
         public Input<string> ServiceRole { get; set; } = null!;
 
-        [Input("steps")]
-        private InputList<Inputs.ClusterStepsArgs>? _steps;
-
-        /// <summary>
-        /// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
-        /// </summary>
-        public InputList<Inputs.ClusterStepsArgs> Steps
-        {
-            get => _steps ?? (_steps = new InputList<Inputs.ClusterStepsArgs>());
-            set => _steps = value;
-        }
-
         /// <summary>
         /// The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater. (default is 1)
         /// </summary>
         [Input("stepConcurrencyLevel")]
         public Input<int>? StepConcurrencyLevel { get; set; }
+
+        [Input("steps")]
+        private InputList<Inputs.ClusterStepArgs>? _steps;
+
+        /// <summary>
+        /// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
+        /// </summary>
+        public InputList<Inputs.ClusterStepArgs> Steps
+        {
+            get => _steps ?? (_steps = new InputList<Inputs.ClusterStepArgs>());
+            set => _steps = value;
+        }
 
         [Input("tags")]
         private InputMap<object>? _tags;
@@ -587,14 +585,14 @@ namespace Pulumi.Aws.Emr
         public Input<string>? AutoscalingRole { get; set; }
 
         [Input("bootstrapActions")]
-        private InputList<Inputs.ClusterBootstrapActionsGetArgs>? _bootstrapActions;
+        private InputList<Inputs.ClusterBootstrapActionGetArgs>? _bootstrapActions;
 
         /// <summary>
         /// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below.
         /// </summary>
-        public InputList<Inputs.ClusterBootstrapActionsGetArgs> BootstrapActions
+        public InputList<Inputs.ClusterBootstrapActionGetArgs> BootstrapActions
         {
-            get => _bootstrapActions ?? (_bootstrapActions = new InputList<Inputs.ClusterBootstrapActionsGetArgs>());
+            get => _bootstrapActions ?? (_bootstrapActions = new InputList<Inputs.ClusterBootstrapActionGetArgs>());
             set => _bootstrapActions = value;
         }
 
@@ -650,15 +648,15 @@ namespace Pulumi.Aws.Emr
         public Input<Inputs.ClusterEc2AttributesGetArgs>? Ec2Attributes { get; set; }
 
         [Input("instanceGroups")]
-        private InputList<Inputs.ClusterInstanceGroupsGetArgs>? _instanceGroups;
+        private InputList<Inputs.ClusterInstanceGroupGetArgs>? _instanceGroups;
 
         /// <summary>
         /// Use the `master_instance_group` configuration block, `core_instance_group` configuration block and [`aws.emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `master_instance_group` or `core_instance_group` configuration blocks are set. Defined below
         /// </summary>
         [Obsolete(@"use `master_instance_group` configuration block, `core_instance_group` configuration block, and `aws_emr_instance_group` resource(s) instead")]
-        public InputList<Inputs.ClusterInstanceGroupsGetArgs> InstanceGroups
+        public InputList<Inputs.ClusterInstanceGroupGetArgs> InstanceGroups
         {
-            get => _instanceGroups ?? (_instanceGroups = new InputList<Inputs.ClusterInstanceGroupsGetArgs>());
+            get => _instanceGroups ?? (_instanceGroups = new InputList<Inputs.ClusterInstanceGroupGetArgs>());
             set => _instanceGroups = value;
         }
 
@@ -729,23 +727,23 @@ namespace Pulumi.Aws.Emr
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }
 
-        [Input("steps")]
-        private InputList<Inputs.ClusterStepsGetArgs>? _steps;
-
-        /// <summary>
-        /// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
-        /// </summary>
-        public InputList<Inputs.ClusterStepsGetArgs> Steps
-        {
-            get => _steps ?? (_steps = new InputList<Inputs.ClusterStepsGetArgs>());
-            set => _steps = value;
-        }
-
         /// <summary>
         /// The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater. (default is 1)
         /// </summary>
         [Input("stepConcurrencyLevel")]
         public Input<int>? StepConcurrencyLevel { get; set; }
+
+        [Input("steps")]
+        private InputList<Inputs.ClusterStepGetArgs>? _steps;
+
+        /// <summary>
+        /// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if other steps are being managed outside of this provider.
+        /// </summary>
+        public InputList<Inputs.ClusterStepGetArgs> Steps
+        {
+            get => _steps ?? (_steps = new InputList<Inputs.ClusterStepGetArgs>());
+            set => _steps = value;
+        }
 
         [Input("tags")]
         private InputMap<object>? _tags;
@@ -774,913 +772,5 @@ namespace Pulumi.Aws.Emr
         public ClusterState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ClusterBootstrapActionsArgs : Pulumi.ResourceArgs
-    {
-        [Input("args")]
-        private InputList<string>? _args;
-        public InputList<string> Args
-        {
-            get => _args ?? (_args = new InputList<string>());
-            set => _args = value;
-        }
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
-
-        public ClusterBootstrapActionsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterBootstrapActionsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("args")]
-        private InputList<string>? _args;
-        public InputList<string> Args
-        {
-            get => _args ?? (_args = new InputList<string>());
-            set => _args = value;
-        }
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
-
-        public ClusterBootstrapActionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterCoreInstanceGroupArgs : Pulumi.ResourceArgs
-    {
-        [Input("autoscalingPolicy")]
-        public Input<string>? AutoscalingPolicy { get; set; }
-
-        [Input("bidPrice")]
-        public Input<string>? BidPrice { get; set; }
-
-        [Input("ebsConfigs")]
-        private InputList<ClusterCoreInstanceGroupEbsConfigsArgs>? _ebsConfigs;
-        public InputList<ClusterCoreInstanceGroupEbsConfigsArgs> EbsConfigs
-        {
-            get => _ebsConfigs ?? (_ebsConfigs = new InputList<ClusterCoreInstanceGroupEbsConfigsArgs>());
-            set => _ebsConfigs = value;
-        }
-
-        /// <summary>
-        /// The ID of the EMR Cluster
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("instanceCount")]
-        public Input<int>? InstanceCount { get; set; }
-
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public ClusterCoreInstanceGroupArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterCoreInstanceGroupEbsConfigsArgs : Pulumi.ResourceArgs
-    {
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("volumesPerInstance")]
-        public Input<int>? VolumesPerInstance { get; set; }
-
-        public ClusterCoreInstanceGroupEbsConfigsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterCoreInstanceGroupEbsConfigsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("volumesPerInstance")]
-        public Input<int>? VolumesPerInstance { get; set; }
-
-        public ClusterCoreInstanceGroupEbsConfigsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterCoreInstanceGroupGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("autoscalingPolicy")]
-        public Input<string>? AutoscalingPolicy { get; set; }
-
-        [Input("bidPrice")]
-        public Input<string>? BidPrice { get; set; }
-
-        [Input("ebsConfigs")]
-        private InputList<ClusterCoreInstanceGroupEbsConfigsGetArgs>? _ebsConfigs;
-        public InputList<ClusterCoreInstanceGroupEbsConfigsGetArgs> EbsConfigs
-        {
-            get => _ebsConfigs ?? (_ebsConfigs = new InputList<ClusterCoreInstanceGroupEbsConfigsGetArgs>());
-            set => _ebsConfigs = value;
-        }
-
-        /// <summary>
-        /// The ID of the EMR Cluster
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("instanceCount")]
-        public Input<int>? InstanceCount { get; set; }
-
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public ClusterCoreInstanceGroupGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterEc2AttributesArgs : Pulumi.ResourceArgs
-    {
-        [Input("additionalMasterSecurityGroups")]
-        public Input<string>? AdditionalMasterSecurityGroups { get; set; }
-
-        [Input("additionalSlaveSecurityGroups")]
-        public Input<string>? AdditionalSlaveSecurityGroups { get; set; }
-
-        [Input("emrManagedMasterSecurityGroup")]
-        public Input<string>? EmrManagedMasterSecurityGroup { get; set; }
-
-        [Input("emrManagedSlaveSecurityGroup")]
-        public Input<string>? EmrManagedSlaveSecurityGroup { get; set; }
-
-        [Input("instanceProfile", required: true)]
-        public Input<string> InstanceProfile { get; set; } = null!;
-
-        [Input("keyName")]
-        public Input<string>? KeyName { get; set; }
-
-        [Input("serviceAccessSecurityGroup")]
-        public Input<string>? ServiceAccessSecurityGroup { get; set; }
-
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
-
-        public ClusterEc2AttributesArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterEc2AttributesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("additionalMasterSecurityGroups")]
-        public Input<string>? AdditionalMasterSecurityGroups { get; set; }
-
-        [Input("additionalSlaveSecurityGroups")]
-        public Input<string>? AdditionalSlaveSecurityGroups { get; set; }
-
-        [Input("emrManagedMasterSecurityGroup")]
-        public Input<string>? EmrManagedMasterSecurityGroup { get; set; }
-
-        [Input("emrManagedSlaveSecurityGroup")]
-        public Input<string>? EmrManagedSlaveSecurityGroup { get; set; }
-
-        [Input("instanceProfile", required: true)]
-        public Input<string> InstanceProfile { get; set; } = null!;
-
-        [Input("keyName")]
-        public Input<string>? KeyName { get; set; }
-
-        [Input("serviceAccessSecurityGroup")]
-        public Input<string>? ServiceAccessSecurityGroup { get; set; }
-
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
-
-        public ClusterEc2AttributesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterInstanceGroupsArgs : Pulumi.ResourceArgs
-    {
-        [Input("autoscalingPolicy")]
-        public Input<string>? AutoscalingPolicy { get; set; }
-
-        [Input("bidPrice")]
-        public Input<string>? BidPrice { get; set; }
-
-        [Input("ebsConfigs")]
-        private InputList<ClusterInstanceGroupsEbsConfigsArgs>? _ebsConfigs;
-        public InputList<ClusterInstanceGroupsEbsConfigsArgs> EbsConfigs
-        {
-            get => _ebsConfigs ?? (_ebsConfigs = new InputList<ClusterInstanceGroupsEbsConfigsArgs>());
-            set => _ebsConfigs = value;
-        }
-
-        /// <summary>
-        /// The ID of the EMR Cluster
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("instanceCount")]
-        public Input<int>? InstanceCount { get; set; }
-
-        [Input("instanceRole", required: true)]
-        public Input<string> InstanceRole { get; set; } = null!;
-
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public ClusterInstanceGroupsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterInstanceGroupsEbsConfigsArgs : Pulumi.ResourceArgs
-    {
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("volumesPerInstance")]
-        public Input<int>? VolumesPerInstance { get; set; }
-
-        public ClusterInstanceGroupsEbsConfigsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterInstanceGroupsEbsConfigsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("volumesPerInstance")]
-        public Input<int>? VolumesPerInstance { get; set; }
-
-        public ClusterInstanceGroupsEbsConfigsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterInstanceGroupsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("autoscalingPolicy")]
-        public Input<string>? AutoscalingPolicy { get; set; }
-
-        [Input("bidPrice")]
-        public Input<string>? BidPrice { get; set; }
-
-        [Input("ebsConfigs")]
-        private InputList<ClusterInstanceGroupsEbsConfigsGetArgs>? _ebsConfigs;
-        public InputList<ClusterInstanceGroupsEbsConfigsGetArgs> EbsConfigs
-        {
-            get => _ebsConfigs ?? (_ebsConfigs = new InputList<ClusterInstanceGroupsEbsConfigsGetArgs>());
-            set => _ebsConfigs = value;
-        }
-
-        /// <summary>
-        /// The ID of the EMR Cluster
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("instanceCount")]
-        public Input<int>? InstanceCount { get; set; }
-
-        [Input("instanceRole", required: true)]
-        public Input<string> InstanceRole { get; set; } = null!;
-
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public ClusterInstanceGroupsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterKerberosAttributesArgs : Pulumi.ResourceArgs
-    {
-        [Input("adDomainJoinPassword")]
-        public Input<string>? AdDomainJoinPassword { get; set; }
-
-        [Input("adDomainJoinUser")]
-        public Input<string>? AdDomainJoinUser { get; set; }
-
-        [Input("crossRealmTrustPrincipalPassword")]
-        public Input<string>? CrossRealmTrustPrincipalPassword { get; set; }
-
-        [Input("kdcAdminPassword", required: true)]
-        public Input<string> KdcAdminPassword { get; set; } = null!;
-
-        [Input("realm", required: true)]
-        public Input<string> Realm { get; set; } = null!;
-
-        public ClusterKerberosAttributesArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterKerberosAttributesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("adDomainJoinPassword")]
-        public Input<string>? AdDomainJoinPassword { get; set; }
-
-        [Input("adDomainJoinUser")]
-        public Input<string>? AdDomainJoinUser { get; set; }
-
-        [Input("crossRealmTrustPrincipalPassword")]
-        public Input<string>? CrossRealmTrustPrincipalPassword { get; set; }
-
-        [Input("kdcAdminPassword", required: true)]
-        public Input<string> KdcAdminPassword { get; set; } = null!;
-
-        [Input("realm", required: true)]
-        public Input<string> Realm { get; set; } = null!;
-
-        public ClusterKerberosAttributesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterMasterInstanceGroupArgs : Pulumi.ResourceArgs
-    {
-        [Input("bidPrice")]
-        public Input<string>? BidPrice { get; set; }
-
-        [Input("ebsConfigs")]
-        private InputList<ClusterMasterInstanceGroupEbsConfigsArgs>? _ebsConfigs;
-        public InputList<ClusterMasterInstanceGroupEbsConfigsArgs> EbsConfigs
-        {
-            get => _ebsConfigs ?? (_ebsConfigs = new InputList<ClusterMasterInstanceGroupEbsConfigsArgs>());
-            set => _ebsConfigs = value;
-        }
-
-        /// <summary>
-        /// The ID of the EMR Cluster
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("instanceCount")]
-        public Input<int>? InstanceCount { get; set; }
-
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public ClusterMasterInstanceGroupArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterMasterInstanceGroupEbsConfigsArgs : Pulumi.ResourceArgs
-    {
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("volumesPerInstance")]
-        public Input<int>? VolumesPerInstance { get; set; }
-
-        public ClusterMasterInstanceGroupEbsConfigsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterMasterInstanceGroupEbsConfigsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("volumesPerInstance")]
-        public Input<int>? VolumesPerInstance { get; set; }
-
-        public ClusterMasterInstanceGroupEbsConfigsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterMasterInstanceGroupGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("bidPrice")]
-        public Input<string>? BidPrice { get; set; }
-
-        [Input("ebsConfigs")]
-        private InputList<ClusterMasterInstanceGroupEbsConfigsGetArgs>? _ebsConfigs;
-        public InputList<ClusterMasterInstanceGroupEbsConfigsGetArgs> EbsConfigs
-        {
-            get => _ebsConfigs ?? (_ebsConfigs = new InputList<ClusterMasterInstanceGroupEbsConfigsGetArgs>());
-            set => _ebsConfigs = value;
-        }
-
-        /// <summary>
-        /// The ID of the EMR Cluster
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("instanceCount")]
-        public Input<int>? InstanceCount { get; set; }
-
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public ClusterMasterInstanceGroupGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterStepsArgs : Pulumi.ResourceArgs
-    {
-        [Input("actionOnFailure", required: true)]
-        public Input<string> ActionOnFailure { get; set; } = null!;
-
-        [Input("hadoopJarStep", required: true)]
-        public Input<ClusterStepsHadoopJarStepArgs> HadoopJarStep { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ClusterStepsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterStepsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("actionOnFailure", required: true)]
-        public Input<string> ActionOnFailure { get; set; } = null!;
-
-        [Input("hadoopJarStep", required: true)]
-        public Input<ClusterStepsHadoopJarStepGetArgs> HadoopJarStep { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ClusterStepsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterStepsHadoopJarStepArgs : Pulumi.ResourceArgs
-    {
-        [Input("args")]
-        private InputList<string>? _args;
-        public InputList<string> Args
-        {
-            get => _args ?? (_args = new InputList<string>());
-            set => _args = value;
-        }
-
-        [Input("jar", required: true)]
-        public Input<string> Jar { get; set; } = null!;
-
-        [Input("mainClass")]
-        public Input<string>? MainClass { get; set; }
-
-        [Input("properties")]
-        private InputMap<object>? _properties;
-        public InputMap<object> Properties
-        {
-            get => _properties ?? (_properties = new InputMap<object>());
-            set => _properties = value;
-        }
-
-        public ClusterStepsHadoopJarStepArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterStepsHadoopJarStepGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("args")]
-        private InputList<string>? _args;
-        public InputList<string> Args
-        {
-            get => _args ?? (_args = new InputList<string>());
-            set => _args = value;
-        }
-
-        [Input("jar", required: true)]
-        public Input<string> Jar { get; set; } = null!;
-
-        [Input("mainClass")]
-        public Input<string>? MainClass { get; set; }
-
-        [Input("properties")]
-        private InputMap<object>? _properties;
-        public InputMap<object> Properties
-        {
-            get => _properties ?? (_properties = new InputMap<object>());
-            set => _properties = value;
-        }
-
-        public ClusterStepsHadoopJarStepGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ClusterBootstrapActions
-    {
-        public readonly ImmutableArray<string> Args;
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        public readonly string Name;
-        public readonly string Path;
-
-        [OutputConstructor]
-        private ClusterBootstrapActions(
-            ImmutableArray<string> args,
-            string name,
-            string path)
-        {
-            Args = args;
-            Name = name;
-            Path = path;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterCoreInstanceGroup
-    {
-        public readonly string? AutoscalingPolicy;
-        public readonly string? BidPrice;
-        public readonly ImmutableArray<ClusterCoreInstanceGroupEbsConfigs> EbsConfigs;
-        /// <summary>
-        /// The ID of the EMR Cluster
-        /// </summary>
-        public readonly string Id;
-        public readonly int? InstanceCount;
-        public readonly string InstanceType;
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        public readonly string? Name;
-
-        [OutputConstructor]
-        private ClusterCoreInstanceGroup(
-            string? autoscalingPolicy,
-            string? bidPrice,
-            ImmutableArray<ClusterCoreInstanceGroupEbsConfigs> ebsConfigs,
-            string id,
-            int? instanceCount,
-            string instanceType,
-            string? name)
-        {
-            AutoscalingPolicy = autoscalingPolicy;
-            BidPrice = bidPrice;
-            EbsConfigs = ebsConfigs;
-            Id = id;
-            InstanceCount = instanceCount;
-            InstanceType = instanceType;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterCoreInstanceGroupEbsConfigs
-    {
-        public readonly int? Iops;
-        public readonly int Size;
-        public readonly string Type;
-        public readonly int? VolumesPerInstance;
-
-        [OutputConstructor]
-        private ClusterCoreInstanceGroupEbsConfigs(
-            int? iops,
-            int size,
-            string type,
-            int? volumesPerInstance)
-        {
-            Iops = iops;
-            Size = size;
-            Type = type;
-            VolumesPerInstance = volumesPerInstance;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterEc2Attributes
-    {
-        public readonly string? AdditionalMasterSecurityGroups;
-        public readonly string? AdditionalSlaveSecurityGroups;
-        public readonly string EmrManagedMasterSecurityGroup;
-        public readonly string EmrManagedSlaveSecurityGroup;
-        public readonly string InstanceProfile;
-        public readonly string? KeyName;
-        public readonly string ServiceAccessSecurityGroup;
-        public readonly string? SubnetId;
-
-        [OutputConstructor]
-        private ClusterEc2Attributes(
-            string? additionalMasterSecurityGroups,
-            string? additionalSlaveSecurityGroups,
-            string emrManagedMasterSecurityGroup,
-            string emrManagedSlaveSecurityGroup,
-            string instanceProfile,
-            string? keyName,
-            string serviceAccessSecurityGroup,
-            string? subnetId)
-        {
-            AdditionalMasterSecurityGroups = additionalMasterSecurityGroups;
-            AdditionalSlaveSecurityGroups = additionalSlaveSecurityGroups;
-            EmrManagedMasterSecurityGroup = emrManagedMasterSecurityGroup;
-            EmrManagedSlaveSecurityGroup = emrManagedSlaveSecurityGroup;
-            InstanceProfile = instanceProfile;
-            KeyName = keyName;
-            ServiceAccessSecurityGroup = serviceAccessSecurityGroup;
-            SubnetId = subnetId;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterInstanceGroups
-    {
-        public readonly string? AutoscalingPolicy;
-        public readonly string? BidPrice;
-        public readonly ImmutableArray<ClusterInstanceGroupsEbsConfigs> EbsConfigs;
-        /// <summary>
-        /// The ID of the EMR Cluster
-        /// </summary>
-        public readonly string Id;
-        public readonly int? InstanceCount;
-        public readonly string InstanceRole;
-        public readonly string InstanceType;
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        public readonly string? Name;
-
-        [OutputConstructor]
-        private ClusterInstanceGroups(
-            string? autoscalingPolicy,
-            string? bidPrice,
-            ImmutableArray<ClusterInstanceGroupsEbsConfigs> ebsConfigs,
-            string id,
-            int? instanceCount,
-            string instanceRole,
-            string instanceType,
-            string? name)
-        {
-            AutoscalingPolicy = autoscalingPolicy;
-            BidPrice = bidPrice;
-            EbsConfigs = ebsConfigs;
-            Id = id;
-            InstanceCount = instanceCount;
-            InstanceRole = instanceRole;
-            InstanceType = instanceType;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterInstanceGroupsEbsConfigs
-    {
-        public readonly int? Iops;
-        public readonly int Size;
-        public readonly string Type;
-        public readonly int? VolumesPerInstance;
-
-        [OutputConstructor]
-        private ClusterInstanceGroupsEbsConfigs(
-            int? iops,
-            int size,
-            string type,
-            int? volumesPerInstance)
-        {
-            Iops = iops;
-            Size = size;
-            Type = type;
-            VolumesPerInstance = volumesPerInstance;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterKerberosAttributes
-    {
-        public readonly string? AdDomainJoinPassword;
-        public readonly string? AdDomainJoinUser;
-        public readonly string? CrossRealmTrustPrincipalPassword;
-        public readonly string KdcAdminPassword;
-        public readonly string Realm;
-
-        [OutputConstructor]
-        private ClusterKerberosAttributes(
-            string? adDomainJoinPassword,
-            string? adDomainJoinUser,
-            string? crossRealmTrustPrincipalPassword,
-            string kdcAdminPassword,
-            string realm)
-        {
-            AdDomainJoinPassword = adDomainJoinPassword;
-            AdDomainJoinUser = adDomainJoinUser;
-            CrossRealmTrustPrincipalPassword = crossRealmTrustPrincipalPassword;
-            KdcAdminPassword = kdcAdminPassword;
-            Realm = realm;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterMasterInstanceGroup
-    {
-        public readonly string? BidPrice;
-        public readonly ImmutableArray<ClusterMasterInstanceGroupEbsConfigs> EbsConfigs;
-        /// <summary>
-        /// The ID of the EMR Cluster
-        /// </summary>
-        public readonly string Id;
-        public readonly int? InstanceCount;
-        public readonly string InstanceType;
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        public readonly string? Name;
-
-        [OutputConstructor]
-        private ClusterMasterInstanceGroup(
-            string? bidPrice,
-            ImmutableArray<ClusterMasterInstanceGroupEbsConfigs> ebsConfigs,
-            string id,
-            int? instanceCount,
-            string instanceType,
-            string? name)
-        {
-            BidPrice = bidPrice;
-            EbsConfigs = ebsConfigs;
-            Id = id;
-            InstanceCount = instanceCount;
-            InstanceType = instanceType;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterMasterInstanceGroupEbsConfigs
-    {
-        public readonly int? Iops;
-        public readonly int Size;
-        public readonly string Type;
-        public readonly int? VolumesPerInstance;
-
-        [OutputConstructor]
-        private ClusterMasterInstanceGroupEbsConfigs(
-            int? iops,
-            int size,
-            string type,
-            int? volumesPerInstance)
-        {
-            Iops = iops;
-            Size = size;
-            Type = type;
-            VolumesPerInstance = volumesPerInstance;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterSteps
-    {
-        public readonly string ActionOnFailure;
-        public readonly ClusterStepsHadoopJarStep HadoopJarStep;
-        /// <summary>
-        /// The name of the job flow
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private ClusterSteps(
-            string actionOnFailure,
-            ClusterStepsHadoopJarStep hadoopJarStep,
-            string name)
-        {
-            ActionOnFailure = actionOnFailure;
-            HadoopJarStep = hadoopJarStep;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterStepsHadoopJarStep
-    {
-        public readonly ImmutableArray<string> Args;
-        public readonly string Jar;
-        public readonly string? MainClass;
-        public readonly ImmutableDictionary<string, object>? Properties;
-
-        [OutputConstructor]
-        private ClusterStepsHadoopJarStep(
-            ImmutableArray<string> args,
-            string jar,
-            string? mainClass,
-            ImmutableDictionary<string, object>? properties)
-        {
-            Args = args;
-            Jar = jar;
-            MainClass = mainClass;
-            Properties = properties;
-        }
-    }
     }
 }

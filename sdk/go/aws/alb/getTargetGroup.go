@@ -4,7 +4,7 @@
 package alb
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.

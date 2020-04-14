@@ -17,10 +17,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **Note:** The CIDR blocks in the arguments `tunnel1_inside_cidr` and `tunnel2_inside_cidr` must have a prefix of /30 and be a part of a specific range.
     /// [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_connection.html.markdown.
     /// </summary>
     public partial class VpnConnection : Pulumi.CustomResource
     {
@@ -37,7 +33,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> CustomerGatewayId { get; private set; } = null!;
 
         [Output("routes")]
-        public Output<ImmutableArray<Outputs.VpnConnectionRoutes>> Routes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VpnConnectionRoute>> Routes { get; private set; } = null!;
 
         /// <summary>
         /// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
@@ -154,7 +150,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Type { get; private set; } = null!;
 
         [Output("vgwTelemetries")]
-        public Output<ImmutableArray<Outputs.VpnConnectionVgwTelemetries>> VgwTelemetries { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VpnConnectionVgwTelemetry>> VgwTelemetries { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Virtual Private Gateway.
@@ -171,7 +167,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpnConnection(string name, VpnConnectionArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpnConnection:VpnConnection", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpnConnection:VpnConnection", name, args ?? new VpnConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -294,10 +290,10 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? CustomerGatewayId { get; set; }
 
         [Input("routes")]
-        private InputList<Inputs.VpnConnectionRoutesGetArgs>? _routes;
-        public InputList<Inputs.VpnConnectionRoutesGetArgs> Routes
+        private InputList<Inputs.VpnConnectionRouteGetArgs>? _routes;
+        public InputList<Inputs.VpnConnectionRouteGetArgs> Routes
         {
-            get => _routes ?? (_routes = new InputList<Inputs.VpnConnectionRoutesGetArgs>());
+            get => _routes ?? (_routes = new InputList<Inputs.VpnConnectionRouteGetArgs>());
             set => _routes = value;
         }
 
@@ -422,10 +418,10 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Type { get; set; }
 
         [Input("vgwTelemetries")]
-        private InputList<Inputs.VpnConnectionVgwTelemetriesGetArgs>? _vgwTelemetries;
-        public InputList<Inputs.VpnConnectionVgwTelemetriesGetArgs> VgwTelemetries
+        private InputList<Inputs.VpnConnectionVgwTelemetryGetArgs>? _vgwTelemetries;
+        public InputList<Inputs.VpnConnectionVgwTelemetryGetArgs> VgwTelemetries
         {
-            get => _vgwTelemetries ?? (_vgwTelemetries = new InputList<Inputs.VpnConnectionVgwTelemetriesGetArgs>());
+            get => _vgwTelemetries ?? (_vgwTelemetries = new InputList<Inputs.VpnConnectionVgwTelemetryGetArgs>());
             set => _vgwTelemetries = value;
         }
 
@@ -438,95 +434,5 @@ namespace Pulumi.Aws.Ec2
         public VpnConnectionState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class VpnConnectionRoutesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("destinationCidrBlock")]
-        public Input<string>? DestinationCidrBlock { get; set; }
-
-        [Input("source")]
-        public Input<string>? Source { get; set; }
-
-        [Input("state")]
-        public Input<string>? State { get; set; }
-
-        public VpnConnectionRoutesGetArgs()
-        {
-        }
-    }
-
-    public sealed class VpnConnectionVgwTelemetriesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("acceptedRouteCount")]
-        public Input<int>? AcceptedRouteCount { get; set; }
-
-        [Input("lastStatusChange")]
-        public Input<string>? LastStatusChange { get; set; }
-
-        [Input("outsideIpAddress")]
-        public Input<string>? OutsideIpAddress { get; set; }
-
-        [Input("status")]
-        public Input<string>? Status { get; set; }
-
-        [Input("statusMessage")]
-        public Input<string>? StatusMessage { get; set; }
-
-        public VpnConnectionVgwTelemetriesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class VpnConnectionRoutes
-    {
-        public readonly string DestinationCidrBlock;
-        public readonly string Source;
-        public readonly string State;
-
-        [OutputConstructor]
-        private VpnConnectionRoutes(
-            string destinationCidrBlock,
-            string source,
-            string state)
-        {
-            DestinationCidrBlock = destinationCidrBlock;
-            Source = source;
-            State = state;
-        }
-    }
-
-    [OutputType]
-    public sealed class VpnConnectionVgwTelemetries
-    {
-        public readonly int AcceptedRouteCount;
-        public readonly string LastStatusChange;
-        public readonly string OutsideIpAddress;
-        public readonly string Status;
-        public readonly string StatusMessage;
-
-        [OutputConstructor]
-        private VpnConnectionVgwTelemetries(
-            int acceptedRouteCount,
-            string lastStatusChange,
-            string outsideIpAddress,
-            string status,
-            string statusMessage)
-        {
-            AcceptedRouteCount = acceptedRouteCount;
-            LastStatusChange = lastStatusChange;
-            OutsideIpAddress = outsideIpAddress;
-            Status = status;
-            StatusMessage = statusMessage;
-        }
-    }
     }
 }

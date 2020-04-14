@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type GetProductFilter struct {
@@ -17,6 +17,11 @@ type GetProductFilter struct {
 	Value string `pulumi:"value"`
 }
 
+// GetProductFilterInput is an input type that accepts GetProductFilterArgs and GetProductFilterOutput values.
+// You can construct a concrete instance of `GetProductFilterInput` via:
+//
+// 		 GetProductFilterArgs{...}
+//
 type GetProductFilterInput interface {
 	pulumi.Input
 
@@ -43,6 +48,11 @@ func (i GetProductFilterArgs) ToGetProductFilterOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetProductFilterOutput)
 }
 
+// GetProductFilterArrayInput is an input type that accepts GetProductFilterArray and GetProductFilterArrayOutput values.
+// You can construct a concrete instance of `GetProductFilterArrayInput` via:
+//
+// 		 GetProductFilterArray{ GetProductFilterArgs{...} }
+//
 type GetProductFilterArrayInput interface {
 	pulumi.Input
 

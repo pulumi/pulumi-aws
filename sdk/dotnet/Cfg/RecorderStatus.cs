@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Cfg
     /// Manages status (recording / stopped) of an AWS Config Configuration Recorder.
     /// 
     /// &gt; **Note:** Starting Configuration Recorder requires a [Delivery Channel](https://www.terraform.io/docs/providers/aws/r/config_delivery_channel.html) to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_recorder_status.html.markdown.
     /// </summary>
     public partial class RecorderStatus : Pulumi.CustomResource
     {
@@ -41,7 +37,7 @@ namespace Pulumi.Aws.Cfg
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RecorderStatus(string name, RecorderStatusArgs args, CustomResourceOptions? options = null)
-            : base("aws:cfg/recorderStatus:RecorderStatus", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:cfg/recorderStatus:RecorderStatus", name, args ?? new RecorderStatusArgs(), MakeResourceOptions(options, ""))
         {
         }
 

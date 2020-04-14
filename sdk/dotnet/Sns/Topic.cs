@@ -16,8 +16,6 @@ namespace Pulumi.Aws.Sns
     /// ## Message Delivery Status Arguments
     /// 
     /// The `&lt;endpoint&gt;_success_feedback_role_arn` and `&lt;endpoint&gt;_failure_feedback_role_arn` arguments are used to give Amazon SNS write access to use CloudWatch Logs on your behalf. The `&lt;endpoint&gt;_success_feedback_sample_rate` argument is for specifying the sample rate percentage (0-100) of successfully delivered messages. After you configure the  `&lt;endpoint&gt;_failure_feedback_role_arn` argument, then all failed message deliveries generate CloudWatch Logs.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_topic.html.markdown.
     /// </summary>
     public partial class Topic : Pulumi.CustomResource
     {
@@ -150,7 +148,7 @@ namespace Pulumi.Aws.Sns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Topic(string name, TopicArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:sns/topic:Topic", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:sns/topic:Topic", name, args ?? new TopicArgs(), MakeResourceOptions(options, ""))
         {
         }
 

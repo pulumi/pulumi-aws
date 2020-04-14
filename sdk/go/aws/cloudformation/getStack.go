@@ -4,7 +4,7 @@
 package cloudformation
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // The CloudFormation Stack data source allows access to stack

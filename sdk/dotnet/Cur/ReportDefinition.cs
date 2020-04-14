@@ -15,10 +15,6 @@ namespace Pulumi.Aws.Cur
     /// &gt; *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
     /// 
     /// &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cur_report_definition.html.markdown.
     /// </summary>
     public partial class ReportDefinition : Pulumi.CustomResource
     {
@@ -85,7 +81,7 @@ namespace Pulumi.Aws.Cur
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReportDefinition(string name, ReportDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("aws:cur/reportDefinition:ReportDefinition", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:cur/reportDefinition:ReportDefinition", name, args ?? new ReportDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 

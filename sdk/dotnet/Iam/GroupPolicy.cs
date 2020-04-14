@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Iam
 {
     /// <summary>
     /// Provides an IAM policy attached to a group.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_policy.html.markdown.
     /// </summary>
     public partial class GroupPolicy : Pulumi.CustomResource
     {
@@ -53,7 +49,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GroupPolicy(string name, GroupPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:iam/groupPolicy:GroupPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iam/groupPolicy:GroupPolicy", name, args ?? new GroupPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

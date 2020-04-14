@@ -4,7 +4,7 @@
 package efs
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides information about an Elastic File System (EFS).

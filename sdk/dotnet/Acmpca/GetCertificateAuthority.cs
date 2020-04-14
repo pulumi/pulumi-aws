@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Acmpca
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acmpca_certificate_authority.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetCertificateAuthority.InvokeAsync() instead")]
-        public static Task<GetCertificateAuthorityResult> GetCertificateAuthority(GetCertificateAuthorityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateAuthorityResult>("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetCertificateAuthority
     {
         /// <summary>
         /// Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acmpca_certificate_authority.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCertificateAuthorityResult> InvokeAsync(GetCertificateAuthorityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateAuthorityResult>("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateAuthorityResult>("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args ?? new GetCertificateAuthorityArgs(), options.WithVersion());
     }
+
 
     public sealed class GetCertificateAuthorityArgs : Pulumi.InvokeArgs
     {
@@ -44,7 +31,7 @@ namespace Pulumi.Aws.Acmpca
         public string Arn { get; set; } = null!;
 
         [Input("revocationConfigurations")]
-        private List<Inputs.GetCertificateAuthorityRevocationConfigurationsArgs>? _revocationConfigurations;
+        private List<Inputs.GetCertificateAuthorityRevocationConfigurationArgs>? _revocationConfigurations;
 
         /// <summary>
         /// Nested attribute containing revocation configuration.
@@ -54,9 +41,9 @@ namespace Pulumi.Aws.Acmpca
         /// * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
         /// * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
         /// </summary>
-        public List<Inputs.GetCertificateAuthorityRevocationConfigurationsArgs> RevocationConfigurations
+        public List<Inputs.GetCertificateAuthorityRevocationConfigurationArgs> RevocationConfigurations
         {
-            get => _revocationConfigurations ?? (_revocationConfigurations = new List<Inputs.GetCertificateAuthorityRevocationConfigurationsArgs>());
+            get => _revocationConfigurations ?? (_revocationConfigurations = new List<Inputs.GetCertificateAuthorityRevocationConfigurationArgs>());
             set => _revocationConfigurations = value;
         }
 
@@ -77,6 +64,7 @@ namespace Pulumi.Aws.Acmpca
         }
     }
 
+
     [OutputType]
     public sealed class GetCertificateAuthorityResult
     {
@@ -94,6 +82,10 @@ namespace Pulumi.Aws.Acmpca
         /// </summary>
         public readonly string CertificateSigningRequest;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         /// </summary>
         public readonly string NotAfter;
@@ -109,7 +101,7 @@ namespace Pulumi.Aws.Acmpca
         /// * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
         /// * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetCertificateAuthorityRevocationConfigurationsResult> RevocationConfigurations;
+        public readonly ImmutableArray<Outputs.GetCertificateAuthorityRevocationConfigurationResult> RevocationConfigurations;
         /// <summary>
         /// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
         /// </summary>
@@ -126,30 +118,38 @@ namespace Pulumi.Aws.Acmpca
         /// The type of the certificate authority.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetCertificateAuthorityResult(
             string arn,
+
             string certificate,
+
             string certificateChain,
+
             string certificateSigningRequest,
+
+            string id,
+
             string notAfter,
+
             string notBefore,
-            ImmutableArray<Outputs.GetCertificateAuthorityRevocationConfigurationsResult> revocationConfigurations,
+
+            ImmutableArray<Outputs.GetCertificateAuthorityRevocationConfigurationResult> revocationConfigurations,
+
             string serial,
+
             string status,
+
             ImmutableDictionary<string, object> tags,
-            string type,
-            string id)
+
+            string type)
         {
             Arn = arn;
             Certificate = certificate;
             CertificateChain = certificateChain;
             CertificateSigningRequest = certificateSigningRequest;
+            Id = id;
             NotAfter = notAfter;
             NotBefore = notBefore;
             RevocationConfigurations = revocationConfigurations;
@@ -157,83 +157,6 @@ namespace Pulumi.Aws.Acmpca
             Status = status;
             Tags = tags;
             Type = type;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetCertificateAuthorityRevocationConfigurationsArgs : Pulumi.InvokeArgs
-    {
-        [Input("crlConfigurations")]
-        private List<GetCertificateAuthorityRevocationConfigurationsCrlConfigurationsArgs>? _crlConfigurations;
-        public List<GetCertificateAuthorityRevocationConfigurationsCrlConfigurationsArgs> CrlConfigurations
-        {
-            get => _crlConfigurations ?? (_crlConfigurations = new List<GetCertificateAuthorityRevocationConfigurationsCrlConfigurationsArgs>());
-            set => _crlConfigurations = value;
-        }
-
-        public GetCertificateAuthorityRevocationConfigurationsArgs()
-        {
-        }
-    }
-
-    public sealed class GetCertificateAuthorityRevocationConfigurationsCrlConfigurationsArgs : Pulumi.InvokeArgs
-    {
-        [Input("customCname")]
-        public string? CustomCname { get; set; }
-
-        [Input("enabled")]
-        public bool? Enabled { get; set; }
-
-        [Input("expirationInDays")]
-        public int? ExpirationInDays { get; set; }
-
-        [Input("s3BucketName")]
-        public string? S3BucketName { get; set; }
-
-        public GetCertificateAuthorityRevocationConfigurationsCrlConfigurationsArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetCertificateAuthorityRevocationConfigurationsCrlConfigurationsResult
-    {
-        public readonly string CustomCname;
-        public readonly bool Enabled;
-        public readonly int ExpirationInDays;
-        public readonly string S3BucketName;
-
-        [OutputConstructor]
-        private GetCertificateAuthorityRevocationConfigurationsCrlConfigurationsResult(
-            string customCname,
-            bool enabled,
-            int expirationInDays,
-            string s3BucketName)
-        {
-            CustomCname = customCname;
-            Enabled = enabled;
-            ExpirationInDays = expirationInDays;
-            S3BucketName = s3BucketName;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetCertificateAuthorityRevocationConfigurationsResult
-    {
-        public readonly ImmutableArray<GetCertificateAuthorityRevocationConfigurationsCrlConfigurationsResult> CrlConfigurations;
-
-        [OutputConstructor]
-        private GetCertificateAuthorityRevocationConfigurationsResult(ImmutableArray<GetCertificateAuthorityRevocationConfigurationsCrlConfigurationsResult> crlConfigurations)
-        {
-            CrlConfigurations = crlConfigurations;
-        }
-    }
     }
 }

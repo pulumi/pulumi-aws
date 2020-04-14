@@ -9,21 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sfn
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get the ARN of a State Machine in AWS Step
-        /// Function (SFN). By using this data source, you can reference a
-        /// state machine without having to hard code the ARNs as input.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_state_machine.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetStateMachine.InvokeAsync() instead")]
-        public static Task<GetStateMachineResult> GetStateMachine(GetStateMachineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStateMachineResult>("aws:sfn/getStateMachine:getStateMachine", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetStateMachine
     {
         /// <summary>
@@ -31,13 +16,13 @@ namespace Pulumi.Aws.Sfn
         /// Function (SFN). By using this data source, you can reference a
         /// state machine without having to hard code the ARNs as input.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_state_machine.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetStateMachineResult> InvokeAsync(GetStateMachineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStateMachineResult>("aws:sfn/getStateMachine:getStateMachine", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStateMachineResult>("aws:sfn/getStateMachine:getStateMachine", args ?? new GetStateMachineArgs(), options.WithVersion());
     }
+
 
     public sealed class GetStateMachineArgs : Pulumi.InvokeArgs
     {
@@ -51,6 +36,7 @@ namespace Pulumi.Aws.Sfn
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetStateMachineResult
@@ -67,6 +53,10 @@ namespace Pulumi.Aws.Sfn
         /// Set to the state machine definition.
         /// </summary>
         public readonly string Definition;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// Set to the role_arn used by the state function.
@@ -76,28 +66,30 @@ namespace Pulumi.Aws.Sfn
         /// Set to the current status of the state machine.
         /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetStateMachineResult(
             string arn,
+
             string creationDate,
+
             string definition,
+
+            string id,
+
             string name,
+
             string roleArn,
-            string status,
-            string id)
+
+            string status)
         {
             Arn = arn;
             CreationDate = creationDate;
             Definition = definition;
+            Id = id;
             Name = name;
             RoleArn = roleArn;
             Status = status;
-            Id = id;
         }
     }
 }

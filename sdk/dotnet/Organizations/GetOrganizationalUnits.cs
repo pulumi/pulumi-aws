@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Organizations
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organizational_units.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetOrganizationalUnits.InvokeAsync() instead")]
-        public static Task<GetOrganizationalUnitsResult> GetOrganizationalUnits(GetOrganizationalUnitsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationalUnitsResult>("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetOrganizationalUnits
     {
         /// <summary>
         /// Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organizational_units.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetOrganizationalUnitsResult> InvokeAsync(GetOrganizationalUnitsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationalUnitsResult>("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationalUnitsResult>("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", args ?? new GetOrganizationalUnitsArgs(), options.WithVersion());
     }
+
 
     public sealed class GetOrganizationalUnitsArgs : Pulumi.InvokeArgs
     {
@@ -48,60 +35,31 @@ namespace Pulumi.Aws.Organizations
         }
     }
 
+
     [OutputType]
     public sealed class GetOrganizationalUnitsResult
     {
         /// <summary>
         /// List of child organizational units, which have the following attributes:
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetOrganizationalUnitsChildrensResult> Childrens;
-        public readonly string ParentId;
+        public readonly ImmutableArray<Outputs.GetOrganizationalUnitsChildrenResult> Childrens;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string ParentId;
 
         [OutputConstructor]
         private GetOrganizationalUnitsResult(
-            ImmutableArray<Outputs.GetOrganizationalUnitsChildrensResult> childrens,
-            string parentId,
-            string id)
+            ImmutableArray<Outputs.GetOrganizationalUnitsChildrenResult> childrens,
+
+            string id,
+
+            string parentId)
         {
             Childrens = childrens;
+            Id = id;
             ParentId = parentId;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetOrganizationalUnitsChildrensResult
-    {
-        /// <summary>
-        /// ARN of the organizational unit
-        /// </summary>
-        public readonly string Arn;
-        /// <summary>
-        /// ID of the organizational unit
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Name of the organizational unit
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private GetOrganizationalUnitsChildrensResult(
-            string arn,
-            string id,
-            string name)
-        {
-            Arn = arn;
-            Id = id;
-            Name = name;
-        }
-    }
     }
 }

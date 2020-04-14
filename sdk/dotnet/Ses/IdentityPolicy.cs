@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Ses
 {
     /// <summary>
     /// Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_identity_policy.html.markdown.
     /// </summary>
     public partial class IdentityPolicy : Pulumi.CustomResource
     {
@@ -45,7 +41,7 @@ namespace Pulumi.Aws.Ses
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IdentityPolicy(string name, IdentityPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:ses/identityPolicy:IdentityPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ses/identityPolicy:IdentityPolicy", name, args ?? new IdentityPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

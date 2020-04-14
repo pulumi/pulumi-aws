@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Cognito
 {
     /// <summary>
     /// Provides a Cognito User Identity Provider resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_provider.html.markdown.
     /// </summary>
     public partial class IdentityProvider : Pulumi.CustomResource
     {
@@ -63,7 +59,7 @@ namespace Pulumi.Aws.Cognito
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IdentityProvider(string name, IdentityProviderArgs args, CustomResourceOptions? options = null)
-            : base("aws:cognito/identityProvider:IdentityProvider", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:cognito/identityProvider:IdentityProvider", name, args ?? new IdentityProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 

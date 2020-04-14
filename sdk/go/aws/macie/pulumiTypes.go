@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type S3BucketAssociationClassificationType struct {
@@ -19,6 +19,11 @@ type S3BucketAssociationClassificationType struct {
 	OneTime *string `pulumi:"oneTime"`
 }
 
+// S3BucketAssociationClassificationTypeInput is an input type that accepts S3BucketAssociationClassificationTypeArgs and S3BucketAssociationClassificationTypeOutput values.
+// You can construct a concrete instance of `S3BucketAssociationClassificationTypeInput` via:
+//
+// 		 S3BucketAssociationClassificationTypeArgs{...}
+//
 type S3BucketAssociationClassificationTypeInput interface {
 	pulumi.Input
 
@@ -55,6 +60,15 @@ func (i S3BucketAssociationClassificationTypeArgs) ToS3BucketAssociationClassifi
 	return pulumi.ToOutputWithContext(ctx, i).(S3BucketAssociationClassificationTypeOutput).ToS3BucketAssociationClassificationTypePtrOutputWithContext(ctx)
 }
 
+// S3BucketAssociationClassificationTypePtrInput is an input type that accepts S3BucketAssociationClassificationTypeArgs, S3BucketAssociationClassificationTypePtr and S3BucketAssociationClassificationTypePtrOutput values.
+// You can construct a concrete instance of `S3BucketAssociationClassificationTypePtrInput` via:
+//
+// 		 S3BucketAssociationClassificationTypeArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type S3BucketAssociationClassificationTypePtrInput interface {
 	pulumi.Input
 

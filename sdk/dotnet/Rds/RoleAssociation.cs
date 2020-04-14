@@ -16,10 +16,6 @@ namespace Pulumi.Aws.Rds
     /// * [Importing Amazon S3 Data into an RDS PostgreSQL DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html)
     /// 
     /// &gt; To manage the RDS DB Instance IAM Role for [Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html), see the `aws.rds.Instance` resource `monitoring_role_arn` argument instead.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_instance_role_association.html.markdown.
     /// </summary>
     public partial class RoleAssociation : Pulumi.CustomResource
     {
@@ -50,7 +46,7 @@ namespace Pulumi.Aws.Rds
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RoleAssociation(string name, RoleAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws:rds/roleAssociation:RoleAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:rds/roleAssociation:RoleAssociation", name, args ?? new RoleAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

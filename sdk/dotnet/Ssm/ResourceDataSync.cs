@@ -22,8 +22,6 @@ namespace Pulumi.Aws.Ssm
     /// * `kms_key_arn` - (Optional) ARN of an encryption key for a destination in Amazon S3.
     /// * `prefix` - (Optional) Prefix for the bucket.
     /// * `sync_format` - (Optional) A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_resource_data_sync.html.markdown.
     /// </summary>
     public partial class ResourceDataSync : Pulumi.CustomResource
     {
@@ -48,7 +46,7 @@ namespace Pulumi.Aws.Ssm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceDataSync(string name, ResourceDataSyncArgs args, CustomResourceOptions? options = null)
-            : base("aws:ssm/resourceDataSync:ResourceDataSync", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ssm/resourceDataSync:ResourceDataSync", name, args ?? new ResourceDataSyncArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -119,82 +117,5 @@ namespace Pulumi.Aws.Ssm
         public ResourceDataSyncState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ResourceDataSyncS3DestinationArgs : Pulumi.ResourceArgs
-    {
-        [Input("bucketName", required: true)]
-        public Input<string> BucketName { get; set; } = null!;
-
-        [Input("kmsKeyArn")]
-        public Input<string>? KmsKeyArn { get; set; }
-
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        [Input("region", required: true)]
-        public Input<string> Region { get; set; } = null!;
-
-        [Input("syncFormat")]
-        public Input<string>? SyncFormat { get; set; }
-
-        public ResourceDataSyncS3DestinationArgs()
-        {
-        }
-    }
-
-    public sealed class ResourceDataSyncS3DestinationGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("bucketName", required: true)]
-        public Input<string> BucketName { get; set; } = null!;
-
-        [Input("kmsKeyArn")]
-        public Input<string>? KmsKeyArn { get; set; }
-
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        [Input("region", required: true)]
-        public Input<string> Region { get; set; } = null!;
-
-        [Input("syncFormat")]
-        public Input<string>? SyncFormat { get; set; }
-
-        public ResourceDataSyncS3DestinationGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ResourceDataSyncS3Destination
-    {
-        public readonly string BucketName;
-        public readonly string? KmsKeyArn;
-        public readonly string? Prefix;
-        public readonly string Region;
-        public readonly string? SyncFormat;
-
-        [OutputConstructor]
-        private ResourceDataSyncS3Destination(
-            string bucketName,
-            string? kmsKeyArn,
-            string? prefix,
-            string region,
-            string? syncFormat)
-        {
-            BucketName = bucketName;
-            KmsKeyArn = kmsKeyArn;
-            Prefix = prefix;
-            Region = region;
-            SyncFormat = syncFormat;
-        }
-    }
     }
 }

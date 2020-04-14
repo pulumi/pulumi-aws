@@ -21,10 +21,6 @@ namespace Pulumi.Aws.Ram
     /// 
     /// - Organization and Organizational Unit principals cannot be used.
     /// - For AWS Account ID principals, a resource share invitation is sent and must be accepted before resources become available. See the [`aws.ram.ResourceShareAccepter` resource](https://www.terraform.io/docs/providers/aws/r/ram_resource_share_accepter.html) to accept these invitations.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ram_principal_association.markdown.
     /// </summary>
     public partial class PrincipalAssociation : Pulumi.CustomResource
     {
@@ -49,7 +45,7 @@ namespace Pulumi.Aws.Ram
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrincipalAssociation(string name, PrincipalAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws:ram/principalAssociation:PrincipalAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ram/principalAssociation:PrincipalAssociation", name, args ?? new PrincipalAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

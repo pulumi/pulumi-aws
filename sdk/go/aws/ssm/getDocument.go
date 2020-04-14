@@ -4,7 +4,7 @@
 package ssm
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Gets the contents of the specified Systems Manager document.

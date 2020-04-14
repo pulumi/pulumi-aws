@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type QueueReservationPlanSettings struct {
@@ -19,6 +19,11 @@ type QueueReservationPlanSettings struct {
 	ReservedSlots int `pulumi:"reservedSlots"`
 }
 
+// QueueReservationPlanSettingsInput is an input type that accepts QueueReservationPlanSettingsArgs and QueueReservationPlanSettingsOutput values.
+// You can construct a concrete instance of `QueueReservationPlanSettingsInput` via:
+//
+// 		 QueueReservationPlanSettingsArgs{...}
+//
 type QueueReservationPlanSettingsInput interface {
 	pulumi.Input
 
@@ -55,6 +60,15 @@ func (i QueueReservationPlanSettingsArgs) ToQueueReservationPlanSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(QueueReservationPlanSettingsOutput).ToQueueReservationPlanSettingsPtrOutputWithContext(ctx)
 }
 
+// QueueReservationPlanSettingsPtrInput is an input type that accepts QueueReservationPlanSettingsArgs, QueueReservationPlanSettingsPtr and QueueReservationPlanSettingsPtrOutput values.
+// You can construct a concrete instance of `QueueReservationPlanSettingsPtrInput` via:
+//
+// 		 QueueReservationPlanSettingsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type QueueReservationPlanSettingsPtrInput interface {
 	pulumi.Input
 

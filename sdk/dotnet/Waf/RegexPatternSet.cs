@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Waf
 {
     /// <summary>
     /// Provides a WAF Regex Pattern Set Resource
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_regex_pattern_set.html.markdown.
     /// </summary>
     public partial class RegexPatternSet : Pulumi.CustomResource
     {
@@ -45,7 +41,7 @@ namespace Pulumi.Aws.Waf
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RegexPatternSet(string name, RegexPatternSetArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:waf/regexPatternSet:RegexPatternSet", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:waf/regexPatternSet:RegexPatternSet", name, args ?? new RegexPatternSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 

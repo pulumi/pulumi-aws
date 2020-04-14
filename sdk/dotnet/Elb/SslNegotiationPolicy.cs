@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Elb
 {
     /// <summary>
     /// Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_ssl_negotiation_policy.html.markdown.
     /// </summary>
     public partial class SslNegotiationPolicy : Pulumi.CustomResource
     {
@@ -22,7 +18,7 @@ namespace Pulumi.Aws.Elb
         /// An SSL Negotiation policy attribute. Each has two properties:
         /// </summary>
         [Output("attributes")]
-        public Output<ImmutableArray<Outputs.SslNegotiationPolicyAttributes>> Attributes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SslNegotiationPolicyAttribute>> Attributes { get; private set; } = null!;
 
         /// <summary>
         /// The load balancer port to which the policy
@@ -54,7 +50,7 @@ namespace Pulumi.Aws.Elb
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SslNegotiationPolicy(string name, SslNegotiationPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:elb/sslNegotiationPolicy:SslNegotiationPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:elb/sslNegotiationPolicy:SslNegotiationPolicy", name, args ?? new SslNegotiationPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -67,7 +63,7 @@ namespace Pulumi.Aws.Elb
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy" } },
+                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy"} },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -92,14 +88,14 @@ namespace Pulumi.Aws.Elb
     public sealed class SslNegotiationPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("attributes")]
-        private InputList<Inputs.SslNegotiationPolicyAttributesArgs>? _attributes;
+        private InputList<Inputs.SslNegotiationPolicyAttributeArgs>? _attributes;
 
         /// <summary>
         /// An SSL Negotiation policy attribute. Each has two properties:
         /// </summary>
-        public InputList<Inputs.SslNegotiationPolicyAttributesArgs> Attributes
+        public InputList<Inputs.SslNegotiationPolicyAttributeArgs> Attributes
         {
-            get => _attributes ?? (_attributes = new InputList<Inputs.SslNegotiationPolicyAttributesArgs>());
+            get => _attributes ?? (_attributes = new InputList<Inputs.SslNegotiationPolicyAttributeArgs>());
             set => _attributes = value;
         }
 
@@ -132,14 +128,14 @@ namespace Pulumi.Aws.Elb
     public sealed class SslNegotiationPolicyState : Pulumi.ResourceArgs
     {
         [Input("attributes")]
-        private InputList<Inputs.SslNegotiationPolicyAttributesGetArgs>? _attributes;
+        private InputList<Inputs.SslNegotiationPolicyAttributeGetArgs>? _attributes;
 
         /// <summary>
         /// An SSL Negotiation policy attribute. Each has two properties:
         /// </summary>
-        public InputList<Inputs.SslNegotiationPolicyAttributesGetArgs> Attributes
+        public InputList<Inputs.SslNegotiationPolicyAttributeGetArgs> Attributes
         {
-            get => _attributes ?? (_attributes = new InputList<Inputs.SslNegotiationPolicyAttributesGetArgs>());
+            get => _attributes ?? (_attributes = new InputList<Inputs.SslNegotiationPolicyAttributeGetArgs>());
             set => _attributes = value;
         }
 
@@ -167,73 +163,5 @@ namespace Pulumi.Aws.Elb
         public SslNegotiationPolicyState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SslNegotiationPolicyAttributesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the attribute
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The value of the attribute
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public SslNegotiationPolicyAttributesArgs()
-        {
-        }
-    }
-
-    public sealed class SslNegotiationPolicyAttributesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the attribute
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The value of the attribute
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public SslNegotiationPolicyAttributesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SslNegotiationPolicyAttributes
-    {
-        /// <summary>
-        /// The name of the attribute
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The value of the attribute
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private SslNegotiationPolicyAttributes(
-            string name,
-            string value)
-        {
-            Name = name;
-            Value = value;
-        }
-    }
     }
 }

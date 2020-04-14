@@ -9,21 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// `aws.route53.Zone` provides details about a specific Route 53 Hosted Zone.
-        /// 
-        /// This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_zone.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetZone.InvokeAsync() instead")]
-        public static Task<GetZoneResult> GetZone(GetZoneArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("aws:route53/getZone:getZone", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetZone
     {
         /// <summary>
@@ -31,13 +16,13 @@ namespace Pulumi.Aws.Route53
         /// 
         /// This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_zone.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetZoneResult> InvokeAsync(GetZoneArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("aws:route53/getZone:getZone", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("aws:route53/getZone:getZone", args ?? new GetZoneArgs(), options.WithVersion());
     }
+
 
     public sealed class GetZoneArgs : Pulumi.InvokeArgs
     {
@@ -88,6 +73,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
+
     [OutputType]
     public sealed class GetZoneResult
     {
@@ -99,6 +85,10 @@ namespace Pulumi.Aws.Route53
         /// The comment field of the Hosted Zone.
         /// </summary>
         public readonly string Comment;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The description provided by the service that created the Hosted Zone (e.g. `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
         /// </summary>
@@ -120,28 +110,36 @@ namespace Pulumi.Aws.Route53
         public readonly ImmutableDictionary<string, object> Tags;
         public readonly string VpcId;
         public readonly string ZoneId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetZoneResult(
             string callerReference,
+
             string comment,
+
+            string id,
+
             string linkedServiceDescription,
+
             string linkedServicePrincipal,
+
             string name,
+
             ImmutableArray<string> nameServers,
+
             bool? privateZone,
+
             int resourceRecordSetCount,
+
             ImmutableDictionary<string, object> tags,
+
             string vpcId,
-            string zoneId,
-            string id)
+
+            string zoneId)
         {
             CallerReference = callerReference;
             Comment = comment;
+            Id = id;
             LinkedServiceDescription = linkedServiceDescription;
             LinkedServicePrincipal = linkedServicePrincipal;
             Name = name;
@@ -151,7 +149,6 @@ namespace Pulumi.Aws.Route53
             Tags = tags;
             VpcId = vpcId;
             ZoneId = zoneId;
-            Id = id;
         }
     }
 }

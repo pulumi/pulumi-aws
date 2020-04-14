@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type FleetIdentityProvider struct {
@@ -17,6 +17,11 @@ type FleetIdentityProvider struct {
 	Type string `pulumi:"type"`
 }
 
+// FleetIdentityProviderInput is an input type that accepts FleetIdentityProviderArgs and FleetIdentityProviderOutput values.
+// You can construct a concrete instance of `FleetIdentityProviderInput` via:
+//
+// 		 FleetIdentityProviderArgs{...}
+//
 type FleetIdentityProviderInput interface {
 	pulumi.Input
 
@@ -51,6 +56,15 @@ func (i FleetIdentityProviderArgs) ToFleetIdentityProviderPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(FleetIdentityProviderOutput).ToFleetIdentityProviderPtrOutputWithContext(ctx)
 }
 
+// FleetIdentityProviderPtrInput is an input type that accepts FleetIdentityProviderArgs, FleetIdentityProviderPtr and FleetIdentityProviderPtrOutput values.
+// You can construct a concrete instance of `FleetIdentityProviderPtrInput` via:
+//
+// 		 FleetIdentityProviderArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FleetIdentityProviderPtrInput interface {
 	pulumi.Input
 
@@ -147,6 +161,11 @@ type FleetNetwork struct {
 	VpcId string `pulumi:"vpcId"`
 }
 
+// FleetNetworkInput is an input type that accepts FleetNetworkArgs and FleetNetworkOutput values.
+// You can construct a concrete instance of `FleetNetworkInput` via:
+//
+// 		 FleetNetworkArgs{...}
+//
 type FleetNetworkInput interface {
 	pulumi.Input
 
@@ -183,6 +202,15 @@ func (i FleetNetworkArgs) ToFleetNetworkPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(FleetNetworkOutput).ToFleetNetworkPtrOutputWithContext(ctx)
 }
 
+// FleetNetworkPtrInput is an input type that accepts FleetNetworkArgs, FleetNetworkPtr and FleetNetworkPtrOutput values.
+// You can construct a concrete instance of `FleetNetworkPtrInput` via:
+//
+// 		 FleetNetworkArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type FleetNetworkPtrInput interface {
 	pulumi.Input
 

@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Route53
 {
     /// <summary>
     /// Provides a Route53 Resolver rule.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_rule.html.markdown.
     /// </summary>
     public partial class ResolverRule : Pulumi.CustomResource
     {
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Route53
         /// This argument should only be specified for `FORWARD` type rules.
         /// </summary>
         [Output("targetIps")]
-        public Output<ImmutableArray<Outputs.ResolverRuleTargetIps>> TargetIps { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ResolverRuleTargetIp>> TargetIps { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,7 +80,7 @@ namespace Pulumi.Aws.Route53
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResolverRule(string name, ResolverRuleArgs args, CustomResourceOptions? options = null)
-            : base("aws:route53/resolverRule:ResolverRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:route53/resolverRule:ResolverRule", name, args ?? new ResolverRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -159,15 +155,15 @@ namespace Pulumi.Aws.Route53
         }
 
         [Input("targetIps")]
-        private InputList<Inputs.ResolverRuleTargetIpsArgs>? _targetIps;
+        private InputList<Inputs.ResolverRuleTargetIpArgs>? _targetIps;
 
         /// <summary>
         /// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
         /// This argument should only be specified for `FORWARD` type rules.
         /// </summary>
-        public InputList<Inputs.ResolverRuleTargetIpsArgs> TargetIps
+        public InputList<Inputs.ResolverRuleTargetIpArgs> TargetIps
         {
-            get => _targetIps ?? (_targetIps = new InputList<Inputs.ResolverRuleTargetIpsArgs>());
+            get => _targetIps ?? (_targetIps = new InputList<Inputs.ResolverRuleTargetIpArgs>());
             set => _targetIps = value;
         }
 
@@ -235,88 +231,20 @@ namespace Pulumi.Aws.Route53
         }
 
         [Input("targetIps")]
-        private InputList<Inputs.ResolverRuleTargetIpsGetArgs>? _targetIps;
+        private InputList<Inputs.ResolverRuleTargetIpGetArgs>? _targetIps;
 
         /// <summary>
         /// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
         /// This argument should only be specified for `FORWARD` type rules.
         /// </summary>
-        public InputList<Inputs.ResolverRuleTargetIpsGetArgs> TargetIps
+        public InputList<Inputs.ResolverRuleTargetIpGetArgs> TargetIps
         {
-            get => _targetIps ?? (_targetIps = new InputList<Inputs.ResolverRuleTargetIpsGetArgs>());
+            get => _targetIps ?? (_targetIps = new InputList<Inputs.ResolverRuleTargetIpGetArgs>());
             set => _targetIps = value;
         }
 
         public ResolverRuleState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ResolverRuleTargetIpsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
-        /// </summary>
-        [Input("ip", required: true)]
-        public Input<string> Ip { get; set; } = null!;
-
-        /// <summary>
-        /// The port at `ip` that you want to forward DNS queries to. Default value is `53`
-        /// </summary>
-        [Input("port")]
-        public Input<int>? Port { get; set; }
-
-        public ResolverRuleTargetIpsArgs()
-        {
-        }
-    }
-
-    public sealed class ResolverRuleTargetIpsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
-        /// </summary>
-        [Input("ip", required: true)]
-        public Input<string> Ip { get; set; } = null!;
-
-        /// <summary>
-        /// The port at `ip` that you want to forward DNS queries to. Default value is `53`
-        /// </summary>
-        [Input("port")]
-        public Input<int>? Port { get; set; }
-
-        public ResolverRuleTargetIpsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ResolverRuleTargetIps
-    {
-        /// <summary>
-        /// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
-        /// </summary>
-        public readonly string Ip;
-        /// <summary>
-        /// The port at `ip` that you want to forward DNS queries to. Default value is `53`
-        /// </summary>
-        public readonly int? Port;
-
-        [OutputConstructor]
-        private ResolverRuleTargetIps(
-            string ip,
-            int? port)
-        {
-            Ip = ip;
-            Port = port;
-        }
-    }
     }
 }

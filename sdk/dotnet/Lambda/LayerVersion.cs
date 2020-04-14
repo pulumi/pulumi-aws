@@ -26,8 +26,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
     /// large files efficiently.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_layer_version.html.markdown.
     /// </summary>
     public partial class LayerVersion : Pulumi.CustomResource
     {
@@ -36,6 +34,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        /// </summary>
+        [Output("code")]
+        public Output<Archive?> Code { get; private set; } = null!;
 
         /// <summary>
         /// A list of [Runtimes][2] this layer is compatible with. Up to 5 runtimes can be specified.
@@ -54,12 +58,6 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-        /// </summary>
-        [Output("code")]
-        public Output<Archive?> Code { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Lambda Layer without version.
@@ -124,7 +122,7 @@ namespace Pulumi.Aws.Lambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LayerVersion(string name, LayerVersionArgs args, CustomResourceOptions? options = null)
-            : base("aws:lambda/layerVersion:LayerVersion", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:lambda/layerVersion:LayerVersion", name, args ?? new LayerVersionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -161,6 +159,12 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class LayerVersionArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        /// </summary>
+        [Input("code")]
+        public Input<Archive>? Code { get; set; }
+
         [Input("compatibleRuntimes")]
         private InputList<string>? _compatibleRuntimes;
 
@@ -178,12 +182,6 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-        /// </summary>
-        [Input("code")]
-        public Input<Archive>? Code { get; set; }
 
         /// <summary>
         /// A unique name for your Lambda Layer
@@ -234,6 +232,12 @@ namespace Pulumi.Aws.Lambda
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        /// </summary>
+        [Input("code")]
+        public Input<Archive>? Code { get; set; }
+
         [Input("compatibleRuntimes")]
         private InputList<string>? _compatibleRuntimes;
 
@@ -257,12 +261,6 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-        /// </summary>
-        [Input("code")]
-        public Input<Archive>? Code { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Lambda Layer without version.

@@ -4,7 +4,7 @@
 package organizations
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.

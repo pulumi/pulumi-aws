@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/directory_service_directory.html.markdown.
  */
-export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectoryResult> & GetDirectoryResult {
+export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectoryResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,12 +32,10 @@ export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDirectoryResult> = pulumi.runtime.invoke("aws:directoryservice/getDirectory:getDirectory", {
+    return pulumi.runtime.invoke("aws:directoryservice/getDirectory:getDirectory", {
         "directoryId": args.directoryId,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

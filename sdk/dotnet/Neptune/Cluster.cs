@@ -19,10 +19,6 @@ namespace Pulumi.Aws.Neptune
     /// phase because a modification has not yet taken place. You can use the
     /// `apply_immediately` flag to instruct the service to apply the change immediately
     /// (see documentation below).
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster.html.markdown.
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {
@@ -215,7 +211,7 @@ namespace Pulumi.Aws.Neptune
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:neptune/cluster:Cluster", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:neptune/cluster:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -4,7 +4,7 @@
 package aws
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Parses an Amazon Resource Name (ARN) into its constituent parts.

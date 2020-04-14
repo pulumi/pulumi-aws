@@ -16,8 +16,6 @@ namespace Pulumi.Aws.Iam
     /// 
     /// To exclusively manage the users in a group, see the
     /// [`aws.iam.GroupMembership` resource][3].
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_group_membership.html.markdown.
     /// </summary>
     public partial class UserGroupMembership : Pulumi.CustomResource
     {
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserGroupMembership(string name, UserGroupMembershipArgs args, CustomResourceOptions? options = null)
-            : base("aws:iam/userGroupMembership:UserGroupMembership", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iam/userGroupMembership:UserGroupMembership", name, args ?? new UserGroupMembershipArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -9,33 +9,19 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Batch
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// The Batch Compute Environment data source allows access to details of a specific
-        /// compute environment within AWS Batch.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_compute_environment.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetComputeEnvironment.InvokeAsync() instead")]
-        public static Task<GetComputeEnvironmentResult> GetComputeEnvironment(GetComputeEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComputeEnvironmentResult>("aws:batch/getComputeEnvironment:getComputeEnvironment", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetComputeEnvironment
     {
         /// <summary>
         /// The Batch Compute Environment data source allows access to details of a specific
         /// compute environment within AWS Batch.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_compute_environment.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetComputeEnvironmentResult> InvokeAsync(GetComputeEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComputeEnvironmentResult>("aws:batch/getComputeEnvironment:getComputeEnvironment", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetComputeEnvironmentResult>("aws:batch/getComputeEnvironment:getComputeEnvironment", args ?? new GetComputeEnvironmentArgs(), options.WithVersion());
     }
+
 
     public sealed class GetComputeEnvironmentArgs : Pulumi.InvokeArgs
     {
@@ -50,6 +36,7 @@ namespace Pulumi.Aws.Batch
         }
     }
 
+
     [OutputType]
     public sealed class GetComputeEnvironmentResult
     {
@@ -62,6 +49,10 @@ namespace Pulumi.Aws.Batch
         /// The ARN of the underlying Amazon ECS cluster used by the compute environment.
         /// </summary>
         public readonly string EcsClusterArn;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
@@ -82,32 +73,36 @@ namespace Pulumi.Aws.Batch
         /// The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetComputeEnvironmentResult(
             string arn,
+
             string computeEnvironmentName,
+
             string ecsClusterArn,
+
+            string id,
+
             string serviceRole,
+
             string state,
+
             string status,
+
             string statusReason,
-            string type,
-            string id)
+
+            string type)
         {
             Arn = arn;
             ComputeEnvironmentName = computeEnvironmentName;
             EcsClusterArn = ecsClusterArn;
+            Id = id;
             ServiceRole = serviceRole;
             State = state;
             Status = status;
             StatusReason = statusReason;
             Type = type;
-            Id = id;
         }
     }
 }

@@ -11,10 +11,6 @@ namespace Pulumi.Aws.S3
 {
     /// <summary>
     /// Attaches a policy to an S3 bucket resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_policy.html.markdown.
     /// </summary>
     public partial class BucketPolicy : Pulumi.CustomResource
     {
@@ -39,7 +35,7 @@ namespace Pulumi.Aws.S3
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BucketPolicy(string name, BucketPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:s3/bucketPolicy:BucketPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:s3/bucketPolicy:BucketPolicy", name, args ?? new BucketPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

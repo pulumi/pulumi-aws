@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type CertificateDomainValidationOption struct {
@@ -21,6 +21,11 @@ type CertificateDomainValidationOption struct {
 	ResourceRecordValue *string `pulumi:"resourceRecordValue"`
 }
 
+// CertificateDomainValidationOptionInput is an input type that accepts CertificateDomainValidationOptionArgs and CertificateDomainValidationOptionOutput values.
+// You can construct a concrete instance of `CertificateDomainValidationOptionInput` via:
+//
+// 		 CertificateDomainValidationOptionArgs{...}
+//
 type CertificateDomainValidationOptionInput interface {
 	pulumi.Input
 
@@ -51,6 +56,11 @@ func (i CertificateDomainValidationOptionArgs) ToCertificateDomainValidationOpti
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateDomainValidationOptionOutput)
 }
 
+// CertificateDomainValidationOptionArrayInput is an input type that accepts CertificateDomainValidationOptionArray and CertificateDomainValidationOptionArrayOutput values.
+// You can construct a concrete instance of `CertificateDomainValidationOptionArrayInput` via:
+//
+// 		 CertificateDomainValidationOptionArray{ CertificateDomainValidationOptionArgs{...} }
+//
 type CertificateDomainValidationOptionArrayInput interface {
 	pulumi.Input
 
@@ -130,6 +140,11 @@ type CertificateOptions struct {
 	CertificateTransparencyLoggingPreference *string `pulumi:"certificateTransparencyLoggingPreference"`
 }
 
+// CertificateOptionsInput is an input type that accepts CertificateOptionsArgs and CertificateOptionsOutput values.
+// You can construct a concrete instance of `CertificateOptionsInput` via:
+//
+// 		 CertificateOptionsArgs{...}
+//
 type CertificateOptionsInput interface {
 	pulumi.Input
 
@@ -161,6 +176,15 @@ func (i CertificateOptionsArgs) ToCertificateOptionsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOptionsOutput).ToCertificateOptionsPtrOutputWithContext(ctx)
 }
 
+// CertificateOptionsPtrInput is an input type that accepts CertificateOptionsArgs, CertificateOptionsPtr and CertificateOptionsPtrOutput values.
+// You can construct a concrete instance of `CertificateOptionsPtrInput` via:
+//
+// 		 CertificateOptionsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type CertificateOptionsPtrInput interface {
 	pulumi.Input
 

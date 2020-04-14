@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Ebs
 {
     /// <summary>
     /// Manages a single EBS volume.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_volume.html.markdown.
     /// </summary>
     public partial class Volume : Pulumi.CustomResource
     {
@@ -81,7 +77,7 @@ namespace Pulumi.Aws.Ebs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Volume(string name, VolumeArgs args, CustomResourceOptions? options = null)
-            : base("aws:ebs/volume:Volume", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ebs/volume:Volume", name, args ?? new VolumeArgs(), MakeResourceOptions(options, ""))
         {
         }
 

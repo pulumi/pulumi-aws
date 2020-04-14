@@ -9,23 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// `aws.ec2.Route` provides details about a specific Route.
-        /// 
-        /// This resource can prove useful when finding the resource
-        /// associated with a CIDR. For example, finding the peering
-        /// connection associated with a CIDR value.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetRoute.InvokeAsync() instead")]
-        public static Task<GetRouteResult> GetRoute(GetRouteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("aws:ec2/getRoute:getRoute", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetRoute
     {
         /// <summary>
@@ -35,13 +18,13 @@ namespace Pulumi.Aws.Ec2
         /// associated with a CIDR. For example, finding the peering
         /// connection associated with a CIDR value.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("aws:ec2/getRoute:getRoute", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("aws:ec2/getRoute:getRoute", args ?? new GetRouteArgs(), options.WithVersion());
     }
+
 
     public sealed class GetRouteArgs : Pulumi.InvokeArgs
     {
@@ -110,6 +93,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetRouteResult
     {
@@ -117,42 +101,52 @@ namespace Pulumi.Aws.Ec2
         public readonly string DestinationIpv6CidrBlock;
         public readonly string EgressOnlyGatewayId;
         public readonly string GatewayId;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string InstanceId;
         public readonly string NatGatewayId;
         public readonly string NetworkInterfaceId;
         public readonly string RouteTableId;
         public readonly string TransitGatewayId;
         public readonly string VpcPeeringConnectionId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetRouteResult(
             string destinationCidrBlock,
+
             string destinationIpv6CidrBlock,
+
             string egressOnlyGatewayId,
+
             string gatewayId,
+
+            string id,
+
             string instanceId,
+
             string natGatewayId,
+
             string networkInterfaceId,
+
             string routeTableId,
+
             string transitGatewayId,
-            string vpcPeeringConnectionId,
-            string id)
+
+            string vpcPeeringConnectionId)
         {
             DestinationCidrBlock = destinationCidrBlock;
             DestinationIpv6CidrBlock = destinationIpv6CidrBlock;
             EgressOnlyGatewayId = egressOnlyGatewayId;
             GatewayId = gatewayId;
+            Id = id;
             InstanceId = instanceId;
             NatGatewayId = natGatewayId;
             NetworkInterfaceId = networkInterfaceId;
             RouteTableId = routeTableId;
             TransitGatewayId = transitGatewayId;
             VpcPeeringConnectionId = vpcPeeringConnectionId;
-            Id = id;
         }
     }
 }

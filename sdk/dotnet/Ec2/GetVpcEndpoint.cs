@@ -9,45 +9,31 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// The VPC Endpoint data source provides details about
-        /// a specific VPC endpoint.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetVpcEndpoint.InvokeAsync() instead")]
-        public static Task<GetVpcEndpointResult> GetVpcEndpoint(GetVpcEndpointArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcEndpointResult>("aws:ec2/getVpcEndpoint:getVpcEndpoint", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetVpcEndpoint
     {
         /// <summary>
         /// The VPC Endpoint data source provides details about
         /// a specific VPC endpoint.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpcEndpointResult> InvokeAsync(GetVpcEndpointArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcEndpointResult>("aws:ec2/getVpcEndpoint:getVpcEndpoint", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcEndpointResult>("aws:ec2/getVpcEndpoint:getVpcEndpoint", args ?? new GetVpcEndpointArgs(), options.WithVersion());
     }
+
 
     public sealed class GetVpcEndpointArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetVpcEndpointFiltersArgs>? _filters;
+        private List<Inputs.GetVpcEndpointFilterArgs>? _filters;
 
         /// <summary>
         /// Custom filter block as described below.
         /// </summary>
-        public List<Inputs.GetVpcEndpointFiltersArgs> Filters
+        public List<Inputs.GetVpcEndpointFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetVpcEndpointFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetVpcEndpointFilterArgs>());
             set => _filters = value;
         }
 
@@ -93,6 +79,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetVpcEndpointResult
     {
@@ -103,8 +90,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetVpcEndpointDnsEntriesResult> DnsEntries;
-        public readonly ImmutableArray<Outputs.GetVpcEndpointFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetVpcEndpointDnsEntryResult> DnsEntries;
+        public readonly ImmutableArray<Outputs.GetVpcEndpointFilterResult> Filters;
         public readonly string Id;
         /// <summary>
         /// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
@@ -154,22 +141,39 @@ namespace Pulumi.Aws.Ec2
         [OutputConstructor]
         private GetVpcEndpointResult(
             ImmutableArray<string> cidrBlocks,
-            ImmutableArray<Outputs.GetVpcEndpointDnsEntriesResult> dnsEntries,
-            ImmutableArray<Outputs.GetVpcEndpointFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetVpcEndpointDnsEntryResult> dnsEntries,
+
+            ImmutableArray<Outputs.GetVpcEndpointFilterResult> filters,
+
             string id,
+
             ImmutableArray<string> networkInterfaceIds,
+
             string ownerId,
+
             string policy,
+
             string prefixListId,
+
             bool privateDnsEnabled,
+
             bool requesterManaged,
+
             ImmutableArray<string> routeTableIds,
+
             ImmutableArray<string> securityGroupIds,
+
             string serviceName,
+
             string state,
+
             ImmutableArray<string> subnetIds,
+
             ImmutableDictionary<string, object> tags,
+
             string vpcEndpointType,
+
             string vpcId)
         {
             CidrBlocks = cidrBlocks;
@@ -191,86 +195,5 @@ namespace Pulumi.Aws.Ec2
             VpcEndpointType = vpcEndpointType;
             VpcId = vpcId;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetVpcEndpointFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// A VPC Endpoint will be selected if any one of the given values matches.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetVpcEndpointFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetVpcEndpointDnsEntriesResult
-    {
-        /// <summary>
-        /// The DNS name.
-        /// </summary>
-        public readonly string DnsName;
-        /// <summary>
-        /// The ID of the private hosted zone.
-        /// </summary>
-        public readonly string HostedZoneId;
-
-        [OutputConstructor]
-        private GetVpcEndpointDnsEntriesResult(
-            string dnsName,
-            string hostedZoneId)
-        {
-            DnsName = dnsName;
-            HostedZoneId = hostedZoneId;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetVpcEndpointFiltersResult
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// A VPC Endpoint will be selected if any one of the given values matches.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetVpcEndpointFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

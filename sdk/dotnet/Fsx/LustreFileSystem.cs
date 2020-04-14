@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Fsx
 {
     /// <summary>
     /// Manages a FSx Lustre File System. See the [FSx Lustre Guide](https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html) for more information.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/fsx_lustre_file_system.html.markdown.
     /// </summary>
     public partial class LustreFileSystem : Pulumi.CustomResource
     {
@@ -105,7 +101,7 @@ namespace Pulumi.Aws.Fsx
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LustreFileSystem(string name, LustreFileSystemArgs args, CustomResourceOptions? options = null)
-            : base("aws:fsx/lustreFileSystem:LustreFileSystem", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:fsx/lustreFileSystem:LustreFileSystem", name, args ?? new LustreFileSystemArgs(), MakeResourceOptions(options, ""))
         {
         }
 

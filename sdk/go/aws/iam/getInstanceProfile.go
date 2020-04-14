@@ -4,7 +4,7 @@
 package iam
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // This data source can be used to fetch information about a specific

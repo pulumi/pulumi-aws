@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Glue
 {
     /// <summary>
     /// Manages a Glue Trigger resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_trigger.html.markdown.
     /// </summary>
     public partial class Trigger : Pulumi.CustomResource
     {
@@ -22,7 +18,7 @@ namespace Pulumi.Aws.Glue
         /// List of actions initiated by this trigger when it fires. Defined below.
         /// </summary>
         [Output("actions")]
-        public Output<ImmutableArray<Outputs.TriggerActions>> Actions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TriggerAction>> Actions { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of Glue Trigger
@@ -87,7 +83,7 @@ namespace Pulumi.Aws.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Trigger(string name, TriggerArgs args, CustomResourceOptions? options = null)
-            : base("aws:glue/trigger:Trigger", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:glue/trigger:Trigger", name, args ?? new TriggerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -125,14 +121,14 @@ namespace Pulumi.Aws.Glue
     public sealed class TriggerArgs : Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
-        private InputList<Inputs.TriggerActionsArgs>? _actions;
+        private InputList<Inputs.TriggerActionArgs>? _actions;
 
         /// <summary>
         /// List of actions initiated by this trigger when it fires. Defined below.
         /// </summary>
-        public InputList<Inputs.TriggerActionsArgs> Actions
+        public InputList<Inputs.TriggerActionArgs> Actions
         {
-            get => _actions ?? (_actions = new InputList<Inputs.TriggerActionsArgs>());
+            get => _actions ?? (_actions = new InputList<Inputs.TriggerActionArgs>());
             set => _actions = value;
         }
 
@@ -198,14 +194,14 @@ namespace Pulumi.Aws.Glue
     public sealed class TriggerState : Pulumi.ResourceArgs
     {
         [Input("actions")]
-        private InputList<Inputs.TriggerActionsGetArgs>? _actions;
+        private InputList<Inputs.TriggerActionGetArgs>? _actions;
 
         /// <summary>
         /// List of actions initiated by this trigger when it fires. Defined below.
         /// </summary>
-        public InputList<Inputs.TriggerActionsGetArgs> Actions
+        public InputList<Inputs.TriggerActionGetArgs> Actions
         {
-            get => _actions ?? (_actions = new InputList<Inputs.TriggerActionsGetArgs>());
+            get => _actions ?? (_actions = new InputList<Inputs.TriggerActionGetArgs>());
             set => _actions = value;
         }
 
@@ -272,307 +268,5 @@ namespace Pulumi.Aws.Glue
         public TriggerState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class TriggerActionsArgs : Pulumi.ResourceArgs
-    {
-        [Input("arguments")]
-        private InputMap<object>? _arguments;
-
-        /// <summary>
-        /// Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
-        /// </summary>
-        public InputMap<object> Arguments
-        {
-            get => _arguments ?? (_arguments = new InputMap<object>());
-            set => _arguments = value;
-        }
-
-        /// <summary>
-        /// The name of the crawler to be executed. Conflicts with `job_name`.
-        /// </summary>
-        [Input("crawlerName")]
-        public Input<string>? CrawlerName { get; set; }
-
-        /// <summary>
-        /// The name of a job to be executed. Conflicts with `crawler_name`.
-        /// </summary>
-        [Input("jobName")]
-        public Input<string>? JobName { get; set; }
-
-        /// <summary>
-        /// The job run timeout in minutes. It overrides the timeout value of the job.
-        /// </summary>
-        [Input("timeout")]
-        public Input<int>? Timeout { get; set; }
-
-        public TriggerActionsArgs()
-        {
-        }
-    }
-
-    public sealed class TriggerActionsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("arguments")]
-        private InputMap<object>? _arguments;
-
-        /// <summary>
-        /// Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
-        /// </summary>
-        public InputMap<object> Arguments
-        {
-            get => _arguments ?? (_arguments = new InputMap<object>());
-            set => _arguments = value;
-        }
-
-        /// <summary>
-        /// The name of the crawler to be executed. Conflicts with `job_name`.
-        /// </summary>
-        [Input("crawlerName")]
-        public Input<string>? CrawlerName { get; set; }
-
-        /// <summary>
-        /// The name of a job to be executed. Conflicts with `crawler_name`.
-        /// </summary>
-        [Input("jobName")]
-        public Input<string>? JobName { get; set; }
-
-        /// <summary>
-        /// The job run timeout in minutes. It overrides the timeout value of the job.
-        /// </summary>
-        [Input("timeout")]
-        public Input<int>? Timeout { get; set; }
-
-        public TriggerActionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class TriggerPredicateArgs : Pulumi.ResourceArgs
-    {
-        [Input("conditions", required: true)]
-        private InputList<TriggerPredicateConditionsArgs>? _conditions;
-
-        /// <summary>
-        /// A list of the conditions that determine when the trigger will fire. Defined below.
-        /// </summary>
-        public InputList<TriggerPredicateConditionsArgs> Conditions
-        {
-            get => _conditions ?? (_conditions = new InputList<TriggerPredicateConditionsArgs>());
-            set => _conditions = value;
-        }
-
-        /// <summary>
-        /// How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
-        /// </summary>
-        [Input("logical")]
-        public Input<string>? Logical { get; set; }
-
-        public TriggerPredicateArgs()
-        {
-        }
-    }
-
-    public sealed class TriggerPredicateConditionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawler_name` must also be specified. Conflicts with `state`.
-        /// </summary>
-        [Input("crawlState")]
-        public Input<string>? CrawlState { get; set; }
-
-        /// <summary>
-        /// The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
-        /// </summary>
-        [Input("crawlerName")]
-        public Input<string>? CrawlerName { get; set; }
-
-        /// <summary>
-        /// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
-        /// </summary>
-        [Input("jobName")]
-        public Input<string>? JobName { get; set; }
-
-        /// <summary>
-        /// A logical operator. Defaults to `EQUALS`.
-        /// </summary>
-        [Input("logicalOperator")]
-        public Input<string>? LogicalOperator { get; set; }
-
-        /// <summary>
-        /// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
-        /// </summary>
-        [Input("state")]
-        public Input<string>? State { get; set; }
-
-        public TriggerPredicateConditionsArgs()
-        {
-        }
-    }
-
-    public sealed class TriggerPredicateConditionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawler_name` must also be specified. Conflicts with `state`.
-        /// </summary>
-        [Input("crawlState")]
-        public Input<string>? CrawlState { get; set; }
-
-        /// <summary>
-        /// The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
-        /// </summary>
-        [Input("crawlerName")]
-        public Input<string>? CrawlerName { get; set; }
-
-        /// <summary>
-        /// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
-        /// </summary>
-        [Input("jobName")]
-        public Input<string>? JobName { get; set; }
-
-        /// <summary>
-        /// A logical operator. Defaults to `EQUALS`.
-        /// </summary>
-        [Input("logicalOperator")]
-        public Input<string>? LogicalOperator { get; set; }
-
-        /// <summary>
-        /// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
-        /// </summary>
-        [Input("state")]
-        public Input<string>? State { get; set; }
-
-        public TriggerPredicateConditionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class TriggerPredicateGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("conditions", required: true)]
-        private InputList<TriggerPredicateConditionsGetArgs>? _conditions;
-
-        /// <summary>
-        /// A list of the conditions that determine when the trigger will fire. Defined below.
-        /// </summary>
-        public InputList<TriggerPredicateConditionsGetArgs> Conditions
-        {
-            get => _conditions ?? (_conditions = new InputList<TriggerPredicateConditionsGetArgs>());
-            set => _conditions = value;
-        }
-
-        /// <summary>
-        /// How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
-        /// </summary>
-        [Input("logical")]
-        public Input<string>? Logical { get; set; }
-
-        public TriggerPredicateGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class TriggerActions
-    {
-        /// <summary>
-        /// Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? Arguments;
-        /// <summary>
-        /// The name of the crawler to be executed. Conflicts with `job_name`.
-        /// </summary>
-        public readonly string? CrawlerName;
-        /// <summary>
-        /// The name of a job to be executed. Conflicts with `crawler_name`.
-        /// </summary>
-        public readonly string? JobName;
-        /// <summary>
-        /// The job run timeout in minutes. It overrides the timeout value of the job.
-        /// </summary>
-        public readonly int? Timeout;
-
-        [OutputConstructor]
-        private TriggerActions(
-            ImmutableDictionary<string, object>? arguments,
-            string? crawlerName,
-            string? jobName,
-            int? timeout)
-        {
-            Arguments = arguments;
-            CrawlerName = crawlerName;
-            JobName = jobName;
-            Timeout = timeout;
-        }
-    }
-
-    [OutputType]
-    public sealed class TriggerPredicate
-    {
-        /// <summary>
-        /// A list of the conditions that determine when the trigger will fire. Defined below.
-        /// </summary>
-        public readonly ImmutableArray<TriggerPredicateConditions> Conditions;
-        /// <summary>
-        /// How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
-        /// </summary>
-        public readonly string? Logical;
-
-        [OutputConstructor]
-        private TriggerPredicate(
-            ImmutableArray<TriggerPredicateConditions> conditions,
-            string? logical)
-        {
-            Conditions = conditions;
-            Logical = logical;
-        }
-    }
-
-    [OutputType]
-    public sealed class TriggerPredicateConditions
-    {
-        /// <summary>
-        /// The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawler_name` must also be specified. Conflicts with `state`.
-        /// </summary>
-        public readonly string? CrawlState;
-        /// <summary>
-        /// The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
-        /// </summary>
-        public readonly string? CrawlerName;
-        /// <summary>
-        /// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
-        /// </summary>
-        public readonly string? JobName;
-        /// <summary>
-        /// A logical operator. Defaults to `EQUALS`.
-        /// </summary>
-        public readonly string? LogicalOperator;
-        /// <summary>
-        /// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
-        /// </summary>
-        public readonly string? State;
-
-        [OutputConstructor]
-        private TriggerPredicateConditions(
-            string? crawlState,
-            string? crawlerName,
-            string? jobName,
-            string? logicalOperator,
-            string? state)
-        {
-            CrawlState = crawlState;
-            CrawlerName = crawlerName;
-            JobName = jobName;
-            LogicalOperator = logicalOperator;
-            State = state;
-        }
-    }
     }
 }

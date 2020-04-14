@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Ram
 {
     /// <summary>
     /// Manages a Resource Access Manager (RAM) Resource Share. To association principals with the share, see the [`aws.ram.PrincipalAssociation` resource](https://www.terraform.io/docs/providers/aws/r/ram_principal_association.html). To associate resources with the share, see the [`aws.ram.ResourceAssociation` resource](https://www.terraform.io/docs/providers/aws/r/ram_resource_association.html).
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ram_resource_share.markdown.
     /// </summary>
     public partial class ResourceShare : Pulumi.CustomResource
     {
@@ -51,7 +47,7 @@ namespace Pulumi.Aws.Ram
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceShare(string name, ResourceShareArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ram/resourceShare:ResourceShare", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ram/resourceShare:ResourceShare", name, args ?? new ResourceShareArgs(), MakeResourceOptions(options, ""))
         {
         }
 

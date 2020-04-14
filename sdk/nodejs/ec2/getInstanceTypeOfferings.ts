@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_instance_type_offerings.html.markdown.
  */
-export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingsResult> & GetInstanceTypeOfferingsResult {
+export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingsResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -46,12 +46,10 @@ export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, op
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetInstanceTypeOfferingsResult> = pulumi.runtime.invoke("aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings", {
+    return pulumi.runtime.invoke("aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings", {
         "filters": args.filters,
         "locationType": args.locationType,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

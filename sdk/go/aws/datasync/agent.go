@@ -6,7 +6,7 @@ package datasync
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Manages an AWS DataSync Agent deployed on premises.

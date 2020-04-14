@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Rds
     /// Manages a RDS Global Cluster, which is an Aurora global database spread across multiple regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
     /// 
     /// More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_global_cluster.html.markdown.
     /// </summary>
     public partial class GlobalCluster : Pulumi.CustomResource
     {
@@ -78,7 +74,7 @@ namespace Pulumi.Aws.Rds
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GlobalCluster(string name, GlobalClusterArgs args, CustomResourceOptions? options = null)
-            : base("aws:rds/globalCluster:GlobalCluster", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:rds/globalCluster:GlobalCluster", name, args ?? new GlobalClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 

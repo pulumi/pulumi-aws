@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Ram
     /// Manage accepting a Resource Access Manager (RAM) Resource Share invitation. From a _receiver_ AWS account, accept an invitation to share resources that were shared by a _sender_ AWS account. To create a resource share in the _sender_, see the [`aws.ram.ResourceShare` resource](https://www.terraform.io/docs/providers/aws/r/ram_resource_share.html).
     /// 
     /// &gt; **Note:** If both AWS accounts are in the same Organization and [RAM Sharing with AWS Organizations is enabled](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs), this resource is not necessary as RAM Resource Share invitations are not used.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ram_resource_share_accepter.markdown.
     /// </summary>
     public partial class ResourceShareAccepter : Pulumi.CustomResource
     {
@@ -77,7 +73,7 @@ namespace Pulumi.Aws.Ram
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceShareAccepter(string name, ResourceShareAccepterArgs args, CustomResourceOptions? options = null)
-            : base("aws:ram/resourceShareAccepter:ResourceShareAccepter", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ram/resourceShareAccepter:ResourceShareAccepter", name, args ?? new ResourceShareAccepterArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -4,7 +4,7 @@
 package s3
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides details about a specific S3 bucket.

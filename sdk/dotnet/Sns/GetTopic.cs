@@ -9,21 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sns
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get the ARN of a topic in AWS Simple Notification
-        /// Service (SNS). By using this data source, you can reference SNS topics
-        /// without having to hard code the ARNs as input.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sns_topic.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetTopic.InvokeAsync() instead")]
-        public static Task<GetTopicResult> GetTopic(GetTopicArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("aws:sns/getTopic:getTopic", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetTopic
     {
         /// <summary>
@@ -31,13 +16,13 @@ namespace Pulumi.Aws.Sns
         /// Service (SNS). By using this data source, you can reference SNS topics
         /// without having to hard code the ARNs as input.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sns_topic.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("aws:sns/getTopic:getTopic", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("aws:sns/getTopic:getTopic", args ?? new GetTopicArgs(), options.WithVersion());
     }
+
 
     public sealed class GetTopicArgs : Pulumi.InvokeArgs
     {
@@ -52,6 +37,7 @@ namespace Pulumi.Aws.Sns
         }
     }
 
+
     [OutputType]
     public sealed class GetTopicResult
     {
@@ -59,21 +45,23 @@ namespace Pulumi.Aws.Sns
         /// Set to the ARN of the found topic, suitable for referencing in other resources that support SNS topics.
         /// </summary>
         public readonly string Arn;
-        public readonly string Name;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
 
         [OutputConstructor]
         private GetTopicResult(
             string arn,
-            string name,
-            string id)
+
+            string id,
+
+            string name)
         {
             Arn = arn;
-            Name = name;
             Id = id;
+            Name = name;
         }
     }
 }

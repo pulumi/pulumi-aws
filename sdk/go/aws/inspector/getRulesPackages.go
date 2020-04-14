@@ -4,7 +4,7 @@
 package inspector
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // The AWS Inspector Rules Packages data source allows access to the list of AWS

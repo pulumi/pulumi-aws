@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Ssm
 {
     /// <summary>
     /// Provides an SSM Maintenance Window resource
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window.html.markdown.
     /// </summary>
     public partial class MaintenanceWindow : Pulumi.CustomResource
     {
@@ -93,7 +89,7 @@ namespace Pulumi.Aws.Ssm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MaintenanceWindow(string name, MaintenanceWindowArgs args, CustomResourceOptions? options = null)
-            : base("aws:ssm/maintenanceWindow:MaintenanceWindow", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ssm/maintenanceWindow:MaintenanceWindow", name, args ?? new MaintenanceWindowArgs(), MakeResourceOptions(options, ""))
         {
         }
 

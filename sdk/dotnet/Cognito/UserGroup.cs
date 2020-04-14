@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Cognito
 {
     /// <summary>
     /// Provides a Cognito User Group resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_group.html.markdown.
     /// </summary>
     public partial class UserGroup : Pulumi.CustomResource
     {
@@ -57,7 +53,7 @@ namespace Pulumi.Aws.Cognito
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserGroup(string name, UserGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws:cognito/userGroup:UserGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:cognito/userGroup:UserGroup", name, args ?? new UserGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 

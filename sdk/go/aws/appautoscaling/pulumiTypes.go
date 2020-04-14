@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type PolicyStepScalingPolicyConfiguration struct {
@@ -18,6 +18,11 @@ type PolicyStepScalingPolicyConfiguration struct {
 	StepAdjustments        []PolicyStepScalingPolicyConfigurationStepAdjustment `pulumi:"stepAdjustments"`
 }
 
+// PolicyStepScalingPolicyConfigurationInput is an input type that accepts PolicyStepScalingPolicyConfigurationArgs and PolicyStepScalingPolicyConfigurationOutput values.
+// You can construct a concrete instance of `PolicyStepScalingPolicyConfigurationInput` via:
+//
+// 		 PolicyStepScalingPolicyConfigurationArgs{...}
+//
 type PolicyStepScalingPolicyConfigurationInput interface {
 	pulumi.Input
 
@@ -53,6 +58,15 @@ func (i PolicyStepScalingPolicyConfigurationArgs) ToPolicyStepScalingPolicyConfi
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyStepScalingPolicyConfigurationOutput).ToPolicyStepScalingPolicyConfigurationPtrOutputWithContext(ctx)
 }
 
+// PolicyStepScalingPolicyConfigurationPtrInput is an input type that accepts PolicyStepScalingPolicyConfigurationArgs, PolicyStepScalingPolicyConfigurationPtr and PolicyStepScalingPolicyConfigurationPtrOutput values.
+// You can construct a concrete instance of `PolicyStepScalingPolicyConfigurationPtrInput` via:
+//
+// 		 PolicyStepScalingPolicyConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type PolicyStepScalingPolicyConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -169,6 +183,11 @@ type PolicyStepScalingPolicyConfigurationStepAdjustment struct {
 	ScalingAdjustment        int     `pulumi:"scalingAdjustment"`
 }
 
+// PolicyStepScalingPolicyConfigurationStepAdjustmentInput is an input type that accepts PolicyStepScalingPolicyConfigurationStepAdjustmentArgs and PolicyStepScalingPolicyConfigurationStepAdjustmentOutput values.
+// You can construct a concrete instance of `PolicyStepScalingPolicyConfigurationStepAdjustmentInput` via:
+//
+// 		 PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{...}
+//
 type PolicyStepScalingPolicyConfigurationStepAdjustmentInput interface {
 	pulumi.Input
 
@@ -194,6 +213,11 @@ func (i PolicyStepScalingPolicyConfigurationStepAdjustmentArgs) ToPolicyStepScal
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyStepScalingPolicyConfigurationStepAdjustmentOutput)
 }
 
+// PolicyStepScalingPolicyConfigurationStepAdjustmentArrayInput is an input type that accepts PolicyStepScalingPolicyConfigurationStepAdjustmentArray and PolicyStepScalingPolicyConfigurationStepAdjustmentArrayOutput values.
+// You can construct a concrete instance of `PolicyStepScalingPolicyConfigurationStepAdjustmentArrayInput` via:
+//
+// 		 PolicyStepScalingPolicyConfigurationStepAdjustmentArray{ PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{...} }
+//
 type PolicyStepScalingPolicyConfigurationStepAdjustmentArrayInput interface {
 	pulumi.Input
 
@@ -270,6 +294,11 @@ type PolicyTargetTrackingScalingPolicyConfiguration struct {
 	TargetValue                   float64                                                                      `pulumi:"targetValue"`
 }
 
+// PolicyTargetTrackingScalingPolicyConfigurationInput is an input type that accepts PolicyTargetTrackingScalingPolicyConfigurationArgs and PolicyTargetTrackingScalingPolicyConfigurationOutput values.
+// You can construct a concrete instance of `PolicyTargetTrackingScalingPolicyConfigurationInput` via:
+//
+// 		 PolicyTargetTrackingScalingPolicyConfigurationArgs{...}
+//
 type PolicyTargetTrackingScalingPolicyConfigurationInput interface {
 	pulumi.Input
 
@@ -306,6 +335,15 @@ func (i PolicyTargetTrackingScalingPolicyConfigurationArgs) ToPolicyTargetTracki
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationOutput).ToPolicyTargetTrackingScalingPolicyConfigurationPtrOutputWithContext(ctx)
 }
 
+// PolicyTargetTrackingScalingPolicyConfigurationPtrInput is an input type that accepts PolicyTargetTrackingScalingPolicyConfigurationArgs, PolicyTargetTrackingScalingPolicyConfigurationPtr and PolicyTargetTrackingScalingPolicyConfigurationPtrOutput values.
+// You can construct a concrete instance of `PolicyTargetTrackingScalingPolicyConfigurationPtrInput` via:
+//
+// 		 PolicyTargetTrackingScalingPolicyConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type PolicyTargetTrackingScalingPolicyConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -438,6 +476,11 @@ type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
 	Unit       *string                                                                                `pulumi:"unit"`
 }
 
+// PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationInput is an input type that accepts PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs and PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationOutput values.
+// You can construct a concrete instance of `PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationInput` via:
+//
+// 		 PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs{...}
+//
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationInput interface {
 	pulumi.Input
 
@@ -473,6 +516,15 @@ func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationOutput).ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutputWithContext(ctx)
 }
 
+// PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrInput is an input type that accepts PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs, PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtr and PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput values.
+// You can construct a concrete instance of `PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrInput` via:
+//
+// 		 PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -607,6 +659,11 @@ type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
 	Value string `pulumi:"value"`
 }
 
+// PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionInput is an input type that accepts PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs and PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionOutput values.
+// You can construct a concrete instance of `PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionInput` via:
+//
+// 		 PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs{...}
+//
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionInput interface {
 	pulumi.Input
 
@@ -632,6 +689,11 @@ func (i PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionOutput)
 }
 
+// PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayInput is an input type that accepts PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArray and PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayOutput values.
+// You can construct a concrete instance of `PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayInput` via:
+//
+// 		 PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArray{ PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs{...} }
+//
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayInput interface {
 	pulumi.Input
 
@@ -705,6 +767,11 @@ type PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification
 	ResourceLabel        *string `pulumi:"resourceLabel"`
 }
 
+// PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationInput is an input type that accepts PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs and PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationOutput values.
+// You can construct a concrete instance of `PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationInput` via:
+//
+// 		 PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs{...}
+//
 type PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationInput interface {
 	pulumi.Input
 
@@ -737,6 +804,15 @@ func (i PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificat
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationOutput).ToPolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutputWithContext(ctx)
 }
 
+// PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrInput is an input type that accepts PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs, PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtr and PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput values.
+// You can construct a concrete instance of `PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrInput` via:
+//
+// 		 PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrInput interface {
 	pulumi.Input
 
@@ -836,6 +912,11 @@ type ScheduledActionScalableTargetAction struct {
 	MinCapacity *int `pulumi:"minCapacity"`
 }
 
+// ScheduledActionScalableTargetActionInput is an input type that accepts ScheduledActionScalableTargetActionArgs and ScheduledActionScalableTargetActionOutput values.
+// You can construct a concrete instance of `ScheduledActionScalableTargetActionInput` via:
+//
+// 		 ScheduledActionScalableTargetActionArgs{...}
+//
 type ScheduledActionScalableTargetActionInput interface {
 	pulumi.Input
 
@@ -870,6 +951,15 @@ func (i ScheduledActionScalableTargetActionArgs) ToScheduledActionScalableTarget
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionScalableTargetActionOutput).ToScheduledActionScalableTargetActionPtrOutputWithContext(ctx)
 }
 
+// ScheduledActionScalableTargetActionPtrInput is an input type that accepts ScheduledActionScalableTargetActionArgs, ScheduledActionScalableTargetActionPtr and ScheduledActionScalableTargetActionPtrOutput values.
+// You can construct a concrete instance of `ScheduledActionScalableTargetActionPtrInput` via:
+//
+// 		 ScheduledActionScalableTargetActionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ScheduledActionScalableTargetActionPtrInput interface {
 	pulumi.Input
 

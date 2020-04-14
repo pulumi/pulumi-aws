@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
     /// * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_parameter_group.markdown.
     /// </summary>
     public partial class ClusterParameterGroup : Pulumi.CustomResource
     {
@@ -55,7 +51,7 @@ namespace Pulumi.Aws.Rds
         /// A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableArray<Outputs.ClusterParameterGroupParameters>> Parameters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterParameterGroupParameter>> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -72,7 +68,7 @@ namespace Pulumi.Aws.Rds
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ClusterParameterGroup(string name, ClusterParameterGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws:rds/clusterParameterGroup:ClusterParameterGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:rds/clusterParameterGroup:ClusterParameterGroup", name, args ?? new ClusterParameterGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -134,14 +130,14 @@ namespace Pulumi.Aws.Rds
         public Input<string>? NamePrefix { get; set; }
 
         [Input("parameters")]
-        private InputList<Inputs.ClusterParameterGroupParametersArgs>? _parameters;
+        private InputList<Inputs.ClusterParameterGroupParameterArgs>? _parameters;
 
         /// <summary>
         /// A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
         /// </summary>
-        public InputList<Inputs.ClusterParameterGroupParametersArgs> Parameters
+        public InputList<Inputs.ClusterParameterGroupParameterArgs> Parameters
         {
-            get => _parameters ?? (_parameters = new InputList<Inputs.ClusterParameterGroupParametersArgs>());
+            get => _parameters ?? (_parameters = new InputList<Inputs.ClusterParameterGroupParameterArgs>());
             set => _parameters = value;
         }
 
@@ -196,14 +192,14 @@ namespace Pulumi.Aws.Rds
         public Input<string>? NamePrefix { get; set; }
 
         [Input("parameters")]
-        private InputList<Inputs.ClusterParameterGroupParametersGetArgs>? _parameters;
+        private InputList<Inputs.ClusterParameterGroupParameterGetArgs>? _parameters;
 
         /// <summary>
         /// A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
         /// </summary>
-        public InputList<Inputs.ClusterParameterGroupParametersGetArgs> Parameters
+        public InputList<Inputs.ClusterParameterGroupParameterGetArgs> Parameters
         {
-            get => _parameters ?? (_parameters = new InputList<Inputs.ClusterParameterGroupParametersGetArgs>());
+            get => _parameters ?? (_parameters = new InputList<Inputs.ClusterParameterGroupParameterGetArgs>());
             set => _parameters = value;
         }
 
@@ -223,97 +219,5 @@ namespace Pulumi.Aws.Rds
         {
             Description = "Managed by Pulumi";
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ClusterParameterGroupParametersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// "immediate" (default), or "pending-reboot". Some
-        /// engines can't apply some parameters without a reboot, and you will need to
-        /// specify "pending-reboot" here.
-        /// </summary>
-        [Input("applyMethod")]
-        public Input<string>? ApplyMethod { get; set; }
-
-        /// <summary>
-        /// The name of the DB parameter.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The value of the DB parameter.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ClusterParameterGroupParametersArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterParameterGroupParametersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// "immediate" (default), or "pending-reboot". Some
-        /// engines can't apply some parameters without a reboot, and you will need to
-        /// specify "pending-reboot" here.
-        /// </summary>
-        [Input("applyMethod")]
-        public Input<string>? ApplyMethod { get; set; }
-
-        /// <summary>
-        /// The name of the DB parameter.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The value of the DB parameter.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ClusterParameterGroupParametersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ClusterParameterGroupParameters
-    {
-        /// <summary>
-        /// "immediate" (default), or "pending-reboot". Some
-        /// engines can't apply some parameters without a reboot, and you will need to
-        /// specify "pending-reboot" here.
-        /// </summary>
-        public readonly string? ApplyMethod;
-        /// <summary>
-        /// The name of the DB parameter.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The value of the DB parameter.
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private ClusterParameterGroupParameters(
-            string? applyMethod,
-            string name,
-            string value)
-        {
-            ApplyMethod = applyMethod;
-            Name = name;
-            Value = value;
-        }
-    }
     }
 }

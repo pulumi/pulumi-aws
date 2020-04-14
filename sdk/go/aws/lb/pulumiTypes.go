@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type ListenerDefaultAction struct {
@@ -24,6 +24,11 @@ type ListenerDefaultAction struct {
 	Type string `pulumi:"type"`
 }
 
+// ListenerDefaultActionInput is an input type that accepts ListenerDefaultActionArgs and ListenerDefaultActionOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionInput` via:
+//
+// 		 ListenerDefaultActionArgs{...}
+//
 type ListenerDefaultActionInput interface {
 	pulumi.Input
 
@@ -57,6 +62,11 @@ func (i ListenerDefaultActionArgs) ToListenerDefaultActionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionOutput)
 }
 
+// ListenerDefaultActionArrayInput is an input type that accepts ListenerDefaultActionArray and ListenerDefaultActionArrayOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionArrayInput` via:
+//
+// 		 ListenerDefaultActionArray{ ListenerDefaultActionArgs{...} }
+//
 type ListenerDefaultActionArrayInput interface {
 	pulumi.Input
 
@@ -163,6 +173,11 @@ type ListenerDefaultActionAuthenticateCognito struct {
 	UserPoolDomain string `pulumi:"userPoolDomain"`
 }
 
+// ListenerDefaultActionAuthenticateCognitoInput is an input type that accepts ListenerDefaultActionAuthenticateCognitoArgs and ListenerDefaultActionAuthenticateCognitoOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionAuthenticateCognitoInput` via:
+//
+// 		 ListenerDefaultActionAuthenticateCognitoArgs{...}
+//
 type ListenerDefaultActionAuthenticateCognitoInput interface {
 	pulumi.Input
 
@@ -209,6 +224,15 @@ func (i ListenerDefaultActionAuthenticateCognitoArgs) ToListenerDefaultActionAut
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionAuthenticateCognitoOutput).ToListenerDefaultActionAuthenticateCognitoPtrOutputWithContext(ctx)
 }
 
+// ListenerDefaultActionAuthenticateCognitoPtrInput is an input type that accepts ListenerDefaultActionAuthenticateCognitoArgs, ListenerDefaultActionAuthenticateCognitoPtr and ListenerDefaultActionAuthenticateCognitoPtrOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionAuthenticateCognitoPtrInput` via:
+//
+// 		 ListenerDefaultActionAuthenticateCognitoArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ListenerDefaultActionAuthenticateCognitoPtrInput interface {
 	pulumi.Input
 
@@ -385,6 +409,11 @@ type ListenerDefaultActionAuthenticateOidc struct {
 	UserInfoEndpoint string `pulumi:"userInfoEndpoint"`
 }
 
+// ListenerDefaultActionAuthenticateOidcInput is an input type that accepts ListenerDefaultActionAuthenticateOidcArgs and ListenerDefaultActionAuthenticateOidcOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionAuthenticateOidcInput` via:
+//
+// 		 ListenerDefaultActionAuthenticateOidcArgs{...}
+//
 type ListenerDefaultActionAuthenticateOidcInput interface {
 	pulumi.Input
 
@@ -437,6 +466,15 @@ func (i ListenerDefaultActionAuthenticateOidcArgs) ToListenerDefaultActionAuthen
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionAuthenticateOidcOutput).ToListenerDefaultActionAuthenticateOidcPtrOutputWithContext(ctx)
 }
 
+// ListenerDefaultActionAuthenticateOidcPtrInput is an input type that accepts ListenerDefaultActionAuthenticateOidcArgs, ListenerDefaultActionAuthenticateOidcPtr and ListenerDefaultActionAuthenticateOidcPtrOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionAuthenticateOidcPtrInput` via:
+//
+// 		 ListenerDefaultActionAuthenticateOidcArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ListenerDefaultActionAuthenticateOidcPtrInput interface {
 	pulumi.Input
 
@@ -627,6 +665,11 @@ type ListenerDefaultActionFixedResponse struct {
 	StatusCode *string `pulumi:"statusCode"`
 }
 
+// ListenerDefaultActionFixedResponseInput is an input type that accepts ListenerDefaultActionFixedResponseArgs and ListenerDefaultActionFixedResponseOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionFixedResponseInput` via:
+//
+// 		 ListenerDefaultActionFixedResponseArgs{...}
+//
 type ListenerDefaultActionFixedResponseInput interface {
 	pulumi.Input
 
@@ -663,6 +706,15 @@ func (i ListenerDefaultActionFixedResponseArgs) ToListenerDefaultActionFixedResp
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionFixedResponseOutput).ToListenerDefaultActionFixedResponsePtrOutputWithContext(ctx)
 }
 
+// ListenerDefaultActionFixedResponsePtrInput is an input type that accepts ListenerDefaultActionFixedResponseArgs, ListenerDefaultActionFixedResponsePtr and ListenerDefaultActionFixedResponsePtrOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionFixedResponsePtrInput` via:
+//
+// 		 ListenerDefaultActionFixedResponseArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ListenerDefaultActionFixedResponsePtrInput interface {
 	pulumi.Input
 
@@ -775,6 +827,11 @@ type ListenerDefaultActionRedirect struct {
 	StatusCode string `pulumi:"statusCode"`
 }
 
+// ListenerDefaultActionRedirectInput is an input type that accepts ListenerDefaultActionRedirectArgs and ListenerDefaultActionRedirectOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionRedirectInput` via:
+//
+// 		 ListenerDefaultActionRedirectArgs{...}
+//
 type ListenerDefaultActionRedirectInput interface {
 	pulumi.Input
 
@@ -817,6 +874,15 @@ func (i ListenerDefaultActionRedirectArgs) ToListenerDefaultActionRedirectPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionRedirectOutput).ToListenerDefaultActionRedirectPtrOutputWithContext(ctx)
 }
 
+// ListenerDefaultActionRedirectPtrInput is an input type that accepts ListenerDefaultActionRedirectArgs, ListenerDefaultActionRedirectPtr and ListenerDefaultActionRedirectPtrOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionRedirectPtrInput` via:
+//
+// 		 ListenerDefaultActionRedirectArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ListenerDefaultActionRedirectPtrInput interface {
 	pulumi.Input
 
@@ -960,6 +1026,11 @@ type ListenerRuleAction struct {
 	Type string `pulumi:"type"`
 }
 
+// ListenerRuleActionInput is an input type that accepts ListenerRuleActionArgs and ListenerRuleActionOutput values.
+// You can construct a concrete instance of `ListenerRuleActionInput` via:
+//
+// 		 ListenerRuleActionArgs{...}
+//
 type ListenerRuleActionInput interface {
 	pulumi.Input
 
@@ -995,6 +1066,11 @@ func (i ListenerRuleActionArgs) ToListenerRuleActionOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionOutput)
 }
 
+// ListenerRuleActionArrayInput is an input type that accepts ListenerRuleActionArray and ListenerRuleActionArrayOutput values.
+// You can construct a concrete instance of `ListenerRuleActionArrayInput` via:
+//
+// 		 ListenerRuleActionArray{ ListenerRuleActionArgs{...} }
+//
 type ListenerRuleActionArrayInput interface {
 	pulumi.Input
 
@@ -1103,6 +1179,11 @@ type ListenerRuleActionAuthenticateCognito struct {
 	UserPoolDomain string `pulumi:"userPoolDomain"`
 }
 
+// ListenerRuleActionAuthenticateCognitoInput is an input type that accepts ListenerRuleActionAuthenticateCognitoArgs and ListenerRuleActionAuthenticateCognitoOutput values.
+// You can construct a concrete instance of `ListenerRuleActionAuthenticateCognitoInput` via:
+//
+// 		 ListenerRuleActionAuthenticateCognitoArgs{...}
+//
 type ListenerRuleActionAuthenticateCognitoInput interface {
 	pulumi.Input
 
@@ -1149,6 +1230,15 @@ func (i ListenerRuleActionAuthenticateCognitoArgs) ToListenerRuleActionAuthentic
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionAuthenticateCognitoOutput).ToListenerRuleActionAuthenticateCognitoPtrOutputWithContext(ctx)
 }
 
+// ListenerRuleActionAuthenticateCognitoPtrInput is an input type that accepts ListenerRuleActionAuthenticateCognitoArgs, ListenerRuleActionAuthenticateCognitoPtr and ListenerRuleActionAuthenticateCognitoPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleActionAuthenticateCognitoPtrInput` via:
+//
+// 		 ListenerRuleActionAuthenticateCognitoArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ListenerRuleActionAuthenticateCognitoPtrInput interface {
 	pulumi.Input
 
@@ -1325,6 +1415,11 @@ type ListenerRuleActionAuthenticateOidc struct {
 	UserInfoEndpoint string `pulumi:"userInfoEndpoint"`
 }
 
+// ListenerRuleActionAuthenticateOidcInput is an input type that accepts ListenerRuleActionAuthenticateOidcArgs and ListenerRuleActionAuthenticateOidcOutput values.
+// You can construct a concrete instance of `ListenerRuleActionAuthenticateOidcInput` via:
+//
+// 		 ListenerRuleActionAuthenticateOidcArgs{...}
+//
 type ListenerRuleActionAuthenticateOidcInput interface {
 	pulumi.Input
 
@@ -1377,6 +1472,15 @@ func (i ListenerRuleActionAuthenticateOidcArgs) ToListenerRuleActionAuthenticate
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionAuthenticateOidcOutput).ToListenerRuleActionAuthenticateOidcPtrOutputWithContext(ctx)
 }
 
+// ListenerRuleActionAuthenticateOidcPtrInput is an input type that accepts ListenerRuleActionAuthenticateOidcArgs, ListenerRuleActionAuthenticateOidcPtr and ListenerRuleActionAuthenticateOidcPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleActionAuthenticateOidcPtrInput` via:
+//
+// 		 ListenerRuleActionAuthenticateOidcArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ListenerRuleActionAuthenticateOidcPtrInput interface {
 	pulumi.Input
 
@@ -1567,6 +1671,11 @@ type ListenerRuleActionFixedResponse struct {
 	StatusCode *string `pulumi:"statusCode"`
 }
 
+// ListenerRuleActionFixedResponseInput is an input type that accepts ListenerRuleActionFixedResponseArgs and ListenerRuleActionFixedResponseOutput values.
+// You can construct a concrete instance of `ListenerRuleActionFixedResponseInput` via:
+//
+// 		 ListenerRuleActionFixedResponseArgs{...}
+//
 type ListenerRuleActionFixedResponseInput interface {
 	pulumi.Input
 
@@ -1603,6 +1712,15 @@ func (i ListenerRuleActionFixedResponseArgs) ToListenerRuleActionFixedResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionFixedResponseOutput).ToListenerRuleActionFixedResponsePtrOutputWithContext(ctx)
 }
 
+// ListenerRuleActionFixedResponsePtrInput is an input type that accepts ListenerRuleActionFixedResponseArgs, ListenerRuleActionFixedResponsePtr and ListenerRuleActionFixedResponsePtrOutput values.
+// You can construct a concrete instance of `ListenerRuleActionFixedResponsePtrInput` via:
+//
+// 		 ListenerRuleActionFixedResponseArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ListenerRuleActionFixedResponsePtrInput interface {
 	pulumi.Input
 
@@ -1715,6 +1833,11 @@ type ListenerRuleActionRedirect struct {
 	StatusCode string `pulumi:"statusCode"`
 }
 
+// ListenerRuleActionRedirectInput is an input type that accepts ListenerRuleActionRedirectArgs and ListenerRuleActionRedirectOutput values.
+// You can construct a concrete instance of `ListenerRuleActionRedirectInput` via:
+//
+// 		 ListenerRuleActionRedirectArgs{...}
+//
 type ListenerRuleActionRedirectInput interface {
 	pulumi.Input
 
@@ -1757,6 +1880,15 @@ func (i ListenerRuleActionRedirectArgs) ToListenerRuleActionRedirectPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionRedirectOutput).ToListenerRuleActionRedirectPtrOutputWithContext(ctx)
 }
 
+// ListenerRuleActionRedirectPtrInput is an input type that accepts ListenerRuleActionRedirectArgs, ListenerRuleActionRedirectPtr and ListenerRuleActionRedirectPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleActionRedirectPtrInput` via:
+//
+// 		 ListenerRuleActionRedirectArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ListenerRuleActionRedirectPtrInput interface {
 	pulumi.Input
 
@@ -1903,6 +2035,11 @@ type ListenerRuleCondition struct {
 	Values *string `pulumi:"values"`
 }
 
+// ListenerRuleConditionInput is an input type that accepts ListenerRuleConditionArgs and ListenerRuleConditionOutput values.
+// You can construct a concrete instance of `ListenerRuleConditionInput` via:
+//
+// 		 ListenerRuleConditionArgs{...}
+//
 type ListenerRuleConditionInput interface {
 	pulumi.Input
 
@@ -1941,6 +2078,11 @@ func (i ListenerRuleConditionArgs) ToListenerRuleConditionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleConditionOutput)
 }
 
+// ListenerRuleConditionArrayInput is an input type that accepts ListenerRuleConditionArray and ListenerRuleConditionArrayOutput values.
+// You can construct a concrete instance of `ListenerRuleConditionArrayInput` via:
+//
+// 		 ListenerRuleConditionArray{ ListenerRuleConditionArgs{...} }
+//
 type ListenerRuleConditionArrayInput interface {
 	pulumi.Input
 
@@ -2041,6 +2183,11 @@ type ListenerRuleConditionHostHeader struct {
 	Values []string `pulumi:"values"`
 }
 
+// ListenerRuleConditionHostHeaderInput is an input type that accepts ListenerRuleConditionHostHeaderArgs and ListenerRuleConditionHostHeaderOutput values.
+// You can construct a concrete instance of `ListenerRuleConditionHostHeaderInput` via:
+//
+// 		 ListenerRuleConditionHostHeaderArgs{...}
+//
 type ListenerRuleConditionHostHeaderInput interface {
 	pulumi.Input
 
@@ -2073,6 +2220,15 @@ func (i ListenerRuleConditionHostHeaderArgs) ToListenerRuleConditionHostHeaderPt
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleConditionHostHeaderOutput).ToListenerRuleConditionHostHeaderPtrOutputWithContext(ctx)
 }
 
+// ListenerRuleConditionHostHeaderPtrInput is an input type that accepts ListenerRuleConditionHostHeaderArgs, ListenerRuleConditionHostHeaderPtr and ListenerRuleConditionHostHeaderPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleConditionHostHeaderPtrInput` via:
+//
+// 		 ListenerRuleConditionHostHeaderArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ListenerRuleConditionHostHeaderPtrInput interface {
 	pulumi.Input
 
@@ -2157,6 +2313,11 @@ type ListenerRuleConditionHttpHeader struct {
 	Values []string `pulumi:"values"`
 }
 
+// ListenerRuleConditionHttpHeaderInput is an input type that accepts ListenerRuleConditionHttpHeaderArgs and ListenerRuleConditionHttpHeaderOutput values.
+// You can construct a concrete instance of `ListenerRuleConditionHttpHeaderInput` via:
+//
+// 		 ListenerRuleConditionHttpHeaderArgs{...}
+//
 type ListenerRuleConditionHttpHeaderInput interface {
 	pulumi.Input
 
@@ -2191,6 +2352,15 @@ func (i ListenerRuleConditionHttpHeaderArgs) ToListenerRuleConditionHttpHeaderPt
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleConditionHttpHeaderOutput).ToListenerRuleConditionHttpHeaderPtrOutputWithContext(ctx)
 }
 
+// ListenerRuleConditionHttpHeaderPtrInput is an input type that accepts ListenerRuleConditionHttpHeaderArgs, ListenerRuleConditionHttpHeaderPtr and ListenerRuleConditionHttpHeaderPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleConditionHttpHeaderPtrInput` via:
+//
+// 		 ListenerRuleConditionHttpHeaderArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ListenerRuleConditionHttpHeaderPtrInput interface {
 	pulumi.Input
 
@@ -2283,6 +2453,11 @@ type ListenerRuleConditionHttpRequestMethod struct {
 	Values []string `pulumi:"values"`
 }
 
+// ListenerRuleConditionHttpRequestMethodInput is an input type that accepts ListenerRuleConditionHttpRequestMethodArgs and ListenerRuleConditionHttpRequestMethodOutput values.
+// You can construct a concrete instance of `ListenerRuleConditionHttpRequestMethodInput` via:
+//
+// 		 ListenerRuleConditionHttpRequestMethodArgs{...}
+//
 type ListenerRuleConditionHttpRequestMethodInput interface {
 	pulumi.Input
 
@@ -2315,6 +2490,15 @@ func (i ListenerRuleConditionHttpRequestMethodArgs) ToListenerRuleConditionHttpR
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleConditionHttpRequestMethodOutput).ToListenerRuleConditionHttpRequestMethodPtrOutputWithContext(ctx)
 }
 
+// ListenerRuleConditionHttpRequestMethodPtrInput is an input type that accepts ListenerRuleConditionHttpRequestMethodArgs, ListenerRuleConditionHttpRequestMethodPtr and ListenerRuleConditionHttpRequestMethodPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleConditionHttpRequestMethodPtrInput` via:
+//
+// 		 ListenerRuleConditionHttpRequestMethodArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ListenerRuleConditionHttpRequestMethodPtrInput interface {
 	pulumi.Input
 
@@ -2397,6 +2581,11 @@ type ListenerRuleConditionPathPattern struct {
 	Values []string `pulumi:"values"`
 }
 
+// ListenerRuleConditionPathPatternInput is an input type that accepts ListenerRuleConditionPathPatternArgs and ListenerRuleConditionPathPatternOutput values.
+// You can construct a concrete instance of `ListenerRuleConditionPathPatternInput` via:
+//
+// 		 ListenerRuleConditionPathPatternArgs{...}
+//
 type ListenerRuleConditionPathPatternInput interface {
 	pulumi.Input
 
@@ -2429,6 +2618,15 @@ func (i ListenerRuleConditionPathPatternArgs) ToListenerRuleConditionPathPattern
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleConditionPathPatternOutput).ToListenerRuleConditionPathPatternPtrOutputWithContext(ctx)
 }
 
+// ListenerRuleConditionPathPatternPtrInput is an input type that accepts ListenerRuleConditionPathPatternArgs, ListenerRuleConditionPathPatternPtr and ListenerRuleConditionPathPatternPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleConditionPathPatternPtrInput` via:
+//
+// 		 ListenerRuleConditionPathPatternArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ListenerRuleConditionPathPatternPtrInput interface {
 	pulumi.Input
 
@@ -2513,6 +2711,11 @@ type ListenerRuleConditionQueryString struct {
 	Value string `pulumi:"value"`
 }
 
+// ListenerRuleConditionQueryStringInput is an input type that accepts ListenerRuleConditionQueryStringArgs and ListenerRuleConditionQueryStringOutput values.
+// You can construct a concrete instance of `ListenerRuleConditionQueryStringInput` via:
+//
+// 		 ListenerRuleConditionQueryStringArgs{...}
+//
 type ListenerRuleConditionQueryStringInput interface {
 	pulumi.Input
 
@@ -2539,6 +2742,11 @@ func (i ListenerRuleConditionQueryStringArgs) ToListenerRuleConditionQueryString
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleConditionQueryStringOutput)
 }
 
+// ListenerRuleConditionQueryStringArrayInput is an input type that accepts ListenerRuleConditionQueryStringArray and ListenerRuleConditionQueryStringArrayOutput values.
+// You can construct a concrete instance of `ListenerRuleConditionQueryStringArrayInput` via:
+//
+// 		 ListenerRuleConditionQueryStringArray{ ListenerRuleConditionQueryStringArgs{...} }
+//
 type ListenerRuleConditionQueryStringArrayInput interface {
 	pulumi.Input
 
@@ -2609,6 +2817,11 @@ type ListenerRuleConditionSourceIp struct {
 	Values []string `pulumi:"values"`
 }
 
+// ListenerRuleConditionSourceIpInput is an input type that accepts ListenerRuleConditionSourceIpArgs and ListenerRuleConditionSourceIpOutput values.
+// You can construct a concrete instance of `ListenerRuleConditionSourceIpInput` via:
+//
+// 		 ListenerRuleConditionSourceIpArgs{...}
+//
 type ListenerRuleConditionSourceIpInput interface {
 	pulumi.Input
 
@@ -2641,6 +2854,15 @@ func (i ListenerRuleConditionSourceIpArgs) ToListenerRuleConditionSourceIpPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleConditionSourceIpOutput).ToListenerRuleConditionSourceIpPtrOutputWithContext(ctx)
 }
 
+// ListenerRuleConditionSourceIpPtrInput is an input type that accepts ListenerRuleConditionSourceIpArgs, ListenerRuleConditionSourceIpPtr and ListenerRuleConditionSourceIpPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleConditionSourceIpPtrInput` via:
+//
+// 		 ListenerRuleConditionSourceIpArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ListenerRuleConditionSourceIpPtrInput interface {
 	pulumi.Input
 
@@ -2727,6 +2949,11 @@ type LoadBalancerAccessLogs struct {
 	Prefix *string `pulumi:"prefix"`
 }
 
+// LoadBalancerAccessLogsInput is an input type that accepts LoadBalancerAccessLogsArgs and LoadBalancerAccessLogsOutput values.
+// You can construct a concrete instance of `LoadBalancerAccessLogsInput` via:
+//
+// 		 LoadBalancerAccessLogsArgs{...}
+//
 type LoadBalancerAccessLogsInput interface {
 	pulumi.Input
 
@@ -2763,6 +2990,15 @@ func (i LoadBalancerAccessLogsArgs) ToLoadBalancerAccessLogsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerAccessLogsOutput).ToLoadBalancerAccessLogsPtrOutputWithContext(ctx)
 }
 
+// LoadBalancerAccessLogsPtrInput is an input type that accepts LoadBalancerAccessLogsArgs, LoadBalancerAccessLogsPtr and LoadBalancerAccessLogsPtrOutput values.
+// You can construct a concrete instance of `LoadBalancerAccessLogsPtrInput` via:
+//
+// 		 LoadBalancerAccessLogsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type LoadBalancerAccessLogsPtrInput interface {
 	pulumi.Input
 
@@ -2867,6 +3103,11 @@ type LoadBalancerSubnetMapping struct {
 	SubnetId string `pulumi:"subnetId"`
 }
 
+// LoadBalancerSubnetMappingInput is an input type that accepts LoadBalancerSubnetMappingArgs and LoadBalancerSubnetMappingOutput values.
+// You can construct a concrete instance of `LoadBalancerSubnetMappingInput` via:
+//
+// 		 LoadBalancerSubnetMappingArgs{...}
+//
 type LoadBalancerSubnetMappingInput interface {
 	pulumi.Input
 
@@ -2893,6 +3134,11 @@ func (i LoadBalancerSubnetMappingArgs) ToLoadBalancerSubnetMappingOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerSubnetMappingOutput)
 }
 
+// LoadBalancerSubnetMappingArrayInput is an input type that accepts LoadBalancerSubnetMappingArray and LoadBalancerSubnetMappingArrayOutput values.
+// You can construct a concrete instance of `LoadBalancerSubnetMappingArrayInput` via:
+//
+// 		 LoadBalancerSubnetMappingArray{ LoadBalancerSubnetMappingArgs{...} }
+//
 type LoadBalancerSubnetMappingArrayInput interface {
 	pulumi.Input
 
@@ -2979,6 +3225,11 @@ type TargetGroupHealthCheck struct {
 	UnhealthyThreshold *int `pulumi:"unhealthyThreshold"`
 }
 
+// TargetGroupHealthCheckInput is an input type that accepts TargetGroupHealthCheckArgs and TargetGroupHealthCheckOutput values.
+// You can construct a concrete instance of `TargetGroupHealthCheckInput` via:
+//
+// 		 TargetGroupHealthCheckArgs{...}
+//
 type TargetGroupHealthCheckInput interface {
 	pulumi.Input
 
@@ -3027,6 +3278,15 @@ func (i TargetGroupHealthCheckArgs) ToTargetGroupHealthCheckPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupHealthCheckOutput).ToTargetGroupHealthCheckPtrOutputWithContext(ctx)
 }
 
+// TargetGroupHealthCheckPtrInput is an input type that accepts TargetGroupHealthCheckArgs, TargetGroupHealthCheckPtr and TargetGroupHealthCheckPtrOutput values.
+// You can construct a concrete instance of `TargetGroupHealthCheckPtrInput` via:
+//
+// 		 TargetGroupHealthCheckArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type TargetGroupHealthCheckPtrInput interface {
 	pulumi.Input
 
@@ -3193,6 +3453,11 @@ type TargetGroupStickiness struct {
 	Type string `pulumi:"type"`
 }
 
+// TargetGroupStickinessInput is an input type that accepts TargetGroupStickinessArgs and TargetGroupStickinessOutput values.
+// You can construct a concrete instance of `TargetGroupStickinessInput` via:
+//
+// 		 TargetGroupStickinessArgs{...}
+//
 type TargetGroupStickinessInput interface {
 	pulumi.Input
 
@@ -3229,6 +3494,15 @@ func (i TargetGroupStickinessArgs) ToTargetGroupStickinessPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupStickinessOutput).ToTargetGroupStickinessPtrOutputWithContext(ctx)
 }
 
+// TargetGroupStickinessPtrInput is an input type that accepts TargetGroupStickinessArgs, TargetGroupStickinessPtr and TargetGroupStickinessPtrOutput values.
+// You can construct a concrete instance of `TargetGroupStickinessPtrInput` via:
+//
+// 		 TargetGroupStickinessArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type TargetGroupStickinessPtrInput interface {
 	pulumi.Input
 
@@ -3336,6 +3610,11 @@ type GetListenerDefaultAction struct {
 	Type                 string                                        `pulumi:"type"`
 }
 
+// GetListenerDefaultActionInput is an input type that accepts GetListenerDefaultActionArgs and GetListenerDefaultActionOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionInput` via:
+//
+// 		 GetListenerDefaultActionArgs{...}
+//
 type GetListenerDefaultActionInput interface {
 	pulumi.Input
 
@@ -3365,6 +3644,11 @@ func (i GetListenerDefaultActionArgs) ToGetListenerDefaultActionOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionOutput)
 }
 
+// GetListenerDefaultActionArrayInput is an input type that accepts GetListenerDefaultActionArray and GetListenerDefaultActionArrayOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionArrayInput` via:
+//
+// 		 GetListenerDefaultActionArray{ GetListenerDefaultActionArgs{...} }
+//
 type GetListenerDefaultActionArrayInput interface {
 	pulumi.Input
 
@@ -3463,6 +3747,11 @@ type GetListenerDefaultActionAuthenticateCognito struct {
 	UserPoolDomain                   string                 `pulumi:"userPoolDomain"`
 }
 
+// GetListenerDefaultActionAuthenticateCognitoInput is an input type that accepts GetListenerDefaultActionAuthenticateCognitoArgs and GetListenerDefaultActionAuthenticateCognitoOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionAuthenticateCognitoInput` via:
+//
+// 		 GetListenerDefaultActionAuthenticateCognitoArgs{...}
+//
 type GetListenerDefaultActionAuthenticateCognitoInput interface {
 	pulumi.Input
 
@@ -3493,6 +3782,11 @@ func (i GetListenerDefaultActionAuthenticateCognitoArgs) ToGetListenerDefaultAct
 	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionAuthenticateCognitoOutput)
 }
 
+// GetListenerDefaultActionAuthenticateCognitoArrayInput is an input type that accepts GetListenerDefaultActionAuthenticateCognitoArray and GetListenerDefaultActionAuthenticateCognitoArrayOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionAuthenticateCognitoArrayInput` via:
+//
+// 		 GetListenerDefaultActionAuthenticateCognitoArray{ GetListenerDefaultActionAuthenticateCognitoArgs{...} }
+//
 type GetListenerDefaultActionAuthenticateCognitoArrayInput interface {
 	pulumi.Input
 
@@ -3596,6 +3890,11 @@ type GetListenerDefaultActionAuthenticateOidc struct {
 	UserInfoEndpoint                 string                 `pulumi:"userInfoEndpoint"`
 }
 
+// GetListenerDefaultActionAuthenticateOidcInput is an input type that accepts GetListenerDefaultActionAuthenticateOidcArgs and GetListenerDefaultActionAuthenticateOidcOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionAuthenticateOidcInput` via:
+//
+// 		 GetListenerDefaultActionAuthenticateOidcArgs{...}
+//
 type GetListenerDefaultActionAuthenticateOidcInput interface {
 	pulumi.Input
 
@@ -3629,6 +3928,11 @@ func (i GetListenerDefaultActionAuthenticateOidcArgs) ToGetListenerDefaultAction
 	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionAuthenticateOidcOutput)
 }
 
+// GetListenerDefaultActionAuthenticateOidcArrayInput is an input type that accepts GetListenerDefaultActionAuthenticateOidcArray and GetListenerDefaultActionAuthenticateOidcArrayOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionAuthenticateOidcArrayInput` via:
+//
+// 		 GetListenerDefaultActionAuthenticateOidcArray{ GetListenerDefaultActionAuthenticateOidcArgs{...} }
+//
 type GetListenerDefaultActionAuthenticateOidcArrayInput interface {
 	pulumi.Input
 
@@ -3736,6 +4040,11 @@ type GetListenerDefaultActionFixedResponse struct {
 	StatusCode  string `pulumi:"statusCode"`
 }
 
+// GetListenerDefaultActionFixedResponseInput is an input type that accepts GetListenerDefaultActionFixedResponseArgs and GetListenerDefaultActionFixedResponseOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionFixedResponseInput` via:
+//
+// 		 GetListenerDefaultActionFixedResponseArgs{...}
+//
 type GetListenerDefaultActionFixedResponseInput interface {
 	pulumi.Input
 
@@ -3761,6 +4070,11 @@ func (i GetListenerDefaultActionFixedResponseArgs) ToGetListenerDefaultActionFix
 	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionFixedResponseOutput)
 }
 
+// GetListenerDefaultActionFixedResponseArrayInput is an input type that accepts GetListenerDefaultActionFixedResponseArray and GetListenerDefaultActionFixedResponseArrayOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionFixedResponseArrayInput` via:
+//
+// 		 GetListenerDefaultActionFixedResponseArray{ GetListenerDefaultActionFixedResponseArgs{...} }
+//
 type GetListenerDefaultActionFixedResponseArrayInput interface {
 	pulumi.Input
 
@@ -3838,6 +4152,11 @@ type GetListenerDefaultActionRedirect struct {
 	StatusCode string `pulumi:"statusCode"`
 }
 
+// GetListenerDefaultActionRedirectInput is an input type that accepts GetListenerDefaultActionRedirectArgs and GetListenerDefaultActionRedirectOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionRedirectInput` via:
+//
+// 		 GetListenerDefaultActionRedirectArgs{...}
+//
 type GetListenerDefaultActionRedirectInput interface {
 	pulumi.Input
 
@@ -3867,6 +4186,11 @@ func (i GetListenerDefaultActionRedirectArgs) ToGetListenerDefaultActionRedirect
 	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionRedirectOutput)
 }
 
+// GetListenerDefaultActionRedirectArrayInput is an input type that accepts GetListenerDefaultActionRedirectArray and GetListenerDefaultActionRedirectArrayOutput values.
+// You can construct a concrete instance of `GetListenerDefaultActionRedirectArrayInput` via:
+//
+// 		 GetListenerDefaultActionRedirectArray{ GetListenerDefaultActionRedirectArgs{...} }
+//
 type GetListenerDefaultActionRedirectArrayInput interface {
 	pulumi.Input
 
@@ -3953,6 +4277,11 @@ type GetLoadBalancerAccessLogs struct {
 	Prefix  string `pulumi:"prefix"`
 }
 
+// GetLoadBalancerAccessLogsInput is an input type that accepts GetLoadBalancerAccessLogsArgs and GetLoadBalancerAccessLogsOutput values.
+// You can construct a concrete instance of `GetLoadBalancerAccessLogsInput` via:
+//
+// 		 GetLoadBalancerAccessLogsArgs{...}
+//
 type GetLoadBalancerAccessLogsInput interface {
 	pulumi.Input
 
@@ -4009,6 +4338,11 @@ type GetLoadBalancerSubnetMapping struct {
 	SubnetId     string  `pulumi:"subnetId"`
 }
 
+// GetLoadBalancerSubnetMappingInput is an input type that accepts GetLoadBalancerSubnetMappingArgs and GetLoadBalancerSubnetMappingOutput values.
+// You can construct a concrete instance of `GetLoadBalancerSubnetMappingInput` via:
+//
+// 		 GetLoadBalancerSubnetMappingArgs{...}
+//
 type GetLoadBalancerSubnetMappingInput interface {
 	pulumi.Input
 
@@ -4033,6 +4367,11 @@ func (i GetLoadBalancerSubnetMappingArgs) ToGetLoadBalancerSubnetMappingOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerSubnetMappingOutput)
 }
 
+// GetLoadBalancerSubnetMappingArrayInput is an input type that accepts GetLoadBalancerSubnetMappingArray and GetLoadBalancerSubnetMappingArrayOutput values.
+// You can construct a concrete instance of `GetLoadBalancerSubnetMappingArrayInput` via:
+//
+// 		 GetLoadBalancerSubnetMappingArray{ GetLoadBalancerSubnetMappingArgs{...} }
+//
 type GetLoadBalancerSubnetMappingArrayInput interface {
 	pulumi.Input
 
@@ -4108,6 +4447,11 @@ type GetTargetGroupHealthCheck struct {
 	UnhealthyThreshold int    `pulumi:"unhealthyThreshold"`
 }
 
+// GetTargetGroupHealthCheckInput is an input type that accepts GetTargetGroupHealthCheckArgs and GetTargetGroupHealthCheckOutput values.
+// You can construct a concrete instance of `GetTargetGroupHealthCheckInput` via:
+//
+// 		 GetTargetGroupHealthCheckArgs{...}
+//
 type GetTargetGroupHealthCheckInput interface {
 	pulumi.Input
 
@@ -4195,6 +4539,11 @@ type GetTargetGroupStickiness struct {
 	Type           string `pulumi:"type"`
 }
 
+// GetTargetGroupStickinessInput is an input type that accepts GetTargetGroupStickinessArgs and GetTargetGroupStickinessOutput values.
+// You can construct a concrete instance of `GetTargetGroupStickinessInput` via:
+//
+// 		 GetTargetGroupStickinessArgs{...}
+//
 type GetTargetGroupStickinessInput interface {
 	pulumi.Input
 

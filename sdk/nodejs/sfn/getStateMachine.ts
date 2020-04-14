@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_state_machine.html.markdown.
  */
-export function getStateMachine(args: GetStateMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineResult> & GetStateMachineResult {
+export function getStateMachine(args: GetStateMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,11 +32,9 @@ export function getStateMachine(args: GetStateMachineArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetStateMachineResult> = pulumi.runtime.invoke("aws:sfn/getStateMachine:getStateMachine", {
+    return pulumi.runtime.invoke("aws:sfn/getStateMachine:getStateMachine", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

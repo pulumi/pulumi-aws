@@ -9,22 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Kms
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get detailed information about
-        /// the specified KMS Key with flexible key id input.
-        /// This can be useful to reference key alias
-        /// without having to hard code the ARN as input.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_key.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetKey.InvokeAsync() instead")]
-        public static Task<GetKeyResult> GetKey(GetKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("aws:kms/getKey:getKey", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetKey
     {
         /// <summary>
@@ -33,13 +17,13 @@ namespace Pulumi.Aws.Kms
         /// This can be useful to reference key alias
         /// without having to hard code the ARN as input.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_key.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("aws:kms/getKey:getKey", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("aws:kms/getKey:getKey", args ?? new GetKeyArgs(), options.WithVersion());
     }
+
 
     public sealed class GetKeyArgs : Pulumi.InvokeArgs
     {
@@ -70,6 +54,7 @@ namespace Pulumi.Aws.Kms
         }
     }
 
+
     [OutputType]
     public sealed class GetKeyResult
     {
@@ -82,35 +67,50 @@ namespace Pulumi.Aws.Kms
         public readonly bool Enabled;
         public readonly string ExpirationModel;
         public readonly ImmutableArray<string> GrantTokens;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string KeyId;
         public readonly string KeyManager;
         public readonly string KeyState;
         public readonly string KeyUsage;
         public readonly string Origin;
         public readonly string ValidTo;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetKeyResult(
             string arn,
+
             string awsAccountId,
+
             string creationDate,
+
             string customerMasterKeySpec,
+
             string deletionDate,
+
             string description,
+
             bool enabled,
+
             string expirationModel,
+
             ImmutableArray<string> grantTokens,
+
+            string id,
+
             string keyId,
+
             string keyManager,
+
             string keyState,
+
             string keyUsage,
+
             string origin,
-            string validTo,
-            string id)
+
+            string validTo)
         {
             Arn = arn;
             AwsAccountId = awsAccountId;
@@ -121,13 +121,13 @@ namespace Pulumi.Aws.Kms
             Enabled = enabled;
             ExpirationModel = expirationModel;
             GrantTokens = grantTokens;
+            Id = id;
             KeyId = keyId;
             KeyManager = keyManager;
             KeyState = keyState;
             KeyUsage = keyUsage;
             Origin = origin;
             ValidTo = validTo;
-            Id = id;
         }
     }
 }

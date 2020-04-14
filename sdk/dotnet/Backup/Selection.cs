@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Backup
 {
     /// <summary>
     /// Manages selection conditions for AWS Backup plan resources.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_selection.html.markdown.
     /// </summary>
     public partial class Selection : Pulumi.CustomResource
     {
@@ -46,7 +42,7 @@ namespace Pulumi.Aws.Backup
         /// Tag-based conditions used to specify a set of resources to assign to a backup plan.
         /// </summary>
         [Output("selectionTags")]
-        public Output<ImmutableArray<Outputs.SelectionSelectionTags>> SelectionTags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SelectionSelectionTag>> SelectionTags { get; private set; } = null!;
 
 
         /// <summary>
@@ -57,7 +53,7 @@ namespace Pulumi.Aws.Backup
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Selection(string name, SelectionArgs args, CustomResourceOptions? options = null)
-            : base("aws:backup/selection:Selection", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:backup/selection:Selection", name, args ?? new SelectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -125,14 +121,14 @@ namespace Pulumi.Aws.Backup
         }
 
         [Input("selectionTags")]
-        private InputList<Inputs.SelectionSelectionTagsArgs>? _selectionTags;
+        private InputList<Inputs.SelectionSelectionTagArgs>? _selectionTags;
 
         /// <summary>
         /// Tag-based conditions used to specify a set of resources to assign to a backup plan.
         /// </summary>
-        public InputList<Inputs.SelectionSelectionTagsArgs> SelectionTags
+        public InputList<Inputs.SelectionSelectionTagArgs> SelectionTags
         {
-            get => _selectionTags ?? (_selectionTags = new InputList<Inputs.SelectionSelectionTagsArgs>());
+            get => _selectionTags ?? (_selectionTags = new InputList<Inputs.SelectionSelectionTagArgs>());
             set => _selectionTags = value;
         }
 
@@ -174,105 +170,19 @@ namespace Pulumi.Aws.Backup
         }
 
         [Input("selectionTags")]
-        private InputList<Inputs.SelectionSelectionTagsGetArgs>? _selectionTags;
+        private InputList<Inputs.SelectionSelectionTagGetArgs>? _selectionTags;
 
         /// <summary>
         /// Tag-based conditions used to specify a set of resources to assign to a backup plan.
         /// </summary>
-        public InputList<Inputs.SelectionSelectionTagsGetArgs> SelectionTags
+        public InputList<Inputs.SelectionSelectionTagGetArgs> SelectionTags
         {
-            get => _selectionTags ?? (_selectionTags = new InputList<Inputs.SelectionSelectionTagsGetArgs>());
+            get => _selectionTags ?? (_selectionTags = new InputList<Inputs.SelectionSelectionTagGetArgs>());
             set => _selectionTags = value;
         }
 
         public SelectionState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SelectionSelectionTagsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The key in a key-value pair.
-        /// </summary>
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        /// <summary>
-        /// An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        /// <summary>
-        /// The value in a key-value pair.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public SelectionSelectionTagsArgs()
-        {
-        }
-    }
-
-    public sealed class SelectionSelectionTagsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The key in a key-value pair.
-        /// </summary>
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        /// <summary>
-        /// An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        /// <summary>
-        /// The value in a key-value pair.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public SelectionSelectionTagsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SelectionSelectionTags
-    {
-        /// <summary>
-        /// The key in a key-value pair.
-        /// </summary>
-        public readonly string Key;
-        /// <summary>
-        /// An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
-        /// </summary>
-        public readonly string Type;
-        /// <summary>
-        /// The value in a key-value pair.
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private SelectionSelectionTags(
-            string key,
-            string type,
-            string value)
-        {
-            Key = key;
-            Type = type;
-            Value = value;
-        }
-    }
     }
 }

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Ec2
     /// An egress-only Internet gateway is used to enable outbound communication
     /// over IPv6 from instances in your VPC to the Internet, and prevents hosts
     /// outside of your VPC from initiating an IPv6 connection with your instance.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/egress_only_internet_gateway.html.markdown.
     /// </summary>
     public partial class EgressOnlyInternetGateway : Pulumi.CustomResource
     {
@@ -42,7 +38,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EgressOnlyInternetGateway(string name, EgressOnlyInternetGatewayArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway", name, args ?? new EgressOnlyInternetGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 

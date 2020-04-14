@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type EndpointMongodbSettings struct {
@@ -19,6 +19,11 @@ type EndpointMongodbSettings struct {
 	NestingLevel      *string `pulumi:"nestingLevel"`
 }
 
+// EndpointMongodbSettingsInput is an input type that accepts EndpointMongodbSettingsArgs and EndpointMongodbSettingsOutput values.
+// You can construct a concrete instance of `EndpointMongodbSettingsInput` via:
+//
+// 		 EndpointMongodbSettingsArgs{...}
+//
 type EndpointMongodbSettingsInput interface {
 	pulumi.Input
 
@@ -55,6 +60,15 @@ func (i EndpointMongodbSettingsArgs) ToEndpointMongodbSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointMongodbSettingsOutput).ToEndpointMongodbSettingsPtrOutputWithContext(ctx)
 }
 
+// EndpointMongodbSettingsPtrInput is an input type that accepts EndpointMongodbSettingsArgs, EndpointMongodbSettingsPtr and EndpointMongodbSettingsPtrOutput values.
+// You can construct a concrete instance of `EndpointMongodbSettingsPtrInput` via:
+//
+// 		 EndpointMongodbSettingsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type EndpointMongodbSettingsPtrInput interface {
 	pulumi.Input
 
@@ -179,6 +193,11 @@ type EndpointS3Settings struct {
 	ServiceAccessRoleArn    *string `pulumi:"serviceAccessRoleArn"`
 }
 
+// EndpointS3SettingsInput is an input type that accepts EndpointS3SettingsArgs and EndpointS3SettingsOutput values.
+// You can construct a concrete instance of `EndpointS3SettingsInput` via:
+//
+// 		 EndpointS3SettingsArgs{...}
+//
 type EndpointS3SettingsInput interface {
 	pulumi.Input
 
@@ -216,6 +235,15 @@ func (i EndpointS3SettingsArgs) ToEndpointS3SettingsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointS3SettingsOutput).ToEndpointS3SettingsPtrOutputWithContext(ctx)
 }
 
+// EndpointS3SettingsPtrInput is an input type that accepts EndpointS3SettingsArgs, EndpointS3SettingsPtr and EndpointS3SettingsPtrOutput values.
+// You can construct a concrete instance of `EndpointS3SettingsPtrInput` via:
+//
+// 		 EndpointS3SettingsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type EndpointS3SettingsPtrInput interface {
 	pulumi.Input
 

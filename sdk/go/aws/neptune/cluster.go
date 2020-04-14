@@ -6,7 +6,7 @@ package neptune
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an Neptune Cluster Resource. A Cluster Resource defines attributes that are

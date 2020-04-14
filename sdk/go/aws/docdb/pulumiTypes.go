@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type ClusterParameterGroupParameter struct {
@@ -19,6 +19,11 @@ type ClusterParameterGroupParameter struct {
 	Value string `pulumi:"value"`
 }
 
+// ClusterParameterGroupParameterInput is an input type that accepts ClusterParameterGroupParameterArgs and ClusterParameterGroupParameterOutput values.
+// You can construct a concrete instance of `ClusterParameterGroupParameterInput` via:
+//
+// 		 ClusterParameterGroupParameterArgs{...}
+//
 type ClusterParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -47,6 +52,11 @@ func (i ClusterParameterGroupParameterArgs) ToClusterParameterGroupParameterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupParameterOutput)
 }
 
+// ClusterParameterGroupParameterArrayInput is an input type that accepts ClusterParameterGroupParameterArray and ClusterParameterGroupParameterArrayOutput values.
+// You can construct a concrete instance of `ClusterParameterGroupParameterArrayInput` via:
+//
+// 		 ClusterParameterGroupParameterArray{ ClusterParameterGroupParameterArgs{...} }
+//
 type ClusterParameterGroupParameterArrayInput interface {
 	pulumi.Input
 

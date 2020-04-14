@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Iam
 {
     /// <summary>
     /// Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_access_key.html.markdown.
     /// </summary>
     public partial class AccessKey : Pulumi.CustomResource
     {
@@ -88,7 +84,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccessKey(string name, AccessKeyArgs args, CustomResourceOptions? options = null)
-            : base("aws:iam/accessKey:AccessKey", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iam/accessKey:AccessKey", name, args ?? new AccessKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

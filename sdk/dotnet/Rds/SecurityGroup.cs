@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Rds
     /// EC2-Classic Platform. For instances inside a VPC, use the
     /// [`aws_db_instance.vpc_security_group_ids`](https://www.terraform.io/docs/providers/aws/r/db_instance.html#vpc_security_group_ids)
     /// attribute instead.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_security_group.html.markdown.
     /// </summary>
     public partial class SecurityGroup : Pulumi.CustomResource
     {
@@ -60,7 +56,7 @@ namespace Pulumi.Aws.Rds
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurityGroup(string name, SecurityGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws:rds/securityGroup:SecurityGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:rds/securityGroup:SecurityGroup", name, args ?? new SecurityGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -187,112 +183,5 @@ namespace Pulumi.Aws.Rds
         {
             Description = "Managed by Pulumi";
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SecurityGroupIngressArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The CIDR block to accept
-        /// </summary>
-        [Input("cidr")]
-        public Input<string>? Cidr { get; set; }
-
-        /// <summary>
-        /// The ID of the security group to authorize
-        /// </summary>
-        [Input("securityGroupId")]
-        public Input<string>? SecurityGroupId { get; set; }
-
-        /// <summary>
-        /// The name of the security group to authorize
-        /// </summary>
-        [Input("securityGroupName")]
-        public Input<string>? SecurityGroupName { get; set; }
-
-        /// <summary>
-        /// The owner Id of the security group provided
-        /// by `security_group_name`.
-        /// </summary>
-        [Input("securityGroupOwnerId")]
-        public Input<string>? SecurityGroupOwnerId { get; set; }
-
-        public SecurityGroupIngressArgs()
-        {
-        }
-    }
-
-    public sealed class SecurityGroupIngressGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The CIDR block to accept
-        /// </summary>
-        [Input("cidr")]
-        public Input<string>? Cidr { get; set; }
-
-        /// <summary>
-        /// The ID of the security group to authorize
-        /// </summary>
-        [Input("securityGroupId")]
-        public Input<string>? SecurityGroupId { get; set; }
-
-        /// <summary>
-        /// The name of the security group to authorize
-        /// </summary>
-        [Input("securityGroupName")]
-        public Input<string>? SecurityGroupName { get; set; }
-
-        /// <summary>
-        /// The owner Id of the security group provided
-        /// by `security_group_name`.
-        /// </summary>
-        [Input("securityGroupOwnerId")]
-        public Input<string>? SecurityGroupOwnerId { get; set; }
-
-        public SecurityGroupIngressGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SecurityGroupIngress
-    {
-        /// <summary>
-        /// The CIDR block to accept
-        /// </summary>
-        public readonly string? Cidr;
-        /// <summary>
-        /// The ID of the security group to authorize
-        /// </summary>
-        public readonly string SecurityGroupId;
-        /// <summary>
-        /// The name of the security group to authorize
-        /// </summary>
-        public readonly string SecurityGroupName;
-        /// <summary>
-        /// The owner Id of the security group provided
-        /// by `security_group_name`.
-        /// </summary>
-        public readonly string SecurityGroupOwnerId;
-
-        [OutputConstructor]
-        private SecurityGroupIngress(
-            string? cidr,
-            string securityGroupId,
-            string securityGroupName,
-            string securityGroupOwnerId)
-        {
-            Cidr = cidr;
-            SecurityGroupId = securityGroupId;
-            SecurityGroupName = securityGroupName;
-            SecurityGroupOwnerId = securityGroupOwnerId;
-        }
-    }
     }
 }

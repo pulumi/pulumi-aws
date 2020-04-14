@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Ec2
 {
     /// <summary>
     /// Provides a VPC resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc.html.markdown.
     /// </summary>
     public partial class Vpc : Pulumi.CustomResource
     {
@@ -133,7 +129,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Vpc(string name, VpcArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpc:Vpc", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpc:Vpc", name, args ?? new VpcArgs(), MakeResourceOptions(options, ""))
         {
         }
 

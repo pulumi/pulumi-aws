@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Ses
     /// Provides an SES domain DKIM generation resource.
     /// 
     /// Domain ownership needs to be confirmed first using [ses_domain_identity Resource](https://www.terraform.io/docs/providers/aws/r/ses_domain_identity.html)
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_dkim.html.markdown.
     /// </summary>
     public partial class DomainDkim : Pulumi.CustomResource
     {
@@ -46,7 +42,7 @@ namespace Pulumi.Aws.Ses
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DomainDkim(string name, DomainDkimArgs args, CustomResourceOptions? options = null)
-            : base("aws:ses/domainDkim:DomainDkim", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ses/domainDkim:DomainDkim", name, args ?? new DomainDkimArgs(), MakeResourceOptions(options, ""))
         {
         }
 

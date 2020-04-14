@@ -7,7 +7,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Direct Connect LAG. Connections can be added to the LAG via the [`directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) and [`directconnect.ConnectionAssociation`](https://www.terraform.io/docs/providers/aws/r/dx_connection_association.html) resources.

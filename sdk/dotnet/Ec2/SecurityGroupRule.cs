@@ -23,10 +23,6 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **NOTE:** Setting `protocol = "all"` or `protocol = -1` with `from_port` and `to_port` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by this provider and may generate warnings in the future.
     /// 
     /// &gt; **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group_rule.html.markdown.
     /// </summary>
     public partial class SecurityGroupRule : Pulumi.CustomResource
     {
@@ -109,7 +105,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurityGroupRule(string name, SecurityGroupRuleArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/securityGroupRule:SecurityGroupRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/securityGroupRule:SecurityGroupRule", name, args ?? new SecurityGroupRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 

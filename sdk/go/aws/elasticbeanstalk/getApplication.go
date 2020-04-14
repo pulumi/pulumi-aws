@@ -4,7 +4,7 @@
 package elasticbeanstalk
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Retrieve information about an Elastic Beanstalk Application.

@@ -4,7 +4,7 @@
 package aws
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get the access to the effective Account ID, User ID, and ARN in

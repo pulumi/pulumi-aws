@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Mq
     /// Provides an MQ Configuration Resource. 
     /// 
     /// For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/mq_configuration.html.markdown.
     /// </summary>
     public partial class Configuration : Pulumi.CustomResource
     {
@@ -79,7 +75,7 @@ namespace Pulumi.Aws.Mq
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Configuration(string name, ConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("aws:mq/configuration:Configuration", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:mq/configuration:Configuration", name, args ?? new ConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

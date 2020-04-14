@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Efs
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Provides information about an Elastic File System Mount Target (EFS).
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_mount_target.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetMountTarget.InvokeAsync() instead")]
-        public static Task<GetMountTargetResult> GetMountTarget(GetMountTargetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMountTargetResult>("aws:efs/getMountTarget:getMountTarget", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetMountTarget
     {
         /// <summary>
         /// Provides information about an Elastic File System Mount Target (EFS).
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_mount_target.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetMountTargetResult> InvokeAsync(GetMountTargetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMountTargetResult>("aws:efs/getMountTarget:getMountTarget", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMountTargetResult>("aws:efs/getMountTarget:getMountTarget", args ?? new GetMountTargetArgs(), options.WithVersion());
     }
+
 
     public sealed class GetMountTargetArgs : Pulumi.InvokeArgs
     {
@@ -47,6 +34,7 @@ namespace Pulumi.Aws.Efs
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetMountTargetResult
@@ -64,6 +52,10 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         public readonly string FileSystemId;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Address at which the file system may be mounted via the mount target.
         /// </summary>
         public readonly string IpAddress;
@@ -80,32 +72,36 @@ namespace Pulumi.Aws.Efs
         /// ID of the mount target's subnet.
         /// </summary>
         public readonly string SubnetId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetMountTargetResult(
             string dnsName,
+
             string fileSystemArn,
+
             string fileSystemId,
+
+            string id,
+
             string ipAddress,
+
             string mountTargetId,
+
             string networkInterfaceId,
+
             ImmutableArray<string> securityGroups,
-            string subnetId,
-            string id)
+
+            string subnetId)
         {
             DnsName = dnsName;
             FileSystemArn = fileSystemArn;
             FileSystemId = fileSystemId;
+            Id = id;
             IpAddress = ipAddress;
             MountTargetId = mountTargetId;
             NetworkInterfaceId = networkInterfaceId;
             SecurityGroups = securityGroups;
             SubnetId = subnetId;
-            Id = id;
         }
     }
 }

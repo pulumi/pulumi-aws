@@ -4,7 +4,7 @@
 package elasticloadbalancing
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId

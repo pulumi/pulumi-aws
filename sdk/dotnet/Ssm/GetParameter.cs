@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ssm
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Provides an SSM Parameter data source.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_parameter.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetParameter.InvokeAsync() instead")]
-        public static Task<GetParameterResult> GetParameter(GetParameterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetParameterResult>("aws:ssm/getParameter:getParameter", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetParameter
     {
         /// <summary>
         /// Provides an SSM Parameter data source.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_parameter.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetParameterResult> InvokeAsync(GetParameterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetParameterResult>("aws:ssm/getParameter:getParameter", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetParameterResult>("aws:ssm/getParameter:getParameter", args ?? new GetParameterArgs(), options.WithVersion());
     }
+
 
     public sealed class GetParameterArgs : Pulumi.InvokeArgs
     {
@@ -54,37 +41,44 @@ namespace Pulumi.Aws.Ssm
         }
     }
 
+
     [OutputType]
     public sealed class GetParameterResult
     {
         public readonly string Arn;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         public readonly string Type;
         public readonly string Value;
         public readonly int Version;
         public readonly bool? WithDecryption;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetParameterResult(
             string arn,
+
+            string id,
+
             string name,
+
             string type,
+
             string value,
+
             int version,
-            bool? withDecryption,
-            string id)
+
+            bool? withDecryption)
         {
             Arn = arn;
+            Id = id;
             Name = name;
             Type = type;
             Value = value;
             Version = version;
             WithDecryption = withDecryption;
-            Id = id;
         }
     }
 }

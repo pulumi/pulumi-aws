@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type AuthorizerJwtConfiguration struct {
@@ -17,6 +17,11 @@ type AuthorizerJwtConfiguration struct {
 	Issuer *string `pulumi:"issuer"`
 }
 
+// AuthorizerJwtConfigurationInput is an input type that accepts AuthorizerJwtConfigurationArgs and AuthorizerJwtConfigurationOutput values.
+// You can construct a concrete instance of `AuthorizerJwtConfigurationInput` via:
+//
+// 		 AuthorizerJwtConfigurationArgs{...}
+//
 type AuthorizerJwtConfigurationInput interface {
 	pulumi.Input
 
@@ -51,6 +56,15 @@ func (i AuthorizerJwtConfigurationArgs) ToAuthorizerJwtConfigurationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerJwtConfigurationOutput).ToAuthorizerJwtConfigurationPtrOutputWithContext(ctx)
 }
 
+// AuthorizerJwtConfigurationPtrInput is an input type that accepts AuthorizerJwtConfigurationArgs, AuthorizerJwtConfigurationPtr and AuthorizerJwtConfigurationPtrOutput values.
+// You can construct a concrete instance of `AuthorizerJwtConfigurationPtrInput` via:
+//
+// 		 AuthorizerJwtConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type AuthorizerJwtConfigurationPtrInput interface {
 	pulumi.Input
 

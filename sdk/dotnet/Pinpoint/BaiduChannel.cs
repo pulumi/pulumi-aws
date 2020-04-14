@@ -14,11 +14,6 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// &gt; **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
     /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-    /// 
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_baidu_channel.markdown.
     /// </summary>
     public partial class BaiduChannel : Pulumi.CustomResource
     {
@@ -55,7 +50,7 @@ namespace Pulumi.Aws.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BaiduChannel(string name, BaiduChannelArgs args, CustomResourceOptions? options = null)
-            : base("aws:pinpoint/baiduChannel:BaiduChannel", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:pinpoint/baiduChannel:BaiduChannel", name, args ?? new BaiduChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 

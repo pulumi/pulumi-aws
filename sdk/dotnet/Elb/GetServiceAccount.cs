@@ -9,33 +9,19 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Elb
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
-        /// in a given region for the purpose of whitelisting in S3 bucket policy.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_service_account.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetServiceAccount.InvokeAsync() instead")]
-        public static Task<GetServiceAccountResult> GetServiceAccount(GetServiceAccountArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceAccountResult>("aws:elb/getServiceAccount:getServiceAccount", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetServiceAccount
     {
         /// <summary>
         /// Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
         /// in a given region for the purpose of whitelisting in S3 bucket policy.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_service_account.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceAccountResult> InvokeAsync(GetServiceAccountArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceAccountResult>("aws:elb/getServiceAccount:getServiceAccount", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceAccountResult>("aws:elb/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountArgs(), options.WithVersion());
     }
+
 
     public sealed class GetServiceAccountArgs : Pulumi.InvokeArgs
     {
@@ -51,6 +37,7 @@ namespace Pulumi.Aws.Elb
         }
     }
 
+
     [OutputType]
     public sealed class GetServiceAccountResult
     {
@@ -58,21 +45,23 @@ namespace Pulumi.Aws.Elb
         /// The ARN of the AWS ELB service account in the selected region.
         /// </summary>
         public readonly string Arn;
-        public readonly string? Region;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string? Region;
 
         [OutputConstructor]
         private GetServiceAccountResult(
             string arn,
-            string? region,
-            string id)
+
+            string id,
+
+            string? region)
         {
             Arn = arn;
-            Region = region;
             Id = id;
+            Region = region;
         }
     }
 }

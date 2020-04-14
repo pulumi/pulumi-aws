@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Ssm
 {
     /// <summary>
     /// Provides an SSM Patch Group resource
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_patch_group.html.markdown.
     /// </summary>
     public partial class PatchGroup : Pulumi.CustomResource
     {
@@ -39,7 +35,7 @@ namespace Pulumi.Aws.Ssm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PatchGroup(string name, PatchGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws:ssm/patchGroup:PatchGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ssm/patchGroup:PatchGroup", name, args ?? new PatchGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 

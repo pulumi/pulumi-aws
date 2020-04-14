@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Ses
 {
     /// <summary>
     /// Resource for managing SES Identity Notification Topics
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_identity_notification_topic.markdown.
     /// </summary>
     public partial class IdentityNotificationTopic : Pulumi.CustomResource
     {
@@ -51,7 +47,7 @@ namespace Pulumi.Aws.Ses
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IdentityNotificationTopic(string name, IdentityNotificationTopicArgs args, CustomResourceOptions? options = null)
-            : base("aws:ses/identityNotificationTopic:IdentityNotificationTopic", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ses/identityNotificationTopic:IdentityNotificationTopic", name, args ?? new IdentityNotificationTopicArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Ecr
     /// Provides an Elastic Container Registry Repository Policy.
     /// 
     /// Note that currently only one policy may be applied to a repository.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_repository_policy.html.markdown.
     /// </summary>
     public partial class RepositoryPolicy : Pulumi.CustomResource
     {
@@ -47,7 +43,7 @@ namespace Pulumi.Aws.Ecr
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RepositoryPolicy(string name, RepositoryPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:ecr/repositoryPolicy:RepositoryPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ecr/repositoryPolicy:RepositoryPolicy", name, args ?? new RepositoryPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -4,7 +4,7 @@
 package waf
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // `waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.

@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Iam
     /// &gt; **Note:** There is only a single account alias per AWS account.
     /// 
     /// Manages the account alias for the AWS Account.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_account_alias.html.markdown.
     /// </summary>
     public partial class AccountAlias : Pulumi.CustomResource
     {
@@ -35,7 +31,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccountAlias(string name, AccountAliasArgs args, CustomResourceOptions? options = null)
-            : base("aws:iam/accountAlias:AccountAlias", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iam/accountAlias:AccountAlias", name, args ?? new AccountAliasArgs(), MakeResourceOptions(options, ""))
         {
         }
 

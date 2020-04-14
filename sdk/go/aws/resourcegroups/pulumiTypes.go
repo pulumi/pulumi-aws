@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type GroupResourceQuery struct {
@@ -17,6 +17,11 @@ type GroupResourceQuery struct {
 	Type *string `pulumi:"type"`
 }
 
+// GroupResourceQueryInput is an input type that accepts GroupResourceQueryArgs and GroupResourceQueryOutput values.
+// You can construct a concrete instance of `GroupResourceQueryInput` via:
+//
+// 		 GroupResourceQueryArgs{...}
+//
 type GroupResourceQueryInput interface {
 	pulumi.Input
 
@@ -51,6 +56,15 @@ func (i GroupResourceQueryArgs) ToGroupResourceQueryPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(GroupResourceQueryOutput).ToGroupResourceQueryPtrOutputWithContext(ctx)
 }
 
+// GroupResourceQueryPtrInput is an input type that accepts GroupResourceQueryArgs, GroupResourceQueryPtr and GroupResourceQueryPtrOutput values.
+// You can construct a concrete instance of `GroupResourceQueryPtrInput` via:
+//
+// 		 GroupResourceQueryArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type GroupResourceQueryPtrInput interface {
 	pulumi.Input
 

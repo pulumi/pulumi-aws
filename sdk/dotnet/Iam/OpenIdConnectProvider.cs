@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Iam
 {
     /// <summary>
     /// Provides an IAM OpenID Connect provider.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_openid_connect_provider.html.markdown.
     /// </summary>
     public partial class OpenIdConnectProvider : Pulumi.CustomResource
     {
@@ -51,7 +47,7 @@ namespace Pulumi.Aws.Iam
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OpenIdConnectProvider(string name, OpenIdConnectProviderArgs args, CustomResourceOptions? options = null)
-            : base("aws:iam/openIdConnectProvider:OpenIdConnectProvider", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:iam/openIdConnectProvider:OpenIdConnectProvider", name, args ?? new OpenIdConnectProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 

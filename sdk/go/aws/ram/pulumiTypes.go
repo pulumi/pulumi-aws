@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type GetResourceShareFilter struct {
@@ -17,6 +17,11 @@ type GetResourceShareFilter struct {
 	Values []string `pulumi:"values"`
 }
 
+// GetResourceShareFilterInput is an input type that accepts GetResourceShareFilterArgs and GetResourceShareFilterOutput values.
+// You can construct a concrete instance of `GetResourceShareFilterInput` via:
+//
+// 		 GetResourceShareFilterArgs{...}
+//
 type GetResourceShareFilterInput interface {
 	pulumi.Input
 
@@ -43,6 +48,11 @@ func (i GetResourceShareFilterArgs) ToGetResourceShareFilterOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetResourceShareFilterOutput)
 }
 
+// GetResourceShareFilterArrayInput is an input type that accepts GetResourceShareFilterArray and GetResourceShareFilterArrayOutput values.
+// You can construct a concrete instance of `GetResourceShareFilterArrayInput` via:
+//
+// 		 GetResourceShareFilterArray{ GetResourceShareFilterArgs{...} }
+//
 type GetResourceShareFilterArrayInput interface {
 	pulumi.Input
 

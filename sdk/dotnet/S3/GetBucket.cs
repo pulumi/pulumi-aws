@@ -9,22 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Provides details about a specific S3 bucket.
-        /// 
-        /// This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
-        /// Distribution.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetBucket.InvokeAsync() instead")]
-        public static Task<GetBucketResult> GetBucket(GetBucketArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBucketResult>("aws:s3/getBucket:getBucket", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetBucket
     {
         /// <summary>
@@ -33,13 +17,13 @@ namespace Pulumi.Aws.S3
         /// This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
         /// Distribution.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetBucketResult> InvokeAsync(GetBucketArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBucketResult>("aws:s3/getBucket:getBucket", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBucketResult>("aws:s3/getBucket:getBucket", args ?? new GetBucketArgs(), options.WithVersion());
     }
+
 
     public sealed class GetBucketArgs : Pulumi.InvokeArgs
     {
@@ -53,6 +37,7 @@ namespace Pulumi.Aws.S3
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetBucketResult
@@ -75,6 +60,10 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string HostedZoneId;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The AWS region this bucket resides in.
         /// </summary>
         public readonly string Region;
@@ -86,32 +75,36 @@ namespace Pulumi.Aws.S3
         /// The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
         /// </summary>
         public readonly string WebsiteEndpoint;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetBucketResult(
             string arn,
+
             string bucket,
+
             string bucketDomainName,
+
             string bucketRegionalDomainName,
+
             string hostedZoneId,
+
+            string id,
+
             string region,
+
             string websiteDomain,
-            string websiteEndpoint,
-            string id)
+
+            string websiteEndpoint)
         {
             Arn = arn;
             Bucket = bucket;
             BucketDomainName = bucketDomainName;
             BucketRegionalDomainName = bucketRegionalDomainName;
             HostedZoneId = hostedZoneId;
+            Id = id;
             Region = region;
             WebsiteDomain = websiteDomain;
             WebsiteEndpoint = websiteEndpoint;
-            Id = id;
         }
     }
 }

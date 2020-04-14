@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_activity.html.markdown.
  */
-export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityResult> & GetActivityResult {
+export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -31,12 +31,10 @@ export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions)
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetActivityResult> = pulumi.runtime.invoke("aws:sfn/getActivity:getActivity", {
+    return pulumi.runtime.invoke("aws:sfn/getActivity:getActivity", {
         "arn": args.arn,
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

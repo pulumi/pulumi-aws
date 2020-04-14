@@ -9,33 +9,19 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ecs
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// The ECS Service data source allows access to details of a specific
-        /// Service within a AWS ECS Cluster.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_service.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetService.InvokeAsync() instead")]
-        public static Task<GetServiceResult> GetService(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws:ecs/getService:getService", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetService
     {
         /// <summary>
         /// The ECS Service data source allows access to details of a specific
         /// Service within a AWS ECS Cluster.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_service.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws:ecs/getService:getService", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws:ecs/getService:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }
+
 
     public sealed class GetServiceArgs : Pulumi.InvokeArgs
     {
@@ -56,6 +42,7 @@ namespace Pulumi.Aws.Ecs
         }
     }
 
+
     [OutputType]
     public sealed class GetServiceResult
     {
@@ -69,6 +56,10 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly int DesiredCount;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The launch type for the ECS Service
         /// </summary>
         public readonly string LaunchType;
@@ -81,30 +72,33 @@ namespace Pulumi.Aws.Ecs
         /// The family for the latest ACTIVE revision
         /// </summary>
         public readonly string TaskDefinition;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetServiceResult(
             string arn,
+
             string clusterArn,
+
             int desiredCount,
+
+            string id,
+
             string launchType,
+
             string schedulingStrategy,
+
             string serviceName,
-            string taskDefinition,
-            string id)
+
+            string taskDefinition)
         {
             Arn = arn;
             ClusterArn = clusterArn;
             DesiredCount = desiredCount;
+            Id = id;
             LaunchType = launchType;
             SchedulingStrategy = schedulingStrategy;
             ServiceName = serviceName;
             TaskDefinition = taskDefinition;
-            Id = id;
         }
     }
 }

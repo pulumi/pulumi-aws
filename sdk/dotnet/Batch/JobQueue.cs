@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Batch
 {
     /// <summary>
     /// Provides a Batch Job Queue resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_job_queue.html.markdown.
     /// </summary>
     public partial class JobQueue : Pulumi.CustomResource
     {
@@ -61,7 +57,7 @@ namespace Pulumi.Aws.Batch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public JobQueue(string name, JobQueueArgs args, CustomResourceOptions? options = null)
-            : base("aws:batch/jobQueue:JobQueue", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:batch/jobQueue:JobQueue", name, args ?? new JobQueueArgs(), MakeResourceOptions(options, ""))
         {
         }
 

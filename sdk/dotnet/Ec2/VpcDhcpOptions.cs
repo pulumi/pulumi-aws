@@ -20,8 +20,6 @@ namespace Pulumi.Aws.Ec2
     /// * To actually use the DHCP Options Set you need to associate it to a VPC using [`aws.ec2.VpcDhcpOptionsAssociation`](https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association.html).
     /// * If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set.
     /// * In most cases unless you're configuring your own DNS you'll want to set `domain_name_servers` to `AmazonProvidedDNS`.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_dhcp_options.html.markdown.
     /// </summary>
     public partial class VpcDhcpOptions : Pulumi.CustomResource
     {
@@ -76,7 +74,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpcDhcpOptions(string name, VpcDhcpOptionsArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ec2/vpcDhcpOptions:VpcDhcpOptions", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/vpcDhcpOptions:VpcDhcpOptions", name, args ?? new VpcDhcpOptionsArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Lambda
 {
     /// <summary>
     /// Manages an asynchronous invocation configuration for a Lambda Function or Alias. More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_function_event_invoke_config.html.markdown.
     /// </summary>
     public partial class FunctionEventInvokeConfig : Pulumi.CustomResource
     {
@@ -57,7 +53,7 @@ namespace Pulumi.Aws.Lambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FunctionEventInvokeConfig(string name, FunctionEventInvokeConfigArgs args, CustomResourceOptions? options = null)
-            : base("aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig", name, args ?? new FunctionEventInvokeConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -164,155 +160,5 @@ namespace Pulumi.Aws.Lambda
         public FunctionEventInvokeConfigState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class FunctionEventInvokeConfigDestinationConfigArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Configuration block with destination configuration for failed asynchronous invocations. See below for details.
-        /// </summary>
-        [Input("onFailure")]
-        public Input<FunctionEventInvokeConfigDestinationConfigOnFailureArgs>? OnFailure { get; set; }
-
-        /// <summary>
-        /// Configuration block with destination configuration for successful asynchronous invocations. See below for details.
-        /// </summary>
-        [Input("onSuccess")]
-        public Input<FunctionEventInvokeConfigDestinationConfigOnSuccessArgs>? OnSuccess { get; set; }
-
-        public FunctionEventInvokeConfigDestinationConfigArgs()
-        {
-        }
-    }
-
-    public sealed class FunctionEventInvokeConfigDestinationConfigGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Configuration block with destination configuration for failed asynchronous invocations. See below for details.
-        /// </summary>
-        [Input("onFailure")]
-        public Input<FunctionEventInvokeConfigDestinationConfigOnFailureGetArgs>? OnFailure { get; set; }
-
-        /// <summary>
-        /// Configuration block with destination configuration for successful asynchronous invocations. See below for details.
-        /// </summary>
-        [Input("onSuccess")]
-        public Input<FunctionEventInvokeConfigDestinationConfigOnSuccessGetArgs>? OnSuccess { get; set; }
-
-        public FunctionEventInvokeConfigDestinationConfigGetArgs()
-        {
-        }
-    }
-
-    public sealed class FunctionEventInvokeConfigDestinationConfigOnFailureArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        /// </summary>
-        [Input("destination", required: true)]
-        public Input<string> Destination { get; set; } = null!;
-
-        public FunctionEventInvokeConfigDestinationConfigOnFailureArgs()
-        {
-        }
-    }
-
-    public sealed class FunctionEventInvokeConfigDestinationConfigOnFailureGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        /// </summary>
-        [Input("destination", required: true)]
-        public Input<string> Destination { get; set; } = null!;
-
-        public FunctionEventInvokeConfigDestinationConfigOnFailureGetArgs()
-        {
-        }
-    }
-
-    public sealed class FunctionEventInvokeConfigDestinationConfigOnSuccessArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        /// </summary>
-        [Input("destination", required: true)]
-        public Input<string> Destination { get; set; } = null!;
-
-        public FunctionEventInvokeConfigDestinationConfigOnSuccessArgs()
-        {
-        }
-    }
-
-    public sealed class FunctionEventInvokeConfigDestinationConfigOnSuccessGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        /// </summary>
-        [Input("destination", required: true)]
-        public Input<string> Destination { get; set; } = null!;
-
-        public FunctionEventInvokeConfigDestinationConfigOnSuccessGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class FunctionEventInvokeConfigDestinationConfig
-    {
-        /// <summary>
-        /// Configuration block with destination configuration for failed asynchronous invocations. See below for details.
-        /// </summary>
-        public readonly FunctionEventInvokeConfigDestinationConfigOnFailure? OnFailure;
-        /// <summary>
-        /// Configuration block with destination configuration for successful asynchronous invocations. See below for details.
-        /// </summary>
-        public readonly FunctionEventInvokeConfigDestinationConfigOnSuccess? OnSuccess;
-
-        [OutputConstructor]
-        private FunctionEventInvokeConfigDestinationConfig(
-            FunctionEventInvokeConfigDestinationConfigOnFailure? onFailure,
-            FunctionEventInvokeConfigDestinationConfigOnSuccess? onSuccess)
-        {
-            OnFailure = onFailure;
-            OnSuccess = onSuccess;
-        }
-    }
-
-    [OutputType]
-    public sealed class FunctionEventInvokeConfigDestinationConfigOnFailure
-    {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        /// </summary>
-        public readonly string Destination;
-
-        [OutputConstructor]
-        private FunctionEventInvokeConfigDestinationConfigOnFailure(string destination)
-        {
-            Destination = destination;
-        }
-    }
-
-    [OutputType]
-    public sealed class FunctionEventInvokeConfigDestinationConfigOnSuccess
-    {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        /// </summary>
-        public readonly string Destination;
-
-        [OutputConstructor]
-        private FunctionEventInvokeConfigDestinationConfigOnSuccess(string destination)
-        {
-            Destination = destination;
-        }
-    }
     }
 }

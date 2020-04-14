@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Ec2
 {
     /// <summary>
     /// Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/proxy_protocol_policy.html.markdown.
     /// </summary>
     public partial class ProxyProtocolPolicy : Pulumi.CustomResource
     {
@@ -41,7 +37,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProxyProtocolPolicy(string name, ProxyProtocolPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy", name, args ?? new ProxyProtocolPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

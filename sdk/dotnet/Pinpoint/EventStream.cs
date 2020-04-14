@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Pinpoint
 {
     /// <summary>
     /// Provides a Pinpoint Event Stream resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_event_stream.markdown.
     /// </summary>
     public partial class EventStream : Pulumi.CustomResource
     {
@@ -45,7 +41,7 @@ namespace Pulumi.Aws.Pinpoint
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventStream(string name, EventStreamArgs args, CustomResourceOptions? options = null)
-            : base("aws:pinpoint/eventStream:EventStream", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:pinpoint/eventStream:EventStream", name, args ?? new EventStreamArgs(), MakeResourceOptions(options, ""))
         {
         }
 

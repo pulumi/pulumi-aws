@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Efs
 {
     /// <summary>
     /// Provides an Elastic File System (EFS) mount target.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/efs_mount_target.html.markdown.
     /// </summary>
     public partial class MountTarget : Pulumi.CustomResource
     {
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Efs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MountTarget(string name, MountTargetArgs args, CustomResourceOptions? options = null)
-            : base("aws:efs/mountTarget:MountTarget", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:efs/mountTarget:MountTarget", name, args ?? new MountTargetArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 type ComputeEnvironmentComputeResources struct {
@@ -43,6 +43,11 @@ type ComputeEnvironmentComputeResources struct {
 	Type string `pulumi:"type"`
 }
 
+// ComputeEnvironmentComputeResourcesInput is an input type that accepts ComputeEnvironmentComputeResourcesArgs and ComputeEnvironmentComputeResourcesOutput values.
+// You can construct a concrete instance of `ComputeEnvironmentComputeResourcesInput` via:
+//
+// 		 ComputeEnvironmentComputeResourcesArgs{...}
+//
 type ComputeEnvironmentComputeResourcesInput interface {
 	pulumi.Input
 
@@ -103,6 +108,15 @@ func (i ComputeEnvironmentComputeResourcesArgs) ToComputeEnvironmentComputeResou
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentComputeResourcesOutput).ToComputeEnvironmentComputeResourcesPtrOutputWithContext(ctx)
 }
 
+// ComputeEnvironmentComputeResourcesPtrInput is an input type that accepts ComputeEnvironmentComputeResourcesArgs, ComputeEnvironmentComputeResourcesPtr and ComputeEnvironmentComputeResourcesPtrOutput values.
+// You can construct a concrete instance of `ComputeEnvironmentComputeResourcesPtrInput` via:
+//
+// 		 ComputeEnvironmentComputeResourcesArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ComputeEnvironmentComputeResourcesPtrInput interface {
 	pulumi.Input
 
@@ -333,6 +347,11 @@ type ComputeEnvironmentComputeResourcesLaunchTemplate struct {
 	Version *string `pulumi:"version"`
 }
 
+// ComputeEnvironmentComputeResourcesLaunchTemplateInput is an input type that accepts ComputeEnvironmentComputeResourcesLaunchTemplateArgs and ComputeEnvironmentComputeResourcesLaunchTemplateOutput values.
+// You can construct a concrete instance of `ComputeEnvironmentComputeResourcesLaunchTemplateInput` via:
+//
+// 		 ComputeEnvironmentComputeResourcesLaunchTemplateArgs{...}
+//
 type ComputeEnvironmentComputeResourcesLaunchTemplateInput interface {
 	pulumi.Input
 
@@ -369,6 +388,15 @@ func (i ComputeEnvironmentComputeResourcesLaunchTemplateArgs) ToComputeEnvironme
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentComputeResourcesLaunchTemplateOutput).ToComputeEnvironmentComputeResourcesLaunchTemplatePtrOutputWithContext(ctx)
 }
 
+// ComputeEnvironmentComputeResourcesLaunchTemplatePtrInput is an input type that accepts ComputeEnvironmentComputeResourcesLaunchTemplateArgs, ComputeEnvironmentComputeResourcesLaunchTemplatePtr and ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput values.
+// You can construct a concrete instance of `ComputeEnvironmentComputeResourcesLaunchTemplatePtrInput` via:
+//
+// 		 ComputeEnvironmentComputeResourcesLaunchTemplateArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type ComputeEnvironmentComputeResourcesLaunchTemplatePtrInput interface {
 	pulumi.Input
 
@@ -472,6 +500,11 @@ type JobDefinitionRetryStrategy struct {
 	Attempts *int `pulumi:"attempts"`
 }
 
+// JobDefinitionRetryStrategyInput is an input type that accepts JobDefinitionRetryStrategyArgs and JobDefinitionRetryStrategyOutput values.
+// You can construct a concrete instance of `JobDefinitionRetryStrategyInput` via:
+//
+// 		 JobDefinitionRetryStrategyArgs{...}
+//
 type JobDefinitionRetryStrategyInput interface {
 	pulumi.Input
 
@@ -503,6 +536,15 @@ func (i JobDefinitionRetryStrategyArgs) ToJobDefinitionRetryStrategyPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionRetryStrategyOutput).ToJobDefinitionRetryStrategyPtrOutputWithContext(ctx)
 }
 
+// JobDefinitionRetryStrategyPtrInput is an input type that accepts JobDefinitionRetryStrategyArgs, JobDefinitionRetryStrategyPtr and JobDefinitionRetryStrategyPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionRetryStrategyPtrInput` via:
+//
+// 		 JobDefinitionRetryStrategyArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type JobDefinitionRetryStrategyPtrInput interface {
 	pulumi.Input
 
@@ -581,6 +623,11 @@ type JobDefinitionTimeout struct {
 	AttemptDurationSeconds *int `pulumi:"attemptDurationSeconds"`
 }
 
+// JobDefinitionTimeoutInput is an input type that accepts JobDefinitionTimeoutArgs and JobDefinitionTimeoutOutput values.
+// You can construct a concrete instance of `JobDefinitionTimeoutInput` via:
+//
+// 		 JobDefinitionTimeoutArgs{...}
+//
 type JobDefinitionTimeoutInput interface {
 	pulumi.Input
 
@@ -612,6 +659,15 @@ func (i JobDefinitionTimeoutArgs) ToJobDefinitionTimeoutPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionTimeoutOutput).ToJobDefinitionTimeoutPtrOutputWithContext(ctx)
 }
 
+// JobDefinitionTimeoutPtrInput is an input type that accepts JobDefinitionTimeoutArgs, JobDefinitionTimeoutPtr and JobDefinitionTimeoutPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionTimeoutPtrInput` via:
+//
+// 		 JobDefinitionTimeoutArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
 type JobDefinitionTimeoutPtrInput interface {
 	pulumi.Input
 
@@ -691,6 +747,11 @@ type GetJobQueueComputeEnvironmentOrder struct {
 	Order              int    `pulumi:"order"`
 }
 
+// GetJobQueueComputeEnvironmentOrderInput is an input type that accepts GetJobQueueComputeEnvironmentOrderArgs and GetJobQueueComputeEnvironmentOrderOutput values.
+// You can construct a concrete instance of `GetJobQueueComputeEnvironmentOrderInput` via:
+//
+// 		 GetJobQueueComputeEnvironmentOrderArgs{...}
+//
 type GetJobQueueComputeEnvironmentOrderInput interface {
 	pulumi.Input
 
@@ -715,6 +776,11 @@ func (i GetJobQueueComputeEnvironmentOrderArgs) ToGetJobQueueComputeEnvironmentO
 	return pulumi.ToOutputWithContext(ctx, i).(GetJobQueueComputeEnvironmentOrderOutput)
 }
 
+// GetJobQueueComputeEnvironmentOrderArrayInput is an input type that accepts GetJobQueueComputeEnvironmentOrderArray and GetJobQueueComputeEnvironmentOrderArrayOutput values.
+// You can construct a concrete instance of `GetJobQueueComputeEnvironmentOrderArrayInput` via:
+//
+// 		 GetJobQueueComputeEnvironmentOrderArray{ GetJobQueueComputeEnvironmentOrderArgs{...} }
+//
 type GetJobQueueComputeEnvironmentOrderArrayInput interface {
 	pulumi.Input
 

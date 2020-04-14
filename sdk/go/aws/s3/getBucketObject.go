@@ -4,7 +4,7 @@
 package s3
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // The S3 object data source allows access to the metadata and

@@ -4,7 +4,7 @@
 package secretsmanager
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`secretsmanager.Secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).

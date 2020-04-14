@@ -13,10 +13,6 @@ namespace Pulumi.Aws.Kinesis
     /// Provides a Kinesis Video Stream resource. Amazon Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), playback, and other processing.
     /// 
     /// For more details, see the [Amazon Kinesis Documentation][1].
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_video_stream.html.markdown.
     /// </summary>
     public partial class VideoStream : Pulumi.CustomResource
     {
@@ -84,7 +80,7 @@ namespace Pulumi.Aws.Kinesis
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VideoStream(string name, VideoStreamArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:kinesis/videoStream:VideoStream", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:kinesis/videoStream:VideoStream", name, args ?? new VideoStreamArgs(), MakeResourceOptions(options, ""))
         {
         }
 

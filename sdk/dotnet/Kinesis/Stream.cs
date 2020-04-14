@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Kinesis
     /// scales elastically for real-time processing of streaming big data.
     /// 
     /// For more details, see the [Amazon Kinesis Documentation][1].
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_stream.html.markdown.
     /// </summary>
     public partial class Stream : Pulumi.CustomResource
     {
@@ -85,7 +81,7 @@ namespace Pulumi.Aws.Kinesis
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Stream(string name, StreamArgs args, CustomResourceOptions? options = null)
-            : base("aws:kinesis/stream:Stream", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:kinesis/stream:Stream", name, args ?? new StreamArgs(), MakeResourceOptions(options, ""))
         {
         }
 

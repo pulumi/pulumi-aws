@@ -4,7 +4,7 @@
 package applicationloadbalancing
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.

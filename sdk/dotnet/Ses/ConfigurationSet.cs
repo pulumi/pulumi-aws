@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Ses
 {
     /// <summary>
     /// Provides an SES configuration set resource
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_configuration_set.markdown.
     /// </summary>
     public partial class ConfigurationSet : Pulumi.CustomResource
     {
@@ -33,7 +29,7 @@ namespace Pulumi.Aws.Ses
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConfigurationSet(string name, ConfigurationSetArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:ses/configurationSet:ConfigurationSet", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:ses/configurationSet:ConfigurationSet", name, args ?? new ConfigurationSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -46,7 +42,7 @@ namespace Pulumi.Aws.Ses
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:ses/confgurationSet:ConfgurationSet" } },
+                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:ses/confgurationSet:ConfgurationSet"} },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

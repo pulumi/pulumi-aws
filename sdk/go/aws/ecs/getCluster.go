@@ -4,7 +4,7 @@
 package ecs
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // The ECS Cluster data source allows access to details of a specific

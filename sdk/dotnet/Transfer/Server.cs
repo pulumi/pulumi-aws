@@ -11,8 +11,6 @@ namespace Pulumi.Aws.Transfer
 {
     /// <summary>
     /// Provides a AWS Transfer Server resource.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/transfer_server.html.markdown.
     /// </summary>
     public partial class Server : Pulumi.CustomResource
     {
@@ -97,7 +95,7 @@ namespace Pulumi.Aws.Transfer
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Server(string name, ServerArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws:transfer/server:Server", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:transfer/server:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -282,54 +280,5 @@ namespace Pulumi.Aws.Transfer
         public ServerState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ServerEndpointDetailsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the VPC endpoint.
-        /// </summary>
-        [Input("vpcEndpointId", required: true)]
-        public Input<string> VpcEndpointId { get; set; } = null!;
-
-        public ServerEndpointDetailsArgs()
-        {
-        }
-    }
-
-    public sealed class ServerEndpointDetailsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the VPC endpoint.
-        /// </summary>
-        [Input("vpcEndpointId", required: true)]
-        public Input<string> VpcEndpointId { get; set; } = null!;
-
-        public ServerEndpointDetailsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ServerEndpointDetails
-    {
-        /// <summary>
-        /// The ID of the VPC endpoint.
-        /// </summary>
-        public readonly string VpcEndpointId;
-
-        [OutputConstructor]
-        private ServerEndpointDetails(string vpcEndpointId)
-        {
-            VpcEndpointId = vpcEndpointId;
-        }
-    }
     }
 }

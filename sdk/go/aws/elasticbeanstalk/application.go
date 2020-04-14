@@ -6,7 +6,7 @@ package elasticbeanstalk
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides an Elastic Beanstalk Application Resource. Elastic Beanstalk allows

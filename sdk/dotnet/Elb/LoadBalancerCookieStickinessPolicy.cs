@@ -11,10 +11,6 @@ namespace Pulumi.Aws.Elb
 {
     /// <summary>
     /// Provides a load balancer cookie stickiness policy, which allows an ELB to control the sticky session lifetime of the browser.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_cookie_stickiness_policy.html.markdown.
     /// </summary>
     public partial class LoadBalancerCookieStickinessPolicy : Pulumi.CustomResource
     {
@@ -55,7 +51,7 @@ namespace Pulumi.Aws.Elb
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LoadBalancerCookieStickinessPolicy(string name, LoadBalancerCookieStickinessPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy", name, args ?? new LoadBalancerCookieStickinessPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -68,7 +64,7 @@ namespace Pulumi.Aws.Elb
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:elasticloadbalancing/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy" } },
+                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:elasticloadbalancing/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy"} },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

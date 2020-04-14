@@ -15,10 +15,6 @@ namespace Pulumi.Aws.Alb
     /// This resource is for additional certificates and does not replace the default certificate on the listener.
     /// 
     /// &gt; **Note:** `aws.alb.ListenerCertificate` is known as `aws.lb.ListenerCertificate`. The functionality is identical.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_listener_certificate.html.markdown.
     /// </summary>
     public partial class ListenerCertificate : Pulumi.CustomResource
     {
@@ -43,7 +39,7 @@ namespace Pulumi.Aws.Alb
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ListenerCertificate(string name, ListenerCertificateArgs args, CustomResourceOptions? options = null)
-            : base("aws:alb/listenerCertificate:ListenerCertificate", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("aws:alb/listenerCertificate:ListenerCertificate", name, args ?? new ListenerCertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -56,7 +52,7 @@ namespace Pulumi.Aws.Alb
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:applicationloadbalancing/listenerCertificate:ListenerCertificate" } },
+                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:applicationloadbalancing/listenerCertificate:ListenerCertificate"} },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

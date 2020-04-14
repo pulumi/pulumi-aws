@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Cognito
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to get a list of cognito user pools.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cognito_user_pools.markdown.
-        /// </summary>
-        [Obsolete("Use GetUserPools.InvokeAsync() instead")]
-        public static Task<GetUserPoolsResult> GetUserPools(GetUserPoolsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolsResult>("aws:cognito/getUserPools:getUserPools", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetUserPools
     {
         /// <summary>
         /// Use this data source to get a list of cognito user pools.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cognito_user_pools.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserPoolsResult> InvokeAsync(GetUserPoolsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolsResult>("aws:cognito/getUserPools:getUserPools", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolsResult>("aws:cognito/getUserPools:getUserPools", args ?? new GetUserPoolsArgs(), options.WithVersion());
     }
+
 
     public sealed class GetUserPoolsArgs : Pulumi.InvokeArgs
     {
@@ -48,31 +35,35 @@ namespace Pulumi.Aws.Cognito
         }
     }
 
+
     [OutputType]
     public sealed class GetUserPoolsResult
     {
         public readonly ImmutableArray<string> Arns;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The list of cognito user pool ids.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Name;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetUserPoolsResult(
             ImmutableArray<string> arns,
+
+            string id,
+
             ImmutableArray<string> ids,
-            string name,
-            string id)
+
+            string name)
         {
             Arns = arns;
+            Id = id;
             Ids = ids;
             Name = name;
-            Id = id;
         }
     }
 }
