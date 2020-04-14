@@ -7,8 +7,8 @@ require (
 	github.com/onsi/ginkgo v1.12.0 // indirect
 	github.com/onsi/gomega v1.9.0 // indirect
 	github.com/pulumi/pulumi-aws/sdk/v2 v2.0.0-00010101000000-000000000000
-	github.com/pulumi/pulumi/pkg/v2 v2.0.0-beta.3
-	github.com/pulumi/pulumi/sdk/v2 v2.0.0-beta.3
+	github.com/pulumi/pulumi/pkg/v2 v2.0.0-20200414130209-c471a2d2479f
+	github.com/pulumi/pulumi/sdk/v2 v2.0.0-beta.2
 	github.com/stretchr/testify v1.5.1
 	gopkg.in/airbrake/gobrake.v2 v2.0.9 // indirect
 	gopkg.in/gemnasium/logrus-airbrake-hook.v2 v2.1.2 // indirect

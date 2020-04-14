@@ -243,8 +243,8 @@ namespace Pulumi.Aws
 
              public class IgnoreTags
              {
-                public ImmutableArray<string> KeyPrefixes { get; set; } = null!;
-                public ImmutableArray<string> Keys { get; set; } = null!;
+                public ImmutableArray<string> KeyPrefixes { get; set; }
+                public ImmutableArray<string> Keys { get; set; }
             }
         }
     }
