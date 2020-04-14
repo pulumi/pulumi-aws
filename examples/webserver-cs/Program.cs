@@ -17,11 +17,11 @@ class Program
     {
         return Deployment.RunAsync(async () => {
 
-            var ami = await Pulumi.Aws.Invokes.GetAmi(new GetAmiArgs
+            var ami = await Pulumi.Aws.GetAmi.InvokeAsync(new GetAmiArgs
             {
                 MostRecent = true,
                 Owners = { "137112412989" },
-                Filters = { new GetAmiFiltersArgs { Name = "name", Values = { "amzn-ami-hvm-*" } } },
+                Filters = { new GetAmiFilterArgs { Name = "name", Values = { "amzn-ami-hvm-*" } } },
             });
 
 
@@ -49,7 +49,7 @@ nohup python -m SimpleHTTPServer 80 &
             var server = new Instance("web-server-www", new InstanceArgs
             {
                 InstanceType = size,
-                SecurityGroups = { group.Name },
+                VpcSecurityGroupIds = { group.Id },
                 UserData = userData,
                 Ami = ami.Id,
             });
