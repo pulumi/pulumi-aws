@@ -262,6 +262,11 @@ export module Principals {
     export const SqsPrincipal: Principal = {Service: "sqs.amazonaws.com"};
 
     /**
+     * Service Principal for Spot Fleet
+     */
+    export const SpotFleetPrincipal: Principal = {Service: "spotfleet.amazonaws.com"};
+
+    /**
      * Service Principal for Systems Manager
      */
     export const SsmPrincipal: Principal = {Service: "ssm.amazonaws.com"};
