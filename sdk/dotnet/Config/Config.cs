@@ -44,7 +44,7 @@ namespace Pulumi.Aws
         /// <summary>
         /// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
         /// </summary>
-        public static string? Region { get; set; } = __config.GetObject<string>("region") ?? Utilities.GetEnv("AWS_REGION", "AWS_DEFAULT_REGION");
+        public static string? Region { get; set; } = __config.Get("region") ?? Utilities.GetEnv("AWS_REGION", "AWS_DEFAULT_REGION");
 
         /// <summary>
         /// Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
