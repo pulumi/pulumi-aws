@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.0.0 of Pulumi
-* Upgrade to v2.0.0 of pulumi-terraform-bridge
+_(none)_
 
 ---
+
+## 2.0.0 (2020-04-16)
+* Upgrade to v2.0.0 of Pulumi
+* Upgrade to v2.0.0 of pulumi-terraform-bridge
 
 ## 1.31.0 (2020-04-13)
 * Add support for DotNet 3.1 Lambda Runtime
