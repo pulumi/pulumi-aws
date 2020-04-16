@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Switch deprecated Buffer constructor to Buffer.from in LogGroup.onDecodedEvent
 
 ---
 
