@@ -16,7 +16,7 @@ type Endpoint struct {
 	pulumi.CustomResourceState
 
 	// Information about the authentication method to be used to authenticate clients.
-	AuthenticationOptions EndpointAuthenticationOptionsOutput `pulumi:"authenticationOptions"`
+	AuthenticationOptions EndpointAuthenticationOptionArrayOutput `pulumi:"authenticationOptions"`
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
 	ClientCidrBlock pulumi.StringOutput `pulumi:"clientCidrBlock"`
 	// Information about the client connection logging options.
@@ -80,7 +80,7 @@ func GetEndpoint(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Endpoint resources.
 type endpointState struct {
 	// Information about the authentication method to be used to authenticate clients.
-	AuthenticationOptions *EndpointAuthenticationOptions `pulumi:"authenticationOptions"`
+	AuthenticationOptions []EndpointAuthenticationOption `pulumi:"authenticationOptions"`
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
 	ClientCidrBlock *string `pulumi:"clientCidrBlock"`
 	// Information about the client connection logging options.
@@ -105,7 +105,7 @@ type endpointState struct {
 
 type EndpointState struct {
 	// Information about the authentication method to be used to authenticate clients.
-	AuthenticationOptions EndpointAuthenticationOptionsPtrInput
+	AuthenticationOptions EndpointAuthenticationOptionArrayInput
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
 	ClientCidrBlock pulumi.StringPtrInput
 	// Information about the client connection logging options.
@@ -134,7 +134,7 @@ func (EndpointState) ElementType() reflect.Type {
 
 type endpointArgs struct {
 	// Information about the authentication method to be used to authenticate clients.
-	AuthenticationOptions EndpointAuthenticationOptions `pulumi:"authenticationOptions"`
+	AuthenticationOptions []EndpointAuthenticationOption `pulumi:"authenticationOptions"`
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
 	ClientCidrBlock string `pulumi:"clientCidrBlock"`
 	// Information about the client connection logging options.
@@ -156,7 +156,7 @@ type endpointArgs struct {
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
 	// Information about the authentication method to be used to authenticate clients.
-	AuthenticationOptions EndpointAuthenticationOptionsInput
+	AuthenticationOptions EndpointAuthenticationOptionArrayInput
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
 	ClientCidrBlock pulumi.StringInput
 	// Information about the client connection logging options.

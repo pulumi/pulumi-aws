@@ -64,6 +64,7 @@ namespace Pulumi.Aws.DynamoDB
         public readonly Outputs.GetTablePointInTimeRecoveryResult PointInTimeRecovery;
         public readonly string RangeKey;
         public readonly int ReadCapacity;
+        public readonly ImmutableArray<Outputs.GetTableReplicaResult> Replicas;
         public readonly Outputs.GetTableServerSideEncryptionResult ServerSideEncryption;
         public readonly string StreamArn;
         public readonly bool StreamEnabled;
@@ -97,6 +98,8 @@ namespace Pulumi.Aws.DynamoDB
 
             int readCapacity,
 
+            ImmutableArray<Outputs.GetTableReplicaResult> replicas,
+
             Outputs.GetTableServerSideEncryptionResult serverSideEncryption,
 
             string streamArn,
@@ -124,6 +127,7 @@ namespace Pulumi.Aws.DynamoDB
             PointInTimeRecovery = pointInTimeRecovery;
             RangeKey = rangeKey;
             ReadCapacity = readCapacity;
+            Replicas = replicas;
             ServerSideEncryption = serverSideEncryption;
             StreamArn = streamArn;
             StreamEnabled = streamEnabled;

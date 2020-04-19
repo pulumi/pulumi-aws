@@ -36,7 +36,7 @@ class EmailChannel(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, application_id=None, enabled=None, from_address=None, identity=None, role_arn=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a Pinpoint SMS Channel resource.
+        Provides a Pinpoint Email Channel resource.
 
 
 

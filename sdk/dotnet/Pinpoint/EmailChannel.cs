@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Pinpoint
 {
     /// <summary>
-    /// Provides a Pinpoint SMS Channel resource.
+    /// Provides a Pinpoint Email Channel resource.
     /// </summary>
     public partial class EmailChannel : Pulumi.CustomResource
     {

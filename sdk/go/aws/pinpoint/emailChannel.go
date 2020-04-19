@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a Pinpoint SMS Channel resource.
+// Provides a Pinpoint Email Channel resource.
 type EmailChannel struct {
 	pulumi.CustomResourceState
 

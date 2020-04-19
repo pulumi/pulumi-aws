@@ -77,7 +77,7 @@ export interface GetRouteTablesArgs {
 export interface GetRouteTablesResult {
     readonly filters?: outputs.ec2.GetRouteTablesFilter[];
     /**
-     * A list of all the route table ids found. This data source will fail if none are found.
+     * A set of all the route table ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: any};

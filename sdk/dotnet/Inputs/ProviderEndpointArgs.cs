@@ -330,6 +330,9 @@ namespace Pulumi.Aws.Inputs
         [Input("route53")]
         public Input<string>? Route53 { get; set; }
 
+        [Input("route53domains")]
+        public Input<string>? Route53domains { get; set; }
+
         [Input("route53resolver")]
         public Input<string>? Route53resolver { get; set; }
 

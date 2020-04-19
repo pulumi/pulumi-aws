@@ -10,7 +10,7 @@ from typing import Union
 from .. import utilities, tables
 
 class Endpoint(pulumi.CustomResource):
-    authentication_options: pulumi.Output[dict]
+    authentication_options: pulumi.Output[list]
     """
     Information about the authentication method to be used to authenticate clients.
 
@@ -71,7 +71,7 @@ class Endpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] authentication_options: Information about the authentication method to be used to authenticate clients.
+        :param pulumi.Input[list] authentication_options: Information about the authentication method to be used to authenticate clients.
         :param pulumi.Input[str] client_cidr_block: The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
         :param pulumi.Input[dict] connection_log_options: Information about the client connection logging options.
         :param pulumi.Input[str] description: Name of the repository.
@@ -144,7 +144,7 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] authentication_options: Information about the authentication method to be used to authenticate clients.
+        :param pulumi.Input[list] authentication_options: Information about the authentication method to be used to authenticate clients.
         :param pulumi.Input[str] client_cidr_block: The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
         :param pulumi.Input[dict] connection_log_options: Information about the client connection logging options.
         :param pulumi.Input[str] description: Name of the repository.

@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .certificate import *
 from .endpoint import *
+from .event_subscription import *
 from .replication_instance import *
 from .replication_subnet_group import *
 from .replication_task import *

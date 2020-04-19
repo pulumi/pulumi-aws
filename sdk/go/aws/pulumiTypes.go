@@ -967,6 +967,114 @@ func (o GetPrefixListFilterArrayOutput) Index(i pulumi.IntInput) GetPrefixListFi
 	}).(GetPrefixListFilterOutput)
 }
 
+type GetRegionsFilter struct {
+	// The name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetRegionsFilterInput is an input type that accepts GetRegionsFilterArgs and GetRegionsFilterOutput values.
+// You can construct a concrete instance of `GetRegionsFilterInput` via:
+//
+// 		 GetRegionsFilterArgs{...}
+//
+type GetRegionsFilterInput interface {
+	pulumi.Input
+
+	ToGetRegionsFilterOutput() GetRegionsFilterOutput
+	ToGetRegionsFilterOutputWithContext(context.Context) GetRegionsFilterOutput
+}
+
+type GetRegionsFilterArgs struct {
+	// The name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetRegionsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegionsFilter)(nil)).Elem()
+}
+
+func (i GetRegionsFilterArgs) ToGetRegionsFilterOutput() GetRegionsFilterOutput {
+	return i.ToGetRegionsFilterOutputWithContext(context.Background())
+}
+
+func (i GetRegionsFilterArgs) ToGetRegionsFilterOutputWithContext(ctx context.Context) GetRegionsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRegionsFilterOutput)
+}
+
+// GetRegionsFilterArrayInput is an input type that accepts GetRegionsFilterArray and GetRegionsFilterArrayOutput values.
+// You can construct a concrete instance of `GetRegionsFilterArrayInput` via:
+//
+// 		 GetRegionsFilterArray{ GetRegionsFilterArgs{...} }
+//
+type GetRegionsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetRegionsFilterArrayOutput() GetRegionsFilterArrayOutput
+	ToGetRegionsFilterArrayOutputWithContext(context.Context) GetRegionsFilterArrayOutput
+}
+
+type GetRegionsFilterArray []GetRegionsFilterInput
+
+func (GetRegionsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRegionsFilter)(nil)).Elem()
+}
+
+func (i GetRegionsFilterArray) ToGetRegionsFilterArrayOutput() GetRegionsFilterArrayOutput {
+	return i.ToGetRegionsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetRegionsFilterArray) ToGetRegionsFilterArrayOutputWithContext(ctx context.Context) GetRegionsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRegionsFilterArrayOutput)
+}
+
+type GetRegionsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetRegionsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegionsFilter)(nil)).Elem()
+}
+
+func (o GetRegionsFilterOutput) ToGetRegionsFilterOutput() GetRegionsFilterOutput {
+	return o
+}
+
+func (o GetRegionsFilterOutput) ToGetRegionsFilterOutputWithContext(ctx context.Context) GetRegionsFilterOutput {
+	return o
+}
+
+// The name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+func (o GetRegionsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRegionsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetRegionsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRegionsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetRegionsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRegionsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRegionsFilter)(nil)).Elem()
+}
+
+func (o GetRegionsFilterArrayOutput) ToGetRegionsFilterArrayOutput() GetRegionsFilterArrayOutput {
+	return o
+}
+
+func (o GetRegionsFilterArrayOutput) ToGetRegionsFilterArrayOutputWithContext(ctx context.Context) GetRegionsFilterArrayOutput {
+	return o
+}
+
+func (o GetRegionsFilterArrayOutput) Index(i pulumi.IntInput) GetRegionsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRegionsFilter {
+		return vs[0].([]GetRegionsFilter)[vs[1].(int)]
+	}).(GetRegionsFilterOutput)
+}
+
 type ProviderAssumeRole struct {
 	ExternalId  *string `pulumi:"externalId"`
 	Policy      *string `pulumi:"policy"`
@@ -1227,6 +1335,7 @@ type ProviderEndpoint struct {
 	Redshift               *string `pulumi:"redshift"`
 	Resourcegroups         *string `pulumi:"resourcegroups"`
 	Route53                *string `pulumi:"route53"`
+	Route53domains         *string `pulumi:"route53domains"`
 	Route53resolver        *string `pulumi:"route53resolver"`
 	S3                     *string `pulumi:"s3"`
 	S3control              *string `pulumi:"s3control"`
@@ -1376,6 +1485,7 @@ type ProviderEndpointArgs struct {
 	Redshift               pulumi.StringPtrInput `pulumi:"redshift"`
 	Resourcegroups         pulumi.StringPtrInput `pulumi:"resourcegroups"`
 	Route53                pulumi.StringPtrInput `pulumi:"route53"`
+	Route53domains         pulumi.StringPtrInput `pulumi:"route53domains"`
 	Route53resolver        pulumi.StringPtrInput `pulumi:"route53resolver"`
 	S3                     pulumi.StringPtrInput `pulumi:"s3"`
 	S3control              pulumi.StringPtrInput `pulumi:"s3control"`
@@ -1882,6 +1992,10 @@ func (o ProviderEndpointOutput) Route53() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Route53 }).(pulumi.StringPtrOutput)
 }
 
+func (o ProviderEndpointOutput) Route53domains() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Route53domains }).(pulumi.StringPtrOutput)
+}
+
 func (o ProviderEndpointOutput) Route53resolver() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Route53resolver }).(pulumi.StringPtrOutput)
 }
@@ -2166,6 +2280,8 @@ func init() {
 	pulumi.RegisterOutputType(GetElasticIpFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetPrefixListFilterOutput{})
 	pulumi.RegisterOutputType(GetPrefixListFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetRegionsFilterOutput{})
+	pulumi.RegisterOutputType(GetRegionsFilterArrayOutput{})
 	pulumi.RegisterOutputType(ProviderAssumeRoleOutput{})
 	pulumi.RegisterOutputType(ProviderAssumeRolePtrOutput{})
 	pulumi.RegisterOutputType(ProviderEndpointOutput{})

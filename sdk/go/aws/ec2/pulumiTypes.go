@@ -3213,6 +3213,8 @@ type InstanceRootBlockDevice struct {
 	// Whether the volume should be destroyed
 	// on instance termination (Default: `true`).
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// The name of the device to mount.
+	DeviceName *string `pulumi:"deviceName"`
 	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 	Encrypted *bool `pulumi:"encrypted"`
 	// The amount of provisioned
@@ -3245,6 +3247,8 @@ type InstanceRootBlockDeviceArgs struct {
 	// Whether the volume should be destroyed
 	// on instance termination (Default: `true`).
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// The name of the device to mount.
+	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
 	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The amount of provisioned
@@ -3345,6 +3349,11 @@ func (o InstanceRootBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v InstanceRootBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the device to mount.
+func (o InstanceRootBlockDeviceOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
+}
+
 // Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 func (o InstanceRootBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
@@ -3399,6 +3408,11 @@ func (o InstanceRootBlockDevicePtrOutput) Elem() InstanceRootBlockDeviceOutput {
 // on instance termination (Default: `true`).
 func (o InstanceRootBlockDevicePtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the device to mount.
+func (o InstanceRootBlockDevicePtrOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
 // Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
@@ -9131,6 +9145,8 @@ type SpotInstanceRequestRootBlockDevice struct {
 	// Whether the volume should be destroyed
 	// on instance termination (Default: `true`).
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// The name of the device to mount.
+	DeviceName *string `pulumi:"deviceName"`
 	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 	Encrypted *bool `pulumi:"encrypted"`
 	// The amount of provisioned
@@ -9163,6 +9179,8 @@ type SpotInstanceRequestRootBlockDeviceArgs struct {
 	// Whether the volume should be destroyed
 	// on instance termination (Default: `true`).
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// The name of the device to mount.
+	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
 	// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The amount of provisioned
@@ -9263,6 +9281,11 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) DeleteOnTermination() pulumi.B
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the device to mount.
+func (o SpotInstanceRequestRootBlockDeviceOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
+}
+
 // Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
 func (o SpotInstanceRequestRootBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
@@ -9317,6 +9340,11 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) Elem() SpotInstanceRequestR
 // on instance termination (Default: `true`).
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the device to mount.
+func (o SpotInstanceRequestRootBlockDevicePtrOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
 // Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
@@ -11379,6 +11407,8 @@ func (o GetInstanceMetadataOptionArrayOutput) Index(i pulumi.IntInput) GetInstan
 type GetInstanceRootBlockDevice struct {
 	// If the root block device will be deleted on termination.
 	DeleteOnTermination bool `pulumi:"deleteOnTermination"`
+	// The physical name of the device.
+	DeviceName string `pulumi:"deviceName"`
 	// If the EBS volume is encrypted.
 	Encrypted bool `pulumi:"encrypted"`
 	// `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
@@ -11406,6 +11436,8 @@ type GetInstanceRootBlockDeviceInput interface {
 type GetInstanceRootBlockDeviceArgs struct {
 	// If the root block device will be deleted on termination.
 	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
+	// The physical name of the device.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// If the EBS volume is encrypted.
 	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
 	// `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
@@ -11473,6 +11505,11 @@ func (o GetInstanceRootBlockDeviceOutput) ToGetInstanceRootBlockDeviceOutputWith
 // If the root block device will be deleted on termination.
 func (o GetInstanceRootBlockDeviceOutput) DeleteOnTermination() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetInstanceRootBlockDevice) bool { return v.DeleteOnTermination }).(pulumi.BoolOutput)
+}
+
+// The physical name of the device.
+func (o GetInstanceRootBlockDeviceOutput) DeviceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceRootBlockDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
 // If the EBS volume is encrypted.

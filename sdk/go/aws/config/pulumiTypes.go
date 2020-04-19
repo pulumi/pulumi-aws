@@ -185,6 +185,7 @@ type Endpoints struct {
 	Redshift               *string `pulumi:"redshift"`
 	Resourcegroups         *string `pulumi:"resourcegroups"`
 	Route53                *string `pulumi:"route53"`
+	Route53domains         *string `pulumi:"route53domains"`
 	Route53resolver        *string `pulumi:"route53resolver"`
 	S3                     *string `pulumi:"s3"`
 	S3control              *string `pulumi:"s3control"`
@@ -334,6 +335,7 @@ type EndpointsArgs struct {
 	Redshift               pulumi.StringPtrInput `pulumi:"redshift"`
 	Resourcegroups         pulumi.StringPtrInput `pulumi:"resourcegroups"`
 	Route53                pulumi.StringPtrInput `pulumi:"route53"`
+	Route53domains         pulumi.StringPtrInput `pulumi:"route53domains"`
 	Route53resolver        pulumi.StringPtrInput `pulumi:"route53resolver"`
 	S3                     pulumi.StringPtrInput `pulumi:"s3"`
 	S3control              pulumi.StringPtrInput `pulumi:"s3control"`
@@ -838,6 +840,10 @@ func (o EndpointsOutput) Resourcegroups() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Route53() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Route53 }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Route53domains() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Route53domains }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Route53resolver() pulumi.StringPtrOutput {

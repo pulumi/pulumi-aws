@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly bool DeleteOnTermination;
         /// <summary>
+        /// The physical name of the device.
+        /// </summary>
+        public readonly string DeviceName;
+        /// <summary>
         /// If the EBS volume is encrypted.
         /// </summary>
         public readonly bool Encrypted;
@@ -40,6 +44,8 @@ namespace Pulumi.Aws.Ec2.Outputs
         private GetInstanceRootBlockDeviceResult(
             bool deleteOnTermination,
 
+            string deviceName,
+
             bool encrypted,
 
             int iops,
@@ -53,6 +59,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             string volumeType)
         {
             DeleteOnTermination = deleteOnTermination;
+            DeviceName = deviceName;
             Encrypted = encrypted;
             Iops = iops;
             KmsKeyId = kmsKeyId;

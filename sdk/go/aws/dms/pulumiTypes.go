@@ -10,6 +10,302 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type EndpointElasticsearchSettings struct {
+	EndpointUri             string `pulumi:"endpointUri"`
+	ErrorRetryDuration      *int   `pulumi:"errorRetryDuration"`
+	FullLoadErrorPercentage *int   `pulumi:"fullLoadErrorPercentage"`
+	ServiceAccessRoleArn    string `pulumi:"serviceAccessRoleArn"`
+}
+
+// EndpointElasticsearchSettingsInput is an input type that accepts EndpointElasticsearchSettingsArgs and EndpointElasticsearchSettingsOutput values.
+// You can construct a concrete instance of `EndpointElasticsearchSettingsInput` via:
+//
+// 		 EndpointElasticsearchSettingsArgs{...}
+//
+type EndpointElasticsearchSettingsInput interface {
+	pulumi.Input
+
+	ToEndpointElasticsearchSettingsOutput() EndpointElasticsearchSettingsOutput
+	ToEndpointElasticsearchSettingsOutputWithContext(context.Context) EndpointElasticsearchSettingsOutput
+}
+
+type EndpointElasticsearchSettingsArgs struct {
+	EndpointUri             pulumi.StringInput `pulumi:"endpointUri"`
+	ErrorRetryDuration      pulumi.IntPtrInput `pulumi:"errorRetryDuration"`
+	FullLoadErrorPercentage pulumi.IntPtrInput `pulumi:"fullLoadErrorPercentage"`
+	ServiceAccessRoleArn    pulumi.StringInput `pulumi:"serviceAccessRoleArn"`
+}
+
+func (EndpointElasticsearchSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointElasticsearchSettings)(nil)).Elem()
+}
+
+func (i EndpointElasticsearchSettingsArgs) ToEndpointElasticsearchSettingsOutput() EndpointElasticsearchSettingsOutput {
+	return i.ToEndpointElasticsearchSettingsOutputWithContext(context.Background())
+}
+
+func (i EndpointElasticsearchSettingsArgs) ToEndpointElasticsearchSettingsOutputWithContext(ctx context.Context) EndpointElasticsearchSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointElasticsearchSettingsOutput)
+}
+
+func (i EndpointElasticsearchSettingsArgs) ToEndpointElasticsearchSettingsPtrOutput() EndpointElasticsearchSettingsPtrOutput {
+	return i.ToEndpointElasticsearchSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointElasticsearchSettingsArgs) ToEndpointElasticsearchSettingsPtrOutputWithContext(ctx context.Context) EndpointElasticsearchSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointElasticsearchSettingsOutput).ToEndpointElasticsearchSettingsPtrOutputWithContext(ctx)
+}
+
+// EndpointElasticsearchSettingsPtrInput is an input type that accepts EndpointElasticsearchSettingsArgs, EndpointElasticsearchSettingsPtr and EndpointElasticsearchSettingsPtrOutput values.
+// You can construct a concrete instance of `EndpointElasticsearchSettingsPtrInput` via:
+//
+// 		 EndpointElasticsearchSettingsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EndpointElasticsearchSettingsPtrInput interface {
+	pulumi.Input
+
+	ToEndpointElasticsearchSettingsPtrOutput() EndpointElasticsearchSettingsPtrOutput
+	ToEndpointElasticsearchSettingsPtrOutputWithContext(context.Context) EndpointElasticsearchSettingsPtrOutput
+}
+
+type endpointElasticsearchSettingsPtrType EndpointElasticsearchSettingsArgs
+
+func EndpointElasticsearchSettingsPtr(v *EndpointElasticsearchSettingsArgs) EndpointElasticsearchSettingsPtrInput {
+	return (*endpointElasticsearchSettingsPtrType)(v)
+}
+
+func (*endpointElasticsearchSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointElasticsearchSettings)(nil)).Elem()
+}
+
+func (i *endpointElasticsearchSettingsPtrType) ToEndpointElasticsearchSettingsPtrOutput() EndpointElasticsearchSettingsPtrOutput {
+	return i.ToEndpointElasticsearchSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointElasticsearchSettingsPtrType) ToEndpointElasticsearchSettingsPtrOutputWithContext(ctx context.Context) EndpointElasticsearchSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointElasticsearchSettingsPtrOutput)
+}
+
+type EndpointElasticsearchSettingsOutput struct{ *pulumi.OutputState }
+
+func (EndpointElasticsearchSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointElasticsearchSettings)(nil)).Elem()
+}
+
+func (o EndpointElasticsearchSettingsOutput) ToEndpointElasticsearchSettingsOutput() EndpointElasticsearchSettingsOutput {
+	return o
+}
+
+func (o EndpointElasticsearchSettingsOutput) ToEndpointElasticsearchSettingsOutputWithContext(ctx context.Context) EndpointElasticsearchSettingsOutput {
+	return o
+}
+
+func (o EndpointElasticsearchSettingsOutput) ToEndpointElasticsearchSettingsPtrOutput() EndpointElasticsearchSettingsPtrOutput {
+	return o.ToEndpointElasticsearchSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointElasticsearchSettingsOutput) ToEndpointElasticsearchSettingsPtrOutputWithContext(ctx context.Context) EndpointElasticsearchSettingsPtrOutput {
+	return o.ApplyT(func(v EndpointElasticsearchSettings) *EndpointElasticsearchSettings {
+		return &v
+	}).(EndpointElasticsearchSettingsPtrOutput)
+}
+func (o EndpointElasticsearchSettingsOutput) EndpointUri() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointElasticsearchSettings) string { return v.EndpointUri }).(pulumi.StringOutput)
+}
+
+func (o EndpointElasticsearchSettingsOutput) ErrorRetryDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointElasticsearchSettings) *int { return v.ErrorRetryDuration }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointElasticsearchSettingsOutput) FullLoadErrorPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointElasticsearchSettings) *int { return v.FullLoadErrorPercentage }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointElasticsearchSettingsOutput) ServiceAccessRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointElasticsearchSettings) string { return v.ServiceAccessRoleArn }).(pulumi.StringOutput)
+}
+
+type EndpointElasticsearchSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointElasticsearchSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointElasticsearchSettings)(nil)).Elem()
+}
+
+func (o EndpointElasticsearchSettingsPtrOutput) ToEndpointElasticsearchSettingsPtrOutput() EndpointElasticsearchSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointElasticsearchSettingsPtrOutput) ToEndpointElasticsearchSettingsPtrOutputWithContext(ctx context.Context) EndpointElasticsearchSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointElasticsearchSettingsPtrOutput) Elem() EndpointElasticsearchSettingsOutput {
+	return o.ApplyT(func(v *EndpointElasticsearchSettings) EndpointElasticsearchSettings { return *v }).(EndpointElasticsearchSettingsOutput)
+}
+
+func (o EndpointElasticsearchSettingsPtrOutput) EndpointUri() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointElasticsearchSettings) string { return v.EndpointUri }).(pulumi.StringOutput)
+}
+
+func (o EndpointElasticsearchSettingsPtrOutput) ErrorRetryDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointElasticsearchSettings) *int { return v.ErrorRetryDuration }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointElasticsearchSettingsPtrOutput) FullLoadErrorPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointElasticsearchSettings) *int { return v.FullLoadErrorPercentage }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointElasticsearchSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointElasticsearchSettings) string { return v.ServiceAccessRoleArn }).(pulumi.StringOutput)
+}
+
+type EndpointKinesisSettings struct {
+	MessageFormat        *string `pulumi:"messageFormat"`
+	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
+	StreamArn            *string `pulumi:"streamArn"`
+}
+
+// EndpointKinesisSettingsInput is an input type that accepts EndpointKinesisSettingsArgs and EndpointKinesisSettingsOutput values.
+// You can construct a concrete instance of `EndpointKinesisSettingsInput` via:
+//
+// 		 EndpointKinesisSettingsArgs{...}
+//
+type EndpointKinesisSettingsInput interface {
+	pulumi.Input
+
+	ToEndpointKinesisSettingsOutput() EndpointKinesisSettingsOutput
+	ToEndpointKinesisSettingsOutputWithContext(context.Context) EndpointKinesisSettingsOutput
+}
+
+type EndpointKinesisSettingsArgs struct {
+	MessageFormat        pulumi.StringPtrInput `pulumi:"messageFormat"`
+	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
+	StreamArn            pulumi.StringPtrInput `pulumi:"streamArn"`
+}
+
+func (EndpointKinesisSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointKinesisSettings)(nil)).Elem()
+}
+
+func (i EndpointKinesisSettingsArgs) ToEndpointKinesisSettingsOutput() EndpointKinesisSettingsOutput {
+	return i.ToEndpointKinesisSettingsOutputWithContext(context.Background())
+}
+
+func (i EndpointKinesisSettingsArgs) ToEndpointKinesisSettingsOutputWithContext(ctx context.Context) EndpointKinesisSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointKinesisSettingsOutput)
+}
+
+func (i EndpointKinesisSettingsArgs) ToEndpointKinesisSettingsPtrOutput() EndpointKinesisSettingsPtrOutput {
+	return i.ToEndpointKinesisSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointKinesisSettingsArgs) ToEndpointKinesisSettingsPtrOutputWithContext(ctx context.Context) EndpointKinesisSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointKinesisSettingsOutput).ToEndpointKinesisSettingsPtrOutputWithContext(ctx)
+}
+
+// EndpointKinesisSettingsPtrInput is an input type that accepts EndpointKinesisSettingsArgs, EndpointKinesisSettingsPtr and EndpointKinesisSettingsPtrOutput values.
+// You can construct a concrete instance of `EndpointKinesisSettingsPtrInput` via:
+//
+// 		 EndpointKinesisSettingsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EndpointKinesisSettingsPtrInput interface {
+	pulumi.Input
+
+	ToEndpointKinesisSettingsPtrOutput() EndpointKinesisSettingsPtrOutput
+	ToEndpointKinesisSettingsPtrOutputWithContext(context.Context) EndpointKinesisSettingsPtrOutput
+}
+
+type endpointKinesisSettingsPtrType EndpointKinesisSettingsArgs
+
+func EndpointKinesisSettingsPtr(v *EndpointKinesisSettingsArgs) EndpointKinesisSettingsPtrInput {
+	return (*endpointKinesisSettingsPtrType)(v)
+}
+
+func (*endpointKinesisSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointKinesisSettings)(nil)).Elem()
+}
+
+func (i *endpointKinesisSettingsPtrType) ToEndpointKinesisSettingsPtrOutput() EndpointKinesisSettingsPtrOutput {
+	return i.ToEndpointKinesisSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointKinesisSettingsPtrType) ToEndpointKinesisSettingsPtrOutputWithContext(ctx context.Context) EndpointKinesisSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointKinesisSettingsPtrOutput)
+}
+
+type EndpointKinesisSettingsOutput struct{ *pulumi.OutputState }
+
+func (EndpointKinesisSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointKinesisSettings)(nil)).Elem()
+}
+
+func (o EndpointKinesisSettingsOutput) ToEndpointKinesisSettingsOutput() EndpointKinesisSettingsOutput {
+	return o
+}
+
+func (o EndpointKinesisSettingsOutput) ToEndpointKinesisSettingsOutputWithContext(ctx context.Context) EndpointKinesisSettingsOutput {
+	return o
+}
+
+func (o EndpointKinesisSettingsOutput) ToEndpointKinesisSettingsPtrOutput() EndpointKinesisSettingsPtrOutput {
+	return o.ToEndpointKinesisSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointKinesisSettingsOutput) ToEndpointKinesisSettingsPtrOutputWithContext(ctx context.Context) EndpointKinesisSettingsPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *EndpointKinesisSettings {
+		return &v
+	}).(EndpointKinesisSettingsPtrOutput)
+}
+func (o EndpointKinesisSettingsOutput) MessageFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKinesisSettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKinesisSettingsOutput) StreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.StreamArn }).(pulumi.StringPtrOutput)
+}
+
+type EndpointKinesisSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointKinesisSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointKinesisSettings)(nil)).Elem()
+}
+
+func (o EndpointKinesisSettingsPtrOutput) ToEndpointKinesisSettingsPtrOutput() EndpointKinesisSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointKinesisSettingsPtrOutput) ToEndpointKinesisSettingsPtrOutputWithContext(ctx context.Context) EndpointKinesisSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointKinesisSettingsPtrOutput) Elem() EndpointKinesisSettingsOutput {
+	return o.ApplyT(func(v *EndpointKinesisSettings) EndpointKinesisSettings { return *v }).(EndpointKinesisSettingsOutput)
+}
+
+func (o EndpointKinesisSettingsPtrOutput) MessageFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKinesisSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKinesisSettingsPtrOutput) StreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.StreamArn }).(pulumi.StringPtrOutput)
+}
+
 type EndpointMongodbSettings struct {
 	AuthMechanism     *string `pulumi:"authMechanism"`
 	AuthSource        *string `pulumi:"authSource"`
@@ -367,6 +663,10 @@ func (o EndpointS3SettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutp
 }
 
 func init() {
+	pulumi.RegisterOutputType(EndpointElasticsearchSettingsOutput{})
+	pulumi.RegisterOutputType(EndpointElasticsearchSettingsPtrOutput{})
+	pulumi.RegisterOutputType(EndpointKinesisSettingsOutput{})
+	pulumi.RegisterOutputType(EndpointKinesisSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointMongodbSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointMongodbSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointS3SettingsOutput{})

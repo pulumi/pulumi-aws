@@ -13,7 +13,9 @@ import (
 type PlanRule struct {
 	// The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
 	CompletionWindow *int `pulumi:"completionWindow"`
-	// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+	// Configuration block(s) with copy operation settings. Detailed below.
+	CopyActions []PlanRuleCopyAction `pulumi:"copyActions"`
+	// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
 	Lifecycle *PlanRuleLifecycle `pulumi:"lifecycle"`
 	// Metadata that you can assign to help organize the resources that you create.
 	RecoveryPointTags map[string]interface{} `pulumi:"recoveryPointTags"`
@@ -42,7 +44,9 @@ type PlanRuleInput interface {
 type PlanRuleArgs struct {
 	// The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
 	CompletionWindow pulumi.IntPtrInput `pulumi:"completionWindow"`
-	// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+	// Configuration block(s) with copy operation settings. Detailed below.
+	CopyActions PlanRuleCopyActionArrayInput `pulumi:"copyActions"`
+	// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
 	Lifecycle PlanRuleLifecyclePtrInput `pulumi:"lifecycle"`
 	// Metadata that you can assign to help organize the resources that you create.
 	RecoveryPointTags pulumi.MapInput `pulumi:"recoveryPointTags"`
@@ -113,7 +117,12 @@ func (o PlanRuleOutput) CompletionWindow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PlanRule) *int { return v.CompletionWindow }).(pulumi.IntPtrOutput)
 }
 
-// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+// Configuration block(s) with copy operation settings. Detailed below.
+func (o PlanRuleOutput) CopyActions() PlanRuleCopyActionArrayOutput {
+	return o.ApplyT(func(v PlanRule) []PlanRuleCopyAction { return v.CopyActions }).(PlanRuleCopyActionArrayOutput)
+}
+
+// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
 func (o PlanRuleOutput) Lifecycle() PlanRuleLifecyclePtrOutput {
 	return o.ApplyT(func(v PlanRule) *PlanRuleLifecycle { return v.Lifecycle }).(PlanRuleLifecyclePtrOutput)
 }
@@ -161,6 +170,256 @@ func (o PlanRuleArrayOutput) Index(i pulumi.IntInput) PlanRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanRule {
 		return vs[0].([]PlanRule)[vs[1].(int)]
 	}).(PlanRuleOutput)
+}
+
+type PlanRuleCopyAction struct {
+	// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+	DestinationVaultArn string `pulumi:"destinationVaultArn"`
+	// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+	Lifecycle *PlanRuleCopyActionLifecycle `pulumi:"lifecycle"`
+}
+
+// PlanRuleCopyActionInput is an input type that accepts PlanRuleCopyActionArgs and PlanRuleCopyActionOutput values.
+// You can construct a concrete instance of `PlanRuleCopyActionInput` via:
+//
+// 		 PlanRuleCopyActionArgs{...}
+//
+type PlanRuleCopyActionInput interface {
+	pulumi.Input
+
+	ToPlanRuleCopyActionOutput() PlanRuleCopyActionOutput
+	ToPlanRuleCopyActionOutputWithContext(context.Context) PlanRuleCopyActionOutput
+}
+
+type PlanRuleCopyActionArgs struct {
+	// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+	DestinationVaultArn pulumi.StringInput `pulumi:"destinationVaultArn"`
+	// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+	Lifecycle PlanRuleCopyActionLifecyclePtrInput `pulumi:"lifecycle"`
+}
+
+func (PlanRuleCopyActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanRuleCopyAction)(nil)).Elem()
+}
+
+func (i PlanRuleCopyActionArgs) ToPlanRuleCopyActionOutput() PlanRuleCopyActionOutput {
+	return i.ToPlanRuleCopyActionOutputWithContext(context.Background())
+}
+
+func (i PlanRuleCopyActionArgs) ToPlanRuleCopyActionOutputWithContext(ctx context.Context) PlanRuleCopyActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanRuleCopyActionOutput)
+}
+
+// PlanRuleCopyActionArrayInput is an input type that accepts PlanRuleCopyActionArray and PlanRuleCopyActionArrayOutput values.
+// You can construct a concrete instance of `PlanRuleCopyActionArrayInput` via:
+//
+// 		 PlanRuleCopyActionArray{ PlanRuleCopyActionArgs{...} }
+//
+type PlanRuleCopyActionArrayInput interface {
+	pulumi.Input
+
+	ToPlanRuleCopyActionArrayOutput() PlanRuleCopyActionArrayOutput
+	ToPlanRuleCopyActionArrayOutputWithContext(context.Context) PlanRuleCopyActionArrayOutput
+}
+
+type PlanRuleCopyActionArray []PlanRuleCopyActionInput
+
+func (PlanRuleCopyActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanRuleCopyAction)(nil)).Elem()
+}
+
+func (i PlanRuleCopyActionArray) ToPlanRuleCopyActionArrayOutput() PlanRuleCopyActionArrayOutput {
+	return i.ToPlanRuleCopyActionArrayOutputWithContext(context.Background())
+}
+
+func (i PlanRuleCopyActionArray) ToPlanRuleCopyActionArrayOutputWithContext(ctx context.Context) PlanRuleCopyActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanRuleCopyActionArrayOutput)
+}
+
+type PlanRuleCopyActionOutput struct{ *pulumi.OutputState }
+
+func (PlanRuleCopyActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanRuleCopyAction)(nil)).Elem()
+}
+
+func (o PlanRuleCopyActionOutput) ToPlanRuleCopyActionOutput() PlanRuleCopyActionOutput {
+	return o
+}
+
+func (o PlanRuleCopyActionOutput) ToPlanRuleCopyActionOutputWithContext(ctx context.Context) PlanRuleCopyActionOutput {
+	return o
+}
+
+// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+func (o PlanRuleCopyActionOutput) DestinationVaultArn() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanRuleCopyAction) string { return v.DestinationVaultArn }).(pulumi.StringOutput)
+}
+
+// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+func (o PlanRuleCopyActionOutput) Lifecycle() PlanRuleCopyActionLifecyclePtrOutput {
+	return o.ApplyT(func(v PlanRuleCopyAction) *PlanRuleCopyActionLifecycle { return v.Lifecycle }).(PlanRuleCopyActionLifecyclePtrOutput)
+}
+
+type PlanRuleCopyActionArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanRuleCopyActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanRuleCopyAction)(nil)).Elem()
+}
+
+func (o PlanRuleCopyActionArrayOutput) ToPlanRuleCopyActionArrayOutput() PlanRuleCopyActionArrayOutput {
+	return o
+}
+
+func (o PlanRuleCopyActionArrayOutput) ToPlanRuleCopyActionArrayOutputWithContext(ctx context.Context) PlanRuleCopyActionArrayOutput {
+	return o
+}
+
+func (o PlanRuleCopyActionArrayOutput) Index(i pulumi.IntInput) PlanRuleCopyActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanRuleCopyAction {
+		return vs[0].([]PlanRuleCopyAction)[vs[1].(int)]
+	}).(PlanRuleCopyActionOutput)
+}
+
+type PlanRuleCopyActionLifecycle struct {
+	// Specifies the number of days after creation that a recovery point is moved to cold storage.
+	ColdStorageAfter *int `pulumi:"coldStorageAfter"`
+	// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
+	DeleteAfter *int `pulumi:"deleteAfter"`
+}
+
+// PlanRuleCopyActionLifecycleInput is an input type that accepts PlanRuleCopyActionLifecycleArgs and PlanRuleCopyActionLifecycleOutput values.
+// You can construct a concrete instance of `PlanRuleCopyActionLifecycleInput` via:
+//
+// 		 PlanRuleCopyActionLifecycleArgs{...}
+//
+type PlanRuleCopyActionLifecycleInput interface {
+	pulumi.Input
+
+	ToPlanRuleCopyActionLifecycleOutput() PlanRuleCopyActionLifecycleOutput
+	ToPlanRuleCopyActionLifecycleOutputWithContext(context.Context) PlanRuleCopyActionLifecycleOutput
+}
+
+type PlanRuleCopyActionLifecycleArgs struct {
+	// Specifies the number of days after creation that a recovery point is moved to cold storage.
+	ColdStorageAfter pulumi.IntPtrInput `pulumi:"coldStorageAfter"`
+	// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
+	DeleteAfter pulumi.IntPtrInput `pulumi:"deleteAfter"`
+}
+
+func (PlanRuleCopyActionLifecycleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanRuleCopyActionLifecycle)(nil)).Elem()
+}
+
+func (i PlanRuleCopyActionLifecycleArgs) ToPlanRuleCopyActionLifecycleOutput() PlanRuleCopyActionLifecycleOutput {
+	return i.ToPlanRuleCopyActionLifecycleOutputWithContext(context.Background())
+}
+
+func (i PlanRuleCopyActionLifecycleArgs) ToPlanRuleCopyActionLifecycleOutputWithContext(ctx context.Context) PlanRuleCopyActionLifecycleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanRuleCopyActionLifecycleOutput)
+}
+
+func (i PlanRuleCopyActionLifecycleArgs) ToPlanRuleCopyActionLifecyclePtrOutput() PlanRuleCopyActionLifecyclePtrOutput {
+	return i.ToPlanRuleCopyActionLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (i PlanRuleCopyActionLifecycleArgs) ToPlanRuleCopyActionLifecyclePtrOutputWithContext(ctx context.Context) PlanRuleCopyActionLifecyclePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanRuleCopyActionLifecycleOutput).ToPlanRuleCopyActionLifecyclePtrOutputWithContext(ctx)
+}
+
+// PlanRuleCopyActionLifecyclePtrInput is an input type that accepts PlanRuleCopyActionLifecycleArgs, PlanRuleCopyActionLifecyclePtr and PlanRuleCopyActionLifecyclePtrOutput values.
+// You can construct a concrete instance of `PlanRuleCopyActionLifecyclePtrInput` via:
+//
+// 		 PlanRuleCopyActionLifecycleArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type PlanRuleCopyActionLifecyclePtrInput interface {
+	pulumi.Input
+
+	ToPlanRuleCopyActionLifecyclePtrOutput() PlanRuleCopyActionLifecyclePtrOutput
+	ToPlanRuleCopyActionLifecyclePtrOutputWithContext(context.Context) PlanRuleCopyActionLifecyclePtrOutput
+}
+
+type planRuleCopyActionLifecyclePtrType PlanRuleCopyActionLifecycleArgs
+
+func PlanRuleCopyActionLifecyclePtr(v *PlanRuleCopyActionLifecycleArgs) PlanRuleCopyActionLifecyclePtrInput {
+	return (*planRuleCopyActionLifecyclePtrType)(v)
+}
+
+func (*planRuleCopyActionLifecyclePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanRuleCopyActionLifecycle)(nil)).Elem()
+}
+
+func (i *planRuleCopyActionLifecyclePtrType) ToPlanRuleCopyActionLifecyclePtrOutput() PlanRuleCopyActionLifecyclePtrOutput {
+	return i.ToPlanRuleCopyActionLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (i *planRuleCopyActionLifecyclePtrType) ToPlanRuleCopyActionLifecyclePtrOutputWithContext(ctx context.Context) PlanRuleCopyActionLifecyclePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanRuleCopyActionLifecyclePtrOutput)
+}
+
+type PlanRuleCopyActionLifecycleOutput struct{ *pulumi.OutputState }
+
+func (PlanRuleCopyActionLifecycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanRuleCopyActionLifecycle)(nil)).Elem()
+}
+
+func (o PlanRuleCopyActionLifecycleOutput) ToPlanRuleCopyActionLifecycleOutput() PlanRuleCopyActionLifecycleOutput {
+	return o
+}
+
+func (o PlanRuleCopyActionLifecycleOutput) ToPlanRuleCopyActionLifecycleOutputWithContext(ctx context.Context) PlanRuleCopyActionLifecycleOutput {
+	return o
+}
+
+func (o PlanRuleCopyActionLifecycleOutput) ToPlanRuleCopyActionLifecyclePtrOutput() PlanRuleCopyActionLifecyclePtrOutput {
+	return o.ToPlanRuleCopyActionLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (o PlanRuleCopyActionLifecycleOutput) ToPlanRuleCopyActionLifecyclePtrOutputWithContext(ctx context.Context) PlanRuleCopyActionLifecyclePtrOutput {
+	return o.ApplyT(func(v PlanRuleCopyActionLifecycle) *PlanRuleCopyActionLifecycle {
+		return &v
+	}).(PlanRuleCopyActionLifecyclePtrOutput)
+}
+
+// Specifies the number of days after creation that a recovery point is moved to cold storage.
+func (o PlanRuleCopyActionLifecycleOutput) ColdStorageAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanRuleCopyActionLifecycle) *int { return v.ColdStorageAfter }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
+func (o PlanRuleCopyActionLifecycleOutput) DeleteAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanRuleCopyActionLifecycle) *int { return v.DeleteAfter }).(pulumi.IntPtrOutput)
+}
+
+type PlanRuleCopyActionLifecyclePtrOutput struct{ *pulumi.OutputState }
+
+func (PlanRuleCopyActionLifecyclePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanRuleCopyActionLifecycle)(nil)).Elem()
+}
+
+func (o PlanRuleCopyActionLifecyclePtrOutput) ToPlanRuleCopyActionLifecyclePtrOutput() PlanRuleCopyActionLifecyclePtrOutput {
+	return o
+}
+
+func (o PlanRuleCopyActionLifecyclePtrOutput) ToPlanRuleCopyActionLifecyclePtrOutputWithContext(ctx context.Context) PlanRuleCopyActionLifecyclePtrOutput {
+	return o
+}
+
+func (o PlanRuleCopyActionLifecyclePtrOutput) Elem() PlanRuleCopyActionLifecycleOutput {
+	return o.ApplyT(func(v *PlanRuleCopyActionLifecycle) PlanRuleCopyActionLifecycle { return *v }).(PlanRuleCopyActionLifecycleOutput)
+}
+
+// Specifies the number of days after creation that a recovery point is moved to cold storage.
+func (o PlanRuleCopyActionLifecyclePtrOutput) ColdStorageAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanRuleCopyActionLifecycle) *int { return v.ColdStorageAfter }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
+func (o PlanRuleCopyActionLifecyclePtrOutput) DeleteAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanRuleCopyActionLifecycle) *int { return v.DeleteAfter }).(pulumi.IntPtrOutput)
 }
 
 type PlanRuleLifecycle struct {
@@ -425,6 +684,10 @@ func (o SelectionSelectionTagArrayOutput) Index(i pulumi.IntInput) SelectionSele
 func init() {
 	pulumi.RegisterOutputType(PlanRuleOutput{})
 	pulumi.RegisterOutputType(PlanRuleArrayOutput{})
+	pulumi.RegisterOutputType(PlanRuleCopyActionOutput{})
+	pulumi.RegisterOutputType(PlanRuleCopyActionArrayOutput{})
+	pulumi.RegisterOutputType(PlanRuleCopyActionLifecycleOutput{})
+	pulumi.RegisterOutputType(PlanRuleCopyActionLifecyclePtrOutput{})
 	pulumi.RegisterOutputType(PlanRuleLifecycleOutput{})
 	pulumi.RegisterOutputType(PlanRuleLifecyclePtrOutput{})
 	pulumi.RegisterOutputType(SelectionSelectionTagOutput{})

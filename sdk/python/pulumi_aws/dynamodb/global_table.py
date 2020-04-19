@@ -26,7 +26,9 @@ class GlobalTable(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, name=None, replicas=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a resource to manage a DynamoDB Global Table. These are layered on top of existing DynamoDB Tables.
+        Manages [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html). These are layered on top of existing DynamoDB Tables.
+
+        > **NOTE:** To instead manage [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html), use the [`dynamodb.Table` resource](https://www.terraform.io/docs/providers/aws/r/dynamodb_table.html) `replica` configuration block.
 
         > Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
 

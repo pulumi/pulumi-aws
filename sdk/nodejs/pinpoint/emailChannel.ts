@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Pinpoint SMS Channel resource.
+ * Provides a Pinpoint Email Channel resource.
  * 
  * ## Example Usage
  * 

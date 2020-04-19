@@ -119,6 +119,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Redshift;
         public readonly string? Resourcegroups;
         public readonly string? Route53;
+        public readonly string? Route53domains;
         public readonly string? Route53resolver;
         public readonly string? S3;
         public readonly string? S3control;
@@ -362,6 +363,8 @@ namespace Pulumi.Aws.Outputs
 
             string? route53,
 
+            string? route53domains,
+
             string? route53resolver,
 
             string? s3,
@@ -524,6 +527,7 @@ namespace Pulumi.Aws.Outputs
             Redshift = redshift;
             Resourcegroups = resourcegroups;
             Route53 = route53;
+            Route53domains = route53domains;
             Route53resolver = route53resolver;
             S3 = s3;
             S3control = s3control;

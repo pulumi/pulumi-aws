@@ -13,7 +13,7 @@ class GetTableResult:
     """
     A collection of values returned by getTable.
     """
-    def __init__(__self__, arn=None, attributes=None, billing_mode=None, global_secondary_indexes=None, hash_key=None, id=None, local_secondary_indexes=None, name=None, point_in_time_recovery=None, range_key=None, read_capacity=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, tags=None, ttl=None, write_capacity=None):
+    def __init__(__self__, arn=None, attributes=None, billing_mode=None, global_secondary_indexes=None, hash_key=None, id=None, local_secondary_indexes=None, name=None, point_in_time_recovery=None, range_key=None, read_capacity=None, replicas=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, tags=None, ttl=None, write_capacity=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -50,6 +50,9 @@ class GetTableResult:
         if read_capacity and not isinstance(read_capacity, float):
             raise TypeError("Expected argument 'read_capacity' to be a float")
         __self__.read_capacity = read_capacity
+        if replicas and not isinstance(replicas, list):
+            raise TypeError("Expected argument 'replicas' to be a list")
+        __self__.replicas = replicas
         if server_side_encryption and not isinstance(server_side_encryption, dict):
             raise TypeError("Expected argument 'server_side_encryption' to be a dict")
         __self__.server_side_encryption = server_side_encryption
@@ -91,6 +94,7 @@ class AwaitableGetTableResult(GetTableResult):
             point_in_time_recovery=self.point_in_time_recovery,
             range_key=self.range_key,
             read_capacity=self.read_capacity,
+            replicas=self.replicas,
             server_side_encryption=self.server_side_encryption,
             stream_arn=self.stream_arn,
             stream_enabled=self.stream_enabled,
@@ -138,6 +142,7 @@ def get_table(name=None,server_side_encryption=None,tags=None,opts=None):
         point_in_time_recovery=__ret__.get('pointInTimeRecovery'),
         range_key=__ret__.get('rangeKey'),
         read_capacity=__ret__.get('readCapacity'),
+        replicas=__ret__.get('replicas'),
         server_side_encryption=__ret__.get('serverSideEncryption'),
         stream_arn=__ret__.get('streamArn'),
         stream_enabled=__ret__.get('streamEnabled'),

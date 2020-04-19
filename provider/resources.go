@@ -495,6 +495,19 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_apigatewayv2_authorizer":  {Tok: awsResource(apigatewayv2Mod, "Authorizer")},
 			"aws_apigatewayv2_integration": {Tok: awsResource(apigatewayv2Mod, "Integration")},
 			"aws_apigatewayv2_model":       {Tok: awsResource(apigatewayv2Mod, "Model")},
+			"aws_apigatewayv2_deployment":  {Tok: awsResource(apigatewayv2Mod, "Deployment")},
+			"aws_apigatewayv2_domain_name": {
+				Tok: awsResource(apigatewayv2Mod, "DomainName"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"domain_name": {
+						CSharpName: "Domain",
+					},
+				},
+			},
+			"aws_apigatewayv2_integration_response": {Tok: awsResource(apigatewayv2Mod, "IntegrationResponse")},
+			"aws_apigatewayv2_route":                {Tok: awsResource(apigatewayv2Mod, "Route")},
+			"aws_apigatewayv2_route_response":       {Tok: awsResource(apigatewayv2Mod, "RouteResponse")},
+			"aws_apigatewayv2_stage":                {Tok: awsResource(apigatewayv2Mod, "Stage")},
 			// Application Auto Scaling
 			"aws_appautoscaling_policy":           {Tok: awsResource(appautoscalingMod, "Policy")},
 			"aws_appautoscaling_scheduled_action": {Tok: awsResource(appautoscalingMod, "ScheduledAction")},
@@ -743,6 +756,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_dms_replication_instance":     {Tok: awsResource(dmsMod, "ReplicationInstance")},
 			"aws_dms_replication_subnet_group": {Tok: awsResource(dmsMod, "ReplicationSubnetGroup")},
 			"aws_dms_replication_task":         {Tok: awsResource(dmsMod, "ReplicationTask")},
+			"aws_dms_event_subscription":       {Tok: awsResource(dmsMod, "EventSubscription")},
 			// DAX
 			"aws_dax_cluster":         {Tok: awsResource(daxMod, "Cluster")},
 			"aws_dax_parameter_group": {Tok: awsResource(daxMod, "ParameterGroup")},
@@ -2080,6 +2094,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_partition":               {Tok: awsDataSource(awsMod, "getPartition")},
 			"aws_prefix_list":             {Tok: awsDataSource(awsMod, "getPrefixList")},
 			"aws_region":                  {Tok: awsDataSource(awsMod, "getRegion")},
+			"aws_regions":                 {Tok: awsDataSource(awsMod, "getRegions")},
 			// AWS Certificate Manager
 			"aws_acm_certificate": {Tok: awsDataSource(acmMod, "getCertificate")},
 			// AWS Private Certificate Authority

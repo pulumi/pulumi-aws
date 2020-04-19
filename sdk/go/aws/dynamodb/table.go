@@ -41,6 +41,8 @@ type Table struct {
 	RangeKey pulumi.StringPtrOutput `pulumi:"rangeKey"`
 	// The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity pulumi.IntPtrOutput `pulumi:"readCapacity"`
+	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+	Replicas TableReplicaArrayOutput `pulumi:"replicas"`
 	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 	ServerSideEncryption TableServerSideEncryptionOutput `pulumi:"serverSideEncryption"`
 	// The ARN of the Table Stream. Only available when `streamEnabled = true`
@@ -121,6 +123,8 @@ type tableState struct {
 	RangeKey *string `pulumi:"rangeKey"`
 	// The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity *int `pulumi:"readCapacity"`
+	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+	Replicas []TableReplica `pulumi:"replicas"`
 	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 	ServerSideEncryption *TableServerSideEncryption `pulumi:"serverSideEncryption"`
 	// The ARN of the Table Stream. Only available when `streamEnabled = true`
@@ -168,6 +172,8 @@ type TableState struct {
 	RangeKey pulumi.StringPtrInput
 	// The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity pulumi.IntPtrInput
+	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+	Replicas TableReplicaArrayInput
 	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 	ServerSideEncryption TableServerSideEncryptionPtrInput
 	// The ARN of the Table Stream. Only available when `streamEnabled = true`
@@ -217,6 +223,8 @@ type tableArgs struct {
 	RangeKey *string `pulumi:"rangeKey"`
 	// The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity *int `pulumi:"readCapacity"`
+	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+	Replicas []TableReplica `pulumi:"replicas"`
 	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 	ServerSideEncryption *TableServerSideEncryption `pulumi:"serverSideEncryption"`
 	// Indicates whether Streams are to be enabled (true) or disabled (false).
@@ -256,6 +264,8 @@ type TableArgs struct {
 	RangeKey pulumi.StringPtrInput
 	// The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity pulumi.IntPtrInput
+	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+	Replicas TableReplicaArrayInput
 	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 	ServerSideEncryption TableServerSideEncryptionPtrInput
 	// Indicates whether Streams are to be enabled (true) or disabled (false).

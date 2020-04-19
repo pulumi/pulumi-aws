@@ -78,6 +78,17 @@ export interface GetPrefixListFilter {
     values: string[];
 }
 
+export interface GetRegionsFilter {
+    /**
+     * The name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+     */
+    name: string;
+    /**
+     * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+     */
+    values: string[];
+}
+
 export namespace acm {
     export interface CertificateDomainValidationOption {
         /**
@@ -918,6 +929,95 @@ export namespace apigatewayv2 {
          * The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the [`aws.cognito.UserPool`](https://www.terraform.io/docs/providers/aws/r/cognito_user_pool.html) resource.
          */
         issuer?: string;
+    }
+
+    export interface DomainNameDomainNameConfiguration {
+        /**
+         * The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
+         * Use the [`aws.acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+         */
+        certificateArn: string;
+        /**
+         * The endpoint type. Valid values: `REGIONAL`.
+         */
+        endpointType: string;
+        /**
+         * The Amazon Route 53 Hosted Zone ID of the endpoint.
+         */
+        hostedZoneId: string;
+        /**
+         * The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+         */
+        securityPolicy: string;
+        /**
+         * The target domain name.
+         */
+        targetDomainName: string;
+    }
+
+    export interface StageAccessLogSettings {
+        /**
+         * The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
+         */
+        destinationArn: string;
+        /**
+         * A single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
+         */
+        format: string;
+    }
+
+    export interface StageDefaultRouteSettings {
+        /**
+         * Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+         * Defaults to `false`. Supported only for WebSocket APIs.
+         */
+        dataTraceEnabled?: boolean;
+        /**
+         * Whether detailed metrics are enabled for the default route. Defaults to `false`.
+         */
+        detailedMetricsEnabled?: boolean;
+        /**
+         * The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+         * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+         */
+        loggingLevel?: string;
+        /**
+         * The throttling burst limit for the default route.
+         */
+        throttlingBurstLimit?: number;
+        /**
+         * The throttling rate limit for the default route.
+         */
+        throttlingRateLimit?: number;
+    }
+
+    export interface StageRouteSetting {
+        /**
+         * Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+         * Defaults to `false`. Supported only for WebSocket APIs.
+         */
+        dataTraceEnabled?: boolean;
+        /**
+         * Whether detailed metrics are enabled for the route. Defaults to `false`.
+         */
+        detailedMetricsEnabled?: boolean;
+        /**
+         * The logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+         * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+         */
+        loggingLevel?: string;
+        /**
+         * Route key.
+         */
+        routeKey: string;
+        /**
+         * The throttling burst limit for the route.
+         */
+        throttlingBurstLimit?: number;
+        /**
+         * The throttling rate limit for the route.
+         */
+        throttlingRateLimit?: number;
     }
 }
 
@@ -2287,7 +2387,11 @@ export namespace backup {
          */
         completionWindow?: number;
         /**
-         * The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+         * Configuration block(s) with copy operation settings. Detailed below.
+         */
+        copyActions?: outputs.backup.PlanRuleCopyAction[];
+        /**
+         * The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
          */
         lifecycle?: outputs.backup.PlanRuleLifecycle;
         /**
@@ -2310,6 +2414,28 @@ export namespace backup {
          * The name of a logical container where backups are stored.
          */
         targetVaultName: string;
+    }
+
+    export interface PlanRuleCopyAction {
+        /**
+         * An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+         */
+        destinationVaultArn: string;
+        /**
+         * The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+         */
+        lifecycle?: outputs.backup.PlanRuleCopyActionLifecycle;
+    }
+
+    export interface PlanRuleCopyActionLifecycle {
+        /**
+         * Specifies the number of days after creation that a recovery point is moved to cold storage.
+         */
+        coldStorageAfter?: number;
+        /**
+         * Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
+         */
+        deleteAfter?: number;
     }
 
     export interface PlanRuleLifecycle {
@@ -4682,6 +4808,19 @@ export namespace dlm {
 }
 
 export namespace dms {
+    export interface EndpointElasticsearchSettings {
+        endpointUri: string;
+        errorRetryDuration?: number;
+        fullLoadErrorPercentage?: number;
+        serviceAccessRoleArn: string;
+    }
+
+    export interface EndpointKinesisSettings {
+        messageFormat?: string;
+        serviceAccessRoleArn?: string;
+        streamArn?: string;
+    }
+
     export interface EndpointMongodbSettings {
         authMechanism?: string;
         authSource?: string;
@@ -4753,6 +4892,10 @@ export namespace dynamodb {
 
     export interface GetTablePointInTimeRecovery {
         enabled: boolean;
+    }
+
+    export interface GetTableReplica {
+        regionName: string;
     }
 
     export interface GetTableServerSideEncryption {
@@ -4848,14 +4991,21 @@ export namespace dynamodb {
 
     export interface TablePointInTimeRecovery {
         /**
-         * Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
+         * Indicates whether ttl is enabled (true) or disabled (false).
          */
         enabled: boolean;
     }
 
+    export interface TableReplica {
+        /**
+         * Region name of the replica.
+         */
+        regionName: string;
+    }
+
     export interface TableServerSideEncryption {
         /**
-         * Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
+         * Indicates whether ttl is enabled (true) or disabled (false).
          */
         enabled: boolean;
         /**
@@ -4871,7 +5021,7 @@ export namespace dynamodb {
          */
         attributeName: string;
         /**
-         * Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
+         * Indicates whether ttl is enabled (true) or disabled (false).
          */
         enabled?: boolean;
     }
@@ -5372,6 +5522,10 @@ export namespace ec2 {
          * If the root block device will be deleted on termination.
          */
         deleteOnTermination: boolean;
+        /**
+         * The physical name of the device.
+         */
+        deviceName: string;
         /**
          * If the EBS volume is encrypted.
          */
@@ -6049,6 +6203,10 @@ export namespace ec2 {
          * on instance termination (Default: `true`).
          */
         deleteOnTermination?: boolean;
+        /**
+         * The name of the device to mount.
+         */
+        deviceName: string;
         /**
          * Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
          */
@@ -6791,6 +6949,10 @@ export namespace ec2 {
          */
         deleteOnTermination?: boolean;
         /**
+         * The name of the device to mount.
+         */
+        deviceName: string;
+        /**
          * Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
          */
         encrypted: boolean;
@@ -6945,7 +7107,7 @@ export namespace ec2 {
 }
 
 export namespace ec2clientvpn {
-    export interface EndpointAuthenticationOptions {
+    export interface EndpointAuthenticationOption {
         /**
          * The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
          */

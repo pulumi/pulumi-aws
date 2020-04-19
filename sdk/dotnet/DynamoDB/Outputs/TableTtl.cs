@@ -18,7 +18,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         /// </summary>
         public readonly string AttributeName;
         /// <summary>
-        /// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
+        /// Indicates whether ttl is enabled (true) or disabled (false).
         /// </summary>
         public readonly bool? Enabled;
 

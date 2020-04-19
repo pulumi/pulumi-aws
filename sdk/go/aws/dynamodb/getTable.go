@@ -39,6 +39,7 @@ type LookupTableResult struct {
 	PointInTimeRecovery   GetTablePointInTimeRecovery   `pulumi:"pointInTimeRecovery"`
 	RangeKey              string                        `pulumi:"rangeKey"`
 	ReadCapacity          int                           `pulumi:"readCapacity"`
+	Replicas              []GetTableReplica             `pulumi:"replicas"`
 	ServerSideEncryption  GetTableServerSideEncryption  `pulumi:"serverSideEncryption"`
 	StreamArn             string                        `pulumi:"streamArn"`
 	StreamEnabled         bool                          `pulumi:"streamEnabled"`
