@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Remove deprecated IAM Policy types and ec2 InstanceTypes
+* Upgrade to v2.58.0 of the AWS Terraform Provider
 
 ---
 
