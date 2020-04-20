@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Remove deprecated IAM Policy types and ec2 InstanceTypes
-* Upgrade to v2.58.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 2.1.0 (2020-04-20)
+* Remove deprecated IAM Policy types and ec2 InstanceTypes
+* Upgrade to v2.58.0 of the AWS Terraform Provider
 
 ## 2.0.0 (2020-04-16)
 * Upgrade to v2.0.0 of Pulumi
