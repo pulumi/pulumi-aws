@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = new aws.ec2clientvpn.Endpoint("example", {
- *     authenticationOptions: {
+ *     authenticationOptions: [{
  *         rootCertificateChainArn: aws_acm_certificate_root_cert.arn,
  *         type: "certificate-authentication",
- *     },
+ *     }],
  *     clientCidrBlock: "10.0.0.0/16",
  *     connectionLogOptions: {
  *         cloudwatchLogGroup: aws_cloudwatch_log_group_lg.name,
@@ -66,7 +66,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Information about the authentication method to be used to authenticate clients.
      */
-    public readonly authenticationOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointAuthenticationOptions>;
+    public readonly authenticationOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointAuthenticationOption[]>;
     /**
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
      */
@@ -175,7 +175,7 @@ export interface EndpointState {
     /**
      * Information about the authentication method to be used to authenticate clients.
      */
-    readonly authenticationOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOptions>;
+    readonly authenticationOptions?: pulumi.Input<pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOption>[]>;
     /**
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
      */
@@ -225,7 +225,7 @@ export interface EndpointArgs {
     /**
      * Information about the authentication method to be used to authenticate clients.
      */
-    readonly authenticationOptions: pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOptions>;
+    readonly authenticationOptions: pulumi.Input<pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOption>[]>;
     /**
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
      */

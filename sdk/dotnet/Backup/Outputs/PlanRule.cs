@@ -18,7 +18,11 @@ namespace Pulumi.Aws.Backup.Outputs
         /// </summary>
         public readonly int? CompletionWindow;
         /// <summary>
-        /// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+        /// Configuration block(s) with copy operation settings. Detailed below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PlanRuleCopyAction> CopyActions;
+        /// <summary>
+        /// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
         /// </summary>
         public readonly Outputs.PlanRuleLifecycle? Lifecycle;
         /// <summary>
@@ -46,6 +50,8 @@ namespace Pulumi.Aws.Backup.Outputs
         private PlanRule(
             int? completionWindow,
 
+            ImmutableArray<Outputs.PlanRuleCopyAction> copyActions,
+
             Outputs.PlanRuleLifecycle? lifecycle,
 
             ImmutableDictionary<string, object>? recoveryPointTags,
@@ -59,6 +65,7 @@ namespace Pulumi.Aws.Backup.Outputs
             string targetVaultName)
         {
             CompletionWindow = completionWindow;
+            CopyActions = copyActions;
             Lifecycle = lifecycle;
             RecoveryPointTags = recoveryPointTags;
             RuleName = ruleName;

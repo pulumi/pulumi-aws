@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A list of all the route table ids found. This data source will fail if none are found.
+        /// A set of all the route table ids found. This data source will fail if none are found.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, object> Tags;

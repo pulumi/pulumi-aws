@@ -20,6 +20,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<bool>? DeleteOnTermination { get; set; }
 
         /// <summary>
+        /// The name of the device to mount.
+        /// </summary>
+        [Input("deviceName")]
+        public Input<string>? DeviceName { get; set; }
+
+        /// <summary>
         /// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
         /// </summary>
         [Input("encrypted")]

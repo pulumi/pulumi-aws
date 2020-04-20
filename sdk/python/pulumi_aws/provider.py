@@ -153,6 +153,7 @@ class Provider(pulumi.ProviderResource):
           * `redshift` (`pulumi.Input[str]`)
           * `resourcegroups` (`pulumi.Input[str]`)
           * `route53` (`pulumi.Input[str]`)
+          * `route53domains` (`pulumi.Input[str]`)
           * `route53resolver` (`pulumi.Input[str]`)
           * `s3` (`pulumi.Input[str]`)
           * `s3control` (`pulumi.Input[str]`)

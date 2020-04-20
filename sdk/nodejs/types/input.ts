@@ -68,6 +68,17 @@ export interface GetPrefixListFilter {
     values: string[];
 }
 
+export interface GetRegionsFilter {
+    /**
+     * The name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+     */
+    name: string;
+    /**
+     * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+     */
+    values: string[];
+}
+
 export interface ProviderAssumeRole {
     externalId?: pulumi.Input<string>;
     policy?: pulumi.Input<string>;
@@ -182,6 +193,7 @@ export interface ProviderEndpoint {
     redshift?: pulumi.Input<string>;
     resourcegroups?: pulumi.Input<string>;
     route53?: pulumi.Input<string>;
+    route53domains?: pulumi.Input<string>;
     route53resolver?: pulumi.Input<string>;
     s3?: pulumi.Input<string>;
     s3control?: pulumi.Input<string>;
@@ -970,6 +982,95 @@ export namespace apigatewayv2 {
          * The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the [`aws.cognito.UserPool`](https://www.terraform.io/docs/providers/aws/r/cognito_user_pool.html) resource.
          */
         issuer?: pulumi.Input<string>;
+    }
+
+    export interface DomainNameDomainNameConfiguration {
+        /**
+         * The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
+         * Use the [`aws.acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+         */
+        certificateArn: pulumi.Input<string>;
+        /**
+         * The endpoint type. Valid values: `REGIONAL`.
+         */
+        endpointType: pulumi.Input<string>;
+        /**
+         * The Amazon Route 53 Hosted Zone ID of the endpoint.
+         */
+        hostedZoneId?: pulumi.Input<string>;
+        /**
+         * The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+         */
+        securityPolicy: pulumi.Input<string>;
+        /**
+         * The target domain name.
+         */
+        targetDomainName?: pulumi.Input<string>;
+    }
+
+    export interface StageAccessLogSettings {
+        /**
+         * The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
+         */
+        destinationArn: pulumi.Input<string>;
+        /**
+         * A single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
+         */
+        format: pulumi.Input<string>;
+    }
+
+    export interface StageDefaultRouteSettings {
+        /**
+         * Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+         * Defaults to `false`. Supported only for WebSocket APIs.
+         */
+        dataTraceEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether detailed metrics are enabled for the default route. Defaults to `false`.
+         */
+        detailedMetricsEnabled?: pulumi.Input<boolean>;
+        /**
+         * The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+         * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+         */
+        loggingLevel?: pulumi.Input<string>;
+        /**
+         * The throttling burst limit for the default route.
+         */
+        throttlingBurstLimit?: pulumi.Input<number>;
+        /**
+         * The throttling rate limit for the default route.
+         */
+        throttlingRateLimit?: pulumi.Input<number>;
+    }
+
+    export interface StageRouteSetting {
+        /**
+         * Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+         * Defaults to `false`. Supported only for WebSocket APIs.
+         */
+        dataTraceEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether detailed metrics are enabled for the route. Defaults to `false`.
+         */
+        detailedMetricsEnabled?: pulumi.Input<boolean>;
+        /**
+         * The logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+         * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+         */
+        loggingLevel?: pulumi.Input<string>;
+        /**
+         * Route key.
+         */
+        routeKey: pulumi.Input<string>;
+        /**
+         * The throttling burst limit for the route.
+         */
+        throttlingBurstLimit?: pulumi.Input<number>;
+        /**
+         * The throttling rate limit for the route.
+         */
+        throttlingRateLimit?: pulumi.Input<number>;
     }
 }
 
@@ -2257,7 +2358,11 @@ export namespace backup {
          */
         completionWindow?: pulumi.Input<number>;
         /**
-         * The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+         * Configuration block(s) with copy operation settings. Detailed below.
+         */
+        copyActions?: pulumi.Input<pulumi.Input<inputs.backup.PlanRuleCopyAction>[]>;
+        /**
+         * The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
          */
         lifecycle?: pulumi.Input<inputs.backup.PlanRuleLifecycle>;
         /**
@@ -2280,6 +2385,28 @@ export namespace backup {
          * The name of a logical container where backups are stored.
          */
         targetVaultName: pulumi.Input<string>;
+    }
+
+    export interface PlanRuleCopyAction {
+        /**
+         * An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+         */
+        destinationVaultArn: pulumi.Input<string>;
+        /**
+         * The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+         */
+        lifecycle?: pulumi.Input<inputs.backup.PlanRuleCopyActionLifecycle>;
+    }
+
+    export interface PlanRuleCopyActionLifecycle {
+        /**
+         * Specifies the number of days after creation that a recovery point is moved to cold storage.
+         */
+        coldStorageAfter?: pulumi.Input<number>;
+        /**
+         * Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
+         */
+        deleteAfter?: pulumi.Input<number>;
     }
 
     export interface PlanRuleLifecycle {
@@ -4609,6 +4736,19 @@ export namespace dlm {
 }
 
 export namespace dms {
+    export interface EndpointElasticsearchSettings {
+        endpointUri: pulumi.Input<string>;
+        errorRetryDuration?: pulumi.Input<number>;
+        fullLoadErrorPercentage?: pulumi.Input<number>;
+        serviceAccessRoleArn: pulumi.Input<string>;
+    }
+
+    export interface EndpointKinesisSettings {
+        messageFormat?: pulumi.Input<string>;
+        serviceAccessRoleArn?: pulumi.Input<string>;
+        streamArn?: pulumi.Input<string>;
+    }
+
     export interface EndpointMongodbSettings {
         authMechanism?: pulumi.Input<string>;
         authSource?: pulumi.Input<string>;
@@ -4735,14 +4875,21 @@ export namespace dynamodb {
 
     export interface TablePointInTimeRecovery {
         /**
-         * Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
+         * Indicates whether ttl is enabled (true) or disabled (false).
          */
         enabled: pulumi.Input<boolean>;
     }
 
+    export interface TableReplica {
+        /**
+         * Region name of the replica.
+         */
+        regionName: pulumi.Input<string>;
+    }
+
     export interface TableServerSideEncryption {
         /**
-         * Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
+         * Indicates whether ttl is enabled (true) or disabled (false).
          */
         enabled: pulumi.Input<boolean>;
         /**
@@ -4758,7 +4905,7 @@ export namespace dynamodb {
          */
         attributeName: pulumi.Input<string>;
         /**
-         * Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
+         * Indicates whether ttl is enabled (true) or disabled (false).
          */
         enabled?: pulumi.Input<boolean>;
     }
@@ -5543,6 +5690,10 @@ export namespace ec2 {
          */
         deleteOnTermination?: pulumi.Input<boolean>;
         /**
+         * The name of the device to mount.
+         */
+        deviceName?: pulumi.Input<string>;
+        /**
          * Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
          */
         encrypted?: pulumi.Input<boolean>;
@@ -6284,6 +6435,10 @@ export namespace ec2 {
          */
         deleteOnTermination?: pulumi.Input<boolean>;
         /**
+         * The name of the device to mount.
+         */
+        deviceName?: pulumi.Input<string>;
+        /**
          * Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
          */
         encrypted?: pulumi.Input<boolean>;
@@ -6438,7 +6593,7 @@ export namespace ec2 {
 }
 
 export namespace ec2clientvpn {
-    export interface EndpointAuthenticationOptions {
+    export interface EndpointAuthenticationOption {
         /**
          * The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
          */

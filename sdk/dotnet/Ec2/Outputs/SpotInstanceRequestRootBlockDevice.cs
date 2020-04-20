@@ -19,6 +19,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly bool? DeleteOnTermination;
         /// <summary>
+        /// The name of the device to mount.
+        /// </summary>
+        public readonly string? DeviceName;
+        /// <summary>
         /// Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
         /// </summary>
         public readonly bool? Encrypted;
@@ -47,6 +51,8 @@ namespace Pulumi.Aws.Ec2.Outputs
         private SpotInstanceRequestRootBlockDevice(
             bool? deleteOnTermination,
 
+            string? deviceName,
+
             bool? encrypted,
 
             int? iops,
@@ -60,6 +66,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             string? volumeType)
         {
             DeleteOnTermination = deleteOnTermination;
+            DeviceName = deviceName;
             Encrypted = encrypted;
             Iops = iops;
             KmsKeyId = kmsKeyId;

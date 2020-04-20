@@ -82,6 +82,12 @@ namespace Pulumi.Aws.DynamoDB
         public Output<int?> ReadCapacity { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+        /// </summary>
+        [Output("replicas")]
+        public Output<ImmutableArray<Outputs.TableReplica>> Replicas { get; private set; } = null!;
+
+        /// <summary>
         /// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
         /// </summary>
         [Output("serverSideEncryption")]
@@ -255,6 +261,18 @@ namespace Pulumi.Aws.DynamoDB
         [Input("readCapacity")]
         public Input<int>? ReadCapacity { get; set; }
 
+        [Input("replicas")]
+        private InputList<Inputs.TableReplicaArgs>? _replicas;
+
+        /// <summary>
+        /// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+        /// </summary>
+        public InputList<Inputs.TableReplicaArgs> Replicas
+        {
+            get => _replicas ?? (_replicas = new InputList<Inputs.TableReplicaArgs>());
+            set => _replicas = value;
+        }
+
         /// <summary>
         /// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
         /// </summary>
@@ -386,6 +404,18 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Input("readCapacity")]
         public Input<int>? ReadCapacity { get; set; }
+
+        [Input("replicas")]
+        private InputList<Inputs.TableReplicaGetArgs>? _replicas;
+
+        /// <summary>
+        /// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+        /// </summary>
+        public InputList<Inputs.TableReplicaGetArgs> Replicas
+        {
+            get => _replicas ?? (_replicas = new InputList<Inputs.TableReplicaGetArgs>());
+            set => _replicas = value;
+        }
 
         /// <summary>
         /// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.

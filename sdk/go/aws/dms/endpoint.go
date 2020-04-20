@@ -21,16 +21,20 @@ type Endpoint struct {
 	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
 	// The name of the endpoint database.
 	DatabaseName pulumi.StringPtrOutput `pulumi:"databaseName"`
+	// Settings for the target Elasticsearch. Available settings are `serviceAccessRoleArn`, `endpointUri`, `errorRetryDuration` (default: `300`) and `fullLoadErrorPercentage` (default: `10`). For more details, see [Using an Amazon Elasticsearch Service Cluster as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html).
+	ElasticsearchSettings EndpointElasticsearchSettingsPtrOutput `pulumi:"elasticsearchSettings"`
 	// The Amazon Resource Name (ARN) for the endpoint.
 	EndpointArn pulumi.StringOutput `pulumi:"endpointArn"`
 	// The database endpoint identifier.
 	EndpointId pulumi.StringOutput `pulumi:"endpointId"`
 	// The type of endpoint. Can be one of `source | target`.
 	EndpointType pulumi.StringOutput `pulumi:"endpointType"`
-	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName pulumi.StringOutput `pulumi:"engineName"`
 	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
 	ExtraConnectionAttributes pulumi.StringOutput `pulumi:"extraConnectionAttributes"`
+	// Settings for the target Kinesis endpoint. Available settings are `messageFormat`, `serviceAccessRoleArn`, and `streamArn`. For more details, see [Using Amazon Kinesis Data Streams as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html).
+	KinesisSettings EndpointKinesisSettingsPtrOutput `pulumi:"kinesisSettings"`
 	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
@@ -94,16 +98,20 @@ type endpointState struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The name of the endpoint database.
 	DatabaseName *string `pulumi:"databaseName"`
+	// Settings for the target Elasticsearch. Available settings are `serviceAccessRoleArn`, `endpointUri`, `errorRetryDuration` (default: `300`) and `fullLoadErrorPercentage` (default: `10`). For more details, see [Using an Amazon Elasticsearch Service Cluster as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html).
+	ElasticsearchSettings *EndpointElasticsearchSettings `pulumi:"elasticsearchSettings"`
 	// The Amazon Resource Name (ARN) for the endpoint.
 	EndpointArn *string `pulumi:"endpointArn"`
 	// The database endpoint identifier.
 	EndpointId *string `pulumi:"endpointId"`
 	// The type of endpoint. Can be one of `source | target`.
 	EndpointType *string `pulumi:"endpointType"`
-	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName *string `pulumi:"engineName"`
 	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
 	ExtraConnectionAttributes *string `pulumi:"extraConnectionAttributes"`
+	// Settings for the target Kinesis endpoint. Available settings are `messageFormat`, `serviceAccessRoleArn`, and `streamArn`. For more details, see [Using Amazon Kinesis Data Streams as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html).
+	KinesisSettings *EndpointKinesisSettings `pulumi:"kinesisSettings"`
 	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
@@ -131,16 +139,20 @@ type EndpointState struct {
 	CertificateArn pulumi.StringPtrInput
 	// The name of the endpoint database.
 	DatabaseName pulumi.StringPtrInput
+	// Settings for the target Elasticsearch. Available settings are `serviceAccessRoleArn`, `endpointUri`, `errorRetryDuration` (default: `300`) and `fullLoadErrorPercentage` (default: `10`). For more details, see [Using an Amazon Elasticsearch Service Cluster as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html).
+	ElasticsearchSettings EndpointElasticsearchSettingsPtrInput
 	// The Amazon Resource Name (ARN) for the endpoint.
 	EndpointArn pulumi.StringPtrInput
 	// The database endpoint identifier.
 	EndpointId pulumi.StringPtrInput
 	// The type of endpoint. Can be one of `source | target`.
 	EndpointType pulumi.StringPtrInput
-	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName pulumi.StringPtrInput
 	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
 	ExtraConnectionAttributes pulumi.StringPtrInput
+	// Settings for the target Kinesis endpoint. Available settings are `messageFormat`, `serviceAccessRoleArn`, and `streamArn`. For more details, see [Using Amazon Kinesis Data Streams as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html).
+	KinesisSettings EndpointKinesisSettingsPtrInput
 	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 	KmsKeyArn pulumi.StringPtrInput
 	// Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
@@ -172,14 +184,18 @@ type endpointArgs struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The name of the endpoint database.
 	DatabaseName *string `pulumi:"databaseName"`
+	// Settings for the target Elasticsearch. Available settings are `serviceAccessRoleArn`, `endpointUri`, `errorRetryDuration` (default: `300`) and `fullLoadErrorPercentage` (default: `10`). For more details, see [Using an Amazon Elasticsearch Service Cluster as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html).
+	ElasticsearchSettings *EndpointElasticsearchSettings `pulumi:"elasticsearchSettings"`
 	// The database endpoint identifier.
 	EndpointId string `pulumi:"endpointId"`
 	// The type of endpoint. Can be one of `source | target`.
 	EndpointType string `pulumi:"endpointType"`
-	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName string `pulumi:"engineName"`
 	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
 	ExtraConnectionAttributes *string `pulumi:"extraConnectionAttributes"`
+	// Settings for the target Kinesis endpoint. Available settings are `messageFormat`, `serviceAccessRoleArn`, and `streamArn`. For more details, see [Using Amazon Kinesis Data Streams as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html).
+	KinesisSettings *EndpointKinesisSettings `pulumi:"kinesisSettings"`
 	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
@@ -208,14 +224,18 @@ type EndpointArgs struct {
 	CertificateArn pulumi.StringPtrInput
 	// The name of the endpoint database.
 	DatabaseName pulumi.StringPtrInput
+	// Settings for the target Elasticsearch. Available settings are `serviceAccessRoleArn`, `endpointUri`, `errorRetryDuration` (default: `300`) and `fullLoadErrorPercentage` (default: `10`). For more details, see [Using an Amazon Elasticsearch Service Cluster as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html).
+	ElasticsearchSettings EndpointElasticsearchSettingsPtrInput
 	// The database endpoint identifier.
 	EndpointId pulumi.StringInput
 	// The type of endpoint. Can be one of `source | target`.
 	EndpointType pulumi.StringInput
-	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName pulumi.StringInput
 	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
 	ExtraConnectionAttributes pulumi.StringPtrInput
+	// Settings for the target Kinesis endpoint. Available settings are `messageFormat`, `serviceAccessRoleArn`, and `streamArn`. For more details, see [Using Amazon Kinesis Data Streams as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html).
+	KinesisSettings EndpointKinesisSettingsPtrInput
 	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 	KmsKeyArn pulumi.StringPtrInput
 	// Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).

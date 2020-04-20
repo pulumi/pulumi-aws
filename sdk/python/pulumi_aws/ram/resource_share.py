@@ -28,7 +28,7 @@ class ResourceShare(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, allow_external_principals=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a Resource Access Manager (RAM) Resource Share. To association principals with the share, see the [`ram.PrincipalAssociation` resource](https://www.terraform.io/docs/providers/aws/r/ram_principal_association.html). To associate resources with the share, see the [`ram.ResourceAssociation` resource](https://www.terraform.io/docs/providers/aws/r/ram_resource_association.html).
+        Manages a Resource Access Manager (RAM) Resource Share. To associate principals with the share, see the [`ram.PrincipalAssociation` resource](https://www.terraform.io/docs/providers/aws/r/ram_principal_association.html). To associate resources with the share, see the [`ram.ResourceAssociation` resource](https://www.terraform.io/docs/providers/aws/r/ram_resource_association.html).
 
 
 

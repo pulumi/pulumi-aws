@@ -281,7 +281,7 @@ export class CallbackFunction<E, R> extends LambdaFunction {
 
             if (!args.policies) {
                 // Provides wide access to "serverless" services (Dynamo, S3, etc.)
-                args.policies = [iam.AWSLambdaFullAccess];
+                args.policies = [iam.ManagedPolicies.AWSLambdaFullAccess];
             }
 
             for (const policy of args.policies) {

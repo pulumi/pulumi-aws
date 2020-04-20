@@ -17,6 +17,7 @@ export * from "./getIpRanges";
 export * from "./getPartition";
 export * from "./getPrefixList";
 export * from "./getRegion";
+export * from "./getRegions";
 export * from "./provider";
 export * from "./region";
 export * from "./tags";

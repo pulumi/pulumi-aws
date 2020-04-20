@@ -76,7 +76,7 @@ class Table(pulumi.CustomResource):
     """
     Point-in-time recovery options.
 
-      * `enabled` (`bool`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
+      * `enabled` (`bool`) - Indicates whether ttl is enabled (true) or disabled (false).
     """
     range_key: pulumi.Output[str]
     """
@@ -86,11 +86,17 @@ class Table(pulumi.CustomResource):
     """
     The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
     """
+    replicas: pulumi.Output[list]
+    """
+    Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+
+      * `regionName` (`str`) - Region name of the replica.
+    """
     server_side_encryption: pulumi.Output[dict]
     """
     Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 
-      * `enabled` (`bool`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
+      * `enabled` (`bool`) - Indicates whether ttl is enabled (true) or disabled (false).
       * `kms_key_arn` (`str`) - The ARN of the CMK that should be used for the AWS KMS encryption.
         This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
     """
@@ -122,13 +128,13 @@ class Table(pulumi.CustomResource):
     Defines ttl, has two properties, and can only be specified once:
 
       * `attributeName` (`str`) - The name of the table attribute to store the TTL timestamp in.
-      * `enabled` (`bool`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
+      * `enabled` (`bool`) - Indicates whether ttl is enabled (true) or disabled (false).
     """
     write_capacity: pulumi.Output[float]
     """
     The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
     """
-    def __init__(__self__, resource_name, opts=None, attributes=None, billing_mode=None, global_secondary_indexes=None, hash_key=None, local_secondary_indexes=None, name=None, point_in_time_recovery=None, range_key=None, read_capacity=None, server_side_encryption=None, stream_enabled=None, stream_view_type=None, tags=None, ttl=None, write_capacity=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, attributes=None, billing_mode=None, global_secondary_indexes=None, hash_key=None, local_secondary_indexes=None, name=None, point_in_time_recovery=None, range_key=None, read_capacity=None, replicas=None, server_side_encryption=None, stream_enabled=None, stream_view_type=None, tags=None, ttl=None, write_capacity=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a DynamoDB table resource
 
@@ -152,6 +158,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[dict] point_in_time_recovery: Point-in-time recovery options.
         :param pulumi.Input[str] range_key: The name of the range key; must be defined
         :param pulumi.Input[float] read_capacity: The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[list] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
         :param pulumi.Input[dict] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
         :param pulumi.Input[bool] stream_enabled: Indicates whether Streams are to be enabled (true) or disabled (false).
         :param pulumi.Input[str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
@@ -196,18 +203,22 @@ class Table(pulumi.CustomResource):
 
         The **point_in_time_recovery** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
+          * `enabled` (`pulumi.Input[bool]`) - Indicates whether ttl is enabled (true) or disabled (false).
+
+        The **replicas** object supports the following:
+
+          * `regionName` (`pulumi.Input[str]`) - Region name of the replica.
 
         The **server_side_encryption** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
+          * `enabled` (`pulumi.Input[bool]`) - Indicates whether ttl is enabled (true) or disabled (false).
           * `kms_key_arn` (`pulumi.Input[str]`) - The ARN of the CMK that should be used for the AWS KMS encryption.
             This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
 
         The **ttl** object supports the following:
 
           * `attributeName` (`pulumi.Input[str]`) - The name of the table attribute to store the TTL timestamp in.
-          * `enabled` (`pulumi.Input[bool]`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
+          * `enabled` (`pulumi.Input[bool]`) - Indicates whether ttl is enabled (true) or disabled (false).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -239,6 +250,7 @@ class Table(pulumi.CustomResource):
             __props__['point_in_time_recovery'] = point_in_time_recovery
             __props__['range_key'] = range_key
             __props__['read_capacity'] = read_capacity
+            __props__['replicas'] = replicas
             __props__['server_side_encryption'] = server_side_encryption
             __props__['stream_enabled'] = stream_enabled
             __props__['stream_view_type'] = stream_view_type
@@ -255,7 +267,7 @@ class Table(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, attributes=None, billing_mode=None, global_secondary_indexes=None, hash_key=None, local_secondary_indexes=None, name=None, point_in_time_recovery=None, range_key=None, read_capacity=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, tags=None, ttl=None, write_capacity=None):
+    def get(resource_name, id, opts=None, arn=None, attributes=None, billing_mode=None, global_secondary_indexes=None, hash_key=None, local_secondary_indexes=None, name=None, point_in_time_recovery=None, range_key=None, read_capacity=None, replicas=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, tags=None, ttl=None, write_capacity=None):
         """
         Get an existing Table resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -278,6 +290,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[dict] point_in_time_recovery: Point-in-time recovery options.
         :param pulumi.Input[str] range_key: The name of the range key; must be defined
         :param pulumi.Input[float] read_capacity: The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[list] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
         :param pulumi.Input[dict] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
         :param pulumi.Input[str] stream_arn: The ARN of the Table Stream. Only available when `stream_enabled = true`
         :param pulumi.Input[bool] stream_enabled: Indicates whether Streams are to be enabled (true) or disabled (false).
@@ -327,18 +340,22 @@ class Table(pulumi.CustomResource):
 
         The **point_in_time_recovery** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
+          * `enabled` (`pulumi.Input[bool]`) - Indicates whether ttl is enabled (true) or disabled (false).
+
+        The **replicas** object supports the following:
+
+          * `regionName` (`pulumi.Input[str]`) - Region name of the replica.
 
         The **server_side_encryption** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
+          * `enabled` (`pulumi.Input[bool]`) - Indicates whether ttl is enabled (true) or disabled (false).
           * `kms_key_arn` (`pulumi.Input[str]`) - The ARN of the CMK that should be used for the AWS KMS encryption.
             This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
 
         The **ttl** object supports the following:
 
           * `attributeName` (`pulumi.Input[str]`) - The name of the table attribute to store the TTL timestamp in.
-          * `enabled` (`pulumi.Input[bool]`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
+          * `enabled` (`pulumi.Input[bool]`) - Indicates whether ttl is enabled (true) or disabled (false).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -354,6 +371,7 @@ class Table(pulumi.CustomResource):
         __props__["point_in_time_recovery"] = point_in_time_recovery
         __props__["range_key"] = range_key
         __props__["read_capacity"] = read_capacity
+        __props__["replicas"] = replicas
         __props__["server_side_encryption"] = server_side_encryption
         __props__["stream_arn"] = stream_arn
         __props__["stream_enabled"] = stream_enabled

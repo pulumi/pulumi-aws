@@ -27,7 +27,7 @@ class GetRouteTablesResult:
             raise TypeError("Expected argument 'ids' to be a list")
         __self__.ids = ids
         """
-        A list of all the route table ids found. This data source will fail if none are found.
+        A set of all the route table ids found. This data source will fail if none are found.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")

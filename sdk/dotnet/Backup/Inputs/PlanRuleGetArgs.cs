@@ -18,8 +18,20 @@ namespace Pulumi.Aws.Backup.Inputs
         [Input("completionWindow")]
         public Input<int>? CompletionWindow { get; set; }
 
+        [Input("copyActions")]
+        private InputList<Inputs.PlanRuleCopyActionGetArgs>? _copyActions;
+
         /// <summary>
-        /// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+        /// Configuration block(s) with copy operation settings. Detailed below.
+        /// </summary>
+        public InputList<Inputs.PlanRuleCopyActionGetArgs> CopyActions
+        {
+            get => _copyActions ?? (_copyActions = new InputList<Inputs.PlanRuleCopyActionGetArgs>());
+            set => _copyActions = value;
+        }
+
+        /// <summary>
+        /// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
         /// </summary>
         [Input("lifecycle")]
         public Input<Inputs.PlanRuleLifecycleGetArgs>? Lifecycle { get; set; }

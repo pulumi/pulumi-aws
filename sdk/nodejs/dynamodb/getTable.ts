@@ -65,6 +65,7 @@ export interface GetTableResult {
     readonly pointInTimeRecovery: outputs.dynamodb.GetTablePointInTimeRecovery;
     readonly rangeKey: string;
     readonly readCapacity: number;
+    readonly replicas: outputs.dynamodb.GetTableReplica[];
     readonly serverSideEncryption: outputs.dynamodb.GetTableServerSideEncryption;
     readonly streamArn: string;
     readonly streamEnabled: boolean;

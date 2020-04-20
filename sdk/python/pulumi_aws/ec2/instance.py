@@ -192,6 +192,7 @@ class Instance(pulumi.CustomResource):
 
       * `deleteOnTermination` (`bool`) - Whether the volume should be destroyed
         on instance termination (Default: `true`).
+      * `device_name` (`str`) - The name of the device to mount.
       * `encrypted` (`bool`) - Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
       * `iops` (`float`) - The amount of provisioned
         [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
@@ -345,6 +346,7 @@ class Instance(pulumi.CustomResource):
 
           * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
             on instance termination (Default: `true`).
+          * `device_name` (`pulumi.Input[str]`) - The name of the device to mount.
           * `encrypted` (`pulumi.Input[bool]`) - Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
           * `iops` (`pulumi.Input[float]`) - The amount of provisioned
             [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
@@ -543,6 +545,7 @@ class Instance(pulumi.CustomResource):
 
           * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
             on instance termination (Default: `true`).
+          * `device_name` (`pulumi.Input[str]`) - The name of the device to mount.
           * `encrypted` (`pulumi.Input[bool]`) - Enable volume encryption. (Default: `false`). Must be configured to perform drift detection.
           * `iops` (`pulumi.Input[float]`) - The amount of provisioned
             [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).

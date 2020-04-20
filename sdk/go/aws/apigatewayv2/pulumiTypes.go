@@ -152,7 +152,687 @@ func (o AuthorizerJwtConfigurationPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthorizerJwtConfiguration) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
 
+type DomainNameDomainNameConfiguration struct {
+	// The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
+	// Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+	CertificateArn string `pulumi:"certificateArn"`
+	// The endpoint type. Valid values: `REGIONAL`.
+	EndpointType string `pulumi:"endpointType"`
+	// The Amazon Route 53 Hosted Zone ID of the endpoint.
+	HostedZoneId *string `pulumi:"hostedZoneId"`
+	// The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+	SecurityPolicy string `pulumi:"securityPolicy"`
+	// The target domain name.
+	TargetDomainName *string `pulumi:"targetDomainName"`
+}
+
+// DomainNameDomainNameConfigurationInput is an input type that accepts DomainNameDomainNameConfigurationArgs and DomainNameDomainNameConfigurationOutput values.
+// You can construct a concrete instance of `DomainNameDomainNameConfigurationInput` via:
+//
+// 		 DomainNameDomainNameConfigurationArgs{...}
+//
+type DomainNameDomainNameConfigurationInput interface {
+	pulumi.Input
+
+	ToDomainNameDomainNameConfigurationOutput() DomainNameDomainNameConfigurationOutput
+	ToDomainNameDomainNameConfigurationOutputWithContext(context.Context) DomainNameDomainNameConfigurationOutput
+}
+
+type DomainNameDomainNameConfigurationArgs struct {
+	// The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
+	// Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
+	// The endpoint type. Valid values: `REGIONAL`.
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The Amazon Route 53 Hosted Zone ID of the endpoint.
+	HostedZoneId pulumi.StringPtrInput `pulumi:"hostedZoneId"`
+	// The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+	SecurityPolicy pulumi.StringInput `pulumi:"securityPolicy"`
+	// The target domain name.
+	TargetDomainName pulumi.StringPtrInput `pulumi:"targetDomainName"`
+}
+
+func (DomainNameDomainNameConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameDomainNameConfiguration)(nil)).Elem()
+}
+
+func (i DomainNameDomainNameConfigurationArgs) ToDomainNameDomainNameConfigurationOutput() DomainNameDomainNameConfigurationOutput {
+	return i.ToDomainNameDomainNameConfigurationOutputWithContext(context.Background())
+}
+
+func (i DomainNameDomainNameConfigurationArgs) ToDomainNameDomainNameConfigurationOutputWithContext(ctx context.Context) DomainNameDomainNameConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameDomainNameConfigurationOutput)
+}
+
+func (i DomainNameDomainNameConfigurationArgs) ToDomainNameDomainNameConfigurationPtrOutput() DomainNameDomainNameConfigurationPtrOutput {
+	return i.ToDomainNameDomainNameConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DomainNameDomainNameConfigurationArgs) ToDomainNameDomainNameConfigurationPtrOutputWithContext(ctx context.Context) DomainNameDomainNameConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameDomainNameConfigurationOutput).ToDomainNameDomainNameConfigurationPtrOutputWithContext(ctx)
+}
+
+// DomainNameDomainNameConfigurationPtrInput is an input type that accepts DomainNameDomainNameConfigurationArgs, DomainNameDomainNameConfigurationPtr and DomainNameDomainNameConfigurationPtrOutput values.
+// You can construct a concrete instance of `DomainNameDomainNameConfigurationPtrInput` via:
+//
+// 		 DomainNameDomainNameConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type DomainNameDomainNameConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDomainNameDomainNameConfigurationPtrOutput() DomainNameDomainNameConfigurationPtrOutput
+	ToDomainNameDomainNameConfigurationPtrOutputWithContext(context.Context) DomainNameDomainNameConfigurationPtrOutput
+}
+
+type domainNameDomainNameConfigurationPtrType DomainNameDomainNameConfigurationArgs
+
+func DomainNameDomainNameConfigurationPtr(v *DomainNameDomainNameConfigurationArgs) DomainNameDomainNameConfigurationPtrInput {
+	return (*domainNameDomainNameConfigurationPtrType)(v)
+}
+
+func (*domainNameDomainNameConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainNameDomainNameConfiguration)(nil)).Elem()
+}
+
+func (i *domainNameDomainNameConfigurationPtrType) ToDomainNameDomainNameConfigurationPtrOutput() DomainNameDomainNameConfigurationPtrOutput {
+	return i.ToDomainNameDomainNameConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *domainNameDomainNameConfigurationPtrType) ToDomainNameDomainNameConfigurationPtrOutputWithContext(ctx context.Context) DomainNameDomainNameConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameDomainNameConfigurationPtrOutput)
+}
+
+type DomainNameDomainNameConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DomainNameDomainNameConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameDomainNameConfiguration)(nil)).Elem()
+}
+
+func (o DomainNameDomainNameConfigurationOutput) ToDomainNameDomainNameConfigurationOutput() DomainNameDomainNameConfigurationOutput {
+	return o
+}
+
+func (o DomainNameDomainNameConfigurationOutput) ToDomainNameDomainNameConfigurationOutputWithContext(ctx context.Context) DomainNameDomainNameConfigurationOutput {
+	return o
+}
+
+func (o DomainNameDomainNameConfigurationOutput) ToDomainNameDomainNameConfigurationPtrOutput() DomainNameDomainNameConfigurationPtrOutput {
+	return o.ToDomainNameDomainNameConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DomainNameDomainNameConfigurationOutput) ToDomainNameDomainNameConfigurationPtrOutputWithContext(ctx context.Context) DomainNameDomainNameConfigurationPtrOutput {
+	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *DomainNameDomainNameConfiguration {
+		return &v
+	}).(DomainNameDomainNameConfigurationPtrOutput)
+}
+
+// The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
+// Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+func (o DomainNameDomainNameConfigurationOutput) CertificateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainNameDomainNameConfiguration) string { return v.CertificateArn }).(pulumi.StringOutput)
+}
+
+// The endpoint type. Valid values: `REGIONAL`.
+func (o DomainNameDomainNameConfigurationOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainNameDomainNameConfiguration) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The Amazon Route 53 Hosted Zone ID of the endpoint.
+func (o DomainNameDomainNameConfigurationOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
+}
+
+// The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+func (o DomainNameDomainNameConfigurationOutput) SecurityPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainNameDomainNameConfiguration) string { return v.SecurityPolicy }).(pulumi.StringOutput)
+}
+
+// The target domain name.
+func (o DomainNameDomainNameConfigurationOutput) TargetDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.TargetDomainName }).(pulumi.StringPtrOutput)
+}
+
+type DomainNameDomainNameConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainNameDomainNameConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainNameDomainNameConfiguration)(nil)).Elem()
+}
+
+func (o DomainNameDomainNameConfigurationPtrOutput) ToDomainNameDomainNameConfigurationPtrOutput() DomainNameDomainNameConfigurationPtrOutput {
+	return o
+}
+
+func (o DomainNameDomainNameConfigurationPtrOutput) ToDomainNameDomainNameConfigurationPtrOutputWithContext(ctx context.Context) DomainNameDomainNameConfigurationPtrOutput {
+	return o
+}
+
+func (o DomainNameDomainNameConfigurationPtrOutput) Elem() DomainNameDomainNameConfigurationOutput {
+	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) DomainNameDomainNameConfiguration { return *v }).(DomainNameDomainNameConfigurationOutput)
+}
+
+// The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
+// Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+func (o DomainNameDomainNameConfigurationPtrOutput) CertificateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainNameDomainNameConfiguration) string { return v.CertificateArn }).(pulumi.StringOutput)
+}
+
+// The endpoint type. Valid values: `REGIONAL`.
+func (o DomainNameDomainNameConfigurationPtrOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainNameDomainNameConfiguration) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The Amazon Route 53 Hosted Zone ID of the endpoint.
+func (o DomainNameDomainNameConfigurationPtrOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
+}
+
+// The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+func (o DomainNameDomainNameConfigurationPtrOutput) SecurityPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainNameDomainNameConfiguration) string { return v.SecurityPolicy }).(pulumi.StringOutput)
+}
+
+// The target domain name.
+func (o DomainNameDomainNameConfigurationPtrOutput) TargetDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.TargetDomainName }).(pulumi.StringPtrOutput)
+}
+
+type StageAccessLogSettings struct {
+	// The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
+	DestinationArn string `pulumi:"destinationArn"`
+	// A single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
+	Format string `pulumi:"format"`
+}
+
+// StageAccessLogSettingsInput is an input type that accepts StageAccessLogSettingsArgs and StageAccessLogSettingsOutput values.
+// You can construct a concrete instance of `StageAccessLogSettingsInput` via:
+//
+// 		 StageAccessLogSettingsArgs{...}
+//
+type StageAccessLogSettingsInput interface {
+	pulumi.Input
+
+	ToStageAccessLogSettingsOutput() StageAccessLogSettingsOutput
+	ToStageAccessLogSettingsOutputWithContext(context.Context) StageAccessLogSettingsOutput
+}
+
+type StageAccessLogSettingsArgs struct {
+	// The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
+	DestinationArn pulumi.StringInput `pulumi:"destinationArn"`
+	// A single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
+	Format pulumi.StringInput `pulumi:"format"`
+}
+
+func (StageAccessLogSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageAccessLogSettings)(nil)).Elem()
+}
+
+func (i StageAccessLogSettingsArgs) ToStageAccessLogSettingsOutput() StageAccessLogSettingsOutput {
+	return i.ToStageAccessLogSettingsOutputWithContext(context.Background())
+}
+
+func (i StageAccessLogSettingsArgs) ToStageAccessLogSettingsOutputWithContext(ctx context.Context) StageAccessLogSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageAccessLogSettingsOutput)
+}
+
+func (i StageAccessLogSettingsArgs) ToStageAccessLogSettingsPtrOutput() StageAccessLogSettingsPtrOutput {
+	return i.ToStageAccessLogSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i StageAccessLogSettingsArgs) ToStageAccessLogSettingsPtrOutputWithContext(ctx context.Context) StageAccessLogSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageAccessLogSettingsOutput).ToStageAccessLogSettingsPtrOutputWithContext(ctx)
+}
+
+// StageAccessLogSettingsPtrInput is an input type that accepts StageAccessLogSettingsArgs, StageAccessLogSettingsPtr and StageAccessLogSettingsPtrOutput values.
+// You can construct a concrete instance of `StageAccessLogSettingsPtrInput` via:
+//
+// 		 StageAccessLogSettingsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type StageAccessLogSettingsPtrInput interface {
+	pulumi.Input
+
+	ToStageAccessLogSettingsPtrOutput() StageAccessLogSettingsPtrOutput
+	ToStageAccessLogSettingsPtrOutputWithContext(context.Context) StageAccessLogSettingsPtrOutput
+}
+
+type stageAccessLogSettingsPtrType StageAccessLogSettingsArgs
+
+func StageAccessLogSettingsPtr(v *StageAccessLogSettingsArgs) StageAccessLogSettingsPtrInput {
+	return (*stageAccessLogSettingsPtrType)(v)
+}
+
+func (*stageAccessLogSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageAccessLogSettings)(nil)).Elem()
+}
+
+func (i *stageAccessLogSettingsPtrType) ToStageAccessLogSettingsPtrOutput() StageAccessLogSettingsPtrOutput {
+	return i.ToStageAccessLogSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *stageAccessLogSettingsPtrType) ToStageAccessLogSettingsPtrOutputWithContext(ctx context.Context) StageAccessLogSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageAccessLogSettingsPtrOutput)
+}
+
+type StageAccessLogSettingsOutput struct{ *pulumi.OutputState }
+
+func (StageAccessLogSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageAccessLogSettings)(nil)).Elem()
+}
+
+func (o StageAccessLogSettingsOutput) ToStageAccessLogSettingsOutput() StageAccessLogSettingsOutput {
+	return o
+}
+
+func (o StageAccessLogSettingsOutput) ToStageAccessLogSettingsOutputWithContext(ctx context.Context) StageAccessLogSettingsOutput {
+	return o
+}
+
+func (o StageAccessLogSettingsOutput) ToStageAccessLogSettingsPtrOutput() StageAccessLogSettingsPtrOutput {
+	return o.ToStageAccessLogSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o StageAccessLogSettingsOutput) ToStageAccessLogSettingsPtrOutputWithContext(ctx context.Context) StageAccessLogSettingsPtrOutput {
+	return o.ApplyT(func(v StageAccessLogSettings) *StageAccessLogSettings {
+		return &v
+	}).(StageAccessLogSettingsPtrOutput)
+}
+
+// The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
+func (o StageAccessLogSettingsOutput) DestinationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v StageAccessLogSettings) string { return v.DestinationArn }).(pulumi.StringOutput)
+}
+
+// A single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
+func (o StageAccessLogSettingsOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v StageAccessLogSettings) string { return v.Format }).(pulumi.StringOutput)
+}
+
+type StageAccessLogSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (StageAccessLogSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageAccessLogSettings)(nil)).Elem()
+}
+
+func (o StageAccessLogSettingsPtrOutput) ToStageAccessLogSettingsPtrOutput() StageAccessLogSettingsPtrOutput {
+	return o
+}
+
+func (o StageAccessLogSettingsPtrOutput) ToStageAccessLogSettingsPtrOutputWithContext(ctx context.Context) StageAccessLogSettingsPtrOutput {
+	return o
+}
+
+func (o StageAccessLogSettingsPtrOutput) Elem() StageAccessLogSettingsOutput {
+	return o.ApplyT(func(v *StageAccessLogSettings) StageAccessLogSettings { return *v }).(StageAccessLogSettingsOutput)
+}
+
+// The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
+func (o StageAccessLogSettingsPtrOutput) DestinationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v StageAccessLogSettings) string { return v.DestinationArn }).(pulumi.StringOutput)
+}
+
+// A single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
+func (o StageAccessLogSettingsPtrOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v StageAccessLogSettings) string { return v.Format }).(pulumi.StringOutput)
+}
+
+type StageDefaultRouteSettings struct {
+	// Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+	// Defaults to `false`. Supported only for WebSocket APIs.
+	DataTraceEnabled *bool `pulumi:"dataTraceEnabled"`
+	// Whether detailed metrics are enabled for the default route. Defaults to `false`.
+	DetailedMetricsEnabled *bool `pulumi:"detailedMetricsEnabled"`
+	// The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+	// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+	LoggingLevel *string `pulumi:"loggingLevel"`
+	// The throttling burst limit for the default route.
+	ThrottlingBurstLimit *int `pulumi:"throttlingBurstLimit"`
+	// The throttling rate limit for the default route.
+	ThrottlingRateLimit *float64 `pulumi:"throttlingRateLimit"`
+}
+
+// StageDefaultRouteSettingsInput is an input type that accepts StageDefaultRouteSettingsArgs and StageDefaultRouteSettingsOutput values.
+// You can construct a concrete instance of `StageDefaultRouteSettingsInput` via:
+//
+// 		 StageDefaultRouteSettingsArgs{...}
+//
+type StageDefaultRouteSettingsInput interface {
+	pulumi.Input
+
+	ToStageDefaultRouteSettingsOutput() StageDefaultRouteSettingsOutput
+	ToStageDefaultRouteSettingsOutputWithContext(context.Context) StageDefaultRouteSettingsOutput
+}
+
+type StageDefaultRouteSettingsArgs struct {
+	// Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+	// Defaults to `false`. Supported only for WebSocket APIs.
+	DataTraceEnabled pulumi.BoolPtrInput `pulumi:"dataTraceEnabled"`
+	// Whether detailed metrics are enabled for the default route. Defaults to `false`.
+	DetailedMetricsEnabled pulumi.BoolPtrInput `pulumi:"detailedMetricsEnabled"`
+	// The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+	// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+	LoggingLevel pulumi.StringPtrInput `pulumi:"loggingLevel"`
+	// The throttling burst limit for the default route.
+	ThrottlingBurstLimit pulumi.IntPtrInput `pulumi:"throttlingBurstLimit"`
+	// The throttling rate limit for the default route.
+	ThrottlingRateLimit pulumi.Float64PtrInput `pulumi:"throttlingRateLimit"`
+}
+
+func (StageDefaultRouteSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageDefaultRouteSettings)(nil)).Elem()
+}
+
+func (i StageDefaultRouteSettingsArgs) ToStageDefaultRouteSettingsOutput() StageDefaultRouteSettingsOutput {
+	return i.ToStageDefaultRouteSettingsOutputWithContext(context.Background())
+}
+
+func (i StageDefaultRouteSettingsArgs) ToStageDefaultRouteSettingsOutputWithContext(ctx context.Context) StageDefaultRouteSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageDefaultRouteSettingsOutput)
+}
+
+func (i StageDefaultRouteSettingsArgs) ToStageDefaultRouteSettingsPtrOutput() StageDefaultRouteSettingsPtrOutput {
+	return i.ToStageDefaultRouteSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i StageDefaultRouteSettingsArgs) ToStageDefaultRouteSettingsPtrOutputWithContext(ctx context.Context) StageDefaultRouteSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageDefaultRouteSettingsOutput).ToStageDefaultRouteSettingsPtrOutputWithContext(ctx)
+}
+
+// StageDefaultRouteSettingsPtrInput is an input type that accepts StageDefaultRouteSettingsArgs, StageDefaultRouteSettingsPtr and StageDefaultRouteSettingsPtrOutput values.
+// You can construct a concrete instance of `StageDefaultRouteSettingsPtrInput` via:
+//
+// 		 StageDefaultRouteSettingsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type StageDefaultRouteSettingsPtrInput interface {
+	pulumi.Input
+
+	ToStageDefaultRouteSettingsPtrOutput() StageDefaultRouteSettingsPtrOutput
+	ToStageDefaultRouteSettingsPtrOutputWithContext(context.Context) StageDefaultRouteSettingsPtrOutput
+}
+
+type stageDefaultRouteSettingsPtrType StageDefaultRouteSettingsArgs
+
+func StageDefaultRouteSettingsPtr(v *StageDefaultRouteSettingsArgs) StageDefaultRouteSettingsPtrInput {
+	return (*stageDefaultRouteSettingsPtrType)(v)
+}
+
+func (*stageDefaultRouteSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageDefaultRouteSettings)(nil)).Elem()
+}
+
+func (i *stageDefaultRouteSettingsPtrType) ToStageDefaultRouteSettingsPtrOutput() StageDefaultRouteSettingsPtrOutput {
+	return i.ToStageDefaultRouteSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *stageDefaultRouteSettingsPtrType) ToStageDefaultRouteSettingsPtrOutputWithContext(ctx context.Context) StageDefaultRouteSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageDefaultRouteSettingsPtrOutput)
+}
+
+type StageDefaultRouteSettingsOutput struct{ *pulumi.OutputState }
+
+func (StageDefaultRouteSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageDefaultRouteSettings)(nil)).Elem()
+}
+
+func (o StageDefaultRouteSettingsOutput) ToStageDefaultRouteSettingsOutput() StageDefaultRouteSettingsOutput {
+	return o
+}
+
+func (o StageDefaultRouteSettingsOutput) ToStageDefaultRouteSettingsOutputWithContext(ctx context.Context) StageDefaultRouteSettingsOutput {
+	return o
+}
+
+func (o StageDefaultRouteSettingsOutput) ToStageDefaultRouteSettingsPtrOutput() StageDefaultRouteSettingsPtrOutput {
+	return o.ToStageDefaultRouteSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o StageDefaultRouteSettingsOutput) ToStageDefaultRouteSettingsPtrOutputWithContext(ctx context.Context) StageDefaultRouteSettingsPtrOutput {
+	return o.ApplyT(func(v StageDefaultRouteSettings) *StageDefaultRouteSettings {
+		return &v
+	}).(StageDefaultRouteSettingsPtrOutput)
+}
+
+// Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+// Defaults to `false`. Supported only for WebSocket APIs.
+func (o StageDefaultRouteSettingsOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StageDefaultRouteSettings) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether detailed metrics are enabled for the default route. Defaults to `false`.
+func (o StageDefaultRouteSettingsOutput) DetailedMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StageDefaultRouteSettings) *bool { return v.DetailedMetricsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+func (o StageDefaultRouteSettingsOutput) LoggingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageDefaultRouteSettings) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
+}
+
+// The throttling burst limit for the default route.
+func (o StageDefaultRouteSettingsOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StageDefaultRouteSettings) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
+}
+
+// The throttling rate limit for the default route.
+func (o StageDefaultRouteSettingsOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StageDefaultRouteSettings) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
+}
+
+type StageDefaultRouteSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (StageDefaultRouteSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageDefaultRouteSettings)(nil)).Elem()
+}
+
+func (o StageDefaultRouteSettingsPtrOutput) ToStageDefaultRouteSettingsPtrOutput() StageDefaultRouteSettingsPtrOutput {
+	return o
+}
+
+func (o StageDefaultRouteSettingsPtrOutput) ToStageDefaultRouteSettingsPtrOutputWithContext(ctx context.Context) StageDefaultRouteSettingsPtrOutput {
+	return o
+}
+
+func (o StageDefaultRouteSettingsPtrOutput) Elem() StageDefaultRouteSettingsOutput {
+	return o.ApplyT(func(v *StageDefaultRouteSettings) StageDefaultRouteSettings { return *v }).(StageDefaultRouteSettingsOutput)
+}
+
+// Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+// Defaults to `false`. Supported only for WebSocket APIs.
+func (o StageDefaultRouteSettingsPtrOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StageDefaultRouteSettings) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether detailed metrics are enabled for the default route. Defaults to `false`.
+func (o StageDefaultRouteSettingsPtrOutput) DetailedMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StageDefaultRouteSettings) *bool { return v.DetailedMetricsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+func (o StageDefaultRouteSettingsPtrOutput) LoggingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageDefaultRouteSettings) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
+}
+
+// The throttling burst limit for the default route.
+func (o StageDefaultRouteSettingsPtrOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StageDefaultRouteSettings) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
+}
+
+// The throttling rate limit for the default route.
+func (o StageDefaultRouteSettingsPtrOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StageDefaultRouteSettings) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
+}
+
+type StageRouteSetting struct {
+	// Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+	// Defaults to `false`. Supported only for WebSocket APIs.
+	DataTraceEnabled *bool `pulumi:"dataTraceEnabled"`
+	// Whether detailed metrics are enabled for the route. Defaults to `false`.
+	DetailedMetricsEnabled *bool `pulumi:"detailedMetricsEnabled"`
+	// The logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+	// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+	LoggingLevel *string `pulumi:"loggingLevel"`
+	// Route key.
+	RouteKey string `pulumi:"routeKey"`
+	// The throttling burst limit for the route.
+	ThrottlingBurstLimit *int `pulumi:"throttlingBurstLimit"`
+	// The throttling rate limit for the route.
+	ThrottlingRateLimit *float64 `pulumi:"throttlingRateLimit"`
+}
+
+// StageRouteSettingInput is an input type that accepts StageRouteSettingArgs and StageRouteSettingOutput values.
+// You can construct a concrete instance of `StageRouteSettingInput` via:
+//
+// 		 StageRouteSettingArgs{...}
+//
+type StageRouteSettingInput interface {
+	pulumi.Input
+
+	ToStageRouteSettingOutput() StageRouteSettingOutput
+	ToStageRouteSettingOutputWithContext(context.Context) StageRouteSettingOutput
+}
+
+type StageRouteSettingArgs struct {
+	// Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+	// Defaults to `false`. Supported only for WebSocket APIs.
+	DataTraceEnabled pulumi.BoolPtrInput `pulumi:"dataTraceEnabled"`
+	// Whether detailed metrics are enabled for the route. Defaults to `false`.
+	DetailedMetricsEnabled pulumi.BoolPtrInput `pulumi:"detailedMetricsEnabled"`
+	// The logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+	// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+	LoggingLevel pulumi.StringPtrInput `pulumi:"loggingLevel"`
+	// Route key.
+	RouteKey pulumi.StringInput `pulumi:"routeKey"`
+	// The throttling burst limit for the route.
+	ThrottlingBurstLimit pulumi.IntPtrInput `pulumi:"throttlingBurstLimit"`
+	// The throttling rate limit for the route.
+	ThrottlingRateLimit pulumi.Float64PtrInput `pulumi:"throttlingRateLimit"`
+}
+
+func (StageRouteSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageRouteSetting)(nil)).Elem()
+}
+
+func (i StageRouteSettingArgs) ToStageRouteSettingOutput() StageRouteSettingOutput {
+	return i.ToStageRouteSettingOutputWithContext(context.Background())
+}
+
+func (i StageRouteSettingArgs) ToStageRouteSettingOutputWithContext(ctx context.Context) StageRouteSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageRouteSettingOutput)
+}
+
+// StageRouteSettingArrayInput is an input type that accepts StageRouteSettingArray and StageRouteSettingArrayOutput values.
+// You can construct a concrete instance of `StageRouteSettingArrayInput` via:
+//
+// 		 StageRouteSettingArray{ StageRouteSettingArgs{...} }
+//
+type StageRouteSettingArrayInput interface {
+	pulumi.Input
+
+	ToStageRouteSettingArrayOutput() StageRouteSettingArrayOutput
+	ToStageRouteSettingArrayOutputWithContext(context.Context) StageRouteSettingArrayOutput
+}
+
+type StageRouteSettingArray []StageRouteSettingInput
+
+func (StageRouteSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StageRouteSetting)(nil)).Elem()
+}
+
+func (i StageRouteSettingArray) ToStageRouteSettingArrayOutput() StageRouteSettingArrayOutput {
+	return i.ToStageRouteSettingArrayOutputWithContext(context.Background())
+}
+
+func (i StageRouteSettingArray) ToStageRouteSettingArrayOutputWithContext(ctx context.Context) StageRouteSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageRouteSettingArrayOutput)
+}
+
+type StageRouteSettingOutput struct{ *pulumi.OutputState }
+
+func (StageRouteSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageRouteSetting)(nil)).Elem()
+}
+
+func (o StageRouteSettingOutput) ToStageRouteSettingOutput() StageRouteSettingOutput {
+	return o
+}
+
+func (o StageRouteSettingOutput) ToStageRouteSettingOutputWithContext(ctx context.Context) StageRouteSettingOutput {
+	return o
+}
+
+// Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+// Defaults to `false`. Supported only for WebSocket APIs.
+func (o StageRouteSettingOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StageRouteSetting) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether detailed metrics are enabled for the route. Defaults to `false`.
+func (o StageRouteSettingOutput) DetailedMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StageRouteSetting) *bool { return v.DetailedMetricsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+func (o StageRouteSettingOutput) LoggingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageRouteSetting) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
+}
+
+// Route key.
+func (o StageRouteSettingOutput) RouteKey() pulumi.StringOutput {
+	return o.ApplyT(func(v StageRouteSetting) string { return v.RouteKey }).(pulumi.StringOutput)
+}
+
+// The throttling burst limit for the route.
+func (o StageRouteSettingOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StageRouteSetting) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
+}
+
+// The throttling rate limit for the route.
+func (o StageRouteSettingOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StageRouteSetting) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
+}
+
+type StageRouteSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (StageRouteSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StageRouteSetting)(nil)).Elem()
+}
+
+func (o StageRouteSettingArrayOutput) ToStageRouteSettingArrayOutput() StageRouteSettingArrayOutput {
+	return o
+}
+
+func (o StageRouteSettingArrayOutput) ToStageRouteSettingArrayOutputWithContext(ctx context.Context) StageRouteSettingArrayOutput {
+	return o
+}
+
+func (o StageRouteSettingArrayOutput) Index(i pulumi.IntInput) StageRouteSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageRouteSetting {
+		return vs[0].([]StageRouteSetting)[vs[1].(int)]
+	}).(StageRouteSettingOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AuthorizerJwtConfigurationOutput{})
 	pulumi.RegisterOutputType(AuthorizerJwtConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DomainNameDomainNameConfigurationOutput{})
+	pulumi.RegisterOutputType(DomainNameDomainNameConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StageAccessLogSettingsOutput{})
+	pulumi.RegisterOutputType(StageAccessLogSettingsPtrOutput{})
+	pulumi.RegisterOutputType(StageDefaultRouteSettingsOutput{})
+	pulumi.RegisterOutputType(StageDefaultRouteSettingsPtrOutput{})
+	pulumi.RegisterOutputType(StageRouteSettingOutput{})
+	pulumi.RegisterOutputType(StageRouteSettingArrayOutput{})
 }

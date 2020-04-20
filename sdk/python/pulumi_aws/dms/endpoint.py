@@ -18,6 +18,15 @@ class Endpoint(pulumi.CustomResource):
     """
     The name of the endpoint database.
     """
+    elasticsearch_settings: pulumi.Output[dict]
+    """
+    Settings for the target Elasticsearch. Available settings are `service_access_role_arn`, `endpoint_uri`, `error_retry_duration` (default: `300`) and `full_load_error_percentage` (default: `10`). For more details, see [Using an Amazon Elasticsearch Service Cluster as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html).
+
+      * `endpointUri` (`str`)
+      * `errorRetryDuration` (`float`)
+      * `fullLoadErrorPercentage` (`float`)
+      * `serviceAccessRoleArn` (`str`)
+    """
     endpoint_arn: pulumi.Output[str]
     """
     The Amazon Resource Name (ARN) for the endpoint.
@@ -32,11 +41,19 @@ class Endpoint(pulumi.CustomResource):
     """
     engine_name: pulumi.Output[str]
     """
-    The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+    The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
     """
     extra_connection_attributes: pulumi.Output[str]
     """
     Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+    """
+    kinesis_settings: pulumi.Output[dict]
+    """
+    Settings for the target Kinesis endpoint. Available settings are `message_format`, `service_access_role_arn`, and `stream_arn`. For more details, see [Using Amazon Kinesis Data Streams as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html).
+
+      * `messageFormat` (`str`)
+      * `serviceAccessRoleArn` (`str`)
+      * `stream_arn` (`str`)
     """
     kms_key_arn: pulumi.Output[str]
     """
@@ -93,7 +110,7 @@ class Endpoint(pulumi.CustomResource):
     """
     The user name to be used to login to the endpoint database.
     """
-    def __init__(__self__, resource_name, opts=None, certificate_arn=None, database_name=None, endpoint_id=None, endpoint_type=None, engine_name=None, extra_connection_attributes=None, kms_key_arn=None, mongodb_settings=None, password=None, port=None, s3_settings=None, server_name=None, service_access_role=None, ssl_mode=None, tags=None, username=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, certificate_arn=None, database_name=None, elasticsearch_settings=None, endpoint_id=None, endpoint_type=None, engine_name=None, extra_connection_attributes=None, kinesis_settings=None, kms_key_arn=None, mongodb_settings=None, password=None, port=None, s3_settings=None, server_name=None, service_access_role=None, ssl_mode=None, tags=None, username=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a DMS (Data Migration Service) endpoint resource. DMS endpoints can be created, updated, deleted, and imported.
 
@@ -106,10 +123,12 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the certificate.
         :param pulumi.Input[str] database_name: The name of the endpoint database.
+        :param pulumi.Input[dict] elasticsearch_settings: Settings for the target Elasticsearch. Available settings are `service_access_role_arn`, `endpoint_uri`, `error_retry_duration` (default: `300`) and `full_load_error_percentage` (default: `10`). For more details, see [Using an Amazon Elasticsearch Service Cluster as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html).
         :param pulumi.Input[str] endpoint_id: The database endpoint identifier.
         :param pulumi.Input[str] endpoint_type: The type of endpoint. Can be one of `source | target`.
-        :param pulumi.Input[str] engine_name: The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+        :param pulumi.Input[str] engine_name: The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
         :param pulumi.Input[str] extra_connection_attributes: Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+        :param pulumi.Input[dict] kinesis_settings: Settings for the target Kinesis endpoint. Available settings are `message_format`, `service_access_role_arn`, and `stream_arn`. For more details, see [Using Amazon Kinesis Data Streams as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html).
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[dict] mongodb_settings: Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `password`), `auth_mechanism` (default: `default`), `nesting_level` (default: `none`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
         :param pulumi.Input[str] password: The password to be used to login to the endpoint database.
@@ -120,6 +139,19 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] ssl_mode: The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] username: The user name to be used to login to the endpoint database.
+
+        The **elasticsearch_settings** object supports the following:
+
+          * `endpointUri` (`pulumi.Input[str]`)
+          * `errorRetryDuration` (`pulumi.Input[float]`)
+          * `fullLoadErrorPercentage` (`pulumi.Input[float]`)
+          * `serviceAccessRoleArn` (`pulumi.Input[str]`)
+
+        The **kinesis_settings** object supports the following:
+
+          * `messageFormat` (`pulumi.Input[str]`)
+          * `serviceAccessRoleArn` (`pulumi.Input[str]`)
+          * `stream_arn` (`pulumi.Input[str]`)
 
         The **mongodb_settings** object supports the following:
 
@@ -159,6 +191,7 @@ class Endpoint(pulumi.CustomResource):
 
             __props__['certificate_arn'] = certificate_arn
             __props__['database_name'] = database_name
+            __props__['elasticsearch_settings'] = elasticsearch_settings
             if endpoint_id is None:
                 raise TypeError("Missing required property 'endpoint_id'")
             __props__['endpoint_id'] = endpoint_id
@@ -169,6 +202,7 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'engine_name'")
             __props__['engine_name'] = engine_name
             __props__['extra_connection_attributes'] = extra_connection_attributes
+            __props__['kinesis_settings'] = kinesis_settings
             __props__['kms_key_arn'] = kms_key_arn
             __props__['mongodb_settings'] = mongodb_settings
             __props__['password'] = password
@@ -187,7 +221,7 @@ class Endpoint(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, certificate_arn=None, database_name=None, endpoint_arn=None, endpoint_id=None, endpoint_type=None, engine_name=None, extra_connection_attributes=None, kms_key_arn=None, mongodb_settings=None, password=None, port=None, s3_settings=None, server_name=None, service_access_role=None, ssl_mode=None, tags=None, username=None):
+    def get(resource_name, id, opts=None, certificate_arn=None, database_name=None, elasticsearch_settings=None, endpoint_arn=None, endpoint_id=None, endpoint_type=None, engine_name=None, extra_connection_attributes=None, kinesis_settings=None, kms_key_arn=None, mongodb_settings=None, password=None, port=None, s3_settings=None, server_name=None, service_access_role=None, ssl_mode=None, tags=None, username=None):
         """
         Get an existing Endpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -197,11 +231,13 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the certificate.
         :param pulumi.Input[str] database_name: The name of the endpoint database.
+        :param pulumi.Input[dict] elasticsearch_settings: Settings for the target Elasticsearch. Available settings are `service_access_role_arn`, `endpoint_uri`, `error_retry_duration` (default: `300`) and `full_load_error_percentage` (default: `10`). For more details, see [Using an Amazon Elasticsearch Service Cluster as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html).
         :param pulumi.Input[str] endpoint_arn: The Amazon Resource Name (ARN) for the endpoint.
         :param pulumi.Input[str] endpoint_id: The database endpoint identifier.
         :param pulumi.Input[str] endpoint_type: The type of endpoint. Can be one of `source | target`.
-        :param pulumi.Input[str] engine_name: The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+        :param pulumi.Input[str] engine_name: The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
         :param pulumi.Input[str] extra_connection_attributes: Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+        :param pulumi.Input[dict] kinesis_settings: Settings for the target Kinesis endpoint. Available settings are `message_format`, `service_access_role_arn`, and `stream_arn`. For more details, see [Using Amazon Kinesis Data Streams as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html).
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[dict] mongodb_settings: Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `password`), `auth_mechanism` (default: `default`), `nesting_level` (default: `none`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
         :param pulumi.Input[str] password: The password to be used to login to the endpoint database.
@@ -212,6 +248,19 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] ssl_mode: The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] username: The user name to be used to login to the endpoint database.
+
+        The **elasticsearch_settings** object supports the following:
+
+          * `endpointUri` (`pulumi.Input[str]`)
+          * `errorRetryDuration` (`pulumi.Input[float]`)
+          * `fullLoadErrorPercentage` (`pulumi.Input[float]`)
+          * `serviceAccessRoleArn` (`pulumi.Input[str]`)
+
+        The **kinesis_settings** object supports the following:
+
+          * `messageFormat` (`pulumi.Input[str]`)
+          * `serviceAccessRoleArn` (`pulumi.Input[str]`)
+          * `stream_arn` (`pulumi.Input[str]`)
 
         The **mongodb_settings** object supports the following:
 
@@ -238,11 +287,13 @@ class Endpoint(pulumi.CustomResource):
 
         __props__["certificate_arn"] = certificate_arn
         __props__["database_name"] = database_name
+        __props__["elasticsearch_settings"] = elasticsearch_settings
         __props__["endpoint_arn"] = endpoint_arn
         __props__["endpoint_id"] = endpoint_id
         __props__["endpoint_type"] = endpoint_type
         __props__["engine_name"] = engine_name
         __props__["extra_connection_attributes"] = extra_connection_attributes
+        __props__["kinesis_settings"] = kinesis_settings
         __props__["kms_key_arn"] = kms_key_arn
         __props__["mongodb_settings"] = mongodb_settings
         __props__["password"] = password

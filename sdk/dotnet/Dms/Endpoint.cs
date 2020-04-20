@@ -30,6 +30,12 @@ namespace Pulumi.Aws.Dms
         public Output<string?> DatabaseName { get; private set; } = null!;
 
         /// <summary>
+        /// Settings for the target Elasticsearch. Available settings are `service_access_role_arn`, `endpoint_uri`, `error_retry_duration` (default: `300`) and `full_load_error_percentage` (default: `10`). For more details, see [Using an Amazon Elasticsearch Service Cluster as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html).
+        /// </summary>
+        [Output("elasticsearchSettings")]
+        public Output<Outputs.EndpointElasticsearchSettings?> ElasticsearchSettings { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) for the endpoint.
         /// </summary>
         [Output("endpointArn")]
@@ -48,7 +54,7 @@ namespace Pulumi.Aws.Dms
         public Output<string> EndpointType { get; private set; } = null!;
 
         /// <summary>
-        /// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+        /// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
         /// </summary>
         [Output("engineName")]
         public Output<string> EngineName { get; private set; } = null!;
@@ -58,6 +64,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Output("extraConnectionAttributes")]
         public Output<string> ExtraConnectionAttributes { get; private set; } = null!;
+
+        /// <summary>
+        /// Settings for the target Kinesis endpoint. Available settings are `message_format`, `service_access_role_arn`, and `stream_arn`. For more details, see [Using Amazon Kinesis Data Streams as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html).
+        /// </summary>
+        [Output("kinesisSettings")]
+        public Output<Outputs.EndpointKinesisSettings?> KinesisSettings { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
@@ -178,6 +190,12 @@ namespace Pulumi.Aws.Dms
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
+        /// Settings for the target Elasticsearch. Available settings are `service_access_role_arn`, `endpoint_uri`, `error_retry_duration` (default: `300`) and `full_load_error_percentage` (default: `10`). For more details, see [Using an Amazon Elasticsearch Service Cluster as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html).
+        /// </summary>
+        [Input("elasticsearchSettings")]
+        public Input<Inputs.EndpointElasticsearchSettingsArgs>? ElasticsearchSettings { get; set; }
+
+        /// <summary>
         /// The database endpoint identifier.
         /// </summary>
         [Input("endpointId", required: true)]
@@ -190,7 +208,7 @@ namespace Pulumi.Aws.Dms
         public Input<string> EndpointType { get; set; } = null!;
 
         /// <summary>
-        /// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+        /// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
         /// </summary>
         [Input("engineName", required: true)]
         public Input<string> EngineName { get; set; } = null!;
@@ -200,6 +218,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Input("extraConnectionAttributes")]
         public Input<string>? ExtraConnectionAttributes { get; set; }
+
+        /// <summary>
+        /// Settings for the target Kinesis endpoint. Available settings are `message_format`, `service_access_role_arn`, and `stream_arn`. For more details, see [Using Amazon Kinesis Data Streams as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html).
+        /// </summary>
+        [Input("kinesisSettings")]
+        public Input<Inputs.EndpointKinesisSettingsArgs>? KinesisSettings { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
@@ -287,6 +311,12 @@ namespace Pulumi.Aws.Dms
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
+        /// Settings for the target Elasticsearch. Available settings are `service_access_role_arn`, `endpoint_uri`, `error_retry_duration` (default: `300`) and `full_load_error_percentage` (default: `10`). For more details, see [Using an Amazon Elasticsearch Service Cluster as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html).
+        /// </summary>
+        [Input("elasticsearchSettings")]
+        public Input<Inputs.EndpointElasticsearchSettingsGetArgs>? ElasticsearchSettings { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) for the endpoint.
         /// </summary>
         [Input("endpointArn")]
@@ -305,7 +335,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? EndpointType { get; set; }
 
         /// <summary>
-        /// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+        /// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
         /// </summary>
         [Input("engineName")]
         public Input<string>? EngineName { get; set; }
@@ -315,6 +345,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Input("extraConnectionAttributes")]
         public Input<string>? ExtraConnectionAttributes { get; set; }
+
+        /// <summary>
+        /// Settings for the target Kinesis endpoint. Available settings are `message_format`, `service_access_role_arn`, and `stream_arn`. For more details, see [Using Amazon Kinesis Data Streams as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html).
+        /// </summary>
+        [Input("kinesisSettings")]
+        public Input<Inputs.EndpointKinesisSettingsGetArgs>? KinesisSettings { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.

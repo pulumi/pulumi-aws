@@ -58,6 +58,32 @@ import * as utilities from "../utilities";
  *     writeCapacity: 20,
  * });
  * ```
+ * 
+ * ### Global Tables
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.dynamodb.Table("example", {
+ *     attributes: [{
+ *         name: "TestTableHashKey",
+ *         type: "S",
+ *     }],
+ *     billingMode: "PAY_PER_REQUEST",
+ *     hashKey: "TestTableHashKey",
+ *     replicas: [
+ *         {
+ *             regionName: "us-east-2",
+ *         },
+ *         {
+ *             regionName: "us-west-2",
+ *         },
+ *     ],
+ *     streamEnabled: true,
+ *     streamViewType: "NEW_AND_OLD_IMAGES",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_table.html.markdown.
  */
@@ -134,6 +160,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly readCapacity!: pulumi.Output<number | undefined>;
     /**
+     * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+     */
+    public readonly replicas!: pulumi.Output<outputs.dynamodb.TableReplica[] | undefined>;
+    /**
      * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
      */
     public readonly serverSideEncryption!: pulumi.Output<outputs.dynamodb.TableServerSideEncryption>;
@@ -191,6 +221,7 @@ export class Table extends pulumi.CustomResource {
             inputs["pointInTimeRecovery"] = state ? state.pointInTimeRecovery : undefined;
             inputs["rangeKey"] = state ? state.rangeKey : undefined;
             inputs["readCapacity"] = state ? state.readCapacity : undefined;
+            inputs["replicas"] = state ? state.replicas : undefined;
             inputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
             inputs["streamArn"] = state ? state.streamArn : undefined;
             inputs["streamEnabled"] = state ? state.streamEnabled : undefined;
@@ -216,6 +247,7 @@ export class Table extends pulumi.CustomResource {
             inputs["pointInTimeRecovery"] = args ? args.pointInTimeRecovery : undefined;
             inputs["rangeKey"] = args ? args.rangeKey : undefined;
             inputs["readCapacity"] = args ? args.readCapacity : undefined;
+            inputs["replicas"] = args ? args.replicas : undefined;
             inputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             inputs["streamEnabled"] = args ? args.streamEnabled : undefined;
             inputs["streamViewType"] = args ? args.streamViewType : undefined;
@@ -286,6 +318,10 @@ export interface TableState {
      * The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
      */
     readonly readCapacity?: pulumi.Input<number>;
+    /**
+     * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+     */
+    readonly replicas?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableReplica>[]>;
     /**
      * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
      */
@@ -368,6 +404,10 @@ export interface TableArgs {
      * The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
      */
     readonly readCapacity?: pulumi.Input<number>;
+    /**
+     * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+     */
+    readonly replicas?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableReplica>[]>;
     /**
      * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
      */
