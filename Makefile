@@ -61,7 +61,9 @@ install_plugins::
 	pulumi plugin install resource github 1.0.0
 
 lint::
-	#golangci-lint run
+	for DIR in "provider" "sdk" ; do \
+		pushd $$DIR && GOGC=20 golangci-lint run -c ../.golangci.yml -v && popd ; \
+	done
 
 install:: tfgen provider
 	[ ! -e "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" ] || rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"

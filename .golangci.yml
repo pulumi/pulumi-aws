@@ -1,3 +1,9 @@
+run:
+  timeout: 15m
+  skip-files:
+    - 'schema.go'
+    - 'pulumiManifest.go'
+
 linters:
   enable-all: false
   enable:
