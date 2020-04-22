@@ -5,6 +5,7 @@ CHANGELOG
 * Add ManagedPolicies.AmazonEC2SpotFleetTaggingRole
 * Add Principals.BatchPrincipal
 * Add Principals.SpotFleetPrincipal
+* Switch deprecated Buffer constructor to Buffer.from in LogGroup.onDecodedEvent
 
 ---
 
