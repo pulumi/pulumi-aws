@@ -14,9 +14,9 @@
 
 import {Input} from "@pulumi/pulumi";
 
-// Implementation note: The definitions of `PolicyDocument` and its associated types below are based
-// on the grammar for IAM Policy Documents defined at
-// https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html.
+ // Implementation note: The definitions of `PolicyDocument` and its associated types below are based
+ // on the grammar for IAM Policy Documents defined at
+ // https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html.
 
 /**
  * You manage access in AWS by creating policies and attaching them to IAM identities or AWS resources. A policy is an
@@ -49,11 +49,17 @@ import {Input} from "@pulumi/pulumi";
  * https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
  */
 export interface PolicyDocument {
-    // The version of the policy language that you want to use. As a best practice, use the latest `2012-10-17` version.
+    /**
+     * The version of the policy language that you want to use. As a best practice, use the latest `2012-10-17` version.
+     */
     Version: Input<"2008-10-17" | "2012-10-17">;
-    // An optional document ID.
+    /**
+     * An optional document ID.
+     */
     Id?: Input<string>;
-    // One or more policy statements, describing the effect, principal, action, resource, and condition.
+    /**
+     * One or more policy statements, describing the effect, principal, action, resource, and condition.
+     */
     Statement: Input<Input<PolicyStatement>[]>;
 }
 
@@ -62,28 +68,43 @@ export interface PolicyDocument {
  * (see the subsequent sections in this page). The Statement element contains an array of individual statements.
  */
 export interface PolicyStatement {
-    // An optional statement ID to differentiate between your statements.
+    /**
+     * An optional statement ID to differentiate between your statements.
+     */
     Sid?: Input<string>;
-    // Indicate whether the policy allows or denies access.
+    /**
+     * Indicate whether the policy allows or denies access.
+     */
     Effect: Input<"Allow" | "Deny">;
-    // Indicate the account, user, role, or federated user to which you would like to allow or deny access. If you are
-    // creating a policy to attach to a user or role, you cannot include this element. The principal is implied as that
-    // user or role.
+    /**
+     * Indicate the account, user, role, or federated user to which you would like to allow or deny access. If you are
+     * creating a policy to attach to a user or role, you cannot include this element. The principal is implied as that
+     * user or role.
+     */
     Principal?: Input<Principal>;
-    // Indicate the account, user, role, or federated user to which this policy does not apply.
+    /**
+     * Indicate the account, user, role, or federated user to which this policy does not apply.
+     */
     NotPrincipal?: Input<Principal>;
-
-    // Include a list of actions that the policy allows or denies.
+    /**
+     * Include a list of actions that the policy allows or denies.
+     */
     Action?: Input<string> | Input<Input<string>[]>;
-    // Include a list of actions that are not covered by this policy.
+    /**
+     * Include a list of actions that are not covered by this policy.
+     */
     NotAction?: Input<string> | Input<Input<string>[]>;
-
-    // A list of resources to which the actions apply.
+    /**
+     * A list of resources to which the actions apply.
+     */
     Resource?: Input<string> | Input<Input<string>[]>;
-    // A list of resources that are specifically excluded by this policy.
+    /**
+     * A list of resources that are specifically excluded by this policy.
+     */
     NotResource?: Input<string> | Input<Input<string>[]>;
-
-    // Specify the circumstances under which the policy grants permission.
+    /**
+     * Specify the circumstances under which the policy grants permission.
+     */
     Condition?: Input<Conditions>;
 }
 
@@ -96,27 +117,33 @@ export interface PolicyStatement {
  * lets you write a condition using the s3:VersionId key, which is unique to that service.
  */
 export interface Conditions {
-    // A map of condition operators and their arguments. Condition operators are the "verbs" of conditions and specify
-    // the type of comparison that IAM performs. The condition operators are grouped into the following categorties:
-    //
-    //     - String
-    //     - Numeric
-    //     - Date and time
-    //     - Boolean
-    //     - Binary
-    //     - IP address
-    //     - Amazon Resource (ARN) (available for some services)
-    //     - ...IfExists (checks if the key value exists as part of another check)
-    //     - Null check (checks if the key value exists as a standalone check)
-    //
-    // For details on all of the available operators and their arguments, please refer to the AWS documentation:
-    // https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html.
+    /**
+     *
+     * A map of condition operators and their arguments. Condition operators are the "verbs" of conditions and specify
+     * the type of comparison that IAM performs. The condition operators are grouped into the following categorties:
+     *
+     *     - String
+     *     - Numeric
+     *     - Date and time
+     *     - Boolean
+     *     - Binary
+     *     - IP address
+     *     - Amazon Resource (ARN) (available for some services)
+     *     - ...IfExists (checks if the key value exists as part of another check)
+     *     - Null check (checks if the key value exists as a standalone check)
+     *
+     * For details on all of the available operators and their arguments, please refer to the AWS documentation:
+     * https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html.
+     */
     [operator: string]: ConditionArguments;
 }
 
 export interface ConditionArguments {
-    // e.g. { "aws:MultiFactorAuthPresent": "true" }
-    //   or { "aws:SourceIp": [ "203.0.113.0/24", "2001:DB8:1234:5678::/64" ]}
+    /**
+     * Examples:
+     *  - `{ "aws:MultiFactorAuthPresent": "true" }`
+     *  - `{ "aws:SourceIp": [ "203.0.113.0/24", "2001:DB8:1234:5678::/64" ]}`
+     */
     [value: string]: Input<string> | Input<Input<string>[]>;
 }
 
