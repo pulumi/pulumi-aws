@@ -154,6 +154,7 @@ export module ManagedPolicies {
     export const AmazonEC2RoleforSSM: ARN = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM";
     export const AmazonEC2SpotFleetAutoscaleRole: ARN = "arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetAutoscaleRole";
     export const AmazonEC2SpotFleetRole: ARN = "arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetRole";
+    export const AmazonEC2SpotFleetTaggingRole: ARN = "arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetTaggingRole";
     export const AmazonESFullAccess: ARN = "arn:aws:iam::aws:policy/AmazonESFullAccess";
     export const AmazonESReadOnlyAccess: ARN = "arn:aws:iam::aws:policy/AmazonESReadOnlyAccess";
     export const AmazonElastiCacheFullAccess: ARN = "arn:aws:iam::aws:policy/AmazonElastiCacheFullAccess";

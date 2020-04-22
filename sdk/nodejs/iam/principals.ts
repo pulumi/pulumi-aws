@@ -36,6 +36,11 @@ export module Principals {
     export const AutoscalingPrincipal: Principal = {Service: "autoscaling.amazonaws.com"};
 
     /**
+     * Service Principal for Batch
+     */
+    export const BatchPrincipal: Principal = {Service: "batch.amazonaws.com"};
+
+    /**
      * Service Principal for Cloud Directory
      */
     export const CloudDirectoryPrincipal: Principal = {Service: "clouddirectory.amazonaws.com"};
@@ -260,6 +265,11 @@ export module Principals {
      * Service Principal for Simple Queue Service
      */
     export const SqsPrincipal: Principal = {Service: "sqs.amazonaws.com"};
+
+    /**
+     * Service Principal for Spot Fleet
+     */
+    export const SpotFleetPrincipal: Principal = {Service: "spotfleet.amazonaws.com"};
 
     /**
      * Service Principal for Systems Manager

@@ -2,7 +2,9 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add ManagedPolicies.AmazonEC2SpotFleetTaggingRole
+* Add Principals.BatchPrincipal
+* Add Principals.SpotFleetPrincipal
 
 ---
 
