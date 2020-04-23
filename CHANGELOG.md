@@ -2,6 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Add new region South Africa (Cape Town) af-south-1
 * Add ManagedPolicies.AmazonEC2SpotFleetTaggingRole
 * Add Principals.BatchPrincipal
 * Add Principals.SpotFleetPrincipal
