@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+export let AFSouth1Region: Region     = "af-south-1";
 export let APEast1Region: Region      = "ap-east-1";
 export let APNortheast1Region: Region = "ap-northeast-1";
 export let APNortheast2Region: Region = "ap-northeast-2";
@@ -37,6 +38,7 @@ export let USWest2Region: Region      = "us-west-2";
  * A Region represents any valid Amazon region that may be targeted with deployments.
  */
 export type Region =
+    "af-south-1"     |
     "ap-east-1"      |
     "ap-northeast-1" |
     "ap-northeast-2" |
