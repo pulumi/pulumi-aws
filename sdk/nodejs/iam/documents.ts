@@ -14,9 +14,9 @@
 
 import {Input} from "@pulumi/pulumi";
 
- // Implementation note: The definitions of `PolicyDocument` and its associated types below are based
- // on the grammar for IAM Policy Documents defined at
- // https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html.
+// Implementation note: The definitions of `PolicyDocument` and its associated types below are based
+// on the grammar for IAM Policy Documents defined at
+// https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html.
 
 /**
  * You manage access in AWS by creating policies and attaching them to IAM identities or AWS resources. A policy is an
