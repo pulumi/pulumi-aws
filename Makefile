@@ -1,15 +1,18 @@
 PROJECT_NAME := Amazon Web Services (AWS) Package
 include build/common.mk
 
-PACK             := aws
-PACKDIR          := sdk
-PROJECT          := github.com/pulumi/pulumi-aws
-NODE_MODULE_NAME := @pulumi/aws
+PACK                  := aws
+PACKDIR               := sdk
+PROJECT               := github.com/pulumi/pulumi-aws
+NODE_MODULE_NAME      := @pulumi/aws
+PROVIDER_ORG          := pulumi
+PROVIDER_UPSTREAM_ORG := terraform-providers
 
-TFGEN           := pulumi-tfgen-${PACK}
-PROVIDER        := pulumi-resource-${PACK}
-VERSION         := $(shell scripts/get-version)
-PYPI_VERSION    := $(shell scripts/get-py-version)
+TFGEN                 := pulumi-tfgen-${PACK}
+PROVIDER              := pulumi-resource-${PACK}
+VERSION               := $(shell scripts/get-version)
+PYPI_VERSION          := $(shell scripts/get-py-version)
+PROVIDER_LATEST_SHA   := $(shell scripts/get-tfprovider-sha ${PACK} ${PROVIDER_ORG} ${PROVIDER_UPSTREAM_ORG})
 
 DOTNET_PREFIX  := $(firstword $(subst -, ,${VERSION:v%=%})) # e.g. 1.5.0
 DOTNET_SUFFIX  := $(word 2,$(subst -, ,${VERSION:v%=%}))    # e.g. alpha.1
@@ -74,6 +77,9 @@ install:: tfgen provider
 	echo "Copying NuGet packages to ${PULUMI_NUGET}"
 	[ ! -e "$(PULUMI_NUGET)" ] || rm -rf "$(PULUMI_NUGET)/*"
 	find . -name '*.nupkg' -exec cp -p {} ${PULUMI_NUGET} \;
+
+update_tf_provider::
+	cd provider && GO111MODULE=on go mod edit -replace github.com/${PROVIDER_UPSTREAM_ORG}/terraform-provider-${PACK}=github.com/${PROVIDER_ORG}/terraform-provider-${PACK}@${PROVIDER_LATEST_SHA} && go mod download
 
 test_fast::
 	cd examples && $(GO_TEST_FAST) .

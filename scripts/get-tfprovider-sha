@@ -1,0 +1,37 @@
+#!/bin/bash
+set -eu
+
+# Set some vars
+PROVIDER=${1}
+ORG=${2-terraform-providers}
+UPSTREAM_ORG=${3:-terraform-providers}
+
+# Check the provider name is set
+if [ -z "$PROVIDER" ]; then
+    echo "Must set provider name"
+    exit 1
+fi
+
+# If the upstream org is "terraform-providers"
+# We're pretty likely to just want to get the tag
+if [ "${ORG}" == "terraform-providers" ];
+then
+    curl -q -s https://api.github.com/repos/${ORG}/terraform-provider-${PROVIDER}/tags | jq -r '.[0].commit.sha'
+    exit 0
+fi
+
+# If we're using an upstream org, we need to get a branch
+# First, we get the latest tag
+LATEST_TAG=$(curl -q -s https://api.github.com/repos/${UPSTREAM_ORG}/terraform-provider-${PROVIDER}/tags | jq -r '.[0].name')
+
+# Now we get the commit for our branch with that tag
+SHA=$(curl -q -s https://api.github.com/repos/${ORG}/terraform-provider-${PROVIDER}/branches/upstream-${LATEST_TAG} | jq -r '.commit.sha')
+
+if [ "${SHA}" == "null" ];
+then
+    echo "No upstream branch created in github.com/${ORG}/terraform-provider-${PROVIDER} for tag ${LATEST_TAG}"
+    exit 2
+fi
+
+echo $SHA
+exit 0
