@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? ResourceType;
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Tags;
 

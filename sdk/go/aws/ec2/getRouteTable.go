@@ -31,7 +31,7 @@ type LookupRouteTableArgs struct {
 	RouteTableId *string `pulumi:"routeTableId"`
 	// The id of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
 	SubnetId *string `pulumi:"subnetId"`
-	// A mapping of tags, each pair of which must exactly match
+	// A map of tags, each pair of which must exactly match
 	// a pair on the desired Route Table.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The id of the VPC that the desired Route Table belongs to.

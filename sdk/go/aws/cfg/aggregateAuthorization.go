@@ -20,7 +20,7 @@ type AggregateAuthorization struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Region
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -64,7 +64,7 @@ type aggregateAuthorizationState struct {
 	Arn *string `pulumi:"arn"`
 	// Region
 	Region *string `pulumi:"region"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -75,7 +75,7 @@ type AggregateAuthorizationState struct {
 	Arn pulumi.StringPtrInput
 	// Region
 	Region pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -88,7 +88,7 @@ type aggregateAuthorizationArgs struct {
 	AccountId string `pulumi:"accountId"`
 	// Region
 	Region string `pulumi:"region"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -98,7 +98,7 @@ type AggregateAuthorizationArgs struct {
 	AccountId pulumi.StringInput
 	// Region
 	Region pulumi.StringInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

@@ -170,7 +170,7 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly tablePrefix!: pulumi.Output<string | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -300,7 +300,7 @@ export interface CrawlerState {
      */
     readonly tablePrefix?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -363,7 +363,7 @@ export interface CrawlerArgs {
      */
     readonly tablePrefix?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

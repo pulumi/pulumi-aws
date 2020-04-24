@@ -79,8 +79,8 @@ export class User extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * When destroying this user, destroy even if it
-     * has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-     * a user with non-this provider-managed access keys and login profile will fail to be destroyed.
+     * has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
+     * a user with non-provider-managed access keys and login profile will fail to be destroyed.
      */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
@@ -154,8 +154,8 @@ export interface UserState {
     readonly arn?: pulumi.Input<string>;
     /**
      * When destroying this user, destroy even if it
-     * has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-     * a user with non-this provider-managed access keys and login profile will fail to be destroyed.
+     * has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
+     * a user with non-provider-managed access keys and login profile will fail to be destroyed.
      */
     readonly forceDestroy?: pulumi.Input<boolean>;
     /**
@@ -186,8 +186,8 @@ export interface UserState {
 export interface UserArgs {
     /**
      * When destroying this user, destroy even if it
-     * has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-     * a user with non-this provider-managed access keys and login profile will fail to be destroyed.
+     * has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
+     * a user with non-provider-managed access keys and login profile will fail to be destroyed.
      */
     readonly forceDestroy?: pulumi.Input<boolean>;
     /**

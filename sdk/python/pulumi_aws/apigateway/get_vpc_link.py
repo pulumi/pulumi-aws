@@ -45,7 +45,7 @@ class GetVpcLinkResult:
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
-        Key-value mapping of resource tags
+        Key-value map of resource tags
         """
         if target_arns and not isinstance(target_arns, list):
             raise TypeError("Expected argument 'target_arns' to be a list")
@@ -79,7 +79,7 @@ def get_vpc_link(name=None,tags=None,opts=None):
 
     :param str name: The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned. 
            If multiple API Gateway VPC Links are found with this name, an error will be returned.
-    :param dict tags: Key-value mapping of resource tags
+    :param dict tags: Key-value map of resource tags
     """
     __args__ = dict()
 

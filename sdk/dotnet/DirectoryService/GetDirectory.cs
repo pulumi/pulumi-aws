@@ -34,7 +34,7 @@ namespace Pulumi.Aws.DirectoryService
         private Dictionary<string, object>? _tags;
 
         /// <summary>
-        /// A mapping of tags assigned to the directory/connector.
+        /// A map of tags assigned to the directory/connector.
         /// </summary>
         public Dictionary<string, object> Tags
         {
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.DirectoryService
         /// </summary>
         public readonly string Size;
         /// <summary>
-        /// A mapping of tags assigned to the directory/connector.
+        /// A map of tags assigned to the directory/connector.
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Tags;
         /// <summary>

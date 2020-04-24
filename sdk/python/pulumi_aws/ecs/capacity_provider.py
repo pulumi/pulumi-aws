@@ -33,7 +33,7 @@ class CapacityProvider(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags.
+    Key-value map of resource tags.
     """
     def __init__(__self__, resource_name, opts=None, auto_scaling_group_provider=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -47,7 +47,7 @@ class CapacityProvider(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] auto_scaling_group_provider: Nested argument defining the provider for the ECS auto scaling group. Defined below.
         :param pulumi.Input[str] name: The name of the capacity provider.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags.
 
         The **auto_scaling_group_provider** object supports the following:
 
@@ -101,7 +101,7 @@ class CapacityProvider(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the capacity provider.
         :param pulumi.Input[dict] auto_scaling_group_provider: Nested argument defining the provider for the ECS auto scaling group. Defined below.
         :param pulumi.Input[str] name: The name of the capacity provider.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags.
 
         The **auto_scaling_group_provider** object supports the following:
 

@@ -32,7 +32,7 @@ type NotebookInstance struct {
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// The VPC subnet ID.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -88,7 +88,7 @@ type notebookInstanceState struct {
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The VPC subnet ID.
 	SubnetId *string `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -111,7 +111,7 @@ type NotebookInstanceState struct {
 	SecurityGroups pulumi.StringArrayInput
 	// The VPC subnet ID.
 	SubnetId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -136,7 +136,7 @@ type notebookInstanceArgs struct {
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The VPC subnet ID.
 	SubnetId *string `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -158,7 +158,7 @@ type NotebookInstanceArgs struct {
 	SecurityGroups pulumi.StringArrayInput
 	// The VPC subnet ID.
 	SubnetId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

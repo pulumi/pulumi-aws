@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Workspaces
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags assigned to the WorkSpaces directory.
+        /// A map of tags assigned to the WorkSpaces directory.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Workspaces
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags assigned to the WorkSpaces directory.
+        /// A map of tags assigned to the WorkSpaces directory.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Workspaces
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags assigned to the WorkSpaces directory.
+        /// A map of tags assigned to the WorkSpaces directory.
         /// </summary>
         public InputMap<object> Tags
         {

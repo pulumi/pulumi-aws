@@ -36,7 +36,7 @@ class Mesh(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     def __init__(__self__, resource_name, opts=None, name=None, spec=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -48,7 +48,7 @@ class Mesh(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name to use for the service mesh.
         :param pulumi.Input[dict] spec: The service mesh specification to apply.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **spec** object supports the following:
 
@@ -99,7 +99,7 @@ class Mesh(pulumi.CustomResource):
         :param pulumi.Input[str] last_updated_date: The last update date of the service mesh.
         :param pulumi.Input[str] name: The name to use for the service mesh.
         :param pulumi.Input[dict] spec: The service mesh specification to apply.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **spec** object supports the following:
 

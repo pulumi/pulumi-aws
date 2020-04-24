@@ -108,7 +108,7 @@ type Instance struct {
 	SourceDestCheck pulumi.BoolPtrOutput `pulumi:"sourceDestCheck"`
 	// The VPC Subnet ID to launch in.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringOutput `pulumi:"tenancy"`
@@ -116,7 +116,7 @@ type Instance struct {
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 pulumi.StringPtrOutput `pulumi:"userDataBase64"`
-	// A mapping of tags to assign to the devices created by the instance at launch time.
+	// A map of tags to assign to the devices created by the instance at launch time.
 	VolumeTags pulumi.MapOutput `pulumi:"volumeTags"`
 	// A list of security group IDs to associate with.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
@@ -249,7 +249,7 @@ type instanceState struct {
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// The VPC Subnet ID to launch in.
 	SubnetId *string `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy *string `pulumi:"tenancy"`
@@ -257,7 +257,7 @@ type instanceState struct {
 	UserData *string `pulumi:"userData"`
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
-	// A mapping of tags to assign to the devices created by the instance at launch time.
+	// A map of tags to assign to the devices created by the instance at launch time.
 	VolumeTags map[string]interface{} `pulumi:"volumeTags"`
 	// A list of security group IDs to associate with.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -357,7 +357,7 @@ type InstanceState struct {
 	SourceDestCheck pulumi.BoolPtrInput
 	// The VPC Subnet ID to launch in.
 	SubnetId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringPtrInput
@@ -365,7 +365,7 @@ type InstanceState struct {
 	UserData pulumi.StringPtrInput
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 pulumi.StringPtrInput
-	// A mapping of tags to assign to the devices created by the instance at launch time.
+	// A map of tags to assign to the devices created by the instance at launch time.
 	VolumeTags pulumi.MapInput
 	// A list of security group IDs to associate with.
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -448,7 +448,7 @@ type instanceArgs struct {
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// The VPC Subnet ID to launch in.
 	SubnetId *string `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy *string `pulumi:"tenancy"`
@@ -456,7 +456,7 @@ type instanceArgs struct {
 	UserData *string `pulumi:"userData"`
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
-	// A mapping of tags to assign to the devices created by the instance at launch time.
+	// A map of tags to assign to the devices created by the instance at launch time.
 	VolumeTags map[string]interface{} `pulumi:"volumeTags"`
 	// A list of security group IDs to associate with.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -536,7 +536,7 @@ type InstanceArgs struct {
 	SourceDestCheck pulumi.BoolPtrInput
 	// The VPC Subnet ID to launch in.
 	SubnetId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringPtrInput
@@ -544,7 +544,7 @@ type InstanceArgs struct {
 	UserData pulumi.StringPtrInput
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 pulumi.StringPtrInput
-	// A mapping of tags to assign to the devices created by the instance at launch time.
+	// A map of tags to assign to the devices created by the instance at launch time.
 	VolumeTags pulumi.MapInput
 	// A list of security group IDs to associate with.
 	VpcSecurityGroupIds pulumi.StringArrayInput

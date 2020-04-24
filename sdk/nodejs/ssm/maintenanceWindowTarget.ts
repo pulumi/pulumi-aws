@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Provides an SSM Maintenance Window Target resource
  * 
- * ## Example Usage
- * 
- * 
+ * ## Instance Target Example Usage
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -28,6 +26,31 @@ import * as utilities from "../utilities";
  *     targets: [{
  *         key: "tag:Name",
  *         values: ["acceptanceTest"],
+ *     }],
+ *     windowId: window.id,
+ * });
+ * ```
+ * 
+ * ## Resource Group Target Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const window = new aws.ssm.MaintenanceWindow("window", {
+ *     cutoff: 1,
+ *     duration: 3,
+ *     schedule: "cron(0 16 ? * TUE *)",
+ * });
+ * const target1 = new aws.ssm.MaintenanceWindowTarget("target1", {
+ *     description: "This is a maintenance window target",
+ *     resourceType: "RESOURCE_GROUP",
+ *     targets: [{
+ *         key: "resource-groups:ResourceTypeFilters",
+ *         values: [
+ *             "AWS::EC2::INSTANCE",
+ *             "AWS::EC2::VPC",
+ *         ],
  *     }],
  *     windowId: window.id,
  * });
@@ -75,11 +98,12 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
      */
     public readonly ownerInformation!: pulumi.Output<string | undefined>;
     /**
-     * The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
+     * The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
      */
     public readonly resourceType!: pulumi.Output<string>;
     /**
-     * The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
+     * The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+     * (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
      */
     public readonly targets!: pulumi.Output<outputs.ssm.MaintenanceWindowTargetTarget[]>;
     /**
@@ -151,11 +175,12 @@ export interface MaintenanceWindowTargetState {
      */
     readonly ownerInformation?: pulumi.Input<string>;
     /**
-     * The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
+     * The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
      */
     readonly resourceType?: pulumi.Input<string>;
     /**
-     * The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
+     * The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+     * (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
      */
     readonly targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTargetTarget>[]>;
     /**
@@ -181,11 +206,12 @@ export interface MaintenanceWindowTargetArgs {
      */
     readonly ownerInformation?: pulumi.Input<string>;
     /**
-     * The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
+     * The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
      */
     readonly resourceType: pulumi.Input<string>;
     /**
-     * The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
+     * The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+     * (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
      */
     readonly targets: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTargetTarget>[]>;
     /**

@@ -70,7 +70,7 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
      */
     public readonly networkLoadBalancerArn!: pulumi.Output<string | undefined>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -125,7 +125,7 @@ export interface TrafficMirrorTargetState {
      */
     readonly networkLoadBalancerArn?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -147,7 +147,7 @@ export interface TrafficMirrorTargetArgs {
      */
     readonly networkLoadBalancerArn?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

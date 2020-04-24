@@ -53,7 +53,7 @@ class NetworkInterface(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     def __init__(__self__, resource_name, opts=None, attachments=None, description=None, private_ip=None, private_ips=None, private_ips_count=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -70,7 +70,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[list] security_groups: List of security group IDs to assign to the ENI.
         :param pulumi.Input[bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
         :param pulumi.Input[str] subnet_id: Subnet ID to create the ENI in.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **attachments** object supports the following:
 
@@ -132,7 +132,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[list] security_groups: List of security group IDs to assign to the ENI.
         :param pulumi.Input[bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
         :param pulumi.Input[str] subnet_id: Subnet ID to create the ENI in.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **attachments** object supports the following:
 

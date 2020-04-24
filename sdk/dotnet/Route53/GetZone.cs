@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Route53
         private Dictionary<string, object>? _tags;
 
         /// <summary>
-        /// Used with `name` field. A mapping of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+        /// Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
         /// </summary>
         public Dictionary<string, object> Tags
         {

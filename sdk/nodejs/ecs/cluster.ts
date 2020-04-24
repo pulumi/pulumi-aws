@@ -70,7 +70,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly settings!: pulumi.Output<outputs.ecs.ClusterSetting[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -137,7 +137,7 @@ export interface ClusterState {
      */
     readonly settings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSetting>[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -163,7 +163,7 @@ export interface ClusterArgs {
      */
     readonly settings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSetting>[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

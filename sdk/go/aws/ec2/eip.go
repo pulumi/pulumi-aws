@@ -38,7 +38,7 @@ type Eip struct {
 	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
 	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
 	PublicIpv4Pool pulumi.StringOutput `pulumi:"publicIpv4Pool"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Boolean if the EIP is in a VPC or not.
 	Vpc pulumi.BoolOutput `pulumi:"vpc"`
@@ -93,7 +93,7 @@ type eipState struct {
 	PublicIp *string `pulumi:"publicIp"`
 	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
 	PublicIpv4Pool *string `pulumi:"publicIpv4Pool"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Boolean if the EIP is in a VPC or not.
 	Vpc *bool `pulumi:"vpc"`
@@ -121,7 +121,7 @@ type EipState struct {
 	PublicIp pulumi.StringPtrInput
 	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
 	PublicIpv4Pool pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// Boolean if the EIP is in a VPC or not.
 	Vpc pulumi.BoolPtrInput
@@ -142,7 +142,7 @@ type eipArgs struct {
 	NetworkInterface *string `pulumi:"networkInterface"`
 	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
 	PublicIpv4Pool *string `pulumi:"publicIpv4Pool"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Boolean if the EIP is in a VPC or not.
 	Vpc *bool `pulumi:"vpc"`
@@ -160,7 +160,7 @@ type EipArgs struct {
 	NetworkInterface pulumi.StringPtrInput
 	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
 	PublicIpv4Pool pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// Boolean if the EIP is in a VPC or not.
 	Vpc pulumi.BoolPtrInput

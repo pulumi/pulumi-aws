@@ -22,7 +22,7 @@ func GetKey(ctx *pulumi.Context, args *GetKeyArgs, opts ...pulumi.InvokeOption) 
 type GetKeyArgs struct {
 	// The ID of the API Key to look up.
 	Id string `pulumi:"id"`
-	// A mapping of tags for the resource.
+	// A map of tags for the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -40,7 +40,7 @@ type GetKeyResult struct {
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
 	// Set to the name of the API Key.
 	Name string `pulumi:"name"`
-	// A mapping of tags for the resource.
+	// A map of tags for the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Set to the value of the API Key.
 	Value string `pulumi:"value"`

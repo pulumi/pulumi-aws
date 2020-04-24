@@ -47,7 +47,7 @@ export interface GetLogGroupArgs {
      */
     readonly name: string;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: {[key: string]: any};
 }
@@ -74,7 +74,7 @@ export interface GetLogGroupResult {
      */
     readonly retentionInDays: number;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags: {[key: string]: any};
     /**

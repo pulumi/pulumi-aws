@@ -24,7 +24,7 @@ type NatGateway struct {
 	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
 	// The Subnet ID of the subnet in which to place the gateway.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -72,7 +72,7 @@ type natGatewayState struct {
 	PublicIp *string `pulumi:"publicIp"`
 	// The Subnet ID of the subnet in which to place the gateway.
 	SubnetId *string `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -87,7 +87,7 @@ type NatGatewayState struct {
 	PublicIp pulumi.StringPtrInput
 	// The Subnet ID of the subnet in which to place the gateway.
 	SubnetId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -100,7 +100,7 @@ type natGatewayArgs struct {
 	AllocationId string `pulumi:"allocationId"`
 	// The Subnet ID of the subnet in which to place the gateway.
 	SubnetId string `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -110,7 +110,7 @@ type NatGatewayArgs struct {
 	AllocationId pulumi.StringInput
 	// The Subnet ID of the subnet in which to place the gateway.
 	SubnetId pulumi.StringInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

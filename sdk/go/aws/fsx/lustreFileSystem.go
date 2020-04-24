@@ -34,7 +34,7 @@ type LustreFileSystem struct {
 	StorageCapacity pulumi.IntOutput `pulumi:"storageCapacity"`
 	// A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
 	SubnetIds pulumi.StringOutput `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the file system.
+	// A map of tags to assign to the file system.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Identifier of the Virtual Private Cloud for the file system.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -96,7 +96,7 @@ type lustreFileSystemState struct {
 	StorageCapacity *int `pulumi:"storageCapacity"`
 	// A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
 	SubnetIds *string `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the file system.
+	// A map of tags to assign to the file system.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Identifier of the Virtual Private Cloud for the file system.
 	VpcId *string `pulumi:"vpcId"`
@@ -125,7 +125,7 @@ type LustreFileSystemState struct {
 	StorageCapacity pulumi.IntPtrInput
 	// A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
 	SubnetIds pulumi.StringPtrInput
-	// A mapping of tags to assign to the file system.
+	// A map of tags to assign to the file system.
 	Tags pulumi.MapInput
 	// Identifier of the Virtual Private Cloud for the file system.
 	VpcId pulumi.StringPtrInput
@@ -150,7 +150,7 @@ type lustreFileSystemArgs struct {
 	StorageCapacity int `pulumi:"storageCapacity"`
 	// A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
 	SubnetIds string `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the file system.
+	// A map of tags to assign to the file system.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 	WeeklyMaintenanceStartTime *string `pulumi:"weeklyMaintenanceStartTime"`
@@ -170,7 +170,7 @@ type LustreFileSystemArgs struct {
 	StorageCapacity pulumi.IntInput
 	// A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
 	SubnetIds pulumi.StringInput
-	// A mapping of tags to assign to the file system.
+	// A map of tags to assign to the file system.
 	Tags pulumi.MapInput
 	// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 	WeeklyMaintenanceStartTime pulumi.StringPtrInput

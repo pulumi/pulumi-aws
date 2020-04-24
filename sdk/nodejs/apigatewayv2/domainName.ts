@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
  * 
  * > **Note:** This resource establishes ownership of and the TLS settings for
- * a particular domain name. An API stage can be associated with the domain name using the `awsApigatewayv2ApiMapping` resource.
+ * a particular domain name. An API stage can be associated with the domain name using the `aws.apigatewayv2.ApiMapping` resource.
  * 
  * ## Example Usage
  * 
@@ -77,7 +77,7 @@ export class DomainName extends pulumi.CustomResource {
      */
     public readonly domainNameConfiguration!: pulumi.Output<outputs.apigatewayv2.DomainNameDomainNameConfiguration>;
     /**
-     * A mapping of tags to assign to the domain name.
+     * A map of tags to assign to the domain name.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -144,7 +144,7 @@ export interface DomainNameState {
      */
     readonly domainNameConfiguration?: pulumi.Input<inputs.apigatewayv2.DomainNameDomainNameConfiguration>;
     /**
-     * A mapping of tags to assign to the domain name.
+     * A map of tags to assign to the domain name.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -162,7 +162,7 @@ export interface DomainNameArgs {
      */
     readonly domainNameConfiguration: pulumi.Input<inputs.apigatewayv2.DomainNameDomainNameConfiguration>;
     /**
-     * A mapping of tags to assign to the domain name.
+     * A map of tags to assign to the domain name.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

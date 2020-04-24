@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Iam
         public Output<string?> PermissionsBoundary { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of tags for the IAM role
+        /// Key-value map of tags for the IAM role
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// Key-value mapping of tags for the IAM role
+        /// Key-value map of tags for the IAM role
         /// </summary>
         public InputMap<object> Tags
         {
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// Key-value mapping of tags for the IAM role
+        /// Key-value map of tags for the IAM role
         /// </summary>
         public InputMap<object> Tags
         {

@@ -180,7 +180,7 @@ export class Function extends pulumi.CustomResource {
      */
     public /*out*/ readonly invokeArn!: pulumi.Output<string>;
     /**
-     * The ARN for the KMS encryption key.
+     * Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and this provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
      */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
@@ -380,7 +380,7 @@ export interface FunctionState {
      */
     readonly invokeArn?: pulumi.Input<string>;
     /**
-     * The ARN for the KMS encryption key.
+     * Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and this provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
      */
     readonly kmsKeyArn?: pulumi.Input<string>;
     /**
@@ -484,7 +484,7 @@ export interface FunctionArgs {
      */
     readonly handler: pulumi.Input<string>;
     /**
-     * The ARN for the KMS encryption key.
+     * Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and this provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
      */
     readonly kmsKeyArn?: pulumi.Input<string>;
     /**

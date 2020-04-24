@@ -67,7 +67,7 @@ class GetFileSystemResult:
         __self__.provisioned_throughput_in_mibps = provisioned_throughput_in_mibps
         """
         The throughput, measured in MiB/s, that you want to provision for the file system.
-        * `tags` -A mapping of tags to assign to the file system.
+        * `tags` -A map of tags to assign to the file system.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")

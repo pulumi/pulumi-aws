@@ -32,7 +32,7 @@ type Repository struct {
 	RepositoryId pulumi.StringOutput `pulumi:"repositoryId"`
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -81,7 +81,7 @@ type repositoryState struct {
 	RepositoryId *string `pulumi:"repositoryId"`
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName *string `pulumi:"repositoryName"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -100,7 +100,7 @@ type RepositoryState struct {
 	RepositoryId pulumi.StringPtrInput
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 
@@ -115,7 +115,7 @@ type repositoryArgs struct {
 	Description *string `pulumi:"description"`
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName string `pulumi:"repositoryName"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -127,7 +127,7 @@ type RepositoryArgs struct {
 	Description pulumi.StringPtrInput
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 

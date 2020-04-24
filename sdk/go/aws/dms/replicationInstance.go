@@ -44,7 +44,7 @@ type ReplicationInstance struct {
 	ReplicationInstancePublicIps pulumi.StringArrayOutput `pulumi:"replicationInstancePublicIps"`
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId pulumi.StringOutput `pulumi:"replicationSubnetGroupId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
@@ -114,7 +114,7 @@ type replicationInstanceState struct {
 	ReplicationInstancePublicIps []string `pulumi:"replicationInstancePublicIps"`
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId *string `pulumi:"replicationSubnetGroupId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -151,7 +151,7 @@ type ReplicationInstanceState struct {
 	ReplicationInstancePublicIps pulumi.StringArrayInput
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -186,7 +186,7 @@ type replicationInstanceArgs struct {
 	ReplicationInstanceId string `pulumi:"replicationInstanceId"`
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId *string `pulumi:"replicationSubnetGroupId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -218,7 +218,7 @@ type ReplicationInstanceArgs struct {
 	ReplicationInstanceId pulumi.StringInput
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
 	VpcSecurityGroupIds pulumi.StringArrayInput

@@ -39,6 +39,7 @@ class GraphQLApi(pulumi.CustomResource):
     Nested argument containing logging configuration. Defined below.
 
       * `cloudwatchLogsRoleArn` (`str`) - Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+      * `excludeVerboseContent` (`bool`) - Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
       * `fieldLogLevel` (`str`) - Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
     """
     name: pulumi.Output[str]
@@ -60,7 +61,7 @@ class GraphQLApi(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     uris: pulumi.Output[dict]
     """
@@ -93,7 +94,7 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[str] name: A user-supplied name for the GraphqlApi.
         :param pulumi.Input[dict] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
         :param pulumi.Input[str] schema: The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[dict] user_pool_config: The Amazon Cognito User Pool configuration. Defined below.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
 
@@ -114,6 +115,7 @@ class GraphQLApi(pulumi.CustomResource):
         The **log_config** object supports the following:
 
           * `cloudwatchLogsRoleArn` (`pulumi.Input[str]`) - Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+          * `excludeVerboseContent` (`pulumi.Input[bool]`) - Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
           * `fieldLogLevel` (`pulumi.Input[str]`) - Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
 
         The **openid_connect_config** object supports the following:
@@ -182,7 +184,7 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[str] name: A user-supplied name for the GraphqlApi.
         :param pulumi.Input[dict] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
         :param pulumi.Input[str] schema: The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[dict] uris: Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         :param pulumi.Input[dict] user_pool_config: The Amazon Cognito User Pool configuration. Defined below.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
@@ -204,6 +206,7 @@ class GraphQLApi(pulumi.CustomResource):
         The **log_config** object supports the following:
 
           * `cloudwatchLogsRoleArn` (`pulumi.Input[str]`) - Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+          * `excludeVerboseContent` (`pulumi.Input[bool]`) - Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
           * `fieldLogLevel` (`pulumi.Input[str]`) - Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
 
         The **openid_connect_config** object supports the following:

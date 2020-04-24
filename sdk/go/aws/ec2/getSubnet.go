@@ -41,7 +41,7 @@ type LookupSubnetArgs struct {
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
 	// The state that the desired subnet must have.
 	State *string `pulumi:"state"`
-	// A mapping of tags, each pair of which must exactly match
+	// A map of tags, each pair of which must exactly match
 	// a pair on the desired subnet.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The id of the VPC that the desired subnet belongs to.

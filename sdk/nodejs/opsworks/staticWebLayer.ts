@@ -114,7 +114,7 @@ export class StaticWebLayer extends pulumi.CustomResource {
      */
     public readonly systemPackages!: pulumi.Output<string[] | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -262,7 +262,7 @@ export interface StaticWebLayerState {
      */
     readonly systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -334,7 +334,7 @@ export interface StaticWebLayerArgs {
      */
     readonly systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

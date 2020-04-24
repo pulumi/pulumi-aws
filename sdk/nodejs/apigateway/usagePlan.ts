@@ -105,7 +105,7 @@ export class UsagePlan extends pulumi.CustomResource {
      */
     public readonly quotaSettings!: pulumi.Output<outputs.apigateway.UsagePlanQuotaSettings | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -184,7 +184,7 @@ export interface UsagePlanState {
      */
     readonly quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -218,7 +218,7 @@ export interface UsagePlanArgs {
      */
     readonly quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

@@ -77,7 +77,7 @@ export interface GetInstancesArgs {
      */
     readonly instanceStateNames?: string[];
     /**
-     * A mapping of tags, each pair of which must
+     * A map of tags, each pair of which must
      * exactly match a pair on desired instances.
      */
     readonly instanceTags?: {[key: string]: any};

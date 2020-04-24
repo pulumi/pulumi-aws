@@ -34,7 +34,7 @@ type MaintenanceWindow struct {
 	ScheduleTimezone pulumi.StringPtrOutput `pulumi:"scheduleTimezone"`
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
 	StartDate pulumi.StringPtrOutput `pulumi:"startDate"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -95,7 +95,7 @@ type maintenanceWindowState struct {
 	ScheduleTimezone *string `pulumi:"scheduleTimezone"`
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
 	StartDate *string `pulumi:"startDate"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -120,7 +120,7 @@ type MaintenanceWindowState struct {
 	ScheduleTimezone pulumi.StringPtrInput
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
 	StartDate pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -149,7 +149,7 @@ type maintenanceWindowArgs struct {
 	ScheduleTimezone *string `pulumi:"scheduleTimezone"`
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
 	StartDate *string `pulumi:"startDate"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -175,7 +175,7 @@ type MaintenanceWindowArgs struct {
 	ScheduleTimezone pulumi.StringPtrInput
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
 	StartDate pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

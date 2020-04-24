@@ -80,7 +80,7 @@ class Fleet(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags
+    Key-value map of resource tags
     """
     def __init__(__self__, resource_name, opts=None, build_id=None, description=None, ec2_inbound_permissions=None, ec2_instance_type=None, fleet_type=None, instance_role_arn=None, metric_groups=None, name=None, new_game_session_protection_policy=None, resource_creation_limit_policy=None, runtime_configuration=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -101,7 +101,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
         :param pulumi.Input[dict] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
         :param pulumi.Input[dict] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
 
         The **ec2_inbound_permissions** object supports the following:
 
@@ -188,7 +188,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] operating_system: Operating system of the fleet's computing resources.
         :param pulumi.Input[dict] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
         :param pulumi.Input[dict] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
 
         The **ec2_inbound_permissions** object supports the following:
 

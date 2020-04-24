@@ -11,6 +11,9 @@ import (
 )
 
 // Provides an API Gateway VPC Link.
+//
+// > **Note:** Amazon API Gateway Version 1 VPC Links enable private integrations that connect REST APIs to private resources in a VPC.
+// To enable private integration for HTTP APIs, use the Amazon API Gateway Version 2 VPC Link [resource](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_vpc_link.html).
 type VpcLink struct {
 	pulumi.CustomResourceState
 
@@ -19,7 +22,7 @@ type VpcLink struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name used to label and identify the VPC link.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
@@ -61,7 +64,7 @@ type vpcLinkState struct {
 	Description *string `pulumi:"description"`
 	// The name used to label and identify the VPC link.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn *string `pulumi:"targetArn"`
@@ -73,7 +76,7 @@ type VpcLinkState struct {
 	Description pulumi.StringPtrInput
 	// The name used to label and identify the VPC link.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn pulumi.StringPtrInput
@@ -88,7 +91,7 @@ type vpcLinkArgs struct {
 	Description *string `pulumi:"description"`
 	// The name used to label and identify the VPC link.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn string `pulumi:"targetArn"`
@@ -100,7 +103,7 @@ type VpcLinkArgs struct {
 	Description pulumi.StringPtrInput
 	// The name used to label and identify the VPC link.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn pulumi.StringInput

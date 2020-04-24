@@ -39,7 +39,7 @@ class Cluster(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags
+    Key-value map of resource tags
     """
     def __init__(__self__, resource_name, opts=None, capacity_providers=None, default_capacity_provider_strategies=None, name=None, settings=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -53,7 +53,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[list] default_capacity_provider_strategies: The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
         :param pulumi.Input[str] name: The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
         :param pulumi.Input[list] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
 
         The **default_capacity_provider_strategies** object supports the following:
 
@@ -109,7 +109,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[list] default_capacity_provider_strategies: The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
         :param pulumi.Input[str] name: The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
         :param pulumi.Input[list] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
 
         The **default_capacity_provider_strategies** object supports the following:
 

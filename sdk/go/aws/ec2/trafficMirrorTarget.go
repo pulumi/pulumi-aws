@@ -20,7 +20,7 @@ type TrafficMirrorTarget struct {
 	NetworkInterfaceId pulumi.StringPtrOutput `pulumi:"networkInterfaceId"`
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn pulumi.StringPtrOutput `pulumi:"networkLoadBalancerArn"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -58,7 +58,7 @@ type trafficMirrorTargetState struct {
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn *string `pulumi:"networkLoadBalancerArn"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -69,7 +69,7 @@ type TrafficMirrorTargetState struct {
 	NetworkInterfaceId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn pulumi.StringPtrInput
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapInput
 }
 
@@ -84,7 +84,7 @@ type trafficMirrorTargetArgs struct {
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn *string `pulumi:"networkLoadBalancerArn"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -96,7 +96,7 @@ type TrafficMirrorTargetArgs struct {
 	NetworkInterfaceId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn pulumi.StringPtrInput
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapInput
 }
 

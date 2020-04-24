@@ -27,7 +27,7 @@ type LookupBucketObjectArgs struct {
 	// The full path to the object inside the bucket
 	Key   string  `pulumi:"key"`
 	Range *string `pulumi:"range"`
-	// A mapping of tags assigned to the object.
+	// A map of tags assigned to the object.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Specific version ID of the object returned (defaults to latest version)
 	VersionId *string `pulumi:"versionId"`
@@ -76,7 +76,7 @@ type LookupBucketObjectResult struct {
 	SseKmsKeyId string `pulumi:"sseKmsKeyId"`
 	// [Storage class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) information of the object. Available for all objects except for `Standard` storage class objects.
 	StorageClass string `pulumi:"storageClass"`
-	// A mapping of tags assigned to the object.
+	// A map of tags assigned to the object.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The latest version ID of the object returned.
 	VersionId string `pulumi:"versionId"`

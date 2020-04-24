@@ -20,9 +20,10 @@ type MaintenanceWindowTarget struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
 	OwnerInformation pulumi.StringPtrOutput `pulumi:"ownerInformation"`
-	// The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
+	// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
-	// The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
+	// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+	// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
 	Targets MaintenanceWindowTargetTargetArrayOutput `pulumi:"targets"`
 	// The Id of the maintenance window to register the target with.
 	WindowId pulumi.StringOutput `pulumi:"windowId"`
@@ -71,9 +72,10 @@ type maintenanceWindowTargetState struct {
 	Name *string `pulumi:"name"`
 	// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
 	OwnerInformation *string `pulumi:"ownerInformation"`
-	// The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
+	// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
 	ResourceType *string `pulumi:"resourceType"`
-	// The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
+	// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+	// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
 	Targets []MaintenanceWindowTargetTarget `pulumi:"targets"`
 	// The Id of the maintenance window to register the target with.
 	WindowId *string `pulumi:"windowId"`
@@ -86,9 +88,10 @@ type MaintenanceWindowTargetState struct {
 	Name pulumi.StringPtrInput
 	// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
 	OwnerInformation pulumi.StringPtrInput
-	// The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
+	// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
 	ResourceType pulumi.StringPtrInput
-	// The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
+	// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+	// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
 	Targets MaintenanceWindowTargetTargetArrayInput
 	// The Id of the maintenance window to register the target with.
 	WindowId pulumi.StringPtrInput
@@ -105,9 +108,10 @@ type maintenanceWindowTargetArgs struct {
 	Name *string `pulumi:"name"`
 	// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
 	OwnerInformation *string `pulumi:"ownerInformation"`
-	// The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
+	// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
 	ResourceType string `pulumi:"resourceType"`
-	// The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
+	// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+	// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
 	Targets []MaintenanceWindowTargetTarget `pulumi:"targets"`
 	// The Id of the maintenance window to register the target with.
 	WindowId string `pulumi:"windowId"`
@@ -121,9 +125,10 @@ type MaintenanceWindowTargetArgs struct {
 	Name pulumi.StringPtrInput
 	// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
 	OwnerInformation pulumi.StringPtrInput
-	// The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
+	// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
 	ResourceType pulumi.StringInput
-	// The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
+	// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+	// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
 	Targets MaintenanceWindowTargetTargetArrayInput
 	// The Id of the maintenance window to register the target with.
 	WindowId pulumi.StringInput

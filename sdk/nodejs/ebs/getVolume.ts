@@ -67,7 +67,7 @@ export interface GetVolumeArgs {
      */
     readonly mostRecent?: boolean;
     /**
-     * A mapping of tags for the resource.
+     * A map of tags for the resource.
      */
     readonly tags?: {[key: string]: any};
 }
@@ -107,7 +107,7 @@ export interface GetVolumeResult {
      */
     readonly snapshotId: string;
     /**
-     * A mapping of tags for the resource.
+     * A map of tags for the resource.
      */
     readonly tags: {[key: string]: any};
     /**

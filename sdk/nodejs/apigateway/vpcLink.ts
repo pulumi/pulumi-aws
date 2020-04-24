@@ -9,6 +9,9 @@ import * as utilities from "../utilities";
 /**
  * Provides an API Gateway VPC Link.
  * 
+ * > **Note:** Amazon API Gateway Version 1 VPC Links enable private integrations that connect REST APIs to private resources in a VPC.
+ * To enable private integration for HTTP APIs, use the Amazon API Gateway Version 2 VPC Link [resource](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_vpc_link.html).
+ * 
  * ## Example Usage
  * 
  * 
@@ -69,7 +72,7 @@ export class VpcLink extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -130,7 +133,7 @@ export interface VpcLinkState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -152,7 +155,7 @@ export interface VpcLinkArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

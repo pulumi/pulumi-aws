@@ -117,7 +117,7 @@ export class RestApi extends pulumi.CustomResource {
      */
     public /*out*/ readonly rootResourceId!: pulumi.Output<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -228,7 +228,7 @@ export interface RestApiState {
      */
     readonly rootResourceId?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -270,7 +270,7 @@ export interface RestApiArgs {
      */
     readonly policy?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

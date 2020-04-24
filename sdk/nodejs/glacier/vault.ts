@@ -101,7 +101,7 @@ export class Vault extends pulumi.CustomResource {
      */
     public readonly notifications!: pulumi.Output<outputs.glacier.VaultNotification[] | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -169,7 +169,7 @@ export interface VaultState {
      */
     readonly notifications?: pulumi.Input<pulumi.Input<inputs.glacier.VaultNotification>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -192,7 +192,7 @@ export interface VaultArgs {
      */
     readonly notifications?: pulumi.Input<pulumi.Input<inputs.glacier.VaultNotification>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

@@ -67,7 +67,7 @@ export interface GetNatGatewayArgs {
      */
     readonly subnetId?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * A map of tags, each pair of which must exactly match
      * a pair on the desired Nat Gateway.
      */
     readonly tags?: {[key: string]: any};

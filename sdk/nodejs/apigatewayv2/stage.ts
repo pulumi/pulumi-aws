@@ -110,7 +110,7 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly stageVariables!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A mapping of tags to assign to the stage.
+     * A map of tags to assign to the stage.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -233,7 +233,7 @@ export interface StageState {
      */
     readonly stageVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A mapping of tags to assign to the stage.
+     * A map of tags to assign to the stage.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -285,7 +285,7 @@ export interface StageArgs {
      */
     readonly stageVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A mapping of tags to assign to the stage.
+     * A map of tags to assign to the stage.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

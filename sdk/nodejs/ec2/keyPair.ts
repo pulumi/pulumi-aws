@@ -80,7 +80,7 @@ export class KeyPair extends pulumi.CustomResource {
      */
     public readonly publicKey!: pulumi.Output<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -150,7 +150,7 @@ export interface KeyPairState {
      */
     readonly publicKey?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -172,7 +172,7 @@ export interface KeyPairArgs {
      */
     readonly publicKey: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

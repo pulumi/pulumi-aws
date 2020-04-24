@@ -62,7 +62,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     vlan: pulumi.Output[float]
     """
@@ -87,7 +87,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[float] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
                The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
         :param pulumi.Input[str] name: The name for the virtual interface.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[float] vlan: The VLAN ID.
         """
         if __name__ is not None:
@@ -160,7 +160,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[float] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
                The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
         :param pulumi.Input[str] name: The name for the virtual interface.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[float] vlan: The VLAN ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

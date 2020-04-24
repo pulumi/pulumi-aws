@@ -28,7 +28,7 @@ type FargateProfile struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -83,7 +83,7 @@ type fargateProfileState struct {
 	Status *string `pulumi:"status"`
 	// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds []string `pulumi:"subnetIds"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -102,7 +102,7 @@ type FargateProfileState struct {
 	Status pulumi.StringPtrInput
 	// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds pulumi.StringArrayInput
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapInput
 }
 
@@ -121,7 +121,7 @@ type fargateProfileArgs struct {
 	Selectors []FargateProfileSelector `pulumi:"selectors"`
 	// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds []string `pulumi:"subnetIds"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -137,7 +137,7 @@ type FargateProfileArgs struct {
 	Selectors FargateProfileSelectorArrayInput
 	// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
 	SubnetIds pulumi.StringArrayInput
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapInput
 }
 

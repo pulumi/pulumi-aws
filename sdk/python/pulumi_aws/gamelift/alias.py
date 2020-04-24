@@ -32,7 +32,7 @@ class Alias(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags
+    Key-value map of resource tags
     """
     def __init__(__self__, resource_name, opts=None, description=None, name=None, routing_strategy=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -45,7 +45,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the alias.
         :param pulumi.Input[str] name: Name of the alias.
         :param pulumi.Input[dict] routing_strategy: Specifies the fleet and/or routing type to use for the alias.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
 
         The **routing_strategy** object supports the following:
 
@@ -96,7 +96,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the alias.
         :param pulumi.Input[str] name: Name of the alias.
         :param pulumi.Input[dict] routing_strategy: Specifies the fleet and/or routing type to use for the alias.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
 
         The **routing_strategy** object supports the following:
 

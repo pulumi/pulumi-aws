@@ -23,7 +23,7 @@ type ClientCertificate struct {
 	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
 	// The PEM-encoded public key of the client certificate.
 	PemEncodedCertificate pulumi.StringOutput `pulumi:"pemEncodedCertificate"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -65,7 +65,7 @@ type clientCertificateState struct {
 	ExpirationDate *string `pulumi:"expirationDate"`
 	// The PEM-encoded public key of the client certificate.
 	PemEncodedCertificate *string `pulumi:"pemEncodedCertificate"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -80,7 +80,7 @@ type ClientCertificateState struct {
 	ExpirationDate pulumi.StringPtrInput
 	// The PEM-encoded public key of the client certificate.
 	PemEncodedCertificate pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 
@@ -91,7 +91,7 @@ func (ClientCertificateState) ElementType() reflect.Type {
 type clientCertificateArgs struct {
 	// The description of the client certificate.
 	Description *string `pulumi:"description"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -99,7 +99,7 @@ type clientCertificateArgs struct {
 type ClientCertificateArgs struct {
 	// The description of the client certificate.
 	Description pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 

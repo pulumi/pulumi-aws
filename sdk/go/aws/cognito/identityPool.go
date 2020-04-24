@@ -31,7 +31,7 @@ type IdentityPool struct {
 	SamlProviderArns pulumi.StringArrayOutput `pulumi:"samlProviderArns"`
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders pulumi.StringMapOutput `pulumi:"supportedLoginProviders"`
-	// A mapping of tags to assign to the Identity Pool.
+	// A map of tags to assign to the Identity Pool.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -83,7 +83,7 @@ type identityPoolState struct {
 	SamlProviderArns []string `pulumi:"samlProviderArns"`
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders map[string]string `pulumi:"supportedLoginProviders"`
-	// A mapping of tags to assign to the Identity Pool.
+	// A map of tags to assign to the Identity Pool.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -105,7 +105,7 @@ type IdentityPoolState struct {
 	SamlProviderArns pulumi.StringArrayInput
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders pulumi.StringMapInput
-	// A mapping of tags to assign to the Identity Pool.
+	// A map of tags to assign to the Identity Pool.
 	Tags pulumi.MapInput
 }
 
@@ -129,7 +129,7 @@ type identityPoolArgs struct {
 	SamlProviderArns []string `pulumi:"samlProviderArns"`
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders map[string]string `pulumi:"supportedLoginProviders"`
-	// A mapping of tags to assign to the Identity Pool.
+	// A map of tags to assign to the Identity Pool.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -150,7 +150,7 @@ type IdentityPoolArgs struct {
 	SamlProviderArns pulumi.StringArrayInput
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders pulumi.StringMapInput
-	// A mapping of tags to assign to the Identity Pool.
+	// A map of tags to assign to the Identity Pool.
 	Tags pulumi.MapInput
 }
 

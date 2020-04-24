@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Ebs
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the snapshot
+        /// A map of tags to assign to the snapshot
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Ebs
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the snapshot
+        /// A map of tags to assign to the snapshot
         /// </summary>
         public InputMap<object> Tags
         {
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Ebs
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the snapshot
+        /// A map of tags to assign to the snapshot
         /// </summary>
         public InputMap<object> Tags
         {

@@ -22,7 +22,7 @@ type SubnetGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An array of VPC subnet IDs.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -68,7 +68,7 @@ type subnetGroupState struct {
 	Name *string `pulumi:"name"`
 	// An array of VPC subnet IDs.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -81,7 +81,7 @@ type SubnetGroupState struct {
 	Name pulumi.StringPtrInput
 	// An array of VPC subnet IDs.
 	SubnetIds pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -96,7 +96,7 @@ type subnetGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// An array of VPC subnet IDs.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -108,7 +108,7 @@ type SubnetGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// An array of VPC subnet IDs.
 	SubnetIds pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

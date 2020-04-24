@@ -99,7 +99,7 @@ type Cluster struct {
 	// Name of the subnet group to be used
 	// for the cache cluster.
 	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -208,7 +208,7 @@ type clusterState struct {
 	// Name of the subnet group to be used
 	// for the cache cluster.
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -290,7 +290,7 @@ type ClusterState struct {
 	// Name of the subnet group to be used
 	// for the cache cluster.
 	SubnetGroupName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags pulumi.MapInput
 }
 
@@ -368,7 +368,7 @@ type clusterArgs struct {
 	// Name of the subnet group to be used
 	// for the cache cluster.
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -443,7 +443,7 @@ type ClusterArgs struct {
 	// Name of the subnet group to be used
 	// for the cache cluster.
 	SubnetGroupName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags pulumi.MapInput
 }
 

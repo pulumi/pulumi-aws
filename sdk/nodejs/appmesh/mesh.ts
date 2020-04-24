@@ -85,7 +85,7 @@ export class Mesh extends pulumi.CustomResource {
      */
     public readonly spec!: pulumi.Output<outputs.appmesh.MeshSpec | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -152,7 +152,7 @@ export interface MeshState {
      */
     readonly spec?: pulumi.Input<inputs.appmesh.MeshSpec>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -170,7 +170,7 @@ export interface MeshArgs {
      */
     readonly spec?: pulumi.Input<inputs.appmesh.MeshSpec>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

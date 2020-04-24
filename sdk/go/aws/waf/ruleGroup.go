@@ -22,7 +22,7 @@ type RuleGroup struct {
 	MetricName pulumi.StringOutput `pulumi:"metricName"`
 	// A friendly name of the rule group
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -65,7 +65,7 @@ type ruleGroupState struct {
 	MetricName *string `pulumi:"metricName"`
 	// A friendly name of the rule group
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -78,7 +78,7 @@ type RuleGroupState struct {
 	MetricName pulumi.StringPtrInput
 	// A friendly name of the rule group
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 
@@ -93,7 +93,7 @@ type ruleGroupArgs struct {
 	MetricName string `pulumi:"metricName"`
 	// A friendly name of the rule group
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -105,7 +105,7 @@ type RuleGroupArgs struct {
 	MetricName pulumi.StringInput
 	// A friendly name of the rule group
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 

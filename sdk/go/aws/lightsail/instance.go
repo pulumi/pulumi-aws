@@ -130,7 +130,7 @@ type Instance struct {
 	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
 	PublicIpAddress  pulumi.StringOutput `pulumi:"publicIpAddress"`
 	RamSize          pulumi.IntOutput    `pulumi:"ramSize"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// launch script to configure server with additional user data
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
@@ -202,7 +202,7 @@ type instanceState struct {
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	PublicIpAddress  *string `pulumi:"publicIpAddress"`
 	RamSize          *int    `pulumi:"ramSize"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// launch script to configure server with additional user data
 	UserData *string `pulumi:"userData"`
@@ -238,7 +238,7 @@ type InstanceState struct {
 	PrivateIpAddress pulumi.StringPtrInput
 	PublicIpAddress  pulumi.StringPtrInput
 	RamSize          pulumi.IntPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// launch script to configure server with additional user data
 	UserData pulumi.StringPtrInput
@@ -263,7 +263,7 @@ type instanceArgs struct {
 	KeyPairName *string `pulumi:"keyPairName"`
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// launch script to configure server with additional user data
 	UserData *string `pulumi:"userData"`
@@ -284,7 +284,7 @@ type InstanceArgs struct {
 	KeyPairName pulumi.StringPtrInput
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// launch script to configure server with additional user data
 	UserData pulumi.StringPtrInput

@@ -55,7 +55,7 @@ class WebAcl(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags
+    Key-value map of resource tags
     """
     def __init__(__self__, resource_name, opts=None, default_action=None, logging_configuration=None, metric_name=None, name=None, rules=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -70,7 +70,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
         :param pulumi.Input[str] name: The name or description of the web ACL.
         :param pulumi.Input[list] rules: Set of configuration blocks containing rules for the web ACL. Detailed below.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
 
         The **default_action** object supports the following:
 
@@ -146,7 +146,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
         :param pulumi.Input[str] name: The name or description of the web ACL.
         :param pulumi.Input[list] rules: Set of configuration blocks containing rules for the web ACL. Detailed below.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
 
         The **default_action** object supports the following:
 

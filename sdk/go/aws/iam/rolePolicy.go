@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides an IAM role policy.
+// Provides an IAM role inline policy.
 type RolePolicy struct {
 	pulumi.CustomResourceState
 

@@ -26,7 +26,7 @@ type Model struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer ModelPrimaryContainerPtrOutput `pulumi:"primaryContainer"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
 	VpcConfig ModelVpcConfigPtrOutput `pulumi:"vpcConfig"`
@@ -75,7 +75,7 @@ type modelState struct {
 	Name *string `pulumi:"name"`
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer *ModelPrimaryContainer `pulumi:"primaryContainer"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
 	VpcConfig *ModelVpcConfig `pulumi:"vpcConfig"`
@@ -94,7 +94,7 @@ type ModelState struct {
 	Name pulumi.StringPtrInput
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer ModelPrimaryContainerPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
 	VpcConfig ModelVpcConfigPtrInput
@@ -115,7 +115,7 @@ type modelArgs struct {
 	Name *string `pulumi:"name"`
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer *ModelPrimaryContainer `pulumi:"primaryContainer"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
 	VpcConfig *ModelVpcConfig `pulumi:"vpcConfig"`
@@ -133,7 +133,7 @@ type ModelArgs struct {
 	Name pulumi.StringPtrInput
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer ModelPrimaryContainerPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
 	VpcConfig ModelVpcConfigPtrInput

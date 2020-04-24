@@ -17,7 +17,7 @@ type Activity struct {
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// The name of the activity to create.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -53,7 +53,7 @@ type activityState struct {
 	CreationDate *string `pulumi:"creationDate"`
 	// The name of the activity to create.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -62,7 +62,7 @@ type ActivityState struct {
 	CreationDate pulumi.StringPtrInput
 	// The name of the activity to create.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 
@@ -73,7 +73,7 @@ func (ActivityState) ElementType() reflect.Type {
 type activityArgs struct {
 	// The name of the activity to create.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -81,7 +81,7 @@ type activityArgs struct {
 type ActivityArgs struct {
 	// The name of the activity to create.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 

@@ -46,7 +46,7 @@ type Stage struct {
 	RouteSettings StageRouteSettingArrayOutput `pulumi:"routeSettings"`
 	// A map that defines the stage variables for the stage.
 	StageVariables pulumi.StringMapOutput `pulumi:"stageVariables"`
-	// A mapping of tags to assign to the stage.
+	// A map of tags to assign to the stage.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -112,7 +112,7 @@ type stageState struct {
 	RouteSettings []StageRouteSetting `pulumi:"routeSettings"`
 	// A map that defines the stage variables for the stage.
 	StageVariables map[string]string `pulumi:"stageVariables"`
-	// A mapping of tags to assign to the stage.
+	// A map of tags to assign to the stage.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -148,7 +148,7 @@ type StageState struct {
 	RouteSettings StageRouteSettingArrayInput
 	// A map that defines the stage variables for the stage.
 	StageVariables pulumi.StringMapInput
-	// A mapping of tags to assign to the stage.
+	// A map of tags to assign to the stage.
 	Tags pulumi.MapInput
 }
 
@@ -179,7 +179,7 @@ type stageArgs struct {
 	RouteSettings []StageRouteSetting `pulumi:"routeSettings"`
 	// A map that defines the stage variables for the stage.
 	StageVariables map[string]string `pulumi:"stageVariables"`
-	// A mapping of tags to assign to the stage.
+	// A map of tags to assign to the stage.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -207,7 +207,7 @@ type StageArgs struct {
 	RouteSettings StageRouteSettingArrayInput
 	// A map that defines the stage variables for the stage.
 	StageVariables pulumi.StringMapInput
-	// A mapping of tags to assign to the stage.
+	// A map of tags to assign to the stage.
 	Tags pulumi.MapInput
 }
 

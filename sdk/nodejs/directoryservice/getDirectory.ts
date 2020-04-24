@@ -47,7 +47,7 @@ export interface GetDirectoryArgs {
      */
     readonly directoryId: string;
     /**
-     * A mapping of tags assigned to the directory/connector.
+     * A map of tags assigned to the directory/connector.
      */
     readonly tags?: {[key: string]: any};
 }
@@ -99,7 +99,7 @@ export interface GetDirectoryResult {
      */
     readonly size: string;
     /**
-     * A mapping of tags assigned to the directory/connector.
+     * A map of tags assigned to the directory/connector.
      */
     readonly tags?: {[key: string]: any};
     /**

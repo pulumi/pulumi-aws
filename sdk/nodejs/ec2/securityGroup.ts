@@ -107,7 +107,7 @@ export class SecurityGroup extends pulumi.CustomResource {
      */
     public readonly revokeRulesOnDelete!: pulumi.Output<boolean | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -208,7 +208,7 @@ export interface SecurityGroupState {
      */
     readonly revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -256,7 +256,7 @@ export interface SecurityGroupArgs {
      */
     readonly revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

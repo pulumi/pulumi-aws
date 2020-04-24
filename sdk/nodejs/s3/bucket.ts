@@ -401,7 +401,7 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly objectLockConfiguration!: pulumi.Output<outputs.s3.BucketObjectLockConfiguration | undefined>;
     /**
-     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
+     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
      */
     public readonly policy!: pulumi.Output<string | undefined>;
     /**
@@ -579,7 +579,7 @@ export interface BucketState {
      */
     readonly objectLockConfiguration?: pulumi.Input<inputs.s3.BucketObjectLockConfiguration>;
     /**
-     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
+     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
      */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
@@ -676,7 +676,7 @@ export interface BucketArgs {
      */
     readonly objectLockConfiguration?: pulumi.Input<inputs.s3.BucketObjectLockConfiguration>;
     /**
-     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
+     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
      */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**

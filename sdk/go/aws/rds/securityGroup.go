@@ -25,7 +25,7 @@ type SecurityGroup struct {
 	Ingress SecurityGroupIngressArrayOutput `pulumi:"ingress"`
 	// The name of the DB security group.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -71,7 +71,7 @@ type securityGroupState struct {
 	Ingress []SecurityGroupIngress `pulumi:"ingress"`
 	// The name of the DB security group.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -84,7 +84,7 @@ type SecurityGroupState struct {
 	Ingress SecurityGroupIngressArrayInput
 	// The name of the DB security group.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -99,7 +99,7 @@ type securityGroupArgs struct {
 	Ingress []SecurityGroupIngress `pulumi:"ingress"`
 	// The name of the DB security group.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -111,7 +111,7 @@ type SecurityGroupArgs struct {
 	Ingress SecurityGroupIngressArrayInput
 	// The name of the DB security group.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

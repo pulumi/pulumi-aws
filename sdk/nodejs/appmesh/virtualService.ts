@@ -101,7 +101,7 @@ export class VirtualService extends pulumi.CustomResource {
      */
     public readonly spec!: pulumi.Output<outputs.appmesh.VirtualServiceSpec>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -180,7 +180,7 @@ export interface VirtualServiceState {
      */
     readonly spec?: pulumi.Input<inputs.appmesh.VirtualServiceSpec>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -202,7 +202,7 @@ export interface VirtualServiceArgs {
      */
     readonly spec: pulumi.Input<inputs.appmesh.VirtualServiceSpec>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

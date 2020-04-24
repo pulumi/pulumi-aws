@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<string>? _skewedColumnValues;
 
         /// <summary>
-        /// A mapping of skewed values to the columns that contain them.
+        /// A map of skewed values to the columns that contain them.
         /// </summary>
         public InputList<string> SkewedColumnValues
         {

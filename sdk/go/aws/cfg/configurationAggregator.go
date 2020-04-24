@@ -21,7 +21,7 @@ type ConfigurationAggregator struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrOutput `pulumi:"organizationAggregationSource"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -61,7 +61,7 @@ type configurationAggregatorState struct {
 	Name *string `pulumi:"name"`
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource *ConfigurationAggregatorOrganizationAggregationSource `pulumi:"organizationAggregationSource"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -74,7 +74,7 @@ type ConfigurationAggregatorState struct {
 	Name pulumi.StringPtrInput
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -89,7 +89,7 @@ type configurationAggregatorArgs struct {
 	Name *string `pulumi:"name"`
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource *ConfigurationAggregatorOrganizationAggregationSource `pulumi:"organizationAggregationSource"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -101,7 +101,7 @@ type ConfigurationAggregatorArgs struct {
 	Name pulumi.StringPtrInput
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

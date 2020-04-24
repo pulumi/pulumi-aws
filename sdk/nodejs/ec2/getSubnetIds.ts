@@ -38,7 +38,7 @@ export interface GetSubnetIdsArgs {
      */
     readonly filters?: inputs.ec2.GetSubnetIdsFilter[];
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * A map of tags, each pair of which must exactly match
      * a pair on the desired subnets.
      */
     readonly tags?: {[key: string]: any};

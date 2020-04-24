@@ -15,7 +15,7 @@ type LifecyclePolicyPolicyDetails struct {
 	ResourceTypes []string `pulumi:"resourceTypes"`
 	// See the `schedule` configuration block.
 	Schedules []LifecyclePolicyPolicyDetailsSchedule `pulumi:"schedules"`
-	// A mapping of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+	// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
 	TargetTags map[string]interface{} `pulumi:"targetTags"`
 }
 
@@ -36,7 +36,7 @@ type LifecyclePolicyPolicyDetailsArgs struct {
 	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
 	// See the `schedule` configuration block.
 	Schedules LifecyclePolicyPolicyDetailsScheduleArrayInput `pulumi:"schedules"`
-	// A mapping of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+	// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
 	TargetTags pulumi.MapInput `pulumi:"targetTags"`
 }
 
@@ -128,7 +128,7 @@ func (o LifecyclePolicyPolicyDetailsOutput) Schedules() LifecyclePolicyPolicyDet
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) []LifecyclePolicyPolicyDetailsSchedule { return v.Schedules }).(LifecyclePolicyPolicyDetailsScheduleArrayOutput)
 }
 
-// A mapping of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
 func (o LifecyclePolicyPolicyDetailsOutput) TargetTags() pulumi.MapOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) map[string]interface{} { return v.TargetTags }).(pulumi.MapOutput)
 }
@@ -171,7 +171,7 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) Schedules() LifecyclePolicyPolicy
 	}).(LifecyclePolicyPolicyDetailsScheduleArrayOutput)
 }
 
-// A mapping of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) TargetTags() pulumi.MapOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) map[string]interface{} {
 		if v == nil {
@@ -190,7 +190,7 @@ type LifecyclePolicyPolicyDetailsSchedule struct {
 	Name string `pulumi:"name"`
 	// See the `retainRule` block. Max of 1 per schedule.
 	RetainRule LifecyclePolicyPolicyDetailsScheduleRetainRule `pulumi:"retainRule"`
-	// A mapping of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+	// A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
 	TagsToAdd map[string]interface{} `pulumi:"tagsToAdd"`
 }
 
@@ -215,7 +215,7 @@ type LifecyclePolicyPolicyDetailsScheduleArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// See the `retainRule` block. Max of 1 per schedule.
 	RetainRule LifecyclePolicyPolicyDetailsScheduleRetainRuleInput `pulumi:"retainRule"`
-	// A mapping of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+	// A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
 	TagsToAdd pulumi.MapInput `pulumi:"tagsToAdd"`
 }
 
@@ -295,7 +295,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleOutput) RetainRule() LifecyclePolicy
 	}).(LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput)
 }
 
-// A mapping of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+// A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) TagsToAdd() pulumi.MapOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) map[string]interface{} { return v.TagsToAdd }).(pulumi.MapOutput)
 }

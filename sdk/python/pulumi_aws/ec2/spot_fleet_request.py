@@ -90,7 +90,7 @@ class SpotFleetRequest(pulumi.CustomResource):
 
       * `spot_price` (`str`) - The maximum bid price per unit hour.
       * `subnet_id` (`str`)
-      * `tags` (`dict`) - A mapping of tags to assign to the resource.
+      * `tags` (`dict`) - A map of tags to assign to the resource.
       * `user_data` (`str`)
       * `vpc_security_group_ids` (`list`)
       * `weightedCapacity` (`str`)
@@ -113,7 +113,7 @@ class SpotFleetRequest(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     target_capacity: pulumi.Output[float]
     """
@@ -179,7 +179,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[list] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
         :param pulumi.Input[bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         :param pulumi.Input[str] spot_price: The maximum bid price per unit hour.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[float] target_capacity: The number of units to request. You can choose to set the
                target capacity in terms of instances or a performance characteristic that is
                important to your application workload, such as vCPUs, memory, or I/O.
@@ -229,7 +229,7 @@ class SpotFleetRequest(pulumi.CustomResource):
 
           * `spot_price` (`pulumi.Input[str]`) - The maximum bid price per unit hour.
           * `subnet_id` (`pulumi.Input[str]`)
-          * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the resource.
+          * `tags` (`pulumi.Input[dict]`) - A map of tags to assign to the resource.
           * `user_data` (`pulumi.Input[str]`)
           * `vpc_security_group_ids` (`pulumi.Input[list]`)
           * `weightedCapacity` (`pulumi.Input[str]`)
@@ -318,7 +318,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         :param pulumi.Input[str] spot_price: The maximum bid price per unit hour.
         :param pulumi.Input[str] spot_request_state: The state of the Spot fleet request.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[float] target_capacity: The number of units to request. You can choose to set the
                target capacity in terms of instances or a performance characteristic that is
                important to your application workload, such as vCPUs, memory, or I/O.
@@ -368,7 +368,7 @@ class SpotFleetRequest(pulumi.CustomResource):
 
           * `spot_price` (`pulumi.Input[str]`) - The maximum bid price per unit hour.
           * `subnet_id` (`pulumi.Input[str]`)
-          * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the resource.
+          * `tags` (`pulumi.Input[dict]`) - A map of tags to assign to the resource.
           * `user_data` (`pulumi.Input[str]`)
           * `vpc_security_group_ids` (`pulumi.Input[list]`)
           * `weightedCapacity` (`pulumi.Input[str]`)

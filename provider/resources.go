@@ -508,6 +508,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_apigatewayv2_route":                {Tok: awsResource(apigatewayv2Mod, "Route")},
 			"aws_apigatewayv2_route_response":       {Tok: awsResource(apigatewayv2Mod, "RouteResponse")},
 			"aws_apigatewayv2_stage":                {Tok: awsResource(apigatewayv2Mod, "Stage")},
+			"aws_apigatewayv2_api_mapping":          {Tok: awsResource(apigatewayv2Mod, "ApiMapping")},
+			"aws_apigatewayv2_vpc_link":             {Tok: awsResource(apigatewayv2Mod, "VpcLink")},
 			// Application Auto Scaling
 			"aws_appautoscaling_policy":           {Tok: awsResource(appautoscalingMod, "Policy")},
 			"aws_appautoscaling_scheduled_action": {Tok: awsResource(appautoscalingMod, "ScheduledAction")},
@@ -2147,12 +2149,25 @@ func Provider() tfbridge.ProviderInfo {
 			// DX
 			"aws_dx_gateway": {Tok: awsDataSource(dxMod, "getGateway")},
 			// EC2
-			"aws_customer_gateway":            {Tok: awsDataSource(ec2Mod, "getCustomerGateway")},
-			"aws_instance":                    {Tok: awsDataSource(ec2Mod, "getInstance")},
-			"aws_instances":                   {Tok: awsDataSource(ec2Mod, "getInstances")},
-			"aws_internet_gateway":            {Tok: awsDataSource(ec2Mod, "getInternetGateway")},
-			"aws_launch_configuration":        {Tok: awsDataSource(ec2Mod, "getLaunchConfiguration")},
-			"aws_launch_template":             {Tok: awsDataSource(ec2Mod, "getLaunchTemplate")},
+			"aws_customer_gateway":     {Tok: awsDataSource(ec2Mod, "getCustomerGateway")},
+			"aws_instance":             {Tok: awsDataSource(ec2Mod, "getInstance")},
+			"aws_instances":            {Tok: awsDataSource(ec2Mod, "getInstances")},
+			"aws_internet_gateway":     {Tok: awsDataSource(ec2Mod, "getInternetGateway")},
+			"aws_launch_configuration": {Tok: awsDataSource(ec2Mod, "getLaunchConfiguration")},
+			"aws_launch_template": {
+				Tok: awsDataSource(ec2Mod, "getLaunchTemplate"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"network_interfaces": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"associate_public_ip_address": {
+									Type: "boolean",
+								},
+							},
+						},
+					},
+				},
+			},
 			"aws_nat_gateway":                 {Tok: awsDataSource(ec2Mod, "getNatGateway")},
 			"aws_network_acls":                {Tok: awsDataSource(ec2Mod, "getNetworkAcls")},
 			"aws_network_interface":           {Tok: awsDataSource(ec2Mod, "getNetworkInterface")},

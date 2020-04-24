@@ -39,7 +39,7 @@ type ApplicationVersion struct {
 	Key pulumi.StringOutput `pulumi:"key"`
 	// A unique name for the this Application Version.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value mapping of tags for the Elastic Beanstalk Application Version.
+	// Key-value map of tags for the Elastic Beanstalk Application Version.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -95,7 +95,7 @@ type applicationVersionState struct {
 	Key *string `pulumi:"key"`
 	// A unique name for the this Application Version.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of tags for the Elastic Beanstalk Application Version.
+	// Key-value map of tags for the Elastic Beanstalk Application Version.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -115,7 +115,7 @@ type ApplicationVersionState struct {
 	Key pulumi.StringPtrInput
 	// A unique name for the this Application Version.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of tags for the Elastic Beanstalk Application Version.
+	// Key-value map of tags for the Elastic Beanstalk Application Version.
 	Tags pulumi.MapInput
 }
 
@@ -137,7 +137,7 @@ type applicationVersionArgs struct {
 	Key string `pulumi:"key"`
 	// A unique name for the this Application Version.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of tags for the Elastic Beanstalk Application Version.
+	// Key-value map of tags for the Elastic Beanstalk Application Version.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -156,7 +156,7 @@ type ApplicationVersionArgs struct {
 	Key pulumi.StringInput
 	// A unique name for the this Application Version.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of tags for the Elastic Beanstalk Application Version.
+	// Key-value map of tags for the Elastic Beanstalk Application Version.
 	Tags pulumi.MapInput
 }
 

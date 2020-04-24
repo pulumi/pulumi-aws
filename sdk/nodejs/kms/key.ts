@@ -93,7 +93,7 @@ export class Key extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -188,7 +188,7 @@ export interface KeyState {
      */
     readonly policy?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -230,7 +230,7 @@ export interface KeyArgs {
      */
     readonly policy?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

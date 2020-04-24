@@ -99,7 +99,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<ImmutableDictionary<string, string>?> StageVariables { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the stage.
+        /// A map of tags to assign to the stage.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the stage.
+        /// A map of tags to assign to the stage.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -342,7 +342,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the stage.
+        /// A map of tags to assign to the stage.
         /// </summary>
         public InputMap<object> Tags
         {

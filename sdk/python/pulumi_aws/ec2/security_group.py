@@ -80,7 +80,7 @@ class SecurityGroup(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     vpc_id: pulumi.Output[str]
     """
@@ -121,7 +121,7 @@ class SecurityGroup(pulumi.CustomResource):
                with the service, and those rules may contain a cyclic dependency that prevent
                the security groups from being destroyed without removing the dependency first.
                Default `false`
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID.
 
         The **egress** object supports the following:
@@ -216,7 +216,7 @@ class SecurityGroup(pulumi.CustomResource):
                with the service, and those rules may contain a cyclic dependency that prevent
                the security groups from being destroyed without removing the dependency first.
                Default `false`
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID.
 
         The **egress** object supports the following:

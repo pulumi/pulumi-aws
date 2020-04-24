@@ -25,7 +25,7 @@ type Queue struct {
 	ReservationPlanSettings QueueReservationPlanSettingsOutput `pulumi:"reservationPlanSettings"`
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -69,7 +69,7 @@ type queueState struct {
 	ReservationPlanSettings *QueueReservationPlanSettings `pulumi:"reservationPlanSettings"`
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
 	Status *string `pulumi:"status"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -86,7 +86,7 @@ type QueueState struct {
 	ReservationPlanSettings QueueReservationPlanSettingsPtrInput
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
 	Status pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -105,7 +105,7 @@ type queueArgs struct {
 	ReservationPlanSettings *QueueReservationPlanSettings `pulumi:"reservationPlanSettings"`
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
 	Status *string `pulumi:"status"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -121,7 +121,7 @@ type QueueArgs struct {
 	ReservationPlanSettings QueueReservationPlanSettingsPtrInput
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
 	Status pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

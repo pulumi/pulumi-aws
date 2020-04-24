@@ -22,7 +22,7 @@ type Channel struct {
 	Description pulumi.StringOutput `pulumi:"description"`
 	// A single item list of HLS ingest information
 	HlsIngests ChannelHlsIngestArrayOutput `pulumi:"hlsIngests"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -68,7 +68,7 @@ type channelState struct {
 	Description *string `pulumi:"description"`
 	// A single item list of HLS ingest information
 	HlsIngests []ChannelHlsIngest `pulumi:"hlsIngests"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -81,7 +81,7 @@ type ChannelState struct {
 	Description pulumi.StringPtrInput
 	// A single item list of HLS ingest information
 	HlsIngests ChannelHlsIngestArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -94,7 +94,7 @@ type channelArgs struct {
 	ChannelId string `pulumi:"channelId"`
 	// A description of the channel
 	Description *string `pulumi:"description"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -104,7 +104,7 @@ type ChannelArgs struct {
 	ChannelId pulumi.StringInput
 	// A description of the channel
 	Description pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

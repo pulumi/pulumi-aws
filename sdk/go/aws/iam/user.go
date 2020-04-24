@@ -18,8 +18,8 @@ type User struct {
 	// The ARN assigned by AWS for this user.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// When destroying this user, destroy even if it
-	// has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-	// a user with non-this provider-managed access keys and login profile will fail to be destroyed.
+	// has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
+	// a user with non-provider-managed access keys and login profile will fail to be destroyed.
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -64,8 +64,8 @@ type userState struct {
 	// The ARN assigned by AWS for this user.
 	Arn *string `pulumi:"arn"`
 	// When destroying this user, destroy even if it
-	// has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-	// a user with non-this provider-managed access keys and login profile will fail to be destroyed.
+	// has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
+	// a user with non-provider-managed access keys and login profile will fail to be destroyed.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
 	Name *string `pulumi:"name"`
@@ -83,8 +83,8 @@ type UserState struct {
 	// The ARN assigned by AWS for this user.
 	Arn pulumi.StringPtrInput
 	// When destroying this user, destroy even if it
-	// has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-	// a user with non-this provider-managed access keys and login profile will fail to be destroyed.
+	// has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
+	// a user with non-provider-managed access keys and login profile will fail to be destroyed.
 	ForceDestroy pulumi.BoolPtrInput
 	// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
 	Name pulumi.StringPtrInput
@@ -104,8 +104,8 @@ func (UserState) ElementType() reflect.Type {
 
 type userArgs struct {
 	// When destroying this user, destroy even if it
-	// has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-	// a user with non-this provider-managed access keys and login profile will fail to be destroyed.
+	// has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
+	// a user with non-provider-managed access keys and login profile will fail to be destroyed.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
 	Name *string `pulumi:"name"`
@@ -120,8 +120,8 @@ type userArgs struct {
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
 	// When destroying this user, destroy even if it
-	// has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-	// a user with non-this provider-managed access keys and login profile will fail to be destroyed.
+	// has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
+	// a user with non-provider-managed access keys and login profile will fail to be destroyed.
 	ForceDestroy pulumi.BoolPtrInput
 	// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
 	Name pulumi.StringPtrInput

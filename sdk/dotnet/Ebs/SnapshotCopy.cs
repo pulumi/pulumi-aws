@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ebs
         public Output<string> SourceSnapshotId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags for the snapshot.
+        /// A map of tags for the snapshot.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.Ebs
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags for the snapshot.
+        /// A map of tags for the snapshot.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -228,7 +228,7 @@ namespace Pulumi.Aws.Ebs
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags for the snapshot.
+        /// A map of tags for the snapshot.
         /// </summary>
         public InputMap<object> Tags
         {

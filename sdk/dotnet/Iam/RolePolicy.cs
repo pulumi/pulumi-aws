@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iam
 {
     /// <summary>
-    /// Provides an IAM role policy.
+    /// Provides an IAM role inline policy.
     /// </summary>
     public partial class RolePolicy : Pulumi.CustomResource
     {

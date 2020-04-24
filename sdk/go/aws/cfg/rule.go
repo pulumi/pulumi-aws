@@ -34,7 +34,7 @@ type Rule struct {
 	// Source specifies the rule owner, the rule identifier, and the notifications that cause
 	// the function to evaluate your AWS resources as documented below.
 	Source RuleSourceOutput `pulumi:"source"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -87,7 +87,7 @@ type ruleState struct {
 	// Source specifies the rule owner, the rule identifier, and the notifications that cause
 	// the function to evaluate your AWS resources as documented below.
 	Source *RuleSource `pulumi:"source"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -110,7 +110,7 @@ type RuleState struct {
 	// Source specifies the rule owner, the rule identifier, and the notifications that cause
 	// the function to evaluate your AWS resources as documented below.
 	Source RuleSourcePtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -133,7 +133,7 @@ type ruleArgs struct {
 	// Source specifies the rule owner, the rule identifier, and the notifications that cause
 	// the function to evaluate your AWS resources as documented below.
 	Source RuleSource `pulumi:"source"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -153,7 +153,7 @@ type RuleArgs struct {
 	// Source specifies the rule owner, the rule identifier, and the notifications that cause
 	// the function to evaluate your AWS resources as documented below.
 	Source RuleSourceInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

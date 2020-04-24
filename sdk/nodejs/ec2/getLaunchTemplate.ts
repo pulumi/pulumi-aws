@@ -67,7 +67,7 @@ export interface GetLaunchTemplateArgs {
      */
     readonly name?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
+     * A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
      */
     readonly tags?: {[key: string]: any};
 }
@@ -183,7 +183,7 @@ export interface GetLaunchTemplateResult {
      */
     readonly tagSpecifications: outputs.ec2.GetLaunchTemplateTagSpecification[];
     /**
-     * (Optional) A mapping of tags to assign to the launch template.
+     * (Optional) A map of tags to assign to the launch template.
      */
     readonly tags: {[key: string]: any};
     /**

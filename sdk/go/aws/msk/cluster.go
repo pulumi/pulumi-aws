@@ -43,7 +43,7 @@ type Cluster struct {
 	NumberOfBrokerNodes pulumi.IntOutput `pulumi:"numberOfBrokerNodes"`
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring ClusterOpenMonitoringPtrOutput `pulumi:"openMonitoring"`
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
 	ZookeeperConnectString pulumi.StringOutput `pulumi:"zookeeperConnectString"`
@@ -118,7 +118,7 @@ type clusterState struct {
 	NumberOfBrokerNodes *int `pulumi:"numberOfBrokerNodes"`
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring *ClusterOpenMonitoring `pulumi:"openMonitoring"`
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags map[string]interface{} `pulumi:"tags"`
 	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
 	ZookeeperConnectString *string `pulumi:"zookeeperConnectString"`
@@ -154,7 +154,7 @@ type ClusterState struct {
 	NumberOfBrokerNodes pulumi.IntPtrInput
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring ClusterOpenMonitoringPtrInput
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags pulumi.MapInput
 	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
 	ZookeeperConnectString pulumi.StringPtrInput
@@ -185,7 +185,7 @@ type clusterArgs struct {
 	NumberOfBrokerNodes int `pulumi:"numberOfBrokerNodes"`
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring *ClusterOpenMonitoring `pulumi:"openMonitoring"`
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -211,7 +211,7 @@ type ClusterArgs struct {
 	NumberOfBrokerNodes pulumi.IntInput
 	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
 	OpenMonitoring ClusterOpenMonitoringPtrInput
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags pulumi.MapInput
 }
 

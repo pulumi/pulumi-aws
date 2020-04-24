@@ -49,7 +49,7 @@ class FileSystem(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the file system.
+    A map of tags to assign to the file system.
     """
     throughput_mode: pulumi.Output[str]
     """
@@ -72,7 +72,7 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.Input[dict] lifecycle_policy: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the file system.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the file system.
         :param pulumi.Input[str] throughput_mode: Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
 
         The **lifecycle_policy** object supports the following:
@@ -132,7 +132,7 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.Input[dict] lifecycle_policy: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the file system.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the file system.
         :param pulumi.Input[str] throughput_mode: Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
 
         The **lifecycle_policy** object supports the following:

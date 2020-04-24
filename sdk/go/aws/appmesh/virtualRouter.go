@@ -38,7 +38,7 @@ type VirtualRouter struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The virtual router specification to apply.
 	Spec VirtualRouterSpecOutput `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -88,7 +88,7 @@ type virtualRouterState struct {
 	Name *string `pulumi:"name"`
 	// The virtual router specification to apply.
 	Spec *VirtualRouterSpec `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -105,7 +105,7 @@ type VirtualRouterState struct {
 	Name pulumi.StringPtrInput
 	// The virtual router specification to apply.
 	Spec VirtualRouterSpecPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -120,7 +120,7 @@ type virtualRouterArgs struct {
 	Name *string `pulumi:"name"`
 	// The virtual router specification to apply.
 	Spec VirtualRouterSpec `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -132,7 +132,7 @@ type VirtualRouterArgs struct {
 	Name pulumi.StringPtrInput
 	// The virtual router specification to apply.
 	Spec VirtualRouterSpecInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

@@ -30,7 +30,7 @@ type VideoStream struct {
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The version of the stream.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -79,7 +79,7 @@ type videoStreamState struct {
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The version of the stream.
 	Version *string `pulumi:"version"`
@@ -101,7 +101,7 @@ type VideoStreamState struct {
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The version of the stream.
 	Version pulumi.StringPtrInput
@@ -123,7 +123,7 @@ type videoStreamArgs struct {
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -140,7 +140,7 @@ type VideoStreamArgs struct {
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

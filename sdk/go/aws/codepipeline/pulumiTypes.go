@@ -469,6 +469,8 @@ type PipelineStageAction struct {
 	InputArtifacts []string `pulumi:"inputArtifacts"`
 	// The action declaration's name.
 	Name string `pulumi:"name"`
+	// The namespace all output variables will be accessed from.
+	Namespace *string `pulumi:"namespace"`
 	// A list of artifact names to output. Output artifact names must be unique within a pipeline.
 	OutputArtifacts []string `pulumi:"outputArtifacts"`
 	// The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
@@ -506,6 +508,8 @@ type PipelineStageActionArgs struct {
 	InputArtifacts pulumi.StringArrayInput `pulumi:"inputArtifacts"`
 	// The action declaration's name.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The namespace all output variables will be accessed from.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 	// A list of artifact names to output. Output artifact names must be unique within a pipeline.
 	OutputArtifacts pulumi.StringArrayInput `pulumi:"outputArtifacts"`
 	// The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
@@ -592,6 +596,11 @@ func (o PipelineStageActionOutput) InputArtifacts() pulumi.StringArrayOutput {
 // The action declaration's name.
 func (o PipelineStageActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The namespace all output variables will be accessed from.
+func (o PipelineStageActionOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageAction) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
 // A list of artifact names to output. Output artifact names must be unique within a pipeline.

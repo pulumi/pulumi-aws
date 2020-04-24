@@ -45,7 +45,7 @@ type TargetGroup struct {
 	SlowStart pulumi.IntPtrOutput `pulumi:"slowStart"`
 	// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
 	Stickiness TargetGroupStickinessOutput `pulumi:"stickiness"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The type of target that you must specify when registering targets with this target group.
 	// The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
@@ -112,7 +112,7 @@ type targetGroupState struct {
 	SlowStart *int `pulumi:"slowStart"`
 	// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
 	Stickiness *TargetGroupStickiness `pulumi:"stickiness"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The type of target that you must specify when registering targets with this target group.
 	// The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
@@ -152,7 +152,7 @@ type TargetGroupState struct {
 	SlowStart pulumi.IntPtrInput
 	// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
 	Stickiness TargetGroupStickinessPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The type of target that you must specify when registering targets with this target group.
 	// The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
@@ -192,7 +192,7 @@ type targetGroupArgs struct {
 	SlowStart *int `pulumi:"slowStart"`
 	// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
 	Stickiness *TargetGroupStickiness `pulumi:"stickiness"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The type of target that you must specify when registering targets with this target group.
 	// The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
@@ -229,7 +229,7 @@ type TargetGroupArgs struct {
 	SlowStart pulumi.IntPtrInput
 	// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
 	Stickiness TargetGroupStickinessPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The type of target that you must specify when registering targets with this target group.
 	// The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).

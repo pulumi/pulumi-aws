@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Efs
         public Output<double?> ProvisionedThroughputInMibps { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the file system.
+        /// A map of tags to assign to the file system.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Efs
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the file system.
+        /// A map of tags to assign to the file system.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.Efs
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the file system.
+        /// A map of tags to assign to the file system.
         /// </summary>
         public InputMap<object> Tags
         {

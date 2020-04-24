@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         private Dictionary<string, object>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
+        /// A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
         /// </summary>
         public Dictionary<string, object> Tags
         {

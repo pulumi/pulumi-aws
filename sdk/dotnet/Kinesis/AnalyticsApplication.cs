@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Kinesis
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of tags for the Kinesis Analytics Application.
+        /// Key-value map of tags for the Kinesis Analytics Application.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.Kinesis
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// Key-value mapping of tags for the Kinesis Analytics Application.
+        /// Key-value map of tags for the Kinesis Analytics Application.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -290,7 +290,7 @@ namespace Pulumi.Aws.Kinesis
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// Key-value mapping of tags for the Kinesis Analytics Application.
+        /// Key-value map of tags for the Kinesis Analytics Application.
         /// </summary>
         public InputMap<object> Tags
         {

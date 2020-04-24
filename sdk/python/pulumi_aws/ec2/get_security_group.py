@@ -70,7 +70,7 @@ def get_security_group(filters=None,id=None,name=None,tags=None,vpc_id=None,opts
     :param str id: The id of the specific security group to retrieve.
     :param str name: The name of the field to filter by, as defined by
            [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
-    :param dict tags: A mapping of tags, each pair of which must exactly match
+    :param dict tags: A map of tags, each pair of which must exactly match
            a pair on the desired security group.
     :param str vpc_id: The id of the VPC that the desired security group belongs to.
 

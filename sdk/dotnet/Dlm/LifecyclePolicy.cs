@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Dlm
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Dlm
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Dlm
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags.
         /// </summary>
         public InputMap<object> Tags
         {

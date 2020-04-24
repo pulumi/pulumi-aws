@@ -95,7 +95,7 @@ export class CapacityReservation extends pulumi.CustomResource {
      */
     public readonly instanceType!: pulumi.Output<InstanceType>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -204,7 +204,7 @@ export interface CapacityReservationState {
      */
     readonly instanceType?: pulumi.Input<InstanceType>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -254,7 +254,7 @@ export interface CapacityReservationArgs {
      */
     readonly instanceType: pulumi.Input<InstanceType>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

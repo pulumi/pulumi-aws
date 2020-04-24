@@ -86,7 +86,7 @@ export class Workgroup extends pulumi.CustomResource {
      */
     public readonly state!: pulumi.Output<string | undefined>;
     /**
-     * Key-value mapping of resource tags for the workgroup.
+     * Key-value map of resource tags for the workgroup.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -159,7 +159,7 @@ export interface WorkgroupState {
      */
     readonly state?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags for the workgroup.
+     * Key-value map of resource tags for the workgroup.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -189,7 +189,7 @@ export interface WorkgroupArgs {
      */
     readonly state?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags for the workgroup.
+     * Key-value map of resource tags for the workgroup.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

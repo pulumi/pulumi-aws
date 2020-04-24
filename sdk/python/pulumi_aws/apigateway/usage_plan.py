@@ -43,7 +43,7 @@ class UsagePlan(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags
+    Key-value map of resource tags
     """
     throttle_settings: pulumi.Output[dict]
     """
@@ -65,7 +65,7 @@ class UsagePlan(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the usage plan.
         :param pulumi.Input[str] product_code: The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         :param pulumi.Input[dict] quota_settings: The quota settings of the usage plan.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
         :param pulumi.Input[dict] throttle_settings: The throttling limits of the usage plan.
 
         The **api_stages** object supports the following:
@@ -130,7 +130,7 @@ class UsagePlan(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the usage plan.
         :param pulumi.Input[str] product_code: The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         :param pulumi.Input[dict] quota_settings: The quota settings of the usage plan.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
         :param pulumi.Input[dict] throttle_settings: The throttling limits of the usage plan.
 
         The **api_stages** object supports the following:

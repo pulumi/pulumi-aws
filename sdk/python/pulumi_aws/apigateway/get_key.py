@@ -54,7 +54,7 @@ class GetKeyResult:
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
-        A mapping of tags for the resource.
+        A map of tags for the resource.
         """
         if value and not isinstance(value, str):
             raise TypeError("Expected argument 'value' to be a str")
@@ -86,7 +86,7 @@ def get_key(id=None,tags=None,opts=None):
 
 
     :param str id: The ID of the API Key to look up.
-    :param dict tags: A mapping of tags for the resource.
+    :param dict tags: A map of tags for the resource.
     """
     __args__ = dict()
 

@@ -145,7 +145,7 @@ type SpotInstanceRequest struct {
 	SpotType pulumi.StringPtrOutput `pulumi:"spotType"`
 	// The VPC Subnet ID to launch in.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringOutput `pulumi:"tenancy"`
@@ -157,7 +157,7 @@ type SpotInstanceRequest struct {
 	ValidFrom pulumi.StringOutput `pulumi:"validFrom"`
 	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
 	ValidUntil pulumi.StringOutput `pulumi:"validUntil"`
-	// A mapping of tags to assign to the devices created by the instance at launch time.
+	// A map of tags to assign to the devices created by the instance at launch time.
 	VolumeTags pulumi.MapOutput `pulumi:"volumeTags"`
 	// A list of security group IDs to associate with.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
@@ -311,7 +311,7 @@ type spotInstanceRequestState struct {
 	SpotType *string `pulumi:"spotType"`
 	// The VPC Subnet ID to launch in.
 	SubnetId *string `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy *string `pulumi:"tenancy"`
@@ -323,7 +323,7 @@ type spotInstanceRequestState struct {
 	ValidFrom *string `pulumi:"validFrom"`
 	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
 	ValidUntil *string `pulumi:"validUntil"`
-	// A mapping of tags to assign to the devices created by the instance at launch time.
+	// A map of tags to assign to the devices created by the instance at launch time.
 	VolumeTags map[string]interface{} `pulumi:"volumeTags"`
 	// A list of security group IDs to associate with.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -444,7 +444,7 @@ type SpotInstanceRequestState struct {
 	SpotType pulumi.StringPtrInput
 	// The VPC Subnet ID to launch in.
 	SubnetId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringPtrInput
@@ -456,7 +456,7 @@ type SpotInstanceRequestState struct {
 	ValidFrom pulumi.StringPtrInput
 	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
 	ValidUntil pulumi.StringPtrInput
-	// A mapping of tags to assign to the devices created by the instance at launch time.
+	// A map of tags to assign to the devices created by the instance at launch time.
 	VolumeTags pulumi.MapInput
 	// A list of security group IDs to associate with.
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -557,7 +557,7 @@ type spotInstanceRequestArgs struct {
 	SpotType *string `pulumi:"spotType"`
 	// The VPC Subnet ID to launch in.
 	SubnetId *string `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy *string `pulumi:"tenancy"`
@@ -569,7 +569,7 @@ type spotInstanceRequestArgs struct {
 	ValidFrom *string `pulumi:"validFrom"`
 	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
 	ValidUntil *string `pulumi:"validUntil"`
-	// A mapping of tags to assign to the devices created by the instance at launch time.
+	// A map of tags to assign to the devices created by the instance at launch time.
 	VolumeTags map[string]interface{} `pulumi:"volumeTags"`
 	// A list of security group IDs to associate with.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -667,7 +667,7 @@ type SpotInstanceRequestArgs struct {
 	SpotType pulumi.StringPtrInput
 	// The VPC Subnet ID to launch in.
 	SubnetId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringPtrInput
@@ -679,7 +679,7 @@ type SpotInstanceRequestArgs struct {
 	ValidFrom pulumi.StringPtrInput
 	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
 	ValidUntil pulumi.StringPtrInput
-	// A mapping of tags to assign to the devices created by the instance at launch time.
+	// A map of tags to assign to the devices created by the instance at launch time.
 	VolumeTags pulumi.MapInput
 	// A list of security group IDs to associate with.
 	VpcSecurityGroupIds pulumi.StringArrayInput

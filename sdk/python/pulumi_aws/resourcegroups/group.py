@@ -31,7 +31,7 @@ class Group(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags
+    Key-value map of resource tags
     """
     def __init__(__self__, resource_name, opts=None, description=None, name=None, resource_query=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -44,7 +44,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the resource group.
         :param pulumi.Input[str] name: The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
         :param pulumi.Input[dict] resource_query: A `resource_query` block. Resource queries are documented below.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
 
         The **resource_query** object supports the following:
 
@@ -94,7 +94,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the resource group.
         :param pulumi.Input[str] name: The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
         :param pulumi.Input[dict] resource_query: A `resource_query` block. Resource queries are documented below.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
 
         The **resource_query** object supports the following:
 

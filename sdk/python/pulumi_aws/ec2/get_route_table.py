@@ -91,7 +91,7 @@ def get_route_table(filters=None,gateway_id=None,route_table_id=None,subnet_id=N
     :param str gateway_id: The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
     :param str route_table_id: The id of the specific Route Table to retrieve.
     :param str subnet_id: The id of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
-    :param dict tags: A mapping of tags, each pair of which must exactly match
+    :param dict tags: A map of tags, each pair of which must exactly match
            a pair on the desired Route Table.
     :param str vpc_id: The id of the VPC that the desired Route Table belongs to.
 

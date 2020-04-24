@@ -25,7 +25,7 @@ type GetElasticIpArgs struct {
 	Id *string `pulumi:"id"`
 	// The public IP of the specific EIP to retrieve.
 	PublicIp *string `pulumi:"publicIp"`
-	// A mapping of tags, each pair of which must exactly match a pair on the desired Elastic IP
+	// A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 

@@ -65,7 +65,7 @@ export interface GetVpnAttachmentArgs {
      */
     readonly filters?: inputs.ec2transitgateway.GetVpnAttachmentFilter[];
     /**
-     * A mapping of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
+     * A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
      */
     readonly tags?: {[key: string]: any};
     /**

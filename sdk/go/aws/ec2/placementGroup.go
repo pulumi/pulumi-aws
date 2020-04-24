@@ -21,7 +21,7 @@ type PlacementGroup struct {
 	PlacementGroupId pulumi.StringOutput `pulumi:"placementGroupId"`
 	// The placement strategy.
 	Strategy pulumi.StringOutput `pulumi:"strategy"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -62,7 +62,7 @@ type placementGroupState struct {
 	PlacementGroupId *string `pulumi:"placementGroupId"`
 	// The placement strategy.
 	Strategy *string `pulumi:"strategy"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -73,7 +73,7 @@ type PlacementGroupState struct {
 	PlacementGroupId pulumi.StringPtrInput
 	// The placement strategy.
 	Strategy pulumi.StringPtrInput
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapInput
 }
 
@@ -86,7 +86,7 @@ type placementGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// The placement strategy.
 	Strategy string `pulumi:"strategy"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -96,7 +96,7 @@ type PlacementGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// The placement strategy.
 	Strategy pulumi.StringInput
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapInput
 }
 

@@ -34,7 +34,7 @@ namespace Pulumi.Aws.CloudWatch
         private Dictionary<string, object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         public Dictionary<string, object> Tags
         {
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         public readonly int RetentionInDays;
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
 

@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Dms
         public Output<string> EndpointType { get; private set; } = null!;
 
         /// <summary>
-        /// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+        /// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
         /// </summary>
         [Output("engineName")]
         public Output<string> EngineName { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Dms
         public Output<string> SslMode { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Dms
         public Input<string> EndpointType { get; set; } = null!;
 
         /// <summary>
-        /// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+        /// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
         /// </summary>
         [Input("engineName", required: true)]
         public Input<string> EngineName { get; set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Dms
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -335,7 +335,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? EndpointType { get; set; }
 
         /// <summary>
-        /// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+        /// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
         /// </summary>
         [Input("engineName")]
         public Input<string>? EngineName { get; set; }
@@ -404,7 +404,7 @@ namespace Pulumi.Aws.Dms
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         public InputMap<object> Tags
         {

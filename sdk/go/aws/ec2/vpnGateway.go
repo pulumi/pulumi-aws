@@ -17,7 +17,7 @@ type VpnGateway struct {
 	AmazonSideAsn pulumi.StringOutput `pulumi:"amazonSideAsn"`
 	// The Availability Zone for the virtual private gateway.
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The VPC ID to create in.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -55,7 +55,7 @@ type vpnGatewayState struct {
 	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
 	// The Availability Zone for the virtual private gateway.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VPC ID to create in.
 	VpcId *string `pulumi:"vpcId"`
@@ -66,7 +66,7 @@ type VpnGatewayState struct {
 	AmazonSideAsn pulumi.StringPtrInput
 	// The Availability Zone for the virtual private gateway.
 	AvailabilityZone pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The VPC ID to create in.
 	VpcId pulumi.StringPtrInput
@@ -81,7 +81,7 @@ type vpnGatewayArgs struct {
 	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
 	// The Availability Zone for the virtual private gateway.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VPC ID to create in.
 	VpcId *string `pulumi:"vpcId"`
@@ -93,7 +93,7 @@ type VpnGatewayArgs struct {
 	AmazonSideAsn pulumi.StringPtrInput
 	// The Availability Zone for the virtual private gateway.
 	AvailabilityZone pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The VPC ID to create in.
 	VpcId pulumi.StringPtrInput

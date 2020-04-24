@@ -131,7 +131,7 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageType!: pulumi.Output<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -282,7 +282,7 @@ export interface SnapshotState {
      */
     readonly storageType?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -304,7 +304,7 @@ export interface SnapshotArgs {
      */
     readonly dbSnapshotIdentifier: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

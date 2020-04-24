@@ -65,7 +65,7 @@ class Rule(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     def __init__(__self__, resource_name, opts=None, description=None, input_parameters=None, maximum_execution_frequency=None, name=None, scope=None, source=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -85,7 +85,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[dict] scope: Scope defines which resources can trigger an evaluation for the rule as documented below.
         :param pulumi.Input[dict] source: Source specifies the rule owner, the rule identifier, and the notifications that cause
                the function to evaluate your AWS resources as documented below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **scope** object supports the following:
 
@@ -163,7 +163,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[dict] scope: Scope defines which resources can trigger an evaluation for the rule as documented below.
         :param pulumi.Input[dict] source: Source specifies the rule owner, the rule identifier, and the notifications that cause
                the function to evaluate your AWS resources as documented below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **scope** object supports the following:
 

@@ -20,7 +20,7 @@ func GetNetworkAcls(ctx *pulumi.Context, args *GetNetworkAclsArgs, opts ...pulum
 type GetNetworkAclsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetNetworkAclsFilter `pulumi:"filters"`
-	// A mapping of tags, each pair of which must exactly match
+	// A map of tags, each pair of which must exactly match
 	// a pair on the desired network ACLs.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VPC ID that you want to filter from.

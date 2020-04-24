@@ -73,7 +73,7 @@ class Route(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     virtual_router_name: pulumi.Output[str]
     """
@@ -90,7 +90,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the route.
         :param pulumi.Input[str] name: The name to use for the route.
         :param pulumi.Input[dict] spec: The route specification to apply.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] virtual_router_name: The name of the virtual router in which to create the route.
 
         The **spec** object supports the following:
@@ -184,7 +184,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the route.
         :param pulumi.Input[str] name: The name to use for the route.
         :param pulumi.Input[dict] spec: The route specification to apply.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] virtual_router_name: The name of the virtual router in which to create the route.
 
         The **spec** object supports the following:

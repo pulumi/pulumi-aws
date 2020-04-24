@@ -6784,7 +6784,7 @@ func (o LaunchTemplatePlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
 type LaunchTemplateTagSpecification struct {
 	// The type of resource to tag. Valid values are `instance` and `volume`.
 	ResourceType *string `pulumi:"resourceType"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -6803,7 +6803,7 @@ type LaunchTemplateTagSpecificationInput interface {
 type LaunchTemplateTagSpecificationArgs struct {
 	// The type of resource to tag. Valid values are `instance` and `volume`.
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
@@ -6864,7 +6864,7 @@ func (o LaunchTemplateTagSpecificationOutput) ResourceType() pulumi.StringPtrOut
 	return o.ApplyT(func(v LaunchTemplateTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
-// A mapping of tags to assign to the resource.
+// A map of tags to assign to the resource.
 func (o LaunchTemplateTagSpecificationOutput) Tags() pulumi.MapOutput {
 	return o.ApplyT(func(v LaunchTemplateTagSpecification) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
 }
@@ -8288,7 +8288,7 @@ type SpotFleetRequestLaunchSpecification struct {
 	// The maximum bid price per unit hour.
 	SpotPrice *string `pulumi:"spotPrice"`
 	SubnetId  *string `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags                map[string]interface{} `pulumi:"tags"`
 	UserData            *string                `pulumi:"userData"`
 	VpcSecurityGroupIds []string               `pulumi:"vpcSecurityGroupIds"`
@@ -8325,7 +8325,7 @@ type SpotFleetRequestLaunchSpecificationArgs struct {
 	// The maximum bid price per unit hour.
 	SpotPrice pulumi.StringPtrInput `pulumi:"spotPrice"`
 	SubnetId  pulumi.StringPtrInput `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags                pulumi.MapInput         `pulumi:"tags"`
 	UserData            pulumi.StringPtrInput   `pulumi:"userData"`
 	VpcSecurityGroupIds pulumi.StringArrayInput `pulumi:"vpcSecurityGroupIds"`
@@ -8455,7 +8455,7 @@ func (o SpotFleetRequestLaunchSpecificationOutput) SubnetId() pulumi.StringPtrOu
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// A mapping of tags to assign to the resource.
+// A map of tags to assign to the resource.
 func (o SpotFleetRequestLaunchSpecificationOutput) Tags() pulumi.MapOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
 }
@@ -14543,7 +14543,7 @@ func (o GetLaunchTemplatePlacementArrayOutput) Index(i pulumi.IntInput) GetLaunc
 
 type GetLaunchTemplateTagSpecification struct {
 	ResourceType string `pulumi:"resourceType"`
-	// A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
+	// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -14561,7 +14561,7 @@ type GetLaunchTemplateTagSpecificationInput interface {
 
 type GetLaunchTemplateTagSpecificationArgs struct {
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
+	// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
 	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
@@ -14621,7 +14621,7 @@ func (o GetLaunchTemplateTagSpecificationOutput) ResourceType() pulumi.StringOut
 	return o.ApplyT(func(v GetLaunchTemplateTagSpecification) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
+// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
 func (o GetLaunchTemplateTagSpecificationOutput) Tags() pulumi.MapOutput {
 	return o.ApplyT(func(v GetLaunchTemplateTagSpecification) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
 }

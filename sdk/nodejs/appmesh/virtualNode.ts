@@ -212,7 +212,7 @@ export class VirtualNode extends pulumi.CustomResource {
      */
     public readonly spec!: pulumi.Output<outputs.appmesh.VirtualNodeSpec>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -291,7 +291,7 @@ export interface VirtualNodeState {
      */
     readonly spec?: pulumi.Input<inputs.appmesh.VirtualNodeSpec>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -313,7 +313,7 @@ export interface VirtualNodeArgs {
      */
     readonly spec: pulumi.Input<inputs.appmesh.VirtualNodeSpec>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

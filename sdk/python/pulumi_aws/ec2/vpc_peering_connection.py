@@ -68,7 +68,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     vpc_id: pulumi.Output[str]
     """
@@ -111,7 +111,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
         :param pulumi.Input[dict] requester: A optional configuration block that allows for [VPC Peering Connection]
                (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
                the peering connection (a maximum of one).
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the requester VPC.
 
         The **accepter** object supports the following:
@@ -198,7 +198,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
         :param pulumi.Input[dict] requester: A optional configuration block that allows for [VPC Peering Connection]
                (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
                the peering connection (a maximum of one).
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the requester VPC.
 
         The **accepter** object supports the following:

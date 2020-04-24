@@ -28,7 +28,7 @@ type LookupVpcEndpointArgs struct {
 	ServiceName *string `pulumi:"serviceName"`
 	// The state of the specific VPC Endpoint to retrieve.
 	State *string `pulumi:"state"`
-	// A mapping of tags, each pair of which must exactly match
+	// A map of tags, each pair of which must exactly match
 	// a pair on the specific VPC Endpoint to retrieve.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The ID of the VPC in which the specific VPC Endpoint is used.

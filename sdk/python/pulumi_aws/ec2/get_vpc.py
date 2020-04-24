@@ -135,7 +135,7 @@ def get_vpc(cidr_block=None,default=None,dhcp_options_id=None,filters=None,id=No
     :param str id: The id of the specific VPC to retrieve.
     :param str state: The current state of the desired VPC.
            Can be either `"pending"` or `"available"`.
-    :param dict tags: A mapping of tags, each pair of which must exactly match
+    :param dict tags: A map of tags, each pair of which must exactly match
            a pair on the desired VPC.
 
     The **filters** object supports the following:

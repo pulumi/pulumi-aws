@@ -26,7 +26,7 @@ type Parameter struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
 	Overwrite pulumi.BoolPtrOutput `pulumi:"overwrite"`
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
 	Tier pulumi.StringPtrOutput `pulumi:"tier"`
@@ -84,7 +84,7 @@ type parameterState struct {
 	Name *string `pulumi:"name"`
 	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
 	Overwrite *bool `pulumi:"overwrite"`
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
 	Tier *string `pulumi:"tier"`
@@ -109,7 +109,7 @@ type ParameterState struct {
 	Name pulumi.StringPtrInput
 	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
 	Overwrite pulumi.BoolPtrInput
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags pulumi.MapInput
 	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
 	Tier pulumi.StringPtrInput
@@ -138,7 +138,7 @@ type parameterArgs struct {
 	Name *string `pulumi:"name"`
 	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
 	Overwrite *bool `pulumi:"overwrite"`
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
 	Tier *string `pulumi:"tier"`
@@ -162,7 +162,7 @@ type ParameterArgs struct {
 	Name pulumi.StringPtrInput
 	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
 	Overwrite pulumi.BoolPtrInput
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags pulumi.MapInput
 	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
 	Tier pulumi.StringPtrInput

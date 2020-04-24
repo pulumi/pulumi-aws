@@ -92,7 +92,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      */
     public readonly requester!: pulumi.Output<outputs.ec2.VpcPeeringConnectionRequester>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -189,7 +189,7 @@ export interface VpcPeeringConnectionState {
      */
     readonly requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionRequester>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -233,7 +233,7 @@ export interface VpcPeeringConnectionArgs {
      */
     readonly requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionRequester>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

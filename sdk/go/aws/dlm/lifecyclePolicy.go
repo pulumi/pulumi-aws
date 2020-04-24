@@ -24,7 +24,7 @@ type LifecyclePolicy struct {
 	PolicyDetails LifecyclePolicyPolicyDetailsOutput `pulumi:"policyDetails"`
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State pulumi.StringPtrOutput `pulumi:"state"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -75,7 +75,7 @@ type lifecyclePolicyState struct {
 	PolicyDetails *LifecyclePolicyPolicyDetails `pulumi:"policyDetails"`
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -90,7 +90,7 @@ type LifecyclePolicyState struct {
 	PolicyDetails LifecyclePolicyPolicyDetailsPtrInput
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapInput
 }
 
@@ -107,7 +107,7 @@ type lifecyclePolicyArgs struct {
 	PolicyDetails LifecyclePolicyPolicyDetails `pulumi:"policyDetails"`
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -121,7 +121,7 @@ type LifecyclePolicyArgs struct {
 	PolicyDetails LifecyclePolicyPolicyDetailsInput
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapInput
 }
 

@@ -36,7 +36,7 @@ class Snapshot(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the snapshot
+    A map of tags to assign to the snapshot
     """
     volume_id: pulumi.Output[str]
     """
@@ -55,7 +55,7 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of what the snapshot is.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the snapshot
+        :param pulumi.Input[dict] tags: A map of tags to assign to the snapshot
         :param pulumi.Input[str] volume_id: The Volume ID of which to make a snapshot.
         """
         if __name__ is not None:
@@ -107,7 +107,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
         :param pulumi.Input[str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[str] owner_id: The AWS account ID of the EBS snapshot owner.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the snapshot
+        :param pulumi.Input[dict] tags: A map of tags to assign to the snapshot
         :param pulumi.Input[str] volume_id: The Volume ID of which to make a snapshot.
         :param pulumi.Input[float] volume_size: The size of the drive in GiBs.
         """

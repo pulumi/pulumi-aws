@@ -186,7 +186,7 @@ export class Instance extends pulumi.CustomResource {
     public /*out*/ readonly publicIpAddress!: pulumi.Output<string>;
     public /*out*/ readonly ramSize!: pulumi.Output<number>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -309,7 +309,7 @@ export interface InstanceState {
     readonly publicIpAddress?: pulumi.Input<string>;
     readonly ramSize?: pulumi.Input<number>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -347,7 +347,7 @@ export interface InstanceArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

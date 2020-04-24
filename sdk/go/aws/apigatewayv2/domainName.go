@@ -14,7 +14,7 @@ import (
 // More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
 //
 // > **Note:** This resource establishes ownership of and the TLS settings for
-// a particular domain name. An API stage can be associated with the domain name using the `awsApigatewayv2ApiMapping` resource.
+// a particular domain name. An API stage can be associated with the domain name using the `apigatewayv2.ApiMapping` resource.
 type DomainName struct {
 	pulumi.CustomResourceState
 
@@ -26,7 +26,7 @@ type DomainName struct {
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The domain name configuration.
 	DomainNameConfiguration DomainNameDomainNameConfigurationOutput `pulumi:"domainNameConfiguration"`
-	// A mapping of tags to assign to the domain name.
+	// A map of tags to assign to the domain name.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -72,7 +72,7 @@ type domainNameState struct {
 	DomainName *string `pulumi:"domainName"`
 	// The domain name configuration.
 	DomainNameConfiguration *DomainNameDomainNameConfiguration `pulumi:"domainNameConfiguration"`
-	// A mapping of tags to assign to the domain name.
+	// A map of tags to assign to the domain name.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -85,7 +85,7 @@ type DomainNameState struct {
 	DomainName pulumi.StringPtrInput
 	// The domain name configuration.
 	DomainNameConfiguration DomainNameDomainNameConfigurationPtrInput
-	// A mapping of tags to assign to the domain name.
+	// A map of tags to assign to the domain name.
 	Tags pulumi.MapInput
 }
 
@@ -98,7 +98,7 @@ type domainNameArgs struct {
 	DomainName string `pulumi:"domainName"`
 	// The domain name configuration.
 	DomainNameConfiguration DomainNameDomainNameConfiguration `pulumi:"domainNameConfiguration"`
-	// A mapping of tags to assign to the domain name.
+	// A map of tags to assign to the domain name.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -108,7 +108,7 @@ type DomainNameArgs struct {
 	DomainName pulumi.StringInput
 	// The domain name configuration.
 	DomainNameConfiguration DomainNameDomainNameConfigurationInput
-	// A mapping of tags to assign to the domain name.
+	// A map of tags to assign to the domain name.
 	Tags pulumi.MapInput
 }
 

@@ -40,7 +40,7 @@ type PrivateVirtualInterface struct {
 	Mtu pulumi.IntPtrOutput `pulumi:"mtu"`
 	// The name for the virtual interface.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The VLAN ID.
 	Vlan pulumi.IntOutput `pulumi:"vlan"`
@@ -114,7 +114,7 @@ type privateVirtualInterfaceState struct {
 	Mtu *int `pulumi:"mtu"`
 	// The name for the virtual interface.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VLAN ID.
 	Vlan *int `pulumi:"vlan"`
@@ -149,7 +149,7 @@ type PrivateVirtualInterfaceState struct {
 	Mtu pulumi.IntPtrInput
 	// The name for the virtual interface.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The VLAN ID.
 	Vlan pulumi.IntPtrInput
@@ -181,7 +181,7 @@ type privateVirtualInterfaceArgs struct {
 	Mtu *int `pulumi:"mtu"`
 	// The name for the virtual interface.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VLAN ID.
 	Vlan int `pulumi:"vlan"`
@@ -210,7 +210,7 @@ type PrivateVirtualInterfaceArgs struct {
 	Mtu pulumi.IntPtrInput
 	// The name for the virtual interface.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The VLAN ID.
 	Vlan pulumi.IntInput

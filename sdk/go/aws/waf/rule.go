@@ -22,7 +22,7 @@ type Rule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The objects to include in a rule (documented below).
 	Predicates RulePredicateArrayOutput `pulumi:"predicates"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -65,7 +65,7 @@ type ruleState struct {
 	Name *string `pulumi:"name"`
 	// The objects to include in a rule (documented below).
 	Predicates []RulePredicate `pulumi:"predicates"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -78,7 +78,7 @@ type RuleState struct {
 	Name pulumi.StringPtrInput
 	// The objects to include in a rule (documented below).
 	Predicates RulePredicateArrayInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 
@@ -93,7 +93,7 @@ type ruleArgs struct {
 	Name *string `pulumi:"name"`
 	// The objects to include in a rule (documented below).
 	Predicates []RulePredicate `pulumi:"predicates"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -105,7 +105,7 @@ type RuleArgs struct {
 	Name pulumi.StringPtrInput
 	// The objects to include in a rule (documented below).
 	Predicates RulePredicateArrayInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 

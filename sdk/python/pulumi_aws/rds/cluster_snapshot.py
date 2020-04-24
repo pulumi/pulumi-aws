@@ -62,7 +62,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the DB cluster.
+    A map of tags to assign to the DB cluster.
     """
     vpc_id: pulumi.Output[str]
     """
@@ -78,7 +78,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
         :param pulumi.Input[str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the DB cluster.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the DB cluster.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -144,7 +144,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.Input[float] port: Port that the DB cluster was listening on at the time of the snapshot.
         :param pulumi.Input[str] status: The status of this DB Cluster Snapshot.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster snapshot is encrypted.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the DB cluster.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the DB cluster.
         :param pulumi.Input[str] vpc_id: The VPC ID associated with the DB cluster snapshot.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

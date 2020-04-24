@@ -29,7 +29,7 @@ type Accelerator struct {
 	IpSets AcceleratorIpSetArrayOutput `pulumi:"ipSets"`
 	// The name of the accelerator.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -77,7 +77,7 @@ type acceleratorState struct {
 	IpSets []AcceleratorIpSet `pulumi:"ipSets"`
 	// The name of the accelerator.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -98,7 +98,7 @@ type AcceleratorState struct {
 	IpSets AcceleratorIpSetArrayInput
 	// The name of the accelerator.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -115,7 +115,7 @@ type acceleratorArgs struct {
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The name of the accelerator.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -129,7 +129,7 @@ type AcceleratorArgs struct {
 	IpAddressType pulumi.StringPtrInput
 	// The name of the accelerator.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

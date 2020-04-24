@@ -37,7 +37,7 @@ class NotificationRule(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     targets: pulumi.Output[list]
     """
@@ -61,7 +61,7 @@ class NotificationRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of notification rule.
         :param pulumi.Input[str] resource: The ARN of the resource to associate with the notification rule.
         :param pulumi.Input[str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[list] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
 
         The **targets** object supports the following:
@@ -123,7 +123,7 @@ class NotificationRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of notification rule.
         :param pulumi.Input[str] resource: The ARN of the resource to associate with the notification rule.
         :param pulumi.Input[str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[list] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
 
         The **targets** object supports the following:

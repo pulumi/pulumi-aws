@@ -70,7 +70,7 @@ class CatalogTable(pulumi.CustomResource):
       * `skewedInfo` (`dict`) - Information about values that appear very frequently in a column (skewed values).
         * `skewedColumnNames` (`list`) - A list of names of columns that contain skewed values.
         * `skewedColumnValueLocationMaps` (`dict`) - A list of values that appear so frequently as to be considered skewed.
-        * `skewedColumnValues` (`list`) - A mapping of skewed values to the columns that contain them.
+        * `skewedColumnValues` (`list`) - A map of skewed values to the columns that contain them.
 
       * `sortColumns` (`list`) - A list of Order objects specifying the sort order of each bucket in the table.
         * `column` (`str`) - The name of the column.
@@ -139,7 +139,7 @@ class CatalogTable(pulumi.CustomResource):
           * `skewedInfo` (`pulumi.Input[dict]`) - Information about values that appear very frequently in a column (skewed values).
             * `skewedColumnNames` (`pulumi.Input[list]`) - A list of names of columns that contain skewed values.
             * `skewedColumnValueLocationMaps` (`pulumi.Input[dict]`) - A list of values that appear so frequently as to be considered skewed.
-            * `skewedColumnValues` (`pulumi.Input[list]`) - A mapping of skewed values to the columns that contain them.
+            * `skewedColumnValues` (`pulumi.Input[list]`) - A map of skewed values to the columns that contain them.
 
           * `sortColumns` (`pulumi.Input[list]`) - A list of Order objects specifying the sort order of each bucket in the table.
             * `column` (`pulumi.Input[str]`) - The name of the column.
@@ -234,7 +234,7 @@ class CatalogTable(pulumi.CustomResource):
           * `skewedInfo` (`pulumi.Input[dict]`) - Information about values that appear very frequently in a column (skewed values).
             * `skewedColumnNames` (`pulumi.Input[list]`) - A list of names of columns that contain skewed values.
             * `skewedColumnValueLocationMaps` (`pulumi.Input[dict]`) - A list of values that appear so frequently as to be considered skewed.
-            * `skewedColumnValues` (`pulumi.Input[list]`) - A mapping of skewed values to the columns that contain them.
+            * `skewedColumnValues` (`pulumi.Input[list]`) - A map of skewed values to the columns that contain them.
 
           * `sortColumns` (`pulumi.Input[list]`) - A list of Order objects specifying the sort order of each bucket in the table.
             * `column` (`pulumi.Input[str]`) - The name of the column.

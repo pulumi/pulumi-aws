@@ -26,7 +26,7 @@ type Vault struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The notifications for the Vault. Fields documented below.
 	Notifications VaultNotificationArrayOutput `pulumi:"notifications"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -69,7 +69,7 @@ type vaultState struct {
 	Name *string `pulumi:"name"`
 	// The notifications for the Vault. Fields documented below.
 	Notifications []VaultNotification `pulumi:"notifications"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -85,7 +85,7 @@ type VaultState struct {
 	Name pulumi.StringPtrInput
 	// The notifications for the Vault. Fields documented below.
 	Notifications VaultNotificationArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -101,7 +101,7 @@ type vaultArgs struct {
 	Name *string `pulumi:"name"`
 	// The notifications for the Vault. Fields documented below.
 	Notifications []VaultNotification `pulumi:"notifications"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -114,7 +114,7 @@ type VaultArgs struct {
 	Name pulumi.StringPtrInput
 	// The notifications for the Vault. Fields documented below.
 	Notifications VaultNotificationArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

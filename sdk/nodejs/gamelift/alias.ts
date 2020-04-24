@@ -72,7 +72,7 @@ export class Alias extends pulumi.CustomResource {
      */
     public readonly routingStrategy!: pulumi.Output<outputs.gamelift.AliasRoutingStrategy>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -136,7 +136,7 @@ export interface AliasState {
      */
     readonly routingStrategy?: pulumi.Input<inputs.gamelift.AliasRoutingStrategy>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -158,7 +158,7 @@ export interface AliasArgs {
      */
     readonly routingStrategy: pulumi.Input<inputs.gamelift.AliasRoutingStrategy>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

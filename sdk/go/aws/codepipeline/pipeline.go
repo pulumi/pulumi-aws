@@ -23,10 +23,16 @@ type Pipeline struct {
 	// The name of the pipeline.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+<<<<<<< HEAD
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
 	Stages PipelineStageArrayOutput `pulumi:"stages"`
 	// A mapping of tags to assign to the resource.
+=======
+	RoleArn pulumi.StringOutput      `pulumi:"roleArn"`
+	Stages  PipelineStageArrayOutput `pulumi:"stages"`
+	// A map of tags to assign to the resource.
+>>>>>>> efd476398... Regenerate SDK based on v2.59.0 of the AWS Terraform Provider
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -74,10 +80,16 @@ type pipelineState struct {
 	// The name of the pipeline.
 	Name *string `pulumi:"name"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+<<<<<<< HEAD
 	RoleArn *string `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
 	Stages []PipelineStage `pulumi:"stages"`
 	// A mapping of tags to assign to the resource.
+=======
+	RoleArn *string         `pulumi:"roleArn"`
+	Stages  []PipelineStage `pulumi:"stages"`
+	// A map of tags to assign to the resource.
+>>>>>>> efd476398... Regenerate SDK based on v2.59.0 of the AWS Terraform Provider
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -90,9 +102,14 @@ type PipelineState struct {
 	Name pulumi.StringPtrInput
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringPtrInput
+<<<<<<< HEAD
 	// A stage block. Stages are documented below.
 	Stages PipelineStageArrayInput
 	// A mapping of tags to assign to the resource.
+=======
+	Stages  PipelineStageArrayInput
+	// A map of tags to assign to the resource.
+>>>>>>> efd476398... Regenerate SDK based on v2.59.0 of the AWS Terraform Provider
 	Tags pulumi.MapInput
 }
 
@@ -106,10 +123,16 @@ type pipelineArgs struct {
 	// The name of the pipeline.
 	Name *string `pulumi:"name"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+<<<<<<< HEAD
 	RoleArn string `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
 	Stages []PipelineStage `pulumi:"stages"`
 	// A mapping of tags to assign to the resource.
+=======
+	RoleArn string          `pulumi:"roleArn"`
+	Stages  []PipelineStage `pulumi:"stages"`
+	// A map of tags to assign to the resource.
+>>>>>>> efd476398... Regenerate SDK based on v2.59.0 of the AWS Terraform Provider
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -121,9 +144,14 @@ type PipelineArgs struct {
 	Name pulumi.StringPtrInput
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringInput
+<<<<<<< HEAD
 	// A stage block. Stages are documented below.
 	Stages PipelineStageArrayInput
 	// A mapping of tags to assign to the resource.
+=======
+	Stages  PipelineStageArrayInput
+	// A map of tags to assign to the resource.
+>>>>>>> efd476398... Regenerate SDK based on v2.59.0 of the AWS Terraform Provider
 	Tags pulumi.MapInput
 }
 

@@ -64,7 +64,7 @@ class Queue(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the queue.
+    A map of tags to assign to the queue.
     """
     visibility_timeout_seconds: pulumi.Output[float]
     """
@@ -88,7 +88,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
         :param pulumi.Input[float] receive_wait_time_seconds: The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         :param pulumi.Input[str] redrive_policy: The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the queue.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the queue.
         :param pulumi.Input[float] visibility_timeout_seconds: The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
         """
         if __name__ is not None:
@@ -151,7 +151,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
         :param pulumi.Input[float] receive_wait_time_seconds: The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         :param pulumi.Input[str] redrive_policy: The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the queue.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the queue.
         :param pulumi.Input[float] visibility_timeout_seconds: The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

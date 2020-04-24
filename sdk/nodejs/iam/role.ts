@@ -132,7 +132,7 @@ export class Role extends pulumi.CustomResource {
      */
     public readonly permissionsBoundary!: pulumi.Output<string | undefined>;
     /**
-     * Key-value mapping of tags for the IAM role
+     * Key-value map of tags for the IAM role
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -239,7 +239,7 @@ export interface RoleState {
      */
     readonly permissionsBoundary?: pulumi.Input<string>;
     /**
-     * Key-value mapping of tags for the IAM role
+     * Key-value map of tags for the IAM role
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -286,7 +286,7 @@ export interface RoleArgs {
      */
     readonly permissionsBoundary?: pulumi.Input<string>;
     /**
-     * Key-value mapping of tags for the IAM role
+     * Key-value map of tags for the IAM role
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

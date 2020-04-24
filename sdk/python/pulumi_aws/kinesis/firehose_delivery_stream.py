@@ -223,7 +223,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     splunk_configuration: pulumi.Output[dict]
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     version_id: pulumi.Output[str]
     """
@@ -253,7 +253,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                is redshift). More details are given below.
         :param pulumi.Input[dict] server_side_encryption: Encrypt at rest options.
                Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.
 
         The **elasticsearch_configuration** object supports the following:
@@ -520,7 +520,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                is redshift). More details are given below.
         :param pulumi.Input[dict] server_side_encryption: Encrypt at rest options.
                Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.
 
         The **elasticsearch_configuration** object supports the following:

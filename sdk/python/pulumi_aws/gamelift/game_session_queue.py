@@ -31,7 +31,7 @@ class GameSessionQueue(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags
+    Key-value map of resource tags
     """
     timeout_in_seconds: pulumi.Output[float]
     """
@@ -48,7 +48,7 @@ class GameSessionQueue(pulumi.CustomResource):
         :param pulumi.Input[list] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
         :param pulumi.Input[str] name: Name of the session queue.
         :param pulumi.Input[list] player_latency_policies: One or more policies used to choose fleet based on player latency. See below.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
         :param pulumi.Input[float] timeout_in_seconds: Maximum time a game session request can remain in the queue.
 
         The **player_latency_policies** object supports the following:
@@ -98,7 +98,7 @@ class GameSessionQueue(pulumi.CustomResource):
         :param pulumi.Input[list] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
         :param pulumi.Input[str] name: Name of the session queue.
         :param pulumi.Input[list] player_latency_policies: One or more policies used to choose fleet based on player latency. See below.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
         :param pulumi.Input[float] timeout_in_seconds: Maximum time a game session request can remain in the queue.
 
         The **player_latency_policies** object supports the following:

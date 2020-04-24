@@ -21,7 +21,7 @@ func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...p
 type LookupRepositoryArgs struct {
 	// The name of the ECR Repository.
 	Name string `pulumi:"name"`
-	// A mapping of tags assigned to the resource.
+	// A map of tags assigned to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -36,6 +36,6 @@ type LookupRepositoryResult struct {
 	RegistryId string `pulumi:"registryId"`
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 	RepositoryUrl string `pulumi:"repositoryUrl"`
-	// A mapping of tags assigned to the resource.
+	// A map of tags assigned to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }

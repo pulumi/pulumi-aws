@@ -20,7 +20,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags.
+    Key-value map of resource tags.
     """
     def __init__(__self__, resource_name, opts=None, description=None, network_services=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -33,7 +33,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the filter.
         :param pulumi.Input[list] network_services: List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -72,7 +72,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the filter.
         :param pulumi.Input[list] network_services: List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

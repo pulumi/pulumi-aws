@@ -32,7 +32,7 @@ type FileSystem struct {
 	PerformanceMode pulumi.StringOutput `pulumi:"performanceMode"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps pulumi.Float64PtrOutput `pulumi:"provisionedThroughputInMibps"`
-	// A mapping of tags to assign to the file system.
+	// A map of tags to assign to the file system.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
 	ThroughputMode pulumi.StringPtrOutput `pulumi:"throughputMode"`
@@ -85,7 +85,7 @@ type fileSystemState struct {
 	PerformanceMode *string `pulumi:"performanceMode"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps *float64 `pulumi:"provisionedThroughputInMibps"`
-	// A mapping of tags to assign to the file system.
+	// A map of tags to assign to the file system.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
 	ThroughputMode *string `pulumi:"throughputMode"`
@@ -111,7 +111,7 @@ type FileSystemState struct {
 	PerformanceMode pulumi.StringPtrInput
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps pulumi.Float64PtrInput
-	// A mapping of tags to assign to the file system.
+	// A map of tags to assign to the file system.
 	Tags pulumi.MapInput
 	// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
 	ThroughputMode pulumi.StringPtrInput
@@ -137,7 +137,7 @@ type fileSystemArgs struct {
 	PerformanceMode *string `pulumi:"performanceMode"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps *float64 `pulumi:"provisionedThroughputInMibps"`
-	// A mapping of tags to assign to the file system.
+	// A map of tags to assign to the file system.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
 	ThroughputMode *string `pulumi:"throughputMode"`
@@ -160,7 +160,7 @@ type FileSystemArgs struct {
 	PerformanceMode pulumi.StringPtrInput
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps pulumi.Float64PtrInput
-	// A mapping of tags to assign to the file system.
+	// A map of tags to assign to the file system.
 	Tags pulumi.MapInput
 	// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
 	ThroughputMode pulumi.StringPtrInput

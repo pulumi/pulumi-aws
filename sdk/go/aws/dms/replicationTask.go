@@ -30,7 +30,7 @@ type ReplicationTask struct {
 	SourceEndpointArn pulumi.StringOutput `pulumi:"sourceEndpointArn"`
 	// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
 	TableMappings pulumi.StringOutput `pulumi:"tableMappings"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
 	TargetEndpointArn pulumi.StringOutput `pulumi:"targetEndpointArn"`
@@ -98,7 +98,7 @@ type replicationTaskState struct {
 	SourceEndpointArn *string `pulumi:"sourceEndpointArn"`
 	// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
 	TableMappings *string `pulumi:"tableMappings"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
 	TargetEndpointArn *string `pulumi:"targetEndpointArn"`
@@ -121,7 +121,7 @@ type ReplicationTaskState struct {
 	SourceEndpointArn pulumi.StringPtrInput
 	// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
 	TableMappings pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
 	TargetEndpointArn pulumi.StringPtrInput
@@ -146,7 +146,7 @@ type replicationTaskArgs struct {
 	SourceEndpointArn string `pulumi:"sourceEndpointArn"`
 	// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
 	TableMappings string `pulumi:"tableMappings"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
 	TargetEndpointArn string `pulumi:"targetEndpointArn"`
@@ -168,7 +168,7 @@ type ReplicationTaskArgs struct {
 	SourceEndpointArn pulumi.StringInput
 	// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
 	TableMappings pulumi.StringInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
 	TargetEndpointArn pulumi.StringInput

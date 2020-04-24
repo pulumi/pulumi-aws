@@ -110,7 +110,7 @@ class Domain(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource
+    A map of tags to assign to the resource
     """
     vpc_options: pulumi.Output[dict]
     """
@@ -143,7 +143,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[list] log_publishing_options: Options for publishing slow logs to CloudWatch Logs.
         :param pulumi.Input[dict] node_to_node_encryption: Node-to-node encryption options. See below.
         :param pulumi.Input[dict] snapshot_options: Snapshot related options, see below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource
         :param pulumi.Input[dict] vpc_options: VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
 
         The **cluster_config** object supports the following:
@@ -276,7 +276,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[list] log_publishing_options: Options for publishing slow logs to CloudWatch Logs.
         :param pulumi.Input[dict] node_to_node_encryption: Node-to-node encryption options. See below.
         :param pulumi.Input[dict] snapshot_options: Snapshot related options, see below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource
         :param pulumi.Input[dict] vpc_options: VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
 
         The **cluster_config** object supports the following:

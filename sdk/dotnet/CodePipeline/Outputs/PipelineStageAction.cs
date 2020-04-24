@@ -30,6 +30,10 @@ namespace Pulumi.Aws.CodePipeline.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The namespace all output variables will be accessed from.
+        /// </summary>
+        public readonly string? Namespace;
+        /// <summary>
         /// A list of artifact names to output. Output artifact names must be unique within a pipeline.
         /// </summary>
         public readonly ImmutableArray<string> OutputArtifacts;
@@ -68,6 +72,8 @@ namespace Pulumi.Aws.CodePipeline.Outputs
 
             string name,
 
+            string? @namespace,
+
             ImmutableArray<string> outputArtifacts,
 
             string owner,
@@ -86,6 +92,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
             Configuration = configuration;
             InputArtifacts = inputArtifacts;
             Name = name;
+            Namespace = @namespace;
             OutputArtifacts = outputArtifacts;
             Owner = owner;
             Provider = provider;

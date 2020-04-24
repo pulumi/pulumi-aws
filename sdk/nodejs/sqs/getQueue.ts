@@ -47,7 +47,7 @@ export interface GetQueueArgs {
      */
     readonly name: string;
     /**
-     * A mapping of tags for the resource.
+     * A map of tags for the resource.
      */
     readonly tags?: {[key: string]: any};
 }
@@ -62,7 +62,7 @@ export interface GetQueueResult {
     readonly arn: string;
     readonly name: string;
     /**
-     * A mapping of tags for the resource.
+     * A map of tags for the resource.
      */
     readonly tags: {[key: string]: any};
     /**

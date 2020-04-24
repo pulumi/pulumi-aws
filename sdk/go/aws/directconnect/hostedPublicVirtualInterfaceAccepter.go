@@ -17,7 +17,7 @@ type HostedPublicVirtualInterfaceAccepter struct {
 
 	// The ARN of the virtual interface.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId pulumi.StringOutput `pulumi:"virtualInterfaceId"`
@@ -56,7 +56,7 @@ func GetHostedPublicVirtualInterfaceAccepter(ctx *pulumi.Context,
 type hostedPublicVirtualInterfaceAccepterState struct {
 	// The ARN of the virtual interface.
 	Arn *string `pulumi:"arn"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId *string `pulumi:"virtualInterfaceId"`
@@ -65,7 +65,7 @@ type hostedPublicVirtualInterfaceAccepterState struct {
 type HostedPublicVirtualInterfaceAccepterState struct {
 	// The ARN of the virtual interface.
 	Arn pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId pulumi.StringPtrInput
@@ -76,7 +76,7 @@ func (HostedPublicVirtualInterfaceAccepterState) ElementType() reflect.Type {
 }
 
 type hostedPublicVirtualInterfaceAccepterArgs struct {
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId string `pulumi:"virtualInterfaceId"`
@@ -84,7 +84,7 @@ type hostedPublicVirtualInterfaceAccepterArgs struct {
 
 // The set of arguments for constructing a HostedPublicVirtualInterfaceAccepter resource.
 type HostedPublicVirtualInterfaceAccepterArgs struct {
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId pulumi.StringInput

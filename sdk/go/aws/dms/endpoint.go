@@ -29,7 +29,7 @@ type Endpoint struct {
 	EndpointId pulumi.StringOutput `pulumi:"endpointId"`
 	// The type of endpoint. Can be one of `source | target`.
 	EndpointType pulumi.StringOutput `pulumi:"endpointType"`
-	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+	// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName pulumi.StringOutput `pulumi:"engineName"`
 	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
 	ExtraConnectionAttributes pulumi.StringOutput `pulumi:"extraConnectionAttributes"`
@@ -51,7 +51,7 @@ type Endpoint struct {
 	ServiceAccessRole pulumi.StringPtrOutput `pulumi:"serviceAccessRole"`
 	// The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
 	SslMode pulumi.StringOutput `pulumi:"sslMode"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The user name to be used to login to the endpoint database.
 	Username pulumi.StringPtrOutput `pulumi:"username"`
@@ -106,7 +106,7 @@ type endpointState struct {
 	EndpointId *string `pulumi:"endpointId"`
 	// The type of endpoint. Can be one of `source | target`.
 	EndpointType *string `pulumi:"endpointType"`
-	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+	// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName *string `pulumi:"engineName"`
 	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
 	ExtraConnectionAttributes *string `pulumi:"extraConnectionAttributes"`
@@ -128,7 +128,7 @@ type endpointState struct {
 	ServiceAccessRole *string `pulumi:"serviceAccessRole"`
 	// The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
 	SslMode *string `pulumi:"sslMode"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The user name to be used to login to the endpoint database.
 	Username *string `pulumi:"username"`
@@ -147,7 +147,7 @@ type EndpointState struct {
 	EndpointId pulumi.StringPtrInput
 	// The type of endpoint. Can be one of `source | target`.
 	EndpointType pulumi.StringPtrInput
-	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+	// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName pulumi.StringPtrInput
 	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
 	ExtraConnectionAttributes pulumi.StringPtrInput
@@ -169,7 +169,7 @@ type EndpointState struct {
 	ServiceAccessRole pulumi.StringPtrInput
 	// The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
 	SslMode pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The user name to be used to login to the endpoint database.
 	Username pulumi.StringPtrInput
@@ -190,7 +190,7 @@ type endpointArgs struct {
 	EndpointId string `pulumi:"endpointId"`
 	// The type of endpoint. Can be one of `source | target`.
 	EndpointType string `pulumi:"endpointType"`
-	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+	// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName string `pulumi:"engineName"`
 	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
 	ExtraConnectionAttributes *string `pulumi:"extraConnectionAttributes"`
@@ -212,7 +212,7 @@ type endpointArgs struct {
 	ServiceAccessRole *string `pulumi:"serviceAccessRole"`
 	// The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
 	SslMode *string `pulumi:"sslMode"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The user name to be used to login to the endpoint database.
 	Username *string `pulumi:"username"`
@@ -230,7 +230,7 @@ type EndpointArgs struct {
 	EndpointId pulumi.StringInput
 	// The type of endpoint. Can be one of `source | target`.
 	EndpointType pulumi.StringInput
-	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+	// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName pulumi.StringInput
 	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
 	ExtraConnectionAttributes pulumi.StringPtrInput
@@ -252,7 +252,7 @@ type EndpointArgs struct {
 	ServiceAccessRole pulumi.StringPtrInput
 	// The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
 	SslMode pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The user name to be used to login to the endpoint database.
 	Username pulumi.StringPtrInput

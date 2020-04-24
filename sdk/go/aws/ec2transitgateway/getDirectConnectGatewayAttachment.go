@@ -23,7 +23,7 @@ type GetDirectConnectGatewayAttachmentArgs struct {
 	DxGatewayId *string `pulumi:"dxGatewayId"`
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetDirectConnectGatewayAttachmentFilter `pulumi:"filters"`
-	// A mapping of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
+	// A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Identifier of the EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`

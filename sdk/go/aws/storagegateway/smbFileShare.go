@@ -42,7 +42,7 @@ type SmbFileShare struct {
 	RequesterPays pulumi.BoolPtrOutput `pulumi:"requesterPays"`
 	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	ValidUserLists pulumi.StringArrayOutput `pulumi:"validUserLists"`
@@ -113,7 +113,7 @@ type smbFileShareState struct {
 	RequesterPays *bool `pulumi:"requesterPays"`
 	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
 	RoleArn *string `pulumi:"roleArn"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	ValidUserLists []string `pulumi:"validUserLists"`
@@ -148,7 +148,7 @@ type SmbFileShareState struct {
 	RequesterPays pulumi.BoolPtrInput
 	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
 	RoleArn pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 	// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	ValidUserLists pulumi.StringArrayInput
@@ -183,7 +183,7 @@ type smbFileShareArgs struct {
 	RequesterPays *bool `pulumi:"requesterPays"`
 	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
 	RoleArn string `pulumi:"roleArn"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	ValidUserLists []string `pulumi:"validUserLists"`
@@ -215,7 +215,7 @@ type SmbFileShareArgs struct {
 	RequesterPays pulumi.BoolPtrInput
 	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
 	RoleArn pulumi.StringInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 	// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	ValidUserLists pulumi.StringArrayInput

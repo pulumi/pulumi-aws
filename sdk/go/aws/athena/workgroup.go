@@ -25,7 +25,7 @@ type Workgroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrOutput `pulumi:"state"`
-	// Key-value mapping of resource tags for the workgroup.
+	// Key-value map of resource tags for the workgroup.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -69,7 +69,7 @@ type workgroupState struct {
 	Name *string `pulumi:"name"`
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
-	// Key-value mapping of resource tags for the workgroup.
+	// Key-value map of resource tags for the workgroup.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -86,7 +86,7 @@ type WorkgroupState struct {
 	Name pulumi.StringPtrInput
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
-	// Key-value mapping of resource tags for the workgroup.
+	// Key-value map of resource tags for the workgroup.
 	Tags pulumi.MapInput
 }
 
@@ -105,7 +105,7 @@ type workgroupArgs struct {
 	Name *string `pulumi:"name"`
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
-	// Key-value mapping of resource tags for the workgroup.
+	// Key-value map of resource tags for the workgroup.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -121,7 +121,7 @@ type WorkgroupArgs struct {
 	Name pulumi.StringPtrInput
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
-	// Key-value mapping of resource tags for the workgroup.
+	// Key-value map of resource tags for the workgroup.
 	Tags pulumi.MapInput
 }
 

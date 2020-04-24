@@ -23,7 +23,7 @@ func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.Invo
 type LookupQueueArgs struct {
 	// The name of the queue to match.
 	Name string `pulumi:"name"`
-	// A mapping of tags for the resource.
+	// A map of tags for the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -34,7 +34,7 @@ type LookupQueueResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	// A mapping of tags for the resource.
+	// A map of tags for the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The URL of the queue.
 	Url string `pulumi:"url"`

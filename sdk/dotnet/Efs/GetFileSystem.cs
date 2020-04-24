@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Efs
         public readonly string PerformanceMode;
         /// <summary>
         /// The throughput, measured in MiB/s, that you want to provision for the file system.
-        /// * `tags` -A mapping of tags to assign to the file system.
+        /// * `tags` -A map of tags to assign to the file system.
         /// </summary>
         public readonly double ProvisionedThroughputInMibps;
         public readonly ImmutableDictionary<string, object> Tags;

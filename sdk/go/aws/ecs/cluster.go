@@ -23,7 +23,7 @@ type Cluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
 	Settings ClusterSettingArrayOutput `pulumi:"settings"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -65,7 +65,7 @@ type clusterState struct {
 	Name *string `pulumi:"name"`
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
 	Settings []ClusterSetting `pulumi:"settings"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -80,7 +80,7 @@ type ClusterState struct {
 	Name pulumi.StringPtrInput
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
 	Settings ClusterSettingArrayInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 
@@ -97,7 +97,7 @@ type clusterArgs struct {
 	Name *string `pulumi:"name"`
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
 	Settings []ClusterSetting `pulumi:"settings"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -111,7 +111,7 @@ type ClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
 	Settings ClusterSettingArrayInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 

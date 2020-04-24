@@ -26,7 +26,7 @@ type Route struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The route specification to apply.
 	Spec RouteSpecOutput `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The name of the virtual router in which to create the route.
 	VirtualRouterName pulumi.StringOutput `pulumi:"virtualRouterName"`
@@ -81,7 +81,7 @@ type routeState struct {
 	Name *string `pulumi:"name"`
 	// The route specification to apply.
 	Spec *RouteSpec `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The name of the virtual router in which to create the route.
 	VirtualRouterName *string `pulumi:"virtualRouterName"`
@@ -100,7 +100,7 @@ type RouteState struct {
 	Name pulumi.StringPtrInput
 	// The route specification to apply.
 	Spec RouteSpecPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The name of the virtual router in which to create the route.
 	VirtualRouterName pulumi.StringPtrInput
@@ -117,7 +117,7 @@ type routeArgs struct {
 	Name *string `pulumi:"name"`
 	// The route specification to apply.
 	Spec RouteSpec `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The name of the virtual router in which to create the route.
 	VirtualRouterName string `pulumi:"virtualRouterName"`
@@ -131,7 +131,7 @@ type RouteArgs struct {
 	Name pulumi.StringPtrInput
 	// The route specification to apply.
 	Spec RouteSpecInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The name of the virtual router in which to create the route.
 	VirtualRouterName pulumi.StringInput

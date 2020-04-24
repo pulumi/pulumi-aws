@@ -141,7 +141,7 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly stickiness!: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupStickiness>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -276,7 +276,7 @@ export interface TargetGroupState {
      */
     readonly stickiness?: pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupStickiness>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -343,7 +343,7 @@ export interface TargetGroupArgs {
      */
     readonly stickiness?: pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupStickiness>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

@@ -102,7 +102,7 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public readonly provisionedThroughputInMibps!: pulumi.Output<number | undefined>;
     /**
-     * A mapping of tags to assign to the file system.
+     * A map of tags to assign to the file system.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -196,7 +196,7 @@ export interface FileSystemState {
      */
     readonly provisionedThroughputInMibps?: pulumi.Input<number>;
     /**
-     * A mapping of tags to assign to the file system.
+     * A map of tags to assign to the file system.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -237,7 +237,7 @@ export interface FileSystemArgs {
      */
     readonly provisionedThroughputInMibps?: pulumi.Input<number>;
     /**
-     * A mapping of tags to assign to the file system.
+     * A map of tags to assign to the file system.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

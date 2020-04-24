@@ -108,7 +108,7 @@ export class IdentityPool extends pulumi.CustomResource {
      */
     public readonly supportedLoginProviders!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A mapping of tags to assign to the Identity Pool.
+     * A map of tags to assign to the Identity Pool.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -197,7 +197,7 @@ export interface IdentityPoolState {
      */
     readonly supportedLoginProviders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A mapping of tags to assign to the Identity Pool.
+     * A map of tags to assign to the Identity Pool.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -236,7 +236,7 @@ export interface IdentityPoolArgs {
      */
     readonly supportedLoginProviders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A mapping of tags to assign to the Identity Pool.
+     * A map of tags to assign to the Identity Pool.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

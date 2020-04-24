@@ -32,7 +32,7 @@ type KeyPair struct {
 	KeyPairId pulumi.StringOutput `pulumi:"keyPairId"`
 	// The public key material.
 	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -77,7 +77,7 @@ type keyPairState struct {
 	KeyPairId *string `pulumi:"keyPairId"`
 	// The public key material.
 	PublicKey *string `pulumi:"publicKey"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -92,7 +92,7 @@ type KeyPairState struct {
 	KeyPairId pulumi.StringPtrInput
 	// The public key material.
 	PublicKey pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 
@@ -107,7 +107,7 @@ type keyPairArgs struct {
 	KeyNamePrefix *string `pulumi:"keyNamePrefix"`
 	// The public key material.
 	PublicKey string `pulumi:"publicKey"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -119,7 +119,7 @@ type KeyPairArgs struct {
 	KeyNamePrefix pulumi.StringPtrInput
 	// The public key material.
 	PublicKey pulumi.StringInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 

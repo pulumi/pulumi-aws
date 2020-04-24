@@ -43,7 +43,7 @@ class ResolverEndpoint(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     def __init__(__self__, resource_name, opts=None, direction=None, ip_addresses=None, name=None, security_group_ids=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -60,7 +60,7 @@ class ResolverEndpoint(pulumi.CustomResource):
                to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         :param pulumi.Input[str] name: The friendly name of the Route 53 Resolver endpoint.
         :param pulumi.Input[list] security_group_ids: The ID of one or more security groups that you want to use to control access to this VPC.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **ip_addresses** object supports the following:
 
@@ -122,7 +122,7 @@ class ResolverEndpoint(pulumi.CustomResource):
                to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         :param pulumi.Input[str] name: The friendly name of the Route 53 Resolver endpoint.
         :param pulumi.Input[list] security_group_ids: The ID of one or more security groups that you want to use to control access to this VPC.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **ip_addresses** object supports the following:
 

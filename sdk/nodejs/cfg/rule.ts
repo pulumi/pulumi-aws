@@ -146,7 +146,7 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<outputs.cfg.RuleSource>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -236,7 +236,7 @@ export interface RuleState {
      */
     readonly source?: pulumi.Input<inputs.cfg.RuleSource>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -272,7 +272,7 @@ export interface RuleArgs {
      */
     readonly source: pulumi.Input<inputs.cfg.RuleSource>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

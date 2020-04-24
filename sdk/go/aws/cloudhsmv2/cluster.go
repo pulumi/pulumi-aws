@@ -42,7 +42,7 @@ type Cluster struct {
 	SourceBackupIdentifier pulumi.StringPtrOutput `pulumi:"sourceBackupIdentifier"`
 	// The IDs of subnets in which cluster will operate.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The id of the VPC that the CloudHSM cluster resides in.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -101,7 +101,7 @@ type clusterState struct {
 	SourceBackupIdentifier *string `pulumi:"sourceBackupIdentifier"`
 	// The IDs of subnets in which cluster will operate.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The id of the VPC that the CloudHSM cluster resides in.
 	VpcId *string `pulumi:"vpcId"`
@@ -127,7 +127,7 @@ type ClusterState struct {
 	SourceBackupIdentifier pulumi.StringPtrInput
 	// The IDs of subnets in which cluster will operate.
 	SubnetIds pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The id of the VPC that the CloudHSM cluster resides in.
 	VpcId pulumi.StringPtrInput
@@ -144,7 +144,7 @@ type clusterArgs struct {
 	SourceBackupIdentifier *string `pulumi:"sourceBackupIdentifier"`
 	// The IDs of subnets in which cluster will operate.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -156,7 +156,7 @@ type ClusterArgs struct {
 	SourceBackupIdentifier pulumi.StringPtrInput
 	// The IDs of subnets in which cluster will operate.
 	SubnetIds pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

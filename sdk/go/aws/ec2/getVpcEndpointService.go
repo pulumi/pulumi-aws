@@ -26,7 +26,7 @@ type LookupVpcEndpointServiceArgs struct {
 	Service *string `pulumi:"service"`
 	// The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName *string `pulumi:"serviceName"`
-	// A mapping of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+	// A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -53,7 +53,7 @@ type LookupVpcEndpointServiceResult struct {
 	ServiceName string `pulumi:"serviceName"`
 	// The service type, `Gateway` or `Interface`.
 	ServiceType string `pulumi:"serviceType"`
-	// A mapping of tags assigned to the resource.
+	// A map of tags assigned to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Whether or not the service supports endpoint policies - `true` or `false`.
 	VpcEndpointPolicySupported bool `pulumi:"vpcEndpointPolicySupported"`

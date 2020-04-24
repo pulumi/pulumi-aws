@@ -21,7 +21,7 @@ type HostedTransitVirtualInterfaceAcceptor struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId pulumi.StringOutput `pulumi:"dxGatewayId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId pulumi.StringOutput `pulumi:"virtualInterfaceId"`
@@ -65,7 +65,7 @@ type hostedTransitVirtualInterfaceAcceptorState struct {
 	Arn *string `pulumi:"arn"`
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId *string `pulumi:"dxGatewayId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId *string `pulumi:"virtualInterfaceId"`
@@ -76,7 +76,7 @@ type HostedTransitVirtualInterfaceAcceptorState struct {
 	Arn pulumi.StringPtrInput
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId pulumi.StringPtrInput
@@ -89,7 +89,7 @@ func (HostedTransitVirtualInterfaceAcceptorState) ElementType() reflect.Type {
 type hostedTransitVirtualInterfaceAcceptorArgs struct {
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId string `pulumi:"dxGatewayId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId string `pulumi:"virtualInterfaceId"`
@@ -99,7 +99,7 @@ type hostedTransitVirtualInterfaceAcceptorArgs struct {
 type HostedTransitVirtualInterfaceAcceptorArgs struct {
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId pulumi.StringInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId pulumi.StringInput

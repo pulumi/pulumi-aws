@@ -55,7 +55,7 @@ def get_vpn_attachment(filters=None,tags=None,transit_gateway_id=None,vpn_connec
 
 
     :param list filters: Configuration block(s) for filtering. Detailed below.
-    :param dict tags: A mapping of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
+    :param dict tags: A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
     :param str transit_gateway_id: Identifier of the EC2 Transit Gateway.
     :param str vpn_connection_id: Identifier of the EC2 VPN Connection.
 

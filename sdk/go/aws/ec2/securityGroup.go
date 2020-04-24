@@ -50,7 +50,7 @@ type SecurityGroup struct {
 	// the security groups from being destroyed without removing the dependency first.
 	// Default `false`
 	RevokeRulesOnDelete pulumi.BoolPtrOutput `pulumi:"revokeRulesOnDelete"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The VPC ID.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -113,7 +113,7 @@ type securityGroupState struct {
 	// the security groups from being destroyed without removing the dependency first.
 	// Default `false`
 	RevokeRulesOnDelete *bool `pulumi:"revokeRulesOnDelete"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VPC ID.
 	VpcId *string `pulumi:"vpcId"`
@@ -146,7 +146,7 @@ type SecurityGroupState struct {
 	// the security groups from being destroyed without removing the dependency first.
 	// Default `false`
 	RevokeRulesOnDelete pulumi.BoolPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The VPC ID.
 	VpcId pulumi.StringPtrInput
@@ -179,7 +179,7 @@ type securityGroupArgs struct {
 	// the security groups from being destroyed without removing the dependency first.
 	// Default `false`
 	RevokeRulesOnDelete *bool `pulumi:"revokeRulesOnDelete"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VPC ID.
 	VpcId *string `pulumi:"vpcId"`
@@ -209,7 +209,7 @@ type SecurityGroupArgs struct {
 	// the security groups from being destroyed without removing the dependency first.
 	// Default `false`
 	RevokeRulesOnDelete pulumi.BoolPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The VPC ID.
 	VpcId pulumi.StringPtrInput

@@ -119,7 +119,7 @@ export class NfsFileShare extends pulumi.CustomResource {
      */
     public readonly squash!: pulumi.Output<string | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -264,7 +264,7 @@ export interface NfsFileShareState {
      */
     readonly squash?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -326,7 +326,7 @@ export interface NfsFileShareArgs {
      */
     readonly squash?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

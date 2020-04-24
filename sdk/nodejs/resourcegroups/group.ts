@@ -81,7 +81,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly resourceQuery!: pulumi.Output<outputs.resourcegroups.GroupResourceQuery>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -145,7 +145,7 @@ export interface GroupState {
      */
     readonly resourceQuery?: pulumi.Input<inputs.resourcegroups.GroupResourceQuery>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -167,7 +167,7 @@ export interface GroupArgs {
      */
     readonly resourceQuery: pulumi.Input<inputs.resourcegroups.GroupResourceQuery>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

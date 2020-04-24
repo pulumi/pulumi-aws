@@ -30,7 +30,7 @@ type LookupInstanceArgs struct {
 	GetUserData *bool `pulumi:"getUserData"`
 	// Specify the exact Instance ID with which to populate the data source.
 	InstanceId *string `pulumi:"instanceId"`
-	// A mapping of tags, each pair of which must
+	// A map of tags, each pair of which must
 	// exactly match a pair on the desired Instance.
 	InstanceTags map[string]interface{} `pulumi:"instanceTags"`
 	// A mapping of tags assigned to the Instance.

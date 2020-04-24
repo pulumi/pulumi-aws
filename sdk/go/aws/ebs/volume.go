@@ -28,7 +28,7 @@ type Volume struct {
 	Size pulumi.IntOutput `pulumi:"size"`
 	// A snapshot to base the EBS volume off of.
 	SnapshotId pulumi.StringOutput `pulumi:"snapshotId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -79,7 +79,7 @@ type volumeState struct {
 	Size *int `pulumi:"size"`
 	// A snapshot to base the EBS volume off of.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
 	Type *string `pulumi:"type"`
@@ -100,7 +100,7 @@ type VolumeState struct {
 	Size pulumi.IntPtrInput
 	// A snapshot to base the EBS volume off of.
 	SnapshotId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
 	Type pulumi.StringPtrInput
@@ -123,7 +123,7 @@ type volumeArgs struct {
 	Size *int `pulumi:"size"`
 	// A snapshot to base the EBS volume off of.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
 	Type *string `pulumi:"type"`
@@ -143,7 +143,7 @@ type VolumeArgs struct {
 	Size pulumi.IntPtrInput
 	// A snapshot to base the EBS volume off of.
 	SnapshotId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
 	Type pulumi.StringPtrInput

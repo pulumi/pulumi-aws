@@ -128,7 +128,7 @@ export class MysqlLayer extends pulumi.CustomResource {
      */
     public readonly systemPackages!: pulumi.Output<string[] | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -291,7 +291,7 @@ export interface MysqlLayerState {
      */
     readonly systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -374,7 +374,7 @@ export interface MysqlLayerArgs {
      */
     readonly systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

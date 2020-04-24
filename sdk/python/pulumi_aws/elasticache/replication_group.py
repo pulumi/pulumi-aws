@@ -138,7 +138,7 @@ class ReplicationGroup(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource
+    A map of tags to assign to the resource
     """
     transit_encryption_enabled: pulumi.Output[bool]
     """
@@ -198,7 +198,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will
                begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         :param pulumi.Input[str] subnet_group_name: The name of the cache subnet group to be used for the replication group.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
 
         The **cluster_mode** object supports the following:
@@ -309,7 +309,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_window: The daily time range (in UTC) during which ElastiCache will
                begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         :param pulumi.Input[str] subnet_group_name: The name of the cache subnet group to be used for the replication group.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
 
         The **cluster_mode** object supports the following:

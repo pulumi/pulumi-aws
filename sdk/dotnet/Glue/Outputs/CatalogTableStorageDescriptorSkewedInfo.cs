@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? SkewedColumnValueLocationMaps;
         /// <summary>
-        /// A mapping of skewed values to the columns that contain them.
+        /// A map of skewed values to the columns that contain them.
         /// </summary>
         public readonly ImmutableArray<string> SkewedColumnValues;
 

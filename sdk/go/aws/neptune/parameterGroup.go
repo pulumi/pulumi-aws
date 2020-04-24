@@ -24,7 +24,7 @@ type ParameterGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of Neptune parameters to apply.
 	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -69,7 +69,7 @@ type parameterGroupState struct {
 	Name *string `pulumi:"name"`
 	// A list of Neptune parameters to apply.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -84,7 +84,7 @@ type ParameterGroupState struct {
 	Name pulumi.StringPtrInput
 	// A list of Neptune parameters to apply.
 	Parameters ParameterGroupParameterArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -101,7 +101,7 @@ type parameterGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of Neptune parameters to apply.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -115,7 +115,7 @@ type ParameterGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of Neptune parameters to apply.
 	Parameters ParameterGroupParameterArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

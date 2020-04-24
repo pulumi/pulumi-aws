@@ -169,7 +169,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly tagSpecifications!: pulumi.Output<outputs.ec2.LaunchTemplateTagSpecification[] | undefined>;
     /**
-     * A mapping of tags to assign to the launch template.
+     * A map of tags to assign to the launch template.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -407,7 +407,7 @@ export interface LaunchTemplateState {
      */
     readonly tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagSpecification>[]>;
     /**
-     * A mapping of tags to assign to the launch template.
+     * A map of tags to assign to the launch template.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -542,7 +542,7 @@ export interface LaunchTemplateArgs {
      */
     readonly tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagSpecification>[]>;
     /**
-     * A mapping of tags to assign to the launch template.
+     * A map of tags to assign to the launch template.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

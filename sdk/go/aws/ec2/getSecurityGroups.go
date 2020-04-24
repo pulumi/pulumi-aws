@@ -24,7 +24,7 @@ type GetSecurityGroupsArgs struct {
 	// several valid keys, for a full reference, check out
 	// [describe-security-groups in the AWS CLI reference][1].
 	Filters []GetSecurityGroupsFilter `pulumi:"filters"`
-	// A mapping of tags, each pair of which must exactly match for
+	// A map of tags, each pair of which must exactly match for
 	// desired security groups.
 	Tags map[string]interface{} `pulumi:"tags"`
 }

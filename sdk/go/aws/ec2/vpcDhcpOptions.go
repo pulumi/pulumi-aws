@@ -34,7 +34,7 @@ type VpcDhcpOptions struct {
 	NtpServers pulumi.StringArrayOutput `pulumi:"ntpServers"`
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -78,7 +78,7 @@ type vpcDhcpOptionsState struct {
 	NtpServers []string `pulumi:"ntpServers"`
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId *string `pulumi:"ownerId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -95,7 +95,7 @@ type VpcDhcpOptionsState struct {
 	NtpServers pulumi.StringArrayInput
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -114,7 +114,7 @@ type vpcDhcpOptionsArgs struct {
 	NetbiosNodeType *string `pulumi:"netbiosNodeType"`
 	// List of NTP servers to configure.
 	NtpServers []string `pulumi:"ntpServers"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -130,7 +130,7 @@ type VpcDhcpOptionsArgs struct {
 	NetbiosNodeType pulumi.StringPtrInput
 	// List of NTP servers to configure.
 	NtpServers pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

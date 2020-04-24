@@ -91,7 +91,7 @@ export class Model extends pulumi.CustomResource {
      */
     public readonly primaryContainer!: pulumi.Output<outputs.sagemaker.ModelPrimaryContainer | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -173,7 +173,7 @@ export interface ModelState {
      */
     readonly primaryContainer?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainer>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -207,7 +207,7 @@ export interface ModelArgs {
      */
     readonly primaryContainer?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainer>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

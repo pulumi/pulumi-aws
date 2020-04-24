@@ -46,7 +46,7 @@ export interface GetNetworkInterfacesArgs {
      */
     readonly filters?: inputs.ec2.GetNetworkInterfacesFilter[];
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * A map of tags, each pair of which must exactly match
      * a pair on the desired network interfaces.
      */
     readonly tags?: {[key: string]: any};

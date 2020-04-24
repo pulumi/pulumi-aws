@@ -40,7 +40,7 @@ type AnalyticsApplication struct {
 	ReferenceDataSources AnalyticsApplicationReferenceDataSourcesPtrOutput `pulumi:"referenceDataSources"`
 	// The Status of the application.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Key-value mapping of tags for the Kinesis Analytics Application.
+	// Key-value map of tags for the Kinesis Analytics Application.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The Version of the application.
 	Version pulumi.IntOutput `pulumi:"version"`
@@ -98,7 +98,7 @@ type analyticsApplicationState struct {
 	ReferenceDataSources *AnalyticsApplicationReferenceDataSources `pulumi:"referenceDataSources"`
 	// The Status of the application.
 	Status *string `pulumi:"status"`
-	// Key-value mapping of tags for the Kinesis Analytics Application.
+	// Key-value map of tags for the Kinesis Analytics Application.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The Version of the application.
 	Version *int `pulumi:"version"`
@@ -129,7 +129,7 @@ type AnalyticsApplicationState struct {
 	ReferenceDataSources AnalyticsApplicationReferenceDataSourcesPtrInput
 	// The Status of the application.
 	Status pulumi.StringPtrInput
-	// Key-value mapping of tags for the Kinesis Analytics Application.
+	// Key-value map of tags for the Kinesis Analytics Application.
 	Tags pulumi.MapInput
 	// The Version of the application.
 	Version pulumi.IntPtrInput
@@ -156,7 +156,7 @@ type analyticsApplicationArgs struct {
 	// An S3 Reference Data Source for the application.
 	// See Reference Data Sources below for more details.
 	ReferenceDataSources *AnalyticsApplicationReferenceDataSources `pulumi:"referenceDataSources"`
-	// Key-value mapping of tags for the Kinesis Analytics Application.
+	// Key-value map of tags for the Kinesis Analytics Application.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -178,7 +178,7 @@ type AnalyticsApplicationArgs struct {
 	// An S3 Reference Data Source for the application.
 	// See Reference Data Sources below for more details.
 	ReferenceDataSources AnalyticsApplicationReferenceDataSourcesPtrInput
-	// Key-value mapping of tags for the Kinesis Analytics Application.
+	// Key-value map of tags for the Kinesis Analytics Application.
 	Tags pulumi.MapInput
 }
 

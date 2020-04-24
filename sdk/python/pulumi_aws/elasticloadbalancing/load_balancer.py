@@ -114,7 +114,7 @@ class LoadBalancer(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     zone_id: pulumi.Output[str]
     """
@@ -166,7 +166,7 @@ class LoadBalancer(pulumi.CustomResource):
                part of your inbound rules for your load balancer's back-end application
                instances. Use this for Classic or Default VPC only.
         :param pulumi.Input[list] subnets: A list of subnet IDs to attach to the ELB.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **access_logs** object supports the following:
 
@@ -276,7 +276,7 @@ class LoadBalancer(pulumi.CustomResource):
                part of your inbound rules for your load balancer's back-end application
                instances. Only available on ELBs launched in a VPC.
         :param pulumi.Input[list] subnets: A list of subnet IDs to attach to the ELB.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] zone_id: The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
 
         The **access_logs** object supports the following:

@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Ram
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource share.
+        /// A map of tags to assign to the resource share.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Ram
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource share.
+        /// A map of tags to assign to the resource share.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Ram
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource share.
+        /// A map of tags to assign to the resource share.
         /// </summary>
         public InputMap<object> Tags
         {

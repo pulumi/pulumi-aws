@@ -81,7 +81,7 @@ class HealthCheck(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the health check.
+    A map of tags to assign to the health check.
     """
     type: pulumi.Output[str]
     """
@@ -113,7 +113,7 @@ class HealthCheck(pulumi.CustomResource):
         :param pulumi.Input[float] request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         :param pulumi.Input[str] resource_path: The path that you want Amazon Route 53 to request when performing health checks.
         :param pulumi.Input[str] search_string: String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the health check.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the health check.
         :param pulumi.Input[str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
         """
         if __name__ is not None:
@@ -187,7 +187,7 @@ class HealthCheck(pulumi.CustomResource):
         :param pulumi.Input[float] request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         :param pulumi.Input[str] resource_path: The path that you want Amazon Route 53 to request when performing health checks.
         :param pulumi.Input[str] search_string: String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the health check.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the health check.
         :param pulumi.Input[str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

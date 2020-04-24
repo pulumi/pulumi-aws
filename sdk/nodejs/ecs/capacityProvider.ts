@@ -54,7 +54,7 @@ export class CapacityProvider extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -112,7 +112,7 @@ export interface CapacityProviderState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -130,7 +130,7 @@ export interface CapacityProviderArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

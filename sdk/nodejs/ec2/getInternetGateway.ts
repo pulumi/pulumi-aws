@@ -59,7 +59,7 @@ export interface GetInternetGatewayArgs {
      */
     readonly internetGatewayId?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * A map of tags, each pair of which must exactly match
      * a pair on the desired Internet Gateway.
      */
     readonly tags?: {[key: string]: any};

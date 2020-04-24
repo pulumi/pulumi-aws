@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, object>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+        /// A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
         /// </summary>
         public Dictionary<string, object> Tags
         {
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string ServiceType;
         /// <summary>
-        /// A mapping of tags assigned to the resource.
+        /// A map of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
         /// <summary>

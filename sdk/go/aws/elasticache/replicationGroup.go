@@ -91,7 +91,7 @@ type ReplicationGroup struct {
 	SnapshotWindow pulumi.StringOutput `pulumi:"snapshotWindow"`
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"transitEncryptionEnabled"`
@@ -195,7 +195,7 @@ type replicationGroupState struct {
 	SnapshotWindow *string `pulumi:"snapshotWindow"`
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
@@ -269,7 +269,7 @@ type ReplicationGroupState struct {
 	SnapshotWindow pulumi.StringPtrInput
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags pulumi.MapInput
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled pulumi.BoolPtrInput
@@ -341,7 +341,7 @@ type replicationGroupArgs struct {
 	SnapshotWindow *string `pulumi:"snapshotWindow"`
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
@@ -410,7 +410,7 @@ type ReplicationGroupArgs struct {
 	SnapshotWindow pulumi.StringPtrInput
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags pulumi.MapInput
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled pulumi.BoolPtrInput

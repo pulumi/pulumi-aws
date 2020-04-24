@@ -176,7 +176,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     /**
-     * A mapping of tags to assign to the Neptune cluster.
+     * A map of tags to assign to the Neptune cluster.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -387,7 +387,7 @@ export interface ClusterState {
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the Neptune cluster.
+     * A map of tags to assign to the Neptune cluster.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -489,7 +489,7 @@ export interface ClusterArgs {
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the Neptune cluster.
+     * A map of tags to assign to the Neptune cluster.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

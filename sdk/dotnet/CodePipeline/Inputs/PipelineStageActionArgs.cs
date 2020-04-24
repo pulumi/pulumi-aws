@@ -48,6 +48,12 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The namespace all output variables will be accessed from.
+        /// </summary>
+        [Input("namespace")]
+        public Input<string>? Namespace { get; set; }
+
         [Input("outputArtifacts")]
         private InputList<string>? _outputArtifacts;
 

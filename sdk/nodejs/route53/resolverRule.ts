@@ -102,7 +102,7 @@ export class ResolverRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly shareStatus!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -196,7 +196,7 @@ export interface ResolverRuleState {
      */
     readonly shareStatus?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -228,7 +228,7 @@ export interface ResolverRuleArgs {
      */
     readonly ruleType: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

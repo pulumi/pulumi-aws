@@ -57,7 +57,7 @@ def get_subnet_ids(filters=None,tags=None,vpc_id=None,opts=None):
 
 
     :param list filters: Custom filter block as described below.
-    :param dict tags: A mapping of tags, each pair of which must exactly match
+    :param dict tags: A map of tags, each pair of which must exactly match
            a pair on the desired subnets.
     :param str vpc_id: The VPC ID that you want to filter from.
 

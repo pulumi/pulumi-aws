@@ -35,7 +35,7 @@ class DomainName(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the domain name.
+    A map of tags to assign to the domain name.
     """
     def __init__(__self__, resource_name, opts=None, domain_name=None, domain_name_configuration=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -43,7 +43,7 @@ class DomainName(pulumi.CustomResource):
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
 
         > **Note:** This resource establishes ownership of and the TLS settings for
-        a particular domain name. An API stage can be associated with the domain name using the `aws_apigatewayv2_api_mapping` resource.
+        a particular domain name. An API stage can be associated with the domain name using the `apigatewayv2.ApiMapping` resource.
 
 
 
@@ -51,7 +51,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: The domain name.
         :param pulumi.Input[dict] domain_name_configuration: The domain name configuration.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the domain name.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the domain name.
 
         The **domain_name_configuration** object supports the following:
 
@@ -107,7 +107,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the domain name.
         :param pulumi.Input[str] domain_name: The domain name.
         :param pulumi.Input[dict] domain_name_configuration: The domain name configuration.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the domain name.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the domain name.
 
         The **domain_name_configuration** object supports the following:
 

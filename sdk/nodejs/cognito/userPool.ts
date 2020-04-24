@@ -130,7 +130,7 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly softwareTokenMfaConfiguration!: pulumi.Output<outputs.cognito.UserPoolSoftwareTokenMfaConfiguration | undefined>;
     /**
-     * A mapping of tags to assign to the User Pool.
+     * A map of tags to assign to the User Pool.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -311,7 +311,7 @@ export interface UserPoolState {
      */
     readonly softwareTokenMfaConfiguration?: pulumi.Input<inputs.cognito.UserPoolSoftwareTokenMfaConfiguration>;
     /**
-     * A mapping of tags to assign to the User Pool.
+     * A map of tags to assign to the User Pool.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -401,7 +401,7 @@ export interface UserPoolArgs {
      */
     readonly softwareTokenMfaConfiguration?: pulumi.Input<inputs.cognito.UserPoolSoftwareTokenMfaConfiguration>;
     /**
-     * A mapping of tags to assign to the User Pool.
+     * A map of tags to assign to the User Pool.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

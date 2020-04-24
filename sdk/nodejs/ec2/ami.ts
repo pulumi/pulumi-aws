@@ -123,7 +123,7 @@ export class Ami extends pulumi.CustomResource {
      */
     public readonly sriovNetSupport!: pulumi.Output<string | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -249,7 +249,7 @@ export interface AmiState {
      */
     readonly sriovNetSupport?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -315,7 +315,7 @@ export interface AmiArgs {
      */
     readonly sriovNetSupport?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

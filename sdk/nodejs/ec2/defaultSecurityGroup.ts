@@ -155,7 +155,7 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     public readonly revokeRulesOnDelete!: pulumi.Output<boolean | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -238,7 +238,7 @@ export interface DefaultSecurityGroupState {
     readonly ownerId?: pulumi.Input<string>;
     readonly revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -265,7 +265,7 @@ export interface DefaultSecurityGroupArgs {
     readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupIngress>[]>;
     readonly revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

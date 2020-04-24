@@ -45,7 +45,7 @@ class GetRepositoryResult:
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
-        A mapping of tags assigned to the resource.
+        A map of tags assigned to the resource.
         """
 class AwaitableGetRepositoryResult(GetRepositoryResult):
     # pylint: disable=using-constant-test
@@ -68,7 +68,7 @@ def get_repository(name=None,tags=None,opts=None):
 
 
     :param str name: The name of the ECR Repository.
-    :param dict tags: A mapping of tags assigned to the resource.
+    :param dict tags: A map of tags assigned to the resource.
     """
     __args__ = dict()
 

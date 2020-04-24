@@ -32,7 +32,7 @@ class Build(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags
+    Key-value map of resource tags
     """
     version: pulumi.Output[str]
     """
@@ -49,7 +49,7 @@ class Build(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the build
         :param pulumi.Input[str] operating_system: Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
         :param pulumi.Input[dict] storage_location: Information indicating where your game build files are stored. See below.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
         :param pulumi.Input[str] version: Version that is associated with this build.
 
         The **storage_location** object supports the following:
@@ -104,7 +104,7 @@ class Build(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the build
         :param pulumi.Input[str] operating_system: Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
         :param pulumi.Input[dict] storage_location: Information indicating where your game build files are stored. See below.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
         :param pulumi.Input[str] version: Version that is associated with this build.
 
         The **storage_location** object supports the following:

@@ -20,7 +20,7 @@ type Directory struct {
 	SelfServicePermissions DirectorySelfServicePermissionsOutput `pulumi:"selfServicePermissions"`
 	// The identifiers of the subnets where the directory resides.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// A mapping of tags assigned to the WorkSpaces directory.
+	// A map of tags assigned to the WorkSpaces directory.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -61,7 +61,7 @@ type directoryState struct {
 	SelfServicePermissions *DirectorySelfServicePermissions `pulumi:"selfServicePermissions"`
 	// The identifiers of the subnets where the directory resides.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A mapping of tags assigned to the WorkSpaces directory.
+	// A map of tags assigned to the WorkSpaces directory.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -72,7 +72,7 @@ type DirectoryState struct {
 	SelfServicePermissions DirectorySelfServicePermissionsPtrInput
 	// The identifiers of the subnets where the directory resides.
 	SubnetIds pulumi.StringArrayInput
-	// A mapping of tags assigned to the WorkSpaces directory.
+	// A map of tags assigned to the WorkSpaces directory.
 	Tags pulumi.MapInput
 }
 
@@ -87,7 +87,7 @@ type directoryArgs struct {
 	SelfServicePermissions *DirectorySelfServicePermissions `pulumi:"selfServicePermissions"`
 	// The identifiers of the subnets where the directory resides.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A mapping of tags assigned to the WorkSpaces directory.
+	// A map of tags assigned to the WorkSpaces directory.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -99,7 +99,7 @@ type DirectoryArgs struct {
 	SelfServicePermissions DirectorySelfServicePermissionsPtrInput
 	// The identifiers of the subnets where the directory resides.
 	SubnetIds pulumi.StringArrayInput
-	// A mapping of tags assigned to the WorkSpaces directory.
+	// A map of tags assigned to the WorkSpaces directory.
 	Tags pulumi.MapInput
 }
 

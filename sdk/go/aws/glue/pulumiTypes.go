@@ -762,7 +762,7 @@ type CatalogTableStorageDescriptorSkewedInfo struct {
 	SkewedColumnNames []string `pulumi:"skewedColumnNames"`
 	// A list of values that appear so frequently as to be considered skewed.
 	SkewedColumnValueLocationMaps map[string]string `pulumi:"skewedColumnValueLocationMaps"`
-	// A mapping of skewed values to the columns that contain them.
+	// A map of skewed values to the columns that contain them.
 	SkewedColumnValues []string `pulumi:"skewedColumnValues"`
 }
 
@@ -783,7 +783,7 @@ type CatalogTableStorageDescriptorSkewedInfoArgs struct {
 	SkewedColumnNames pulumi.StringArrayInput `pulumi:"skewedColumnNames"`
 	// A list of values that appear so frequently as to be considered skewed.
 	SkewedColumnValueLocationMaps pulumi.StringMapInput `pulumi:"skewedColumnValueLocationMaps"`
-	// A mapping of skewed values to the columns that contain them.
+	// A map of skewed values to the columns that contain them.
 	SkewedColumnValues pulumi.StringArrayInput `pulumi:"skewedColumnValues"`
 }
 
@@ -877,7 +877,7 @@ func (o CatalogTableStorageDescriptorSkewedInfoOutput) SkewedColumnValueLocation
 	}).(pulumi.StringMapOutput)
 }
 
-// A mapping of skewed values to the columns that contain them.
+// A map of skewed values to the columns that contain them.
 func (o CatalogTableStorageDescriptorSkewedInfoOutput) SkewedColumnValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorSkewedInfo) []string { return v.SkewedColumnValues }).(pulumi.StringArrayOutput)
 }
@@ -920,7 +920,7 @@ func (o CatalogTableStorageDescriptorSkewedInfoPtrOutput) SkewedColumnValueLocat
 	}).(pulumi.StringMapOutput)
 }
 
-// A mapping of skewed values to the columns that contain them.
+// A map of skewed values to the columns that contain them.
 func (o CatalogTableStorageDescriptorSkewedInfoPtrOutput) SkewedColumnValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptorSkewedInfo) []string {
 		if v == nil {

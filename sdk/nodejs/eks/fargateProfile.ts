@@ -68,7 +68,7 @@ export class FargateProfile extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -156,7 +156,7 @@ export interface FargateProfileState {
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -186,7 +186,7 @@ export interface FargateProfileArgs {
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

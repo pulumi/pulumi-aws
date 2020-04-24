@@ -52,7 +52,7 @@ export interface GetClusterArgs {
      */
     readonly name: string;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     readonly tags?: {[key: string]: any};
 }
@@ -99,7 +99,7 @@ export interface GetClusterResult {
      */
     readonly status: string;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     readonly tags: {[key: string]: any};
     /**

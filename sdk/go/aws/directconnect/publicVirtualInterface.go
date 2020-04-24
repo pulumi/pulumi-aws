@@ -35,7 +35,7 @@ type PublicVirtualInterface struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayOutput `pulumi:"routeFilterPrefixes"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The VLAN ID.
 	Vlan pulumi.IntOutput `pulumi:"vlan"`
@@ -105,7 +105,7 @@ type publicVirtualInterfaceState struct {
 	Name *string `pulumi:"name"`
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes []string `pulumi:"routeFilterPrefixes"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VLAN ID.
 	Vlan *int `pulumi:"vlan"`
@@ -133,7 +133,7 @@ type PublicVirtualInterfaceState struct {
 	Name pulumi.StringPtrInput
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The VLAN ID.
 	Vlan pulumi.IntPtrInput
@@ -160,7 +160,7 @@ type publicVirtualInterfaceArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes []string `pulumi:"routeFilterPrefixes"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VLAN ID.
 	Vlan int `pulumi:"vlan"`
@@ -184,7 +184,7 @@ type PublicVirtualInterfaceArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The VLAN ID.
 	Vlan pulumi.IntInput

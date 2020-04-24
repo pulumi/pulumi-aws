@@ -220,7 +220,7 @@ class Instance(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     tenancy: pulumi.Output[str]
     """
@@ -236,7 +236,7 @@ class Instance(pulumi.CustomResource):
     """
     volume_tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the devices created by the instance at launch time.
+    A map of tags to assign to the devices created by the instance at launch time.
     """
     vpc_security_group_ids: pulumi.Output[list]
     """
@@ -295,11 +295,11 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when
                the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] subnet_id: The VPC Subnet ID to launch in.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] tenancy: The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-        :param pulumi.Input[dict] volume_tags: A mapping of tags to assign to the devices created by the instance at launch time.
+        :param pulumi.Input[dict] volume_tags: A map of tags to assign to the devices created by the instance at launch time.
         :param pulumi.Input[list] vpc_security_group_ids: A list of security group IDs to associate with.
 
         The **credit_specification** object supports the following:
@@ -494,11 +494,11 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when
                the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] subnet_id: The VPC Subnet ID to launch in.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] tenancy: The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-        :param pulumi.Input[dict] volume_tags: A mapping of tags to assign to the devices created by the instance at launch time.
+        :param pulumi.Input[dict] volume_tags: A map of tags to assign to the devices created by the instance at launch time.
         :param pulumi.Input[list] vpc_security_group_ids: A list of security group IDs to associate with.
 
         The **credit_specification** object supports the following:

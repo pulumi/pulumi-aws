@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, object>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match for
+        /// A map of tags, each pair of which must exactly match for
         /// desired security groups.
         /// </summary>
         public Dictionary<string, object> Tags

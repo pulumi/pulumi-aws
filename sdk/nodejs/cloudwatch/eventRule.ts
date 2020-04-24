@@ -113,7 +113,7 @@ export class EventRule extends pulumi.CustomResource {
      */
     public readonly scheduleExpression!: pulumi.Output<string | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -201,7 +201,7 @@ export interface EventRuleState {
      */
     readonly scheduleExpression?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -242,7 +242,7 @@ export interface EventRuleArgs {
      */
     readonly scheduleExpression?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

@@ -289,7 +289,7 @@ def get_instance(filters=None,get_password_data=None,get_user_data=None,instance
     :param bool get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
     :param bool get_user_data: Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
     :param str instance_id: Specify the exact Instance ID with which to populate the data source.
-    :param dict instance_tags: A mapping of tags, each pair of which must
+    :param dict instance_tags: A map of tags, each pair of which must
            exactly match a pair on the desired Instance.
     :param dict tags: A mapping of tags assigned to the Instance.
 

@@ -32,7 +32,7 @@ class StateMachine(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags
+    Key-value map of resource tags
     """
     def __init__(__self__, resource_name, opts=None, definition=None, name=None, role_arn=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -45,7 +45,7 @@ class StateMachine(pulumi.CustomResource):
         :param pulumi.Input[str] definition: The Amazon States Language definition of the state machine.
         :param pulumi.Input[str] name: The name of the state machine.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -94,7 +94,7 @@ class StateMachine(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the state machine.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
         :param pulumi.Input[str] status: The current status of the state machine. Either "ACTIVE" or "DELETING".
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

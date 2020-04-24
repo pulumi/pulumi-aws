@@ -65,7 +65,7 @@ type Document struct {
 	SchemaVersion pulumi.StringOutput `pulumi:"schemaVersion"`
 	// "Creating", "Active" or "Deleting". The current status of the document.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	TargetType pulumi.StringPtrOutput `pulumi:"targetType"`
@@ -140,7 +140,7 @@ type documentState struct {
 	SchemaVersion *string `pulumi:"schemaVersion"`
 	// "Creating", "Active" or "Deleting". The current status of the document.
 	Status *string `pulumi:"status"`
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	TargetType *string `pulumi:"targetType"`
@@ -182,7 +182,7 @@ type DocumentState struct {
 	SchemaVersion pulumi.StringPtrInput
 	// "Creating", "Active" or "Deleting". The current status of the document.
 	Status pulumi.StringPtrInput
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags pulumi.MapInput
 	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	TargetType pulumi.StringPtrInput
@@ -205,7 +205,7 @@ type documentArgs struct {
 	Name *string `pulumi:"name"`
 	// Additional Permissions to attach to the document. See Permissions below for details.
 	Permissions *DocumentPermissions `pulumi:"permissions"`
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	TargetType *string `pulumi:"targetType"`
@@ -225,7 +225,7 @@ type DocumentArgs struct {
 	Name pulumi.StringPtrInput
 	// Additional Permissions to attach to the document. See Permissions below for details.
 	Permissions DocumentPermissionsPtrInput
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags pulumi.MapInput
 	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	TargetType pulumi.StringPtrInput

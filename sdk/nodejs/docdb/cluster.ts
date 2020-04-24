@@ -180,7 +180,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     /**
-     * A mapping of tags to assign to the DB cluster.
+     * A map of tags to assign to the DB cluster.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -391,7 +391,7 @@ export interface ClusterState {
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the DB cluster.
+     * A map of tags to assign to the DB cluster.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -499,7 +499,7 @@ export interface ClusterArgs {
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the DB cluster.
+     * A map of tags to assign to the DB cluster.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

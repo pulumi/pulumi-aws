@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, object>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match
+        /// A map of tags, each pair of which must exactly match
         /// a pair on the desired VPN Gateway.
         /// </summary>
         public Dictionary<string, object> Tags

@@ -36,7 +36,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     def __init__(__self__, resource_name, opts=None, account_aggregation_source=None, name=None, organization_aggregation_source=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -49,7 +49,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
         :param pulumi.Input[dict] account_aggregation_source: The account(s) to aggregate config data from as documented below.
         :param pulumi.Input[str] name: The name of the configuration aggregator.
         :param pulumi.Input[dict] organization_aggregation_source: The organization to aggregate config data from as documented below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **account_aggregation_source** object supports the following:
 
@@ -104,7 +104,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the aggregator
         :param pulumi.Input[str] name: The name of the configuration aggregator.
         :param pulumi.Input[dict] organization_aggregation_source: The organization to aggregate config data from as documented below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **account_aggregation_source** object supports the following:
 

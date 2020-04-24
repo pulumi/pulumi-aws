@@ -63,7 +63,7 @@ def get_vpn_gateway(amazon_side_asn=None,attached_vpc_id=None,availability_zone=
     :param list filters: Custom filter block as described below.
     :param str id: The ID of the specific VPN Gateway to retrieve.
     :param str state: The state of the specific VPN Gateway to retrieve.
-    :param dict tags: A mapping of tags, each pair of which must exactly match
+    :param dict tags: A map of tags, each pair of which must exactly match
            a pair on the desired VPN Gateway.
 
     The **filters** object supports the following:

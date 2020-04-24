@@ -925,6 +925,33 @@ export namespace apigateway {
 }
 
 export namespace apigatewayv2 {
+    export interface ApiCorsConfiguration {
+        /**
+         * Whether credentials are included in the CORS request.
+         */
+        allowCredentials?: boolean;
+        /**
+         * The set of allowed HTTP headers.
+         */
+        allowHeaders?: string[];
+        /**
+         * The set of allowed HTTP methods.
+         */
+        allowMethods?: string[];
+        /**
+         * The set of allowed origins.
+         */
+        allowOrigins?: string[];
+        /**
+         * The set of exposed HTTP headers.
+         */
+        exposeHeaders?: string[];
+        /**
+         * The number of seconds that the browser should cache preflight request results.
+         */
+        maxAge?: number;
+    }
+
     export interface AuthorizerJwtConfiguration {
         /**
          * A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
@@ -2083,6 +2110,10 @@ export namespace appsync {
          * Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
          */
         cloudwatchLogsRoleArn: string;
+        /**
+         * Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
+         */
+        excludeVerboseContent?: boolean;
         /**
          * Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
          */
@@ -4204,6 +4235,10 @@ export namespace codepipeline {
          */
         name: string;
         /**
+         * The namespace all output variables will be accessed from.
+         */
+        namespace?: string;
+        /**
          * A list of artifact names to output. Output artifact names must be unique within a pipeline.
          */
         outputArtifacts?: string[];
@@ -4781,7 +4816,7 @@ export namespace dlm {
          */
         schedules: outputs.dlm.LifecyclePolicyPolicyDetailsSchedule[];
         /**
-         * A mapping of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+         * A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
          */
         targetTags: {[key: string]: any};
     }
@@ -4804,7 +4839,7 @@ export namespace dlm {
          */
         retainRule: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleRetainRule;
         /**
-         * A mapping of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+         * A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
          */
         tagsToAdd?: {[key: string]: any};
     }
@@ -5800,7 +5835,7 @@ export namespace ec2 {
     export interface GetLaunchTemplateTagSpecification {
         resourceType: string;
         /**
-         * A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
+         * A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
          */
         tags: {[key: string]: any};
     }
@@ -6555,7 +6590,7 @@ export namespace ec2 {
          */
         resourceType?: string;
         /**
-         * A mapping of tags to assign to the resource.
+         * A map of tags to assign to the resource.
          */
         tags?: {[key: string]: any};
     }
@@ -6838,7 +6873,7 @@ export namespace ec2 {
         spotPrice?: string;
         subnetId: string;
         /**
-         * A mapping of tags to assign to the resource.
+         * A map of tags to assign to the resource.
          */
         tags?: {[key: string]: any};
         userData?: string;
@@ -7580,7 +7615,7 @@ export namespace eks {
 
     export interface FargateProfileSelector {
         /**
-         * Key-value mapping of Kubernetes labels for selection.
+         * Key-value map of Kubernetes labels for selection.
          */
         labels?: {[key: string]: string};
         /**
@@ -9690,7 +9725,7 @@ export namespace glue {
          */
         skewedColumnValueLocationMaps?: {[key: string]: string};
         /**
-         * A mapping of skewed values to the columns that contain them.
+         * A map of skewed values to the columns that contain them.
          */
         skewedColumnValues?: string[];
     }
@@ -13830,7 +13865,7 @@ export namespace s3 {
          */
         prefix?: string;
         /**
-         * A mapping of tags that identifies subset of objects to which the rule applies.
+         * A map of tags that identifies subset of objects to which the rule applies.
          * The rule applies only to objects having all the tags in its tagset.
          */
         tags?: {[key: string]: any};

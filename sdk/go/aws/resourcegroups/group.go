@@ -22,7 +22,7 @@ type Group struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `resourceQuery` block. Resource queries are documented below.
 	ResourceQuery GroupResourceQueryOutput `pulumi:"resourceQuery"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -65,7 +65,7 @@ type groupState struct {
 	Name *string `pulumi:"name"`
 	// A `resourceQuery` block. Resource queries are documented below.
 	ResourceQuery *GroupResourceQuery `pulumi:"resourceQuery"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -78,7 +78,7 @@ type GroupState struct {
 	Name pulumi.StringPtrInput
 	// A `resourceQuery` block. Resource queries are documented below.
 	ResourceQuery GroupResourceQueryPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 
@@ -93,7 +93,7 @@ type groupArgs struct {
 	Name *string `pulumi:"name"`
 	// A `resourceQuery` block. Resource queries are documented below.
 	ResourceQuery GroupResourceQuery `pulumi:"resourceQuery"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -105,7 +105,7 @@ type GroupArgs struct {
 	Name pulumi.StringPtrInput
 	// A `resourceQuery` block. Resource queries are documented below.
 	ResourceQuery GroupResourceQueryInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 

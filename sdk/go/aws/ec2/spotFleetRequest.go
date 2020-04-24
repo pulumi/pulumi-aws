@@ -54,7 +54,7 @@ type SpotFleetRequest struct {
 	SpotPrice pulumi.StringPtrOutput `pulumi:"spotPrice"`
 	// The state of the Spot fleet request.
 	SpotRequestState pulumi.StringOutput `pulumi:"spotRequestState"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The number of units to request. You can choose to set the
 	// target capacity in terms of instances or a performance characteristic that is
@@ -151,7 +151,7 @@ type spotFleetRequestState struct {
 	SpotPrice *string `pulumi:"spotPrice"`
 	// The state of the Spot fleet request.
 	SpotRequestState *string `pulumi:"spotRequestState"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The number of units to request. You can choose to set the
 	// target capacity in terms of instances or a performance characteristic that is
@@ -212,7 +212,7 @@ type SpotFleetRequestState struct {
 	SpotPrice pulumi.StringPtrInput
 	// The state of the Spot fleet request.
 	SpotRequestState pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The number of units to request. You can choose to set the
 	// target capacity in terms of instances or a performance characteristic that is
@@ -274,7 +274,7 @@ type spotFleetRequestArgs struct {
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
 	// The maximum bid price per unit hour.
 	SpotPrice *string `pulumi:"spotPrice"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The number of units to request. You can choose to set the
 	// target capacity in terms of instances or a performance characteristic that is
@@ -333,7 +333,7 @@ type SpotFleetRequestArgs struct {
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
 	// The maximum bid price per unit hour.
 	SpotPrice pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The number of units to request. You can choose to set the
 	// target capacity in terms of instances or a performance characteristic that is

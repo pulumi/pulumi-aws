@@ -56,7 +56,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
     revoke_rules_on_delete: pulumi.Output[bool]
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     vpc_id: pulumi.Output[str]
     """
@@ -113,7 +113,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
                egress rule. Each egress block supports fields documented below.
         :param pulumi.Input[list] ingress: Can be specified multiple times for each
                ingress rule. Each ingress block supports fields documented below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID. **Note that changing
                the `vpc_id` will _not_ restore any default security group rules that were
                modified, added, or removed.** It will be left in its current state
@@ -190,7 +190,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
                ingress rule. Each ingress block supports fields documented below.
         :param pulumi.Input[str] name: The name of the security group
         :param pulumi.Input[str] owner_id: The owner ID.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID. **Note that changing
                the `vpc_id` will _not_ restore any default security group rules that were
                modified, added, or removed.** It will be left in its current state

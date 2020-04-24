@@ -15,7 +15,7 @@ type InternetGateway struct {
 
 	// The ID of the AWS account that owns the internet gateway.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The VPC ID to create in.
 	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
@@ -51,7 +51,7 @@ func GetInternetGateway(ctx *pulumi.Context,
 type internetGatewayState struct {
 	// The ID of the AWS account that owns the internet gateway.
 	OwnerId *string `pulumi:"ownerId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VPC ID to create in.
 	VpcId *string `pulumi:"vpcId"`
@@ -60,7 +60,7 @@ type internetGatewayState struct {
 type InternetGatewayState struct {
 	// The ID of the AWS account that owns the internet gateway.
 	OwnerId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The VPC ID to create in.
 	VpcId pulumi.StringPtrInput
@@ -71,7 +71,7 @@ func (InternetGatewayState) ElementType() reflect.Type {
 }
 
 type internetGatewayArgs struct {
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VPC ID to create in.
 	VpcId *string `pulumi:"vpcId"`
@@ -79,7 +79,7 @@ type internetGatewayArgs struct {
 
 // The set of arguments for constructing a InternetGateway resource.
 type InternetGatewayArgs struct {
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The VPC ID to create in.
 	VpcId pulumi.StringPtrInput

@@ -18,6 +18,10 @@ namespace Pulumi.Aws.AppSync.Outputs
         /// </summary>
         public readonly string CloudwatchLogsRoleArn;
         /// <summary>
+        /// Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
+        /// </summary>
+        public readonly bool? ExcludeVerboseContent;
+        /// <summary>
         /// Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
         /// </summary>
         public readonly string FieldLogLevel;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.AppSync.Outputs
         private GraphQLApiLogConfig(
             string cloudwatchLogsRoleArn,
 
+            bool? excludeVerboseContent,
+
             string fieldLogLevel)
         {
             CloudwatchLogsRoleArn = cloudwatchLogsRoleArn;
+            ExcludeVerboseContent = excludeVerboseContent;
             FieldLogLevel = fieldLogLevel;
         }
     }

@@ -51,7 +51,7 @@ type GangliaLayer struct {
 	StackId pulumi.StringOutput `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The URL path to use for Ganglia. Defaults to "/ganglia".
 	Url pulumi.StringPtrOutput `pulumi:"url"`
@@ -132,7 +132,7 @@ type gangliaLayerState struct {
 	StackId *string `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The URL path to use for Ganglia. Defaults to "/ganglia".
 	Url *string `pulumi:"url"`
@@ -180,7 +180,7 @@ type GangliaLayerState struct {
 	StackId pulumi.StringPtrInput
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The URL path to use for Ganglia. Defaults to "/ganglia".
 	Url pulumi.StringPtrInput
@@ -230,7 +230,7 @@ type gangliaLayerArgs struct {
 	StackId string `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages []string `pulumi:"systemPackages"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The URL path to use for Ganglia. Defaults to "/ganglia".
 	Url *string `pulumi:"url"`
@@ -277,7 +277,7 @@ type GangliaLayerArgs struct {
 	StackId pulumi.StringInput
 	// Names of a set of system packages to install on the layer's instances.
 	SystemPackages pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The URL path to use for Ganglia. Defaults to "/ganglia".
 	Url pulumi.StringPtrInput

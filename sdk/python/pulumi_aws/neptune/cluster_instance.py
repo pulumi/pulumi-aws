@@ -102,7 +102,7 @@ class ClusterInstance(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the instance.
+    A map of tags to assign to the instance.
     """
     writer: pulumi.Output[bool]
     """
@@ -138,7 +138,7 @@ class ClusterInstance(pulumi.CustomResource):
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         :param pulumi.Input[float] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly accessible. Default is `false`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the instance.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the instance.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -224,7 +224,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[float] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly accessible. Default is `false`.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the neptune cluster is encrypted.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the instance.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the instance.
         :param pulumi.Input[bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

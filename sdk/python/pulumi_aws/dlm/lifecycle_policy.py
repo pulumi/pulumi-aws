@@ -38,9 +38,9 @@ class LifecyclePolicy(pulumi.CustomResource):
         * `retainRule` (`dict`) - See the `retain_rule` block. Max of 1 per schedule.
           * `count` (`float`) - How many snapshots to keep. Must be an integer between 1 and 1000.
 
-        * `tagsToAdd` (`dict`) - A mapping of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+        * `tagsToAdd` (`dict`) - A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
 
-      * `targetTags` (`dict`) - A mapping of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
+      * `targetTags` (`dict`) - A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
     """
     state: pulumi.Output[str]
     """
@@ -48,7 +48,7 @@ class LifecyclePolicy(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags.
+    Key-value map of resource tags.
     """
     def __init__(__self__, resource_name, opts=None, description=None, execution_role_arn=None, policy_details=None, state=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -62,7 +62,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
         :param pulumi.Input[dict] policy_details: See the `policy_details` configuration block. Max of 1.
         :param pulumi.Input[str] state: Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags.
 
         The **policy_details** object supports the following:
 
@@ -78,9 +78,9 @@ class LifecyclePolicy(pulumi.CustomResource):
             * `retainRule` (`pulumi.Input[dict]`) - See the `retain_rule` block. Max of 1 per schedule.
               * `count` (`pulumi.Input[float]`) - How many snapshots to keep. Must be an integer between 1 and 1000.
 
-            * `tagsToAdd` (`pulumi.Input[dict]`) - A mapping of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+            * `tagsToAdd` (`pulumi.Input[dict]`) - A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
 
-          * `targetTags` (`pulumi.Input[dict]`) - A mapping of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
+          * `targetTags` (`pulumi.Input[dict]`) - A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -131,7 +131,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
         :param pulumi.Input[dict] policy_details: See the `policy_details` configuration block. Max of 1.
         :param pulumi.Input[str] state: Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags.
 
         The **policy_details** object supports the following:
 
@@ -147,9 +147,9 @@ class LifecyclePolicy(pulumi.CustomResource):
             * `retainRule` (`pulumi.Input[dict]`) - See the `retain_rule` block. Max of 1 per schedule.
               * `count` (`pulumi.Input[float]`) - How many snapshots to keep. Must be an integer between 1 and 1000.
 
-            * `tagsToAdd` (`pulumi.Input[dict]`) - A mapping of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+            * `tagsToAdd` (`pulumi.Input[dict]`) - A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
 
-          * `targetTags` (`pulumi.Input[dict]`) - A mapping of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
+          * `targetTags` (`pulumi.Input[dict]`) - A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

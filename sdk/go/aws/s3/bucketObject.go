@@ -45,7 +45,7 @@ type BucketObject struct {
 	// use the exported `arn` attribute:
 	// `kmsKeyId = "${aws_kms_key.foo.arn}"`
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
 	ObjectLockLegalHoldStatus pulumi.StringPtrOutput `pulumi:"objectLockLegalHoldStatus"`
@@ -60,7 +60,7 @@ type BucketObject struct {
 	// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
 	// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
 	StorageClass pulumi.StringOutput `pulumi:"storageClass"`
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// A unique version ID value for the object, if bucket versioning
 	// is enabled.
@@ -131,7 +131,7 @@ type bucketObjectState struct {
 	// use the exported `arn` attribute:
 	// `kmsKeyId = "${aws_kms_key.foo.arn}"`
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata map[string]string `pulumi:"metadata"`
 	// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
 	ObjectLockLegalHoldStatus *string `pulumi:"objectLockLegalHoldStatus"`
@@ -146,7 +146,7 @@ type bucketObjectState struct {
 	// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
 	// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
 	StorageClass *string `pulumi:"storageClass"`
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// A unique version ID value for the object, if bucket versioning
 	// is enabled.
@@ -187,7 +187,7 @@ type BucketObjectState struct {
 	// use the exported `arn` attribute:
 	// `kmsKeyId = "${aws_kms_key.foo.arn}"`
 	KmsKeyId pulumi.StringPtrInput
-	// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapInput
 	// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
 	ObjectLockLegalHoldStatus pulumi.StringPtrInput
@@ -202,7 +202,7 @@ type BucketObjectState struct {
 	// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
 	// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
 	StorageClass pulumi.StringPtrInput
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags pulumi.MapInput
 	// A unique version ID value for the object, if bucket versioning
 	// is enabled.
@@ -247,7 +247,7 @@ type bucketObjectArgs struct {
 	// use the exported `arn` attribute:
 	// `kmsKeyId = "${aws_kms_key.foo.arn}"`
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata map[string]string `pulumi:"metadata"`
 	// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
 	ObjectLockLegalHoldStatus *string `pulumi:"objectLockLegalHoldStatus"`
@@ -262,7 +262,7 @@ type bucketObjectArgs struct {
 	// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
 	// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
 	StorageClass *string `pulumi:"storageClass"`
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	WebsiteRedirect *string `pulumi:"websiteRedirect"`
@@ -301,7 +301,7 @@ type BucketObjectArgs struct {
 	// use the exported `arn` attribute:
 	// `kmsKeyId = "${aws_kms_key.foo.arn}"`
 	KmsKeyId pulumi.StringPtrInput
-	// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
 	Metadata pulumi.StringMapInput
 	// The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
 	ObjectLockLegalHoldStatus pulumi.StringPtrInput
@@ -316,7 +316,7 @@ type BucketObjectArgs struct {
 	// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
 	// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
 	StorageClass pulumi.StringPtrInput
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags pulumi.MapInput
 	// Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	WebsiteRedirect pulumi.StringPtrInput

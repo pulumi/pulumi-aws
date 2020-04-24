@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Glacier
         public Output<ImmutableArray<Outputs.VaultNotification>> Notifications { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Glacier
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Glacier
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         public InputMap<object> Tags
         {

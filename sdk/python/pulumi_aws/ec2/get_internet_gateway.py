@@ -60,7 +60,7 @@ def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,opts=No
 
     :param list filters: Custom filter block as described below.
     :param str internet_gateway_id: The id of the specific Internet Gateway to retrieve.
-    :param dict tags: A mapping of tags, each pair of which must exactly match
+    :param dict tags: A map of tags, each pair of which must exactly match
            a pair on the desired Internet Gateway.
 
     The **filters** object supports the following:
