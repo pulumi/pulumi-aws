@@ -15,6 +15,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as table from "./table";
 import * as lambda from "../lambda";
+import * as types from "../types";
 
 import * as utils from "../utils";
 
@@ -27,6 +28,38 @@ export interface TableEventSubscriptionArgs {
      * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB.
      */
     readonly batchSize?: number;
+
+    /**
+     * If the function returns an error, split the batch in two and retry. Defaults to `false`.
+     */
+    readonly bisectBatchOnFunctionError?: boolean;
+
+    /**
+     * An Amazon SQS queue or Amazon SNS topic destination for failed records.
+     */
+    readonly destinationConfig?: pulumi.Input<types.input.lambda.EventSourceMappingDestinationConfig>;
+
+    /**
+     * The maximum amount of time to gather records before invoking the function, in seconds. Records will continue to buffer
+     * until either maximum_batching_window_in_seconds expires or batch_size has been met. Defaults to as soon as records
+     * are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
+     */
+    readonly maximumBatchingWindowInSeconds?: number;
+
+    /**
+     * The maximum age of a record that Lambda sends to a function for processing. Minimum of `60`, maximum and default of `604800`
+     */
+    readonly maximumRecordAgeInSeconds?: number;
+
+    /**
+     * The maximum number of times to retry when the function returns an error. Minimum of `0`, maximum and default of `10000`.
+     */
+    readonly maximumRetryAttempts?: number;
+
+    /**
+     * The number of batches to process from each shard concurrently. Minimum and default of `1`, maximum of `10`
+     */
+    readonly parallelizationFactor?: number;
 
     /**
      * The position in the stream where AWS Lambda should start reading. Must be one of either `TRIM_HORIZON` or `LATEST`.
@@ -97,9 +130,15 @@ export class TableEventSubscription extends lambda.EventSubscription {
 
         this.eventSourceMapping = new lambda.EventSourceMapping(name, {
             batchSize: args.batchSize,
+            bisectBatchOnFunctionError: args.bisectBatchOnFunctionError,
+            destinationConfig: args.destinationConfig,
             enabled: true,
             eventSourceArn: streamArn,
             functionName: this.func.name,
+            maximumBatchingWindowInSeconds: args.maximumBatchingWindowInSeconds,
+            maximumRecordAgeInSeconds: args.maximumRecordAgeInSeconds,
+            maximumRetryAttempts: args.maximumRetryAttempts,
+            parallelizationFactor: args.parallelizationFactor,
             startingPosition: args.startingPosition,
         }, parentOpts);
 
