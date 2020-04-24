@@ -43,6 +43,7 @@ class Pipeline(pulumi.CustomResource):
         * `configuration` (`dict`) - A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
         * `inputArtifacts` (`list`) - A list of artifact names to be worked on.
         * `name` (`str`) - The action declaration's name.
+        * `namespace` (`str`) - The namespace all output variables will be accessed from.
         * `outputArtifacts` (`list`) - A list of artifact names to output. Output artifact names must be unique within a pipeline.
         * `owner` (`str`) - The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
         * `provider` (`str`) - The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
@@ -70,12 +71,8 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[dict] artifact_store: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-<<<<<<< HEAD
         :param pulumi.Input[list] stages: A stage block. Stages are documented below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-=======
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
->>>>>>> efd476398... Regenerate SDK based on v2.59.0 of the AWS Terraform Provider
 
         The **artifact_store** object supports the following:
 
@@ -153,12 +150,8 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[dict] artifact_store: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-<<<<<<< HEAD
         :param pulumi.Input[list] stages: A stage block. Stages are documented below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-=======
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
->>>>>>> efd476398... Regenerate SDK based on v2.59.0 of the AWS Terraform Provider
 
         The **artifact_store** object supports the following:
 

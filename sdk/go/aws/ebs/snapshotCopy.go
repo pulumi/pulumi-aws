@@ -134,21 +134,12 @@ type snapshotCopyArgs struct {
 	// Whether the snapshot is encrypted.
 	Encrypted *bool `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key.
-<<<<<<< HEAD
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The region of the source snapshot.
 	SourceRegion string `pulumi:"sourceRegion"`
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId string `pulumi:"sourceSnapshotId"`
-	// A mapping of tags for the snapshot.
-=======
-	// * `sourceSnapshotId` The ARN for the snapshot to be copied.
-	// * `sourceRegion` The region of the source snapshot.
-	KmsKeyId         *string `pulumi:"kmsKeyId"`
-	SourceRegion     string  `pulumi:"sourceRegion"`
-	SourceSnapshotId string  `pulumi:"sourceSnapshotId"`
 	// A map of tags for the snapshot.
->>>>>>> efd476398... Regenerate SDK based on v2.59.0 of the AWS Terraform Provider
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 

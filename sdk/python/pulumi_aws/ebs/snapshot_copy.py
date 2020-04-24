@@ -64,15 +64,9 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of what the snapshot is.
         :param pulumi.Input[bool] encrypted: Whether the snapshot is encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
-<<<<<<< HEAD
         :param pulumi.Input[str] source_region: The region of the source snapshot.
         :param pulumi.Input[str] source_snapshot_id: The ARN for the snapshot to be copied.
-        :param pulumi.Input[dict] tags: A mapping of tags for the snapshot.
-=======
-               * `source_snapshot_id` The ARN for the snapshot to be copied.
-               * `source_region` The region of the source snapshot.
         :param pulumi.Input[dict] tags: A map of tags for the snapshot.
->>>>>>> efd476398... Regenerate SDK based on v2.59.0 of the AWS Terraform Provider
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -129,13 +123,9 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
         :param pulumi.Input[str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[str] owner_id: The AWS account ID of the snapshot owner.
-<<<<<<< HEAD
         :param pulumi.Input[str] source_region: The region of the source snapshot.
         :param pulumi.Input[str] source_snapshot_id: The ARN for the snapshot to be copied.
-        :param pulumi.Input[dict] tags: A mapping of tags for the snapshot.
-=======
         :param pulumi.Input[dict] tags: A map of tags for the snapshot.
->>>>>>> efd476398... Regenerate SDK based on v2.59.0 of the AWS Terraform Provider
         :param pulumi.Input[float] volume_size: The size of the drive in GiBs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

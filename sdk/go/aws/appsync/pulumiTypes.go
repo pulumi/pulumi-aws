@@ -1238,7 +1238,12 @@ func (o GraphQLApiLogConfigPtrOutput) CloudwatchLogsRoleArn() pulumi.StringPtrOu
 
 // Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
 func (o GraphQLApiLogConfigPtrOutput) ExcludeVerboseContent() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GraphQLApiLogConfig) *bool { return v.ExcludeVerboseContent }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *GraphQLApiLogConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeVerboseContent
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.

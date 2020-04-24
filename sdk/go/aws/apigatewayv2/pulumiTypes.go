@@ -180,32 +180,62 @@ func (o ApiCorsConfigurationPtrOutput) Elem() ApiCorsConfigurationOutput {
 
 // Whether credentials are included in the CORS request.
 func (o ApiCorsConfigurationPtrOutput) AllowCredentials() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApiCorsConfiguration) *bool { return v.AllowCredentials }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *ApiCorsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowCredentials
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The set of allowed HTTP headers.
 func (o ApiCorsConfigurationPtrOutput) AllowHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApiCorsConfiguration) []string { return v.AllowHeaders }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ApiCorsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowHeaders
+	}).(pulumi.StringArrayOutput)
 }
 
 // The set of allowed HTTP methods.
 func (o ApiCorsConfigurationPtrOutput) AllowMethods() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApiCorsConfiguration) []string { return v.AllowMethods }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ApiCorsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowMethods
+	}).(pulumi.StringArrayOutput)
 }
 
 // The set of allowed origins.
 func (o ApiCorsConfigurationPtrOutput) AllowOrigins() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApiCorsConfiguration) []string { return v.AllowOrigins }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ApiCorsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowOrigins
+	}).(pulumi.StringArrayOutput)
 }
 
 // The set of exposed HTTP headers.
 func (o ApiCorsConfigurationPtrOutput) ExposeHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApiCorsConfiguration) []string { return v.ExposeHeaders }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ApiCorsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExposeHeaders
+	}).(pulumi.StringArrayOutput)
 }
 
 // The number of seconds that the browser should cache preflight request results.
 func (o ApiCorsConfigurationPtrOutput) MaxAge() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApiCorsConfiguration) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ApiCorsConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAge
+	}).(pulumi.IntPtrOutput)
 }
 
 type AuthorizerJwtConfiguration struct {
