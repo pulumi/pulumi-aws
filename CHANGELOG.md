@@ -7,6 +7,8 @@ CHANGELOG
 * Add Principals.BatchPrincipal
 * Add Principals.SpotFleetPrincipal
 * Switch deprecated Buffer constructor to Buffer.from in LogGroup.onDecodedEvent
+* Update `dynamodb.TableEventSubscriptionArgs` to include latest Lambda Event Source Mapping parameters 
+* Update `kinesis.TableEventSubscriptionArgs` to include latest Lambda Event Source Mapping parameters 
 
 ---
 
