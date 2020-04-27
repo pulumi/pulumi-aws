@@ -20,9 +20,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const stream = aws.kinesis.getStream({
+ * const stream = pulumi.output(aws.kinesis.getStream({
  *     name: "stream-name",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kinesis_stream.html.markdown.

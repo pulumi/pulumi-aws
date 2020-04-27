@@ -102,7 +102,7 @@ import {ARN} from "../index";
  *     policyArn: lambdaLogging.arn,
  *     role: aws_iam_role_iam_for_lambda.name,
  * });
- * const testLambda = new aws.lambda.Function("testLambda", {}, {dependsOn: [example, lambdaLogs]});
+ * const testLambda = new aws.lambda.Function("testLambda", {}, { dependsOn: [example, lambdaLogs] });
  * ```
  * 
  * ## Specifying the Deployment Package

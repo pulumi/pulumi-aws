@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * const test = pulumi.all([aws_volume_attachment_test.deviceName, aws_storagegateway_gateway_test.arn]).apply(([deviceName, arn]) => aws.storagegateway.getLocalDisk({
  *     diskPath: deviceName,
  *     gatewayArn: arn,
- * }));
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/storagegateway_local_disk.html.markdown.

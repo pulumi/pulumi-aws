@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ssmLifecycleTrust = aws.iam.getPolicyDocument({
+ * const ssmLifecycleTrust = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         principals: [{
@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  *             type: "Service",
  *         }],
  *     }],
- * });
+ * }, { async: true }));
  * const stopInstance = new aws.ssm.Document("stopInstance", {
  *     content: `  {
  *     "schemaVersion": "1.2",
@@ -105,7 +105,7 @@ import * as utilities from "../utilities";
  *             resources: [arn],
  *         },
  *     ],
- * }));
+ * }, { async: true }));
  * const ssmLifecycleRole = new aws.iam.Role("ssmLifecycle", {
  *     assumeRolePolicy: ssmLifecycleTrust.json,
  * });

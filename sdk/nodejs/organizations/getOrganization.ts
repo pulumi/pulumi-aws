@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.organizations.getOrganization();
+ * const example = pulumi.output(aws.organizations.getOrganization({ async: true }));
  * const snsTopic = new aws.sns.Topic("snsTopic", {});
- * const snsTopicPolicyPolicyDocument = snsTopic.arn.apply(arn => aws.iam.getPolicyDocument({
+ * const snsTopicPolicyPolicyDocument = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
  *             "SNS:Subscribe",
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *         ],
  *         conditions: [{
  *             test: "StringEquals",
- *             values: [example],
+ *             values: [example.id],
  *             variable: "aws:PrincipalOrgID",
  *         }],
  *         effect: "Allow",
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *         }],
  *         resources: [arn],
  *     }],
- * }));
+ * }, { async: true }));
  * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("snsTopicPolicy", {
  *     arn: snsTopic.arn,
  *     policy: snsTopicPolicyPolicyDocument.json,

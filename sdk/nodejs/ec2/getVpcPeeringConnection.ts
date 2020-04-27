@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const pc = aws_vpc_foo.id.apply(id => aws.ec2.getVpcPeeringConnection({
  *     peerCidrBlock: "10.0.1.0/22",
  *     vpcId: id,
- * }));
+ * }, { async: true }));
  * // Create a route table
  * const rt = new aws.ec2.RouteTable("rt", {
  *     vpcId: aws_vpc_foo.id,

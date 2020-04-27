@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     }],
  *     rateKey: "IP",
  *     rateLimit: 100,
- * }, {dependsOn: [ipset]});
+ * }, { dependsOn: [ipset] });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_rate_based_rule.html.markdown.

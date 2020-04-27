@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const accepter = new aws.Provider("accepter", {});
- * const accepterCallerIdentity = aws.getCallerIdentity({provider: accepter});
+ * const accepterCallerIdentity = pulumi.output(aws.getCallerIdentity({ provider: accepter, async: true }));
  * // Accepter's side of the VIF.
  * const example = new aws.directconnect.Gateway("example", {
  *     amazonSideAsn: "64512",
- * }, {provider: accepter});
+ * }, { provider: accepter });
  * // Creator's side of the VIF
  * const creator = new aws.directconnect.HostedTransitVirtualInterface("creator", {
  *     addressFamily: "ipv4",
@@ -31,14 +31,14 @@ import * as utilities from "../utilities";
  *     connectionId: "dxcon-zzzzzzzz",
  *     ownerAccountId: accepterCallerIdentity.accountId,
  *     vlan: 4094,
- * }, {dependsOn: [example]});
+ * }, { dependsOn: [example] });
  * const accepterHostedTransitVirtualInterfaceAcceptor = new aws.directconnect.HostedTransitVirtualInterfaceAcceptor("accepter", {
  *     dxGatewayId: example.id,
  *     tags: {
  *         Side: "Accepter",
  *     },
  *     virtualInterfaceId: creator.id,
- * }, {provider: accepter});
+ * }, { provider: accepter });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_hosted_transit_virtual_interface_accepter.html.markdown.

@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *         }],
  *         resources: [arn],
  *     }],
- * }));
+ * }, { async: true }));
  * const ad_log_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("ad-log-policy", {
  *     policyDocument: ad_log_policyPolicyDocument.json,
  *     policyName: "ad-log-policy",

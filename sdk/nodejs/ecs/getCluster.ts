@@ -18,9 +18,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ecsMongo = aws.ecs.getCluster({
+ * const ecsMongo = pulumi.output(aws.ecs.getCluster({
  *     clusterName: "ecs-mongo-production",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_cluster.html.markdown.

@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const current = aws.getCanonicalUserId();
+ * const current = pulumi.output(aws.getCanonicalUserId({ async: true }));
  * 
  * export const canonicalUserId = current.id;
  * ```

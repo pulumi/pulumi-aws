@@ -92,7 +92,7 @@ import * as utilities from "../utilities";
  *     },
  *     serviceRole: awsBatchServiceRoleRole.arn,
  *     type: "MANAGED",
- * }, {dependsOn: [awsBatchServiceRoleRolePolicyAttachment]});
+ * }, { dependsOn: [awsBatchServiceRoleRolePolicyAttachment] });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_compute_environment.html.markdown.

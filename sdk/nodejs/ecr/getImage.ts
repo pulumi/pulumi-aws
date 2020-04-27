@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const serviceImage = aws.ecr.getImage({
+ * const serviceImage = pulumi.output(aws.ecr.getImage({
  *     imageTag: "latest",
  *     repositoryName: "my/service",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_image.html.markdown.

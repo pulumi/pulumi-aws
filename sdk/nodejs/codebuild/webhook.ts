@@ -33,6 +33,29 @@ import * as utilities from "../utilities";
  *     projectName: aws_codebuild_project_example.name,
  * });
  * ```
+ * 
+ * ### GitHub Enterprise
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as github from "@pulumi/github";
+ * 
+ * const exampleWebhook = new aws.codebuild.Webhook("example", {
+ *     projectName: aws_codebuild_project_example.name,
+ * });
+ * const exampleRepositoryWebhook = new github.RepositoryWebhook("example", {
+ *     active: true,
+ *     configuration: {
+ *         contentType: "json",
+ *         insecureSsl: false,
+ *         secret: exampleWebhook.secret,
+ *         url: exampleWebhook.payloadUrl,
+ *     },
+ *     events: ["push"],
+ *     repository: github_repository_example.name,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codebuild_webhook.html.markdown.
  */

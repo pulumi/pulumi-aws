@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const available = aws.getAvailabilityZones();
+ * const available = pulumi.output(aws.getAvailabilityZones({ async: true }));
  * const cloudhsmV2Vpc = new aws.ec2.Vpc("cloudhsmV2Vpc", {
  *     cidrBlock: "10.0.0.0/16",
  *     tags: {
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * const cloudhsmV2Subnets: aws.ec2.Subnet[] = [];
  * for (let i = 0; i < 2; i++) {
  *     cloudhsmV2Subnets.push(new aws.ec2.Subnet(`cloudhsm_v2_subnets-${i}`, {
- *         availabilityZone: available.names[i],
+ *         availabilityZone: available.apply(available => available.names[i]),
  *         cidrBlock: var_subnets[i],
  *         mapPublicIpOnLaunch: false,
  *         tags: {

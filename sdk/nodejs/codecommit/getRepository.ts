@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const test = aws.codecommit.getRepository({
+ * const test = pulumi.output(aws.codecommit.getRepository({
  *     repositoryName: "MyTestRepository",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/codecommit_repository.html.markdown.

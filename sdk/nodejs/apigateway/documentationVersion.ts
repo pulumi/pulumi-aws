@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *     description: "Example description",
  *     restApiId: exampleRestApi.id,
  *     version: "exampleVersion",
- * }, {dependsOn: [exampleDocumentationPart]});
+ * }, { dependsOn: [exampleDocumentationPart] });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_documentation_version.html.markdown.

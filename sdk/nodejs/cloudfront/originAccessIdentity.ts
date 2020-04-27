@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  *             resources: [aws_s3_bucket_exampleArn1],
  *         },
  *     ],
- * }));
+ * }, { async: true }));
  * const example = new aws.s3.BucketPolicy("example", {
  *     bucket: aws_s3_bucket_example.id,
  *     policy: s3Policy.json,

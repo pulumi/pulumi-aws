@@ -43,7 +43,7 @@ import {RestApi} from "./restApi";
  * const testDeployment = new aws.apigateway.Deployment("test", {
  *     restApi: testRestApi.id,
  *     stageName: "dev",
- * }, {dependsOn: [testIntegration]});
+ * }, { dependsOn: [testIntegration] });
  * const testStage = new aws.apigateway.Stage("test", {
  *     deployment: testDeployment.id,
  *     restApi: testRestApi.id,
@@ -75,7 +75,7 @@ import {RestApi} from "./restApi";
  * });
  * const exampleStage = new aws.apigateway.Stage("example", {
  *     name: stageName,
- * }, {dependsOn: [exampleLogGroup]});
+ * }, { dependsOn: [exampleLogGroup] });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_stage.html.markdown.

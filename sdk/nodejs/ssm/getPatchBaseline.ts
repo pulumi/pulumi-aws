@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const centos = aws.ssm.getPatchBaseline({
+ * const centos = pulumi.output(aws.ssm.getPatchBaseline({
  *     namePrefix: "AWS-",
  *     operatingSystem: "CENTOS",
  *     owner: "AWS",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_patch_baseline.html.markdown.

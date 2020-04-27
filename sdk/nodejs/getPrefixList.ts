@@ -29,7 +29,7 @@ import * as utilities from "./utilities";
  * });
  * const privateS3PrefixList = privateS3VpcEndpoint.prefixListId.apply(prefixListId => aws.getPrefixList({
  *     prefixListId: prefixListId,
- * }));
+ * }, { async: true }));
  * const bar = new aws.ec2.NetworkAcl("bar", {
  *     vpcId: aws_vpc_foo.id,
  * });
@@ -51,12 +51,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const test = aws.getPrefixList({
+ * const test = pulumi.output(aws.getPrefixList({
  *     filters: [{
  *         name: "prefix-list-id",
  *         values: ["pl-68a54001"],
  *     }],
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/prefix_list.html.markdown.

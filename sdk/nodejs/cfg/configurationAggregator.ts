@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *         allRegions: true,
  *         roleArn: organizationRole.arn,
  *     },
- * }, {dependsOn: [organizationRolePolicyAttachment]});
+ * }, { dependsOn: [organizationRolePolicyAttachment] });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_aggregator.html.markdown.

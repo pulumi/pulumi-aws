@@ -63,9 +63,9 @@ import {Metric, MetricsGranularity} from "./metrics";
  *         aws_subnet_example1.id,
  *         aws_subnet_example2.id,
  *     ],
- * }, {timeouts: {
+ * }, { timeouts: {
  *     delete: "15m",
- * }});
+ * } });
  * ```
  * 
  * ### With Latest Version Of Launch Template

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const accepter = new aws.Provider("accepter", {});
- * const accepterCallerIdentity = aws.getCallerIdentity({provider: accepter});
+ * const accepterCallerIdentity = pulumi.output(aws.getCallerIdentity({ provider: accepter, async: true }));
  * // Creator's side of the VIF
  * const creator = new aws.directconnect.HostedPublicVirtualInterface("creator", {
  *     addressFamily: "ipv4",
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *         Side: "Accepter",
  *     },
  *     virtualInterfaceId: creator.id,
- * }, {provider: accepter});
+ * }, { provider: accepter });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_hosted_public_virtual_interface_accepter.html.markdown.

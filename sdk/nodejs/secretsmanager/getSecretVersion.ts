@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * 
  * const example = aws_secretsmanager_secret_example.id.apply(id => aws.secretsmanager.getSecretVersion({
  *     secretId: id,
- * }));
+ * }, { async: true }));
  * ```
  * 
  * ### Retrieve Specific Secret Version
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * const byVersionStage = aws_secretsmanager_secret_example.id.apply(id => aws.secretsmanager.getSecretVersion({
  *     secretId: id,
  *     versionStage: "example",
- * }));
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret_version.html.markdown.

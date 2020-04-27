@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.ram.getResourceShare({
+ * const example = pulumi.output(aws.ram.getResourceShare({
  *     name: "example",
  *     resourceOwner: "SELF",
- * });
+ * }, { async: true }));
  * ```
  * 
  * ## Search by filters
@@ -29,14 +29,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const tagFilter = aws.ram.getResourceShare({
+ * const tagFilter = pulumi.output(aws.ram.getResourceShare({
  *     filters: [{
  *         name: "NameOfTag",
  *         values: ["exampleNameTagValue"],
  *     }],
  *     name: "MyResourceName",
  *     resourceOwner: "SELF",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ram_resource_share.html.markdown.

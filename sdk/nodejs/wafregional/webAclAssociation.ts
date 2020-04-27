@@ -47,14 +47,14 @@ import * as utilities from "../utilities";
  * const fooVpc = new aws.ec2.Vpc("foo", {
  *     cidrBlock: "10.1.0.0/16",
  * });
- * const available = aws.getAvailabilityZones();
+ * const available = pulumi.output(aws.getAvailabilityZones({ async: true }));
  * const fooSubnet = new aws.ec2.Subnet("foo", {
- *     availabilityZone: available.names[0],
+ *     availabilityZone: available.apply(available => available.names[0]),
  *     cidrBlock: "10.1.1.0/24",
  *     vpcId: fooVpc.id,
  * });
  * const bar = new aws.ec2.Subnet("bar", {
- *     availabilityZone: available.names[1],
+ *     availabilityZone: available.apply(available => available.names[1]),
  *     cidrBlock: "10.1.2.0/24",
  *     vpcId: fooVpc.id,
  * });
@@ -138,7 +138,7 @@ import * as utilities from "../utilities";
  * });
  * const testDeployment = new aws.apigateway.Deployment("test", {
  *     restApi: testRestApi.id,
- * }, {dependsOn: [testIntegrationResponse]});
+ * }, { dependsOn: [testIntegrationResponse] });
  * const testStage = new aws.apigateway.Stage("test", {
  *     deployment: testDeployment.id,
  *     restApi: testRestApi.id,

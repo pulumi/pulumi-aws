@@ -17,13 +17,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ubuntu = aws.getAmiIds({
+ * const ubuntu = pulumi.output(aws.getAmiIds({
  *     filters: [{
  *         name: "name",
  *         values: ["ubuntu/images/ubuntu-*-*-amd64-server-*"],
  *     }],
  *     owners: ["099720109477"],
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami_ids.html.markdown.

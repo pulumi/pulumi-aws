@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.wafregional.getRule({
+ * const example = pulumi.output(aws.wafregional.getRule({
  *     name: "tfWAFRegionalRule",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_rule.html.markdown.

@@ -26,9 +26,9 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const lbName = config.get("lbName") || "";
  * 
- * const test = aws.elb.getLoadBalancer({
+ * const test = pulumi.output(aws.elb.getLoadBalancer({
  *     name: lbName,
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb.html.markdown.

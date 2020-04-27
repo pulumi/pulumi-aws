@@ -18,13 +18,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const myRestApi = aws.apigateway.getRestApi({
+ * const myRestApi = pulumi.output(aws.apigateway.getRestApi({
  *     name: "my-rest-api",
- * });
- * const myResource = aws.apigateway.getResource({
+ * }, { async: true }));
+ * const myResource = myRestApi.apply(myRestApi => aws.apigateway.getResource({
  *     path: "/endpoint/path",
  *     restApiId: myRestApi.id,
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_resource.html.markdown.

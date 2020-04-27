@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *         }],
  *         resources: [arn],
  *     }],
- * }));
+ * }, { async: true }));
  * const testDestinationPolicyLogDestinationPolicy = new aws.cloudwatch.LogDestinationPolicy("testDestinationPolicy", {
  *     accessPolicy: testDestinationPolicyPolicyDocument.json,
  *     destinationName: testDestination.name,

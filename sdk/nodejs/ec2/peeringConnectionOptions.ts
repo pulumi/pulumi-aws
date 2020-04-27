@@ -59,13 +59,13 @@ import * as utilities from "../utilities";
  *     cidrBlock: "10.0.0.0/16",
  *     enableDnsHostnames: true,
  *     enableDnsSupport: true,
- * }, {provider: requester});
+ * }, { provider: requester });
  * const peerVpc = new aws.ec2.Vpc("peer", {
  *     cidrBlock: "10.1.0.0/16",
  *     enableDnsHostnames: true,
  *     enableDnsSupport: true,
- * }, {provider: accepter});
- * const peerCallerIdentity = aws.getCallerIdentity({provider: accepter});
+ * }, { provider: accepter });
+ * const peerCallerIdentity = pulumi.output(aws.getCallerIdentity({ provider: accepter, async: true }));
  * // Requester's side of the connection.
  * const peerVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("peer", {
  *     autoAccept: false,
@@ -75,7 +75,7 @@ import * as utilities from "../utilities";
  *         Side: "Requester",
  *     },
  *     vpcId: main.id,
- * }, {provider: requester});
+ * }, { provider: requester });
  * // Accepter's side of the connection.
  * const peerVpcPeeringConnectionAccepter = new aws.ec2.VpcPeeringConnectionAccepter("peer", {
  *     autoAccept: true,
@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  *         Side: "Accepter",
  *     },
  *     vpcPeeringConnectionId: peerVpcPeeringConnection.id,
- * }, {provider: accepter});
+ * }, { provider: accepter });
  * const requesterPeeringConnectionOptions = new aws.ec2.PeeringConnectionOptions("requester", {
  *     requester: {
  *         allowRemoteVpcDnsResolution: true,
@@ -91,13 +91,13 @@ import * as utilities from "../utilities";
  *     // As options can't be set until the connection has been accepted
  *     // create an explicit dependency on the accepter.
  *     vpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.id,
- * }, {provider: requester});
+ * }, { provider: requester });
  * const accepterPeeringConnectionOptions = new aws.ec2.PeeringConnectionOptions("accepter", {
  *     accepter: {
  *         allowRemoteVpcDnsResolution: true,
  *     },
  *     vpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.id,
- * }, {provider: accepter});
+ * }, { provider: accepter });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_options.html.markdown.

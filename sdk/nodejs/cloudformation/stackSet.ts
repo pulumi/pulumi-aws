@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy = aws.iam.getPolicyDocument({
+ * const aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         effect: "Allow",
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *             type: "Service",
  *         }],
  *     }],
- * });
+ * }, { async: true }));
  * const aWSCloudFormationStackSetAdministrationRole = new aws.iam.Role("AWSCloudFormationStackSetAdministrationRole", {
  *     assumeRolePolicy: aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.json,
  * });
@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  *         effect: "Allow",
  *         resources: [`arn:aws:iam::*:role/${executionRoleName}`],
  *     }],
- * }));
+ * }, { async: true }));
  * const aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy = new aws.iam.RolePolicy("AWSCloudFormationStackSetAdministrationRole_ExecutionPolicy", {
  *     policy: aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.json,
  *     role: aWSCloudFormationStackSetAdministrationRole.name,

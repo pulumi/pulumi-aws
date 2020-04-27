@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *         owner: "AWS",
  *         sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
  *     },
- * }, {dependsOn: [foo]});
+ * }, { dependsOn: [foo] });
  * const rolePolicy = new aws.iam.RolePolicy("p", {
  *     policy: `{
  *   "Version": "2012-10-17",
@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  *         owner: "CUSTOM_LAMBDA",
  *         sourceIdentifier: exampleFunction.arn,
  *     },
- * }, {dependsOn: [exampleRecorder, examplePermission]});
+ * }, { dependsOn: [exampleRecorder, examplePermission] });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_config_rule.html.markdown.

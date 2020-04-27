@@ -18,9 +18,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.transfer.getServer({
+ * const example = pulumi.output(aws.transfer.getServer({
  *     serverId: "s-1234567",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/transfer_server.html.markdown.

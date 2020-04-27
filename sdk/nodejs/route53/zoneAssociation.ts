@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *     vpcs: [{
  *         vpcId: primary.id,
  *     }],
- * }, {ignoreChanges: ["vpcId", "vpcRegion", "vpcs"]});
+ * }, { ignoreChanges: ["vpcId", "vpcRegion", "vpcs"] });
  * const secondaryZoneAssociation = new aws.route53.ZoneAssociation("secondary", {
  *     vpcId: secondaryVpc.id,
  *     zoneId: example.zoneId,

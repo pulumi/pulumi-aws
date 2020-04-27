@@ -101,7 +101,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     language: "PYTHON",
- * }));
+ * }, { async: true }));
  * 
  * export const pythonScript = example.pythonScript;
  * ```
@@ -196,7 +196,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     language: "SCALA",
- * }));
+ * }, { async: true }));
  * 
  * export const scalaCode = example.scalaCode;
  * ```

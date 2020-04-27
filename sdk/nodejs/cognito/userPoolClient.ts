@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const current = aws.getCallerIdentity();
+ * const current = pulumi.output(aws.getCallerIdentity({ async: true }));
  * const testUserPool = new aws.cognito.UserPool("test", {});
  * const testApp = new aws.pinpoint.App("test", {});
  * const testRole = new aws.iam.Role("test", {

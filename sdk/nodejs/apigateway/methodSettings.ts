@@ -48,7 +48,7 @@ import {RestApi} from "./restApi";
  * const testDeployment = new aws.apigateway.Deployment("test", {
  *     restApi: testRestApi.id,
  *     stageName: "dev",
- * }, {dependsOn: [testIntegration]});
+ * }, { dependsOn: [testIntegration] });
  * const testStage = new aws.apigateway.Stage("test", {
  *     deployment: testDeployment.id,
  *     restApi: testRestApi.id,

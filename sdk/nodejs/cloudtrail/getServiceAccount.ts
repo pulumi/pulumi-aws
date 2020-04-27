@@ -18,10 +18,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const main = aws.cloudtrail.getServiceAccount();
+ * const main = pulumi.output(aws.cloudtrail.getServiceAccount({ async: true }));
  * const bucket = new aws.s3.Bucket("bucket", {
  *     forceDestroy: true,
- *     policy: `{
+ *     policy: pulumi.interpolate`{
  *   "Version": "2008-10-17",
  *   "Statement": [
  *     {

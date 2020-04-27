@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.ec2transitgateway.getTransitGateway({
+ * const example = pulumi.output(aws.ec2transitgateway.getTransitGateway({
  *     filters: [{
  *         name: "options.amazon-side-asn",
  *         values: ["64512"],
  *     }],
- * });
+ * }, { async: true }));
  * ```
  * 
  * ### By Identifier
@@ -31,9 +31,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.ec2transitgateway.getTransitGateway({
+ * const example = pulumi.output(aws.ec2transitgateway.getTransitGateway({
  *     id: "tgw-12345678",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway.html.markdown.

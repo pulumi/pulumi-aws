@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *         negated: false,
  *         type: "IPMatch",
  *     }],
- * }, {dependsOn: [ipset]});
+ * }, { dependsOn: [ipset] });
  * const wafAcl = new aws.waf.WebAcl("wafAcl", {
  *     defaultAction: {
  *         type: "ALLOW",
@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *         ruleId: wafrule.id,
  *         type: "REGULAR",
  *     }],
- * }, {dependsOn: [ipset, wafrule]});
+ * }, { dependsOn: [ipset, wafrule] });
  * ```
  * 
  * ### Logging

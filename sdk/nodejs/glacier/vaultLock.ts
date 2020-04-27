@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *         effect: "Deny",
  *         resources: [arn],
  *     }],
- * }));
+ * }, { async: true }));
  * const exampleVaultLock = new aws.glacier.VaultLock("example", {
  *     completeLock: false,
  *     policy: examplePolicyDocument.json,
