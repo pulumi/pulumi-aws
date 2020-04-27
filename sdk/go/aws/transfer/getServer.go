@@ -30,7 +30,7 @@ type LookupServerResult struct {
 	Arn string `pulumi:"arn"`
 	// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
 	Endpoint string `pulumi:"endpoint"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
 	IdentityProviderType string `pulumi:"identityProviderType"`

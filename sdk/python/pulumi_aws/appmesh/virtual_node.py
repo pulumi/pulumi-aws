@@ -41,8 +41,7 @@ class VirtualNode(pulumi.CustomResource):
       * `listener` (`dict`) - The listeners from which the virtual node is expected to receive inbound traffic.
         * `health_check` (`dict`) - The health check information for the listener.
           * `healthyThreshold` (`float`) - The number of consecutive successful health checks that must occur before declaring listener healthy.
-            * `interval_millis`- (Required) The time period in milliseconds between each health check execution.
-          * `intervalMillis` (`float`)
+          * `intervalMillis` (`float`) - The time period in milliseconds between each health check execution.
           * `path` (`str`) - The destination path for the health check request. This is only required if the specified protocol is `http`.
           * `port` (`float`) - The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
           * `protocol` (`str`) - The protocol for the health check request. Valid values are `http` and `tcp`.
@@ -105,8 +104,7 @@ class VirtualNode(pulumi.CustomResource):
           * `listener` (`pulumi.Input[dict]`) - The listeners from which the virtual node is expected to receive inbound traffic.
             * `health_check` (`pulumi.Input[dict]`) - The health check information for the listener.
               * `healthyThreshold` (`pulumi.Input[float]`) - The number of consecutive successful health checks that must occur before declaring listener healthy.
-                * `interval_millis`- (Required) The time period in milliseconds between each health check execution.
-              * `intervalMillis` (`pulumi.Input[float]`)
+              * `intervalMillis` (`pulumi.Input[float]`) - The time period in milliseconds between each health check execution.
               * `path` (`pulumi.Input[str]`) - The destination path for the health check request. This is only required if the specified protocol is `http`.
               * `port` (`pulumi.Input[float]`) - The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
               * `protocol` (`pulumi.Input[str]`) - The protocol for the health check request. Valid values are `http` and `tcp`.
@@ -192,8 +190,7 @@ class VirtualNode(pulumi.CustomResource):
           * `listener` (`pulumi.Input[dict]`) - The listeners from which the virtual node is expected to receive inbound traffic.
             * `health_check` (`pulumi.Input[dict]`) - The health check information for the listener.
               * `healthyThreshold` (`pulumi.Input[float]`) - The number of consecutive successful health checks that must occur before declaring listener healthy.
-                * `interval_millis`- (Required) The time period in milliseconds between each health check execution.
-              * `intervalMillis` (`pulumi.Input[float]`)
+              * `intervalMillis` (`pulumi.Input[float]`) - The time period in milliseconds between each health check execution.
               * `path` (`pulumi.Input[str]`) - The destination path for the health check request. This is only required if the specified protocol is `http`.
               * `port` (`pulumi.Input[float]`) - The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
               * `protocol` (`pulumi.Input[str]`) - The protocol for the health check request. Valid values are `http` and `tcp`.

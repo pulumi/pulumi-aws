@@ -19,13 +19,13 @@ type Pipeline struct {
 	// The codepipeline ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// One or more artifactStore blocks. Artifact stores are documented below.
-	// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	ArtifactStore PipelineArtifactStoreOutput `pulumi:"artifactStore"`
 	// The name of the pipeline.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-	RoleArn pulumi.StringOutput      `pulumi:"roleArn"`
-	Stages  PipelineStageArrayOutput `pulumi:"stages"`
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// A stage block. Stages are documented below.
+	Stages PipelineStageArrayOutput `pulumi:"stages"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
@@ -70,13 +70,13 @@ type pipelineState struct {
 	// The codepipeline ARN.
 	Arn *string `pulumi:"arn"`
 	// One or more artifactStore blocks. Artifact stores are documented below.
-	// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	ArtifactStore *PipelineArtifactStore `pulumi:"artifactStore"`
 	// The name of the pipeline.
 	Name *string `pulumi:"name"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-	RoleArn *string         `pulumi:"roleArn"`
-	Stages  []PipelineStage `pulumi:"stages"`
+	RoleArn *string `pulumi:"roleArn"`
+	// A stage block. Stages are documented below.
+	Stages []PipelineStage `pulumi:"stages"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
@@ -85,13 +85,13 @@ type PipelineState struct {
 	// The codepipeline ARN.
 	Arn pulumi.StringPtrInput
 	// One or more artifactStore blocks. Artifact stores are documented below.
-	// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	ArtifactStore PipelineArtifactStorePtrInput
 	// The name of the pipeline.
 	Name pulumi.StringPtrInput
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringPtrInput
-	Stages  PipelineStageArrayInput
+	// A stage block. Stages are documented below.
+	Stages PipelineStageArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
@@ -102,13 +102,13 @@ func (PipelineState) ElementType() reflect.Type {
 
 type pipelineArgs struct {
 	// One or more artifactStore blocks. Artifact stores are documented below.
-	// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	ArtifactStore PipelineArtifactStore `pulumi:"artifactStore"`
 	// The name of the pipeline.
 	Name *string `pulumi:"name"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-	RoleArn string          `pulumi:"roleArn"`
-	Stages  []PipelineStage `pulumi:"stages"`
+	RoleArn string `pulumi:"roleArn"`
+	// A stage block. Stages are documented below.
+	Stages []PipelineStage `pulumi:"stages"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
@@ -116,13 +116,13 @@ type pipelineArgs struct {
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
 	// One or more artifactStore blocks. Artifact stores are documented below.
-	// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
 	ArtifactStore PipelineArtifactStoreInput
 	// The name of the pipeline.
 	Name pulumi.StringPtrInput
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringInput
-	Stages  PipelineStageArrayInput
+	// A stage block. Stages are documented below.
+	Stages PipelineStageArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
 }

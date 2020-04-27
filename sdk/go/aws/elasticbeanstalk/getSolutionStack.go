@@ -30,7 +30,7 @@ type GetSolutionStackArgs struct {
 
 // A collection of values returned by getSolutionStack.
 type GetSolutionStackResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	MostRecent *bool  `pulumi:"mostRecent"`
 	// The name of the solution stack.

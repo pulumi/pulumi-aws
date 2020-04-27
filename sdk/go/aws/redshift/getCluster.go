@@ -64,7 +64,7 @@ type LookupClusterResult struct {
 	EnhancedVpcRouting bool `pulumi:"enhancedVpcRouting"`
 	// The IAM roles associated to the cluster
 	IamRoles []string `pulumi:"iamRoles"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The KMS encryption key associated to the cluster
 	KmsKeyId string `pulumi:"kmsKeyId"`

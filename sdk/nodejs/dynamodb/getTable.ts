@@ -75,7 +75,7 @@ export interface GetTableResult {
     readonly ttl: outputs.dynamodb.GetTableTtl;
     readonly writeCapacity: number;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

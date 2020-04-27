@@ -24,7 +24,7 @@ class GetStreamResult:
             raise TypeError("Expected argument 'closed_shards' to be a list")
         __self__.closed_shards = closed_shards
         """
-        The list of shard ids in the CLOSED state. See [Shard State][2] for more.
+        The list of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
         """
         if creation_timestamp and not isinstance(creation_timestamp, float):
             raise TypeError("Expected argument 'creation_timestamp' to be a float")
@@ -36,7 +36,7 @@ class GetStreamResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -48,7 +48,7 @@ class GetStreamResult:
             raise TypeError("Expected argument 'open_shards' to be a list")
         __self__.open_shards = open_shards
         """
-        The list of shard ids in the OPEN state. See [Shard State][2] for more.
+        The list of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
         """
         if retention_period and not isinstance(retention_period, float):
             raise TypeError("Expected argument 'retention_period' to be a float")
@@ -60,7 +60,7 @@ class GetStreamResult:
             raise TypeError("Expected argument 'shard_level_metrics' to be a list")
         __self__.shard_level_metrics = shard_level_metrics
         """
-        A list of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch][3] for more.
+        A list of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
         """
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
@@ -96,7 +96,7 @@ def get_stream(name=None,tags=None,opts=None):
     Use this data source to get information about a Kinesis Stream for use in other
     resources.
 
-    For more details, see the [Amazon Kinesis Documentation][1].
+    For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
 
 
 

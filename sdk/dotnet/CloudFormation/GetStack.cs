@@ -69,7 +69,7 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         public readonly string IamRoleArn;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Name;

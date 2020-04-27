@@ -40,7 +40,9 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_listener.html.markdown.
  */
+/** @deprecated aws.getListener has been deprecated in favour of aws.getListener */
 export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> {
+    pulumi.log.warn("getListener is deprecated: aws.getListener has been deprecated in favour of aws.getListener")
     args = args || {};
     if (!opts) {
         opts = {}
@@ -86,7 +88,7 @@ export interface GetListenerResult {
     readonly protocol: string;
     readonly sslPolicy: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

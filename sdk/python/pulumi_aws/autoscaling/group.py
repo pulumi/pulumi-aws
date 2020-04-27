@@ -31,11 +31,6 @@ class Group(pulumi.CustomResource):
     enabled_metrics: pulumi.Output[list]
     """
     A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
-    * `wait_for_capacity_timeout` (Default: "10m") A maximum
-    [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-    wait for ASG instances to be healthy before timing out.  (See also Waiting
-    for Capacity below.) Setting this to "0" causes
-    this provider to skip all Capacity Waiting behavior.
     """
     force_delete: pulumi.Output[bool]
     """
@@ -188,6 +183,13 @@ class Group(pulumi.CustomResource):
     A list of subnet IDs to launch resources in.
     """
     wait_for_capacity_timeout: pulumi.Output[str]
+    """
+    A maximum
+    [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+    wait for ASG instances to be healthy before timing out.  (See also Waiting
+    for Capacity below.) Setting this to "0" causes
+    this provider to skip all Capacity Waiting behavior.
+    """
     wait_for_elb_capacity: pulumi.Output[float]
     """
     Setting this will cause this provider to wait
@@ -273,11 +275,6 @@ class Group(pulumi.CustomResource):
                should be running in the group. (See also Waiting for
                Capacity below.)
         :param pulumi.Input[list] enabled_metrics: A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
-               * `wait_for_capacity_timeout` (Default: "10m") A maximum
-               [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-               wait for ASG instances to be healthy before timing out.  (See also Waiting
-               for Capacity below.) Setting this to "0" causes
-               this provider to skip all Capacity Waiting behavior.
         :param pulumi.Input[bool] force_delete: Allows deleting the autoscaling group without waiting
                for all instances in the pool to terminate.  You can force an autoscaling group to delete
                even if it's in the process of scaling a resource. Normally, this provider
@@ -321,6 +318,11 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[list] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
         :param pulumi.Input[list] termination_policies: A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
         :param pulumi.Input[list] vpc_zone_identifiers: A list of subnet IDs to launch resources in.
+        :param pulumi.Input[str] wait_for_capacity_timeout: A maximum
+               [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+               wait for ASG instances to be healthy before timing out.  (See also Waiting
+               for Capacity below.) Setting this to "0" causes
+               this provider to skip all Capacity Waiting behavior.
         :param pulumi.Input[float] wait_for_elb_capacity: Setting this will cause this provider to wait
                for exactly this number of healthy instances from this autoscaling group in
                all attached load balancers on both create and update operations. (Takes
@@ -444,11 +446,6 @@ class Group(pulumi.CustomResource):
                should be running in the group. (See also Waiting for
                Capacity below.)
         :param pulumi.Input[list] enabled_metrics: A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
-               * `wait_for_capacity_timeout` (Default: "10m") A maximum
-               [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-               wait for ASG instances to be healthy before timing out.  (See also Waiting
-               for Capacity below.) Setting this to "0" causes
-               this provider to skip all Capacity Waiting behavior.
         :param pulumi.Input[bool] force_delete: Allows deleting the autoscaling group without waiting
                for all instances in the pool to terminate.  You can force an autoscaling group to delete
                even if it's in the process of scaling a resource. Normally, this provider
@@ -492,6 +489,11 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[list] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
         :param pulumi.Input[list] termination_policies: A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
         :param pulumi.Input[list] vpc_zone_identifiers: A list of subnet IDs to launch resources in.
+        :param pulumi.Input[str] wait_for_capacity_timeout: A maximum
+               [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+               wait for ASG instances to be healthy before timing out.  (See also Waiting
+               for Capacity below.) Setting this to "0" causes
+               this provider to skip all Capacity Waiting behavior.
         :param pulumi.Input[float] wait_for_elb_capacity: Setting this will cause this provider to wait
                for exactly this number of healthy instances from this autoscaling group in
                all attached load balancers on both create and update operations. (Takes

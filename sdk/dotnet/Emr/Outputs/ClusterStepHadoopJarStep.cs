@@ -13,9 +13,21 @@ namespace Pulumi.Aws.Emr.Outputs
     [OutputType]
     public sealed class ClusterStepHadoopJarStep
     {
+        /// <summary>
+        /// List of command line arguments passed to the JAR file's main function when executed.
+        /// </summary>
         public readonly ImmutableArray<string> Args;
+        /// <summary>
+        /// Path to a JAR file run during the step.
+        /// </summary>
         public readonly string Jar;
+        /// <summary>
+        /// Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+        /// </summary>
         public readonly string? MainClass;
+        /// <summary>
+        /// Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+        /// </summary>
         public readonly ImmutableDictionary<string, object>? Properties;
 
         [OutputConstructor]

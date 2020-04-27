@@ -12,11 +12,18 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ServiceNetworkConfigurationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+        /// </summary>
         [Input("assignPublicIp")]
         public Input<bool>? AssignPublicIp { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
+
+        /// <summary>
+        /// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
@@ -25,6 +32,10 @@ namespace Pulumi.Aws.Ecs.Inputs
 
         [Input("subnets", required: true)]
         private InputList<string>? _subnets;
+
+        /// <summary>
+        /// The subnets associated with the task or service.
+        /// </summary>
         public InputList<string> Subnets
         {
             get => _subnets ?? (_subnets = new InputList<string>());

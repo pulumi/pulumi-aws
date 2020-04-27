@@ -21,7 +21,7 @@ class GetInstanceTypeOfferingsResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if instance_types and not isinstance(instance_types, list):
             raise TypeError("Expected argument 'instance_types' to be a list")

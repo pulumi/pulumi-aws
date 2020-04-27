@@ -161,23 +161,43 @@ func (o LoadBalancerAccessLogsPtrOutput) Elem() LoadBalancerAccessLogsOutput {
 }
 
 // The S3 bucket name to store the logs in.
-func (o LoadBalancerAccessLogsPtrOutput) Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v LoadBalancerAccessLogs) string { return v.Bucket }).(pulumi.StringOutput)
+func (o LoadBalancerAccessLogsPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerAccessLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
 }
 
 // The S3 bucket prefix. Logs are stored in the root if not configured.
 func (o LoadBalancerAccessLogsPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerAccessLogs) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LoadBalancerAccessLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketPrefix
+	}).(pulumi.StringPtrOutput)
 }
 
 // Boolean to enable / disable `accessLogs`. Default is `true`
 func (o LoadBalancerAccessLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LoadBalancerAccessLogs) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *LoadBalancerAccessLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The publishing interval in minutes. Default: 60 minutes.
 func (o LoadBalancerAccessLogsPtrOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LoadBalancerAccessLogs) *int { return v.Interval }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *LoadBalancerAccessLogs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
 }
 
 type LoadBalancerHealthCheck struct {
@@ -349,31 +369,56 @@ func (o LoadBalancerHealthCheckPtrOutput) Elem() LoadBalancerHealthCheckOutput {
 }
 
 // The number of checks before the instance is declared healthy.
-func (o LoadBalancerHealthCheckPtrOutput) HealthyThreshold() pulumi.IntOutput {
-	return o.ApplyT(func(v LoadBalancerHealthCheck) int { return v.HealthyThreshold }).(pulumi.IntOutput)
+func (o LoadBalancerHealthCheckPtrOutput) HealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.HealthyThreshold
+	}).(pulumi.IntPtrOutput)
 }
 
 // The interval between checks.
-func (o LoadBalancerHealthCheckPtrOutput) Interval() pulumi.IntOutput {
-	return o.ApplyT(func(v LoadBalancerHealthCheck) int { return v.Interval }).(pulumi.IntOutput)
+func (o LoadBalancerHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Interval
+	}).(pulumi.IntPtrOutput)
 }
 
 // The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
 // values are:
 // * `HTTP`, `HTTPS` - PORT and PATH are required
 // * `TCP`, `SSL` - PORT is required, PATH is not supported
-func (o LoadBalancerHealthCheckPtrOutput) Target() pulumi.StringOutput {
-	return o.ApplyT(func(v LoadBalancerHealthCheck) string { return v.Target }).(pulumi.StringOutput)
+func (o LoadBalancerHealthCheckPtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Target
+	}).(pulumi.StringPtrOutput)
 }
 
 // The length of time before the check times out.
-func (o LoadBalancerHealthCheckPtrOutput) Timeout() pulumi.IntOutput {
-	return o.ApplyT(func(v LoadBalancerHealthCheck) int { return v.Timeout }).(pulumi.IntOutput)
+func (o LoadBalancerHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Timeout
+	}).(pulumi.IntPtrOutput)
 }
 
 // The number of checks before the instance is declared unhealthy.
-func (o LoadBalancerHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntOutput {
-	return o.ApplyT(func(v LoadBalancerHealthCheck) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
+func (o LoadBalancerHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.UnhealthyThreshold
+	}).(pulumi.IntPtrOutput)
 }
 
 type LoadBalancerListener struct {

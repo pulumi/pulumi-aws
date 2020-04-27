@@ -31,7 +31,7 @@ type LookupRepositoryResult struct {
 	CloneUrlHttp string `pulumi:"cloneUrlHttp"`
 	// The URL to use for cloning the repository over SSH.
 	CloneUrlSsh string `pulumi:"cloneUrlSsh"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ID of the repository
 	RepositoryId   string `pulumi:"repositoryId"`

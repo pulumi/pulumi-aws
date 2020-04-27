@@ -44,7 +44,7 @@ type LookupRouteTableResult struct {
 	Filters      []GetRouteTableFilter          `pulumi:"filters"`
 	// The Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
 	GatewayId string `pulumi:"gatewayId"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ID of the AWS account that owns the route table
 	OwnerId string `pulumi:"ownerId"`

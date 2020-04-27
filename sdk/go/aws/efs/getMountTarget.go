@@ -31,7 +31,7 @@ type LookupMountTargetResult struct {
 	FileSystemArn string `pulumi:"fileSystemArn"`
 	// ID of the file system for which the mount target is intended.
 	FileSystemId string `pulumi:"fileSystemId"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Address at which the file system may be mounted via the mount target.
 	IpAddress     string `pulumi:"ipAddress"`

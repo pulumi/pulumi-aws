@@ -33,6 +33,6 @@ type GetEndpointResult struct {
 	// * `iot:Job`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
 	EndpointAddress string  `pulumi:"endpointAddress"`
 	EndpointType    *string `pulumi:"endpointType"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }

@@ -13,24 +13,6 @@ namespace Pulumi.Aws.Ecs
     /// Provides an ECS cluster capacity provider. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
     /// 
     /// &gt; **NOTE:** The AWS API does not currently support deleting ECS cluster capacity providers. Removing this resource will only remove the state for it.
-    /// 
-    /// 
-    /// ## auto_scaling_group_provider
-    /// 
-    /// The `auto_scaling_group_provider` block supports the following:
-    /// 
-    /// * `auto_scaling_group_arn` - (Required) - The Amazon Resource Name (ARN) of the associated auto scaling group.
-    /// * `managed_scaling` - (Optional) - Nested argument defining the parameters of the auto scaling. Defined below.
-    /// * `managed_termination_protection` - (Optional) - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
-    /// 
-    /// ## managed_scaling
-    /// 
-    /// The `managed_scaling` block supports the following:
-    /// 
-    /// * `maximum_scaling_step_size` - (Optional) The maximum step adjustment size. A number between 1 and 10,000.
-    /// * `minimum_scaling_step_size` - (Optional) The minimum step adjustment size. A number between 1 and 10,000.
-    /// * `status` - (Optional) Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
-    /// * `target_capacity` - (Optional) The target utilization for the capacity provider. A number between 1 and 100.
     /// </summary>
     public partial class CapacityProvider : Pulumi.CustomResource
     {

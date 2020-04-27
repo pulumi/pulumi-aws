@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a Lambda Layer Version resource. Lambda Layers allow you to reuse shared bits of code across multiple lambda functions.
  * 
- * For information about Lambda Layers and how to use them, see [AWS Lambda Layers][1]
+ * For information about Lambda Layers and how to use them, see [AWS Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
  * 
  * ## Example Usage
  * 
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * ## Specifying the Deployment Package
  * 
  * AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatibleRuntimes` this layer specifies.
- * See [Runtimes][2] for the valid values of `compatibleRuntimes`.
+ * See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatibleRuntimes`.
  * 
  * Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
  * indirectly via Amazon S3 (using the `s3Bucket`, `s3Key` and `s3ObjectVersion` arguments). When providing the deployment
@@ -72,7 +72,7 @@ export class LayerVersion extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A list of [Runtimes][2] this layer is compatible with. Up to 5 runtimes can be specified.
+     * A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
      */
     public readonly compatibleRuntimes!: pulumi.Output<string[] | undefined>;
     /**
@@ -96,7 +96,7 @@ export class LayerVersion extends pulumi.CustomResource {
      */
     public readonly layerName!: pulumi.Output<string>;
     /**
-     * License info for your Lambda Layer. See [License Info][3].
+     * License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
      */
     public readonly licenseInfo!: pulumi.Output<string | undefined>;
     /**
@@ -190,7 +190,7 @@ export interface LayerVersionState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * A list of [Runtimes][2] this layer is compatible with. Up to 5 runtimes can be specified.
+     * A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
      */
     readonly compatibleRuntimes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -214,7 +214,7 @@ export interface LayerVersionState {
      */
     readonly layerName?: pulumi.Input<string>;
     /**
-     * License info for your Lambda Layer. See [License Info][3].
+     * License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
      */
     readonly licenseInfo?: pulumi.Input<string>;
     /**
@@ -248,7 +248,7 @@ export interface LayerVersionState {
  */
 export interface LayerVersionArgs {
     /**
-     * A list of [Runtimes][2] this layer is compatible with. Up to 5 runtimes can be specified.
+     * A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
      */
     readonly compatibleRuntimes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -264,7 +264,7 @@ export interface LayerVersionArgs {
      */
     readonly layerName: pulumi.Input<string>;
     /**
-     * License info for your Lambda Layer. See [License Info][3].
+     * License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
      */
     readonly licenseInfo?: pulumi.Input<string>;
     /**

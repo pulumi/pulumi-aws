@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
  * Provides a Kinesis Stream resource. Amazon Kinesis is a managed service that
  * scales elastically for real-time processing of streaming big data.
  * 
- * For more details, see the [Amazon Kinesis Documentation][1].
+ * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
  * 
  * ## Example Usage
  * 
@@ -88,11 +88,11 @@ export class Stream extends pulumi.CustomResource {
     public readonly retentionPeriod!: pulumi.Output<number | undefined>;
     /**
      * The number of shards that the stream will use.
-     * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
+     * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      */
     public readonly shardCount!: pulumi.Output<number>;
     /**
-     * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+     * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
      */
     public readonly shardLevelMetrics!: pulumi.Output<string[] | undefined>;
     /**
@@ -177,11 +177,11 @@ export interface StreamState {
     readonly retentionPeriod?: pulumi.Input<number>;
     /**
      * The number of shards that the stream will use.
-     * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
+     * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      */
     readonly shardCount?: pulumi.Input<number>;
     /**
-     * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+     * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
      */
     readonly shardLevelMetrics?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -220,11 +220,11 @@ export interface StreamArgs {
     readonly retentionPeriod?: pulumi.Input<number>;
     /**
      * The number of shards that the stream will use.
-     * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
+     * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      */
     readonly shardCount: pulumi.Input<number>;
     /**
-     * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+     * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
      */
     readonly shardLevelMetrics?: pulumi.Input<pulumi.Input<string>[]>;
     /**

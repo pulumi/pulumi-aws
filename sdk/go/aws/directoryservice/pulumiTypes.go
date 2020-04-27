@@ -162,22 +162,42 @@ func (o DirectoryConnectSettingsPtrOutput) Elem() DirectoryConnectSettingsOutput
 
 // The DNS IP addresses of the domain to connect to.
 func (o DirectoryConnectSettingsPtrOutput) CustomerDnsIps() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DirectoryConnectSettings) []string { return v.CustomerDnsIps }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *DirectoryConnectSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerDnsIps
+	}).(pulumi.StringArrayOutput)
 }
 
 // The username corresponding to the password provided.
-func (o DirectoryConnectSettingsPtrOutput) CustomerUsername() pulumi.StringOutput {
-	return o.ApplyT(func(v DirectoryConnectSettings) string { return v.CustomerUsername }).(pulumi.StringOutput)
+func (o DirectoryConnectSettingsPtrOutput) CustomerUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryConnectSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CustomerUsername
+	}).(pulumi.StringPtrOutput)
 }
 
 // The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
 func (o DirectoryConnectSettingsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DirectoryConnectSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *DirectoryConnectSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // The identifier of the VPC that the directory is in.
-func (o DirectoryConnectSettingsPtrOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v DirectoryConnectSettings) string { return v.VpcId }).(pulumi.StringOutput)
+func (o DirectoryConnectSettingsPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryConnectSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcId
+	}).(pulumi.StringPtrOutput)
 }
 
 type DirectoryVpcSettings struct {
@@ -314,12 +334,22 @@ func (o DirectoryVpcSettingsPtrOutput) Elem() DirectoryVpcSettingsOutput {
 
 // The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
 func (o DirectoryVpcSettingsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DirectoryVpcSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *DirectoryVpcSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // The identifier of the VPC that the directory is in.
-func (o DirectoryVpcSettingsPtrOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v DirectoryVpcSettings) string { return v.VpcId }).(pulumi.StringOutput)
+func (o DirectoryVpcSettingsPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryVpcSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcId
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetDirectoryConnectSetting struct {

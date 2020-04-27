@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+warnings.warn("aws.SslNegotiationPolicy has been deprecated in favour of aws.SslNegotiationPolicy", DeprecationWarning)
 class SslNegotiationPolicy(pulumi.CustomResource):
     attributes: pulumi.Output[list]
     """
@@ -32,11 +33,14 @@ class SslNegotiationPolicy(pulumi.CustomResource):
     """
     The name of the attribute
     """
+    warnings.warn("aws.SslNegotiationPolicy has been deprecated in favour of aws.SslNegotiationPolicy", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, attributes=None, lb_port=None, load_balancer=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
 
 
+
+        Deprecated: aws.SslNegotiationPolicy has been deprecated in favour of aws.SslNegotiationPolicy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -53,6 +57,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
           * `name` (`pulumi.Input[str]`) - The name of the attribute
           * `value` (`pulumi.Input[str]`) - The value of the attribute
         """
+        pulumi.log.warn("SslNegotiationPolicy is deprecated: aws.SslNegotiationPolicy has been deprecated in favour of aws.SslNegotiationPolicy")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

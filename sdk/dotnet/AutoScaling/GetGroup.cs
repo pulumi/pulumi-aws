@@ -61,7 +61,7 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         public readonly string HealthCheckType;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

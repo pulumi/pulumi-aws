@@ -151,13 +151,23 @@ func (o S3BucketAssociationClassificationTypePtrOutput) Elem() S3BucketAssociati
 // A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
 // The only valid value is the default value, `FULL`.
 func (o S3BucketAssociationClassificationTypePtrOutput) Continuous() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v S3BucketAssociationClassificationType) *string { return v.Continuous }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *S3BucketAssociationClassificationType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Continuous
+	}).(pulumi.StringPtrOutput)
 }
 
 // A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
 // Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
 func (o S3BucketAssociationClassificationTypePtrOutput) OneTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v S3BucketAssociationClassificationType) *string { return v.OneTime }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *S3BucketAssociationClassificationType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OneTime
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

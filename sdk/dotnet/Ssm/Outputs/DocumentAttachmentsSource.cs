@@ -13,11 +13,17 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class DocumentAttachmentsSource
     {
+        /// <summary>
+        /// The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
+        /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The name of the document.
+        /// The name of the document attachment file
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The value describing the location of an attachment to a document
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

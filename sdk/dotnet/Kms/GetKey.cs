@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Kms
         public readonly string ExpirationModel;
         public readonly ImmutableArray<string> GrantTokens;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string KeyId;

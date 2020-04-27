@@ -73,7 +73,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
     public readonly autoAccept!: pulumi.Output<boolean | undefined>;
     /**
      * The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the [AWS provider][1] is currently connected to.
+     * Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
      */
     public readonly peerOwnerId!: pulumi.Output<string>;
     /**
@@ -170,7 +170,7 @@ export interface VpcPeeringConnectionState {
     readonly autoAccept?: pulumi.Input<boolean>;
     /**
      * The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the [AWS provider][1] is currently connected to.
+     * Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
      */
     readonly peerOwnerId?: pulumi.Input<string>;
     /**
@@ -214,7 +214,7 @@ export interface VpcPeeringConnectionArgs {
     readonly autoAccept?: pulumi.Input<boolean>;
     /**
      * The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the [AWS provider][1] is currently connected to.
+     * Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
      */
     readonly peerOwnerId?: pulumi.Input<string>;
     /**

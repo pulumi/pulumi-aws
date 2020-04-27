@@ -10,7 +10,7 @@ import {NotificationType} from "./notificationType";
 
 /**
  * Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
- * the `notifications` map to a [Notification Configuration][2] inside Amazon Web
+ * the `notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
  * Services, and are applied to each AutoScaling Group you supply.
  * 
  * ## Example Usage
@@ -74,7 +74,7 @@ export class Notification extends pulumi.CustomResource {
     public readonly groupNames!: pulumi.Output<string[]>;
     /**
      * A list of Notification Types that trigger
-     * notifications. Acceptable values are documented [in the AWS documentation here][1]
+     * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      */
     public readonly notifications!: pulumi.Output<NotificationType[]>;
     /**
@@ -133,7 +133,7 @@ export interface NotificationState {
     readonly groupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of Notification Types that trigger
-     * notifications. Acceptable values are documented [in the AWS documentation here][1]
+     * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      */
     readonly notifications?: pulumi.Input<pulumi.Input<NotificationType>[]>;
     /**
@@ -152,7 +152,7 @@ export interface NotificationArgs {
     readonly groupNames: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of Notification Types that trigger
-     * notifications. Acceptable values are documented [in the AWS documentation here][1]
+     * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      */
     readonly notifications: pulumi.Input<pulumi.Input<NotificationType>[]>;
     /**

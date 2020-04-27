@@ -29,7 +29,7 @@ type LookupConfigurationResult struct {
 	Arn string `pulumi:"arn"`
 	// Description of the configuration.
 	Description string `pulumi:"description"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of Apache Kafka versions which can use this configuration.
 	KafkaVersions []string `pulumi:"kafkaVersions"`

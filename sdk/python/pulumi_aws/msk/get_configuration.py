@@ -30,7 +30,7 @@ class GetConfigurationResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if kafka_versions and not isinstance(kafka_versions, list):
             raise TypeError("Expected argument 'kafka_versions' to be a list")

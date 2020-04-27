@@ -12,7 +12,7 @@ import (
 
 // Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 and Amazon Redshift.
 //
-// For more details, see the [Amazon Kinesis Firehose Documentation][1].
+// For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
 type FirehoseDeliveryStream struct {
 	pulumi.CustomResourceState
 

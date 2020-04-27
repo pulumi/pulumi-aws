@@ -36,7 +36,7 @@ type LookupGroupResult struct {
 	HealthCheckGracePeriod int `pulumi:"healthCheckGracePeriod"`
 	// The service to use for the health checks. The valid values are EC2 and ELB.
 	HealthCheckType string `pulumi:"healthCheckType"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the associated launch configuration.
 	LaunchConfiguration string `pulumi:"launchConfiguration"`

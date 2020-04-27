@@ -32,7 +32,7 @@ type LookupInternetGatewayArgs struct {
 type LookupInternetGatewayResult struct {
 	Attachments []GetInternetGatewayAttachment `pulumi:"attachments"`
 	Filters     []GetInternetGatewayFilter     `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
 	InternetGatewayId string `pulumi:"internetGatewayId"`
 	// The ID of the AWS account that owns the internet gateway.

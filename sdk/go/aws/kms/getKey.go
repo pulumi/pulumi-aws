@@ -43,7 +43,7 @@ type LookupKeyResult struct {
 	Enabled               bool     `pulumi:"enabled"`
 	ExpirationModel       string   `pulumi:"expirationModel"`
 	GrantTokens           []string `pulumi:"grantTokens"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	KeyId      string `pulumi:"keyId"`
 	KeyManager string `pulumi:"keyManager"`

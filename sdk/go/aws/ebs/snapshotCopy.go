@@ -23,14 +23,14 @@ type SnapshotCopy struct {
 	// Whether the snapshot is encrypted.
 	Encrypted pulumi.BoolPtrOutput `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key.
-	// * `sourceSnapshotId` The ARN for the snapshot to be copied.
-	// * `sourceRegion` The region of the source snapshot.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias pulumi.StringOutput `pulumi:"ownerAlias"`
 	// The AWS account ID of the snapshot owner.
-	OwnerId          pulumi.StringOutput `pulumi:"ownerId"`
-	SourceRegion     pulumi.StringOutput `pulumi:"sourceRegion"`
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// The region of the source snapshot.
+	SourceRegion pulumi.StringOutput `pulumi:"sourceRegion"`
+	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringOutput `pulumi:"sourceSnapshotId"`
 	// A mapping of tags for the snapshot.
 	Tags     pulumi.MapOutput    `pulumi:"tags"`
@@ -82,14 +82,14 @@ type snapshotCopyState struct {
 	// Whether the snapshot is encrypted.
 	Encrypted *bool `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key.
-	// * `sourceSnapshotId` The ARN for the snapshot to be copied.
-	// * `sourceRegion` The region of the source snapshot.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias *string `pulumi:"ownerAlias"`
 	// The AWS account ID of the snapshot owner.
-	OwnerId          *string `pulumi:"ownerId"`
-	SourceRegion     *string `pulumi:"sourceRegion"`
+	OwnerId *string `pulumi:"ownerId"`
+	// The region of the source snapshot.
+	SourceRegion *string `pulumi:"sourceRegion"`
+	// The ARN for the snapshot to be copied.
 	SourceSnapshotId *string `pulumi:"sourceSnapshotId"`
 	// A mapping of tags for the snapshot.
 	Tags     map[string]interface{} `pulumi:"tags"`
@@ -108,14 +108,14 @@ type SnapshotCopyState struct {
 	// Whether the snapshot is encrypted.
 	Encrypted pulumi.BoolPtrInput
 	// The ARN for the KMS encryption key.
-	// * `sourceSnapshotId` The ARN for the snapshot to be copied.
-	// * `sourceRegion` The region of the source snapshot.
 	KmsKeyId pulumi.StringPtrInput
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias pulumi.StringPtrInput
 	// The AWS account ID of the snapshot owner.
-	OwnerId          pulumi.StringPtrInput
-	SourceRegion     pulumi.StringPtrInput
+	OwnerId pulumi.StringPtrInput
+	// The region of the source snapshot.
+	SourceRegion pulumi.StringPtrInput
+	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringPtrInput
 	// A mapping of tags for the snapshot.
 	Tags     pulumi.MapInput
@@ -134,11 +134,11 @@ type snapshotCopyArgs struct {
 	// Whether the snapshot is encrypted.
 	Encrypted *bool `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key.
-	// * `sourceSnapshotId` The ARN for the snapshot to be copied.
-	// * `sourceRegion` The region of the source snapshot.
-	KmsKeyId         *string `pulumi:"kmsKeyId"`
-	SourceRegion     string  `pulumi:"sourceRegion"`
-	SourceSnapshotId string  `pulumi:"sourceSnapshotId"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The region of the source snapshot.
+	SourceRegion string `pulumi:"sourceRegion"`
+	// The ARN for the snapshot to be copied.
+	SourceSnapshotId string `pulumi:"sourceSnapshotId"`
 	// A mapping of tags for the snapshot.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
@@ -150,10 +150,10 @@ type SnapshotCopyArgs struct {
 	// Whether the snapshot is encrypted.
 	Encrypted pulumi.BoolPtrInput
 	// The ARN for the KMS encryption key.
-	// * `sourceSnapshotId` The ARN for the snapshot to be copied.
-	// * `sourceRegion` The region of the source snapshot.
-	KmsKeyId         pulumi.StringPtrInput
-	SourceRegion     pulumi.StringInput
+	KmsKeyId pulumi.StringPtrInput
+	// The region of the source snapshot.
+	SourceRegion pulumi.StringInput
+	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringInput
 	// A mapping of tags for the snapshot.
 	Tags pulumi.MapInput

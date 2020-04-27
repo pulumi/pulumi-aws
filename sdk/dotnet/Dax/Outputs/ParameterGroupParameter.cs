@@ -14,9 +14,12 @@ namespace Pulumi.Aws.Dax.Outputs
     public sealed class ParameterGroupParameter
     {
         /// <summary>
-        /// The name of the parameter group.
+        /// The name of the parameter.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The value for the parameter.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -58,7 +58,7 @@ namespace Pulumi.Aws.CloudHsmV2
         public readonly string ClusterId;
         public readonly string ClusterState;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

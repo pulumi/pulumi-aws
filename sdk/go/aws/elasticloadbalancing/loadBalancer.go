@@ -29,6 +29,8 @@ import (
 // P256 and P384 curves.  Using a certificate signed by a key using a different
 // curve could produce the error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your
 // browser.
+//
+// Deprecated: aws.LoadBalancer has been deprecated in favour of aws.LoadBalancer
 type LoadBalancer struct {
 	pulumi.CustomResourceState
 

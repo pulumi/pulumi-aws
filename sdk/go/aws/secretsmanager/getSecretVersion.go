@@ -31,7 +31,7 @@ type LookupSecretVersionArgs struct {
 type LookupSecretVersionResult struct {
 	// The ARN of the secret.
 	Arn string `pulumi:"arn"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
 	SecretBinary string `pulumi:"secretBinary"`

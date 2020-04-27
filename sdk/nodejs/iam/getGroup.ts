@@ -70,7 +70,7 @@ export interface GetGroupResult {
      */
     readonly users: outputs.iam.GetGroupUser[];
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

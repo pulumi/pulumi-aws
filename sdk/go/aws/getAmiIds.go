@@ -42,7 +42,7 @@ type GetAmiIdsArgs struct {
 type GetAmiIdsResult struct {
 	ExecutableUsers []string          `pulumi:"executableUsers"`
 	Filters         []GetAmiIdsFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id            string   `pulumi:"id"`
 	Ids           []string `pulumi:"ids"`
 	NameRegex     *string  `pulumi:"nameRegex"`

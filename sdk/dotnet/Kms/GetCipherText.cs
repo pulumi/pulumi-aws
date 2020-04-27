@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Kms
         public readonly string CiphertextBlob;
         public readonly ImmutableDictionary<string, string>? Context;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string KeyId;

@@ -39,7 +39,7 @@ type LookupFunctionResult struct {
 	FunctionName string                 `pulumi:"functionName"`
 	// The function entrypoint in your code.
 	Handler string `pulumi:"handler"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ARN to be used for invoking Lambda Function from API Gateway.
 	InvokeArn string `pulumi:"invokeArn"`

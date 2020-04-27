@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+warnings.warn("aws.getTargetGroup has been deprecated in favour of aws.getTargetGroup", DeprecationWarning)
 class GetTargetGroupResult:
     """
     A collection of values returned by getTargetGroup.
@@ -30,7 +31,7 @@ class GetTargetGroupResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if lambda_multi_value_headers_enabled and not isinstance(lambda_multi_value_headers_enabled, bool):
             raise TypeError("Expected argument 'lambda_multi_value_headers_enabled' to be a bool")
@@ -96,10 +97,13 @@ def get_target_group(arn=None,name=None,tags=None,opts=None):
 
 
 
+    Deprecated: aws.getTargetGroup has been deprecated in favour of aws.getTargetGroup
+
 
     :param str arn: The full ARN of the target group.
     :param str name: The unique name of the target group.
     """
+    pulumi.log.warn("get_target_group is deprecated: aws.getTargetGroup has been deprecated in favour of aws.getTargetGroup")
     __args__ = dict()
 
 

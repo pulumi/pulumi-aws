@@ -79,15 +79,10 @@ class Certificate(pulumi.CustomResource):
         Domain validation through E-Mail is also supported but should be avoided as it requires a manual step outside
         of this provider.
 
-        It's recommended to specify `create_before_destroy = true` in a [lifecycle][1] block to replace a certificate
+        It's recommended to specify `create_before_destroy = true` in a [lifecycle](https://www.terraform.io/docs/configuration/resources.html#lifecycle) block to replace a certificate
         which is currently in use (eg, by `lb.Listener`).
 
 
-        ## options Configuration Block
-
-        Supported nested arguments for the `options` configuration block:
-
-        * `certificate_transparency_logging_preference` - (Optional) Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -104,7 +99,7 @@ class Certificate(pulumi.CustomResource):
 
         The **options** object supports the following:
 
-          * `certificateTransparencyLoggingPreference` (`pulumi.Input[str]`)
+          * `certificateTransparencyLoggingPreference` (`pulumi.Input[str]`) - Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -173,7 +168,7 @@ class Certificate(pulumi.CustomResource):
 
         The **options** object supports the following:
 
-          * `certificateTransparencyLoggingPreference` (`pulumi.Input[str]`)
+          * `certificateTransparencyLoggingPreference` (`pulumi.Input[str]`) - Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

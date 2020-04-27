@@ -659,8 +659,13 @@ func (o TablePointInTimeRecoveryPtrOutput) Elem() TablePointInTimeRecoveryOutput
 }
 
 // Indicates whether ttl is enabled (true) or disabled (false).
-func (o TablePointInTimeRecoveryPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v TablePointInTimeRecovery) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o TablePointInTimeRecoveryPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TablePointInTimeRecovery) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type TableReplica struct {
@@ -898,14 +903,24 @@ func (o TableServerSideEncryptionPtrOutput) Elem() TableServerSideEncryptionOutp
 }
 
 // Indicates whether ttl is enabled (true) or disabled (false).
-func (o TableServerSideEncryptionPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v TableServerSideEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o TableServerSideEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TableServerSideEncryption) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The ARN of the CMK that should be used for the AWS KMS encryption.
 // This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
 func (o TableServerSideEncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableServerSideEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TableServerSideEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type TableTtl struct {
@@ -1041,13 +1056,23 @@ func (o TableTtlPtrOutput) Elem() TableTtlOutput {
 }
 
 // The name of the table attribute to store the TTL timestamp in.
-func (o TableTtlPtrOutput) AttributeName() pulumi.StringOutput {
-	return o.ApplyT(func(v TableTtl) string { return v.AttributeName }).(pulumi.StringOutput)
+func (o TableTtlPtrOutput) AttributeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableTtl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AttributeName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether ttl is enabled (true) or disabled (false).
 func (o TableTtlPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v TableTtl) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *TableTtl) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type GetTableAttribute struct {

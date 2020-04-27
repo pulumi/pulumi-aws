@@ -22,8 +22,6 @@ namespace Pulumi.Aws.Kms
 
         /// <summary>
         /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
-        /// * `retire_on_delete` -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-        /// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         /// </summary>
         [Output("grantCreationTokens")]
         public Output<ImmutableArray<string>> GrantCreationTokens { get; private set; } = null!;
@@ -64,6 +62,10 @@ namespace Pulumi.Aws.Kms
         [Output("operations")]
         public Output<ImmutableArray<string>> Operations { get; private set; } = null!;
 
+        /// <summary>
+        /// -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
+        /// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+        /// </summary>
         [Output("retireOnDelete")]
         public Output<bool?> RetireOnDelete { get; private set; } = null!;
 
@@ -136,8 +138,6 @@ namespace Pulumi.Aws.Kms
 
         /// <summary>
         /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
-        /// * `retire_on_delete` -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-        /// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         /// </summary>
         public InputList<string> GrantCreationTokens
         {
@@ -175,6 +175,10 @@ namespace Pulumi.Aws.Kms
             set => _operations = value;
         }
 
+        /// <summary>
+        /// -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
+        /// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+        /// </summary>
         [Input("retireOnDelete")]
         public Input<bool>? RetireOnDelete { get; set; }
 
@@ -208,8 +212,6 @@ namespace Pulumi.Aws.Kms
 
         /// <summary>
         /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
-        /// * `retire_on_delete` -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-        /// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         /// </summary>
         public InputList<string> GrantCreationTokens
         {
@@ -259,6 +261,10 @@ namespace Pulumi.Aws.Kms
             set => _operations = value;
         }
 
+        /// <summary>
+        /// -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
+        /// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+        /// </summary>
         [Input("retireOnDelete")]
         public Input<bool>? RetireOnDelete { get; set; }
 

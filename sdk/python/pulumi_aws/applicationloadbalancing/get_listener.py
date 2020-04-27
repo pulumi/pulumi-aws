@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+warnings.warn("aws.getListener has been deprecated in favour of aws.getListener", DeprecationWarning)
 class GetListenerResult:
     """
     A collection of values returned by getListener.
@@ -27,7 +28,7 @@ class GetListenerResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if load_balancer_arn and not isinstance(load_balancer_arn, str):
             raise TypeError("Expected argument 'load_balancer_arn' to be a str")
@@ -68,11 +69,14 @@ def get_listener(arn=None,load_balancer_arn=None,port=None,opts=None):
 
 
 
+    Deprecated: aws.getListener has been deprecated in favour of aws.getListener
+
 
     :param str arn: The arn of the listener. Required if `load_balancer_arn` and `port` is not set.
     :param str load_balancer_arn: The arn of the load balancer. Required if `arn` is not set.
     :param float port: The port of the listener. Required if `arn` is not set.
     """
+    pulumi.log.warn("get_listener is deprecated: aws.getListener has been deprecated in favour of aws.getListener")
     __args__ = dict()
 
 

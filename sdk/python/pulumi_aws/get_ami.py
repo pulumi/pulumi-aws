@@ -69,7 +69,7 @@ class GetAmiResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if image_id and not isinstance(image_id, str):
             raise TypeError("Expected argument 'image_id' to be a str")

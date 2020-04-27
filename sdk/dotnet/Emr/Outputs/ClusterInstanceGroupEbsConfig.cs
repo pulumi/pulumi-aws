@@ -13,9 +13,21 @@ namespace Pulumi.Aws.Emr.Outputs
     [OutputType]
     public sealed class ClusterInstanceGroupEbsConfig
     {
+        /// <summary>
+        /// The number of I/O operations per second (IOPS) that the volume supports
+        /// </summary>
         public readonly int? Iops;
+        /// <summary>
+        /// The volume size, in gibibytes (GiB).
+        /// </summary>
         public readonly int Size;
+        /// <summary>
+        /// The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+        /// </summary>
         public readonly int? VolumesPerInstance;
 
         [OutputConstructor]

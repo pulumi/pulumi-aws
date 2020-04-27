@@ -36,7 +36,7 @@ class GetReplicationGroupResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if member_clusters and not isinstance(member_clusters, list):
             raise TypeError("Expected argument 'member_clusters' to be a list")

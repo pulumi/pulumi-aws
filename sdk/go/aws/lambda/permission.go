@@ -17,7 +17,7 @@ type Permission struct {
 
 	// The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
 	Action pulumi.StringOutput `pulumi:"action"`
-	// The Event Source Token to validate.  Used with [Alexa Skills][1].
+	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
 	EventSourceToken pulumi.StringPtrOutput `pulumi:"eventSourceToken"`
 	// Name of the Lambda function whose resource policy you are updating
 	Function pulumi.StringOutput `pulumi:"function"`
@@ -83,7 +83,7 @@ func GetPermission(ctx *pulumi.Context,
 type permissionState struct {
 	// The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
 	Action *string `pulumi:"action"`
-	// The Event Source Token to validate.  Used with [Alexa Skills][1].
+	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
 	EventSourceToken *string `pulumi:"eventSourceToken"`
 	// Name of the Lambda function whose resource policy you are updating
 	Function *string `pulumi:"function"`
@@ -113,7 +113,7 @@ type permissionState struct {
 type PermissionState struct {
 	// The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
 	Action pulumi.StringPtrInput
-	// The Event Source Token to validate.  Used with [Alexa Skills][1].
+	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
 	EventSourceToken pulumi.StringPtrInput
 	// Name of the Lambda function whose resource policy you are updating
 	Function pulumi.StringPtrInput
@@ -147,7 +147,7 @@ func (PermissionState) ElementType() reflect.Type {
 type permissionArgs struct {
 	// The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
 	Action string `pulumi:"action"`
-	// The Event Source Token to validate.  Used with [Alexa Skills][1].
+	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
 	EventSourceToken *string `pulumi:"eventSourceToken"`
 	// Name of the Lambda function whose resource policy you are updating
 	Function interface{} `pulumi:"function"`
@@ -178,7 +178,7 @@ type permissionArgs struct {
 type PermissionArgs struct {
 	// The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
 	Action pulumi.StringInput
-	// The Event Source Token to validate.  Used with [Alexa Skills][1].
+	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
 	EventSourceToken pulumi.StringPtrInput
 	// Name of the Lambda function whose resource policy you are updating
 	Function pulumi.Input

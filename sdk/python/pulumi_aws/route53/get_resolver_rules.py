@@ -18,7 +18,7 @@ class GetResolverRulesResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")

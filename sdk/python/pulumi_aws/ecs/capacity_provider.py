@@ -18,14 +18,14 @@ class CapacityProvider(pulumi.CustomResource):
     """
     Nested argument defining the provider for the ECS auto scaling group. Defined below.
 
-      * `autoScalingGroupArn` (`str`)
-      * `managedScaling` (`dict`)
-        * `maximumScalingStepSize` (`float`)
-        * `minimumScalingStepSize` (`float`)
-        * `status` (`str`)
-        * `target_capacity` (`float`)
+      * `autoScalingGroupArn` (`str`) - - The Amazon Resource Name (ARN) of the associated auto scaling group.
+      * `managedScaling` (`dict`) - - Nested argument defining the parameters of the auto scaling. Defined below.
+        * `maximumScalingStepSize` (`float`) - The maximum step adjustment size. A number between 1 and 10,000.
+        * `minimumScalingStepSize` (`float`) - The minimum step adjustment size. A number between 1 and 10,000.
+        * `status` (`str`) - Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
+        * `target_capacity` (`float`) - The target utilization for the capacity provider. A number between 1 and 100.
 
-      * `managedTerminationProtection` (`str`)
+      * `managedTerminationProtection` (`str`) - - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
     """
     name: pulumi.Output[str]
     """
@@ -42,22 +42,6 @@ class CapacityProvider(pulumi.CustomResource):
         > **NOTE:** The AWS API does not currently support deleting ECS cluster capacity providers. Removing this resource will only remove the state for it.
 
 
-        ## auto_scaling_group_provider
-
-        The `auto_scaling_group_provider` block supports the following:
-
-        * `auto_scaling_group_arn` - (Required) - The Amazon Resource Name (ARN) of the associated auto scaling group.
-        * `managed_scaling` - (Optional) - Nested argument defining the parameters of the auto scaling. Defined below.
-        * `managed_termination_protection` - (Optional) - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
-
-        ## managed_scaling
-
-        The `managed_scaling` block supports the following:
-
-        * `maximum_scaling_step_size` - (Optional) The maximum step adjustment size. A number between 1 and 10,000.
-        * `minimum_scaling_step_size` - (Optional) The minimum step adjustment size. A number between 1 and 10,000.
-        * `status` - (Optional) Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
-        * `target_capacity` - (Optional) The target utilization for the capacity provider. A number between 1 and 100.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -67,14 +51,14 @@ class CapacityProvider(pulumi.CustomResource):
 
         The **auto_scaling_group_provider** object supports the following:
 
-          * `autoScalingGroupArn` (`pulumi.Input[str]`)
-          * `managedScaling` (`pulumi.Input[dict]`)
-            * `maximumScalingStepSize` (`pulumi.Input[float]`)
-            * `minimumScalingStepSize` (`pulumi.Input[float]`)
-            * `status` (`pulumi.Input[str]`)
-            * `target_capacity` (`pulumi.Input[float]`)
+          * `autoScalingGroupArn` (`pulumi.Input[str]`) - - The Amazon Resource Name (ARN) of the associated auto scaling group.
+          * `managedScaling` (`pulumi.Input[dict]`) - - Nested argument defining the parameters of the auto scaling. Defined below.
+            * `maximumScalingStepSize` (`pulumi.Input[float]`) - The maximum step adjustment size. A number between 1 and 10,000.
+            * `minimumScalingStepSize` (`pulumi.Input[float]`) - The minimum step adjustment size. A number between 1 and 10,000.
+            * `status` (`pulumi.Input[str]`) - Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
+            * `target_capacity` (`pulumi.Input[float]`) - The target utilization for the capacity provider. A number between 1 and 100.
 
-          * `managedTerminationProtection` (`pulumi.Input[str]`)
+          * `managedTerminationProtection` (`pulumi.Input[str]`) - - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -121,14 +105,14 @@ class CapacityProvider(pulumi.CustomResource):
 
         The **auto_scaling_group_provider** object supports the following:
 
-          * `autoScalingGroupArn` (`pulumi.Input[str]`)
-          * `managedScaling` (`pulumi.Input[dict]`)
-            * `maximumScalingStepSize` (`pulumi.Input[float]`)
-            * `minimumScalingStepSize` (`pulumi.Input[float]`)
-            * `status` (`pulumi.Input[str]`)
-            * `target_capacity` (`pulumi.Input[float]`)
+          * `autoScalingGroupArn` (`pulumi.Input[str]`) - - The Amazon Resource Name (ARN) of the associated auto scaling group.
+          * `managedScaling` (`pulumi.Input[dict]`) - - Nested argument defining the parameters of the auto scaling. Defined below.
+            * `maximumScalingStepSize` (`pulumi.Input[float]`) - The maximum step adjustment size. A number between 1 and 10,000.
+            * `minimumScalingStepSize` (`pulumi.Input[float]`) - The minimum step adjustment size. A number between 1 and 10,000.
+            * `status` (`pulumi.Input[str]`) - Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
+            * `target_capacity` (`pulumi.Input[float]`) - The target utilization for the capacity provider. A number between 1 and 100.
 
-          * `managedTerminationProtection` (`pulumi.Input[str]`)
+          * `managedTerminationProtection` (`pulumi.Input[str]`) - - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

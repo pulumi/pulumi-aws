@@ -29,13 +29,12 @@ class TargetGroup(pulumi.CustomResource):
       * `enabled` (`bool`) - Boolean to enable / disable `stickiness`. Default is `true`
       * `healthyThreshold` (`float`) - The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
       * `interval` (`float`) - The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
-      * `matcher` (`str`)
+      * `matcher` (`str`) - The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
       * `path` (`str`) - The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
       * `port` (`str`) - The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
       * `protocol` (`str`) - The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
       * `timeout` (`float`) - The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
       * `unhealthyThreshold` (`float`) - The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
-        * `matcher` (Required for HTTP/HTTPS ALB) The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
     """
     lambda_multi_value_headers_enabled: pulumi.Output[bool]
     """
@@ -129,13 +128,12 @@ class TargetGroup(pulumi.CustomResource):
           * `enabled` (`pulumi.Input[bool]`) - Boolean to enable / disable `stickiness`. Default is `true`
           * `healthyThreshold` (`pulumi.Input[float]`) - The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
           * `interval` (`pulumi.Input[float]`) - The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
-          * `matcher` (`pulumi.Input[str]`)
+          * `matcher` (`pulumi.Input[str]`) - The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
           * `path` (`pulumi.Input[str]`) - The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
           * `port` (`pulumi.Input[str]`) - The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
           * `protocol` (`pulumi.Input[str]`) - The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
           * `timeout` (`pulumi.Input[float]`) - The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
           * `unhealthyThreshold` (`pulumi.Input[float]`) - The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
-            * `matcher` (Required for HTTP/HTTPS ALB) The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
 
         The **stickiness** object supports the following:
 
@@ -220,13 +218,12 @@ class TargetGroup(pulumi.CustomResource):
           * `enabled` (`pulumi.Input[bool]`) - Boolean to enable / disable `stickiness`. Default is `true`
           * `healthyThreshold` (`pulumi.Input[float]`) - The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
           * `interval` (`pulumi.Input[float]`) - The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
-          * `matcher` (`pulumi.Input[str]`)
+          * `matcher` (`pulumi.Input[str]`) - The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
           * `path` (`pulumi.Input[str]`) - The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
           * `port` (`pulumi.Input[str]`) - The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
           * `protocol` (`pulumi.Input[str]`) - The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
           * `timeout` (`pulumi.Input[float]`) - The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
           * `unhealthyThreshold` (`pulumi.Input[float]`) - The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
-            * `matcher` (Required for HTTP/HTTPS ALB) The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
 
         The **stickiness** object supports the following:
 

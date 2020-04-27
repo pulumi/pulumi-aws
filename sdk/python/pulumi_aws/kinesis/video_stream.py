@@ -32,7 +32,7 @@ class VideoStream(pulumi.CustomResource):
     """
     media_type: pulumi.Output[str]
     """
-    The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types][2]. If you choose to specify the MediaType, see [Naming Requirements][3] for guidelines.
+    The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
     """
     name: pulumi.Output[str]
     """
@@ -51,7 +51,7 @@ class VideoStream(pulumi.CustomResource):
         """
         Provides a Kinesis Video Stream resource. Amazon Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), playback, and other processing.
 
-        For more details, see the [Amazon Kinesis Documentation][1].
+        For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
 
 
 
@@ -60,7 +60,7 @@ class VideoStream(pulumi.CustomResource):
         :param pulumi.Input[float] data_retention_in_hours: The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
         :param pulumi.Input[str] device_name: The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
         :param pulumi.Input[str] kms_key_id: The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
-        :param pulumi.Input[str] media_type: The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types][2]. If you choose to specify the MediaType, see [Naming Requirements][3] for guidelines.
+        :param pulumi.Input[str] media_type: The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
         :param pulumi.Input[str] name: A name to identify the stream. This is unique to the
                AWS account and region the Stream is created in.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
@@ -111,7 +111,7 @@ class VideoStream(pulumi.CustomResource):
         :param pulumi.Input[float] data_retention_in_hours: The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
         :param pulumi.Input[str] device_name: The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
         :param pulumi.Input[str] kms_key_id: The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
-        :param pulumi.Input[str] media_type: The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types][2]. If you choose to specify the MediaType, see [Naming Requirements][3] for guidelines.
+        :param pulumi.Input[str] media_type: The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
         :param pulumi.Input[str] name: A name to identify the stream. This is unique to the
                AWS account and region the Stream is created in.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.

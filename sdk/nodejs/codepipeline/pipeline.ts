@@ -169,7 +169,6 @@ export class Pipeline extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * One or more artifactStore blocks. Artifact stores are documented below.
-     * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
     public readonly artifactStore!: pulumi.Output<outputs.codepipeline.PipelineArtifactStore>;
     /**
@@ -180,6 +179,9 @@ export class Pipeline extends pulumi.CustomResource {
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * A stage block. Stages are documented below.
+     */
     public readonly stages!: pulumi.Output<outputs.codepipeline.PipelineStage[]>;
     /**
      * A mapping of tags to assign to the resource.
@@ -243,7 +245,6 @@ export interface PipelineState {
     readonly arn?: pulumi.Input<string>;
     /**
      * One or more artifactStore blocks. Artifact stores are documented below.
-     * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
     readonly artifactStore?: pulumi.Input<inputs.codepipeline.PipelineArtifactStore>;
     /**
@@ -254,6 +255,9 @@ export interface PipelineState {
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     readonly roleArn?: pulumi.Input<string>;
+    /**
+     * A stage block. Stages are documented below.
+     */
     readonly stages?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[]>;
     /**
      * A mapping of tags to assign to the resource.
@@ -267,7 +271,6 @@ export interface PipelineState {
 export interface PipelineArgs {
     /**
      * One or more artifactStore blocks. Artifact stores are documented below.
-     * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
     readonly artifactStore: pulumi.Input<inputs.codepipeline.PipelineArtifactStore>;
     /**
@@ -278,6 +281,9 @@ export interface PipelineArgs {
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     readonly roleArn: pulumi.Input<string>;
+    /**
+     * A stage block. Stages are documented below.
+     */
     readonly stages: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[]>;
     /**
      * A mapping of tags to assign to the resource.

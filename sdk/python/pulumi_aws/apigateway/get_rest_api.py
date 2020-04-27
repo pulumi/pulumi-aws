@@ -54,7 +54,7 @@ class GetRestApiResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if minimum_compression_size and not isinstance(minimum_compression_size, float):
             raise TypeError("Expected argument 'minimum_compression_size' to be a float")

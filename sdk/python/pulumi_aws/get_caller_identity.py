@@ -30,7 +30,7 @@ class GetCallerIdentityResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if user_id and not isinstance(user_id, str):
             raise TypeError("Expected argument 'user_id' to be a str")

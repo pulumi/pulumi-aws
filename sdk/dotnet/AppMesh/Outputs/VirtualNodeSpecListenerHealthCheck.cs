@@ -15,9 +15,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
     {
         /// <summary>
         /// The number of consecutive successful health checks that must occur before declaring listener healthy.
-        /// * `interval_millis`- (Required) The time period in milliseconds between each health check execution.
         /// </summary>
         public readonly int HealthyThreshold;
+        /// <summary>
+        /// The time period in milliseconds between each health check execution.
+        /// </summary>
         public readonly int IntervalMillis;
         /// <summary>
         /// The destination path for the health check request. This is only required if the specified protocol is `http`.

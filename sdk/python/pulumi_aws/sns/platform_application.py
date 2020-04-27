@@ -40,15 +40,15 @@ class PlatformApplication(pulumi.CustomResource):
     """
     platform: pulumi.Output[str]
     """
-    The platform that the app is registered with. See [Platform][1] for supported platforms.
+    The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
     """
     platform_credential: pulumi.Output[str]
     """
-    Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+    Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
     """
     platform_principal: pulumi.Output[str]
     """
-    Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+    Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
     """
     success_feedback_role_arn: pulumi.Output[str]
     """
@@ -72,9 +72,9 @@ class PlatformApplication(pulumi.CustomResource):
         :param pulumi.Input[str] event_endpoint_updated_topic_arn: SNS Topic triggered when an existing platform endpoint is changed from your platform application.
         :param pulumi.Input[str] failure_feedback_role_arn: The IAM role permitted to receive failure feedback for this application.
         :param pulumi.Input[str] name: The friendly name for the SNS platform application
-        :param pulumi.Input[str] platform: The platform that the app is registered with. See [Platform][1] for supported platforms.
-        :param pulumi.Input[str] platform_credential: Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        :param pulumi.Input[str] platform_principal: Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        :param pulumi.Input[str] platform: The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
+        :param pulumi.Input[str] platform_credential: Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        :param pulumi.Input[str] platform_principal: Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         :param pulumi.Input[str] success_feedback_role_arn: The IAM role permitted to receive success feedback for this application.
         :param pulumi.Input[str] success_feedback_sample_rate: The percentage of success to sample (0-100)
         """
@@ -133,9 +133,9 @@ class PlatformApplication(pulumi.CustomResource):
         :param pulumi.Input[str] event_endpoint_updated_topic_arn: SNS Topic triggered when an existing platform endpoint is changed from your platform application.
         :param pulumi.Input[str] failure_feedback_role_arn: The IAM role permitted to receive failure feedback for this application.
         :param pulumi.Input[str] name: The friendly name for the SNS platform application
-        :param pulumi.Input[str] platform: The platform that the app is registered with. See [Platform][1] for supported platforms.
-        :param pulumi.Input[str] platform_credential: Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        :param pulumi.Input[str] platform_principal: Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        :param pulumi.Input[str] platform: The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
+        :param pulumi.Input[str] platform_credential: Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        :param pulumi.Input[str] platform_principal: Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         :param pulumi.Input[str] success_feedback_role_arn: The IAM role permitted to receive success feedback for this application.
         :param pulumi.Input[str] success_feedback_sample_rate: The percentage of success to sample (0-100)
         """

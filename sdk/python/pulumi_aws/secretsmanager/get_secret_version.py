@@ -24,7 +24,7 @@ class GetSecretVersionResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if secret_binary and not isinstance(secret_binary, str):
             raise TypeError("Expected argument 'secret_binary' to be a str")

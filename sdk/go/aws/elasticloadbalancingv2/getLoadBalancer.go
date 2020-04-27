@@ -14,6 +14,10 @@ import (
 // This data source can prove useful when a module accepts an LB as an input
 // variable and needs to, for example, determine the security groups associated
 // with it, etc.
+//
+//
+//
+// Deprecated: aws.getLoadBalancer has been deprecated in favour of aws.getLoadBalancer
 func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts ...pulumi.InvokeOption) (*LookupLoadBalancerResult, error) {
 	var rv LookupLoadBalancerResult
 	err := ctx.Invoke("aws:elasticloadbalancingv2/getLoadBalancer:getLoadBalancer", args, &rv, opts...)
@@ -40,7 +44,7 @@ type LookupLoadBalancerResult struct {
 	DnsName                  string                    `pulumi:"dnsName"`
 	DropInvalidHeaderFields  bool                      `pulumi:"dropInvalidHeaderFields"`
 	EnableDeletionProtection bool                      `pulumi:"enableDeletionProtection"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id               string                         `pulumi:"id"`
 	IdleTimeout      int                            `pulumi:"idleTimeout"`
 	Internal         bool                           `pulumi:"internal"`

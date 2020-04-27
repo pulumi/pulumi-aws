@@ -33,7 +33,7 @@ class GetTableResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if local_secondary_indexes and not isinstance(local_secondary_indexes, list):
             raise TypeError("Expected argument 'local_secondary_indexes' to be a list")

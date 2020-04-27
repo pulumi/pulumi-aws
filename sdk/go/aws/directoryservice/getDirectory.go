@@ -41,7 +41,7 @@ type LookupDirectoryResult struct {
 	Edition string `pulumi:"edition"`
 	// The directory/connector single-sign on status.
 	EnableSso bool `pulumi:"enableSso"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The fully qualified name for the directory/connector.
 	Name string `pulumi:"name"`

@@ -29,7 +29,7 @@ type GetAutoscalingGroupsResult struct {
 	// A list of the Autoscaling Groups Arns in the current region.
 	Arns    []string                     `pulumi:"arns"`
 	Filters []GetAutoscalingGroupsFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of the Autoscaling Groups in the current region.
 	Names []string `pulumi:"names"`

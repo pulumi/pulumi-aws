@@ -40,7 +40,7 @@ type LookupLoadBalancerResult struct {
 	DnsName                  string                    `pulumi:"dnsName"`
 	DropInvalidHeaderFields  bool                      `pulumi:"dropInvalidHeaderFields"`
 	EnableDeletionProtection bool                      `pulumi:"enableDeletionProtection"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id               string                         `pulumi:"id"`
 	IdleTimeout      int                            `pulumi:"idleTimeout"`
 	Internal         bool                           `pulumi:"internal"`

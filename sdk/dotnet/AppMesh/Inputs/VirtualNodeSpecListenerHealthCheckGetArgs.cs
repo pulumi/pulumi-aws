@@ -14,11 +14,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
     {
         /// <summary>
         /// The number of consecutive successful health checks that must occur before declaring listener healthy.
-        /// * `interval_millis`- (Required) The time period in milliseconds between each health check execution.
         /// </summary>
         [Input("healthyThreshold", required: true)]
         public Input<int> HealthyThreshold { get; set; } = null!;
 
+        /// <summary>
+        /// The time period in milliseconds between each health check execution.
+        /// </summary>
         [Input("intervalMillis", required: true)]
         public Input<int> IntervalMillis { get; set; } = null!;
 

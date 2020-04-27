@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a Kinesis Video Stream resource. Amazon Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), playback, and other processing.
  * 
- * For more details, see the [Amazon Kinesis Documentation][1].
+ * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
  * 
  * ## Example Usage
  * 
@@ -79,7 +79,7 @@ export class VideoStream extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
-     * The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types][2]. If you choose to specify the MediaType, see [Naming Requirements][3] for guidelines.
+     * The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
      */
     public readonly mediaType!: pulumi.Output<string | undefined>;
     /**
@@ -165,7 +165,7 @@ export interface VideoStreamState {
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
-     * The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types][2]. If you choose to specify the MediaType, see [Naming Requirements][3] for guidelines.
+     * The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
      */
     readonly mediaType?: pulumi.Input<string>;
     /**
@@ -200,7 +200,7 @@ export interface VideoStreamArgs {
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
-     * The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types][2]. If you choose to specify the MediaType, see [Naming Requirements][3] for guidelines.
+     * The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
      */
     readonly mediaType?: pulumi.Input<string>;
     /**

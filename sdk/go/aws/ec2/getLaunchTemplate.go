@@ -54,7 +54,7 @@ type LookupLaunchTemplateResult struct {
 	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
 	IamInstanceProfiles []GetLaunchTemplateIamInstanceProfile `pulumi:"iamInstanceProfiles"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The AMI from which to launch the instance.
 	ImageId string `pulumi:"imageId"`

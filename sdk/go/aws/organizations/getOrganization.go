@@ -29,7 +29,7 @@ type LookupOrganizationResult struct {
 	EnabledPolicyTypes []string `pulumi:"enabledPolicyTypes"`
 	// The FeatureSet of the organization.
 	FeatureSet string `pulumi:"featureSet"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization.
 	MasterAccountArn string `pulumi:"masterAccountArn"`

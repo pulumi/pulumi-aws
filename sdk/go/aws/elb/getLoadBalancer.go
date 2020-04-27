@@ -40,7 +40,7 @@ type LookupLoadBalancerResult struct {
 	CrossZoneLoadBalancing    bool                       `pulumi:"crossZoneLoadBalancing"`
 	DnsName                   string                     `pulumi:"dnsName"`
 	HealthCheck               GetLoadBalancerHealthCheck `pulumi:"healthCheck"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                    string                    `pulumi:"id"`
 	IdleTimeout           int                       `pulumi:"idleTimeout"`
 	Instances             []string                  `pulumi:"instances"`

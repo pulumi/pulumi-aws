@@ -37,7 +37,7 @@ type LookupReportDefinitionResult struct {
 	Compression string `pulumi:"compression"`
 	// Preferred compression format for report.
 	Format string `pulumi:"format"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	ReportName string `pulumi:"reportName"`
 	// Name of customer S3 bucket.

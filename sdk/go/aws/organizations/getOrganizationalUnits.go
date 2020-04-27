@@ -27,7 +27,7 @@ type GetOrganizationalUnitsArgs struct {
 type GetOrganizationalUnitsResult struct {
 	// List of child organizational units, which have the following attributes:
 	Childrens []GetOrganizationalUnitsChildren `pulumi:"childrens"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id       string `pulumi:"id"`
 	ParentId string `pulumi:"parentId"`
 }

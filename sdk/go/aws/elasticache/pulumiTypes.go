@@ -371,13 +371,23 @@ func (o ReplicationGroupClusterModePtrOutput) Elem() ReplicationGroupClusterMode
 }
 
 // Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
-func (o ReplicationGroupClusterModePtrOutput) NumNodeGroups() pulumi.IntOutput {
-	return o.ApplyT(func(v ReplicationGroupClusterMode) int { return v.NumNodeGroups }).(pulumi.IntOutput)
+func (o ReplicationGroupClusterModePtrOutput) NumNodeGroups() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroupClusterMode) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.NumNodeGroups
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
-func (o ReplicationGroupClusterModePtrOutput) ReplicasPerNodeGroup() pulumi.IntOutput {
-	return o.ApplyT(func(v ReplicationGroupClusterMode) int { return v.ReplicasPerNodeGroup }).(pulumi.IntOutput)
+func (o ReplicationGroupClusterModePtrOutput) ReplicasPerNodeGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroupClusterMode) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ReplicasPerNodeGroup
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetClusterCacheNode struct {

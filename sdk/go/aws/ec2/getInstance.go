@@ -63,7 +63,7 @@ type LookupInstanceResult struct {
 	HostId string `pulumi:"hostId"`
 	// The name of the instance profile associated with the Instance.
 	IamInstanceProfile string `pulumi:"iamInstanceProfile"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id         string  `pulumi:"id"`
 	InstanceId *string `pulumi:"instanceId"`
 	// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.

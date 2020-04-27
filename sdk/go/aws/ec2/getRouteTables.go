@@ -31,7 +31,7 @@ type GetRouteTablesArgs struct {
 // A collection of values returned by getRouteTables.
 type GetRouteTablesResult struct {
 	Filters []GetRouteTablesFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A set of all the route table ids found. This data source will fail if none are found.
 	Ids   []string               `pulumi:"ids"`

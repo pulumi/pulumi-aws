@@ -70,7 +70,7 @@ export interface GetLayerVersionResult {
     readonly arn: string;
     readonly compatibleRuntime?: string;
     /**
-     * A list of [Runtimes][1] the specific Lambda Layer version is compatible with.
+     * A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
      */
     readonly compatibleRuntimes: string[];
     /**
@@ -103,7 +103,7 @@ export interface GetLayerVersionResult {
      */
     readonly version: number;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

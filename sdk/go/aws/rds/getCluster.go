@@ -43,7 +43,7 @@ type LookupClusterResult struct {
 	HostedZoneId                     string   `pulumi:"hostedZoneId"`
 	IamDatabaseAuthenticationEnabled bool     `pulumi:"iamDatabaseAuthenticationEnabled"`
 	IamRoles                         []string `pulumi:"iamRoles"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                          string                 `pulumi:"id"`
 	KmsKeyId                    string                 `pulumi:"kmsKeyId"`
 	MasterUsername              string                 `pulumi:"masterUsername"`

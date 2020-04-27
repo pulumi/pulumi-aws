@@ -12,13 +12,13 @@ namespace Pulumi.Aws.Lambda
     /// <summary>
     /// Provides a Lambda Layer Version resource. Lambda Layers allow you to reuse shared bits of code across multiple lambda functions.
     /// 
-    /// For information about Lambda Layers and how to use them, see [AWS Lambda Layers][1]
+    /// For information about Lambda Layers and how to use them, see [AWS Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
     /// 
     /// 
     /// ## Specifying the Deployment Package
     /// 
     /// AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.
-    /// See [Runtimes][2] for the valid values of `compatible_runtimes`.
+    /// See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatible_runtimes`.
     /// 
     /// Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
     /// indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Lambda
         public Output<Archive?> Code { get; private set; } = null!;
 
         /// <summary>
-        /// A list of [Runtimes][2] this layer is compatible with. Up to 5 runtimes can be specified.
+        /// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
         /// </summary>
         [Output("compatibleRuntimes")]
         public Output<ImmutableArray<string>> CompatibleRuntimes { get; private set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> LayerName { get; private set; } = null!;
 
         /// <summary>
-        /// License info for your Lambda Layer. See [License Info][3].
+        /// License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
         /// </summary>
         [Output("licenseInfo")]
         public Output<string?> LicenseInfo { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _compatibleRuntimes;
 
         /// <summary>
-        /// A list of [Runtimes][2] this layer is compatible with. Up to 5 runtimes can be specified.
+        /// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
         /// </summary>
         public InputList<string> CompatibleRuntimes
         {
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string> LayerName { get; set; } = null!;
 
         /// <summary>
-        /// License info for your Lambda Layer. See [License Info][3].
+        /// License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
         /// </summary>
         [Input("licenseInfo")]
         public Input<string>? LicenseInfo { get; set; }
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _compatibleRuntimes;
 
         /// <summary>
-        /// A list of [Runtimes][2] this layer is compatible with. Up to 5 runtimes can be specified.
+        /// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
         /// </summary>
         public InputList<string> CompatibleRuntimes
         {
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? LayerName { get; set; }
 
         /// <summary>
-        /// License info for your Lambda Layer. See [License Info][3].
+        /// License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
         /// </summary>
         [Input("licenseInfo")]
         public Input<string>? LicenseInfo { get; set; }

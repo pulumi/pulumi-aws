@@ -10,8 +10,8 @@ import * as utilities from "../utilities";
  * Creates an Amazon CloudFront web distribution.
  * 
  * For information about CloudFront distributions, see the
- * [Amazon CloudFront Developer Guide][1]. For specific information about creating
- * CloudFront web distributions, see the [POST Distribution][2] page in the Amazon
+ * [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For specific information about creating
+ * CloudFront web distributions, see the [POST Distribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html) page in the Amazon
  * CloudFront API Reference.
  * 
  * > **NOTE:** CloudFront distributions take about 15 minutes to a deployed state
@@ -241,7 +241,7 @@ export class Distribution extends pulumi.CustomResource {
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The CloudFront Route 53 zone ID that can be used to
-     * route an [Alias Resource Record Set][7] to. This attribute is simply an
+     * route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
      * alias for the zone ID `Z2FDTNDATAQYW2`.
      */
     public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
@@ -490,7 +490,7 @@ export interface DistributionState {
     readonly etag?: pulumi.Input<string>;
     /**
      * The CloudFront Route 53 zone ID that can be used to
-     * route an [Alias Resource Record Set][7] to. This attribute is simply an
+     * route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
      * alias for the zone ID `Z2FDTNDATAQYW2`.
      */
     readonly hostedZoneId?: pulumi.Input<string>;

@@ -44,7 +44,7 @@ type LookupSnapshotResult struct {
 	// Whether the snapshot is encrypted.
 	Encrypted bool                `pulumi:"encrypted"`
 	Filters   []GetSnapshotFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ARN for the KMS encryption key.
 	KmsKeyId   string `pulumi:"kmsKeyId"`

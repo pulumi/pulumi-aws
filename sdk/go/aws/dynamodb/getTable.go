@@ -32,7 +32,7 @@ type LookupTableResult struct {
 	BillingMode            string                         `pulumi:"billingMode"`
 	GlobalSecondaryIndexes []GetTableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
 	HashKey                string                         `pulumi:"hashKey"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                    string                        `pulumi:"id"`
 	LocalSecondaryIndexes []GetTableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
 	Name                  string                        `pulumi:"name"`

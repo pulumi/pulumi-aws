@@ -37,7 +37,7 @@ export interface GetSecretArgs {
 export interface GetSecretResult {
     readonly secrets: outputs.kms.GetSecretSecret[];
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

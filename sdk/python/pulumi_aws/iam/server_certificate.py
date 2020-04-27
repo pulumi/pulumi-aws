@@ -40,7 +40,7 @@ class ServerCertificate(pulumi.CustomResource):
     The IAM path for the server certificate.  If it is not
     included, it defaults to a slash (/). If this certificate is for use with
     AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-    See [IAM Identifiers][1] for more details on IAM Paths.
+    See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
     """
     private_key: pulumi.Output[str]
     """
@@ -79,7 +79,7 @@ class ServerCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] path: The IAM path for the server certificate.  If it is not
                included, it defaults to a slash (/). If this certificate is for use with
                AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-               See [IAM Identifiers][1] for more details on IAM Paths.
+               See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
         :param pulumi.Input[str] private_key: The contents of the private key in PEM-encoded format.
         """
         if __name__ is not None:
@@ -138,7 +138,7 @@ class ServerCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] path: The IAM path for the server certificate.  If it is not
                included, it defaults to a slash (/). If this certificate is for use with
                AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-               See [IAM Identifiers][1] for more details on IAM Paths.
+               See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
         :param pulumi.Input[str] private_key: The contents of the private key in PEM-encoded format.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

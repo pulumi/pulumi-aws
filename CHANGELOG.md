@@ -9,6 +9,8 @@ CHANGELOG
 * Switch deprecated Buffer constructor to Buffer.from in LogGroup.onDecodedEvent
 * Update `dynamodb.TableEventSubscriptionArgs` to include latest Lambda Event Source Mapping parameters 
 * Update `kinesis.TableEventSubscriptionArgs` to include latest Lambda Event Source Mapping parameters 
+* Upgrade to pulumi-terraform-bridge v2.1.0
+* Regenerate datasource examples to be async
 
 ---
 

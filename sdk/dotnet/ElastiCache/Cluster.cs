@@ -19,14 +19,14 @@ namespace Pulumi.Aws.ElastiCache
     /// a difference in its planning phase because the actual modification has not yet taken
     /// place. You can use the `apply_immediately` flag to instruct the service to apply the
     /// change immediately. Using `apply_immediately` can result in a brief downtime as the server reboots.
-    /// See the AWS Docs on [Modifying an ElastiCache Cache Cluster][2] for more information.
+    /// See the AWS Docs on [Modifying an ElastiCache Cache Cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Clusters.Modify.html) for more information.
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether any database modifications
         /// are applied immediately, or during the next maintenance window. Default is
-        /// `false`. See [Amazon ElastiCache Documentation for more information.][1]
+        /// `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
         /// (Available since v0.6.0)
         /// </summary>
         [Output("applyImmediately")]
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// Specifies whether any database modifications
         /// are applied immediately, or during the next maintenance window. Default is
-        /// `false`. See [Amazon ElastiCache Documentation for more information.][1]
+        /// `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
         /// (Available since v0.6.0)
         /// </summary>
         [Input("applyImmediately")]
@@ -449,7 +449,7 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// Specifies whether any database modifications
         /// are applied immediately, or during the next maintenance window. Default is
-        /// `false`. See [Amazon ElastiCache Documentation for more information.][1]
+        /// `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
         /// (Available since v0.6.0)
         /// </summary>
         [Input("applyImmediately")]

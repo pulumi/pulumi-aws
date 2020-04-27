@@ -134,8 +134,13 @@ func (o ServerEndpointDetailsPtrOutput) Elem() ServerEndpointDetailsOutput {
 }
 
 // The ID of the VPC endpoint.
-func (o ServerEndpointDetailsPtrOutput) VpcEndpointId() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerEndpointDetails) string { return v.VpcEndpointId }).(pulumi.StringOutput)
+func (o ServerEndpointDetailsPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpointDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcEndpointId
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

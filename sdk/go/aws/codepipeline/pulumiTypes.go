@@ -162,22 +162,42 @@ func (o PipelineArtifactStorePtrOutput) Elem() PipelineArtifactStoreOutput {
 
 // The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
 func (o PipelineArtifactStorePtrOutput) EncryptionKey() PipelineArtifactStoreEncryptionKeyPtrOutput {
-	return o.ApplyT(func(v PipelineArtifactStore) *PipelineArtifactStoreEncryptionKey { return v.EncryptionKey }).(PipelineArtifactStoreEncryptionKeyPtrOutput)
+	return o.ApplyT(func(v *PipelineArtifactStore) *PipelineArtifactStoreEncryptionKey {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionKey
+	}).(PipelineArtifactStoreEncryptionKeyPtrOutput)
 }
 
 // The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
-func (o PipelineArtifactStorePtrOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v PipelineArtifactStore) string { return v.Location }).(pulumi.StringOutput)
+func (o PipelineArtifactStorePtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineArtifactStore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Location
+	}).(pulumi.StringPtrOutput)
 }
 
 // The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
 func (o PipelineArtifactStorePtrOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineArtifactStore) *string { return v.Region }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *PipelineArtifactStore) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
 }
 
 // The type of the artifact store, such as Amazon S3
-func (o PipelineArtifactStorePtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PipelineArtifactStore) string { return v.Type }).(pulumi.StringOutput)
+func (o PipelineArtifactStorePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineArtifactStore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type PipelineArtifactStoreEncryptionKey struct {
@@ -313,13 +333,23 @@ func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Elem() PipelineArtifactStor
 }
 
 // The KMS key ARN or ID
-func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v PipelineArtifactStoreEncryptionKey) string { return v.Id }).(pulumi.StringOutput)
+func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineArtifactStoreEncryptionKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // The type of key; currently only `KMS` is supported
-func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PipelineArtifactStoreEncryptionKey) string { return v.Type }).(pulumi.StringOutput)
+func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineArtifactStoreEncryptionKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type PipelineStage struct {
@@ -753,12 +783,22 @@ func (o WebhookAuthenticationConfigurationPtrOutput) Elem() WebhookAuthenticatio
 
 // A valid CIDR block for `IP` filtering. Required for `IP`.
 func (o WebhookAuthenticationConfigurationPtrOutput) AllowedIpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebhookAuthenticationConfiguration) *string { return v.AllowedIpRange }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *WebhookAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedIpRange
+	}).(pulumi.StringPtrOutput)
 }
 
 // The shared secret for the GitHub repository webhook. Set this as `secret` in your `githubRepositoryWebhook`'s `configuration` block. Required for `GITHUB_HMAC`.
 func (o WebhookAuthenticationConfigurationPtrOutput) SecretToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebhookAuthenticationConfiguration) *string { return v.SecretToken }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *WebhookAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretToken
+	}).(pulumi.StringPtrOutput)
 }
 
 type WebhookFilter struct {

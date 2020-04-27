@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+warnings.warn("aws.LoadBalancerPolicy has been deprecated in favour of aws.LoadBalancerPolicy", DeprecationWarning)
 class LoadBalancerPolicy(pulumi.CustomResource):
     load_balancer_name: pulumi.Output[str]
     """
@@ -29,11 +30,14 @@ class LoadBalancerPolicy(pulumi.CustomResource):
     """
     The policy type.
     """
+    warnings.warn("aws.LoadBalancerPolicy has been deprecated in favour of aws.LoadBalancerPolicy", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, load_balancer_name=None, policy_attributes=None, policy_name=None, policy_type_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a load balancer policy, which can be attached to an ELB listener or backend server.
 
 
+
+        Deprecated: aws.LoadBalancerPolicy has been deprecated in favour of aws.LoadBalancerPolicy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -47,6 +51,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
           * `name` (`pulumi.Input[str]`)
           * `value` (`pulumi.Input[str]`)
         """
+        pulumi.log.warn("LoadBalancerPolicy is deprecated: aws.LoadBalancerPolicy has been deprecated in favour of aws.LoadBalancerPolicy")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

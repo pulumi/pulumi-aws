@@ -30,7 +30,7 @@ class Mesh(pulumi.CustomResource):
     """
     The service mesh specification to apply.
 
-      * `egressFilter` (`dict`)
+      * `egressFilter` (`dict`) - The egress filter rules for the service mesh.
         * `type` (`str`) - The egress filter type. By default, the type is `DROP_ALL`.
           Valid values are `ALLOW_ALL` and `DROP_ALL`.
     """
@@ -52,7 +52,7 @@ class Mesh(pulumi.CustomResource):
 
         The **spec** object supports the following:
 
-          * `egressFilter` (`pulumi.Input[dict]`)
+          * `egressFilter` (`pulumi.Input[dict]`) - The egress filter rules for the service mesh.
             * `type` (`pulumi.Input[str]`) - The egress filter type. By default, the type is `DROP_ALL`.
               Valid values are `ALLOW_ALL` and `DROP_ALL`.
         """
@@ -103,7 +103,7 @@ class Mesh(pulumi.CustomResource):
 
         The **spec** object supports the following:
 
-          * `egressFilter` (`pulumi.Input[dict]`)
+          * `egressFilter` (`pulumi.Input[dict]`) - The egress filter rules for the service mesh.
             * `type` (`pulumi.Input[str]`) - The egress filter type. By default, the type is `DROP_ALL`.
               Valid values are `ALLOW_ALL` and `DROP_ALL`.
         """

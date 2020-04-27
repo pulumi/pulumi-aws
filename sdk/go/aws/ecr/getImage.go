@@ -31,7 +31,7 @@ type GetImageArgs struct {
 
 // A collection of values returned by getImage.
 type GetImageResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id          string `pulumi:"id"`
 	ImageDigest string `pulumi:"imageDigest"`
 	// The date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.

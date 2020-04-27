@@ -42,7 +42,7 @@ class GetRoleResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if max_session_duration and not isinstance(max_session_duration, float):
             raise TypeError("Expected argument 'max_session_duration' to be a float")

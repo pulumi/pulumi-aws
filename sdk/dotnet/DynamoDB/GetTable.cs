@@ -56,7 +56,7 @@ namespace Pulumi.Aws.DynamoDB
         public readonly ImmutableArray<Outputs.GetTableGlobalSecondaryIndexResult> GlobalSecondaryIndexes;
         public readonly string HashKey;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly ImmutableArray<Outputs.GetTableLocalSecondaryIndexResult> LocalSecondaryIndexes;

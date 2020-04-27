@@ -132,10 +132,12 @@ export class Preset extends pulumi.CustomResource {
      * Video parameters object (documented below)
      */
     public readonly video!: pulumi.Output<outputs.elastictranscoder.PresetVideo | undefined>;
+    /**
+     * Codec options for the video parameters
+     */
     public readonly videoCodecOptions!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Watermark parameters for the video parameters (documented below)
-     * * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
      */
     public readonly videoWatermarks!: pulumi.Output<outputs.elastictranscoder.PresetVideoWatermark[] | undefined>;
 
@@ -224,10 +226,12 @@ export interface PresetState {
      * Video parameters object (documented below)
      */
     readonly video?: pulumi.Input<inputs.elastictranscoder.PresetVideo>;
+    /**
+     * Codec options for the video parameters
+     */
     readonly videoCodecOptions?: pulumi.Input<{[key: string]: any}>;
     /**
      * Watermark parameters for the video parameters (documented below)
-     * * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
      */
     readonly videoWatermarks?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PresetVideoWatermark>[]>;
 }
@@ -265,10 +269,12 @@ export interface PresetArgs {
      * Video parameters object (documented below)
      */
     readonly video?: pulumi.Input<inputs.elastictranscoder.PresetVideo>;
+    /**
+     * Codec options for the video parameters
+     */
     readonly videoCodecOptions?: pulumi.Input<{[key: string]: any}>;
     /**
      * Watermark parameters for the video parameters (documented below)
-     * * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
      */
     readonly videoWatermarks?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PresetVideoWatermark>[]>;
 }

@@ -13,11 +13,14 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class ClusterSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+        /// Name of the setting to manage. Valid values: `containerInsights`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The value to assign to the setting. Value values are `enabled` and `disabled`.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

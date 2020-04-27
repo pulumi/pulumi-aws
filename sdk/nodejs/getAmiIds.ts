@@ -89,7 +89,7 @@ export interface GetAmiIdsResult {
     readonly owners: string[];
     readonly sortAscending?: boolean;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

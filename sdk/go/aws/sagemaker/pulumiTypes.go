@@ -438,23 +438,43 @@ func (o ModelPrimaryContainerPtrOutput) Elem() ModelPrimaryContainerOutput {
 
 // The DNS host name for the container.
 func (o ModelPrimaryContainerPtrOutput) ContainerHostname() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ContainerHostname }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerHostname
+	}).(pulumi.StringPtrOutput)
 }
 
 // Environment variables for the Docker container.
 // A list of key value pairs.
 func (o ModelPrimaryContainerPtrOutput) Environment() pulumi.MapOutput {
-	return o.ApplyT(func(v ModelPrimaryContainer) map[string]interface{} { return v.Environment }).(pulumi.MapOutput)
+	return o.ApplyT(func(v *ModelPrimaryContainer) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Environment
+	}).(pulumi.MapOutput)
 }
 
 // The registry path where the inference code image is stored in Amazon ECR.
-func (o ModelPrimaryContainerPtrOutput) Image() pulumi.StringOutput {
-	return o.ApplyT(func(v ModelPrimaryContainer) string { return v.Image }).(pulumi.StringOutput)
+func (o ModelPrimaryContainerPtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Image
+	}).(pulumi.StringPtrOutput)
 }
 
 // The URL for the S3 location where model artifacts are stored.
 func (o ModelPrimaryContainerPtrOutput) ModelDataUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModelDataUrl
+	}).(pulumi.StringPtrOutput)
 }
 
 type ModelVpcConfig struct {
@@ -583,11 +603,21 @@ func (o ModelVpcConfigPtrOutput) Elem() ModelVpcConfigOutput {
 }
 
 func (o ModelVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ModelVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ModelVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o ModelVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ModelVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ModelVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
 }
 
 func init() {

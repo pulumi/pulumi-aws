@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Dax
 
         /// <summary>
         /// The compute and memory capacity of the nodes. See
-        /// [Nodes][1] for supported node types
+        /// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
         /// </summary>
         [Output("nodeType")]
         public Output<string> NodeType { get; private set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Dax
 
         /// <summary>
         /// The compute and memory capacity of the nodes. See
-        /// [Nodes][1] for supported node types
+        /// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
         /// </summary>
         [Input("nodeType", required: true)]
         public Input<string> NodeType { get; set; } = null!;
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.Dax
 
         /// <summary>
         /// The compute and memory capacity of the nodes. See
-        /// [Nodes][1] for supported node types
+        /// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
         /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }

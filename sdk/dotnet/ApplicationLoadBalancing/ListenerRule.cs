@@ -13,7 +13,12 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// Provides a Load Balancer Listener Rule resource.
     /// 
     /// &gt; **Note:** `aws.alb.ListenerRule` is known as `aws.lb.ListenerRule`. The functionality is identical.
+    /// 
+    /// 
+    /// 
+    /// Deprecated: aws.ListenerRule has been deprecated in favour of aws.ListenerRule
     /// </summary>
+    [Obsolete(@"aws.ListenerRule has been deprecated in favour of aws.ListenerRule")]
     public partial class ListenerRule : Pulumi.CustomResource
     {
         /// <summary>

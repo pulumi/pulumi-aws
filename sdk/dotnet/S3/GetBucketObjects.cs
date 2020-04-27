@@ -86,7 +86,7 @@ namespace Pulumi.Aws.S3
         public readonly string? EncodingType;
         public readonly bool? FetchOwner;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

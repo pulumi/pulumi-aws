@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
  * Provides an SSM Document resource
  * 
  * > **NOTE on updating SSM documents:** Only documents with a schema version of 2.0
- * or greater can update their content once created, see [SSM Schema Features][1]. To update a document with an older
+ * or greater can update their content once created, see [SSM Schema Features](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html#document-schemas-features). To update a document with an older
  * schema version you must recreate the resource.
  * 
  * ## Example Usage
@@ -43,14 +43,6 @@ import * as utilities from "../utilities";
  *     documentType: "Command",
  * });
  * ```
- * 
- * ## attachmentsSource
- * 
- * The `attachmentsSource` block supports the following:
- * 
- * * `key` - (Required) The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
- * * `values` - (Required) The value describing the location of an attachment to a document
- * * `name` - (Optional) The name of the document attachment file
  * 
  * ## Permissions
  * 

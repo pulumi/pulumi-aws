@@ -153,17 +153,32 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) Elem() LifecyclePolicyPolicyDetai
 
 // A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypes
+	}).(pulumi.StringArrayOutput)
 }
 
 // See the `schedule` configuration block.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) Schedules() LifecyclePolicyPolicyDetailsScheduleArrayOutput {
-	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) []LifecyclePolicyPolicyDetailsSchedule { return v.Schedules }).(LifecyclePolicyPolicyDetailsScheduleArrayOutput)
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) []LifecyclePolicyPolicyDetailsSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.Schedules
+	}).(LifecyclePolicyPolicyDetailsScheduleArrayOutput)
 }
 
 // A mapping of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) TargetTags() pulumi.MapOutput {
-	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) map[string]interface{} { return v.TargetTags }).(pulumi.MapOutput)
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.TargetTags
+	}).(pulumi.MapOutput)
 }
 
 type LifecyclePolicyPolicyDetailsSchedule struct {

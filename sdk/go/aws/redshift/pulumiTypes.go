@@ -157,17 +157,32 @@ func (o ClusterLoggingPtrOutput) Elem() ClusterLoggingOutput {
 // The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
 // For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
 func (o ClusterLoggingPtrOutput) BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterLogging) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ClusterLogging) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
-func (o ClusterLoggingPtrOutput) Enable() pulumi.BoolOutput {
-	return o.ApplyT(func(v ClusterLogging) bool { return v.Enable }).(pulumi.BoolOutput)
+func (o ClusterLoggingPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterLogging) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enable
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The prefix applied to the log file names.
 func (o ClusterLoggingPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterLogging) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ClusterLogging) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3KeyPrefix
+	}).(pulumi.StringPtrOutput)
 }
 
 type ClusterSnapshotCopy struct {
@@ -312,18 +327,33 @@ func (o ClusterSnapshotCopyPtrOutput) Elem() ClusterSnapshotCopyOutput {
 }
 
 // The destination region that you want to copy snapshots to.
-func (o ClusterSnapshotCopyPtrOutput) DestinationRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterSnapshotCopy) string { return v.DestinationRegion }).(pulumi.StringOutput)
+func (o ClusterSnapshotCopyPtrOutput) DestinationRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSnapshotCopy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationRegion
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
 func (o ClusterSnapshotCopyPtrOutput) GrantName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterSnapshotCopy) *string { return v.GrantName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ClusterSnapshotCopy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GrantName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
 func (o ClusterSnapshotCopyPtrOutput) RetentionPeriod() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterSnapshotCopy) *int { return v.RetentionPeriod }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ClusterSnapshotCopy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionPeriod
+	}).(pulumi.IntPtrOutput)
 }
 
 type ParameterGroupParameter struct {

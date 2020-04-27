@@ -25,7 +25,7 @@ type GetSecretsArgs struct {
 
 // A collection of values returned by getSecrets.
 type GetSecretsResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Map containing each `secret` `name` as the key with its decrypted plaintext value
 	Plaintext map[string]string  `pulumi:"plaintext"`

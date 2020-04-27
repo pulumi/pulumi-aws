@@ -143,13 +143,23 @@ func (o GroupResourceQueryPtrOutput) Elem() GroupResourceQueryOutput {
 }
 
 // The resource query as a JSON string.
-func (o GroupResourceQueryPtrOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func(v GroupResourceQuery) string { return v.Query }).(pulumi.StringOutput)
+func (o GroupResourceQueryPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupResourceQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
 }
 
 // The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
 func (o GroupResourceQueryPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupResourceQuery) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *GroupResourceQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

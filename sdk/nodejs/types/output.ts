@@ -110,6 +110,9 @@ export namespace acm {
     }
 
     export interface CertificateOptions {
+        /**
+         * Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+         */
         certificateTransparencyLoggingPreference?: string;
     }
 }
@@ -728,6 +731,9 @@ export namespace alb {
          * The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
          */
         interval?: number;
+        /**
+         * The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+         */
         matcher: string;
         /**
          * The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
@@ -747,7 +753,6 @@ export namespace alb {
         timeout: number;
         /**
          * The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
-         * * `matcher` (Required for HTTP/HTTPS ALB) The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
          */
         unhealthyThreshold?: number;
     }
@@ -1583,6 +1588,9 @@ export namespace applicationloadbalancing {
          * The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
          */
         interval?: number;
+        /**
+         * The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+         */
         matcher: string;
         /**
          * The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
@@ -1602,7 +1610,6 @@ export namespace applicationloadbalancing {
         timeout: number;
         /**
          * The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
-         * * `matcher` (Required for HTTP/HTTPS ALB) The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
          */
         unhealthyThreshold?: number;
     }
@@ -1625,6 +1632,9 @@ export namespace applicationloadbalancing {
 
 export namespace appmesh {
     export interface MeshSpec {
+        /**
+         * The egress filter rules for the service mesh.
+         */
         egressFilter?: outputs.appmesh.MeshSpecEgressFilter;
     }
 
@@ -1694,7 +1704,6 @@ export namespace appmesh {
         /**
          * Specifies the path with which to match requests.
          * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-         * * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
          */
         prefix: string;
         /**
@@ -1726,9 +1735,11 @@ export namespace appmesh {
         /**
          * Specifies the path with which to match requests.
          * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-         * * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
          */
         prefix?: string;
+        /**
+         * The object that specifies the range of numbers that the header value sent by the client must be included in.
+         */
         range?: outputs.appmesh.RouteSpecHttpRouteMatchHeaderMatchRange;
         /**
          * The header value sent by the client must include the specified characters.
@@ -1824,9 +1835,11 @@ export namespace appmesh {
     export interface VirtualNodeSpecListenerHealthCheck {
         /**
          * The number of consecutive successful health checks that must occur before declaring listener healthy.
-         * * `intervalMillis`- (Required) The time period in milliseconds between each health check execution.
          */
         healthyThreshold: number;
+        /**
+         * The time period in milliseconds between each health check execution.
+         */
         intervalMillis: number;
         /**
          * The destination path for the health check request. This is only required if the specified protocol is `http`.
@@ -1943,6 +1956,9 @@ export namespace appmesh {
     }
 
     export interface VirtualServiceSpec {
+        /**
+         * The App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
+         */
         provider?: outputs.appmesh.VirtualServiceSpecProvider;
     }
 
@@ -2550,10 +2566,16 @@ export namespace batch {
     }
 
     export interface JobDefinitionRetryStrategy {
+        /**
+         * The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
+         */
         attempts?: number;
     }
 
     export interface JobDefinitionTimeout {
+        /**
+         * The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
+         */
         attemptDurationSeconds?: number;
     }
 }
@@ -3201,7 +3223,7 @@ export namespace cloudfront {
 
     export interface DistributionViewerCertificate {
         /**
-         * The ARN of the [AWS Certificate Manager][6]
+         * The ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)
          * certificate that you wish to use with this distribution. Specify this,
          * `cloudfrontDefaultCertificate`, or `iamCertificateId`.  The ACM
          * certificate must be in  US-EAST-1.
@@ -4108,7 +4130,7 @@ export namespace codedeploy {
 
     export interface DeploymentGroupTriggerConfiguration {
         /**
-         * The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation][1] for all possible values.
+         * The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation](http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html) for all possible values.
          */
         triggerEvents: string[];
         /**
@@ -4676,9 +4698,12 @@ export namespace dax {
 
     export interface ParameterGroupParameter {
         /**
-         * The name of the parameter group.
+         * The name of the parameter.
          */
         name: string;
+        /**
+         * The value for the parameter.
+         */
         value: string;
     }
 }
@@ -7206,29 +7231,62 @@ export namespace ecr {
 
 export namespace ecs {
     export interface CapacityProviderAutoScalingGroupProvider {
+        /**
+         * - The Amazon Resource Name (ARN) of the associated auto scaling group.
+         */
         autoScalingGroupArn: string;
+        /**
+         * - Nested argument defining the parameters of the auto scaling. Defined below.
+         */
         managedScaling: outputs.ecs.CapacityProviderAutoScalingGroupProviderManagedScaling;
+        /**
+         * - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+         */
         managedTerminationProtection: string;
     }
 
     export interface CapacityProviderAutoScalingGroupProviderManagedScaling {
+        /**
+         * The maximum step adjustment size. A number between 1 and 10,000.
+         */
         maximumScalingStepSize: number;
+        /**
+         * The minimum step adjustment size. A number between 1 and 10,000.
+         */
         minimumScalingStepSize: number;
+        /**
+         * Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
+         */
         status: string;
+        /**
+         * The target utilization for the capacity provider. A number between 1 and 100.
+         */
         targetCapacity: number;
     }
 
     export interface ClusterDefaultCapacityProviderStrategy {
+        /**
+         * The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+         */
         base?: number;
+        /**
+         * The short name of the capacity provider.
+         */
         capacityProvider: string;
+        /**
+         * The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+         */
         weight?: number;
     }
 
     export interface ClusterSetting {
         /**
-         * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+         * Name of the setting to manage. Valid values: `containerInsights`.
          */
         name: string;
+        /**
+         * The value to assign to the setting. Value values are `enabled` and `disabled`.
+         */
         value: string;
     }
 
@@ -7238,42 +7296,106 @@ export namespace ecs {
     }
 
     export interface ServiceCapacityProviderStrategy {
+        /**
+         * The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+         */
         base?: number;
+        /**
+         * The short name or full Amazon Resource Name (ARN) of the capacity provider.
+         */
         capacityProvider: string;
+        /**
+         * The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+         */
         weight?: number;
     }
 
     export interface ServiceDeploymentController {
+        /**
+         * Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
+         */
         type?: string;
     }
 
     export interface ServiceLoadBalancer {
+        /**
+         * The name of the container to associate with the load balancer (as it appears in a container definition).
+         */
         containerName: string;
+        /**
+         * The port on the container to associate with the load balancer.
+         */
         containerPort: number;
+        /**
+         * The name of the ELB (Classic) to associate with the service.
+         */
         elbName?: string;
+        /**
+         * The ARN of the Load Balancer target group to associate with the service.
+         */
         targetGroupArn?: string;
     }
 
     export interface ServiceNetworkConfiguration {
+        /**
+         * Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+         */
         assignPublicIp?: boolean;
+        /**
+         * The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+         */
         securityGroups?: string[];
+        /**
+         * The subnets associated with the task or service.
+         */
         subnets: string[];
     }
 
     export interface ServiceOrderedPlacementStrategy {
+        /**
+         * For the `spread` placement strategy, valid values are `instanceId` (or `host`,
+         * which has the same effect), or any platform or custom attribute that is applied to a container instance.
+         * For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
+         * needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
+         */
         field?: string;
+        /**
+         * The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+         */
         type: string;
     }
 
     export interface ServicePlacementConstraint {
+        /**
+         * Cluster Query Language expression to apply to the constraint. Does not need to be specified
+         * for the `distinctInstance` type.
+         * For more information, see [Cluster Query Language in the Amazon EC2 Container
+         * Service Developer
+         * Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+         */
         expression?: string;
+        /**
+         * The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+         */
         type: string;
     }
 
     export interface ServiceServiceRegistries {
+        /**
+         * The container name value, already specified in the task definition, to be used for your service discovery service.
+         */
         containerName?: string;
+        /**
+         * The port value, already specified in the task definition, to be used for your service discovery service.
+         */
         containerPort?: number;
+        /**
+         * The port value used if your Service Discovery service specified an SRV record.
+         */
         port?: number;
+        /**
+         * The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
+         */
         registryArn: string;
     }
 
@@ -8304,6 +8426,9 @@ export namespace elasticloadbalancingv2 {
          * The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
          */
         interval?: number;
+        /**
+         * The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+         */
         matcher: string;
         /**
          * The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
@@ -8323,7 +8448,6 @@ export namespace elasticloadbalancingv2 {
         timeout: number;
         /**
          * The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
-         * * `matcher` (Required for HTTP/HTTPS ALB) The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
          */
         unhealthyThreshold?: number;
     }
@@ -8988,115 +9112,259 @@ export namespace elb {
 
 export namespace emr {
     export interface ClusterBootstrapAction {
+        /**
+         * List of command line arguments passed to the JAR file's main function when executed.
+         */
         args?: string[];
         /**
-         * The name of the job flow
+         * The name of the step.
          */
         name: string;
+        /**
+         * Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system
+         */
         path: string;
     }
 
     export interface ClusterCoreInstanceGroup {
+        /**
+         * The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+         */
         autoscalingPolicy?: string;
+        /**
+         * Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+         */
         bidPrice?: string;
+        /**
+         * Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+         */
         ebsConfigs: outputs.emr.ClusterCoreInstanceGroupEbsConfig[];
         /**
          * The ID of the EMR Cluster
          */
         id: string;
+        /**
+         * Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+         */
         instanceCount?: number;
+        /**
+         * EC2 instance type for all instances in the instance group.
+         */
         instanceType: string;
         /**
-         * The name of the job flow
+         * The name of the step.
          */
         name?: string;
     }
 
     export interface ClusterCoreInstanceGroupEbsConfig {
+        /**
+         * The number of I/O operations per second (IOPS) that the volume supports
+         */
         iops?: number;
+        /**
+         * The volume size, in gibibytes (GiB).
+         */
         size: number;
+        /**
+         * The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+         */
         type: string;
+        /**
+         * The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+         */
         volumesPerInstance?: number;
     }
 
     export interface ClusterEc2Attributes {
+        /**
+         * String containing a comma separated list of additional Amazon EC2 security group IDs for the master node
+         */
         additionalMasterSecurityGroups?: string;
+        /**
+         * String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string
+         */
         additionalSlaveSecurityGroups?: string;
+        /**
+         * Identifier of the Amazon EC2 EMR-Managed security group for the master node
+         */
         emrManagedMasterSecurityGroup: string;
+        /**
+         * Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes
+         */
         emrManagedSlaveSecurityGroup: string;
+        /**
+         * Instance Profile for EC2 instances of the cluster assume this role
+         */
         instanceProfile: string;
+        /**
+         * Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`
+         */
         keyName?: string;
+        /**
+         * Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet
+         */
         serviceAccessSecurityGroup: string;
+        /**
+         * VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in a Amazon VPC
+         */
         subnetId?: string;
     }
 
     export interface ClusterInstanceGroup {
+        /**
+         * The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+         */
         autoscalingPolicy?: string;
+        /**
+         * Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+         */
         bidPrice?: string;
+        /**
+         * Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+         */
         ebsConfigs: outputs.emr.ClusterInstanceGroupEbsConfig[];
         /**
          * The ID of the EMR Cluster
          */
         id: string;
+        /**
+         * Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+         */
         instanceCount?: number;
+        /**
+         * The role of the instance group in the cluster. Valid values are: `MASTER`, `CORE`, and `TASK`.
+         */
         instanceRole: string;
+        /**
+         * EC2 instance type for all instances in the instance group.
+         */
         instanceType: string;
         /**
-         * The name of the job flow
+         * The name of the step.
          */
         name?: string;
     }
 
     export interface ClusterInstanceGroupEbsConfig {
+        /**
+         * The number of I/O operations per second (IOPS) that the volume supports
+         */
         iops?: number;
+        /**
+         * The volume size, in gibibytes (GiB).
+         */
         size: number;
+        /**
+         * The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+         */
         type: string;
+        /**
+         * The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+         */
         volumesPerInstance?: number;
     }
 
     export interface ClusterKerberosAttributes {
+        /**
+         * The Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
+         */
         adDomainJoinPassword?: string;
+        /**
+         * Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
+         */
         adDomainJoinUser?: string;
+        /**
+         * Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
+         */
         crossRealmTrustPrincipalPassword?: string;
+        /**
+         * The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
+         */
         kdcAdminPassword: string;
+        /**
+         * The name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
+         */
         realm: string;
     }
 
     export interface ClusterMasterInstanceGroup {
+        /**
+         * Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+         */
         bidPrice?: string;
+        /**
+         * Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+         */
         ebsConfigs: outputs.emr.ClusterMasterInstanceGroupEbsConfig[];
         /**
          * The ID of the EMR Cluster
          */
         id: string;
+        /**
+         * Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+         */
         instanceCount?: number;
+        /**
+         * EC2 instance type for all instances in the instance group.
+         */
         instanceType: string;
         /**
-         * The name of the job flow
+         * The name of the step.
          */
         name?: string;
     }
 
     export interface ClusterMasterInstanceGroupEbsConfig {
+        /**
+         * The number of I/O operations per second (IOPS) that the volume supports
+         */
         iops?: number;
+        /**
+         * The volume size, in gibibytes (GiB).
+         */
         size: number;
+        /**
+         * The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+         */
         type: string;
+        /**
+         * The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+         */
         volumesPerInstance?: number;
     }
 
     export interface ClusterStep {
+        /**
+         * The action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
+         */
         actionOnFailure: string;
+        /**
+         * The JAR file used for the step. Defined below.
+         */
         hadoopJarStep: outputs.emr.ClusterStepHadoopJarStep;
         /**
-         * The name of the job flow
+         * The name of the step.
          */
         name: string;
     }
 
     export interface ClusterStepHadoopJarStep {
+        /**
+         * List of command line arguments passed to the JAR file's main function when executed.
+         */
         args?: string[];
+        /**
+         * Path to a JAR file run during the step.
+         */
         jar: string;
+        /**
+         * Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+         */
         mainClass?: string;
+        /**
+         * Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+         */
         properties?: {[key: string]: any};
     }
 
@@ -11812,6 +12080,9 @@ export namespace lb {
          * The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
          */
         interval?: number;
+        /**
+         * The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+         */
         matcher: string;
         /**
          * The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
@@ -11831,7 +12102,6 @@ export namespace lb {
         timeout: number;
         /**
          * The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
-         * * `matcher` (Required for HTTP/HTTPS ALB) The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
          */
         unhealthyThreshold?: number;
     }
@@ -13510,7 +13780,7 @@ export namespace s3 {
          */
         prefix?: string;
         /**
-         * The priority associated with the rule.
+         * is optional (with a default value of `0`) but must be unique between multiple rules
          */
         priority?: number;
         /**
@@ -14025,11 +14295,17 @@ export namespace ssm {
     }
 
     export interface DocumentAttachmentsSource {
+        /**
+         * The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
+         */
         key: string;
         /**
-         * The name of the document.
+         * The name of the document attachment file
          */
         name?: string;
+        /**
+         * The value describing the location of an attachment to a document
+         */
         values: string[];
     }
 
@@ -14222,7 +14498,6 @@ export namespace ssm {
         enableNonSecurity?: boolean;
         /**
          * The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
-         * * `PATCH_SET` defaults to `OS` if unspecified
          */
         patchFilters: outputs.ssm.PatchBaselineApprovalRulePatchFilter[];
     }
@@ -14238,10 +14513,25 @@ export namespace ssm {
     }
 
     export interface ResourceDataSyncS3Destination {
+        /**
+         * Name of S3 bucket where the aggregated data is stored.
+         */
         bucketName: string;
+        /**
+         * ARN of an encryption key for a destination in Amazon S3.
+         */
         kmsKeyArn?: string;
+        /**
+         * Prefix for the bucket.
+         */
         prefix?: string;
+        /**
+         * Region with the bucket targeted by the Resource Data Sync.
+         */
         region: string;
+        /**
+         * A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
+         */
         syncFormat?: string;
     }
 }

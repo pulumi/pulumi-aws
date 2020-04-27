@@ -51,7 +51,7 @@ type LookupRouteResult struct {
 	DestinationIpv6CidrBlock string `pulumi:"destinationIpv6CidrBlock"`
 	EgressOnlyGatewayId      string `pulumi:"egressOnlyGatewayId"`
 	GatewayId                string `pulumi:"gatewayId"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                     string `pulumi:"id"`
 	InstanceId             string `pulumi:"instanceId"`
 	NatGatewayId           string `pulumi:"natGatewayId"`

@@ -24,7 +24,7 @@ class GetEncryptionByDefaultResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
 class AwaitableGetEncryptionByDefaultResult(GetEncryptionByDefaultResult):
     # pylint: disable=using-constant-test

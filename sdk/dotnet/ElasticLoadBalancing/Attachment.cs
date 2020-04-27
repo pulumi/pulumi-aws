@@ -18,7 +18,12 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// `instances` defined in-line. At this time you cannot use an ELB with in-line
     /// instances in conjunction with an ELB Attachment resource. Doing so will cause a
     /// conflict and will overwrite attachments.
+    /// 
+    /// 
+    /// 
+    /// Deprecated: aws.Attachment has been deprecated in favour of aws.Attachment
     /// </summary>
+    [Obsolete(@"aws.Attachment has been deprecated in favour of aws.Attachment")]
     public partial class Attachment : Pulumi.CustomResource
     {
         /// <summary>

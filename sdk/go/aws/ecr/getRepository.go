@@ -29,7 +29,7 @@ type LookupRepositoryArgs struct {
 type LookupRepositoryResult struct {
 	// Full ARN of the repository.
 	Arn string `pulumi:"arn"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The registry ID where the repository was created.

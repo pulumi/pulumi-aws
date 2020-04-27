@@ -39,7 +39,7 @@ type LookupBrokerResult struct {
 	EngineType              string                      `pulumi:"engineType"`
 	EngineVersion           string                      `pulumi:"engineVersion"`
 	HostInstanceType        string                      `pulumi:"hostInstanceType"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                         string                              `pulumi:"id"`
 	Instances                  []GetBrokerInstance                 `pulumi:"instances"`
 	Logs                       *GetBrokerLogs                      `pulumi:"logs"`

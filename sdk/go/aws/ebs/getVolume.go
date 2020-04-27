@@ -40,7 +40,7 @@ type LookupVolumeResult struct {
 	// Whether the disk is encrypted.
 	Encrypted bool              `pulumi:"encrypted"`
 	Filters   []GetVolumeFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The amount of IOPS for the disk.
 	Iops int `pulumi:"iops"`

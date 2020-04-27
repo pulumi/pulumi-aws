@@ -11,10 +11,10 @@ namespace Pulumi.Aws.DocDB
 {
     /// <summary>
     /// Provides an DocDB Cluster Resource Instance. A Cluster Instance Resource defines
-    /// attributes that are specific to a single instance in a [DocDB Cluster][1].
+    /// attributes that are specific to a single instance in a [DocDB Cluster](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html).
     /// 
     /// You do not designate a primary and subsequent replicas. Instead, you simply add DocDB
-    /// Instances and DocDB manages the replication. You can use the [count][3]
+    /// Instances and DocDB manages the replication. You can use the [count](https://www.terraform.io/docs/configuration/resources.html#count)
     /// meta-parameter to make multiple instances and join them all to the same DocDB
     /// Cluster, or you may specify different Cluster Instance resources with various
     /// `instance_class` sizes.
@@ -101,8 +101,8 @@ namespace Pulumi.Aws.DocDB
         public Output<string> IdentifierPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances][2]. DocDB currently
-        /// supports the below instance classes. Please see [AWS Documentation][4] for complete details.
+        /// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
+        /// supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
         /// - db.r4.large
         /// - db.r4.xlarge
         /// - db.r4.2xlarge
@@ -261,8 +261,8 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? IdentifierPrefix { get; set; }
 
         /// <summary>
-        /// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances][2]. DocDB currently
-        /// supports the below instance classes. Please see [AWS Documentation][4] for complete details.
+        /// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
+        /// supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
         /// - db.r4.large
         /// - db.r4.xlarge
         /// - db.r4.2xlarge
@@ -385,8 +385,8 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? IdentifierPrefix { get; set; }
 
         /// <summary>
-        /// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances][2]. DocDB currently
-        /// supports the below instance classes. Please see [AWS Documentation][4] for complete details.
+        /// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
+        /// supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
         /// - db.r4.large
         /// - db.r4.xlarge
         /// - db.r4.2xlarge

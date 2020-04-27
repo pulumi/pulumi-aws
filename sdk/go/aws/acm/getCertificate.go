@@ -40,7 +40,7 @@ type LookupCertificateResult struct {
 	// Set to the ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
 	Arn    string `pulumi:"arn"`
 	Domain string `pulumi:"domain"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id         string   `pulumi:"id"`
 	KeyTypes   []string `pulumi:"keyTypes"`
 	MostRecent *bool    `pulumi:"mostRecent"`

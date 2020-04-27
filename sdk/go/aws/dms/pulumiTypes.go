@@ -147,20 +147,40 @@ func (o EndpointElasticsearchSettingsPtrOutput) Elem() EndpointElasticsearchSett
 	return o.ApplyT(func(v *EndpointElasticsearchSettings) EndpointElasticsearchSettings { return *v }).(EndpointElasticsearchSettingsOutput)
 }
 
-func (o EndpointElasticsearchSettingsPtrOutput) EndpointUri() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointElasticsearchSettings) string { return v.EndpointUri }).(pulumi.StringOutput)
+func (o EndpointElasticsearchSettingsPtrOutput) EndpointUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointElasticsearchSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointUri
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointElasticsearchSettingsPtrOutput) ErrorRetryDuration() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EndpointElasticsearchSettings) *int { return v.ErrorRetryDuration }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *EndpointElasticsearchSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorRetryDuration
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o EndpointElasticsearchSettingsPtrOutput) FullLoadErrorPercentage() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EndpointElasticsearchSettings) *int { return v.FullLoadErrorPercentage }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *EndpointElasticsearchSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FullLoadErrorPercentage
+	}).(pulumi.IntPtrOutput)
 }
 
-func (o EndpointElasticsearchSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointElasticsearchSettings) string { return v.ServiceAccessRoleArn }).(pulumi.StringOutput)
+func (o EndpointElasticsearchSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointElasticsearchSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceAccessRoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type EndpointKinesisSettings struct {
@@ -295,15 +315,30 @@ func (o EndpointKinesisSettingsPtrOutput) Elem() EndpointKinesisSettingsOutput {
 }
 
 func (o EndpointKinesisSettingsPtrOutput) MessageFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointKinesisSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MessageFormat
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointKinesisSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointKinesisSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceAccessRoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointKinesisSettingsPtrOutput) StreamArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.StreamArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointKinesisSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StreamArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type EndpointMongodbSettings struct {
@@ -456,27 +491,57 @@ func (o EndpointMongodbSettingsPtrOutput) Elem() EndpointMongodbSettingsOutput {
 }
 
 func (o EndpointMongodbSettingsPtrOutput) AuthMechanism() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.AuthMechanism }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthMechanism
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointMongodbSettingsPtrOutput) AuthSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.AuthSource }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthSource
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointMongodbSettingsPtrOutput) AuthType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.AuthType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointMongodbSettingsPtrOutput) DocsToInvestigate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.DocsToInvestigate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DocsToInvestigate
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointMongodbSettingsPtrOutput) ExtractDocId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.ExtractDocId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExtractDocId
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointMongodbSettingsPtrOutput) NestingLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.NestingLevel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NestingLevel
+	}).(pulumi.StringPtrOutput)
 }
 
 type EndpointS3Settings struct {
@@ -635,31 +700,66 @@ func (o EndpointS3SettingsPtrOutput) Elem() EndpointS3SettingsOutput {
 }
 
 func (o EndpointS3SettingsPtrOutput) BucketFolder() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointS3Settings) *string { return v.BucketFolder }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketFolder
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointS3SettingsPtrOutput) BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointS3Settings) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketName
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointS3SettingsPtrOutput) CompressionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointS3Settings) *string { return v.CompressionType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CompressionType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointS3SettingsPtrOutput) CsvDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointS3Settings) *string { return v.CsvDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CsvDelimiter
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointS3SettingsPtrOutput) CsvRowDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointS3Settings) *string { return v.CsvRowDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CsvRowDelimiter
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointS3SettingsPtrOutput) ExternalTableDefinition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ExternalTableDefinition }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalTableDefinition
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointS3SettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceAccessRoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

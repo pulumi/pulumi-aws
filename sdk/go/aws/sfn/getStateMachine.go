@@ -33,7 +33,7 @@ type LookupStateMachineResult struct {
 	CreationDate string `pulumi:"creationDate"`
 	// Set to the state machine definition.
 	Definition string `pulumi:"definition"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// Set to the roleArn used by the state function.

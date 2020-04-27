@@ -111,7 +111,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The IAM Instance Profile to
         /// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-        /// * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         /// </summary>
         [Output("iamInstanceProfile")]
         public Output<string?> IamInstanceProfile { get; private set; } = null!;
@@ -137,6 +136,9 @@ namespace Pulumi.Aws.Ec2
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
 
+        /// <summary>
+        /// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+        /// </summary>
         [Output("ipv6AddressCount")]
         public Output<int> Ipv6AddressCount { get; private set; } = null!;
 
@@ -430,7 +432,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The IAM Instance Profile to
         /// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-        /// * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         /// </summary>
         [Input("iamInstanceProfile")]
         public Input<string>? IamInstanceProfile { get; set; }
@@ -450,6 +451,9 @@ namespace Pulumi.Aws.Ec2
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
+        /// <summary>
+        /// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+        /// </summary>
         [Input("ipv6AddressCount")]
         public Input<int>? Ipv6AddressCount { get; set; }
 
@@ -710,7 +714,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The IAM Instance Profile to
         /// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-        /// * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         /// </summary>
         [Input("iamInstanceProfile")]
         public Input<string>? IamInstanceProfile { get; set; }
@@ -736,6 +739,9 @@ namespace Pulumi.Aws.Ec2
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
+        /// <summary>
+        /// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+        /// </summary>
         [Input("ipv6AddressCount")]
         public Input<int>? Ipv6AddressCount { get; set; }
 

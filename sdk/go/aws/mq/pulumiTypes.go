@@ -144,12 +144,22 @@ func (o BrokerConfigurationPtrOutput) Elem() BrokerConfigurationOutput {
 
 // The Configuration ID.
 func (o BrokerConfigurationPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BrokerConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *BrokerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // Revision of the Configuration.
 func (o BrokerConfigurationPtrOutput) Revision() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BrokerConfiguration) *int { return v.Revision }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *BrokerConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Revision
+	}).(pulumi.IntPtrOutput)
 }
 
 type BrokerEncryptionOptions struct {
@@ -286,12 +296,22 @@ func (o BrokerEncryptionOptionsPtrOutput) Elem() BrokerEncryptionOptionsOutput {
 
 // Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
 func (o BrokerEncryptionOptionsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BrokerEncryptionOptions) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *BrokerEncryptionOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
 func (o BrokerEncryptionOptionsPtrOutput) UseAwsOwnedKey() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BrokerEncryptionOptions) *bool { return v.UseAwsOwnedKey }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BrokerEncryptionOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseAwsOwnedKey
+	}).(pulumi.BoolPtrOutput)
 }
 
 type BrokerInstance struct {
@@ -536,12 +556,22 @@ func (o BrokerLogsPtrOutput) Elem() BrokerLogsOutput {
 
 // Enables audit logging. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
 func (o BrokerLogsPtrOutput) Audit() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BrokerLogs) *bool { return v.Audit }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BrokerLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Audit
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Enables general logging via CloudWatch. Defaults to `false`.
 func (o BrokerLogsPtrOutput) General() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BrokerLogs) *bool { return v.General }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BrokerLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.General
+	}).(pulumi.BoolPtrOutput)
 }
 
 type BrokerMaintenanceWindowStartTime struct {
@@ -686,18 +716,33 @@ func (o BrokerMaintenanceWindowStartTimePtrOutput) Elem() BrokerMaintenanceWindo
 }
 
 // The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
-func (o BrokerMaintenanceWindowStartTimePtrOutput) DayOfWeek() pulumi.StringOutput {
-	return o.ApplyT(func(v BrokerMaintenanceWindowStartTime) string { return v.DayOfWeek }).(pulumi.StringOutput)
+func (o BrokerMaintenanceWindowStartTimePtrOutput) DayOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerMaintenanceWindowStartTime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DayOfWeek
+	}).(pulumi.StringPtrOutput)
 }
 
 // The time, in 24-hour format. e.g. `02:00`
-func (o BrokerMaintenanceWindowStartTimePtrOutput) TimeOfDay() pulumi.StringOutput {
-	return o.ApplyT(func(v BrokerMaintenanceWindowStartTime) string { return v.TimeOfDay }).(pulumi.StringOutput)
+func (o BrokerMaintenanceWindowStartTimePtrOutput) TimeOfDay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerMaintenanceWindowStartTime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeOfDay
+	}).(pulumi.StringPtrOutput)
 }
 
 // The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
-func (o BrokerMaintenanceWindowStartTimePtrOutput) TimeZone() pulumi.StringOutput {
-	return o.ApplyT(func(v BrokerMaintenanceWindowStartTime) string { return v.TimeZone }).(pulumi.StringOutput)
+func (o BrokerMaintenanceWindowStartTimePtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BrokerMaintenanceWindowStartTime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeZone
+	}).(pulumi.StringPtrOutput)
 }
 
 type BrokerUser struct {

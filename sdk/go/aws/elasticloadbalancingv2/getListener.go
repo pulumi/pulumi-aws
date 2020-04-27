@@ -14,6 +14,10 @@ import (
 // This data source can prove useful when a module accepts an LB Listener as an
 // input variable and needs to know the LB it is attached to, or other
 // information specific to the listener in question.
+//
+//
+//
+// Deprecated: aws.getListener has been deprecated in favour of aws.getListener
 func LookupListener(ctx *pulumi.Context, args *LookupListenerArgs, opts ...pulumi.InvokeOption) (*LookupListenerResult, error) {
 	var rv LookupListenerResult
 	err := ctx.Invoke("aws:elasticloadbalancingv2/getListener:getListener", args, &rv, opts...)
@@ -38,7 +42,7 @@ type LookupListenerResult struct {
 	Arn            string                     `pulumi:"arn"`
 	CertificateArn string                     `pulumi:"certificateArn"`
 	DefaultActions []GetListenerDefaultAction `pulumi:"defaultActions"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id              string `pulumi:"id"`
 	LoadBalancerArn string `pulumi:"loadBalancerArn"`
 	Port            int    `pulumi:"port"`

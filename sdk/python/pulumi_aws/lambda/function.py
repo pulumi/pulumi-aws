@@ -39,7 +39,7 @@ class Function(pulumi.CustomResource):
     """
     handler: pulumi.Output[str]
     """
-    The function [entrypoint][3] in your code.
+    The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
     """
     invoke_arn: pulumi.Output[str]
     """
@@ -55,11 +55,11 @@ class Function(pulumi.CustomResource):
     """
     layers: pulumi.Output[list]
     """
-    List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
+    List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
     """
     memory_size: pulumi.Output[float]
     """
-    Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
+    Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
     """
     name: pulumi.Output[str]
     """
@@ -76,15 +76,15 @@ class Function(pulumi.CustomResource):
     """
     reserved_concurrent_executions: pulumi.Output[float]
     """
-    The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
+    The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
     """
     role: pulumi.Output[str]
     """
-    IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
+    IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details.
     """
     runtime: pulumi.Output[str]
     """
-    See [Runtimes][6] for valid values.
+    See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
     """
     s3_bucket: pulumi.Output[str]
     """
@@ -112,7 +112,7 @@ class Function(pulumi.CustomResource):
     """
     timeout: pulumi.Output[float]
     """
-    The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
+    The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
     """
     tracing_config: pulumi.Output[dict]
     version: pulumi.Output[str]
@@ -121,7 +121,7 @@ class Function(pulumi.CustomResource):
     """
     vpc_config: pulumi.Output[dict]
     """
-    Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
+    Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC](http://docs.aws.amazon.com/lambda/latest/dg/vpc.html)
 
       * `security_group_ids` (`list`) - A list of security group IDs associated with the Lambda function.
       * `subnet_ids` (`list`) - A list of subnet IDs associated with the Lambda function.
@@ -131,7 +131,7 @@ class Function(pulumi.CustomResource):
         """
         Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS, enabling serverless backend solutions. The Lambda Function itself includes source code and runtime configuration.
 
-        For information about Lambda and how to use it, see [What is AWS Lambda?][1]
+        For information about Lambda and how to use it, see [What is AWS Lambda?](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
 
         > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), EC2 subnets and security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
 
@@ -139,8 +139,8 @@ class Function(pulumi.CustomResource):
         ## Specifying the Deployment Package
 
         AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use.
-        See [Runtimes][6] for the valid values of `runtime`. The expected structure of the deployment package can be found in
-        [the AWS Lambda documentation for each runtime][8].
+        See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `runtime`. The expected structure of the deployment package can be found in
+        [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).
 
         Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
         indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
@@ -155,22 +155,22 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[dict] dead_letter_config: Nested block to configure the function's *dead letter queue*. See details below.
         :param pulumi.Input[str] description: Description of what your Lambda Function does.
         :param pulumi.Input[dict] environment: The Lambda environment's configuration settings. Fields documented below.
-        :param pulumi.Input[str] handler: The function [entrypoint][3] in your code.
+        :param pulumi.Input[str] handler: The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         :param pulumi.Input[str] kms_key_arn: The ARN for the KMS encryption key.
-        :param pulumi.Input[list] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
-        :param pulumi.Input[float] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
+        :param pulumi.Input[list] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+        :param pulumi.Input[float] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         :param pulumi.Input[str] name: A unique name for your Lambda Function.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
-        :param pulumi.Input[float] reserved_concurrent_executions: The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
-        :param pulumi.Input[str] role: IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
-        :param pulumi.Input[str] runtime: See [Runtimes][6] for valid values.
+        :param pulumi.Input[float] reserved_concurrent_executions: The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
+        :param pulumi.Input[str] role: IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details.
+        :param pulumi.Input[str] runtime: See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         :param pulumi.Input[str] s3_bucket: The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         :param pulumi.Input[str] s3_key: The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[str] s3_object_version: The object version containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
-        :param pulumi.Input[float] timeout: The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
-        :param pulumi.Input[dict] vpc_config: Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
+        :param pulumi.Input[float] timeout: The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
+        :param pulumi.Input[dict] vpc_config: Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC](http://docs.aws.amazon.com/lambda/latest/dg/vpc.html)
 
         The **dead_letter_config** object supports the following:
 
@@ -267,28 +267,28 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[dict] dead_letter_config: Nested block to configure the function's *dead letter queue*. See details below.
         :param pulumi.Input[str] description: Description of what your Lambda Function does.
         :param pulumi.Input[dict] environment: The Lambda environment's configuration settings. Fields documented below.
-        :param pulumi.Input[str] handler: The function [entrypoint][3] in your code.
+        :param pulumi.Input[str] handler: The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         :param pulumi.Input[str] invoke_arn: The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
         :param pulumi.Input[str] kms_key_arn: The ARN for the KMS encryption key.
         :param pulumi.Input[str] last_modified: The date this resource was last modified.
-        :param pulumi.Input[list] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
-        :param pulumi.Input[float] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
+        :param pulumi.Input[list] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+        :param pulumi.Input[float] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         :param pulumi.Input[str] name: A unique name for your Lambda Function.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         :param pulumi.Input[str] qualified_arn: The Amazon Resource Name (ARN) identifying your Lambda Function Version
                (if versioning is enabled via `publish = true`).
-        :param pulumi.Input[float] reserved_concurrent_executions: The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
-        :param pulumi.Input[str] role: IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
-        :param pulumi.Input[str] runtime: See [Runtimes][6] for valid values.
+        :param pulumi.Input[float] reserved_concurrent_executions: The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
+        :param pulumi.Input[str] role: IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details.
+        :param pulumi.Input[str] runtime: See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         :param pulumi.Input[str] s3_bucket: The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         :param pulumi.Input[str] s3_key: The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[str] s3_object_version: The object version containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
         :param pulumi.Input[float] source_code_size: The size in bytes of the function .zip file.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
-        :param pulumi.Input[float] timeout: The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
+        :param pulumi.Input[float] timeout: The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         :param pulumi.Input[str] version: Latest published version of your Lambda Function.
-        :param pulumi.Input[dict] vpc_config: Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
+        :param pulumi.Input[dict] vpc_config: Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC](http://docs.aws.amazon.com/lambda/latest/dg/vpc.html)
 
         The **dead_letter_config** object supports the following:
 

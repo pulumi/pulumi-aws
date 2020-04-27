@@ -18,7 +18,7 @@ class GetSolutionStackResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if most_recent and not isinstance(most_recent, bool):
             raise TypeError("Expected argument 'most_recent' to be a bool")

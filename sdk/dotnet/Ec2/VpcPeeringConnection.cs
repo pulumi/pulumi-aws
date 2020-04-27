@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The AWS account ID of the owner of the peer VPC.
-        /// Defaults to the account ID the [AWS provider][1] is currently connected to.
+        /// Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
         /// </summary>
         [Output("peerOwnerId")]
         public Output<string> PeerOwnerId { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The AWS account ID of the owner of the peer VPC.
-        /// Defaults to the account ID the [AWS provider][1] is currently connected to.
+        /// Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
         /// </summary>
         [Input("peerOwnerId")]
         public Input<string>? PeerOwnerId { get; set; }
@@ -228,7 +228,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The AWS account ID of the owner of the peer VPC.
-        /// Defaults to the account ID the [AWS provider][1] is currently connected to.
+        /// Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
         /// </summary>
         [Input("peerOwnerId")]
         public Input<string>? PeerOwnerId { get; set; }

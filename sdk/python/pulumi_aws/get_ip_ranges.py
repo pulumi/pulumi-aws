@@ -30,7 +30,7 @@ class GetIpRangesResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if ipv6_cidr_blocks and not isinstance(ipv6_cidr_blocks, list):
             raise TypeError("Expected argument 'ipv6_cidr_blocks' to be a list")
@@ -71,7 +71,7 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
 
 def get_ip_ranges(regions=None,services=None,url=None,opts=None):
     """
-    Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention][1].
+    Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
 
 
 
@@ -84,7 +84,7 @@ def get_ip_ranges(regions=None,services=None,url=None,opts=None):
            `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
            `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
            [`service` attribute][2] documentation for other possible values.
-    :param str url: Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documention][1]. Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
+    :param str url: Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documention](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
     """
     __args__ = dict()
 

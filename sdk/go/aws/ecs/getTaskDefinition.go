@@ -28,7 +28,7 @@ type LookupTaskDefinitionArgs struct {
 type LookupTaskDefinitionResult struct {
 	// The family of this task definition
 	Family string `pulumi:"family"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Docker networking mode to use for the containers in this task.
 	NetworkMode string `pulumi:"networkMode"`

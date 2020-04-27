@@ -32,7 +32,7 @@ type GetSecurityGroupsArgs struct {
 // A collection of values returned by getSecurityGroups.
 type GetSecurityGroupsResult struct {
 	Filters []GetSecurityGroupsFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// IDs of the matches security groups.
 	Ids  []string               `pulumi:"ids"`

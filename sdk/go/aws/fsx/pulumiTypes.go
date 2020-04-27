@@ -184,34 +184,62 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Elem() WindowsFile
 
 // A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
 func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) DnsIps() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) []string { return v.DnsIps }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsIps
+	}).(pulumi.StringArrayOutput)
 }
 
 // The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
-func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) DomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) string { return v.DomainName }).(pulumi.StringOutput)
+func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
 func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) FileSystemAdministratorsGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) *string { return v.FileSystemAdministratorsGroup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystemAdministratorsGroup
+	}).(pulumi.StringPtrOutput)
 }
 
 // The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
 func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) *string {
+	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
 		return v.OrganizationalUnitDistinguishedName
 	}).(pulumi.StringPtrOutput)
 }
 
 // The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) string { return v.Password }).(pulumi.StringOutput)
+func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
 }
 
 // The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) string { return v.Username }).(pulumi.StringOutput)
+func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

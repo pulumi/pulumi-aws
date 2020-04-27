@@ -38,7 +38,7 @@ type LookupResolverRuleResult struct {
 	// The ARN (Amazon Resource Name) for the resolver rule.
 	Arn        string `pulumi:"arn"`
 	DomainName string `pulumi:"domainName"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.

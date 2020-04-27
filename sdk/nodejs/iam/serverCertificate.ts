@@ -92,7 +92,7 @@ export class ServerCertificate extends pulumi.CustomResource {
      * The IAM path for the server certificate.  If it is not
      * included, it defaults to a slash (/). If this certificate is for use with
      * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-     * See [IAM Identifiers][1] for more details on IAM Paths.
+     * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
      */
     public readonly path!: pulumi.Output<string | undefined>;
     /**
@@ -179,7 +179,7 @@ export interface ServerCertificateState {
      * The IAM path for the server certificate.  If it is not
      * included, it defaults to a slash (/). If this certificate is for use with
      * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-     * See [IAM Identifiers][1] for more details on IAM Paths.
+     * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
      */
     readonly path?: pulumi.Input<string>;
     /**
@@ -221,7 +221,7 @@ export interface ServerCertificateArgs {
      * The IAM path for the server certificate.  If it is not
      * included, it defaults to a slash (/). If this certificate is for use with
      * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-     * See [IAM Identifiers][1] for more details on IAM Paths.
+     * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
      */
     readonly path?: pulumi.Input<string>;
     /**

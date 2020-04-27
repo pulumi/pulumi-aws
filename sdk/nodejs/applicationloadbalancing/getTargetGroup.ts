@@ -35,7 +35,9 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_target_group.html.markdown.
  */
+/** @deprecated aws.getTargetGroup has been deprecated in favour of aws.getTargetGroup */
 export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> {
+    pulumi.log.warn("getTargetGroup is deprecated: aws.getTargetGroup has been deprecated in favour of aws.getTargetGroup")
     args = args || {};
     if (!opts) {
         opts = {}
@@ -85,7 +87,7 @@ export interface GetTargetGroupResult {
     readonly targetType: string;
     readonly vpcId: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

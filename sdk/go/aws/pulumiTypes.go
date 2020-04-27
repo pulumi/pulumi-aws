@@ -1213,19 +1213,39 @@ func (o ProviderAssumeRolePtrOutput) Elem() ProviderAssumeRoleOutput {
 }
 
 func (o ProviderAssumeRolePtrOutput) ExternalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProviderAssumeRole) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ProviderAssumeRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalId
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderAssumeRolePtrOutput) Policy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProviderAssumeRole) *string { return v.Policy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ProviderAssumeRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Policy
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderAssumeRolePtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProviderAssumeRole) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ProviderAssumeRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderAssumeRolePtrOutput) SessionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProviderAssumeRole) *string { return v.SessionName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ProviderAssumeRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SessionName
+	}).(pulumi.StringPtrOutput)
 }
 
 type ProviderEndpoint struct {
@@ -2254,11 +2274,21 @@ func (o ProviderIgnoreTagsPtrOutput) Elem() ProviderIgnoreTagsOutput {
 }
 
 func (o ProviderIgnoreTagsPtrOutput) KeyPrefixes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ProviderIgnoreTags) []string { return v.KeyPrefixes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ProviderIgnoreTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPrefixes
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o ProviderIgnoreTagsPtrOutput) Keys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ProviderIgnoreTags) []string { return v.Keys }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ProviderIgnoreTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Keys
+	}).(pulumi.StringArrayOutput)
 }
 
 func init() {

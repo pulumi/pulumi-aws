@@ -106,7 +106,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
     """
     The IAM Instance Profile to
     launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-    * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
     """
     instance_initiated_shutdown_behavior: pulumi.Output[str]
     """
@@ -125,6 +124,9 @@ class SpotInstanceRequest(pulumi.CustomResource):
     The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
     """
     ipv6_address_count: pulumi.Output[float]
+    """
+    A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+    """
     ipv6_addresses: pulumi.Output[list]
     """
     Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
@@ -334,13 +336,13 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[str] host_id: The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
         :param pulumi.Input[str] iam_instance_profile: The IAM Instance Profile to
                launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-               * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the
                instance. Amazon defaults this to `stop` for EBS-backed instances and
                `terminate` for instance-store instances. Cannot be set on instance-store
                instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input[str] instance_interruption_behaviour: Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
         :param pulumi.Input[str] instance_type: The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        :param pulumi.Input[float] ipv6_address_count: A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[list] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         :param pulumi.Input[str] key_name: The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         :param pulumi.Input[str] launch_group: A launch group is a group of spot instances that launch together and terminate together.
@@ -544,13 +546,13 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[str] host_id: The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
         :param pulumi.Input[str] iam_instance_profile: The IAM Instance Profile to
                launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-               * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the
                instance. Amazon defaults this to `stop` for EBS-backed instances and
                `terminate` for instance-store instances. Cannot be set on instance-store
                instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input[str] instance_interruption_behaviour: Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
         :param pulumi.Input[str] instance_type: The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        :param pulumi.Input[float] ipv6_address_count: A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[list] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         :param pulumi.Input[str] key_name: The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         :param pulumi.Input[str] launch_group: A launch group is a group of spot instances that launch together and terminate together.

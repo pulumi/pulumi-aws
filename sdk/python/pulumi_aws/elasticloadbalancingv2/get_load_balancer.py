@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+warnings.warn("aws.getLoadBalancer has been deprecated in favour of aws.getLoadBalancer", DeprecationWarning)
 class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
@@ -36,7 +37,7 @@ class GetLoadBalancerResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if idle_timeout and not isinstance(idle_timeout, float):
             raise TypeError("Expected argument 'idle_timeout' to be a float")
@@ -104,10 +105,13 @@ def get_load_balancer(arn=None,name=None,tags=None,opts=None):
 
 
 
+    Deprecated: aws.getLoadBalancer has been deprecated in favour of aws.getLoadBalancer
+
 
     :param str arn: The full ARN of the load balancer.
     :param str name: The unique name of the load balancer.
     """
+    pulumi.log.warn("get_load_balancer is deprecated: aws.getLoadBalancer has been deprecated in favour of aws.getLoadBalancer")
     __args__ = dict()
 
 

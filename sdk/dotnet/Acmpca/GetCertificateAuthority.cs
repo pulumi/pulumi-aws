@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Acmpca
         /// </summary>
         public readonly string CertificateSigningRequest;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

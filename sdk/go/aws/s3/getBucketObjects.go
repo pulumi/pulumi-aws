@@ -45,7 +45,7 @@ type GetBucketObjectsResult struct {
 	Delimiter      *string  `pulumi:"delimiter"`
 	EncodingType   *string  `pulumi:"encodingType"`
 	FetchOwner     *bool    `pulumi:"fetchOwner"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of strings representing object keys
 	Keys    []string `pulumi:"keys"`

@@ -24,7 +24,7 @@ type GetCallerIdentityResult struct {
 	AccountId string `pulumi:"accountId"`
 	// The AWS ARN associated with the calling entity.
 	Arn string `pulumi:"arn"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The unique identifier of the calling entity.
 	UserId string `pulumi:"userId"`

@@ -13,9 +13,21 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceLoadBalancer
     {
+        /// <summary>
+        /// The name of the container to associate with the load balancer (as it appears in a container definition).
+        /// </summary>
         public readonly string ContainerName;
+        /// <summary>
+        /// The port on the container to associate with the load balancer.
+        /// </summary>
         public readonly int ContainerPort;
+        /// <summary>
+        /// The name of the ELB (Classic) to associate with the service.
+        /// </summary>
         public readonly string? ElbName;
+        /// <summary>
+        /// The ARN of the Load Balancer target group to associate with the service.
+        /// </summary>
         public readonly string? TargetGroupArn;
 
         [OutputConstructor]

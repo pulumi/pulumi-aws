@@ -135,7 +135,12 @@ func (o AliasRoutingConfigPtrOutput) Elem() AliasRoutingConfigOutput {
 
 // A map that defines the proportion of events that should be sent to different versions of a lambda function.
 func (o AliasRoutingConfigPtrOutput) AdditionalVersionWeights() pulumi.Float64MapOutput {
-	return o.ApplyT(func(v AliasRoutingConfig) map[string]float64 { return v.AdditionalVersionWeights }).(pulumi.Float64MapOutput)
+	return o.ApplyT(func(v *AliasRoutingConfig) map[string]float64 {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalVersionWeights
+	}).(pulumi.Float64MapOutput)
 }
 
 type EventSourceMappingDestinationConfig struct {
@@ -265,7 +270,10 @@ func (o EventSourceMappingDestinationConfigPtrOutput) Elem() EventSourceMappingD
 
 // The destination configuration for failed invocations. Detailed below.
 func (o EventSourceMappingDestinationConfigPtrOutput) OnFailure() EventSourceMappingDestinationConfigOnFailurePtrOutput {
-	return o.ApplyT(func(v EventSourceMappingDestinationConfig) *EventSourceMappingDestinationConfigOnFailure {
+	return o.ApplyT(func(v *EventSourceMappingDestinationConfig) *EventSourceMappingDestinationConfigOnFailure {
+		if v == nil {
+			return nil
+		}
 		return v.OnFailure
 	}).(EventSourceMappingDestinationConfigOnFailurePtrOutput)
 }
@@ -396,8 +404,13 @@ func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) Elem() EventSourc
 }
 
 // The Amazon Resource Name (ARN) of the destination resource.
-func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) DestinationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSourceMappingDestinationConfigOnFailure) string { return v.DestinationArn }).(pulumi.StringOutput)
+func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingDestinationConfigOnFailure) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type FunctionDeadLetterConfig struct {
@@ -536,8 +549,13 @@ func (o FunctionDeadLetterConfigPtrOutput) Elem() FunctionDeadLetterConfigOutput
 // option is used, the function's IAM role must be granted suitable access to write to the target object,
 // which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
 // which service is targeted.
-func (o FunctionDeadLetterConfigPtrOutput) TargetArn() pulumi.StringOutput {
-	return o.ApplyT(func(v FunctionDeadLetterConfig) string { return v.TargetArn }).(pulumi.StringOutput)
+func (o FunctionDeadLetterConfigPtrOutput) TargetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionDeadLetterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type FunctionEnvironment struct {
@@ -665,7 +683,12 @@ func (o FunctionEnvironmentPtrOutput) Elem() FunctionEnvironmentOutput {
 
 // A map that defines environment variables for the Lambda function.
 func (o FunctionEnvironmentPtrOutput) Variables() pulumi.StringMapOutput {
-	return o.ApplyT(func(v FunctionEnvironment) map[string]string { return v.Variables }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v *FunctionEnvironment) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Variables
+	}).(pulumi.StringMapOutput)
 }
 
 type FunctionEventInvokeConfigDestinationConfig struct {
@@ -808,14 +831,20 @@ func (o FunctionEventInvokeConfigDestinationConfigPtrOutput) Elem() FunctionEven
 
 // Configuration block with destination configuration for failed asynchronous invocations. See below for details.
 func (o FunctionEventInvokeConfigDestinationConfigPtrOutput) OnFailure() FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput {
-	return o.ApplyT(func(v FunctionEventInvokeConfigDestinationConfig) *FunctionEventInvokeConfigDestinationConfigOnFailure {
+	return o.ApplyT(func(v *FunctionEventInvokeConfigDestinationConfig) *FunctionEventInvokeConfigDestinationConfigOnFailure {
+		if v == nil {
+			return nil
+		}
 		return v.OnFailure
 	}).(FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput)
 }
 
 // Configuration block with destination configuration for successful asynchronous invocations. See below for details.
 func (o FunctionEventInvokeConfigDestinationConfigPtrOutput) OnSuccess() FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput {
-	return o.ApplyT(func(v FunctionEventInvokeConfigDestinationConfig) *FunctionEventInvokeConfigDestinationConfigOnSuccess {
+	return o.ApplyT(func(v *FunctionEventInvokeConfigDestinationConfig) *FunctionEventInvokeConfigDestinationConfigOnSuccess {
+		if v == nil {
+			return nil
+		}
 		return v.OnSuccess
 	}).(FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput)
 }
@@ -946,8 +975,13 @@ func (o FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput) Elem() Fun
 }
 
 // Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-func (o FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput) Destination() pulumi.StringOutput {
-	return o.ApplyT(func(v FunctionEventInvokeConfigDestinationConfigOnFailure) string { return v.Destination }).(pulumi.StringOutput)
+func (o FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionEventInvokeConfigDestinationConfigOnFailure) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
 }
 
 type FunctionEventInvokeConfigDestinationConfigOnSuccess struct {
@@ -1076,8 +1110,13 @@ func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) Elem() Fun
 }
 
 // Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) Destination() pulumi.StringOutput {
-	return o.ApplyT(func(v FunctionEventInvokeConfigDestinationConfigOnSuccess) string { return v.Destination }).(pulumi.StringOutput)
+func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionEventInvokeConfigDestinationConfigOnSuccess) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
 }
 
 type FunctionTracingConfig struct {
@@ -1220,8 +1259,13 @@ func (o FunctionTracingConfigPtrOutput) Elem() FunctionTracingConfigOutput {
 // "sampled=1". If Active, Lambda will respect any tracing header it receives
 // from an upstream service. If no tracing header is received, Lambda will call
 // X-Ray for a tracing decision.
-func (o FunctionTracingConfigPtrOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func(v FunctionTracingConfig) string { return v.Mode }).(pulumi.StringOutput)
+func (o FunctionTracingConfigPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionTracingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
 }
 
 type FunctionVpcConfig struct {
@@ -1364,16 +1408,31 @@ func (o FunctionVpcConfigPtrOutput) Elem() FunctionVpcConfigOutput {
 
 // A list of security group IDs associated with the Lambda function.
 func (o FunctionVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FunctionVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *FunctionVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // A list of subnet IDs associated with the Lambda function.
 func (o FunctionVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FunctionVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *FunctionVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o FunctionVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FunctionVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *FunctionVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetFunctionDeadLetterConfig struct {

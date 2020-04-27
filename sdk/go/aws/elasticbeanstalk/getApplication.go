@@ -30,7 +30,7 @@ type LookupApplicationResult struct {
 	Arn string `pulumi:"arn"`
 	// Short description of the application
 	Description string `pulumi:"description"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }

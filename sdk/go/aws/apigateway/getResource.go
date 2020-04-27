@@ -28,7 +28,7 @@ type LookupResourceArgs struct {
 
 // A collection of values returned by getResource.
 type LookupResourceResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set to the ID of the parent Resource.
 	ParentId string `pulumi:"parentId"`

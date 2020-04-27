@@ -33,7 +33,7 @@ class GetGroupResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if path and not isinstance(path, str):
             raise TypeError("Expected argument 'path' to be a str")

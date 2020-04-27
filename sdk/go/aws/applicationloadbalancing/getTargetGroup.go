@@ -14,6 +14,10 @@ import (
 // This data source can prove useful when a module accepts an LB Target Group as an
 // input variable and needs to know its attributes. It can also be used to get the ARN of
 // an LB Target Group for use in other resources, given LB Target Group name.
+//
+//
+//
+// Deprecated: aws.getTargetGroup has been deprecated in favour of aws.getTargetGroup
 func LookupTargetGroup(ctx *pulumi.Context, args *LookupTargetGroupArgs, opts ...pulumi.InvokeOption) (*LookupTargetGroupResult, error) {
 	var rv LookupTargetGroupResult
 	err := ctx.Invoke("aws:applicationloadbalancing/getTargetGroup:getTargetGroup", args, &rv, opts...)
@@ -38,7 +42,7 @@ type LookupTargetGroupResult struct {
 	ArnSuffix           string                    `pulumi:"arnSuffix"`
 	DeregistrationDelay int                       `pulumi:"deregistrationDelay"`
 	HealthCheck         GetTargetGroupHealthCheck `pulumi:"healthCheck"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                             string                   `pulumi:"id"`
 	LambdaMultiValueHeadersEnabled bool                     `pulumi:"lambdaMultiValueHeadersEnabled"`
 	Name                           string                   `pulumi:"name"`

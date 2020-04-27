@@ -44,8 +44,8 @@ class Alias(pulumi.CustomResource):
         """
         Creates a Lambda function alias. Creates an alias that points to the specified Lambda function version.
 
-        For information about Lambda and how to use it, see [What is AWS Lambda?][1]
-        For information about function aliases, see [CreateAlias][2] and [AliasRoutingConfiguration][3] in the API docs.
+        For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
+        For information about function aliases, see [CreateAlias](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateAlias.html) and [AliasRoutingConfiguration](https://docs.aws.amazon.com/lambda/latest/dg/API_AliasRoutingConfiguration.html) in the API docs.
 
 
 

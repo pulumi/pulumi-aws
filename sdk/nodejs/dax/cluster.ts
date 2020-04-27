@@ -96,7 +96,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly maintenanceWindow!: pulumi.Output<string>;
     /**
      * The compute and memory capacity of the nodes. See
-     * [Nodes][1] for supported node types
+     * [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
      */
     public readonly nodeType!: pulumi.Output<string>;
     /**
@@ -265,7 +265,7 @@ export interface ClusterState {
     readonly maintenanceWindow?: pulumi.Input<string>;
     /**
      * The compute and memory capacity of the nodes. See
-     * [Nodes][1] for supported node types
+     * [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
      */
     readonly nodeType?: pulumi.Input<string>;
     /**
@@ -348,7 +348,7 @@ export interface ClusterArgs {
     readonly maintenanceWindow?: pulumi.Input<string>;
     /**
      * The compute and memory capacity of the nodes. See
-     * [Nodes][1] for supported node types
+     * [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
      */
     readonly nodeType: pulumi.Input<string>;
     /**

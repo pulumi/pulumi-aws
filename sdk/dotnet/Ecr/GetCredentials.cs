@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Ecr
         public readonly string AuthorizationToken;
         public readonly string ExpiresAt;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string ProxyEndpoint;

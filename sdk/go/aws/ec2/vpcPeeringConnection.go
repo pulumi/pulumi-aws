@@ -42,7 +42,7 @@ type VpcPeeringConnection struct {
 	// Accept the peering (both VPCs need to be in the same AWS account).
 	AutoAccept pulumi.BoolPtrOutput `pulumi:"autoAccept"`
 	// The AWS account ID of the owner of the peer VPC.
-	// Defaults to the account ID the [AWS provider][1] is currently connected to.
+	// Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	PeerOwnerId pulumi.StringOutput `pulumi:"peerOwnerId"`
 	// The region of the accepter VPC of the [VPC Peering Connection]. `autoAccept` must be `false`,
 	// and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
@@ -102,7 +102,7 @@ type vpcPeeringConnectionState struct {
 	// Accept the peering (both VPCs need to be in the same AWS account).
 	AutoAccept *bool `pulumi:"autoAccept"`
 	// The AWS account ID of the owner of the peer VPC.
-	// Defaults to the account ID the [AWS provider][1] is currently connected to.
+	// Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	PeerOwnerId *string `pulumi:"peerOwnerId"`
 	// The region of the accepter VPC of the [VPC Peering Connection]. `autoAccept` must be `false`,
 	// and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
@@ -129,7 +129,7 @@ type VpcPeeringConnectionState struct {
 	// Accept the peering (both VPCs need to be in the same AWS account).
 	AutoAccept pulumi.BoolPtrInput
 	// The AWS account ID of the owner of the peer VPC.
-	// Defaults to the account ID the [AWS provider][1] is currently connected to.
+	// Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	PeerOwnerId pulumi.StringPtrInput
 	// The region of the accepter VPC of the [VPC Peering Connection]. `autoAccept` must be `false`,
 	// and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
@@ -158,7 +158,7 @@ type vpcPeeringConnectionArgs struct {
 	// Accept the peering (both VPCs need to be in the same AWS account).
 	AutoAccept *bool `pulumi:"autoAccept"`
 	// The AWS account ID of the owner of the peer VPC.
-	// Defaults to the account ID the [AWS provider][1] is currently connected to.
+	// Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	PeerOwnerId *string `pulumi:"peerOwnerId"`
 	// The region of the accepter VPC of the [VPC Peering Connection]. `autoAccept` must be `false`,
 	// and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
@@ -184,7 +184,7 @@ type VpcPeeringConnectionArgs struct {
 	// Accept the peering (both VPCs need to be in the same AWS account).
 	AutoAccept pulumi.BoolPtrInput
 	// The AWS account ID of the owner of the peer VPC.
-	// Defaults to the account ID the [AWS provider][1] is currently connected to.
+	// Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
 	PeerOwnerId pulumi.StringPtrInput
 	// The region of the accepter VPC of the [VPC Peering Connection]. `autoAccept` must be `false`,
 	// and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.

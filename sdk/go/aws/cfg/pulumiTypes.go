@@ -155,17 +155,32 @@ func (o ConfigurationAggregatorAccountAggregationSourcePtrOutput) Elem() Configu
 
 // List of 12-digit account IDs of the account(s) being aggregated.
 func (o ConfigurationAggregatorAccountAggregationSourcePtrOutput) AccountIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ConfigurationAggregatorAccountAggregationSource) []string { return v.AccountIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ConfigurationAggregatorAccountAggregationSource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // If true, aggregate existing AWS Config regions and future regions.
 func (o ConfigurationAggregatorAccountAggregationSourcePtrOutput) AllRegions() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ConfigurationAggregatorAccountAggregationSource) *bool { return v.AllRegions }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *ConfigurationAggregatorAccountAggregationSource) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllRegions
+	}).(pulumi.BoolPtrOutput)
 }
 
 // List of source regions being aggregated.
 func (o ConfigurationAggregatorAccountAggregationSourcePtrOutput) Regions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ConfigurationAggregatorAccountAggregationSource) []string { return v.Regions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ConfigurationAggregatorAccountAggregationSource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
 }
 
 type ConfigurationAggregatorOrganizationAggregationSource struct {
@@ -313,17 +328,32 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) Elem() Co
 
 // If true, aggregate existing AWS Config regions and future regions.
 func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) AllRegions() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ConfigurationAggregatorOrganizationAggregationSource) *bool { return v.AllRegions }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *ConfigurationAggregatorOrganizationAggregationSource) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllRegions
+	}).(pulumi.BoolPtrOutput)
 }
 
 // List of source regions being aggregated.
 func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) Regions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ConfigurationAggregatorOrganizationAggregationSource) []string { return v.Regions }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ConfigurationAggregatorOrganizationAggregationSource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
 }
 
 // ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
-func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationAggregatorOrganizationAggregationSource) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationAggregatorOrganizationAggregationSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type DeliveryChannelSnapshotDeliveryProperties struct {
@@ -461,7 +491,12 @@ func (o DeliveryChannelSnapshotDeliveryPropertiesPtrOutput) Elem() DeliveryChann
 // e.g. `One_Hour` or `Three_Hours`.
 // Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 func (o DeliveryChannelSnapshotDeliveryPropertiesPtrOutput) DeliveryFrequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeliveryChannelSnapshotDeliveryProperties) *string { return v.DeliveryFrequency }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DeliveryChannelSnapshotDeliveryProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeliveryFrequency
+	}).(pulumi.StringPtrOutput)
 }
 
 type RecorderRecordingGroup struct {
@@ -624,20 +659,35 @@ func (o RecorderRecordingGroupPtrOutput) Elem() RecorderRecordingGroupOutput {
 // for every supported type of regional resource (which includes any new type that will become supported in the future).
 // Conflicts with `resourceTypes`. Defaults to `true`.
 func (o RecorderRecordingGroupPtrOutput) AllSupported() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v RecorderRecordingGroup) *bool { return v.AllSupported }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *RecorderRecordingGroup) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllSupported
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether AWS Config includes all supported types of *global resources*
 // with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 func (o RecorderRecordingGroupPtrOutput) IncludeGlobalResourceTypes() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v RecorderRecordingGroup) *bool { return v.IncludeGlobalResourceTypes }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *RecorderRecordingGroup) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeGlobalResourceTypes
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A list that specifies the types of AWS resources for which
 // AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
 // See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 func (o RecorderRecordingGroupPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RecorderRecordingGroup) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *RecorderRecordingGroup) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypes
+	}).(pulumi.StringArrayOutput)
 }
 
 type RuleScope struct {
@@ -805,25 +855,45 @@ func (o RuleScopePtrOutput) Elem() RuleScopeOutput {
 // The IDs of the only AWS resource that you want to trigger an evaluation for the rule.
 // If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
 func (o RuleScopePtrOutput) ComplianceResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleScope) *string { return v.ComplianceResourceId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *RuleScope) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceResourceId
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of resource types of only those AWS resources that you want to trigger an
 // evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify
 // a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 func (o RuleScopePtrOutput) ComplianceResourceTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RuleScope) []string { return v.ComplianceResourceTypes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *RuleScope) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceResourceTypes
+	}).(pulumi.StringArrayOutput)
 }
 
 // The tag key that is applied to only those AWS resources that you want you
 // want to trigger an evaluation for the rule.
 func (o RuleScopePtrOutput) TagKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleScope) *string { return v.TagKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *RuleScope) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TagKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
 func (o RuleScopePtrOutput) TagValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleScope) *string { return v.TagValue }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *RuleScope) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TagValue
+	}).(pulumi.StringPtrOutput)
 }
 
 type RuleSource struct {
@@ -968,18 +1038,33 @@ func (o RuleSourcePtrOutput) Elem() RuleSourceOutput {
 }
 
 // Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the [`lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
-func (o RuleSourcePtrOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleSource) string { return v.Owner }).(pulumi.StringOutput)
+func (o RuleSourcePtrOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Owner
+	}).(pulumi.StringPtrOutput)
 }
 
 // Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
 func (o RuleSourcePtrOutput) SourceDetails() RuleSourceSourceDetailArrayOutput {
-	return o.ApplyT(func(v RuleSource) []RuleSourceSourceDetail { return v.SourceDetails }).(RuleSourceSourceDetailArrayOutput)
+	return o.ApplyT(func(v *RuleSource) []RuleSourceSourceDetail {
+		if v == nil {
+			return nil
+		}
+		return v.SourceDetails
+	}).(RuleSourceSourceDetailArrayOutput)
 }
 
 // For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the [`arn` attribute of the `lambda.Function` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function.html#arn).
-func (o RuleSourcePtrOutput) SourceIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleSource) string { return v.SourceIdentifier }).(pulumi.StringOutput)
+func (o RuleSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceIdentifier
+	}).(pulumi.StringPtrOutput)
 }
 
 type RuleSourceSourceDetail struct {

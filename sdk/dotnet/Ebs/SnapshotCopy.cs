@@ -36,8 +36,6 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// The ARN for the KMS encryption key.
-        /// * `source_snapshot_id` The ARN for the snapshot to be copied.
-        /// * `source_region` The region of the source snapshot.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
@@ -54,9 +52,15 @@ namespace Pulumi.Aws.Ebs
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
+        /// <summary>
+        /// The region of the source snapshot.
+        /// </summary>
         [Output("sourceRegion")]
         public Output<string> SourceRegion { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN for the snapshot to be copied.
+        /// </summary>
         [Output("sourceSnapshotId")]
         public Output<string> SourceSnapshotId { get; private set; } = null!;
 
@@ -135,15 +139,19 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// The ARN for the KMS encryption key.
-        /// * `source_snapshot_id` The ARN for the snapshot to be copied.
-        /// * `source_region` The region of the source snapshot.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// The region of the source snapshot.
+        /// </summary>
         [Input("sourceRegion", required: true)]
         public Input<string> SourceRegion { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN for the snapshot to be copied.
+        /// </summary>
         [Input("sourceSnapshotId", required: true)]
         public Input<string> SourceSnapshotId { get; set; } = null!;
 
@@ -188,8 +196,6 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// The ARN for the KMS encryption key.
-        /// * `source_snapshot_id` The ARN for the snapshot to be copied.
-        /// * `source_region` The region of the source snapshot.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -206,9 +212,15 @@ namespace Pulumi.Aws.Ebs
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
+        /// <summary>
+        /// The region of the source snapshot.
+        /// </summary>
         [Input("sourceRegion")]
         public Input<string>? SourceRegion { get; set; }
 
+        /// <summary>
+        /// The ARN for the snapshot to be copied.
+        /// </summary>
         [Input("sourceSnapshotId")]
         public Input<string>? SourceSnapshotId { get; set; }
 

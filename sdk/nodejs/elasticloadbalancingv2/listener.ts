@@ -144,6 +144,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_listener.html.markdown.
  */
+/** @deprecated aws.Listener has been deprecated in favour of aws.Listener */
 export class Listener extends pulumi.CustomResource {
     /**
      * Get an existing Listener resource's state with the given name, ID, and optional extra
@@ -154,6 +155,7 @@ export class Listener extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ListenerState, opts?: pulumi.CustomResourceOptions): Listener {
+        pulumi.log.warn("Listener is deprecated: aws.Listener has been deprecated in favour of aws.Listener")
         return new Listener(name, <any>state, { ...opts, id: id });
     }
 
@@ -207,8 +209,11 @@ export class Listener extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.Listener has been deprecated in favour of aws.Listener */
     constructor(name: string, args: ListenerArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.Listener has been deprecated in favour of aws.Listener */
     constructor(name: string, argsOrState?: ListenerArgs | ListenerState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Listener is deprecated: aws.Listener has been deprecated in favour of aws.Listener")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ListenerState | undefined;

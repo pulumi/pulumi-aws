@@ -53,7 +53,7 @@ class Cluster(pulumi.CustomResource):
     node_type: pulumi.Output[str]
     """
     The compute and memory capacity of the nodes. See
-    [Nodes][1] for supported node types
+    [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
     """
     nodes: pulumi.Output[list]
     """
@@ -128,7 +128,7 @@ class Cluster(pulumi.CustomResource):
                (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
                `sun:05:00-sun:09:00`
         :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes. See
-               [Nodes][1] for supported node types
+               [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
         :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an
                SNS topic to send DAX notifications to. Example:
                `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
@@ -223,7 +223,7 @@ class Cluster(pulumi.CustomResource):
                (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
                `sun:05:00-sun:09:00`
         :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes. See
-               [Nodes][1] for supported node types
+               [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
         :param pulumi.Input[list] nodes: List of node objects including `id`, `address`, `port` and
                `availability_zone`. Referenceable e.g. as
                `${aws_dax_cluster.test.nodes.0.address}`

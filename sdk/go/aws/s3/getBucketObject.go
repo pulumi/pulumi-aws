@@ -56,7 +56,7 @@ type LookupBucketObjectResult struct {
 	Expiration string `pulumi:"expiration"`
 	// The date and time at which the object is no longer cacheable.
 	Expires string `pulumi:"expires"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id  string `pulumi:"id"`
 	Key string `pulumi:"key"`
 	// Last modified date of the object in RFC1123 format (e.g. `Mon, 02 Jan 2006 15:04:05 MST`)

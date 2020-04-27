@@ -27,7 +27,7 @@ class GetLayerVersionResult:
             raise TypeError("Expected argument 'compatible_runtimes' to be a list")
         __self__.compatible_runtimes = compatible_runtimes
         """
-        A list of [Runtimes][1] the specific Lambda Layer version is compatible with.
+        A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
         """
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
@@ -45,7 +45,7 @@ class GetLayerVersionResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if layer_arn and not isinstance(layer_arn, str):
             raise TypeError("Expected argument 'layer_arn' to be a str")

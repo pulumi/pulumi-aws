@@ -28,7 +28,7 @@ type LookupParameterArgs struct {
 // A collection of values returned by getParameter.
 type LookupParameterResult struct {
 	Arn string `pulumi:"arn"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id             string `pulumi:"id"`
 	Name           string `pulumi:"name"`
 	Type           string `pulumi:"type"`

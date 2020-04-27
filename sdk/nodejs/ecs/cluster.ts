@@ -19,21 +19,6 @@ import * as utilities from "../utilities";
  * 
  * const foo = new aws.ecs.Cluster("foo", {});
  * ```
- * 
- * ## setting
- * 
- * The `setting` configuration block supports the following:
- * 
- * * `name` - (Required) Name of the setting to manage. Valid values: `containerInsights`.
- * * `value` -  (Required) The value to assign to the setting. Value values are `enabled` and `disabled`.
- * 
- * ## defaultCapacityProviderStrategy
- * 
- * The `defaultCapacityProviderStrategy` configuration block supports the following:
- * 
- * * `capacityProvider` - (Required) The short name of the capacity provider.
- * * `weight` - (Optional) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
- * * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_cluster.html.markdown.
  */

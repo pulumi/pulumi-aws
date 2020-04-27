@@ -13,7 +13,16 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceOrderedPlacementStrategy
     {
+        /// <summary>
+        /// For the `spread` placement strategy, valid values are `instanceId` (or `host`,
+        /// which has the same effect), or any platform or custom attribute that is applied to a container instance.
+        /// For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
+        /// needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
+        /// </summary>
         public readonly string? Field;
+        /// <summary>
+        /// The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

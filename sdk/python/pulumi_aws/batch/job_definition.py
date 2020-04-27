@@ -32,7 +32,7 @@ class JobDefinition(pulumi.CustomResource):
     Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
     Maximum number of `retry_strategy` is `1`.  Defined below.
 
-      * `attempts` (`float`)
+      * `attempts` (`float`) - The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
     """
     revision: pulumi.Output[float]
     """
@@ -42,7 +42,7 @@ class JobDefinition(pulumi.CustomResource):
     """
     Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 
-      * `attemptDurationSeconds` (`float`)
+      * `attemptDurationSeconds` (`float`) - The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
     """
     type: pulumi.Output[str]
     """
@@ -53,17 +53,6 @@ class JobDefinition(pulumi.CustomResource):
         Provides a Batch Job Definition resource.
 
 
-        ## retry_strategy
-
-        `retry_strategy` supports the following:
-
-        * `attempts` - (Optional) The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
-
-        ## timeout
-
-        `timeout` supports the following:
-
-        * `attempt_duration_seconds` - (Optional) The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -78,11 +67,11 @@ class JobDefinition(pulumi.CustomResource):
 
         The **retry_strategy** object supports the following:
 
-          * `attempts` (`pulumi.Input[float]`)
+          * `attempts` (`pulumi.Input[float]`) - The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
 
         The **timeout** object supports the following:
 
-          * `attemptDurationSeconds` (`pulumi.Input[float]`)
+          * `attemptDurationSeconds` (`pulumi.Input[float]`) - The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -139,11 +128,11 @@ class JobDefinition(pulumi.CustomResource):
 
         The **retry_strategy** object supports the following:
 
-          * `attempts` (`pulumi.Input[float]`)
+          * `attempts` (`pulumi.Input[float]`) - The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
 
         The **timeout** object supports the following:
 
-          * `attemptDurationSeconds` (`pulumi.Input[float]`)
+          * `attemptDurationSeconds` (`pulumi.Input[float]`) - The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

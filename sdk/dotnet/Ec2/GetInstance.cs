@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string IamInstanceProfile;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string? InstanceId;

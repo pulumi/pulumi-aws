@@ -37,7 +37,7 @@ type LookupRoleResult struct {
 	CreateDate string `pulumi:"createDate"`
 	// Description for the role.
 	Description string `pulumi:"description"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Maximum session duration.
 	MaxSessionDuration int    `pulumi:"maxSessionDuration"`

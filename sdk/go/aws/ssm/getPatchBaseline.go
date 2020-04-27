@@ -34,7 +34,7 @@ type LookupPatchBaselineResult struct {
 	DefaultBaseline *bool `pulumi:"defaultBaseline"`
 	// The description of the baseline.
 	Description string `pulumi:"description"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the baseline.
 	Name            string  `pulumi:"name"`

@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a RDS Aurora Cluster Endpoint.
- * You can refer to the [User Guide][1].
+ * You can refer to the [User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster).
  * 
  * 
  * ## Example Usage

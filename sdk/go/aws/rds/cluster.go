@@ -9,7 +9,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages a [RDS Aurora Cluster][2]. To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the [`rds.ClusterInstance` resource](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html). To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the [`rds.Instance` resource](https://www.terraform.io/docs/providers/aws/r/db_instance.html).
+// Manages a [RDS Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html). To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the [`rds.ClusterInstance` resource](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html). To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the [`rds.Instance` resource](https://www.terraform.io/docs/providers/aws/r/db_instance.html).
 //
 // For information on the difference between the available Aurora MySQL engines
 // see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
@@ -23,7 +23,7 @@ import (
 // (see documentation below).
 //
 // > **Note:** using `applyImmediately` can result in a
-// brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance][4]
+// brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html)
 // for more information.
 //
 // > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
@@ -53,7 +53,7 @@ type Cluster struct {
 	ClusterResourceId pulumi.StringOutput `pulumi:"clusterResourceId"`
 	// Copy all Cluster `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
-	// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints][5]
+	// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName pulumi.StringOutput `pulumi:"dbClusterParameterGroupName"`
@@ -89,9 +89,9 @@ type Cluster struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints][5]
+	// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	MasterPassword pulumi.StringPtrOutput `pulumi:"masterPassword"`
-	// Username for the master DB user. Please refer to the [RDS Naming Constraints][5]. This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+	// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
 	MasterUsername pulumi.StringOutput `pulumi:"masterUsername"`
 	// The port on which the DB accepts connections
 	Port pulumi.IntOutput `pulumi:"port"`
@@ -173,7 +173,7 @@ type clusterState struct {
 	ClusterResourceId *string `pulumi:"clusterResourceId"`
 	// Copy all Cluster `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
-	// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints][5]
+	// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	DatabaseName *string `pulumi:"databaseName"`
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
@@ -209,9 +209,9 @@ type clusterState struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints][5]
+	// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	MasterPassword *string `pulumi:"masterPassword"`
-	// Username for the master DB user. Please refer to the [RDS Naming Constraints][5]. This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+	// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
 	MasterUsername *string `pulumi:"masterUsername"`
 	// The port on which the DB accepts connections
 	Port *int `pulumi:"port"`
@@ -266,7 +266,7 @@ type ClusterState struct {
 	ClusterResourceId pulumi.StringPtrInput
 	// Copy all Cluster `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrInput
-	// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints][5]
+	// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	DatabaseName pulumi.StringPtrInput
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName pulumi.StringPtrInput
@@ -302,9 +302,9 @@ type ClusterState struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints][5]
+	// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	MasterPassword pulumi.StringPtrInput
-	// Username for the master DB user. Please refer to the [RDS Naming Constraints][5]. This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+	// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
 	MasterUsername pulumi.StringPtrInput
 	// The port on which the DB accepts connections
 	Port pulumi.IntPtrInput
@@ -359,7 +359,7 @@ type clusterArgs struct {
 	ClusterMembers []string `pulumi:"clusterMembers"`
 	// Copy all Cluster `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
-	// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints][5]
+	// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	DatabaseName *string `pulumi:"databaseName"`
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
@@ -391,9 +391,9 @@ type clusterArgs struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints][5]
+	// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	MasterPassword *string `pulumi:"masterPassword"`
-	// Username for the master DB user. Please refer to the [RDS Naming Constraints][5]. This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+	// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
 	MasterUsername *string `pulumi:"masterUsername"`
 	// The port on which the DB accepts connections
 	Port *int `pulumi:"port"`
@@ -442,7 +442,7 @@ type ClusterArgs struct {
 	ClusterMembers pulumi.StringArrayInput
 	// Copy all Cluster `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrInput
-	// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints][5]
+	// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	DatabaseName pulumi.StringPtrInput
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName pulumi.StringPtrInput
@@ -474,9 +474,9 @@ type ClusterArgs struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints][5]
+	// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	MasterPassword pulumi.StringPtrInput
-	// Username for the master DB user. Please refer to the [RDS Naming Constraints][5]. This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+	// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
 	MasterUsername pulumi.StringPtrInput
 	// The port on which the DB accepts connections
 	Port pulumi.IntPtrInput

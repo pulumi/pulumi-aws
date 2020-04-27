@@ -26,7 +26,7 @@ type GetEventCategoriesArgs struct {
 type GetEventCategoriesResult struct {
 	// A list of the event categories.
 	EventCategories []string `pulumi:"eventCategories"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id         string  `pulumi:"id"`
 	SourceType *string `pulumi:"sourceType"`
 }

@@ -37,7 +37,7 @@ type LookupClusterResult struct {
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
 	// The endpoint for your Kubernetes API server.
 	Endpoint string `pulumi:"endpoint"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the [`eks.Cluster` resource documentation](https://www.terraform.io/docs/providers/aws/r/eks_cluster.html).
 	Identities []GetClusterIdentity `pulumi:"identities"`

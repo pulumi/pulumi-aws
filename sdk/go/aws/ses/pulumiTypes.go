@@ -260,13 +260,23 @@ func (o EventDestinationKinesisDestinationPtrOutput) Elem() EventDestinationKine
 }
 
 // The ARN of the role that has permissions to access the Kinesis Stream
-func (o EventDestinationKinesisDestinationPtrOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v EventDestinationKinesisDestination) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o EventDestinationKinesisDestinationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventDestinationKinesisDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the Kinesis Stream
-func (o EventDestinationKinesisDestinationPtrOutput) StreamArn() pulumi.StringOutput {
-	return o.ApplyT(func(v EventDestinationKinesisDestination) string { return v.StreamArn }).(pulumi.StringOutput)
+func (o EventDestinationKinesisDestinationPtrOutput) StreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventDestinationKinesisDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type EventDestinationSnsDestination struct {
@@ -393,8 +403,13 @@ func (o EventDestinationSnsDestinationPtrOutput) Elem() EventDestinationSnsDesti
 }
 
 // The ARN of the SNS topic
-func (o EventDestinationSnsDestinationPtrOutput) TopicArn() pulumi.StringOutput {
-	return o.ApplyT(func(v EventDestinationSnsDestination) string { return v.TopicArn }).(pulumi.StringOutput)
+func (o EventDestinationSnsDestinationPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventDestinationSnsDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TopicArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type ReceiptRuleAddHeaderAction struct {

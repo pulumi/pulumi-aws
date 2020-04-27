@@ -30,7 +30,7 @@ type GetBundleResult struct {
 	ComputeTypes []GetBundleComputeType `pulumi:"computeTypes"`
 	// The description of the bundle.
 	Description string `pulumi:"description"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the compute type.
 	Name string `pulumi:"name"`

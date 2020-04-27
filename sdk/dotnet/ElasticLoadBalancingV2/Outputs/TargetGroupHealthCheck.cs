@@ -25,6 +25,9 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Outputs
         /// The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
         /// </summary>
         public readonly int? Interval;
+        /// <summary>
+        /// The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+        /// </summary>
         public readonly string? Matcher;
         /// <summary>
         /// The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
@@ -44,7 +47,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Outputs
         public readonly int? Timeout;
         /// <summary>
         /// The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
-        /// * `matcher` (Required for HTTP/HTTPS ALB) The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
         /// </summary>
         public readonly int? UnhealthyThreshold;
 

@@ -33,6 +33,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/app_cookie_stickiness_policy.html.markdown.
  */
+/** @deprecated aws.AppCookieStickinessPolicy has been deprecated in favour of aws.AppCookieStickinessPolicy */
 export class AppCookieStickinessPolicy extends pulumi.CustomResource {
     /**
      * Get an existing AppCookieStickinessPolicy resource's state with the given name, ID, and optional extra
@@ -43,6 +44,7 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AppCookieStickinessPolicyState, opts?: pulumi.CustomResourceOptions): AppCookieStickinessPolicy {
+        pulumi.log.warn("AppCookieStickinessPolicy is deprecated: aws.AppCookieStickinessPolicy has been deprecated in favour of aws.AppCookieStickinessPolicy")
         return new AppCookieStickinessPolicy(name, <any>state, { ...opts, id: id });
     }
 
@@ -87,8 +89,11 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.AppCookieStickinessPolicy has been deprecated in favour of aws.AppCookieStickinessPolicy */
     constructor(name: string, args: AppCookieStickinessPolicyArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.AppCookieStickinessPolicy has been deprecated in favour of aws.AppCookieStickinessPolicy */
     constructor(name: string, argsOrState?: AppCookieStickinessPolicyArgs | AppCookieStickinessPolicyState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AppCookieStickinessPolicy is deprecated: aws.AppCookieStickinessPolicy has been deprecated in favour of aws.AppCookieStickinessPolicy")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AppCookieStickinessPolicyState | undefined;

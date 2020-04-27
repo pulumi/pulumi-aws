@@ -9,6 +9,10 @@ import (
 
 // Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
 // in a given region for the purpose of whitelisting in S3 bucket policy.
+//
+//
+//
+// Deprecated: aws.getServiceAccount has been deprecated in favour of aws.getServiceAccount
 func GetServiceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs, opts ...pulumi.InvokeOption) (*GetServiceAccountResult, error) {
 	var rv GetServiceAccountResult
 	err := ctx.Invoke("aws:elasticloadbalancing/getServiceAccount:getServiceAccount", args, &rv, opts...)
@@ -29,7 +33,7 @@ type GetServiceAccountArgs struct {
 type GetServiceAccountResult struct {
 	// The ARN of the AWS ELB service account in the selected region.
 	Arn string `pulumi:"arn"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id     string  `pulumi:"id"`
 	Region *string `pulumi:"region"`
 }

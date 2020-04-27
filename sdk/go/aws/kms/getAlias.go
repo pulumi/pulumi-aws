@@ -29,7 +29,7 @@ type LookupAliasArgs struct {
 type LookupAliasResult struct {
 	// The Amazon Resource Name(ARN) of the key alias.
 	Arn string `pulumi:"arn"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// ARN pointed to by the alias.

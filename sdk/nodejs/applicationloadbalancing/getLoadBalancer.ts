@@ -35,7 +35,9 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb.html.markdown.
  */
+/** @deprecated aws.getLoadBalancer has been deprecated in favour of aws.getLoadBalancer */
 export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
+    pulumi.log.warn("getLoadBalancer is deprecated: aws.getLoadBalancer has been deprecated in favour of aws.getLoadBalancer")
     args = args || {};
     if (!opts) {
         opts = {}
@@ -87,7 +89,7 @@ export interface GetLoadBalancerResult {
     readonly vpcId: string;
     readonly zoneId: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

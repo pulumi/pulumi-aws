@@ -27,8 +27,6 @@ class SnapshotCopy(pulumi.CustomResource):
     kms_key_id: pulumi.Output[str]
     """
     The ARN for the KMS encryption key.
-    * `source_snapshot_id` The ARN for the snapshot to be copied.
-    * `source_region` The region of the source snapshot.
     """
     owner_alias: pulumi.Output[str]
     """
@@ -39,7 +37,13 @@ class SnapshotCopy(pulumi.CustomResource):
     The AWS account ID of the snapshot owner.
     """
     source_region: pulumi.Output[str]
+    """
+    The region of the source snapshot.
+    """
     source_snapshot_id: pulumi.Output[str]
+    """
+    The ARN for the snapshot to be copied.
+    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags for the snapshot.
@@ -60,8 +64,8 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of what the snapshot is.
         :param pulumi.Input[bool] encrypted: Whether the snapshot is encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
-               * `source_snapshot_id` The ARN for the snapshot to be copied.
-               * `source_region` The region of the source snapshot.
+        :param pulumi.Input[str] source_region: The region of the source snapshot.
+        :param pulumi.Input[str] source_snapshot_id: The ARN for the snapshot to be copied.
         :param pulumi.Input[dict] tags: A mapping of tags for the snapshot.
         """
         if __name__ is not None:
@@ -117,10 +121,10 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of what the snapshot is.
         :param pulumi.Input[bool] encrypted: Whether the snapshot is encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
-               * `source_snapshot_id` The ARN for the snapshot to be copied.
-               * `source_region` The region of the source snapshot.
         :param pulumi.Input[str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[str] owner_id: The AWS account ID of the snapshot owner.
+        :param pulumi.Input[str] source_region: The region of the source snapshot.
+        :param pulumi.Input[str] source_snapshot_id: The ARN for the snapshot to be copied.
         :param pulumi.Input[dict] tags: A mapping of tags for the snapshot.
         :param pulumi.Input[float] volume_size: The size of the drive in GiBs.
         """

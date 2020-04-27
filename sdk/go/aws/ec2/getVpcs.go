@@ -31,7 +31,7 @@ type GetVpcsArgs struct {
 // A collection of values returned by getVpcs.
 type GetVpcsResult struct {
 	Filters []GetVpcsFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of all the VPC Ids found. This data source will fail if none are found.
 	Ids  []string               `pulumi:"ids"`

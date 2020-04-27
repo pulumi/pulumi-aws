@@ -131,7 +131,7 @@ class DeploymentGroup(pulumi.CustomResource):
     """
     Configuration block(s) of the triggers for the deployment group (documented below).
 
-      * `triggerEvents` (`list`) - The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation][1] for all possible values.
+      * `triggerEvents` (`list`) - The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation](http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html) for all possible values.
       * `triggerName` (`str`) - The name of the notification trigger.
       * `triggerTargetArn` (`str`) - The ARN of the SNS topic through which notifications are sent.
     """
@@ -242,7 +242,7 @@ class DeploymentGroup(pulumi.CustomResource):
 
         The **trigger_configurations** object supports the following:
 
-          * `triggerEvents` (`pulumi.Input[list]`) - The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation][1] for all possible values.
+          * `triggerEvents` (`pulumi.Input[list]`) - The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation](http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html) for all possible values.
           * `triggerName` (`pulumi.Input[str]`) - The name of the notification trigger.
           * `triggerTargetArn` (`pulumi.Input[str]`) - The ARN of the SNS topic through which notifications are sent.
         """
@@ -396,7 +396,7 @@ class DeploymentGroup(pulumi.CustomResource):
 
         The **trigger_configurations** object supports the following:
 
-          * `triggerEvents` (`pulumi.Input[list]`) - The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation][1] for all possible values.
+          * `triggerEvents` (`pulumi.Input[list]`) - The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation](http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html) for all possible values.
           * `triggerName` (`pulumi.Input[str]`) - The name of the notification trigger.
           * `triggerTargetArn` (`pulumi.Input[str]`) - The ARN of the SNS topic through which notifications are sent.
         """

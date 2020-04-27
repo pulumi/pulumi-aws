@@ -9,8 +9,8 @@ import * as utilities from "../utilities";
 /**
  * Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB and SQS.
  * 
- * For information about Lambda and how to use it, see [What is AWS Lambda?][1].
- * For information about event source mappings, see [CreateEventSourceMapping][2] in the API docs.
+ * For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
+ * For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
  * 
  * ## Example Usage
  * 

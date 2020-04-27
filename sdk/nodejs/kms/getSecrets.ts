@@ -45,7 +45,7 @@ export interface GetSecretsResult {
     readonly plaintext: {[key: string]: string};
     readonly secrets: outputs.kms.GetSecretsSecret[];
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

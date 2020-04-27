@@ -41,7 +41,7 @@ type LookupCertificateAuthorityResult struct {
 	CertificateChain string `pulumi:"certificateChain"`
 	// The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
 	CertificateSigningRequest string `pulumi:"certificateSigningRequest"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
 	NotAfter string `pulumi:"notAfter"`

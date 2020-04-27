@@ -18,7 +18,7 @@ class GetPolicyDocumentResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if json and not isinstance(json, str):
             raise TypeError("Expected argument 'json' to be a str")

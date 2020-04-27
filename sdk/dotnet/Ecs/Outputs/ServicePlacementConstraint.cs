@@ -13,7 +13,17 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServicePlacementConstraint
     {
+        /// <summary>
+        /// Cluster Query Language expression to apply to the constraint. Does not need to be specified
+        /// for the `distinctInstance` type.
+        /// For more information, see [Cluster Query Language in the Amazon EC2 Container
+        /// Service Developer
+        /// Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+        /// </summary>
         public readonly string? Expression;
+        /// <summary>
+        /// The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -48,7 +48,7 @@ class GetClusterResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if identities and not isinstance(identities, list):
             raise TypeError("Expected argument 'identities' to be a list")

@@ -44,8 +44,8 @@ import {InstanceProfile} from "../iam";
  * Launch Configurations cannot be updated after creation with the Amazon
  * Web Service API. In order to update a Launch Configuration, this provider will
  * destroy the existing resource and create a replacement. In order to effectively
- * use a Launch Configuration resource with an [AutoScaling Group resource][1],
- * it's recommended to specify `createBeforeDestroy` in a [lifecycle][2] block.
+ * use a Launch Configuration resource with an [AutoScaling Group resource](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
+ * it's recommended to specify `createBeforeDestroy` in a [lifecycle](https://www.terraform.io/docs/configuration/resources.html#lifecycle) block.
  * Either omit the Launch Configuration `name` attribute, or specify a partial name
  * with `namePrefix`.  Example:
  * 
@@ -90,7 +90,7 @@ import {InstanceProfile} from "../iam";
  * parameter will set the price on the Launch Configuration which will attempt to
  * reserve your instances at this price.  See the [AWS Spot Instance
  * documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
- * for more information or how to launch [Spot Instances][3] with this provider.
+ * for more information or how to launch [Spot Instances](https://www.terraform.io/docs/providers/aws/r/spot_instance_request.html) with this provider.
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

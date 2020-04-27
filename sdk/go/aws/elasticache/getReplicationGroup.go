@@ -31,7 +31,7 @@ type LookupReplicationGroupResult struct {
 	AutomaticFailoverEnabled bool `pulumi:"automaticFailoverEnabled"`
 	// The configuration endpoint address to allow host discovery.
 	ConfigurationEndpointAddress string `pulumi:"configurationEndpointAddress"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The identifiers of all the nodes that are part of this replication group.
 	MemberClusters []string `pulumi:"memberClusters"`
