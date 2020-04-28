@@ -42,10 +42,10 @@ import {PolicyDocument} from "../iam/documents";
  * const config = new pulumi.Config();
  * const domain = config.get("domain") || "tf-test";
  * 
- * const currentRegion = aws.getRegion();
- * const currentCallerIdentity = aws.getCallerIdentity();
+ * const currentRegion = pulumi.output(aws.getRegion({ async: true }));
+ * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({ async: true }));
  * const example = new aws.elasticsearch.Domain("example", {
- *     accessPolicies: `{
+ *     accessPolicies: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -109,19 +109,19 @@ import {PolicyDocument} from "../iam/documents";
  * const vpc = config.require("vpc");
  * const domain = config.get("domain") || "tf-test";
  * 
- * const selectedVpc = aws.ec2.getVpc({
+ * const selectedVpc = pulumi.output(aws.ec2.getVpc({
  *     tags: {
  *         Name: vpc,
  *     },
- * });
- * const selectedSubnetIds = aws.ec2.getSubnetIds({
+ * }, { async: true }));
+ * const selectedSubnetIds = selectedVpc.apply(selectedVpc => aws.ec2.getSubnetIds({
  *     tags: {
  *         Tier: "private",
  *     },
  *     vpcId: selectedVpc.id!,
- * });
- * const currentRegion = aws.getRegion();
- * const currentCallerIdentity = aws.getCallerIdentity();
+ * }, { async: true }));
+ * const currentRegion = pulumi.output(aws.getRegion({ async: true }));
+ * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({ async: true }));
  * const esSecurityGroup = new aws.ec2.SecurityGroup("es", {
  *     description: "Managed by Pulumi",
  *     ingress: [{
@@ -136,7 +136,7 @@ import {PolicyDocument} from "../iam/documents";
  *     awsServiceName: "es.amazonaws.com",
  * });
  * const esDomain = new aws.elasticsearch.Domain("es", {
- *     accessPolicies: `{
+ *     accessPolicies: pulumi.interpolate`{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
  * 		{
@@ -164,11 +164,11 @@ import {PolicyDocument} from "../iam/documents";
  *     vpcOptions: {
  *         securityGroupIds: [aws_security_group_elasticsearch.id],
  *         subnetIds: [
- *             selectedSubnetIds.ids[0],
- *             selectedSubnetIds.ids[1],
+ *             selectedSubnetIds.apply(selectedSubnetIds => selectedSubnetIds.ids[0]),
+ *             selectedSubnetIds.apply(selectedSubnetIds => selectedSubnetIds.ids[1]),
  *         ],
  *     },
- * }, {dependsOn: [esServiceLinkedRole]});
+ * }, { dependsOn: [esServiceLinkedRole] });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticsearch_domain.html.markdown.

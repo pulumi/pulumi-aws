@@ -12,18 +12,33 @@ namespace Pulumi.Aws.Ssm.Inputs
 
     public sealed class ResourceDataSyncS3DestinationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of S3 bucket where the aggregated data is stored.
+        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
+        /// <summary>
+        /// ARN of an encryption key for a destination in Amazon S3.
+        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
+        /// <summary>
+        /// Prefix for the bucket.
+        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
+        /// <summary>
+        /// Region with the bucket targeted by the Resource Data Sync.
+        /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
+        /// <summary>
+        /// A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
+        /// </summary>
         [Input("syncFormat")]
         public Input<string>? SyncFormat { get; set; }
 

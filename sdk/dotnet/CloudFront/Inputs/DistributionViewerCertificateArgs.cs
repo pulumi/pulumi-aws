@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class DistributionViewerCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the [AWS Certificate Manager][6]
+        /// The ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)
         /// certificate that you wish to use with this distribution. Specify this,
         /// `cloudfront_default_certificate`, or `iam_certificate_id`.  The ACM
         /// certificate must be in  US-EAST-1.

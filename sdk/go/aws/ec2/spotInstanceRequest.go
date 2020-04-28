@@ -77,7 +77,6 @@ type SpotInstanceRequest struct {
 	HostId pulumi.StringOutput `pulumi:"hostId"`
 	// The IAM Instance Profile to
 	// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-	// * `ipv6AddressCount`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	IamInstanceProfile pulumi.StringPtrOutput `pulumi:"iamInstanceProfile"`
 	// Shutdown behavior for the
 	// instance. Amazon defaults this to `stop` for EBS-backed instances and
@@ -88,8 +87,9 @@ type SpotInstanceRequest struct {
 	InstanceInterruptionBehaviour pulumi.StringPtrOutput `pulumi:"instanceInterruptionBehaviour"`
 	InstanceState                 pulumi.StringOutput    `pulumi:"instanceState"`
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType     pulumi.StringOutput `pulumi:"instanceType"`
-	Ipv6AddressCount pulumi.IntOutput    `pulumi:"ipv6AddressCount"`
+	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
+	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+	Ipv6AddressCount pulumi.IntOutput `pulumi:"ipv6AddressCount"`
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
 	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
@@ -243,7 +243,6 @@ type spotInstanceRequestState struct {
 	HostId *string `pulumi:"hostId"`
 	// The IAM Instance Profile to
 	// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-	// * `ipv6AddressCount`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	IamInstanceProfile *string `pulumi:"iamInstanceProfile"`
 	// Shutdown behavior for the
 	// instance. Amazon defaults this to `stop` for EBS-backed instances and
@@ -254,8 +253,9 @@ type spotInstanceRequestState struct {
 	InstanceInterruptionBehaviour *string `pulumi:"instanceInterruptionBehaviour"`
 	InstanceState                 *string `pulumi:"instanceState"`
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType     *string `pulumi:"instanceType"`
-	Ipv6AddressCount *int    `pulumi:"ipv6AddressCount"`
+	InstanceType *string `pulumi:"instanceType"`
+	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
@@ -376,7 +376,6 @@ type SpotInstanceRequestState struct {
 	HostId pulumi.StringPtrInput
 	// The IAM Instance Profile to
 	// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-	// * `ipv6AddressCount`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	IamInstanceProfile pulumi.StringPtrInput
 	// Shutdown behavior for the
 	// instance. Amazon defaults this to `stop` for EBS-backed instances and
@@ -387,7 +386,8 @@ type SpotInstanceRequestState struct {
 	InstanceInterruptionBehaviour pulumi.StringPtrInput
 	InstanceState                 pulumi.StringPtrInput
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType     pulumi.StringPtrInput
+	InstanceType pulumi.StringPtrInput
+	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount pulumi.IntPtrInput
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses pulumi.StringArrayInput
@@ -512,7 +512,6 @@ type spotInstanceRequestArgs struct {
 	HostId *string `pulumi:"hostId"`
 	// The IAM Instance Profile to
 	// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-	// * `ipv6AddressCount`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	IamInstanceProfile *string `pulumi:"iamInstanceProfile"`
 	// Shutdown behavior for the
 	// instance. Amazon defaults this to `stop` for EBS-backed instances and
@@ -522,8 +521,9 @@ type spotInstanceRequestArgs struct {
 	// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
 	InstanceInterruptionBehaviour *string `pulumi:"instanceInterruptionBehaviour"`
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType     string `pulumi:"instanceType"`
-	Ipv6AddressCount *int   `pulumi:"ipv6AddressCount"`
+	InstanceType string `pulumi:"instanceType"`
+	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
@@ -622,7 +622,6 @@ type SpotInstanceRequestArgs struct {
 	HostId pulumi.StringPtrInput
 	// The IAM Instance Profile to
 	// launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-	// * `ipv6AddressCount`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	IamInstanceProfile pulumi.StringPtrInput
 	// Shutdown behavior for the
 	// instance. Amazon defaults this to `stop` for EBS-backed instances and
@@ -632,7 +631,8 @@ type SpotInstanceRequestArgs struct {
 	// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
 	InstanceInterruptionBehaviour pulumi.StringPtrInput
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType     pulumi.StringInput
+	InstanceType pulumi.StringInput
+	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount pulumi.IntPtrInput
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses pulumi.StringArrayInput

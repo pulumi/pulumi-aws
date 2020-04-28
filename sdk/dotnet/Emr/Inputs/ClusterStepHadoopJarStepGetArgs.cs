@@ -14,20 +14,34 @@ namespace Pulumi.Aws.Emr.Inputs
     {
         [Input("args")]
         private InputList<string>? _args;
+
+        /// <summary>
+        /// List of command line arguments passed to the JAR file's main function when executed.
+        /// </summary>
         public InputList<string> Args
         {
             get => _args ?? (_args = new InputList<string>());
             set => _args = value;
         }
 
+        /// <summary>
+        /// Path to a JAR file run during the step.
+        /// </summary>
         [Input("jar", required: true)]
         public Input<string> Jar { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+        /// </summary>
         [Input("mainClass")]
         public Input<string>? MainClass { get; set; }
 
         [Input("properties")]
         private InputMap<object>? _properties;
+
+        /// <summary>
+        /// Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+        /// </summary>
         public InputMap<object> Properties
         {
             get => _properties ?? (_properties = new InputMap<object>());

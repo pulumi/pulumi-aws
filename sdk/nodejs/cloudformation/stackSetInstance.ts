@@ -41,13 +41,13 @@ import * as utilities from "../utilities";
  *             type: "AWS",
  *         }],
  *     }],
- * }));
+ * }, { async: true }));
  * const aWSCloudFormationStackSetExecutionRole = new aws.iam.Role("AWSCloudFormationStackSetExecutionRole", {
  *     assumeRolePolicy: aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.json,
  * });
  * // Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html
  * // Additional IAM permissions necessary depend on the resources defined in the StackSet template
- * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument = aws.iam.getPolicyDocument({
+ * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
  *             "cloudformation:*",
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *         effect: "Allow",
  *         resources: ["*"],
  *     }],
- * });
+ * }, { async: true }));
  * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new aws.iam.RolePolicy("AWSCloudFormationStackSetExecutionRole_MinimumExecutionPolicy", {
  *     policy: aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.json,
  *     role: aWSCloudFormationStackSetExecutionRole.name,

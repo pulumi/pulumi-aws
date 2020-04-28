@@ -61,7 +61,7 @@ namespace Pulumi.Aws.LB
         public readonly string CertificateArn;
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionResult> DefaultActions;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string LoadBalancerArn;

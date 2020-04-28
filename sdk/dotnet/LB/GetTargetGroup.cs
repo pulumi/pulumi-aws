@@ -64,7 +64,7 @@ namespace Pulumi.Aws.LB
         public readonly int DeregistrationDelay;
         public readonly Outputs.GetTargetGroupHealthCheckResult HealthCheck;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly bool LambdaMultiValueHeadersEnabled;

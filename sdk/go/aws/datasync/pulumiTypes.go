@@ -144,12 +144,22 @@ func (o EfsLocationEc2ConfigPtrOutput) Elem() EfsLocationEc2ConfigOutput {
 
 // List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
 func (o EfsLocationEc2ConfigPtrOutput) SecurityGroupArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EfsLocationEc2Config) []string { return v.SecurityGroupArns }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *EfsLocationEc2Config) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupArns
+	}).(pulumi.StringArrayOutput)
 }
 
 // Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
-func (o EfsLocationEc2ConfigPtrOutput) SubnetArn() pulumi.StringOutput {
-	return o.ApplyT(func(v EfsLocationEc2Config) string { return v.SubnetArn }).(pulumi.StringOutput)
+func (o EfsLocationEc2ConfigPtrOutput) SubnetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EfsLocationEc2Config) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubnetArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type LocationSmbMountOptions struct {
@@ -277,7 +287,12 @@ func (o LocationSmbMountOptionsPtrOutput) Elem() LocationSmbMountOptionsOutput {
 
 // The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
 func (o LocationSmbMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LocationSmbMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *LocationSmbMountOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
 }
 
 type NfsLocationOnPremConfig struct {
@@ -405,7 +420,12 @@ func (o NfsLocationOnPremConfigPtrOutput) Elem() NfsLocationOnPremConfigOutput {
 
 // List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
 func (o NfsLocationOnPremConfigPtrOutput) AgentArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v NfsLocationOnPremConfig) []string { return v.AgentArns }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *NfsLocationOnPremConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AgentArns
+	}).(pulumi.StringArrayOutput)
 }
 
 type S3LocationS3Config struct {
@@ -532,8 +552,13 @@ func (o S3LocationS3ConfigPtrOutput) Elem() S3LocationS3ConfigOutput {
 }
 
 // Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
-func (o S3LocationS3ConfigPtrOutput) BucketAccessRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v S3LocationS3Config) string { return v.BucketAccessRoleArn }).(pulumi.StringOutput)
+func (o S3LocationS3ConfigPtrOutput) BucketAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3LocationS3Config) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketAccessRoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type TaskOptions struct {
@@ -733,47 +758,92 @@ func (o TaskOptionsPtrOutput) Elem() TaskOptionsOutput {
 
 // A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
 func (o TaskOptionsPtrOutput) Atime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.Atime }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TaskOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Atime
+	}).(pulumi.StringPtrOutput)
 }
 
 // Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
 func (o TaskOptionsPtrOutput) BytesPerSecond() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *int { return v.BytesPerSecond }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *TaskOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BytesPerSecond
+	}).(pulumi.IntPtrOutput)
 }
 
 // Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
 func (o TaskOptionsPtrOutput) Gid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.Gid }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TaskOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Gid
+	}).(pulumi.StringPtrOutput)
 }
 
 // A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
 func (o TaskOptionsPtrOutput) Mtime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.Mtime }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TaskOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mtime
+	}).(pulumi.StringPtrOutput)
 }
 
 // Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
 func (o TaskOptionsPtrOutput) PosixPermissions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.PosixPermissions }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TaskOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PosixPermissions
+	}).(pulumi.StringPtrOutput)
 }
 
 // Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
 func (o TaskOptionsPtrOutput) PreserveDeletedFiles() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.PreserveDeletedFiles }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TaskOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PreserveDeletedFiles
+	}).(pulumi.StringPtrOutput)
 }
 
 // Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
 func (o TaskOptionsPtrOutput) PreserveDevices() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.PreserveDevices }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TaskOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PreserveDevices
+	}).(pulumi.StringPtrOutput)
 }
 
 // User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
 func (o TaskOptionsPtrOutput) Uid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.Uid }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TaskOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uid
+	}).(pulumi.StringPtrOutput)
 }
 
 // Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`. Default: `POINT_IN_TIME_CONSISTENT`.
 func (o TaskOptionsPtrOutput) VerifyMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.VerifyMode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TaskOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VerifyMode
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

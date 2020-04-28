@@ -22,9 +22,9 @@ class Cluster(pulumi.CustomResource):
     """
     The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
 
-      * `base` (`float`)
-      * `capacityProvider` (`str`)
-      * `weight` (`float`)
+      * `base` (`float`) - The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+      * `capacityProvider` (`str`) - The short name of the capacity provider.
+      * `weight` (`float`) - The relative percentage of the total number of launched tasks that should use the specified capacity provider.
     """
     name: pulumi.Output[str]
     """
@@ -34,8 +34,8 @@ class Cluster(pulumi.CustomResource):
     """
     Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
 
-      * `name` (`str`) - The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-      * `value` (`str`)
+      * `name` (`str`) - Name of the setting to manage. Valid values: `containerInsights`.
+      * `value` (`str`) - The value to assign to the setting. Value values are `enabled` and `disabled`.
     """
     tags: pulumi.Output[dict]
     """
@@ -46,20 +46,6 @@ class Cluster(pulumi.CustomResource):
         Provides an ECS cluster.
 
 
-        ## setting
-
-        The `setting` configuration block supports the following:
-
-        * `name` - (Required) Name of the setting to manage. Valid values: `containerInsights`.
-        * `value` -  (Required) The value to assign to the setting. Value values are `enabled` and `disabled`.
-
-        ## default_capacity_provider_strategy
-
-        The `default_capacity_provider_strategy` configuration block supports the following:
-
-        * `capacity_provider` - (Required) The short name of the capacity provider.
-        * `weight` - (Optional) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
-        * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -71,14 +57,14 @@ class Cluster(pulumi.CustomResource):
 
         The **default_capacity_provider_strategies** object supports the following:
 
-          * `base` (`pulumi.Input[float]`)
-          * `capacityProvider` (`pulumi.Input[str]`)
-          * `weight` (`pulumi.Input[float]`)
+          * `base` (`pulumi.Input[float]`) - The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+          * `capacityProvider` (`pulumi.Input[str]`) - The short name of the capacity provider.
+          * `weight` (`pulumi.Input[float]`) - The relative percentage of the total number of launched tasks that should use the specified capacity provider.
 
         The **settings** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-          * `value` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Name of the setting to manage. Valid values: `containerInsights`.
+          * `value` (`pulumi.Input[str]`) - The value to assign to the setting. Value values are `enabled` and `disabled`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -127,14 +113,14 @@ class Cluster(pulumi.CustomResource):
 
         The **default_capacity_provider_strategies** object supports the following:
 
-          * `base` (`pulumi.Input[float]`)
-          * `capacityProvider` (`pulumi.Input[str]`)
-          * `weight` (`pulumi.Input[float]`)
+          * `base` (`pulumi.Input[float]`) - The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+          * `capacityProvider` (`pulumi.Input[str]`) - The short name of the capacity provider.
+          * `weight` (`pulumi.Input[float]`) - The relative percentage of the total number of launched tasks that should use the specified capacity provider.
 
         The **settings** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-          * `value` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Name of the setting to manage. Valid values: `containerInsights`.
+          * `value` (`pulumi.Input[str]`) - The value to assign to the setting. Value values are `enabled` and `disabled`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

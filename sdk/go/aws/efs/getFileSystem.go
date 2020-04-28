@@ -36,7 +36,7 @@ type LookupFileSystemResult struct {
 	// Whether EFS is encrypted.
 	Encrypted    bool   `pulumi:"encrypted"`
 	FileSystemId string `pulumi:"fileSystemId"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ARN for the KMS encryption key.
 	KmsKeyId string `pulumi:"kmsKeyId"`

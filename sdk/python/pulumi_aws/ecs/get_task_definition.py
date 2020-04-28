@@ -24,7 +24,7 @@ class GetTaskDefinitionResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if network_mode and not isinstance(network_mode, str):
             raise TypeError("Expected argument 'network_mode' to be a str")

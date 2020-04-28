@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *             `${exampleBucketArn1}/*`,
  *         ],
  *     }],
- * }));
+ * }, { async: true }));
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
  *     bucket: exampleBucket.id,
  *     policy: acmpcaBucketAccess.json,
@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  *             s3BucketName: exampleBucket.id,
  *         },
  *     },
- * }, {dependsOn: [exampleBucketPolicy]});
+ * }, { dependsOn: [exampleBucketPolicy] });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acmpca_certificate_authority.html.markdown.

@@ -36,7 +36,7 @@ type LookupVpcDhcpOptionsResult struct {
 	// List of name servers.
 	DomainNameServers []string                  `pulumi:"domainNameServers"`
 	Filters           []GetVpcDhcpOptionsFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of NETBIOS name servers.
 	NetbiosNameServers []string `pulumi:"netbiosNameServers"`

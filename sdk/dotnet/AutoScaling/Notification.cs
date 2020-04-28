@@ -11,7 +11,7 @@ namespace Pulumi.Aws.AutoScaling
 {
     /// <summary>
     /// Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
-    /// the `notifications` map to a [Notification Configuration][2] inside Amazon Web
+    /// the `notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
     /// Services, and are applied to each AutoScaling Group you supply.
     /// </summary>
     public partial class Notification : Pulumi.CustomResource
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// A list of Notification Types that trigger
-        /// notifications. Acceptable values are documented [in the AWS documentation here][1]
+        /// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         /// </summary>
         [Output("notifications")]
         public Output<ImmutableArray<string>> Notifications { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// A list of Notification Types that trigger
-        /// notifications. Acceptable values are documented [in the AWS documentation here][1]
+        /// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         /// </summary>
         public InputList<string> Notifications
         {
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// A list of Notification Types that trigger
-        /// notifications. Acceptable values are documented [in the AWS documentation here][1]
+        /// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         /// </summary>
         public InputList<string> Notifications
         {

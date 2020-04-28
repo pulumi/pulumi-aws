@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Alb
         public readonly bool DropInvalidHeaderFields;
         public readonly bool EnableDeletionProtection;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly int IdleTimeout;

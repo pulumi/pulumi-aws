@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *         }],
  *         resources: [arn],
  *     }],
- * }));
+ * }, { async: true }));
  * const defaultTopicPolicy = new aws.sns.TopicPolicy("default", {
  *     arn: awsLogins.arn,
  *     policy: snsTopicPolicy.json,

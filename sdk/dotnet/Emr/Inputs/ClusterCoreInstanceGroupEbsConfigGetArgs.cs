@@ -12,15 +12,27 @@ namespace Pulumi.Aws.Emr.Inputs
 
     public sealed class ClusterCoreInstanceGroupEbsConfigGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of I/O operations per second (IOPS) that the volume supports
+        /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
+        /// <summary>
+        /// The volume size, in gibibytes (GiB).
+        /// </summary>
         [Input("size", required: true)]
         public Input<int> Size { get; set; } = null!;
 
+        /// <summary>
+        /// The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+        /// </summary>
         [Input("volumesPerInstance")]
         public Input<int>? VolumesPerInstance { get; set; }
 

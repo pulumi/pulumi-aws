@@ -42,7 +42,7 @@ type LookupClusterResult struct {
 	Engine string `pulumi:"engine"`
 	// Version number of the cache engine.
 	EngineVersion string `pulumi:"engineVersion"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Specifies the weekly time range for when maintenance
 	// on the cache cluster is performed.

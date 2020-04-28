@@ -60,7 +60,7 @@ type Environment struct {
 	// A unique name for this Environment. This name is used
 	// in the application URL
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The [ARN][2] of the Elastic Beanstalk [Platform][3]
+	// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
 	// to use in deployment
 	PlatformArn pulumi.StringOutput `pulumi:"platformArn"`
 	// The time between polling the AWS API to
@@ -75,7 +75,7 @@ type Environment struct {
 	// below in Option Settings
 	Settings EnvironmentSettingArrayOutput `pulumi:"settings"`
 	// A solution stack to base your environment
-	// off of. Example stacks can be found in the [Amazon API documentation][1]
+	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
 	SolutionStackName pulumi.StringOutput `pulumi:"solutionStackName"`
 	// A set of tags to apply to the Environment.
 	Tags pulumi.MapOutput `pulumi:"tags"`
@@ -156,7 +156,7 @@ type environmentState struct {
 	// A unique name for this Environment. This name is used
 	// in the application URL
 	Name *string `pulumi:"name"`
-	// The [ARN][2] of the Elastic Beanstalk [Platform][3]
+	// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
 	// to use in deployment
 	PlatformArn *string `pulumi:"platformArn"`
 	// The time between polling the AWS API to
@@ -171,7 +171,7 @@ type environmentState struct {
 	// below in Option Settings
 	Settings []EnvironmentSetting `pulumi:"settings"`
 	// A solution stack to base your environment
-	// off of. Example stacks can be found in the [Amazon API documentation][1]
+	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
 	SolutionStackName *string `pulumi:"solutionStackName"`
 	// A set of tags to apply to the Environment.
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -222,7 +222,7 @@ type EnvironmentState struct {
 	// A unique name for this Environment. This name is used
 	// in the application URL
 	Name pulumi.StringPtrInput
-	// The [ARN][2] of the Elastic Beanstalk [Platform][3]
+	// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
 	// to use in deployment
 	PlatformArn pulumi.StringPtrInput
 	// The time between polling the AWS API to
@@ -237,7 +237,7 @@ type EnvironmentState struct {
 	// below in Option Settings
 	Settings EnvironmentSettingArrayInput
 	// A solution stack to base your environment
-	// off of. Example stacks can be found in the [Amazon API documentation][1]
+	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
 	SolutionStackName pulumi.StringPtrInput
 	// A set of tags to apply to the Environment.
 	Tags pulumi.MapInput
@@ -275,7 +275,7 @@ type environmentArgs struct {
 	// A unique name for this Environment. This name is used
 	// in the application URL
 	Name *string `pulumi:"name"`
-	// The [ARN][2] of the Elastic Beanstalk [Platform][3]
+	// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
 	// to use in deployment
 	PlatformArn *string `pulumi:"platformArn"`
 	// The time between polling the AWS API to
@@ -288,7 +288,7 @@ type environmentArgs struct {
 	// below in Option Settings
 	Settings []EnvironmentSetting `pulumi:"settings"`
 	// A solution stack to base your environment
-	// off of. Example stacks can be found in the [Amazon API documentation][1]
+	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
 	SolutionStackName *string `pulumi:"solutionStackName"`
 	// A set of tags to apply to the Environment.
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -321,7 +321,7 @@ type EnvironmentArgs struct {
 	// A unique name for this Environment. This name is used
 	// in the application URL
 	Name pulumi.StringPtrInput
-	// The [ARN][2] of the Elastic Beanstalk [Platform][3]
+	// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
 	// to use in deployment
 	PlatformArn pulumi.StringPtrInput
 	// The time between polling the AWS API to
@@ -334,7 +334,7 @@ type EnvironmentArgs struct {
 	// below in Option Settings
 	Settings EnvironmentSettingArrayInput
 	// A solution stack to base your environment
-	// off of. Example stacks can be found in the [Amazon API documentation][1]
+	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
 	SolutionStackName pulumi.StringPtrInput
 	// A set of tags to apply to the Environment.
 	Tags pulumi.MapInput

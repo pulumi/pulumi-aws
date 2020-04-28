@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const current = aws.ebs.getDefaultKmsKey();
+ * const current = pulumi.output(aws.ebs.getDefaultKmsKey({ async: true }));
  * const example = new aws.ebs.Volume("example", {
  *     availabilityZone: "us-west-2a",
  *     encrypted: true,
@@ -46,7 +46,7 @@ export interface GetDefaultKmsKeyResult {
      */
     readonly keyArn: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

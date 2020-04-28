@@ -42,7 +42,7 @@ class GetLoadBalancerResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if idle_timeout and not isinstance(idle_timeout, float):
             raise TypeError("Expected argument 'idle_timeout' to be a float")

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Acm.Outputs
     [OutputType]
     public sealed class CertificateOptions
     {
+        /// <summary>
+        /// Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+        /// </summary>
         public readonly string? CertificateTransparencyLoggingPreference;
 
         [OutputConstructor]

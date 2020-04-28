@@ -29,7 +29,7 @@ type LookupLedgerResult struct {
 	Arn string `pulumi:"arn"`
 	// Deletion protection on the QLDB Ledger instance. Set to `true` by default.
 	DeletionProtection bool `pulumi:"deletionProtection"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }

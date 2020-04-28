@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const testCluster = aws.redshift.getCluster({
+ * const testCluster = pulumi.output(aws.redshift.getCluster({
  *     clusterIdentifier: "test-cluster",
- * });
+ * }, { async: true }));
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "redshift",
  *     redshiftConfiguration: {
- *         clusterJdbcurl: `jdbc:redshift://${testCluster.endpoint}/${testCluster.databaseName}`,
+ *         clusterJdbcurl: pulumi.interpolate`jdbc:redshift://${testCluster.endpoint}/${testCluster.databaseName}`,
  *         copyOptions: "delimiter '|'", // the default delimiter
  *         dataTableColumns: "test-col",
  *         dataTableName: "test-table",
@@ -193,7 +193,7 @@ export interface GetClusterResult {
      */
     readonly vpcSecurityGroupIds: string[];
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

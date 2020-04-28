@@ -48,8 +48,7 @@ class Route(pulumi.CustomResource):
               * `exact` (`str`) - The header value sent by the client must match the specified value exactly.
               * `prefix` (`str`) - Specifies the path with which to match requests.
                 This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-                * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
-              * `range` (`dict`)
+              * `range` (`dict`) - The object that specifies the range of numbers that the header value sent by the client must be included in.
                 * `end` (`float`) - The end of the range.
                 * `start` (`float`) - The start of the range.
 
@@ -61,7 +60,6 @@ class Route(pulumi.CustomResource):
           * `method` (`str`) - The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
           * `prefix` (`str`) - Specifies the path with which to match requests.
             This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-            * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
           * `scheme` (`str`) - The client request header scheme to match on. Valid values: `http`, `https`.
 
       * `priority` (`float`) - The priority for the route, between `0` and `1000`.
@@ -111,8 +109,7 @@ class Route(pulumi.CustomResource):
                   * `exact` (`pulumi.Input[str]`) - The header value sent by the client must match the specified value exactly.
                   * `prefix` (`pulumi.Input[str]`) - Specifies the path with which to match requests.
                     This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-                    * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
-                  * `range` (`pulumi.Input[dict]`)
+                  * `range` (`pulumi.Input[dict]`) - The object that specifies the range of numbers that the header value sent by the client must be included in.
                     * `end` (`pulumi.Input[float]`) - The end of the range.
                     * `start` (`pulumi.Input[float]`) - The start of the range.
 
@@ -124,7 +121,6 @@ class Route(pulumi.CustomResource):
               * `method` (`pulumi.Input[str]`) - The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
               * `prefix` (`pulumi.Input[str]`) - Specifies the path with which to match requests.
                 This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-                * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
               * `scheme` (`pulumi.Input[str]`) - The client request header scheme to match on. Valid values: `http`, `https`.
 
           * `priority` (`pulumi.Input[float]`) - The priority for the route, between `0` and `1000`.
@@ -207,8 +203,7 @@ class Route(pulumi.CustomResource):
                   * `exact` (`pulumi.Input[str]`) - The header value sent by the client must match the specified value exactly.
                   * `prefix` (`pulumi.Input[str]`) - Specifies the path with which to match requests.
                     This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-                    * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
-                  * `range` (`pulumi.Input[dict]`)
+                  * `range` (`pulumi.Input[dict]`) - The object that specifies the range of numbers that the header value sent by the client must be included in.
                     * `end` (`pulumi.Input[float]`) - The end of the range.
                     * `start` (`pulumi.Input[float]`) - The start of the range.
 
@@ -220,7 +215,6 @@ class Route(pulumi.CustomResource):
               * `method` (`pulumi.Input[str]`) - The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
               * `prefix` (`pulumi.Input[str]`) - Specifies the path with which to match requests.
                 This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-                * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
               * `scheme` (`pulumi.Input[str]`) - The client request header scheme to match on. Valid values: `http`, `https`.
 
           * `priority` (`pulumi.Input[float]`) - The priority for the route, between `0` and `1000`.

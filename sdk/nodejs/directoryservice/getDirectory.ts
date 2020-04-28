@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * 
  * const example = aws_directory_service_directory_main.id.apply(id => aws.directoryservice.getDirectory({
  *     directoryId: id,
- * }));
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/directory_service_directory.html.markdown.
@@ -108,7 +108,7 @@ export interface GetDirectoryResult {
     readonly type: string;
     readonly vpcSettings: outputs.directoryservice.GetDirectoryVpcSetting[];
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

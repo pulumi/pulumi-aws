@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Iam
         public readonly string CertificateChain;
         public readonly string ExpirationDate;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly bool? Latest;

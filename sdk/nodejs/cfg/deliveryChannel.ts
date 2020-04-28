@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * });
  * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("foo", {
  *     s3BucketName: bucket.bucket,
- * }, {dependsOn: [fooRecorder]});
+ * }, { dependsOn: [fooRecorder] });
  * const rolePolicy = new aws.iam.RolePolicy("p", {
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",

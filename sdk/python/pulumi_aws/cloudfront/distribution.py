@@ -140,7 +140,7 @@ class Distribution(pulumi.CustomResource):
     hosted_zone_id: pulumi.Output[str]
     """
     The CloudFront Route 53 zone ID that can be used to
-    route an [Alias Resource Record Set][7] to. This attribute is simply an
+    route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
     alias for the zone ID `Z2FDTNDATAQYW2`.
     """
     http_version: pulumi.Output[str]
@@ -335,7 +335,7 @@ class Distribution(pulumi.CustomResource):
     configuration for this distribution (maximum
     one).
 
-      * `acmCertificateArn` (`str`) - The ARN of the [AWS Certificate Manager][6]
+      * `acmCertificateArn` (`str`) - The ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)
         certificate that you wish to use with this distribution. Specify this,
         `cloudfront_default_certificate`, or `iam_certificate_id`.  The ACM
         certificate must be in  US-EAST-1.
@@ -376,8 +376,8 @@ class Distribution(pulumi.CustomResource):
         Creates an Amazon CloudFront web distribution.
 
         For information about CloudFront distributions, see the
-        [Amazon CloudFront Developer Guide][1]. For specific information about creating
-        CloudFront web distributions, see the [POST Distribution][2] page in the Amazon
+        [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For specific information about creating
+        CloudFront web distributions, see the [POST Distribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html) page in the Amazon
         CloudFront API Reference.
 
         > **NOTE:** CloudFront distributions take about 15 minutes to a deployed state
@@ -642,7 +642,7 @@ class Distribution(pulumi.CustomResource):
 
         The **viewer_certificate** object supports the following:
 
-          * `acmCertificateArn` (`pulumi.Input[str]`) - The ARN of the [AWS Certificate Manager][6]
+          * `acmCertificateArn` (`pulumi.Input[str]`) - The ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)
             certificate that you wish to use with this distribution. Specify this,
             `cloudfront_default_certificate`, or `iam_certificate_id`.  The ACM
             certificate must be in  US-EAST-1.
@@ -756,7 +756,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[str] etag: The current version of the distribution's information. For example:
                `E2QWRUHAPOMQZL`.
         :param pulumi.Input[str] hosted_zone_id: The CloudFront Route 53 zone ID that can be used to
-               route an [Alias Resource Record Set][7] to. This attribute is simply an
+               route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
                alias for the zone ID `Z2FDTNDATAQYW2`.
         :param pulumi.Input[str] http_version: The maximum HTTP version to support on the
                distribution. Allowed values are `http1.1` and `http2`. The default is
@@ -1006,7 +1006,7 @@ class Distribution(pulumi.CustomResource):
 
         The **viewer_certificate** object supports the following:
 
-          * `acmCertificateArn` (`pulumi.Input[str]`) - The ARN of the [AWS Certificate Manager][6]
+          * `acmCertificateArn` (`pulumi.Input[str]`) - The ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)
             certificate that you wish to use with this distribution. Specify this,
             `cloudfront_default_certificate`, or `iam_certificate_id`.  The ACM
             certificate must be in  US-EAST-1.

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// The device name to expose to the instance (for
-        /// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
+        /// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
         /// </summary>
         [Output("deviceName")]
         public Output<string> DeviceName { get; private set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ec2
         /// Set to `true` if you want to force the
         /// volume to detach. Useful if previous attempts failed, but use this option only
         /// as a last resort, as this can result in **data loss**. See
-        /// [Detaching an Amazon EBS Volume from an Instance][3] for more information.
+        /// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
         /// </summary>
         [Output("forceDetach")]
         public Output<bool?> ForceDetach { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// The device name to expose to the instance (for
-        /// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
+        /// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
         /// </summary>
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Ec2
         /// Set to `true` if you want to force the
         /// volume to detach. Useful if previous attempts failed, but use this option only
         /// as a last resort, as this can result in **data loss**. See
-        /// [Detaching an Amazon EBS Volume from an Instance][3] for more information.
+        /// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
         /// </summary>
         [Input("forceDetach")]
         public Input<bool>? ForceDetach { get; set; }
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// The device name to expose to the instance (for
-        /// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
+        /// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
         /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Ec2
         /// Set to `true` if you want to force the
         /// volume to detach. Useful if previous attempts failed, but use this option only
         /// as a last resort, as this can result in **data loss**. See
-        /// [Detaching an Amazon EBS Volume from an Instance][3] for more information.
+        /// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
         /// </summary>
         [Input("forceDetach")]
         public Input<bool>? ForceDetach { get; set; }

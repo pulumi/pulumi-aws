@@ -29,7 +29,7 @@ type LookupUserArgs struct {
 type LookupUserResult struct {
 	// The Amazon Resource Name (ARN) assigned by AWS for this user.
 	Arn string `pulumi:"arn"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Path in which this user was created.
 	Path string `pulumi:"path"`

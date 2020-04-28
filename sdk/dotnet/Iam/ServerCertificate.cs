@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Iam
         /// The IAM path for the server certificate.  If it is not
         /// included, it defaults to a slash (/). If this certificate is for use with
         /// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-        /// See [IAM Identifiers][1] for more details on IAM Paths.
+        /// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
         /// </summary>
         [Output("path")]
         public Output<string?> Path { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Iam
         /// The IAM path for the server certificate.  If it is not
         /// included, it defaults to a slash (/). If this certificate is for use with
         /// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-        /// See [IAM Identifiers][1] for more details on IAM Paths.
+        /// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.Iam
         /// The IAM path for the server certificate.  If it is not
         /// included, it defaults to a slash (/). If this certificate is for use with
         /// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-        /// See [IAM Identifiers][1] for more details on IAM Paths.
+        /// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }

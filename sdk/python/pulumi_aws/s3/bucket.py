@@ -140,7 +140,7 @@ class Bucket(pulumi.CustomResource):
 
         * `id` (`str`) - Unique identifier for the rule.
         * `prefix` (`str`) - Object keyname prefix identifying one or more objects to which the rule applies.
-        * `priority` (`float`) - The priority associated with the rule.
+        * `priority` (`float`) - is optional (with a default value of `0`) but must be unique between multiple rules
         * `sourceSelectionCriteria` (`dict`) - Specifies special object selection criteria (documented below).
           * `sseKmsEncryptedObjects` (`dict`) - Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
             in `destination` must be specified as well.
@@ -301,7 +301,7 @@ class Bucket(pulumi.CustomResource):
 
             * `id` (`pulumi.Input[str]`) - Unique identifier for the rule.
             * `prefix` (`pulumi.Input[str]`) - Object keyname prefix identifying one or more objects to which the rule applies.
-            * `priority` (`pulumi.Input[float]`) - The priority associated with the rule.
+            * `priority` (`pulumi.Input[float]`) - is optional (with a default value of `0`) but must be unique between multiple rules
             * `sourceSelectionCriteria` (`pulumi.Input[dict]`) - Specifies special object selection criteria (documented below).
               * `sseKmsEncryptedObjects` (`pulumi.Input[dict]`) - Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
                 in `destination` must be specified as well.
@@ -487,7 +487,7 @@ class Bucket(pulumi.CustomResource):
 
             * `id` (`pulumi.Input[str]`) - Unique identifier for the rule.
             * `prefix` (`pulumi.Input[str]`) - Object keyname prefix identifying one or more objects to which the rule applies.
-            * `priority` (`pulumi.Input[float]`) - The priority associated with the rule.
+            * `priority` (`pulumi.Input[float]`) - is optional (with a default value of `0`) but must be unique between multiple rules
             * `sourceSelectionCriteria` (`pulumi.Input[dict]`) - Specifies special object selection criteria (documented below).
               * `sseKmsEncryptedObjects` (`pulumi.Input[dict]`) - Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
                 in `destination` must be specified as well.

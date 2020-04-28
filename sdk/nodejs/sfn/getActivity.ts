@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const sfnActivity = aws.sfn.getActivity({
+ * const sfnActivity = pulumi.output(aws.sfn.getActivity({
  *     name: "my-activity",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_activity.html.markdown.
@@ -62,7 +62,7 @@ export interface GetActivityResult {
     readonly creationDate: string;
     readonly name: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

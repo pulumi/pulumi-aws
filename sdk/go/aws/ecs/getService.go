@@ -33,7 +33,7 @@ type LookupServiceResult struct {
 	ClusterArn string `pulumi:"clusterArn"`
 	// The number of tasks for the ECS Service
 	DesiredCount int `pulumi:"desiredCount"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The launch type for the ECS Service
 	LaunchType string `pulumi:"launchType"`

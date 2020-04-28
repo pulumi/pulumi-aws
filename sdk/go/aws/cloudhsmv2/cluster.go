@@ -13,7 +13,7 @@ import (
 // Creates an Amazon CloudHSM v2 cluster.
 //
 // For information about CloudHSM v2, see the
-// [AWS CloudHSM User Guide][1] and the [Amazon
+// [AWS CloudHSM User Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html) and the [Amazon
 // CloudHSM API Reference][2].
 //
 // > **NOTE:** CloudHSM can take up to several minutes to be set up.

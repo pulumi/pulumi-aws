@@ -30,7 +30,7 @@ class GetZoneResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if linked_service_description and not isinstance(linked_service_description, str):
             raise TypeError("Expected argument 'linked_service_description' to be a str")

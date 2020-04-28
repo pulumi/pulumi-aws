@@ -20,9 +20,9 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const fileSystemId = config.get("fileSystemId") || "";
  * 
- * const byId = aws.efs.getFileSystem({
+ * const byId = pulumi.output(aws.efs.getFileSystem({
  *     fileSystemId: fileSystemId,
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_file_system.html.markdown.
@@ -99,7 +99,7 @@ export interface GetFileSystemResult {
      */
     readonly throughputMode: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

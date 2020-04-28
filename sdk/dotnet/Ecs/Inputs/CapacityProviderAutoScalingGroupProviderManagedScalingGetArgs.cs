@@ -12,15 +12,27 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class CapacityProviderAutoScalingGroupProviderManagedScalingGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum step adjustment size. A number between 1 and 10,000.
+        /// </summary>
         [Input("maximumScalingStepSize")]
         public Input<int>? MaximumScalingStepSize { get; set; }
 
+        /// <summary>
+        /// The minimum step adjustment size. A number between 1 and 10,000.
+        /// </summary>
         [Input("minimumScalingStepSize")]
         public Input<int>? MinimumScalingStepSize { get; set; }
 
+        /// <summary>
+        /// Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        /// <summary>
+        /// The target utilization for the capacity provider. A number between 1 and 100.
+        /// </summary>
         [Input("targetCapacity")]
         public Input<int>? TargetCapacity { get; set; }
 

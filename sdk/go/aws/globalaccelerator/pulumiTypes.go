@@ -153,17 +153,32 @@ func (o AcceleratorAttributesPtrOutput) Elem() AcceleratorAttributesOutput {
 
 // Indicates whether flow logs are enabled.
 func (o AcceleratorAttributesPtrOutput) FlowLogsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AcceleratorAttributes) *bool { return v.FlowLogsEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *AcceleratorAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FlowLogsEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Amazon S3 bucket for the flow logs.
 func (o AcceleratorAttributesPtrOutput) FlowLogsS3Bucket() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AcceleratorAttributes) *string { return v.FlowLogsS3Bucket }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AcceleratorAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FlowLogsS3Bucket
+	}).(pulumi.StringPtrOutput)
 }
 
 // The prefix for the location in the Amazon S3 bucket for the flow logs.
 func (o AcceleratorAttributesPtrOutput) FlowLogsS3Prefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AcceleratorAttributes) *string { return v.FlowLogsS3Prefix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AcceleratorAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FlowLogsS3Prefix
+	}).(pulumi.StringPtrOutput)
 }
 
 type AcceleratorIpSet struct {

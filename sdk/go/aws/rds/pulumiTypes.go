@@ -293,28 +293,53 @@ func (o ClusterS3ImportPtrOutput) Elem() ClusterS3ImportOutput {
 }
 
 // The bucket name where your backup is stored
-func (o ClusterS3ImportPtrOutput) BucketName() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterS3Import) string { return v.BucketName }).(pulumi.StringOutput)
+func (o ClusterS3ImportPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Can be blank, but is the path to your backup
 func (o ClusterS3ImportPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterS3Import) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ClusterS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketPrefix
+	}).(pulumi.StringPtrOutput)
 }
 
 // Role applied to load the data.
-func (o ClusterS3ImportPtrOutput) IngestionRole() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterS3Import) string { return v.IngestionRole }).(pulumi.StringOutput)
+func (o ClusterS3ImportPtrOutput) IngestionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IngestionRole
+	}).(pulumi.StringPtrOutput)
 }
 
 // Source engine for the backup
-func (o ClusterS3ImportPtrOutput) SourceEngine() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterS3Import) string { return v.SourceEngine }).(pulumi.StringOutput)
+func (o ClusterS3ImportPtrOutput) SourceEngine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceEngine
+	}).(pulumi.StringPtrOutput)
 }
 
 // Version of the source engine used to make the backup
-func (o ClusterS3ImportPtrOutput) SourceEngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterS3Import) string { return v.SourceEngineVersion }).(pulumi.StringOutput)
+func (o ClusterS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceEngineVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 type ClusterScalingConfiguration struct {
@@ -478,27 +503,52 @@ func (o ClusterScalingConfigurationPtrOutput) Elem() ClusterScalingConfiguration
 
 // Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
 func (o ClusterScalingConfigurationPtrOutput) AutoPause() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ClusterScalingConfiguration) *bool { return v.AutoPause }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *ClusterScalingConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoPause
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The maximum capacity. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `16`.
 func (o ClusterScalingConfigurationPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterScalingConfiguration) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ClusterScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCapacity
+	}).(pulumi.IntPtrOutput)
 }
 
 // The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `2`.
 func (o ClusterScalingConfigurationPtrOutput) MinCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterScalingConfiguration) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ClusterScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinCapacity
+	}).(pulumi.IntPtrOutput)
 }
 
 // The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
 func (o ClusterScalingConfigurationPtrOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterScalingConfiguration) *int { return v.SecondsUntilAutoPause }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ClusterScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SecondsUntilAutoPause
+	}).(pulumi.IntPtrOutput)
 }
 
 // The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
 func (o ClusterScalingConfigurationPtrOutput) TimeoutAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterScalingConfiguration) *string { return v.TimeoutAction }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ClusterScalingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutAction
+	}).(pulumi.StringPtrOutput)
 }
 
 type InstanceS3Import struct {
@@ -661,28 +711,53 @@ func (o InstanceS3ImportPtrOutput) Elem() InstanceS3ImportOutput {
 }
 
 // The bucket name where your backup is stored
-func (o InstanceS3ImportPtrOutput) BucketName() pulumi.StringOutput {
-	return o.ApplyT(func(v InstanceS3Import) string { return v.BucketName }).(pulumi.StringOutput)
+func (o InstanceS3ImportPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Can be blank, but is the path to your backup
 func (o InstanceS3ImportPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InstanceS3Import) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *InstanceS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketPrefix
+	}).(pulumi.StringPtrOutput)
 }
 
 // Role applied to load the data.
-func (o InstanceS3ImportPtrOutput) IngestionRole() pulumi.StringOutput {
-	return o.ApplyT(func(v InstanceS3Import) string { return v.IngestionRole }).(pulumi.StringOutput)
+func (o InstanceS3ImportPtrOutput) IngestionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IngestionRole
+	}).(pulumi.StringPtrOutput)
 }
 
 // Source engine for the backup
-func (o InstanceS3ImportPtrOutput) SourceEngine() pulumi.StringOutput {
-	return o.ApplyT(func(v InstanceS3Import) string { return v.SourceEngine }).(pulumi.StringOutput)
+func (o InstanceS3ImportPtrOutput) SourceEngine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceEngine
+	}).(pulumi.StringPtrOutput)
 }
 
 // Version of the source engine used to make the backup
-func (o InstanceS3ImportPtrOutput) SourceEngineVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v InstanceS3Import) string { return v.SourceEngineVersion }).(pulumi.StringOutput)
+func (o InstanceS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceS3Import) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceEngineVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 type OptionGroupOption struct {

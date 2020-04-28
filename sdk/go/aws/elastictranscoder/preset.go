@@ -29,10 +29,10 @@ type Preset struct {
 	Thumbnails PresetThumbnailsPtrOutput `pulumi:"thumbnails"`
 	Type       pulumi.StringOutput       `pulumi:"type"`
 	// Video parameters object (documented below)
-	Video             PresetVideoPtrOutput `pulumi:"video"`
-	VideoCodecOptions pulumi.MapOutput     `pulumi:"videoCodecOptions"`
+	Video PresetVideoPtrOutput `pulumi:"video"`
+	// Codec options for the video parameters
+	VideoCodecOptions pulumi.MapOutput `pulumi:"videoCodecOptions"`
 	// Watermark parameters for the video parameters (documented below)
-	// * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
 	VideoWatermarks PresetVideoWatermarkArrayOutput `pulumi:"videoWatermarks"`
 }
 
@@ -82,10 +82,10 @@ type presetState struct {
 	Thumbnails *PresetThumbnails `pulumi:"thumbnails"`
 	Type       *string           `pulumi:"type"`
 	// Video parameters object (documented below)
-	Video             *PresetVideo           `pulumi:"video"`
+	Video *PresetVideo `pulumi:"video"`
+	// Codec options for the video parameters
 	VideoCodecOptions map[string]interface{} `pulumi:"videoCodecOptions"`
 	// Watermark parameters for the video parameters (documented below)
-	// * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
 	VideoWatermarks []PresetVideoWatermark `pulumi:"videoWatermarks"`
 }
 
@@ -105,10 +105,10 @@ type PresetState struct {
 	Thumbnails PresetThumbnailsPtrInput
 	Type       pulumi.StringPtrInput
 	// Video parameters object (documented below)
-	Video             PresetVideoPtrInput
+	Video PresetVideoPtrInput
+	// Codec options for the video parameters
 	VideoCodecOptions pulumi.MapInput
 	// Watermark parameters for the video parameters (documented below)
-	// * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
 	VideoWatermarks PresetVideoWatermarkArrayInput
 }
 
@@ -131,10 +131,10 @@ type presetArgs struct {
 	Thumbnails *PresetThumbnails `pulumi:"thumbnails"`
 	Type       *string           `pulumi:"type"`
 	// Video parameters object (documented below)
-	Video             *PresetVideo           `pulumi:"video"`
+	Video *PresetVideo `pulumi:"video"`
+	// Codec options for the video parameters
 	VideoCodecOptions map[string]interface{} `pulumi:"videoCodecOptions"`
 	// Watermark parameters for the video parameters (documented below)
-	// * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
 	VideoWatermarks []PresetVideoWatermark `pulumi:"videoWatermarks"`
 }
 
@@ -154,10 +154,10 @@ type PresetArgs struct {
 	Thumbnails PresetThumbnailsPtrInput
 	Type       pulumi.StringPtrInput
 	// Video parameters object (documented below)
-	Video             PresetVideoPtrInput
+	Video PresetVideoPtrInput
+	// Codec options for the video parameters
 	VideoCodecOptions pulumi.MapInput
 	// Watermark parameters for the video parameters (documented below)
-	// * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
 	VideoWatermarks PresetVideoWatermarkArrayInput
 }
 

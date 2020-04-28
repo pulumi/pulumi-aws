@@ -30,7 +30,7 @@ type GetInstanceTypeOfferingArgs struct {
 // A collection of values returned by getInstanceTypeOffering.
 type GetInstanceTypeOfferingResult struct {
 	Filters []GetInstanceTypeOfferingFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// EC2 Instance Type.
 	InstanceType           string   `pulumi:"instanceType"`

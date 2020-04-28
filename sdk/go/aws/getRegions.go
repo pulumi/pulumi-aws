@@ -29,7 +29,7 @@ type GetRegionsArgs struct {
 type GetRegionsResult struct {
 	AllRegions *bool              `pulumi:"allRegions"`
 	Filters    []GetRegionsFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Names of regions that meets the criteria.
 	Names []string `pulumi:"names"`

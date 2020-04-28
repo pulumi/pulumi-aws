@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Kinesis
     /// Provides a Kinesis Analytics Application resource. Kinesis Analytics is a managed service that
     /// allows processing and analyzing streaming data using standard SQL.
     /// 
-    /// For more details, see the [Amazon Kinesis Analytics Documentation][1].
+    /// For more details, see the [Amazon Kinesis Analytics Documentation](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/what-is.html).
     /// </summary>
     public partial class AnalyticsApplication : Pulumi.CustomResource
     {

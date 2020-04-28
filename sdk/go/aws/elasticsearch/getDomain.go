@@ -52,7 +52,7 @@ type LookupDomainResult struct {
 	EncryptionAtRests []GetDomainEncryptionAtRest `pulumi:"encryptionAtRests"`
 	// Domain-specific endpoint used to submit index, search, and data upload requests.
 	Endpoint string `pulumi:"endpoint"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Domain-specific endpoint used to access the Kibana application.
 	KibanaEndpoint string `pulumi:"kibanaEndpoint"`

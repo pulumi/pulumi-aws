@@ -25,7 +25,7 @@ type LookupRuleArgs struct {
 
 // A collection of values returned by getRule.
 type LookupRuleResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }

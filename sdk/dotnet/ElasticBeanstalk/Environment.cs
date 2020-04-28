@@ -107,7 +107,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The [ARN][2] of the Elastic Beanstalk [Platform][3]
+        /// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
         /// to use in deployment
         /// </summary>
         [Output("platformArn")]
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
         /// <summary>
         /// A solution stack to base your environment
-        /// off of. Example stacks can be found in the [Amazon API documentation][1]
+        /// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         /// </summary>
         [Output("solutionStackName")]
         public Output<string> SolutionStackName { get; private set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The [ARN][2] of the Elastic Beanstalk [Platform][3]
+        /// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
         /// to use in deployment
         /// </summary>
         [Input("platformArn")]
@@ -290,7 +290,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
         /// <summary>
         /// A solution stack to base your environment
-        /// off of. Example stacks can be found in the [Amazon API documentation][1]
+        /// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         /// </summary>
         [Input("solutionStackName")]
         public Input<string>? SolutionStackName { get; set; }
@@ -449,7 +449,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The [ARN][2] of the Elastic Beanstalk [Platform][3]
+        /// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
         /// to use in deployment
         /// </summary>
         [Input("platformArn")]
@@ -492,7 +492,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
         /// <summary>
         /// A solution stack to base your environment
-        /// off of. Example stacks can be found in the [Amazon API documentation][1]
+        /// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         /// </summary>
         [Input("solutionStackName")]
         public Input<string>? SolutionStackName { get; set; }

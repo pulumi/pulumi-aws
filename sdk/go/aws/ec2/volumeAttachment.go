@@ -18,12 +18,12 @@ type VolumeAttachment struct {
 	pulumi.CustomResourceState
 
 	// The device name to expose to the instance (for
-	// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
+	// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
 	DeviceName pulumi.StringOutput `pulumi:"deviceName"`
 	// Set to `true` if you want to force the
 	// volume to detach. Useful if previous attempts failed, but use this option only
 	// as a last resort, as this can result in **data loss**. See
-	// [Detaching an Amazon EBS Volume from an Instance][3] for more information.
+	// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
 	ForceDetach pulumi.BoolPtrOutput `pulumi:"forceDetach"`
 	// ID of the Instance to attach to
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
@@ -75,12 +75,12 @@ func GetVolumeAttachment(ctx *pulumi.Context,
 // Input properties used for looking up and filtering VolumeAttachment resources.
 type volumeAttachmentState struct {
 	// The device name to expose to the instance (for
-	// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
+	// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
 	DeviceName *string `pulumi:"deviceName"`
 	// Set to `true` if you want to force the
 	// volume to detach. Useful if previous attempts failed, but use this option only
 	// as a last resort, as this can result in **data loss**. See
-	// [Detaching an Amazon EBS Volume from an Instance][3] for more information.
+	// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
 	ForceDetach *bool `pulumi:"forceDetach"`
 	// ID of the Instance to attach to
 	InstanceId *string `pulumi:"instanceId"`
@@ -96,12 +96,12 @@ type volumeAttachmentState struct {
 
 type VolumeAttachmentState struct {
 	// The device name to expose to the instance (for
-	// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
+	// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
 	DeviceName pulumi.StringPtrInput
 	// Set to `true` if you want to force the
 	// volume to detach. Useful if previous attempts failed, but use this option only
 	// as a last resort, as this can result in **data loss**. See
-	// [Detaching an Amazon EBS Volume from an Instance][3] for more information.
+	// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
 	ForceDetach pulumi.BoolPtrInput
 	// ID of the Instance to attach to
 	InstanceId pulumi.StringPtrInput
@@ -121,12 +121,12 @@ func (VolumeAttachmentState) ElementType() reflect.Type {
 
 type volumeAttachmentArgs struct {
 	// The device name to expose to the instance (for
-	// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
+	// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
 	DeviceName string `pulumi:"deviceName"`
 	// Set to `true` if you want to force the
 	// volume to detach. Useful if previous attempts failed, but use this option only
 	// as a last resort, as this can result in **data loss**. See
-	// [Detaching an Amazon EBS Volume from an Instance][3] for more information.
+	// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
 	ForceDetach *bool `pulumi:"forceDetach"`
 	// ID of the Instance to attach to
 	InstanceId string `pulumi:"instanceId"`
@@ -143,12 +143,12 @@ type volumeAttachmentArgs struct {
 // The set of arguments for constructing a VolumeAttachment resource.
 type VolumeAttachmentArgs struct {
 	// The device name to expose to the instance (for
-	// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
+	// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
 	DeviceName pulumi.StringInput
 	// Set to `true` if you want to force the
 	// volume to detach. Useful if previous attempts failed, but use this option only
 	// as a last resort, as this can result in **data loss**. See
-	// [Detaching an Amazon EBS Volume from an Instance][3] for more information.
+	// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
 	ForceDetach pulumi.BoolPtrInput
 	// ID of the Instance to attach to
 	InstanceId pulumi.StringInput

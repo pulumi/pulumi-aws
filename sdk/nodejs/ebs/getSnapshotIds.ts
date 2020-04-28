@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ebsVolumes = aws.ebs.getSnapshotIds({
+ * const ebsVolumes = pulumi.output(aws.ebs.getSnapshotIds({
  *     filters: [
  *         {
  *             name: "volume-size",
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     owners: ["self"],
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot_ids.html.markdown.
@@ -80,7 +80,7 @@ export interface GetSnapshotIdsResult {
     readonly owners?: string[];
     readonly restorableByUserIds?: string[];
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

@@ -51,7 +51,7 @@ class GetFunctionResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if invoke_arn and not isinstance(invoke_arn, str):
             raise TypeError("Expected argument 'invoke_arn' to be a str")

@@ -25,12 +25,12 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Name: "tf-test-resource-share",
  *     },
- * }, {provider: alternate});
- * const receiver = aws.getCallerIdentity();
+ * }, { provider: alternate });
+ * const receiver = pulumi.output(aws.getCallerIdentity({ async: true }));
  * const senderInvite = new aws.ram.PrincipalAssociation("senderInvite", {
  *     principal: receiver.accountId,
  *     resourceShareArn: senderShare.arn,
- * }, {provider: alternate});
+ * }, { provider: alternate });
  * const receiverAccept = new aws.ram.ResourceShareAccepter("receiverAccept", {
  *     shareArn: senderInvite.resourceShareArn,
  * });

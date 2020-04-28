@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * const example = aws_ecs_cluster_example.arn.apply(arn => aws.ecs.getService({
  *     clusterArn: arn,
  *     serviceName: "example",
- * }));
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_service.html.markdown.
@@ -81,7 +81,7 @@ export interface GetServiceResult {
      */
     readonly taskDefinition: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

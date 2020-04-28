@@ -42,7 +42,7 @@ class GetReportDefinitionResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if report_name and not isinstance(report_name, str):
             raise TypeError("Expected argument 'report_name' to be a str")

@@ -39,7 +39,7 @@ class GetCertificateAuthorityResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if not_after and not isinstance(not_after, str):
             raise TypeError("Expected argument 'not_after' to be a str")

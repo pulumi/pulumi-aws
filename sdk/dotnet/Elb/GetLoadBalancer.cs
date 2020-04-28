@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Elb
         public readonly string DnsName;
         public readonly Outputs.GetLoadBalancerHealthCheckResult HealthCheck;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly int IdleTimeout;

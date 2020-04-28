@@ -32,7 +32,7 @@ type LookupGroupResult struct {
 	// The stable and unique string identifying the group.
 	GroupId   string `pulumi:"groupId"`
 	GroupName string `pulumi:"groupName"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The path to the iam user.
 	Path string `pulumi:"path"`

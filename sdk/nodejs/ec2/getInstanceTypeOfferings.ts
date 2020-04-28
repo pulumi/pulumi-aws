@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.ec2.getInstanceTypeOfferings({
+ * const example = pulumi.output(aws.ec2.getInstanceTypeOfferings({
  *     filters: [
  *         {
  *             name: "instance-type",
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     locationType: "availability-zone-id",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_instance_type_offerings.html.markdown.
@@ -77,7 +77,7 @@ export interface GetInstanceTypeOfferingsResult {
     readonly instanceTypes: string[];
     readonly locationType?: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

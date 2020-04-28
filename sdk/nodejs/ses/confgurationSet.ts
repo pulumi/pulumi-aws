@@ -4,6 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/** @deprecated aws.ConfgurationSet has been deprecated in favour of aws.ConfigurationSet */
 export class ConfgurationSet extends pulumi.CustomResource {
     /**
      * Get an existing ConfgurationSet resource's state with the given name, ID, and optional extra
@@ -14,6 +15,7 @@ export class ConfgurationSet extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ConfgurationSetState, opts?: pulumi.CustomResourceOptions): ConfgurationSet {
+        pulumi.log.warn("ConfgurationSet is deprecated: aws.ConfgurationSet has been deprecated in favour of aws.ConfigurationSet")
         return new ConfgurationSet(name, <any>state, { ...opts, id: id });
     }
 
@@ -40,8 +42,11 @@ export class ConfgurationSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.ConfgurationSet has been deprecated in favour of aws.ConfigurationSet */
     constructor(name: string, args?: ConfgurationSetArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.ConfgurationSet has been deprecated in favour of aws.ConfigurationSet */
     constructor(name: string, argsOrState?: ConfgurationSetArgs | ConfgurationSetState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ConfgurationSet is deprecated: aws.ConfgurationSet has been deprecated in favour of aws.ConfigurationSet")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ConfgurationSetState | undefined;

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
  * Creates an Amazon CloudFront origin access identity.
  * 
  * For information about CloudFront distributions, see the
- * [Amazon CloudFront Developer Guide][1]. For more information on generating
+ * [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For more information on generating
  * origin access identities, see
  * [Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content][2].
  * 
@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  *             resources: [aws_s3_bucket_exampleArn1],
  *         },
  *     ],
- * }));
+ * }, { async: true }));
  * const example = new aws.s3.BucketPolicy("example", {
  *     bucket: aws_s3_bucket_example.id,
  *     policy: s3Policy.json,

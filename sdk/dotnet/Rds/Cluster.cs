@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds
 {
     /// <summary>
-    /// Manages a [RDS Aurora Cluster][2]. To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the [`aws.rds.ClusterInstance` resource](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html). To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the [`aws.rds.Instance` resource](https://www.terraform.io/docs/providers/aws/r/db_instance.html).
+    /// Manages a [RDS Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html). To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the [`aws.rds.ClusterInstance` resource](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html). To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the [`aws.rds.Instance` resource](https://www.terraform.io/docs/providers/aws/r/db_instance.html).
     /// 
     /// For information on the difference between the available Aurora MySQL engines
     /// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Rds
     /// (see documentation below).
     /// 
     /// &gt; **Note:** using `apply_immediately` can result in a
-    /// brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance][4]
+    /// brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html)
     /// for more information.
     /// 
     /// &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> CopyTagsToSnapshot { get; private set; } = null!;
 
         /// <summary>
-        /// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints][5]
+        /// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
@@ -195,13 +195,13 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints][5]
+        /// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
         /// </summary>
         [Output("masterPassword")]
         public Output<string?> MasterPassword { get; private set; } = null!;
 
         /// <summary>
-        /// Username for the master DB user. Please refer to the [RDS Naming Constraints][5]. This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+        /// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         /// </summary>
         [Output("masterUsername")]
         public Output<string> MasterUsername { get; private set; } = null!;
@@ -393,7 +393,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? CopyTagsToSnapshot { get; set; }
 
         /// <summary>
-        /// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints][5]
+        /// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
@@ -493,13 +493,13 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints][5]
+        /// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
         /// </summary>
         [Input("masterPassword")]
         public Input<string>? MasterPassword { get; set; }
 
         /// <summary>
-        /// Username for the master DB user. Please refer to the [RDS Naming Constraints][5]. This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+        /// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         /// </summary>
         [Input("masterUsername")]
         public Input<string>? MasterUsername { get; set; }
@@ -669,7 +669,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? CopyTagsToSnapshot { get; set; }
 
         /// <summary>
-        /// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints][5]
+        /// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
@@ -781,13 +781,13 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints][5]
+        /// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
         /// </summary>
         [Input("masterPassword")]
         public Input<string>? MasterPassword { get; set; }
 
         /// <summary>
-        /// Username for the master DB user. Please refer to the [RDS Naming Constraints][5]. This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+        /// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         /// </summary>
         [Input("masterUsername")]
         public Input<string>? MasterUsername { get; set; }

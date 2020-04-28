@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const exampleNetworkAcls = aws.ec2.getNetworkAcls({
+ * const exampleNetworkAcls = pulumi.output(aws.ec2.getNetworkAcls({
  *     vpcId: var_vpc_id,
- * });
+ * }, { async: true }));
  * 
  * export const example = exampleNetworkAcls.ids;
  * ```
@@ -71,7 +71,7 @@ export interface GetNetworkAclsResult {
     readonly tags: {[key: string]: any};
     readonly vpcId?: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

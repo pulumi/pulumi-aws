@@ -41,7 +41,7 @@ type LookupZoneResult struct {
 	CallerReference string `pulumi:"callerReference"`
 	// The comment field of the Hosted Zone.
 	Comment string `pulumi:"comment"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The description provided by the service that created the Hosted Zone (e.g. `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
 	LinkedServiceDescription string `pulumi:"linkedServiceDescription"`

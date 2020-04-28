@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  * });
  * const fooRecorderStatus = new aws.cfg.RecorderStatus("foo", {
  *     isEnabled: true,
- * }, {dependsOn: [fooDeliveryChannel]});
+ * }, { dependsOn: [fooDeliveryChannel] });
  * const rolePolicyAttachment = new aws.iam.RolePolicyAttachment("a", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSConfigRole",
  *     role: role.name,

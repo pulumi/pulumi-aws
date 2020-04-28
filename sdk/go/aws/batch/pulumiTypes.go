@@ -263,79 +263,152 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Elem() ComputeEnvironmentCo
 
 // The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllocationStrategy
+	}).(pulumi.StringPtrOutput)
 }
 
 // Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) BidPercentage() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *int { return v.BidPercentage }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BidPercentage
+	}).(pulumi.IntPtrOutput)
 }
 
 // The desired number of EC2 vCPUS in the compute environment.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) DesiredVcpus() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *int { return v.DesiredVcpus }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DesiredVcpus
+	}).(pulumi.IntPtrOutput)
 }
 
 // The EC2 key pair that is used for instances launched in the compute environment.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Ec2KeyPair() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.Ec2KeyPair }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Ec2KeyPair
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) ImageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.ImageId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
-func (o ComputeEnvironmentComputeResourcesPtrOutput) InstanceRole() pulumi.StringOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) string { return v.InstanceRole }).(pulumi.StringOutput)
+func (o ComputeEnvironmentComputeResourcesPtrOutput) InstanceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceRole
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of instance types that may be launched.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) InstanceTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) []string { return v.InstanceTypes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceTypes
+	}).(pulumi.StringArrayOutput)
 }
 
 // The launch template to use for your compute resources. See details below.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) LaunchTemplate() ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *ComputeEnvironmentComputeResourcesLaunchTemplate {
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *ComputeEnvironmentComputeResourcesLaunchTemplate {
+		if v == nil {
+			return nil
+		}
 		return v.LaunchTemplate
 	}).(ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput)
 }
 
 // The maximum number of EC2 vCPUs that an environment can reach.
-func (o ComputeEnvironmentComputeResourcesPtrOutput) MaxVcpus() pulumi.IntOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) int { return v.MaxVcpus }).(pulumi.IntOutput)
+func (o ComputeEnvironmentComputeResourcesPtrOutput) MaxVcpus() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxVcpus
+	}).(pulumi.IntPtrOutput)
 }
 
 // The minimum number of EC2 vCPUs that an environment should maintain.
-func (o ComputeEnvironmentComputeResourcesPtrOutput) MinVcpus() pulumi.IntOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) int { return v.MinVcpus }).(pulumi.IntOutput)
+func (o ComputeEnvironmentComputeResourcesPtrOutput) MinVcpus() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinVcpus
+	}).(pulumi.IntPtrOutput)
 }
 
 // A list of EC2 security group that are associated with instances launched in the compute environment.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) SpotIamFleetRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.SpotIamFleetRole }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpotIamFleetRole
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of VPC subnets into which the compute resources are launched.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Subnets() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
 }
 
 // Key-value pair tags to be applied to resources that are launched in the compute environment.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Tags() pulumi.MapOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.MapOutput)
 }
 
 // The type of compute environment. Valid items are `EC2` or `SPOT`.
-func (o ComputeEnvironmentComputeResourcesPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) string { return v.Type }).(pulumi.StringOutput)
+func (o ComputeEnvironmentComputeResourcesPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type ComputeEnvironmentComputeResourcesLaunchTemplate struct {
@@ -483,20 +556,36 @@ func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) Elem() Comput
 
 // ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
 func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResourcesLaunchTemplate) *string { return v.LaunchTemplateId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResourcesLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchTemplateId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Name of the launch template.
 func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResourcesLaunchTemplate) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResourcesLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchTemplateName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The version number of the launch template. Default: The default version of the launch template.
 func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResourcesLaunchTemplate) *string { return v.Version }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResourcesLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
 }
 
 type JobDefinitionRetryStrategy struct {
+	// The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
 	Attempts *int `pulumi:"attempts"`
 }
 
@@ -513,6 +602,7 @@ type JobDefinitionRetryStrategyInput interface {
 }
 
 type JobDefinitionRetryStrategyArgs struct {
+	// The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
 	Attempts pulumi.IntPtrInput `pulumi:"attempts"`
 }
 
@@ -593,6 +683,8 @@ func (o JobDefinitionRetryStrategyOutput) ToJobDefinitionRetryStrategyPtrOutputW
 		return &v
 	}).(JobDefinitionRetryStrategyPtrOutput)
 }
+
+// The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
 func (o JobDefinitionRetryStrategyOutput) Attempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobDefinitionRetryStrategy) *int { return v.Attempts }).(pulumi.IntPtrOutput)
 }
@@ -615,11 +707,18 @@ func (o JobDefinitionRetryStrategyPtrOutput) Elem() JobDefinitionRetryStrategyOu
 	return o.ApplyT(func(v *JobDefinitionRetryStrategy) JobDefinitionRetryStrategy { return *v }).(JobDefinitionRetryStrategyOutput)
 }
 
+// The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
 func (o JobDefinitionRetryStrategyPtrOutput) Attempts() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v JobDefinitionRetryStrategy) *int { return v.Attempts }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *JobDefinitionRetryStrategy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Attempts
+	}).(pulumi.IntPtrOutput)
 }
 
 type JobDefinitionTimeout struct {
+	// The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
 	AttemptDurationSeconds *int `pulumi:"attemptDurationSeconds"`
 }
 
@@ -636,6 +735,7 @@ type JobDefinitionTimeoutInput interface {
 }
 
 type JobDefinitionTimeoutArgs struct {
+	// The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
 	AttemptDurationSeconds pulumi.IntPtrInput `pulumi:"attemptDurationSeconds"`
 }
 
@@ -716,6 +816,8 @@ func (o JobDefinitionTimeoutOutput) ToJobDefinitionTimeoutPtrOutputWithContext(c
 		return &v
 	}).(JobDefinitionTimeoutPtrOutput)
 }
+
+// The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
 func (o JobDefinitionTimeoutOutput) AttemptDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobDefinitionTimeout) *int { return v.AttemptDurationSeconds }).(pulumi.IntPtrOutput)
 }
@@ -738,8 +840,14 @@ func (o JobDefinitionTimeoutPtrOutput) Elem() JobDefinitionTimeoutOutput {
 	return o.ApplyT(func(v *JobDefinitionTimeout) JobDefinitionTimeout { return *v }).(JobDefinitionTimeoutOutput)
 }
 
+// The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
 func (o JobDefinitionTimeoutPtrOutput) AttemptDurationSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v JobDefinitionTimeout) *int { return v.AttemptDurationSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *JobDefinitionTimeout) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AttemptDurationSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetJobQueueComputeEnvironmentOrder struct {

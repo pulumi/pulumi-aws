@@ -189,37 +189,72 @@ func (o DomainClusterConfigPtrOutput) Elem() DomainClusterConfigOutput {
 
 // Number of dedicated master nodes in the cluster
 func (o DomainClusterConfigPtrOutput) DedicatedMasterCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DomainClusterConfig) *int { return v.DedicatedMasterCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *DomainClusterConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DedicatedMasterCount
+	}).(pulumi.IntPtrOutput)
 }
 
 // Indicates whether dedicated master nodes are enabled for the cluster.
 func (o DomainClusterConfigPtrOutput) DedicatedMasterEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.DedicatedMasterEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *DomainClusterConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DedicatedMasterEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Instance type of the dedicated master nodes in the cluster.
 func (o DomainClusterConfigPtrOutput) DedicatedMasterType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainClusterConfig) *string { return v.DedicatedMasterType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainClusterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DedicatedMasterType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Number of instances in the cluster.
 func (o DomainClusterConfigPtrOutput) InstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DomainClusterConfig) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *DomainClusterConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
 }
 
 // Instance type of data nodes in the cluster.
 func (o DomainClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainClusterConfig) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainClusterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Configuration block containing zone awareness settings. Documented below.
 func (o DomainClusterConfigPtrOutput) ZoneAwarenessConfig() DomainClusterConfigZoneAwarenessConfigPtrOutput {
-	return o.ApplyT(func(v DomainClusterConfig) *DomainClusterConfigZoneAwarenessConfig { return v.ZoneAwarenessConfig }).(DomainClusterConfigZoneAwarenessConfigPtrOutput)
+	return o.ApplyT(func(v *DomainClusterConfig) *DomainClusterConfigZoneAwarenessConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ZoneAwarenessConfig
+	}).(DomainClusterConfigZoneAwarenessConfigPtrOutput)
 }
 
 // Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
 func (o DomainClusterConfigPtrOutput) ZoneAwarenessEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.ZoneAwarenessEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *DomainClusterConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ZoneAwarenessEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type DomainClusterConfigZoneAwarenessConfig struct {
@@ -347,7 +382,12 @@ func (o DomainClusterConfigZoneAwarenessConfigPtrOutput) Elem() DomainClusterCon
 
 // Number of Availability Zones for the domain to use with `zoneAwarenessEnabled`. Defaults to `2`. Valid values: `2` or `3`.
 func (o DomainClusterConfigZoneAwarenessConfigPtrOutput) AvailabilityZoneCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DomainClusterConfigZoneAwarenessConfig) *int { return v.AvailabilityZoneCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *DomainClusterConfigZoneAwarenessConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZoneCount
+	}).(pulumi.IntPtrOutput)
 }
 
 type DomainCognitoOptions struct {
@@ -502,22 +542,42 @@ func (o DomainCognitoOptionsPtrOutput) Elem() DomainCognitoOptionsOutput {
 
 // Specifies whether Amazon Cognito authentication with Kibana is enabled or not
 func (o DomainCognitoOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DomainCognitoOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *DomainCognitoOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // ID of the Cognito Identity Pool to use
-func (o DomainCognitoOptionsPtrOutput) IdentityPoolId() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainCognitoOptions) string { return v.IdentityPoolId }).(pulumi.StringOutput)
+func (o DomainCognitoOptionsPtrOutput) IdentityPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainCognitoOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IdentityPoolId
+	}).(pulumi.StringPtrOutput)
 }
 
 // ARN of the IAM role that has the AmazonESCognitoAccess policy attached
-func (o DomainCognitoOptionsPtrOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainCognitoOptions) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o DomainCognitoOptionsPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainCognitoOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // ID of the Cognito User Pool to use
-func (o DomainCognitoOptionsPtrOutput) UserPoolId() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainCognitoOptions) string { return v.UserPoolId }).(pulumi.StringOutput)
+func (o DomainCognitoOptionsPtrOutput) UserPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainCognitoOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserPoolId
+	}).(pulumi.StringPtrOutput)
 }
 
 type DomainDomainEndpointOptions struct {
@@ -653,13 +713,23 @@ func (o DomainDomainEndpointOptionsPtrOutput) Elem() DomainDomainEndpointOptions
 }
 
 // Whether or not to require HTTPS
-func (o DomainDomainEndpointOptionsPtrOutput) EnforceHttps() pulumi.BoolOutput {
-	return o.ApplyT(func(v DomainDomainEndpointOptions) bool { return v.EnforceHttps }).(pulumi.BoolOutput)
+func (o DomainDomainEndpointOptionsPtrOutput) EnforceHttps() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainDomainEndpointOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnforceHttps
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
 func (o DomainDomainEndpointOptionsPtrOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainDomainEndpointOptions) *string { return v.TlsSecurityPolicy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainDomainEndpointOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TlsSecurityPolicy
+	}).(pulumi.StringPtrOutput)
 }
 
 type DomainEbsOptions struct {
@@ -819,25 +889,45 @@ func (o DomainEbsOptionsPtrOutput) Elem() DomainEbsOptionsOutput {
 }
 
 // Whether EBS volumes are attached to data nodes in the domain.
-func (o DomainEbsOptionsPtrOutput) EbsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v DomainEbsOptions) bool { return v.EbsEnabled }).(pulumi.BoolOutput)
+func (o DomainEbsOptionsPtrOutput) EbsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainEbsOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EbsEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The baseline input/output (I/O) performance of EBS volumes
 // attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
 func (o DomainEbsOptionsPtrOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DomainEbsOptions) *int { return v.Iops }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *DomainEbsOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
 }
 
 // The size of EBS volumes attached to data nodes (in GB).
 // **Required** if `ebsEnabled` is set to `true`.
 func (o DomainEbsOptionsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DomainEbsOptions) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *DomainEbsOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSize
+	}).(pulumi.IntPtrOutput)
 }
 
 // The type of EBS volumes attached to data nodes.
 func (o DomainEbsOptionsPtrOutput) VolumeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainEbsOptions) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainEbsOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeType
+	}).(pulumi.StringPtrOutput)
 }
 
 type DomainEncryptAtRest struct {
@@ -973,13 +1063,23 @@ func (o DomainEncryptAtRestPtrOutput) Elem() DomainEncryptAtRestOutput {
 }
 
 // Specifies whether Amazon Cognito authentication with Kibana is enabled or not
-func (o DomainEncryptAtRestPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v DomainEncryptAtRest) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o DomainEncryptAtRestPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainEncryptAtRest) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
 func (o DomainEncryptAtRestPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainEncryptAtRest) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainEncryptAtRest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
 }
 
 type DomainLogPublishingOption struct {
@@ -1223,8 +1323,13 @@ func (o DomainNodeToNodeEncryptionPtrOutput) Elem() DomainNodeToNodeEncryptionOu
 }
 
 // Specifies whether Amazon Cognito authentication with Kibana is enabled or not
-func (o DomainNodeToNodeEncryptionPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v DomainNodeToNodeEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o DomainNodeToNodeEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainNodeToNodeEncryption) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type DomainSnapshotOptions struct {
@@ -1355,8 +1460,13 @@ func (o DomainSnapshotOptionsPtrOutput) Elem() DomainSnapshotOptionsOutput {
 
 // Hour during which the service takes an automated daily
 // snapshot of the indices in the domain.
-func (o DomainSnapshotOptionsPtrOutput) AutomatedSnapshotStartHour() pulumi.IntOutput {
-	return o.ApplyT(func(v DomainSnapshotOptions) int { return v.AutomatedSnapshotStartHour }).(pulumi.IntOutput)
+func (o DomainSnapshotOptionsPtrOutput) AutomatedSnapshotStartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainSnapshotOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.AutomatedSnapshotStartHour
+	}).(pulumi.IntPtrOutput)
 }
 
 type DomainVpcOptions struct {
@@ -1503,21 +1613,41 @@ func (o DomainVpcOptionsPtrOutput) Elem() DomainVpcOptionsOutput {
 }
 
 func (o DomainVpcOptionsPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DomainVpcOptions) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *DomainVpcOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZones
+	}).(pulumi.StringArrayOutput)
 }
 
 // List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
 func (o DomainVpcOptionsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DomainVpcOptions) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *DomainVpcOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
 func (o DomainVpcOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DomainVpcOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *DomainVpcOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o DomainVpcOptionsPtrOutput) VpcId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainVpcOptions) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainVpcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetDomainClusterConfig struct {

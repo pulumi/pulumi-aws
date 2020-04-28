@@ -39,7 +39,7 @@ type GetInstancesArgs struct {
 // A collection of values returned by getInstances.
 type GetInstancesResult struct {
 	Filters []GetInstancesFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// IDs of instances found through the filter
 	Ids                []string               `pulumi:"ids"`

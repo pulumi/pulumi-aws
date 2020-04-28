@@ -36,7 +36,7 @@ type GetRegionResult struct {
 	Description string `pulumi:"description"`
 	// The EC2 endpoint for the selected region.
 	Endpoint string `pulumi:"endpoint"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the selected region.
 	Name string `pulumi:"name"`

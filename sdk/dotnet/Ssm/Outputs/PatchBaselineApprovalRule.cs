@@ -27,7 +27,6 @@ namespace Pulumi.Aws.Ssm.Outputs
         public readonly bool? EnableNonSecurity;
         /// <summary>
         /// The patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid Keys are `PATCH_SET | PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
-        /// * `PATCH_SET` defaults to `OS` if unspecified
         /// </summary>
         public readonly ImmutableArray<Outputs.PatchBaselineApprovalRulePatchFilter> PatchFilters;
 

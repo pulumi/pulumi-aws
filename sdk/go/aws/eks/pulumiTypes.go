@@ -135,7 +135,12 @@ func (o ClusterCertificateAuthorityPtrOutput) Elem() ClusterCertificateAuthority
 
 // The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 func (o ClusterCertificateAuthorityPtrOutput) Data() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterCertificateAuthority) *string { return v.Data }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ClusterCertificateAuthority) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Data
+	}).(pulumi.StringPtrOutput)
 }
 
 type ClusterEncryptionConfig struct {
@@ -271,13 +276,23 @@ func (o ClusterEncryptionConfigPtrOutput) Elem() ClusterEncryptionConfigOutput {
 }
 
 // Configuration block with provider for encryption. Detailed below.
-func (o ClusterEncryptionConfigPtrOutput) Provider() ClusterEncryptionConfigProviderOutput {
-	return o.ApplyT(func(v ClusterEncryptionConfig) ClusterEncryptionConfigProvider { return v.Provider }).(ClusterEncryptionConfigProviderOutput)
+func (o ClusterEncryptionConfigPtrOutput) Provider() ClusterEncryptionConfigProviderPtrOutput {
+	return o.ApplyT(func(v *ClusterEncryptionConfig) *ClusterEncryptionConfigProvider {
+		if v == nil {
+			return nil
+		}
+		return &v.Provider
+	}).(ClusterEncryptionConfigProviderPtrOutput)
 }
 
 // List of strings with resources to be encrypted. Valid values: `secrets`
 func (o ClusterEncryptionConfigPtrOutput) Resources() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ClusterEncryptionConfig) []string { return v.Resources }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ClusterEncryptionConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Resources
+	}).(pulumi.StringArrayOutput)
 }
 
 type ClusterEncryptionConfigProvider struct {
@@ -314,6 +329,48 @@ func (i ClusterEncryptionConfigProviderArgs) ToClusterEncryptionConfigProviderOu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigProviderOutput)
 }
 
+func (i ClusterEncryptionConfigProviderArgs) ToClusterEncryptionConfigProviderPtrOutput() ClusterEncryptionConfigProviderPtrOutput {
+	return i.ToClusterEncryptionConfigProviderPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterEncryptionConfigProviderArgs) ToClusterEncryptionConfigProviderPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigProviderOutput).ToClusterEncryptionConfigProviderPtrOutputWithContext(ctx)
+}
+
+// ClusterEncryptionConfigProviderPtrInput is an input type that accepts ClusterEncryptionConfigProviderArgs, ClusterEncryptionConfigProviderPtr and ClusterEncryptionConfigProviderPtrOutput values.
+// You can construct a concrete instance of `ClusterEncryptionConfigProviderPtrInput` via:
+//
+// 		 ClusterEncryptionConfigProviderArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ClusterEncryptionConfigProviderPtrInput interface {
+	pulumi.Input
+
+	ToClusterEncryptionConfigProviderPtrOutput() ClusterEncryptionConfigProviderPtrOutput
+	ToClusterEncryptionConfigProviderPtrOutputWithContext(context.Context) ClusterEncryptionConfigProviderPtrOutput
+}
+
+type clusterEncryptionConfigProviderPtrType ClusterEncryptionConfigProviderArgs
+
+func ClusterEncryptionConfigProviderPtr(v *ClusterEncryptionConfigProviderArgs) ClusterEncryptionConfigProviderPtrInput {
+	return (*clusterEncryptionConfigProviderPtrType)(v)
+}
+
+func (*clusterEncryptionConfigProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEncryptionConfigProvider)(nil)).Elem()
+}
+
+func (i *clusterEncryptionConfigProviderPtrType) ToClusterEncryptionConfigProviderPtrOutput() ClusterEncryptionConfigProviderPtrOutput {
+	return i.ToClusterEncryptionConfigProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterEncryptionConfigProviderPtrType) ToClusterEncryptionConfigProviderPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigProviderPtrOutput)
+}
+
 type ClusterEncryptionConfigProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterEncryptionConfigProviderOutput) ElementType() reflect.Type {
@@ -328,9 +385,47 @@ func (o ClusterEncryptionConfigProviderOutput) ToClusterEncryptionConfigProvider
 	return o
 }
 
+func (o ClusterEncryptionConfigProviderOutput) ToClusterEncryptionConfigProviderPtrOutput() ClusterEncryptionConfigProviderPtrOutput {
+	return o.ToClusterEncryptionConfigProviderPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterEncryptionConfigProviderOutput) ToClusterEncryptionConfigProviderPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPtrOutput {
+	return o.ApplyT(func(v ClusterEncryptionConfigProvider) *ClusterEncryptionConfigProvider {
+		return &v
+	}).(ClusterEncryptionConfigProviderPtrOutput)
+}
+
 // Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
 func (o ClusterEncryptionConfigProviderOutput) KeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterEncryptionConfigProvider) string { return v.KeyArn }).(pulumi.StringOutput)
+}
+
+type ClusterEncryptionConfigProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterEncryptionConfigProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEncryptionConfigProvider)(nil)).Elem()
+}
+
+func (o ClusterEncryptionConfigProviderPtrOutput) ToClusterEncryptionConfigProviderPtrOutput() ClusterEncryptionConfigProviderPtrOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigProviderPtrOutput) ToClusterEncryptionConfigProviderPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPtrOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigProviderPtrOutput) Elem() ClusterEncryptionConfigProviderOutput {
+	return o.ApplyT(func(v *ClusterEncryptionConfigProvider) ClusterEncryptionConfigProvider { return *v }).(ClusterEncryptionConfigProviderOutput)
+}
+
+// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+func (o ClusterEncryptionConfigProviderPtrOutput) KeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterEncryptionConfigProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type ClusterIdentity struct {
@@ -710,37 +805,72 @@ func (o ClusterVpcConfigPtrOutput) Elem() ClusterVpcConfigOutput {
 
 // The cluster security group that was created by Amazon EKS for the cluster.
 func (o ClusterVpcConfigPtrOutput) ClusterSecurityGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterVpcConfig) *string { return v.ClusterSecurityGroupId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ClusterVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterSecurityGroupId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
 func (o ClusterVpcConfigPtrOutput) EndpointPrivateAccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ClusterVpcConfig) *bool { return v.EndpointPrivateAccess }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *ClusterVpcConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointPrivateAccess
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
 func (o ClusterVpcConfigPtrOutput) EndpointPublicAccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ClusterVpcConfig) *bool { return v.EndpointPublicAccess }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *ClusterVpcConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointPublicAccess
+	}).(pulumi.BoolPtrOutput)
 }
 
 // List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
 func (o ClusterVpcConfigPtrOutput) PublicAccessCidrs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ClusterVpcConfig) []string { return v.PublicAccessCidrs }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ClusterVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicAccessCidrs
+	}).(pulumi.StringArrayOutput)
 }
 
 // List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
 func (o ClusterVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ClusterVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ClusterVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
 func (o ClusterVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ClusterVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ClusterVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // The VPC associated with your cluster.
 func (o ClusterVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ClusterVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
 }
 
 type FargateProfileSelector struct {
@@ -985,12 +1115,22 @@ func (o NodeGroupRemoteAccessPtrOutput) Elem() NodeGroupRemoteAccessOutput {
 
 // EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `sourceSecurityGroupIds` when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
 func (o NodeGroupRemoteAccessPtrOutput) Ec2SshKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NodeGroupRemoteAccess) *string { return v.Ec2SshKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *NodeGroupRemoteAccess) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Ec2SshKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2SshKey`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
 func (o NodeGroupRemoteAccessPtrOutput) SourceSecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v NodeGroupRemoteAccess) []string { return v.SourceSecurityGroupIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *NodeGroupRemoteAccess) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceSecurityGroupIds
+	}).(pulumi.StringArrayOutput)
 }
 
 type NodeGroupResource struct {
@@ -1342,18 +1482,33 @@ func (o NodeGroupScalingConfigPtrOutput) Elem() NodeGroupScalingConfigOutput {
 }
 
 // Desired number of worker nodes.
-func (o NodeGroupScalingConfigPtrOutput) DesiredSize() pulumi.IntOutput {
-	return o.ApplyT(func(v NodeGroupScalingConfig) int { return v.DesiredSize }).(pulumi.IntOutput)
+func (o NodeGroupScalingConfigPtrOutput) DesiredSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodeGroupScalingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DesiredSize
+	}).(pulumi.IntPtrOutput)
 }
 
 // Maximum number of worker nodes.
-func (o NodeGroupScalingConfigPtrOutput) MaxSize() pulumi.IntOutput {
-	return o.ApplyT(func(v NodeGroupScalingConfig) int { return v.MaxSize }).(pulumi.IntOutput)
+func (o NodeGroupScalingConfigPtrOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodeGroupScalingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxSize
+	}).(pulumi.IntPtrOutput)
 }
 
 // Minimum number of worker nodes.
-func (o NodeGroupScalingConfigPtrOutput) MinSize() pulumi.IntOutput {
-	return o.ApplyT(func(v NodeGroupScalingConfig) int { return v.MinSize }).(pulumi.IntOutput)
+func (o NodeGroupScalingConfigPtrOutput) MinSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodeGroupScalingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinSize
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetClusterCertificateAuthority struct {
@@ -1720,6 +1875,7 @@ func init() {
 	pulumi.RegisterOutputType(ClusterEncryptionConfigOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigProviderOutput{})
+	pulumi.RegisterOutputType(ClusterEncryptionConfigProviderPtrOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityArrayOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityOidcOutput{})

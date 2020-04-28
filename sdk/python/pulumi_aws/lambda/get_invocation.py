@@ -21,7 +21,7 @@ class GetInvocationResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if input and not isinstance(input, str):
             raise TypeError("Expected argument 'input' to be a str")

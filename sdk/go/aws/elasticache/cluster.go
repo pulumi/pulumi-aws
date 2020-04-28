@@ -18,13 +18,13 @@ import (
 // a difference in its planning phase because the actual modification has not yet taken
 // place. You can use the `applyImmediately` flag to instruct the service to apply the
 // change immediately. Using `applyImmediately` can result in a brief downtime as the server reboots.
-// See the AWS Docs on [Modifying an ElastiCache Cache Cluster][2] for more information.
+// See the AWS Docs on [Modifying an ElastiCache Cache Cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Clusters.Modify.html) for more information.
 type Cluster struct {
 	pulumi.CustomResourceState
 
 	// Specifies whether any database modifications
 	// are applied immediately, or during the next maintenance window. Default is
-	// `false`. See [Amazon ElastiCache Documentation for more information.][1]
+	// `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
 	// (Available since v0.6.0)
 	ApplyImmediately pulumi.BoolOutput   `pulumi:"applyImmediately"`
 	Arn              pulumi.StringOutput `pulumi:"arn"`
@@ -133,7 +133,7 @@ func GetCluster(ctx *pulumi.Context,
 type clusterState struct {
 	// Specifies whether any database modifications
 	// are applied immediately, or during the next maintenance window. Default is
-	// `false`. See [Amazon ElastiCache Documentation for more information.][1]
+	// `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
 	// (Available since v0.6.0)
 	ApplyImmediately *bool   `pulumi:"applyImmediately"`
 	Arn              *string `pulumi:"arn"`
@@ -215,7 +215,7 @@ type clusterState struct {
 type ClusterState struct {
 	// Specifies whether any database modifications
 	// are applied immediately, or during the next maintenance window. Default is
-	// `false`. See [Amazon ElastiCache Documentation for more information.][1]
+	// `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
 	// (Available since v0.6.0)
 	ApplyImmediately pulumi.BoolPtrInput
 	Arn              pulumi.StringPtrInput
@@ -301,7 +301,7 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// Specifies whether any database modifications
 	// are applied immediately, or during the next maintenance window. Default is
-	// `false`. See [Amazon ElastiCache Documentation for more information.][1]
+	// `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
 	// (Available since v0.6.0)
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
 	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.
@@ -376,7 +376,7 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	// Specifies whether any database modifications
 	// are applied immediately, or during the next maintenance window. Default is
-	// `false`. See [Amazon ElastiCache Documentation for more information.][1]
+	// `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html)
 	// (Available since v0.6.0)
 	ApplyImmediately pulumi.BoolPtrInput
 	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.

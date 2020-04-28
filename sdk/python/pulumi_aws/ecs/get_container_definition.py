@@ -45,7 +45,7 @@ class GetContainerDefinitionResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if image and not isinstance(image, str):
             raise TypeError("Expected argument 'image' to be a str")

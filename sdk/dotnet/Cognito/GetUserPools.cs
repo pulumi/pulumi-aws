@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Cognito
     {
         public readonly ImmutableArray<string> Arns;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

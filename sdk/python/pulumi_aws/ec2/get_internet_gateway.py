@@ -24,7 +24,7 @@ class GetInternetGatewayResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if internet_gateway_id and not isinstance(internet_gateway_id, str):
             raise TypeError("Expected argument 'internet_gateway_id' to be a str")

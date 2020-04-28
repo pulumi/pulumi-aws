@@ -17,14 +17,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const exampleAmi = aws.getAmi({
+ * const exampleAmi = pulumi.output(aws.getAmi({
  *     filters: [{
  *         name: "name",
  *         values: ["amzn-ami-vpc-nat*"],
  *     }],
  *     mostRecent: true,
  *     owners: ["amazon"],
- * });
+ * }, { async: true }));
  * const exampleInstance = new aws.ec2.Instance("example", {
  *     ami: exampleAmi.id,
  *     instanceType: "t2.micro",

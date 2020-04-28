@@ -153,7 +153,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The [ARN][2] of the Elastic Beanstalk [Platform][3]
+     * The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
      * to use in deployment
      */
     public readonly platformArn!: pulumi.Output<string>;
@@ -176,7 +176,7 @@ export class Environment extends pulumi.CustomResource {
     public readonly settings!: pulumi.Output<outputs.elasticbeanstalk.EnvironmentSetting[] | undefined>;
     /**
      * A solution stack to base your environment
-     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
     public readonly solutionStackName!: pulumi.Output<string>;
     /**
@@ -340,7 +340,7 @@ export interface EnvironmentState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The [ARN][2] of the Elastic Beanstalk [Platform][3]
+     * The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
      * to use in deployment
      */
     readonly platformArn?: pulumi.Input<string>;
@@ -363,7 +363,7 @@ export interface EnvironmentState {
     readonly settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.EnvironmentSetting>[]>;
     /**
      * A solution stack to base your environment
-     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
     readonly solutionStackName?: pulumi.Input<string>;
     /**
@@ -422,7 +422,7 @@ export interface EnvironmentArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The [ARN][2] of the Elastic Beanstalk [Platform][3]
+     * The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
      * to use in deployment
      */
     readonly platformArn?: pulumi.Input<string>;
@@ -441,7 +441,7 @@ export interface EnvironmentArgs {
     readonly settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.EnvironmentSetting>[]>;
     /**
      * A solution stack to base your environment
-     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
     readonly solutionStackName?: pulumi.Input<string>;
     /**

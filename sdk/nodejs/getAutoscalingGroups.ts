@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const groups = aws.getAutoscalingGroups({
+ * const groups = pulumi.output(aws.getAutoscalingGroups({
  *     filters: [
  *         {
  *             name: "key",
@@ -29,7 +29,7 @@ import * as utilities from "./utilities";
  *             values: ["Pets"],
  *         },
  *     ],
- * });
+ * }, { async: true }));
  * const slackNotifications = new aws.autoscaling.Notification("slackNotifications", {
  *     groupNames: groups.names,
  *     notifications: [
@@ -82,7 +82,7 @@ export interface GetAutoscalingGroupsResult {
      */
     readonly names: string[];
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

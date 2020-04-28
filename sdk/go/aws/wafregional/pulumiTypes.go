@@ -1579,8 +1579,13 @@ func (o WebAclDefaultActionPtrOutput) Elem() WebAclDefaultActionOutput {
 }
 
 // Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
-func (o WebAclDefaultActionPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclDefaultAction) string { return v.Type }).(pulumi.StringOutput)
+func (o WebAclDefaultActionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclDefaultAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type WebAclLoggingConfiguration struct {
@@ -1716,13 +1721,23 @@ func (o WebAclLoggingConfigurationPtrOutput) Elem() WebAclLoggingConfigurationOu
 }
 
 // Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
-func (o WebAclLoggingConfigurationPtrOutput) LogDestination() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclLoggingConfiguration) string { return v.LogDestination }).(pulumi.StringOutput)
+func (o WebAclLoggingConfigurationPtrOutput) LogDestination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogDestination
+	}).(pulumi.StringPtrOutput)
 }
 
 // Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
 func (o WebAclLoggingConfigurationPtrOutput) RedactedFields() WebAclLoggingConfigurationRedactedFieldsPtrOutput {
-	return o.ApplyT(func(v WebAclLoggingConfiguration) *WebAclLoggingConfigurationRedactedFields { return v.RedactedFields }).(WebAclLoggingConfigurationRedactedFieldsPtrOutput)
+	return o.ApplyT(func(v *WebAclLoggingConfiguration) *WebAclLoggingConfigurationRedactedFields {
+		if v == nil {
+			return nil
+		}
+		return v.RedactedFields
+	}).(WebAclLoggingConfigurationRedactedFieldsPtrOutput)
 }
 
 type WebAclLoggingConfigurationRedactedFields struct {
@@ -1852,7 +1867,10 @@ func (o WebAclLoggingConfigurationRedactedFieldsPtrOutput) Elem() WebAclLoggingC
 
 // Set of configuration blocks for fields to redact. Detailed below.
 func (o WebAclLoggingConfigurationRedactedFieldsPtrOutput) FieldToMatches() WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayOutput {
-	return o.ApplyT(func(v WebAclLoggingConfigurationRedactedFields) []WebAclLoggingConfigurationRedactedFieldsFieldToMatch {
+	return o.ApplyT(func(v *WebAclLoggingConfigurationRedactedFields) []WebAclLoggingConfigurationRedactedFieldsFieldToMatch {
+		if v == nil {
+			return nil
+		}
 		return v.FieldToMatches
 	}).(WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayOutput)
 }
@@ -2227,8 +2245,13 @@ func (o WebAclRuleActionPtrOutput) Elem() WebAclRuleActionOutput {
 }
 
 // Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
-func (o WebAclRuleActionPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleAction) string { return v.Type }).(pulumi.StringOutput)
+func (o WebAclRuleActionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type WebAclRuleOverrideAction struct {
@@ -2355,8 +2378,13 @@ func (o WebAclRuleOverrideActionPtrOutput) Elem() WebAclRuleOverrideActionOutput
 }
 
 // Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
-func (o WebAclRuleOverrideActionPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleOverrideAction) string { return v.Type }).(pulumi.StringOutput)
+func (o WebAclRuleOverrideActionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleOverrideAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type XssMatchSetXssMatchTuple struct {

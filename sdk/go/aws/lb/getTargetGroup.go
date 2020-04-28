@@ -38,7 +38,7 @@ type LookupTargetGroupResult struct {
 	ArnSuffix           string                    `pulumi:"arnSuffix"`
 	DeregistrationDelay int                       `pulumi:"deregistrationDelay"`
 	HealthCheck         GetTargetGroupHealthCheck `pulumi:"healthCheck"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                             string                   `pulumi:"id"`
 	LambdaMultiValueHeadersEnabled bool                     `pulumi:"lambdaMultiValueHeadersEnabled"`
 	Name                           string                   `pulumi:"name"`

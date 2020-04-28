@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * const ecsMongo = aws_ecs_task_definition_mongo.id.apply(id => aws.ecs.getContainerDefinition({
  *     containerName: "mongodb",
  *     taskDefinition: id,
- * }));
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_container_definition.html.markdown.
@@ -93,7 +93,7 @@ export interface GetContainerDefinitionResult {
     readonly memoryReservation: number;
     readonly taskDefinition: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

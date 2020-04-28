@@ -270,17 +270,32 @@ func (o EndpointConnectionLogOptionsPtrOutput) Elem() EndpointConnectionLogOptio
 
 // The name of the CloudWatch Logs log group.
 func (o EndpointConnectionLogOptionsPtrOutput) CloudwatchLogGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointConnectionLogOptions) *string { return v.CloudwatchLogGroup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointConnectionLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogGroup
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the CloudWatch Logs log stream to which the connection data is published.
 func (o EndpointConnectionLogOptionsPtrOutput) CloudwatchLogStream() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointConnectionLogOptions) *string { return v.CloudwatchLogStream }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointConnectionLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogStream
+	}).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether connection logging is enabled.
-func (o EndpointConnectionLogOptionsPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v EndpointConnectionLogOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o EndpointConnectionLogOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointConnectionLogOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 func init() {

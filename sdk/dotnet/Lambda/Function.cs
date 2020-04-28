@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Lambda
     /// <summary>
     /// Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS, enabling serverless backend solutions. The Lambda Function itself includes source code and runtime configuration.
     /// 
-    /// For information about Lambda and how to use it, see [What is AWS Lambda?][1]
+    /// For information about Lambda and how to use it, see [What is AWS Lambda?](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
     /// 
     /// &gt; **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), EC2 subnets and security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
     /// 
@@ -20,8 +20,8 @@ namespace Pulumi.Aws.Lambda
     /// ## Specifying the Deployment Package
     /// 
     /// AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use.
-    /// See [Runtimes][6] for the valid values of `runtime`. The expected structure of the deployment package can be found in
-    /// [the AWS Lambda documentation for each runtime][8].
+    /// See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `runtime`. The expected structure of the deployment package can be found in
+    /// [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).
     /// 
     /// Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
     /// indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Lambda
         public Output<Outputs.FunctionEnvironment?> Environment { get; private set; } = null!;
 
         /// <summary>
-        /// The function [entrypoint][3] in your code.
+        /// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         /// </summary>
         [Output("handler")]
         public Output<string> Handler { get; private set; } = null!;
@@ -87,13 +87,13 @@ namespace Pulumi.Aws.Lambda
         public Output<string> LastModified { get; private set; } = null!;
 
         /// <summary>
-        /// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
+        /// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
         /// </summary>
         [Output("layers")]
         public Output<ImmutableArray<string>> Layers { get; private set; } = null!;
 
         /// <summary>
-        /// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
+        /// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         /// </summary>
         [Output("memorySize")]
         public Output<int?> MemorySize { get; private set; } = null!;
@@ -118,19 +118,19 @@ namespace Pulumi.Aws.Lambda
         public Output<string> QualifiedArn { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
+        /// The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         /// </summary>
         [Output("reservedConcurrentExecutions")]
         public Output<int?> ReservedConcurrentExecutions { get; private set; } = null!;
 
         /// <summary>
-        /// IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
+        /// IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details.
         /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
 
         /// <summary>
-        /// See [Runtimes][6] for valid values.
+        /// See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         /// </summary>
         [Output("runtime")]
         public Output<string> Runtime { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Lambda
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
+        /// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         /// </summary>
         [Output("timeout")]
         public Output<int?> Timeout { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Version { get; private set; } = null!;
 
         /// <summary>
-        /// Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
+        /// Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC](http://docs.aws.amazon.com/lambda/latest/dg/vpc.html)
         /// </summary>
         [Output("vpcConfig")]
         public Output<Outputs.FunctionVpcConfig?> VpcConfig { get; private set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.FunctionEnvironmentArgs>? Environment { get; set; }
 
         /// <summary>
-        /// The function [entrypoint][3] in your code.
+        /// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         /// </summary>
         [Input("handler", required: true)]
         public Input<string> Handler { get; set; } = null!;
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _layers;
 
         /// <summary>
-        /// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
+        /// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
         /// </summary>
         public InputList<string> Layers
         {
@@ -287,7 +287,7 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
-        /// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
+        /// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         /// </summary>
         [Input("memorySize")]
         public Input<int>? MemorySize { get; set; }
@@ -305,19 +305,19 @@ namespace Pulumi.Aws.Lambda
         public Input<bool>? Publish { get; set; }
 
         /// <summary>
-        /// The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
+        /// The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         /// </summary>
         [Input("reservedConcurrentExecutions")]
         public Input<int>? ReservedConcurrentExecutions { get; set; }
 
         /// <summary>
-        /// IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
+        /// IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details.
         /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
 
         /// <summary>
-        /// See [Runtimes][6] for valid values.
+        /// See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         /// </summary>
         [Input("runtime", required: true)]
         public Input<string> Runtime { get; set; } = null!;
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
-        /// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
+        /// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.FunctionTracingConfigArgs>? TracingConfig { get; set; }
 
         /// <summary>
-        /// Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
+        /// Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC](http://docs.aws.amazon.com/lambda/latest/dg/vpc.html)
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.FunctionVpcConfigArgs>? VpcConfig { get; set; }
@@ -411,7 +411,7 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.FunctionEnvironmentGetArgs>? Environment { get; set; }
 
         /// <summary>
-        /// The function [entrypoint][3] in your code.
+        /// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         /// </summary>
         [Input("handler")]
         public Input<string>? Handler { get; set; }
@@ -438,7 +438,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _layers;
 
         /// <summary>
-        /// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
+        /// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
         /// </summary>
         public InputList<string> Layers
         {
@@ -447,7 +447,7 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
-        /// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
+        /// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         /// </summary>
         [Input("memorySize")]
         public Input<int>? MemorySize { get; set; }
@@ -472,19 +472,19 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? QualifiedArn { get; set; }
 
         /// <summary>
-        /// The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
+        /// The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         /// </summary>
         [Input("reservedConcurrentExecutions")]
         public Input<int>? ReservedConcurrentExecutions { get; set; }
 
         /// <summary>
-        /// IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
+        /// IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 
         /// <summary>
-        /// See [Runtimes][6] for valid values.
+        /// See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         /// </summary>
         [Input("runtime")]
         public Input<string>? Runtime { get; set; }
@@ -532,7 +532,7 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
-        /// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
+        /// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
@@ -547,7 +547,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Version { get; set; }
 
         /// <summary>
-        /// Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
+        /// Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC](http://docs.aws.amazon.com/lambda/latest/dg/vpc.html)
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.FunctionVpcConfigGetArgs>? VpcConfig { get; set; }

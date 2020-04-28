@@ -153,17 +153,32 @@ func (o AliasRoutingStrategyPtrOutput) Elem() AliasRoutingStrategyOutput {
 
 // ID of the Gamelift Fleet to point the alias to.
 func (o AliasRoutingStrategyPtrOutput) FleetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AliasRoutingStrategy) *string { return v.FleetId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AliasRoutingStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FleetId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Message text to be used with the `TERMINAL` routing strategy.
 func (o AliasRoutingStrategyPtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AliasRoutingStrategy) *string { return v.Message }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AliasRoutingStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
 }
 
 // Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
-func (o AliasRoutingStrategyPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AliasRoutingStrategy) string { return v.Type }).(pulumi.StringOutput)
+func (o AliasRoutingStrategyPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AliasRoutingStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type BuildStorageLocation struct {
@@ -308,18 +323,33 @@ func (o BuildStorageLocationPtrOutput) Elem() BuildStorageLocationOutput {
 }
 
 // Name of your S3 bucket.
-func (o BuildStorageLocationPtrOutput) Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v BuildStorageLocation) string { return v.Bucket }).(pulumi.StringOutput)
+func (o BuildStorageLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
 }
 
 // Name of the zip file containing your build files.
-func (o BuildStorageLocationPtrOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v BuildStorageLocation) string { return v.Key }).(pulumi.StringOutput)
+func (o BuildStorageLocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
 }
 
 // ARN of the access role that allows Amazon GameLift to access your S3 bucket.
-func (o BuildStorageLocationPtrOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v BuildStorageLocation) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o BuildStorageLocationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type FleetEc2InboundPermission struct {
@@ -582,12 +612,22 @@ func (o FleetResourceCreationLimitPolicyPtrOutput) Elem() FleetResourceCreationL
 
 // Maximum number of game sessions that an individual can create during the policy period.
 func (o FleetResourceCreationLimitPolicyPtrOutput) NewGameSessionsPerCreator() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FleetResourceCreationLimitPolicy) *int { return v.NewGameSessionsPerCreator }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *FleetResourceCreationLimitPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NewGameSessionsPerCreator
+	}).(pulumi.IntPtrOutput)
 }
 
 // Time span used in evaluating the resource creation limit policy.
 func (o FleetResourceCreationLimitPolicyPtrOutput) PolicyPeriodInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FleetResourceCreationLimitPolicy) *int { return v.PolicyPeriodInMinutes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *FleetResourceCreationLimitPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyPeriodInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 type FleetRuntimeConfiguration struct {
@@ -733,17 +773,32 @@ func (o FleetRuntimeConfigurationPtrOutput) Elem() FleetRuntimeConfigurationOutp
 
 // Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
 func (o FleetRuntimeConfigurationPtrOutput) GameSessionActivationTimeoutSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FleetRuntimeConfiguration) *int { return v.GameSessionActivationTimeoutSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *FleetRuntimeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.GameSessionActivationTimeoutSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
 func (o FleetRuntimeConfigurationPtrOutput) MaxConcurrentGameSessionActivations() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FleetRuntimeConfiguration) *int { return v.MaxConcurrentGameSessionActivations }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *FleetRuntimeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentGameSessionActivations
+	}).(pulumi.IntPtrOutput)
 }
 
 // Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
 func (o FleetRuntimeConfigurationPtrOutput) ServerProcesses() FleetRuntimeConfigurationServerProcessArrayOutput {
-	return o.ApplyT(func(v FleetRuntimeConfiguration) []FleetRuntimeConfigurationServerProcess { return v.ServerProcesses }).(FleetRuntimeConfigurationServerProcessArrayOutput)
+	return o.ApplyT(func(v *FleetRuntimeConfiguration) []FleetRuntimeConfigurationServerProcess {
+		if v == nil {
+			return nil
+		}
+		return v.ServerProcesses
+	}).(FleetRuntimeConfigurationServerProcessArrayOutput)
 }
 
 type FleetRuntimeConfigurationServerProcess struct {

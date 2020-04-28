@@ -149,7 +149,7 @@ export class Permission extends pulumi.CustomResource {
      */
     public readonly action!: pulumi.Output<string>;
     /**
-     * The Event Source Token to validate.  Used with [Alexa Skills][1].
+     * The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
      */
     public readonly eventSourceToken!: pulumi.Output<string | undefined>;
     /**
@@ -252,7 +252,7 @@ export interface PermissionState {
      */
     readonly action?: pulumi.Input<string>;
     /**
-     * The Event Source Token to validate.  Used with [Alexa Skills][1].
+     * The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
      */
     readonly eventSourceToken?: pulumi.Input<string>;
     /**
@@ -303,7 +303,7 @@ export interface PermissionArgs {
      */
     readonly action: pulumi.Input<string>;
     /**
-     * The Event Source Token to validate.  Used with [Alexa Skills][1].
+     * The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
      */
     readonly eventSourceToken?: pulumi.Input<string>;
     /**

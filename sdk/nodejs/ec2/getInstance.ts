@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const foo = aws.ec2.getInstance({
+ * const foo = pulumi.output(aws.ec2.getInstance({
  *     filters: [
  *         {
  *             name: "image-id",
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     instanceId: "i-instanceid",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instance.html.markdown.
@@ -228,7 +228,7 @@ export interface GetInstanceResult {
      */
     readonly vpcSecurityGroupIds: string[];
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

@@ -14,9 +14,9 @@ class Service(pulumi.CustomResource):
     """
     The capacity provider strategy to use for the service. Can be one or more.  Defined below.
 
-      * `base` (`float`)
-      * `capacityProvider` (`str`)
-      * `weight` (`float`)
+      * `base` (`float`) - The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+      * `capacityProvider` (`str`) - The short name or full Amazon Resource Name (ARN) of the capacity provider.
+      * `weight` (`float`) - The relative percentage of the total number of launched tasks that should use the specified capacity provider.
     """
     cluster: pulumi.Output[str]
     """
@@ -26,7 +26,7 @@ class Service(pulumi.CustomResource):
     """
     Configuration block containing deployment controller configuration. Defined below.
 
-      * `type` (`str`)
+      * `type` (`str`) - Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
     """
     deployment_maximum_percent: pulumi.Output[float]
     """
@@ -60,10 +60,10 @@ class Service(pulumi.CustomResource):
     """
     A load balancer block. Load balancers documented below.
 
-      * `container_name` (`str`)
-      * `containerPort` (`float`)
-      * `elbName` (`str`)
-      * `target_group_arn` (`str`)
+      * `container_name` (`str`) - The name of the container to associate with the load balancer (as it appears in a container definition).
+      * `containerPort` (`float`) - The port on the container to associate with the load balancer.
+      * `elbName` (`str`) - The name of the ELB (Classic) to associate with the service.
+      * `target_group_arn` (`str`) - The ARN of the Load Balancer target group to associate with the service.
     """
     name: pulumi.Output[str]
     """
@@ -73,24 +73,31 @@ class Service(pulumi.CustomResource):
     """
     The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes.
 
-      * `assignPublicIp` (`bool`)
-      * `security_groups` (`list`)
-      * `subnets` (`list`)
+      * `assignPublicIp` (`bool`) - Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+      * `security_groups` (`list`) - The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+      * `subnets` (`list`) - The subnets associated with the task or service.
     """
     ordered_placement_strategies: pulumi.Output[list]
     """
     Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
 
-      * `field` (`str`)
-      * `type` (`str`)
+      * `field` (`str`) - For the `spread` placement strategy, valid values are `instanceId` (or `host`,
+        which has the same effect), or any platform or custom attribute that is applied to a container instance.
+        For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
+        needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
+      * `type` (`str`) - The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
     """
     placement_constraints: pulumi.Output[list]
     """
     rules that are taken into consideration during task placement. Maximum number of
     `placement_constraints` is `10`. Defined below.
 
-      * `expression` (`str`)
-      * `type` (`str`)
+      * `expression` (`str`) - Cluster Query Language expression to apply to the constraint. Does not need to be specified
+        for the `distinctInstance` type.
+        For more information, see [Cluster Query Language in the Amazon EC2 Container
+        Service Developer
+        Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+      * `type` (`str`) - The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
     """
     platform_version: pulumi.Output[str]
     """
@@ -108,10 +115,10 @@ class Service(pulumi.CustomResource):
     """
     The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
 
-      * `container_name` (`str`)
-      * `containerPort` (`float`)
-      * `port` (`float`)
-      * `registryArn` (`str`)
+      * `container_name` (`str`) - The container name value, already specified in the task definition, to be used for your service discovery service.
+      * `containerPort` (`float`) - The port value, already specified in the task definition, to be used for your service discovery service.
+      * `port` (`float`) - The port value used if your Service Discovery service specified an SRV record.
+      * `registryArn` (`str`) - The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
     """
     tags: pulumi.Output[dict]
     """
@@ -134,72 +141,6 @@ class Service(pulumi.CustomResource):
         See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
 
 
-        ## capacity_provider_strategy
-
-        The `capacity_provider_strategy` configuration block supports the following:
-
-        * `capacity_provider` - (Required) The short name or full Amazon Resource Name (ARN) of the capacity provider.
-        * `weight` - (Required) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
-        * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-
-        ## deployment_controller
-
-        The `deployment_controller` configuration block supports the following:
-
-        * `type` - (Optional) Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
-
-        ## load_balancer
-
-        `load_balancer` supports the following:
-
-        * `elb_name` - (Required for ELB Classic) The name of the ELB (Classic) to associate with the service.
-        * `target_group_arn` - (Required for ALB/NLB) The ARN of the Load Balancer target group to associate with the service.
-        * `container_name` - (Required) The name of the container to associate with the load balancer (as it appears in a container definition).
-        * `container_port` - (Required) The port on the container to associate with the load balancer.
-
-        > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
-
-        ## ordered_placement_strategy
-
-        `ordered_placement_strategy` supports the following:
-
-        * `type` - (Required) The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
-        * `field` - (Optional) For the `spread` placement strategy, valid values are `instanceId` (or `host`,
-         which has the same effect), or any platform or custom attribute that is applied to a container instance.
-         For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
-         needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
-
-        > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
-
-        ## placement_constraints
-
-        `placement_constraints` support the following:
-
-        * `type` - (Required) The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
-        * `expression` -  (Optional) Cluster Query Language expression to apply to the constraint. Does not need to be specified
-        for the `distinctInstance` type.
-        For more information, see [Cluster Query Language in the Amazon EC2 Container
-        Service Developer
-        Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-
-        ## network_configuration
-
-        `network_configuration` support the following:
-
-        * `subnets` - (Required) The subnets associated with the task or service.
-        * `security_groups` - (Optional) The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
-        * `assign_public_ip` - (Optional) Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-
-        For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
-
-        ## service_registries
-
-        `service_registries` support the following:
-
-        * `registry_arn` - (Required) The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
-        * `port` - (Optional) The port value used if your Service Discovery service specified an SRV record.
-        * `container_port` - (Optional) The port value, already specified in the task definition, to be used for your service discovery service.
-        * `container_name` - (Optional) The container name value, already specified in the task definition, to be used for your service discovery service.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,43 +170,50 @@ class Service(pulumi.CustomResource):
 
         The **capacity_provider_strategies** object supports the following:
 
-          * `base` (`pulumi.Input[float]`)
-          * `capacityProvider` (`pulumi.Input[str]`)
-          * `weight` (`pulumi.Input[float]`)
+          * `base` (`pulumi.Input[float]`) - The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+          * `capacityProvider` (`pulumi.Input[str]`) - The short name or full Amazon Resource Name (ARN) of the capacity provider.
+          * `weight` (`pulumi.Input[float]`) - The relative percentage of the total number of launched tasks that should use the specified capacity provider.
 
         The **deployment_controller** object supports the following:
 
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
 
         The **load_balancers** object supports the following:
 
-          * `container_name` (`pulumi.Input[str]`)
-          * `containerPort` (`pulumi.Input[float]`)
-          * `elbName` (`pulumi.Input[str]`)
-          * `target_group_arn` (`pulumi.Input[str]`)
+          * `container_name` (`pulumi.Input[str]`) - The name of the container to associate with the load balancer (as it appears in a container definition).
+          * `containerPort` (`pulumi.Input[float]`) - The port on the container to associate with the load balancer.
+          * `elbName` (`pulumi.Input[str]`) - The name of the ELB (Classic) to associate with the service.
+          * `target_group_arn` (`pulumi.Input[str]`) - The ARN of the Load Balancer target group to associate with the service.
 
         The **network_configuration** object supports the following:
 
-          * `assignPublicIp` (`pulumi.Input[bool]`)
-          * `security_groups` (`pulumi.Input[list]`)
-          * `subnets` (`pulumi.Input[list]`)
+          * `assignPublicIp` (`pulumi.Input[bool]`) - Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+          * `security_groups` (`pulumi.Input[list]`) - The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+          * `subnets` (`pulumi.Input[list]`) - The subnets associated with the task or service.
 
         The **ordered_placement_strategies** object supports the following:
 
-          * `field` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`)
+          * `field` (`pulumi.Input[str]`) - For the `spread` placement strategy, valid values are `instanceId` (or `host`,
+            which has the same effect), or any platform or custom attribute that is applied to a container instance.
+            For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
+            needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
+          * `type` (`pulumi.Input[str]`) - The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
 
         The **placement_constraints** object supports the following:
 
-          * `expression` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`)
+          * `expression` (`pulumi.Input[str]`) - Cluster Query Language expression to apply to the constraint. Does not need to be specified
+            for the `distinctInstance` type.
+            For more information, see [Cluster Query Language in the Amazon EC2 Container
+            Service Developer
+            Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+          * `type` (`pulumi.Input[str]`) - The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
 
         The **service_registries** object supports the following:
 
-          * `container_name` (`pulumi.Input[str]`)
-          * `containerPort` (`pulumi.Input[float]`)
-          * `port` (`pulumi.Input[float]`)
-          * `registryArn` (`pulumi.Input[str]`)
+          * `container_name` (`pulumi.Input[str]`) - The container name value, already specified in the task definition, to be used for your service discovery service.
+          * `containerPort` (`pulumi.Input[float]`) - The port value, already specified in the task definition, to be used for your service discovery service.
+          * `port` (`pulumi.Input[float]`) - The port value used if your Service Discovery service specified an SRV record.
+          * `registryArn` (`pulumi.Input[str]`) - The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -349,43 +297,50 @@ class Service(pulumi.CustomResource):
 
         The **capacity_provider_strategies** object supports the following:
 
-          * `base` (`pulumi.Input[float]`)
-          * `capacityProvider` (`pulumi.Input[str]`)
-          * `weight` (`pulumi.Input[float]`)
+          * `base` (`pulumi.Input[float]`) - The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+          * `capacityProvider` (`pulumi.Input[str]`) - The short name or full Amazon Resource Name (ARN) of the capacity provider.
+          * `weight` (`pulumi.Input[float]`) - The relative percentage of the total number of launched tasks that should use the specified capacity provider.
 
         The **deployment_controller** object supports the following:
 
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
 
         The **load_balancers** object supports the following:
 
-          * `container_name` (`pulumi.Input[str]`)
-          * `containerPort` (`pulumi.Input[float]`)
-          * `elbName` (`pulumi.Input[str]`)
-          * `target_group_arn` (`pulumi.Input[str]`)
+          * `container_name` (`pulumi.Input[str]`) - The name of the container to associate with the load balancer (as it appears in a container definition).
+          * `containerPort` (`pulumi.Input[float]`) - The port on the container to associate with the load balancer.
+          * `elbName` (`pulumi.Input[str]`) - The name of the ELB (Classic) to associate with the service.
+          * `target_group_arn` (`pulumi.Input[str]`) - The ARN of the Load Balancer target group to associate with the service.
 
         The **network_configuration** object supports the following:
 
-          * `assignPublicIp` (`pulumi.Input[bool]`)
-          * `security_groups` (`pulumi.Input[list]`)
-          * `subnets` (`pulumi.Input[list]`)
+          * `assignPublicIp` (`pulumi.Input[bool]`) - Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+          * `security_groups` (`pulumi.Input[list]`) - The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+          * `subnets` (`pulumi.Input[list]`) - The subnets associated with the task or service.
 
         The **ordered_placement_strategies** object supports the following:
 
-          * `field` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`)
+          * `field` (`pulumi.Input[str]`) - For the `spread` placement strategy, valid values are `instanceId` (or `host`,
+            which has the same effect), or any platform or custom attribute that is applied to a container instance.
+            For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
+            needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
+          * `type` (`pulumi.Input[str]`) - The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
 
         The **placement_constraints** object supports the following:
 
-          * `expression` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`)
+          * `expression` (`pulumi.Input[str]`) - Cluster Query Language expression to apply to the constraint. Does not need to be specified
+            for the `distinctInstance` type.
+            For more information, see [Cluster Query Language in the Amazon EC2 Container
+            Service Developer
+            Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+          * `type` (`pulumi.Input[str]`) - The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
 
         The **service_registries** object supports the following:
 
-          * `container_name` (`pulumi.Input[str]`)
-          * `containerPort` (`pulumi.Input[float]`)
-          * `port` (`pulumi.Input[float]`)
-          * `registryArn` (`pulumi.Input[str]`)
+          * `container_name` (`pulumi.Input[str]`) - The container name value, already specified in the task definition, to be used for your service discovery service.
+          * `containerPort` (`pulumi.Input[float]`) - The port value, already specified in the task definition, to be used for your service discovery service.
+          * `port` (`pulumi.Input[float]`) - The port value used if your Service Discovery service specified an SRV record.
+          * `registryArn` (`pulumi.Input[str]`) - The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

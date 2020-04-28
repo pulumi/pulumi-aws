@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * 
  * const defaultNatGateway = aws_subnet_public.id.apply(id => aws.ec2.getNatGateway({
  *     subnetId: id,
- * }));
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/nat_gateway.html.markdown.

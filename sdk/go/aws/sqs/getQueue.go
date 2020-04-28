@@ -31,7 +31,7 @@ type LookupQueueArgs struct {
 type LookupQueueResult struct {
 	// The Amazon Resource Name (ARN) of the queue.
 	Arn string `pulumi:"arn"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// A mapping of tags for the resource.

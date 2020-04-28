@@ -36,7 +36,7 @@ class GetRepositoryResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if repository_id and not isinstance(repository_id, str):
             raise TypeError("Expected argument 'repository_id' to be a str")

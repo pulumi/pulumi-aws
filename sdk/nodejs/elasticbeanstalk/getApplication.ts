@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.elasticbeanstalk.getApplication({
+ * const example = pulumi.output(aws.elasticbeanstalk.getApplication({
  *     name: "example",
- * });
+ * }, { async: true }));
  * 
  * export const arn = example.arn;
  * export const description = example.description;
@@ -65,7 +65,7 @@ export interface GetApplicationResult {
     readonly description: string;
     readonly name: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

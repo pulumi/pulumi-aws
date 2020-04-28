@@ -19,9 +19,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * // Declare the data source
- * const s3 = aws.ec2.getVpcEndpointService({
+ * const s3 = pulumi.output(aws.ec2.getVpcEndpointService({
  *     service: "s3",
- * });
+ * }, { async: true }));
  * // Create a VPC
  * const foo = new aws.ec2.Vpc("foo", {
  *     cidrBlock: "10.0.0.0/16",
@@ -39,9 +39,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const custome = aws.ec2.getVpcEndpointService({
+ * const custome = pulumi.output(aws.ec2.getVpcEndpointService({
  *     serviceName: "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8",
- * });
+ * }, { async: true }));
  * ```
  * 
  * ### Filter
@@ -50,12 +50,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const test = aws.ec2.getVpcEndpointService({
+ * const test = pulumi.output(aws.ec2.getVpcEndpointService({
  *     filters: [{
  *         name: "service-name",
  *         values: ["some-service"],
  *     }],
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint_service.html.markdown.
@@ -147,7 +147,7 @@ export interface GetVpcEndpointServiceResult {
      */
     readonly vpcEndpointPolicySupported: boolean;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

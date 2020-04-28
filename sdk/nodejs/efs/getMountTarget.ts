@@ -20,9 +20,9 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const mountTargetId = config.get("mountTargetId") || "";
  * 
- * const byId = aws.efs.getMountTarget({
+ * const byId = pulumi.output(aws.efs.getMountTarget({
  *     mountTargetId: mountTargetId,
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_mount_target.html.markdown.
@@ -84,7 +84,7 @@ export interface GetMountTargetResult {
      */
     readonly subnetId: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

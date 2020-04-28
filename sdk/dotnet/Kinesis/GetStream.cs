@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Kinesis
         /// Use this data source to get information about a Kinesis Stream for use in other
         /// resources.
         /// 
-        /// For more details, see the [Amazon Kinesis Documentation][1].
+        /// For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
         /// 
         /// {{% examples %}}
         /// {{% /examples %}}
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The list of shard ids in the CLOSED state. See [Shard State][2] for more.
+        /// The list of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
         /// </summary>
         public readonly ImmutableArray<string> ClosedShards;
         /// <summary>
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly int CreationTimestamp;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The list of shard ids in the OPEN state. See [Shard State][2] for more.
+        /// The list of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
         /// </summary>
         public readonly ImmutableArray<string> OpenShards;
         /// <summary>
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly int RetentionPeriod;
         /// <summary>
-        /// A list of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch][3] for more.
+        /// A list of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
         /// </summary>
         public readonly ImmutableArray<string> ShardLevelMetrics;
         /// <summary>

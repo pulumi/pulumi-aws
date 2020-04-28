@@ -37,7 +37,7 @@ type LookupBucketResult struct {
 	BucketRegionalDomainName string `pulumi:"bucketRegionalDomainName"`
 	// The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
 	HostedZoneId string `pulumi:"hostedZoneId"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The AWS region this bucket resides in.
 	Region string `pulumi:"region"`

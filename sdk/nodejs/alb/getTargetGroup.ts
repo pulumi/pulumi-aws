@@ -27,10 +27,10 @@ import * as utilities from "../utilities";
  * const lbTgArn = config.get("lbTgArn") || "";
  * const lbTgName = config.get("lbTgName") || "";
  * 
- * const test = aws.lb.getTargetGroup({
+ * const test = pulumi.output(aws.lb.getTargetGroup({
  *     arn: lbTgArn,
  *     name: lbTgName,
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_target_group.html.markdown.
@@ -85,7 +85,7 @@ export interface GetTargetGroupResult {
     readonly targetType: string;
     readonly vpcId: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

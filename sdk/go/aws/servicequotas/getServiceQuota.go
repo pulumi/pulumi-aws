@@ -37,7 +37,7 @@ type LookupServiceQuotaResult struct {
 	DefaultValue float64 `pulumi:"defaultValue"`
 	// Whether the service quota is global for the AWS account.
 	GlobalQuota bool `pulumi:"globalQuota"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id          string `pulumi:"id"`
 	QuotaCode   string `pulumi:"quotaCode"`
 	QuotaName   string `pulumi:"quotaName"`

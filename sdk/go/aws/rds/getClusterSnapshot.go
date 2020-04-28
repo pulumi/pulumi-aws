@@ -58,7 +58,7 @@ type LookupClusterSnapshotResult struct {
 	Engine string `pulumi:"engine"`
 	// Version of the database engine for this DB cluster snapshot.
 	EngineVersion string `pulumi:"engineVersion"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id            string `pulumi:"id"`
 	IncludePublic *bool  `pulumi:"includePublic"`
 	IncludeShared *bool  `pulumi:"includeShared"`

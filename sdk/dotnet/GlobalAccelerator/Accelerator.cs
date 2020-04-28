@@ -23,7 +23,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// <summary>
         /// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
         /// * `hosted_zone_id` --  The Global Accelerator Route 53 zone ID that can be used to
-        /// route an [Alias Resource Record Set][1] to the Global Accelerator. This attribute
+        /// route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
         /// is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
         /// </summary>
         [Output("dnsName")]
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// <summary>
         /// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
         /// * `hosted_zone_id` --  The Global Accelerator Route 53 zone ID that can be used to
-        /// route an [Alias Resource Record Set][1] to the Global Accelerator. This attribute
+        /// route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
         /// is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
         /// </summary>
         [Input("dnsName")]

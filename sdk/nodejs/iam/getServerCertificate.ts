@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const myDomain = aws.iam.getServerCertificate({
+ * const myDomain = pulumi.output(aws.iam.getServerCertificate({
  *     latest: true,
  *     namePrefix: "my-domain.org",
- * });
+ * }, { async: true }));
  * const elb = new aws.elb.LoadBalancer("elb", {
  *     listeners: [{
  *         instancePort: 8000,
@@ -93,7 +93,7 @@ export interface GetServerCertificateResult {
     readonly pathPrefix?: string;
     readonly uploadDate: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

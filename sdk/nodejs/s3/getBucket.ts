@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const selected = aws.s3.getBucket({
+ * const selected = pulumi.output(aws.s3.getBucket({
  *     bucket: "bucket.test.com",
- * });
- * const testZone = aws.route53.getZone({
+ * }, { async: true }));
+ * const testZone = pulumi.output(aws.route53.getZone({
  *     name: "test.com.",
- * });
+ * }, { async: true }));
  * const example = new aws.route53.Record("example", {
  *     aliases: [{
  *         name: selected.websiteDomain,
@@ -43,9 +43,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const selected = aws.s3.getBucket({
+ * const selected = pulumi.output(aws.s3.getBucket({
  *     bucket: "a-test-bucket",
- * });
+ * }, { async: true }));
  * const test = new aws.cloudfront.Distribution("test", {
  *     origins: [{
  *         domainName: selected.bucketDomainName,
@@ -113,7 +113,7 @@ export interface GetBucketResult {
      */
     readonly websiteEndpoint: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

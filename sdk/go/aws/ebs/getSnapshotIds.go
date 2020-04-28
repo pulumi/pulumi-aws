@@ -33,7 +33,7 @@ type GetSnapshotIdsArgs struct {
 // A collection of values returned by getSnapshotIds.
 type GetSnapshotIdsResult struct {
 	Filters []GetSnapshotIdsFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                  string   `pulumi:"id"`
 	Ids                 []string `pulumi:"ids"`
 	Owners              []string `pulumi:"owners"`

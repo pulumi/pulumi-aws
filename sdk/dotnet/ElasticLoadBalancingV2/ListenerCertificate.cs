@@ -15,7 +15,12 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// This resource is for additional certificates and does not replace the default certificate on the listener.
     /// 
     /// &gt; **Note:** `aws.alb.ListenerCertificate` is known as `aws.lb.ListenerCertificate`. The functionality is identical.
+    /// 
+    /// 
+    /// 
+    /// Deprecated: aws.ListenerCertificate has been deprecated in favour of aws.ListenerCertificate
     /// </summary>
+    [Obsolete(@"aws.ListenerCertificate has been deprecated in favour of aws.ListenerCertificate")]
     public partial class ListenerCertificate : Pulumi.CustomResource
     {
         /// <summary>

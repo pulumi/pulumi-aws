@@ -21,7 +21,7 @@ import {InstanceType} from "./instanceType";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ubuntu = aws.getAmi({
+ * const ubuntu = pulumi.output(aws.getAmi({
  *     filters: [
  *         {
  *             name: "name",
@@ -34,7 +34,7 @@ import {InstanceType} from "./instanceType";
  *     ],
  *     mostRecent: true,
  *     owners: ["099720109477"], // Canonical
- * });
+ * }, { async: true }));
  * const web = new aws.ec2.Instance("web", {
  *     ami: ubuntu.id,
  *     instanceType: "t2.micro",
@@ -141,7 +141,6 @@ export class Instance extends pulumi.CustomResource {
     /**
      * The IAM Instance Profile to
      * launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-     * * `ipv6AddressCount`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
     public readonly iamInstanceProfile!: pulumi.Output<string | undefined>;
     /**
@@ -159,6 +158,9 @@ export class Instance extends pulumi.CustomResource {
      * The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
      */
     public readonly instanceType!: pulumi.Output<InstanceType>;
+    /**
+     * A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+     */
     public readonly ipv6AddressCount!: pulumi.Output<number>;
     /**
      * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
@@ -445,7 +447,6 @@ export interface InstanceState {
     /**
      * The IAM Instance Profile to
      * launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-     * * `ipv6AddressCount`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
     readonly iamInstanceProfile?: pulumi.Input<string | InstanceProfile>;
     /**
@@ -463,6 +464,9 @@ export interface InstanceState {
      * The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
      */
     readonly instanceType?: pulumi.Input<InstanceType>;
+    /**
+     * A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+     */
     readonly ipv6AddressCount?: pulumi.Input<number>;
     /**
      * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
@@ -634,7 +638,6 @@ export interface InstanceArgs {
     /**
      * The IAM Instance Profile to
      * launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-     * * `ipv6AddressCount`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
     readonly iamInstanceProfile?: pulumi.Input<string | InstanceProfile>;
     /**
@@ -648,6 +651,9 @@ export interface InstanceArgs {
      * The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
      */
     readonly instanceType: pulumi.Input<InstanceType>;
+    /**
+     * A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+     */
     readonly ipv6AddressCount?: pulumi.Input<number>;
     /**
      * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface

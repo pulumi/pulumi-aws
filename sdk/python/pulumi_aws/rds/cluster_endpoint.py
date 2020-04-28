@@ -45,7 +45,7 @@ class ClusterEndpoint(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, cluster_endpoint_identifier=None, cluster_identifier=None, custom_endpoint_type=None, excluded_members=None, static_members=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a RDS Aurora Cluster Endpoint.
-        You can refer to the [User Guide][1].
+        You can refer to the [User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster).
 
 
 

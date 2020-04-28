@@ -107,11 +107,6 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
-        /// * `wait_for_capacity_timeout` (Default: "10m") A maximum
-        /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-        /// wait for ASG instances to be healthy before timing out.  (See also Waiting
-        /// for Capacity below.) Setting this to "0" causes
-        /// this provider to skip all Capacity Waiting behavior.
         /// </summary>
         [Output("enabledMetrics")]
         public Output<ImmutableArray<string>> EnabledMetrics { get; private set; } = null!;
@@ -279,6 +274,13 @@ namespace Pulumi.Aws.AutoScaling
         [Output("vpcZoneIdentifiers")]
         public Output<ImmutableArray<string>> VpcZoneIdentifiers { get; private set; } = null!;
 
+        /// <summary>
+        /// A maximum
+        /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+        /// wait for ASG instances to be healthy before timing out.  (See also Waiting
+        /// for Capacity below.) Setting this to "0" causes
+        /// this provider to skip all Capacity Waiting behavior.
+        /// </summary>
         [Output("waitForCapacityTimeout")]
         public Output<string?> WaitForCapacityTimeout { get; private set; } = null!;
 
@@ -369,11 +371,6 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
-        /// * `wait_for_capacity_timeout` (Default: "10m") A maximum
-        /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-        /// wait for ASG instances to be healthy before timing out.  (See also Waiting
-        /// for Capacity below.) Setting this to "0" causes
-        /// this provider to skip all Capacity Waiting behavior.
         /// </summary>
         public InputList<string> EnabledMetrics
         {
@@ -592,6 +589,13 @@ namespace Pulumi.Aws.AutoScaling
             set => _vpcZoneIdentifiers = value;
         }
 
+        /// <summary>
+        /// A maximum
+        /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+        /// wait for ASG instances to be healthy before timing out.  (See also Waiting
+        /// for Capacity below.) Setting this to "0" causes
+        /// this provider to skip all Capacity Waiting behavior.
+        /// </summary>
         [Input("waitForCapacityTimeout")]
         public Input<string>? WaitForCapacityTimeout { get; set; }
 
@@ -649,11 +653,6 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
-        /// * `wait_for_capacity_timeout` (Default: "10m") A maximum
-        /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-        /// wait for ASG instances to be healthy before timing out.  (See also Waiting
-        /// for Capacity below.) Setting this to "0" causes
-        /// this provider to skip all Capacity Waiting behavior.
         /// </summary>
         public InputList<string> EnabledMetrics
         {
@@ -872,6 +871,13 @@ namespace Pulumi.Aws.AutoScaling
             set => _vpcZoneIdentifiers = value;
         }
 
+        /// <summary>
+        /// A maximum
+        /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+        /// wait for ASG instances to be healthy before timing out.  (See also Waiting
+        /// for Capacity below.) Setting this to "0" causes
+        /// this provider to skip all Capacity Waiting behavior.
+        /// </summary>
         [Input("waitForCapacityTimeout")]
         public Input<string>? WaitForCapacityTimeout { get; set; }
 

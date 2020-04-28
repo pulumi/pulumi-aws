@@ -105,7 +105,7 @@ namespace Pulumi.Aws
         public readonly ImmutableArray<Outputs.GetAvailabilityZonesFilterResult> Filters;
         public readonly ImmutableArray<string> GroupNames;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

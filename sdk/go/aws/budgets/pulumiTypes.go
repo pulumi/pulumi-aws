@@ -225,57 +225,112 @@ func (o BudgetCostTypesPtrOutput) Elem() BudgetCostTypesOutput {
 
 // A boolean value whether to include credits in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeCredit() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeCredit }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeCredit
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether a budget includes discounts. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeDiscount() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeDiscount }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeDiscount
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeOtherSubscription() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeOtherSubscription }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeOtherSubscription
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeRecurring() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeRecurring }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeRecurring
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include refunds in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeRefund() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeRefund }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeRefund
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeSubscription() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeSubscription }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeSubscription
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include support costs in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeSupport() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeSupport }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeSupport
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include tax in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeTax() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeTax }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeTax
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
 func (o BudgetCostTypesPtrOutput) IncludeUpfront() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeUpfront }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeUpfront
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether a budget uses the amortized rate. Defaults to `false`
 func (o BudgetCostTypesPtrOutput) UseAmortized() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.UseAmortized }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseAmortized
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value whether to use blended costs in the cost budget. Defaults to `false`
 func (o BudgetCostTypesPtrOutput) UseBlended() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.UseBlended }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseBlended
+	}).(pulumi.BoolPtrOutput)
 }
 
 type BudgetNotification struct {

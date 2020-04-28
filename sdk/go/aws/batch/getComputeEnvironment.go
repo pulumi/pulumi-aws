@@ -31,7 +31,7 @@ type LookupComputeEnvironmentResult struct {
 	ComputeEnvironmentName string `pulumi:"computeEnvironmentName"`
 	// The ARN of the underlying Amazon ECS cluster used by the compute environment.
 	EcsClusterArn string `pulumi:"ecsClusterArn"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 	ServiceRole string `pulumi:"serviceRole"`

@@ -61,7 +61,7 @@ class GetClusterResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if maintenance_window and not isinstance(maintenance_window, str):
             raise TypeError("Expected argument 'maintenance_window' to be a str")

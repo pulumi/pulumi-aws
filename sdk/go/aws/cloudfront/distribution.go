@@ -13,8 +13,8 @@ import (
 // Creates an Amazon CloudFront web distribution.
 //
 // For information about CloudFront distributions, see the
-// [Amazon CloudFront Developer Guide][1]. For specific information about creating
-// CloudFront web distributions, see the [POST Distribution][2] page in the Amazon
+// [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For specific information about creating
+// CloudFront web distributions, see the [POST Distribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html) page in the Amazon
 // CloudFront API Reference.
 //
 // > **NOTE:** CloudFront distributions take about 15 minutes to a deployed state
@@ -57,7 +57,7 @@ type Distribution struct {
 	// `E2QWRUHAPOMQZL`.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// The CloudFront Route 53 zone ID that can be used to
-	// route an [Alias Resource Record Set][7] to. This attribute is simply an
+	// route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
 	// alias for the zone ID `Z2FDTNDATAQYW2`.
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
 	// The maximum HTTP version to support on the
@@ -193,7 +193,7 @@ type distributionState struct {
 	// `E2QWRUHAPOMQZL`.
 	Etag *string `pulumi:"etag"`
 	// The CloudFront Route 53 zone ID that can be used to
-	// route an [Alias Resource Record Set][7] to. This attribute is simply an
+	// route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
 	// alias for the zone ID `Z2FDTNDATAQYW2`.
 	HostedZoneId *string `pulumi:"hostedZoneId"`
 	// The maximum HTTP version to support on the
@@ -287,7 +287,7 @@ type DistributionState struct {
 	// `E2QWRUHAPOMQZL`.
 	Etag pulumi.StringPtrInput
 	// The CloudFront Route 53 zone ID that can be used to
-	// route an [Alias Resource Record Set][7] to. This attribute is simply an
+	// route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
 	// alias for the zone ID `Z2FDTNDATAQYW2`.
 	HostedZoneId pulumi.StringPtrInput
 	// The maximum HTTP version to support on the

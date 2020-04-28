@@ -33,7 +33,7 @@ type GetInvocationArgs struct {
 // A collection of values returned by getInvocation.
 type GetInvocationResult struct {
 	FunctionName string `pulumi:"functionName"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id        string  `pulumi:"id"`
 	Input     string  `pulumi:"input"`
 	Qualifier *string `pulumi:"qualifier"`

@@ -57,7 +57,8 @@ build:: provider tfgen install_plugins
 
 install_plugins::
 	[ -x "$(shell which pulumi)" ] || ▶ curl -fsSL https://get.pulumi.com | sh -s -- --version "2.0.0-beta.2"
-	pulumi plugin install resource tls 0.18.0
+	pulumi plugin install resource tls 2.0.0
+	pulumi plugin install resource github 1.0.0
 
 lint::
 	#golangci-lint run

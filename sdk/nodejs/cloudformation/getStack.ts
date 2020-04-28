@@ -16,13 +16,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const network = aws.cloudformation.getStack({
+ * const network = pulumi.output(aws.cloudformation.getStack({
  *     name: "my-network-stack",
- * });
+ * }, { async: true }));
  * const web = new aws.ec2.Instance("web", {
  *     ami: "ami-abb07bcb",
  *     instanceType: "t1.micro",
- *     subnetId: network.outputs["SubnetId"],
+ *     subnetId: network.apply(network => network.outputs["SubnetId"]),
  *     tags: {
  *         Name: "HelloWorld",
  *     },
@@ -105,7 +105,7 @@ export interface GetStackResult {
      */
     readonly timeoutInMinutes: number;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

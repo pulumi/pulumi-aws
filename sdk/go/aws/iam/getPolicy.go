@@ -30,7 +30,7 @@ type LookupPolicyResult struct {
 	Arn string `pulumi:"arn"`
 	// The description of the policy.
 	Description string `pulumi:"description"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the IAM policy.
 	Name string `pulumi:"name"`

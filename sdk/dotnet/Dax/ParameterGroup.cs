@@ -11,14 +11,6 @@ namespace Pulumi.Aws.Dax
 {
     /// <summary>
     /// Provides a DAX Parameter Group resource.
-    /// 
-    /// 
-    /// ## parameters
-    /// 
-    /// `parameters` supports the following:
-    /// 
-    /// * `name` - (Required) The name of the parameter.
-    /// * `value` - (Required) The value for the parameter.
     /// </summary>
     public partial class ParameterGroup : Pulumi.CustomResource
     {

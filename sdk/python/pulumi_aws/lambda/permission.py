@@ -16,7 +16,7 @@ class Permission(pulumi.CustomResource):
     """
     event_source_token: pulumi.Output[str]
     """
-    The Event Source Token to validate.  Used with [Alexa Skills][1].
+    The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
     """
     function: pulumi.Output[str]
     """
@@ -65,7 +65,7 @@ class Permission(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
-        :param pulumi.Input[str] event_source_token: The Event Source Token to validate.  Used with [Alexa Skills][1].
+        :param pulumi.Input[str] event_source_token: The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
         :param pulumi.Input[dict] function: Name of the Lambda function whose resource policy you are updating
         :param pulumi.Input[str] principal: The principal who is getting this permission.
                e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal
@@ -131,7 +131,7 @@ class Permission(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
-        :param pulumi.Input[str] event_source_token: The Event Source Token to validate.  Used with [Alexa Skills][1].
+        :param pulumi.Input[str] event_source_token: The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
         :param pulumi.Input[dict] function: Name of the Lambda function whose resource policy you are updating
         :param pulumi.Input[str] principal: The principal who is getting this permission.
                e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal

@@ -144,12 +144,22 @@ func (o ThingTypePropertiesPtrOutput) Elem() ThingTypePropertiesOutput {
 
 // The description of the thing type.
 func (o ThingTypePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ThingTypeProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ThingTypeProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of searchable thing attribute names.
 func (o ThingTypePropertiesPtrOutput) SearchableAttributes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ThingTypeProperties) []string { return v.SearchableAttributes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ThingTypeProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SearchableAttributes
+	}).(pulumi.StringArrayOutput)
 }
 
 type TopicRuleCloudwatchAlarm struct {
@@ -303,23 +313,43 @@ func (o TopicRuleCloudwatchAlarmPtrOutput) Elem() TopicRuleCloudwatchAlarmOutput
 }
 
 // The CloudWatch alarm name.
-func (o TopicRuleCloudwatchAlarmPtrOutput) AlarmName() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleCloudwatchAlarm) string { return v.AlarmName }).(pulumi.StringOutput)
+func (o TopicRuleCloudwatchAlarmPtrOutput) AlarmName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleCloudwatchAlarm) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AlarmName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The IAM role ARN that allows access to the CloudWatch alarm.
-func (o TopicRuleCloudwatchAlarmPtrOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleCloudwatchAlarm) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o TopicRuleCloudwatchAlarmPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleCloudwatchAlarm) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The reason for the alarm change.
-func (o TopicRuleCloudwatchAlarmPtrOutput) StateReason() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleCloudwatchAlarm) string { return v.StateReason }).(pulumi.StringOutput)
+func (o TopicRuleCloudwatchAlarmPtrOutput) StateReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleCloudwatchAlarm) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StateReason
+	}).(pulumi.StringPtrOutput)
 }
 
 // The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-func (o TopicRuleCloudwatchAlarmPtrOutput) StateValue() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleCloudwatchAlarm) string { return v.StateValue }).(pulumi.StringOutput)
+func (o TopicRuleCloudwatchAlarmPtrOutput) StateValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleCloudwatchAlarm) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StateValue
+	}).(pulumi.StringPtrOutput)
 }
 
 type TopicRuleCloudwatchMetric struct {
@@ -491,33 +521,63 @@ func (o TopicRuleCloudwatchMetricPtrOutput) Elem() TopicRuleCloudwatchMetricOutp
 }
 
 // The CloudWatch metric name.
-func (o TopicRuleCloudwatchMetricPtrOutput) MetricName() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleCloudwatchMetric) string { return v.MetricName }).(pulumi.StringOutput)
+func (o TopicRuleCloudwatchMetricPtrOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetricName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The CloudWatch metric namespace name.
-func (o TopicRuleCloudwatchMetricPtrOutput) MetricNamespace() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleCloudwatchMetric) string { return v.MetricNamespace }).(pulumi.StringOutput)
+func (o TopicRuleCloudwatchMetricPtrOutput) MetricNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetricNamespace
+	}).(pulumi.StringPtrOutput)
 }
 
 // An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
 func (o TopicRuleCloudwatchMetricPtrOutput) MetricTimestamp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleCloudwatchMetric) *string { return v.MetricTimestamp }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetricTimestamp
+	}).(pulumi.StringPtrOutput)
 }
 
 // The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
-func (o TopicRuleCloudwatchMetricPtrOutput) MetricUnit() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleCloudwatchMetric) string { return v.MetricUnit }).(pulumi.StringOutput)
+func (o TopicRuleCloudwatchMetricPtrOutput) MetricUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetricUnit
+	}).(pulumi.StringPtrOutput)
 }
 
 // The CloudWatch metric value.
-func (o TopicRuleCloudwatchMetricPtrOutput) MetricValue() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleCloudwatchMetric) string { return v.MetricValue }).(pulumi.StringOutput)
+func (o TopicRuleCloudwatchMetricPtrOutput) MetricValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetricValue
+	}).(pulumi.StringPtrOutput)
 }
 
 // The IAM role ARN that allows access to the CloudWatch metric.
-func (o TopicRuleCloudwatchMetricPtrOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleCloudwatchMetric) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o TopicRuleCloudwatchMetricPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type TopicRuleDynamodb struct {
@@ -716,48 +776,93 @@ func (o TopicRuleDynamodbPtrOutput) Elem() TopicRuleDynamodbOutput {
 }
 
 // The hash key name.
-func (o TopicRuleDynamodbPtrOutput) HashKeyField() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleDynamodb) string { return v.HashKeyField }).(pulumi.StringOutput)
+func (o TopicRuleDynamodbPtrOutput) HashKeyField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HashKeyField
+	}).(pulumi.StringPtrOutput)
 }
 
 // The hash key type. Valid values are "STRING" or "NUMBER".
 func (o TopicRuleDynamodbPtrOutput) HashKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleDynamodb) *string { return v.HashKeyType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HashKeyType
+	}).(pulumi.StringPtrOutput)
 }
 
 // The hash key value.
-func (o TopicRuleDynamodbPtrOutput) HashKeyValue() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleDynamodb) string { return v.HashKeyValue }).(pulumi.StringOutput)
+func (o TopicRuleDynamodbPtrOutput) HashKeyValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HashKeyValue
+	}).(pulumi.StringPtrOutput)
 }
 
 // The action payload.
 func (o TopicRuleDynamodbPtrOutput) PayloadField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleDynamodb) *string { return v.PayloadField }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PayloadField
+	}).(pulumi.StringPtrOutput)
 }
 
 // The range key name.
 func (o TopicRuleDynamodbPtrOutput) RangeKeyField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleDynamodb) *string { return v.RangeKeyField }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RangeKeyField
+	}).(pulumi.StringPtrOutput)
 }
 
 // The range key type. Valid values are "STRING" or "NUMBER".
 func (o TopicRuleDynamodbPtrOutput) RangeKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleDynamodb) *string { return v.RangeKeyType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RangeKeyType
+	}).(pulumi.StringPtrOutput)
 }
 
 // The range key value.
 func (o TopicRuleDynamodbPtrOutput) RangeKeyValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleDynamodb) *string { return v.RangeKeyValue }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RangeKeyValue
+	}).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the IAM role that grants access to the DynamoDB table.
-func (o TopicRuleDynamodbPtrOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleDynamodb) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o TopicRuleDynamodbPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the DynamoDB table.
-func (o TopicRuleDynamodbPtrOutput) TableName() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleDynamodb) string { return v.TableName }).(pulumi.StringOutput)
+func (o TopicRuleDynamodbPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
 }
 
 type TopicRuleElasticsearch struct {
@@ -920,28 +1025,53 @@ func (o TopicRuleElasticsearchPtrOutput) Elem() TopicRuleElasticsearchOutput {
 }
 
 // The endpoint of your Elasticsearch domain.
-func (o TopicRuleElasticsearchPtrOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleElasticsearch) string { return v.Endpoint }).(pulumi.StringOutput)
+func (o TopicRuleElasticsearchPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleElasticsearch) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
 }
 
 // The unique identifier for the document you are storing.
-func (o TopicRuleElasticsearchPtrOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleElasticsearch) string { return v.Id }).(pulumi.StringOutput)
+func (o TopicRuleElasticsearchPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleElasticsearch) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Elasticsearch index where you want to store your data.
-func (o TopicRuleElasticsearchPtrOutput) Index() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleElasticsearch) string { return v.Index }).(pulumi.StringOutput)
+func (o TopicRuleElasticsearchPtrOutput) Index() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleElasticsearch) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Index
+	}).(pulumi.StringPtrOutput)
 }
 
 // The IAM role ARN that has access to Elasticsearch.
-func (o TopicRuleElasticsearchPtrOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleElasticsearch) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o TopicRuleElasticsearchPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleElasticsearch) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The type of document you are storing.
-func (o TopicRuleElasticsearchPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleElasticsearch) string { return v.Type }).(pulumi.StringOutput)
+func (o TopicRuleElasticsearchPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleElasticsearch) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type TopicRuleFirehose struct {
@@ -1086,18 +1216,33 @@ func (o TopicRuleFirehosePtrOutput) Elem() TopicRuleFirehoseOutput {
 }
 
 // The delivery stream name.
-func (o TopicRuleFirehosePtrOutput) DeliveryStreamName() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleFirehose) string { return v.DeliveryStreamName }).(pulumi.StringOutput)
+func (o TopicRuleFirehosePtrOutput) DeliveryStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleFirehose) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DeliveryStreamName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
-func (o TopicRuleFirehosePtrOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleFirehose) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o TopicRuleFirehosePtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleFirehose) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 func (o TopicRuleFirehosePtrOutput) Separator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleFirehose) *string { return v.Separator }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TopicRuleFirehose) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Separator
+	}).(pulumi.StringPtrOutput)
 }
 
 type TopicRuleKinesis struct {
@@ -1243,17 +1388,32 @@ func (o TopicRuleKinesisPtrOutput) Elem() TopicRuleKinesisOutput {
 
 // The partition key.
 func (o TopicRuleKinesisPtrOutput) PartitionKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleKinesis) *string { return v.PartitionKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TopicRuleKinesis) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-func (o TopicRuleKinesisPtrOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleKinesis) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o TopicRuleKinesisPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleKinesis) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the Amazon Kinesis stream.
-func (o TopicRuleKinesisPtrOutput) StreamName() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleKinesis) string { return v.StreamName }).(pulumi.StringOutput)
+func (o TopicRuleKinesisPtrOutput) StreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleKinesis) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamName
+	}).(pulumi.StringPtrOutput)
 }
 
 type TopicRuleLambda struct {
@@ -1380,8 +1540,13 @@ func (o TopicRuleLambdaPtrOutput) Elem() TopicRuleLambdaOutput {
 }
 
 // The ARN of the Lambda function.
-func (o TopicRuleLambdaPtrOutput) FunctionArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleLambda) string { return v.FunctionArn }).(pulumi.StringOutput)
+func (o TopicRuleLambdaPtrOutput) FunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FunctionArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type TopicRuleRepublish struct {
@@ -1517,13 +1682,23 @@ func (o TopicRuleRepublishPtrOutput) Elem() TopicRuleRepublishOutput {
 }
 
 // The ARN of the IAM role that grants access.
-func (o TopicRuleRepublishPtrOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleRepublish) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o TopicRuleRepublishPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleRepublish) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the MQTT topic the message should be republished to.
-func (o TopicRuleRepublishPtrOutput) Topic() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleRepublish) string { return v.Topic }).(pulumi.StringOutput)
+func (o TopicRuleRepublishPtrOutput) Topic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleRepublish) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Topic
+	}).(pulumi.StringPtrOutput)
 }
 
 type TopicRuleS3 struct {
@@ -1668,18 +1843,33 @@ func (o TopicRuleS3PtrOutput) Elem() TopicRuleS3Output {
 }
 
 // The Amazon S3 bucket name.
-func (o TopicRuleS3PtrOutput) BucketName() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleS3) string { return v.BucketName }).(pulumi.StringOutput)
+func (o TopicRuleS3PtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The object key.
-func (o TopicRuleS3PtrOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleS3) string { return v.Key }).(pulumi.StringOutput)
+func (o TopicRuleS3PtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
 }
 
 // The IAM role ARN that allows access to the CloudWatch alarm.
-func (o TopicRuleS3PtrOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleS3) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o TopicRuleS3PtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type TopicRuleSns struct {
@@ -1825,17 +2015,32 @@ func (o TopicRuleSnsPtrOutput) Elem() TopicRuleSnsOutput {
 
 // The message format of the message to publish. Accepted values are "JSON" and "RAW".
 func (o TopicRuleSnsPtrOutput) MessageFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleSns) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TopicRuleSns) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MessageFormat
+	}).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the IAM role that grants access.
-func (o TopicRuleSnsPtrOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleSns) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o TopicRuleSnsPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleSns) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the SNS topic.
-func (o TopicRuleSnsPtrOutput) TargetArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleSns) string { return v.TargetArn }).(pulumi.StringOutput)
+func (o TopicRuleSnsPtrOutput) TargetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleSns) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type TopicRuleSqs struct {
@@ -1980,18 +2185,33 @@ func (o TopicRuleSqsPtrOutput) Elem() TopicRuleSqsOutput {
 }
 
 // The URL of the Amazon SQS queue.
-func (o TopicRuleSqsPtrOutput) QueueUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleSqs) string { return v.QueueUrl }).(pulumi.StringOutput)
+func (o TopicRuleSqsPtrOutput) QueueUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleSqs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QueueUrl
+	}).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the IAM role that grants access.
-func (o TopicRuleSqsPtrOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleSqs) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o TopicRuleSqsPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleSqs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether to use Base64 encoding.
-func (o TopicRuleSqsPtrOutput) UseBase64() pulumi.BoolOutput {
-	return o.ApplyT(func(v TopicRuleSqs) bool { return v.UseBase64 }).(pulumi.BoolOutput)
+func (o TopicRuleSqsPtrOutput) UseBase64() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TopicRuleSqs) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.UseBase64
+	}).(pulumi.BoolPtrOutput)
 }
 
 func init() {

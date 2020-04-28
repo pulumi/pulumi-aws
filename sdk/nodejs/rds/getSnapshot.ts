@@ -34,13 +34,13 @@ import * as utilities from "../utilities";
  * const latestProdSnapshot = prod.id.apply(id => aws.rds.getSnapshot({
  *     dbInstanceIdentifier: id,
  *     mostRecent: true,
- * }));
+ * }, { async: true }));
  * // Use the latest production snapshot to create a dev instance.
  * const dev = new aws.rds.Instance("dev", {
  *     instanceClass: "db.t2.micro",
  *     name: "mydbdev",
  *     snapshotIdentifier: latestProdSnapshot.id,
- * }, {ignoreChanges: ["snapshotIdentifier"]});
+ * }, { ignoreChanges: ["snapshotIdentifier"] });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_snapshot.html.markdown.
@@ -176,7 +176,7 @@ export interface GetSnapshotResult {
      */
     readonly vpcId: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

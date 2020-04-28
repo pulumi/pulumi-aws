@@ -37,7 +37,7 @@ type LookupClusterResult struct {
 	ClusterCertificates GetClusterClusterCertificates `pulumi:"clusterCertificates"`
 	ClusterId           string                        `pulumi:"clusterId"`
 	ClusterState        string                        `pulumi:"clusterState"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ID of the security group associated with the CloudHSM cluster.
 	SecurityGroupId string `pulumi:"securityGroupId"`

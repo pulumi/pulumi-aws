@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const main = aws.elb.getHostedZoneId();
+ * const main = pulumi.output(aws.elb.getHostedZoneId({ async: true }));
  * const www = new aws.route53.Record("www", {
  *     aliases: [{
  *         evaluateTargetHealth: true,
@@ -64,7 +64,7 @@ export interface GetHostedZoneIdArgs {
 export interface GetHostedZoneIdResult {
     readonly region?: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

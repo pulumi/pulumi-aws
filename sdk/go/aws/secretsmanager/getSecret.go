@@ -31,7 +31,7 @@ type LookupSecretResult struct {
 	Arn string `pulumi:"arn"`
 	// A description of the secret.
 	Description string `pulumi:"description"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
 	KmsKeyId string `pulumi:"kmsKeyId"`

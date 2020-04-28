@@ -30,7 +30,7 @@ class GetServerCertificateResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if latest and not isinstance(latest, bool):
             raise TypeError("Expected argument 'latest' to be a bool")

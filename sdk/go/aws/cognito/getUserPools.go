@@ -26,7 +26,7 @@ type GetUserPoolsArgs struct {
 // A collection of values returned by getUserPools.
 type GetUserPoolsResult struct {
 	Arns []string `pulumi:"arns"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The list of cognito user pool ids.
 	Ids  []string `pulumi:"ids"`

@@ -33,7 +33,7 @@ type GetDirectConnectGatewayAttachmentArgs struct {
 type GetDirectConnectGatewayAttachmentResult struct {
 	DxGatewayId *string                                   `pulumi:"dxGatewayId"`
 	Filters     []GetDirectConnectGatewayAttachmentFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Key-value tags for the EC2 Transit Gateway Attachment
 	Tags             map[string]interface{} `pulumi:"tags"`

@@ -31,7 +31,7 @@ type LookupLogGroupResult struct {
 	Arn string `pulumi:"arn"`
 	// The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 	CreationTime int `pulumi:"creationTime"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ARN of the KMS Key to use when encrypting log data.
 	KmsKeyId string `pulumi:"kmsKeyId"`

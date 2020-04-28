@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const exampleAccount = new aws.securityhub.Account("example", {});
- * const current = aws.getRegion();
+ * const current = pulumi.output(aws.getRegion({ async: true }));
  * const exampleProductSubscription = new aws.securityhub.ProductSubscription("example", {
- *     productArn: `arn:aws:securityhub:${current.name!}:733251395267:product/alertlogic/althreatmanagement`,
- * }, {dependsOn: [exampleAccount]});
+ *     productArn: pulumi.interpolate`arn:aws:securityhub:${current.name!}:733251395267:product/alertlogic/althreatmanagement`,
+ * }, { dependsOn: [exampleAccount] });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_product_subscription.markdown.

@@ -91,7 +91,7 @@ export class DefaultVpc extends pulumi.CustomResource {
     /**
      * A boolean flag to enable/disable ClassicLink
      * for the VPC. Only valid in regions and accounts that support EC2 Classic.
-     * See the [ClassicLink documentation][1] for more information. Defaults false.
+     * See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
      */
     public readonly enableClassiclink!: pulumi.Output<boolean>;
     public readonly enableClassiclinkDnsSupport!: pulumi.Output<boolean>;
@@ -223,7 +223,7 @@ export interface DefaultVpcState {
     /**
      * A boolean flag to enable/disable ClassicLink
      * for the VPC. Only valid in regions and accounts that support EC2 Classic.
-     * See the [ClassicLink documentation][1] for more information. Defaults false.
+     * See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
      */
     readonly enableClassiclink?: pulumi.Input<boolean>;
     readonly enableClassiclinkDnsSupport?: pulumi.Input<boolean>;
@@ -270,7 +270,7 @@ export interface DefaultVpcArgs {
     /**
      * A boolean flag to enable/disable ClassicLink
      * for the VPC. Only valid in regions and accounts that support EC2 Classic.
-     * See the [ClassicLink documentation][1] for more information. Defaults false.
+     * See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
      */
     readonly enableClassiclink?: pulumi.Input<boolean>;
     readonly enableClassiclinkDnsSupport?: pulumi.Input<boolean>;

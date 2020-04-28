@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention][1].
+// Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
 func GetIpRanges(ctx *pulumi.Context, args *GetIpRangesArgs, opts ...pulumi.InvokeOption) (*GetIpRangesResult, error) {
 	var rv GetIpRangesResult
 	err := ctx.Invoke("aws:index/getIpRanges:getIpRanges", args, &rv, opts...)
@@ -29,7 +29,7 @@ type GetIpRangesArgs struct {
 	// `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
 	// [`service` attribute][2] documentation for other possible values.
 	Services []string `pulumi:"services"`
-	// Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documention][1]. Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
+	// Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documention](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
 	Url *string `pulumi:"url"`
 }
 
@@ -39,7 +39,7 @@ type GetIpRangesResult struct {
 	CidrBlocks []string `pulumi:"cidrBlocks"`
 	// The publication time of the IP ranges (e.g. `2016-08-03-23-46-05`).
 	CreateDate string `pulumi:"createDate"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The lexically ordered list of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`

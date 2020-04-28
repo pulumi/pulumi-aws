@@ -252,12 +252,18 @@ func (o ClusterServerSideEncryptionPtrOutput) Elem() ClusterServerSideEncryption
 
 // Whether to enable encryption at rest. Defaults to `false`.
 func (o ClusterServerSideEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ClusterServerSideEncryption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *ClusterServerSideEncryption) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ParameterGroupParameter struct {
-	// The name of the parameter group.
-	Name  string `pulumi:"name"`
+	// The name of the parameter.
+	Name string `pulumi:"name"`
+	// The value for the parameter.
 	Value string `pulumi:"value"`
 }
 
@@ -274,8 +280,9 @@ type ParameterGroupParameterInput interface {
 }
 
 type ParameterGroupParameterArgs struct {
-	// The name of the parameter group.
-	Name  pulumi.StringInput `pulumi:"name"`
+	// The name of the parameter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value for the parameter.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -331,11 +338,12 @@ func (o ParameterGroupParameterOutput) ToParameterGroupParameterOutputWithContex
 	return o
 }
 
-// The name of the parameter group.
+// The name of the parameter.
 func (o ParameterGroupParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The value for the parameter.
 func (o ParameterGroupParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
 }

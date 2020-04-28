@@ -20,9 +20,9 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const layerName = config.require("layerName");
  * 
- * const existing = aws.lambda.getLayerVersion({
+ * const existing = pulumi.output(aws.lambda.getLayerVersion({
  *     layerName: layerName,
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_layer_version.html.markdown.
@@ -70,7 +70,7 @@ export interface GetLayerVersionResult {
     readonly arn: string;
     readonly compatibleRuntime?: string;
     /**
-     * A list of [Runtimes][1] the specific Lambda Layer version is compatible with.
+     * A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
      */
     readonly compatibleRuntimes: string[];
     /**
@@ -103,7 +103,7 @@ export interface GetLayerVersionResult {
      */
     readonly version: number;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

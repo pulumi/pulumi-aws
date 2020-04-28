@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const myDomain = aws.elasticsearch.getDomain({
+ * const myDomain = pulumi.output(aws.elasticsearch.getDomain({
  *     domainName: "my-domain-name",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticsearch_domain.html.markdown.
@@ -132,7 +132,7 @@ export interface GetDomainResult {
      */
     readonly vpcOptions: outputs.elasticsearch.GetDomainVpcOption[];
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

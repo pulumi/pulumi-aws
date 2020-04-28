@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *     streamEnabled: true,
  *     streamViewType: "NEW_AND_OLD_IMAGES",
  *     writeCapacity: 1,
- * }, {provider: us_east_1});
+ * }, { provider: usEast1 });
  * const us_west_2Table = new aws.dynamodb.Table("us-west-2", {
  *     attributes: [{
  *         name: "myAttribute",
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *     streamEnabled: true,
  *     streamViewType: "NEW_AND_OLD_IMAGES",
  *     writeCapacity: 1,
- * }, {provider: us_west_2});
+ * }, { provider: usWest2 });
  * const myTable = new aws.dynamodb.GlobalTable("myTable", {
  *     replicas: [
  *         {
@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *             regionName: "us-west-2",
  *         },
  *     ],
- * }, {provider: us_east_1,dependsOn: [us_east_1Table, us_west_2Table]});
+ * }, { provider: us_east_1, dependsOn: [us_east_1Table, us_west_2Table] });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_global_table.html.markdown.

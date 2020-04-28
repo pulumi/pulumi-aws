@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const byArn = aws.secretsmanager.getSecret({
+ * const byArn = pulumi.output(aws.secretsmanager.getSecret({
  *     arn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
- * });
+ * }, { async: true }));
  * ```
  * 
  * ### Name
@@ -28,9 +28,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const byName = aws.secretsmanager.getSecret({
+ * const byName = pulumi.output(aws.secretsmanager.getSecret({
  *     name: "example",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret.html.markdown.
@@ -102,7 +102,7 @@ export interface GetSecretResult {
      */
     readonly tags: {[key: string]: any};
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

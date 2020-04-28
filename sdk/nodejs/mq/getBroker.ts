@@ -21,12 +21,12 @@ import * as utilities from "../utilities";
  * const brokerId = config.get("brokerId") || "";
  * const brokerName = config.get("brokerName") || "";
  * 
- * const byId = aws.mq.getBroker({
+ * const byId = pulumi.output(aws.mq.getBroker({
  *     brokerId: brokerId,
- * });
- * const byName = aws.mq.getBroker({
+ * }, { async: true }));
+ * const byName = pulumi.output(aws.mq.getBroker({
  *     brokerName: brokerName,
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/mq_broker.html.markdown.
@@ -87,7 +87,7 @@ export interface GetBrokerResult {
     readonly tags: {[key: string]: any};
     readonly users: outputs.mq.GetBrokerUser[];
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

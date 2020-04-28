@@ -29,7 +29,7 @@ type LookupClusterResult struct {
 	// The ARN of the ECS Cluster
 	Arn         string `pulumi:"arn"`
 	ClusterName string `pulumi:"clusterName"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The number of pending tasks for the ECS Cluster
 	PendingTasksCount int `pulumi:"pendingTasksCount"`

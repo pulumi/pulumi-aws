@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *         "api",
  *         "audit",
  *     ],
- * }, {dependsOn: [exampleLogGroup]});
+ * }, { dependsOn: [exampleLogGroup] });
  * ```
  * 
  * ### Enabling IAM Roles for Service Accounts
@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  *     thumbprintLists: [],
  *     url: exampleCluster.identities[0].oidcs[0].issuer,
  * });
- * const current = aws.getCallerIdentity();
+ * const current = pulumi.output(aws.getCallerIdentity({ async: true }));
  * const exampleAssumeRolePolicy = pulumi.all([exampleOpenIdConnectProvider.url, exampleOpenIdConnectProvider.arn]).apply(([url, arn]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRoleWithWebIdentity"],
@@ -89,7 +89,7 @@ import * as utilities from "../utilities";
  *             type: "Federated",
  *         }],
  *     }],
- * }));
+ * }, { async: true }));
  * const exampleRole = new aws.iam.Role("example", {
  *     assumeRolePolicy: exampleAssumeRolePolicy.json,
  * });

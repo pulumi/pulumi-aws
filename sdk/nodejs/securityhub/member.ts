@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     accountId: "123456789012",
  *     email: "example@example.com",
  *     invite: true,
- * }, {dependsOn: [exampleAccount]});
+ * }, { dependsOn: [exampleAccount] });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_member.markdown.

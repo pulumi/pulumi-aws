@@ -90,11 +90,6 @@ type Group struct {
 	// Capacity below.)
 	DesiredCapacity pulumi.IntOutput `pulumi:"desiredCapacity"`
 	// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
-	// * `waitForCapacityTimeout` (Default: "10m") A maximum
-	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-	// wait for ASG instances to be healthy before timing out.  (See also Waiting
-	// for Capacity below.) Setting this to "0" causes
-	// this provider to skip all Capacity Waiting behavior.
 	EnabledMetrics pulumi.StringArrayOutput `pulumi:"enabledMetrics"`
 	// Allows deleting the autoscaling group without waiting
 	// for all instances in the pool to terminate.  You can force an autoscaling group to delete
@@ -162,8 +157,13 @@ type Group struct {
 	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
 	TerminationPolicies pulumi.StringArrayOutput `pulumi:"terminationPolicies"`
 	// A list of subnet IDs to launch resources in.
-	VpcZoneIdentifiers     pulumi.StringArrayOutput `pulumi:"vpcZoneIdentifiers"`
-	WaitForCapacityTimeout pulumi.StringPtrOutput   `pulumi:"waitForCapacityTimeout"`
+	VpcZoneIdentifiers pulumi.StringArrayOutput `pulumi:"vpcZoneIdentifiers"`
+	// A maximum
+	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+	// wait for ASG instances to be healthy before timing out.  (See also Waiting
+	// for Capacity below.) Setting this to "0" causes
+	// this provider to skip all Capacity Waiting behavior.
+	WaitForCapacityTimeout pulumi.StringPtrOutput `pulumi:"waitForCapacityTimeout"`
 	// Setting this will cause this provider to wait
 	// for exactly this number of healthy instances from this autoscaling group in
 	// all attached load balancers on both create and update operations. (Takes
@@ -217,11 +217,6 @@ type groupState struct {
 	// Capacity below.)
 	DesiredCapacity *int `pulumi:"desiredCapacity"`
 	// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
-	// * `waitForCapacityTimeout` (Default: "10m") A maximum
-	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-	// wait for ASG instances to be healthy before timing out.  (See also Waiting
-	// for Capacity below.) Setting this to "0" causes
-	// this provider to skip all Capacity Waiting behavior.
 	EnabledMetrics []string `pulumi:"enabledMetrics"`
 	// Allows deleting the autoscaling group without waiting
 	// for all instances in the pool to terminate.  You can force an autoscaling group to delete
@@ -289,8 +284,13 @@ type groupState struct {
 	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
 	TerminationPolicies []string `pulumi:"terminationPolicies"`
 	// A list of subnet IDs to launch resources in.
-	VpcZoneIdentifiers     []string `pulumi:"vpcZoneIdentifiers"`
-	WaitForCapacityTimeout *string  `pulumi:"waitForCapacityTimeout"`
+	VpcZoneIdentifiers []string `pulumi:"vpcZoneIdentifiers"`
+	// A maximum
+	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+	// wait for ASG instances to be healthy before timing out.  (See also Waiting
+	// for Capacity below.) Setting this to "0" causes
+	// this provider to skip all Capacity Waiting behavior.
+	WaitForCapacityTimeout *string `pulumi:"waitForCapacityTimeout"`
 	// Setting this will cause this provider to wait
 	// for exactly this number of healthy instances from this autoscaling group in
 	// all attached load balancers on both create and update operations. (Takes
@@ -311,11 +311,6 @@ type GroupState struct {
 	// Capacity below.)
 	DesiredCapacity pulumi.IntPtrInput
 	// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
-	// * `waitForCapacityTimeout` (Default: "10m") A maximum
-	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-	// wait for ASG instances to be healthy before timing out.  (See also Waiting
-	// for Capacity below.) Setting this to "0" causes
-	// this provider to skip all Capacity Waiting behavior.
 	EnabledMetrics pulumi.StringArrayInput
 	// Allows deleting the autoscaling group without waiting
 	// for all instances in the pool to terminate.  You can force an autoscaling group to delete
@@ -383,7 +378,12 @@ type GroupState struct {
 	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
 	TerminationPolicies pulumi.StringArrayInput
 	// A list of subnet IDs to launch resources in.
-	VpcZoneIdentifiers     pulumi.StringArrayInput
+	VpcZoneIdentifiers pulumi.StringArrayInput
+	// A maximum
+	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+	// wait for ASG instances to be healthy before timing out.  (See also Waiting
+	// for Capacity below.) Setting this to "0" causes
+	// this provider to skip all Capacity Waiting behavior.
 	WaitForCapacityTimeout pulumi.StringPtrInput
 	// Setting this will cause this provider to wait
 	// for exactly this number of healthy instances from this autoscaling group in
@@ -407,11 +407,6 @@ type groupArgs struct {
 	// Capacity below.)
 	DesiredCapacity *int `pulumi:"desiredCapacity"`
 	// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
-	// * `waitForCapacityTimeout` (Default: "10m") A maximum
-	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-	// wait for ASG instances to be healthy before timing out.  (See also Waiting
-	// for Capacity below.) Setting this to "0" causes
-	// this provider to skip all Capacity Waiting behavior.
 	EnabledMetrics []string `pulumi:"enabledMetrics"`
 	// Allows deleting the autoscaling group without waiting
 	// for all instances in the pool to terminate.  You can force an autoscaling group to delete
@@ -479,8 +474,13 @@ type groupArgs struct {
 	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
 	TerminationPolicies []string `pulumi:"terminationPolicies"`
 	// A list of subnet IDs to launch resources in.
-	VpcZoneIdentifiers     []string `pulumi:"vpcZoneIdentifiers"`
-	WaitForCapacityTimeout *string  `pulumi:"waitForCapacityTimeout"`
+	VpcZoneIdentifiers []string `pulumi:"vpcZoneIdentifiers"`
+	// A maximum
+	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+	// wait for ASG instances to be healthy before timing out.  (See also Waiting
+	// for Capacity below.) Setting this to "0" causes
+	// this provider to skip all Capacity Waiting behavior.
+	WaitForCapacityTimeout *string `pulumi:"waitForCapacityTimeout"`
 	// Setting this will cause this provider to wait
 	// for exactly this number of healthy instances from this autoscaling group in
 	// all attached load balancers on both create and update operations. (Takes
@@ -500,11 +500,6 @@ type GroupArgs struct {
 	// Capacity below.)
 	DesiredCapacity pulumi.IntPtrInput
 	// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
-	// * `waitForCapacityTimeout` (Default: "10m") A maximum
-	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-	// wait for ASG instances to be healthy before timing out.  (See also Waiting
-	// for Capacity below.) Setting this to "0" causes
-	// this provider to skip all Capacity Waiting behavior.
 	EnabledMetrics pulumi.StringArrayInput
 	// Allows deleting the autoscaling group without waiting
 	// for all instances in the pool to terminate.  You can force an autoscaling group to delete
@@ -572,7 +567,12 @@ type GroupArgs struct {
 	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
 	TerminationPolicies pulumi.StringArrayInput
 	// A list of subnet IDs to launch resources in.
-	VpcZoneIdentifiers     pulumi.StringArrayInput
+	VpcZoneIdentifiers pulumi.StringArrayInput
+	// A maximum
+	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+	// wait for ASG instances to be healthy before timing out.  (See also Waiting
+	// for Capacity below.) Setting this to "0" causes
+	// this provider to skip all Capacity Waiting behavior.
 	WaitForCapacityTimeout pulumi.StringPtrInput
 	// Setting this will cause this provider to wait
 	// for exactly this number of healthy instances from this autoscaling group in

@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * const exampleOrganizationCustomRule = new aws.cfg.OrganizationCustomRule("example", {
  *     lambdaFunctionArn: aws_lambda_function_example.arn,
  *     triggerTypes: ["ConfigurationItemChangeNotification"],
- * }, {dependsOn: [examplePermission, exampleOrganization]});
+ * }, { dependsOn: [examplePermission, exampleOrganization] });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_organization_custom_rule.html.markdown.

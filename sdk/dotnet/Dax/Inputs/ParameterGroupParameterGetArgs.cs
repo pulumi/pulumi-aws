@@ -13,11 +13,14 @@ namespace Pulumi.Aws.Dax.Inputs
     public sealed class ParameterGroupParameterGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the parameter group.
+        /// The name of the parameter.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The value for the parameter.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

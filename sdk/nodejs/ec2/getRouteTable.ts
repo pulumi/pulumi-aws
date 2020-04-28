@@ -24,9 +24,9 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const subnetId = config.require("subnetId");
  * 
- * const selected = aws.ec2.getRouteTable({
+ * const selected = pulumi.output(aws.ec2.getRouteTable({
  *     subnetId: subnetId,
- * });
+ * }, { async: true }));
  * const route = new aws.ec2.Route("route", {
  *     destinationCidrBlock: "10.0.1.0/22",
  *     routeTableId: selected.id,
@@ -112,7 +112,7 @@ export interface GetRouteTableResult {
     readonly tags: {[key: string]: any};
     readonly vpcId: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

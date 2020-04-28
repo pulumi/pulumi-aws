@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Kinesis
     /// <summary>
     /// Provides a Kinesis Video Stream resource. Amazon Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), playback, and other processing.
     /// 
-    /// For more details, see the [Amazon Kinesis Documentation][1].
+    /// For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
     /// </summary>
     public partial class VideoStream : Pulumi.CustomResource
     {
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Kinesis
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types][2]. If you choose to specify the MediaType, see [Naming Requirements][3] for guidelines.
+        /// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
         /// </summary>
         [Output("mediaType")]
         public Output<string?> MediaType { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types][2]. If you choose to specify the MediaType, see [Naming Requirements][3] for guidelines.
+        /// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
         /// </summary>
         [Input("mediaType")]
         public Input<string>? MediaType { get; set; }
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types][2]. If you choose to specify the MediaType, see [Naming Requirements][3] for guidelines.
+        /// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
         /// </summary>
         [Input("mediaType")]
         public Input<string>? MediaType { get; set; }

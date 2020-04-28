@@ -32,8 +32,8 @@ import * as utilities from "../utilities";
  * });
  * const peerVpc = new aws.ec2.Vpc("peer", {
  *     cidrBlock: "10.1.0.0/16",
- * }, {provider: peer});
- * const peerCallerIdentity = aws.getCallerIdentity({provider: peer});
+ * }, { provider: peer });
+ * const peerCallerIdentity = pulumi.output(aws.getCallerIdentity({ provider: peer, async: true }));
  * // Requester's side of the connection.
  * const peerVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("peer", {
  *     autoAccept: false,
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *         Side: "Accepter",
  *     },
  *     vpcPeeringConnectionId: peerVpcPeeringConnection.id,
- * }, {provider: peer});
+ * }, { provider: peer });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_accepter.html.markdown.

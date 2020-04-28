@@ -171,27 +171,52 @@ func (o DirectorySelfServicePermissionsPtrOutput) Elem() DirectorySelfServicePer
 
 // Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
 func (o DirectorySelfServicePermissionsPtrOutput) ChangeComputeType() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DirectorySelfServicePermissions) *bool { return v.ChangeComputeType }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *DirectorySelfServicePermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ChangeComputeType
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
 func (o DirectorySelfServicePermissionsPtrOutput) IncreaseVolumeSize() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DirectorySelfServicePermissions) *bool { return v.IncreaseVolumeSize }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *DirectorySelfServicePermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncreaseVolumeSize
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
 func (o DirectorySelfServicePermissionsPtrOutput) RebuildWorkspace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DirectorySelfServicePermissions) *bool { return v.RebuildWorkspace }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *DirectorySelfServicePermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RebuildWorkspace
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Whether WorkSpaces directory users can restart their workspace. Default `true`.
 func (o DirectorySelfServicePermissionsPtrOutput) RestartWorkspace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DirectorySelfServicePermissions) *bool { return v.RestartWorkspace }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *DirectorySelfServicePermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RestartWorkspace
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
 func (o DirectorySelfServicePermissionsPtrOutput) SwitchRunningMode() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DirectorySelfServicePermissions) *bool { return v.SwitchRunningMode }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *DirectorySelfServicePermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SwitchRunningMode
+	}).(pulumi.BoolPtrOutput)
 }
 
 type IpGroupRule struct {

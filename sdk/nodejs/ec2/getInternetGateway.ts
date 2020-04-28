@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const vpcId = config.require("vpcId");
  * 
- * const defaultInternetGateway = aws.ec2.getInternetGateway({
+ * const defaultInternetGateway = pulumi.output(aws.ec2.getInternetGateway({
  *     filters: [{
  *         name: "attachment.vpc-id",
  *         values: [vpcId],
  *     }],
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/internet_gateway.html.markdown.
@@ -78,7 +78,7 @@ export interface GetInternetGatewayResult {
     readonly ownerId: string;
     readonly tags: {[key: string]: any};
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

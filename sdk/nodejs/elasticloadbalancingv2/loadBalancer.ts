@@ -76,6 +76,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb.html.markdown.
  */
+/** @deprecated aws.LoadBalancer has been deprecated in favour of aws.LoadBalancer */
 export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Get an existing LoadBalancer resource's state with the given name, ID, and optional extra
@@ -86,6 +87,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LoadBalancerState, opts?: pulumi.CustomResourceOptions): LoadBalancer {
+        pulumi.log.warn("LoadBalancer is deprecated: aws.LoadBalancer has been deprecated in favour of aws.LoadBalancer")
         return new LoadBalancer(name, <any>state, { ...opts, id: id });
     }
 
@@ -194,8 +196,11 @@ export class LoadBalancer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.LoadBalancer has been deprecated in favour of aws.LoadBalancer */
     constructor(name: string, args?: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.LoadBalancer has been deprecated in favour of aws.LoadBalancer */
     constructor(name: string, argsOrState?: LoadBalancerArgs | LoadBalancerState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("LoadBalancer is deprecated: aws.LoadBalancer has been deprecated in favour of aws.LoadBalancer")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as LoadBalancerState | undefined;

@@ -39,7 +39,7 @@ type Cluster struct {
 	// `sun:05:00-sun:09:00`
 	MaintenanceWindow pulumi.StringOutput `pulumi:"maintenanceWindow"`
 	// The compute and memory capacity of the nodes. See
-	// [Nodes][1] for supported node types
+	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
 	// List of node objects including `id`, `address`, `port` and
 	// `availabilityZone`. Referenceable e.g. as
@@ -135,7 +135,7 @@ type clusterState struct {
 	// `sun:05:00-sun:09:00`
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// The compute and memory capacity of the nodes. See
-	// [Nodes][1] for supported node types
+	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
 	NodeType *string `pulumi:"nodeType"`
 	// List of node objects including `id`, `address`, `port` and
 	// `availabilityZone`. Referenceable e.g. as
@@ -192,7 +192,7 @@ type ClusterState struct {
 	// `sun:05:00-sun:09:00`
 	MaintenanceWindow pulumi.StringPtrInput
 	// The compute and memory capacity of the nodes. See
-	// [Nodes][1] for supported node types
+	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
 	NodeType pulumi.StringPtrInput
 	// List of node objects including `id`, `address`, `port` and
 	// `availabilityZone`. Referenceable e.g. as
@@ -246,7 +246,7 @@ type clusterArgs struct {
 	// `sun:05:00-sun:09:00`
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// The compute and memory capacity of the nodes. See
-	// [Nodes][1] for supported node types
+	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
 	NodeType string `pulumi:"nodeType"`
 	// An Amazon Resource Name (ARN) of an
 	// SNS topic to send DAX notifications to. Example:
@@ -291,7 +291,7 @@ type ClusterArgs struct {
 	// `sun:05:00-sun:09:00`
 	MaintenanceWindow pulumi.StringPtrInput
 	// The compute and memory capacity of the nodes. See
-	// [Nodes][1] for supported node types
+	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
 	NodeType pulumi.StringInput
 	// An Amazon Resource Name (ARN) of an
 	// SNS topic to send DAX notifications to. Example:

@@ -13,6 +13,10 @@ import (
 // Provides a Load Balancer Listener Rule resource.
 //
 // > **Note:** `alb.ListenerRule` is known as `lb.ListenerRule`. The functionality is identical.
+//
+//
+//
+// Deprecated: aws.ListenerRule has been deprecated in favour of aws.ListenerRule
 type ListenerRule struct {
 	pulumi.CustomResourceState
 

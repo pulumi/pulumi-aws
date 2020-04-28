@@ -30,6 +30,9 @@ namespace Pulumi.Aws.Alb.Inputs
         [Input("interval")]
         public Input<int>? Interval { get; set; }
 
+        /// <summary>
+        /// The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
+        /// </summary>
         [Input("matcher")]
         public Input<string>? Matcher { get; set; }
 
@@ -59,7 +62,6 @@ namespace Pulumi.Aws.Alb.Inputs
 
         /// <summary>
         /// The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
-        /// * `matcher` (Required for HTTP/HTTPS ALB) The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
         /// </summary>
         [Input("unhealthyThreshold")]
         public Input<int>? UnhealthyThreshold { get; set; }

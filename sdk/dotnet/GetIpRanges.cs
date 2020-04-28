@@ -12,7 +12,7 @@ namespace Pulumi.Aws
     public static class GetIpRanges
     {
         /// <summary>
-        /// Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention][1].
+        /// Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
         /// 
         /// {{% examples %}}
         /// {{% /examples %}}
@@ -55,7 +55,7 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
-        /// Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documention][1]. Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
+        /// Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documention](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
         /// </summary>
         [Input("url")]
         public string? Url { get; set; }
@@ -78,7 +78,7 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string CreateDate;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

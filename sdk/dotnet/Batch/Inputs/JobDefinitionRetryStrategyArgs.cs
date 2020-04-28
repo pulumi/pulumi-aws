@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Batch.Inputs
 
     public sealed class JobDefinitionRetryStrategyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
+        /// </summary>
         [Input("attempts")]
         public Input<int>? Attempts { get; set; }
 

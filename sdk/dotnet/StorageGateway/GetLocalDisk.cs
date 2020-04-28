@@ -59,7 +59,7 @@ namespace Pulumi.Aws.StorageGateway
         public readonly string? DiskPath;
         public readonly string GatewayArn;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
 

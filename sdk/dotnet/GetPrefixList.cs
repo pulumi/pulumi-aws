@@ -69,7 +69,7 @@ namespace Pulumi.Aws
         public readonly ImmutableArray<string> CidrBlocks;
         public readonly ImmutableArray<Outputs.GetPrefixListFilterResult> Filters;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

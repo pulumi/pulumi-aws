@@ -101,7 +101,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     language: "PYTHON",
- * }));
+ * }, { async: true }));
  * 
  * export const pythonScript = example.pythonScript;
  * ```
@@ -196,7 +196,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     language: "SCALA",
- * }));
+ * }, { async: true }));
  * 
  * export const scalaCode = example.scalaCode;
  * ```
@@ -252,7 +252,7 @@ export interface GetScriptResult {
      */
     readonly scalaCode: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

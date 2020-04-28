@@ -27,25 +27,25 @@ import * as utilities from "../utilities";
  * });
  * const example = new aws.rds.GlobalCluster("example", {
  *     globalClusterIdentifier: "example",
- * }, {provider: primary});
+ * }, { provider: primary });
  * const primaryCluster = new aws.rds.Cluster("primary", {
  *     // ... other configuration ...
  *     engineMode: "global",
  *     globalClusterIdentifier: example.id,
- * }, {provider: primary});
+ * }, { provider: primary });
  * const primaryClusterInstance = new aws.rds.ClusterInstance("primary", {
  *     // ... other configuration ...
  *     clusterIdentifier: primaryCluster.id,
- * }, {provider: primary});
+ * }, { provider: primary });
  * const secondaryCluster = new aws.rds.Cluster("secondary", {
  *     // ... other configuration ...
  *     engineMode: "global",
  *     globalClusterIdentifier: example.id,
- * }, {provider: secondary,dependsOn: [primaryClusterInstance]});
+ * }, { provider: secondary, dependsOn: [primaryClusterInstance] });
  * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondary", {
  *     // ... other configuration ...
  *     clusterIdentifier: secondaryCluster.id,
- * }, {provider: secondary});
+ * }, { provider: secondary });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_global_cluster.html.markdown.

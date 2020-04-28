@@ -39,7 +39,7 @@ type LookupVpcEndpointServiceResult struct {
 	// The DNS names for the service.
 	BaseEndpointDnsNames []string                      `pulumi:"baseEndpointDnsNames"`
 	Filters              []GetVpcEndpointServiceFilter `pulumi:"filters"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Whether or not the service manages its VPC endpoints - `true` or `false`.
 	ManagesVpcEndpoints bool `pulumi:"managesVpcEndpoints"`

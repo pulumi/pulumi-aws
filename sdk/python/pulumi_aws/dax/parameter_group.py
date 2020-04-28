@@ -22,20 +22,14 @@ class ParameterGroup(pulumi.CustomResource):
     """
     The parameters of the parameter group.
 
-      * `name` (`str`) - The name of the parameter group.
-      * `value` (`str`)
+      * `name` (`str`) - The name of the parameter.
+      * `value` (`str`) - The value for the parameter.
     """
     def __init__(__self__, resource_name, opts=None, description=None, name=None, parameters=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a DAX Parameter Group resource.
 
 
-        ## parameters
-
-        `parameters` supports the following:
-
-        * `name` - (Required) The name of the parameter.
-        * `value` - (Required) The value for the parameter.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -45,8 +39,8 @@ class ParameterGroup(pulumi.CustomResource):
 
         The **parameters** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The name of the parameter group.
-          * `value` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The name of the parameter.
+          * `value` (`pulumi.Input[str]`) - The value for the parameter.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -89,8 +83,8 @@ class ParameterGroup(pulumi.CustomResource):
 
         The **parameters** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The name of the parameter group.
-          * `value` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The name of the parameter.
+          * `value` (`pulumi.Input[str]`) - The value for the parameter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

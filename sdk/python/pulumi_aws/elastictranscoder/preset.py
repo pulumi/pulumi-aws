@@ -75,10 +75,12 @@ class Preset(pulumi.CustomResource):
       * `sizingPolicy` (`str`) - A value that controls scaling of the output video. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, `ShrinkToFill`.
     """
     video_codec_options: pulumi.Output[dict]
+    """
+    Codec options for the video parameters
+    """
     video_watermarks: pulumi.Output[list]
     """
     Watermark parameters for the video parameters (documented below)
-    * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
 
       * `horizontalAlign` (`str`) - The horizontal position of the watermark unless you specify a nonzero value for `horzontal_offset`.
       * `horizontalOffset` (`str`) - The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontal_align`.
@@ -106,8 +108,8 @@ class Preset(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the preset. (maximum 40 characters)
         :param pulumi.Input[dict] thumbnails: Thumbnail parameters object (documented below)
         :param pulumi.Input[dict] video: Video parameters object (documented below)
+        :param pulumi.Input[dict] video_codec_options: Codec options for the video parameters
         :param pulumi.Input[list] video_watermarks: Watermark parameters for the video parameters (documented below)
-               * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
 
         The **audio** object supports the following:
 
@@ -216,8 +218,8 @@ class Preset(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the preset. (maximum 40 characters)
         :param pulumi.Input[dict] thumbnails: Thumbnail parameters object (documented below)
         :param pulumi.Input[dict] video: Video parameters object (documented below)
+        :param pulumi.Input[dict] video_codec_options: Codec options for the video parameters
         :param pulumi.Input[list] video_watermarks: Watermark parameters for the video parameters (documented below)
-               * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
 
         The **audio** object supports the following:
 

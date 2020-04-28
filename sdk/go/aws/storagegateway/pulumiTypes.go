@@ -152,18 +152,33 @@ func (o GatewaySmbActiveDirectorySettingsPtrOutput) Elem() GatewaySmbActiveDirec
 }
 
 // The name of the domain that you want the gateway to join.
-func (o GatewaySmbActiveDirectorySettingsPtrOutput) DomainName() pulumi.StringOutput {
-	return o.ApplyT(func(v GatewaySmbActiveDirectorySettings) string { return v.DomainName }).(pulumi.StringOutput)
+func (o GatewaySmbActiveDirectorySettingsPtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewaySmbActiveDirectorySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The password of the user who has permission to add the gateway to the Active Directory domain.
-func (o GatewaySmbActiveDirectorySettingsPtrOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v GatewaySmbActiveDirectorySettings) string { return v.Password }).(pulumi.StringOutput)
+func (o GatewaySmbActiveDirectorySettingsPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewaySmbActiveDirectorySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
 }
 
 // The user name of user who has permission to add the gateway to the Active Directory domain.
-func (o GatewaySmbActiveDirectorySettingsPtrOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v GatewaySmbActiveDirectorySettings) string { return v.Username }).(pulumi.StringOutput)
+func (o GatewaySmbActiveDirectorySettingsPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewaySmbActiveDirectorySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
 }
 
 type NfsFileShareNfsFileShareDefaults struct {
@@ -318,22 +333,42 @@ func (o NfsFileShareNfsFileShareDefaultsPtrOutput) Elem() NfsFileShareNfsFileSha
 
 // The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
 func (o NfsFileShareNfsFileShareDefaultsPtrOutput) DirectoryMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NfsFileShareNfsFileShareDefaults) *string { return v.DirectoryMode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *NfsFileShareNfsFileShareDefaults) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DirectoryMode
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
 func (o NfsFileShareNfsFileShareDefaultsPtrOutput) FileMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NfsFileShareNfsFileShareDefaults) *string { return v.FileMode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *NfsFileShareNfsFileShareDefaults) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileMode
+	}).(pulumi.StringPtrOutput)
 }
 
 // The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
 func (o NfsFileShareNfsFileShareDefaultsPtrOutput) GroupId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v NfsFileShareNfsFileShareDefaults) *int { return v.GroupId }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *NfsFileShareNfsFileShareDefaults) *int {
+		if v == nil {
+			return nil
+		}
+		return v.GroupId
+	}).(pulumi.IntPtrOutput)
 }
 
 // The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
 func (o NfsFileShareNfsFileShareDefaultsPtrOutput) OwnerId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v NfsFileShareNfsFileShareDefaults) *int { return v.OwnerId }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *NfsFileShareNfsFileShareDefaults) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OwnerId
+	}).(pulumi.IntPtrOutput)
 }
 
 func init() {

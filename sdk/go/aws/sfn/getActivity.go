@@ -30,7 +30,7 @@ type LookupActivityResult struct {
 	Arn string `pulumi:"arn"`
 	// The date the activity was created.
 	CreationDate string `pulumi:"creationDate"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }

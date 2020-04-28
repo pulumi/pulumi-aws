@@ -77,7 +77,7 @@ class ClusterInstance(pulumi.CustomResource):
     instance_class: pulumi.Output[str]
     """
     The instance class to use. For details on CPU
-    and memory, see [Scaling Aurora DB Instances][4]. Aurora uses `db.*` instance classes/types. Please see [AWS Documentation][7] for currently available instance classes and complete details.
+    and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
     """
     kms_key_id: pulumi.Output[str]
     """
@@ -122,7 +122,7 @@ class ClusterInstance(pulumi.CustomResource):
     publicly_accessible: pulumi.Output[bool]
     """
     Bool to control if instance is publicly accessible.
-    Default `false`. See the documentation on [Creating DB Instances][6] for more
+    Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more
     details on controlling this property.
     """
     storage_encrypted: pulumi.Output[bool]
@@ -140,17 +140,17 @@ class ClusterInstance(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, ca_cert_identifier=None, cluster_identifier=None, copy_tags_to_snapshot=None, db_parameter_group_name=None, db_subnet_group_name=None, engine=None, engine_version=None, identifier=None, identifier_prefix=None, instance_class=None, monitoring_interval=None, monitoring_role_arn=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, preferred_backup_window=None, preferred_maintenance_window=None, promotion_tier=None, publicly_accessible=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an RDS Cluster Instance Resource. A Cluster Instance Resource defines
-        attributes that are specific to a single instance in a [RDS Cluster][3],
+        attributes that are specific to a single instance in a [RDS Cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html),
         specifically running Amazon Aurora.
 
         Unlike other RDS resources that support replication, with Amazon Aurora you do
         not designate a primary and subsequent replicas. Instead, you simply add RDS
-        Instances and Aurora manages the replication. You can use the [count][5]
+        Instances and Aurora manages the replication. You can use the [count](https://www.terraform.io/docs/configuration/resources.html#count)
         meta-parameter to make multiple instances and join them all to the same RDS
         Cluster, or you may specify different Cluster Instance resources with various
         `instance_class` sizes.
 
-        For more information on Amazon Aurora, see [Aurora on Amazon RDS][2] in the Amazon RDS User Guide.
+        For more information on Amazon Aurora, see [Aurora on Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html) in the Amazon RDS User Guide.
 
         > **NOTE:** Deletion Protection from the RDS service can only be enabled at the cluster level, not for individual cluster instances. You can still add the [`protect` CustomResourceOption](https://www.pulumi.com/docs/intro/concepts/programming-model/#protect) to this resource configuration if you desire protection from accidental deletion.
 
@@ -175,7 +175,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] identifier: The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[dict] instance_class: The instance class to use. For details on CPU
-               and memory, see [Scaling Aurora DB Instances][4]. Aurora uses `db.*` instance classes/types. Please see [AWS Documentation][7] for currently available instance classes and complete details.
+               and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
         :param pulumi.Input[float] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         :param pulumi.Input[str] monitoring_role_arn: The ARN for the IAM role that permits RDS to send
                enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
@@ -188,7 +188,7 @@ class ClusterInstance(pulumi.CustomResource):
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         :param pulumi.Input[float] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly accessible.
-               Default `false`. See the documentation on [Creating DB Instances][6] for more
+               Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more
                details on controlling this property.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the instance.
         """
@@ -277,7 +277,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] identifier: The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[dict] instance_class: The instance class to use. For details on CPU
-               and memory, see [Scaling Aurora DB Instances][4]. Aurora uses `db.*` instance classes/types. Please see [AWS Documentation][7] for currently available instance classes and complete details.
+               and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key if one is set to the cluster.
         :param pulumi.Input[float] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         :param pulumi.Input[str] monitoring_role_arn: The ARN for the IAM role that permits RDS to send
@@ -292,7 +292,7 @@ class ClusterInstance(pulumi.CustomResource):
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         :param pulumi.Input[float] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly accessible.
-               Default `false`. See the documentation on [Creating DB Instances][6] for more
+               Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more
                details on controlling this property.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the instance.

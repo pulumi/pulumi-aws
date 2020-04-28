@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const exampleNetworkInterfaces = aws.ec2.getNetworkInterfaces();
+ * const exampleNetworkInterfaces = pulumi.output(aws.ec2.getNetworkInterfaces({ async: true }));
  * 
  * export const example = exampleNetworkInterfaces.ids;
  * ```
@@ -63,7 +63,7 @@ export interface GetNetworkInterfacesResult {
     readonly ids: string[];
     readonly tags: {[key: string]: any};
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

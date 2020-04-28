@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const exampleEventCategories = aws.rds.getEventCategories();
+ * const exampleEventCategories = pulumi.output(aws.rds.getEventCategories({ async: true }));
  * 
  * export const example = exampleEventCategories.eventCategories;
  * ```
@@ -56,7 +56,7 @@ export interface GetEventCategoriesResult {
     readonly eventCategories: string[];
     readonly sourceType?: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

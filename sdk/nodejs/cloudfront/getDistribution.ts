@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const test = aws.cloudfront.getDistribution({
+ * const test = pulumi.output(aws.cloudfront.getDistribution({
  *     id: "EDFDVBD632BHDS5",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudfront_distribution.html.markdown.

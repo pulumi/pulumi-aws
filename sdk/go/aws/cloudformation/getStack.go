@@ -36,7 +36,7 @@ type LookupStackResult struct {
 	DisableRollback bool `pulumi:"disableRollback"`
 	// The ARN of the IAM role used to create the stack.
 	IamRoleArn string `pulumi:"iamRoleArn"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// A list of SNS topic ARNs to publish stack related events

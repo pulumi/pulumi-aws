@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Lambda
         public readonly string Arn;
         public readonly string? CompatibleRuntime;
         /// <summary>
-        /// A list of [Runtimes][1] the specific Lambda Layer version is compatible with.
+        /// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
         /// </summary>
         public readonly ImmutableArray<string> CompatibleRuntimes;
         /// <summary>
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

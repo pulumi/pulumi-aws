@@ -156,23 +156,46 @@ func (o PolicyStepScalingPolicyConfigurationPtrOutput) Elem() PolicyStepScalingP
 }
 
 func (o PolicyStepScalingPolicyConfigurationPtrOutput) AdjustmentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicyStepScalingPolicyConfiguration) *string { return v.AdjustmentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *PolicyStepScalingPolicyConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdjustmentType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyStepScalingPolicyConfigurationPtrOutput) Cooldown() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PolicyStepScalingPolicyConfiguration) *int { return v.Cooldown }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *PolicyStepScalingPolicyConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Cooldown
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o PolicyStepScalingPolicyConfigurationPtrOutput) MetricAggregationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicyStepScalingPolicyConfiguration) *string { return v.MetricAggregationType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *PolicyStepScalingPolicyConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetricAggregationType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyStepScalingPolicyConfigurationPtrOutput) MinAdjustmentMagnitude() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PolicyStepScalingPolicyConfiguration) *int { return v.MinAdjustmentMagnitude }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *PolicyStepScalingPolicyConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinAdjustmentMagnitude
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o PolicyStepScalingPolicyConfigurationPtrOutput) StepAdjustments() PolicyStepScalingPolicyConfigurationStepAdjustmentArrayOutput {
-	return o.ApplyT(func(v PolicyStepScalingPolicyConfiguration) []PolicyStepScalingPolicyConfigurationStepAdjustment {
+	return o.ApplyT(func(v *PolicyStepScalingPolicyConfiguration) []PolicyStepScalingPolicyConfigurationStepAdjustment {
+		if v == nil {
+			return nil
+		}
 		return v.StepAdjustments
 	}).(PolicyStepScalingPolicyConfigurationStepAdjustmentArrayOutput)
 }
@@ -441,31 +464,57 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationPtrOutput) Elem() PolicyTa
 }
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationPtrOutput) CustomizedMetricSpecification() PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput {
-	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfiguration) *PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification {
+	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfiguration) *PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification {
+		if v == nil {
+			return nil
+		}
 		return v.CustomizedMetricSpecification
 	}).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput)
 }
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationPtrOutput) DisableScaleIn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfiguration) *bool { return v.DisableScaleIn }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableScaleIn
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationPtrOutput) PredefinedMetricSpecification() PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput {
-	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfiguration) *PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification {
+	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfiguration) *PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification {
+		if v == nil {
+			return nil
+		}
 		return v.PredefinedMetricSpecification
 	}).(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput)
 }
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleInCooldown() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfiguration) *int { return v.ScaleInCooldown }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleInCooldown
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleOutCooldown() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfiguration) *int { return v.ScaleOutCooldown }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleOutCooldown
+	}).(pulumi.IntPtrOutput)
 }
 
-func (o PolicyTargetTrackingScalingPolicyConfigurationPtrOutput) TargetValue() pulumi.Float64Output {
-	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfiguration) float64 { return v.TargetValue }).(pulumi.Float64Output)
+func (o PolicyTargetTrackingScalingPolicyConfigurationPtrOutput) TargetValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetValue
+	}).(pulumi.Float64PtrOutput)
 }
 
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification struct {
@@ -624,31 +673,46 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 }
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput) Dimensions() PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayOutput {
-	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) []PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension {
+	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) []PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension {
+		if v == nil {
+			return nil
+		}
 		return v.Dimensions
 	}).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayOutput)
 }
 
-func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput) MetricName() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) string {
-		return v.MetricName
-	}).(pulumi.StringOutput)
+func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetricName
+	}).(pulumi.StringPtrOutput)
 }
 
-func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput) Namespace() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) string {
-		return v.Namespace
-	}).(pulumi.StringOutput)
+func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Namespace
+	}).(pulumi.StringPtrOutput)
 }
 
-func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput) Statistic() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) string {
-		return v.Statistic
-	}).(pulumi.StringOutput)
+func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput) Statistic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Statistic
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) *string {
+	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) *string {
+		if v == nil {
+			return nil
+		}
 		return v.Unit
 	}).(pulumi.StringPtrOutput)
 }
@@ -893,14 +957,20 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificat
 	}).(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationOutput)
 }
 
-func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput) PredefinedMetricType() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification) string {
-		return v.PredefinedMetricType
-	}).(pulumi.StringOutput)
+func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput) PredefinedMetricType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PredefinedMetricType
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification) *string {
+	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification) *string {
+		if v == nil {
+			return nil
+		}
 		return v.ResourceLabel
 	}).(pulumi.StringPtrOutput)
 }
@@ -1039,12 +1109,22 @@ func (o ScheduledActionScalableTargetActionPtrOutput) Elem() ScheduledActionScal
 
 // The maximum capacity.
 func (o ScheduledActionScalableTargetActionPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ScheduledActionScalableTargetAction) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ScheduledActionScalableTargetAction) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCapacity
+	}).(pulumi.IntPtrOutput)
 }
 
 // The minimum capacity.
 func (o ScheduledActionScalableTargetActionPtrOutput) MinCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ScheduledActionScalableTargetAction) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ScheduledActionScalableTargetAction) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinCapacity
+	}).(pulumi.IntPtrOutput)
 }
 
 func init() {

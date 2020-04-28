@@ -28,7 +28,7 @@ type GetArnResult struct {
 	// The [ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS account that owns the resource, without the hyphens.
 	Account string `pulumi:"account"`
 	Arn     string `pulumi:"arn"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The partition that the resource is in.
 	Partition string `pulumi:"partition"`

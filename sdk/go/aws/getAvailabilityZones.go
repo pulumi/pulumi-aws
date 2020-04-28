@@ -49,7 +49,7 @@ type GetAvailabilityZonesResult struct {
 	BlacklistedZoneIds   []string                     `pulumi:"blacklistedZoneIds"`
 	Filters              []GetAvailabilityZonesFilter `pulumi:"filters"`
 	GroupNames           []string                     `pulumi:"groupNames"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of the Availability Zone names available to the account.
 	Names []string `pulumi:"names"`

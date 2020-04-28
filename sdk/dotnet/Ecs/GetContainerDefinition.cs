@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Environment;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

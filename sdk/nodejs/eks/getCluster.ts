@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.eks.getCluster({
+ * const example = pulumi.output(aws.eks.getCluster({
  *     name: "example",
- * });
+ * }, { async: true }));
  * 
  * export const endpoint = example.endpoint;
  * export const kubeconfigCertificateAuthorityData = example.certificateAuthorities.data;
@@ -111,7 +111,7 @@ export interface GetClusterResult {
      */
     readonly vpcConfig: outputs.eks.GetClusterVpcConfig;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.getAvailabilityZones({
+ * const example = pulumi.output(aws.getAvailabilityZones({
  *     allAvailabilityZones: true,
  *     filters: [{
  *         name: "opt-in-status",
@@ -33,7 +33,7 @@ import * as utilities from "./utilities";
  *             "opted-in",
  *         ],
  *     }],
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
@@ -106,7 +106,7 @@ export interface GetAvailabilityZonesResult {
      */
     readonly zoneIds: string[];
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

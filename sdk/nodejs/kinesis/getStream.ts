@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
  * Use this data source to get information about a Kinesis Stream for use in other
  * resources.
  * 
- * For more details, see the [Amazon Kinesis Documentation][1].
+ * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
  * 
  * ## Example Usage
  * 
@@ -20,9 +20,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const stream = aws.kinesis.getStream({
+ * const stream = pulumi.output(aws.kinesis.getStream({
  *     name: "stream-name",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kinesis_stream.html.markdown.
@@ -64,7 +64,7 @@ export interface GetStreamResult {
      */
     readonly arn: string;
     /**
-     * The list of shard ids in the CLOSED state. See [Shard State][2] for more.
+     * The list of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
      */
     readonly closedShards: string[];
     /**
@@ -76,7 +76,7 @@ export interface GetStreamResult {
      */
     readonly name: string;
     /**
-     * The list of shard ids in the OPEN state. See [Shard State][2] for more.
+     * The list of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
      */
     readonly openShards: string[];
     /**
@@ -84,7 +84,7 @@ export interface GetStreamResult {
      */
     readonly retentionPeriod: number;
     /**
-     * A list of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch][3] for more.
+     * A list of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
      */
     readonly shardLevelMetrics: string[];
     /**
@@ -96,7 +96,7 @@ export interface GetStreamResult {
      */
     readonly tags: {[key: string]: any};
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

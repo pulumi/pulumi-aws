@@ -11,7 +11,7 @@ import (
 )
 
 // Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
-// the `notifications` map to a [Notification Configuration][2] inside Amazon Web
+// the `notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
 // Services, and are applied to each AutoScaling Group you supply.
 type Notification struct {
 	pulumi.CustomResourceState
@@ -19,7 +19,7 @@ type Notification struct {
 	// A list of AutoScaling Group Names
 	GroupNames pulumi.StringArrayOutput `pulumi:"groupNames"`
 	// A list of Notification Types that trigger
-	// notifications. Acceptable values are documented [in the AWS documentation here][1]
+	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
 	Notifications pulumi.StringArrayOutput `pulumi:"notifications"`
 	// The Topic ARN for notifications to be sent through
 	TopicArn pulumi.StringOutput `pulumi:"topicArn"`
@@ -65,7 +65,7 @@ type notificationState struct {
 	// A list of AutoScaling Group Names
 	GroupNames []string `pulumi:"groupNames"`
 	// A list of Notification Types that trigger
-	// notifications. Acceptable values are documented [in the AWS documentation here][1]
+	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
 	Notifications []string `pulumi:"notifications"`
 	// The Topic ARN for notifications to be sent through
 	TopicArn *string `pulumi:"topicArn"`
@@ -75,7 +75,7 @@ type NotificationState struct {
 	// A list of AutoScaling Group Names
 	GroupNames pulumi.StringArrayInput
 	// A list of Notification Types that trigger
-	// notifications. Acceptable values are documented [in the AWS documentation here][1]
+	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
 	Notifications pulumi.StringArrayInput
 	// The Topic ARN for notifications to be sent through
 	TopicArn pulumi.StringPtrInput
@@ -89,7 +89,7 @@ type notificationArgs struct {
 	// A list of AutoScaling Group Names
 	GroupNames []string `pulumi:"groupNames"`
 	// A list of Notification Types that trigger
-	// notifications. Acceptable values are documented [in the AWS documentation here][1]
+	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
 	Notifications []string `pulumi:"notifications"`
 	// The Topic ARN for notifications to be sent through
 	TopicArn string `pulumi:"topicArn"`
@@ -100,7 +100,7 @@ type NotificationArgs struct {
 	// A list of AutoScaling Group Names
 	GroupNames pulumi.StringArrayInput
 	// A list of Notification Types that trigger
-	// notifications. Acceptable values are documented [in the AWS documentation here][1]
+	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
 	Notifications pulumi.StringArrayInput
 	// The Topic ARN for notifications to be sent through
 	TopicArn pulumi.StringInput

@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const selectedRestApi = aws.apigateway.getRestApi({
+ * const selectedRestApi = pulumi.output(aws.apigateway.getRestApi({
  *     name: var_api_gateway_name,
- * });
- * const selectedUserPools = aws.cognito.getUserPools({
+ * }, { async: true }));
+ * const selectedUserPools = pulumi.output(aws.cognito.getUserPools({
  *     name: var_cognito_user_pool_name,
- * });
+ * }, { async: true }));
  * const cognito = new aws.apigateway.Authorizer("cognito", {
  *     providerArns: selectedUserPools.arns,
  *     restApi: selectedRestApi.id,
@@ -66,7 +66,7 @@ export interface GetUserPoolsResult {
     readonly ids: string[];
     readonly name: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

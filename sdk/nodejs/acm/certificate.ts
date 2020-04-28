@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * Domain validation through E-Mail is also supported but should be avoided as it requires a manual step outside
  * of this provider.
  * 
- * It's recommended to specify `createBeforeDestroy = true` in a [lifecycle][1] block to replace a certificate
+ * It's recommended to specify `createBeforeDestroy = true` in a [lifecycle](https://www.terraform.io/docs/configuration/resources.html#lifecycle) block to replace a certificate
  * which is currently in use (eg, by `aws.lb.Listener`).
  * 
  * ## Example Usage
@@ -71,12 +71,6 @@ import * as utilities from "../utilities";
  *     privateKey: examplePrivateKey.privateKeyPem,
  * });
  * ```
- * 
- * ## options Configuration Block
- * 
- * Supported nested arguments for the `options` configuration block:
- * 
- * * `certificateTransparencyLoggingPreference` - (Optional) Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate.html.markdown.
  */

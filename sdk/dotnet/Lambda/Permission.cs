@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Action { get; private set; } = null!;
 
         /// <summary>
-        /// The Event Source Token to validate.  Used with [Alexa Skills][1].
+        /// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
         /// </summary>
         [Output("eventSourceToken")]
         public Output<string?> EventSourceToken { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// The Event Source Token to validate.  Used with [Alexa Skills][1].
+        /// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
         /// </summary>
         [Input("eventSourceToken")]
         public Input<string>? EventSourceToken { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// The Event Source Token to validate.  Used with [Alexa Skills][1].
+        /// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
         /// </summary>
         [Input("eventSourceToken")]
         public Input<string>? EventSourceToken { get; set; }

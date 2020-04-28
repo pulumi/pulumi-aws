@@ -30,7 +30,7 @@ class GetTargetGroupResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if lambda_multi_value_headers_enabled and not isinstance(lambda_multi_value_headers_enabled, bool):
             raise TypeError("Expected argument 'lambda_multi_value_headers_enabled' to be a bool")

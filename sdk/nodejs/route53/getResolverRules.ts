@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.route53.getResolverRules({
+ * const example = pulumi.output(aws.route53.getResolverRules({
  *     tags: [{
  *         Environment: "dev",
  *     }],
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rules.html.markdown.
@@ -79,7 +79,7 @@ export interface GetResolverRulesResult {
     readonly ruleType?: string;
     readonly shareStatus?: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

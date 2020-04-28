@@ -39,7 +39,7 @@ type LookupLaunchConfigurationResult struct {
 	EphemeralBlockDevices []GetLaunchConfigurationEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	// The IAM Instance Profile to associate with launched instances.
 	IamInstanceProfile string `pulumi:"iamInstanceProfile"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The EC2 Image ID of the instance.
 	ImageId string `pulumi:"imageId"`

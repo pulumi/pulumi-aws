@@ -65,7 +65,7 @@ type LookupInstanceResult struct {
 	EngineVersion string `pulumi:"engineVersion"`
 	// The canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
 	HostedZoneId string `pulumi:"hostedZoneId"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Specifies the Provisioned IOPS (I/O operations per second) value.
 	Iops int `pulumi:"iops"`

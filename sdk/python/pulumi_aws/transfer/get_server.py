@@ -30,7 +30,7 @@ class GetServerResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if identity_provider_type and not isinstance(identity_provider_type, str):
             raise TypeError("Expected argument 'identity_provider_type' to be a str")

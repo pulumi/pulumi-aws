@@ -48,7 +48,7 @@ class GetOrganizationResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if master_account_arn and not isinstance(master_account_arn, str):
             raise TypeError("Expected argument 'master_account_arn' to be a str")

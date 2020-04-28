@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public readonly string? DxGatewayId;
         public readonly ImmutableArray<Outputs.GetDirectConnectGatewayAttachmentFilterResult> Filters;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

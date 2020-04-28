@@ -73,7 +73,7 @@ type GetAmiResult struct {
 	Filters         []GetAmiFilter `pulumi:"filters"`
 	// The hypervisor type of the image.
 	Hypervisor string `pulumi:"hypervisor"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ID of the AMI. Should be the same as the resource `id`.
 	ImageId string `pulumi:"imageId"`

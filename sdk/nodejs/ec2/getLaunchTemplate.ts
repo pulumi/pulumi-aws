@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const defaultLaunchTemplate = aws.ec2.getLaunchTemplate({
+ * const defaultLaunchTemplate = pulumi.output(aws.ec2.getLaunchTemplate({
  *     name: "my-launch-template",
- * });
+ * }, { async: true }));
  * ```
  * 
  * ### Filter
@@ -28,12 +28,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const test = aws.ec2.getLaunchTemplate({
+ * const test = pulumi.output(aws.ec2.getLaunchTemplate({
  *     filters: [{
  *         name: "launch-template-name",
  *         values: ["some-template"],
  *     }],
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_template.html.markdown.
@@ -195,7 +195,7 @@ export interface GetLaunchTemplateResult {
      */
     readonly vpcSecurityGroupIds: string[];
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

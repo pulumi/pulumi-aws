@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *   "clientSecret": "8289575d00000ace55e1815ec13673955721b8a5"
  * }
  * `,
- * }));
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_ciphertext.html.markdown.
@@ -81,7 +81,7 @@ export interface GetCipherTextResult {
     readonly keyId: string;
     readonly plaintext: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

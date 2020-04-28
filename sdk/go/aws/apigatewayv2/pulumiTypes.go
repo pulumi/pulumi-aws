@@ -144,12 +144,22 @@ func (o AuthorizerJwtConfigurationPtrOutput) Elem() AuthorizerJwtConfigurationOu
 
 // A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
 func (o AuthorizerJwtConfigurationPtrOutput) Audiences() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AuthorizerJwtConfiguration) []string { return v.Audiences }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *AuthorizerJwtConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Audiences
+	}).(pulumi.StringArrayOutput)
 }
 
 // The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the [`cognito.UserPool`](https://www.terraform.io/docs/providers/aws/r/cognito_user_pool.html) resource.
 func (o AuthorizerJwtConfigurationPtrOutput) Issuer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AuthorizerJwtConfiguration) *string { return v.Issuer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AuthorizerJwtConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Issuer
+	}).(pulumi.StringPtrOutput)
 }
 
 type DomainNameDomainNameConfiguration struct {
@@ -316,28 +326,53 @@ func (o DomainNameDomainNameConfigurationPtrOutput) Elem() DomainNameDomainNameC
 
 // The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
 // Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
-func (o DomainNameDomainNameConfigurationPtrOutput) CertificateArn() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainNameDomainNameConfiguration) string { return v.CertificateArn }).(pulumi.StringOutput)
+func (o DomainNameDomainNameConfigurationPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The endpoint type. Valid values: `REGIONAL`.
-func (o DomainNameDomainNameConfigurationPtrOutput) EndpointType() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainNameDomainNameConfiguration) string { return v.EndpointType }).(pulumi.StringOutput)
+func (o DomainNameDomainNameConfigurationPtrOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointType
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Route 53 Hosted Zone ID of the endpoint.
 func (o DomainNameDomainNameConfigurationPtrOutput) HostedZoneId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostedZoneId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
-func (o DomainNameDomainNameConfigurationPtrOutput) SecurityPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainNameDomainNameConfiguration) string { return v.SecurityPolicy }).(pulumi.StringOutput)
+func (o DomainNameDomainNameConfigurationPtrOutput) SecurityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecurityPolicy
+	}).(pulumi.StringPtrOutput)
 }
 
 // The target domain name.
 func (o DomainNameDomainNameConfigurationPtrOutput) TargetDomainName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.TargetDomainName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetDomainName
+	}).(pulumi.StringPtrOutput)
 }
 
 type StageAccessLogSettings struct {
@@ -473,13 +508,23 @@ func (o StageAccessLogSettingsPtrOutput) Elem() StageAccessLogSettingsOutput {
 }
 
 // The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
-func (o StageAccessLogSettingsPtrOutput) DestinationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v StageAccessLogSettings) string { return v.DestinationArn }).(pulumi.StringOutput)
+func (o StageAccessLogSettingsPtrOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StageAccessLogSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // A single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data, as specified by [selected $context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-logging.html).
-func (o StageAccessLogSettingsPtrOutput) Format() pulumi.StringOutput {
-	return o.ApplyT(func(v StageAccessLogSettings) string { return v.Format }).(pulumi.StringOutput)
+func (o StageAccessLogSettingsPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StageAccessLogSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Format
+	}).(pulumi.StringPtrOutput)
 }
 
 type StageDefaultRouteSettings struct {
@@ -650,28 +695,53 @@ func (o StageDefaultRouteSettingsPtrOutput) Elem() StageDefaultRouteSettingsOutp
 // Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
 // Defaults to `false`. Supported only for WebSocket APIs.
 func (o StageDefaultRouteSettingsPtrOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageDefaultRouteSettings) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *StageDefaultRouteSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DataTraceEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Whether detailed metrics are enabled for the default route. Defaults to `false`.
 func (o StageDefaultRouteSettingsPtrOutput) DetailedMetricsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageDefaultRouteSettings) *bool { return v.DetailedMetricsEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *StageDefaultRouteSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DetailedMetricsEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
 // Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
 func (o StageDefaultRouteSettingsPtrOutput) LoggingLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageDefaultRouteSettings) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *StageDefaultRouteSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LoggingLevel
+	}).(pulumi.StringPtrOutput)
 }
 
 // The throttling burst limit for the default route.
 func (o StageDefaultRouteSettingsPtrOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v StageDefaultRouteSettings) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *StageDefaultRouteSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThrottlingBurstLimit
+	}).(pulumi.IntPtrOutput)
 }
 
 // The throttling rate limit for the default route.
 func (o StageDefaultRouteSettingsPtrOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v StageDefaultRouteSettings) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
+	return o.ApplyT(func(v *StageDefaultRouteSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ThrottlingRateLimit
+	}).(pulumi.Float64PtrOutput)
 }
 
 type StageRouteSetting struct {

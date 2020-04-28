@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const testInstances = aws.ec2.getInstances({
+ * const testInstances = pulumi.output(aws.ec2.getInstances({
  *     filters: [{
  *         name: "instance.group-id",
  *         values: ["sg-12345678"],
@@ -35,11 +35,11 @@ import * as utilities from "../utilities";
  *     instanceTags: {
  *         Role: "HardWorker",
  *     },
- * });
+ * }, { async: true }));
  * const testEip: aws.ec2.Eip[] = [];
- * for (let i = 0; i < testInstances.ids.length; i++) {
+ * for (let i = 0; i < testInstances.apply(testInstances => testInstances.ids.length); i++) {
  *     testEip.push(new aws.ec2.Eip(`test-${i}`, {
- *         instance: testInstances.ids[i],
+ *         instance: testInstances.apply(testInstances => testInstances.ids[i]),
  *     }));
  * }
  * ```
@@ -103,7 +103,7 @@ export interface GetInstancesResult {
      */
     readonly publicIps: string[];
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

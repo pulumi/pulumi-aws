@@ -65,6 +65,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_ssl_negotiation_policy.html.markdown.
  */
+/** @deprecated aws.SslNegotiationPolicy has been deprecated in favour of aws.SslNegotiationPolicy */
 export class SslNegotiationPolicy extends pulumi.CustomResource {
     /**
      * Get an existing SslNegotiationPolicy resource's state with the given name, ID, and optional extra
@@ -75,6 +76,7 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SslNegotiationPolicyState, opts?: pulumi.CustomResourceOptions): SslNegotiationPolicy {
+        pulumi.log.warn("SslNegotiationPolicy is deprecated: aws.SslNegotiationPolicy has been deprecated in favour of aws.SslNegotiationPolicy")
         return new SslNegotiationPolicy(name, <any>state, { ...opts, id: id });
     }
 
@@ -119,8 +121,11 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.SslNegotiationPolicy has been deprecated in favour of aws.SslNegotiationPolicy */
     constructor(name: string, args: SslNegotiationPolicyArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.SslNegotiationPolicy has been deprecated in favour of aws.SslNegotiationPolicy */
     constructor(name: string, argsOrState?: SslNegotiationPolicyArgs | SslNegotiationPolicyState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SslNegotiationPolicy is deprecated: aws.SslNegotiationPolicy has been deprecated in favour of aws.SslNegotiationPolicy")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as SslNegotiationPolicyState | undefined;

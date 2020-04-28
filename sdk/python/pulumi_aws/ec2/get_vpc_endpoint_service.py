@@ -39,7 +39,7 @@ class GetVpcEndpointServiceResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if manages_vpc_endpoints and not isinstance(manages_vpc_endpoints, bool):
             raise TypeError("Expected argument 'manages_vpc_endpoints' to be a bool")

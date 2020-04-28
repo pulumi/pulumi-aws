@@ -38,7 +38,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
     peer_owner_id: pulumi.Output[str]
     """
     The AWS account ID of the owner of the peer VPC.
-    Defaults to the account ID the [AWS provider][1] is currently connected to.
+    Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
     """
     peer_region: pulumi.Output[str]
     """
@@ -104,7 +104,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
                the peering connection (a maximum of one).
         :param pulumi.Input[bool] auto_accept: Accept the peering (both VPCs need to be in the same AWS account).
         :param pulumi.Input[str] peer_owner_id: The AWS account ID of the owner of the peer VPC.
-               Defaults to the account ID the [AWS provider][1] is currently connected to.
+               Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
         :param pulumi.Input[str] peer_region: The region of the accepter VPC of the [VPC Peering Connection]. `auto_accept` must be `false`,
                and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         :param pulumi.Input[str] peer_vpc_id: The ID of the VPC with which you are creating the VPC Peering Connection.
@@ -191,7 +191,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
                the peering connection (a maximum of one).
         :param pulumi.Input[bool] auto_accept: Accept the peering (both VPCs need to be in the same AWS account).
         :param pulumi.Input[str] peer_owner_id: The AWS account ID of the owner of the peer VPC.
-               Defaults to the account ID the [AWS provider][1] is currently connected to.
+               Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
         :param pulumi.Input[str] peer_region: The region of the accepter VPC of the [VPC Peering Connection]. `auto_accept` must be `false`,
                and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         :param pulumi.Input[str] peer_vpc_id: The ID of the VPC with which you are creating the VPC Peering Connection.

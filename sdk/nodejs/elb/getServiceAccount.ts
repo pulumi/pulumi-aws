@@ -18,10 +18,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const main = aws.elb.getServiceAccount();
+ * const main = pulumi.output(aws.elb.getServiceAccount({ async: true }));
  * const elbLogs = new aws.s3.Bucket("elbLogs", {
  *     acl: "private",
- *     policy: `{
+ *     policy: pulumi.interpolate`{
  *   "Id": "Policy",
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -93,7 +93,7 @@ export interface GetServiceAccountResult {
     readonly arn: string;
     readonly region?: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

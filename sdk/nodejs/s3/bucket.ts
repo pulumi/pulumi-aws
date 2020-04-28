@@ -224,7 +224,7 @@ import {RoutingRule} from "./routingRules";
  *     versioning: {
  *         enabled: true,
  *     },
- * }, {provider: central});
+ * }, { provider: central });
  * const replicationPolicy = new aws.iam.Policy("replication", {
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
@@ -295,7 +295,7 @@ import {RoutingRule} from "./routingRules";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const currentUser = aws.getCanonicalUserId();
+ * const currentUser = pulumi.output(aws.getCanonicalUserId({ async: true }));
  * const bucket = new aws.s3.Bucket("bucket", {
  *     grants: [
  *         {

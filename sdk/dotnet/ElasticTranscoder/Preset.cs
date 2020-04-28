@@ -62,12 +62,14 @@ namespace Pulumi.Aws.ElasticTranscoder
         [Output("video")]
         public Output<Outputs.PresetVideo?> Video { get; private set; } = null!;
 
+        /// <summary>
+        /// Codec options for the video parameters
+        /// </summary>
         [Output("videoCodecOptions")]
         public Output<ImmutableDictionary<string, object>?> VideoCodecOptions { get; private set; } = null!;
 
         /// <summary>
         /// Watermark parameters for the video parameters (documented below)
-        /// * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
         /// </summary>
         [Output("videoWatermarks")]
         public Output<ImmutableArray<Outputs.PresetVideoWatermark>> VideoWatermarks { get; private set; } = null!;
@@ -165,6 +167,10 @@ namespace Pulumi.Aws.ElasticTranscoder
 
         [Input("videoCodecOptions")]
         private InputMap<object>? _videoCodecOptions;
+
+        /// <summary>
+        /// Codec options for the video parameters
+        /// </summary>
         public InputMap<object> VideoCodecOptions
         {
             get => _videoCodecOptions ?? (_videoCodecOptions = new InputMap<object>());
@@ -176,7 +182,6 @@ namespace Pulumi.Aws.ElasticTranscoder
 
         /// <summary>
         /// Watermark parameters for the video parameters (documented below)
-        /// * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
         /// </summary>
         public InputList<Inputs.PresetVideoWatermarkArgs> VideoWatermarks
         {
@@ -241,6 +246,10 @@ namespace Pulumi.Aws.ElasticTranscoder
 
         [Input("videoCodecOptions")]
         private InputMap<object>? _videoCodecOptions;
+
+        /// <summary>
+        /// Codec options for the video parameters
+        /// </summary>
         public InputMap<object> VideoCodecOptions
         {
             get => _videoCodecOptions ?? (_videoCodecOptions = new InputMap<object>());
@@ -252,7 +261,6 @@ namespace Pulumi.Aws.ElasticTranscoder
 
         /// <summary>
         /// Watermark parameters for the video parameters (documented below)
-        /// * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
         /// </summary>
         public InputList<Inputs.PresetVideoWatermarkGetArgs> VideoWatermarks
         {

@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     description: "Test",
  *     iamRole: testRole.id,
  *     registrationLimit: 5,
- * }, {dependsOn: [testAttach]});
+ * }, { dependsOn: [testAttach] });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_activation.html.markdown.

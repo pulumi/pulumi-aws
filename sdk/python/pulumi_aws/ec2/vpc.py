@@ -41,7 +41,7 @@ class Vpc(pulumi.CustomResource):
     """
     A boolean flag to enable/disable ClassicLink
     for the VPC. Only valid in regions and accounts that support EC2 Classic.
-    See the [ClassicLink documentation][1] for more information. Defaults false.
+    See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
     """
     enable_classiclink_dns_support: pulumi.Output[bool]
     """
@@ -96,7 +96,7 @@ class Vpc(pulumi.CustomResource):
         :param pulumi.Input[str] cidr_block: The CIDR block for the VPC.
         :param pulumi.Input[bool] enable_classiclink: A boolean flag to enable/disable ClassicLink
                for the VPC. Only valid in regions and accounts that support EC2 Classic.
-               See the [ClassicLink documentation][1] for more information. Defaults false.
+               See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
         :param pulumi.Input[bool] enable_classiclink_dns_support: A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
                Only valid in regions and accounts that support EC2 Classic.
         :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
@@ -165,7 +165,7 @@ class Vpc(pulumi.CustomResource):
         :param pulumi.Input[str] default_security_group_id: The ID of the security group created by default on VPC creation
         :param pulumi.Input[bool] enable_classiclink: A boolean flag to enable/disable ClassicLink
                for the VPC. Only valid in regions and accounts that support EC2 Classic.
-               See the [ClassicLink documentation][1] for more information. Defaults false.
+               See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
         :param pulumi.Input[bool] enable_classiclink_dns_support: A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
                Only valid in regions and accounts that support EC2 Classic.
         :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.

@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = aws.servicequotas.getService({
+ * const example = pulumi.output(aws.servicequotas.getService({
  *     serviceName: "Amazon Virtual Private Cloud (Amazon VPC)",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/servicequotas_service.html.markdown.
@@ -55,7 +55,7 @@ export interface GetServiceResult {
     readonly serviceCode: string;
     readonly serviceName: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

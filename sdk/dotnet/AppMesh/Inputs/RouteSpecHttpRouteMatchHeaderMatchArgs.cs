@@ -21,11 +21,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
         /// <summary>
         /// Specifies the path with which to match requests.
         /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-        /// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
+        /// <summary>
+        /// The object that specifies the range of numbers that the header value sent by the client must be included in.
+        /// </summary>
         [Input("range")]
         public Input<Inputs.RouteSpecHttpRouteMatchHeaderMatchRangeArgs>? Range { get; set; }
 

@@ -38,7 +38,7 @@ type LookupListenerResult struct {
 	Arn            string                     `pulumi:"arn"`
 	CertificateArn string                     `pulumi:"certificateArn"`
 	DefaultActions []GetListenerDefaultAction `pulumi:"defaultActions"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id              string `pulumi:"id"`
 	LoadBalancerArn string `pulumi:"loadBalancerArn"`
 	Port            int    `pulumi:"port"`

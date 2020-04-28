@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const fooVpcs = aws.ec2.getVpcs({
+ * const fooVpcs = pulumi.output(aws.ec2.getVpcs({
  *     tags: {
  *         service: "production",
  *     },
- * });
+ * }, { async: true }));
  * 
  * export const foo = fooVpcs.ids;
  * ```
@@ -71,7 +71,7 @@ export interface GetVpcsResult {
     readonly ids: string[];
     readonly tags: {[key: string]: any};
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

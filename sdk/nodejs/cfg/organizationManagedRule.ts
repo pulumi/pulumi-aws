@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleOrganizationManagedRule = new aws.cfg.OrganizationManagedRule("example", {
  *     ruleIdentifier: "IAM_PASSWORD_POLICY",
- * }, {dependsOn: [exampleOrganization]});
+ * }, { dependsOn: [exampleOrganization] });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_organization_managed_rule.html.markdown.

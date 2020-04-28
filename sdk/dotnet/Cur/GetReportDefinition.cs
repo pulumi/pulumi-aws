@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Cur
         /// </summary>
         public readonly string Format;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string ReportName;
