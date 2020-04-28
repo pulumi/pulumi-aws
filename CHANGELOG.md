@@ -2,6 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 2.2.0 (2020-04-29)
 * Add new region South Africa (Cape Town) af-south-1
 * Add ManagedPolicies.AmazonEC2SpotFleetTaggingRole
 * Add Principals.BatchPrincipal
@@ -11,8 +16,6 @@ CHANGELOG
 * Update `kinesis.TableEventSubscriptionArgs` to include latest Lambda Event Source Mapping parameters 
 * Upgrade to pulumi-terraform-bridge v2.1.0
 * Regenerate datasource examples to be async
-
----
 
 ## 2.1.0 (2020-04-20)
 * Remove deprecated IAM Policy types and ec2 InstanceTypes
