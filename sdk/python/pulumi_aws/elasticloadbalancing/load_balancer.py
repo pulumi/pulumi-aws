@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("aws.LoadBalancer has been deprecated in favour of aws.LoadBalancer", DeprecationWarning)
+warnings.warn("aws.elasticloadbalancing.LoadBalancer has been deprecated in favour of aws.elb.LoadBalancer", DeprecationWarning)
 class LoadBalancer(pulumi.CustomResource):
     access_logs: pulumi.Output[dict]
     """
@@ -120,7 +120,7 @@ class LoadBalancer(pulumi.CustomResource):
     """
     The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
     """
-    warnings.warn("aws.LoadBalancer has been deprecated in favour of aws.LoadBalancer", DeprecationWarning)
+    warnings.warn("aws.elasticloadbalancing.LoadBalancer has been deprecated in favour of aws.elb.LoadBalancer", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, access_logs=None, availability_zones=None, connection_draining=None, connection_draining_timeout=None, cross_zone_load_balancing=None, health_check=None, idle_timeout=None, instances=None, internal=None, listeners=None, name=None, name_prefix=None, security_groups=None, source_security_group=None, subnets=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Elastic Load Balancer resource, also known as a "Classic
@@ -143,7 +143,7 @@ class LoadBalancer(pulumi.CustomResource):
         curve could produce the error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your
         browser.
 
-        Deprecated: aws.LoadBalancer has been deprecated in favour of aws.LoadBalancer
+        Deprecated: aws.elasticloadbalancing.LoadBalancer has been deprecated in favour of aws.elb.LoadBalancer
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,7 +197,7 @@ class LoadBalancer(pulumi.CustomResource):
           * `sslCertificateId` (`pulumi.Input[str]`) - The ARN of an SSL certificate you have
             uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lb_protocol` is either HTTPS or SSL**
         """
-        pulumi.log.warn("LoadBalancer is deprecated: aws.LoadBalancer has been deprecated in favour of aws.LoadBalancer")
+        pulumi.log.warn("LoadBalancer is deprecated: aws.elasticloadbalancing.LoadBalancer has been deprecated in favour of aws.elb.LoadBalancer")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -92,7 +92,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/load_balancer_listener_policy.html.markdown.
  */
-/** @deprecated aws.ListenerPolicy has been deprecated in favour of aws.ListenerPolicy */
+/** @deprecated aws.elasticloadbalancing.ListenerPolicy has been deprecated in favour of aws.elb.ListenerPolicy */
 export class ListenerPolicy extends pulumi.CustomResource {
     /**
      * Get an existing ListenerPolicy resource's state with the given name, ID, and optional extra
@@ -103,7 +103,7 @@ export class ListenerPolicy extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ListenerPolicyState, opts?: pulumi.CustomResourceOptions): ListenerPolicy {
-        pulumi.log.warn("ListenerPolicy is deprecated: aws.ListenerPolicy has been deprecated in favour of aws.ListenerPolicy")
+        pulumi.log.warn("ListenerPolicy is deprecated: aws.elasticloadbalancing.ListenerPolicy has been deprecated in favour of aws.elb.ListenerPolicy")
         return new ListenerPolicy(name, <any>state, { ...opts, id: id });
     }
 
@@ -141,11 +141,11 @@ export class ListenerPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated aws.ListenerPolicy has been deprecated in favour of aws.ListenerPolicy */
+    /** @deprecated aws.elasticloadbalancing.ListenerPolicy has been deprecated in favour of aws.elb.ListenerPolicy */
     constructor(name: string, args: ListenerPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated aws.ListenerPolicy has been deprecated in favour of aws.ListenerPolicy */
+    /** @deprecated aws.elasticloadbalancing.ListenerPolicy has been deprecated in favour of aws.elb.ListenerPolicy */
     constructor(name: string, argsOrState?: ListenerPolicyArgs | ListenerPolicyState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ListenerPolicy is deprecated: aws.ListenerPolicy has been deprecated in favour of aws.ListenerPolicy")
+        pulumi.log.warn("ListenerPolicy is deprecated: aws.elasticloadbalancing.ListenerPolicy has been deprecated in favour of aws.elb.ListenerPolicy")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ListenerPolicyState | undefined;

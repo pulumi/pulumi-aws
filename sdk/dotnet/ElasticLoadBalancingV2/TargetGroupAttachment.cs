@@ -16,9 +16,9 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// 
     /// 
     /// 
-    /// Deprecated: aws.TargetGroupAttachment has been deprecated in favour of aws.TargetGroupAttachment
+    /// Deprecated: aws.elasticloadbalancingv2.TargetGroupAttachment has been deprecated in favour of aws.lb.TargetGroupAttachment
     /// </summary>
-    [Obsolete(@"aws.TargetGroupAttachment has been deprecated in favour of aws.TargetGroupAttachment")]
+    [Obsolete(@"aws.elasticloadbalancingv2.TargetGroupAttachment has been deprecated in favour of aws.lb.TargetGroupAttachment")]
     public partial class TargetGroupAttachment : Pulumi.CustomResource
     {
         /// <summary>

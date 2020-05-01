@@ -16,7 +16,7 @@ import (
 //
 //
 //
-// Deprecated: aws.TargetGroupAttachment has been deprecated in favour of aws.TargetGroupAttachment
+// Deprecated: aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favour of aws.alb.TargetGroupAttachment
 type TargetGroupAttachment struct {
 	pulumi.CustomResourceState
 

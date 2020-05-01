@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("aws.TargetGroupAttachment has been deprecated in favour of aws.TargetGroupAttachment", DeprecationWarning)
+warnings.warn("aws.elasticloadbalancingv2.TargetGroupAttachment has been deprecated in favour of aws.lb.TargetGroupAttachment", DeprecationWarning)
 class TargetGroupAttachment(pulumi.CustomResource):
     availability_zone: pulumi.Output[str]
     """
@@ -27,7 +27,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
     """
     The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
     """
-    warnings.warn("aws.TargetGroupAttachment has been deprecated in favour of aws.TargetGroupAttachment", DeprecationWarning)
+    warnings.warn("aws.elasticloadbalancingv2.TargetGroupAttachment has been deprecated in favour of aws.lb.TargetGroupAttachment", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, availability_zone=None, port=None, target_group_arn=None, target_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the [`elb.Attachment` resource](https://www.terraform.io/docs/providers/aws/r/elb_attachment.html).
@@ -36,7 +36,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
 
 
-        Deprecated: aws.TargetGroupAttachment has been deprecated in favour of aws.TargetGroupAttachment
+        Deprecated: aws.elasticloadbalancingv2.TargetGroupAttachment has been deprecated in favour of aws.lb.TargetGroupAttachment
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -45,7 +45,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] target_group_arn: The ARN of the target group with which to register targets
         :param pulumi.Input[str] target_id: The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
         """
-        pulumi.log.warn("TargetGroupAttachment is deprecated: aws.TargetGroupAttachment has been deprecated in favour of aws.TargetGroupAttachment")
+        pulumi.log.warn("TargetGroupAttachment is deprecated: aws.elasticloadbalancingv2.TargetGroupAttachment has been deprecated in favour of aws.lb.TargetGroupAttachment")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

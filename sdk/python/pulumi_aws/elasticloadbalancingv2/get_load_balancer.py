@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("aws.getLoadBalancer has been deprecated in favour of aws.getLoadBalancer", DeprecationWarning)
+warnings.warn("aws.elasticloadbalancingv2.getLoadBalancer has been deprecated in favour of aws.lb.getLoadBalancer", DeprecationWarning)
 class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
@@ -105,13 +105,13 @@ def get_load_balancer(arn=None,name=None,tags=None,opts=None):
 
 
 
-    Deprecated: aws.getLoadBalancer has been deprecated in favour of aws.getLoadBalancer
+    Deprecated: aws.elasticloadbalancingv2.getLoadBalancer has been deprecated in favour of aws.lb.getLoadBalancer
 
 
     :param str arn: The full ARN of the load balancer.
     :param str name: The unique name of the load balancer.
     """
-    pulumi.log.warn("get_load_balancer is deprecated: aws.getLoadBalancer has been deprecated in favour of aws.getLoadBalancer")
+    pulumi.log.warn("get_load_balancer is deprecated: aws.elasticloadbalancingv2.getLoadBalancer has been deprecated in favour of aws.lb.getLoadBalancer")
     __args__ = dict()
 
 

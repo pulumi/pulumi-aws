@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("aws.ListenerRule has been deprecated in favour of aws.ListenerRule", DeprecationWarning)
+warnings.warn("aws.applicationloadbalancing.ListenerRule has been deprecated in favour of aws.alb.ListenerRule", DeprecationWarning)
 class ListenerRule(pulumi.CustomResource):
     actions: pulumi.Output[list]
     """
@@ -94,7 +94,7 @@ class ListenerRule(pulumi.CustomResource):
     """
     The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
     """
-    warnings.warn("aws.ListenerRule has been deprecated in favour of aws.ListenerRule", DeprecationWarning)
+    warnings.warn("aws.applicationloadbalancing.ListenerRule has been deprecated in favour of aws.alb.ListenerRule", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, actions=None, conditions=None, listener_arn=None, priority=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Load Balancer Listener Rule resource.
@@ -103,7 +103,7 @@ class ListenerRule(pulumi.CustomResource):
 
 
 
-        Deprecated: aws.ListenerRule has been deprecated in favour of aws.ListenerRule
+        Deprecated: aws.applicationloadbalancing.ListenerRule has been deprecated in favour of aws.alb.ListenerRule
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,7 +179,7 @@ class ListenerRule(pulumi.CustomResource):
 
           * `values` (`pulumi.Input[str]`) - List of exactly one pattern to match. Required when `field` is set.
         """
-        pulumi.log.warn("ListenerRule is deprecated: aws.ListenerRule has been deprecated in favour of aws.ListenerRule")
+        pulumi.log.warn("ListenerRule is deprecated: aws.applicationloadbalancing.ListenerRule has been deprecated in favour of aws.alb.ListenerRule")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

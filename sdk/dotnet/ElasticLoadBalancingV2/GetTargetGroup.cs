@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ElasticLoadBalancingV2
 {
-    [Obsolete(@"aws.getTargetGroup has been deprecated in favour of aws.getTargetGroup")]
+    [Obsolete(@"aws.elasticloadbalancingv2.getTargetGroup has been deprecated in favour of aws.lb.getTargetGroup")]
     public static class GetTargetGroup
     {
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         /// {{% examples %}}
         /// {{% /examples %}}
         /// 
-        /// Deprecated: aws.getTargetGroup has been deprecated in favour of aws.getTargetGroup
+        /// Deprecated: aws.elasticloadbalancingv2.getTargetGroup has been deprecated in favour of aws.lb.getTargetGroup
         /// </summary>
         public static Task<GetTargetGroupResult> InvokeAsync(GetTargetGroupArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTargetGroupResult>("aws:elasticloadbalancingv2/getTargetGroup:getTargetGroup", args ?? new GetTargetGroupArgs(), options.WithVersion());

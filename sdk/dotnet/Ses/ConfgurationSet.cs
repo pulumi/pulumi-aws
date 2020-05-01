@@ -11,9 +11,9 @@ namespace Pulumi.Aws.Ses
 {
     /// <summary>
     /// 
-    /// Deprecated: aws.ConfgurationSet has been deprecated in favour of aws.ConfigurationSet
+    /// Deprecated: aws.ses.ConfgurationSet has been deprecated in favour of aws.ses.ConfigurationSet
     /// </summary>
-    [Obsolete(@"aws.ConfgurationSet has been deprecated in favour of aws.ConfigurationSet")]
+    [Obsolete(@"aws.ses.ConfgurationSet has been deprecated in favour of aws.ses.ConfigurationSet")]
     public partial class ConfgurationSet : Pulumi.CustomResource
     {
         [Output("name")]

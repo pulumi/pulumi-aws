@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("aws.Listener has been deprecated in favour of aws.Listener", DeprecationWarning)
+warnings.warn("aws.applicationloadbalancing.Listener has been deprecated in favour of aws.alb.Listener", DeprecationWarning)
 class Listener(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -79,7 +79,7 @@ class Listener(pulumi.CustomResource):
     """
     The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
     """
-    warnings.warn("aws.Listener has been deprecated in favour of aws.Listener", DeprecationWarning)
+    warnings.warn("aws.applicationloadbalancing.Listener has been deprecated in favour of aws.alb.Listener", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, certificate_arn=None, default_actions=None, load_balancer_arn=None, port=None, protocol=None, ssl_policy=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Load Balancer Listener resource.
@@ -88,7 +88,7 @@ class Listener(pulumi.CustomResource):
 
 
 
-        Deprecated: aws.Listener has been deprecated in favour of aws.Listener
+        Deprecated: aws.applicationloadbalancing.Listener has been deprecated in favour of aws.alb.Listener
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,7 +141,7 @@ class Listener(pulumi.CustomResource):
           * `target_group_arn` (`pulumi.Input[str]`) - The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
           * `type` (`pulumi.Input[str]`) - The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
         """
-        pulumi.log.warn("Listener is deprecated: aws.Listener has been deprecated in favour of aws.Listener")
+        pulumi.log.warn("Listener is deprecated: aws.applicationloadbalancing.Listener has been deprecated in favour of aws.alb.Listener")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

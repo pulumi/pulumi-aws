@@ -17,7 +17,7 @@ import (
 //
 //
 //
-// Deprecated: aws.getLoadBalancer has been deprecated in favour of aws.getLoadBalancer
+// Deprecated: aws.applicationloadbalancing.getLoadBalancer has been deprecated in favour of aws.alb.getLoadBalancer
 func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts ...pulumi.InvokeOption) (*LookupLoadBalancerResult, error) {
 	var rv LookupLoadBalancerResult
 	err := ctx.Invoke("aws:applicationloadbalancing/getLoadBalancer:getLoadBalancer", args, &rv, opts...)

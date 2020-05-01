@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("aws.getTargetGroup has been deprecated in favour of aws.getTargetGroup", DeprecationWarning)
+warnings.warn("aws.elasticloadbalancingv2.getTargetGroup has been deprecated in favour of aws.lb.getTargetGroup", DeprecationWarning)
 class GetTargetGroupResult:
     """
     A collection of values returned by getTargetGroup.
@@ -97,13 +97,13 @@ def get_target_group(arn=None,name=None,tags=None,opts=None):
 
 
 
-    Deprecated: aws.getTargetGroup has been deprecated in favour of aws.getTargetGroup
+    Deprecated: aws.elasticloadbalancingv2.getTargetGroup has been deprecated in favour of aws.lb.getTargetGroup
 
 
     :param str arn: The full ARN of the target group.
     :param str name: The unique name of the target group.
     """
-    pulumi.log.warn("get_target_group is deprecated: aws.getTargetGroup has been deprecated in favour of aws.getTargetGroup")
+    pulumi.log.warn("get_target_group is deprecated: aws.elasticloadbalancingv2.getTargetGroup has been deprecated in favour of aws.lb.getTargetGroup")
     __args__ = dict()
 
 

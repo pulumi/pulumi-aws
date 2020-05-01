@@ -30,9 +30,9 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// curve could produce the error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your
     /// browser.
     /// 
-    /// Deprecated: aws.LoadBalancer has been deprecated in favour of aws.LoadBalancer
+    /// Deprecated: aws.elasticloadbalancing.LoadBalancer has been deprecated in favour of aws.elb.LoadBalancer
     /// </summary>
-    [Obsolete(@"aws.LoadBalancer has been deprecated in favour of aws.LoadBalancer")]
+    [Obsolete(@"aws.elasticloadbalancing.LoadBalancer has been deprecated in favour of aws.elb.LoadBalancer")]
     public partial class LoadBalancer : Pulumi.CustomResource
     {
         /// <summary>

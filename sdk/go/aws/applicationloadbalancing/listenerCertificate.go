@@ -18,7 +18,7 @@ import (
 //
 //
 //
-// Deprecated: aws.ListenerCertificate has been deprecated in favour of aws.ListenerCertificate
+// Deprecated: aws.applicationloadbalancing.ListenerCertificate has been deprecated in favour of aws.alb.ListenerCertificate
 type ListenerCertificate struct {
 	pulumi.CustomResourceState
 

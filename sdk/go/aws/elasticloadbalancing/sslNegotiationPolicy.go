@@ -14,7 +14,7 @@ import (
 //
 //
 //
-// Deprecated: aws.SslNegotiationPolicy has been deprecated in favour of aws.SslNegotiationPolicy
+// Deprecated: aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favour of aws.elb.SslNegotiationPolicy
 type SslNegotiationPolicy struct {
 	pulumi.CustomResourceState
 

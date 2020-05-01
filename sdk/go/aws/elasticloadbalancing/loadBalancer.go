@@ -30,7 +30,7 @@ import (
 // curve could produce the error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your
 // browser.
 //
-// Deprecated: aws.LoadBalancer has been deprecated in favour of aws.LoadBalancer
+// Deprecated: aws.elasticloadbalancing.LoadBalancer has been deprecated in favour of aws.elb.LoadBalancer
 type LoadBalancer struct {
 	pulumi.CustomResourceState
 

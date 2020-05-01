@@ -10,7 +10,7 @@ import (
 )
 
 //
-// Deprecated: aws.ConfgurationSet has been deprecated in favour of aws.ConfigurationSet
+// Deprecated: aws.ses.ConfgurationSet has been deprecated in favour of aws.ses.ConfigurationSet
 type ConfgurationSet struct {
 	pulumi.CustomResourceState
 
