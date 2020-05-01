@@ -27,6 +27,7 @@ export let EUNorth1Region: Region     = "eu-north-1";
 export let EUWest1Region: Region      = "eu-west-1";
 export let EUWest2Region: Region      = "eu-west-2";
 export let EUWest3Region: Region      = "eu-west-3";
+export let EUSouth1Region: Region     = "eu-south-1";
 export let MESouth1Region: Region     = "me-south-1";
 export let SAEast1Region: Region      = "sa-east-1";
 export let USEast1Region: Region      = "us-east-1";
@@ -53,6 +54,7 @@ export type Region =
     "eu-west-1"      |
     "eu-west-2"      |
     "eu-west-3"      |
+    "eu-south-1"     |
     "me-south-1"     |
     "sa-east-1"      |
     "us-east-1"      |
