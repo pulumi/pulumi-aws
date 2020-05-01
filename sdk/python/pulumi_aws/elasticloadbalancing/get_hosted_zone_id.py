@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("aws.getHostedZoneId has been deprecated in favour of aws.getHostedZoneId", DeprecationWarning)
+warnings.warn("aws.elasticloadbalancing.getHostedZoneId has been deprecated in favour of aws.elb.getHostedZoneId", DeprecationWarning)
 class GetHostedZoneIdResult:
     """
     A collection of values returned by getHostedZoneId.
@@ -40,13 +40,13 @@ def get_hosted_zone_id(region=None,opts=None):
 
 
 
-    Deprecated: aws.getHostedZoneId has been deprecated in favour of aws.getHostedZoneId
+    Deprecated: aws.elasticloadbalancing.getHostedZoneId has been deprecated in favour of aws.elb.getHostedZoneId
 
 
     :param str region: Name of the region whose AWS ELB HostedZoneId is desired.
            Defaults to the region from the AWS provider configuration.
     """
-    pulumi.log.warn("get_hosted_zone_id is deprecated: aws.getHostedZoneId has been deprecated in favour of aws.getHostedZoneId")
+    pulumi.log.warn("get_hosted_zone_id is deprecated: aws.elasticloadbalancing.getHostedZoneId has been deprecated in favour of aws.elb.getHostedZoneId")
     __args__ = dict()
 
 

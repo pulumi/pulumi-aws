@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApplicationLoadBalancing
 {
-    [Obsolete(@"aws.getListener has been deprecated in favour of aws.getListener")]
+    [Obsolete(@"aws.applicationloadbalancing.getListener has been deprecated in favour of aws.alb.getListener")]
     public static class GetListener
     {
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// {{% examples %}}
         /// {{% /examples %}}
         /// 
-        /// Deprecated: aws.getListener has been deprecated in favour of aws.getListener
+        /// Deprecated: aws.applicationloadbalancing.getListener has been deprecated in favour of aws.alb.getListener
         /// </summary>
         public static Task<GetListenerResult> InvokeAsync(GetListenerArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetListenerResult>("aws:applicationloadbalancing/getListener:getListener", args ?? new GetListenerArgs(), options.WithVersion());

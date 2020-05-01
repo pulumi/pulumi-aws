@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ElasticLoadBalancing
 {
-    [Obsolete(@"aws.getHostedZoneId has been deprecated in favour of aws.getHostedZoneId")]
+    [Obsolete(@"aws.elasticloadbalancing.getHostedZoneId has been deprecated in favour of aws.elb.getHostedZoneId")]
     public static class GetHostedZoneId
     {
         /// <summary>
@@ -19,7 +19,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         /// {{% examples %}}
         /// {{% /examples %}}
         /// 
-        /// Deprecated: aws.getHostedZoneId has been deprecated in favour of aws.getHostedZoneId
+        /// Deprecated: aws.elasticloadbalancing.getHostedZoneId has been deprecated in favour of aws.elb.getHostedZoneId
         /// </summary>
         public static Task<GetHostedZoneIdResult> InvokeAsync(GetHostedZoneIdArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneIdResult>("aws:elasticloadbalancing/getHostedZoneId:getHostedZoneId", args ?? new GetHostedZoneIdArgs(), options.WithVersion());

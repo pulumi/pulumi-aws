@@ -33,9 +33,9 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_hosted_zone_id.html.markdown.
  */
-/** @deprecated aws.getHostedZoneId has been deprecated in favour of aws.getHostedZoneId */
+/** @deprecated aws.elasticloadbalancing.getHostedZoneId has been deprecated in favour of aws.elb.getHostedZoneId */
 export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneIdResult> {
-    pulumi.log.warn("getHostedZoneId is deprecated: aws.getHostedZoneId has been deprecated in favour of aws.getHostedZoneId")
+    pulumi.log.warn("getHostedZoneId is deprecated: aws.elasticloadbalancing.getHostedZoneId has been deprecated in favour of aws.elb.getHostedZoneId")
     args = args || {};
     if (!opts) {
         opts = {}

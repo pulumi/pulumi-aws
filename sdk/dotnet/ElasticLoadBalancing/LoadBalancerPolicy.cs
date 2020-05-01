@@ -14,9 +14,9 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// 
     /// 
     /// 
-    /// Deprecated: aws.LoadBalancerPolicy has been deprecated in favour of aws.LoadBalancerPolicy
+    /// Deprecated: aws.elasticloadbalancing.LoadBalancerPolicy has been deprecated in favour of aws.elb.LoadBalancerPolicy
     /// </summary>
-    [Obsolete(@"aws.LoadBalancerPolicy has been deprecated in favour of aws.LoadBalancerPolicy")]
+    [Obsolete(@"aws.elasticloadbalancing.LoadBalancerPolicy has been deprecated in favour of aws.elb.LoadBalancerPolicy")]
     public partial class LoadBalancerPolicy : Pulumi.CustomResource
     {
         /// <summary>

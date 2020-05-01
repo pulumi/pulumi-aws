@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elb_attachment.html.markdown.
  */
-/** @deprecated aws.Attachment has been deprecated in favour of aws.Attachment */
+/** @deprecated aws.elasticloadbalancing.Attachment has been deprecated in favour of aws.elb.Attachment */
 export class Attachment extends pulumi.CustomResource {
     /**
      * Get an existing Attachment resource's state with the given name, ID, and optional extra
@@ -42,7 +42,7 @@ export class Attachment extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AttachmentState, opts?: pulumi.CustomResourceOptions): Attachment {
-        pulumi.log.warn("Attachment is deprecated: aws.Attachment has been deprecated in favour of aws.Attachment")
+        pulumi.log.warn("Attachment is deprecated: aws.elasticloadbalancing.Attachment has been deprecated in favour of aws.elb.Attachment")
         return new Attachment(name, <any>state, { ...opts, id: id });
     }
 
@@ -76,11 +76,11 @@ export class Attachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated aws.Attachment has been deprecated in favour of aws.Attachment */
+    /** @deprecated aws.elasticloadbalancing.Attachment has been deprecated in favour of aws.elb.Attachment */
     constructor(name: string, args: AttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated aws.Attachment has been deprecated in favour of aws.Attachment */
+    /** @deprecated aws.elasticloadbalancing.Attachment has been deprecated in favour of aws.elb.Attachment */
     constructor(name: string, argsOrState?: AttachmentArgs | AttachmentState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Attachment is deprecated: aws.Attachment has been deprecated in favour of aws.Attachment")
+        pulumi.log.warn("Attachment is deprecated: aws.elasticloadbalancing.Attachment has been deprecated in favour of aws.elb.Attachment")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AttachmentState | undefined;

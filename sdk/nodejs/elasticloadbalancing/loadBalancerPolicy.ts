@@ -87,7 +87,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/load_balancer_policy.html.markdown.
  */
-/** @deprecated aws.LoadBalancerPolicy has been deprecated in favour of aws.LoadBalancerPolicy */
+/** @deprecated aws.elasticloadbalancing.LoadBalancerPolicy has been deprecated in favour of aws.elb.LoadBalancerPolicy */
 export class LoadBalancerPolicy extends pulumi.CustomResource {
     /**
      * Get an existing LoadBalancerPolicy resource's state with the given name, ID, and optional extra
@@ -98,7 +98,7 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LoadBalancerPolicyState, opts?: pulumi.CustomResourceOptions): LoadBalancerPolicy {
-        pulumi.log.warn("LoadBalancerPolicy is deprecated: aws.LoadBalancerPolicy has been deprecated in favour of aws.LoadBalancerPolicy")
+        pulumi.log.warn("LoadBalancerPolicy is deprecated: aws.elasticloadbalancing.LoadBalancerPolicy has been deprecated in favour of aws.elb.LoadBalancerPolicy")
         return new LoadBalancerPolicy(name, <any>state, { ...opts, id: id });
     }
 
@@ -140,11 +140,11 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated aws.LoadBalancerPolicy has been deprecated in favour of aws.LoadBalancerPolicy */
+    /** @deprecated aws.elasticloadbalancing.LoadBalancerPolicy has been deprecated in favour of aws.elb.LoadBalancerPolicy */
     constructor(name: string, args: LoadBalancerPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated aws.LoadBalancerPolicy has been deprecated in favour of aws.LoadBalancerPolicy */
+    /** @deprecated aws.elasticloadbalancing.LoadBalancerPolicy has been deprecated in favour of aws.elb.LoadBalancerPolicy */
     constructor(name: string, argsOrState?: LoadBalancerPolicyArgs | LoadBalancerPolicyState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("LoadBalancerPolicy is deprecated: aws.LoadBalancerPolicy has been deprecated in favour of aws.LoadBalancerPolicy")
+        pulumi.log.warn("LoadBalancerPolicy is deprecated: aws.elasticloadbalancing.LoadBalancerPolicy has been deprecated in favour of aws.elb.LoadBalancerPolicy")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as LoadBalancerPolicyState | undefined;

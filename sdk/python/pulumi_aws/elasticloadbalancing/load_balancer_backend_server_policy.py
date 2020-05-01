@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("aws.LoadBalancerBackendServerPolicy has been deprecated in favour of aws.LoadBalancerBackendServerPolicy", DeprecationWarning)
+warnings.warn("aws.elasticloadbalancing.LoadBalancerBackendServerPolicy has been deprecated in favour of aws.elb.LoadBalancerBackendServerPolicy", DeprecationWarning)
 class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
     instance_port: pulumi.Output[float]
     """
@@ -23,7 +23,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
     """
     List of Policy Names to apply to the backend server.
     """
-    warnings.warn("aws.LoadBalancerBackendServerPolicy has been deprecated in favour of aws.LoadBalancerBackendServerPolicy", DeprecationWarning)
+    warnings.warn("aws.elasticloadbalancing.LoadBalancerBackendServerPolicy has been deprecated in favour of aws.elb.LoadBalancerBackendServerPolicy", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, instance_port=None, load_balancer_name=None, policy_names=None, __props__=None, __name__=None, __opts__=None):
         """
         Attaches a load balancer policy to an ELB backend server.
@@ -31,7 +31,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
 
 
 
-        Deprecated: aws.LoadBalancerBackendServerPolicy has been deprecated in favour of aws.LoadBalancerBackendServerPolicy
+        Deprecated: aws.elasticloadbalancing.LoadBalancerBackendServerPolicy has been deprecated in favour of aws.elb.LoadBalancerBackendServerPolicy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -39,7 +39,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[list] policy_names: List of Policy Names to apply to the backend server.
         """
-        pulumi.log.warn("LoadBalancerBackendServerPolicy is deprecated: aws.LoadBalancerBackendServerPolicy has been deprecated in favour of aws.LoadBalancerBackendServerPolicy")
+        pulumi.log.warn("LoadBalancerBackendServerPolicy is deprecated: aws.elasticloadbalancing.LoadBalancerBackendServerPolicy has been deprecated in favour of aws.elb.LoadBalancerBackendServerPolicy")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

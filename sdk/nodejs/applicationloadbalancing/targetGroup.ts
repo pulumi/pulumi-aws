@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group.html.markdown.
  */
-/** @deprecated aws.TargetGroup has been deprecated in favour of aws.TargetGroup */
+/** @deprecated aws.applicationloadbalancing.TargetGroup has been deprecated in favour of aws.alb.TargetGroup */
 export class TargetGroup extends pulumi.CustomResource {
     /**
      * Get an existing TargetGroup resource's state with the given name, ID, and optional extra
@@ -70,7 +70,7 @@ export class TargetGroup extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TargetGroupState, opts?: pulumi.CustomResourceOptions): TargetGroup {
-        pulumi.log.warn("TargetGroup is deprecated: aws.TargetGroup has been deprecated in favour of aws.TargetGroup")
+        pulumi.log.warn("TargetGroup is deprecated: aws.applicationloadbalancing.TargetGroup has been deprecated in favour of aws.alb.TargetGroup")
         return new TargetGroup(name, <any>state, { ...opts, id: id });
     }
 
@@ -165,11 +165,11 @@ export class TargetGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated aws.TargetGroup has been deprecated in favour of aws.TargetGroup */
+    /** @deprecated aws.applicationloadbalancing.TargetGroup has been deprecated in favour of aws.alb.TargetGroup */
     constructor(name: string, args?: TargetGroupArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated aws.TargetGroup has been deprecated in favour of aws.TargetGroup */
+    /** @deprecated aws.applicationloadbalancing.TargetGroup has been deprecated in favour of aws.alb.TargetGroup */
     constructor(name: string, argsOrState?: TargetGroupArgs | TargetGroupState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("TargetGroup is deprecated: aws.TargetGroup has been deprecated in favour of aws.TargetGroup")
+        pulumi.log.warn("TargetGroup is deprecated: aws.applicationloadbalancing.TargetGroup has been deprecated in favour of aws.alb.TargetGroup")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as TargetGroupState | undefined;

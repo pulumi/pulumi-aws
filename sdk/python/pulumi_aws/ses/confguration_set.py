@@ -9,19 +9,19 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("aws.ConfgurationSet has been deprecated in favour of aws.ConfigurationSet", DeprecationWarning)
+warnings.warn("aws.ses.ConfgurationSet has been deprecated in favour of aws.ses.ConfigurationSet", DeprecationWarning)
 class ConfgurationSet(pulumi.CustomResource):
     name: pulumi.Output[str]
-    warnings.warn("aws.ConfgurationSet has been deprecated in favour of aws.ConfigurationSet", DeprecationWarning)
+    warnings.warn("aws.ses.ConfgurationSet has been deprecated in favour of aws.ses.ConfigurationSet", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
 
-        Deprecated: aws.ConfgurationSet has been deprecated in favour of aws.ConfigurationSet
+        Deprecated: aws.ses.ConfgurationSet has been deprecated in favour of aws.ses.ConfigurationSet
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
-        pulumi.log.warn("ConfgurationSet is deprecated: aws.ConfgurationSet has been deprecated in favour of aws.ConfigurationSet")
+        pulumi.log.warn("ConfgurationSet is deprecated: aws.ses.ConfgurationSet has been deprecated in favour of aws.ses.ConfigurationSet")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

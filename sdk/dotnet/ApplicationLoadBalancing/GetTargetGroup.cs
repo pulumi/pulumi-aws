@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApplicationLoadBalancing
 {
-    [Obsolete(@"aws.getTargetGroup has been deprecated in favour of aws.getTargetGroup")]
+    [Obsolete(@"aws.applicationloadbalancing.getTargetGroup has been deprecated in favour of aws.alb.getTargetGroup")]
     public static class GetTargetGroup
     {
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// {{% examples %}}
         /// {{% /examples %}}
         /// 
-        /// Deprecated: aws.getTargetGroup has been deprecated in favour of aws.getTargetGroup
+        /// Deprecated: aws.applicationloadbalancing.getTargetGroup has been deprecated in favour of aws.alb.getTargetGroup
         /// </summary>
         public static Task<GetTargetGroupResult> InvokeAsync(GetTargetGroupArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTargetGroupResult>("aws:applicationloadbalancing/getTargetGroup:getTargetGroup", args ?? new GetTargetGroupArgs(), options.WithVersion());

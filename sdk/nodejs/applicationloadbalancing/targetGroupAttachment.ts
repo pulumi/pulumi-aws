@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group_attachment.html.markdown.
  */
-/** @deprecated aws.TargetGroupAttachment has been deprecated in favour of aws.TargetGroupAttachment */
+/** @deprecated aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favour of aws.alb.TargetGroupAttachment */
 export class TargetGroupAttachment extends pulumi.CustomResource {
     /**
      * Get an existing TargetGroupAttachment resource's state with the given name, ID, and optional extra
@@ -63,7 +63,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TargetGroupAttachmentState, opts?: pulumi.CustomResourceOptions): TargetGroupAttachment {
-        pulumi.log.warn("TargetGroupAttachment is deprecated: aws.TargetGroupAttachment has been deprecated in favour of aws.TargetGroupAttachment")
+        pulumi.log.warn("TargetGroupAttachment is deprecated: aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favour of aws.alb.TargetGroupAttachment")
         return new TargetGroupAttachment(name, <any>state, { ...opts, id: id });
     }
 
@@ -105,11 +105,11 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated aws.TargetGroupAttachment has been deprecated in favour of aws.TargetGroupAttachment */
+    /** @deprecated aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favour of aws.alb.TargetGroupAttachment */
     constructor(name: string, args: TargetGroupAttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated aws.TargetGroupAttachment has been deprecated in favour of aws.TargetGroupAttachment */
+    /** @deprecated aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favour of aws.alb.TargetGroupAttachment */
     constructor(name: string, argsOrState?: TargetGroupAttachmentArgs | TargetGroupAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("TargetGroupAttachment is deprecated: aws.TargetGroupAttachment has been deprecated in favour of aws.TargetGroupAttachment")
+        pulumi.log.warn("TargetGroupAttachment is deprecated: aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favour of aws.alb.TargetGroupAttachment")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as TargetGroupAttachmentState | undefined;

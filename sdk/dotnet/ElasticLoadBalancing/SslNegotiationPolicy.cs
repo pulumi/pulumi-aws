@@ -14,9 +14,9 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// 
     /// 
     /// 
-    /// Deprecated: aws.SslNegotiationPolicy has been deprecated in favour of aws.SslNegotiationPolicy
+    /// Deprecated: aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favour of aws.elb.SslNegotiationPolicy
     /// </summary>
-    [Obsolete(@"aws.SslNegotiationPolicy has been deprecated in favour of aws.SslNegotiationPolicy")]
+    [Obsolete(@"aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favour of aws.elb.SslNegotiationPolicy")]
     public partial class SslNegotiationPolicy : Pulumi.CustomResource
     {
         /// <summary>

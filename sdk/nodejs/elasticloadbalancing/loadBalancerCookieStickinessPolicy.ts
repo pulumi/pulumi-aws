@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_cookie_stickiness_policy.html.markdown.
  */
-/** @deprecated aws.LoadBalancerCookieStickinessPolicy has been deprecated in favour of aws.LoadBalancerCookieStickinessPolicy */
+/** @deprecated aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favour of aws.elb.LoadBalancerCookieStickinessPolicy */
 export class LoadBalancerCookieStickinessPolicy extends pulumi.CustomResource {
     /**
      * Get an existing LoadBalancerCookieStickinessPolicy resource's state with the given name, ID, and optional extra
@@ -46,7 +46,7 @@ export class LoadBalancerCookieStickinessPolicy extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LoadBalancerCookieStickinessPolicyState, opts?: pulumi.CustomResourceOptions): LoadBalancerCookieStickinessPolicy {
-        pulumi.log.warn("LoadBalancerCookieStickinessPolicy is deprecated: aws.LoadBalancerCookieStickinessPolicy has been deprecated in favour of aws.LoadBalancerCookieStickinessPolicy")
+        pulumi.log.warn("LoadBalancerCookieStickinessPolicy is deprecated: aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favour of aws.elb.LoadBalancerCookieStickinessPolicy")
         return new LoadBalancerCookieStickinessPolicy(name, <any>state, { ...opts, id: id });
     }
 
@@ -92,11 +92,11 @@ export class LoadBalancerCookieStickinessPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated aws.LoadBalancerCookieStickinessPolicy has been deprecated in favour of aws.LoadBalancerCookieStickinessPolicy */
+    /** @deprecated aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favour of aws.elb.LoadBalancerCookieStickinessPolicy */
     constructor(name: string, args: LoadBalancerCookieStickinessPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated aws.LoadBalancerCookieStickinessPolicy has been deprecated in favour of aws.LoadBalancerCookieStickinessPolicy */
+    /** @deprecated aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favour of aws.elb.LoadBalancerCookieStickinessPolicy */
     constructor(name: string, argsOrState?: LoadBalancerCookieStickinessPolicyArgs | LoadBalancerCookieStickinessPolicyState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("LoadBalancerCookieStickinessPolicy is deprecated: aws.LoadBalancerCookieStickinessPolicy has been deprecated in favour of aws.LoadBalancerCookieStickinessPolicy")
+        pulumi.log.warn("LoadBalancerCookieStickinessPolicy is deprecated: aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favour of aws.elb.LoadBalancerCookieStickinessPolicy")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as LoadBalancerCookieStickinessPolicyState | undefined;

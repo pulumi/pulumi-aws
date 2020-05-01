@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApplicationLoadBalancing
 {
-    [Obsolete(@"aws.getLoadBalancer has been deprecated in favour of aws.getLoadBalancer")]
+    [Obsolete(@"aws.applicationloadbalancing.getLoadBalancer has been deprecated in favour of aws.alb.getLoadBalancer")]
     public static class GetLoadBalancer
     {
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// {{% examples %}}
         /// {{% /examples %}}
         /// 
-        /// Deprecated: aws.getLoadBalancer has been deprecated in favour of aws.getLoadBalancer
+        /// Deprecated: aws.applicationloadbalancing.getLoadBalancer has been deprecated in favour of aws.alb.getLoadBalancer
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws:applicationloadbalancing/getLoadBalancer:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithVersion());

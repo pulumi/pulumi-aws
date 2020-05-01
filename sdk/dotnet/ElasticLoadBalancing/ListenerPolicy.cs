@@ -12,9 +12,9 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// <summary>
     /// Attaches a load balancer policy to an ELB Listener.
     /// 
-    /// Deprecated: aws.ListenerPolicy has been deprecated in favour of aws.ListenerPolicy
+    /// Deprecated: aws.elasticloadbalancing.ListenerPolicy has been deprecated in favour of aws.elb.ListenerPolicy
     /// </summary>
-    [Obsolete(@"aws.ListenerPolicy has been deprecated in favour of aws.ListenerPolicy")]
+    [Obsolete(@"aws.elasticloadbalancing.ListenerPolicy has been deprecated in favour of aws.elb.ListenerPolicy")]
     public partial class ListenerPolicy : Pulumi.CustomResource
     {
         /// <summary>

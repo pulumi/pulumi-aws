@@ -16,7 +16,7 @@ import (
 //
 //
 //
-// Deprecated: aws.Listener has been deprecated in favour of aws.Listener
+// Deprecated: aws.elasticloadbalancingv2.Listener has been deprecated in favour of aws.lb.Listener
 type Listener struct {
 	pulumi.CustomResourceState
 

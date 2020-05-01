@@ -12,7 +12,7 @@ import (
 //
 //
 //
-// Deprecated: aws.getServiceAccount has been deprecated in favour of aws.getServiceAccount
+// Deprecated: aws.elasticloadbalancing.getServiceAccount has been deprecated in favour of aws.elb.getServiceAccount
 func GetServiceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs, opts ...pulumi.InvokeOption) (*GetServiceAccountResult, error) {
 	var rv GetServiceAccountResult
 	err := ctx.Invoke("aws:elasticloadbalancing/getServiceAccount:getServiceAccount", args, &rv, opts...)

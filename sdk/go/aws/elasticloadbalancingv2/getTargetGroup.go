@@ -17,7 +17,7 @@ import (
 //
 //
 //
-// Deprecated: aws.getTargetGroup has been deprecated in favour of aws.getTargetGroup
+// Deprecated: aws.elasticloadbalancingv2.getTargetGroup has been deprecated in favour of aws.lb.getTargetGroup
 func LookupTargetGroup(ctx *pulumi.Context, args *LookupTargetGroupArgs, opts ...pulumi.InvokeOption) (*LookupTargetGroupResult, error) {
 	var rv LookupTargetGroupResult
 	err := ctx.Invoke("aws:elasticloadbalancingv2/getTargetGroup:getTargetGroup", args, &rv, opts...)

@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("aws.getServiceAccount has been deprecated in favour of aws.getServiceAccount", DeprecationWarning)
+warnings.warn("aws.elasticloadbalancing.getServiceAccount has been deprecated in favour of aws.elb.getServiceAccount", DeprecationWarning)
 class GetServiceAccountResult:
     """
     A collection of values returned by getServiceAccount.
@@ -47,13 +47,13 @@ def get_service_account(region=None,opts=None):
 
 
 
-    Deprecated: aws.getServiceAccount has been deprecated in favour of aws.getServiceAccount
+    Deprecated: aws.elasticloadbalancing.getServiceAccount has been deprecated in favour of aws.elb.getServiceAccount
 
 
     :param str region: Name of the region whose AWS ELB account ID is desired.
            Defaults to the region from the AWS provider configuration.
     """
-    pulumi.log.warn("get_service_account is deprecated: aws.getServiceAccount has been deprecated in favour of aws.getServiceAccount")
+    pulumi.log.warn("get_service_account is deprecated: aws.elasticloadbalancing.getServiceAccount has been deprecated in favour of aws.elb.getServiceAccount")
     __args__ = dict()
 
 

@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("aws.getListener has been deprecated in favour of aws.getListener", DeprecationWarning)
+warnings.warn("aws.applicationloadbalancing.getListener has been deprecated in favour of aws.alb.getListener", DeprecationWarning)
 class GetListenerResult:
     """
     A collection of values returned by getListener.
@@ -69,14 +69,14 @@ def get_listener(arn=None,load_balancer_arn=None,port=None,opts=None):
 
 
 
-    Deprecated: aws.getListener has been deprecated in favour of aws.getListener
+    Deprecated: aws.applicationloadbalancing.getListener has been deprecated in favour of aws.alb.getListener
 
 
     :param str arn: The arn of the listener. Required if `load_balancer_arn` and `port` is not set.
     :param str load_balancer_arn: The arn of the load balancer. Required if `arn` is not set.
     :param float port: The port of the listener. Required if `arn` is not set.
     """
-    pulumi.log.warn("get_listener is deprecated: aws.getListener has been deprecated in favour of aws.getListener")
+    pulumi.log.warn("get_listener is deprecated: aws.applicationloadbalancing.getListener has been deprecated in favour of aws.alb.getListener")
     __args__ = dict()
 
 

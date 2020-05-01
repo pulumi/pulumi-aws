@@ -18,9 +18,9 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// 
     /// 
     /// 
-    /// Deprecated: aws.ListenerCertificate has been deprecated in favour of aws.ListenerCertificate
+    /// Deprecated: aws.applicationloadbalancing.ListenerCertificate has been deprecated in favour of aws.alb.ListenerCertificate
     /// </summary>
-    [Obsolete(@"aws.ListenerCertificate has been deprecated in favour of aws.ListenerCertificate")]
+    [Obsolete(@"aws.applicationloadbalancing.ListenerCertificate has been deprecated in favour of aws.alb.ListenerCertificate")]
     public partial class ListenerCertificate : Pulumi.CustomResource
     {
         /// <summary>

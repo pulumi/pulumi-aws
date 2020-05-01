@@ -35,9 +35,9 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_target_group.html.markdown.
  */
-/** @deprecated aws.getTargetGroup has been deprecated in favour of aws.getTargetGroup */
+/** @deprecated aws.applicationloadbalancing.getTargetGroup has been deprecated in favour of aws.alb.getTargetGroup */
 export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> {
-    pulumi.log.warn("getTargetGroup is deprecated: aws.getTargetGroup has been deprecated in favour of aws.getTargetGroup")
+    pulumi.log.warn("getTargetGroup is deprecated: aws.applicationloadbalancing.getTargetGroup has been deprecated in favour of aws.alb.getTargetGroup")
     args = args || {};
     if (!opts) {
         opts = {}

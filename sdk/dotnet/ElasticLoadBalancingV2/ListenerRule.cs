@@ -16,9 +16,9 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// 
     /// 
     /// 
-    /// Deprecated: aws.ListenerRule has been deprecated in favour of aws.ListenerRule
+    /// Deprecated: aws.elasticloadbalancingv2.ListenerRule has been deprecated in favour of aws.lb.ListenerRule
     /// </summary>
-    [Obsolete(@"aws.ListenerRule has been deprecated in favour of aws.ListenerRule")]
+    [Obsolete(@"aws.elasticloadbalancingv2.ListenerRule has been deprecated in favour of aws.lb.ListenerRule")]
     public partial class ListenerRule : Pulumi.CustomResource
     {
         /// <summary>

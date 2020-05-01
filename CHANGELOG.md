@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to pulumi-terraform-bridge v2.1.1
+* Add new region Milan eu-south-1
 
 ---
 
