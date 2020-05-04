@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *         targetArn: mytopic.arn,
  *     },
  *     sql: "SELECT * FROM 'topic/test'",
- *     sqlVersion: "2015-10-08",
+ *     sqlVersion: "2016-03-23",
  * });
  * const iamPolicyForLambda = new aws.iam.RolePolicy("iamPolicyForLambda", {
  *     policy: pulumi.interpolate`{

@@ -197,6 +197,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
     public readonly networkInterfaces!: pulumi.Output<outputs.ec2.SpotInstanceRequestNetworkInterface[]>;
+    public /*out*/ readonly outpostArn!: pulumi.Output<string>;
     public /*out*/ readonly passwordData!: pulumi.Output<string>;
     /**
      * The Placement Group to start the instance in.
@@ -343,6 +344,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["metadataOptions"] = state ? state.metadataOptions : undefined;
             inputs["monitoring"] = state ? state.monitoring : undefined;
             inputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
+            inputs["outpostArn"] = state ? state.outpostArn : undefined;
             inputs["passwordData"] = state ? state.passwordData : undefined;
             inputs["placementGroup"] = state ? state.placementGroup : undefined;
             inputs["primaryNetworkInterfaceId"] = state ? state.primaryNetworkInterfaceId : undefined;
@@ -420,6 +422,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["waitForFulfillment"] = args ? args.waitForFulfillment : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["instanceState"] = undefined /*out*/;
+            inputs["outpostArn"] = undefined /*out*/;
             inputs["passwordData"] = undefined /*out*/;
             inputs["primaryNetworkInterfaceId"] = undefined /*out*/;
             inputs["privateDns"] = undefined /*out*/;
@@ -562,6 +565,7 @@ export interface SpotInstanceRequestState {
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
     readonly networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestNetworkInterface>[]>;
+    readonly outpostArn?: pulumi.Input<string>;
     readonly passwordData?: pulumi.Input<string>;
     /**
      * The Placement Group to start the instance in.

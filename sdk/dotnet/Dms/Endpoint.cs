@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Dms
         public Output<string?> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// Settings for the target Elasticsearch. Available settings are `service_access_role_arn`, `endpoint_uri`, `error_retry_duration` (default: `300`) and `full_load_error_percentage` (default: `10`). For more details, see [Using an Amazon Elasticsearch Service Cluster as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html).
+        /// Configuration block with Elasticsearch settings. Detailed below.
         /// </summary>
         [Output("elasticsearchSettings")]
         public Output<Outputs.EndpointElasticsearchSettings?> ElasticsearchSettings { get; private set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Dms
         public Output<string> EndpointType { get; private set; } = null!;
 
         /// <summary>
-        /// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+        /// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
         /// </summary>
         [Output("engineName")]
         public Output<string> EngineName { get; private set; } = null!;
@@ -66,7 +66,13 @@ namespace Pulumi.Aws.Dms
         public Output<string> ExtraConnectionAttributes { get; private set; } = null!;
 
         /// <summary>
-        /// Settings for the target Kinesis endpoint. Available settings are `message_format`, `service_access_role_arn`, and `stream_arn`. For more details, see [Using Amazon Kinesis Data Streams as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html).
+        /// Configuration block with Kafka settings. Detailed below.
+        /// </summary>
+        [Output("kafkaSettings")]
+        public Output<Outputs.EndpointKafkaSettings?> KafkaSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block with Kinesis settings. Detailed below.
         /// </summary>
         [Output("kinesisSettings")]
         public Output<Outputs.EndpointKinesisSettings?> KinesisSettings { get; private set; } = null!;
@@ -78,7 +84,7 @@ namespace Pulumi.Aws.Dms
         public Output<string> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `password`), `auth_mechanism` (default: `default`), `nesting_level` (default: `none`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+        /// Configuration block with MongoDB settings. Detailed below.
         /// </summary>
         [Output("mongodbSettings")]
         public Output<Outputs.EndpointMongodbSettings?> MongodbSettings { get; private set; } = null!;
@@ -96,7 +102,7 @@ namespace Pulumi.Aws.Dms
         public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
-        /// Settings for the target S3 endpoint. Available settings are `service_access_role_arn`, `external_table_definition`, `csv_row_delimiter` (default: `\\n`), `csv_delimiter` (default: `,`), `bucket_folder`, `bucket_name` and `compression_type` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
+        /// Configuration block with S3 settings. Detailed below.
         /// </summary>
         [Output("s3Settings")]
         public Output<Outputs.EndpointS3Settings?> S3Settings { get; private set; } = null!;
@@ -190,7 +196,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// Settings for the target Elasticsearch. Available settings are `service_access_role_arn`, `endpoint_uri`, `error_retry_duration` (default: `300`) and `full_load_error_percentage` (default: `10`). For more details, see [Using an Amazon Elasticsearch Service Cluster as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html).
+        /// Configuration block with Elasticsearch settings. Detailed below.
         /// </summary>
         [Input("elasticsearchSettings")]
         public Input<Inputs.EndpointElasticsearchSettingsArgs>? ElasticsearchSettings { get; set; }
@@ -208,7 +214,7 @@ namespace Pulumi.Aws.Dms
         public Input<string> EndpointType { get; set; } = null!;
 
         /// <summary>
-        /// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+        /// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
         /// </summary>
         [Input("engineName", required: true)]
         public Input<string> EngineName { get; set; } = null!;
@@ -220,7 +226,13 @@ namespace Pulumi.Aws.Dms
         public Input<string>? ExtraConnectionAttributes { get; set; }
 
         /// <summary>
-        /// Settings for the target Kinesis endpoint. Available settings are `message_format`, `service_access_role_arn`, and `stream_arn`. For more details, see [Using Amazon Kinesis Data Streams as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html).
+        /// Configuration block with Kafka settings. Detailed below.
+        /// </summary>
+        [Input("kafkaSettings")]
+        public Input<Inputs.EndpointKafkaSettingsArgs>? KafkaSettings { get; set; }
+
+        /// <summary>
+        /// Configuration block with Kinesis settings. Detailed below.
         /// </summary>
         [Input("kinesisSettings")]
         public Input<Inputs.EndpointKinesisSettingsArgs>? KinesisSettings { get; set; }
@@ -232,7 +244,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `password`), `auth_mechanism` (default: `default`), `nesting_level` (default: `none`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+        /// Configuration block with MongoDB settings. Detailed below.
         /// </summary>
         [Input("mongodbSettings")]
         public Input<Inputs.EndpointMongodbSettingsArgs>? MongodbSettings { get; set; }
@@ -250,7 +262,7 @@ namespace Pulumi.Aws.Dms
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Settings for the target S3 endpoint. Available settings are `service_access_role_arn`, `external_table_definition`, `csv_row_delimiter` (default: `\\n`), `csv_delimiter` (default: `,`), `bucket_folder`, `bucket_name` and `compression_type` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
+        /// Configuration block with S3 settings. Detailed below.
         /// </summary>
         [Input("s3Settings")]
         public Input<Inputs.EndpointS3SettingsArgs>? S3Settings { get; set; }
@@ -311,7 +323,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// Settings for the target Elasticsearch. Available settings are `service_access_role_arn`, `endpoint_uri`, `error_retry_duration` (default: `300`) and `full_load_error_percentage` (default: `10`). For more details, see [Using an Amazon Elasticsearch Service Cluster as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html).
+        /// Configuration block with Elasticsearch settings. Detailed below.
         /// </summary>
         [Input("elasticsearchSettings")]
         public Input<Inputs.EndpointElasticsearchSettingsGetArgs>? ElasticsearchSettings { get; set; }
@@ -335,7 +347,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? EndpointType { get; set; }
 
         /// <summary>
-        /// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+        /// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
         /// </summary>
         [Input("engineName")]
         public Input<string>? EngineName { get; set; }
@@ -347,7 +359,13 @@ namespace Pulumi.Aws.Dms
         public Input<string>? ExtraConnectionAttributes { get; set; }
 
         /// <summary>
-        /// Settings for the target Kinesis endpoint. Available settings are `message_format`, `service_access_role_arn`, and `stream_arn`. For more details, see [Using Amazon Kinesis Data Streams as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html).
+        /// Configuration block with Kafka settings. Detailed below.
+        /// </summary>
+        [Input("kafkaSettings")]
+        public Input<Inputs.EndpointKafkaSettingsGetArgs>? KafkaSettings { get; set; }
+
+        /// <summary>
+        /// Configuration block with Kinesis settings. Detailed below.
         /// </summary>
         [Input("kinesisSettings")]
         public Input<Inputs.EndpointKinesisSettingsGetArgs>? KinesisSettings { get; set; }
@@ -359,7 +377,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `password`), `auth_mechanism` (default: `default`), `nesting_level` (default: `none`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+        /// Configuration block with MongoDB settings. Detailed below.
         /// </summary>
         [Input("mongodbSettings")]
         public Input<Inputs.EndpointMongodbSettingsGetArgs>? MongodbSettings { get; set; }
@@ -377,7 +395,7 @@ namespace Pulumi.Aws.Dms
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Settings for the target S3 endpoint. Available settings are `service_access_role_arn`, `external_table_definition`, `csv_row_delimiter` (default: `\\n`), `csv_delimiter` (default: `,`), `bucket_folder`, `bucket_name` and `compression_type` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
+        /// Configuration block with S3 settings. Detailed below.
         /// </summary>
         [Input("s3Settings")]
         public Input<Inputs.EndpointS3SettingsGetArgs>? S3Settings { get; set; }

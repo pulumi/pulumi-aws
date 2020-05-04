@@ -91,6 +91,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string MacAddress;
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// </summary>
+        public readonly string OutpostArn;
+        /// <summary>
         /// The AWS account ID of the owner of the network interface.
         /// </summary>
         public readonly string OwnerId;
@@ -147,6 +151,8 @@ namespace Pulumi.Aws.Ec2
 
             string macAddress,
 
+            string outpostArn,
+
             string ownerId,
 
             string privateDnsName,
@@ -174,6 +180,7 @@ namespace Pulumi.Aws.Ec2
             InterfaceType = interfaceType;
             Ipv6Addresses = ipv6Addresses;
             MacAddress = macAddress;
+            OutpostArn = outpostArn;
             OwnerId = ownerId;
             PrivateDnsName = privateDnsName;
             PrivateIp = privateIp;

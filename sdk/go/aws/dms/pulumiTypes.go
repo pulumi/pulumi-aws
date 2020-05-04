@@ -11,10 +11,14 @@ import (
 )
 
 type EndpointElasticsearchSettings struct {
-	EndpointUri             string `pulumi:"endpointUri"`
-	ErrorRetryDuration      *int   `pulumi:"errorRetryDuration"`
-	FullLoadErrorPercentage *int   `pulumi:"fullLoadErrorPercentage"`
-	ServiceAccessRoleArn    string `pulumi:"serviceAccessRoleArn"`
+	// Endpoint for the Elasticsearch cluster.
+	EndpointUri string `pulumi:"endpointUri"`
+	// Maximum number of seconds for which DMS retries failed API requests to the Elasticsearch cluster. Defaults to `300`.
+	ErrorRetryDuration *int `pulumi:"errorRetryDuration"`
+	// Maximum percentage of records that can fail to be written before a full load operation stops. Defaults to `10`.
+	FullLoadErrorPercentage *int `pulumi:"fullLoadErrorPercentage"`
+	// Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Elasticsearch cluster.
+	ServiceAccessRoleArn string `pulumi:"serviceAccessRoleArn"`
 }
 
 // EndpointElasticsearchSettingsInput is an input type that accepts EndpointElasticsearchSettingsArgs and EndpointElasticsearchSettingsOutput values.
@@ -30,10 +34,14 @@ type EndpointElasticsearchSettingsInput interface {
 }
 
 type EndpointElasticsearchSettingsArgs struct {
-	EndpointUri             pulumi.StringInput `pulumi:"endpointUri"`
-	ErrorRetryDuration      pulumi.IntPtrInput `pulumi:"errorRetryDuration"`
+	// Endpoint for the Elasticsearch cluster.
+	EndpointUri pulumi.StringInput `pulumi:"endpointUri"`
+	// Maximum number of seconds for which DMS retries failed API requests to the Elasticsearch cluster. Defaults to `300`.
+	ErrorRetryDuration pulumi.IntPtrInput `pulumi:"errorRetryDuration"`
+	// Maximum percentage of records that can fail to be written before a full load operation stops. Defaults to `10`.
 	FullLoadErrorPercentage pulumi.IntPtrInput `pulumi:"fullLoadErrorPercentage"`
-	ServiceAccessRoleArn    pulumi.StringInput `pulumi:"serviceAccessRoleArn"`
+	// Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Elasticsearch cluster.
+	ServiceAccessRoleArn pulumi.StringInput `pulumi:"serviceAccessRoleArn"`
 }
 
 func (EndpointElasticsearchSettingsArgs) ElementType() reflect.Type {
@@ -113,18 +121,23 @@ func (o EndpointElasticsearchSettingsOutput) ToEndpointElasticsearchSettingsPtrO
 		return &v
 	}).(EndpointElasticsearchSettingsPtrOutput)
 }
+
+// Endpoint for the Elasticsearch cluster.
 func (o EndpointElasticsearchSettingsOutput) EndpointUri() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointElasticsearchSettings) string { return v.EndpointUri }).(pulumi.StringOutput)
 }
 
+// Maximum number of seconds for which DMS retries failed API requests to the Elasticsearch cluster. Defaults to `300`.
 func (o EndpointElasticsearchSettingsOutput) ErrorRetryDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointElasticsearchSettings) *int { return v.ErrorRetryDuration }).(pulumi.IntPtrOutput)
 }
 
+// Maximum percentage of records that can fail to be written before a full load operation stops. Defaults to `10`.
 func (o EndpointElasticsearchSettingsOutput) FullLoadErrorPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointElasticsearchSettings) *int { return v.FullLoadErrorPercentage }).(pulumi.IntPtrOutput)
 }
 
+// Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Elasticsearch cluster.
 func (o EndpointElasticsearchSettingsOutput) ServiceAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointElasticsearchSettings) string { return v.ServiceAccessRoleArn }).(pulumi.StringOutput)
 }
@@ -147,6 +160,7 @@ func (o EndpointElasticsearchSettingsPtrOutput) Elem() EndpointElasticsearchSett
 	return o.ApplyT(func(v *EndpointElasticsearchSettings) EndpointElasticsearchSettings { return *v }).(EndpointElasticsearchSettingsOutput)
 }
 
+// Endpoint for the Elasticsearch cluster.
 func (o EndpointElasticsearchSettingsPtrOutput) EndpointUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointElasticsearchSettings) *string {
 		if v == nil {
@@ -156,6 +170,7 @@ func (o EndpointElasticsearchSettingsPtrOutput) EndpointUri() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Maximum number of seconds for which DMS retries failed API requests to the Elasticsearch cluster. Defaults to `300`.
 func (o EndpointElasticsearchSettingsPtrOutput) ErrorRetryDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointElasticsearchSettings) *int {
 		if v == nil {
@@ -165,6 +180,7 @@ func (o EndpointElasticsearchSettingsPtrOutput) ErrorRetryDuration() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// Maximum percentage of records that can fail to be written before a full load operation stops. Defaults to `10`.
 func (o EndpointElasticsearchSettingsPtrOutput) FullLoadErrorPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointElasticsearchSettings) *int {
 		if v == nil {
@@ -174,6 +190,7 @@ func (o EndpointElasticsearchSettingsPtrOutput) FullLoadErrorPercentage() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
+// Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Elasticsearch cluster.
 func (o EndpointElasticsearchSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointElasticsearchSettings) *string {
 		if v == nil {
@@ -183,10 +200,165 @@ func (o EndpointElasticsearchSettingsPtrOutput) ServiceAccessRoleArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type EndpointKafkaSettings struct {
+	// Kafka broker location. Specify in the form broker-hostname-or-ip:port.
+	Broker string `pulumi:"broker"`
+	// Kafka topic for migration. Defaults to `kafka-default-topic`.
+	Topic *string `pulumi:"topic"`
+}
+
+// EndpointKafkaSettingsInput is an input type that accepts EndpointKafkaSettingsArgs and EndpointKafkaSettingsOutput values.
+// You can construct a concrete instance of `EndpointKafkaSettingsInput` via:
+//
+// 		 EndpointKafkaSettingsArgs{...}
+//
+type EndpointKafkaSettingsInput interface {
+	pulumi.Input
+
+	ToEndpointKafkaSettingsOutput() EndpointKafkaSettingsOutput
+	ToEndpointKafkaSettingsOutputWithContext(context.Context) EndpointKafkaSettingsOutput
+}
+
+type EndpointKafkaSettingsArgs struct {
+	// Kafka broker location. Specify in the form broker-hostname-or-ip:port.
+	Broker pulumi.StringInput `pulumi:"broker"`
+	// Kafka topic for migration. Defaults to `kafka-default-topic`.
+	Topic pulumi.StringPtrInput `pulumi:"topic"`
+}
+
+func (EndpointKafkaSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointKafkaSettings)(nil)).Elem()
+}
+
+func (i EndpointKafkaSettingsArgs) ToEndpointKafkaSettingsOutput() EndpointKafkaSettingsOutput {
+	return i.ToEndpointKafkaSettingsOutputWithContext(context.Background())
+}
+
+func (i EndpointKafkaSettingsArgs) ToEndpointKafkaSettingsOutputWithContext(ctx context.Context) EndpointKafkaSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointKafkaSettingsOutput)
+}
+
+func (i EndpointKafkaSettingsArgs) ToEndpointKafkaSettingsPtrOutput() EndpointKafkaSettingsPtrOutput {
+	return i.ToEndpointKafkaSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointKafkaSettingsArgs) ToEndpointKafkaSettingsPtrOutputWithContext(ctx context.Context) EndpointKafkaSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointKafkaSettingsOutput).ToEndpointKafkaSettingsPtrOutputWithContext(ctx)
+}
+
+// EndpointKafkaSettingsPtrInput is an input type that accepts EndpointKafkaSettingsArgs, EndpointKafkaSettingsPtr and EndpointKafkaSettingsPtrOutput values.
+// You can construct a concrete instance of `EndpointKafkaSettingsPtrInput` via:
+//
+// 		 EndpointKafkaSettingsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EndpointKafkaSettingsPtrInput interface {
+	pulumi.Input
+
+	ToEndpointKafkaSettingsPtrOutput() EndpointKafkaSettingsPtrOutput
+	ToEndpointKafkaSettingsPtrOutputWithContext(context.Context) EndpointKafkaSettingsPtrOutput
+}
+
+type endpointKafkaSettingsPtrType EndpointKafkaSettingsArgs
+
+func EndpointKafkaSettingsPtr(v *EndpointKafkaSettingsArgs) EndpointKafkaSettingsPtrInput {
+	return (*endpointKafkaSettingsPtrType)(v)
+}
+
+func (*endpointKafkaSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointKafkaSettings)(nil)).Elem()
+}
+
+func (i *endpointKafkaSettingsPtrType) ToEndpointKafkaSettingsPtrOutput() EndpointKafkaSettingsPtrOutput {
+	return i.ToEndpointKafkaSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointKafkaSettingsPtrType) ToEndpointKafkaSettingsPtrOutputWithContext(ctx context.Context) EndpointKafkaSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointKafkaSettingsPtrOutput)
+}
+
+type EndpointKafkaSettingsOutput struct{ *pulumi.OutputState }
+
+func (EndpointKafkaSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointKafkaSettings)(nil)).Elem()
+}
+
+func (o EndpointKafkaSettingsOutput) ToEndpointKafkaSettingsOutput() EndpointKafkaSettingsOutput {
+	return o
+}
+
+func (o EndpointKafkaSettingsOutput) ToEndpointKafkaSettingsOutputWithContext(ctx context.Context) EndpointKafkaSettingsOutput {
+	return o
+}
+
+func (o EndpointKafkaSettingsOutput) ToEndpointKafkaSettingsPtrOutput() EndpointKafkaSettingsPtrOutput {
+	return o.ToEndpointKafkaSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointKafkaSettingsOutput) ToEndpointKafkaSettingsPtrOutputWithContext(ctx context.Context) EndpointKafkaSettingsPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *EndpointKafkaSettings {
+		return &v
+	}).(EndpointKafkaSettingsPtrOutput)
+}
+
+// Kafka broker location. Specify in the form broker-hostname-or-ip:port.
+func (o EndpointKafkaSettingsOutput) Broker() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) string { return v.Broker }).(pulumi.StringOutput)
+}
+
+// Kafka topic for migration. Defaults to `kafka-default-topic`.
+func (o EndpointKafkaSettingsOutput) Topic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.Topic }).(pulumi.StringPtrOutput)
+}
+
+type EndpointKafkaSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointKafkaSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointKafkaSettings)(nil)).Elem()
+}
+
+func (o EndpointKafkaSettingsPtrOutput) ToEndpointKafkaSettingsPtrOutput() EndpointKafkaSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointKafkaSettingsPtrOutput) ToEndpointKafkaSettingsPtrOutputWithContext(ctx context.Context) EndpointKafkaSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointKafkaSettingsPtrOutput) Elem() EndpointKafkaSettingsOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) EndpointKafkaSettings { return *v }).(EndpointKafkaSettingsOutput)
+}
+
+// Kafka broker location. Specify in the form broker-hostname-or-ip:port.
+func (o EndpointKafkaSettingsPtrOutput) Broker() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Broker
+	}).(pulumi.StringPtrOutput)
+}
+
+// Kafka topic for migration. Defaults to `kafka-default-topic`.
+func (o EndpointKafkaSettingsPtrOutput) Topic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Topic
+	}).(pulumi.StringPtrOutput)
+}
+
 type EndpointKinesisSettings struct {
-	MessageFormat        *string `pulumi:"messageFormat"`
+	// Output format for the records created. Defaults to `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
+	MessageFormat *string `pulumi:"messageFormat"`
+	// Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Kinesis data stream.
 	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
-	StreamArn            *string `pulumi:"streamArn"`
+	// Amazon Resource Name (ARN) of the Kinesis data stream.
+	StreamArn *string `pulumi:"streamArn"`
 }
 
 // EndpointKinesisSettingsInput is an input type that accepts EndpointKinesisSettingsArgs and EndpointKinesisSettingsOutput values.
@@ -202,9 +374,12 @@ type EndpointKinesisSettingsInput interface {
 }
 
 type EndpointKinesisSettingsArgs struct {
-	MessageFormat        pulumi.StringPtrInput `pulumi:"messageFormat"`
+	// Output format for the records created. Defaults to `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
+	MessageFormat pulumi.StringPtrInput `pulumi:"messageFormat"`
+	// Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Kinesis data stream.
 	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
-	StreamArn            pulumi.StringPtrInput `pulumi:"streamArn"`
+	// Amazon Resource Name (ARN) of the Kinesis data stream.
+	StreamArn pulumi.StringPtrInput `pulumi:"streamArn"`
 }
 
 func (EndpointKinesisSettingsArgs) ElementType() reflect.Type {
@@ -284,14 +459,18 @@ func (o EndpointKinesisSettingsOutput) ToEndpointKinesisSettingsPtrOutputWithCon
 		return &v
 	}).(EndpointKinesisSettingsPtrOutput)
 }
+
+// Output format for the records created. Defaults to `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
 func (o EndpointKinesisSettingsOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
 }
 
+// Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Kinesis data stream.
 func (o EndpointKinesisSettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Amazon Resource Name (ARN) of the Kinesis data stream.
 func (o EndpointKinesisSettingsOutput) StreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.StreamArn }).(pulumi.StringPtrOutput)
 }
@@ -314,6 +493,7 @@ func (o EndpointKinesisSettingsPtrOutput) Elem() EndpointKinesisSettingsOutput {
 	return o.ApplyT(func(v *EndpointKinesisSettings) EndpointKinesisSettings { return *v }).(EndpointKinesisSettingsOutput)
 }
 
+// Output format for the records created. Defaults to `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
 func (o EndpointKinesisSettingsPtrOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKinesisSettings) *string {
 		if v == nil {
@@ -323,6 +503,7 @@ func (o EndpointKinesisSettingsPtrOutput) MessageFormat() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Kinesis data stream.
 func (o EndpointKinesisSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKinesisSettings) *string {
 		if v == nil {
@@ -332,6 +513,7 @@ func (o EndpointKinesisSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Amazon Resource Name (ARN) of the Kinesis data stream.
 func (o EndpointKinesisSettingsPtrOutput) StreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKinesisSettings) *string {
 		if v == nil {
@@ -342,12 +524,18 @@ func (o EndpointKinesisSettingsPtrOutput) StreamArn() pulumi.StringPtrOutput {
 }
 
 type EndpointMongodbSettings struct {
-	AuthMechanism     *string `pulumi:"authMechanism"`
-	AuthSource        *string `pulumi:"authSource"`
-	AuthType          *string `pulumi:"authType"`
+	// Authentication mechanism to access the MongoDB source endpoint. Defaults to `default`.
+	AuthMechanism *string `pulumi:"authMechanism"`
+	// Authentication database name. Not used when `authType` is `no`. Defaults to `admin`.
+	AuthSource *string `pulumi:"authSource"`
+	// Authentication type to access the MongoDB source endpoint. Defaults to `password`.
+	AuthType *string `pulumi:"authType"`
+	// Number of documents to preview to determine the document organization. Use this setting when `nestingLevel` is set to `one`. Defaults to `1000`.
 	DocsToInvestigate *string `pulumi:"docsToInvestigate"`
-	ExtractDocId      *string `pulumi:"extractDocId"`
-	NestingLevel      *string `pulumi:"nestingLevel"`
+	// Document ID. Use this setting when `nestingLevel` is set to `none`. Defaults to `false`.
+	ExtractDocId *string `pulumi:"extractDocId"`
+	// Specifies either document or table mode. Defaults to `none`. Valid values are `one` (table mode) and `none` (document mode).
+	NestingLevel *string `pulumi:"nestingLevel"`
 }
 
 // EndpointMongodbSettingsInput is an input type that accepts EndpointMongodbSettingsArgs and EndpointMongodbSettingsOutput values.
@@ -363,12 +551,18 @@ type EndpointMongodbSettingsInput interface {
 }
 
 type EndpointMongodbSettingsArgs struct {
-	AuthMechanism     pulumi.StringPtrInput `pulumi:"authMechanism"`
-	AuthSource        pulumi.StringPtrInput `pulumi:"authSource"`
-	AuthType          pulumi.StringPtrInput `pulumi:"authType"`
+	// Authentication mechanism to access the MongoDB source endpoint. Defaults to `default`.
+	AuthMechanism pulumi.StringPtrInput `pulumi:"authMechanism"`
+	// Authentication database name. Not used when `authType` is `no`. Defaults to `admin`.
+	AuthSource pulumi.StringPtrInput `pulumi:"authSource"`
+	// Authentication type to access the MongoDB source endpoint. Defaults to `password`.
+	AuthType pulumi.StringPtrInput `pulumi:"authType"`
+	// Number of documents to preview to determine the document organization. Use this setting when `nestingLevel` is set to `one`. Defaults to `1000`.
 	DocsToInvestigate pulumi.StringPtrInput `pulumi:"docsToInvestigate"`
-	ExtractDocId      pulumi.StringPtrInput `pulumi:"extractDocId"`
-	NestingLevel      pulumi.StringPtrInput `pulumi:"nestingLevel"`
+	// Document ID. Use this setting when `nestingLevel` is set to `none`. Defaults to `false`.
+	ExtractDocId pulumi.StringPtrInput `pulumi:"extractDocId"`
+	// Specifies either document or table mode. Defaults to `none`. Valid values are `one` (table mode) and `none` (document mode).
+	NestingLevel pulumi.StringPtrInput `pulumi:"nestingLevel"`
 }
 
 func (EndpointMongodbSettingsArgs) ElementType() reflect.Type {
@@ -448,26 +642,33 @@ func (o EndpointMongodbSettingsOutput) ToEndpointMongodbSettingsPtrOutputWithCon
 		return &v
 	}).(EndpointMongodbSettingsPtrOutput)
 }
+
+// Authentication mechanism to access the MongoDB source endpoint. Defaults to `default`.
 func (o EndpointMongodbSettingsOutput) AuthMechanism() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.AuthMechanism }).(pulumi.StringPtrOutput)
 }
 
+// Authentication database name. Not used when `authType` is `no`. Defaults to `admin`.
 func (o EndpointMongodbSettingsOutput) AuthSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.AuthSource }).(pulumi.StringPtrOutput)
 }
 
+// Authentication type to access the MongoDB source endpoint. Defaults to `password`.
 func (o EndpointMongodbSettingsOutput) AuthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.AuthType }).(pulumi.StringPtrOutput)
 }
 
+// Number of documents to preview to determine the document organization. Use this setting when `nestingLevel` is set to `one`. Defaults to `1000`.
 func (o EndpointMongodbSettingsOutput) DocsToInvestigate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.DocsToInvestigate }).(pulumi.StringPtrOutput)
 }
 
+// Document ID. Use this setting when `nestingLevel` is set to `none`. Defaults to `false`.
 func (o EndpointMongodbSettingsOutput) ExtractDocId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.ExtractDocId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies either document or table mode. Defaults to `none`. Valid values are `one` (table mode) and `none` (document mode).
 func (o EndpointMongodbSettingsOutput) NestingLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.NestingLevel }).(pulumi.StringPtrOutput)
 }
@@ -490,6 +691,7 @@ func (o EndpointMongodbSettingsPtrOutput) Elem() EndpointMongodbSettingsOutput {
 	return o.ApplyT(func(v *EndpointMongodbSettings) EndpointMongodbSettings { return *v }).(EndpointMongodbSettingsOutput)
 }
 
+// Authentication mechanism to access the MongoDB source endpoint. Defaults to `default`.
 func (o EndpointMongodbSettingsPtrOutput) AuthMechanism() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
 		if v == nil {
@@ -499,6 +701,7 @@ func (o EndpointMongodbSettingsPtrOutput) AuthMechanism() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Authentication database name. Not used when `authType` is `no`. Defaults to `admin`.
 func (o EndpointMongodbSettingsPtrOutput) AuthSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
 		if v == nil {
@@ -508,6 +711,7 @@ func (o EndpointMongodbSettingsPtrOutput) AuthSource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Authentication type to access the MongoDB source endpoint. Defaults to `password`.
 func (o EndpointMongodbSettingsPtrOutput) AuthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
 		if v == nil {
@@ -517,6 +721,7 @@ func (o EndpointMongodbSettingsPtrOutput) AuthType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Number of documents to preview to determine the document organization. Use this setting when `nestingLevel` is set to `one`. Defaults to `1000`.
 func (o EndpointMongodbSettingsPtrOutput) DocsToInvestigate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
 		if v == nil {
@@ -526,6 +731,7 @@ func (o EndpointMongodbSettingsPtrOutput) DocsToInvestigate() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Document ID. Use this setting when `nestingLevel` is set to `none`. Defaults to `false`.
 func (o EndpointMongodbSettingsPtrOutput) ExtractDocId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
 		if v == nil {
@@ -535,6 +741,7 @@ func (o EndpointMongodbSettingsPtrOutput) ExtractDocId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies either document or table mode. Defaults to `none`. Valid values are `one` (table mode) and `none` (document mode).
 func (o EndpointMongodbSettingsPtrOutput) NestingLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
 		if v == nil {
@@ -545,13 +752,20 @@ func (o EndpointMongodbSettingsPtrOutput) NestingLevel() pulumi.StringPtrOutput 
 }
 
 type EndpointS3Settings struct {
-	BucketFolder            *string `pulumi:"bucketFolder"`
-	BucketName              *string `pulumi:"bucketName"`
-	CompressionType         *string `pulumi:"compressionType"`
-	CsvDelimiter            *string `pulumi:"csvDelimiter"`
-	CsvRowDelimiter         *string `pulumi:"csvRowDelimiter"`
+	// S3 Bucket Object prefix.
+	BucketFolder *string `pulumi:"bucketFolder"`
+	// S3 Bucket name.
+	BucketName *string `pulumi:"bucketName"`
+	// Set to compress target files. Defaults to `NONE`. Valid values are `GZIP` and `NONE`.
+	CompressionType *string `pulumi:"compressionType"`
+	// Delimiter used to separate columns in the source files. Defaults to `,`.
+	CsvDelimiter *string `pulumi:"csvDelimiter"`
+	// Delimiter used to separate rows in the source files. Defaults to `\n`.
+	CsvRowDelimiter *string `pulumi:"csvRowDelimiter"`
+	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition *string `pulumi:"externalTableDefinition"`
-	ServiceAccessRoleArn    *string `pulumi:"serviceAccessRoleArn"`
+	// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
+	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
 }
 
 // EndpointS3SettingsInput is an input type that accepts EndpointS3SettingsArgs and EndpointS3SettingsOutput values.
@@ -567,13 +781,20 @@ type EndpointS3SettingsInput interface {
 }
 
 type EndpointS3SettingsArgs struct {
-	BucketFolder            pulumi.StringPtrInput `pulumi:"bucketFolder"`
-	BucketName              pulumi.StringPtrInput `pulumi:"bucketName"`
-	CompressionType         pulumi.StringPtrInput `pulumi:"compressionType"`
-	CsvDelimiter            pulumi.StringPtrInput `pulumi:"csvDelimiter"`
-	CsvRowDelimiter         pulumi.StringPtrInput `pulumi:"csvRowDelimiter"`
+	// S3 Bucket Object prefix.
+	BucketFolder pulumi.StringPtrInput `pulumi:"bucketFolder"`
+	// S3 Bucket name.
+	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
+	// Set to compress target files. Defaults to `NONE`. Valid values are `GZIP` and `NONE`.
+	CompressionType pulumi.StringPtrInput `pulumi:"compressionType"`
+	// Delimiter used to separate columns in the source files. Defaults to `,`.
+	CsvDelimiter pulumi.StringPtrInput `pulumi:"csvDelimiter"`
+	// Delimiter used to separate rows in the source files. Defaults to `\n`.
+	CsvRowDelimiter pulumi.StringPtrInput `pulumi:"csvRowDelimiter"`
+	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition pulumi.StringPtrInput `pulumi:"externalTableDefinition"`
-	ServiceAccessRoleArn    pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
+	// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
+	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
 }
 
 func (EndpointS3SettingsArgs) ElementType() reflect.Type {
@@ -653,30 +874,38 @@ func (o EndpointS3SettingsOutput) ToEndpointS3SettingsPtrOutputWithContext(ctx c
 		return &v
 	}).(EndpointS3SettingsPtrOutput)
 }
+
+// S3 Bucket Object prefix.
 func (o EndpointS3SettingsOutput) BucketFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.BucketFolder }).(pulumi.StringPtrOutput)
 }
 
+// S3 Bucket name.
 func (o EndpointS3SettingsOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
+// Set to compress target files. Defaults to `NONE`. Valid values are `GZIP` and `NONE`.
 func (o EndpointS3SettingsOutput) CompressionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.CompressionType }).(pulumi.StringPtrOutput)
 }
 
+// Delimiter used to separate columns in the source files. Defaults to `,`.
 func (o EndpointS3SettingsOutput) CsvDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.CsvDelimiter }).(pulumi.StringPtrOutput)
 }
 
+// Delimiter used to separate rows in the source files. Defaults to `\n`.
 func (o EndpointS3SettingsOutput) CsvRowDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.CsvRowDelimiter }).(pulumi.StringPtrOutput)
 }
 
+// JSON document that describes how AWS DMS should interpret the data.
 func (o EndpointS3SettingsOutput) ExternalTableDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ExternalTableDefinition }).(pulumi.StringPtrOutput)
 }
 
+// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
 func (o EndpointS3SettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -699,6 +928,7 @@ func (o EndpointS3SettingsPtrOutput) Elem() EndpointS3SettingsOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) EndpointS3Settings { return *v }).(EndpointS3SettingsOutput)
 }
 
+// S3 Bucket Object prefix.
 func (o EndpointS3SettingsPtrOutput) BucketFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {
@@ -708,6 +938,7 @@ func (o EndpointS3SettingsPtrOutput) BucketFolder() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// S3 Bucket name.
 func (o EndpointS3SettingsPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {
@@ -717,6 +948,7 @@ func (o EndpointS3SettingsPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Set to compress target files. Defaults to `NONE`. Valid values are `GZIP` and `NONE`.
 func (o EndpointS3SettingsPtrOutput) CompressionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {
@@ -726,6 +958,7 @@ func (o EndpointS3SettingsPtrOutput) CompressionType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Delimiter used to separate columns in the source files. Defaults to `,`.
 func (o EndpointS3SettingsPtrOutput) CsvDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {
@@ -735,6 +968,7 @@ func (o EndpointS3SettingsPtrOutput) CsvDelimiter() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Delimiter used to separate rows in the source files. Defaults to `\n`.
 func (o EndpointS3SettingsPtrOutput) CsvRowDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {
@@ -744,6 +978,7 @@ func (o EndpointS3SettingsPtrOutput) CsvRowDelimiter() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// JSON document that describes how AWS DMS should interpret the data.
 func (o EndpointS3SettingsPtrOutput) ExternalTableDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {
@@ -753,6 +988,7 @@ func (o EndpointS3SettingsPtrOutput) ExternalTableDefinition() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
 func (o EndpointS3SettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {
@@ -765,6 +1001,8 @@ func (o EndpointS3SettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutp
 func init() {
 	pulumi.RegisterOutputType(EndpointElasticsearchSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointElasticsearchSettingsPtrOutput{})
+	pulumi.RegisterOutputType(EndpointKafkaSettingsOutput{})
+	pulumi.RegisterOutputType(EndpointKafkaSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointKinesisSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointKinesisSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointMongodbSettingsOutput{})

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
- * 
+ * ### Using launch specifications
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -50,6 +50,34 @@ import * as utilities from "../utilities";
  *     ],
  *     spotPrice: "0.03",
  *     targetCapacity: 6,
+ *     validUntil: "2019-11-04T20:44:20Z",
+ * });
+ * ```
+ * 
+ * ### Using multiple launch specifications
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const foo = new aws.ec2.SpotFleetRequest("foo", {
+ *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
+ *     launchSpecifications: [
+ *         {
+ *             ami: "ami-d06a90b0",
+ *             availabilityZone: "us-west-2a",
+ *             instanceType: "m1.small",
+ *             keyName: "my-key",
+ *         },
+ *         {
+ *             ami: "ami-d06a90b0",
+ *             availabilityZone: "us-west-2a",
+ *             instanceType: "m5.large",
+ *             keyName: "my-key",
+ *         },
+ *     ],
+ *     spotPrice: "0.005",
+ *     targetCapacity: 2,
  *     validUntil: "2019-11-04T20:44:20Z",
  * });
  * ```
@@ -125,9 +153,13 @@ export class SpotFleetRequest extends pulumi.CustomResource {
     /**
      * Used to define the launch configuration of the
      * spot-fleet request. Can be specified multiple times to define different bids
-     * across different markets and instance types.
+     * across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
      */
-    public readonly launchSpecifications!: pulumi.Output<outputs.ec2.SpotFleetRequestLaunchSpecification[]>;
+    public readonly launchSpecifications!: pulumi.Output<outputs.ec2.SpotFleetRequestLaunchSpecification[] | undefined>;
+    /**
+     * Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+     */
+    public readonly launchTemplateConfigs!: pulumi.Output<outputs.ec2.SpotFleetRequestLaunchTemplateConfig[] | undefined>;
     /**
      * A list of elastic load balancer names to add to the Spot fleet.
      */
@@ -137,7 +169,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      */
     public readonly replaceUnhealthyInstances!: pulumi.Output<boolean | undefined>;
     /**
-     * The maximum bid price per unit hour.
+     * The maximum spot bid for this override request.
      */
     public readonly spotPrice!: pulumi.Output<string | undefined>;
     /**
@@ -198,6 +230,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["instanceInterruptionBehaviour"] = state ? state.instanceInterruptionBehaviour : undefined;
             inputs["instancePoolsToUseCount"] = state ? state.instancePoolsToUseCount : undefined;
             inputs["launchSpecifications"] = state ? state.launchSpecifications : undefined;
+            inputs["launchTemplateConfigs"] = state ? state.launchTemplateConfigs : undefined;
             inputs["loadBalancers"] = state ? state.loadBalancers : undefined;
             inputs["replaceUnhealthyInstances"] = state ? state.replaceUnhealthyInstances : undefined;
             inputs["spotPrice"] = state ? state.spotPrice : undefined;
@@ -214,9 +247,6 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             if (!args || args.iamFleetRole === undefined) {
                 throw new Error("Missing required property 'iamFleetRole'");
             }
-            if (!args || args.launchSpecifications === undefined) {
-                throw new Error("Missing required property 'launchSpecifications'");
-            }
             if (!args || args.targetCapacity === undefined) {
                 throw new Error("Missing required property 'targetCapacity'");
             }
@@ -227,6 +257,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["instanceInterruptionBehaviour"] = args ? args.instanceInterruptionBehaviour : undefined;
             inputs["instancePoolsToUseCount"] = args ? args.instancePoolsToUseCount : undefined;
             inputs["launchSpecifications"] = args ? args.launchSpecifications : undefined;
+            inputs["launchTemplateConfigs"] = args ? args.launchTemplateConfigs : undefined;
             inputs["loadBalancers"] = args ? args.loadBalancers : undefined;
             inputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
             inputs["spotPrice"] = args ? args.spotPrice : undefined;
@@ -297,9 +328,13 @@ export interface SpotFleetRequestState {
     /**
      * Used to define the launch configuration of the
      * spot-fleet request. Can be specified multiple times to define different bids
-     * across different markets and instance types.
+     * across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
      */
     readonly launchSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchSpecification>[]>;
+    /**
+     * Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+     */
+    readonly launchTemplateConfigs?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchTemplateConfig>[]>;
     /**
      * A list of elastic load balancer names to add to the Spot fleet.
      */
@@ -309,7 +344,7 @@ export interface SpotFleetRequestState {
      */
     readonly replaceUnhealthyInstances?: pulumi.Input<boolean>;
     /**
-     * The maximum bid price per unit hour.
+     * The maximum spot bid for this override request.
      */
     readonly spotPrice?: pulumi.Input<string>;
     /**
@@ -396,9 +431,13 @@ export interface SpotFleetRequestArgs {
     /**
      * Used to define the launch configuration of the
      * spot-fleet request. Can be specified multiple times to define different bids
-     * across different markets and instance types.
+     * across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
      */
-    readonly launchSpecifications: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchSpecification>[]>;
+    readonly launchSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchSpecification>[]>;
+    /**
+     * Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+     */
+    readonly launchTemplateConfigs?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchTemplateConfig>[]>;
     /**
      * A list of elastic load balancer names to add to the Spot fleet.
      */
@@ -408,7 +447,7 @@ export interface SpotFleetRequestArgs {
      */
     readonly replaceUnhealthyInstances?: pulumi.Input<boolean>;
     /**
-     * The maximum bid price per unit hour.
+     * The maximum spot bid for this override request.
      */
     readonly spotPrice?: pulumi.Input<string>;
     /**

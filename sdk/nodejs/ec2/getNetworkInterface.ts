@@ -90,6 +90,10 @@ export interface GetNetworkInterfaceResult {
      */
     readonly macAddress: string;
     /**
+     * The Amazon Resource Name (ARN) of the Outpost.
+     */
+    readonly outpostArn: string;
+    /**
      * The AWS account ID of the owner of the network interface.
      */
     readonly ownerId: string;

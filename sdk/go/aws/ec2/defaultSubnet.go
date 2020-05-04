@@ -31,7 +31,8 @@ type DefaultSubnet struct {
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned
 	// a public IP address.
-	MapPublicIpOnLaunch pulumi.BoolOutput `pulumi:"mapPublicIpOnLaunch"`
+	MapPublicIpOnLaunch pulumi.BoolOutput      `pulumi:"mapPublicIpOnLaunch"`
+	OutpostArn          pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the subnet.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
@@ -83,7 +84,8 @@ type defaultSubnetState struct {
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned
 	// a public IP address.
-	MapPublicIpOnLaunch *bool `pulumi:"mapPublicIpOnLaunch"`
+	MapPublicIpOnLaunch *bool   `pulumi:"mapPublicIpOnLaunch"`
+	OutpostArn          *string `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the subnet.
 	OwnerId *string `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
@@ -106,6 +108,7 @@ type DefaultSubnetState struct {
 	// that instances launched into the subnet should be assigned
 	// a public IP address.
 	MapPublicIpOnLaunch pulumi.BoolPtrInput
+	OutpostArn          pulumi.StringPtrInput
 	// The ID of the AWS account that owns the subnet.
 	OwnerId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
@@ -123,7 +126,8 @@ type defaultSubnetArgs struct {
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned
 	// a public IP address.
-	MapPublicIpOnLaunch *bool `pulumi:"mapPublicIpOnLaunch"`
+	MapPublicIpOnLaunch *bool   `pulumi:"mapPublicIpOnLaunch"`
+	OutpostArn          *string `pulumi:"outpostArn"`
 	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
@@ -135,6 +139,7 @@ type DefaultSubnetArgs struct {
 	// that instances launched into the subnet should be assigned
 	// a public IP address.
 	MapPublicIpOnLaunch pulumi.BoolPtrInput
+	OutpostArn          pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }

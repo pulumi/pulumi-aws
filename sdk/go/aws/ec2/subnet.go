@@ -37,6 +37,8 @@ type Subnet struct {
 	// that instances launched into the subnet should be assigned
 	// a public IP address. Default is `false`.
 	MapPublicIpOnLaunch pulumi.BoolPtrOutput `pulumi:"mapPublicIpOnLaunch"`
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the subnet.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
@@ -100,6 +102,8 @@ type subnetState struct {
 	// that instances launched into the subnet should be assigned
 	// a public IP address. Default is `false`.
 	MapPublicIpOnLaunch *bool `pulumi:"mapPublicIpOnLaunch"`
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn *string `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the subnet.
 	OwnerId *string `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
@@ -130,6 +134,8 @@ type SubnetState struct {
 	// that instances launched into the subnet should be assigned
 	// a public IP address. Default is `false`.
 	MapPublicIpOnLaunch pulumi.BoolPtrInput
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn pulumi.StringPtrInput
 	// The ID of the AWS account that owns the subnet.
 	OwnerId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
@@ -160,6 +166,8 @@ type subnetArgs struct {
 	// that instances launched into the subnet should be assigned
 	// a public IP address. Default is `false`.
 	MapPublicIpOnLaunch *bool `pulumi:"mapPublicIpOnLaunch"`
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn *string `pulumi:"outpostArn"`
 	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VPC ID.
@@ -185,6 +193,8 @@ type SubnetArgs struct {
 	// that instances launched into the subnet should be assigned
 	// a public IP address. Default is `false`.
 	MapPublicIpOnLaunch pulumi.BoolPtrInput
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The VPC ID.

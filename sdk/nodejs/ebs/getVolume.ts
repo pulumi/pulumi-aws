@@ -99,6 +99,10 @@ export interface GetVolumeResult {
     readonly kmsKeyId: string;
     readonly mostRecent?: boolean;
     /**
+     * The Amazon Resource Name (ARN) of the Outpost.
+     */
+    readonly outpostArn: string;
+    /**
      * The size of the drive in GiBs.
      */
     readonly size: number;

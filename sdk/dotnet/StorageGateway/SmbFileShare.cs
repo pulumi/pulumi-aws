@@ -81,6 +81,12 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> ObjectAcl { get; private set; } = null!;
 
         /// <summary>
+        /// File share path used by the NFS client to identify the mount point.
+        /// </summary>
+        [Output("path")]
+        public Output<string> Path { get; private set; } = null!;
+
+        /// <summary>
         /// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         /// </summary>
         [Output("readOnly")]
@@ -336,6 +342,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("objectAcl")]
         public Input<string>? ObjectAcl { get; set; }
+
+        /// <summary>
+        /// File share path used by the NFS client to identify the mount point.
+        /// </summary>
+        [Input("path")]
+        public Input<string>? Path { get; set; }
 
         /// <summary>
         /// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.

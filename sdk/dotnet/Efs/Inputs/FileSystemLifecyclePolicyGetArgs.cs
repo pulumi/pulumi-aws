@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Efs.Inputs
         /// <summary>
         /// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
         /// </summary>
-        [Input("transitionToIa")]
-        public Input<string>? TransitionToIa { get; set; }
+        [Input("transitionToIa", required: true)]
+        public Input<string> TransitionToIa { get; set; } = null!;
 
         public FileSystemLifecyclePolicyGetArgs()
         {

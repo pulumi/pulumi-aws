@@ -8,9 +8,9 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "feature-2.0",
+        "@pulumi/pulumi": "^2.0.0",
         "node-fetch": "^2.2.0",
-        "@pulumi/aws": "latest"
+        "@pulumi/aws": "^2.0.0"
     },
     "devDependencies": {
         "@types/aws-sdk": "^2.7.0",

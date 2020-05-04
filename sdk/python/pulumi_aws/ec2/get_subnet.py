@@ -13,7 +13,7 @@ class GetSubnetResult:
     """
     A collection of values returned by getSubnet.
     """
-    def __init__(__self__, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, cidr_block=None, default_for_az=None, filters=None, id=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, map_public_ip_on_launch=None, owner_id=None, state=None, tags=None, vpc_id=None):
+    def __init__(__self__, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, cidr_block=None, default_for_az=None, filters=None, id=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, map_public_ip_on_launch=None, outpost_arn=None, owner_id=None, state=None, tags=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -50,6 +50,12 @@ class GetSubnetResult:
         if map_public_ip_on_launch and not isinstance(map_public_ip_on_launch, bool):
             raise TypeError("Expected argument 'map_public_ip_on_launch' to be a bool")
         __self__.map_public_ip_on_launch = map_public_ip_on_launch
+        if outpost_arn and not isinstance(outpost_arn, str):
+            raise TypeError("Expected argument 'outpost_arn' to be a str")
+        __self__.outpost_arn = outpost_arn
+        """
+        The Amazon Resource Name (ARN) of the Outpost.
+        """
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         __self__.owner_id = owner_id
@@ -82,6 +88,7 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             ipv6_cidr_block=self.ipv6_cidr_block,
             ipv6_cidr_block_association_id=self.ipv6_cidr_block_association_id,
             map_public_ip_on_launch=self.map_public_ip_on_launch,
+            outpost_arn=self.outpost_arn,
             owner_id=self.owner_id,
             state=self.state,
             tags=self.tags,
@@ -151,6 +158,7 @@ def get_subnet(availability_zone=None,availability_zone_id=None,cidr_block=None,
         ipv6_cidr_block=__ret__.get('ipv6CidrBlock'),
         ipv6_cidr_block_association_id=__ret__.get('ipv6CidrBlockAssociationId'),
         map_public_ip_on_launch=__ret__.get('mapPublicIpOnLaunch'),
+        outpost_arn=__ret__.get('outpostArn'),
         owner_id=__ret__.get('ownerId'),
         state=__ret__.get('state'),
         tags=__ret__.get('tags'),

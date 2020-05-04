@@ -166,6 +166,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string NetworkInterfaceId;
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// </summary>
+        public readonly string OutpostArn;
+        /// <summary>
         /// Base-64 encoded encrypted password data for the instance.
         /// Useful for getting the administrator password for instances running Microsoft Windows.
         /// This attribute is only exported if `get_password_data` is true.
@@ -280,6 +284,8 @@ namespace Pulumi.Aws.Ec2
 
             string networkInterfaceId,
 
+            string outpostArn,
+
             string passwordData,
 
             string placementGroup,
@@ -333,6 +339,7 @@ namespace Pulumi.Aws.Ec2
             MetadataOptions = metadataOptions;
             Monitoring = monitoring;
             NetworkInterfaceId = networkInterfaceId;
+            OutpostArn = outpostArn;
             PasswordData = passwordData;
             PlacementGroup = placementGroup;
             PrivateDns = privateDns;

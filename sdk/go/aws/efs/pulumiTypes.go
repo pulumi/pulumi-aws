@@ -12,7 +12,7 @@ import (
 
 type FileSystemLifecyclePolicy struct {
 	// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
-	TransitionToIa *string `pulumi:"transitionToIa"`
+	TransitionToIa string `pulumi:"transitionToIa"`
 }
 
 // FileSystemLifecyclePolicyInput is an input type that accepts FileSystemLifecyclePolicyArgs and FileSystemLifecyclePolicyOutput values.
@@ -29,7 +29,7 @@ type FileSystemLifecyclePolicyInput interface {
 
 type FileSystemLifecyclePolicyArgs struct {
 	// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
-	TransitionToIa pulumi.StringPtrInput `pulumi:"transitionToIa"`
+	TransitionToIa pulumi.StringInput `pulumi:"transitionToIa"`
 }
 
 func (FileSystemLifecyclePolicyArgs) ElementType() reflect.Type {
@@ -111,8 +111,8 @@ func (o FileSystemLifecyclePolicyOutput) ToFileSystemLifecyclePolicyPtrOutputWit
 }
 
 // Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
-func (o FileSystemLifecyclePolicyOutput) TransitionToIa() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FileSystemLifecyclePolicy) *string { return v.TransitionToIa }).(pulumi.StringPtrOutput)
+func (o FileSystemLifecyclePolicyOutput) TransitionToIa() pulumi.StringOutput {
+	return o.ApplyT(func(v FileSystemLifecyclePolicy) string { return v.TransitionToIa }).(pulumi.StringOutput)
 }
 
 type FileSystemLifecyclePolicyPtrOutput struct{ *pulumi.OutputState }
@@ -139,7 +139,7 @@ func (o FileSystemLifecyclePolicyPtrOutput) TransitionToIa() pulumi.StringPtrOut
 		if v == nil {
 			return nil
 		}
-		return v.TransitionToIa
+		return &v.TransitionToIa
 	}).(pulumi.StringPtrOutput)
 }
 

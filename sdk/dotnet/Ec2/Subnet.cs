@@ -70,6 +70,12 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> MapPublicIpOnLaunch { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// </summary>
+        [Output("outpostArn")]
+        public Output<string?> OutpostArn { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the AWS account that owns the subnet.
         /// </summary>
         [Output("ownerId")]
@@ -174,6 +180,12 @@ namespace Pulumi.Aws.Ec2
         [Input("mapPublicIpOnLaunch")]
         public Input<bool>? MapPublicIpOnLaunch { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// </summary>
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
+
         [Input("tags")]
         private InputMap<object>? _tags;
 
@@ -251,6 +263,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("mapPublicIpOnLaunch")]
         public Input<bool>? MapPublicIpOnLaunch { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// </summary>
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
         /// The ID of the AWS account that owns the subnet.

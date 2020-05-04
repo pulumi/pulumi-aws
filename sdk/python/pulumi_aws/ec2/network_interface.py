@@ -26,6 +26,7 @@ class NetworkInterface(pulumi.CustomResource):
     """
     The MAC address of the network interface.
     """
+    outpost_arn: pulumi.Output[str]
     private_dns_name: pulumi.Output[str]
     """
     The private DNS name of the network interface (IPv4).
@@ -107,6 +108,7 @@ class NetworkInterface(pulumi.CustomResource):
             __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags
             __props__['mac_address'] = None
+            __props__['outpost_arn'] = None
             __props__['private_dns_name'] = None
         super(NetworkInterface, __self__).__init__(
             'aws:ec2/networkInterface:NetworkInterface',
@@ -115,7 +117,7 @@ class NetworkInterface(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, attachments=None, description=None, mac_address=None, private_dns_name=None, private_ip=None, private_ips=None, private_ips_count=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None):
+    def get(resource_name, id, opts=None, attachments=None, description=None, mac_address=None, outpost_arn=None, private_dns_name=None, private_ip=None, private_ips=None, private_ips_count=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None):
         """
         Get an existing NetworkInterface resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -147,6 +149,7 @@ class NetworkInterface(pulumi.CustomResource):
         __props__["attachments"] = attachments
         __props__["description"] = description
         __props__["mac_address"] = mac_address
+        __props__["outpost_arn"] = outpost_arn
         __props__["private_dns_name"] = private_dns_name
         __props__["private_ip"] = private_ip
         __props__["private_ips"] = private_ips

@@ -79,6 +79,8 @@ type LookupInstanceResult struct {
 	Monitoring bool `pulumi:"monitoring"`
 	// The ID of the network interface that was created with the Instance.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn string `pulumi:"outpostArn"`
 	// Base-64 encoded encrypted password data for the instance.
 	// Useful for getting the administrator password for instances running Microsoft Windows.
 	// This attribute is only exported if `getPasswordData` is true.

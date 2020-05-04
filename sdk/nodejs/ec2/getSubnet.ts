@@ -131,6 +131,10 @@ export interface GetSubnetResult {
     readonly ipv6CidrBlockAssociationId: string;
     readonly mapPublicIpOnLaunch: boolean;
     /**
+     * The Amazon Resource Name (ARN) of the Outpost.
+     */
+    readonly outpostArn: string;
+    /**
      * The ID of the AWS account that owns the subnet.
      */
     readonly ownerId: string;

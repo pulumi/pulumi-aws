@@ -13,12 +13,33 @@ namespace Pulumi.Aws.Dms.Outputs
     [OutputType]
     public sealed class EndpointS3Settings
     {
+        /// <summary>
+        /// S3 Bucket Object prefix.
+        /// </summary>
         public readonly string? BucketFolder;
+        /// <summary>
+        /// S3 Bucket name.
+        /// </summary>
         public readonly string? BucketName;
+        /// <summary>
+        /// Set to compress target files. Defaults to `NONE`. Valid values are `GZIP` and `NONE`.
+        /// </summary>
         public readonly string? CompressionType;
+        /// <summary>
+        /// Delimiter used to separate columns in the source files. Defaults to `,`.
+        /// </summary>
         public readonly string? CsvDelimiter;
+        /// <summary>
+        /// Delimiter used to separate rows in the source files. Defaults to `\n`.
+        /// </summary>
         public readonly string? CsvRowDelimiter;
+        /// <summary>
+        /// JSON document that describes how AWS DMS should interpret the data.
+        /// </summary>
         public readonly string? ExternalTableDefinition;
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
+        /// </summary>
         public readonly string? ServiceAccessRoleArn;
 
         [OutputConstructor]

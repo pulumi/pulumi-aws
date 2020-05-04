@@ -20,6 +20,7 @@ type NetworkInterface struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The MAC address of the network interface.
 	MacAddress pulumi.StringOutput `pulumi:"macAddress"`
+	OutpostArn pulumi.StringOutput `pulumi:"outpostArn"`
 	// The private DNS name of the network interface (IPv4).
 	PrivateDnsName pulumi.StringOutput `pulumi:"privateDnsName"`
 	PrivateIp      pulumi.StringOutput `pulumi:"privateIp"`
@@ -74,6 +75,7 @@ type networkInterfaceState struct {
 	Description *string `pulumi:"description"`
 	// The MAC address of the network interface.
 	MacAddress *string `pulumi:"macAddress"`
+	OutpostArn *string `pulumi:"outpostArn"`
 	// The private DNS name of the network interface (IPv4).
 	PrivateDnsName *string `pulumi:"privateDnsName"`
 	PrivateIp      *string `pulumi:"privateIp"`
@@ -98,6 +100,7 @@ type NetworkInterfaceState struct {
 	Description pulumi.StringPtrInput
 	// The MAC address of the network interface.
 	MacAddress pulumi.StringPtrInput
+	OutpostArn pulumi.StringPtrInput
 	// The private DNS name of the network interface (IPv4).
 	PrivateDnsName pulumi.StringPtrInput
 	PrivateIp      pulumi.StringPtrInput

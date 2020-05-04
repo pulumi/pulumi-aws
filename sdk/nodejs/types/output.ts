@@ -1055,10 +1055,25 @@ export namespace apigatewayv2 {
 
 export namespace appautoscaling {
     export interface PolicyStepScalingPolicyConfiguration {
+        /**
+         * Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+         */
         adjustmentType?: string;
+        /**
+         * The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+         */
         cooldown?: number;
+        /**
+         * The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
+         */
         metricAggregationType?: string;
+        /**
+         * The minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
+         */
         minAdjustmentMagnitude?: number;
+        /**
+         * A set of adjustments that manage scaling. These have the following structure:
+         */
         stepAdjustments?: outputs.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustment[];
     }
 
@@ -1069,19 +1084,52 @@ export namespace appautoscaling {
     }
 
     export interface PolicyTargetTrackingScalingPolicyConfiguration {
+        /**
+         * A custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
+         */
         customizedMetricSpecification?: outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification;
+        /**
+         * Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
+         */
         disableScaleIn?: boolean;
+        /**
+         * A predefined metric. See supported fields below.
+         */
         predefinedMetricSpecification?: outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification;
+        /**
+         * The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+         */
         scaleInCooldown?: number;
+        /**
+         * The amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
+         */
         scaleOutCooldown?: number;
+        /**
+         * The target value for the metric.
+         */
         targetValue: number;
     }
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification {
+        /**
+         * Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+         */
         dimensions?: outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension[];
+        /**
+         * The name of the metric.
+         */
         metricName: string;
+        /**
+         * The namespace of the metric.
+         */
         namespace: string;
+        /**
+         * The statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+         */
         statistic: string;
+        /**
+         * The unit of the metric.
+         */
         unit?: string;
     }
 
@@ -1090,11 +1138,20 @@ export namespace appautoscaling {
          * The name of the policy.
          */
         name: string;
+        /**
+         * Value of the dimension.
+         */
         value: string;
     }
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification {
+        /**
+         * The metric type.
+         */
         predefinedMetricType: string;
+        /**
+         * Reserved for future use.
+         */
         resourceLabel?: string;
     }
 
@@ -4444,7 +4501,7 @@ export namespace cognito {
          */
         emailSendingAccount?: string;
         /**
-         * Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith <john@smith.com>")
+         * Sender’s email address or sender’s name with their email address (e.g. `john@smith.com` or `John Smith <john@smith.com>`)
          */
         fromEmailAddress?: string;
         /**
@@ -4869,34 +4926,105 @@ export namespace dlm {
 
 export namespace dms {
     export interface EndpointElasticsearchSettings {
+        /**
+         * Endpoint for the Elasticsearch cluster.
+         */
         endpointUri: string;
+        /**
+         * Maximum number of seconds for which DMS retries failed API requests to the Elasticsearch cluster. Defaults to `300`.
+         */
         errorRetryDuration?: number;
+        /**
+         * Maximum percentage of records that can fail to be written before a full load operation stops. Defaults to `10`.
+         */
         fullLoadErrorPercentage?: number;
+        /**
+         * Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Elasticsearch cluster.
+         */
         serviceAccessRoleArn: string;
     }
 
+    export interface EndpointKafkaSettings {
+        /**
+         * Kafka broker location. Specify in the form broker-hostname-or-ip:port.
+         */
+        broker: string;
+        /**
+         * Kafka topic for migration. Defaults to `kafka-default-topic`.
+         */
+        topic?: string;
+    }
+
     export interface EndpointKinesisSettings {
+        /**
+         * Output format for the records created. Defaults to `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
+         */
         messageFormat?: string;
+        /**
+         * Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Kinesis data stream.
+         */
         serviceAccessRoleArn?: string;
+        /**
+         * Amazon Resource Name (ARN) of the Kinesis data stream.
+         */
         streamArn?: string;
     }
 
     export interface EndpointMongodbSettings {
+        /**
+         * Authentication mechanism to access the MongoDB source endpoint. Defaults to `default`.
+         */
         authMechanism?: string;
+        /**
+         * Authentication database name. Not used when `authType` is `no`. Defaults to `admin`.
+         */
         authSource?: string;
+        /**
+         * Authentication type to access the MongoDB source endpoint. Defaults to `password`.
+         */
         authType?: string;
+        /**
+         * Number of documents to preview to determine the document organization. Use this setting when `nestingLevel` is set to `one`. Defaults to `1000`.
+         */
         docsToInvestigate?: string;
+        /**
+         * Document ID. Use this setting when `nestingLevel` is set to `none`. Defaults to `false`.
+         */
         extractDocId?: string;
+        /**
+         * Specifies either document or table mode. Defaults to `none`. Valid values are `one` (table mode) and `none` (document mode).
+         */
         nestingLevel?: string;
     }
 
     export interface EndpointS3Settings {
+        /**
+         * S3 Bucket Object prefix.
+         */
         bucketFolder?: string;
+        /**
+         * S3 Bucket name.
+         */
         bucketName?: string;
+        /**
+         * Set to compress target files. Defaults to `NONE`. Valid values are `GZIP` and `NONE`.
+         */
         compressionType?: string;
+        /**
+         * Delimiter used to separate columns in the source files. Defaults to `,`.
+         */
         csvDelimiter?: string;
+        /**
+         * Delimiter used to separate rows in the source files. Defaults to `\n`.
+         */
         csvRowDelimiter?: string;
+        /**
+         * JSON document that describes how AWS DMS should interpret the data.
+         */
         externalTableDefinition?: string;
+        /**
+         * Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
+         */
         serviceAccessRoleArn?: string;
     }
 }
@@ -6855,12 +6983,18 @@ export namespace ec2 {
     export interface SpotFleetRequestLaunchSpecification {
         ami: string;
         associatePublicIpAddress?: boolean;
+        /**
+         * The availability zone in which to place the request.
+         */
         availabilityZone: string;
         ebsBlockDevices: outputs.ec2.SpotFleetRequestLaunchSpecificationEbsBlockDevice[];
         ebsOptimized?: boolean;
         ephemeralBlockDevices: outputs.ec2.SpotFleetRequestLaunchSpecificationEphemeralBlockDevice[];
         iamInstanceProfile?: string;
         iamInstanceProfileArn?: string;
+        /**
+         * The type of instance to request.
+         */
         instanceType: string;
         keyName: string;
         monitoring?: boolean;
@@ -6868,9 +7002,12 @@ export namespace ec2 {
         placementTenancy?: string;
         rootBlockDevices: outputs.ec2.SpotFleetRequestLaunchSpecificationRootBlockDevice[];
         /**
-         * The maximum bid price per unit hour.
+         * The maximum spot bid for this override request.
          */
         spotPrice?: string;
+        /**
+         * The subnet in which to launch the requested instance.
+         */
         subnetId: string;
         /**
          * A map of tags to assign to the resource.
@@ -6878,6 +7015,9 @@ export namespace ec2 {
         tags?: {[key: string]: any};
         userData?: string;
         vpcSecurityGroupIds: string[];
+        /**
+         * The capacity added to the fleet by a fulfilled request.
+         */
         weightedCapacity?: string;
     }
 
@@ -6904,6 +7044,59 @@ export namespace ec2 {
         kmsKeyId: string;
         volumeSize: number;
         volumeType: string;
+    }
+
+    export interface SpotFleetRequestLaunchTemplateConfig {
+        /**
+         * Launch template specification. See Launch Template Specification below for more details.
+         */
+        launchTemplateSpecification: outputs.ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification;
+        /**
+         * One or more override configurations. See Overrides below for more details.
+         */
+        overrides?: outputs.ec2.SpotFleetRequestLaunchTemplateConfigOverride[];
+    }
+
+    export interface SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification {
+        /**
+         * The ID of the launch template. Conflicts with `name`.
+         */
+        id?: string;
+        /**
+         * The name of the launch template. Conflicts with `id`.
+         */
+        name?: string;
+        /**
+         * Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g. `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+         */
+        version?: string;
+    }
+
+    export interface SpotFleetRequestLaunchTemplateConfigOverride {
+        /**
+         * The availability zone in which to place the request.
+         */
+        availabilityZone?: string;
+        /**
+         * The type of instance to request.
+         */
+        instanceType?: string;
+        /**
+         * The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
+         */
+        priority: number;
+        /**
+         * The maximum spot bid for this override request.
+         */
+        spotPrice: string;
+        /**
+         * The subnet in which to launch the requested instance.
+         */
+        subnetId: string;
+        /**
+         * The capacity added to the fleet by a fulfilled request.
+         */
+        weightedCapacity: number;
     }
 
     export interface SpotInstanceRequestCreditSpecification {
@@ -7206,6 +7399,19 @@ export namespace ec2transitgateway {
         name: string;
         /**
          * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
+    }
+
+    export interface GetPeeringAttachmentFilter {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         * An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
          */
         values: string[];
     }
@@ -7534,7 +7740,7 @@ export namespace efs {
         /**
          * Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
          */
-        transitionToIa?: string;
+        transitionToIa: string;
     }
 
     export interface GetFileSystemLifecyclePolicy {

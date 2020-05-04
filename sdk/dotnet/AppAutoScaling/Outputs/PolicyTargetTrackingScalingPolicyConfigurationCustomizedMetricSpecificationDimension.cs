@@ -17,6 +17,9 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
         /// The name of the policy.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Value of the dimension.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

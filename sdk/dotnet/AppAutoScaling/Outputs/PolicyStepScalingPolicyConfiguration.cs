@@ -13,10 +13,25 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
     [OutputType]
     public sealed class PolicyStepScalingPolicyConfiguration
     {
+        /// <summary>
+        /// Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+        /// </summary>
         public readonly string? AdjustmentType;
+        /// <summary>
+        /// The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+        /// </summary>
         public readonly int? Cooldown;
+        /// <summary>
+        /// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
+        /// </summary>
         public readonly string? MetricAggregationType;
+        /// <summary>
+        /// The minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
+        /// </summary>
         public readonly int? MinAdjustmentMagnitude;
+        /// <summary>
+        /// A set of adjustments that manage scaling. These have the following structure:
+        /// </summary>
         public readonly ImmutableArray<Outputs.PolicyStepScalingPolicyConfigurationStepAdjustment> StepAdjustments;
 
         [OutputConstructor]

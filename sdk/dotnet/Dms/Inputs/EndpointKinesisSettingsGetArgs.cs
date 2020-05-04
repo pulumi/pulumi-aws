@@ -12,12 +12,21 @@ namespace Pulumi.Aws.Dms.Inputs
 
     public sealed class EndpointKinesisSettingsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Output format for the records created. Defaults to `json`. Valid values are `json` and `json_unformatted` (a single line with no tab).
+        /// </summary>
         [Input("messageFormat")]
         public Input<string>? MessageFormat { get; set; }
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Kinesis data stream.
+        /// </summary>
         [Input("serviceAccessRoleArn")]
         public Input<string>? ServiceAccessRoleArn { get; set; }
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Kinesis data stream.
+        /// </summary>
         [Input("streamArn")]
         public Input<string>? StreamArn { get; set; }
 

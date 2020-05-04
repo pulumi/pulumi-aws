@@ -12,24 +12,45 @@ namespace Pulumi.Aws.Dms.Inputs
 
     public sealed class EndpointS3SettingsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// S3 Bucket Object prefix.
+        /// </summary>
         [Input("bucketFolder")]
         public Input<string>? BucketFolder { get; set; }
 
+        /// <summary>
+        /// S3 Bucket name.
+        /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
+        /// <summary>
+        /// Set to compress target files. Defaults to `NONE`. Valid values are `GZIP` and `NONE`.
+        /// </summary>
         [Input("compressionType")]
         public Input<string>? CompressionType { get; set; }
 
+        /// <summary>
+        /// Delimiter used to separate columns in the source files. Defaults to `,`.
+        /// </summary>
         [Input("csvDelimiter")]
         public Input<string>? CsvDelimiter { get; set; }
 
+        /// <summary>
+        /// Delimiter used to separate rows in the source files. Defaults to `\n`.
+        /// </summary>
         [Input("csvRowDelimiter")]
         public Input<string>? CsvRowDelimiter { get; set; }
 
+        /// <summary>
+        /// JSON document that describes how AWS DMS should interpret the data.
+        /// </summary>
         [Input("externalTableDefinition")]
         public Input<string>? ExternalTableDefinition { get; set; }
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
+        /// </summary>
         [Input("serviceAccessRoleArn")]
         public Input<string>? ServiceAccessRoleArn { get; set; }
 

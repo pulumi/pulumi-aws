@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// </summary>
         public readonly string? EmailSendingAccount;
         /// <summary>
-        /// Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith &lt;john@smith.com&gt;")
+        /// Sender’s email address or sender’s name with their email address (e.g. `john@smith.com` or `John Smith &lt;john@smith.com&gt;`)
         /// </summary>
         public readonly string? FromEmailAddress;
         /// <summary>

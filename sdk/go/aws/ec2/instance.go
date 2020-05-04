@@ -76,6 +76,8 @@ type Instance struct {
 	Monitoring pulumi.BoolPtrOutput `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces InstanceNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
+	// The ARN of the Outpost the instance is assigned to.
+	OutpostArn pulumi.StringOutput `pulumi:"outpostArn"`
 	// Base-64 encoded encrypted password data for the instance.
 	// Useful for getting the administrator password for instances running Microsoft Windows.
 	// This attribute is only exported if `getPasswordData` is true.
@@ -217,6 +219,8 @@ type instanceState struct {
 	Monitoring *bool `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces []InstanceNetworkInterface `pulumi:"networkInterfaces"`
+	// The ARN of the Outpost the instance is assigned to.
+	OutpostArn *string `pulumi:"outpostArn"`
 	// Base-64 encoded encrypted password data for the instance.
 	// Useful for getting the administrator password for instances running Microsoft Windows.
 	// This attribute is only exported if `getPasswordData` is true.
@@ -325,6 +329,8 @@ type InstanceState struct {
 	Monitoring pulumi.BoolPtrInput
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces InstanceNetworkInterfaceArrayInput
+	// The ARN of the Outpost the instance is assigned to.
+	OutpostArn pulumi.StringPtrInput
 	// Base-64 encoded encrypted password data for the instance.
 	// Useful for getting the administrator password for instances running Microsoft Windows.
 	// This attribute is only exported if `getPasswordData` is true.

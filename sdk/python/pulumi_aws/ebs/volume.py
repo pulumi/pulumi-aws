@@ -30,6 +30,10 @@ class Volume(pulumi.CustomResource):
     """
     The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
     """
+    outpost_arn: pulumi.Output[str]
+    """
+    The Amazon Resource Name (ARN) of the Outpost.
+    """
     size: pulumi.Output[float]
     """
     The size of the drive in GiBs.
@@ -46,7 +50,7 @@ class Volume(pulumi.CustomResource):
     """
     The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
     """
-    def __init__(__self__, resource_name, opts=None, availability_zone=None, encrypted=None, iops=None, kms_key_id=None, size=None, snapshot_id=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, availability_zone=None, encrypted=None, iops=None, kms_key_id=None, outpost_arn=None, size=None, snapshot_id=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a single EBS volume.
 
@@ -58,6 +62,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[float] iops: The amount of IOPS to provision for the disk.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+        :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[float] size: The size of the drive in GiBs.
         :param pulumi.Input[str] snapshot_id: A snapshot to base the EBS volume off of.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
@@ -86,6 +91,7 @@ class Volume(pulumi.CustomResource):
             __props__['encrypted'] = encrypted
             __props__['iops'] = iops
             __props__['kms_key_id'] = kms_key_id
+            __props__['outpost_arn'] = outpost_arn
             __props__['size'] = size
             __props__['snapshot_id'] = snapshot_id
             __props__['tags'] = tags
@@ -98,7 +104,7 @@ class Volume(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, availability_zone=None, encrypted=None, iops=None, kms_key_id=None, size=None, snapshot_id=None, tags=None, type=None):
+    def get(resource_name, id, opts=None, arn=None, availability_zone=None, encrypted=None, iops=None, kms_key_id=None, outpost_arn=None, size=None, snapshot_id=None, tags=None, type=None):
         """
         Get an existing Volume resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -111,6 +117,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[float] iops: The amount of IOPS to provision for the disk.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+        :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[float] size: The size of the drive in GiBs.
         :param pulumi.Input[str] snapshot_id: A snapshot to base the EBS volume off of.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
@@ -125,6 +132,7 @@ class Volume(pulumi.CustomResource):
         __props__["encrypted"] = encrypted
         __props__["iops"] = iops
         __props__["kms_key_id"] = kms_key_id
+        __props__["outpost_arn"] = outpost_arn
         __props__["size"] = size
         __props__["snapshot_id"] = snapshot_id
         __props__["tags"] = tags

@@ -1098,6 +1098,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_ec2_transit_gateway_vpc_attachment":          {Tok: awsResource(ec2TransitGatewayMod, "VpcAttachment")},
 			"aws_ec2_transit_gateway_vpc_attachment_accepter": {Tok: awsResource(ec2TransitGatewayMod, "VpcAttachmentAccepter")},
+			"aws_ec2_transit_gateway_peering_attachment":      {Tok: awsResource(ec2TransitGatewayMod, "PeeringAttachment")},
 			// Elastic Container Registry
 			"aws_ecr_repository": {Tok: awsResource(ecrMod, "Repository")},
 			"aws_ecr_repository_policy": {
@@ -1276,11 +1277,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_glue_trigger":                {Tok: awsResource(glueMod, "Trigger")},
 			"aws_glue_workflow":               {Tok: awsResource(glueMod, "Workflow")},
 			// GuardDuty
-			"aws_guardduty_detector":        {Tok: awsResource(guarddutyMod, "Detector")},
-			"aws_guardduty_invite_accepter": {Tok: awsResource(guarddutyMod, "InviteAccepter")},
-			"aws_guardduty_ipset":           {Tok: awsResource(guarddutyMod, "IPSet")},
-			"aws_guardduty_member":          {Tok: awsResource(guarddutyMod, "Member")},
-			"aws_guardduty_threatintelset":  {Tok: awsResource(guarddutyMod, "ThreatIntelSet")},
+			"aws_guardduty_detector":                   {Tok: awsResource(guarddutyMod, "Detector")},
+			"aws_guardduty_invite_accepter":            {Tok: awsResource(guarddutyMod, "InviteAccepter")},
+			"aws_guardduty_ipset":                      {Tok: awsResource(guarddutyMod, "IPSet")},
+			"aws_guardduty_member":                     {Tok: awsResource(guarddutyMod, "Member")},
+			"aws_guardduty_threatintelset":             {Tok: awsResource(guarddutyMod, "ThreatIntelSet")},
+			"aws_guardduty_organization_admin_account": {Tok: awsResource(guarddutyMod, "OrganizationAdminAccount")},
+			"aws_guardduty_organization_configuration": {Tok: awsResource(guarddutyMod, "OrganizationConfiguration")},
 			// Identity and Access Management (IAM)
 			"aws_iam_access_key": {Tok: awsResource(iamMod, "AccessKey")},
 			"aws_iam_account_alias": {
@@ -2197,6 +2200,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway_route_table":    {Tok: awsDataSource(ec2TransitGatewayMod, "getRouteTable")},
 			"aws_ec2_transit_gateway_vpc_attachment": {Tok: awsDataSource(ec2TransitGatewayMod, "getVpcAttachment")},
 			"aws_ec2_transit_gateway_vpn_attachment": {Tok: awsDataSource(ec2TransitGatewayMod, "getVpnAttachment")},
+			"aws_ec2_transit_gateway_peering_attachment": {
+				Tok: awsDataSource(ec2TransitGatewayMod, "getPeeringAttachment"),
+			},
 			// Elastic Beanstalk
 			"aws_elastic_beanstalk_application": {
 				Tok: awsDataSource(elasticbeanstalkMod, "getApplication"),
@@ -2378,6 +2384,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sfn_state_machine": {Tok: awsDataSource(sfnMod, "getStateMachine")},
 			// Cloudfront
 			"aws_cloudfront_distribution": {Tok: awsDataSource(cloudfrontMod, "getDistribution")},
+			// Backup
+			"aws_backup_plan":      {Tok: awsDataSource(backupMod, "getPlan")},
+			"aws_backup_selection": {Tok: awsDataSource(backupMod, "getSelection")},
+			"aws_backup_vault":     {Tok: awsDataSource(backupMod, "getVault")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

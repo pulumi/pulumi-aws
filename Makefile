@@ -56,7 +56,7 @@ build:: provider tfgen install_plugins
 		dotnet build /p:Version=${DOTNET_VERSION}
 
 install_plugins::
-	[ -x "$(shell which pulumi)" ] || ▶ curl -fsSL https://get.pulumi.com | sh -s -- --version "2.0.0-beta.2"
+	[ -x "$(shell which pulumi)" ] || curl -fsSL https://get.pulumi.com | sh
 	pulumi plugin install resource tls 2.0.0
 	pulumi plugin install resource github 1.0.0
 

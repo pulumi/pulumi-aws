@@ -173,6 +173,12 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.InstanceNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the Outpost the instance is assigned to.
+        /// </summary>
+        [Output("outpostArn")]
+        public Output<string> OutpostArn { get; private set; } = null!;
+
+        /// <summary>
         /// Base-64 encoded encrypted password data for the instance.
         /// Useful for getting the administrator password for instances running Microsoft Windows.
         /// This attribute is only exported if `get_password_data` is true.
@@ -786,6 +792,12 @@ namespace Pulumi.Aws.Ec2
             get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.InstanceNetworkInterfaceGetArgs>());
             set => _networkInterfaces = value;
         }
+
+        /// <summary>
+        /// The ARN of the Outpost the instance is assigned to.
+        /// </summary>
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
         /// Base-64 encoded encrypted password data for the instance.

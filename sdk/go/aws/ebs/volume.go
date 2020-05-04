@@ -24,6 +24,8 @@ type Volume struct {
 	Iops pulumi.IntOutput `pulumi:"iops"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// The size of the drive in GiBs.
 	Size pulumi.IntOutput `pulumi:"size"`
 	// A snapshot to base the EBS volume off of.
@@ -75,6 +77,8 @@ type volumeState struct {
 	Iops *int `pulumi:"iops"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn *string `pulumi:"outpostArn"`
 	// The size of the drive in GiBs.
 	Size *int `pulumi:"size"`
 	// A snapshot to base the EBS volume off of.
@@ -96,6 +100,8 @@ type VolumeState struct {
 	Iops pulumi.IntPtrInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn pulumi.StringPtrInput
 	// The size of the drive in GiBs.
 	Size pulumi.IntPtrInput
 	// A snapshot to base the EBS volume off of.
@@ -119,6 +125,8 @@ type volumeArgs struct {
 	Iops *int `pulumi:"iops"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn *string `pulumi:"outpostArn"`
 	// The size of the drive in GiBs.
 	Size *int `pulumi:"size"`
 	// A snapshot to base the EBS volume off of.
@@ -139,6 +147,8 @@ type VolumeArgs struct {
 	Iops pulumi.IntPtrInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn pulumi.StringPtrInput
 	// The size of the drive in GiBs.
 	Size pulumi.IntPtrInput
 	// A snapshot to base the EBS volume off of.

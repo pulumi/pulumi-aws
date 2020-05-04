@@ -78,6 +78,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
      * a public IP address.
      */
     public readonly mapPublicIpOnLaunch!: pulumi.Output<boolean>;
+    public readonly outpostArn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the AWS account that owns the subnet.
      */
@@ -111,6 +112,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
             inputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
             inputs["ipv6CidrBlockAssociationId"] = state ? state.ipv6CidrBlockAssociationId : undefined;
             inputs["mapPublicIpOnLaunch"] = state ? state.mapPublicIpOnLaunch : undefined;
+            inputs["outpostArn"] = state ? state.outpostArn : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
@@ -121,6 +123,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
             }
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             inputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
+            inputs["outpostArn"] = args ? args.outpostArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["assignIpv6AddressOnCreation"] = undefined /*out*/;
@@ -165,6 +168,7 @@ export interface DefaultSubnetState {
      * a public IP address.
      */
     readonly mapPublicIpOnLaunch?: pulumi.Input<boolean>;
+    readonly outpostArn?: pulumi.Input<string>;
     /**
      * The ID of the AWS account that owns the subnet.
      */
@@ -190,6 +194,7 @@ export interface DefaultSubnetArgs {
      * a public IP address.
      */
     readonly mapPublicIpOnLaunch?: pulumi.Input<boolean>;
+    readonly outpostArn?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource.
      */

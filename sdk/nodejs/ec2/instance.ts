@@ -183,6 +183,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly networkInterfaces!: pulumi.Output<outputs.ec2.InstanceNetworkInterface[]>;
     /**
+     * The ARN of the Outpost the instance is assigned to.
+     */
+    public /*out*/ readonly outpostArn!: pulumi.Output<string>;
+    /**
      * Base-64 encoded encrypted password data for the instance.
      * Useful for getting the administrator password for instances running Microsoft Windows.
      * This attribute is only exported if `getPasswordData` is true.
@@ -297,6 +301,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["metadataOptions"] = state ? state.metadataOptions : undefined;
             inputs["monitoring"] = state ? state.monitoring : undefined;
             inputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
+            inputs["outpostArn"] = state ? state.outpostArn : undefined;
             inputs["passwordData"] = state ? state.passwordData : undefined;
             inputs["placementGroup"] = state ? state.placementGroup : undefined;
             inputs["primaryNetworkInterfaceId"] = state ? state.primaryNetworkInterfaceId : undefined;
@@ -358,6 +363,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["instanceState"] = undefined /*out*/;
+            inputs["outpostArn"] = undefined /*out*/;
             inputs["passwordData"] = undefined /*out*/;
             inputs["primaryNetworkInterfaceId"] = undefined /*out*/;
             inputs["privateDns"] = undefined /*out*/;
@@ -488,6 +494,10 @@ export interface InstanceState {
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
     readonly networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceNetworkInterface>[]>;
+    /**
+     * The ARN of the Outpost the instance is assigned to.
+     */
+    readonly outpostArn?: pulumi.Input<string>;
     /**
      * Base-64 encoded encrypted password data for the instance.
      * Useful for getting the administrator password for instances running Microsoft Windows.

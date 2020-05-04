@@ -71,10 +71,16 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Used to define the launch configuration of the
         /// spot-fleet request. Can be specified multiple times to define different bids
-        /// across different markets and instance types.
+        /// across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
         /// </summary>
         [Output("launchSpecifications")]
         public Output<ImmutableArray<Outputs.SpotFleetRequestLaunchSpecification>> LaunchSpecifications { get; private set; } = null!;
+
+        /// <summary>
+        /// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// </summary>
+        [Output("launchTemplateConfigs")]
+        public Output<ImmutableArray<Outputs.SpotFleetRequestLaunchTemplateConfig>> LaunchTemplateConfigs { get; private set; } = null!;
 
         /// <summary>
         /// A list of elastic load balancer names to add to the Spot fleet.
@@ -89,7 +95,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> ReplaceUnhealthyInstances { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum bid price per unit hour.
+        /// The maximum spot bid for this override request.
         /// </summary>
         [Output("spotPrice")]
         public Output<string?> SpotPrice { get; private set; } = null!;
@@ -243,18 +249,30 @@ namespace Pulumi.Aws.Ec2
         [Input("instancePoolsToUseCount")]
         public Input<int>? InstancePoolsToUseCount { get; set; }
 
-        [Input("launchSpecifications", required: true)]
+        [Input("launchSpecifications")]
         private InputList<Inputs.SpotFleetRequestLaunchSpecificationArgs>? _launchSpecifications;
 
         /// <summary>
         /// Used to define the launch configuration of the
         /// spot-fleet request. Can be specified multiple times to define different bids
-        /// across different markets and instance types.
+        /// across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
         /// </summary>
         public InputList<Inputs.SpotFleetRequestLaunchSpecificationArgs> LaunchSpecifications
         {
             get => _launchSpecifications ?? (_launchSpecifications = new InputList<Inputs.SpotFleetRequestLaunchSpecificationArgs>());
             set => _launchSpecifications = value;
+        }
+
+        [Input("launchTemplateConfigs")]
+        private InputList<Inputs.SpotFleetRequestLaunchTemplateConfigArgs>? _launchTemplateConfigs;
+
+        /// <summary>
+        /// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// </summary>
+        public InputList<Inputs.SpotFleetRequestLaunchTemplateConfigArgs> LaunchTemplateConfigs
+        {
+            get => _launchTemplateConfigs ?? (_launchTemplateConfigs = new InputList<Inputs.SpotFleetRequestLaunchTemplateConfigArgs>());
+            set => _launchTemplateConfigs = value;
         }
 
         [Input("loadBalancers")]
@@ -276,7 +294,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? ReplaceUnhealthyInstances { get; set; }
 
         /// <summary>
-        /// The maximum bid price per unit hour.
+        /// The maximum spot bid for this override request.
         /// </summary>
         [Input("spotPrice")]
         public Input<string>? SpotPrice { get; set; }
@@ -406,12 +424,24 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Used to define the launch configuration of the
         /// spot-fleet request. Can be specified multiple times to define different bids
-        /// across different markets and instance types.
+        /// across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
         /// </summary>
         public InputList<Inputs.SpotFleetRequestLaunchSpecificationGetArgs> LaunchSpecifications
         {
             get => _launchSpecifications ?? (_launchSpecifications = new InputList<Inputs.SpotFleetRequestLaunchSpecificationGetArgs>());
             set => _launchSpecifications = value;
+        }
+
+        [Input("launchTemplateConfigs")]
+        private InputList<Inputs.SpotFleetRequestLaunchTemplateConfigGetArgs>? _launchTemplateConfigs;
+
+        /// <summary>
+        /// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// </summary>
+        public InputList<Inputs.SpotFleetRequestLaunchTemplateConfigGetArgs> LaunchTemplateConfigs
+        {
+            get => _launchTemplateConfigs ?? (_launchTemplateConfigs = new InputList<Inputs.SpotFleetRequestLaunchTemplateConfigGetArgs>());
+            set => _launchTemplateConfigs = value;
         }
 
         [Input("loadBalancers")]
@@ -433,7 +463,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? ReplaceUnhealthyInstances { get; set; }
 
         /// <summary>
-        /// The maximum bid price per unit hour.
+        /// The maximum spot bid for this override request.
         /// </summary>
         [Input("spotPrice")]
         public Input<string>? SpotPrice { get; set; }

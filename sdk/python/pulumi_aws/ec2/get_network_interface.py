@@ -13,7 +13,7 @@ class GetNetworkInterfaceResult:
     """
     A collection of values returned by getNetworkInterface.
     """
-    def __init__(__self__, associations=None, attachments=None, availability_zone=None, description=None, filters=None, id=None, interface_type=None, ipv6_addresses=None, mac_address=None, owner_id=None, private_dns_name=None, private_ip=None, private_ips=None, requester_id=None, security_groups=None, subnet_id=None, tags=None, vpc_id=None):
+    def __init__(__self__, associations=None, attachments=None, availability_zone=None, description=None, filters=None, id=None, interface_type=None, ipv6_addresses=None, mac_address=None, outpost_arn=None, owner_id=None, private_dns_name=None, private_ip=None, private_ips=None, requester_id=None, security_groups=None, subnet_id=None, tags=None, vpc_id=None):
         if associations and not isinstance(associations, list):
             raise TypeError("Expected argument 'associations' to be a list")
         __self__.associations = associations
@@ -58,6 +58,12 @@ class GetNetworkInterfaceResult:
         __self__.mac_address = mac_address
         """
         The MAC address.
+        """
+        if outpost_arn and not isinstance(outpost_arn, str):
+            raise TypeError("Expected argument 'outpost_arn' to be a str")
+        __self__.outpost_arn = outpost_arn
+        """
+        The Amazon Resource Name (ARN) of the Outpost.
         """
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
@@ -128,6 +134,7 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             interface_type=self.interface_type,
             ipv6_addresses=self.ipv6_addresses,
             mac_address=self.mac_address,
+            outpost_arn=self.outpost_arn,
             owner_id=self.owner_id,
             private_dns_name=self.private_dns_name,
             private_ip=self.private_ip,
@@ -176,6 +183,7 @@ def get_network_interface(filters=None,id=None,tags=None,opts=None):
         interface_type=__ret__.get('interfaceType'),
         ipv6_addresses=__ret__.get('ipv6Addresses'),
         mac_address=__ret__.get('macAddress'),
+        outpost_arn=__ret__.get('outpostArn'),
         owner_id=__ret__.get('ownerId'),
         private_dns_name=__ret__.get('privateDnsName'),
         private_ip=__ret__.get('privateIp'),
