@@ -14251,8 +14251,8 @@ func (o GetLaunchTemplateMonitoringArrayOutput) Index(i pulumi.IntInput) GetLaun
 }
 
 type GetLaunchTemplateNetworkInterface struct {
-	AssociatePublicIpAddress bool `pulumi:"associatePublicIpAddress"`
-	DeleteOnTermination      bool `pulumi:"deleteOnTermination"`
+	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
+	DeleteOnTermination      bool  `pulumi:"deleteOnTermination"`
 	// Description of the launch template.
 	Description        string   `pulumi:"description"`
 	DeviceIndex        int      `pulumi:"deviceIndex"`
@@ -14279,8 +14279,8 @@ type GetLaunchTemplateNetworkInterfaceInput interface {
 }
 
 type GetLaunchTemplateNetworkInterfaceArgs struct {
-	AssociatePublicIpAddress pulumi.BoolInput `pulumi:"associatePublicIpAddress"`
-	DeleteOnTermination      pulumi.BoolInput `pulumi:"deleteOnTermination"`
+	AssociatePublicIpAddress pulumi.BoolPtrInput `pulumi:"associatePublicIpAddress"`
+	DeleteOnTermination      pulumi.BoolInput    `pulumi:"deleteOnTermination"`
 	// Description of the launch template.
 	Description        pulumi.StringInput      `pulumi:"description"`
 	DeviceIndex        pulumi.IntInput         `pulumi:"deviceIndex"`
@@ -14346,8 +14346,8 @@ func (o GetLaunchTemplateNetworkInterfaceOutput) ToGetLaunchTemplateNetworkInter
 	return o
 }
 
-func (o GetLaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLaunchTemplateNetworkInterface) bool { return v.AssociatePublicIpAddress }).(pulumi.BoolOutput)
+func (o GetLaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetLaunchTemplateNetworkInterface) *bool { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetLaunchTemplateNetworkInterfaceOutput) DeleteOnTermination() pulumi.BoolOutput {

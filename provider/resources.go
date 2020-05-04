@@ -2161,7 +2161,8 @@ func Provider() tfbridge.ProviderInfo {
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
 								"associate_public_ip_address": {
-									Type: "boolean",
+									Type:           "boolean",
+									MarkAsOptional: boolRef(true),
 								},
 							},
 						},
@@ -2379,7 +2380,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudfront_distribution": {Tok: awsDataSource(cloudfrontMod, "getDistribution")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
-			AsyncDataSources: true,
 			Dependencies: map[string]string{
 				"@pulumi/pulumi":    "^2.0.0",
 				"aws-sdk":           "^2.0.0",

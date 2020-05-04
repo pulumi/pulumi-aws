@@ -5806,7 +5806,7 @@ export namespace ec2 {
     }
 
     export interface GetLaunchTemplateNetworkInterface {
-        associatePublicIpAddress: boolean;
+        associatePublicIpAddress?: boolean;
         deleteOnTermination: boolean;
         /**
          * Description of the launch template.
