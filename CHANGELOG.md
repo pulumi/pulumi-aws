@@ -2,8 +2,9 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to pulumi-terraform-bridge v2.1.1
+* Upgrade to pulumi-terraform-bridge v2.2.0
 * Add new region Milan eu-south-1
+* Upgrade to v2.60.0 of the AWS Terraform Provider
 
 ---
 
@@ -17,7 +18,6 @@ CHANGELOG
 * Update `kinesis.TableEventSubscriptionArgs` to include latest Lambda Event Source Mapping parameters 
 * Upgrade to pulumi-terraform-bridge v2.1.0
 * Regenerate datasource examples to be async
-* Upgrade to v2.59.0 of the AWS Terraform Provider
 
 ## 2.1.0 (2020-04-20)
 * Remove deprecated IAM Policy types and ec2 InstanceTypes

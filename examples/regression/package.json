@@ -8,13 +8,11 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "feature-2.0"
+        "@pulumi/pulumi": "^2.0.0",
+        "@pulumi/aws": "^2.0.0"
     },
     "devDependencies": {
         "@types/aws-sdk": "^2.7.0",
         "@types/node": "^8.0.0"
-    },
-    "peerDependencies": {
-        "@pulumi/aws": "latest"
     }
 }
