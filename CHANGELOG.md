@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 2.3.0 (2020-05-04)
 * Upgrade to pulumi-terraform-bridge v2.2.0
 * Add new region Milan eu-south-1
 * Upgrade to v2.60.0 of the AWS Terraform Provider
-
----
 
 ## 2.2.0 (2020-04-29)
 * Add new region South Africa (Cape Town) af-south-1
