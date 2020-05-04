@@ -8271,28 +8271,32 @@ func (o SecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) SecurityGroupI
 }
 
 type SpotFleetRequestLaunchSpecification struct {
-	Ami                      string                                                    `pulumi:"ami"`
-	AssociatePublicIpAddress *bool                                                     `pulumi:"associatePublicIpAddress"`
-	AvailabilityZone         *string                                                   `pulumi:"availabilityZone"`
-	EbsBlockDevices          []SpotFleetRequestLaunchSpecificationEbsBlockDevice       `pulumi:"ebsBlockDevices"`
-	EbsOptimized             *bool                                                     `pulumi:"ebsOptimized"`
-	EphemeralBlockDevices    []SpotFleetRequestLaunchSpecificationEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
-	IamInstanceProfile       *string                                                   `pulumi:"iamInstanceProfile"`
-	IamInstanceProfileArn    *string                                                   `pulumi:"iamInstanceProfileArn"`
-	InstanceType             string                                                    `pulumi:"instanceType"`
-	KeyName                  *string                                                   `pulumi:"keyName"`
-	Monitoring               *bool                                                     `pulumi:"monitoring"`
-	PlacementGroup           *string                                                   `pulumi:"placementGroup"`
-	PlacementTenancy         *string                                                   `pulumi:"placementTenancy"`
-	RootBlockDevices         []SpotFleetRequestLaunchSpecificationRootBlockDevice      `pulumi:"rootBlockDevices"`
-	// The maximum bid price per unit hour.
+	Ami                      string `pulumi:"ami"`
+	AssociatePublicIpAddress *bool  `pulumi:"associatePublicIpAddress"`
+	// The availability zone in which to place the request.
+	AvailabilityZone      *string                                                   `pulumi:"availabilityZone"`
+	EbsBlockDevices       []SpotFleetRequestLaunchSpecificationEbsBlockDevice       `pulumi:"ebsBlockDevices"`
+	EbsOptimized          *bool                                                     `pulumi:"ebsOptimized"`
+	EphemeralBlockDevices []SpotFleetRequestLaunchSpecificationEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
+	IamInstanceProfile    *string                                                   `pulumi:"iamInstanceProfile"`
+	IamInstanceProfileArn *string                                                   `pulumi:"iamInstanceProfileArn"`
+	// The type of instance to request.
+	InstanceType     string                                               `pulumi:"instanceType"`
+	KeyName          *string                                              `pulumi:"keyName"`
+	Monitoring       *bool                                                `pulumi:"monitoring"`
+	PlacementGroup   *string                                              `pulumi:"placementGroup"`
+	PlacementTenancy *string                                              `pulumi:"placementTenancy"`
+	RootBlockDevices []SpotFleetRequestLaunchSpecificationRootBlockDevice `pulumi:"rootBlockDevices"`
+	// The maximum spot bid for this override request.
 	SpotPrice *string `pulumi:"spotPrice"`
-	SubnetId  *string `pulumi:"subnetId"`
+	// The subnet in which to launch the requested instance.
+	SubnetId *string `pulumi:"subnetId"`
 	// A map of tags to assign to the resource.
 	Tags                map[string]interface{} `pulumi:"tags"`
 	UserData            *string                `pulumi:"userData"`
 	VpcSecurityGroupIds []string               `pulumi:"vpcSecurityGroupIds"`
-	WeightedCapacity    *string                `pulumi:"weightedCapacity"`
+	// The capacity added to the fleet by a fulfilled request.
+	WeightedCapacity *string `pulumi:"weightedCapacity"`
 }
 
 // SpotFleetRequestLaunchSpecificationInput is an input type that accepts SpotFleetRequestLaunchSpecificationArgs and SpotFleetRequestLaunchSpecificationOutput values.
@@ -8308,28 +8312,32 @@ type SpotFleetRequestLaunchSpecificationInput interface {
 }
 
 type SpotFleetRequestLaunchSpecificationArgs struct {
-	Ami                      pulumi.StringInput                                                `pulumi:"ami"`
-	AssociatePublicIpAddress pulumi.BoolPtrInput                                               `pulumi:"associatePublicIpAddress"`
-	AvailabilityZone         pulumi.StringPtrInput                                             `pulumi:"availabilityZone"`
-	EbsBlockDevices          SpotFleetRequestLaunchSpecificationEbsBlockDeviceArrayInput       `pulumi:"ebsBlockDevices"`
-	EbsOptimized             pulumi.BoolPtrInput                                               `pulumi:"ebsOptimized"`
-	EphemeralBlockDevices    SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArrayInput `pulumi:"ephemeralBlockDevices"`
-	IamInstanceProfile       pulumi.StringPtrInput                                             `pulumi:"iamInstanceProfile"`
-	IamInstanceProfileArn    pulumi.StringPtrInput                                             `pulumi:"iamInstanceProfileArn"`
-	InstanceType             pulumi.StringInput                                                `pulumi:"instanceType"`
-	KeyName                  pulumi.StringPtrInput                                             `pulumi:"keyName"`
-	Monitoring               pulumi.BoolPtrInput                                               `pulumi:"monitoring"`
-	PlacementGroup           pulumi.StringPtrInput                                             `pulumi:"placementGroup"`
-	PlacementTenancy         pulumi.StringPtrInput                                             `pulumi:"placementTenancy"`
-	RootBlockDevices         SpotFleetRequestLaunchSpecificationRootBlockDeviceArrayInput      `pulumi:"rootBlockDevices"`
-	// The maximum bid price per unit hour.
+	Ami                      pulumi.StringInput  `pulumi:"ami"`
+	AssociatePublicIpAddress pulumi.BoolPtrInput `pulumi:"associatePublicIpAddress"`
+	// The availability zone in which to place the request.
+	AvailabilityZone      pulumi.StringPtrInput                                             `pulumi:"availabilityZone"`
+	EbsBlockDevices       SpotFleetRequestLaunchSpecificationEbsBlockDeviceArrayInput       `pulumi:"ebsBlockDevices"`
+	EbsOptimized          pulumi.BoolPtrInput                                               `pulumi:"ebsOptimized"`
+	EphemeralBlockDevices SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArrayInput `pulumi:"ephemeralBlockDevices"`
+	IamInstanceProfile    pulumi.StringPtrInput                                             `pulumi:"iamInstanceProfile"`
+	IamInstanceProfileArn pulumi.StringPtrInput                                             `pulumi:"iamInstanceProfileArn"`
+	// The type of instance to request.
+	InstanceType     pulumi.StringInput                                           `pulumi:"instanceType"`
+	KeyName          pulumi.StringPtrInput                                        `pulumi:"keyName"`
+	Monitoring       pulumi.BoolPtrInput                                          `pulumi:"monitoring"`
+	PlacementGroup   pulumi.StringPtrInput                                        `pulumi:"placementGroup"`
+	PlacementTenancy pulumi.StringPtrInput                                        `pulumi:"placementTenancy"`
+	RootBlockDevices SpotFleetRequestLaunchSpecificationRootBlockDeviceArrayInput `pulumi:"rootBlockDevices"`
+	// The maximum spot bid for this override request.
 	SpotPrice pulumi.StringPtrInput `pulumi:"spotPrice"`
-	SubnetId  pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The subnet in which to launch the requested instance.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// A map of tags to assign to the resource.
 	Tags                pulumi.MapInput         `pulumi:"tags"`
 	UserData            pulumi.StringPtrInput   `pulumi:"userData"`
 	VpcSecurityGroupIds pulumi.StringArrayInput `pulumi:"vpcSecurityGroupIds"`
-	WeightedCapacity    pulumi.StringPtrInput   `pulumi:"weightedCapacity"`
+	// The capacity added to the fleet by a fulfilled request.
+	WeightedCapacity pulumi.StringPtrInput `pulumi:"weightedCapacity"`
 }
 
 func (SpotFleetRequestLaunchSpecificationArgs) ElementType() reflect.Type {
@@ -8392,6 +8400,7 @@ func (o SpotFleetRequestLaunchSpecificationOutput) AssociatePublicIpAddress() pu
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) *bool { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
 }
 
+// The availability zone in which to place the request.
 func (o SpotFleetRequestLaunchSpecificationOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
@@ -8420,6 +8429,7 @@ func (o SpotFleetRequestLaunchSpecificationOutput) IamInstanceProfileArn() pulum
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) *string { return v.IamInstanceProfileArn }).(pulumi.StringPtrOutput)
 }
 
+// The type of instance to request.
 func (o SpotFleetRequestLaunchSpecificationOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -8446,11 +8456,12 @@ func (o SpotFleetRequestLaunchSpecificationOutput) RootBlockDevices() SpotFleetR
 	}).(SpotFleetRequestLaunchSpecificationRootBlockDeviceArrayOutput)
 }
 
-// The maximum bid price per unit hour.
+// The maximum spot bid for this override request.
 func (o SpotFleetRequestLaunchSpecificationOutput) SpotPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) *string { return v.SpotPrice }).(pulumi.StringPtrOutput)
 }
 
+// The subnet in which to launch the requested instance.
 func (o SpotFleetRequestLaunchSpecificationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -8468,6 +8479,7 @@ func (o SpotFleetRequestLaunchSpecificationOutput) VpcSecurityGroupIds() pulumi.
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) []string { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The capacity added to the fleet by a fulfilled request.
 func (o SpotFleetRequestLaunchSpecificationOutput) WeightedCapacity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) *string { return v.WeightedCapacity }).(pulumi.StringPtrOutput)
 }
@@ -8856,6 +8868,333 @@ func (o SpotFleetRequestLaunchSpecificationRootBlockDeviceArrayOutput) Index(i p
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetRequestLaunchSpecificationRootBlockDevice {
 		return vs[0].([]SpotFleetRequestLaunchSpecificationRootBlockDevice)[vs[1].(int)]
 	}).(SpotFleetRequestLaunchSpecificationRootBlockDeviceOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfig struct {
+	// Launch template specification. See Launch Template Specification below for more details.
+	LaunchTemplateSpecification SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification `pulumi:"launchTemplateSpecification"`
+	// One or more override configurations. See Overrides below for more details.
+	Overrides []SpotFleetRequestLaunchTemplateConfigOverride `pulumi:"overrides"`
+}
+
+// SpotFleetRequestLaunchTemplateConfigInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigArgs and SpotFleetRequestLaunchTemplateConfigOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigInput` via:
+//
+// 		 SpotFleetRequestLaunchTemplateConfigArgs{...}
+//
+type SpotFleetRequestLaunchTemplateConfigInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOutput() SpotFleetRequestLaunchTemplateConfigOutput
+	ToSpotFleetRequestLaunchTemplateConfigOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigArgs struct {
+	// Launch template specification. See Launch Template Specification below for more details.
+	LaunchTemplateSpecification SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationInput `pulumi:"launchTemplateSpecification"`
+	// One or more override configurations. See Overrides below for more details.
+	Overrides SpotFleetRequestLaunchTemplateConfigOverrideArrayInput `pulumi:"overrides"`
+}
+
+func (SpotFleetRequestLaunchTemplateConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfig)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigArgs) ToSpotFleetRequestLaunchTemplateConfigOutput() SpotFleetRequestLaunchTemplateConfigOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigArgs) ToSpotFleetRequestLaunchTemplateConfigOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOutput)
+}
+
+// SpotFleetRequestLaunchTemplateConfigArrayInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigArray and SpotFleetRequestLaunchTemplateConfigArrayOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigArrayInput` via:
+//
+// 		 SpotFleetRequestLaunchTemplateConfigArray{ SpotFleetRequestLaunchTemplateConfigArgs{...} }
+//
+type SpotFleetRequestLaunchTemplateConfigArrayInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigArrayOutput() SpotFleetRequestLaunchTemplateConfigArrayOutput
+	ToSpotFleetRequestLaunchTemplateConfigArrayOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigArrayOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigArray []SpotFleetRequestLaunchTemplateConfigInput
+
+func (SpotFleetRequestLaunchTemplateConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetRequestLaunchTemplateConfig)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigArray) ToSpotFleetRequestLaunchTemplateConfigArrayOutput() SpotFleetRequestLaunchTemplateConfigArrayOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigArrayOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigArray) ToSpotFleetRequestLaunchTemplateConfigArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigArrayOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfig)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOutput) ToSpotFleetRequestLaunchTemplateConfigOutput() SpotFleetRequestLaunchTemplateConfigOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOutput) ToSpotFleetRequestLaunchTemplateConfigOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOutput {
+	return o
+}
+
+// Launch template specification. See Launch Template Specification below for more details.
+func (o SpotFleetRequestLaunchTemplateConfigOutput) LaunchTemplateSpecification() SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfig) SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification {
+		return v.LaunchTemplateSpecification
+	}).(SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput)
+}
+
+// One or more override configurations. See Overrides below for more details.
+func (o SpotFleetRequestLaunchTemplateConfigOutput) Overrides() SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfig) []SpotFleetRequestLaunchTemplateConfigOverride {
+		return v.Overrides
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetRequestLaunchTemplateConfig)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigArrayOutput) ToSpotFleetRequestLaunchTemplateConfigArrayOutput() SpotFleetRequestLaunchTemplateConfigArrayOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigArrayOutput) ToSpotFleetRequestLaunchTemplateConfigArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigArrayOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigArrayOutput) Index(i pulumi.IntInput) SpotFleetRequestLaunchTemplateConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetRequestLaunchTemplateConfig {
+		return vs[0].([]SpotFleetRequestLaunchTemplateConfig)[vs[1].(int)]
+	}).(SpotFleetRequestLaunchTemplateConfigOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification struct {
+	// The ID of the launch template. Conflicts with `name`.
+	Id *string `pulumi:"id"`
+	// The name of the launch template. Conflicts with `id`.
+	Name *string `pulumi:"name"`
+	// Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g. `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+	Version *string `pulumi:"version"`
+}
+
+// SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs and SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationInput` via:
+//
+// 		 SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs{...}
+//
+type SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput() SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput
+	ToSpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs struct {
+	// The ID of the launch template. Conflicts with `name`.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the launch template. Conflicts with `id`.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g. `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs) ToSpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput() SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs) ToSpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput) ToSpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput() SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput) ToSpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput {
+	return o
+}
+
+// The ID of the launch template. Conflicts with `name`.
+func (o SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The name of the launch template. Conflicts with `id`.
+func (o SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g. `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+func (o SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverride struct {
+	// The availability zone in which to place the request.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The type of instance to request.
+	InstanceType *string `pulumi:"instanceType"`
+	// The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
+	Priority *float64 `pulumi:"priority"`
+	// The maximum spot bid for this override request.
+	SpotPrice *string `pulumi:"spotPrice"`
+	// The subnet in which to launch the requested instance.
+	SubnetId *string `pulumi:"subnetId"`
+	// The capacity added to the fleet by a fulfilled request.
+	WeightedCapacity *float64 `pulumi:"weightedCapacity"`
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideArgs and SpotFleetRequestLaunchTemplateConfigOverrideOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInput` via:
+//
+// 		 SpotFleetRequestLaunchTemplateConfigOverrideArgs{...}
+//
+type SpotFleetRequestLaunchTemplateConfigOverrideInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideOutput() SpotFleetRequestLaunchTemplateConfigOverrideOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideArgs struct {
+	// The availability zone in which to place the request.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The type of instance to request.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
+	Priority pulumi.Float64PtrInput `pulumi:"priority"`
+	// The maximum spot bid for this override request.
+	SpotPrice pulumi.StringPtrInput `pulumi:"spotPrice"`
+	// The subnet in which to launch the requested instance.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The capacity added to the fleet by a fulfilled request.
+	WeightedCapacity pulumi.Float64PtrInput `pulumi:"weightedCapacity"`
+}
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverride)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideOutput() SpotFleetRequestLaunchTemplateConfigOverrideOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideOutput)
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideArrayInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideArray and SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideArrayInput` via:
+//
+// 		 SpotFleetRequestLaunchTemplateConfigOverrideArray{ SpotFleetRequestLaunchTemplateConfigOverrideArgs{...} }
+//
+type SpotFleetRequestLaunchTemplateConfigOverrideArrayInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideArrayOutput() SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideArrayOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideArray []SpotFleetRequestLaunchTemplateConfigOverrideInput
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetRequestLaunchTemplateConfigOverride)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideArray) ToSpotFleetRequestLaunchTemplateConfigOverrideArrayOutput() SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideArray) ToSpotFleetRequestLaunchTemplateConfigOverrideArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverride)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideOutput() SpotFleetRequestLaunchTemplateConfigOverrideOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideOutput {
+	return o
+}
+
+// The availability zone in which to place the request.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverride) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The type of instance to request.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverride) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideOutput) Priority() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverride) *float64 { return v.Priority }).(pulumi.Float64PtrOutput)
+}
+
+// The maximum spot bid for this override request.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideOutput) SpotPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverride) *string { return v.SpotPrice }).(pulumi.StringPtrOutput)
+}
+
+// The subnet in which to launch the requested instance.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverride) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// The capacity added to the fleet by a fulfilled request.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideOutput) WeightedCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverride) *float64 { return v.WeightedCapacity }).(pulumi.Float64PtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetRequestLaunchTemplateConfigOverride)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideArrayOutput() SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput) Index(i pulumi.IntInput) SpotFleetRequestLaunchTemplateConfigOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetRequestLaunchTemplateConfigOverride {
+		return vs[0].([]SpotFleetRequestLaunchTemplateConfigOverride)[vs[1].(int)]
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideOutput)
 }
 
 type SpotInstanceRequestCreditSpecification struct {
@@ -17447,6 +17786,11 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestLaunchSpecificationRootBlockDeviceOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestLaunchSpecificationRootBlockDeviceArrayOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigArrayOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestCreditSpecificationOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestCreditSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestEbsBlockDeviceOutput{})

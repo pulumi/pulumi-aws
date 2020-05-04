@@ -11,6 +11,8 @@ import (
 )
 
 // Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the [`appautoscaling.Policy` resource](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html).
+//
+// > **NOTE:** The [Application Auto Scaling service automatically attempts to manage IAM Service-Linked Roles](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) when registering certain service namespaces for the first time. To manually manage this role, see the [`iam.ServiceLinkedRole` resource](https://www.terraform.io/docs/providers/aws/r/iam_service_linked_role.html).
 type Target struct {
 	pulumi.CustomResourceState
 
@@ -20,8 +22,7 @@ type Target struct {
 	MinCapacity pulumi.IntOutput `pulumi:"minCapacity"`
 	// The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// The ARN of the IAM role that allows Application
-	// AutoScaling to modify your scalable target on your behalf.
+	// The ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ScalableDimension pulumi.StringOutput `pulumi:"scalableDimension"`
@@ -78,8 +79,7 @@ type targetState struct {
 	MinCapacity *int `pulumi:"minCapacity"`
 	// The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ResourceId *string `pulumi:"resourceId"`
-	// The ARN of the IAM role that allows Application
-	// AutoScaling to modify your scalable target on your behalf.
+	// The ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
 	RoleArn *string `pulumi:"roleArn"`
 	// The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ScalableDimension *string `pulumi:"scalableDimension"`
@@ -94,8 +94,7 @@ type TargetState struct {
 	MinCapacity pulumi.IntPtrInput
 	// The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ResourceId pulumi.StringPtrInput
-	// The ARN of the IAM role that allows Application
-	// AutoScaling to modify your scalable target on your behalf.
+	// The ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
 	RoleArn pulumi.StringPtrInput
 	// The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ScalableDimension pulumi.StringPtrInput
@@ -114,8 +113,7 @@ type targetArgs struct {
 	MinCapacity int `pulumi:"minCapacity"`
 	// The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ResourceId string `pulumi:"resourceId"`
-	// The ARN of the IAM role that allows Application
-	// AutoScaling to modify your scalable target on your behalf.
+	// The ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
 	RoleArn *string `pulumi:"roleArn"`
 	// The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ScalableDimension string `pulumi:"scalableDimension"`
@@ -131,8 +129,7 @@ type TargetArgs struct {
 	MinCapacity pulumi.IntInput
 	// The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ResourceId pulumi.StringInput
-	// The ARN of the IAM role that allows Application
-	// AutoScaling to modify your scalable target on your behalf.
+	// The ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
 	RoleArn pulumi.StringPtrInput
 	// The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ScalableDimension pulumi.StringInput

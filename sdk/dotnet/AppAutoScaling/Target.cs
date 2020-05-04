@@ -11,6 +11,8 @@ namespace Pulumi.Aws.AppAutoScaling
 {
     /// <summary>
     /// Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the [`aws.appautoscaling.Policy` resource](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html).
+    /// 
+    /// &gt; **NOTE:** The [Application Auto Scaling service automatically attempts to manage IAM Service-Linked Roles](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) when registering certain service namespaces for the first time. To manually manage this role, see the [`aws.iam.ServiceLinkedRole` resource](https://www.terraform.io/docs/providers/aws/r/iam_service_linked_role.html).
     /// </summary>
     public partial class Target : Pulumi.CustomResource
     {
@@ -33,8 +35,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role that allows Application
-        /// AutoScaling to modify your scalable target on your behalf.
+        /// The ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -116,8 +117,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<string> ResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role that allows Application
-        /// AutoScaling to modify your scalable target on your behalf.
+        /// The ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -160,8 +160,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role that allows Application
-        /// AutoScaling to modify your scalable target on your behalf.
+        /// The ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

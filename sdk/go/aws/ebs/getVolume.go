@@ -47,6 +47,8 @@ type LookupVolumeResult struct {
 	// The ARN for the KMS encryption key.
 	KmsKeyId   string `pulumi:"kmsKeyId"`
 	MostRecent *bool  `pulumi:"mostRecent"`
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn string `pulumi:"outpostArn"`
 	// The size of the drive in GiBs.
 	Size int `pulumi:"size"`
 	// The snapshotId the EBS volume is based off.

@@ -13,9 +13,21 @@ namespace Pulumi.Aws.Dms.Outputs
     [OutputType]
     public sealed class EndpointElasticsearchSettings
     {
+        /// <summary>
+        /// Endpoint for the Elasticsearch cluster.
+        /// </summary>
         public readonly string EndpointUri;
+        /// <summary>
+        /// Maximum number of seconds for which DMS retries failed API requests to the Elasticsearch cluster. Defaults to `300`.
+        /// </summary>
         public readonly int? ErrorRetryDuration;
+        /// <summary>
+        /// Maximum percentage of records that can fail to be written before a full load operation stops. Defaults to `10`.
+        /// </summary>
         public readonly int? FullLoadErrorPercentage;
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Elasticsearch cluster.
+        /// </summary>
         public readonly string ServiceAccessRoleArn;
 
         [OutputConstructor]

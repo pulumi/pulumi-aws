@@ -32,6 +32,9 @@ namespace Pulumi.Aws.Ec2
         [Output("macAddress")]
         public Output<string> MacAddress { get; private set; } = null!;
 
+        [Output("outpostArn")]
+        public Output<string> OutpostArn { get; private set; } = null!;
+
         /// <summary>
         /// The private DNS name of the network interface (IPv4).
         /// </summary>
@@ -228,6 +231,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("macAddress")]
         public Input<string>? MacAddress { get; set; }
+
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
         /// The private DNS name of the network interface (IPv4).

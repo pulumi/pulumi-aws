@@ -50,7 +50,7 @@ class UserPool(pulumi.CustomResource):
     The Email Configuration.
 
       * `emailSendingAccount` (`str`) - Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
-      * `fromEmailAddress` (`str`) - Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith <john@smith.com>")
+      * `fromEmailAddress` (`str`) - Sender’s email address or sender’s name with their email address (e.g. `john@smith.com` or `John Smith <john@smith.com>`)
       * `replyToEmailAddress` (`str`) - The REPLY-TO email address.
       * `source_arn` (`str`) - The ARN of the email source.
     """
@@ -221,7 +221,7 @@ class UserPool(pulumi.CustomResource):
         The **email_configuration** object supports the following:
 
           * `emailSendingAccount` (`pulumi.Input[str]`) - Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
-          * `fromEmailAddress` (`pulumi.Input[str]`) - Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith <john@smith.com>")
+          * `fromEmailAddress` (`pulumi.Input[str]`) - Sender’s email address or sender’s name with their email address (e.g. `john@smith.com` or `John Smith <john@smith.com>`)
           * `replyToEmailAddress` (`pulumi.Input[str]`) - The REPLY-TO email address.
           * `source_arn` (`pulumi.Input[str]`) - The ARN of the email source.
 
@@ -389,7 +389,7 @@ class UserPool(pulumi.CustomResource):
         The **email_configuration** object supports the following:
 
           * `emailSendingAccount` (`pulumi.Input[str]`) - Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
-          * `fromEmailAddress` (`pulumi.Input[str]`) - Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith <john@smith.com>")
+          * `fromEmailAddress` (`pulumi.Input[str]`) - Sender’s email address or sender’s name with their email address (e.g. `john@smith.com` or `John Smith <john@smith.com>`)
           * `replyToEmailAddress` (`pulumi.Input[str]`) - The REPLY-TO email address.
           * `source_arn` (`pulumi.Input[str]`) - The ARN of the email source.
 

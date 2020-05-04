@@ -127,6 +127,10 @@ namespace Pulumi.Aws.Ec2
         public readonly string Ipv6CidrBlockAssociationId;
         public readonly bool MapPublicIpOnLaunch;
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// </summary>
+        public readonly string OutpostArn;
+        /// <summary>
         /// The ID of the AWS account that owns the subnet.
         /// </summary>
         public readonly string OwnerId;
@@ -158,6 +162,8 @@ namespace Pulumi.Aws.Ec2
 
             bool mapPublicIpOnLaunch,
 
+            string outpostArn,
+
             string ownerId,
 
             string state,
@@ -177,6 +183,7 @@ namespace Pulumi.Aws.Ec2
             Ipv6CidrBlock = ipv6CidrBlock;
             Ipv6CidrBlockAssociationId = ipv6CidrBlockAssociationId;
             MapPublicIpOnLaunch = mapPublicIpOnLaunch;
+            OutpostArn = outpostArn;
             OwnerId = ownerId;
             State = state;
             Tags = tags;

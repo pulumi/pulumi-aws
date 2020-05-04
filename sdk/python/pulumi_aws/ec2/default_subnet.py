@@ -29,6 +29,7 @@ class DefaultSubnet(pulumi.CustomResource):
     that instances launched into the subnet should be assigned
     a public IP address.
     """
+    outpost_arn: pulumi.Output[str]
     owner_id: pulumi.Output[str]
     """
     The ID of the AWS account that owns the subnet.
@@ -41,7 +42,7 @@ class DefaultSubnet(pulumi.CustomResource):
     """
     The VPC ID.
     """
-    def __init__(__self__, resource_name, opts=None, availability_zone=None, map_public_ip_on_launch=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, availability_zone=None, map_public_ip_on_launch=None, outpost_arn=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to manage a [default AWS VPC subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics)
         in the current region.
@@ -80,6 +81,7 @@ class DefaultSubnet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'availability_zone'")
             __props__['availability_zone'] = availability_zone
             __props__['map_public_ip_on_launch'] = map_public_ip_on_launch
+            __props__['outpost_arn'] = outpost_arn
             __props__['tags'] = tags
             __props__['arn'] = None
             __props__['assign_ipv6_address_on_creation'] = None
@@ -96,7 +98,7 @@ class DefaultSubnet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, cidr_block=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, map_public_ip_on_launch=None, owner_id=None, tags=None, vpc_id=None):
+    def get(resource_name, id, opts=None, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, cidr_block=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, map_public_ip_on_launch=None, outpost_arn=None, owner_id=None, tags=None, vpc_id=None):
         """
         Get an existing DefaultSubnet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -125,6 +127,7 @@ class DefaultSubnet(pulumi.CustomResource):
         __props__["ipv6_cidr_block"] = ipv6_cidr_block
         __props__["ipv6_cidr_block_association_id"] = ipv6_cidr_block_association_id
         __props__["map_public_ip_on_launch"] = map_public_ip_on_launch
+        __props__["outpost_arn"] = outpost_arn
         __props__["owner_id"] = owner_id
         __props__["tags"] = tags
         __props__["vpc_id"] = vpc_id

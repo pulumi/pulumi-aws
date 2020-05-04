@@ -44,13 +44,15 @@ type SpotFleetRequest struct {
 	InstancePoolsToUseCount pulumi.IntPtrOutput `pulumi:"instancePoolsToUseCount"`
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
-	// across different markets and instance types.
+	// across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
 	LaunchSpecifications SpotFleetRequestLaunchSpecificationArrayOutput `pulumi:"launchSpecifications"`
+	// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+	LaunchTemplateConfigs SpotFleetRequestLaunchTemplateConfigArrayOutput `pulumi:"launchTemplateConfigs"`
 	// A list of elastic load balancer names to add to the Spot fleet.
 	LoadBalancers pulumi.StringArrayOutput `pulumi:"loadBalancers"`
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrOutput `pulumi:"replaceUnhealthyInstances"`
-	// The maximum bid price per unit hour.
+	// The maximum spot bid for this override request.
 	SpotPrice pulumi.StringPtrOutput `pulumi:"spotPrice"`
 	// The state of the Spot fleet request.
 	SpotRequestState pulumi.StringOutput `pulumi:"spotRequestState"`
@@ -80,9 +82,6 @@ func NewSpotFleetRequest(ctx *pulumi.Context,
 	name string, args *SpotFleetRequestArgs, opts ...pulumi.ResourceOption) (*SpotFleetRequest, error) {
 	if args == nil || args.IamFleetRole == nil {
 		return nil, errors.New("missing required argument 'IamFleetRole'")
-	}
-	if args == nil || args.LaunchSpecifications == nil {
-		return nil, errors.New("missing required argument 'LaunchSpecifications'")
 	}
 	if args == nil || args.TargetCapacity == nil {
 		return nil, errors.New("missing required argument 'TargetCapacity'")
@@ -141,13 +140,15 @@ type spotFleetRequestState struct {
 	InstancePoolsToUseCount *int `pulumi:"instancePoolsToUseCount"`
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
-	// across different markets and instance types.
+	// across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
 	LaunchSpecifications []SpotFleetRequestLaunchSpecification `pulumi:"launchSpecifications"`
+	// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+	LaunchTemplateConfigs []SpotFleetRequestLaunchTemplateConfig `pulumi:"launchTemplateConfigs"`
 	// A list of elastic load balancer names to add to the Spot fleet.
 	LoadBalancers []string `pulumi:"loadBalancers"`
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
-	// The maximum bid price per unit hour.
+	// The maximum spot bid for this override request.
 	SpotPrice *string `pulumi:"spotPrice"`
 	// The state of the Spot fleet request.
 	SpotRequestState *string `pulumi:"spotRequestState"`
@@ -202,13 +203,15 @@ type SpotFleetRequestState struct {
 	InstancePoolsToUseCount pulumi.IntPtrInput
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
-	// across different markets and instance types.
+	// across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
 	LaunchSpecifications SpotFleetRequestLaunchSpecificationArrayInput
+	// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+	LaunchTemplateConfigs SpotFleetRequestLaunchTemplateConfigArrayInput
 	// A list of elastic load balancer names to add to the Spot fleet.
 	LoadBalancers pulumi.StringArrayInput
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
-	// The maximum bid price per unit hour.
+	// The maximum spot bid for this override request.
 	SpotPrice pulumi.StringPtrInput
 	// The state of the Spot fleet request.
 	SpotRequestState pulumi.StringPtrInput
@@ -266,13 +269,15 @@ type spotFleetRequestArgs struct {
 	InstancePoolsToUseCount *int `pulumi:"instancePoolsToUseCount"`
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
-	// across different markets and instance types.
+	// across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
 	LaunchSpecifications []SpotFleetRequestLaunchSpecification `pulumi:"launchSpecifications"`
+	// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+	LaunchTemplateConfigs []SpotFleetRequestLaunchTemplateConfig `pulumi:"launchTemplateConfigs"`
 	// A list of elastic load balancer names to add to the Spot fleet.
 	LoadBalancers []string `pulumi:"loadBalancers"`
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
-	// The maximum bid price per unit hour.
+	// The maximum spot bid for this override request.
 	SpotPrice *string `pulumi:"spotPrice"`
 	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -325,13 +330,15 @@ type SpotFleetRequestArgs struct {
 	InstancePoolsToUseCount pulumi.IntPtrInput
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
-	// across different markets and instance types.
+	// across different markets and instance types. Conflicts with `launchTemplateConfig`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
 	LaunchSpecifications SpotFleetRequestLaunchSpecificationArrayInput
+	// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
+	LaunchTemplateConfigs SpotFleetRequestLaunchTemplateConfigArrayInput
 	// A list of elastic load balancer names to add to the Spot fleet.
 	LoadBalancers pulumi.StringArrayInput
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
-	// The maximum bid price per unit hour.
+	// The maximum spot bid for this override request.
 	SpotPrice pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput

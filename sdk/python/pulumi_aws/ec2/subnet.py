@@ -47,6 +47,10 @@ class Subnet(pulumi.CustomResource):
     that instances launched into the subnet should be assigned
     a public IP address. Default is `false`.
     """
+    outpost_arn: pulumi.Output[str]
+    """
+    The Amazon Resource Name (ARN) of the Outpost.
+    """
     owner_id: pulumi.Output[str]
     """
     The ID of the AWS account that owns the subnet.
@@ -59,7 +63,7 @@ class Subnet(pulumi.CustomResource):
     """
     The VPC ID.
     """
-    def __init__(__self__, resource_name, opts=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, cidr_block=None, ipv6_cidr_block=None, map_public_ip_on_launch=None, tags=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, cidr_block=None, ipv6_cidr_block=None, map_public_ip_on_launch=None, outpost_arn=None, tags=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an VPC subnet resource.
 
@@ -80,6 +84,7 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[bool] map_public_ip_on_launch: Specify true to indicate
                that instances launched into the subnet should be assigned
                a public IP address. Default is `false`.
+        :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID.
         """
@@ -108,6 +113,7 @@ class Subnet(pulumi.CustomResource):
             __props__['cidr_block'] = cidr_block
             __props__['ipv6_cidr_block'] = ipv6_cidr_block
             __props__['map_public_ip_on_launch'] = map_public_ip_on_launch
+            __props__['outpost_arn'] = outpost_arn
             __props__['tags'] = tags
             if vpc_id is None:
                 raise TypeError("Missing required property 'vpc_id'")
@@ -122,7 +128,7 @@ class Subnet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, cidr_block=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, map_public_ip_on_launch=None, owner_id=None, tags=None, vpc_id=None):
+    def get(resource_name, id, opts=None, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, cidr_block=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, map_public_ip_on_launch=None, outpost_arn=None, owner_id=None, tags=None, vpc_id=None):
         """
         Get an existing Subnet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -143,6 +149,7 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[bool] map_public_ip_on_launch: Specify true to indicate
                that instances launched into the subnet should be assigned
                a public IP address. Default is `false`.
+        :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the subnet.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID.
@@ -159,6 +166,7 @@ class Subnet(pulumi.CustomResource):
         __props__["ipv6_cidr_block"] = ipv6_cidr_block
         __props__["ipv6_cidr_block_association_id"] = ipv6_cidr_block_association_id
         __props__["map_public_ip_on_launch"] = map_public_ip_on_launch
+        __props__["outpost_arn"] = outpost_arn
         __props__["owner_id"] = owner_id
         __props__["tags"] = tags
         __props__["vpc_id"] = vpc_id

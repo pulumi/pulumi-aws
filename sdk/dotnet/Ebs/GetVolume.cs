@@ -94,6 +94,10 @@ namespace Pulumi.Aws.Ebs
         public readonly string KmsKeyId;
         public readonly bool? MostRecent;
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// </summary>
+        public readonly string OutpostArn;
+        /// <summary>
         /// The size of the drive in GiBs.
         /// </summary>
         public readonly int Size;
@@ -132,6 +136,8 @@ namespace Pulumi.Aws.Ebs
 
             bool? mostRecent,
 
+            string outpostArn,
+
             int size,
 
             string snapshotId,
@@ -150,6 +156,7 @@ namespace Pulumi.Aws.Ebs
             Iops = iops;
             KmsKeyId = kmsKeyId;
             MostRecent = mostRecent;
+            OutpostArn = outpostArn;
             Size = size;
             SnapshotId = snapshotId;
             Tags = tags;

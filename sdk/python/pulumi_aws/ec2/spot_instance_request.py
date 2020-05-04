@@ -160,6 +160,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
       * `device_index` (`float`) - The integer index of the network interface attachment. Limited by instance type.
       * `network_interface_id` (`str`) - The ID of the network interface to attach.
     """
+    outpost_arn: pulumi.Output[str]
     password_data: pulumi.Output[str]
     placement_group: pulumi.Output[str]
     """
@@ -496,6 +497,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             __props__['wait_for_fulfillment'] = wait_for_fulfillment
             __props__['arn'] = None
             __props__['instance_state'] = None
+            __props__['outpost_arn'] = None
             __props__['password_data'] = None
             __props__['primary_network_interface_id'] = None
             __props__['private_dns'] = None
@@ -511,7 +513,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, block_duration_minutes=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_interruption_behaviour=None, instance_state=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, launch_group=None, metadata_options=None, monitoring=None, network_interfaces=None, password_data=None, placement_group=None, primary_network_interface_id=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, spot_bid_status=None, spot_instance_id=None, spot_price=None, spot_request_state=None, spot_type=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, valid_from=None, valid_until=None, volume_tags=None, vpc_security_group_ids=None, wait_for_fulfillment=None):
+    def get(resource_name, id, opts=None, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, block_duration_minutes=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_interruption_behaviour=None, instance_state=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, launch_group=None, metadata_options=None, monitoring=None, network_interfaces=None, outpost_arn=None, password_data=None, placement_group=None, primary_network_interface_id=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, spot_bid_status=None, spot_instance_id=None, spot_price=None, spot_request_state=None, spot_type=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, valid_from=None, valid_until=None, volume_tags=None, vpc_security_group_ids=None, wait_for_fulfillment=None):
         """
         Get an existing SpotInstanceRequest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -686,6 +688,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__["metadata_options"] = metadata_options
         __props__["monitoring"] = monitoring
         __props__["network_interfaces"] = network_interfaces
+        __props__["outpost_arn"] = outpost_arn
         __props__["password_data"] = password_data
         __props__["placement_group"] = placement_group
         __props__["primary_network_interface_id"] = primary_network_interface_id

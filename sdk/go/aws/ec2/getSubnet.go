@@ -62,6 +62,8 @@ type LookupSubnetResult struct {
 	Ipv6CidrBlock               string            `pulumi:"ipv6CidrBlock"`
 	Ipv6CidrBlockAssociationId  string            `pulumi:"ipv6CidrBlockAssociationId"`
 	MapPublicIpOnLaunch         bool              `pulumi:"mapPublicIpOnLaunch"`
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn string `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the subnet.
 	OwnerId string                 `pulumi:"ownerId"`
 	State   string                 `pulumi:"state"`

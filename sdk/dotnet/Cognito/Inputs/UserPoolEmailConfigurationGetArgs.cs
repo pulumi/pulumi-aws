@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Cognito.Inputs
         public Input<string>? EmailSendingAccount { get; set; }
 
         /// <summary>
-        /// Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith &lt;john@smith.com&gt;")
+        /// Sender’s email address or sender’s name with their email address (e.g. `john@smith.com` or `John Smith &lt;john@smith.com&gt;`)
         /// </summary>
         [Input("fromEmailAddress")]
         public Input<string>? FromEmailAddress { get; set; }

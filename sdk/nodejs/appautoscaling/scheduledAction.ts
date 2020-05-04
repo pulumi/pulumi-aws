@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  *     maxCapacity: 100,
  *     minCapacity: 5,
  *     resourceId: "table/tableName",
- *     roleArn: aws_iam_role_DynamoDBAutoscaleRole.arn,
  *     scalableDimension: "dynamodb:table:ReadCapacityUnits",
  *     serviceNamespace: "dynamodb",
  * });
@@ -47,7 +46,6 @@ import * as utilities from "../utilities";
  *     maxCapacity: 4,
  *     minCapacity: 1,
  *     resourceId: "service/clusterName/serviceName",
- *     roleArn: var_ecs_iam_role,
  *     scalableDimension: "ecs:service:DesiredCount",
  *     serviceNamespace: "ecs",
  * });

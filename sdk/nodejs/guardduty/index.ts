@@ -7,4 +7,6 @@ export * from "./getDetector";
 export * from "./iPSet";
 export * from "./inviteAccepter";
 export * from "./member";
+export * from "./organizationAdminAccount";
+export * from "./organizationConfiguration";
 export * from "./threatIntelSet";

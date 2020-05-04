@@ -54,6 +54,9 @@ namespace Pulumi.Aws.Ec2
         [Output("mapPublicIpOnLaunch")]
         public Output<bool> MapPublicIpOnLaunch { get; private set; } = null!;
 
+        [Output("outpostArn")]
+        public Output<string?> OutpostArn { get; private set; } = null!;
+
         /// <summary>
         /// The ID of the AWS account that owns the subnet.
         /// </summary>
@@ -129,6 +132,9 @@ namespace Pulumi.Aws.Ec2
         [Input("mapPublicIpOnLaunch")]
         public Input<bool>? MapPublicIpOnLaunch { get; set; }
 
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
+
         [Input("tags")]
         private InputMap<object>? _tags;
 
@@ -182,6 +188,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("mapPublicIpOnLaunch")]
         public Input<bool>? MapPublicIpOnLaunch { get; set; }
+
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
         /// The ID of the AWS account that owns the subnet.

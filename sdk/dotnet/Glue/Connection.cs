@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, object>> ConnectionProperties { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the connection. Defaults to `JBDC`.
+        /// The type of the connection. Supported are: `JDBC`, `MONGODB`. Defaults to `JBDC`.
         /// </summary>
         [Output("connectionType")]
         public Output<string?> ConnectionType { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The type of the connection. Defaults to `JBDC`.
+        /// The type of the connection. Supported are: `JDBC`, `MONGODB`. Defaults to `JBDC`.
         /// </summary>
         [Input("connectionType")]
         public Input<string>? ConnectionType { get; set; }
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The type of the connection. Defaults to `JBDC`.
+        /// The type of the connection. Supported are: `JDBC`, `MONGODB`. Defaults to `JBDC`.
         /// </summary>
         [Input("connectionType")]
         public Input<string>? ConnectionType { get; set; }

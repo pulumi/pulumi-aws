@@ -207,6 +207,9 @@ namespace Pulumi.Aws.Ec2
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.SpotInstanceRequestNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
 
+        [Output("outpostArn")]
+        public Output<string> OutpostArn { get; private set; } = null!;
+
         [Output("passwordData")]
         public Output<string> PasswordData { get; private set; } = null!;
 
@@ -933,6 +936,9 @@ namespace Pulumi.Aws.Ec2
             get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.SpotInstanceRequestNetworkInterfaceGetArgs>());
             set => _networkInterfaces = value;
         }
+
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
 
         [Input("passwordData")]
         public Input<string>? PasswordData { get; set; }

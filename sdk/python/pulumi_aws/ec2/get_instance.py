@@ -13,7 +13,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, iam_instance_profile=None, id=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, key_name=None, metadata_options=None, monitoring=None, network_interface_id=None, password_data=None, placement_group=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None):
+    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, iam_instance_profile=None, id=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, key_name=None, metadata_options=None, monitoring=None, network_interface_id=None, outpost_arn=None, password_data=None, placement_group=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None):
         if ami and not isinstance(ami, str):
             raise TypeError("Expected argument 'ami' to be a str")
         __self__.ami = ami
@@ -133,6 +133,12 @@ class GetInstanceResult:
         __self__.network_interface_id = network_interface_id
         """
         The ID of the network interface that was created with the Instance.
+        """
+        if outpost_arn and not isinstance(outpost_arn, str):
+            raise TypeError("Expected argument 'outpost_arn' to be a str")
+        __self__.outpost_arn = outpost_arn
+        """
+        The Amazon Resource Name (ARN) of the Outpost.
         """
         if password_data and not isinstance(password_data, str):
             raise TypeError("Expected argument 'password_data' to be a str")
@@ -259,6 +265,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             metadata_options=self.metadata_options,
             monitoring=self.monitoring,
             network_interface_id=self.network_interface_id,
+            outpost_arn=self.outpost_arn,
             password_data=self.password_data,
             placement_group=self.placement_group,
             private_dns=self.private_dns,
@@ -337,6 +344,7 @@ def get_instance(filters=None,get_password_data=None,get_user_data=None,instance
         metadata_options=__ret__.get('metadataOptions'),
         monitoring=__ret__.get('monitoring'),
         network_interface_id=__ret__.get('networkInterfaceId'),
+        outpost_arn=__ret__.get('outpostArn'),
         password_data=__ret__.get('passwordData'),
         placement_group=__ret__.get('placementGroup'),
         private_dns=__ret__.get('privateDns'),

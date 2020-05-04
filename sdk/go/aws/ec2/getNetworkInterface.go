@@ -44,6 +44,8 @@ type LookupNetworkInterfaceResult struct {
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// The MAC address.
 	MacAddress string `pulumi:"macAddress"`
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn string `pulumi:"outpostArn"`
 	// The AWS account ID of the owner of the network interface.
 	OwnerId string `pulumi:"ownerId"`
 	// The private DNS name.

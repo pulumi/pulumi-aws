@@ -1108,10 +1108,25 @@ export namespace apigatewayv2 {
 
 export namespace appautoscaling {
     export interface PolicyStepScalingPolicyConfiguration {
+        /**
+         * Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+         */
         adjustmentType?: pulumi.Input<string>;
+        /**
+         * The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+         */
         cooldown?: pulumi.Input<number>;
+        /**
+         * The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
+         */
         metricAggregationType?: pulumi.Input<string>;
+        /**
+         * The minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
+         */
         minAdjustmentMagnitude?: pulumi.Input<number>;
+        /**
+         * A set of adjustments that manage scaling. These have the following structure:
+         */
         stepAdjustments?: pulumi.Input<pulumi.Input<inputs.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustment>[]>;
     }
 
@@ -1122,19 +1137,52 @@ export namespace appautoscaling {
     }
 
     export interface PolicyTargetTrackingScalingPolicyConfiguration {
+        /**
+         * A custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
+         */
         customizedMetricSpecification?: pulumi.Input<inputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification>;
+        /**
+         * Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
+         */
         disableScaleIn?: pulumi.Input<boolean>;
+        /**
+         * A predefined metric. See supported fields below.
+         */
         predefinedMetricSpecification?: pulumi.Input<inputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification>;
+        /**
+         * The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+         */
         scaleInCooldown?: pulumi.Input<number>;
+        /**
+         * The amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
+         */
         scaleOutCooldown?: pulumi.Input<number>;
+        /**
+         * The target value for the metric.
+         */
         targetValue: pulumi.Input<number>;
     }
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification {
+        /**
+         * Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+         */
         dimensions?: pulumi.Input<pulumi.Input<inputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension>[]>;
+        /**
+         * The name of the metric.
+         */
         metricName: pulumi.Input<string>;
+        /**
+         * The namespace of the metric.
+         */
         namespace: pulumi.Input<string>;
+        /**
+         * The statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+         */
         statistic: pulumi.Input<string>;
+        /**
+         * The unit of the metric.
+         */
         unit?: pulumi.Input<string>;
     }
 
@@ -1143,11 +1191,20 @@ export namespace appautoscaling {
          * The name of the policy.
          */
         name: pulumi.Input<string>;
+        /**
+         * Value of the dimension.
+         */
         value: pulumi.Input<string>;
     }
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification {
+        /**
+         * The metric type.
+         */
         predefinedMetricType: pulumi.Input<string>;
+        /**
+         * Reserved for future use.
+         */
         resourceLabel?: pulumi.Input<string>;
     }
 
@@ -4402,7 +4459,7 @@ export namespace cognito {
          */
         emailSendingAccount?: pulumi.Input<string>;
         /**
-         * Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith <john@smith.com>")
+         * Sender’s email address or sender’s name with their email address (e.g. `john@smith.com` or `John Smith <john@smith.com>`)
          */
         fromEmailAddress?: pulumi.Input<string>;
         /**
@@ -4797,34 +4854,105 @@ export namespace dlm {
 
 export namespace dms {
     export interface EndpointElasticsearchSettings {
+        /**
+         * Endpoint for the Elasticsearch cluster.
+         */
         endpointUri: pulumi.Input<string>;
+        /**
+         * Maximum number of seconds for which DMS retries failed API requests to the Elasticsearch cluster. Defaults to `300`.
+         */
         errorRetryDuration?: pulumi.Input<number>;
+        /**
+         * Maximum percentage of records that can fail to be written before a full load operation stops. Defaults to `10`.
+         */
         fullLoadErrorPercentage?: pulumi.Input<number>;
+        /**
+         * Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Elasticsearch cluster.
+         */
         serviceAccessRoleArn: pulumi.Input<string>;
     }
 
+    export interface EndpointKafkaSettings {
+        /**
+         * Kafka broker location. Specify in the form broker-hostname-or-ip:port.
+         */
+        broker: pulumi.Input<string>;
+        /**
+         * Kafka topic for migration. Defaults to `kafka-default-topic`.
+         */
+        topic?: pulumi.Input<string>;
+    }
+
     export interface EndpointKinesisSettings {
+        /**
+         * Output format for the records created. Defaults to `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
+         */
         messageFormat?: pulumi.Input<string>;
+        /**
+         * Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Kinesis data stream.
+         */
         serviceAccessRoleArn?: pulumi.Input<string>;
+        /**
+         * Amazon Resource Name (ARN) of the Kinesis data stream.
+         */
         streamArn?: pulumi.Input<string>;
     }
 
     export interface EndpointMongodbSettings {
+        /**
+         * Authentication mechanism to access the MongoDB source endpoint. Defaults to `default`.
+         */
         authMechanism?: pulumi.Input<string>;
+        /**
+         * Authentication database name. Not used when `authType` is `no`. Defaults to `admin`.
+         */
         authSource?: pulumi.Input<string>;
+        /**
+         * Authentication type to access the MongoDB source endpoint. Defaults to `password`.
+         */
         authType?: pulumi.Input<string>;
+        /**
+         * Number of documents to preview to determine the document organization. Use this setting when `nestingLevel` is set to `one`. Defaults to `1000`.
+         */
         docsToInvestigate?: pulumi.Input<string>;
+        /**
+         * Document ID. Use this setting when `nestingLevel` is set to `none`. Defaults to `false`.
+         */
         extractDocId?: pulumi.Input<string>;
+        /**
+         * Specifies either document or table mode. Defaults to `none`. Valid values are `one` (table mode) and `none` (document mode).
+         */
         nestingLevel?: pulumi.Input<string>;
     }
 
     export interface EndpointS3Settings {
+        /**
+         * S3 Bucket Object prefix.
+         */
         bucketFolder?: pulumi.Input<string>;
+        /**
+         * S3 Bucket name.
+         */
         bucketName?: pulumi.Input<string>;
+        /**
+         * Set to compress target files. Defaults to `NONE`. Valid values are `GZIP` and `NONE`.
+         */
         compressionType?: pulumi.Input<string>;
+        /**
+         * Delimiter used to separate columns in the source files. Defaults to `,`.
+         */
         csvDelimiter?: pulumi.Input<string>;
+        /**
+         * Delimiter used to separate rows in the source files. Defaults to `\n`.
+         */
         csvRowDelimiter?: pulumi.Input<string>;
+        /**
+         * JSON document that describes how AWS DMS should interpret the data.
+         */
         externalTableDefinition?: pulumi.Input<string>;
+        /**
+         * Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
+         */
         serviceAccessRoleArn?: pulumi.Input<string>;
     }
 }
@@ -6341,12 +6469,18 @@ export namespace ec2 {
     export interface SpotFleetRequestLaunchSpecification {
         ami: pulumi.Input<string>;
         associatePublicIpAddress?: pulumi.Input<boolean>;
+        /**
+         * The availability zone in which to place the request.
+         */
         availabilityZone?: pulumi.Input<string>;
         ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchSpecificationEbsBlockDevice>[]>;
         ebsOptimized?: pulumi.Input<boolean>;
         ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchSpecificationEphemeralBlockDevice>[]>;
         iamInstanceProfile?: pulumi.Input<string>;
         iamInstanceProfileArn?: pulumi.Input<string>;
+        /**
+         * The type of instance to request.
+         */
         instanceType: pulumi.Input<string>;
         keyName?: pulumi.Input<string>;
         monitoring?: pulumi.Input<boolean>;
@@ -6354,9 +6488,12 @@ export namespace ec2 {
         placementTenancy?: pulumi.Input<string>;
         rootBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchSpecificationRootBlockDevice>[]>;
         /**
-         * The maximum bid price per unit hour.
+         * The maximum spot bid for this override request.
          */
         spotPrice?: pulumi.Input<string>;
+        /**
+         * The subnet in which to launch the requested instance.
+         */
         subnetId?: pulumi.Input<string>;
         /**
          * A map of tags to assign to the resource.
@@ -6364,6 +6501,9 @@ export namespace ec2 {
         tags?: pulumi.Input<{[key: string]: any}>;
         userData?: pulumi.Input<string>;
         vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The capacity added to the fleet by a fulfilled request.
+         */
         weightedCapacity?: pulumi.Input<string>;
     }
 
@@ -6390,6 +6530,59 @@ export namespace ec2 {
         kmsKeyId?: pulumi.Input<string>;
         volumeSize?: pulumi.Input<number>;
         volumeType?: pulumi.Input<string>;
+    }
+
+    export interface SpotFleetRequestLaunchTemplateConfig {
+        /**
+         * Launch template specification. See Launch Template Specification below for more details.
+         */
+        launchTemplateSpecification: pulumi.Input<inputs.ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification>;
+        /**
+         * One or more override configurations. See Overrides below for more details.
+         */
+        overrides?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchTemplateConfigOverride>[]>;
+    }
+
+    export interface SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification {
+        /**
+         * The ID of the launch template. Conflicts with `name`.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * The name of the launch template. Conflicts with `id`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g. `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+         */
+        version?: pulumi.Input<string>;
+    }
+
+    export interface SpotFleetRequestLaunchTemplateConfigOverride {
+        /**
+         * The availability zone in which to place the request.
+         */
+        availabilityZone?: pulumi.Input<string>;
+        /**
+         * The type of instance to request.
+         */
+        instanceType?: pulumi.Input<string>;
+        /**
+         * The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The maximum spot bid for this override request.
+         */
+        spotPrice?: pulumi.Input<string>;
+        /**
+         * The subnet in which to launch the requested instance.
+         */
+        subnetId?: pulumi.Input<string>;
+        /**
+         * The capacity added to the fleet by a fulfilled request.
+         */
+        weightedCapacity?: pulumi.Input<number>;
     }
 
     export interface SpotInstanceRequestCreditSpecification {
@@ -6692,6 +6885,19 @@ export namespace ec2transitgateway {
         name: string;
         /**
          * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
+    }
+
+    export interface GetPeeringAttachmentFilter {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         * An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
          */
         values: string[];
     }
@@ -7015,7 +7221,7 @@ export namespace efs {
         /**
          * Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
          */
-        transitionToIa?: pulumi.Input<string>;
+        transitionToIa: pulumi.Input<string>;
     }
 }
 

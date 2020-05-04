@@ -162,6 +162,10 @@ export interface GetInstanceResult {
      */
     readonly networkInterfaceId: string;
     /**
+     * The Amazon Resource Name (ARN) of the Outpost.
+     */
+    readonly outpostArn: string;
+    /**
      * Base-64 encoded encrypted password data for the instance.
      * Useful for getting the administrator password for instances running Microsoft Windows.
      * This attribute is only exported if `getPasswordData` is true.

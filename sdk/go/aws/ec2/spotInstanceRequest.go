@@ -103,6 +103,7 @@ type SpotInstanceRequest struct {
 	Monitoring pulumi.BoolPtrOutput `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces SpotInstanceRequestNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
+	OutpostArn        pulumi.StringOutput                            `pulumi:"outpostArn"`
 	PasswordData      pulumi.StringOutput                            `pulumi:"passwordData"`
 	// The Placement Group to start the instance in.
 	PlacementGroup            pulumi.StringOutput `pulumi:"placementGroup"`
@@ -269,6 +270,7 @@ type spotInstanceRequestState struct {
 	Monitoring *bool `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces []SpotInstanceRequestNetworkInterface `pulumi:"networkInterfaces"`
+	OutpostArn        *string                               `pulumi:"outpostArn"`
 	PasswordData      *string                               `pulumi:"passwordData"`
 	// The Placement Group to start the instance in.
 	PlacementGroup            *string `pulumi:"placementGroup"`
@@ -402,6 +404,7 @@ type SpotInstanceRequestState struct {
 	Monitoring pulumi.BoolPtrInput
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces SpotInstanceRequestNetworkInterfaceArrayInput
+	OutpostArn        pulumi.StringPtrInput
 	PasswordData      pulumi.StringPtrInput
 	// The Placement Group to start the instance in.
 	PlacementGroup            pulumi.StringPtrInput

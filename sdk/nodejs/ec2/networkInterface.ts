@@ -69,6 +69,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      * The MAC address of the network interface.
      */
     public /*out*/ readonly macAddress!: pulumi.Output<string>;
+    public /*out*/ readonly outpostArn!: pulumi.Output<string>;
     /**
      * The private DNS name of the network interface (IPv4).
      */
@@ -114,6 +115,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["attachments"] = state ? state.attachments : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["macAddress"] = state ? state.macAddress : undefined;
+            inputs["outpostArn"] = state ? state.outpostArn : undefined;
             inputs["privateDnsName"] = state ? state.privateDnsName : undefined;
             inputs["privateIp"] = state ? state.privateIp : undefined;
             inputs["privateIps"] = state ? state.privateIps : undefined;
@@ -137,6 +139,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["macAddress"] = undefined /*out*/;
+            inputs["outpostArn"] = undefined /*out*/;
             inputs["privateDnsName"] = undefined /*out*/;
         }
         if (!opts) {
@@ -166,6 +169,7 @@ export interface NetworkInterfaceState {
      * The MAC address of the network interface.
      */
     readonly macAddress?: pulumi.Input<string>;
+    readonly outpostArn?: pulumi.Input<string>;
     /**
      * The private DNS name of the network interface (IPv4).
      */

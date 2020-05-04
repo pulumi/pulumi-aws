@@ -151,6 +151,10 @@ class Instance(pulumi.CustomResource):
       * `device_index` (`float`) - The integer index of the network interface attachment. Limited by instance type.
       * `network_interface_id` (`str`) - The ID of the network interface to attach.
     """
+    outpost_arn: pulumi.Output[str]
+    """
+    The ARN of the Outpost the instance is assigned to.
+    """
     password_data: pulumi.Output[str]
     """
     Base-64 encoded encrypted password data for the instance.
@@ -416,6 +420,7 @@ class Instance(pulumi.CustomResource):
             __props__['vpc_security_group_ids'] = vpc_security_group_ids
             __props__['arn'] = None
             __props__['instance_state'] = None
+            __props__['outpost_arn'] = None
             __props__['password_data'] = None
             __props__['primary_network_interface_id'] = None
             __props__['private_dns'] = None
@@ -428,7 +433,7 @@ class Instance(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_state=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, metadata_options=None, monitoring=None, network_interfaces=None, password_data=None, placement_group=None, primary_network_interface_id=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, volume_tags=None, vpc_security_group_ids=None):
+    def get(resource_name, id, opts=None, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_state=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, metadata_options=None, monitoring=None, network_interfaces=None, outpost_arn=None, password_data=None, placement_group=None, primary_network_interface_id=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, volume_tags=None, vpc_security_group_ids=None):
         """
         Get an existing Instance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -473,6 +478,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[dict] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[list] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+        :param pulumi.Input[str] outpost_arn: The ARN of the Outpost the instance is assigned to.
         :param pulumi.Input[str] password_data: Base-64 encoded encrypted password data for the instance.
                Useful for getting the administrator password for instances running Microsoft Windows.
                This attribute is only exported if `get_password_data` is true.
@@ -586,6 +592,7 @@ class Instance(pulumi.CustomResource):
         __props__["metadata_options"] = metadata_options
         __props__["monitoring"] = monitoring
         __props__["network_interfaces"] = network_interfaces
+        __props__["outpost_arn"] = outpost_arn
         __props__["password_data"] = password_data
         __props__["placement_group"] = placement_group
         __props__["primary_network_interface_id"] = primary_network_interface_id

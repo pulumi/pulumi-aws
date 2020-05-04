@@ -18,6 +18,9 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Value of the dimension.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

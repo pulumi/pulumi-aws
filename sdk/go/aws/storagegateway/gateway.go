@@ -31,8 +31,10 @@ type Gateway struct {
 	// Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
 	GatewayTimezone pulumi.StringOutput `pulumi:"gatewayTimezone"`
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
-	GatewayType       pulumi.StringPtrOutput `pulumi:"gatewayType"`
-	MediumChangerType pulumi.StringPtrOutput `pulumi:"mediumChangerType"`
+	GatewayType pulumi.StringPtrOutput `pulumi:"gatewayType"`
+	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+	GatewayVpcEndpoint pulumi.StringPtrOutput `pulumi:"gatewayVpcEndpoint"`
+	MediumChangerType  pulumi.StringPtrOutput `pulumi:"mediumChangerType"`
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings GatewaySmbActiveDirectorySettingsPtrOutput `pulumi:"smbActiveDirectorySettings"`
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
@@ -92,8 +94,10 @@ type gatewayState struct {
 	// Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
 	GatewayTimezone *string `pulumi:"gatewayTimezone"`
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
-	GatewayType       *string `pulumi:"gatewayType"`
-	MediumChangerType *string `pulumi:"mediumChangerType"`
+	GatewayType *string `pulumi:"gatewayType"`
+	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+	GatewayVpcEndpoint *string `pulumi:"gatewayVpcEndpoint"`
+	MediumChangerType  *string `pulumi:"mediumChangerType"`
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings *GatewaySmbActiveDirectorySettings `pulumi:"smbActiveDirectorySettings"`
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
@@ -120,8 +124,10 @@ type GatewayState struct {
 	// Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
 	GatewayTimezone pulumi.StringPtrInput
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
-	GatewayType       pulumi.StringPtrInput
-	MediumChangerType pulumi.StringPtrInput
+	GatewayType pulumi.StringPtrInput
+	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+	GatewayVpcEndpoint pulumi.StringPtrInput
+	MediumChangerType  pulumi.StringPtrInput
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings GatewaySmbActiveDirectorySettingsPtrInput
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
@@ -148,8 +154,10 @@ type gatewayArgs struct {
 	// Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
 	GatewayTimezone string `pulumi:"gatewayTimezone"`
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
-	GatewayType       *string `pulumi:"gatewayType"`
-	MediumChangerType *string `pulumi:"mediumChangerType"`
+	GatewayType *string `pulumi:"gatewayType"`
+	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+	GatewayVpcEndpoint *string `pulumi:"gatewayVpcEndpoint"`
+	MediumChangerType  *string `pulumi:"mediumChangerType"`
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings *GatewaySmbActiveDirectorySettings `pulumi:"smbActiveDirectorySettings"`
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
@@ -173,8 +181,10 @@ type GatewayArgs struct {
 	// Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
 	GatewayTimezone pulumi.StringInput
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
-	GatewayType       pulumi.StringPtrInput
-	MediumChangerType pulumi.StringPtrInput
+	GatewayType pulumi.StringPtrInput
+	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+	GatewayVpcEndpoint pulumi.StringPtrInput
+	MediumChangerType  pulumi.StringPtrInput
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings GatewaySmbActiveDirectorySettingsPtrInput
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.

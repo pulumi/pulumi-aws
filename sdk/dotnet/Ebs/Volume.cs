@@ -45,6 +45,12 @@ namespace Pulumi.Aws.Ebs
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// </summary>
+        [Output("outpostArn")]
+        public Output<string?> OutpostArn { get; private set; } = null!;
+
+        /// <summary>
         /// The size of the drive in GiBs.
         /// </summary>
         [Output("size")]
@@ -139,6 +145,12 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// </summary>
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
+
+        /// <summary>
         /// The size of the drive in GiBs.
         /// </summary>
         [Input("size")]
@@ -204,6 +216,12 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// </summary>
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
         /// The size of the drive in GiBs.

@@ -1323,7 +1323,7 @@ func (o UserPoolDeviceConfigurationPtrOutput) DeviceOnlyRememberedOnUserPrompt()
 type UserPoolEmailConfiguration struct {
 	// Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
 	EmailSendingAccount *string `pulumi:"emailSendingAccount"`
-	// Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith <john@smith.com>")
+	// Sender’s email address or sender’s name with their email address (e.g. `john@smith.com` or `John Smith <john@smith.com>`)
 	FromEmailAddress *string `pulumi:"fromEmailAddress"`
 	// The REPLY-TO email address.
 	ReplyToEmailAddress *string `pulumi:"replyToEmailAddress"`
@@ -1346,7 +1346,7 @@ type UserPoolEmailConfigurationInput interface {
 type UserPoolEmailConfigurationArgs struct {
 	// Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
 	EmailSendingAccount pulumi.StringPtrInput `pulumi:"emailSendingAccount"`
-	// Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith <john@smith.com>")
+	// Sender’s email address or sender’s name with their email address (e.g. `john@smith.com` or `John Smith <john@smith.com>`)
 	FromEmailAddress pulumi.StringPtrInput `pulumi:"fromEmailAddress"`
 	// The REPLY-TO email address.
 	ReplyToEmailAddress pulumi.StringPtrInput `pulumi:"replyToEmailAddress"`
@@ -1437,7 +1437,7 @@ func (o UserPoolEmailConfigurationOutput) EmailSendingAccount() pulumi.StringPtr
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.EmailSendingAccount }).(pulumi.StringPtrOutput)
 }
 
-// Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith <john@smith.com>")
+// Sender’s email address or sender’s name with their email address (e.g. `john@smith.com` or `John Smith <john@smith.com>`)
 func (o UserPoolEmailConfigurationOutput) FromEmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.FromEmailAddress }).(pulumi.StringPtrOutput)
 }
@@ -1480,7 +1480,7 @@ func (o UserPoolEmailConfigurationPtrOutput) EmailSendingAccount() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sender’s email address or sender’s name with their email address (e.g. "john@smith.com" or "John Smith <john@smith.com>")
+// Sender’s email address or sender’s name with their email address (e.g. `john@smith.com` or `John Smith <john@smith.com>`)
 func (o UserPoolEmailConfigurationPtrOutput) FromEmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolEmailConfiguration) *string {
 		if v == nil {
