@@ -19,7 +19,7 @@ type ResourceShare struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the resource share.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource share.
+	// A map of tags to assign to the resource share.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -57,7 +57,7 @@ type resourceShareState struct {
 	Arn *string `pulumi:"arn"`
 	// The name of the resource share.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource share.
+	// A map of tags to assign to the resource share.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -68,7 +68,7 @@ type ResourceShareState struct {
 	Arn pulumi.StringPtrInput
 	// The name of the resource share.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource share.
+	// A map of tags to assign to the resource share.
 	Tags pulumi.MapInput
 }
 
@@ -81,7 +81,7 @@ type resourceShareArgs struct {
 	AllowExternalPrincipals *bool `pulumi:"allowExternalPrincipals"`
 	// The name of the resource share.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource share.
+	// A map of tags to assign to the resource share.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -91,7 +91,7 @@ type ResourceShareArgs struct {
 	AllowExternalPrincipals pulumi.BoolPtrInput
 	// The name of the resource share.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource share.
+	// A map of tags to assign to the resource share.
 	Tags pulumi.MapInput
 }
 

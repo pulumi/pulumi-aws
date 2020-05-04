@@ -81,7 +81,7 @@ export interface GetSnapshotArgs {
      */
     readonly snapshotIds?: string[];
     /**
-     * A mapping of tags for the resource.
+     * A map of tags for the resource.
      */
     readonly tags?: {[key: string]: any};
 }
@@ -128,7 +128,7 @@ export interface GetSnapshotResult {
      */
     readonly state: string;
     /**
-     * A mapping of tags for the resource.
+     * A map of tags for the resource.
      */
     readonly tags: {[key: string]: any};
     /**

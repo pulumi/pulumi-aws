@@ -94,7 +94,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly endpointType!: pulumi.Output<string>;
     /**
-     * The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+     * The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
      */
     public readonly engineName!: pulumi.Output<string>;
     /**
@@ -138,7 +138,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly sslMode!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -248,7 +248,7 @@ export interface EndpointState {
      */
     readonly endpointType?: pulumi.Input<string>;
     /**
-     * The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+     * The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
      */
     readonly engineName?: pulumi.Input<string>;
     /**
@@ -292,7 +292,7 @@ export interface EndpointState {
      */
     readonly sslMode?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -326,7 +326,7 @@ export interface EndpointArgs {
      */
     readonly endpointType: pulumi.Input<string>;
     /**
-     * The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+     * The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
      */
     readonly engineName: pulumi.Input<string>;
     /**
@@ -370,7 +370,7 @@ export interface EndpointArgs {
      */
     readonly sslMode?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

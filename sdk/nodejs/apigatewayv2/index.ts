@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./api";
+export * from "./apiMapping";
 export * from "./authorizer";
 export * from "./deployment";
 export * from "./domainName";
@@ -12,3 +13,4 @@ export * from "./model";
 export * from "./route";
 export * from "./routeResponse";
 export * from "./stage";
+export * from "./vpcLink";

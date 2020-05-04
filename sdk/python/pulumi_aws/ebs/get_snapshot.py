@@ -87,7 +87,7 @@ class GetSnapshotResult:
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
-        A mapping of tags for the resource.
+        A map of tags for the resource.
         """
         if volume_id and not isinstance(volume_id, str):
             raise TypeError("Expected argument 'volume_id' to be a str")
@@ -139,7 +139,7 @@ def get_snapshot(filters=None,most_recent=None,owners=None,restorable_by_user_id
     :param list owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
     :param list restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
     :param list snapshot_ids: Returns information on a specific snapshot_id.
-    :param dict tags: A mapping of tags for the resource.
+    :param dict tags: A map of tags for the resource.
 
     The **filters** object supports the following:
 

@@ -32,7 +32,7 @@ type EventRule struct {
 	// The scheduling expression.
 	// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
 	ScheduleExpression pulumi.StringPtrOutput `pulumi:"scheduleExpression"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -83,7 +83,7 @@ type eventRuleState struct {
 	// The scheduling expression.
 	// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -107,7 +107,7 @@ type EventRuleState struct {
 	// The scheduling expression.
 	// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
 	ScheduleExpression pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -133,7 +133,7 @@ type eventRuleArgs struct {
 	// The scheduling expression.
 	// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -156,7 +156,7 @@ type EventRuleArgs struct {
 	// The scheduling expression.
 	// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
 	ScheduleExpression pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

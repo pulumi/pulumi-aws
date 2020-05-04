@@ -65,7 +65,7 @@ class Directory(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     type: pulumi.Output[str]
     """
@@ -98,7 +98,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[str] password: The password for the directory administrator or connector user.
         :param pulumi.Input[str] short_name: The short name of the directory, such as `CORP`.
         :param pulumi.Input[str] size: The size of the directory (`Small` or `Large` are accepted values).
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
         :param pulumi.Input[dict] vpc_settings: VPC related information about the directory. Fields documented below.
 
@@ -175,7 +175,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[str] security_group_id: The ID of the security group created by the directory.
         :param pulumi.Input[str] short_name: The short name of the directory, such as `CORP`.
         :param pulumi.Input[str] size: The size of the directory (`Small` or `Large` are accepted values).
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
         :param pulumi.Input[dict] vpc_settings: VPC related information about the directory. Fields documented below.
 

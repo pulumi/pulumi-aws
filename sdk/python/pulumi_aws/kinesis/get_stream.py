@@ -72,7 +72,7 @@ class GetStreamResult:
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
-        A mapping of tags to assigned to the stream.
+        A map of tags to assigned to the stream.
         """
 class AwaitableGetStreamResult(GetStreamResult):
     # pylint: disable=using-constant-test
@@ -102,7 +102,7 @@ def get_stream(name=None,tags=None,opts=None):
 
 
     :param str name: The name of the Kinesis Stream.
-    :param dict tags: A mapping of tags to assigned to the stream.
+    :param dict tags: A map of tags to assigned to the stream.
     """
     __args__ = dict()
 

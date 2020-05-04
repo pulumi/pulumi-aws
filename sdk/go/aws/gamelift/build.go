@@ -22,7 +22,7 @@ type Build struct {
 	OperatingSystem pulumi.StringOutput `pulumi:"operatingSystem"`
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocationOutput `pulumi:"storageLocation"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Version that is associated with this build.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
@@ -70,7 +70,7 @@ type buildState struct {
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation *BuildStorageLocation `pulumi:"storageLocation"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Version that is associated with this build.
 	Version *string `pulumi:"version"`
@@ -85,7 +85,7 @@ type BuildState struct {
 	OperatingSystem pulumi.StringPtrInput
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocationPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 	// Version that is associated with this build.
 	Version pulumi.StringPtrInput
@@ -102,7 +102,7 @@ type buildArgs struct {
 	OperatingSystem string `pulumi:"operatingSystem"`
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocation `pulumi:"storageLocation"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Version that is associated with this build.
 	Version *string `pulumi:"version"`
@@ -116,7 +116,7 @@ type BuildArgs struct {
 	OperatingSystem pulumi.StringInput
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocationInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 	// Version that is associated with this build.
 	Version pulumi.StringPtrInput

@@ -36,7 +36,7 @@ class Vault(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     def __init__(__self__, resource_name, opts=None, access_policy=None, name=None, notifications=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -52,7 +52,7 @@ class Vault(pulumi.CustomResource):
                The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
         :param pulumi.Input[str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
         :param pulumi.Input[list] notifications: The notifications for the Vault. Fields documented below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **notifications** object supports the following:
 
@@ -103,7 +103,7 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[str] location: The URI of the vault that was created.
         :param pulumi.Input[str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
         :param pulumi.Input[list] notifications: The notifications for the Vault. Fields documented below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **notifications** object supports the following:
 

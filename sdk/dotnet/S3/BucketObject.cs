@@ -98,7 +98,7 @@ namespace Pulumi.Aws.S3
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+        /// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         /// </summary>
         [Output("metadata")]
         public Output<ImmutableDictionary<string, string>?> Metadata { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.S3
         public Output<string> StorageClass { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the object.
+        /// A map of tags to assign to the object.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.S3
         private InputMap<string>? _metadata;
 
         /// <summary>
-        /// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+        /// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         /// </summary>
         public InputMap<string> Metadata
         {
@@ -341,7 +341,7 @@ namespace Pulumi.Aws.S3
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the object.
+        /// A map of tags to assign to the object.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -449,7 +449,7 @@ namespace Pulumi.Aws.S3
         private InputMap<string>? _metadata;
 
         /// <summary>
-        /// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+        /// A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         /// </summary>
         public InputMap<string> Metadata
         {
@@ -498,7 +498,7 @@ namespace Pulumi.Aws.S3
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the object.
+        /// A map of tags to assign to the object.
         /// </summary>
         public InputMap<object> Tags
         {

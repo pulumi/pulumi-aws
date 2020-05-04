@@ -47,7 +47,7 @@ type TaskDefinition struct {
 	RequiresCompatibilities pulumi.StringArrayOutput `pulumi:"requiresCompatibilities"`
 	// The revision of the task in a particular family.
 	Revision pulumi.IntOutput `pulumi:"revision"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn pulumi.StringPtrOutput `pulumi:"taskRoleArn"`
@@ -122,7 +122,7 @@ type taskDefinitionState struct {
 	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
 	// The revision of the task in a particular family.
 	Revision *int `pulumi:"revision"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
@@ -164,7 +164,7 @@ type TaskDefinitionState struct {
 	RequiresCompatibilities pulumi.StringArrayInput
 	// The revision of the task in a particular family.
 	Revision pulumi.IntPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 	// The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn pulumi.StringPtrInput
@@ -206,7 +206,7 @@ type taskDefinitionArgs struct {
 	ProxyConfiguration *TaskDefinitionProxyConfiguration `pulumi:"proxyConfiguration"`
 	// A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
@@ -245,7 +245,7 @@ type TaskDefinitionArgs struct {
 	ProxyConfiguration TaskDefinitionProxyConfigurationPtrInput
 	// A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities pulumi.StringArrayInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 	// The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn pulumi.StringPtrInput

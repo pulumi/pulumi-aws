@@ -30,7 +30,7 @@ type LinkAggregationGroup struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the LAG.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -82,7 +82,7 @@ type linkAggregationGroupState struct {
 	Location *string `pulumi:"location"`
 	// The name of the LAG.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -101,7 +101,7 @@ type LinkAggregationGroupState struct {
 	Location pulumi.StringPtrInput
 	// The name of the LAG.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -118,7 +118,7 @@ type linkAggregationGroupArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the LAG.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -132,7 +132,7 @@ type LinkAggregationGroupArgs struct {
 	Location pulumi.StringInput
 	// The name of the LAG.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

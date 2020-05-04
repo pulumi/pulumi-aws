@@ -8,7 +8,7 @@ import {PolicyDocument} from "./documents";
 import {Role} from "./role";
 
 /**
- * Provides an IAM role policy.
+ * Provides an IAM role inline policy.
  * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role_policy.html.markdown.

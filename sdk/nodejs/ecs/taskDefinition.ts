@@ -101,7 +101,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public /*out*/ readonly revision!: pulumi.Output<number>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -245,7 +245,7 @@ export interface TaskDefinitionState {
      */
     readonly revision?: pulumi.Input<number>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -316,7 +316,7 @@ export interface TaskDefinitionArgs {
      */
     readonly requiresCompatibilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

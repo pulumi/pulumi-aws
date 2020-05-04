@@ -131,7 +131,7 @@ class ClusterInstance(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the instance.
+    A map of tags to assign to the instance.
     """
     writer: pulumi.Output[bool]
     """
@@ -190,7 +190,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly accessible.
                Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more
                details on controlling this property.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the instance.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the instance.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -295,7 +295,7 @@ class ClusterInstance(pulumi.CustomResource):
                Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more
                details on controlling this property.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the instance.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the instance.
         :param pulumi.Input[bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

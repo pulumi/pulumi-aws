@@ -182,7 +182,7 @@ class GetLaunchTemplateResult:
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
-        (Optional) A mapping of tags to assign to the launch template.
+        (Optional) A map of tags to assign to the launch template.
         """
         if user_data and not isinstance(user_data, str):
             raise TypeError("Expected argument 'user_data' to be a str")
@@ -242,7 +242,7 @@ def get_launch_template(filters=None,name=None,tags=None,opts=None):
 
     :param list filters: Configuration block(s) for filtering. Detailed below.
     :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
-    :param dict tags: A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
+    :param dict tags: A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
 
     The **filters** object supports the following:
 

@@ -41,7 +41,7 @@ type RestApi struct {
 	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// The resource ID of the REST API's root
 	RootResourceId pulumi.StringOutput `pulumi:"rootResourceId"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -99,7 +99,7 @@ type restApiState struct {
 	Policy *string `pulumi:"policy"`
 	// The resource ID of the REST API's root
 	RootResourceId *string `pulumi:"rootResourceId"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -130,7 +130,7 @@ type RestApiState struct {
 	Policy pulumi.StringPtrInput
 	// The resource ID of the REST API's root
 	RootResourceId pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 
@@ -155,7 +155,7 @@ type restApiArgs struct {
 	Name *string `pulumi:"name"`
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy *string `pulumi:"policy"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -177,7 +177,7 @@ type RestApiArgs struct {
 	Name pulumi.StringPtrInput
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 

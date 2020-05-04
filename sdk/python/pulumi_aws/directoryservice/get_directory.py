@@ -90,7 +90,7 @@ class GetDirectoryResult:
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
-        A mapping of tags assigned to the directory/connector.
+        A map of tags assigned to the directory/connector.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -132,7 +132,7 @@ def get_directory(directory_id=None,tags=None,opts=None):
 
 
     :param str directory_id: The ID of the directory.
-    :param dict tags: A mapping of tags assigned to the directory/connector.
+    :param dict tags: A map of tags assigned to the directory/connector.
     """
     __args__ = dict()
 

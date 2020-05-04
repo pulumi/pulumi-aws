@@ -215,11 +215,11 @@ class LaunchTemplate(pulumi.CustomResource):
     The tags to apply to the resources during launch. See Tag Specifications below for more details.
 
       * `resource_type` (`str`) - The type of resource to tag. Valid values are `instance` and `volume`.
-      * `tags` (`dict`) - A mapping of tags to assign to the resource.
+      * `tags` (`dict`) - A map of tags to assign to the resource.
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the launch template.
+    A map of tags to assign to the launch template.
     """
     user_data: pulumi.Output[str]
     """
@@ -273,7 +273,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[list] security_group_names: A list of security group names to associate with. If you are creating Instances in a VPC, use
                `vpc_security_group_ids` instead.
         :param pulumi.Input[list] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the launch template.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the launch template.
         :param pulumi.Input[str] user_data: The Base64-encoded user data to provide when launching the instance.
         :param pulumi.Input[list] vpc_security_group_ids: A list of security group IDs to associate with.
 
@@ -383,7 +383,7 @@ class LaunchTemplate(pulumi.CustomResource):
         The **tag_specifications** object supports the following:
 
           * `resource_type` (`pulumi.Input[str]`) - The type of resource to tag. Valid values are `instance` and `volume`.
-          * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the resource.
+          * `tags` (`pulumi.Input[dict]`) - A map of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -489,7 +489,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[list] security_group_names: A list of security group names to associate with. If you are creating Instances in a VPC, use
                `vpc_security_group_ids` instead.
         :param pulumi.Input[list] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the launch template.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the launch template.
         :param pulumi.Input[str] user_data: The Base64-encoded user data to provide when launching the instance.
         :param pulumi.Input[list] vpc_security_group_ids: A list of security group IDs to associate with.
 
@@ -599,7 +599,7 @@ class LaunchTemplate(pulumi.CustomResource):
         The **tag_specifications** object supports the following:
 
           * `resource_type` (`pulumi.Input[str]`) - The type of resource to tag. Valid values are `instance` and `volume`.
-          * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the resource.
+          * `tags` (`pulumi.Input[dict]`) - A map of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

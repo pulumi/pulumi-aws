@@ -3729,7 +3729,7 @@ func (o BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtr
 type BucketReplicationConfigurationRuleFilter struct {
 	// Object keyname prefix that identifies subset of objects to which the rule applies.
 	Prefix *string `pulumi:"prefix"`
-	// A mapping of tags that identifies subset of objects to which the rule applies.
+	// A map of tags that identifies subset of objects to which the rule applies.
 	// The rule applies only to objects having all the tags in its tagset.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
@@ -3749,7 +3749,7 @@ type BucketReplicationConfigurationRuleFilterInput interface {
 type BucketReplicationConfigurationRuleFilterArgs struct {
 	// Object keyname prefix that identifies subset of objects to which the rule applies.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// A mapping of tags that identifies subset of objects to which the rule applies.
+	// A map of tags that identifies subset of objects to which the rule applies.
 	// The rule applies only to objects having all the tags in its tagset.
 	Tags pulumi.MapInput `pulumi:"tags"`
 }
@@ -3837,7 +3837,7 @@ func (o BucketReplicationConfigurationRuleFilterOutput) Prefix() pulumi.StringPt
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// A mapping of tags that identifies subset of objects to which the rule applies.
+// A map of tags that identifies subset of objects to which the rule applies.
 // The rule applies only to objects having all the tags in its tagset.
 func (o BucketReplicationConfigurationRuleFilterOutput) Tags() pulumi.MapOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleFilter) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
@@ -3871,7 +3871,7 @@ func (o BucketReplicationConfigurationRuleFilterPtrOutput) Prefix() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// A mapping of tags that identifies subset of objects to which the rule applies.
+// A map of tags that identifies subset of objects to which the rule applies.
 // The rule applies only to objects having all the tags in its tagset.
 func (o BucketReplicationConfigurationRuleFilterPtrOutput) Tags() pulumi.MapOutput {
 	return o.ApplyT(func(v *BucketReplicationConfigurationRuleFilter) map[string]interface{} {

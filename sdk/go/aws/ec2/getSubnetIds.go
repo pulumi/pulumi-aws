@@ -23,7 +23,7 @@ func GetSubnetIds(ctx *pulumi.Context, args *GetSubnetIdsArgs, opts ...pulumi.In
 type GetSubnetIdsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetSubnetIdsFilter `pulumi:"filters"`
-	// A mapping of tags, each pair of which must exactly match
+	// A map of tags, each pair of which must exactly match
 	// a pair on the desired subnets.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VPC ID that you want to filter from.

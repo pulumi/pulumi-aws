@@ -46,7 +46,7 @@ class SnapshotCopy(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags for the snapshot.
+    A map of tags for the snapshot.
     """
     volume_id: pulumi.Output[str]
     volume_size: pulumi.Output[float]
@@ -66,7 +66,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
         :param pulumi.Input[str] source_region: The region of the source snapshot.
         :param pulumi.Input[str] source_snapshot_id: The ARN for the snapshot to be copied.
-        :param pulumi.Input[dict] tags: A mapping of tags for the snapshot.
+        :param pulumi.Input[dict] tags: A map of tags for the snapshot.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -125,7 +125,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] owner_id: The AWS account ID of the snapshot owner.
         :param pulumi.Input[str] source_region: The region of the source snapshot.
         :param pulumi.Input[str] source_snapshot_id: The ARN for the snapshot to be copied.
-        :param pulumi.Input[dict] tags: A mapping of tags for the snapshot.
+        :param pulumi.Input[dict] tags: A map of tags for the snapshot.
         :param pulumi.Input[float] volume_size: The size of the drive in GiBs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

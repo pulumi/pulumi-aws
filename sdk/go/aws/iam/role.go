@@ -37,7 +37,7 @@ type Role struct {
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary pulumi.StringPtrOutput `pulumi:"permissionsBoundary"`
-	// Key-value mapping of tags for the IAM role
+	// Key-value map of tags for the IAM role
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The stable and unique string identifying the role.
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
@@ -95,7 +95,7 @@ type roleState struct {
 	Path *string `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
-	// Key-value mapping of tags for the IAM role
+	// Key-value map of tags for the IAM role
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The stable and unique string identifying the role.
 	UniqueId *string `pulumi:"uniqueId"`
@@ -123,7 +123,7 @@ type RoleState struct {
 	Path pulumi.StringPtrInput
 	// The ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary pulumi.StringPtrInput
-	// Key-value mapping of tags for the IAM role
+	// Key-value map of tags for the IAM role
 	Tags pulumi.MapInput
 	// The stable and unique string identifying the role.
 	UniqueId pulumi.StringPtrInput
@@ -151,7 +151,7 @@ type roleArgs struct {
 	Path *string `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
-	// Key-value mapping of tags for the IAM role
+	// Key-value map of tags for the IAM role
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -174,7 +174,7 @@ type RoleArgs struct {
 	Path pulumi.StringPtrInput
 	// The ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary pulumi.StringPtrInput
-	// Key-value mapping of tags for the IAM role
+	// Key-value map of tags for the IAM role
 	Tags pulumi.MapInput
 }
 

@@ -46,7 +46,7 @@ namespace Pulumi.Aws.S3
         private Dictionary<string, object>? _tags;
 
         /// <summary>
-        /// A mapping of tags assigned to the object.
+        /// A map of tags assigned to the object.
         /// </summary>
         public Dictionary<string, object> Tags
         {
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string StorageClass;
         /// <summary>
-        /// A mapping of tags assigned to the object.
+        /// A map of tags assigned to the object.
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
         /// <summary>

@@ -105,7 +105,7 @@ class Cluster(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource
+    A map of tags to assign to the resource
     """
     def __init__(__self__, resource_name, opts=None, availability_zones=None, cluster_name=None, description=None, iam_role_arn=None, maintenance_window=None, node_type=None, notification_topic_arn=None, parameter_group_name=None, replication_factor=None, security_group_ids=None, server_side_encryption=None, subnet_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -142,7 +142,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] server_side_encryption: Encrypt at rest options
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the
                cluster
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource
 
         The **server_side_encryption** object supports the following:
 
@@ -241,7 +241,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] server_side_encryption: Encrypt at rest options
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the
                cluster
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource
 
         The **nodes** object supports the following:
 

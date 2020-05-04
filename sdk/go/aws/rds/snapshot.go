@@ -48,7 +48,7 @@ type Snapshot struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Specifies the storage type associated with DB snapshot.
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Specifies the storage type associated with DB snapshot.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -122,7 +122,7 @@ type snapshotState struct {
 	Status *string `pulumi:"status"`
 	// Specifies the storage type associated with DB snapshot.
 	StorageType *string `pulumi:"storageType"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Specifies the storage type associated with DB snapshot.
 	VpcId *string `pulumi:"vpcId"`
@@ -163,7 +163,7 @@ type SnapshotState struct {
 	Status pulumi.StringPtrInput
 	// Specifies the storage type associated with DB snapshot.
 	StorageType pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 	// Specifies the storage type associated with DB snapshot.
 	VpcId pulumi.StringPtrInput
@@ -178,7 +178,7 @@ type snapshotArgs struct {
 	DbInstanceIdentifier string `pulumi:"dbInstanceIdentifier"`
 	// The Identifier for the snapshot.
 	DbSnapshotIdentifier string `pulumi:"dbSnapshotIdentifier"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -188,7 +188,7 @@ type SnapshotArgs struct {
 	DbInstanceIdentifier pulumi.StringInput
 	// The Identifier for the snapshot.
 	DbSnapshotIdentifier pulumi.StringInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 

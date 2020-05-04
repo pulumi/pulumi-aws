@@ -22,7 +22,7 @@ type CapacityProvider struct {
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderOutput `pulumi:"autoScalingGroupProvider"`
 	// The name of the capacity provider.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -63,7 +63,7 @@ type capacityProviderState struct {
 	AutoScalingGroupProvider *CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
 	// The name of the capacity provider.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -74,7 +74,7 @@ type CapacityProviderState struct {
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderPtrInput
 	// The name of the capacity provider.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapInput
 }
 
@@ -87,7 +87,7 @@ type capacityProviderArgs struct {
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
 	// The name of the capacity provider.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -97,7 +97,7 @@ type CapacityProviderArgs struct {
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderInput
 	// The name of the capacity provider.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapInput
 }
 

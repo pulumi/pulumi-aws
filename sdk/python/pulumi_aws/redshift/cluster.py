@@ -164,7 +164,7 @@ class Cluster(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     vpc_security_group_ids: pulumi.Output[list]
     """
@@ -220,7 +220,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
         :param pulumi.Input[dict] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
         :param pulumi.Input[str] snapshot_identifier: The name of the snapshot from which to create the new cluster.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[list] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 
         The **logging** object supports the following:
@@ -349,7 +349,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
         :param pulumi.Input[dict] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
         :param pulumi.Input[str] snapshot_identifier: The name of the snapshot from which to create the new cluster.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[list] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 
         The **logging** object supports the following:

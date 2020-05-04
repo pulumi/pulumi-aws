@@ -103,7 +103,7 @@ def get_vpc_peering_connection(cidr_block=None,filters=None,id=None,owner_id=Non
     :param str peer_vpc_id: The ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
     :param str region: The region of the requester VPC of the specific VPC Peering Connection to retrieve.
     :param str status: The status of the specific VPC Peering Connection to retrieve.
-    :param dict tags: A mapping of tags, each pair of which must exactly match
+    :param dict tags: A map of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
     :param str vpc_id: The ID of the requester VPC of the specific VPC Peering Connection to retrieve.
 

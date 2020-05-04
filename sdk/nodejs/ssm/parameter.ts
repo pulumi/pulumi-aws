@@ -79,7 +79,7 @@ export class Parameter extends pulumi.CustomResource {
      */
     public readonly overwrite!: pulumi.Output<boolean | undefined>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -182,7 +182,7 @@ export interface ParameterState {
      */
     readonly overwrite?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -232,7 +232,7 @@ export interface ParameterArgs {
      */
     readonly overwrite?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

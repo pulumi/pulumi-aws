@@ -31,7 +31,7 @@ type LookupSnapshotArgs struct {
 	RestorableByUserIds []string `pulumi:"restorableByUserIds"`
 	// Returns information on a specific snapshot_id.
 	SnapshotIds []string `pulumi:"snapshotIds"`
-	// A mapping of tags for the resource.
+	// A map of tags for the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -60,7 +60,7 @@ type LookupSnapshotResult struct {
 	SnapshotIds []string `pulumi:"snapshotIds"`
 	// The snapshot state.
 	State string `pulumi:"state"`
-	// A mapping of tags for the resource.
+	// A map of tags for the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The volume ID (e.g. vol-59fcb34e).
 	VolumeId string `pulumi:"volumeId"`

@@ -36,7 +36,7 @@ class ParameterGroup(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     def __init__(__self__, resource_name, opts=None, description=None, family=None, name=None, parameters=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -50,7 +50,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] family: The family of the Neptune parameter group.
         :param pulumi.Input[str] name: The name of the Neptune parameter.
         :param pulumi.Input[list] parameters: A list of Neptune parameters to apply.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **parameters** object supports the following:
 
@@ -103,7 +103,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] family: The family of the Neptune parameter group.
         :param pulumi.Input[str] name: The name of the Neptune parameter.
         :param pulumi.Input[list] parameters: A list of Neptune parameters to apply.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **parameters** object supports the following:
 

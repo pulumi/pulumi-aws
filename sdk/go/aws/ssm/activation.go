@@ -30,7 +30,7 @@ type Activation struct {
 	RegistrationCount pulumi.IntOutput `pulumi:"registrationCount"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit pulumi.IntPtrOutput `pulumi:"registrationLimit"`
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -81,7 +81,7 @@ type activationState struct {
 	RegistrationCount *int `pulumi:"registrationCount"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit *int `pulumi:"registrationLimit"`
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -102,7 +102,7 @@ type ActivationState struct {
 	RegistrationCount pulumi.IntPtrInput
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit pulumi.IntPtrInput
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags pulumi.MapInput
 }
 
@@ -121,7 +121,7 @@ type activationArgs struct {
 	Name *string `pulumi:"name"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit *int `pulumi:"registrationLimit"`
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -137,7 +137,7 @@ type ActivationArgs struct {
 	Name pulumi.StringPtrInput
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit pulumi.IntPtrInput
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags pulumi.MapInput
 }
 

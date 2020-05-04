@@ -183,7 +183,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly subnets!: pulumi.Output<string[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
@@ -340,7 +340,7 @@ export interface LoadBalancerState {
      */
     readonly subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     readonly vpcId?: pulumi.Input<string>;
@@ -417,7 +417,7 @@ export interface LoadBalancerArgs {
      */
     readonly subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

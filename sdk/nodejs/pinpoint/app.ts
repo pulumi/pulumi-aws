@@ -86,7 +86,7 @@ export class App extends pulumi.CustomResource {
      */
     public readonly quietTime!: pulumi.Output<outputs.pinpoint.AppQuietTime | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -165,7 +165,7 @@ export interface AppState {
      */
     readonly quietTime?: pulumi.Input<inputs.pinpoint.AppQuietTime>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -195,7 +195,7 @@ export interface AppArgs {
      */
     readonly quietTime?: pulumi.Input<inputs.pinpoint.AppQuietTime>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

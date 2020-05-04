@@ -78,7 +78,7 @@ def get_instances(filters=None,instance_state_names=None,instance_tags=None,opts
            several valid keys, for a full reference, check out
            [describe-instances in the AWS CLI reference][1].
     :param list instance_state_names: A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
-    :param dict instance_tags: A mapping of tags, each pair of which must
+    :param dict instance_tags: A map of tags, each pair of which must
            exactly match a pair on desired instances.
 
     The **filters** object supports the following:

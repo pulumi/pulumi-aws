@@ -89,7 +89,7 @@ class Stage(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the stage.
+    A map of tags to assign to the stage.
     """
     def __init__(__self__, resource_name, opts=None, access_log_settings=None, api_id=None, auto_deploy=None, client_certificate_id=None, default_route_settings=None, deployment_id=None, description=None, name=None, route_settings=None, stage_variables=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -112,7 +112,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the stage.
         :param pulumi.Input[list] route_settings: Route settings for the stage.
         :param pulumi.Input[dict] stage_variables: A map that defines the stage variables for the stage.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the stage.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the stage.
 
         The **access_log_settings** object supports the following:
 
@@ -206,7 +206,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the stage.
         :param pulumi.Input[list] route_settings: Route settings for the stage.
         :param pulumi.Input[dict] stage_variables: A map that defines the stage variables for the stage.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the stage.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the stage.
 
         The **access_log_settings** object supports the following:
 

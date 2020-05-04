@@ -55,7 +55,7 @@ export class Analyzer extends pulumi.CustomResource {
     public readonly analyzerName!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -110,7 +110,7 @@ export interface AnalyzerState {
     readonly analyzerName?: pulumi.Input<string>;
     readonly arn?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -128,7 +128,7 @@ export interface AnalyzerArgs {
      */
     readonly analyzerName: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

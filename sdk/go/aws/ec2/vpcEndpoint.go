@@ -50,7 +50,7 @@ type VpcEndpoint struct {
 	State pulumi.StringOutput `pulumi:"state"`
 	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
 	VpcEndpointType pulumi.StringPtrOutput `pulumi:"vpcEndpointType"`
@@ -121,7 +121,7 @@ type vpcEndpointState struct {
 	State *string `pulumi:"state"`
 	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
 	VpcEndpointType *string `pulumi:"vpcEndpointType"`
@@ -159,7 +159,7 @@ type VpcEndpointState struct {
 	State pulumi.StringPtrInput
 	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
 	SubnetIds pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
 	VpcEndpointType pulumi.StringPtrInput
@@ -187,7 +187,7 @@ type vpcEndpointArgs struct {
 	ServiceName string `pulumi:"serviceName"`
 	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
 	VpcEndpointType *string `pulumi:"vpcEndpointType"`
@@ -212,7 +212,7 @@ type VpcEndpointArgs struct {
 	ServiceName pulumi.StringInput
 	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
 	SubnetIds pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
 	VpcEndpointType pulumi.StringPtrInput

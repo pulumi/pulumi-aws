@@ -53,7 +53,7 @@ def get_vpcs(filters=None,tags=None,opts=None):
 
 
     :param list filters: Custom filter block as described below.
-    :param dict tags: A mapping of tags, each pair of which must exactly match
+    :param dict tags: A map of tags, each pair of which must exactly match
            a pair on the desired vpcs.
 
     The **filters** object supports the following:

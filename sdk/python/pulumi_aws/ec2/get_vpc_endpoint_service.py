@@ -81,7 +81,7 @@ class GetVpcEndpointServiceResult:
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
-        A mapping of tags assigned to the resource.
+        A map of tags assigned to the resource.
         """
         if vpc_endpoint_policy_supported and not isinstance(vpc_endpoint_policy_supported, bool):
             raise TypeError("Expected argument 'vpc_endpoint_policy_supported' to be a bool")
@@ -121,7 +121,7 @@ def get_vpc_endpoint_service(filters=None,service=None,service_name=None,tags=No
     :param list filters: Configuration block(s) for filtering. Detailed below.
     :param str service: The common name of an AWS service (e.g. `s3`).
     :param str service_name: The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
-    :param dict tags: A mapping of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+    :param dict tags: A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
 
     The **filters** object supports the following:
 

@@ -32,7 +32,7 @@ type Configuration struct {
 	LatestRevision pulumi.IntOutput `pulumi:"latestRevision"`
 	// The name of the configuration
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -89,7 +89,7 @@ type configurationState struct {
 	LatestRevision *int `pulumi:"latestRevision"`
 	// The name of the configuration
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -110,7 +110,7 @@ type ConfigurationState struct {
 	LatestRevision pulumi.IntPtrInput
 	// The name of the configuration
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -131,7 +131,7 @@ type configurationArgs struct {
 	EngineVersion string `pulumi:"engineVersion"`
 	// The name of the configuration
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -149,7 +149,7 @@ type ConfigurationArgs struct {
 	EngineVersion pulumi.StringInput
 	// The name of the configuration
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

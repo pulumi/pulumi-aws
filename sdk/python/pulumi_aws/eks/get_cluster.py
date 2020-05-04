@@ -81,7 +81,7 @@ class GetClusterResult:
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
-        Key-value mapping of resource tags.
+        Key-value map of resource tags.
         """
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
@@ -124,7 +124,7 @@ def get_cluster(name=None,tags=None,opts=None):
 
 
     :param str name: The name of the cluster
-    :param dict tags: Key-value mapping of resource tags.
+    :param dict tags: Key-value map of resource tags.
     """
     __args__ = dict()
 

@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     {
         public readonly string ResourceType;
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
+        /// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
 

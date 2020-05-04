@@ -46,7 +46,7 @@ class Workgroup(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags for the workgroup.
+    Key-value map of resource tags for the workgroup.
     """
     def __init__(__self__, resource_name, opts=None, configuration=None, description=None, force_destroy=None, name=None, state=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -61,7 +61,7 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[bool] force_destroy: The option to delete the workgroup and its contents even if the workgroup contains any named queries.
         :param pulumi.Input[str] name: Name of the workgroup.
         :param pulumi.Input[str] state: State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags for the workgroup.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags for the workgroup.
 
         The **configuration** object supports the following:
 
@@ -120,7 +120,7 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[bool] force_destroy: The option to delete the workgroup and its contents even if the workgroup contains any named queries.
         :param pulumi.Input[str] name: Name of the workgroup.
         :param pulumi.Input[str] state: State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags for the workgroup.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags for the workgroup.
 
         The **configuration** object supports the following:
 

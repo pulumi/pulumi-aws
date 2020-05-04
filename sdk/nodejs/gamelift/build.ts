@@ -56,7 +56,7 @@ export class Build extends pulumi.CustomResource {
      */
     public readonly storageLocation!: pulumi.Output<outputs.gamelift.BuildStorageLocation>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -129,7 +129,7 @@ export interface BuildState {
      */
     readonly storageLocation?: pulumi.Input<inputs.gamelift.BuildStorageLocation>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -155,7 +155,7 @@ export interface BuildArgs {
      */
     readonly storageLocation: pulumi.Input<inputs.gamelift.BuildStorageLocation>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

@@ -26,7 +26,7 @@ type ClusterParameterGroup struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// A list of documentDB parameters to apply.
 	Parameters ClusterParameterGroupParameterArrayOutput `pulumi:"parameters"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -73,7 +73,7 @@ type clusterParameterGroupState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// A list of documentDB parameters to apply.
 	Parameters []ClusterParameterGroupParameter `pulumi:"parameters"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -90,7 +90,7 @@ type ClusterParameterGroupState struct {
 	NamePrefix pulumi.StringPtrInput
 	// A list of documentDB parameters to apply.
 	Parameters ClusterParameterGroupParameterArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -109,7 +109,7 @@ type clusterParameterGroupArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// A list of documentDB parameters to apply.
 	Parameters []ClusterParameterGroupParameter `pulumi:"parameters"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -125,7 +125,7 @@ type ClusterParameterGroupArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// A list of documentDB parameters to apply.
 	Parameters ClusterParameterGroupParameterArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

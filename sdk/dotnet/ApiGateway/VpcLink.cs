@@ -11,6 +11,9 @@ namespace Pulumi.Aws.ApiGateway
 {
     /// <summary>
     /// Provides an API Gateway VPC Link.
+    /// 
+    /// &gt; **Note:** Amazon API Gateway Version 1 VPC Links enable private integrations that connect REST APIs to private resources in a VPC.
+    /// To enable private integration for HTTP APIs, use the Amazon API Gateway Version 2 VPC Link [resource](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_vpc_link.html).
     /// </summary>
     public partial class VpcLink : Pulumi.CustomResource
     {
@@ -30,7 +33,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -103,7 +106,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         public InputMap<object> Tags
         {
@@ -143,7 +146,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         public InputMap<object> Tags
         {

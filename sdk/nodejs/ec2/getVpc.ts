@@ -67,7 +67,7 @@ export interface GetVpcArgs {
      */
     readonly state?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * A map of tags, each pair of which must exactly match
      * a pair on the desired VPC.
      */
     readonly tags?: {[key: string]: any};

@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Athena
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags for the workgroup.
+        /// Key-value map of resource tags for the workgroup.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Athena
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags for the workgroup.
+        /// Key-value map of resource tags for the workgroup.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Athena
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags for the workgroup.
+        /// Key-value map of resource tags for the workgroup.
         /// </summary>
         public InputMap<object> Tags
         {

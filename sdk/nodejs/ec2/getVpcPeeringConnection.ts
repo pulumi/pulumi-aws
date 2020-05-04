@@ -107,7 +107,7 @@ export interface GetVpcPeeringConnectionArgs {
      */
     readonly status?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * A map of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      */
     readonly tags?: {[key: string]: any};

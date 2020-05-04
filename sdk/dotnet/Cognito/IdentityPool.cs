@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Cognito
         public Output<ImmutableDictionary<string, string>?> SupportedLoginProviders { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the Identity Pool.
+        /// A map of tags to assign to the Identity Pool.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.Cognito
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the Identity Pool.
+        /// A map of tags to assign to the Identity Pool.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.Cognito
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the Identity Pool.
+        /// A map of tags to assign to the Identity Pool.
         /// </summary>
         public InputMap<object> Tags
         {

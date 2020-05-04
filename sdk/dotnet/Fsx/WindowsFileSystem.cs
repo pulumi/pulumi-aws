@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the file system.
+        /// A map of tags to assign to the file system.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the file system.
+        /// A map of tags to assign to the file system.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -367,7 +367,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the file system.
+        /// A map of tags to assign to the file system.
         /// </summary>
         public InputMap<object> Tags
         {

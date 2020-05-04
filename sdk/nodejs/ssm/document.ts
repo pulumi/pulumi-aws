@@ -154,7 +154,7 @@ export class Document extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -308,7 +308,7 @@ export interface DocumentState {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -346,7 +346,7 @@ export interface DocumentArgs {
      */
     readonly permissions?: pulumi.Input<inputs.ssm.DocumentPermissions>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

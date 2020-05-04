@@ -23,7 +23,7 @@ type LookupInternetGatewayArgs struct {
 	Filters []GetInternetGatewayFilter `pulumi:"filters"`
 	// The id of the specific Internet Gateway to retrieve.
 	InternetGatewayId *string `pulumi:"internetGatewayId"`
-	// A mapping of tags, each pair of which must exactly match
+	// A map of tags, each pair of which must exactly match
 	// a pair on the desired Internet Gateway.
 	Tags map[string]interface{} `pulumi:"tags"`
 }

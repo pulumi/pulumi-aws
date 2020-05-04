@@ -109,7 +109,7 @@ class HaproxyLayer(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     use_ebs_optimized_instances: pulumi.Output[bool]
     """
@@ -143,7 +143,7 @@ class HaproxyLayer(pulumi.CustomResource):
         :param pulumi.Input[str] stats_url: The HAProxy stats URL. Defaults to "/haproxy?stats".
         :param pulumi.Input[str] stats_user: The username for HAProxy stats. Defaults to "opsworks".
         :param pulumi.Input[list] system_packages: Names of a set of system packages to install on the layer's instances.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
 
         The **ebs_volumes** object supports the following:
@@ -241,7 +241,7 @@ class HaproxyLayer(pulumi.CustomResource):
         :param pulumi.Input[str] stats_url: The HAProxy stats URL. Defaults to "/haproxy?stats".
         :param pulumi.Input[str] stats_user: The username for HAProxy stats. Defaults to "opsworks".
         :param pulumi.Input[list] system_packages: Names of a set of system packages to install on the layer's instances.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
 
         The **ebs_volumes** object supports the following:

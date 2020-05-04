@@ -94,7 +94,7 @@ export interface GetClusterSnapshotArgs {
      */
     readonly snapshotType?: string;
     /**
-     * A mapping of tags for the resource.
+     * A map of tags for the resource.
      */
     readonly tags?: {[key: string]: any};
 }
@@ -158,7 +158,7 @@ export interface GetClusterSnapshotResult {
      */
     readonly storageEncrypted: boolean;
     /**
-     * A mapping of tags for the resource.
+     * A map of tags for the resource.
      */
     readonly tags: {[key: string]: any};
     /**

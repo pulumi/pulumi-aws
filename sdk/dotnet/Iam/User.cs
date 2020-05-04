@@ -24,8 +24,8 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// When destroying this user, destroy even if it
-        /// has non-this provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
-        /// a user with non-this provider-managed access keys and login profile will fail to be destroyed.
+        /// has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+        /// a user with non-provider-managed access keys and login profile will fail to be destroyed.
         /// </summary>
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
@@ -108,8 +108,8 @@ namespace Pulumi.Aws.Iam
     {
         /// <summary>
         /// When destroying this user, destroy even if it
-        /// has non-this provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
-        /// a user with non-this provider-managed access keys and login profile will fail to be destroyed.
+        /// has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+        /// a user with non-provider-managed access keys and login profile will fail to be destroyed.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
@@ -159,8 +159,8 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// When destroying this user, destroy even if it
-        /// has non-this provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
-        /// a user with non-this provider-managed access keys and login profile will fail to be destroyed.
+        /// has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+        /// a user with non-provider-managed access keys and login profile will fail to be destroyed.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }

@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Dlm.Inputs
         private InputMap<object>? _tagsToAdd;
 
         /// <summary>
-        /// A mapping of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+        /// A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
         /// </summary>
         public InputMap<object> TagsToAdd
         {

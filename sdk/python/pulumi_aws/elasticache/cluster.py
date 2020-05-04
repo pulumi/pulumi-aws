@@ -142,7 +142,7 @@ class Cluster(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource
+    A map of tags to assign to the resource
     """
     def __init__(__self__, resource_name, opts=None, apply_immediately=None, availability_zone=None, az_mode=None, cluster_id=None, engine=None, engine_version=None, maintenance_window=None, node_type=None, notification_topic_arn=None, num_cache_nodes=None, parameter_group_name=None, port=None, preferred_availability_zones=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_arns=None, snapshot_name=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -209,7 +209,7 @@ class Cluster(pulumi.CustomResource):
                begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used
                for the cache cluster.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -321,7 +321,7 @@ class Cluster(pulumi.CustomResource):
                begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used
                for the cache cluster.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource
 
         The **cache_nodes** object supports the following:
 

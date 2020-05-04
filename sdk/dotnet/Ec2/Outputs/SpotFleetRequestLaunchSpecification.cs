@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly string? SpotPrice;
         public readonly string? SubnetId;
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Tags;
         public readonly string? UserData;

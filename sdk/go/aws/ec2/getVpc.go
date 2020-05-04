@@ -37,7 +37,7 @@ type LookupVpcArgs struct {
 	// The current state of the desired VPC.
 	// Can be either `"pending"` or `"available"`.
 	State *string `pulumi:"state"`
-	// A mapping of tags, each pair of which must exactly match
+	// A map of tags, each pair of which must exactly match
 	// a pair on the desired VPC.
 	Tags map[string]interface{} `pulumi:"tags"`
 }

@@ -101,7 +101,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
      */
     public readonly sourceSnapshotId!: pulumi.Output<string>;
     /**
-     * A mapping of tags for the snapshot.
+     * A map of tags for the snapshot.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     public /*out*/ readonly volumeId!: pulumi.Output<string>;
@@ -203,7 +203,7 @@ export interface SnapshotCopyState {
      */
     readonly sourceSnapshotId?: pulumi.Input<string>;
     /**
-     * A mapping of tags for the snapshot.
+     * A map of tags for the snapshot.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     readonly volumeId?: pulumi.Input<string>;
@@ -238,7 +238,7 @@ export interface SnapshotCopyArgs {
      */
     readonly sourceSnapshotId: pulumi.Input<string>;
     /**
-     * A mapping of tags for the snapshot.
+     * A map of tags for the snapshot.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

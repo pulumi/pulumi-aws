@@ -31,7 +31,7 @@ type GetInstancesArgs struct {
 	Filters []GetInstancesFilter `pulumi:"filters"`
 	// A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
 	InstanceStateNames []string `pulumi:"instanceStateNames"`
-	// A mapping of tags, each pair of which must
+	// A map of tags, each pair of which must
 	// exactly match a pair on desired instances.
 	InstanceTags map[string]interface{} `pulumi:"instanceTags"`
 }

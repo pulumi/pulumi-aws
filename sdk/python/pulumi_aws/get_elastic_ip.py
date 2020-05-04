@@ -119,7 +119,7 @@ def get_elastic_ip(filters=None,id=None,public_ip=None,tags=None,opts=None):
     :param list filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
     :param str id: The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
     :param str public_ip: The public IP of the specific EIP to retrieve.
-    :param dict tags: A mapping of tags, each pair of which must exactly match a pair on the desired Elastic IP
+    :param dict tags: A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
 
     The **filters** object supports the following:
 

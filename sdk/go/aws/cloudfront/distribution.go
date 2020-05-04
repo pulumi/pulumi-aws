@@ -99,7 +99,7 @@ type Distribution struct {
 	// distribution's information is fully propagated throughout the Amazon
 	// CloudFront system.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The SSL
 	// configuration for this distribution (maximum
@@ -235,7 +235,7 @@ type distributionState struct {
 	// distribution's information is fully propagated throughout the Amazon
 	// CloudFront system.
 	Status *string `pulumi:"status"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The SSL
 	// configuration for this distribution (maximum
@@ -329,7 +329,7 @@ type DistributionState struct {
 	// distribution's information is fully propagated throughout the Amazon
 	// CloudFront system.
 	Status pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The SSL
 	// configuration for this distribution (maximum
@@ -399,7 +399,7 @@ type distributionArgs struct {
 	// deleting it when destroying the resource. If this is set,
 	// the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete *bool `pulumi:"retainOnDelete"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The SSL
 	// configuration for this distribution (maximum
@@ -466,7 +466,7 @@ type DistributionArgs struct {
 	// deleting it when destroying the resource. If this is set,
 	// the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete pulumi.BoolPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The SSL
 	// configuration for this distribution (maximum

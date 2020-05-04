@@ -32,7 +32,7 @@ type SnapshotCopy struct {
 	SourceRegion pulumi.StringOutput `pulumi:"sourceRegion"`
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringOutput `pulumi:"sourceSnapshotId"`
-	// A mapping of tags for the snapshot.
+	// A map of tags for the snapshot.
 	Tags     pulumi.MapOutput    `pulumi:"tags"`
 	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
@@ -91,7 +91,7 @@ type snapshotCopyState struct {
 	SourceRegion *string `pulumi:"sourceRegion"`
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId *string `pulumi:"sourceSnapshotId"`
-	// A mapping of tags for the snapshot.
+	// A map of tags for the snapshot.
 	Tags     map[string]interface{} `pulumi:"tags"`
 	VolumeId *string                `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
@@ -117,7 +117,7 @@ type SnapshotCopyState struct {
 	SourceRegion pulumi.StringPtrInput
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringPtrInput
-	// A mapping of tags for the snapshot.
+	// A map of tags for the snapshot.
 	Tags     pulumi.MapInput
 	VolumeId pulumi.StringPtrInput
 	// The size of the drive in GiBs.
@@ -139,7 +139,7 @@ type snapshotCopyArgs struct {
 	SourceRegion string `pulumi:"sourceRegion"`
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId string `pulumi:"sourceSnapshotId"`
-	// A mapping of tags for the snapshot.
+	// A map of tags for the snapshot.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -155,7 +155,7 @@ type SnapshotCopyArgs struct {
 	SourceRegion pulumi.StringInput
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringInput
-	// A mapping of tags for the snapshot.
+	// A map of tags for the snapshot.
 	Tags pulumi.MapInput
 }
 

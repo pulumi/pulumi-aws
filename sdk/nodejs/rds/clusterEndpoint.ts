@@ -128,7 +128,7 @@ export class ClusterEndpoint extends pulumi.CustomResource {
      */
     public readonly staticMembers!: pulumi.Output<string[] | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -216,7 +216,7 @@ export interface ClusterEndpointState {
      */
     readonly staticMembers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -246,7 +246,7 @@ export interface ClusterEndpointArgs {
      */
     readonly staticMembers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

@@ -50,7 +50,7 @@ export interface GetStreamArgs {
      */
     readonly name: string;
     /**
-     * A mapping of tags to assigned to the stream.
+     * A map of tags to assigned to the stream.
      */
     readonly tags?: {[key: string]: any};
 }
@@ -92,7 +92,7 @@ export interface GetStreamResult {
      */
     readonly status: string;
     /**
-     * A mapping of tags to assigned to the stream.
+     * A map of tags to assigned to the stream.
      */
     readonly tags: {[key: string]: any};
     /**

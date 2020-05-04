@@ -69,7 +69,7 @@ class VirtualNode(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     def __init__(__self__, resource_name, opts=None, mesh_name=None, name=None, spec=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -93,7 +93,7 @@ class VirtualNode(pulumi.CustomResource):
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the virtual node.
         :param pulumi.Input[str] name: The name to use for the virtual node.
         :param pulumi.Input[dict] spec: The virtual node specification to apply.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **spec** object supports the following:
 
@@ -179,7 +179,7 @@ class VirtualNode(pulumi.CustomResource):
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the virtual node.
         :param pulumi.Input[str] name: The name to use for the virtual node.
         :param pulumi.Input[dict] spec: The virtual node specification to apply.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **spec** object supports the following:
 

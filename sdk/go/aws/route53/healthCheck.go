@@ -49,7 +49,7 @@ type HealthCheck struct {
 	ResourcePath pulumi.StringPtrOutput `pulumi:"resourcePath"`
 	// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
 	SearchString pulumi.StringPtrOutput `pulumi:"searchString"`
-	// A mapping of tags to assign to the health check.
+	// A map of tags to assign to the health check.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -121,7 +121,7 @@ type healthCheckState struct {
 	ResourcePath *string `pulumi:"resourcePath"`
 	// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
 	SearchString *string `pulumi:"searchString"`
-	// A mapping of tags to assign to the health check.
+	// A map of tags to assign to the health check.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
 	Type *string `pulumi:"type"`
@@ -163,7 +163,7 @@ type HealthCheckState struct {
 	ResourcePath pulumi.StringPtrInput
 	// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
 	SearchString pulumi.StringPtrInput
-	// A mapping of tags to assign to the health check.
+	// A map of tags to assign to the health check.
 	Tags pulumi.MapInput
 	// The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
 	Type pulumi.StringPtrInput
@@ -209,7 +209,7 @@ type healthCheckArgs struct {
 	ResourcePath *string `pulumi:"resourcePath"`
 	// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
 	SearchString *string `pulumi:"searchString"`
-	// A mapping of tags to assign to the health check.
+	// A map of tags to assign to the health check.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
 	Type string `pulumi:"type"`
@@ -252,7 +252,7 @@ type HealthCheckArgs struct {
 	ResourcePath pulumi.StringPtrInput
 	// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
 	SearchString pulumi.StringPtrInput
-	// A mapping of tags to assign to the health check.
+	// A map of tags to assign to the health check.
 	Tags pulumi.MapInput
 	// The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
 	Type pulumi.StringInput

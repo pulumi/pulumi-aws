@@ -107,7 +107,7 @@ class Cluster(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource
+    A map of tags to assign to the resource
     """
     zookeeper_connect_string: pulumi.Output[str]
     """
@@ -131,7 +131,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
         :param pulumi.Input[float] number_of_broker_nodes: The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
         :param pulumi.Input[dict] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource
 
         The **broker_node_group_info** object supports the following:
 
@@ -254,7 +254,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
         :param pulumi.Input[float] number_of_broker_nodes: The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
         :param pulumi.Input[dict] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource
         :param pulumi.Input[str] zookeeper_connect_string: A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
 
         The **broker_node_group_info** object supports the following:

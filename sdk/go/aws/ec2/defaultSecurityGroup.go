@@ -66,7 +66,7 @@ type DefaultSecurityGroup struct {
 	// The owner ID.
 	OwnerId             pulumi.StringOutput  `pulumi:"ownerId"`
 	RevokeRulesOnDelete pulumi.BoolPtrOutput `pulumi:"revokeRulesOnDelete"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The VPC ID. **Note that changing
 	// the `vpcId` will _not_ restore any default security group rules that were
@@ -116,7 +116,7 @@ type defaultSecurityGroupState struct {
 	// The owner ID.
 	OwnerId             *string `pulumi:"ownerId"`
 	RevokeRulesOnDelete *bool   `pulumi:"revokeRulesOnDelete"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VPC ID. **Note that changing
 	// the `vpcId` will _not_ restore any default security group rules that were
@@ -139,7 +139,7 @@ type DefaultSecurityGroupState struct {
 	// The owner ID.
 	OwnerId             pulumi.StringPtrInput
 	RevokeRulesOnDelete pulumi.BoolPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The VPC ID. **Note that changing
 	// the `vpcId` will _not_ restore any default security group rules that were
@@ -159,7 +159,7 @@ type defaultSecurityGroupArgs struct {
 	// ingress rule. Each ingress block supports fields documented below.
 	Ingress             []DefaultSecurityGroupIngress `pulumi:"ingress"`
 	RevokeRulesOnDelete *bool                         `pulumi:"revokeRulesOnDelete"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VPC ID. **Note that changing
 	// the `vpcId` will _not_ restore any default security group rules that were
@@ -176,7 +176,7 @@ type DefaultSecurityGroupArgs struct {
 	// ingress rule. Each ingress block supports fields documented below.
 	Ingress             DefaultSecurityGroupIngressArrayInput
 	RevokeRulesOnDelete pulumi.BoolPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The VPC ID. **Note that changing
 	// the `vpcId` will _not_ restore any default security group rules that were

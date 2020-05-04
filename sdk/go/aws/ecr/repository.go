@@ -25,7 +25,7 @@ type Repository struct {
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 	RepositoryUrl pulumi.StringOutput `pulumi:"repositoryUrl"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -69,7 +69,7 @@ type repositoryState struct {
 	RegistryId *string `pulumi:"registryId"`
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 	RepositoryUrl *string `pulumi:"repositoryUrl"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -86,7 +86,7 @@ type RepositoryState struct {
 	RegistryId pulumi.StringPtrInput
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 	RepositoryUrl pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -101,7 +101,7 @@ type repositoryArgs struct {
 	ImageTagMutability *string `pulumi:"imageTagMutability"`
 	// Name of the repository.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -113,7 +113,7 @@ type RepositoryArgs struct {
 	ImageTagMutability pulumi.StringPtrInput
 	// Name of the repository.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

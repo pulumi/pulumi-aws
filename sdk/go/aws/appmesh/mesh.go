@@ -23,7 +23,7 @@ type Mesh struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The service mesh specification to apply.
 	Spec MeshSpecPtrOutput `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -65,7 +65,7 @@ type meshState struct {
 	Name *string `pulumi:"name"`
 	// The service mesh specification to apply.
 	Spec *MeshSpec `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -80,7 +80,7 @@ type MeshState struct {
 	Name pulumi.StringPtrInput
 	// The service mesh specification to apply.
 	Spec MeshSpecPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -93,7 +93,7 @@ type meshArgs struct {
 	Name *string `pulumi:"name"`
 	// The service mesh specification to apply.
 	Spec *MeshSpec `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -103,7 +103,7 @@ type MeshArgs struct {
 	Name pulumi.StringPtrInput
 	// The service mesh specification to apply.
 	Spec MeshSpecPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

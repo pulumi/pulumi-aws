@@ -56,7 +56,7 @@ type Trail struct {
 	// Specifies the name of the Amazon SNS topic
 	// defined for notification of log file delivery.
 	SnsTopicName pulumi.StringPtrOutput `pulumi:"snsTopicName"`
-	// A mapping of tags to assign to the trail
+	// A map of tags to assign to the trail
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -129,7 +129,7 @@ type trailState struct {
 	// Specifies the name of the Amazon SNS topic
 	// defined for notification of log file delivery.
 	SnsTopicName *string `pulumi:"snsTopicName"`
-	// A mapping of tags to assign to the trail
+	// A map of tags to assign to the trail
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -172,7 +172,7 @@ type TrailState struct {
 	// Specifies the name of the Amazon SNS topic
 	// defined for notification of log file delivery.
 	SnsTopicName pulumi.StringPtrInput
-	// A mapping of tags to assign to the trail
+	// A map of tags to assign to the trail
 	Tags pulumi.MapInput
 }
 
@@ -215,7 +215,7 @@ type trailArgs struct {
 	// Specifies the name of the Amazon SNS topic
 	// defined for notification of log file delivery.
 	SnsTopicName *string `pulumi:"snsTopicName"`
-	// A mapping of tags to assign to the trail
+	// A map of tags to assign to the trail
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -255,7 +255,7 @@ type TrailArgs struct {
 	// Specifies the name of the Amazon SNS topic
 	// defined for notification of log file delivery.
 	SnsTopicName pulumi.StringPtrInput
-	// A mapping of tags to assign to the trail
+	// A map of tags to assign to the trail
 	Tags pulumi.MapInput
 }
 

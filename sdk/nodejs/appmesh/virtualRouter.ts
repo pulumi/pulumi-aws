@@ -96,7 +96,7 @@ export class VirtualRouter extends pulumi.CustomResource {
      */
     public readonly spec!: pulumi.Output<outputs.appmesh.VirtualRouterSpec>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -175,7 +175,7 @@ export interface VirtualRouterState {
      */
     readonly spec?: pulumi.Input<inputs.appmesh.VirtualRouterSpec>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -197,7 +197,7 @@ export interface VirtualRouterArgs {
      */
     readonly spec: pulumi.Input<inputs.appmesh.VirtualRouterSpec>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

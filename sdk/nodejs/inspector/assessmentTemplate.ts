@@ -73,7 +73,7 @@ export class AssessmentTemplate extends pulumi.CustomResource {
      */
     public readonly rulesPackageArns!: pulumi.Output<string[]>;
     /**
-     * Key-value mapping of tags for the Inspector assessment template.
+     * Key-value map of tags for the Inspector assessment template.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -149,7 +149,7 @@ export interface AssessmentTemplateState {
      */
     readonly rulesPackageArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of tags for the Inspector assessment template.
+     * Key-value map of tags for the Inspector assessment template.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -175,7 +175,7 @@ export interface AssessmentTemplateArgs {
      */
     readonly rulesPackageArns: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of tags for the Inspector assessment template.
+     * Key-value map of tags for the Inspector assessment template.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

@@ -65,7 +65,7 @@ class RestApi(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags
+    Key-value map of resource tags
     """
     def __init__(__self__, resource_name, opts=None, api_key_source=None, binary_media_types=None, body=None, description=None, endpoint_configuration=None, minimum_compression_size=None, name=None, policy=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -85,7 +85,7 @@ class RestApi(pulumi.CustomResource):
         :param pulumi.Input[float] minimum_compression_size: Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
         :param pulumi.Input[str] name: The name of the REST API
         :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
 
         The **endpoint_configuration** object supports the following:
 
@@ -151,7 +151,7 @@ class RestApi(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the REST API
         :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway.
         :param pulumi.Input[str] root_resource_id: The resource ID of the REST API's root
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
 
         The **endpoint_configuration** object supports the following:
 

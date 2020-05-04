@@ -56,7 +56,7 @@ type Topic struct {
 	SqsSuccessFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"sqsSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate pulumi.IntPtrOutput `pulumi:"sqsSuccessFeedbackSampleRate"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -126,7 +126,7 @@ type topicState struct {
 	SqsSuccessFeedbackRoleArn *string `pulumi:"sqsSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate *int `pulumi:"sqsSuccessFeedbackSampleRate"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -169,7 +169,7 @@ type TopicState struct {
 	SqsSuccessFeedbackRoleArn pulumi.StringPtrInput
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate pulumi.IntPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 
@@ -214,7 +214,7 @@ type topicArgs struct {
 	SqsSuccessFeedbackRoleArn *string `pulumi:"sqsSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate *int `pulumi:"sqsSuccessFeedbackSampleRate"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -256,7 +256,7 @@ type TopicArgs struct {
 	SqsSuccessFeedbackRoleArn pulumi.StringPtrInput
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate pulumi.IntPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 

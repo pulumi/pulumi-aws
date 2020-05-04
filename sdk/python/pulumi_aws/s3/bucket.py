@@ -111,7 +111,7 @@ class Bucket(pulumi.CustomResource):
     """
     policy: pulumi.Output[str]
     """
-    A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
+    A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
     """
     region: pulumi.Output[str]
     """
@@ -135,7 +135,7 @@ class Bucket(pulumi.CustomResource):
 
         * `filter` (`dict`) - Filter that identifies subset of objects to which the replication rule applies (documented below).
           * `prefix` (`str`) - Object keyname prefix that identifies subset of objects to which the rule applies.
-          * `tags` (`dict`) - A mapping of tags that identifies subset of objects to which the rule applies.
+          * `tags` (`dict`) - A map of tags that identifies subset of objects to which the rule applies.
             The rule applies only to objects having all the tags in its tagset.
 
         * `id` (`str`) - Unique identifier for the rule.
@@ -213,7 +213,7 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[list] lifecycle_rules: A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
         :param pulumi.Input[list] loggings: A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
         :param pulumi.Input[dict] object_lock_configuration: A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
-        :param pulumi.Input[dict] policy: A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
+        :param pulumi.Input[dict] policy: A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
         :param pulumi.Input[str] region: If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
         :param pulumi.Input[dict] replication_configuration: A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
         :param pulumi.Input[str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
@@ -296,7 +296,7 @@ class Bucket(pulumi.CustomResource):
 
             * `filter` (`pulumi.Input[dict]`) - Filter that identifies subset of objects to which the replication rule applies (documented below).
               * `prefix` (`pulumi.Input[str]`) - Object keyname prefix that identifies subset of objects to which the rule applies.
-              * `tags` (`pulumi.Input[dict]`) - A mapping of tags that identifies subset of objects to which the rule applies.
+              * `tags` (`pulumi.Input[dict]`) - A map of tags that identifies subset of objects to which the rule applies.
                 The rule applies only to objects having all the tags in its tagset.
 
             * `id` (`pulumi.Input[str]`) - Unique identifier for the rule.
@@ -399,7 +399,7 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[list] lifecycle_rules: A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
         :param pulumi.Input[list] loggings: A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
         :param pulumi.Input[dict] object_lock_configuration: A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
-        :param pulumi.Input[dict] policy: A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
+        :param pulumi.Input[dict] policy: A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
         :param pulumi.Input[str] region: If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
         :param pulumi.Input[dict] replication_configuration: A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
         :param pulumi.Input[str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
@@ -482,7 +482,7 @@ class Bucket(pulumi.CustomResource):
 
             * `filter` (`pulumi.Input[dict]`) - Filter that identifies subset of objects to which the replication rule applies (documented below).
               * `prefix` (`pulumi.Input[str]`) - Object keyname prefix that identifies subset of objects to which the rule applies.
-              * `tags` (`pulumi.Input[dict]`) - A mapping of tags that identifies subset of objects to which the rule applies.
+              * `tags` (`pulumi.Input[dict]`) - A map of tags that identifies subset of objects to which the rule applies.
                 The rule applies only to objects having all the tags in its tagset.
 
             * `id` (`pulumi.Input[str]`) - Unique identifier for the rule.

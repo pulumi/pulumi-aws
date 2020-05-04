@@ -34,7 +34,7 @@ type DefaultSubnet struct {
 	MapPublicIpOnLaunch pulumi.BoolOutput `pulumi:"mapPublicIpOnLaunch"`
 	// The ID of the AWS account that owns the subnet.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The VPC ID.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -86,7 +86,7 @@ type defaultSubnetState struct {
 	MapPublicIpOnLaunch *bool `pulumi:"mapPublicIpOnLaunch"`
 	// The ID of the AWS account that owns the subnet.
 	OwnerId *string `pulumi:"ownerId"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VPC ID.
 	VpcId *string `pulumi:"vpcId"`
@@ -108,7 +108,7 @@ type DefaultSubnetState struct {
 	MapPublicIpOnLaunch pulumi.BoolPtrInput
 	// The ID of the AWS account that owns the subnet.
 	OwnerId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The VPC ID.
 	VpcId pulumi.StringPtrInput
@@ -124,7 +124,7 @@ type defaultSubnetArgs struct {
 	// that instances launched into the subnet should be assigned
 	// a public IP address.
 	MapPublicIpOnLaunch *bool `pulumi:"mapPublicIpOnLaunch"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -135,7 +135,7 @@ type DefaultSubnetArgs struct {
 	// that instances launched into the subnet should be assigned
 	// a public IP address.
 	MapPublicIpOnLaunch pulumi.BoolPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

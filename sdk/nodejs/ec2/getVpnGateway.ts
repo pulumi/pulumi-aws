@@ -79,7 +79,7 @@ export interface GetVpnGatewayArgs {
      */
     readonly state?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * A map of tags, each pair of which must exactly match
      * a pair on the desired VPN Gateway.
      */
     readonly tags?: {[key: string]: any};

@@ -67,7 +67,7 @@ export class PlacementGroup extends pulumi.CustomResource {
      */
     public readonly strategy!: pulumi.Output<PlacementStrategy>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -125,7 +125,7 @@ export interface PlacementGroupState {
      */
     readonly strategy?: pulumi.Input<PlacementStrategy>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -143,7 +143,7 @@ export interface PlacementGroupArgs {
      */
     readonly strategy: pulumi.Input<PlacementStrategy>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

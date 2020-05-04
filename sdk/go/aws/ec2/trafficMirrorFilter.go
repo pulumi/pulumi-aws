@@ -18,7 +18,7 @@ type TrafficMirrorFilter struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
 	NetworkServices pulumi.StringArrayOutput `pulumi:"networkServices"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -54,7 +54,7 @@ type trafficMirrorFilterState struct {
 	Description *string `pulumi:"description"`
 	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
 	NetworkServices []string `pulumi:"networkServices"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -63,7 +63,7 @@ type TrafficMirrorFilterState struct {
 	Description pulumi.StringPtrInput
 	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
 	NetworkServices pulumi.StringArrayInput
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapInput
 }
 
@@ -76,7 +76,7 @@ type trafficMirrorFilterArgs struct {
 	Description *string `pulumi:"description"`
 	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
 	NetworkServices []string `pulumi:"networkServices"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -86,7 +86,7 @@ type TrafficMirrorFilterArgs struct {
 	Description pulumi.StringPtrInput
 	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
 	NetworkServices pulumi.StringArrayInput
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapInput
 }
 

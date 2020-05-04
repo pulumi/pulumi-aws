@@ -27,7 +27,7 @@ type App struct {
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
 	QuietTime AppQuietTimePtrOutput `pulumi:"quietTime"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -73,7 +73,7 @@ type appState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
 	QuietTime *AppQuietTime `pulumi:"quietTime"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -92,7 +92,7 @@ type AppState struct {
 	NamePrefix pulumi.StringPtrInput
 	// The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
 	QuietTime AppQuietTimePtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 
@@ -111,7 +111,7 @@ type appArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
 	QuietTime *AppQuietTime `pulumi:"quietTime"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -127,7 +127,7 @@ type AppArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
 	QuietTime AppQuietTimePtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 

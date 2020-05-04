@@ -72,7 +72,7 @@ export class ClientCertificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly pemEncodedCertificate!: pulumi.Output<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -139,7 +139,7 @@ export interface ClientCertificateState {
      */
     readonly pemEncodedCertificate?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -153,7 +153,7 @@ export interface ClientCertificateArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

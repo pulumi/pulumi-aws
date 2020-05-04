@@ -116,7 +116,7 @@ type Cluster struct {
 	SourceRegion pulumi.StringPtrOutput `pulumi:"sourceRegion"`
 	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
 	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the DB cluster.
+	// A map of tags to assign to the DB cluster.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// List of VPC security groups to associate
 	// with the Cluster
@@ -236,7 +236,7 @@ type clusterState struct {
 	SourceRegion *string `pulumi:"sourceRegion"`
 	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the DB cluster.
+	// A map of tags to assign to the DB cluster.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// List of VPC security groups to associate
 	// with the Cluster
@@ -329,7 +329,7 @@ type ClusterState struct {
 	SourceRegion pulumi.StringPtrInput
 	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A mapping of tags to assign to the DB cluster.
+	// A map of tags to assign to the DB cluster.
 	Tags pulumi.MapInput
 	// List of VPC security groups to associate
 	// with the Cluster
@@ -415,7 +415,7 @@ type clusterArgs struct {
 	SourceRegion *string `pulumi:"sourceRegion"`
 	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the DB cluster.
+	// A map of tags to assign to the DB cluster.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// List of VPC security groups to associate
 	// with the Cluster
@@ -498,7 +498,7 @@ type ClusterArgs struct {
 	SourceRegion pulumi.StringPtrInput
 	// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A mapping of tags to assign to the DB cluster.
+	// A map of tags to assign to the DB cluster.
 	Tags pulumi.MapInput
 	// List of VPC security groups to associate
 	// with the Cluster

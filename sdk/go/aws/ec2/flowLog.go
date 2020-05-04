@@ -34,7 +34,7 @@ type FlowLog struct {
 	MaxAggregationInterval pulumi.IntPtrOutput `pulumi:"maxAggregationInterval"`
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType pulumi.StringOutput `pulumi:"trafficType"`
@@ -92,7 +92,7 @@ type flowLogState struct {
 	MaxAggregationInterval *int `pulumi:"maxAggregationInterval"`
 	// Subnet ID to attach to
 	SubnetId *string `pulumi:"subnetId"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType *string `pulumi:"trafficType"`
@@ -120,7 +120,7 @@ type FlowLogState struct {
 	MaxAggregationInterval pulumi.IntPtrInput
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType pulumi.StringPtrInput
@@ -152,7 +152,7 @@ type flowLogArgs struct {
 	MaxAggregationInterval *int `pulumi:"maxAggregationInterval"`
 	// Subnet ID to attach to
 	SubnetId *string `pulumi:"subnetId"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType string `pulumi:"trafficType"`
@@ -181,7 +181,7 @@ type FlowLogArgs struct {
 	MaxAggregationInterval pulumi.IntPtrInput
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType pulumi.StringInput

@@ -64,7 +64,7 @@ export interface GetBucketObjectArgs {
     readonly key: string;
     readonly range?: string;
     /**
-     * A mapping of tags assigned to the object.
+     * A map of tags assigned to the object.
      */
     readonly tags?: {[key: string]: any};
     /**
@@ -153,7 +153,7 @@ export interface GetBucketObjectResult {
      */
     readonly storageClass: string;
     /**
-     * A mapping of tags assigned to the object.
+     * A map of tags assigned to the object.
      */
     readonly tags: {[key: string]: any};
     /**

@@ -24,6 +24,21 @@ class Api(pulumi.CustomResource):
     """
     The ARN of the API.
     """
+    cors_configuration: pulumi.Output[dict]
+    """
+    The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+
+      * `allowCredentials` (`bool`) - Whether credentials are included in the CORS request.
+      * `allowHeaders` (`list`) - The set of allowed HTTP headers.
+      * `allowMethods` (`list`) - The set of allowed HTTP methods.
+      * `allowOrigins` (`list`) - The set of allowed origins.
+      * `exposeHeaders` (`list`) - The set of exposed HTTP headers.
+      * `maxAge` (`float`) - The number of seconds that the browser should cache preflight request results.
+    """
+    credentials_arn: pulumi.Output[str]
+    """
+    Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
+    """
     description: pulumi.Output[str]
     """
     The description of the API.
@@ -42,6 +57,10 @@ class Api(pulumi.CustomResource):
     """
     The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
     """
+    route_key: pulumi.Output[str]
+    """
+    Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
+    """
     route_selection_expression: pulumi.Output[str]
     """
     The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
@@ -49,13 +68,19 @@ class Api(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the API.
+    A map of tags to assign to the API.
+    """
+    target: pulumi.Output[str]
+    """
+    Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
+    For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
+    The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
     """
     version: pulumi.Output[str]
     """
     A version identifier for the API.
     """
-    def __init__(__self__, resource_name, opts=None, api_key_selection_expression=None, description=None, name=None, protocol_type=None, route_selection_expression=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_key_selection_expression=None, cors_configuration=None, credentials_arn=None, description=None, name=None, protocol_type=None, route_key=None, route_selection_expression=None, tags=None, target=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Amazon API Gateway Version 2 API.
 
@@ -68,13 +93,28 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] api_key_selection_expression: An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
                Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
                Applicable for WebSocket APIs.
+        :param pulumi.Input[dict] cors_configuration: The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+        :param pulumi.Input[str] credentials_arn: Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
         :param pulumi.Input[str] description: The description of the API.
         :param pulumi.Input[str] name: The name of the API.
         :param pulumi.Input[str] protocol_type: The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+        :param pulumi.Input[str] route_key: Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
         :param pulumi.Input[str] route_selection_expression: The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
                Defaults to `$request.method $request.path`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the API.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the API.
+        :param pulumi.Input[str] target: Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
+               For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
+               The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
         :param pulumi.Input[str] version: A version identifier for the API.
+
+        The **cors_configuration** object supports the following:
+
+          * `allowCredentials` (`pulumi.Input[bool]`) - Whether credentials are included in the CORS request.
+          * `allowHeaders` (`pulumi.Input[list]`) - The set of allowed HTTP headers.
+          * `allowMethods` (`pulumi.Input[list]`) - The set of allowed HTTP methods.
+          * `allowOrigins` (`pulumi.Input[list]`) - The set of allowed origins.
+          * `exposeHeaders` (`pulumi.Input[list]`) - The set of exposed HTTP headers.
+          * `maxAge` (`pulumi.Input[float]`) - The number of seconds that the browser should cache preflight request results.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -94,13 +134,17 @@ class Api(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['api_key_selection_expression'] = api_key_selection_expression
+            __props__['cors_configuration'] = cors_configuration
+            __props__['credentials_arn'] = credentials_arn
             __props__['description'] = description
             __props__['name'] = name
             if protocol_type is None:
                 raise TypeError("Missing required property 'protocol_type'")
             __props__['protocol_type'] = protocol_type
+            __props__['route_key'] = route_key
             __props__['route_selection_expression'] = route_selection_expression
             __props__['tags'] = tags
+            __props__['target'] = target
             __props__['version'] = version
             __props__['api_endpoint'] = None
             __props__['arn'] = None
@@ -112,7 +156,7 @@ class Api(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, api_endpoint=None, api_key_selection_expression=None, arn=None, description=None, execution_arn=None, name=None, protocol_type=None, route_selection_expression=None, tags=None, version=None):
+    def get(resource_name, id, opts=None, api_endpoint=None, api_key_selection_expression=None, arn=None, cors_configuration=None, credentials_arn=None, description=None, execution_arn=None, name=None, protocol_type=None, route_key=None, route_selection_expression=None, tags=None, target=None, version=None):
         """
         Get an existing Api resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -125,16 +169,31 @@ class Api(pulumi.CustomResource):
                Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
                Applicable for WebSocket APIs.
         :param pulumi.Input[str] arn: The ARN of the API.
+        :param pulumi.Input[dict] cors_configuration: The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+        :param pulumi.Input[str] credentials_arn: Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
         :param pulumi.Input[str] description: The description of the API.
         :param pulumi.Input[str] execution_arn: The ARN prefix to be used in an [`lambda.Permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn` attribute
                or in an [`iam.Policy`](https://www.terraform.io/docs/providers/aws/r/iam_policy.html) to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
                See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         :param pulumi.Input[str] name: The name of the API.
         :param pulumi.Input[str] protocol_type: The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+        :param pulumi.Input[str] route_key: Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
         :param pulumi.Input[str] route_selection_expression: The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
                Defaults to `$request.method $request.path`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the API.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the API.
+        :param pulumi.Input[str] target: Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
+               For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
+               The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
         :param pulumi.Input[str] version: A version identifier for the API.
+
+        The **cors_configuration** object supports the following:
+
+          * `allowCredentials` (`pulumi.Input[bool]`) - Whether credentials are included in the CORS request.
+          * `allowHeaders` (`pulumi.Input[list]`) - The set of allowed HTTP headers.
+          * `allowMethods` (`pulumi.Input[list]`) - The set of allowed HTTP methods.
+          * `allowOrigins` (`pulumi.Input[list]`) - The set of allowed origins.
+          * `exposeHeaders` (`pulumi.Input[list]`) - The set of exposed HTTP headers.
+          * `maxAge` (`pulumi.Input[float]`) - The number of seconds that the browser should cache preflight request results.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -143,12 +202,16 @@ class Api(pulumi.CustomResource):
         __props__["api_endpoint"] = api_endpoint
         __props__["api_key_selection_expression"] = api_key_selection_expression
         __props__["arn"] = arn
+        __props__["cors_configuration"] = cors_configuration
+        __props__["credentials_arn"] = credentials_arn
         __props__["description"] = description
         __props__["execution_arn"] = execution_arn
         __props__["name"] = name
         __props__["protocol_type"] = protocol_type
+        __props__["route_key"] = route_key
         __props__["route_selection_expression"] = route_selection_expression
         __props__["tags"] = tags
+        __props__["target"] = target
         __props__["version"] = version
         return Api(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

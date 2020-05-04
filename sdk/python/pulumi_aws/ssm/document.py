@@ -93,7 +93,7 @@ class Document(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the object.
+    A map of tags to assign to the object.
     """
     target_type: pulumi.Output[str]
     """
@@ -127,7 +127,7 @@ class Document(pulumi.CustomResource):
         :param pulumi.Input[str] document_type: The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
         :param pulumi.Input[str] name: The name of the document.
         :param pulumi.Input[dict] permissions: Additional Permissions to attach to the document. See Permissions below for details.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the object.
         :param pulumi.Input[str] target_type: The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 
         The **attachments_sources** object supports the following:
@@ -214,7 +214,7 @@ class Document(pulumi.CustomResource):
         :param pulumi.Input[list] platform_types: A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
         :param pulumi.Input[str] schema_version: The schema version of the document.
         :param pulumi.Input[str] status: "Creating", "Active" or "Deleting". The current status of the document.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the object.
         :param pulumi.Input[str] target_type: The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 
         The **attachments_sources** object supports the following:

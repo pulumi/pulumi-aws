@@ -23,7 +23,7 @@ type LookupVpcDhcpOptionsArgs struct {
 	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
 	// List of custom filters as described below.
 	Filters []GetVpcDhcpOptionsFilter `pulumi:"filters"`
-	// A mapping of tags assigned to the resource.
+	// A map of tags assigned to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -46,6 +46,6 @@ type LookupVpcDhcpOptionsResult struct {
 	NtpServers []string `pulumi:"ntpServers"`
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId string `pulumi:"ownerId"`
-	// A mapping of tags assigned to the resource.
+	// A map of tags assigned to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }

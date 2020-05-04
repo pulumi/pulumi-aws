@@ -73,7 +73,7 @@ export class SnapshotSchedule extends pulumi.CustomResource {
      */
     public readonly identifierPrefix!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -147,7 +147,7 @@ export interface SnapshotScheduleState {
      */
     readonly identifierPrefix?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -178,7 +178,7 @@ export interface SnapshotScheduleArgs {
      */
     readonly identifierPrefix?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

@@ -181,7 +181,7 @@ export class BucketObject extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
-     * A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+     * A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      */
     public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -210,7 +210,7 @@ export class BucketObject extends pulumi.CustomResource {
      */
     public readonly storageClass!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -360,7 +360,7 @@ export interface BucketObjectState {
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
-     * A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+     * A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      */
     readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -389,7 +389,7 @@ export interface BucketObjectState {
      */
     readonly storageClass?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -465,7 +465,7 @@ export interface BucketObjectArgs {
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
-     * A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+     * A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      */
     readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -494,7 +494,7 @@ export interface BucketObjectArgs {
      */
     readonly storageClass?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

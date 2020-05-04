@@ -68,7 +68,7 @@ class Stage(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     variables: pulumi.Output[dict]
     """
@@ -96,7 +96,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] documentation_version: The version of the associated API documentation
         :param pulumi.Input[dict] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] stage_name: The name of the stage
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[dict] variables: A map that defines the stage variables
         :param pulumi.Input[bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
 
@@ -175,7 +175,7 @@ class Stage(pulumi.CustomResource):
                e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         :param pulumi.Input[dict] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] stage_name: The name of the stage
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[dict] variables: A map that defines the stage variables
         :param pulumi.Input[bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
 

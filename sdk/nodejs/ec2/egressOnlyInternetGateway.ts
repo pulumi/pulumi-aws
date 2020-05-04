@@ -62,7 +62,7 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
     }
 
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -108,7 +108,7 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
  */
 export interface EgressOnlyInternetGatewayState {
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -122,7 +122,7 @@ export interface EgressOnlyInternetGatewayState {
  */
 export interface EgressOnlyInternetGatewayArgs {
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

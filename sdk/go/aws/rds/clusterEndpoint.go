@@ -29,7 +29,7 @@ type ClusterEndpoint struct {
 	ExcludedMembers pulumi.StringArrayOutput `pulumi:"excludedMembers"`
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers pulumi.StringArrayOutput `pulumi:"staticMembers"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -84,7 +84,7 @@ type clusterEndpointState struct {
 	ExcludedMembers []string `pulumi:"excludedMembers"`
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers []string `pulumi:"staticMembers"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -103,7 +103,7 @@ type ClusterEndpointState struct {
 	ExcludedMembers pulumi.StringArrayInput
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers pulumi.StringArrayInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 
@@ -122,7 +122,7 @@ type clusterEndpointArgs struct {
 	ExcludedMembers []string `pulumi:"excludedMembers"`
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers []string `pulumi:"staticMembers"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -138,7 +138,7 @@ type ClusterEndpointArgs struct {
 	ExcludedMembers pulumi.StringArrayInput
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers pulumi.StringArrayInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 

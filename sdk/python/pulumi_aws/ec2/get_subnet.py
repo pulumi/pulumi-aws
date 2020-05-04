@@ -108,7 +108,7 @@ def get_subnet(availability_zone=None,availability_zone_id=None,cidr_block=None,
     :param str id: The id of the specific subnet to retrieve.
     :param str ipv6_cidr_block: The Ipv6 cidr block of the desired subnet
     :param str state: The state that the desired subnet must have.
-    :param dict tags: A mapping of tags, each pair of which must exactly match
+    :param dict tags: A map of tags, each pair of which must exactly match
            a pair on the desired subnet.
     :param str vpc_id: The id of the VPC that the desired subnet belongs to.
 

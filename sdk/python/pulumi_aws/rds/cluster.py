@@ -179,7 +179,7 @@ class Cluster(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the DB cluster.
+    A map of tags to assign to the DB cluster.
     """
     vpc_security_group_ids: pulumi.Output[list]
     """
@@ -252,7 +252,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
         :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the DB cluster.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the DB cluster.
         :param pulumi.Input[list] vpc_security_group_ids: List of VPC security groups to associate
                with the Cluster
 
@@ -391,7 +391,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
         :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the DB cluster.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the DB cluster.
         :param pulumi.Input[list] vpc_security_group_ids: List of VPC security groups to associate
                with the Cluster
 

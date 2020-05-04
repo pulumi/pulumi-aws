@@ -57,7 +57,7 @@ type Stack struct {
 	// The ARN of an IAM role that the OpsWorks service will act as.
 	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
 	StackEndpoint  pulumi.StringOutput `pulumi:"stackEndpoint"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Boolean value controlling whether the custom cookbook settings are
 	// enabled.
@@ -149,7 +149,7 @@ type stackState struct {
 	// The ARN of an IAM role that the OpsWorks service will act as.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
 	StackEndpoint  *string `pulumi:"stackEndpoint"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Boolean value controlling whether the custom cookbook settings are
 	// enabled.
@@ -205,7 +205,7 @@ type StackState struct {
 	// The ARN of an IAM role that the OpsWorks service will act as.
 	ServiceRoleArn pulumi.StringPtrInput
 	StackEndpoint  pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// Boolean value controlling whether the custom cookbook settings are
 	// enabled.
@@ -263,7 +263,7 @@ type stackArgs struct {
 	Region string `pulumi:"region"`
 	// The ARN of an IAM role that the OpsWorks service will act as.
 	ServiceRoleArn string `pulumi:"serviceRoleArn"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Boolean value controlling whether the custom cookbook settings are
 	// enabled.
@@ -318,7 +318,7 @@ type StackArgs struct {
 	Region pulumi.StringInput
 	// The ARN of an IAM role that the OpsWorks service will act as.
 	ServiceRoleArn pulumi.StringInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// Boolean value controlling whether the custom cookbook settings are
 	// enabled.

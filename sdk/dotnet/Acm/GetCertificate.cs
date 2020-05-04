@@ -64,6 +64,18 @@ namespace Pulumi.Aws.Acm
             set => _statuses = value;
         }
 
+        [Input("tags")]
+        private Dictionary<string, object>? _tags;
+
+        /// <summary>
+        /// A mapping of tags for the resource.
+        /// </summary>
+        public Dictionary<string, object> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, object>());
+            set => _tags = value;
+        }
+
         [Input("types")]
         private List<string>? _types;
 
@@ -97,6 +109,10 @@ namespace Pulumi.Aws.Acm
         public readonly ImmutableArray<string> KeyTypes;
         public readonly bool? MostRecent;
         public readonly ImmutableArray<string> Statuses;
+        /// <summary>
+        /// A mapping of tags for the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> Tags;
         public readonly ImmutableArray<string> Types;
 
         [OutputConstructor]
@@ -113,6 +129,8 @@ namespace Pulumi.Aws.Acm
 
             ImmutableArray<string> statuses,
 
+            ImmutableDictionary<string, object> tags,
+
             ImmutableArray<string> types)
         {
             Arn = arn;
@@ -121,6 +139,7 @@ namespace Pulumi.Aws.Acm
             KeyTypes = keyTypes;
             MostRecent = mostRecent;
             Statuses = statuses;
+            Tags = tags;
             Types = types;
         }
     }

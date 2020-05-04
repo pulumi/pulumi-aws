@@ -22,7 +22,7 @@ type SnapshotCopyGrant struct {
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName pulumi.StringOutput `pulumi:"snapshotCopyGrantName"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -63,7 +63,7 @@ type snapshotCopyGrantState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName *string `pulumi:"snapshotCopyGrantName"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -74,7 +74,7 @@ type SnapshotCopyGrantState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -87,7 +87,7 @@ type snapshotCopyGrantArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName string `pulumi:"snapshotCopyGrantName"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -97,7 +97,7 @@ type SnapshotCopyGrantArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName pulumi.StringInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

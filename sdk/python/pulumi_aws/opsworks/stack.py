@@ -98,7 +98,7 @@ class Stack(pulumi.CustomResource):
     stack_endpoint: pulumi.Output[str]
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     use_custom_cookbooks: pulumi.Output[bool]
     """
@@ -145,7 +145,7 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the stack.
         :param pulumi.Input[str] region: The name of the region where the stack will exist.
         :param pulumi.Input[str] service_role_arn: The ARN of an IAM role that the OpsWorks service will act as.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[bool] use_custom_cookbooks: Boolean value controlling whether the custom cookbook settings are
                enabled.
         :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
@@ -246,7 +246,7 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the stack.
         :param pulumi.Input[str] region: The name of the region where the stack will exist.
         :param pulumi.Input[str] service_role_arn: The ARN of an IAM role that the OpsWorks service will act as.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[bool] use_custom_cookbooks: Boolean value controlling whether the custom cookbook settings are
                enabled.
         :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks

@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Ebs
         private Dictionary<string, object>? _tags;
 
         /// <summary>
-        /// A mapping of tags for the resource.
+        /// A map of tags for the resource.
         /// </summary>
         public Dictionary<string, object> Tags
         {
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly string SnapshotId;
         /// <summary>
-        /// A mapping of tags for the resource.
+        /// A map of tags for the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
         /// <summary>

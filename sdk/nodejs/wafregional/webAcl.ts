@@ -147,7 +147,7 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly rules!: pulumi.Output<outputs.wafregional.WebAclRule[] | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -226,7 +226,7 @@ export interface WebAclState {
      */
     readonly rules?: pulumi.Input<pulumi.Input<inputs.wafregional.WebAclRule>[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -256,7 +256,7 @@ export interface WebAclArgs {
      */
     readonly rules?: pulumi.Input<pulumi.Input<inputs.wafregional.WebAclRule>[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

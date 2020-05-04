@@ -25,7 +25,7 @@ type UsagePlan struct {
 	ProductCode pulumi.StringPtrOutput `pulumi:"productCode"`
 	// The quota settings of the usage plan.
 	QuotaSettings UsagePlanQuotaSettingsPtrOutput `pulumi:"quotaSettings"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The throttling limits of the usage plan.
 	ThrottleSettings UsagePlanThrottleSettingsPtrOutput `pulumi:"throttleSettings"`
@@ -71,7 +71,7 @@ type usagePlanState struct {
 	ProductCode *string `pulumi:"productCode"`
 	// The quota settings of the usage plan.
 	QuotaSettings *UsagePlanQuotaSettings `pulumi:"quotaSettings"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The throttling limits of the usage plan.
 	ThrottleSettings *UsagePlanThrottleSettings `pulumi:"throttleSettings"`
@@ -90,7 +90,7 @@ type UsagePlanState struct {
 	ProductCode pulumi.StringPtrInput
 	// The quota settings of the usage plan.
 	QuotaSettings UsagePlanQuotaSettingsPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 	// The throttling limits of the usage plan.
 	ThrottleSettings UsagePlanThrottleSettingsPtrInput
@@ -111,7 +111,7 @@ type usagePlanArgs struct {
 	ProductCode *string `pulumi:"productCode"`
 	// The quota settings of the usage plan.
 	QuotaSettings *UsagePlanQuotaSettings `pulumi:"quotaSettings"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The throttling limits of the usage plan.
 	ThrottleSettings *UsagePlanThrottleSettings `pulumi:"throttleSettings"`
@@ -129,7 +129,7 @@ type UsagePlanArgs struct {
 	ProductCode pulumi.StringPtrInput
 	// The quota settings of the usage plan.
 	QuotaSettings UsagePlanQuotaSettingsPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 	// The throttling limits of the usage plan.
 	ThrottleSettings UsagePlanThrottleSettingsPtrInput

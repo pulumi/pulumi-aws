@@ -40,7 +40,7 @@ type LookupVpcPeeringConnectionArgs struct {
 	Region *string `pulumi:"region"`
 	// The status of the specific VPC Peering Connection to retrieve.
 	Status *string `pulumi:"status"`
-	// A mapping of tags, each pair of which must exactly match
+	// A map of tags, each pair of which must exactly match
 	// a pair on the desired VPC Peering Connection.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The ID of the requester VPC of the specific VPC Peering Connection to retrieve.

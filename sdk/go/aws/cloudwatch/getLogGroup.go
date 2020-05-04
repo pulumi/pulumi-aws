@@ -21,7 +21,7 @@ func LookupLogGroup(ctx *pulumi.Context, args *LookupLogGroupArgs, opts ...pulum
 type LookupLogGroupArgs struct {
 	// The name of the Cloudwatch log group
 	Name string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -38,6 +38,6 @@ type LookupLogGroupResult struct {
 	Name     string `pulumi:"name"`
 	// The number of days log events retained in the specified log group.
 	RetentionInDays int `pulumi:"retentionInDays"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }

@@ -159,7 +159,7 @@ class Project(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     vpc_config: pulumi.Output[dict]
     """
@@ -192,7 +192,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] service_role: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         :param pulumi.Input[dict] source: Information about the project's input source code. Source blocks are documented below.
         :param pulumi.Input[str] source_version: A version of the build input to be built for this project. If not specified, the latest version is used.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[dict] vpc_config: Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
 
         The **artifacts** object supports the following:
@@ -370,7 +370,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] service_role: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         :param pulumi.Input[dict] source: Information about the project's input source code. Source blocks are documented below.
         :param pulumi.Input[str] source_version: A version of the build input to be built for this project. If not specified, the latest version is used.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[dict] vpc_config: Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
 
         The **artifacts** object supports the following:

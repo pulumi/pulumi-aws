@@ -54,7 +54,7 @@ export interface GetSecurityGroupsArgs {
      */
     readonly filters?: inputs.ec2.GetSecurityGroupsFilter[];
     /**
-     * A mapping of tags, each pair of which must exactly match for
+     * A map of tags, each pair of which must exactly match for
      * desired security groups.
      */
     readonly tags?: {[key: string]: any};

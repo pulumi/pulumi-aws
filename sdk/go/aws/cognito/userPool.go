@@ -53,7 +53,7 @@ type UserPool struct {
 	SmsVerificationMessage pulumi.StringOutput `pulumi:"smsVerificationMessage"`
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrOutput `pulumi:"softwareTokenMfaConfiguration"`
-	// A mapping of tags to assign to the User Pool.
+	// A map of tags to assign to the User Pool.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrOutput `pulumi:"userPoolAddOns"`
@@ -133,7 +133,7 @@ type userPoolState struct {
 	SmsVerificationMessage *string `pulumi:"smsVerificationMessage"`
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration *UserPoolSoftwareTokenMfaConfiguration `pulumi:"softwareTokenMfaConfiguration"`
-	// A mapping of tags to assign to the User Pool.
+	// A map of tags to assign to the User Pool.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
 	UserPoolAddOns *UserPoolUserPoolAddOns `pulumi:"userPoolAddOns"`
@@ -186,7 +186,7 @@ type UserPoolState struct {
 	SmsVerificationMessage pulumi.StringPtrInput
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrInput
-	// A mapping of tags to assign to the User Pool.
+	// A map of tags to assign to the User Pool.
 	Tags pulumi.MapInput
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrInput
@@ -235,7 +235,7 @@ type userPoolArgs struct {
 	SmsVerificationMessage *string `pulumi:"smsVerificationMessage"`
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration *UserPoolSoftwareTokenMfaConfiguration `pulumi:"softwareTokenMfaConfiguration"`
-	// A mapping of tags to assign to the User Pool.
+	// A map of tags to assign to the User Pool.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
 	UserPoolAddOns *UserPoolUserPoolAddOns `pulumi:"userPoolAddOns"`
@@ -281,7 +281,7 @@ type UserPoolArgs struct {
 	SmsVerificationMessage pulumi.StringPtrInput
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrInput
-	// A mapping of tags to assign to the User Pool.
+	// A map of tags to assign to the User Pool.
 	Tags pulumi.MapInput
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrInput

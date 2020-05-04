@@ -169,7 +169,7 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly sqsSuccessFeedbackSampleRate!: pulumi.Output<number | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -320,7 +320,7 @@ export interface TopicState {
      */
     readonly sqsSuccessFeedbackSampleRate?: pulumi.Input<number>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -402,7 +402,7 @@ export interface TopicArgs {
      */
     readonly sqsSuccessFeedbackSampleRate?: pulumi.Input<number>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

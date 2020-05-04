@@ -30,7 +30,7 @@ class FargateProfile(pulumi.CustomResource):
     """
     Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
 
-      * `labels` (`dict`) - Key-value mapping of Kubernetes labels for selection.
+      * `labels` (`dict`) - Key-value map of Kubernetes labels for selection.
       * `namespace` (`str`) - Kubernetes namespace for selection.
     """
     status: pulumi.Output[str]
@@ -43,7 +43,7 @@ class FargateProfile(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags.
+    Key-value map of resource tags.
     """
     def __init__(__self__, resource_name, opts=None, cluster_name=None, fargate_profile_name=None, pod_execution_role_arn=None, selectors=None, subnet_ids=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -58,11 +58,11 @@ class FargateProfile(pulumi.CustomResource):
         :param pulumi.Input[str] pod_execution_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
         :param pulumi.Input[list] selectors: Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
         :param pulumi.Input[list] subnet_ids: Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags.
 
         The **selectors** object supports the following:
 
-          * `labels` (`pulumi.Input[dict]`) - Key-value mapping of Kubernetes labels for selection.
+          * `labels` (`pulumi.Input[dict]`) - Key-value map of Kubernetes labels for selection.
           * `namespace` (`pulumi.Input[str]`) - Kubernetes namespace for selection.
         """
         if __name__ is not None:
@@ -118,11 +118,11 @@ class FargateProfile(pulumi.CustomResource):
         :param pulumi.Input[list] selectors: Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
         :param pulumi.Input[str] status: Status of the EKS Fargate Profile.
         :param pulumi.Input[list] subnet_ids: Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags.
 
         The **selectors** object supports the following:
 
-          * `labels` (`pulumi.Input[dict]`) - Key-value mapping of Kubernetes labels for selection.
+          * `labels` (`pulumi.Input[dict]`) - Key-value map of Kubernetes labels for selection.
           * `namespace` (`pulumi.Input[str]`) - Kubernetes namespace for selection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

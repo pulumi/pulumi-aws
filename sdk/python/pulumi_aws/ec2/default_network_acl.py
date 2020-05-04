@@ -58,7 +58,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     vpc_id: pulumi.Output[str]
     """
@@ -99,7 +99,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[list] ingress: Specifies an ingress rule. Parameters defined below.
         :param pulumi.Input[list] subnet_ids: A list of Subnet IDs to apply the ACL to. See the
                notes below on managing Subnets in the Default Network ACL
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **egress** object supports the following:
 
@@ -177,7 +177,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the Default Network ACL
         :param pulumi.Input[list] subnet_ids: A list of Subnet IDs to apply the ACL to. See the
                notes below on managing Subnets in the Default Network ACL
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the associated VPC
 
         The **egress** object supports the following:

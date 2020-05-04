@@ -10,6 +10,234 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type ApiCorsConfiguration struct {
+	// Whether credentials are included in the CORS request.
+	AllowCredentials *bool `pulumi:"allowCredentials"`
+	// The set of allowed HTTP headers.
+	AllowHeaders []string `pulumi:"allowHeaders"`
+	// The set of allowed HTTP methods.
+	AllowMethods []string `pulumi:"allowMethods"`
+	// The set of allowed origins.
+	AllowOrigins []string `pulumi:"allowOrigins"`
+	// The set of exposed HTTP headers.
+	ExposeHeaders []string `pulumi:"exposeHeaders"`
+	// The number of seconds that the browser should cache preflight request results.
+	MaxAge *int `pulumi:"maxAge"`
+}
+
+// ApiCorsConfigurationInput is an input type that accepts ApiCorsConfigurationArgs and ApiCorsConfigurationOutput values.
+// You can construct a concrete instance of `ApiCorsConfigurationInput` via:
+//
+// 		 ApiCorsConfigurationArgs{...}
+//
+type ApiCorsConfigurationInput interface {
+	pulumi.Input
+
+	ToApiCorsConfigurationOutput() ApiCorsConfigurationOutput
+	ToApiCorsConfigurationOutputWithContext(context.Context) ApiCorsConfigurationOutput
+}
+
+type ApiCorsConfigurationArgs struct {
+	// Whether credentials are included in the CORS request.
+	AllowCredentials pulumi.BoolPtrInput `pulumi:"allowCredentials"`
+	// The set of allowed HTTP headers.
+	AllowHeaders pulumi.StringArrayInput `pulumi:"allowHeaders"`
+	// The set of allowed HTTP methods.
+	AllowMethods pulumi.StringArrayInput `pulumi:"allowMethods"`
+	// The set of allowed origins.
+	AllowOrigins pulumi.StringArrayInput `pulumi:"allowOrigins"`
+	// The set of exposed HTTP headers.
+	ExposeHeaders pulumi.StringArrayInput `pulumi:"exposeHeaders"`
+	// The number of seconds that the browser should cache preflight request results.
+	MaxAge pulumi.IntPtrInput `pulumi:"maxAge"`
+}
+
+func (ApiCorsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiCorsConfiguration)(nil)).Elem()
+}
+
+func (i ApiCorsConfigurationArgs) ToApiCorsConfigurationOutput() ApiCorsConfigurationOutput {
+	return i.ToApiCorsConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApiCorsConfigurationArgs) ToApiCorsConfigurationOutputWithContext(ctx context.Context) ApiCorsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiCorsConfigurationOutput)
+}
+
+func (i ApiCorsConfigurationArgs) ToApiCorsConfigurationPtrOutput() ApiCorsConfigurationPtrOutput {
+	return i.ToApiCorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApiCorsConfigurationArgs) ToApiCorsConfigurationPtrOutputWithContext(ctx context.Context) ApiCorsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiCorsConfigurationOutput).ToApiCorsConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApiCorsConfigurationPtrInput is an input type that accepts ApiCorsConfigurationArgs, ApiCorsConfigurationPtr and ApiCorsConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApiCorsConfigurationPtrInput` via:
+//
+// 		 ApiCorsConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ApiCorsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApiCorsConfigurationPtrOutput() ApiCorsConfigurationPtrOutput
+	ToApiCorsConfigurationPtrOutputWithContext(context.Context) ApiCorsConfigurationPtrOutput
+}
+
+type apiCorsConfigurationPtrType ApiCorsConfigurationArgs
+
+func ApiCorsConfigurationPtr(v *ApiCorsConfigurationArgs) ApiCorsConfigurationPtrInput {
+	return (*apiCorsConfigurationPtrType)(v)
+}
+
+func (*apiCorsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiCorsConfiguration)(nil)).Elem()
+}
+
+func (i *apiCorsConfigurationPtrType) ToApiCorsConfigurationPtrOutput() ApiCorsConfigurationPtrOutput {
+	return i.ToApiCorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *apiCorsConfigurationPtrType) ToApiCorsConfigurationPtrOutputWithContext(ctx context.Context) ApiCorsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiCorsConfigurationPtrOutput)
+}
+
+type ApiCorsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApiCorsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiCorsConfiguration)(nil)).Elem()
+}
+
+func (o ApiCorsConfigurationOutput) ToApiCorsConfigurationOutput() ApiCorsConfigurationOutput {
+	return o
+}
+
+func (o ApiCorsConfigurationOutput) ToApiCorsConfigurationOutputWithContext(ctx context.Context) ApiCorsConfigurationOutput {
+	return o
+}
+
+func (o ApiCorsConfigurationOutput) ToApiCorsConfigurationPtrOutput() ApiCorsConfigurationPtrOutput {
+	return o.ToApiCorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApiCorsConfigurationOutput) ToApiCorsConfigurationPtrOutputWithContext(ctx context.Context) ApiCorsConfigurationPtrOutput {
+	return o.ApplyT(func(v ApiCorsConfiguration) *ApiCorsConfiguration {
+		return &v
+	}).(ApiCorsConfigurationPtrOutput)
+}
+
+// Whether credentials are included in the CORS request.
+func (o ApiCorsConfigurationOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApiCorsConfiguration) *bool { return v.AllowCredentials }).(pulumi.BoolPtrOutput)
+}
+
+// The set of allowed HTTP headers.
+func (o ApiCorsConfigurationOutput) AllowHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApiCorsConfiguration) []string { return v.AllowHeaders }).(pulumi.StringArrayOutput)
+}
+
+// The set of allowed HTTP methods.
+func (o ApiCorsConfigurationOutput) AllowMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApiCorsConfiguration) []string { return v.AllowMethods }).(pulumi.StringArrayOutput)
+}
+
+// The set of allowed origins.
+func (o ApiCorsConfigurationOutput) AllowOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApiCorsConfiguration) []string { return v.AllowOrigins }).(pulumi.StringArrayOutput)
+}
+
+// The set of exposed HTTP headers.
+func (o ApiCorsConfigurationOutput) ExposeHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApiCorsConfiguration) []string { return v.ExposeHeaders }).(pulumi.StringArrayOutput)
+}
+
+// The number of seconds that the browser should cache preflight request results.
+func (o ApiCorsConfigurationOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApiCorsConfiguration) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
+}
+
+type ApiCorsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiCorsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiCorsConfiguration)(nil)).Elem()
+}
+
+func (o ApiCorsConfigurationPtrOutput) ToApiCorsConfigurationPtrOutput() ApiCorsConfigurationPtrOutput {
+	return o
+}
+
+func (o ApiCorsConfigurationPtrOutput) ToApiCorsConfigurationPtrOutputWithContext(ctx context.Context) ApiCorsConfigurationPtrOutput {
+	return o
+}
+
+func (o ApiCorsConfigurationPtrOutput) Elem() ApiCorsConfigurationOutput {
+	return o.ApplyT(func(v *ApiCorsConfiguration) ApiCorsConfiguration { return *v }).(ApiCorsConfigurationOutput)
+}
+
+// Whether credentials are included in the CORS request.
+func (o ApiCorsConfigurationPtrOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApiCorsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The set of allowed HTTP headers.
+func (o ApiCorsConfigurationPtrOutput) AllowHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApiCorsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+// The set of allowed HTTP methods.
+func (o ApiCorsConfigurationPtrOutput) AllowMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApiCorsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowMethods
+	}).(pulumi.StringArrayOutput)
+}
+
+// The set of allowed origins.
+func (o ApiCorsConfigurationPtrOutput) AllowOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApiCorsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowOrigins
+	}).(pulumi.StringArrayOutput)
+}
+
+// The set of exposed HTTP headers.
+func (o ApiCorsConfigurationPtrOutput) ExposeHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApiCorsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExposeHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+// The number of seconds that the browser should cache preflight request results.
+func (o ApiCorsConfigurationPtrOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApiCorsConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAge
+	}).(pulumi.IntPtrOutput)
+}
+
 type AuthorizerJwtConfiguration struct {
 	// A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
 	Audiences []string `pulumi:"audiences"`
@@ -895,6 +1123,8 @@ func (o StageRouteSettingArrayOutput) Index(i pulumi.IntInput) StageRouteSetting
 }
 
 func init() {
+	pulumi.RegisterOutputType(ApiCorsConfigurationOutput{})
+	pulumi.RegisterOutputType(ApiCorsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AuthorizerJwtConfigurationOutput{})
 	pulumi.RegisterOutputType(AuthorizerJwtConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameDomainNameConfigurationOutput{})

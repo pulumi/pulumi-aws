@@ -102,7 +102,7 @@ class Broker(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     users: pulumi.Output[list]
     """
@@ -151,7 +151,7 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[bool] publicly_accessible: Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
         :param pulumi.Input[list] security_groups: The list of security group IDs assigned to the broker.
         :param pulumi.Input[list] subnet_ids: The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[list] users: The list of all ActiveMQ usernames for the specified broker. See below.
 
         The **configuration** object supports the following:
@@ -269,7 +269,7 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[bool] publicly_accessible: Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
         :param pulumi.Input[list] security_groups: The list of security group IDs assigned to the broker.
         :param pulumi.Input[list] subnet_ids: The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[list] users: The list of all ActiveMQ usernames for the specified broker. See below.
 
         The **configuration** object supports the following:

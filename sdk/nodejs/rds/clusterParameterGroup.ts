@@ -90,7 +90,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<outputs.rds.ClusterParameterGroupParameter[] | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -166,7 +166,7 @@ export interface ClusterParameterGroupState {
      */
     readonly parameters?: pulumi.Input<pulumi.Input<inputs.rds.ClusterParameterGroupParameter>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -196,7 +196,7 @@ export interface ClusterParameterGroupArgs {
      */
     readonly parameters?: pulumi.Input<pulumi.Input<inputs.rds.ClusterParameterGroupParameter>[]>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

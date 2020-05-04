@@ -37,7 +37,7 @@ type VirtualNode struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The virtual node specification to apply.
 	Spec VirtualNodeSpecOutput `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -87,7 +87,7 @@ type virtualNodeState struct {
 	Name *string `pulumi:"name"`
 	// The virtual node specification to apply.
 	Spec *VirtualNodeSpec `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -104,7 +104,7 @@ type VirtualNodeState struct {
 	Name pulumi.StringPtrInput
 	// The virtual node specification to apply.
 	Spec VirtualNodeSpecPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -119,7 +119,7 @@ type virtualNodeArgs struct {
 	Name *string `pulumi:"name"`
 	// The virtual node specification to apply.
 	Spec VirtualNodeSpec `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -131,7 +131,7 @@ type VirtualNodeArgs struct {
 	Name pulumi.StringPtrInput
 	// The virtual node specification to apply.
 	Spec VirtualNodeSpecInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

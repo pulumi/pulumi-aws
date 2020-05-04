@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, object>? _tags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must exactly match a pair on the desired Launch Template.
+        /// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
         /// </summary>
         public Dictionary<string, object> Tags
         {
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchTemplateTagSpecificationResult> TagSpecifications;
         /// <summary>
-        /// (Optional) A mapping of tags to assign to the launch template.
+        /// (Optional) A map of tags to assign to the launch template.
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
         /// <summary>

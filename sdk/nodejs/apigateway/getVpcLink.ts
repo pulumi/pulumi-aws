@@ -51,7 +51,7 @@ export interface GetVpcLinkArgs {
      */
     readonly name: string;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: {[key: string]: any};
 }
@@ -78,7 +78,7 @@ export interface GetVpcLinkResult {
      */
     readonly statusMessage: string;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags: {[key: string]: any};
     /**

@@ -79,7 +79,7 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly predicates!: pulumi.Output<outputs.waf.RulePredicate[] | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -143,7 +143,7 @@ export interface RuleState {
      */
     readonly predicates?: pulumi.Input<pulumi.Input<inputs.waf.RulePredicate>[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -165,7 +165,7 @@ export interface RuleArgs {
      */
     readonly predicates?: pulumi.Input<pulumi.Input<inputs.waf.RulePredicate>[]>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

@@ -13,7 +13,7 @@ class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
     """
-    def __init__(__self__, arn=None, domain=None, id=None, key_types=None, most_recent=None, statuses=None, types=None):
+    def __init__(__self__, arn=None, domain=None, id=None, key_types=None, most_recent=None, statuses=None, tags=None, types=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -38,6 +38,12 @@ class GetCertificateResult:
         if statuses and not isinstance(statuses, list):
             raise TypeError("Expected argument 'statuses' to be a list")
         __self__.statuses = statuses
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        __self__.tags = tags
+        """
+        A mapping of tags for the resource.
+        """
         if types and not isinstance(types, list):
             raise TypeError("Expected argument 'types' to be a list")
         __self__.types = types
@@ -53,9 +59,10 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             key_types=self.key_types,
             most_recent=self.most_recent,
             statuses=self.statuses,
+            tags=self.tags,
             types=self.types)
 
-def get_certificate(domain=None,key_types=None,most_recent=None,statuses=None,types=None,opts=None):
+def get_certificate(domain=None,key_types=None,most_recent=None,statuses=None,tags=None,types=None,opts=None):
     """
     Use this data source to get the ARN of a certificate in AWS Certificate
     Manager (ACM), you can reference
@@ -70,6 +77,7 @@ def get_certificate(domain=None,key_types=None,most_recent=None,statuses=None,ty
     :param list statuses: A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
            `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
            are returned.
+    :param dict tags: A mapping of tags for the resource.
     :param list types: A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
     """
     __args__ = dict()
@@ -79,6 +87,7 @@ def get_certificate(domain=None,key_types=None,most_recent=None,statuses=None,ty
     __args__['keyTypes'] = key_types
     __args__['mostRecent'] = most_recent
     __args__['statuses'] = statuses
+    __args__['tags'] = tags
     __args__['types'] = types
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -93,4 +102,5 @@ def get_certificate(domain=None,key_types=None,most_recent=None,statuses=None,ty
         key_types=__ret__.get('keyTypes'),
         most_recent=__ret__.get('mostRecent'),
         statuses=__ret__.get('statuses'),
+        tags=__ret__.get('tags'),
         types=__ret__.get('types'))

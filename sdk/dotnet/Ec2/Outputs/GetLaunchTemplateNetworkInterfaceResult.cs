@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateNetworkInterfaceResult
     {
-        public readonly bool AssociatePublicIpAddress;
+        public readonly bool? AssociatePublicIpAddress;
         public readonly bool DeleteOnTermination;
         /// <summary>
         /// Description of the launch template.
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ec2.Outputs
 
         [OutputConstructor]
         private GetLaunchTemplateNetworkInterfaceResult(
-            bool associatePublicIpAddress,
+            bool? associatePublicIpAddress,
 
             bool deleteOnTermination,
 

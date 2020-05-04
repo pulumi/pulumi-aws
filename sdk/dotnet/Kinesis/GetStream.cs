@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Kinesis
         private Dictionary<string, object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assigned to the stream.
+        /// A map of tags to assigned to the stream.
         /// </summary>
         public Dictionary<string, object> Tags
         {
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// A mapping of tags to assigned to the stream.
+        /// A map of tags to assigned to the stream.
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
 

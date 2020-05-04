@@ -44,7 +44,7 @@ type WindowsFileSystem struct {
 	StorageCapacity pulumi.IntOutput `pulumi:"storageCapacity"`
 	// A list of IDs for the subnets that the file system will be accessible from. File systems support only one subnet. The file server is also launched in that subnet's Availability Zone.
 	SubnetIds pulumi.StringOutput `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the file system.
+	// A map of tags to assign to the file system.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
 	ThroughputCapacity pulumi.IntOutput `pulumi:"throughputCapacity"`
@@ -119,7 +119,7 @@ type windowsFileSystemState struct {
 	StorageCapacity *int `pulumi:"storageCapacity"`
 	// A list of IDs for the subnets that the file system will be accessible from. File systems support only one subnet. The file server is also launched in that subnet's Availability Zone.
 	SubnetIds *string `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the file system.
+	// A map of tags to assign to the file system.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
 	ThroughputCapacity *int `pulumi:"throughputCapacity"`
@@ -158,7 +158,7 @@ type WindowsFileSystemState struct {
 	StorageCapacity pulumi.IntPtrInput
 	// A list of IDs for the subnets that the file system will be accessible from. File systems support only one subnet. The file server is also launched in that subnet's Availability Zone.
 	SubnetIds pulumi.StringPtrInput
-	// A mapping of tags to assign to the file system.
+	// A map of tags to assign to the file system.
 	Tags pulumi.MapInput
 	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
 	ThroughputCapacity pulumi.IntPtrInput
@@ -193,7 +193,7 @@ type windowsFileSystemArgs struct {
 	StorageCapacity int `pulumi:"storageCapacity"`
 	// A list of IDs for the subnets that the file system will be accessible from. File systems support only one subnet. The file server is also launched in that subnet's Availability Zone.
 	SubnetIds string `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the file system.
+	// A map of tags to assign to the file system.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
 	ThroughputCapacity int `pulumi:"throughputCapacity"`
@@ -223,7 +223,7 @@ type WindowsFileSystemArgs struct {
 	StorageCapacity pulumi.IntInput
 	// A list of IDs for the subnets that the file system will be accessible from. File systems support only one subnet. The file server is also launched in that subnet's Availability Zone.
 	SubnetIds pulumi.StringInput
-	// A mapping of tags to assign to the file system.
+	// A map of tags to assign to the file system.
 	Tags pulumi.MapInput
 	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
 	ThroughputCapacity pulumi.IntInput

@@ -86,7 +86,7 @@ class TaskDefinition(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags
+    Key-value map of resource tags
     """
     task_role_arn: pulumi.Output[str]
     """
@@ -136,7 +136,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[list] placement_constraints: A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
         :param pulumi.Input[dict] proxy_configuration: The proxy configuration details for the App Mesh proxy.
         :param pulumi.Input[list] requires_compatibilities: A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
         :param pulumi.Input[str] task_role_arn: The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         :param pulumi.Input[list] volumes: A set of volume blocks that containers in your task may use.
 
@@ -248,7 +248,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[dict] proxy_configuration: The proxy configuration details for the App Mesh proxy.
         :param pulumi.Input[list] requires_compatibilities: A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
         :param pulumi.Input[float] revision: The revision of the task in a particular family.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
         :param pulumi.Input[str] task_role_arn: The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         :param pulumi.Input[list] volumes: A set of volume blocks that containers in your task may use.
 

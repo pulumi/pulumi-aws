@@ -25,7 +25,7 @@ class Application(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of tags for the Elastic Beanstalk Application.
+    Key-value map of tags for the Elastic Beanstalk Application.
     """
     def __init__(__self__, resource_name, opts=None, appversion_lifecycle=None, description=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -42,7 +42,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Short description of the application
         :param pulumi.Input[str] name: The name of the application, must be unique within your account
-        :param pulumi.Input[dict] tags: Key-value mapping of tags for the Elastic Beanstalk Application.
+        :param pulumi.Input[dict] tags: Key-value map of tags for the Elastic Beanstalk Application.
 
         The **appversion_lifecycle** object supports the following:
 
@@ -91,7 +91,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN assigned by AWS for this Elastic Beanstalk Application.
         :param pulumi.Input[str] description: Short description of the application
         :param pulumi.Input[str] name: The name of the application, must be unique within your account
-        :param pulumi.Input[dict] tags: Key-value mapping of tags for the Elastic Beanstalk Application.
+        :param pulumi.Input[dict] tags: Key-value map of tags for the Elastic Beanstalk Application.
 
         The **appversion_lifecycle** object supports the following:
 

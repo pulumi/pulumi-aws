@@ -41,7 +41,7 @@ type Directory struct {
 	ShortName pulumi.StringOutput `pulumi:"shortName"`
 	// The size of the directory (`Small` or `Large` are accepted values).
 	Size pulumi.StringOutput `pulumi:"size"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
@@ -104,7 +104,7 @@ type directoryState struct {
 	ShortName *string `pulumi:"shortName"`
 	// The size of the directory (`Small` or `Large` are accepted values).
 	Size *string `pulumi:"size"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
 	Type *string `pulumi:"type"`
@@ -137,7 +137,7 @@ type DirectoryState struct {
 	ShortName pulumi.StringPtrInput
 	// The size of the directory (`Small` or `Large` are accepted values).
 	Size pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
 	Type pulumi.StringPtrInput
@@ -168,7 +168,7 @@ type directoryArgs struct {
 	ShortName *string `pulumi:"shortName"`
 	// The size of the directory (`Small` or `Large` are accepted values).
 	Size *string `pulumi:"size"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
 	Type *string `pulumi:"type"`
@@ -196,7 +196,7 @@ type DirectoryArgs struct {
 	ShortName pulumi.StringPtrInput
 	// The size of the directory (`Small` or `Large` are accepted values).
 	Size pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
 	Type pulumi.StringPtrInput

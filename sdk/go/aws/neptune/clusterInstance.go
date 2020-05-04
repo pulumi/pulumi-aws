@@ -63,7 +63,7 @@ type ClusterInstance struct {
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// Specifies whether the neptune cluster is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the instance.
+	// A map of tags to assign to the instance.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolOutput `pulumi:"writer"`
@@ -149,7 +149,7 @@ type clusterInstanceState struct {
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// Specifies whether the neptune cluster is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the instance.
+	// A map of tags to assign to the instance.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer *bool `pulumi:"writer"`
@@ -202,7 +202,7 @@ type ClusterInstanceState struct {
 	PubliclyAccessible pulumi.BoolPtrInput
 	// Specifies whether the neptune cluster is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A mapping of tags to assign to the instance.
+	// A map of tags to assign to the instance.
 	Tags pulumi.MapInput
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolPtrInput
@@ -247,7 +247,7 @@ type clusterInstanceArgs struct {
 	PromotionTier *int `pulumi:"promotionTier"`
 	// Bool to control if instance is publicly accessible. Default is `false`.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// A mapping of tags to assign to the instance.
+	// A map of tags to assign to the instance.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -287,7 +287,7 @@ type ClusterInstanceArgs struct {
 	PromotionTier pulumi.IntPtrInput
 	// Bool to control if instance is publicly accessible. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrInput
-	// A mapping of tags to assign to the instance.
+	// A map of tags to assign to the instance.
 	Tags pulumi.MapInput
 }
 

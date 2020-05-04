@@ -38,7 +38,7 @@ namespace Pulumi.Aws.ApiGateway
         private Dictionary<string, object>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         public Dictionary<string, object> Tags
         {
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public readonly string StatusMessage;
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
         /// <summary>

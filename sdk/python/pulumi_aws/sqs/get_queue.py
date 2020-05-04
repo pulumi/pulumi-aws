@@ -33,7 +33,7 @@ class GetQueueResult:
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
-        A mapping of tags for the resource.
+        A map of tags for the resource.
         """
         if url and not isinstance(url, str):
             raise TypeError("Expected argument 'url' to be a str")
@@ -63,7 +63,7 @@ def get_queue(name=None,tags=None,opts=None):
 
 
     :param str name: The name of the queue to match.
-    :param dict tags: A mapping of tags for the resource.
+    :param dict tags: A map of tags for the resource.
     """
     __args__ = dict()
 

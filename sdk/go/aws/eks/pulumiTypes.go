@@ -874,7 +874,7 @@ func (o ClusterVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 type FargateProfileSelector struct {
-	// Key-value mapping of Kubernetes labels for selection.
+	// Key-value map of Kubernetes labels for selection.
 	Labels map[string]string `pulumi:"labels"`
 	// Kubernetes namespace for selection.
 	Namespace string `pulumi:"namespace"`
@@ -893,7 +893,7 @@ type FargateProfileSelectorInput interface {
 }
 
 type FargateProfileSelectorArgs struct {
-	// Key-value mapping of Kubernetes labels for selection.
+	// Key-value map of Kubernetes labels for selection.
 	Labels pulumi.StringMapInput `pulumi:"labels"`
 	// Kubernetes namespace for selection.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
@@ -951,7 +951,7 @@ func (o FargateProfileSelectorOutput) ToFargateProfileSelectorOutputWithContext(
 	return o
 }
 
-// Key-value mapping of Kubernetes labels for selection.
+// Key-value map of Kubernetes labels for selection.
 func (o FargateProfileSelectorOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FargateProfileSelector) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }

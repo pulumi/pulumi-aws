@@ -49,7 +49,7 @@ class IdentityPool(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the Identity Pool.
+    A map of tags to assign to the Identity Pool.
     """
     def __init__(__self__, resource_name, opts=None, allow_unauthenticated_identities=None, cognito_identity_providers=None, developer_provider_name=None, identity_pool_name=None, openid_connect_provider_arns=None, saml_provider_arns=None, supported_login_providers=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -67,7 +67,7 @@ class IdentityPool(pulumi.CustomResource):
         :param pulumi.Input[list] openid_connect_provider_arns: A list of OpendID Connect provider ARNs.
         :param pulumi.Input[list] saml_provider_arns: An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         :param pulumi.Input[dict] supported_login_providers: Key-Value pairs mapping provider names to provider app IDs.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the Identity Pool.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the Identity Pool.
 
         The **cognito_identity_providers** object supports the following:
 
@@ -127,7 +127,7 @@ class IdentityPool(pulumi.CustomResource):
         :param pulumi.Input[list] openid_connect_provider_arns: A list of OpendID Connect provider ARNs.
         :param pulumi.Input[list] saml_provider_arns: An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         :param pulumi.Input[dict] supported_login_providers: Key-Value pairs mapping provider names to provider app IDs.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the Identity Pool.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the Identity Pool.
 
         The **cognito_identity_providers** object supports the following:
 

@@ -59,7 +59,7 @@ type LoadBalancer struct {
 	// cannot be updated for Load Balancers of type `network`. Changing this value
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags  pulumi.MapOutput    `pulumi:"tags"`
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
@@ -134,7 +134,7 @@ type loadBalancerState struct {
 	// cannot be updated for Load Balancers of type `network`. Changing this value
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets []string `pulumi:"subnets"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags  map[string]interface{} `pulumi:"tags"`
 	VpcId *string                `pulumi:"vpcId"`
 	// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
@@ -182,7 +182,7 @@ type LoadBalancerState struct {
 	// cannot be updated for Load Balancers of type `network`. Changing this value
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags  pulumi.MapInput
 	VpcId pulumi.StringPtrInput
 	// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
@@ -228,7 +228,7 @@ type loadBalancerArgs struct {
 	// cannot be updated for Load Balancers of type `network`. Changing this value
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets []string `pulumi:"subnets"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -268,7 +268,7 @@ type LoadBalancerArgs struct {
 	// cannot be updated for Load Balancers of type `network`. Changing this value
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

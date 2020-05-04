@@ -73,7 +73,7 @@ export interface GetVpcDhcpOptionsArgs {
      */
     readonly filters?: inputs.ec2.GetVpcDhcpOptionsFilter[];
     /**
-     * A mapping of tags assigned to the resource.
+     * A map of tags assigned to the resource.
      */
     readonly tags?: {[key: string]: any};
 }
@@ -112,7 +112,7 @@ export interface GetVpcDhcpOptionsResult {
      */
     readonly ownerId: string;
     /**
-     * A mapping of tags assigned to the resource.
+     * A map of tags assigned to the resource.
      */
     readonly tags: {[key: string]: any};
     /**

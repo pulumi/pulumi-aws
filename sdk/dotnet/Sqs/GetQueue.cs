@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Sqs
         private Dictionary<string, object>? _tags;
 
         /// <summary>
-        /// A mapping of tags for the resource.
+        /// A map of tags for the resource.
         /// </summary>
         public Dictionary<string, object> Tags
         {
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Sqs
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// A mapping of tags for the resource.
+        /// A map of tags for the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
         /// <summary>

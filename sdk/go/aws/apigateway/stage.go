@@ -42,7 +42,7 @@ type Stage struct {
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
 	// The name of the stage
 	StageName pulumi.StringOutput `pulumi:"stageName"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// A map that defines the stage variables
 	Variables pulumi.MapOutput `pulumi:"variables"`
@@ -115,7 +115,7 @@ type stageState struct {
 	RestApi *string `pulumi:"restApi"`
 	// The name of the stage
 	StageName *string `pulumi:"stageName"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// A map that defines the stage variables
 	Variables map[string]interface{} `pulumi:"variables"`
@@ -152,7 +152,7 @@ type StageState struct {
 	RestApi pulumi.StringPtrInput
 	// The name of the stage
 	StageName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// A map that defines the stage variables
 	Variables pulumi.MapInput
@@ -184,7 +184,7 @@ type stageArgs struct {
 	RestApi interface{} `pulumi:"restApi"`
 	// The name of the stage
 	StageName string `pulumi:"stageName"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// A map that defines the stage variables
 	Variables map[string]interface{} `pulumi:"variables"`
@@ -213,7 +213,7 @@ type StageArgs struct {
 	RestApi pulumi.Input
 	// The name of the stage
 	StageName pulumi.StringInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// A map that defines the stage variables
 	Variables pulumi.MapInput

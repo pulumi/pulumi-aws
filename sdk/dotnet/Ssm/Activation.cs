@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Ssm
         public Output<int?> RegistrationLimit { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the object.
+        /// A map of tags to assign to the object.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the object.
+        /// A map of tags to assign to the object.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the object.
+        /// A map of tags to assign to the object.
         /// </summary>
         public InputMap<object> Tags
         {

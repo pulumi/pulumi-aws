@@ -41,7 +41,7 @@ class ApplicationVersion(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of tags for the Elastic Beanstalk Application Version.
+    Key-value map of tags for the Elastic Beanstalk Application Version.
     """
     def __init__(__self__, resource_name, opts=None, application=None, bucket=None, description=None, force_delete=None, key=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -68,7 +68,7 @@ class ApplicationVersion(pulumi.CustomResource):
                by multiple Elastic Beanstalk Environments.
         :param pulumi.Input[str] key: S3 object that is the Application Version source bundle.
         :param pulumi.Input[str] name: A unique name for the this Application Version.
-        :param pulumi.Input[dict] tags: Key-value mapping of tags for the Elastic Beanstalk Application Version.
+        :param pulumi.Input[dict] tags: Key-value map of tags for the Elastic Beanstalk Application Version.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -124,7 +124,7 @@ class ApplicationVersion(pulumi.CustomResource):
                by multiple Elastic Beanstalk Environments.
         :param pulumi.Input[str] key: S3 object that is the Application Version source bundle.
         :param pulumi.Input[str] name: A unique name for the this Application Version.
-        :param pulumi.Input[dict] tags: Key-value mapping of tags for the Elastic Beanstalk Application Version.
+        :param pulumi.Input[dict] tags: Key-value map of tags for the Elastic Beanstalk Application Version.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

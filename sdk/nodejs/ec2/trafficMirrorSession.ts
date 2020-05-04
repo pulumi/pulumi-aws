@@ -79,7 +79,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
      */
     public readonly sessionNumber!: pulumi.Output<number>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -170,7 +170,7 @@ export interface TrafficMirrorSessionState {
      */
     readonly sessionNumber?: pulumi.Input<number>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -208,7 +208,7 @@ export interface TrafficMirrorSessionArgs {
      */
     readonly sessionNumber: pulumi.Input<number>;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

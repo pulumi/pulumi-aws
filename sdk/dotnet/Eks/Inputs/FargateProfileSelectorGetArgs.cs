@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Eks.Inputs
         private InputMap<string>? _labels;
 
         /// <summary>
-        /// Key-value mapping of Kubernetes labels for selection.
+        /// Key-value map of Kubernetes labels for selection.
         /// </summary>
         public InputMap<string> Labels
         {

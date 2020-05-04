@@ -112,7 +112,7 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly redrivePolicy!: pulumi.Output<string | undefined>;
     /**
-     * A mapping of tags to assign to the queue.
+     * A map of tags to assign to the queue.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -233,7 +233,7 @@ export interface QueueState {
      */
     readonly redrivePolicy?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the queue.
+     * A map of tags to assign to the queue.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -295,7 +295,7 @@ export interface QueueArgs {
      */
     readonly redrivePolicy?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the queue.
+     * A map of tags to assign to the queue.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

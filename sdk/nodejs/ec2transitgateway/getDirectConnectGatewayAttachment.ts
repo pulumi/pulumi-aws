@@ -55,7 +55,7 @@ export interface GetDirectConnectGatewayAttachmentArgs {
      */
     readonly filters?: inputs.ec2transitgateway.GetDirectConnectGatewayAttachmentFilter[];
     /**
-     * A mapping of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
+     * A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
      */
     readonly tags?: {[key: string]: any};
     /**

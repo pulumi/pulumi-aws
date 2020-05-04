@@ -92,7 +92,7 @@ type ClusterInstance struct {
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the instance.
+	// A map of tags to assign to the instance.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolOutput `pulumi:"writer"`
@@ -197,7 +197,7 @@ type clusterInstanceState struct {
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the instance.
+	// A map of tags to assign to the instance.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer *bool `pulumi:"writer"`
@@ -269,7 +269,7 @@ type ClusterInstanceState struct {
 	PubliclyAccessible pulumi.BoolPtrInput
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A mapping of tags to assign to the instance.
+	// A map of tags to assign to the instance.
 	Tags pulumi.MapInput
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolPtrInput
@@ -333,7 +333,7 @@ type clusterInstanceArgs struct {
 	// Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more
 	// details on controlling this property.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// A mapping of tags to assign to the instance.
+	// A map of tags to assign to the instance.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -392,7 +392,7 @@ type ClusterInstanceArgs struct {
 	// Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more
 	// details on controlling this property.
 	PubliclyAccessible pulumi.BoolPtrInput
-	// A mapping of tags to assign to the instance.
+	// A map of tags to assign to the instance.
 	Tags pulumi.MapInput
 }
 

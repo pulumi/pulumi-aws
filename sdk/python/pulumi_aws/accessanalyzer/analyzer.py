@@ -17,7 +17,7 @@ class Analyzer(pulumi.CustomResource):
     arn: pulumi.Output[str]
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags.
+    Key-value map of resource tags.
     """
     type: pulumi.Output[str]
     """
@@ -32,7 +32,7 @@ class Analyzer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] analyzer_name: Name of the Analyzer.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags.
         :param pulumi.Input[str] type: Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
         """
         if __name__ is not None:
@@ -74,7 +74,7 @@ class Analyzer(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] analyzer_name: Name of the Analyzer.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags.
         :param pulumi.Input[str] type: Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

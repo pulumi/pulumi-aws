@@ -25,7 +25,7 @@ type Application struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the application, must be unique within your account
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value mapping of tags for the Elastic Beanstalk Application.
+	// Key-value map of tags for the Elastic Beanstalk Application.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -64,7 +64,7 @@ type applicationState struct {
 	Description *string `pulumi:"description"`
 	// The name of the application, must be unique within your account
 	Name *string `pulumi:"name"`
-	// Key-value mapping of tags for the Elastic Beanstalk Application.
+	// Key-value map of tags for the Elastic Beanstalk Application.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -76,7 +76,7 @@ type ApplicationState struct {
 	Description pulumi.StringPtrInput
 	// The name of the application, must be unique within your account
 	Name pulumi.StringPtrInput
-	// Key-value mapping of tags for the Elastic Beanstalk Application.
+	// Key-value map of tags for the Elastic Beanstalk Application.
 	Tags pulumi.MapInput
 }
 
@@ -90,7 +90,7 @@ type applicationArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the application, must be unique within your account
 	Name *string `pulumi:"name"`
-	// Key-value mapping of tags for the Elastic Beanstalk Application.
+	// Key-value map of tags for the Elastic Beanstalk Application.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -101,7 +101,7 @@ type ApplicationArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the application, must be unique within your account
 	Name pulumi.StringPtrInput
-	// Key-value mapping of tags for the Elastic Beanstalk Application.
+	// Key-value map of tags for the Elastic Beanstalk Application.
 	Tags pulumi.MapInput
 }
 

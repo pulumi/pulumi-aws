@@ -68,7 +68,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of tags for the Elastic Beanstalk Application Version.
+        /// Key-value map of tags for the Elastic Beanstalk Application Version.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// Key-value mapping of tags for the Elastic Beanstalk Application Version.
+        /// Key-value map of tags for the Elastic Beanstalk Application Version.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// Key-value mapping of tags for the Elastic Beanstalk Application Version.
+        /// Key-value map of tags for the Elastic Beanstalk Application Version.
         /// </summary>
         public InputMap<object> Tags
         {

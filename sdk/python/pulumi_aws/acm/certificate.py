@@ -51,7 +51,7 @@ class Certificate(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     validation_emails: pulumi.Output[list]
     """
@@ -93,7 +93,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] domain_name: A domain name for which the certificate should be issued
         :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
         :param pulumi.Input[list] subject_alternative_names: A list of domains that should be SANs in the issued certificate
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
                * Importing an existing certificate
 
@@ -154,7 +154,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[list] domain_validation_options: A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
         :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
         :param pulumi.Input[list] subject_alternative_names: A list of domains that should be SANs in the issued certificate
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[list] validation_emails: A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
         :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
                * Importing an existing certificate

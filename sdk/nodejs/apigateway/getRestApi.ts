@@ -50,7 +50,7 @@ export interface GetRestApiArgs {
      */
     readonly name: string;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     readonly tags?: {[key: string]: any};
 }
@@ -97,7 +97,7 @@ export interface GetRestApiResult {
      */
     readonly rootResourceId: string;
     /**
-     * Key-value mapping of resource tags.
+     * Key-value map of resource tags.
      */
     readonly tags: {[key: string]: any};
     /**

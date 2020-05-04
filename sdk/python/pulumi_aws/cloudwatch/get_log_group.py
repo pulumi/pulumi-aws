@@ -51,7 +51,7 @@ class GetLogGroupResult:
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
-        A mapping of tags to assign to the resource.
+        A map of tags to assign to the resource.
         """
 class AwaitableGetLogGroupResult(GetLogGroupResult):
     # pylint: disable=using-constant-test
@@ -75,7 +75,7 @@ def get_log_group(name=None,tags=None,opts=None):
 
 
     :param str name: The name of the Cloudwatch log group
-    :param dict tags: A mapping of tags to assign to the resource.
+    :param dict tags: A map of tags to assign to the resource.
     """
     __args__ = dict()
 

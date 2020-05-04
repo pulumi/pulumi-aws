@@ -32,7 +32,7 @@ type CapacityReservation struct {
 	InstancePlatform pulumi.StringOutput `pulumi:"instancePlatform"`
 	// The instance type for which to reserve capacity.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy pulumi.StringPtrOutput `pulumi:"tenancy"`
@@ -96,7 +96,7 @@ type capacityReservationState struct {
 	InstancePlatform *string `pulumi:"instancePlatform"`
 	// The instance type for which to reserve capacity.
 	InstanceType *string `pulumi:"instanceType"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy *string `pulumi:"tenancy"`
@@ -121,7 +121,7 @@ type CapacityReservationState struct {
 	InstancePlatform pulumi.StringPtrInput
 	// The instance type for which to reserve capacity.
 	InstanceType pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy pulumi.StringPtrInput
@@ -150,7 +150,7 @@ type capacityReservationArgs struct {
 	InstancePlatform string `pulumi:"instancePlatform"`
 	// The instance type for which to reserve capacity.
 	InstanceType string `pulumi:"instanceType"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy *string `pulumi:"tenancy"`
@@ -176,7 +176,7 @@ type CapacityReservationArgs struct {
 	InstancePlatform pulumi.StringInput
 	// The instance type for which to reserve capacity.
 	InstanceType pulumi.StringInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy pulumi.StringPtrInput

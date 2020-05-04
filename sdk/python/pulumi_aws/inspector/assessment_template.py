@@ -28,7 +28,7 @@ class AssessmentTemplate(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of tags for the Inspector assessment template.
+    Key-value map of tags for the Inspector assessment template.
     """
     target_arn: pulumi.Output[str]
     """
@@ -45,7 +45,7 @@ class AssessmentTemplate(pulumi.CustomResource):
         :param pulumi.Input[float] duration: The duration of the inspector run.
         :param pulumi.Input[str] name: The name of the assessment template.
         :param pulumi.Input[list] rules_package_arns: The rules to be used during the run.
-        :param pulumi.Input[dict] tags: Key-value mapping of tags for the Inspector assessment template.
+        :param pulumi.Input[dict] tags: Key-value map of tags for the Inspector assessment template.
         :param pulumi.Input[str] target_arn: The assessment target ARN to attach the template to.
         """
         if __name__ is not None:
@@ -96,7 +96,7 @@ class AssessmentTemplate(pulumi.CustomResource):
         :param pulumi.Input[float] duration: The duration of the inspector run.
         :param pulumi.Input[str] name: The name of the assessment template.
         :param pulumi.Input[list] rules_package_arns: The rules to be used during the run.
-        :param pulumi.Input[dict] tags: Key-value mapping of tags for the Inspector assessment template.
+        :param pulumi.Input[dict] tags: Key-value map of tags for the Inspector assessment template.
         :param pulumi.Input[str] target_arn: The assessment target ARN to attach the template to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

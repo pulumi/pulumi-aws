@@ -52,7 +52,7 @@ class Key(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the object.
+    A map of tags to assign to the object.
     """
     def __init__(__self__, resource_name, opts=None, customer_master_key_spec=None, deletion_window_in_days=None, description=None, enable_key_rotation=None, is_enabled=None, key_usage=None, policy=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -73,7 +73,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
                Defaults to `ENCRYPT_DECRYPT`.
         :param pulumi.Input[str] policy: A valid policy JSON document.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the object.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -130,7 +130,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
                Defaults to `ENCRYPT_DECRYPT`.
         :param pulumi.Input[str] policy: A valid policy JSON document.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the object.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

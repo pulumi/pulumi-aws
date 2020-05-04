@@ -184,7 +184,7 @@ export class HealthCheck extends pulumi.CustomResource {
      */
     public readonly searchString!: pulumi.Output<string | undefined>;
     /**
-     * A mapping of tags to assign to the health check.
+     * A map of tags to assign to the health check.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -333,7 +333,7 @@ export interface HealthCheckState {
      */
     readonly searchString?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the health check.
+     * A map of tags to assign to the health check.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -416,7 +416,7 @@ export interface HealthCheckArgs {
      */
     readonly searchString?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the health check.
+     * A map of tags to assign to the health check.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

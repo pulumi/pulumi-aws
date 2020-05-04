@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Inspector
         public Output<ImmutableArray<string>> RulesPackageArns { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of tags for the Inspector assessment template.
+        /// Key-value map of tags for the Inspector assessment template.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Inspector
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// Key-value mapping of tags for the Inspector assessment template.
+        /// Key-value map of tags for the Inspector assessment template.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.Inspector
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// Key-value mapping of tags for the Inspector assessment template.
+        /// Key-value map of tags for the Inspector assessment template.
         /// </summary>
         public InputMap<object> Tags
         {

@@ -47,7 +47,7 @@ class FlowLog(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags
+    Key-value map of resource tags
     """
     traffic_type: pulumi.Output[str]
     """
@@ -77,7 +77,7 @@ class FlowLog(pulumi.CustomResource):
                log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
                minutes). Default: `600`.
         :param pulumi.Input[str] subnet_id: Subnet ID to attach to
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
         :param pulumi.Input[str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
         :param pulumi.Input[str] vpc_id: VPC ID to attach to
         """
@@ -137,7 +137,7 @@ class FlowLog(pulumi.CustomResource):
                log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
                minutes). Default: `600`.
         :param pulumi.Input[str] subnet_id: Subnet ID to attach to
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
         :param pulumi.Input[str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
         :param pulumi.Input[str] vpc_id: VPC ID to attach to
         """

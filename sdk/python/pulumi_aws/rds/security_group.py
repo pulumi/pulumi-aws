@@ -34,7 +34,7 @@ class SecurityGroup(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     def __init__(__self__, resource_name, opts=None, description=None, ingress=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -50,7 +50,7 @@ class SecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the DB security group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[list] ingress: A list of ingress rules.
         :param pulumi.Input[str] name: The name of the DB security group.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **ingress** object supports the following:
 
@@ -105,7 +105,7 @@ class SecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the DB security group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[list] ingress: A list of ingress rules.
         :param pulumi.Input[str] name: The name of the DB security group.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **ingress** object supports the following:
 

@@ -89,7 +89,7 @@ export class RateBasedRule extends pulumi.CustomResource {
      */
     public readonly rateLimit!: pulumi.Output<number>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -171,7 +171,7 @@ export interface RateBasedRuleState {
      */
     readonly rateLimit?: pulumi.Input<number>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -201,7 +201,7 @@ export interface RateBasedRuleArgs {
      */
     readonly rateLimit: pulumi.Input<number>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

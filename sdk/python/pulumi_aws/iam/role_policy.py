@@ -30,7 +30,7 @@ class RolePolicy(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, name=None, name_prefix=None, policy=None, role=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides an IAM role policy.
+        Provides an IAM role inline policy.
 
 
 

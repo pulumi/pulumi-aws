@@ -92,7 +92,7 @@ type Cluster struct {
 	SnapshotCopy ClusterSnapshotCopyPtrOutput `pulumi:"snapshotCopy"`
 	// The name of the snapshot from which to create the new cluster.
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
@@ -207,7 +207,7 @@ type clusterState struct {
 	SnapshotCopy *ClusterSnapshotCopy `pulumi:"snapshotCopy"`
 	// The name of the snapshot from which to create the new cluster.
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -289,7 +289,7 @@ type ClusterState struct {
 	SnapshotCopy ClusterSnapshotCopyPtrInput
 	// The name of the snapshot from which to create the new cluster.
 	SnapshotIdentifier pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -371,7 +371,7 @@ type clusterArgs struct {
 	SnapshotCopy *ClusterSnapshotCopy `pulumi:"snapshotCopy"`
 	// The name of the snapshot from which to create the new cluster.
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -450,7 +450,7 @@ type ClusterArgs struct {
 	SnapshotCopy ClusterSnapshotCopyPtrInput
 	// The name of the snapshot from which to create the new cluster.
 	SnapshotIdentifier pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds pulumi.StringArrayInput

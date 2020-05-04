@@ -75,7 +75,7 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
      */
     public readonly dxGatewayId!: pulumi.Output<string | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -139,7 +139,7 @@ export interface HostedPrivateVirtualInterfaceAccepterState {
      */
     readonly dxGatewayId?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -161,7 +161,7 @@ export interface HostedPrivateVirtualInterfaceAccepterArgs {
      */
     readonly dxGatewayId?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

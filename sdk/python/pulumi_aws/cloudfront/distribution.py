@@ -327,7 +327,7 @@ class Distribution(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     viewer_certificate: pulumi.Output[dict]
     """
@@ -421,7 +421,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[bool] retain_on_delete: Disables the distribution instead of
                deleting it when destroying the resource. If this is set,
                the distribution needs to be deleted manually afterwards. Default: `false`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[dict] viewer_certificate: The SSL
                configuration for this distribution (maximum
                one).
@@ -785,7 +785,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[str] status: The current status of the distribution. `Deployed` if the
                distribution's information is fully propagated throughout the Amazon
                CloudFront system.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[dict] viewer_certificate: The SSL
                configuration for this distribution (maximum
                one).

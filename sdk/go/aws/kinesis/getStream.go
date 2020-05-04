@@ -24,7 +24,7 @@ func LookupStream(ctx *pulumi.Context, args *LookupStreamArgs, opts ...pulumi.In
 type LookupStreamArgs struct {
 	// The name of the Kinesis Stream.
 	Name string `pulumi:"name"`
-	// A mapping of tags to assigned to the stream.
+	// A map of tags to assigned to the stream.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -48,6 +48,6 @@ type LookupStreamResult struct {
 	ShardLevelMetrics []string `pulumi:"shardLevelMetrics"`
 	// The current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
 	Status string `pulumi:"status"`
-	// A mapping of tags to assigned to the stream.
+	// A map of tags to assigned to the stream.
 	Tags map[string]interface{} `pulumi:"tags"`
 }

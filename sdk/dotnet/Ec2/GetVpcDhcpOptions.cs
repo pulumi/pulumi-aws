@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, object>? _tags;
 
         /// <summary>
-        /// A mapping of tags assigned to the resource.
+        /// A map of tags assigned to the resource.
         /// </summary>
         public Dictionary<string, object> Tags
         {
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string OwnerId;
         /// <summary>
-        /// A mapping of tags assigned to the resource.
+        /// A map of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
 

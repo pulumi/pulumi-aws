@@ -27,7 +27,7 @@ type LookupNatGatewayArgs struct {
 	State *string `pulumi:"state"`
 	// The id of subnet that the Nat Gateway resides in.
 	SubnetId *string `pulumi:"subnetId"`
-	// A mapping of tags, each pair of which must exactly match
+	// A map of tags, each pair of which must exactly match
 	// a pair on the desired Nat Gateway.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The id of the VPC that the Nat Gateway resides in.

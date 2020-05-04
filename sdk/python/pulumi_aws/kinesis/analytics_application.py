@@ -162,7 +162,7 @@ class AnalyticsApplication(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of tags for the Kinesis Analytics Application.
+    Key-value map of tags for the Kinesis Analytics Application.
     """
     version: pulumi.Output[float]
     """
@@ -188,7 +188,7 @@ class AnalyticsApplication(pulumi.CustomResource):
         :param pulumi.Input[list] outputs: Output destination configuration of the application. See Outputs below for more details.
         :param pulumi.Input[dict] reference_data_sources: An S3 Reference Data Source for the application.
                See Reference Data Sources below for more details.
-        :param pulumi.Input[dict] tags: Key-value mapping of tags for the Kinesis Analytics Application.
+        :param pulumi.Input[dict] tags: Key-value map of tags for the Kinesis Analytics Application.
 
         The **cloudwatch_logging_options** object supports the following:
 
@@ -360,7 +360,7 @@ class AnalyticsApplication(pulumi.CustomResource):
         :param pulumi.Input[dict] reference_data_sources: An S3 Reference Data Source for the application.
                See Reference Data Sources below for more details.
         :param pulumi.Input[str] status: The Status of the application.
-        :param pulumi.Input[dict] tags: Key-value mapping of tags for the Kinesis Analytics Application.
+        :param pulumi.Input[dict] tags: Key-value map of tags for the Kinesis Analytics Application.
         :param pulumi.Input[float] version: The Version of the application.
 
         The **cloudwatch_logging_options** object supports the following:

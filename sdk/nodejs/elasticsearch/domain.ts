@@ -267,7 +267,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly snapshotOptions!: pulumi.Output<outputs.elasticsearch.DomainSnapshotOptions | undefined>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -408,7 +408,7 @@ export interface DomainState {
      */
     readonly snapshotOptions?: pulumi.Input<inputs.elasticsearch.DomainSnapshotOptions>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -470,7 +470,7 @@ export interface DomainArgs {
      */
     readonly snapshotOptions?: pulumi.Input<inputs.elasticsearch.DomainSnapshotOptions>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

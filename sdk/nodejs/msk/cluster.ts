@@ -97,7 +97,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly openMonitoring!: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -237,7 +237,7 @@ export interface ClusterState {
      */
     readonly openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -291,7 +291,7 @@ export interface ClusterArgs {
      */
     readonly openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
     /**
-     * A mapping of tags to assign to the resource
+     * A map of tags to assign to the resource
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

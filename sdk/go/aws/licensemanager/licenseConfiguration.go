@@ -41,7 +41,7 @@ type LicenseConfiguration struct {
 	LicenseRules pulumi.StringArrayOutput `pulumi:"licenseRules"`
 	// Name of the license configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -88,7 +88,7 @@ type licenseConfigurationState struct {
 	LicenseRules []string `pulumi:"licenseRules"`
 	// Name of the license configuration.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -105,7 +105,7 @@ type LicenseConfigurationState struct {
 	LicenseRules pulumi.StringArrayInput
 	// Name of the license configuration.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -126,7 +126,7 @@ type licenseConfigurationArgs struct {
 	LicenseRules []string `pulumi:"licenseRules"`
 	// Name of the license configuration.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -144,7 +144,7 @@ type LicenseConfigurationArgs struct {
 	LicenseRules pulumi.StringArrayInput
 	// Name of the license configuration.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

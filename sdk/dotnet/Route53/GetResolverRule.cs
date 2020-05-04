@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Route53
         private Dictionary<string, object>? _tags;
 
         /// <summary>
-        /// A mapping of tags assigned to the resolver rule.
+        /// A map of tags assigned to the resolver rule.
         /// </summary>
         public Dictionary<string, object> Tags
         {
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         public readonly string ShareStatus;
         /// <summary>
-        /// A mapping of tags assigned to the resolver rule.
+        /// A map of tags assigned to the resolver rule.
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
 

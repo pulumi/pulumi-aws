@@ -47,7 +47,7 @@ type Certificate struct {
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
 	// A list of domains that should be SANs in the issued certificate
 	SubjectAlternativeNames pulumi.StringArrayOutput `pulumi:"subjectAlternativeNames"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
 	ValidationEmails pulumi.StringArrayOutput `pulumi:"validationEmails"`
@@ -102,7 +102,7 @@ type certificateState struct {
 	PrivateKey *string `pulumi:"privateKey"`
 	// A list of domains that should be SANs in the issued certificate
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
 	ValidationEmails []string `pulumi:"validationEmails"`
@@ -130,7 +130,7 @@ type CertificateState struct {
 	PrivateKey pulumi.StringPtrInput
 	// A list of domains that should be SANs in the issued certificate
 	SubjectAlternativeNames pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
 	ValidationEmails pulumi.StringArrayInput
@@ -158,7 +158,7 @@ type certificateArgs struct {
 	PrivateKey *string `pulumi:"privateKey"`
 	// A list of domains that should be SANs in the issued certificate
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
 	// * Importing an existing certificate
@@ -181,7 +181,7 @@ type CertificateArgs struct {
 	PrivateKey pulumi.StringPtrInput
 	// A list of domains that should be SANs in the issued certificate
 	SubjectAlternativeNames pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
 	// * Importing an existing certificate

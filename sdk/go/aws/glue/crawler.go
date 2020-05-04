@@ -43,7 +43,7 @@ type Crawler struct {
 	SecurityConfiguration pulumi.StringPtrOutput `pulumi:"securityConfiguration"`
 	// The table prefix used for catalog tables that are created.
 	TablePrefix pulumi.StringPtrOutput `pulumi:"tablePrefix"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -110,7 +110,7 @@ type crawlerState struct {
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
 	// The table prefix used for catalog tables that are created.
 	TablePrefix *string `pulumi:"tablePrefix"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -144,7 +144,7 @@ type CrawlerState struct {
 	SecurityConfiguration pulumi.StringPtrInput
 	// The table prefix used for catalog tables that are created.
 	TablePrefix pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 
@@ -180,7 +180,7 @@ type crawlerArgs struct {
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
 	// The table prefix used for catalog tables that are created.
 	TablePrefix *string `pulumi:"tablePrefix"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -213,7 +213,7 @@ type CrawlerArgs struct {
 	SecurityConfiguration pulumi.StringPtrInput
 	// The table prefix used for catalog tables that are created.
 	TablePrefix pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 

@@ -17,7 +17,7 @@ type Pipeline struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of Pipeline.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -53,7 +53,7 @@ type pipelineState struct {
 	Description *string `pulumi:"description"`
 	// The name of Pipeline.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -62,7 +62,7 @@ type PipelineState struct {
 	Description pulumi.StringPtrInput
 	// The name of Pipeline.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -75,7 +75,7 @@ type pipelineArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of Pipeline.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -85,7 +85,7 @@ type PipelineArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of Pipeline.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

@@ -33,7 +33,7 @@ type OptionGroup struct {
 	OptionGroupDescription pulumi.StringOutput `pulumi:"optionGroupDescription"`
 	// A list of Options to apply.
 	Options OptionGroupOptionArrayOutput `pulumi:"options"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -88,7 +88,7 @@ type optionGroupState struct {
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
 	// A list of Options to apply.
 	Options []OptionGroupOption `pulumi:"options"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -107,7 +107,7 @@ type OptionGroupState struct {
 	OptionGroupDescription pulumi.StringPtrInput
 	// A list of Options to apply.
 	Options OptionGroupOptionArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -128,7 +128,7 @@ type optionGroupArgs struct {
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
 	// A list of Options to apply.
 	Options []OptionGroupOption `pulumi:"options"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -146,7 +146,7 @@ type OptionGroupArgs struct {
 	OptionGroupDescription pulumi.StringPtrInput
 	// A list of Options to apply.
 	Options OptionGroupOptionArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource.
         /// </summary>
         public InputMap<object> Tags
         {

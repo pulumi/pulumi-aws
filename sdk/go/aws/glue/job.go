@@ -46,7 +46,7 @@ type Job struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration pulumi.StringPtrOutput `pulumi:"securityConfiguration"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
@@ -118,7 +118,7 @@ type jobState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout *int `pulumi:"timeout"`
@@ -157,7 +157,7 @@ type JobState struct {
 	RoleArn pulumi.StringPtrInput
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout pulumi.IntPtrInput
@@ -198,7 +198,7 @@ type jobArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout *int `pulumi:"timeout"`
@@ -236,7 +236,7 @@ type JobArgs struct {
 	RoleArn pulumi.StringInput
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout pulumi.IntPtrInput

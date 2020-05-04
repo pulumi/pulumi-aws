@@ -124,7 +124,7 @@ class Cluster(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the Neptune cluster.
+    A map of tags to assign to the Neptune cluster.
     """
     vpc_security_group_ids: pulumi.Output[list]
     """
@@ -168,7 +168,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the Neptune cluster.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the Neptune cluster.
         :param pulumi.Input[list] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
         if __name__ is not None:
@@ -261,7 +261,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the Neptune cluster.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the Neptune cluster.
         :param pulumi.Input[list] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -40,7 +40,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A map of tags to assign to the resource.
     """
     def __init__(__self__, resource_name, opts=None, description=None, family=None, name=None, name_prefix=None, parameters=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -55,7 +55,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the documentDB parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[list] parameters: A list of documentDB parameters to apply.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **parameters** object supports the following:
 
@@ -110,7 +110,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the documentDB parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[list] parameters: A list of documentDB parameters to apply.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
 
         The **parameters** object supports the following:
 

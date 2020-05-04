@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Sqs
         public Output<string?> RedrivePolicy { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the queue.
+        /// A map of tags to assign to the queue.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.Sqs
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the queue.
+        /// A map of tags to assign to the queue.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -326,7 +326,7 @@ namespace Pulumi.Aws.Sqs
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the queue.
+        /// A map of tags to assign to the queue.
         /// </summary>
         public InputMap<object> Tags
         {

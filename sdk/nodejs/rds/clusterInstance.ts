@@ -203,7 +203,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
-     * A mapping of tags to assign to the instance.
+     * A map of tags to assign to the instance.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -425,7 +425,7 @@ export interface ClusterInstanceState {
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the instance.
+     * A map of tags to assign to the instance.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -534,7 +534,7 @@ export interface ClusterInstanceArgs {
      */
     readonly publiclyAccessible?: pulumi.Input<boolean>;
     /**
-     * A mapping of tags to assign to the instance.
+     * A map of tags to assign to the instance.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

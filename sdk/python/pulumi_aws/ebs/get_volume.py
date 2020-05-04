@@ -72,7 +72,7 @@ class GetVolumeResult:
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
-        A mapping of tags for the resource.
+        A map of tags for the resource.
         """
         if volume_id and not isinstance(volume_id, str):
             raise TypeError("Expected argument 'volume_id' to be a str")
@@ -119,7 +119,7 @@ def get_volume(filters=None,most_recent=None,tags=None,opts=None):
            [describe-volumes in the AWS CLI reference][1].
     :param bool most_recent: If more than one result is returned, use the most
            recent Volume.
-    :param dict tags: A mapping of tags for the resource.
+    :param dict tags: A map of tags for the resource.
 
     The **filters** object supports the following:
 

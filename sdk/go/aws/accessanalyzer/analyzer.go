@@ -17,7 +17,7 @@ type Analyzer struct {
 	// Name of the Analyzer.
 	AnalyzerName pulumi.StringOutput `pulumi:"analyzerName"`
 	Arn          pulumi.StringOutput `pulumi:"arn"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
@@ -57,7 +57,7 @@ type analyzerState struct {
 	// Name of the Analyzer.
 	AnalyzerName *string `pulumi:"analyzerName"`
 	Arn          *string `pulumi:"arn"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
 	Type *string `pulumi:"type"`
@@ -67,7 +67,7 @@ type AnalyzerState struct {
 	// Name of the Analyzer.
 	AnalyzerName pulumi.StringPtrInput
 	Arn          pulumi.StringPtrInput
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapInput
 	// Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
 	Type pulumi.StringPtrInput
@@ -80,7 +80,7 @@ func (AnalyzerState) ElementType() reflect.Type {
 type analyzerArgs struct {
 	// Name of the Analyzer.
 	AnalyzerName string `pulumi:"analyzerName"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
 	Type *string `pulumi:"type"`
@@ -90,7 +90,7 @@ type analyzerArgs struct {
 type AnalyzerArgs struct {
 	// Name of the Analyzer.
 	AnalyzerName pulumi.StringInput
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags.
 	Tags pulumi.MapInput
 	// Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
 	Type pulumi.StringPtrInput

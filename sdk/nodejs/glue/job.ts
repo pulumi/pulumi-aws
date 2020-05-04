@@ -154,7 +154,7 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly securityConfiguration!: pulumi.Output<string | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -301,7 +301,7 @@ export interface JobState {
      */
     readonly securityConfiguration?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -377,7 +377,7 @@ export interface JobArgs {
      */
     readonly securityConfiguration?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

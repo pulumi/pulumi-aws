@@ -26,7 +26,7 @@ type Snapshot struct {
 	OwnerAlias pulumi.StringOutput `pulumi:"ownerAlias"`
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A mapping of tags to assign to the snapshot
+	// A map of tags to assign to the snapshot
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
@@ -77,7 +77,7 @@ type snapshotState struct {
 	OwnerAlias *string `pulumi:"ownerAlias"`
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId *string `pulumi:"ownerId"`
-	// A mapping of tags to assign to the snapshot
+	// A map of tags to assign to the snapshot
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The Volume ID of which to make a snapshot.
 	VolumeId *string `pulumi:"volumeId"`
@@ -98,7 +98,7 @@ type SnapshotState struct {
 	OwnerAlias pulumi.StringPtrInput
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId pulumi.StringPtrInput
-	// A mapping of tags to assign to the snapshot
+	// A map of tags to assign to the snapshot
 	Tags pulumi.MapInput
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringPtrInput
@@ -113,7 +113,7 @@ func (SnapshotState) ElementType() reflect.Type {
 type snapshotArgs struct {
 	// A description of what the snapshot is.
 	Description *string `pulumi:"description"`
-	// A mapping of tags to assign to the snapshot
+	// A map of tags to assign to the snapshot
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The Volume ID of which to make a snapshot.
 	VolumeId string `pulumi:"volumeId"`
@@ -123,7 +123,7 @@ type snapshotArgs struct {
 type SnapshotArgs struct {
 	// A description of what the snapshot is.
 	Description pulumi.StringPtrInput
-	// A mapping of tags to assign to the snapshot
+	// A map of tags to assign to the snapshot
 	Tags pulumi.MapInput
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringInput

@@ -24,7 +24,7 @@ type StateMachine struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The current status of the state machine. Either "ACTIVE" or "DELETING".
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -72,7 +72,7 @@ type stateMachineState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The current status of the state machine. Either "ACTIVE" or "DELETING".
 	Status *string `pulumi:"status"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -87,7 +87,7 @@ type StateMachineState struct {
 	RoleArn pulumi.StringPtrInput
 	// The current status of the state machine. Either "ACTIVE" or "DELETING".
 	Status pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 
@@ -102,7 +102,7 @@ type stateMachineArgs struct {
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn string `pulumi:"roleArn"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -114,7 +114,7 @@ type StateMachineArgs struct {
 	Name pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn pulumi.StringInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 

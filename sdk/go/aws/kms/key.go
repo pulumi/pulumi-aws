@@ -35,7 +35,7 @@ type Key struct {
 	KeyUsage pulumi.StringPtrOutput `pulumi:"keyUsage"`
 	// A valid policy JSON document.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -89,7 +89,7 @@ type keyState struct {
 	KeyUsage *string `pulumi:"keyUsage"`
 	// A valid policy JSON document.
 	Policy *string `pulumi:"policy"`
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -116,7 +116,7 @@ type KeyState struct {
 	KeyUsage pulumi.StringPtrInput
 	// A valid policy JSON document.
 	Policy pulumi.StringPtrInput
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags pulumi.MapInput
 }
 
@@ -143,7 +143,7 @@ type keyArgs struct {
 	KeyUsage *string `pulumi:"keyUsage"`
 	// A valid policy JSON document.
 	Policy *string `pulumi:"policy"`
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -167,7 +167,7 @@ type KeyArgs struct {
 	KeyUsage pulumi.StringPtrInput
 	// A valid policy JSON document.
 	Policy pulumi.StringPtrInput
-	// A mapping of tags to assign to the object.
+	// A map of tags to assign to the object.
 	Tags pulumi.MapInput
 }
 

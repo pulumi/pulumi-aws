@@ -92,7 +92,7 @@ export class Directory extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
-     * A mapping of tags assigned to the WorkSpaces directory.
+     * A map of tags assigned to the WorkSpaces directory.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -150,7 +150,7 @@ export interface DirectoryState {
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags assigned to the WorkSpaces directory.
+     * A map of tags assigned to the WorkSpaces directory.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -172,7 +172,7 @@ export interface DirectoryArgs {
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags assigned to the WorkSpaces directory.
+     * A map of tags assigned to the WorkSpaces directory.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

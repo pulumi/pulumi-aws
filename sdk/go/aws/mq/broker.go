@@ -70,7 +70,7 @@ type Broker struct {
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The list of all ActiveMQ usernames for the specified broker. See below.
 	Users BrokerUserArrayOutput `pulumi:"users"`
@@ -163,7 +163,7 @@ type brokerState struct {
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The list of all ActiveMQ usernames for the specified broker. See below.
 	Users []BrokerUser `pulumi:"users"`
@@ -211,7 +211,7 @@ type BrokerState struct {
 	SecurityGroups pulumi.StringArrayInput
 	// The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
 	SubnetIds pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The list of all ActiveMQ usernames for the specified broker. See below.
 	Users BrokerUserArrayInput
@@ -251,7 +251,7 @@ type brokerArgs struct {
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The list of all ActiveMQ usernames for the specified broker. See below.
 	Users []BrokerUser `pulumi:"users"`
@@ -288,7 +288,7 @@ type BrokerArgs struct {
 	SecurityGroups pulumi.StringArrayInput
 	// The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
 	SubnetIds pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// The list of all ActiveMQ usernames for the specified broker. See below.
 	Users BrokerUserArrayInput

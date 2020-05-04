@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
     /// 
     /// &gt; **Note:** This resource establishes ownership of and the TLS settings for
-    /// a particular domain name. An API stage can be associated with the domain name using the `aws_apigatewayv2_api_mapping` resource.
+    /// a particular domain name. An API stage can be associated with the domain name using the `aws.apigatewayv2.ApiMapping` resource.
     /// </summary>
     public partial class DomainName : Pulumi.CustomResource
     {
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<Outputs.DomainNameDomainNameConfiguration> DomainNameConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the domain name.
+        /// A map of tags to assign to the domain name.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the domain name.
+        /// A map of tags to assign to the domain name.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the domain name.
+        /// A map of tags to assign to the domain name.
         /// </summary>
         public InputMap<object> Tags
         {

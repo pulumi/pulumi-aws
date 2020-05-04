@@ -71,7 +71,7 @@ export interface GetVpcEndpointArgs {
      */
     readonly state?: string;
     /**
-     * A mapping of tags, each pair of which must exactly match
+     * A map of tags, each pair of which must exactly match
      * a pair on the specific VPC Endpoint to retrieve.
      */
     readonly tags?: {[key: string]: any};

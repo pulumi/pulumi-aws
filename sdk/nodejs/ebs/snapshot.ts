@@ -84,7 +84,7 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the snapshot
+     * A map of tags to assign to the snapshot
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -172,7 +172,7 @@ export interface SnapshotState {
      */
     readonly ownerId?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the snapshot
+     * A map of tags to assign to the snapshot
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -194,7 +194,7 @@ export interface SnapshotArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the snapshot
+     * A map of tags to assign to the snapshot
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

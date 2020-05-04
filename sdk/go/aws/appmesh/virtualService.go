@@ -26,7 +26,7 @@ type VirtualService struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The virtual service specification to apply.
 	Spec VirtualServiceSpecOutput `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -76,7 +76,7 @@ type virtualServiceState struct {
 	Name *string `pulumi:"name"`
 	// The virtual service specification to apply.
 	Spec *VirtualServiceSpec `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -93,7 +93,7 @@ type VirtualServiceState struct {
 	Name pulumi.StringPtrInput
 	// The virtual service specification to apply.
 	Spec VirtualServiceSpecPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -108,7 +108,7 @@ type virtualServiceArgs struct {
 	Name *string `pulumi:"name"`
 	// The virtual service specification to apply.
 	Spec VirtualServiceSpec `pulumi:"spec"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -120,7 +120,7 @@ type VirtualServiceArgs struct {
 	Name pulumi.StringPtrInput
 	// The virtual service specification to apply.
 	Spec VirtualServiceSpecInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

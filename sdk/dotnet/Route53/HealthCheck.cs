@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Route53
         public Output<string?> SearchString { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the health check.
+        /// A map of tags to assign to the health check.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -294,7 +294,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the health check.
+        /// A map of tags to assign to the health check.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -434,7 +434,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the health check.
+        /// A map of tags to assign to the health check.
         /// </summary>
         public InputMap<object> Tags
         {

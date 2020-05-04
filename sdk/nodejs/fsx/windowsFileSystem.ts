@@ -137,7 +137,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the file system.
+     * A map of tags to assign to the file system.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -285,7 +285,7 @@ export interface WindowsFileSystemState {
      */
     readonly subnetIds?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the file system.
+     * A map of tags to assign to the file system.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -347,7 +347,7 @@ export interface WindowsFileSystemArgs {
      */
     readonly subnetIds: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the file system.
+     * A map of tags to assign to the file system.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

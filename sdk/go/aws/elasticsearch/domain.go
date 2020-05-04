@@ -49,7 +49,7 @@ type Domain struct {
 	NodeToNodeEncryption DomainNodeToNodeEncryptionOutput `pulumi:"nodeToNodeEncryption"`
 	// Snapshot related options, see below.
 	SnapshotOptions DomainSnapshotOptionsPtrOutput `pulumi:"snapshotOptions"`
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
 	VpcOptions DomainVpcOptionsPtrOutput `pulumi:"vpcOptions"`
@@ -119,7 +119,7 @@ type domainState struct {
 	NodeToNodeEncryption *DomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryption"`
 	// Snapshot related options, see below.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags map[string]interface{} `pulumi:"tags"`
 	// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
 	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
@@ -162,7 +162,7 @@ type DomainState struct {
 	NodeToNodeEncryption DomainNodeToNodeEncryptionPtrInput
 	// Snapshot related options, see below.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags pulumi.MapInput
 	// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
 	VpcOptions DomainVpcOptionsPtrInput
@@ -199,7 +199,7 @@ type domainArgs struct {
 	NodeToNodeEncryption *DomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryption"`
 	// Snapshot related options, see below.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags map[string]interface{} `pulumi:"tags"`
 	// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
 	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
@@ -233,7 +233,7 @@ type DomainArgs struct {
 	NodeToNodeEncryption DomainNodeToNodeEncryptionPtrInput
 	// Snapshot related options, see below.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
-	// A mapping of tags to assign to the resource
+	// A map of tags to assign to the resource
 	Tags pulumi.MapInput
 	// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
 	VpcOptions DomainVpcOptionsPtrInput

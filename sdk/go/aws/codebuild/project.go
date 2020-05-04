@@ -48,7 +48,7 @@ type Project struct {
 	Source ProjectSourceOutput `pulumi:"source"`
 	// A version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrOutput `pulumi:"sourceVersion"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
 	VpcConfig ProjectVpcConfigPtrOutput `pulumi:"vpcConfig"`
@@ -128,7 +128,7 @@ type projectState struct {
 	Source *ProjectSource `pulumi:"source"`
 	// A version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion *string `pulumi:"sourceVersion"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
 	VpcConfig *ProjectVpcConfig `pulumi:"vpcConfig"`
@@ -169,7 +169,7 @@ type ProjectState struct {
 	Source ProjectSourcePtrInput
 	// A version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
 	VpcConfig ProjectVpcConfigPtrInput
@@ -210,7 +210,7 @@ type projectArgs struct {
 	Source ProjectSource `pulumi:"source"`
 	// A version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion *string `pulumi:"sourceVersion"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
 	VpcConfig *ProjectVpcConfig `pulumi:"vpcConfig"`
@@ -248,7 +248,7 @@ type ProjectArgs struct {
 	Source ProjectSourceInput
 	// A version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
 	VpcConfig ProjectVpcConfigPtrInput

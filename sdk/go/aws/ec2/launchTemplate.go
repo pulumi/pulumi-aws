@@ -82,7 +82,7 @@ type LaunchTemplate struct {
 	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
 	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 	TagSpecifications LaunchTemplateTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
-	// A mapping of tags to assign to the launch template.
+	// A map of tags to assign to the launch template.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
@@ -187,7 +187,7 @@ type launchTemplateState struct {
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 	TagSpecifications []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
-	// A mapping of tags to assign to the launch template.
+	// A map of tags to assign to the launch template.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData *string `pulumi:"userData"`
@@ -265,7 +265,7 @@ type LaunchTemplateState struct {
 	SecurityGroupNames pulumi.StringArrayInput
 	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 	TagSpecifications LaunchTemplateTagSpecificationArrayInput
-	// A mapping of tags to assign to the launch template.
+	// A map of tags to assign to the launch template.
 	Tags pulumi.MapInput
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData pulumi.StringPtrInput
@@ -341,7 +341,7 @@ type launchTemplateArgs struct {
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 	TagSpecifications []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
-	// A mapping of tags to assign to the launch template.
+	// A map of tags to assign to the launch template.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData *string `pulumi:"userData"`
@@ -414,7 +414,7 @@ type LaunchTemplateArgs struct {
 	SecurityGroupNames pulumi.StringArrayInput
 	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 	TagSpecifications LaunchTemplateTagSpecificationArrayInput
-	// A mapping of tags to assign to the launch template.
+	// A map of tags to assign to the launch template.
 	Tags pulumi.MapInput
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData pulumi.StringPtrInput

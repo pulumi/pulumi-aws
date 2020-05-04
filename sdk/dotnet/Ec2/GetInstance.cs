@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, object>? _instanceTags;
 
         /// <summary>
-        /// A mapping of tags, each pair of which must
+        /// A map of tags, each pair of which must
         /// exactly match a pair on the desired Instance.
         /// </summary>
         public Dictionary<string, object> InstanceTags

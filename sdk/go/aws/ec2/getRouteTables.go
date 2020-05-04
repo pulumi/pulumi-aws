@@ -21,7 +21,7 @@ func GetRouteTables(ctx *pulumi.Context, args *GetRouteTablesArgs, opts ...pulum
 type GetRouteTablesArgs struct {
 	// Custom filter block as described below.
 	Filters []GetRouteTablesFilter `pulumi:"filters"`
-	// A mapping of tags, each pair of which must exactly match
+	// A map of tags, each pair of which must exactly match
 	// a pair on the desired route tables.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VPC ID that you want to filter from.

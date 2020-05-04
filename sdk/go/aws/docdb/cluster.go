@@ -85,7 +85,7 @@ type Cluster struct {
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
 	// Specifies whether the DB cluster is encrypted. The default is `false`.
 	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the DB cluster.
+	// A map of tags to assign to the DB cluster.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// List of VPC security groups to associate
 	// with the Cluster
@@ -181,7 +181,7 @@ type clusterState struct {
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// Specifies whether the DB cluster is encrypted. The default is `false`.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the DB cluster.
+	// A map of tags to assign to the DB cluster.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// List of VPC security groups to associate
 	// with the Cluster
@@ -250,7 +250,7 @@ type ClusterState struct {
 	SnapshotIdentifier pulumi.StringPtrInput
 	// Specifies whether the DB cluster is encrypted. The default is `false`.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A mapping of tags to assign to the DB cluster.
+	// A map of tags to assign to the DB cluster.
 	Tags pulumi.MapInput
 	// List of VPC security groups to associate
 	// with the Cluster
@@ -313,7 +313,7 @@ type clusterArgs struct {
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// Specifies whether the DB cluster is encrypted. The default is `false`.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the DB cluster.
+	// A map of tags to assign to the DB cluster.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// List of VPC security groups to associate
 	// with the Cluster
@@ -373,7 +373,7 @@ type ClusterArgs struct {
 	SnapshotIdentifier pulumi.StringPtrInput
 	// Specifies whether the DB cluster is encrypted. The default is `false`.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A mapping of tags to assign to the DB cluster.
+	// A map of tags to assign to the DB cluster.
 	Tags pulumi.MapInput
 	// List of VPC security groups to associate
 	// with the Cluster

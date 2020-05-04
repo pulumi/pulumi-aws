@@ -71,7 +71,7 @@ type ClusterInstance struct {
 	PubliclyAccessible pulumi.BoolOutput   `pulumi:"publiclyAccessible"`
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the instance.
+	// A map of tags to assign to the instance.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolOutput `pulumi:"writer"`
@@ -161,7 +161,7 @@ type clusterInstanceState struct {
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A mapping of tags to assign to the instance.
+	// A map of tags to assign to the instance.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer *bool `pulumi:"writer"`
@@ -218,7 +218,7 @@ type ClusterInstanceState struct {
 	PubliclyAccessible pulumi.BoolPtrInput
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A mapping of tags to assign to the instance.
+	// A map of tags to assign to the instance.
 	Tags pulumi.MapInput
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolPtrInput
@@ -260,7 +260,7 @@ type clusterInstanceArgs struct {
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
 	PromotionTier *int `pulumi:"promotionTier"`
-	// A mapping of tags to assign to the instance.
+	// A map of tags to assign to the instance.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -297,7 +297,7 @@ type ClusterInstanceArgs struct {
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
 	PromotionTier pulumi.IntPtrInput
-	// A mapping of tags to assign to the instance.
+	// A map of tags to assign to the instance.
 	Tags pulumi.MapInput
 }
 

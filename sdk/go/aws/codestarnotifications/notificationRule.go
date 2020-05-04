@@ -27,7 +27,7 @@ type NotificationRule struct {
 	Resource pulumi.StringOutput `pulumi:"resource"`
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
 	Targets NotificationRuleTargetArrayOutput `pulumi:"targets"`
@@ -83,7 +83,7 @@ type notificationRuleState struct {
 	Resource *string `pulumi:"resource"`
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status *string `pulumi:"status"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
 	Targets []NotificationRuleTarget `pulumi:"targets"`
@@ -103,7 +103,7 @@ type NotificationRuleState struct {
 	Resource pulumi.StringPtrInput
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
 	Targets NotificationRuleTargetArrayInput
@@ -125,7 +125,7 @@ type notificationRuleArgs struct {
 	Resource string `pulumi:"resource"`
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status *string `pulumi:"status"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
 	Targets []NotificationRuleTarget `pulumi:"targets"`
@@ -144,7 +144,7 @@ type NotificationRuleArgs struct {
 	Resource pulumi.StringInput
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
 	Targets NotificationRuleTargetArrayInput

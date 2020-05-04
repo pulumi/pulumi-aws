@@ -41,7 +41,7 @@ type VpcEndpointService struct {
 	ServiceType pulumi.StringOutput `pulumi:"serviceType"`
 	// The state of the VPC endpoint service.
 	State pulumi.StringOutput `pulumi:"state"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -99,7 +99,7 @@ type vpcEndpointServiceState struct {
 	ServiceType *string `pulumi:"serviceType"`
 	// The state of the VPC endpoint service.
 	State *string `pulumi:"state"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -124,7 +124,7 @@ type VpcEndpointServiceState struct {
 	ServiceType pulumi.StringPtrInput
 	// The state of the VPC endpoint service.
 	State pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -139,7 +139,7 @@ type vpcEndpointServiceArgs struct {
 	AllowedPrincipals []string `pulumi:"allowedPrincipals"`
 	// The ARNs of one or more Network Load Balancers for the endpoint service.
 	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -151,7 +151,7 @@ type VpcEndpointServiceArgs struct {
 	AllowedPrincipals pulumi.StringArrayInput
 	// The ARNs of one or more Network Load Balancers for the endpoint service.
 	NetworkLoadBalancerArns pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

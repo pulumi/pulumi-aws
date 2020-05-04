@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Dlm.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.LifecyclePolicyPolicyDetailsSchedule> Schedules;
         /// <summary>
-        /// A mapping of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
+        /// A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
         /// </summary>
         public readonly ImmutableDictionary<string, object> TargetTags;
 

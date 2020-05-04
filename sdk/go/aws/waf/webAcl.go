@@ -26,7 +26,7 @@ type WebAcl struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules WebAclRuleArrayOutput `pulumi:"rules"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -76,7 +76,7 @@ type webAclState struct {
 	Name *string `pulumi:"name"`
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules []WebAclRule `pulumi:"rules"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -93,7 +93,7 @@ type WebAclState struct {
 	Name pulumi.StringPtrInput
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules WebAclRuleArrayInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 
@@ -112,7 +112,7 @@ type webAclArgs struct {
 	Name *string `pulumi:"name"`
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules []WebAclRule `pulumi:"rules"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -128,7 +128,7 @@ type WebAclArgs struct {
 	Name pulumi.StringPtrInput
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules WebAclRuleArrayInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 

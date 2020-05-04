@@ -85,7 +85,7 @@ type DomainName struct {
 	RegionalZoneId pulumi.StringOutput `pulumi:"regionalZoneId"`
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 	SecurityPolicy pulumi.StringOutput `pulumi:"securityPolicy"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -163,7 +163,7 @@ type domainNameState struct {
 	RegionalZoneId *string `pulumi:"regionalZoneId"`
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 	SecurityPolicy *string `pulumi:"securityPolicy"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -211,7 +211,7 @@ type DomainNameState struct {
 	RegionalZoneId pulumi.StringPtrInput
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 	SecurityPolicy pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 
@@ -249,7 +249,7 @@ type domainNameArgs struct {
 	RegionalCertificateName *string `pulumi:"regionalCertificateName"`
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 	SecurityPolicy *string `pulumi:"securityPolicy"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -284,7 +284,7 @@ type DomainNameArgs struct {
 	RegionalCertificateName pulumi.StringPtrInput
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 	SecurityPolicy pulumi.StringPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
 

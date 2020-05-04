@@ -142,7 +142,7 @@ export class Stack extends pulumi.CustomResource {
     public readonly serviceRoleArn!: pulumi.Output<string>;
     public /*out*/ readonly stackEndpoint!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -327,7 +327,7 @@ export interface StackState {
     readonly serviceRoleArn?: pulumi.Input<string>;
     readonly stackEndpoint?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -428,7 +428,7 @@ export interface StackArgs {
      */
     readonly serviceRoleArn: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**

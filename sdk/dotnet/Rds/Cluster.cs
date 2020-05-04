@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the DB cluster.
+        /// A map of tags to assign to the DB cluster.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -566,7 +566,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the DB cluster.
+        /// A map of tags to assign to the DB cluster.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -861,7 +861,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the DB cluster.
+        /// A map of tags to assign to the DB cluster.
         /// </summary>
         public InputMap<object> Tags
         {

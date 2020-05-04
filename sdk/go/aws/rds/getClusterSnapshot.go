@@ -39,7 +39,7 @@ type LookupClusterSnapshotArgs struct {
 	// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared` and `public`.
 	SnapshotType *string `pulumi:"snapshotType"`
-	// A mapping of tags for the resource.
+	// A map of tags for the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -77,7 +77,7 @@ type LookupClusterSnapshotResult struct {
 	Status string `pulumi:"status"`
 	// Specifies whether the DB cluster snapshot is encrypted.
 	StorageEncrypted bool `pulumi:"storageEncrypted"`
-	// A mapping of tags for the resource.
+	// A map of tags for the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The VPC ID associated with the DB cluster snapshot.
 	VpcId string `pulumi:"vpcId"`

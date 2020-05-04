@@ -30,7 +30,7 @@ class Directory(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags assigned to the WorkSpaces directory.
+    A map of tags assigned to the WorkSpaces directory.
     """
     def __init__(__self__, resource_name, opts=None, directory_id=None, self_service_permissions=None, subnet_ids=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -43,7 +43,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[str] directory_id: The directory identifier for registration in WorkSpaces service.
         :param pulumi.Input[dict] self_service_permissions: The permissions to enable or disable self-service capabilities.
         :param pulumi.Input[list] subnet_ids: The identifiers of the subnets where the directory resides.
-        :param pulumi.Input[dict] tags: A mapping of tags assigned to the WorkSpaces directory.
+        :param pulumi.Input[dict] tags: A map of tags assigned to the WorkSpaces directory.
 
         The **self_service_permissions** object supports the following:
 
@@ -94,7 +94,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[str] directory_id: The directory identifier for registration in WorkSpaces service.
         :param pulumi.Input[dict] self_service_permissions: The permissions to enable or disable self-service capabilities.
         :param pulumi.Input[list] subnet_ids: The identifiers of the subnets where the directory resides.
-        :param pulumi.Input[dict] tags: A mapping of tags assigned to the WorkSpaces directory.
+        :param pulumi.Input[dict] tags: A map of tags assigned to the WorkSpaces directory.
 
         The **self_service_permissions** object supports the following:
 

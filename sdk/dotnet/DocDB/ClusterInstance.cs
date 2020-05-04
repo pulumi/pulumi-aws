@@ -154,7 +154,7 @@ namespace Pulumi.Aws.DocDB
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the instance.
+        /// A map of tags to assign to the instance.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -290,7 +290,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the instance.
+        /// A map of tags to assign to the instance.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -441,7 +441,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the instance.
+        /// A map of tags to assign to the instance.
         /// </summary>
         public InputMap<object> Tags
         {

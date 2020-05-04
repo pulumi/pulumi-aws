@@ -21,7 +21,7 @@ func LookupDirectory(ctx *pulumi.Context, args *LookupDirectoryArgs, opts ...pul
 type LookupDirectoryArgs struct {
 	// The ID of the directory.
 	DirectoryId string `pulumi:"directoryId"`
-	// A mapping of tags assigned to the directory/connector.
+	// A map of tags assigned to the directory/connector.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -51,7 +51,7 @@ type LookupDirectoryResult struct {
 	ShortName string `pulumi:"shortName"`
 	// (for `SimpleAD` and `ADConnector`) The size of the directory/connector (`Small` or `Large`).
 	Size string `pulumi:"size"`
-	// A mapping of tags assigned to the directory/connector.
+	// A map of tags assigned to the directory/connector.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
 	Type        string                   `pulumi:"type"`

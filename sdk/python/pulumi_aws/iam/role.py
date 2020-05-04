@@ -53,7 +53,7 @@ class Role(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of tags for the IAM role
+    Key-value map of tags for the IAM role
     """
     unique_id: pulumi.Output[str]
     """
@@ -78,7 +78,7 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[str] path: The path to the role.
                See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         :param pulumi.Input[str] permissions_boundary: The ARN of the policy that is used to set the permissions boundary for the role.
-        :param pulumi.Input[dict] tags: Key-value mapping of tags for the IAM role
+        :param pulumi.Input[dict] tags: Key-value map of tags for the IAM role
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -137,7 +137,7 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[str] path: The path to the role.
                See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         :param pulumi.Input[str] permissions_boundary: The ARN of the policy that is used to set the permissions boundary for the role.
-        :param pulumi.Input[dict] tags: Key-value mapping of tags for the IAM role
+        :param pulumi.Input[dict] tags: Key-value map of tags for the IAM role
         :param pulumi.Input[str] unique_id: The stable and unique string identifying the role.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

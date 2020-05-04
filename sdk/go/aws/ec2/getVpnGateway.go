@@ -32,7 +32,7 @@ type LookupVpnGatewayArgs struct {
 	Id *string `pulumi:"id"`
 	// The state of the specific VPN Gateway to retrieve.
 	State *string `pulumi:"state"`
-	// A mapping of tags, each pair of which must exactly match
+	// A map of tags, each pair of which must exactly match
 	// a pair on the desired VPN Gateway.
 	Tags map[string]interface{} `pulumi:"tags"`
 }

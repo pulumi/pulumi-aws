@@ -37,6 +37,18 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+        /// </summary>
+        [Output("corsConfiguration")]
+        public Output<Outputs.ApiCorsConfiguration?> CorsConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
+        /// </summary>
+        [Output("credentialsArn")]
+        public Output<string?> CredentialsArn { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the API.
         /// </summary>
         [Output("description")]
@@ -63,6 +75,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> ProtocolType { get; private set; } = null!;
 
         /// <summary>
+        /// Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
+        /// </summary>
+        [Output("routeKey")]
+        public Output<string?> RouteKey { get; private set; } = null!;
+
+        /// <summary>
         /// The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
         /// Defaults to `$request.method $request.path`.
         /// </summary>
@@ -70,10 +88,18 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> RouteSelectionExpression { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the API.
+        /// A map of tags to assign to the API.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
+        /// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
+        /// The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
+        /// </summary>
+        [Output("target")]
+        public Output<string?> Target { get; private set; } = null!;
 
         /// <summary>
         /// A version identifier for the API.
@@ -136,6 +162,18 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ApiKeySelectionExpression { get; set; }
 
         /// <summary>
+        /// The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+        /// </summary>
+        [Input("corsConfiguration")]
+        public Input<Inputs.ApiCorsConfigurationArgs>? CorsConfiguration { get; set; }
+
+        /// <summary>
+        /// Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
+        /// </summary>
+        [Input("credentialsArn")]
+        public Input<string>? CredentialsArn { get; set; }
+
+        /// <summary>
         /// The description of the API.
         /// </summary>
         [Input("description")]
@@ -154,6 +192,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string> ProtocolType { get; set; } = null!;
 
         /// <summary>
+        /// Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
+        /// </summary>
+        [Input("routeKey")]
+        public Input<string>? RouteKey { get; set; }
+
+        /// <summary>
         /// The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
         /// Defaults to `$request.method $request.path`.
         /// </summary>
@@ -164,13 +208,21 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the API.
+        /// A map of tags to assign to the API.
         /// </summary>
         public InputMap<object> Tags
         {
             get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
+        /// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
+        /// The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
+        /// </summary>
+        [Input("target")]
+        public Input<string>? Target { get; set; }
 
         /// <summary>
         /// A version identifier for the API.
@@ -206,6 +258,18 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+        /// </summary>
+        [Input("corsConfiguration")]
+        public Input<Inputs.ApiCorsConfigurationGetArgs>? CorsConfiguration { get; set; }
+
+        /// <summary>
+        /// Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
+        /// </summary>
+        [Input("credentialsArn")]
+        public Input<string>? CredentialsArn { get; set; }
+
+        /// <summary>
         /// The description of the API.
         /// </summary>
         [Input("description")]
@@ -232,6 +296,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ProtocolType { get; set; }
 
         /// <summary>
+        /// Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
+        /// </summary>
+        [Input("routeKey")]
+        public Input<string>? RouteKey { get; set; }
+
+        /// <summary>
         /// The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
         /// Defaults to `$request.method $request.path`.
         /// </summary>
@@ -242,13 +312,21 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the API.
+        /// A map of tags to assign to the API.
         /// </summary>
         public InputMap<object> Tags
         {
             get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
+        /// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
+        /// The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
+        /// </summary>
+        [Input("target")]
+        public Input<string>? Target { get; set; }
 
         /// <summary>
         /// A version identifier for the API.

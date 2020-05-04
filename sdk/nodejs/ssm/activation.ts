@@ -99,7 +99,7 @@ export class Activation extends pulumi.CustomResource {
      */
     public readonly registrationLimit!: pulumi.Output<number | undefined>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
@@ -187,7 +187,7 @@ export interface ActivationState {
      */
     readonly registrationLimit?: pulumi.Input<number>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -217,7 +217,7 @@ export interface ActivationArgs {
      */
     readonly registrationLimit?: pulumi.Input<number>;
     /**
-     * A mapping of tags to assign to the object.
+     * A map of tags to assign to the object.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

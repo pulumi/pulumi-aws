@@ -35,7 +35,7 @@ class RuleGroup(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags
+    Key-value map of resource tags
     """
     def __init__(__self__, resource_name, opts=None, activated_rules=None, metric_name=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -48,7 +48,7 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[list] activated_rules: A list of activated rules, see below
         :param pulumi.Input[str] metric_name: A friendly name for the metrics from the rule group
         :param pulumi.Input[str] name: A friendly name of the rule group
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
 
         The **activated_rules** object supports the following:
 
@@ -102,7 +102,7 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the WAF rule group.
         :param pulumi.Input[str] metric_name: A friendly name for the metrics from the rule group
         :param pulumi.Input[str] name: A friendly name of the rule group
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
 
         The **activated_rules** object supports the following:
 

@@ -28,7 +28,7 @@ type Connection struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the connection.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -80,7 +80,7 @@ type connectionState struct {
 	Location *string `pulumi:"location"`
 	// The name of the connection.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -99,7 +99,7 @@ type ConnectionState struct {
 	Location pulumi.StringPtrInput
 	// The name of the connection.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 
@@ -114,7 +114,7 @@ type connectionArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the connection.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
@@ -126,7 +126,7 @@ type ConnectionArgs struct {
 	Location pulumi.StringInput
 	// The name of the connection.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 }
 

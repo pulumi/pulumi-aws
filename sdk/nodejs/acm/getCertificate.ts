@@ -41,6 +41,7 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
         "keyTypes": args.keyTypes,
         "mostRecent": args.mostRecent,
         "statuses": args.statuses,
+        "tags": args.tags,
         "types": args.types,
     }, opts);
 }
@@ -68,6 +69,10 @@ export interface GetCertificateArgs {
      */
     readonly statuses?: string[];
     /**
+     * A mapping of tags for the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
      * A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
      */
     readonly types?: string[];
@@ -85,6 +90,10 @@ export interface GetCertificateResult {
     readonly keyTypes?: string[];
     readonly mostRecent?: boolean;
     readonly statuses?: string[];
+    /**
+     * A mapping of tags for the resource.
+     */
+    readonly tags: {[key: string]: any};
     readonly types?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.

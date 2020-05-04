@@ -21,7 +21,7 @@ type GameSessionQueue struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayOutput `pulumi:"playerLatencyPolicies"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Maximum time a game session request can remain in the queue.
 	TimeoutInSeconds pulumi.IntPtrOutput `pulumi:"timeoutInSeconds"`
@@ -63,7 +63,7 @@ type gameSessionQueueState struct {
 	Name *string `pulumi:"name"`
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies []GameSessionQueuePlayerLatencyPolicy `pulumi:"playerLatencyPolicies"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Maximum time a game session request can remain in the queue.
 	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
@@ -78,7 +78,7 @@ type GameSessionQueueState struct {
 	Name pulumi.StringPtrInput
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 	// Maximum time a game session request can remain in the queue.
 	TimeoutInSeconds pulumi.IntPtrInput
@@ -95,7 +95,7 @@ type gameSessionQueueArgs struct {
 	Name *string `pulumi:"name"`
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies []GameSessionQueuePlayerLatencyPolicy `pulumi:"playerLatencyPolicies"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Maximum time a game session request can remain in the queue.
 	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
@@ -109,7 +109,7 @@ type GameSessionQueueArgs struct {
 	Name pulumi.StringPtrInput
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.MapInput
 	// Maximum time a game session request can remain in the queue.
 	TimeoutInSeconds pulumi.IntPtrInput

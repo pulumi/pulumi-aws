@@ -87,7 +87,7 @@ class Trail(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the trail
+    A map of tags to assign to the trail
     """
     def __init__(__self__, resource_name, opts=None, cloud_watch_logs_group_arn=None, cloud_watch_logs_role_arn=None, enable_log_file_validation=None, enable_logging=None, event_selectors=None, include_global_service_events=None, is_multi_region_trail=None, is_organization_trail=None, kms_key_id=None, name=None, s3_bucket_name=None, s3_key_prefix=None, sns_topic_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -122,7 +122,7 @@ class Trail(pulumi.CustomResource):
                the name of the bucket you have designated for log file delivery.
         :param pulumi.Input[str] sns_topic_name: Specifies the name of the Amazon SNS topic
                defined for notification of log file delivery.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the trail
+        :param pulumi.Input[dict] tags: A map of tags to assign to the trail
 
         The **event_selectors** object supports the following:
 
@@ -206,7 +206,7 @@ class Trail(pulumi.CustomResource):
                the name of the bucket you have designated for log file delivery.
         :param pulumi.Input[str] sns_topic_name: Specifies the name of the Amazon SNS topic
                defined for notification of log file delivery.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the trail
+        :param pulumi.Input[dict] tags: A map of tags to assign to the trail
 
         The **event_selectors** object supports the following:
 

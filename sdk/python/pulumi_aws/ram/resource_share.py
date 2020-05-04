@@ -24,7 +24,7 @@ class ResourceShare(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource share.
+    A map of tags to assign to the resource share.
     """
     def __init__(__self__, resource_name, opts=None, allow_external_principals=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -36,7 +36,7 @@ class ResourceShare(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_external_principals: Indicates whether principals outside your organization can be associated with a resource share.
         :param pulumi.Input[str] name: The name of the resource share.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource share.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource share.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -77,7 +77,7 @@ class ResourceShare(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_external_principals: Indicates whether principals outside your organization can be associated with a resource share.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the resource share.
         :param pulumi.Input[str] name: The name of the resource share.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource share.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the resource share.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
