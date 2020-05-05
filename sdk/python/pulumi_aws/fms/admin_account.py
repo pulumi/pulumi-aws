@@ -18,6 +18,16 @@ class AdminAccount(pulumi.CustomResource):
         """
         Provides a resource to associate/disassociate an AWS Firewall Manager administrator account. This operation must be performed in the `us-east-1` region.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.fms.AdminAccount("example")
+        ```
 
 
         :param str resource_name: The name of the resource.

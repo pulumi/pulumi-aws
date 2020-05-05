@@ -38,6 +38,18 @@ class SnapshotSchedule(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, definitions=None, description=None, force_destroy=None, identifier=None, identifier_prefix=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.redshift.SnapshotSchedule("default",
+            definitions=["rate(12 hours)"],
+            identifier="tf-redshift-snapshot-schedule")
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -63,6 +63,16 @@ class Fleet(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, audit_stream_arn=None, device_ca_certificate=None, display_name=None, identity_provider=None, name=None, network=None, optimize_for_end_user_location=None, __props__=None, __name__=None, __opts__=None):
         """
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.worklink.Fleet("example")
+        ```
 
 
         :param str resource_name: The name of the resource.

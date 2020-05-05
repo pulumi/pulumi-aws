@@ -9,6 +9,39 @@ import * as utilities from "../utilities";
 /**
  * Provides a CodeStar Notifications Rule.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const code = new aws.codecommit.Repository("code", {repositoryName: "example-code-repo"});
+ * const notif = new aws.sns.Topic("notif", {});
+ * const notifAccess = aws.iam.getPolicyDocument({
+ *     statement: [{
+ *         actions: ["sns:Publish"],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["codestar-notifications.amazonaws.com"],
+ *         }],
+ *         resources: [notif.arn],
+ *     }],
+ * });
+ * const default = new aws.sns.TopicPolicy("default", {
+ *     arn: notif.arn,
+ *     policy: notifAccess.apply(notifAccess => notifAccess.json),
+ * });
+ * const commits = new aws.codestarnotifications.NotificationRule("commits", {
+ *     detailType: "BASIC",
+ *     eventTypeIds: ["codecommit-repository-comments-on-commits"],
+ *     resource: code.arn,
+ *     target: [{
+ *         address: notif.arn,
+ *     }],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codestarnotifications_notification_rule.markdown.
  */

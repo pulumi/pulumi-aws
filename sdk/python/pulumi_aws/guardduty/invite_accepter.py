@@ -22,6 +22,25 @@ class InviteAccepter(pulumi.CustomResource):
         """
         Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct master account on read, and disassociate with the master account upon removal.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        master = aws.guardduty.Detector("master")
+        member_detector = aws.guardduty.Detector("memberDetector")
+        dev = aws.guardduty.Member("dev",
+            account_id=member_detector.account_id,
+            detector_id=master.id,
+            email="required@example.com",
+            invite=True)
+        member_invite_accepter = aws.guardduty.InviteAccepter("memberInviteAccepter",
+            detector_id=member_detector.id,
+            master_account_id=master.account_id)
+        ```
 
 
         :param str resource_name: The name of the resource.

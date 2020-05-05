@@ -65,6 +65,28 @@ def get_peering_attachment(filters=None,id=None,tags=None,opts=None):
     """
     Get information on an EC2 Transit Gateway Peering Attachment.
 
+    ## Example Usage
+
+    ### By Filter
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2transitgateway.get_peering_attachment(filters=[{
+        "name": "transit-gateway-attachment-id",
+        "values": ["tgw-attach-12345678"],
+    }])
+    ```
+
+    ### By Identifier
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    attachment = aws.ec2transitgateway.get_peering_attachment(id="tgw-attach-12345678")
+    ```
 
 
 

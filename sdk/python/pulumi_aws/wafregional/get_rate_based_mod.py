@@ -36,6 +36,16 @@ def get_rate_based_mod(name=None,opts=None):
     """
     `wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.wafregional.get_rate_based_mod(name="tfWAFRegionalRateBasedRule")
+    ```
 
 
 

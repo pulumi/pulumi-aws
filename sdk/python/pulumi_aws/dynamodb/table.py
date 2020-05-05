@@ -140,6 +140,77 @@ class Table(pulumi.CustomResource):
 
         > **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `read_capacity` and/or `write_capacity` if there's [autoscaling policy](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html) attached to the table.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        basic_dynamodb_table = aws.dynamodb.Table("basic-dynamodb-table",
+            attributes=[
+                {
+                    "name": "UserId",
+                    "type": "S",
+                },
+                {
+                    "name": "GameTitle",
+                    "type": "S",
+                },
+                {
+                    "name": "TopScore",
+                    "type": "N",
+                },
+            ],
+            billing_mode="PROVISIONED",
+            global_secondary_indexes=[{
+                "hashKey": "GameTitle",
+                "name": "GameTitleIndex",
+                "nonKeyAttributes": ["UserId"],
+                "projectionType": "INCLUDE",
+                "rangeKey": "TopScore",
+                "readCapacity": 10,
+                "writeCapacity": 10,
+            }],
+            hash_key="UserId",
+            range_key="GameTitle",
+            read_capacity=20,
+            tags={
+                "Environment": "production",
+                "Name": "dynamodb-table-1",
+            },
+            ttl={
+                "attributeName": "TimeToExist",
+                "enabled": False,
+            },
+            write_capacity=20)
+        ```
+
+        ### Global Tables
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.dynamodb.Table("example",
+            attributes=[{
+                "name": "TestTableHashKey",
+                "type": "S",
+            }],
+            billing_mode="PAY_PER_REQUEST",
+            hash_key="TestTableHashKey",
+            replicas=[
+                {
+                    "regionName": "us-east-2",
+                },
+                {
+                    "regionName": "us-west-2",
+                },
+            ],
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES")
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -51,6 +51,20 @@ class Plan(pulumi.CustomResource):
         """
         Provides an AWS Backup plan resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.backup.Plan("example", rules=[{
+            "ruleName": "tf_example_backup_rule",
+            "schedule": "cron(0 12 * * ? *)",
+            "targetVaultName": aws_backup_vault["test"]["name"],
+        }])
+        ```
 
 
         :param str resource_name: The name of the resource.

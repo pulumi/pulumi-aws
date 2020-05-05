@@ -61,6 +61,82 @@ class WebAcl(pulumi.CustomResource):
         """
         Provides a WAF Regional Web ACL Resource for use with Application Load Balancer.
 
+        ## Example Usage
+
+        ### Regular Rule
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[{
+            "type": "IPV4",
+            "value": "192.0.7.0/24",
+        }])
+        wafrule = aws.wafregional.Rule("wafrule",
+            metric_name="tfWAFRule",
+            predicates=[{
+                "dataId": ipset.id,
+                "negated": False,
+                "type": "IPMatch",
+            }])
+        wafacl = aws.wafregional.WebAcl("wafacl",
+            default_action={
+                "type": "ALLOW",
+            },
+            metric_name="tfWebACL",
+            rules=[{
+                "action": {
+                    "type": "BLOCK",
+                },
+                "priority": 1,
+                "ruleId": wafrule.id,
+                "type": "REGULAR",
+            }])
+        ```
+
+        ### Group Rule
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.wafregional.WebAcl("example",
+            default_action={
+                "type": "ALLOW",
+            },
+            metric_name="example",
+            rules=[{
+                "overrideAction": {
+                    "type": "NONE",
+                },
+                "priority": 1,
+                "ruleId": aws_wafregional_rule_group["example"]["id"],
+                "type": "GROUP",
+            }])
+        ```
+
+        ### Logging
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.wafregional.WebAcl("example", logging_configuration={
+            "logDestination": aws_kinesis_firehose_delivery_stream["example"]["arn"],
+            "redactedFields": {
+                "fieldToMatch": [
+                    {
+                        "type": "URI",
+                    },
+                    {
+                        "data": "referer",
+                        "type": "HEADER",
+                    },
+                ],
+            },
+        })
+        ```
 
 
         :param str resource_name: The name of the resource.

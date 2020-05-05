@@ -129,6 +129,27 @@ def get_snapshot(filters=None,most_recent=None,owners=None,restorable_by_user_id
     """
     Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    ebs_volume = aws.ebs.get_snapshot(filters=[
+            {
+                "name": "volume-size",
+                "values": ["40"],
+            },
+            {
+                "name": "tag:Name",
+                "values": ["Example"],
+            },
+        ],
+        most_recent=True,
+        owners=["self"])
+    ```
 
 
 

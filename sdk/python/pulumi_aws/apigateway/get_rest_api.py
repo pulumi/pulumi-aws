@@ -109,6 +109,16 @@ def get_rest_api(name=None,tags=None,opts=None):
     As there is no unique name constraint on REST APIs this data source will 
     error if there is more than one match.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    my_rest_api = aws.apigateway.get_rest_api(name="my-rest-api")
+    ```
 
 
 

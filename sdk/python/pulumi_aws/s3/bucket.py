@@ -197,6 +197,287 @@ class Bucket(pulumi.CustomResource):
         """
         Provides a S3 bucket resource.
 
+        ## Example Usage
+
+        ### Private Bucket w/ Tags
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bucket = aws.s3.Bucket("bucket",
+            acl="private",
+            tags={
+                "Environment": "Dev",
+                "Name": "My bucket",
+            })
+        ```
+
+        ### Static Website Hosting
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bucket = aws.s3.Bucket("bucket",
+            acl="public-read",
+            policy=(lambda path: open(path).read())("policy.json"),
+            website={
+                "website": "error.html",
+                "website": "index.html",
+                "website": """[{
+            "Condition": {
+                "KeyPrefixEquals": "docs/"
+            },
+            "Redirect": {
+                "ReplaceKeyPrefixWith": "documents/"
+            }
+        }]
+
+        """,
+            })
+        ```
+
+        ### Using CORS
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bucket = aws.s3.Bucket("bucket",
+            acl="public-read",
+            cors_rules=[{
+                "allowedHeaders": ["*"],
+                "allowedMethods": [
+                    "PUT",
+                    "POST",
+                ],
+                "allowedOrigins": ["https://s3-website-test.mydomain.com"],
+                "exposeHeaders": ["ETag"],
+                "maxAgeSeconds": 3000,
+            }])
+        ```
+
+        ### Using versioning
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bucket = aws.s3.Bucket("bucket",
+            acl="private",
+            versioning={
+                "enabled": True,
+            })
+        ```
+
+        ### Enable Logging
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        log_bucket = aws.s3.Bucket("logBucket", acl="log-delivery-write")
+        bucket = aws.s3.Bucket("bucket",
+            acl="private",
+            loggings=[{
+                "targetBucket": log_bucket.id,
+                "targetPrefix": "log/",
+            }])
+        ```
+
+        ### Using object lifecycle
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bucket = aws.s3.Bucket("bucket",
+            acl="private",
+            lifecycle_rules=[
+                {
+                    "enabled": True,
+                    "expiration": {
+                        "days": 90,
+                    },
+                    "id": "log",
+                    "prefix": "log/",
+                    "tags": {
+                        "autoclean": "true",
+                        "rule": "log",
+                    },
+                    "transition": [
+                        {
+                            "days": 30,
+                            "storageClass": "STANDARD_IA",
+                        },
+                        {
+                            "days": 60,
+                            "storageClass": "GLACIER",
+                        },
+                    ],
+                },
+                {
+                    "enabled": True,
+                    "expiration": {
+                        "date": "2016-01-12",
+                    },
+                    "id": "tmp",
+                    "prefix": "tmp/",
+                },
+            ])
+        versioning_bucket = aws.s3.Bucket("versioningBucket",
+            acl="private",
+            lifecycle_rules=[{
+                "enabled": True,
+                "noncurrentVersionExpiration": {
+                    "days": 90,
+                },
+                "noncurrentVersionTransition": [
+                    {
+                        "days": 30,
+                        "storageClass": "STANDARD_IA",
+                    },
+                    {
+                        "days": 60,
+                        "storageClass": "GLACIER",
+                    },
+                ],
+                "prefix": "config/",
+            }],
+            versioning={
+                "enabled": True,
+            })
+        ```
+
+        ### Using replication configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_pulumi as pulumi
+
+        central = pulumi.providers.Aws("central", region="eu-central-1")
+        replication_role = aws.iam.Role("replicationRole", assume_role_policy="""{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "s3.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+
+        """)
+        destination = aws.s3.Bucket("destination",
+            region="eu-west-1",
+            versioning={
+                "enabled": True,
+            })
+        bucket = aws.s3.Bucket("bucket",
+            acl="private",
+            region="eu-central-1",
+            replication_configuration={
+                "role": replication_role.arn,
+                "rules": [{
+                    "destination": {
+                        "bucket": destination.arn,
+                        "storageClass": "STANDARD",
+                    },
+                    "id": "foobar",
+                    "prefix": "foo",
+                    "status": "Enabled",
+                }],
+            },
+            versioning={
+                "enabled": True,
+            })
+        replication_policy = aws.iam.Policy("replicationPolicy", policy=pulumi.Output.all(bucket.arn, bucket.arn, destination.arn).apply(lambda bucketArn, bucketArn1, destinationArn: f"""{{
+          "Version": "2012-10-17",
+          "Statement": [
+            {{
+              "Action": [
+                "s3:GetReplicationConfiguration",
+                "s3:ListBucket"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                "{bucket_arn}"
+              ]
+            }},
+            {{
+              "Action": [
+                "s3:GetObjectVersion",
+                "s3:GetObjectVersionAcl"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                "{bucket_arn1}/*"
+              ]
+            }},
+            {{
+              "Action": [
+                "s3:ReplicateObject",
+                "s3:ReplicateDelete"
+              ],
+              "Effect": "Allow",
+              "Resource": "{destination_arn}/*"
+            }}
+          ]
+        }}
+
+        """))
+        replication_role_policy_attachment = aws.iam.RolePolicyAttachment("replicationRolePolicyAttachment",
+            policy_arn=replication_policy.arn,
+            role=replication_role.name)
+        ```
+
+        ### Enable Default Server Side Encryption
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        mykey = aws.kms.Key("mykey",
+            deletion_window_in_days=10,
+            description="This key is used to encrypt bucket objects")
+        mybucket = aws.s3.Bucket("mybucket", server_side_encryption_configuration={
+            "rule": {
+                "applyServerSideEncryptionByDefault": {
+                    "kmsMasterKeyId": mykey.arn,
+                    "sseAlgorithm": "aws:kms",
+                },
+            },
+        })
+        ```
+
+        ### Using ACL policy grants
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current_user = aws.get_canonical_user_id()
+        bucket = aws.s3.Bucket("bucket", grants=[
+            {
+                "id": current_user.id,
+                "permissions": ["FULL_CONTROL"],
+                "type": "CanonicalUser",
+            },
+            {
+                "permissions": [
+                    "READ",
+                    "WRITE",
+                ],
+                "type": "Group",
+                "uri": "http://acs.amazonaws.com/groups/s3/LogDelivery",
+            },
+        ])
+        ```
 
 
         :param str resource_name: The name of the resource.

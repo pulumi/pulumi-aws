@@ -50,7 +50,67 @@ class OriginAccessIdentity(pulumi.CustomResource):
         origin access identities, see
         [Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content][2].
 
+        ## Example Usage
 
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        origin_access_identity = aws.cloudfront.OriginAccessIdentity("originAccessIdentity", comment="Some comment")
+        ```
+
+        ## Using With CloudFront
+
+        Normally, when referencing an origin access identity in CloudFront, you need to
+        prefix the ID with the `origin-access-identity/cloudfront/` special path.
+        The `cloudfront_access_identity_path` allows this to be circumvented.
+        The below snippet demonstrates use with the `s3_origin_config` structure for the
+        [`cloudfront.Distribution`][3] resource:
+
+        ```python
+        import pulumi
+        ```
+
+        ### Updating your bucket policy
+
+        Note that the AWS API may translate the `s3_canonical_user_id` `CanonicalUser`
+        principal into an `AWS` IAM ARN principal when supplied in an
+        [`s3.Bucket`][4] bucket policy, causing spurious diffs. If
+        you see this behaviour, use the `iam_arn` instead:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        s3_policy = aws.iam.get_policy_document(statements=[
+            {
+                "actions": ["s3:GetObject"],
+                "principals": [{
+                    "identifiers": [aws_cloudfront_origin_access_identity["origin_access_identity"]["iam_arn"]],
+                    "type": "AWS",
+                }],
+                "resources": [f"{aws_s3_bucket['example']['arn']}/*"],
+            },
+            {
+                "actions": ["s3:ListBucket"],
+                "principals": [{
+                    "identifiers": [aws_cloudfront_origin_access_identity["origin_access_identity"]["iam_arn"]],
+                    "type": "AWS",
+                }],
+                "resources": [aws_s3_bucket["example"]["arn"]],
+            },
+        ])
+        example = aws.s3.BucketPolicy("example",
+            bucket=aws_s3_bucket["example"]["id"],
+            policy=s3_policy.json)
+        ```
+
+        [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
+        [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
+        [3]: https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution.html
+        [4]: https://www.terraform.io/docs/providers/aws/r/s3_bucket.html
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

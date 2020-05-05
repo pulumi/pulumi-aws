@@ -29,6 +29,25 @@ class IpSet(pulumi.CustomResource):
         """
         Provides a WAF Regional IPSet Resource for use with Application Load Balancer.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[
+            {
+                "type": "IPV4",
+                "value": "192.0.7.0/24",
+            },
+            {
+                "type": "IPV4",
+                "value": "10.16.16.0/16",
+            },
+        ])
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -53,6 +53,26 @@ class EipAssociation(pulumi.CustomResource):
         > **NOTE:** `ec2.EipAssociation` is useful in scenarios where EIPs are either
         pre-existing or distributed to customers or users and therefore cannot be changed.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        web = aws.ec2.Instance("web",
+            ami="ami-21f78e11",
+            availability_zone="us-west-2a",
+            instance_type="t1.micro",
+            tags={
+                "Name": "HelloWorld",
+            })
+        example = aws.ec2.Eip("example", vpc=True)
+        eip_assoc = aws.ec2.EipAssociation("eipAssoc",
+            allocation_id=example.id,
+            instance_id=web.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

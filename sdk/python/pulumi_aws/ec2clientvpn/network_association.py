@@ -35,6 +35,18 @@ class NetworkAssociation(pulumi.CustomResource):
         Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the 
         [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2clientvpn.NetworkAssociation("example",
+            client_vpn_endpoint_id=aws_ec2_client_vpn_endpoint["example"]["id"],
+            subnet_id=aws_subnet["example"]["id"])
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -177,6 +177,22 @@ class Cluster(pulumi.CustomResource):
         > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.redshift.Cluster("default",
+            cluster_identifier="tf-redshift-cluster",
+            cluster_type="single-node",
+            database_name="mydb",
+            master_password="Mustbe8characters",
+            master_username="foo",
+            node_type="dc1.large")
+        ```
 
 
         :param str resource_name: The name of the resource.

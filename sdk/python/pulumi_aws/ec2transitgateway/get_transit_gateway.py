@@ -120,6 +120,28 @@ def get_transit_gateway(filters=None,id=None,tags=None,opts=None):
     """
     Get information on an EC2 Transit Gateway.
 
+    ## Example Usage
+
+    ### By Filter
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2transitgateway.get_transit_gateway(filters=[{
+        "name": "options.amazon-side-asn",
+        "values": ["64512"],
+    }])
+    ```
+
+    ### By Identifier
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2transitgateway.get_transit_gateway(id="tgw-12345678")
+    ```
 
 
 

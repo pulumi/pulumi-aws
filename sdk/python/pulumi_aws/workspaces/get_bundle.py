@@ -78,6 +78,16 @@ def get_bundle(bundle_id=None,opts=None):
     """
     Use this data source to get information about a WorkSpaces Bundle.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.workspaces.get_bundle(bundle_id="wsb-b0s22j3d7")
+    ```
 
 
 

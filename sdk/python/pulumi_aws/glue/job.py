@@ -96,6 +96,51 @@ class Job(pulumi.CustomResource):
 
         > Glue functionality, such as monitoring and logging of jobs, is typically managed with the `default_arguments` argument. See the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the Glue developer guide for additional information.
 
+        ## Example Usage
+
+        ### Python Job
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Job("example",
+            command={
+                "scriptLocation": f"s3://{aws_s3_bucket['example']['bucket']}/example.py",
+            },
+            role_arn=aws_iam_role["example"]["arn"])
+        ```
+
+        ### Scala Job
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Job("example",
+            command={
+                "scriptLocation": f"s3://{aws_s3_bucket['example']['bucket']}/example.scala",
+            },
+            default_arguments={
+                "--job-language": "scala",
+            },
+            role_arn=aws_iam_role["example"]["arn"])
+        ```
+
+        ### Enabling CloudWatch Logs and Metrics
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=14)
+        example_job = aws.glue.Job("exampleJob", default_arguments={
+            "--continuous-log-logGroup": example_log_group.name,
+            "--enable-continuous-cloudwatch-log": "true",
+            "--enable-continuous-log-filter": "true",
+            "--enable-metrics": "",
+        })
+        ```
 
 
         :param str resource_name: The name of the resource.

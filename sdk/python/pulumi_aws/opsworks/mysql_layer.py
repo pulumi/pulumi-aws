@@ -106,6 +106,16 @@ class MysqlLayer(pulumi.CustomResource):
         > **Note:** All arguments including the root password will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        db = aws.opsworks.MysqlLayer("db", stack_id=aws_opsworks_stack["main"]["id"])
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -25,6 +25,23 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
         over IPv6 from instances in your VPC to the Internet, and prevents hosts
         outside of your VPC from initiating an IPv6 connection with your instance.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_vpc = aws.ec2.Vpc("exampleVpc",
+            assign_generated_ipv6_cidr_block=True,
+            cidr_block="10.1.0.0/16")
+        example_egress_only_internet_gateway = aws.ec2.EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway",
+            tags={
+                "Name": "main",
+            },
+            vpc_id=example_vpc.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -13,6 +13,29 @@ import * as utilities from "../utilities";
  * an input variable and needs to, for example, determine the CIDR block of that
  * VPC.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const config = new pulumi.Config();
+ * const vpcId = config.require("vpcId");
+ * 
+ * const selected = pulumi.output(aws.ec2.getVpc({
+ *     id: vpcId,
+ * }, { async: true }));
+ * const example = new aws.ec2.Subnet("example", {
+ *     availabilityZone: "us-west-2a",
+ *     cidrBlock: selected.apply(selected => (() => {
+ *         throw "tf2pulumi error: NYI: call to cidrsubnet";
+ *         return (() => { throw "NYI: call to cidrsubnet"; })();
+ *     })()),
+ *     vpcId: selected.id!,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc.html.markdown.
  */

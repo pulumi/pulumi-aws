@@ -143,6 +143,34 @@ import {Topic} from "../sns/topic";
  *     thresholdMetricId: "e1",
  * });
  * ```
+ * 
+ * ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const xxxNlbHealthyhosts = new aws.cloudwatch.MetricAlarm("xxxNlbHealthyhosts", {
+ *     comparisonOperator: "LessThanThreshold",
+ *     evaluationPeriods: "1",
+ *     metricName: "HealthyHostCount",
+ *     namespace: "AWS/NetworkELB",
+ *     period: "60",
+ *     statistic: "Average",
+ *     threshold: var.logstash_servers_count,
+ *     alarmDescription: "Number of XXXX nodes healthy in Target Group",
+ *     actionsEnabled: "true",
+ *     alarmActions: [aws_sns_topic.sns.arn],
+ *     okActions: [aws_sns_topic.sns.arn],
+ *     dimensions: {
+ *         TargetGroup: aws_lb_target_group["lb-tg"].arn_suffix,
+ *         LoadBalancer: aws_lb.lb.arn_suffix,
+ *     },
+ * });
+ * ```
+ * 
+ * > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
+ * You must choose one or the other
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_metric_alarm.html.markdown.
  */

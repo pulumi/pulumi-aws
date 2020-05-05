@@ -73,6 +73,21 @@ class Organization(pulumi.CustomResource):
         """
         Provides a resource to create an organization.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        org = aws.organizations.Organization("org",
+            aws_service_access_principals=[
+                "cloudtrail.amazonaws.com",
+                "config.amazonaws.com",
+            ],
+            feature_set="ALL")
+        ```
 
 
         :param str resource_name: The name of the resource.

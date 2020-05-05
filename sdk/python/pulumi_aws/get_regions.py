@@ -47,6 +47,16 @@ def get_regions(all_regions=None,filters=None,opts=None):
     """
     Provides information about AWS Regions. Can be used to filter regions i.e. by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the [`.getRegion` data source](https://www.terraform.io/docs/providers/aws/d/region.html).
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.get_regions()
+    ```
 
 
 

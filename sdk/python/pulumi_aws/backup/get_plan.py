@@ -64,6 +64,16 @@ def get_plan(plan_id=None,tags=None,opts=None):
     """
     Use this data source to get information on an existing backup plan.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.backup.get_plan(plan_id="tf_example_backup_plan_id")
+    ```
 
 
 

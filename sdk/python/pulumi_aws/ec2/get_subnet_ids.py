@@ -53,6 +53,18 @@ def get_subnet_ids(filters=None,tags=None,vpc_id=None,opts=None):
 
     This resource can be useful for getting back a set of subnet ids for a vpc.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example_subnet_ids = aws.ec2.get_subnet_ids(vpc_id=var["vpc_id"])
+    example_subnet = [aws.ec2.get_subnet(id=__value) for __key, __value in example_subnet_ids.ids]
+    pulumi.export("subnetCidrBlocks", [s.cidr_block for s in example_subnet])
+    ```
 
 
 

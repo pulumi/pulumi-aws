@@ -31,6 +31,18 @@ class SecurityGroup(pulumi.CustomResource):
         """
         Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.redshift.SecurityGroup("default", ingress=[{
+            "cidr": "10.0.0.0/24",
+        }])
+        ```
 
 
         :param str resource_name: The name of the resource.

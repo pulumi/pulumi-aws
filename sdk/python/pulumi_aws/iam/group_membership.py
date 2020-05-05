@@ -33,6 +33,24 @@ class GroupMembership(pulumi.CustomResource):
         > **Note:** `iam.GroupMembership` will conflict with itself if used more than once with the same group. To non-exclusively manage the users in a group, see the
         [`iam.UserGroupMembership` resource][3].
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        group = aws.iam.Group("group")
+        user_one = aws.iam.User("userOne")
+        user_two = aws.iam.User("userTwo")
+        team = aws.iam.GroupMembership("team",
+            group=group.name,
+            users=[
+                user_one.name,
+                user_two.name,
+            ])
+        ```
 
 
         :param str resource_name: The name of the resource.

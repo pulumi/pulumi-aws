@@ -50,6 +50,32 @@ class Activation(pulumi.CustomResource):
         """
         Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_role = aws.iam.Role("testRole", assume_role_policy="""  {
+            "Version": "2012-10-17",
+            "Statement": {
+              "Effect": "Allow",
+              "Principal": {"Service": "ssm.amazonaws.com"},
+              "Action": "sts:AssumeRole"
+            }
+          }
+
+        """)
+        test_attach = aws.iam.RolePolicyAttachment("testAttach",
+            policy_arn="arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
+            role=test_role.name)
+        foo = aws.ssm.Activation("foo",
+            description="Test",
+            iam_role=test_role.id,
+            registration_limit="5")
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -29,6 +29,18 @@ class Deployment(pulumi.CustomResource):
 
         > **Note:** Creating a deployment for an API requires at least one `apigatewayv2.Route` resource associated with that API.
 
+        ## Example Usage
+
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigatewayv2.Deployment("example",
+            api_id=aws_apigatewayv2_route["example"]["api_id"],
+            description="Example deployment")
+        ```
 
 
         :param str resource_name: The name of the resource.

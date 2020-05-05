@@ -41,6 +41,25 @@ class EndpointConfiguration(pulumi.CustomResource):
         """
         Provides a SageMaker endpoint configuration resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ec = aws.sagemaker.EndpointConfiguration("ec",
+            production_variants=[{
+                "initialInstanceCount": 1,
+                "instanceType": "ml.t2.medium",
+                "modelName": aws_sagemaker_model["m"]["name"],
+                "variantName": "variant-1",
+            }],
+            tags={
+                "Name": "foo",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

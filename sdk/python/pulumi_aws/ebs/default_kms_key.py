@@ -25,6 +25,16 @@ class DefaultKmsKey(pulumi.CustomResource):
 
         > **NOTE:** Destroying this resource will reset the default CMK to the account's AWS-managed default CMK for EBS.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ebs.DefaultKmsKey("example", key_arn=aws_kms_key["example"]["arn"])
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -30,6 +30,30 @@ class RoleAlias(pulumi.CustomResource):
         """
         Provides an IoT role alias.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        role = aws.iam.Role("role", policy="""{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {"Service": "credentials.iot.amazonaws.com"},
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        }
+
+        """)
+        alias = aws.iot.RoleAlias("alias",
+            alias="Thermostat-dynamodb-access-role-alias",
+            role_arn=role.arn)
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -36,6 +36,16 @@ def get_rate_based_rule(name=None,opts=None):
     """
     `waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.waf.get_rate_based_rule(name="tfWAFRateBasedRule")
+    ```
 
 
 

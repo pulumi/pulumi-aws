@@ -25,6 +25,19 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         To help you understand the charges for your Spot instances, Amazon EC2 provides a data feed that describes your Spot instance usage and pricing.
         This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default_bucket = aws.s3.Bucket("defaultBucket")
+        default_spot_datafeed_subscription = aws.ec2.SpotDatafeedSubscription("defaultSpotDatafeedSubscription",
+            bucket=default_bucket.bucket,
+            prefix="my_subdirectory")
+        ```
 
 
         :param str resource_name: The name of the resource.

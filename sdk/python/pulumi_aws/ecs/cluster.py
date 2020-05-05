@@ -45,6 +45,16 @@ class Cluster(pulumi.CustomResource):
         """
         Provides an ECS cluster.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.ecs.Cluster("foo")
+        ```
 
 
         :param str resource_name: The name of the resource.

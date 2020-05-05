@@ -57,6 +57,26 @@ class ApplicationVersion(pulumi.CustomResource):
         when attempting to delete an Application Version while it is still in use by a different environment.
         To work around this you can either create each environment in a separate AWS account or create your `elasticbeanstalk.ApplicationVersion` resources with a unique names in your Elastic Beanstalk Application. For example &lt;revision&gt;-&lt;environment&gt;.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default_bucket = aws.s3.Bucket("defaultBucket")
+        default_bucket_object = aws.s3.BucketObject("defaultBucketObject",
+            bucket=default_bucket.id,
+            key="beanstalk/go-v1.zip",
+            source=pulumi.FileAsset("go-v1.zip"))
+        default_application = aws.elasticbeanstalk.Application("defaultApplication", description="tf-test-desc")
+        default_application_version = aws.elasticbeanstalk.ApplicationVersion("defaultApplicationVersion",
+            application="tf-test-name",
+            bucket=default_bucket.id,
+            description="application version",
+            key=default_bucket_object.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

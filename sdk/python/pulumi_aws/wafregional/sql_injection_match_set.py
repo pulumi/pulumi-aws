@@ -36,6 +36,21 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
         """
         Provides a WAF Regional SQL Injection Match Set Resource for use with Application Load Balancer.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sql_injection_match_set = aws.wafregional.SqlInjectionMatchSet("sqlInjectionMatchSet", sql_injection_match_tuples=[{
+            "fieldToMatch": {
+                "type": "QUERY_STRING",
+            },
+            "textTransformation": "URL_DECODE",
+        }])
+        ```
 
 
         :param str resource_name: The name of the resource.

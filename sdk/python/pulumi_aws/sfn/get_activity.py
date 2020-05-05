@@ -47,6 +47,16 @@ def get_activity(arn=None,name=None,opts=None):
     """
     Provides a Step Functions Activity data source
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    sfn_activity = aws.sfn.get_activity(name="my-activity")
+    ```
 
 
 

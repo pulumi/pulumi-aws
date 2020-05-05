@@ -38,6 +38,17 @@ class AwaitableGetEncryptionByDefaultResult(GetEncryptionByDefaultResult):
 def get_encryption_by_default(opts=None):
     """
     Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
+
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.ebs.get_encryption_by_default()
+    ```
     """
     __args__ = dict()
 

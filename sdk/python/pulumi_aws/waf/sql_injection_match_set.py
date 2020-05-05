@@ -36,6 +36,21 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
         """
         Provides a WAF SQL Injection Match Set Resource
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sql_injection_match_set = aws.waf.SqlInjectionMatchSet("sqlInjectionMatchSet", sql_injection_match_tuples=[{
+            "fieldToMatch": {
+                "type": "QUERY_STRING",
+            },
+            "textTransformation": "URL_DECODE",
+        }])
+        ```
 
 
         :param str resource_name: The name of the resource.

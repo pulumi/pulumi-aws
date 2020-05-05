@@ -42,6 +42,49 @@ class ConfigurationAggregator(pulumi.CustomResource):
         """
         Manages an AWS Config Configuration Aggregator
 
+        ## Example Usage
+
+        ### Account Based Aggregation
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        account = aws.cfg.ConfigurationAggregator("account", account_aggregation_source={
+            "accountIds": ["123456789012"],
+            "regions": ["us-west-2"],
+        })
+        ```
+
+        ### Organization Based Aggregation
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        organization_role = aws.iam.Role("organizationRole", assume_role_policy="""{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "config.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        }
+
+        """)
+        organization_configuration_aggregator = aws.cfg.ConfigurationAggregator("organizationConfigurationAggregator", organization_aggregation_source={
+            "allRegions": True,
+            "roleArn": organization_role.arn,
+        })
+        organization_role_policy_attachment = aws.iam.RolePolicyAttachment("organizationRolePolicyAttachment",
+            policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
+            role=organization_role.name)
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -107,6 +107,36 @@ class Document(pulumi.CustomResource):
         or greater can update their content once created, see [SSM Schema Features](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html#document-schemas-features). To update a document with an older
         schema version you must recreate the resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.ssm.Document("foo",
+            content="""  {
+            "schemaVersion": "1.2",
+            "description": "Check ip configuration of a Linux instance.",
+            "parameters": {
+
+            },
+            "runtimeConfig": {
+              "aws:runShellScript": {
+                "properties": [
+                  {
+                    "id": "0.aws:runShellScript",
+                    "runCommand": ["ifconfig"]
+                  }
+                ]
+              }
+            }
+          }
+
+        """,
+            document_type="Command")
+        ```
 
         ## Permissions
 

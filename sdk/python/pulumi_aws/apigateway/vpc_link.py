@@ -34,6 +34,24 @@ class VpcLink(pulumi.CustomResource):
         > **Note:** Amazon API Gateway Version 1 VPC Links enable private integrations that connect REST APIs to private resources in a VPC.
         To enable private integration for HTTP APIs, use the Amazon API Gateway Version 2 VPC Link [resource](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_vpc_link.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_load_balancer = aws.lb.LoadBalancer("exampleLoadBalancer",
+            internal=True,
+            load_balancer_type="network",
+            subnet_mappings=[{
+                "subnetId": "12345",
+            }])
+        example_vpc_link = aws.apigateway.VpcLink("exampleVpcLink",
+            description="example description",
+            target_arn=example_load_balancer.arn)
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -29,6 +29,35 @@ class BucketMetric(pulumi.CustomResource):
         """
         Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
 
+        ## Example Usage
+
+        ### Add metrics configuration for entire S3 bucket
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.Bucket("example")
+        example_entire_bucket = aws.s3.BucketMetric("example-entire-bucket", bucket=example.bucket)
+        ```
+
+        ### Add metrics configuration with S3 bucket object filter
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.Bucket("example")
+        example_filtered = aws.s3.BucketMetric("example-filtered",
+            bucket=example.bucket,
+            filter={
+                "prefix": "documents/",
+                "tags": {
+                    "class": "blue",
+                    "priority": "high",
+                },
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

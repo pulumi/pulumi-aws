@@ -31,6 +31,19 @@ class Attachment(pulumi.CustomResource):
         instances in conjunction with an ELB Attachment resource. Doing so will cause a
         conflict and will overwrite attachments.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Create a new load balancer attachment
+        baz = aws.elb.Attachment("baz",
+            elb=aws_elb["bar"]["id"],
+            instance=aws_instance["foo"]["id"])
+        ```
 
 
         Deprecated: aws.elasticloadbalancing.Attachment has been deprecated in favour of aws.elb.Attachment

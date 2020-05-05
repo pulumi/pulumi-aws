@@ -101,6 +101,43 @@ class TargetGroup(pulumi.CustomResource):
 
         > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
 
+        ## Example Usage
+
+        ### Instance Target Group
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
+        test = aws.lb.TargetGroup("test",
+            port=80,
+            protocol="HTTP",
+            vpc_id=main.id)
+        ```
+
+        ### IP Target Group
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
+        ip_example = aws.lb.TargetGroup("ip-example",
+            port=80,
+            protocol="HTTP",
+            target_type="ip",
+            vpc_id=main.id)
+        ```
+
+        ### Lambda Target Group
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lambda_example = aws.lb.TargetGroup("lambda-example", target_type="lambda")
+        ```
 
 
         Deprecated: aws.applicationloadbalancing.TargetGroup has been deprecated in favour of aws.alb.TargetGroup

@@ -113,6 +113,48 @@ def get_elastic_ip(filters=None,id=None,public_ip=None,tags=None,opts=None):
     """
     `ec2.Eip` provides details about a specific Elastic IP.
 
+    ## Example Usage
+
+    ### Search By Allocation ID (VPC only)
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    by_allocation_id = aws.get_elastic_ip(id="eipalloc-12345678")
+    ```
+
+    ### Search By Filters (EC2-Classic or VPC)
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    by_filter = aws.get_elastic_ip(filters=[{
+        "name": "tag:Name",
+        "values": ["exampleNameTagValue"],
+    }])
+    ```
+
+    ### Search By Public IP (EC2-Classic or VPC)
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    by_public_ip = aws.get_elastic_ip(public_ip="1.2.3.4")
+    ```
+
+    ### Search By Tags (EC2-Classic or VPC)
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    by_tags = aws.get_elastic_ip(tags={
+        "Name": "exampleNameTagValue",
+    })
+    ```
 
 
 

@@ -30,6 +30,29 @@ class Policy(pulumi.CustomResource):
         """
         Provides an IoT policy.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        pubsub = aws.iot.Policy("pubsub", policy="""{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": [
+                "iot:*"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ]
+        }
+
+        """)
+        ```
 
 
         :param str resource_name: The name of the resource.

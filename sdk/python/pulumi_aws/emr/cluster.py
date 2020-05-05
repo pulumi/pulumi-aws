@@ -206,7 +206,402 @@ class Cluster(pulumi.CustomResource):
 
         > Support for [Instance Fleets](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-fleets) will be made available in an upcoming release.
 
+        ## Example Usage
 
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cluster = aws.emr.Cluster("cluster",
+            additional_info="""{
+          "instanceAwsClientConfiguration": {
+            "proxyPort": 8099,
+            "proxyHost": "myproxy.example.com"
+          }
+        }
+
+        """,
+            applications=["Spark"],
+            bootstrap_actions=[{
+                "args": [
+                    "instance.isMaster=true",
+                    "echo running on master node",
+                ],
+                "name": "runif",
+                "path": "s3://elasticmapreduce/bootstrap-actions/run-if",
+            }],
+            configurations_json="""  [
+            {
+              "Classification": "hadoop-env",
+              "Configurations": [
+                {
+                  "Classification": "export",
+                  "Properties": {
+                    "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+                  }
+                }
+              ],
+              "Properties": {}
+            },
+            {
+              "Classification": "spark-env",
+              "Configurations": [
+                {
+                  "Classification": "export",
+                  "Properties": {
+                    "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+                  }
+                }
+              ],
+              "Properties": {}
+            }
+          ]
+
+        """,
+            core_instance_group={
+                "autoscalingPolicy": """{
+        "Constraints": {
+          "MinCapacity": 1,
+          "MaxCapacity": 2
+        },
+        "Rules": [
+          {
+            "Name": "ScaleOutMemoryPercentage",
+            "Description": "Scale out if YARNMemoryAvailablePercentage is less than 15",
+            "Action": {
+              "SimpleScalingPolicyConfiguration": {
+                "AdjustmentType": "CHANGE_IN_CAPACITY",
+                "ScalingAdjustment": 1,
+                "CoolDown": 300
+              }
+            },
+            "Trigger": {
+              "CloudWatchAlarmDefinition": {
+                "ComparisonOperator": "LESS_THAN",
+                "EvaluationPeriods": 1,
+                "MetricName": "YARNMemoryAvailablePercentage",
+                "Namespace": "AWS/ElasticMapReduce",
+                "Period": 300,
+                "Statistic": "AVERAGE",
+                "Threshold": 15.0,
+                "Unit": "PERCENT"
+              }
+            }
+          }
+        ]
+        }
+
+        """,
+                "bidPrice": "0.30",
+                "ebsConfig": [{
+                    "size": "40",
+                    "type": "gp2",
+                    "volumesPerInstance": 1,
+                }],
+                "instanceCount": 1,
+                "instanceType": "c4.large",
+            },
+            ebs_root_volume_size=100,
+            ec2_attributes={
+                "emrManagedMasterSecurityGroup": aws_security_group["sg"]["id"],
+                "emrManagedSlaveSecurityGroup": aws_security_group["sg"]["id"],
+                "instanceProfile": aws_iam_instance_profile["emr_profile"]["arn"],
+                "subnetId": aws_subnet["main"]["id"],
+            },
+            keep_job_flow_alive_when_no_steps=True,
+            master_instance_group={
+                "instanceType": "m4.large",
+            },
+            release_label="emr-4.6.0",
+            service_role=aws_iam_role["iam_emr_service_role"]["arn"],
+            tags={
+                "env": "env",
+                "role": "rolename",
+            },
+            termination_protection=False)
+        ```
+
+        ### Enable Debug Logging
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.emr.Cluster("example",
+            lifecycle={
+                "ignoreChanges": [
+                    "stepConcurrencyLevel",
+                    "steps",
+                ],
+            },
+            steps=[{
+                "actionOnFailure": "TERMINATE_CLUSTER",
+                "hadoopJarStep": {
+                    "args": ["state-pusher-script"],
+                    "jar": "command-runner.jar",
+                },
+                "name": "Setup Hadoop Debugging",
+            }])
+        ```
+
+        ### Multiple Node Master Instance Group
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Map public IP on launch must be enabled for public (Internet accessible) subnets
+        example_subnet = aws.ec2.Subnet("exampleSubnet", map_public_ip_on_launch=True)
+        example_cluster = aws.emr.Cluster("exampleCluster",
+            core_instance_group={},
+            ec2_attributes={
+                "subnetId": example_subnet.id,
+            },
+            master_instance_group={
+                "instanceCount": 3,
+            },
+            release_label="emr-5.24.1",
+            termination_protection=True)
+        ```
+
+        ## Example bootable config
+
+        **NOTE:** This configuration demonstrates a minimal configuration needed to
+        boot an example EMR Cluster. It is not meant to display best practices. Please
+        use at your own risk.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main_vpc = aws.ec2.Vpc("mainVpc",
+            cidr_block="168.31.0.0/16",
+            enable_dns_hostnames=True,
+            tags={
+                "name": "emr_test",
+            })
+        main_subnet = aws.ec2.Subnet("mainSubnet",
+            vpc_id=main_vpc.id,
+            cidr_block="168.31.0.0/20",
+            tags={
+                "name": "emr_test",
+            })
+        # IAM role for EMR Service
+        iam_emr_service_role = aws.iam.Role("iamEmrServiceRole", assume_role_policy="""{
+          "Version": "2008-10-17",
+          "Statement": [
+            {
+              "Sid": "",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "elasticmapreduce.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        }
+        """)
+        # IAM Role for EC2 Instance Profile
+        iam_emr_profile_role = aws.iam.Role("iamEmrProfileRole", assume_role_policy="""{
+          "Version": "2008-10-17",
+          "Statement": [
+            {
+              "Sid": "",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ec2.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        }
+        """)
+        emr_profile = aws.iam.InstanceProfile("emrProfile", roles=[iam_emr_profile_role.name])
+        cluster = aws.emr.Cluster("cluster",
+            release_label="emr-4.6.0",
+            applications=["Spark"],
+            ec2_attributes={
+                "subnetId": main_subnet.id,
+                "emrManagedMasterSecurityGroup": aws_security_group["allow_all"]["id"],
+                "emrManagedSlaveSecurityGroup": aws_security_group["allow_all"]["id"],
+                "instanceProfile": emr_profile.arn,
+            },
+            master_instance_type="m5.xlarge",
+            core_instance_type="m5.xlarge",
+            core_instance_count=1,
+            tags={
+                "role": "rolename",
+                "dns_zone": "env_zone",
+                "env": "env",
+                "name": "name-env",
+            },
+            bootstrap_action=[{
+                "path": "s3://elasticmapreduce/bootstrap-actions/run-if",
+                "name": "runif",
+                "args": [
+                    "instance.isMaster=true",
+                    "echo running on master node",
+                ],
+            }],
+            configurations_json="""  [
+            {
+              "Classification": "hadoop-env",
+              "Configurations": [
+                {
+                  "Classification": "export",
+                  "Properties": {
+                    "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+                  }
+                }
+              ],
+              "Properties": {}
+            },
+            {
+              "Classification": "spark-env",
+              "Configurations": [
+                {
+                  "Classification": "export",
+                  "Properties": {
+                    "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+                  }
+                }
+              ],
+              "Properties": {}
+            }
+          ]
+        """,
+            service_role=iam_emr_service_role.arn)
+        allow_access = aws.ec2.SecurityGroup("allowAccess",
+            description="Allow inbound traffic",
+            vpc_id=main_vpc.id,
+            ingress=[{
+                "fromPort": 0,
+                "toPort": 0,
+                "protocol": "-1",
+                "cidrBlocks": main_vpc.cidr_block,
+            }],
+            egress=[{
+                "fromPort": 0,
+                "toPort": 0,
+                "protocol": "-1",
+                "cidrBlocks": ["0.0.0.0/0"],
+            }],
+            tags={
+                "name": "emr_test",
+            })
+        gw = aws.ec2.InternetGateway("gw", vpc_id=main_vpc.id)
+        route_table = aws.ec2.RouteTable("routeTable",
+            vpc_id=main_vpc.id,
+            route=[{
+                "cidrBlock": "0.0.0.0/0",
+                "gatewayId": gw.id,
+            }])
+        main_route_table_association = aws.ec2.MainRouteTableAssociation("mainRouteTableAssociation",
+            vpc_id=main_vpc.id,
+            route_table_id=route_table.id)
+        ###
+        iam_emr_service_policy = aws.iam.RolePolicy("iamEmrServicePolicy",
+            role=iam_emr_service_role.id,
+            policy="""{
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Effect": "Allow",
+                "Resource": "*",
+                "Action": [
+                    "ec2:AuthorizeSecurityGroupEgress",
+                    "ec2:AuthorizeSecurityGroupIngress",
+                    "ec2:CancelSpotInstanceRequests",
+                    "ec2:CreateNetworkInterface",
+                    "ec2:CreateSecurityGroup",
+                    "ec2:CreateTags",
+                    "ec2:DeleteNetworkInterface",
+                    "ec2:DeleteSecurityGroup",
+                    "ec2:DeleteTags",
+                    "ec2:DescribeAvailabilityZones",
+                    "ec2:DescribeAccountAttributes",
+                    "ec2:DescribeDhcpOptions",
+                    "ec2:DescribeInstanceStatus",
+                    "ec2:DescribeInstances",
+                    "ec2:DescribeKeyPairs",
+                    "ec2:DescribeNetworkAcls",
+                    "ec2:DescribeNetworkInterfaces",
+                    "ec2:DescribePrefixLists",
+                    "ec2:DescribeRouteTables",
+                    "ec2:DescribeSecurityGroups",
+                    "ec2:DescribeSpotInstanceRequests",
+                    "ec2:DescribeSpotPriceHistory",
+                    "ec2:DescribeSubnets",
+                    "ec2:DescribeVpcAttribute",
+                    "ec2:DescribeVpcEndpoints",
+                    "ec2:DescribeVpcEndpointServices",
+                    "ec2:DescribeVpcs",
+                    "ec2:DetachNetworkInterface",
+                    "ec2:ModifyImageAttribute",
+                    "ec2:ModifyInstanceAttribute",
+                    "ec2:RequestSpotInstances",
+                    "ec2:RevokeSecurityGroupEgress",
+                    "ec2:RunInstances",
+                    "ec2:TerminateInstances",
+                    "ec2:DeleteVolume",
+                    "ec2:DescribeVolumeStatus",
+                    "ec2:DescribeVolumes",
+                    "ec2:DetachVolume",
+                    "iam:GetRole",
+                    "iam:GetRolePolicy",
+                    "iam:ListInstanceProfiles",
+                    "iam:ListRolePolicies",
+                    "iam:PassRole",
+                    "s3:CreateBucket",
+                    "s3:Get*",
+                    "s3:List*",
+                    "sdb:BatchPutAttributes",
+                    "sdb:Select",
+                    "sqs:CreateQueue",
+                    "sqs:Delete*",
+                    "sqs:GetQueue*",
+                    "sqs:PurgeQueue",
+                    "sqs:ReceiveMessage"
+                ]
+            }]
+        }
+        """)
+        iam_emr_profile_policy = aws.iam.RolePolicy("iamEmrProfilePolicy",
+            role=iam_emr_profile_role.id,
+            policy="""{
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Effect": "Allow",
+                "Resource": "*",
+                "Action": [
+                    "cloudwatch:*",
+                    "dynamodb:*",
+                    "ec2:Describe*",
+                    "elasticmapreduce:Describe*",
+                    "elasticmapreduce:ListBootstrapActions",
+                    "elasticmapreduce:ListClusters",
+                    "elasticmapreduce:ListInstanceGroups",
+                    "elasticmapreduce:ListInstances",
+                    "elasticmapreduce:ListSteps",
+                    "kinesis:CreateStream",
+                    "kinesis:DeleteStream",
+                    "kinesis:DescribeStream",
+                    "kinesis:GetRecords",
+                    "kinesis:GetShardIterator",
+                    "kinesis:MergeShards",
+                    "kinesis:PutRecord",
+                    "kinesis:SplitShard",
+                    "rds:Describe*",
+                    "s3:*",
+                    "sdb:*",
+                    "sns:*",
+                    "sqs:*"
+                ]
+            }]
+        }
+        """)
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

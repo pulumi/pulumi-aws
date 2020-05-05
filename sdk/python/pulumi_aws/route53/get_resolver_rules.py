@@ -55,6 +55,18 @@ def get_resolver_rules(owner_id=None,resolver_endpoint_id=None,rule_type=None,sh
     """
     `route53.getResolverRules` provides details about a set of Route53 Resolver rules.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.route53.get_resolver_rules(tags=[{
+        "Environment": "dev",
+    }])
+    ```
 
 
 

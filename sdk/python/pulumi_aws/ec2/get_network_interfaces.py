@@ -45,6 +45,17 @@ class AwaitableGetNetworkInterfacesResult(GetNetworkInterfacesResult):
 
 def get_network_interfaces(filters=None,tags=None,opts=None):
     """
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example_network_interfaces = aws.ec2.get_network_interfaces()
+    pulumi.export("example", example_network_interfaces.ids)
+    ```
 
 
 

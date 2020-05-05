@@ -86,7 +86,93 @@ class Integration(pulumi.CustomResource):
         """
         Provides an HTTP Method Integration for an API Gateway Integration.
 
+        ## Example Usage
 
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
+        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+            parent_id=my_demo_api.root_resource_id,
+            path_part="mydemoresource",
+            rest_api=my_demo_api.id)
+        my_demo_method = aws.apigateway.Method("myDemoMethod",
+            authorization="NONE",
+            http_method="GET",
+            resource_id=my_demo_resource.id,
+            rest_api=my_demo_api.id)
+        my_demo_integration = aws.apigateway.Integration("myDemoIntegration",
+            cache_key_parameters=["method.request.path.param"],
+            cache_namespace="foobar",
+            http_method=my_demo_method.http_method,
+            request_parameters={
+                "integration.request.header.X-Authorization": "'static'",
+            },
+            request_templates={
+                "application/xml": """{
+           "body" : $$input.json('$$')
+        }
+
+        """,
+            },
+            resource_id=my_demo_resource.id,
+            rest_api=my_demo_api.id,
+            timeout_milliseconds=29000,
+            type="MOCK")
+        ```
+
+        ## VPC Link
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        config = pulumi.Config()
+        name = config.require_object("name")
+        subnet_id = config.require_object("subnetId")
+        test_load_balancer = aws.lb.LoadBalancer("testLoadBalancer",
+            internal=True,
+            load_balancer_type="network",
+            subnets=[subnet_id])
+        test_vpc_link = aws.apigateway.VpcLink("testVpcLink", target_arn=test_load_balancer.arn)
+        test_rest_api = aws.apigateway.RestApi("testRestApi")
+        test_resource = aws.apigateway.Resource("testResource",
+            parent_id=test_rest_api.root_resource_id,
+            path_part="test",
+            rest_api=test_rest_api.id)
+        test_method = aws.apigateway.Method("testMethod",
+            authorization="NONE",
+            http_method="GET",
+            request_models={
+                "application/json": "Error",
+            },
+            resource_id=test_resource.id,
+            rest_api=test_rest_api.id)
+        test_integration = aws.apigateway.Integration("testIntegration",
+            connection_id=test_vpc_link.id,
+            connection_type="VPC_LINK",
+            content_handling="CONVERT_TO_TEXT",
+            http_method=test_method.http_method,
+            integration_http_method="GET",
+            passthrough_behavior="WHEN_NO_MATCH",
+            request_parameters={
+                "integration.request.header.X-Authorization": "'static'",
+                "integration.request.header.X-Foo": "'Bar'",
+            },
+            request_templates={
+                "application/json": "",
+                "application/xml": """#set($$inputRoot = $$input.path('$$'))
+        { }
+        """,
+            },
+            resource_id=test_resource.id,
+            rest_api=test_rest_api.id,
+            type="HTTP",
+            uri="https://www.google.de")
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

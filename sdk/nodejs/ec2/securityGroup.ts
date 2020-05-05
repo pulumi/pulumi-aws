@@ -20,6 +20,35 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const allowTls = new aws.ec2.SecurityGroup("allowTls", {
+ *     description: "Allow TLS inbound traffic",
+ *     vpcId: aws_vpc.main.id,
+ *     ingress: [{
+ *         description: "TLS from VPC",
+ *         fromPort: 443,
+ *         toPort: 443,
+ *         protocol: "tcp",
+ *         cidrBlocks: aws_vpc.main.cidr_block,
+ *     }],
+ *     egress: [{
+ *         fromPort: 0,
+ *         toPort: 0,
+ *         protocol: "-1",
+ *         cidrBlocks: ["0.0.0.0/0"],
+ *     }],
+ *     tags: {
+ *         Name: "allowTls",
+ *     },
+ * });
+ * ```
  * 
  * ## Usage with prefix list IDs
  * 

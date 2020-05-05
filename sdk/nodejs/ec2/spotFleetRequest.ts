@@ -54,6 +54,32 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
+ * ### Using launch templates
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const fooLaunchTemplate = new aws.ec2.LaunchTemplate("fooLaunchTemplate", {
+ *     imageId: "ami-516b9131",
+ *     instanceType: "m1.small",
+ *     keyName: "some-key",
+ *     spotPrice: "0.05",
+ * });
+ * const fooSpotFleetRequest = new aws.ec2.SpotFleetRequest("fooSpotFleetRequest", {
+ *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
+ *     spotPrice: "0.005",
+ *     targetCapacity: 2,
+ *     validUntil: "2019-11-04T20:44:20Z",
+ *     launch_template_config: [{
+ *         launch_template_specification: {
+ *             id: fooLaunchTemplate.id,
+ *             version: fooLaunchTemplate.latestVersion,
+ *         },
+ *     }],
+ * });
+ * ```
+ * 
  * ### Using multiple launch specifications
  * 
  * ```typescript
@@ -79,6 +105,46 @@ import * as utilities from "../utilities";
  *     spotPrice: "0.005",
  *     targetCapacity: 2,
  *     validUntil: "2019-11-04T20:44:20Z",
+ * });
+ * ```
+ * 
+ * ### Using multiple launch configurations
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = aws.ec2.getSubnetIds({
+ *     vpcId: var.vpc_id,
+ * });
+ * const fooLaunchTemplate = new aws.ec2.LaunchTemplate("fooLaunchTemplate", {
+ *     imageId: "ami-516b9131",
+ *     instanceType: "m1.small",
+ *     keyName: "some-key",
+ *     spotPrice: "0.05",
+ * });
+ * const fooSpotFleetRequest = new aws.ec2.SpotFleetRequest("fooSpotFleetRequest", {
+ *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
+ *     spotPrice: "0.005",
+ *     targetCapacity: 2,
+ *     validUntil: "2019-11-04T20:44:20Z",
+ *     launch_template_config: [{
+ *         launch_template_specification: {
+ *             id: fooLaunchTemplate.id,
+ *             version: fooLaunchTemplate.latestVersion,
+ *         },
+ *         overrides: [
+ *             {
+ *                 subnetId: data.aws_subnets.example.ids[0],
+ *             },
+ *             {
+ *                 subnetId: data.aws_subnets.example.ids[1],
+ *             },
+ *             {
+ *                 subnetId: data.aws_subnets.example.ids[2],
+ *             },
+ *         ],
+ *     }],
  * });
  * ```
  *

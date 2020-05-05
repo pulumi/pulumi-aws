@@ -64,6 +64,16 @@ class PatchBaseline(pulumi.CustomResource):
         both marked as optional fields, but the Patch Baseline requires that at least one
         of them is specified.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        production = aws.ssm.PatchBaseline("production", approved_patches=["KB123456"])
+        ```
 
 
         :param str resource_name: The name of the resource.

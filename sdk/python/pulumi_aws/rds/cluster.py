@@ -208,6 +208,85 @@ class Cluster(pulumi.CustomResource):
         > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
+        ## Example Usage
+
+        ### Aurora MySQL 2.x (MySQL 5.7)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.rds.Cluster("default",
+            availability_zones=[
+                "us-west-2a",
+                "us-west-2b",
+                "us-west-2c",
+            ],
+            backup_retention_period=5,
+            cluster_identifier="aurora-cluster-demo",
+            database_name="mydb",
+            engine="aurora-mysql",
+            engine_version="5.7.mysql_aurora.2.03.2",
+            master_password="bar",
+            master_username="foo",
+            preferred_backup_window="07:00-09:00")
+        ```
+
+        ### Aurora MySQL 1.x (MySQL 5.6)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.rds.Cluster("default",
+            availability_zones=[
+                "us-west-2a",
+                "us-west-2b",
+                "us-west-2c",
+            ],
+            backup_retention_period=5,
+            cluster_identifier="aurora-cluster-demo",
+            database_name="mydb",
+            master_password="bar",
+            master_username="foo",
+            preferred_backup_window="07:00-09:00")
+        ```
+
+        ### Aurora with PostgreSQL engine
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        postgresql = aws.rds.Cluster("postgresql",
+            availability_zones=[
+                "us-west-2a",
+                "us-west-2b",
+                "us-west-2c",
+            ],
+            backup_retention_period=5,
+            cluster_identifier="aurora-cluster-demo",
+            database_name="mydb",
+            engine="aurora-postgresql",
+            master_password="bar",
+            master_username="foo",
+            preferred_backup_window="07:00-09:00")
+        ```
+
+        ### Aurora Multi-Master Cluster
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.rds.Cluster("example",
+            cluster_identifier="example",
+            db_subnet_group_name=aws_db_subnet_group["example"]["name"],
+            engine_mode="multimaster",
+            master_password="barbarbarbar",
+            master_username="foo",
+            skip_final_snapshot=True)
+        ```
 
 
         :param str resource_name: The name of the resource.

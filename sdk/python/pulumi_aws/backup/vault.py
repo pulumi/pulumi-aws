@@ -34,6 +34,16 @@ class Vault(pulumi.CustomResource):
         """
         Provides an AWS Backup vault resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.backup.Vault("example", kms_key_arn=aws_kms_key["example"]["arn"])
+        ```
 
 
         :param str resource_name: The name of the resource.

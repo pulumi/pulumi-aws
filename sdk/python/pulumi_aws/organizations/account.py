@@ -49,6 +49,16 @@ class Account(pulumi.CustomResource):
 
         !> **WARNING:** Deleting this resource will only remove an AWS account from an organization. This provider will not close the account. The member account must be prepared to be a standalone account beforehand. See the [AWS Organizations documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html) for more information.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        account = aws.organizations.Account("account", email="john@doe.org")
+        ```
 
 
         :param str resource_name: The name of the resource.

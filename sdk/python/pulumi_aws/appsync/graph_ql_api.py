@@ -84,6 +84,113 @@ class GraphQLApi(pulumi.CustomResource):
         """
         Provides an AppSync GraphQL API.
 
+        ## Example Usage
+
+        ### API Key Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example", authentication_type="API_KEY")
+        ```
+
+        ### AWS Cognito User Pool Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="AMAZON_COGNITO_USER_POOLS",
+            user_pool_config={
+                "awsRegion": data[".getRegion"]["current"]["name"],
+                "defaultAction": "DENY",
+                "userPoolId": aws_cognito_user_pool["example"]["id"],
+            })
+        ```
+
+        ### AWS IAM Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example", authentication_type="AWS_IAM")
+        ```
+
+        ### With Schema
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="AWS_IAM",
+            schema="""schema {
+        	query: Query
+        }
+        type Query {
+          test: Int
+        }
+
+        """)
+        ```
+
+        ### OpenID Connect Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="OPENID_CONNECT",
+            openid_connect_config={
+                "issuer": "https://example.com",
+            })
+        ```
+
+        ### With Multiple Authentication Providers
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            additional_authentication_providers=[{
+                "authenticationType": "AWS_IAM",
+            }],
+            authentication_type="API_KEY")
+        ```
+
+        ### Enabling Logging
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_role = aws.iam.Role("exampleRole", assume_role_policy="""{
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                "Effect": "Allow",
+                "Principal": {
+                    "Service": "appsync.amazonaws.com"
+                },
+                "Action": "sts:AssumeRole"
+                }
+            ]
+        }
+
+        """)
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
+            policy_arn="arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
+            role=example_role.name)
+        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", log_config={
+            "cloudwatchLogsRoleArn": example_role.arn,
+            "fieldLogLevel": "ERROR",
+        })
+        ```
 
 
         :param str resource_name: The name of the resource.

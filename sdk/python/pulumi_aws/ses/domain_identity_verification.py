@@ -28,6 +28,23 @@ class DomainIdentityVerification(pulumi.CustomResource):
 
         > **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ses.DomainIdentity("example", domain="example.com")
+        example_amazonses_verification_record = aws.route53.Record("exampleAmazonsesVerificationRecord",
+            name=example.id.apply(lambda id: f"_amazonses.{id}"),
+            records=[example.verification_token],
+            ttl="600",
+            type="TXT",
+            zone_id=aws_route53_zone["example"]["zone_id"])
+        example_verification = aws.ses.DomainIdentityVerification("exampleVerification", domain=example.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

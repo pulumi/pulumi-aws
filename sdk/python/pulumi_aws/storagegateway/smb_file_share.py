@@ -82,6 +82,33 @@ class SmbFileShare(pulumi.CustomResource):
         """
         Manages an AWS Storage Gateway SMB File Share.
 
+        ## Example Usage
+
+        ### Active Directory Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.storagegateway.SmbFileShare("example",
+            authentication="ActiveDirectory",
+            gateway_arn=aws_storagegateway_gateway["example"]["arn"],
+            location_arn=aws_s3_bucket["example"]["arn"],
+            role_arn=aws_iam_role["example"]["arn"])
+        ```
+
+        ### Guest Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.storagegateway.SmbFileShare("example",
+            authentication="GuestAccess",
+            gateway_arn=aws_storagegateway_gateway["example"]["arn"],
+            location_arn=aws_s3_bucket["example"]["arn"],
+            role_arn=aws_iam_role["example"]["arn"])
+        ```
 
 
         :param str resource_name: The name of the resource.

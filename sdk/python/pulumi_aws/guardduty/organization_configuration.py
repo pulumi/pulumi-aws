@@ -24,6 +24,19 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         > **NOTE:** This is an advanced resource. The provider will automatically assume management of the GuardDuty Organization Configuration without import and perform no actions on removal from the resource configuration.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_detector = aws.guardduty.Detector("exampleDetector", enable=True)
+        example_organization_configuration = aws.guardduty.OrganizationConfiguration("exampleOrganizationConfiguration",
+            auto_enable=True,
+            detector_id=example_detector.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -39,6 +39,18 @@ class Channel(pulumi.CustomResource):
         """
         Provides an AWS Elemental MediaPackage Channel.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        kittens = aws.mediapackage.Channel("kittens",
+            channel_id="kitten-channel",
+            description="A channel dedicated to amusing videos of kittens.")
+        ```
 
 
         :param str resource_name: The name of the resource.

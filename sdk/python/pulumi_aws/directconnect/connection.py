@@ -46,6 +46,18 @@ class Connection(pulumi.CustomResource):
         """
         Provides a Connection of Direct Connect.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        hoge = aws.directconnect.Connection("hoge",
+            bandwidth="1Gbps",
+            location="EqDC2")
+        ```
 
 
         :param str resource_name: The name of the resource.

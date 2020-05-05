@@ -9,6 +9,23 @@ import * as utilities from "../utilities";
 /**
  * Provides an Gamelift Build resource.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const test = new aws.gamelift.Build("test", {
+ *     operatingSystem: "WINDOWS_2012",
+ *     storage_location: {
+ *         bucket: aws_s3_bucket.test.bucket,
+ *         key: aws_s3_bucket_object.test.key,
+ *         roleArn: aws_iam_role.test.arn,
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_build.html.markdown.
  */

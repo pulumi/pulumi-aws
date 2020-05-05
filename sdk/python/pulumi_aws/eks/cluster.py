@@ -85,6 +85,52 @@ class Cluster(pulumi.CustomResource):
         """
         Manages an EKS Cluster.
 
+        ## Example Usage
+
+        ### Example IAM Role for EKS Cluster
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.iam.Role("example", assume_role_policy="""{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "eks.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        }
+
+        """)
+        example__amazon_eks_cluster_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+            role=example.name)
+        example__amazon_eks_service_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSServicePolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSServicePolicy",
+            role=example.name)
+        ```
+
+        ### Enabling Control Plane Logging
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        config = pulumi.Config()
+        cluster_name = config.get("clusterName")
+        if cluster_name is None:
+            cluster_name = "example"
+        example_cluster = aws.eks.Cluster("exampleCluster", enabled_cluster_log_types=[
+            "api",
+            "audit",
+        ])
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=7)
+        ```
 
 
         :param str resource_name: The name of the resource.

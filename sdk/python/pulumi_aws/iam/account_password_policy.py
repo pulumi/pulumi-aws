@@ -61,6 +61,22 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         See more about [Account Password Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html)
         in the official AWS docs.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        strict = aws.iam.AccountPasswordPolicy("strict",
+            allow_users_to_change_password=True,
+            minimum_password_length=8,
+            require_lowercase_characters=True,
+            require_numbers=True,
+            require_symbols=True,
+            require_uppercase_characters=True)
+        ```
 
 
         :param str resource_name: The name of the resource.

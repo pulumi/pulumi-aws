@@ -125,6 +125,156 @@ class Domain(pulumi.CustomResource):
         """
         Manages an AWS Elasticsearch Domain.
 
+        ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.elasticsearch.Domain("example",
+            cluster_config={
+                "clusterConfig": "r4.large.elasticsearch",
+            },
+            elasticsearch_version="1.5",
+            snapshot_options={
+                "snapshotOptions": 23,
+            },
+            tags={
+                "Domain": "TestDomain",
+            })
+        ```
+
+        ### Access Policy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        config = pulumi.Config()
+        domain = config.get("domain")
+        if domain is None:
+            domain = "tf-test"
+        current_region = aws.get_region()
+        current_caller_identity = aws.get_caller_identity()
+        example = aws.elasticsearch.Domain("example", access_policies=f"""{{
+          "Version": "2012-10-17",
+          "Statement": [
+            {{
+              "Action": "es:*",
+              "Principal": "*",
+              "Effect": "Allow",
+              "Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*",
+              "Condition": {{
+                "IpAddress": {{"aws:SourceIp": ["66.193.100.22/32"]}}
+              }}
+            }}
+          ]
+        }}
+
+        """)
+        ```
+
+        ### Log Publishing to CloudWatch Logs
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
+        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
+            policy_document="""{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "es.amazonaws.com"
+              },
+              "Action": [
+                "logs:PutLogEvents",
+                "logs:PutLogEventsBatch",
+                "logs:CreateLogStream"
+              ],
+              "Resource": "arn:aws:logs:*"
+            }
+          ]
+        }
+
+        """,
+            policy_name="example")
+        example_domain = aws.elasticsearch.Domain("exampleDomain", log_publishing_options=[{
+            "cloudwatchLogGroupArn": example_log_group.arn,
+            "logType": "INDEX_SLOW_LOGS",
+        }])
+        ```
+
+        ### VPC based ES
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        config = pulumi.Config()
+        vpc = config.require_object("vpc")
+        domain = config.get("domain")
+        if domain is None:
+            domain = "tf-test"
+        selected_vpc = aws.ec2.get_vpc(tags={
+            "Name": vpc,
+        })
+        selected_subnet_ids = aws.ec2.get_subnet_ids(tags={
+                "Tier": "private",
+            },
+            vpc_id=selected_vpc.id)
+        current_region = aws.get_region()
+        current_caller_identity = aws.get_caller_identity()
+        es_security_group = aws.ec2.SecurityGroup("esSecurityGroup",
+            description="Managed by Pulumi",
+            ingress=[{
+                "cidrBlocks": [selected_vpc.cidr_block],
+                "fromPort": 443,
+                "protocol": "tcp",
+                "toPort": 443,
+            }],
+            vpc_id=selected_vpc.id)
+        es_service_linked_role = aws.iam.ServiceLinkedRole("esServiceLinkedRole", aws_service_name="es.amazonaws.com")
+        es_domain = aws.elasticsearch.Domain("esDomain",
+            access_policies=f"""{{
+        	"Version": "2012-10-17",
+        	"Statement": [
+        		{{
+        			"Action": "es:*",
+        			"Principal": "*",
+        			"Effect": "Allow",
+        			"Resource": "arn:aws:es:{current_region.name}:{current_caller_identity.account_id}:domain/{domain}/*"
+        		}}
+        	]
+        }}
+
+        """,
+            advanced_options={
+                "rest.action.multi.allow_explicit_index": "true",
+            },
+            cluster_config={
+                "clusterConfig": "m4.large.elasticsearch",
+            },
+            elasticsearch_version="6.3",
+            snapshot_options={
+                "snapshotOptions": 23,
+            },
+            tags={
+                "Domain": "TestDomain",
+            },
+            vpc_options={
+                "securityGroupIds": [aws_security_group["elasticsearch"]["id"]],
+                "subnetIds": [
+                    selected_subnet_ids.ids[0],
+                    selected_subnet_ids.ids[1],
+                ],
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

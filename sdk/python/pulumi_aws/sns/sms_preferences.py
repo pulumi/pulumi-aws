@@ -38,6 +38,16 @@ class SmsPreferences(pulumi.CustomResource):
         """
         Provides a way to set SNS SMS preferences.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        update_sms_prefs = aws.sns.SmsPreferences("updateSmsPrefs")
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -39,6 +39,18 @@ def get_account_alias(opts=None):
     """
     The IAM Account Alias data source allows access to the account alias
     for the effective account in which this provider is working.
+
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.iam.get_account_alias()
+    pulumi.export("accountId", current.account_alias)
+    ```
     """
     __args__ = dict()
 

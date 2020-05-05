@@ -58,6 +58,18 @@ class Parameter(pulumi.CustomResource):
         """
         Provides an SSM Parameter resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.ssm.Parameter("foo",
+            type="String",
+            value="bar")
+        ```
 
 
         :param str resource_name: The name of the resource.

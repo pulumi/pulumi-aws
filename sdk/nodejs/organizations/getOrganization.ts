@@ -11,6 +11,16 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * ### List all account IDs for the organization
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = aws.organizations.getOrganization({});
+ * export const accountIds = example.then(example => example.accounts.map(__item => __item.id));
+ * ```
+ * 
  * ### SNS topic that can be interacted by the organization only
  * 
  * ```typescript

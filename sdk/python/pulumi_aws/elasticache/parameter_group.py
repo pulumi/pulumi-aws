@@ -35,6 +35,27 @@ class ParameterGroup(pulumi.CustomResource):
 
         > **NOTE:** Attempting to remove the `reserved-memory` parameter when `family` is set to `redis2.6` or `redis2.8` may show a perpetual difference in this provider due to an Elasticache API limitation. Leave that parameter configured with any value to workaround the issue.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.elasticache.ParameterGroup("default",
+            family="redis2.8",
+            parameters=[
+                {
+                    "name": "activerehashing",
+                    "value": "yes",
+                },
+                {
+                    "name": "min-slaves-to-write",
+                    "value": "2",
+                },
+            ])
+        ```
 
 
         :param str resource_name: The name of the resource.

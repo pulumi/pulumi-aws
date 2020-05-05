@@ -47,6 +47,17 @@ def get_solution_stack(most_recent=None,name_regex=None,opts=None):
     """
     Use this data source to get the name of a elastic beanstalk solution stack.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    multi_docker = aws.elasticbeanstalk.get_solution_stack(most_recent=True,
+        name_regex="^64bit Amazon Linux (.*) Multi-container Docker (.*)$$")
+    ```
 
 
 

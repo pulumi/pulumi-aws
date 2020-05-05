@@ -65,6 +65,18 @@ def get_document(document_format=None,document_version=None,name=None,opts=None)
     """
     Gets the contents of the specified Systems Manager document.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.ssm.get_document(document_format="YAML",
+        name="AWS-GatherSoftwareInventory")
+    pulumi.export("content", foo.content)
+    ```
 
 
 

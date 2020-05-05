@@ -68,6 +68,17 @@ def get_certificate(domain=None,key_types=None,most_recent=None,statuses=None,ta
     Manager (ACM), you can reference
     it by domain without having to hard code the ARNs as input.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.acm.get_certificate(domain="tf.example.com",
+        key_types=["RSA_4096"])
+    ```
 
 
 

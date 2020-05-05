@@ -27,6 +27,16 @@ class Project(pulumi.CustomResource):
         For more information about Device Farm Projects, see the AWS Documentation on
         [Device Farm Projects][aws-get-project].
 
+        ## Basic Example Usage
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        awesome_devices = aws.devicefarm.Project("awesomeDevices")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the project

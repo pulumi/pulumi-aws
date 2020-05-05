@@ -7,6 +7,40 @@ import * as utilities from "../utilities";
 /**
  * Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const lbUser = new aws.iam.User("lb", {
+ *     path: "/system/",
+ * });
+ * const lbAccessKey = new aws.iam.AccessKey("lb", {
+ *     pgpKey: "keybase:some_person_that_exists",
+ *     user: lbUser.name,
+ * });
+ * const lbRo = new aws.iam.UserPolicy("lbRo", {
+ *     policy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": [
+ *         "ec2:Describe*"
+ *       ],
+ *       "Effect": "Allow",
+ *       "Resource": "*"
+ *     }
+ *   ]
+ * }
+ * `,
+ *     user: lbUser.name,
+ * });
+ * 
+ * export const secret = lbAccessKey.encryptedSecret;
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_access_key.html.markdown.
  */

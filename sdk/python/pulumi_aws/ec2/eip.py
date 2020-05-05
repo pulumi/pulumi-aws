@@ -63,6 +63,18 @@ class Eip(pulumi.CustomResource):
 
         > **Note:** Do not use `network_interface` to associate the EIP to `lb.LoadBalancer` or `ec2.NatGateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lb = aws.ec2.Eip("lb",
+            instance=aws_instance["web"]["id"],
+            vpc=True)
+        ```
 
 
         :param str resource_name: The name of the resource.

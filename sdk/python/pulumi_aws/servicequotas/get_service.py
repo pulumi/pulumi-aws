@@ -43,6 +43,16 @@ def get_service(service_name=None,opts=None):
     """
     Retrieve information about a Service Quotas Service.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.servicequotas.get_service(service_name="Amazon Virtual Private Cloud (Amazon VPC)")
+    ```
 
 
 

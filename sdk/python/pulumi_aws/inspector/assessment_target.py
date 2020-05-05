@@ -26,6 +26,20 @@ class AssessmentTarget(pulumi.CustomResource):
         """
         Provides a Inspector assessment target
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bar = aws.inspector.ResourceGroup("bar", tags={
+            "Env": "bar",
+            "Name": "foo",
+        })
+        foo = aws.inspector.AssessmentTarget("foo", resource_group_arn=bar.arn)
+        ```
 
 
         :param str resource_name: The name of the resource.

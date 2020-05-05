@@ -32,6 +32,18 @@ class Portfolio(pulumi.CustomResource):
         """
         Provides a resource to create a Service Catalog Portfolio.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        portfolio = aws.servicecatalog.Portfolio("portfolio",
+            description="List of my organizations apps",
+            provider_name="Brett")
+        ```
 
 
         :param str resource_name: The name of the resource.

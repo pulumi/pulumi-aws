@@ -90,6 +90,52 @@ class NodeGroup(pulumi.CustomResource):
         """
         Manages an EKS Node Group, which can provision and optionally update an Auto Scaling Group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.eks.NodeGroup("example",
+            cluster_name=aws_eks_cluster["example"]["name"],
+            node_role_arn=aws_iam_role["example"]["arn"],
+            subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
+            scaling_config={
+                "desiredSize": 1,
+                "maxSize": 1,
+                "minSize": 1,
+            })
+        ```
+
+        ### Example IAM Role for EKS Node Group
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.iam.Role("example", assume_role_policy=json.dumps({
+            "Statement": [{
+                "Action": "sts:AssumeRole",
+                "Effect": "Allow",
+                "Principal": {
+                    "Service": "ec2.amazonaws.com",
+                },
+            }],
+            "Version": "2012-10-17",
+        }))
+        example__amazon_eks_worker_node_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
+            role=example.name)
+        example__amazon_ekscni_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSCNIPolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+            role=example.name)
+        example__amazon_ec2_container_registry_read_only = aws.iam.RolePolicyAttachment("example-AmazonEC2ContainerRegistryReadOnly",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
+            role=example.name)
+        ```
 
 
         :param str resource_name: The name of the resource.

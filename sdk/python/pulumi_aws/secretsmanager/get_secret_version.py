@@ -72,6 +72,26 @@ def get_secret_version(secret_id=None,version_id=None,version_stage=None,opts=No
     """
     Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`secretsmanager.Secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
 
+    ## Example Usage
+
+    ### Retrieve Current Secret Version
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.secretsmanager.get_secret_version(secret_id=data["secretsmanager.Secret"]["example"]["id"])
+    ```
+
+    ### Retrieve Specific Secret Version
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=data["secretsmanager.Secret"]["example"]["id"],
+        version_stage="example")
+    ```
 
 
 

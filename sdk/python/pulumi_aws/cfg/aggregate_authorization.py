@@ -30,6 +30,18 @@ class AggregateAuthorization(pulumi.CustomResource):
         """
         Manages an AWS Config Aggregate Authorization
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cfg.AggregateAuthorization("example",
+            account_id="123456789012",
+            region="eu-west-2")
+        ```
 
 
         :param str resource_name: The name of the resource.

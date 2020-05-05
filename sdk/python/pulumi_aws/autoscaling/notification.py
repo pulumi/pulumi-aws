@@ -29,6 +29,30 @@ class Notification(pulumi.CustomResource):
         the `notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
         Services, and are applied to each AutoScaling Group you supply.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sns.Topic("example")
+        bar = aws.autoscaling.Group("bar")
+        foo = aws.autoscaling.Group("foo")
+        example_notifications = aws.autoscaling.Notification("exampleNotifications",
+            group_names=[
+                bar.name,
+                foo.name,
+            ],
+            notifications=[
+                "autoscaling:EC2_INSTANCE_LAUNCH",
+                "autoscaling:EC2_INSTANCE_TERMINATE",
+                "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+                "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+            ],
+            topic_arn=example.arn)
+        ```
 
 
         :param str resource_name: The name of the resource.

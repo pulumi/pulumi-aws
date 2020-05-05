@@ -50,6 +50,29 @@ class Configuration(pulumi.CustomResource):
 
         For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.mq.Configuration("example",
+            data="""<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+        <broker xmlns="http://activemq.apache.org/schema/core">
+          <plugins>
+            <forcePersistencyModeBrokerPlugin persistenceFlag="true"/>
+            <statisticsBrokerPlugin/>
+            <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
+          </plugins>
+        </broker>
+
+        """,
+            description="Example Configuration",
+            engine_type="ActiveMQ",
+            engine_version="5.15.0")
+        ```
 
 
         :param str resource_name: The name of the resource.

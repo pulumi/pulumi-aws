@@ -38,6 +38,21 @@ class AwaitableGetDefaultKmsKeyResult(GetDefaultKmsKeyResult):
 def get_default_kms_key(opts=None):
     """
     Use this data source to get the default EBS encryption KMS key in the current region.
+
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.ebs.get_default_kms_key()
+    example = aws.ebs.Volume("example",
+        availability_zone="us-west-2a",
+        encrypted=True,
+        kms_key_id=current.key_arn)
+    ```
     """
     __args__ = dict()
 

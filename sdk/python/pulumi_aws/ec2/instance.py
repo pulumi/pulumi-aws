@@ -251,6 +251,33 @@ class Instance(pulumi.CustomResource):
         Provides an EC2 instance resource. This allows instances to be created, updated,
         and deleted. Instances also support [provisioning](https://www.terraform.io/docs/provisioners/index.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ubuntu = aws.get_ami(filters=[
+                {
+                    "name": "name",
+                    "values": ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
+                },
+                {
+                    "name": "virtualization-type",
+                    "values": ["hvm"],
+                },
+            ],
+            most_recent=True,
+            owners=["099720109477"])
+        web = aws.ec2.Instance("web",
+            ami=ubuntu.id,
+            instance_type="t2.micro",
+            tags={
+                "Name": "HelloWorld",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

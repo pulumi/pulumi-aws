@@ -34,6 +34,21 @@ class AdmChannel(pulumi.CustomResource):
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        app = aws.pinpoint.App("app")
+        channel = aws.pinpoint.AdmChannel("channel",
+            application_id=app.application_id,
+            client_id="",
+            client_secret="",
+            enabled=True)
+        ```
 
 
         :param str resource_name: The name of the resource.

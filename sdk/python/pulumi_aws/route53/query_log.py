@@ -28,6 +28,36 @@ class QueryLog(pulumi.CustomResource):
         the Route53 hosted zone must be public.
         See [Configuring Logging for DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html?console_help=true#query-logs-configuring) for additional details.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_pulumi as pulumi
+
+        us_east_1 = pulumi.providers.Aws("us-east-1", region="us-east-1")
+        aws_route53_example_com = aws.cloudwatch.LogGroup("awsRoute53ExampleCom", retention_in_days=30)
+        route53_query_logging_policy_policy_document = aws.iam.get_policy_document(statements=[{
+            "actions": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+            ],
+            "principals": [{
+                "identifiers": ["route53.amazonaws.com"],
+                "type": "Service",
+            }],
+            "resources": ["arn:aws:logs:*:*:log-group:/aws/route53/*"],
+        }])
+        route53_query_logging_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy",
+            policy_document=route53_query_logging_policy_policy_document.json,
+            policy_name="route53-query-logging-policy")
+        example_com_zone = aws.route53.Zone("exampleComZone")
+        example_com_query_log = aws.route53.QueryLog("exampleComQueryLog",
+            cloudwatch_log_group_arn=aws_route53_example_com.arn,
+            zone_id=example_com_zone.zone_id)
+        ```
 
 
         :param str resource_name: The name of the resource.

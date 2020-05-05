@@ -111,6 +111,20 @@ class Cluster(pulumi.CustomResource):
         """
         Provides a DAX Cluster resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bar = aws.dax.Cluster("bar",
+            cluster_name="cluster-example",
+            iam_role_arn=data["iam.Role"]["example"]["arn"],
+            node_type="dax.r4.large",
+            replication_factor=1)
+        ```
 
 
         :param str resource_name: The name of the resource.

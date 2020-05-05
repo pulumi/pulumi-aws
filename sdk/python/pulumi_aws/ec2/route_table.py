@@ -63,6 +63,30 @@ class RouteTable(pulumi.CustomResource):
         `propagating_vgws`. Omit this argument when defining route propagation using
         the separate resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        route_table = aws.ec2.RouteTable("routeTable",
+            routes=[
+                {
+                    "cidrBlock": "10.0.1.0/24",
+                    "gatewayId": aws_internet_gateway["main"]["id"],
+                },
+                {
+                    "egressOnlyGatewayId": aws_egress_only_internet_gateway["foo"]["id"],
+                    "ipv6CidrBlock": "::/0",
+                },
+            ],
+            tags={
+                "Name": "main",
+            },
+            vpc_id=aws_vpc["default"]["id"])
+        ```
 
 
         :param str resource_name: The name of the resource.

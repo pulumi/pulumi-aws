@@ -24,6 +24,18 @@ class UploadBuffer(pulumi.CustomResource):
 
         > **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.storagegateway.UploadBuffer("example",
+            disk_id=data["storagegateway.getLocalDisk"]["example"]["id"],
+            gateway_arn=aws_storagegateway_gateway["example"]["arn"])
+        ```
 
 
         :param str resource_name: The name of the resource.

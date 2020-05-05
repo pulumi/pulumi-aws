@@ -95,6 +95,24 @@ def get_target_group(arn=None,name=None,tags=None,opts=None):
     input variable and needs to know its attributes. It can also be used to get the ARN of
     an LB Target Group for use in other resources, given LB Target Group name.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    lb_tg_arn = config.get("lbTgArn")
+    if lb_tg_arn is None:
+        lb_tg_arn = ""
+    lb_tg_name = config.get("lbTgName")
+    if lb_tg_name is None:
+        lb_tg_name = ""
+    test = aws.lb.get_target_group(arn=lb_tg_arn,
+        name=lb_tg_name)
+    ```
 
 
     Deprecated: aws.applicationloadbalancing.getTargetGroup has been deprecated in favour of aws.alb.getTargetGroup

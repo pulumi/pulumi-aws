@@ -60,6 +60,23 @@ class NetworkInterface(pulumi.CustomResource):
         """
         Provides an Elastic network interface (ENI) resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ec2.NetworkInterface("test",
+            attachments=[{
+                "deviceIndex": 1,
+                "instance": aws_instance["test"]["id"],
+            }],
+            private_ips=["10.0.0.50"],
+            security_groups=[aws_security_group["web"]["id"]],
+            subnet_id=aws_subnet["public_a"]["id"])
+        ```
 
 
         :param str resource_name: The name of the resource.

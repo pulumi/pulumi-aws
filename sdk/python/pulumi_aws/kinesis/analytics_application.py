@@ -175,6 +175,41 @@ class AnalyticsApplication(pulumi.CustomResource):
 
         For more details, see the [Amazon Kinesis Analytics Documentation](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/what-is.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_stream = aws.kinesis.Stream("testStream", shard_count=1)
+        test_application = aws.kinesis.AnalyticsApplication("testApplication", inputs={
+            "kinesisStream": {
+                "resourceArn": test_stream.arn,
+                "roleArn": aws_iam_role["test"]["arn"],
+            },
+            "namePrefix": "test_prefix",
+            "parallelism": {
+                "count": 1,
+            },
+            "schema": {
+                "recordColumns": [{
+                    "mapping": "$$.test",
+                    "name": "test",
+                    "sqlType": "VARCHAR(8)",
+                }],
+                "recordEncoding": "UTF-8",
+                "recordFormat": {
+                    "mappingParameters": {
+                        "json": {
+                            "recordRowPath": "$$",
+                        },
+                    },
+                },
+            },
+        })
+        ```
 
 
         :param str resource_name: The name of the resource.

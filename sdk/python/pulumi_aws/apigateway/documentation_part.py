@@ -32,6 +32,24 @@ class DocumentationPart(pulumi.CustomResource):
         """
         Provides a settings of an API Gateway Documentation Part.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
+        example_documentation_part = aws.apigateway.DocumentationPart("exampleDocumentationPart",
+            location={
+                "method": "GET",
+                "path": "/example",
+                "type": "METHOD",
+            },
+            properties="{\"description\":\"Example description\"}",
+            rest_api_id=example_rest_api.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -34,6 +34,35 @@ class ResourceServer(pulumi.CustomResource):
         """
         Provides a Cognito Resource Server.
 
+        ## Example Usage
+
+        ### Create a basic resource server
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        pool = aws.cognito.UserPool("pool")
+        resource = aws.cognito.ResourceServer("resource",
+            identifier="https://example.com",
+            user_pool_id=pool.id)
+        ```
+
+        ### Create a resource server with sample-scope
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        pool = aws.cognito.UserPool("pool")
+        resource = aws.cognito.ResourceServer("resource",
+            identifier="https://example.com",
+            scopes=[{
+                "scopeDescription": "a Sample Scope Description",
+                "scopeName": "sample-scope",
+            }],
+            user_pool_id=pool.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

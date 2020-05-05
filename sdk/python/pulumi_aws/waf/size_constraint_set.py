@@ -46,6 +46,23 @@ class SizeConstraintSet(pulumi.CustomResource):
         """
         Provides a WAF Size Constraint Set Resource
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        size_constraint_set = aws.waf.SizeConstraintSet("sizeConstraintSet", size_constraints=[{
+            "comparisonOperator": "EQ",
+            "fieldToMatch": {
+                "type": "BODY",
+            },
+            "size": "4096",
+            "textTransformation": "NONE",
+        }])
+        ```
 
 
         :param str resource_name: The name of the resource.

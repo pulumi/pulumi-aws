@@ -54,6 +54,25 @@ class Stream(pulumi.CustomResource):
 
         For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_stream = aws.kinesis.Stream("testStream",
+            retention_period=48,
+            shard_count=1,
+            shard_level_metrics=[
+                "IncomingBytes",
+                "OutgoingBytes",
+            ],
+            tags={
+                "Environment": "test",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

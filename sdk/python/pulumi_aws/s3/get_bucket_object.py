@@ -194,6 +194,21 @@ def get_bucket_object(bucket=None,key=None,range=None,tags=None,version_id=None,
 
     > **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type` (`text/*` and `application/json`). This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favour of metadata.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    bootstrap_script = aws.s3.get_bucket_object(bucket="ourcorp-deploy-config",
+        key="ec2-bootstrap-script.sh")
+    example = aws.ec2.Instance("example",
+        ami="ami-2757f631",
+        instance_type="t2.micro",
+        user_data=bootstrap_script.body)
+    ```
 
 
 

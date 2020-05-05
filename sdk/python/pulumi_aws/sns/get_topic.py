@@ -45,6 +45,16 @@ def get_topic(name=None,opts=None):
     Service (SNS). By using this data source, you can reference SNS topics
     without having to hard code the ARNs as input.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.sns.get_topic(name="an_example_topic")
+    ```
 
 
 

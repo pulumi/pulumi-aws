@@ -39,6 +39,22 @@ class AwaitableGetPartitionResult(GetPartitionResult):
 def get_partition(opts=None):
     """
     Use this data source to lookup current AWS partition in which this provider is working
+
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.get_partition()
+    s3_policy = aws.iam.get_policy_document(statements=[{
+        "actions": ["s3:ListBucket"],
+        "resources": [f"arn:{current.partition}:s3:::my-bucket"],
+        "sid": "1",
+    }])
+    ```
     """
     __args__ = dict()
 

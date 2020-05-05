@@ -36,6 +36,16 @@ def get_ipset(name=None,opts=None):
     """
     `wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.wafregional.get_ipset(name="tfWAFRegionalIPSet")
+    ```
 
 
 

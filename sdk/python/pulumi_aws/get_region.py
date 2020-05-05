@@ -58,6 +58,16 @@ def get_region(endpoint=None,name=None,opts=None):
     can be useful in a child module which is inheriting an AWS provider
     configuration from its parent module.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.get_region()
+    ```
 
 
 

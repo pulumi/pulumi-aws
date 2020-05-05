@@ -25,6 +25,19 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
         When a VPC is created, a primary IPv4 CIDR block for the VPC must be specified.
         The `ec2.VpcIpv4CidrBlockAssociation` resource allows further IPv4 CIDR blocks to be added to the VPC.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
+        secondary_cidr = aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr",
+            cidr_block="172.2.0.0/16",
+            vpc_id=main.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

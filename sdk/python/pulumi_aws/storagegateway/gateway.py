@@ -73,6 +73,61 @@ class Gateway(pulumi.CustomResource):
 
         > NOTE: The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
 
+        ## Example Usage
+
+        ### File Gateway
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.storagegateway.Gateway("example",
+            gateway_ip_address="1.2.3.4",
+            gateway_name="example",
+            gateway_timezone="GMT",
+            gateway_type="FILE_S3")
+        ```
+
+        ### Tape Gateway
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.storagegateway.Gateway("example",
+            gateway_ip_address="1.2.3.4",
+            gateway_name="example",
+            gateway_timezone="GMT",
+            gateway_type="VTL",
+            media_changer_type="AWS-Gateway-VTL",
+            tape_drive_type="IBM-ULT3580-TD5")
+        ```
+
+        ### Volume Gateway (Cached)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.storagegateway.Gateway("example",
+            gateway_ip_address="1.2.3.4",
+            gateway_name="example",
+            gateway_timezone="GMT",
+            gateway_type="CACHED")
+        ```
+
+        ### Volume Gateway (Stored)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.storagegateway.Gateway("example",
+            gateway_ip_address="1.2.3.4",
+            gateway_name="example",
+            gateway_timezone="GMT",
+            gateway_type="STORED")
+        ```
 
 
         :param str resource_name: The name of the resource.

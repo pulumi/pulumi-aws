@@ -87,6 +87,76 @@ class Crawler(pulumi.CustomResource):
         """
         Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
 
+        ## Example Usage
+
+        ### DynamoDB Target
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Crawler("example",
+            database_name=aws_glue_catalog_database["example"]["name"],
+            dynamodb_targets=[{
+                "path": "table-name",
+            }],
+            role=aws_iam_role["example"]["arn"])
+        ```
+
+        ### JDBC Target
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Crawler("example",
+            database_name=aws_glue_catalog_database["example"]["name"],
+            jdbc_targets=[{
+                "connectionName": aws_glue_connection["example"]["name"],
+                "path": "database-name/%",
+            }],
+            role=aws_iam_role["example"]["arn"])
+        ```
+
+        ### S3 Target
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Crawler("example",
+            database_name=aws_glue_catalog_database["example"]["name"],
+            role=aws_iam_role["example"]["arn"],
+            s3_targets=[{
+                "path": f"s3://{aws_s3_bucket['example']['bucket']}",
+            }])
+        ```
+
+        ### Catalog Target
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Crawler("example",
+            catalog_targets=[{
+                "databaseName": aws_glue_catalog_database["example"]["name"],
+                "tables": [aws_glue_catalog_table["example"]["name"]],
+            }],
+            configuration="""{
+          "Version":1.0,
+          "Grouping": {
+            "TableGroupingPolicy": "CombineCompatibleSchemas"
+          }
+        }
+
+        """,
+            database_name=aws_glue_catalog_database["example"]["name"],
+            role=aws_iam_role["example"]["arn"],
+            schema_change_policy={
+                "deleteBehavior": "LOG",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

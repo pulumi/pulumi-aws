@@ -30,6 +30,20 @@ class ResourceShare(pulumi.CustomResource):
         """
         Manages a Resource Access Manager (RAM) Resource Share. To associate principals with the share, see the [`ram.PrincipalAssociation` resource](https://www.terraform.io/docs/providers/aws/r/ram_principal_association.html). To associate resources with the share, see the [`ram.ResourceAssociation` resource](https://www.terraform.io/docs/providers/aws/r/ram_resource_association.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ram.ResourceShare("example",
+            allow_external_principals=True,
+            tags={
+                "Environment": "Production",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

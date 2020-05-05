@@ -58,6 +58,18 @@ class Key(pulumi.CustomResource):
         """
         Provides a KMS customer master key.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        key = aws.kms.Key("key",
+            deletion_window_in_days=10,
+            description="KMS key 1")
+        ```
 
 
         :param str resource_name: The name of the resource.

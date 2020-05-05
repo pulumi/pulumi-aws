@@ -26,6 +26,22 @@ class ConditionalForwader(pulumi.CustomResource):
         """
         Provides a conditional forwarder for managed Microsoft AD in AWS Directory Service.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.directoryservice.ConditionalForwader("example",
+            directory_id=aws_directory_service_directory["ad"]["id"],
+            dns_ips=[
+                "8.8.8.8",
+                "8.8.4.4",
+            ],
+            remote_domain_name="example.com")
+        ```
 
 
         :param str resource_name: The name of the resource.

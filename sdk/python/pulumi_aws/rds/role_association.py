@@ -31,6 +31,19 @@ class RoleAssociation(pulumi.CustomResource):
 
         > To manage the RDS DB Instance IAM Role for [Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html), see the `rds.Instance` resource `monitoring_role_arn` argument instead.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.rds.RoleAssociation("example",
+            db_instance_identifier=aws_db_instance["example"]["id"],
+            feature_name="S3_INTEGRATION",
+            role_arn=aws_iam_role["example"]["id"])
+        ```
 
 
         :param str resource_name: The name of the resource.

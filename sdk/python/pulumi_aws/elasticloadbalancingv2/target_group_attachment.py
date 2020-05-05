@@ -34,7 +34,39 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         > **Note:** `alb.TargetGroupAttachment` is known as `lb.TargetGroupAttachment`. The functionality is identical.
 
+        ## Example Usage
 
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_target_group = aws.lb.TargetGroup("testTargetGroup")
+        test_instance = aws.ec2.Instance("testInstance")
+        test_target_group_attachment = aws.lb.TargetGroupAttachment("testTargetGroupAttachment",
+            port=80,
+            target_group_arn=test_target_group.arn,
+            target_id=test_instance.id)
+        ```
+
+        ## Usage with lambda
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_target_group = aws.lb.TargetGroup("testTargetGroup", target_type="lambda")
+        test_function = aws.lambda_.Function("testFunction")
+        with_lb = aws.lambda_.Permission("withLb",
+            action="lambda:InvokeFunction",
+            function=test_function.arn,
+            principal="elasticloadbalancing.amazonaws.com",
+            source_arn=test_target_group.arn)
+        test_target_group_attachment = aws.lb.TargetGroupAttachment("testTargetGroupAttachment",
+            target_group_arn=test_target_group.arn,
+            target_id=test_function.arn)
+        ```
 
         Deprecated: aws.elasticloadbalancingv2.TargetGroupAttachment has been deprecated in favour of aws.lb.TargetGroupAttachment
 

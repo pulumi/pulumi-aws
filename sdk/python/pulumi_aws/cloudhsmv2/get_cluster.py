@@ -74,6 +74,16 @@ def get_cluster(cluster_id=None,cluster_state=None,opts=None):
     """
     Use this data source to get information about a CloudHSM v2 cluster
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    cluster = aws.cloudhsmv2.get_cluster(cluster_id="cluster-testclusterid")
+    ```
 
 
 

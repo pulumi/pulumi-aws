@@ -166,6 +166,135 @@ class SpotFleetRequest(pulumi.CustomResource):
         Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
         instances to be requested on the Spot market.
 
+        ## Example Usage
+
+        ### Using launch specifications
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Request a Spot fleet
+        cheap_compute = aws.ec2.SpotFleetRequest("cheapCompute",
+            allocation_strategy="diversified",
+            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
+            launch_specifications=[
+                {
+                    "ami": "ami-1234",
+                    "iamInstanceProfileArn": aws_iam_instance_profile["example"]["arn"],
+                    "instanceType": "m4.10xlarge",
+                    "placementTenancy": "dedicated",
+                    "spotPrice": "2.793",
+                },
+                {
+                    "ami": "ami-5678",
+                    "availabilityZone": "us-west-1a",
+                    "iamInstanceProfileArn": aws_iam_instance_profile["example"]["arn"],
+                    "instanceType": "m4.4xlarge",
+                    "keyName": "my-key",
+                    "rootBlockDevice": [{
+                        "volumeSize": "300",
+                        "volumeType": "gp2",
+                    }],
+                    "spotPrice": "1.117",
+                    "subnetId": "subnet-1234",
+                    "tags": {
+                        "Name": "spot-fleet-example",
+                    },
+                    "weightedCapacity": 35,
+                },
+            ],
+            spot_price="0.03",
+            target_capacity=6,
+            valid_until="2019-11-04T20:44:20Z")
+        ```
+
+        ### Using launch templates
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo_launch_template = aws.ec2.LaunchTemplate("fooLaunchTemplate",
+            image_id="ami-516b9131",
+            instance_type="m1.small",
+            key_name="some-key",
+            spot_price="0.05")
+        foo_spot_fleet_request = aws.ec2.SpotFleetRequest("fooSpotFleetRequest",
+            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
+            spot_price="0.005",
+            target_capacity=2,
+            valid_until="2019-11-04T20:44:20Z",
+            launch_template_config=[{
+                "launch_template_specification": {
+                    "id": foo_launch_template.id,
+                    "version": foo_launch_template.latest_version,
+                },
+            }])
+        ```
+
+        ### Using multiple launch specifications
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.ec2.SpotFleetRequest("foo",
+            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
+            launch_specifications=[
+                {
+                    "ami": "ami-d06a90b0",
+                    "availabilityZone": "us-west-2a",
+                    "instanceType": "m1.small",
+                    "keyName": "my-key",
+                },
+                {
+                    "ami": "ami-d06a90b0",
+                    "availabilityZone": "us-west-2a",
+                    "instanceType": "m5.large",
+                    "keyName": "my-key",
+                },
+            ],
+            spot_price="0.005",
+            target_capacity=2,
+            valid_until="2019-11-04T20:44:20Z")
+        ```
+
+        ### Using multiple launch configurations
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.get_subnet_ids(vpc_id=var["vpc_id"])
+        foo_launch_template = aws.ec2.LaunchTemplate("fooLaunchTemplate",
+            image_id="ami-516b9131",
+            instance_type="m1.small",
+            key_name="some-key",
+            spot_price="0.05")
+        foo_spot_fleet_request = aws.ec2.SpotFleetRequest("fooSpotFleetRequest",
+            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
+            spot_price="0.005",
+            target_capacity=2,
+            valid_until="2019-11-04T20:44:20Z",
+            launch_template_config=[{
+                "launch_template_specification": {
+                    "id": foo_launch_template.id,
+                    "version": foo_launch_template.latest_version,
+                },
+                "overrides": [
+                    {
+                        "subnetId": data["aws_subnets"]["example"]["ids"],
+                    },
+                    {
+                        "subnetId": data["aws_subnets"]["example"]["ids"],
+                    },
+                    {
+                        "subnetId": data["aws_subnets"]["example"]["ids"],
+                    },
+                ],
+            }])
+        ```
 
 
         :param str resource_name: The name of the resource.

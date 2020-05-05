@@ -41,6 +41,19 @@ class LogGroup(pulumi.CustomResource):
         """
         Provides a CloudWatch Log Group resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        yada = aws.cloudwatch.LogGroup("yada", tags={
+            "Application": "serviceA",
+            "Environment": "production",
+        })
+        ```
 
 
         :param str resource_name: The name of the resource.

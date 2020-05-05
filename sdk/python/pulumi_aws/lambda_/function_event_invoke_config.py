@@ -13,13 +13,11 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
     destination_config: pulumi.Output[dict]
     """
     Configuration block with destination configuration. See below for details.
-    
+
       * `on_failure` (`dict`) - Configuration block with destination configuration for failed asynchronous invocations. See below for details.
-    
         * `destination` (`str`) - Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-    
+
       * `onSuccess` (`dict`) - Configuration block with destination configuration for successful asynchronous invocations. See below for details.
-    
         * `destination` (`str`) - Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
     """
     function_name: pulumi.Output[str]
@@ -41,7 +39,76 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, destination_config=None, function_name=None, maximum_event_age_in_seconds=None, maximum_retry_attempts=None, qualifier=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an asynchronous invocation configuration for a Lambda Function or Alias. More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
-        
+
+        ## Example Usage
+
+        ### Destination Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.FunctionEventInvokeConfig("example",
+            function_name=aws_lambda_alias["example"]["function_name"],
+            destination_config={
+                "on_failure": {
+                    "destination": aws_sqs_queue["example"]["arn"],
+                },
+                "on_success": {
+                    "destination": aws_sns_topic["example"]["arn"],
+                },
+            })
+        ```
+
+        ### Error Handling Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.FunctionEventInvokeConfig("example",
+            function_name=aws_lambda_alias["example"]["function_name"],
+            maximum_event_age_in_seconds=60,
+            maximum_retry_attempts=0)
+        ```
+
+        ### Configuration for Alias Name
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.FunctionEventInvokeConfig("example",
+            function_name=aws_lambda_alias["example"]["function_name"],
+            qualifier=aws_lambda_alias["example"]["name"])
+        # ... other configuration ...
+        ```
+
+        ### Configuration for Function Latest Unpublished Version
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.FunctionEventInvokeConfig("example",
+            function_name=aws_lambda_function["example"]["function_name"],
+            qualifier="$LATEST")
+        # ... other configuration ...
+        ```
+
+        ### Configuration for Function Published Version
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.FunctionEventInvokeConfig("example",
+            function_name=aws_lambda_function["example"]["function_name"],
+            qualifier=aws_lambda_function["example"]["version"])
+        # ... other configuration ...
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] destination_config: Configuration block with destination configuration. See below for details.
@@ -49,18 +116,14 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         :param pulumi.Input[float] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         :param pulumi.Input[float] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
-        
+
         The **destination_config** object supports the following:
-        
+
           * `on_failure` (`pulumi.Input[dict]`) - Configuration block with destination configuration for failed asynchronous invocations. See below for details.
-        
-            * `destination` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        
-          * `onSuccess` (`pulumi.Input[dict]`) - Configuration block with destination configuration for successful asynchronous invocations. See below for details.
-        
             * `destination` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_function_event_invoke_config.html.markdown.
+          * `onSuccess` (`pulumi.Input[dict]`) - Configuration block with destination configuration for successful asynchronous invocations. See below for details.
+            * `destination` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -97,7 +160,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         """
         Get an existing FunctionEventInvokeConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -106,22 +169,19 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         :param pulumi.Input[float] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         :param pulumi.Input[float] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
-        
+
         The **destination_config** object supports the following:
-        
+
           * `on_failure` (`pulumi.Input[dict]`) - Configuration block with destination configuration for failed asynchronous invocations. See below for details.
-        
-            * `destination` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        
-          * `onSuccess` (`pulumi.Input[dict]`) - Configuration block with destination configuration for successful asynchronous invocations. See below for details.
-        
             * `destination` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_function_event_invoke_config.html.markdown.
+          * `onSuccess` (`pulumi.Input[dict]`) - Configuration block with destination configuration for successful asynchronous invocations. See below for details.
+            * `destination` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["destination_config"] = destination_config
         __props__["function_name"] = function_name
         __props__["maximum_event_age_in_seconds"] = maximum_event_age_in_seconds

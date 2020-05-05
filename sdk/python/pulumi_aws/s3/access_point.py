@@ -68,6 +68,32 @@ class AccessPoint(pulumi.CustomResource):
         """
         Provides a resource to manage an S3 Access Point.
 
+        ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_bucket = aws.s3.Bucket("exampleBucket")
+        example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket.id)
+        ```
+
+        ### Access Point Restricted to a VPC
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_bucket = aws.s3.Bucket("exampleBucket")
+        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
+        example_access_point = aws.s3.AccessPoint("exampleAccessPoint",
+            bucket=example_bucket.id,
+            vpc_configuration={
+                "vpcId": example_vpc.id,
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

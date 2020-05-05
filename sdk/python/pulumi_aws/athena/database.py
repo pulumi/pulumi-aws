@@ -33,6 +33,19 @@ class Database(pulumi.CustomResource):
         """
         Provides an Athena database.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        hoge_bucket = aws.s3.Bucket("hogeBucket")
+        hoge_database = aws.athena.Database("hogeDatabase",
+            bucket=hoge_bucket.bucket,
+            name="database_name")
+        ```
 
 
         :param str resource_name: The name of the resource.

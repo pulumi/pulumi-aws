@@ -140,6 +140,58 @@ class Service(pulumi.CustomResource):
 
         See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        mongo = aws.ecs.Service("mongo",
+            cluster=aws_ecs_cluster["foo"]["id"],
+            task_definition=aws_ecs_task_definition["mongo"]["arn"],
+            desired_count=3,
+            iam_role=aws_iam_role["foo"]["arn"],
+            ordered_placement_strategy=[{
+                "type": "binpack",
+                "field": "cpu",
+            }],
+            load_balancer=[{
+                "targetGroupArn": aws_lb_target_group["foo"]["arn"],
+                "containerName": "mongo",
+                "containerPort": 8080,
+            }],
+            placement_constraints=[{
+                "type": "memberOf",
+                "expression": "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
+            }])
+        ```
+
+        ### Ignoring Changes to Desired Count
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ecs.Service("example",
+            desired_count=2,
+            lifecycle={
+                "ignoreChanges": ["desiredCount"],
+            })
+        ```
+
+        ### Daemon Scheduling Strategy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bar = aws.ecs.Service("bar",
+            cluster=aws_ecs_cluster["foo"]["id"],
+            scheduling_strategy="DAEMON",
+            task_definition=aws_ecs_task_definition["bar"]["arn"])
+        ```
 
 
         :param str resource_name: The name of the resource.

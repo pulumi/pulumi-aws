@@ -72,7 +72,50 @@ class Queue(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, content_based_deduplication=None, delay_seconds=None, fifo_queue=None, kms_data_key_reuse_period_seconds=None, kms_master_key_id=None, max_message_size=None, message_retention_seconds=None, name=None, name_prefix=None, policy=None, receive_wait_time_seconds=None, redrive_policy=None, tags=None, visibility_timeout_seconds=None, __props__=None, __name__=None, __opts__=None):
         """
+        ## Example Usage
 
+
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        queue = aws.sqs.Queue("queue",
+            delay_seconds=90,
+            max_message_size=2048,
+            message_retention_seconds=86400,
+            receive_wait_time_seconds=10,
+            redrive_policy=json.dumps({
+                "deadLetterTargetArn": aws_sqs_queue["queue_deadletter"]["arn"],
+                "maxReceiveCount": 4,
+            }),
+            tags={
+                "Environment": "production",
+            })
+        ```
+
+        ## FIFO queue
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        queue = aws.sqs.Queue("queue",
+            content_based_deduplication=True,
+            fifo_queue=True)
+        ```
+
+        ## Server-side encryption (SSE)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        queue = aws.sqs.Queue("queue",
+            kms_data_key_reuse_period_seconds=300,
+            kms_master_key_id="alias/aws/sqs")
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

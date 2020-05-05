@@ -26,6 +26,26 @@ class DocumentationVersion(pulumi.CustomResource):
         """
         Provides a resource to manage an API Gateway Documentation Version.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
+        example_documentation_version = aws.apigateway.DocumentationVersion("exampleDocumentationVersion",
+            description="Example description",
+            rest_api_id=example_rest_api.id,
+            version="example_version")
+        example_documentation_part = aws.apigateway.DocumentationPart("exampleDocumentationPart",
+            location={
+                "type": "API",
+            },
+            properties="{\"description\":\"Example\"}",
+            rest_api_id=example_rest_api.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

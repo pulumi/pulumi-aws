@@ -54,6 +54,36 @@ class Authorizer(pulumi.CustomResource):
         Manages an Amazon API Gateway Version 2 authorizer.
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 
+        ## Example Usage
+
+        ### Basic WebSocket API
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigatewayv2.Authorizer("example",
+            api_id=aws_apigatewayv2_api["example"]["id"],
+            authorizer_type="REQUEST",
+            authorizer_uri=aws_lambda_function["example"]["invoke_arn"],
+            identity_sources=["route.request.header.Auth"])
+        ```
+
+        ### Basic HTTP API
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigatewayv2.Authorizer("example",
+            api_id=aws_apigatewayv2_api["example"]["id"],
+            authorizer_type="JWT",
+            identity_sources=["$$request.header.Authorization"],
+            jwt_configuration={
+                "audience": ["example"],
+                "issuer": f"https://{aws_cognito_user_pool['example']['endpoint']}",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

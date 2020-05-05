@@ -86,6 +86,16 @@ class Vpc(pulumi.CustomResource):
         """
         Provides a VPC resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
+        ```
 
 
         :param str resource_name: The name of the resource.

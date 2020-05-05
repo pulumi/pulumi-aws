@@ -95,6 +95,16 @@ class PhpAppLayer(pulumi.CustomResource):
         """
         Provides an OpsWorks PHP application layer resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        app = aws.opsworks.PhpAppLayer("app", stack_id=aws_opsworks_stack["main"]["id"])
+        ```
 
 
         :param str resource_name: The name of the resource.

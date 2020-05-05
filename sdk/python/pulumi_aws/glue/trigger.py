@@ -68,6 +68,91 @@ class Trigger(pulumi.CustomResource):
         """
         Manages a Glue Trigger resource.
 
+        ## Example Usage
+
+        ### Conditional Trigger
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Trigger("example",
+            actions=[{
+                "jobName": aws_glue_job["example1"]["name"],
+            }],
+            predicate={
+                "conditions": [{
+                    "jobName": aws_glue_job["example2"]["name"],
+                    "state": "SUCCEEDED",
+                }],
+            },
+            type="CONDITIONAL")
+        ```
+
+        ### On-Demand Trigger
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Trigger("example",
+            actions=[{
+                "jobName": aws_glue_job["example"]["name"],
+            }],
+            type="ON_DEMAND")
+        ```
+
+        ### Scheduled Trigger
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Trigger("example",
+            actions=[{
+                "jobName": aws_glue_job["example"]["name"],
+            }],
+            schedule="cron(15 12 * * ? *)",
+            type="SCHEDULED")
+        ```
+
+        ### Conditional Trigger with Crawler Action
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Trigger("example",
+            actions=[{
+                "crawlerName": aws_glue_crawler["example1"]["name"],
+            }],
+            predicate={
+                "conditions": [{
+                    "jobName": aws_glue_job["example2"]["name"],
+                    "state": "SUCCEEDED",
+                }],
+            },
+            type="CONDITIONAL")
+        ```
+
+        ### Conditional Trigger with Crawler Condition 
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Trigger("example",
+            actions=[{
+                "jobName": aws_glue_job["example1"]["name"],
+            }],
+            predicate={
+                "conditions": [{
+                    "crawlState": "SUCCEEDED",
+                    "crawlerName": aws_glue_crawler["example2"]["name"],
+                }],
+            },
+            type="CONDITIONAL")
+        ```
 
 
         :param str resource_name: The name of the resource.

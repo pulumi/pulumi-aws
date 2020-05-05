@@ -55,7 +55,11 @@ namespace Pulumi.Aws.Elb
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:elasticloadbalancing/attachment:Attachment"} },
+                Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "aws:elasticloadbalancing/attachment:Attachment"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

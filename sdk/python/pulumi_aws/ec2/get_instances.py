@@ -71,6 +71,29 @@ def get_instances(filters=None,instance_state_names=None,instance_tags=None,opts
     instances (e.g. managed via autoscaling group), as the output may change at any time
     and you'd need to re-run `apply` every time an instance comes up or dies.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test_instances = aws.ec2.get_instances(filters=[{
+            "name": "instance.group-id",
+            "values": ["sg-12345678"],
+        }],
+        instance_state_names=[
+            "running",
+            "stopped",
+        ],
+        instance_tags={
+            "Role": "HardWorker",
+        })
+    test_eip = []
+    for range in [{"value": i} for i in range(0, len(test_instances.ids))]:
+        test_eip.append(aws.ec2.Eip(f"testEip-{range['value']}", instance=test_instances.ids[range["value"]]))
+    ```
 
 
 
