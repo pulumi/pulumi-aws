@@ -50,6 +50,19 @@ class VpcAttachment(pulumi.CustomResource):
         """
         Manages an EC2 Transit Gateway VPC Attachment. For examples of custom route table association and propagation, see the EC2 Transit Gateway Networking Examples Guide.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2transitgateway.VpcAttachment("example",
+            subnet_ids=[aws_subnet["example"]["id"]],
+            transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
+            vpc_id=aws_vpc["example"]["id"])
+        ```
 
 
         :param str resource_name: The name of the resource.

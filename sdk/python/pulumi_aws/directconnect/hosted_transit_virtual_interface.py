@@ -69,6 +69,20 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
         This resource represents the allocator's side of the hosted virtual interface.
         A hosted virtual interface is a virtual interface that is owned by another AWS account.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.directconnect.HostedTransitVirtualInterface("example",
+            address_family="ipv4",
+            bgp_asn=65352,
+            connection_id=aws_dx_connection["example"]["id"],
+            vlan=4094)
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -54,6 +54,27 @@ class ParameterGroup(pulumi.CustomResource):
         * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
         * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.rds.ParameterGroup("default",
+            family="mysql5.6",
+            parameters=[
+                {
+                    "name": "character_set_server",
+                    "value": "utf8",
+                },
+                {
+                    "name": "character_set_client",
+                    "value": "utf8",
+                },
+            ])
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -38,6 +38,21 @@ class Alias(pulumi.CustomResource):
         """
         Provides a Gamelift Alias resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.gamelift.Alias("example",
+            description="Example Description",
+            routing_strategy={
+                "message": "Example Message",
+                "type": "TERMINAL",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

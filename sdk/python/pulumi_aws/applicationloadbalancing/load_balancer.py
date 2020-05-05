@@ -108,6 +108,65 @@ class LoadBalancer(pulumi.CustomResource):
 
         > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
 
+        ## Example Usage
+
+        ### Application Load Balancer
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lb.LoadBalancer("test",
+            access_logs={
+                "bucket": aws_s3_bucket["lb_logs"]["bucket"],
+                "enabled": True,
+                "prefix": "test-lb",
+            },
+            enable_deletion_protection=True,
+            internal=False,
+            load_balancer_type="application",
+            security_groups=[aws_security_group["lb_sg"]["id"]],
+            subnets=[[__item["id"] for __item in aws_subnet["public"]]],
+            tags={
+                "Environment": "production",
+            })
+        ```
+
+        ### Network Load Balancer
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lb.LoadBalancer("test",
+            enable_deletion_protection=True,
+            internal=False,
+            load_balancer_type="network",
+            subnets=[[__item["id"] for __item in aws_subnet["public"]]],
+            tags={
+                "Environment": "production",
+            })
+        ```
+
+        ### Specifying Elastic IPs
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lb.LoadBalancer("example",
+            load_balancer_type="network",
+            subnet_mappings=[
+                {
+                    "allocationId": aws_eip["example1"]["id"],
+                    "subnetId": aws_subnet["example1"]["id"],
+                },
+                {
+                    "allocationId": aws_eip["example2"]["id"],
+                    "subnetId": aws_subnet["example2"]["id"],
+                },
+            ])
+        ```
 
 
         Deprecated: aws.applicationloadbalancing.LoadBalancer has been deprecated in favour of aws.alb.LoadBalancer

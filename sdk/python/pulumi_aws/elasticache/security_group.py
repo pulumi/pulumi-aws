@@ -32,6 +32,17 @@ class SecurityGroup(pulumi.CustomResource):
         ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
         ElastiCache Subnet Group resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bar_security_group = aws.ec2.SecurityGroup("barSecurityGroup")
+        bar_elasticache_security_group_security_group = aws.elasticache.SecurityGroup("barElasticache/securityGroupSecurityGroup", security_group_names=[bar_security_group.name])
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -138,6 +138,19 @@ class Environment(pulumi.CustomResource):
         Environments are often things such as `development`, `integration`, or
         `production`.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        tftest = aws.elasticbeanstalk.Application("tftest", description="tf-test-desc")
+        tfenvtest = aws.elasticbeanstalk.Environment("tfenvtest",
+            application=tftest.name,
+            solution_stack_name="64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4")
+        ```
 
         ## Option Settings
 
@@ -150,6 +163,30 @@ class Environment(pulumi.CustomResource):
         * `name` - name of the configuration option
         * `value` - value for the configuration option
         * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+
+        ### Example With Options
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        tftest = aws.elasticbeanstalk.Application("tftest", description="tf-test-desc")
+        tfenvtest = aws.elasticbeanstalk.Environment("tfenvtest",
+            application=tftest.name,
+            settings=[
+                {
+                    "name": "VPCId",
+                    "namespace": "aws:ec2:vpc",
+                    "value": "vpc-xxxxxxxx",
+                },
+                {
+                    "name": "Subnets",
+                    "namespace": "aws:ec2:vpc",
+                    "value": "subnet-xxxxxxxx",
+                },
+            ],
+            solution_stack_name="64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4")
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

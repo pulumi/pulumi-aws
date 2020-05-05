@@ -96,6 +96,23 @@ def get_zone(name=None,private_zone=None,resource_record_set_count=None,tags=Non
 
     This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    selected = aws.route53.get_zone(name="test.com.",
+        private_zone=True)
+    www = aws.route53.Record("www",
+        name=f"www.{selected.name}",
+        records=["10.0.0.1"],
+        ttl="300",
+        type="A",
+        zone_id=selected.zone_id)
+    ```
 
 
 

@@ -13,7 +13,7 @@ class GetFunctionResult:
     """
     A collection of values returned by getFunction.
     """
-    def __init__(__self__, arn=None, dead_letter_config=None, description=None, environment=None, function_name=None, handler=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None, id=None):
+    def __init__(__self__, arn=None, dead_letter_config=None, description=None, environment=None, function_name=None, handler=None, id=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -46,6 +46,12 @@ class GetFunctionResult:
         __self__.handler = handler
         """
         The function entrypoint in your code.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        The provider-assigned unique ID for this managed resource.
         """
         if invoke_arn and not isinstance(invoke_arn, str):
             raise TypeError("Expected argument 'invoke_arn' to be a str")
@@ -143,12 +149,6 @@ class GetFunctionResult:
         """
         VPC configuration associated with your Lambda function.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetFunctionResult(GetFunctionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -161,6 +161,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             environment=self.environment,
             function_name=self.function_name,
             handler=self.handler,
+            id=self.id,
             invoke_arn=self.invoke_arn,
             kms_key_arn=self.kms_key_arn,
             last_modified=self.last_modified,
@@ -177,19 +178,32 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             timeout=self.timeout,
             tracing_config=self.tracing_config,
             version=self.version,
-            vpc_config=self.vpc_config,
-            id=self.id)
+            vpc_config=self.vpc_config)
 
 def get_function(function_name=None,qualifier=None,tags=None,opts=None):
     """
     Provides information about a Lambda Function.
-    
+
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    function_name = config.require_object("functionName")
+    existing = aws.lambda.get_function(function_name=function_name)
+    ```
+
+
+
     :param str function_name: Name of the lambda function.
     :param str qualifier: Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_function.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['functionName'] = function_name
     __args__['qualifier'] = qualifier
@@ -207,6 +221,7 @@ def get_function(function_name=None,qualifier=None,tags=None,opts=None):
         environment=__ret__.get('environment'),
         function_name=__ret__.get('functionName'),
         handler=__ret__.get('handler'),
+        id=__ret__.get('id'),
         invoke_arn=__ret__.get('invokeArn'),
         kms_key_arn=__ret__.get('kmsKeyArn'),
         last_modified=__ret__.get('lastModified'),
@@ -223,5 +238,4 @@ def get_function(function_name=None,qualifier=None,tags=None,opts=None):
         timeout=__ret__.get('timeout'),
         tracing_config=__ret__.get('tracingConfig'),
         version=__ret__.get('version'),
-        vpc_config=__ret__.get('vpcConfig'),
-        id=__ret__.get('id'))
+        vpc_config=__ret__.get('vpcConfig'))

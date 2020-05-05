@@ -72,6 +72,24 @@ def get_server_certificate(latest=None,name=None,name_prefix=None,path_prefix=No
     """
     Use this data source to lookup information about IAM Server Certificates.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    my_domain = aws.iam.get_server_certificate(latest=True,
+        name_prefix="my-domain.org")
+    elb = aws.elb.LoadBalancer("elb", listeners=[{
+        "instancePort": 8000,
+        "instanceProtocol": "https",
+        "lbPort": 443,
+        "lbProtocol": "https",
+        "sslCertificateId": my_domain.arn,
+    }])
+    ```
 
     ## Import 
 

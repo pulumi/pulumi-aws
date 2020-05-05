@@ -73,6 +73,32 @@ def get_ip_ranges(regions=None,services=None,url=None,opts=None):
     """
     Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    european_ec2 = aws.get_ip_ranges(regions=[
+            "eu-west-1",
+            "eu-central-1",
+        ],
+        services=["ec2"])
+    from_europe = aws.ec2.SecurityGroup("fromEurope",
+        ingress=[{
+            "fromPort": "443",
+            "toPort": "443",
+            "protocol": "tcp",
+            "cidrBlocks": european_ec2.cidr_blocks,
+            "ipv6CidrBlocks": european_ec2.ipv6_cidr_blocks,
+        }],
+        tags={
+            "CreateDate": european_ec2.create_date,
+            "SyncToken": european_ec2.sync_token,
+        })
+    ```
 
 
 

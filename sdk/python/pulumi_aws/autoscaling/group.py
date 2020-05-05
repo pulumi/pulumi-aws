@@ -204,6 +204,109 @@ class Group(pulumi.CustomResource):
 
         > **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ec2.PlacementGroup("test", strategy="cluster")
+        bar = aws.autoscaling.Group("bar",
+            desired_capacity=4,
+            force_delete=True,
+            health_check_grace_period=300,
+            health_check_type="ELB",
+            initial_lifecycle_hooks=[{
+                "defaultResult": "CONTINUE",
+                "heartbeatTimeout": 2000,
+                "lifecycleTransition": "autoscaling:EC2_INSTANCE_LAUNCHING",
+                "name": "foobar",
+                "notificationMetadata": \"\"\"{
+          "foo": "bar"
+        }
+
+        \"\"\",
+                "notificationTargetArn": "arn:aws:sqs:us-east-1:444455556666:queue1*",
+                "roleArn": "arn:aws:iam::123456789012:role/S3Access",
+            }],
+            launch_configuration=aws_launch_configuration["foobar"]["name"],
+            max_size=5,
+            min_size=2,
+            placement_group=test.id,
+            tags=[
+                {
+                    "key": "foo",
+                    "propagateAtLaunch": True,
+                    "value": "bar",
+                },
+                {
+                    "key": "lorem",
+                    "propagateAtLaunch": False,
+                    "value": "ipsum",
+                },
+            ],
+            vpc_zone_identifiers=[
+                aws_subnet["example1"]["id"],
+                aws_subnet["example2"]["id"],
+            ])
+        ```
+
+        ### With Latest Version Of Launch Template
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foobar = aws.ec2.LaunchTemplate("foobar",
+            image_id="ami-1a2b3c",
+            instance_type="t2.micro",
+            name_prefix="foobar")
+        bar = aws.autoscaling.Group("bar",
+            availability_zones=["us-east-1a"],
+            desired_capacity=1,
+            launch_template={
+                "id": foobar.id,
+                "version": "$$Latest",
+            },
+            max_size=1,
+            min_size=1)
+        ```
+
+        ### Mixed Instances Policy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
+            image_id=data["ec2.Ami"]["example"]["id"],
+            instance_type="c5.large",
+            name_prefix="example")
+        example_group = aws.autoscaling.Group("exampleGroup",
+            availability_zones=["us-east-1a"],
+            desired_capacity=1,
+            max_size=1,
+            min_size=1,
+            mixed_instances_policy={
+                "launchTemplate": {
+                    "launchTemplateSpecification": {
+                        "launchTemplateId": example_launch_template.id,
+                    },
+                    "override": [
+                        {
+                            "instanceType": "c4.large",
+                            "weightedCapacity": "3",
+                        },
+                        {
+                            "instanceType": "c3.large",
+                            "weightedCapacity": "2",
+                        },
+                    ],
+                },
+            })
+        ```
 
         ## Waiting for Capacity
 

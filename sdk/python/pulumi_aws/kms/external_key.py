@@ -60,6 +60,16 @@ class ExternalKey(pulumi.CustomResource):
 
         > **Note:** All arguments including the key material will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kms.ExternalKey("example", description="KMS EXTERNAL for AMI encryption")
+        ```
 
 
         :param str resource_name: The name of the resource.

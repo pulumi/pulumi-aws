@@ -86,6 +86,139 @@ class VirtualNode(pulumi.CustomResource):
 
         The state associated with existing resources will automatically be migrated.
 
+        ## Example Usage
+
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        serviceb1 = aws.appmesh.VirtualNode("serviceb1",
+            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            spec={
+                "backend": [{
+                    "virtualService": {
+                        "virtualServiceName": "servicea.simpleapp.local",
+                    },
+                }],
+                "listener": {
+                    "portMapping": {
+                        "port": 8080,
+                        "protocol": "http",
+                    },
+                },
+                "serviceDiscovery": {
+                    "dns": {
+                        "hostname": "serviceb.simpleapp.local",
+                    },
+                },
+            })
+        ```
+
+        ### AWS Cloud Map Service Discovery
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.servicediscovery.HttpNamespace("example")
+        serviceb1 = aws.appmesh.VirtualNode("serviceb1",
+            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            spec={
+                "backend": [{
+                    "virtualService": {
+                        "virtualServiceName": "servicea.simpleapp.local",
+                    },
+                }],
+                "listener": {
+                    "portMapping": {
+                        "port": 8080,
+                        "protocol": "http",
+                    },
+                },
+                "serviceDiscovery": {
+                    "awsCloudMap": {
+                        "attributes": {
+                            "stack": "blue",
+                        },
+                        "namespaceName": example.name,
+                        "serviceName": "serviceb1",
+                    },
+                },
+            })
+        ```
+
+        ### Listener Health Check
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        serviceb1 = aws.appmesh.VirtualNode("serviceb1",
+            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            spec={
+                "backend": [{
+                    "virtualService": {
+                        "virtualServiceName": "servicea.simpleapp.local",
+                    },
+                }],
+                "listener": {
+                    "healthCheck": {
+                        "healthyThreshold": 2,
+                        "intervalMillis": 5000,
+                        "path": "/ping",
+                        "protocol": "http",
+                        "timeoutMillis": 2000,
+                        "unhealthyThreshold": 2,
+                    },
+                    "portMapping": {
+                        "port": 8080,
+                        "protocol": "http",
+                    },
+                },
+                "serviceDiscovery": {
+                    "dns": {
+                        "hostname": "serviceb.simpleapp.local",
+                    },
+                },
+            })
+        ```
+
+        ### Logging
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        serviceb1 = aws.appmesh.VirtualNode("serviceb1",
+            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            spec={
+                "backend": [{
+                    "virtualService": {
+                        "virtualServiceName": "servicea.simpleapp.local",
+                    },
+                }],
+                "listener": {
+                    "portMapping": {
+                        "port": 8080,
+                        "protocol": "http",
+                    },
+                },
+                "logging": {
+                    "accessLog": {
+                        "file": {
+                            "path": "/dev/stdout",
+                        },
+                    },
+                },
+                "serviceDiscovery": {
+                    "dns": {
+                        "hostname": "serviceb.simpleapp.local",
+                    },
+                },
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

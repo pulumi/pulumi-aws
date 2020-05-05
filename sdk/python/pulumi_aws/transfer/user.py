@@ -42,6 +42,53 @@ class User(pulumi.CustomResource):
         """
         Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the [`transfer.SshKey` resource](https://www.terraform.io/docs/providers/aws/r/transfer_ssh_key.html).
 
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo_server = aws.transfer.Server("fooServer",
+            identity_provider_type="SERVICE_MANAGED",
+            tags={
+                "NAME": "tf-acc-test-transfer-server",
+            })
+        foo_role = aws.iam.Role("fooRole", assume_role_policy=\"\"\"{
+        	"Version": "2012-10-17",
+        	"Statement": [
+        		{
+        		"Effect": "Allow",
+        		"Principal": {
+        			"Service": "transfer.amazonaws.com"
+        		},
+        		"Action": "sts:AssumeRole"
+        		}
+        	]
+        }
+
+        \"\"\")
+        foo_role_policy = aws.iam.RolePolicy("fooRolePolicy",
+            policy=\"\"\"{
+        	"Version": "2012-10-17",
+        	"Statement": [
+        		{
+        			"Sid": "AllowFullAccesstoS3",
+        			"Effect": "Allow",
+        			"Action": [
+        				"s3:*"
+        			],
+        			"Resource": "*"
+        		}
+        	]
+        }
+
+        \"\"\",
+            role=foo_role.id)
+        foo_user = aws.transfer.User("fooUser",
+            role=foo_role.arn,
+            server_id=foo_server.id,
+            user_name="tftestuser")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] home_directory: The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.

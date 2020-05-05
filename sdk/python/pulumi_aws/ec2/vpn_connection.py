@@ -110,6 +110,43 @@ class VpnConnection(pulumi.CustomResource):
         > **Note:** The CIDR blocks in the arguments `tunnel1_inside_cidr` and `tunnel2_inside_cidr` must have a prefix of /30 and be a part of a specific range.
         [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
 
+        ## Example Usage
+
+        ### EC2 Transit Gateway
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
+        example_customer_gateway = aws.ec2.CustomerGateway("exampleCustomerGateway",
+            bgp_asn=65000,
+            ip_address="172.0.0.1",
+            type="ipsec.1")
+        example_vpn_connection = aws.ec2.VpnConnection("exampleVpnConnection",
+            customer_gateway_id=example_customer_gateway.id,
+            transit_gateway_id=example_transit_gateway.id,
+            type=example_customer_gateway.type)
+        ```
+
+        ### Virtual Private Gateway
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        vpc = aws.ec2.Vpc("vpc", cidr_block="10.0.0.0/16")
+        vpn_gateway = aws.ec2.VpnGateway("vpnGateway", vpc_id=vpc.id)
+        customer_gateway = aws.ec2.CustomerGateway("customerGateway",
+            bgp_asn=65000,
+            ip_address="172.0.0.1",
+            type="ipsec.1")
+        main = aws.ec2.VpnConnection("main",
+            customer_gateway_id=customer_gateway.id,
+            static_routes_only=True,
+            type="ipsec.1",
+            vpn_gateway_id=vpn_gateway.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

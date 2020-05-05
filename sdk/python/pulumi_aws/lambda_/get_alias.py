@@ -13,7 +13,7 @@ class GetAliasResult:
     """
     A collection of values returned by getAlias.
     """
-    def __init__(__self__, arn=None, description=None, function_name=None, function_version=None, invoke_arn=None, name=None, id=None):
+    def __init__(__self__, arn=None, description=None, function_name=None, function_version=None, id=None, invoke_arn=None, name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -35,6 +35,12 @@ class GetAliasResult:
         """
         Lambda function version which the alias uses.
         """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        The provider-assigned unique ID for this managed resource.
+        """
         if invoke_arn and not isinstance(invoke_arn, str):
             raise TypeError("Expected argument 'invoke_arn' to be a str")
         __self__.invoke_arn = invoke_arn
@@ -44,12 +50,6 @@ class GetAliasResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAliasResult(GetAliasResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -60,20 +60,33 @@ class AwaitableGetAliasResult(GetAliasResult):
             description=self.description,
             function_name=self.function_name,
             function_version=self.function_version,
+            id=self.id,
             invoke_arn=self.invoke_arn,
-            name=self.name,
-            id=self.id)
+            name=self.name)
 
 def get_alias(function_name=None,name=None,opts=None):
     """
     Provides information about a Lambda Alias.
-    
+
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    production = aws.lambda.get_alias(function_name="my-lambda-func",
+        name="production")
+    ```
+
+
+
     :param str function_name: Name of the aliased Lambda function.
     :param str name: Name of the Lambda alias.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_alias.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['functionName'] = function_name
     __args__['name'] = name
@@ -88,6 +101,6 @@ def get_alias(function_name=None,name=None,opts=None):
         description=__ret__.get('description'),
         function_name=__ret__.get('functionName'),
         function_version=__ret__.get('functionVersion'),
+        id=__ret__.get('id'),
         invoke_arn=__ret__.get('invokeArn'),
-        name=__ret__.get('name'),
-        id=__ret__.get('id'))
+        name=__ret__.get('name'))

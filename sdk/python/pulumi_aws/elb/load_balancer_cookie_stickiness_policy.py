@@ -34,6 +34,27 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
         """
         Provides a load balancer cookie stickiness policy, which allows an ELB to control the sticky session lifetime of the browser.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lb = aws.elb.LoadBalancer("lb",
+            availability_zones=["us-east-1a"],
+            listeners=[{
+                "instancePort": 8000,
+                "instanceProtocol": "http",
+                "lbPort": 80,
+                "lbProtocol": "http",
+            }])
+        foo = aws.elb.LoadBalancerCookieStickinessPolicy("foo",
+            cookie_expiration_period=600,
+            lb_port=80,
+            load_balancer=lb.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

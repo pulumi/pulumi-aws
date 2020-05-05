@@ -34,6 +34,16 @@ class Group(pulumi.CustomResource):
         """
         Resource for managing QuickSight Group
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.Group("example", group_name="tf-example")
+        ```
 
 
         :param str resource_name: The name of the resource.

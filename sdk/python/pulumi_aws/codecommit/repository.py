@@ -50,6 +50,18 @@ class Repository(pulumi.CustomResource):
         in all regions - available regions are listed
         [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.codecommit.Repository("test",
+            description="This is the Sample App Repository",
+            repository_name="MyTestRepository")
+        ```
 
 
         :param str resource_name: The name of the resource.

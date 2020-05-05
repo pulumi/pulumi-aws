@@ -39,6 +39,20 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         """
         Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_bucket = aws.s3.Bucket("exampleBucket")
+        example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock",
+            block_public_acls=True,
+            block_public_policy=True,
+            bucket=example_bucket.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

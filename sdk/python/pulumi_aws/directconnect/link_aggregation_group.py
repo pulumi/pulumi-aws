@@ -46,6 +46,19 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
         > *NOTE:* When creating a LAG, Direct Connect requires creating a Connection. This provider will remove this unmanaged connection during resource creation.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        hoge = aws.directconnect.LinkAggregationGroup("hoge",
+            connections_bandwidth="1Gbps",
+            force_destroy=True,
+            location="EqDC2")
+        ```
 
 
         :param str resource_name: The name of the resource.

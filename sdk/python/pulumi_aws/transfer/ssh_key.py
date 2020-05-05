@@ -26,6 +26,60 @@ class SshKey(pulumi.CustomResource):
         """
         Provides a AWS Transfer User SSH Key resource.
 
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo_server = aws.transfer.Server("fooServer",
+            identity_provider_type="SERVICE_MANAGED",
+            tags={
+                "NAME": "tf-acc-test-transfer-server",
+            })
+        foo_role = aws.iam.Role("fooRole", assume_role_policy=\"\"\"{
+        	"Version": "2012-10-17",
+        	"Statement": [
+        		{
+        		"Effect": "Allow",
+        		"Principal": {
+        			"Service": "transfer.amazonaws.com"
+        		},
+        		"Action": "sts:AssumeRole"
+        		}
+        	]
+        }
+
+        \"\"\")
+        foo_role_policy = aws.iam.RolePolicy("fooRolePolicy",
+            policy=\"\"\"{
+        	"Version": "2012-10-17",
+        	"Statement": [
+        		{
+        			"Sid": "AllowFullAccesstoS3",
+        			"Effect": "Allow",
+        			"Action": [
+        				"s3:*"
+        			],
+        			"Resource": "*"
+        		}
+        	]
+        }
+
+        \"\"\",
+            role=foo_role.id)
+        foo_user = aws.transfer.User("fooUser",
+            role=foo_role.arn,
+            server_id=foo_server.id,
+            tags={
+                "NAME": "tftestuser",
+            },
+            user_name="tftestuser")
+        foo_ssh_key = aws.transfer.SshKey("fooSshKey",
+            body="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 example@example.com",
+            server_id=foo_server.id,
+            user_name=foo_user.user_name)
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] body: The public key portion of an SSH key pair.

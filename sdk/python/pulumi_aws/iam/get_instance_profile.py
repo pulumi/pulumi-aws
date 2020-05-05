@@ -81,6 +81,16 @@ def get_instance_profile(name=None,opts=None):
     IAM instance profile. By using this data source, you can reference IAM
     instance profile properties without having to hard code ARNs as input.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.iam.get_instance_profile(name="an_example_instance_profile_name")
+    ```
 
 
 

@@ -35,6 +35,16 @@ class OrganizationalUnit(pulumi.CustomResource):
         """
         Provides a resource to create an organizational unit.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.organizations.OrganizationalUnit("example", parent_id=aws_organizations_organization["example"]["roots"][0]["id"])
+        ```
 
 
         :param str resource_name: The name of the resource.

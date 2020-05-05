@@ -22,6 +22,40 @@ class PolicyAttachment(pulumi.CustomResource):
         """
         Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
 
+        ## Example Usage
+
+        ### Organization Account
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        account = aws.organizations.PolicyAttachment("account",
+            policy_id=aws_organizations_policy["example"]["id"],
+            target_id="123456789012")
+        ```
+
+        ### Organization Root
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        root = aws.organizations.PolicyAttachment("root",
+            policy_id=aws_organizations_policy["example"]["id"],
+            target_id=aws_organizations_organization["example"]["roots"][0]["id"])
+        ```
+
+        ### Organization Unit
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        unit = aws.organizations.PolicyAttachment("unit",
+            policy_id=aws_organizations_policy["example"]["id"],
+            target_id=aws_organizations_organizational_unit["example"]["id"])
+        ```
 
 
         :param str resource_name: The name of the resource.

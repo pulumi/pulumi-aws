@@ -76,6 +76,20 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         """
         Provides a Direct Connect private virtual interface resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.directconnect.PrivateVirtualInterface("foo",
+            address_family="ipv4",
+            bgp_asn=65352,
+            connection_id="dxcon-zzzzzzzz",
+            vlan=4094)
+        ```
 
 
         :param str resource_name: The name of the resource.

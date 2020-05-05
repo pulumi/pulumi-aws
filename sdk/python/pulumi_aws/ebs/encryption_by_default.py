@@ -20,6 +20,16 @@ class EncryptionByDefault(pulumi.CustomResource):
 
         > **NOTE:** Removing this resource disables default EBS encryption.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ebs.EncryptionByDefault("example", enabled=True)
+        ```
 
 
         :param str resource_name: The name of the resource.

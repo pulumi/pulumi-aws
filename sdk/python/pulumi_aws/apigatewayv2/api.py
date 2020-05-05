@@ -86,6 +86,27 @@ class Api(pulumi.CustomResource):
 
         > **Note:** Amazon API Gateway Version 2 resources are used for creating and deploying WebSocket and HTTP APIs. To create and deploy REST APIs, use Amazon API Gateway Version 1.
 
+        ## Example Usage
+
+        ### Basic WebSocket API
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigatewayv2.Api("example",
+            protocol_type="WEBSOCKET",
+            route_selection_expression="$$request.body.action")
+        ```
+
+        ### Basic HTTP API
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigatewayv2.Api("example", protocol_type="HTTP")
+        ```
 
 
         :param str resource_name: The name of the resource.

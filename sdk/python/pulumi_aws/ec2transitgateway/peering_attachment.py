@@ -32,11 +32,7 @@ class PeeringAttachment(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, peer_account_id=None, peer_region=None, peer_transit_gateway_id=None, tags=None, transit_gateway_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages an EC2 Transit Gateway Peering Attachment.
-        For examples of custom route table association and propagation, see the [EC2 Transit Gateway Networking Examples Guide](https://docs.aws.amazon.com/vpc/latest/tgw/TGW_Scenarios.html).
-
-
-
+        Create a PeeringAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] peer_account_id: Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.

@@ -34,6 +34,27 @@ class SecurityConfiguration(pulumi.CustomResource):
         """
         Manages a Glue Security Configuration.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.SecurityConfiguration("example", encryption_configuration={
+            "cloudwatchEncryption": {
+                "cloudwatchEncryptionMode": "DISABLED",
+            },
+            "jobBookmarksEncryption": {
+                "jobBookmarksEncryptionMode": "DISABLED",
+            },
+            "s3Encryption": {
+                "kmsKeyArn": data["kms.Key"]["example"]["arn"],
+                "s3EncryptionMode": "SSE-KMS",
+            },
+        })
+        ```
 
 
         :param str resource_name: The name of the resource.

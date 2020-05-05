@@ -92,6 +92,25 @@ def get_secret(arn=None,name=None,opts=None):
     """
     Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`secretsmanager.SecretVersion` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
 
+    ## Example Usage
+
+    ### ARN
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    by_arn = aws.secretsmanager.get_secret(arn="arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456")
+    ```
+
+    ### Name
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    by_name = aws.secretsmanager.get_secret(name="example")
+    ```
 
 
 

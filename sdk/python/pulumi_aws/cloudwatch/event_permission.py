@@ -34,6 +34,34 @@ class EventPermission(pulumi.CustomResource):
         """
         Provides a resource to create a CloudWatch Events permission to support cross-account events in the current account default event bus.
 
+        ## Example Usage
+
+        ### Account Access
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        dev_account_access = aws.cloudwatch.EventPermission("devAccountAccess",
+            principal="123456789012",
+            statement_id="DevAccountAccess")
+        ```
+
+        ### Organization Access
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        organization_access = aws.cloudwatch.EventPermission("organizationAccess",
+            condition={
+                "key": "aws:PrincipalOrgID",
+                "type": "StringEquals",
+                "value": aws_organizations_organization["example"]["id"],
+            },
+            principal="*",
+            statement_id="OrganizationAccess")
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -149,6 +149,16 @@ def get_network_interface(filters=None,id=None,tags=None,opts=None):
     """
     Use this data source to get information about a Network Interface.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    bar = aws.ec2.get_network_interface(id="eni-01234567")
+    ```
 
 
 

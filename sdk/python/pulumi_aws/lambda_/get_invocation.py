@@ -13,10 +13,16 @@ class GetInvocationResult:
     """
     A collection of values returned by getInvocation.
     """
-    def __init__(__self__, function_name=None, input=None, qualifier=None, result=None, result_map=None, id=None):
+    def __init__(__self__, function_name=None, id=None, input=None, qualifier=None, result=None, result_map=None):
         if function_name and not isinstance(function_name, str):
             raise TypeError("Expected argument 'function_name' to be a str")
         __self__.function_name = function_name
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        The provider-assigned unique ID for this managed resource.
+        """
         if input and not isinstance(input, str):
             raise TypeError("Expected argument 'input' to be a str")
         __self__.input = input
@@ -35,12 +41,6 @@ class GetInvocationResult:
         """
         This field is set only if result is a map of primitive types, where the map is string keys and string values.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetInvocationResult(GetInvocationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -48,26 +48,28 @@ class AwaitableGetInvocationResult(GetInvocationResult):
             yield self
         return GetInvocationResult(
             function_name=self.function_name,
+            id=self.id,
             input=self.input,
             qualifier=self.qualifier,
             result=self.result,
-            result_map=self.result_map,
-            id=self.id)
+            result_map=self.result_map)
 
 def get_invocation(function_name=None,input=None,qualifier=None,opts=None):
     """
     Use this data source to invoke custom lambda functions as data source.
     The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
     invocation type.
-    
+
+
+
+
     :param str function_name: The name of the lambda function.
     :param str input: A string in JSON format that is passed as payload to the lambda function.
     :param str qualifier: The qualifier (a.k.a version) of the lambda function. Defaults
            to `$LATEST`.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_invocation.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['functionName'] = function_name
     __args__['input'] = input
@@ -80,8 +82,8 @@ def get_invocation(function_name=None,input=None,qualifier=None,opts=None):
 
     return AwaitableGetInvocationResult(
         function_name=__ret__.get('functionName'),
+        id=__ret__.get('id'),
         input=__ret__.get('input'),
         qualifier=__ret__.get('qualifier'),
         result=__ret__.get('result'),
-        result_map=__ret__.get('resultMap'),
-        id=__ret__.get('id'))
+        result_map=__ret__.get('resultMap'))

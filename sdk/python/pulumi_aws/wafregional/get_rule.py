@@ -36,6 +36,16 @@ def get_rule(name=None,opts=None):
     """
     `wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.wafregional.get_rule(name="tfWAFRegionalRule")
+    ```
 
 
 

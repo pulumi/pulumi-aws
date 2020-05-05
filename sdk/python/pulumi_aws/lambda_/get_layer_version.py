@@ -13,7 +13,7 @@ class GetLayerVersionResult:
     """
     A collection of values returned by getLayerVersion.
     """
-    def __init__(__self__, arn=None, compatible_runtime=None, compatible_runtimes=None, created_date=None, description=None, layer_arn=None, layer_name=None, license_info=None, source_code_hash=None, source_code_size=None, version=None, id=None):
+    def __init__(__self__, arn=None, compatible_runtime=None, compatible_runtimes=None, created_date=None, description=None, id=None, layer_arn=None, layer_name=None, license_info=None, source_code_hash=None, source_code_size=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -27,7 +27,7 @@ class GetLayerVersionResult:
             raise TypeError("Expected argument 'compatible_runtimes' to be a list")
         __self__.compatible_runtimes = compatible_runtimes
         """
-        A list of [Runtimes][1] the specific Lambda Layer version is compatible with.
+        A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
         """
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
@@ -40,6 +40,12 @@ class GetLayerVersionResult:
         __self__.description = description
         """
         Description of the specific Lambda Layer version.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        The provider-assigned unique ID for this managed resource.
         """
         if layer_arn and not isinstance(layer_arn, str):
             raise TypeError("Expected argument 'layer_arn' to be a str")
@@ -74,12 +80,6 @@ class GetLayerVersionResult:
         """
         This Lamba Layer version.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetLayerVersionResult(GetLayerVersionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -91,25 +91,39 @@ class AwaitableGetLayerVersionResult(GetLayerVersionResult):
             compatible_runtimes=self.compatible_runtimes,
             created_date=self.created_date,
             description=self.description,
+            id=self.id,
             layer_arn=self.layer_arn,
             layer_name=self.layer_name,
             license_info=self.license_info,
             source_code_hash=self.source_code_hash,
             source_code_size=self.source_code_size,
-            version=self.version,
-            id=self.id)
+            version=self.version)
 
 def get_layer_version(compatible_runtime=None,layer_name=None,version=None,opts=None):
     """
     Provides information about a Lambda Layer Version.
-    
+
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    layer_name = config.require_object("layerName")
+    existing = aws.lambda.get_layer_version(layer_name=layer_name)
+    ```
+
+
+
     :param str compatible_runtime: Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
     :param str layer_name: Name of the lambda layer.
     :param float version: Specific layer version. Conflicts with `compatible_runtime`. If omitted, the latest available layer version will be used.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_layer_version.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['compatibleRuntime'] = compatible_runtime
     __args__['layerName'] = layer_name
@@ -126,10 +140,10 @@ def get_layer_version(compatible_runtime=None,layer_name=None,version=None,opts=
         compatible_runtimes=__ret__.get('compatibleRuntimes'),
         created_date=__ret__.get('createdDate'),
         description=__ret__.get('description'),
+        id=__ret__.get('id'),
         layer_arn=__ret__.get('layerArn'),
         layer_name=__ret__.get('layerName'),
         license_info=__ret__.get('licenseInfo'),
         source_code_hash=__ret__.get('sourceCodeHash'),
         source_code_size=__ret__.get('sourceCodeSize'),
-        version=__ret__.get('version'),
-        id=__ret__.get('id'))
+        version=__ret__.get('version'))

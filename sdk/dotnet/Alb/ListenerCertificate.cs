@@ -52,7 +52,11 @@ namespace Pulumi.Aws.Alb
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:applicationloadbalancing/listenerCertificate:ListenerCertificate"} },
+                Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "aws:applicationloadbalancing/listenerCertificate:ListenerCertificate"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

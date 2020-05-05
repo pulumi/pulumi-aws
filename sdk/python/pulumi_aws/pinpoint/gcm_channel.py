@@ -29,6 +29,19 @@ class GcmChannel(pulumi.CustomResource):
         > **Note:** Api Key argument will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        app = aws.pinpoint.App("app")
+        gcm = aws.pinpoint.GcmChannel("gcm",
+            api_key="api_key",
+            application_id=app.application_id)
+        ```
 
 
         :param str resource_name: The name of the resource.

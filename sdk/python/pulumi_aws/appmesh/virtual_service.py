@@ -49,6 +49,41 @@ class VirtualService(pulumi.CustomResource):
         """
         Provides an AWS App Mesh virtual service resource.
 
+        ## Example Usage
+
+        ### Virtual Node Provider
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        servicea = aws.appmesh.VirtualService("servicea",
+            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            spec={
+                "provider": {
+                    "virtualNode": {
+                        "virtualNodeName": aws_appmesh_virtual_node["serviceb1"]["name"],
+                    },
+                },
+            })
+        ```
+
+        ### Virtual Router Provider
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        servicea = aws.appmesh.VirtualService("servicea",
+            mesh_name=aws_appmesh_mesh["simple"]["id"],
+            spec={
+                "provider": {
+                    "virtualRouter": {
+                        "virtualRouterName": aws_appmesh_virtual_router["serviceb"]["name"],
+                    },
+                },
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

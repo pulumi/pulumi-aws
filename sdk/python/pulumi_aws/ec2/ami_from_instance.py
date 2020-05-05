@@ -122,6 +122,16 @@ class AmiFromInstance(pulumi.CustomResource):
         the generated AMI. Users may taint or otherwise recreate the resource in order
         to produce a fresh snapshot.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.AmiFromInstance("example", source_instance_id="i-xxxxxxxx")
+        ```
 
 
         :param str resource_name: The name of the resource.

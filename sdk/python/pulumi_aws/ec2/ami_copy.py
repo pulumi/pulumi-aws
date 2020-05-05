@@ -125,6 +125,22 @@ class AmiCopy(pulumi.CustomResource):
         Copying an AMI can take several minutes. The creation of this resource will
         block until the new AMI is available for use on new instances.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.AmiCopy("example",
+            description="A copy of ami-xxxxxxxx",
+            source_ami_id="ami-xxxxxxxx",
+            source_ami_region="us-west-1",
+            tags={
+                "Name": "HelloWorld",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

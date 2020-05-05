@@ -62,6 +62,30 @@ class PlatformApplication(pulumi.CustomResource):
         """
         Provides an SNS platform application resource
 
+        ## Example Usage
+
+        ### Apple Push Notification Service (APNS)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        apns_application = aws.sns.PlatformApplication("apnsApplication",
+            platform="APNS",
+            platform_credential="<APNS PRIVATE KEY>",
+            platform_principal="<APNS CERTIFICATE>")
+        ```
+
+        ### Google Cloud Messaging (GCM)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        gcm_application = aws.sns.PlatformApplication("gcmApplication",
+            platform="GCM",
+            platform_credential="<GCM API KEY>")
+        ```
 
 
         :param str resource_name: The name of the resource.

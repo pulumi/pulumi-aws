@@ -30,6 +30,16 @@ class Container(pulumi.CustomResource):
         """
         Provides a MediaStore Container.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.mediastore.Container("example")
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -84,6 +84,22 @@ def get_route_table(filters=None,gateway_id=None,route_table_id=None,subnet_id=N
     an input variable and needs to, for example, add a route in
     the Route Table.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    subnet_id = config.require_object("subnetId")
+    selected = aws.ec2.get_route_table(subnet_id=subnet_id)
+    route = aws.ec2.Route("route",
+        destination_cidr_block="10.0.1.0/22",
+        route_table_id=selected.id,
+        vpc_peering_connection_id="pcx-45ff3dc1")
+    ```
 
 
 

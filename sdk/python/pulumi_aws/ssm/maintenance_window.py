@@ -58,6 +58,19 @@ class MaintenanceWindow(pulumi.CustomResource):
         """
         Provides an SSM Maintenance Window resource
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        production = aws.ssm.MaintenanceWindow("production",
+            cutoff=1,
+            duration=3,
+            schedule="cron(0 16 ? * TUE *)")
+        ```
 
 
         :param str resource_name: The name of the resource.

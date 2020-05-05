@@ -28,6 +28,18 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
         attribute. Do not use the same subnet ID in both a VPC Endpoint resource and a VPC Endpoint Subnet
         Association resource. Doing so will cause a conflict of associations and will overwrite the association.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sn_ec2 = aws.ec2.VpcEndpointSubnetAssociation("snEc2",
+            subnet_id=aws_subnet["sn"]["id"],
+            vpc_endpoint_id=aws_vpc_endpoint["ec2"]["id"])
+        ```
 
 
         :param str resource_name: The name of the resource.

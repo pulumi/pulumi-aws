@@ -74,6 +74,102 @@ class Policy(pulumi.CustomResource):
         """
         Provides an Application AutoScaling Policy resource.
 
+        ## Example Usage
+
+        ### DynamoDB Table Autoscaling
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        dynamodb_table_read_target = aws.appautoscaling.Target("dynamodbTableReadTarget",
+            max_capacity=100,
+            min_capacity=5,
+            resource_id="table/tableName",
+            scalable_dimension="dynamodb:table:ReadCapacityUnits",
+            service_namespace="dynamodb")
+        dynamodb_table_read_policy = aws.appautoscaling.Policy("dynamodbTableReadPolicy",
+            policy_type="TargetTrackingScaling",
+            resource_id=dynamodb_table_read_target.resource_id,
+            scalable_dimension=dynamodb_table_read_target.scalable_dimension,
+            service_namespace=dynamodb_table_read_target.service_namespace,
+            target_tracking_scaling_policy_configuration={
+                "predefinedMetricSpecification": {
+                    "predefinedMetricType": "DynamoDBReadCapacityUtilization",
+                },
+                "targetValue": 70,
+            })
+        ```
+
+        ### ECS Service Autoscaling
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ecs_target = aws.appautoscaling.Target("ecsTarget",
+            max_capacity=4,
+            min_capacity=1,
+            resource_id="service/clusterName/serviceName",
+            scalable_dimension="ecs:service:DesiredCount",
+            service_namespace="ecs")
+        ecs_policy = aws.appautoscaling.Policy("ecsPolicy",
+            policy_type="StepScaling",
+            resource_id=ecs_target.resource_id,
+            scalable_dimension=ecs_target.scalable_dimension,
+            service_namespace=ecs_target.service_namespace,
+            step_scaling_policy_configuration={
+                "adjustmentType": "ChangeInCapacity",
+                "cooldown": 60,
+                "metricAggregationType": "Maximum",
+                "stepAdjustment": [{
+                    "metricIntervalUpperBound": 0,
+                    "scalingAdjustment": -1,
+                }],
+            })
+        ```
+
+        ### Preserve desired count when updating an autoscaled ECS Service
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ecs_service = aws.ecs.Service("ecsService",
+            cluster="clusterName",
+            desired_count=2,
+            lifecycle={
+                "ignoreChanges": ["desiredCount"],
+            },
+            task_definition="taskDefinitionFamily:1")
+        ```
+
+        ### Aurora Read Replica Autoscaling
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        replicas_target = aws.appautoscaling.Target("replicasTarget",
+            max_capacity=15,
+            min_capacity=1,
+            resource_id=f"cluster:{aws_rds_cluster['example']['id']}",
+            scalable_dimension="rds:cluster:ReadReplicaCount",
+            service_namespace="rds")
+        replicas_policy = aws.appautoscaling.Policy("replicasPolicy",
+            policy_type="TargetTrackingScaling",
+            resource_id=replicas_target.resource_id,
+            scalable_dimension=replicas_target.scalable_dimension,
+            service_namespace=replicas_target.service_namespace,
+            target_tracking_scaling_policy_configuration={
+                "predefinedMetricSpecification": {
+                    "predefinedMetricType": "RDSReaderAverageCPUUtilization",
+                },
+                "scaleInCooldown": 300,
+                "scaleOutCooldown": 300,
+                "targetValue": 75,
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

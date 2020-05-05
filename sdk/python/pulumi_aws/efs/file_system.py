@@ -59,6 +59,29 @@ class FileSystem(pulumi.CustomResource):
         """
         Provides an Elastic File System (EFS) resource.
 
+        ## Example Usage
+
+        ### EFS File System w/ tags
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.efs.FileSystem("foo", tags={
+            "Name": "MyProduct",
+        })
+        ```
+
+        ### Using lifecycle policy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo_with_lifecyle_policy = aws.efs.FileSystem("fooWithLifecylePolicy", lifecycle_policy={
+            "transitionToIa": "AFTER_30_DAYS",
+        })
+        ```
 
 
         :param str resource_name: The name of the resource.

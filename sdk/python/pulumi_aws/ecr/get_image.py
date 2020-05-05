@@ -69,6 +69,17 @@ def get_image(image_digest=None,image_tag=None,registry_id=None,repository_name=
     """
     The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    service_image = aws.ecr.get_image(image_tag="latest",
+        repository_name="my/service")
+    ```
 
 
 

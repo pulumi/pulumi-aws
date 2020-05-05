@@ -115,6 +115,20 @@ def get_load_balancer(name=None,tags=None,opts=None):
     variable and needs to, for example, determine the security groups associated
     with it, etc.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    lb_name = config.get("lbName")
+    if lb_name is None:
+        lb_name = ""
+    test = aws.elb.get_load_balancer(name=lb_name)
+    ```
 
 
     Deprecated: aws.elasticloadbalancing.getLoadBalancer has been deprecated in favour of aws.elb.getLoadBalancer

@@ -51,6 +51,17 @@ def get_local_disk(disk_node=None,disk_path=None,gateway_arn=None,opts=None):
     """
     Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.storagegateway.get_local_disk(disk_path=aws_volume_attachment["test"]["device_name"],
+        gateway_arn=aws_storagegateway_gateway["test"]["arn"])
+    ```
 
 
 

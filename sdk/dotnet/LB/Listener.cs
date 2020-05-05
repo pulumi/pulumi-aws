@@ -80,7 +80,11 @@ namespace Pulumi.Aws.LB
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:elasticloadbalancingv2/listener:Listener"} },
+                Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "aws:elasticloadbalancingv2/listener:Listener"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

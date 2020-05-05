@@ -248,6 +248,33 @@ def get_ami(executable_users=None,filters=None,most_recent=None,name_regex=None,
     Use this data source to get the ID of a registered AMI for use in other
     resources.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.get_ami(executable_users=["self"],
+        filters=[
+            {
+                "name": "name",
+                "values": ["myami-*"],
+            },
+            {
+                "name": "root-device-type",
+                "values": ["ebs"],
+            },
+            {
+                "name": "virtualization-type",
+                "values": ["hvm"],
+            },
+        ],
+        most_recent=True,
+        name_regex="^myami-\\d{3}",
+        owners=["self"])
+    ```
 
 
 

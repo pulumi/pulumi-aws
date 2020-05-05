@@ -43,6 +43,18 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
 
         > Advanced usage: To use a custom API endpoint for this resource, use the [`s3control` endpoint provider configuration](https://www.terraform.io/docs/providers/aws/index.html#s3control), not the `s3` endpoint provider configuration.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.AccountPublicAccessBlock("example",
+            block_public_acls=True,
+            block_public_policy=True)
+        ```
 
 
         :param str resource_name: The name of the resource.

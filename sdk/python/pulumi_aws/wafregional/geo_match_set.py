@@ -27,6 +27,25 @@ class GeoMatchSet(pulumi.CustomResource):
         """
         Provides a WAF Regional Geo Match Set Resource
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        geo_match_set = aws.wafregional.GeoMatchSet("geoMatchSet", geo_match_constraints=[
+            {
+                "type": "Country",
+                "value": "US",
+            },
+            {
+                "type": "Country",
+                "value": "CA",
+            },
+        ])
+        ```
 
 
         :param str resource_name: The name of the resource.

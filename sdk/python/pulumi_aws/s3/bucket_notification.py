@@ -50,6 +50,207 @@ class BucketNotification(pulumi.CustomResource):
 
         > **NOTE:** S3 Buckets only support a single notification configuration. Declaring multiple `s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration. See the example "Trigger multiple Lambda functions" for an option.
 
+        ## Example Usage
+
+        ### Add notification configuration to SNS Topic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bucket = aws.s3.Bucket("bucket")
+        topic = aws.sns.Topic("topic", policy=bucket.arn.apply(lambda arn: f\"\"\"{{
+            "Version":"2012-10-17",
+            "Statement":[{{
+                "Effect": "Allow",
+                "Principal": {{"AWS":"*"}},
+                "Action": "SNS:Publish",
+                "Resource": "arn:aws:sns:*:*:s3-event-notification-topic",
+                "Condition":{{
+                    "ArnLike":{{"aws:SourceArn":"{arn}"}}
+                }}
+            }}]
+        }}
+
+        \"\"\"))
+        bucket_notification = aws.s3.BucketNotification("bucketNotification",
+            bucket=bucket.id,
+            topics=[{
+                "events": ["s3:ObjectCreated:*"],
+                "filterSuffix": ".log",
+                "topicArn": topic.arn,
+            }])
+        ```
+
+        ### Add notification configuration to SQS Queue
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bucket = aws.s3.Bucket("bucket")
+        queue = aws.sqs.Queue("queue", policy=bucket.arn.apply(lambda arn: f\"\"\"{{
+          "Version": "2012-10-17",
+          "Statement": [
+            {{
+              "Effect": "Allow",
+              "Principal": "*",
+              "Action": "sqs:SendMessage",
+        	  "Resource": "arn:aws:sqs:*:*:s3-event-notification-queue",
+              "Condition": {{
+                "ArnEquals": {{ "aws:SourceArn": "{arn}" }}
+              }}
+            }}
+          ]
+        }}
+
+        \"\"\"))
+        bucket_notification = aws.s3.BucketNotification("bucketNotification",
+            bucket=bucket.id,
+            queues=[{
+                "events": ["s3:ObjectCreated:*"],
+                "filterSuffix": ".log",
+                "queueArn": queue.arn,
+            }])
+        ```
+
+        ### Add notification configuration to Lambda Function
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Effect": "Allow"
+            }
+          ]
+        }
+        \"\"\")
+        func = aws.lambda_.Function("func",
+            code=pulumi.FileArchive("your-function.zip"),
+            role=iam_for_lambda.arn,
+            handler="exports.example",
+            runtime="go1.x")
+        bucket = aws.s3.Bucket("bucket")
+        allow_bucket = aws.lambda_.Permission("allowBucket",
+            action="lambda:InvokeFunction",
+            function=func.arn,
+            principal="s3.amazonaws.com",
+            source_arn=bucket.arn)
+        bucket_notification = aws.s3.BucketNotification("bucketNotification",
+            bucket=bucket.id,
+            lambda_function=[{
+                "lambdaFunctionArn": func.arn,
+                "events": ["s3:ObjectCreated:*"],
+                "filterPrefix": "AWSLogs/",
+                "filterSuffix": ".log",
+            }])
+        ```
+
+        ### Trigger multiple Lambda functions
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Effect": "Allow"
+            }
+          ]
+        }
+        \"\"\")
+        func1 = aws.lambda_.Function("func1",
+            code=pulumi.FileArchive("your-function1.zip"),
+            role=iam_for_lambda.arn,
+            handler="exports.example",
+            runtime="go1.x")
+        bucket = aws.s3.Bucket("bucket")
+        allow_bucket1 = aws.lambda_.Permission("allowBucket1",
+            action="lambda:InvokeFunction",
+            function=func1.arn,
+            principal="s3.amazonaws.com",
+            source_arn=bucket.arn)
+        func2 = aws.lambda_.Function("func2",
+            code=pulumi.FileArchive("your-function2.zip"),
+            role=iam_for_lambda.arn,
+            handler="exports.example")
+        allow_bucket2 = aws.lambda_.Permission("allowBucket2",
+            action="lambda:InvokeFunction",
+            function=func2.arn,
+            principal="s3.amazonaws.com",
+            source_arn=bucket.arn)
+        bucket_notification = aws.s3.BucketNotification("bucketNotification",
+            bucket=bucket.id,
+            lambda_function=[
+                {
+                    "lambdaFunctionArn": func1.arn,
+                    "events": ["s3:ObjectCreated:*"],
+                    "filterPrefix": "AWSLogs/",
+                    "filterSuffix": ".log",
+                },
+                {
+                    "lambdaFunctionArn": func2.arn,
+                    "events": ["s3:ObjectCreated:*"],
+                    "filterPrefix": "OtherLogs/",
+                    "filterSuffix": ".log",
+                },
+            ])
+        ```
+
+        ### Add multiple notification configurations to SQS Queue
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bucket = aws.s3.Bucket("bucket")
+        queue = aws.sqs.Queue("queue", policy=bucket.arn.apply(lambda arn: f\"\"\"{{
+          "Version": "2012-10-17",
+          "Statement": [
+            {{
+              "Effect": "Allow",
+              "Principal": "*",
+              "Action": "sqs:SendMessage",
+        	  "Resource": "arn:aws:sqs:*:*:s3-event-notification-queue",
+              "Condition": {{
+                "ArnEquals": {{ "aws:SourceArn": "{arn}" }}
+              }}
+            }}
+          ]
+        }}
+
+        \"\"\"))
+        bucket_notification = aws.s3.BucketNotification("bucketNotification",
+            bucket=bucket.id,
+            queues=[
+                {
+                    "events": ["s3:ObjectCreated:*"],
+                    "filterPrefix": "images/",
+                    "id": "image-upload-event",
+                    "queueArn": queue.arn,
+                },
+                {
+                    "events": ["s3:ObjectCreated:*"],
+                    "filterPrefix": "videos/",
+                    "id": "video-upload-event",
+                    "queueArn": queue.arn,
+                },
+            ])
+        ```
 
 
         :param str resource_name: The name of the resource.

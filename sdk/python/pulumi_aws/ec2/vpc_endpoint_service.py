@@ -65,6 +65,32 @@ class VpcEndpointService(pulumi.CustomResource):
         a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
         and will overwrite the association.
 
+        ## Example Usage
+
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.VpcEndpointService("example",
+            acceptance_required=False,
+            network_load_balancer_arns=[aws_lb["example"]["arn"]])
+        ```
+
+        ### Basic w/ Tags
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.VpcEndpointService("example",
+            acceptance_required=False,
+            network_load_balancer_arns=[aws_lb["example"]["arn"]],
+            tags={
+                "Environment": "test",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

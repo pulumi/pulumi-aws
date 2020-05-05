@@ -26,6 +26,30 @@ class IdentityPolicy(pulumi.CustomResource):
         """
         Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
+        example_policy_document = example_domain_identity.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
+            "actions": [
+                "SES:SendEmail",
+                "SES:SendRawEmail",
+            ],
+            "principals": [{
+                "identifiers": ["*"],
+                "type": "AWS",
+            }],
+            "resources": [arn],
+        }]))
+        example_identity_policy = aws.ses.IdentityPolicy("exampleIdentityPolicy",
+            identity=example_domain_identity.arn,
+            policy=example_policy_document.json)
+        ```
 
 
         :param str resource_name: The name of the resource.

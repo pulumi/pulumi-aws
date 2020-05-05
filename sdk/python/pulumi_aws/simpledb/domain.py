@@ -18,6 +18,16 @@ class Domain(pulumi.CustomResource):
         """
         Provides a SimpleDB domain resource
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        users = aws.simpledb.Domain("users")
+        ```
 
 
         :param str resource_name: The name of the resource.

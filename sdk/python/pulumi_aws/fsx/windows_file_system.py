@@ -95,6 +95,43 @@ class WindowsFileSystem(pulumi.CustomResource):
 
         > **NOTE:** Either the `active_directory_id` argument or `self_managed_active_directory` configuration block must be specified.
 
+        ## Example Usage
+
+        ### Using AWS Directory Service
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.fsx.WindowsFileSystem("example",
+            active_directory_id=aws_directory_service_directory["example"]["id"],
+            kms_key_id=aws_kms_key["example"]["arn"],
+            storage_capacity=300,
+            subnet_ids=aws_subnet["example"]["id"],
+            throughput_capacity=1024)
+        ```
+
+        ### Using a Self-Managed Microsoft Active Directory
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.fsx.WindowsFileSystem("example",
+            kms_key_id=aws_kms_key["example"]["arn"],
+            self_managed_active_directory={
+                "dnsIps": [
+                    "10.0.0.111",
+                    "10.0.0.222",
+                ],
+                "domainName": "corp.example.com",
+                "password": "avoid-plaintext-passwords",
+                "username": "Admin",
+            },
+            storage_capacity=300,
+            subnet_ids=aws_subnet["example"]["id"],
+            throughput_capacity=1024)
+        ```
 
 
         :param str resource_name: The name of the resource.

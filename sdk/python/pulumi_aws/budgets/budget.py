@@ -81,6 +81,32 @@ class Budget(pulumi.CustomResource):
         """
         Provides a budgets budget resource. Budgets use the cost visualisation provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ec2 = aws.budgets.Budget("ec2",
+            budget_type="COST",
+            cost_filters={
+                "Service": "Amazon Elastic Compute Cloud - Compute",
+            },
+            limit_amount="1200",
+            limit_unit="USD",
+            notifications=[{
+                "comparisonOperator": "GREATER_THAN",
+                "notificationType": "FORECASTED",
+                "subscriberEmailAddresses": ["test@example.com"],
+                "threshold": 100,
+                "thresholdType": "PERCENTAGE",
+            }],
+            time_period_end="2087-06-15_00:00",
+            time_period_start="2017-07-01_00:00",
+            time_unit="MONTHLY")
+        ```
 
 
         :param str resource_name: The name of the resource.

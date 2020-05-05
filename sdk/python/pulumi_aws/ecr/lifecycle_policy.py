@@ -30,6 +30,67 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         > **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
 
+        ## Example Usage
+
+        ### Policy on untagged image
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.ecr.Repository("foo")
+        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
+            policy=\"\"\"{
+            "rules": [
+                {
+                    "rulePriority": 1,
+                    "description": "Expire images older than 14 days",
+                    "selection": {
+                        "tagStatus": "untagged",
+                        "countType": "sinceImagePushed",
+                        "countUnit": "days",
+                        "countNumber": 14
+                    },
+                    "action": {
+                        "type": "expire"
+                    }
+                }
+            ]
+        }
+
+        \"\"\",
+            repository=foo.name)
+        ```
+
+        ### Policy on tagged image
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.ecr.Repository("foo")
+        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
+            policy=\"\"\"{
+            "rules": [
+                {
+                    "rulePriority": 1,
+                    "description": "Keep last 30 images",
+                    "selection": {
+                        "tagStatus": "tagged",
+                        "tagPrefixList": ["v"],
+                        "countType": "imageCountMoreThan",
+                        "countNumber": 30
+                    },
+                    "action": {
+                        "type": "expire"
+                    }
+                }
+            ]
+        }
+
+        \"\"\",
+            repository=foo.name)
+        ```
 
 
         :param str resource_name: The name of the resource.

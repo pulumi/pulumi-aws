@@ -66,6 +66,25 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
         > **NOTE:** The proper Lambda permission to allow the AWS Config service invoke the Lambda Function must be in place before the rule will successfully create or update. See also the [`lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_permission = aws.lambda_.Permission("examplePermission",
+            action="lambda:InvokeFunction",
+            function=aws_lambda_function["example"]["arn"],
+            principal="config.amazonaws.com")
+        example_organization = aws.organizations.Organization("exampleOrganization",
+            aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
+            feature_set="ALL")
+        example_organization_custom_rule = aws.cfg.OrganizationCustomRule("exampleOrganizationCustomRule",
+            lambda_function_arn=aws_lambda_function["example"]["arn"],
+            trigger_types=["ConfigurationItemChangeNotification"])
+        ```
 
 
         :param str resource_name: The name of the resource.

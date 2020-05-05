@@ -42,6 +42,29 @@ class Mesh(pulumi.CustomResource):
         """
         Provides an AWS App Mesh service mesh resource.
 
+        ## Example Usage
+
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        simple = aws.appmesh.Mesh("simple")
+        ```
+
+        ### Egress Filter
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        simple = aws.appmesh.Mesh("simple", spec={
+            "egressFilter": {
+                "type": "ALLOW_ALL",
+            },
+        })
+        ```
 
 
         :param str resource_name: The name of the resource.

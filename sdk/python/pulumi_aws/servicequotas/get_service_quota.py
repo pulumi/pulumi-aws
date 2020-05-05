@@ -86,6 +86,19 @@ def get_service_quota(quota_code=None,quota_name=None,service_code=None,opts=Non
     """
     Retrieve information about a Service Quota.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    by_quota_code = aws.servicequotas.get_service_quota(quota_code="L-F678F1CE",
+        service_code="vpc")
+    by_quota_name = aws.servicequotas.get_service_quota(quota_name="VPCs per Region",
+        service_code="vpc")
+    ```
 
 
 

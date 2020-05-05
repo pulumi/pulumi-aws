@@ -43,6 +43,18 @@ class SecurityGroup(pulumi.CustomResource):
         [`aws_db_instance.vpc_security_group_ids`](https://www.terraform.io/docs/providers/aws/r/db_instance.html#vpc_security_group_ids)
         attribute instead.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.rds.SecurityGroup("default", ingress=[{
+            "cidr": "10.0.0.0/24",
+        }])
+        ```
 
 
         :param str resource_name: The name of the resource.

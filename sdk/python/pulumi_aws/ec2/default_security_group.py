@@ -92,6 +92,53 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         For more information about Default Security Groups, see the AWS Documentation on
         [Default Security Groups][aws-default-security-groups].
 
+        ## Basic Example Usage, with default rules
+
+        The following config gives the Default Security Group the same rules that AWS
+        provides by default, but pulls the resource under management by this provider. This means that
+        any ingress or egress rules added or changed will be detected as drift.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
+        default = aws.ec2.DefaultSecurityGroup("default",
+            egress=[{
+                "cidrBlocks": ["0.0.0.0/0"],
+                "fromPort": 0,
+                "protocol": "-1",
+                "toPort": 0,
+            }],
+            ingress=[{
+                "fromPort": 0,
+                "protocol": -1,
+                "self": True,
+                "toPort": 0,
+            }],
+            vpc_id=mainvpc.id)
+        ```
+
+        ## Example config to deny all Egress traffic, allowing Ingress
+
+        The following denies all Egress traffic by omitting any `egress` rules, while
+        including the default `ingress` rule to allow all traffic.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
+        default = aws.ec2.DefaultSecurityGroup("default",
+            ingress=[{
+                "fromPort": 0,
+                "protocol": -1,
+                "self": True,
+                "toPort": 0,
+            }],
+            vpc_id=mainvpc.id)
+        ```
+
         ## Usage
 
         With the exceptions mentioned above, `ec2.DefaultSecurityGroup` should

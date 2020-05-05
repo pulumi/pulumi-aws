@@ -55,6 +55,21 @@ def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,opts=No
     """
     `ec2.InternetGateway` provides details about a specific Internet Gateway.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    vpc_id = config.require_object("vpcId")
+    default = aws.ec2.get_internet_gateway(filters=[{
+        "name": "attachment.vpc-id",
+        "values": [vpc_id],
+    }])
+    ```
 
 
 

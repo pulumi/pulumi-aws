@@ -89,7 +89,130 @@ class EventTarget(pulumi.CustomResource):
         """
         Provides a CloudWatch Event Target resource.
 
+        ## Example Usage
 
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        console = aws.cloudwatch.EventRule("console",
+            description="Capture all EC2 scaling events",
+            event_pattern=\"\"\"{
+          "source": [
+            "aws.autoscaling"
+          ],
+          "detail-type": [
+            "EC2 Instance Launch Successful",
+            "EC2 Instance Terminate Successful",
+            "EC2 Instance Launch Unsuccessful",
+            "EC2 Instance Terminate Unsuccessful"
+          ]
+        }
+
+        \"\"\")
+        test_stream = aws.kinesis.Stream("testStream", shard_count=1)
+        yada = aws.cloudwatch.EventTarget("yada",
+            arn=test_stream.arn,
+            rule=console.name,
+            run_command_targets=[
+                {
+                    "key": "tag:Name",
+                    "values": ["FooBar"],
+                },
+                {
+                    "key": "InstanceIds",
+                    "values": ["i-162058cd308bffec2"],
+                },
+            ])
+        ```
+
+        ## Example SSM Document Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ssm_lifecycle_trust = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "identifiers": ["events.amazonaws.com"],
+                "type": "Service",
+            }],
+        }])
+        stop_instance = aws.ssm.Document("stopInstance",
+            content=\"\"\"  {
+            "schemaVersion": "1.2",
+            "description": "Stop an instance",
+            "parameters": {
+
+            },
+            "runtimeConfig": {
+              "aws:runShellScript": {
+                "properties": [
+                  {
+                    "id": "0.aws:runShellScript",
+                    "runCommand": ["halt"]
+                  }
+                ]
+              }
+            }
+          }
+
+        \"\"\",
+            document_type="Command")
+        ssm_lifecycle_policy_document = stop_instance.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[
+            {
+                "actions": ["ssm:SendCommand"],
+                "condition": [{
+                    "test": "StringEquals",
+                    "values": ["*"],
+                    "variable": "ec2:ResourceTag/Terminate",
+                }],
+                "effect": "Allow",
+                "resources": ["arn:aws:ec2:eu-west-1:1234567890:instance/*"],
+            },
+            {
+                "actions": ["ssm:SendCommand"],
+                "effect": "Allow",
+                "resources": [arn],
+            },
+        ]))
+        ssm_lifecycle_role = aws.iam.Role("ssmLifecycleRole", assume_role_policy=ssm_lifecycle_trust.json)
+        ssm_lifecycle_policy = aws.iam.Policy("ssmLifecyclePolicy", policy=ssm_lifecycle_policy_document.json)
+        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
+            description="Stop instances nightly",
+            schedule_expression="cron(0 0 * * ? *)")
+        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
+            arn=stop_instance.arn,
+            role_arn=ssm_lifecycle_role.arn,
+            rule=stop_instances_event_rule.name,
+            run_command_targets=[{
+                "key": "tag:Terminate",
+                "values": ["midnight"],
+            }])
+        ```
+
+        ## Example RunCommand Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
+            description="Stop instances nightly",
+            schedule_expression="cron(0 0 * * ? *)")
+        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
+            arn=f"arn:aws:ssm:{var['aws_region']}::document/AWS-RunShellScript",
+            input="{\"commands\":[\"halt\"]}",
+            role_arn=aws_iam_role["ssm_lifecycle"]["arn"],
+            rule=stop_instances_event_rule.name,
+            run_command_targets=[{
+                "key": "tag:Terminate",
+                "values": ["midnight"],
+            }])
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

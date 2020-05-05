@@ -31,6 +31,21 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         Provides an Traffic mirror target.  
         Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        nlb = aws.ec2.TrafficMirrorTarget("nlb",
+            description="NLB target",
+            network_load_balancer_arn=aws_lb["lb"]["arn"])
+        eni = aws.ec2.TrafficMirrorTarget("eni",
+            description="ENI target",
+            network_interface_id=aws_instance["test"]["primary_network_interface_id"])
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -99,6 +99,18 @@ class CustomLayer(pulumi.CustomResource):
         """
         Provides an OpsWorks custom layer resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        custlayer = aws.opsworks.CustomLayer("custlayer",
+            short_name="awesome",
+            stack_id=aws_opsworks_stack["main"]["id"])
+        ```
 
 
         :param str resource_name: The name of the resource.

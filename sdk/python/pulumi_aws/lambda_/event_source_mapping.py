@@ -75,10 +75,48 @@ class EventSourceMapping(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, batch_size=None, bisect_batch_on_function_error=None, destination_config=None, enabled=None, event_source_arn=None, function_name=None, maximum_batching_window_in_seconds=None, maximum_record_age_in_seconds=None, maximum_retry_attempts=None, parallelization_factor=None, starting_position=None, starting_position_timestamp=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB and SQS.
-        
-        For information about Lambda and how to use it, see [What is AWS Lambda?][1].
-        For information about event source mappings, see [CreateEventSourceMapping][2] in the API docs.
-        
+
+        For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
+        For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
+
+        ## Example Usage
+
+        ### DynamoDB
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            event_source_arn=aws_dynamodb_table["example"]["stream_arn"],
+            function_name=aws_lambda_function["example"]["arn"],
+            starting_position="LATEST")
+        ```
+
+        ### Kinesis
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            event_source_arn=aws_kinesis_stream["example"]["arn"],
+            function_name=aws_lambda_function["example"]["arn"],
+            starting_position="LATEST")
+        ```
+
+        ### SQS
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            event_source_arn=aws_sqs_queue["sqs_queue_test"]["arn"],
+            function_name=aws_lambda_function["example"]["arn"])
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
@@ -93,14 +131,11 @@ class EventSourceMapping(pulumi.CustomResource):
                * `maximum_record_age_in_seconds`: - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Minimum of 60, maximum and default of 604800.
                * `bisect_batch_on_function_error`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
                * `destination_config`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
-        
-        The **destination_config** object supports the following:
-        
-          * `on_failure` (`pulumi.Input[dict]`) - The destination configuration for failed invocations. Detailed below.
-        
-            * `destination_arn` (`pulumi.Input[str]`) - The Amazon Resource Name (ARN) of the destination resource.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_event_source_mapping.html.markdown.
+        The **destination_config** object supports the following:
+
+          * `on_failure` (`pulumi.Input[dict]`) - The destination configuration for failed invocations. Detailed below.
+            * `destination_arn` (`pulumi.Input[str]`) - The Amazon Resource Name (ARN) of the destination resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -152,7 +187,7 @@ class EventSourceMapping(pulumi.CustomResource):
         """
         Get an existing EventSourceMapping resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,18 +209,16 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[str] state: The state of the event source mapping.
         :param pulumi.Input[str] state_transition_reason: The reason the event source mapping is in its current state.
         :param pulumi.Input[str] uuid: The UUID of the created event source mapping.
-        
-        The **destination_config** object supports the following:
-        
-          * `on_failure` (`pulumi.Input[dict]`) - The destination configuration for failed invocations. Detailed below.
-        
-            * `destination_arn` (`pulumi.Input[str]`) - The Amazon Resource Name (ARN) of the destination resource.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_event_source_mapping.html.markdown.
+        The **destination_config** object supports the following:
+
+          * `on_failure` (`pulumi.Input[dict]`) - The destination configuration for failed invocations. Detailed below.
+            * `destination_arn` (`pulumi.Input[str]`) - The Amazon Resource Name (ARN) of the destination resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["batch_size"] = batch_size
         __props__["bisect_batch_on_function_error"] = bisect_batch_on_function_error
         __props__["destination_config"] = destination_config

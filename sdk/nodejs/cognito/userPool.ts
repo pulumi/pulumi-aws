@@ -19,6 +19,26 @@ import * as utilities from "../utilities";
  * 
  * const pool = new aws.cognito.UserPool("pool", {});
  * ```
+ * 
+ * ### Enabling SMS and Software Token Multi-Factor Authentication
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * // ... other configuration ...
+ * const example = new aws.cognito.UserPool("example", {
+ *     mfaConfiguration: "ON",
+ *     smsAuthenticationMessage: "Your code is {####}",
+ *     sms_configuration: {
+ *         externalId: "example",
+ *         snsCallerArn: aws_iam_role.example.arn,
+ *     },
+ *     software_token_mfa_configuration: {
+ *         enabled: true,
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool.markdown.
  */

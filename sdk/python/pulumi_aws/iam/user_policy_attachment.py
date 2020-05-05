@@ -24,6 +24,23 @@ class UserPolicyAttachment(pulumi.CustomResource):
 
         > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        user = aws.iam.User("user")
+        policy = aws.iam.Policy("policy",
+            description="A test policy",
+            policy="")
+        # insert policy here
+        test_attach = aws.iam.UserPolicyAttachment("test-attach",
+            policy_arn=policy.arn,
+            user=user.name)
+        ```
 
 
         :param str resource_name: The name of the resource.

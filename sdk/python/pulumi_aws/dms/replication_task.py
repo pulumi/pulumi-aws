@@ -54,6 +54,28 @@ class ReplicationTask(pulumi.CustomResource):
         """
         Provides a DMS (Data Migration Service) replication task resource. DMS replication tasks can be created, updated, deleted, and imported.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Create a new replication task
+        test = aws.dms.ReplicationTask("test",
+            cdc_start_time=1484346880,
+            migration_type="full-load",
+            replication_instance_arn=aws_dms_replication_instance["test-dms-replication-instance-tf"]["replication_instance_arn"],
+            replication_task_id="test-dms-replication-task-tf",
+            replication_task_settings="...",
+            source_endpoint_arn=aws_dms_endpoint["test-dms-source-endpoint-tf"]["endpoint_arn"],
+            table_mappings="{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%\",\"table-name\":\"%\"},\"rule-action\":\"include\"}]}",
+            tags={
+                "Name": "test",
+            },
+            target_endpoint_arn=aws_dms_endpoint["test-dms-target-endpoint-tf"]["endpoint_arn"])
+        ```
 
 
         :param str resource_name: The name of the resource.

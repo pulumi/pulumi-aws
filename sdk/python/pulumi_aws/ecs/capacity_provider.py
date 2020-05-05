@@ -41,6 +41,25 @@ class CapacityProvider(pulumi.CustomResource):
 
         > **NOTE:** The AWS API does not currently support deleting ECS cluster capacity providers. Removing this resource will only remove the state for it.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ecs.CapacityProvider("test", auto_scaling_group_provider={
+            "autoScalingGroupArn": aws_autoscaling_group["test"]["arn"],
+            "managedTerminationProtection": "ENABLED",
+            "managed_scaling": {
+                "maximumScalingStepSize": 1000,
+                "minimumScalingStepSize": 1,
+                "status": "ENABLED",
+                "targetCapacity": 10,
+            },
+        })
+        ```
 
 
         :param str resource_name: The name of the resource.

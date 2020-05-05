@@ -78,6 +78,26 @@ class Fleet(pulumi.CustomResource):
         """
         Provides a resource to manage EC2 Fleets.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.Fleet("example",
+            launch_template_config={
+                "launchTemplateSpecification": {
+                    "launchTemplateId": aws_launch_template["example"]["id"],
+                    "version": aws_launch_template["example"]["latest_version"],
+                },
+            },
+            target_capacity_specification={
+                "defaultTargetCapacityType": "spot",
+                "totalTargetCapacity": 5,
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

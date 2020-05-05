@@ -25,14 +25,39 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, function_name=None, provisioned_concurrent_executions=None, qualifier=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Lambda Provisioned Concurrency Configuration.
-        
+
+        ## Example Usage
+
+        ### Alias Name
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.ProvisionedConcurrencyConfig("example",
+            function_name=aws_lambda_alias["example"]["function_name"],
+            provisioned_concurrent_executions=1,
+            qualifier=aws_lambda_alias["example"]["name"])
+        ```
+
+        ### Function Version
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.ProvisionedConcurrencyConfig("example",
+            function_name=aws_lambda_function["example"]["function_name"],
+            provisioned_concurrent_executions=1,
+            qualifier=aws_lambda_function["example"]["version"])
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function.
         :param pulumi.Input[float] provisioned_concurrent_executions: Amount of capacity to allocate. Must be greater than or equal to `1`.
         :param pulumi.Input[str] qualifier: Lambda Function version or Lambda Alias name.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_provisioned_concurrency_config.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -71,19 +96,18 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         """
         Get an existing ProvisionedConcurrencyConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function.
         :param pulumi.Input[float] provisioned_concurrent_executions: Amount of capacity to allocate. Must be greater than or equal to `1`.
         :param pulumi.Input[str] qualifier: Lambda Function version or Lambda Alias name.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_provisioned_concurrency_config.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["function_name"] = function_name
         __props__["provisioned_concurrent_executions"] = provisioned_concurrent_executions
         __props__["qualifier"] = qualifier

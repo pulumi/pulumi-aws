@@ -51,6 +51,64 @@ class EventDestination(pulumi.CustomResource):
         """
         Provides an SES event destination
 
+        ## Example Usage
+
+        ### CloudWatch Destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cloudwatch = aws.ses.EventDestination("cloudwatch",
+            cloudwatch_destinations=[{
+                "defaultValue": "default",
+                "dimensionName": "dimension",
+                "valueSource": "emailHeader",
+            }],
+            configuration_set_name=aws_ses_configuration_set["example"]["name"],
+            enabled=True,
+            matching_types=[
+                "bounce",
+                "send",
+            ])
+        ```
+
+        ### Kinesis Destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        kinesis = aws.ses.EventDestination("kinesis",
+            configuration_set_name=aws_ses_configuration_set["example"]["name"],
+            enabled=True,
+            kinesis_destination={
+                "roleArn": aws_iam_role["example"]["arn"],
+                "streamArn": aws_kinesis_firehose_delivery_stream["example"]["arn"],
+            },
+            matching_types=[
+                "bounce",
+                "send",
+            ])
+        ```
+
+        ### SNS Destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sns = aws.ses.EventDestination("sns",
+            configuration_set_name=aws_ses_configuration_set["example"]["name"],
+            enabled=True,
+            matching_types=[
+                "bounce",
+                "send",
+            ],
+            sns_destination={
+                "topicArn": aws_sns_topic["example"]["arn"],
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

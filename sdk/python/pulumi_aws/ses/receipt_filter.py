@@ -26,6 +26,18 @@ class ReceiptFilter(pulumi.CustomResource):
         """
         Provides an SES receipt filter resource
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        filter = aws.ses.ReceiptFilter("filter",
+            cidr="10.10.10.10",
+            policy="Block")
+        ```
 
 
         :param str resource_name: The name of the resource.

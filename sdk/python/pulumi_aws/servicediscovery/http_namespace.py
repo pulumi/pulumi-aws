@@ -24,6 +24,16 @@ class HttpNamespace(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, description=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.servicediscovery.HttpNamespace("example", description="example")
+        ```
 
 
         :param str resource_name: The name of the resource.

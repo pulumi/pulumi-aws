@@ -78,6 +78,40 @@ class Integration(pulumi.CustomResource):
         Manages an Amazon API Gateway Version 2 integration.
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 
+        ## Example Usage
+
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigatewayv2.Integration("example",
+            api_id=aws_apigatewayv2_api["example"]["id"],
+            integration_type="MOCK")
+        ```
+
+        ### Lambda Integration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_function = aws.lambda_.Function("exampleFunction",
+            code=pulumi.FileArchive("example.zip"),
+            handler="index.handler",
+            role=aws_iam_role["example"]["arn"],
+            runtime="nodejs10.x")
+        example_integration = aws.apigatewayv2.Integration("exampleIntegration",
+            api_id=aws_apigatewayv2_api["example"]["id"],
+            connection_type="INTERNET",
+            content_handling_strategy="CONVERT_TO_TEXT",
+            description="Lambda example",
+            integration_method="POST",
+            integration_type="AWS",
+            integration_uri=example_function.invoke_arn,
+            passthrough_behavior="WHEN_NO_MATCH")
+        ```
 
 
         :param str resource_name: The name of the resource.

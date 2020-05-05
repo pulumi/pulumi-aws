@@ -23,6 +23,34 @@ class Application(pulumi.CustomResource):
         """
         Provides a CodeDeploy application to be used as a basis for deployments
 
+        ## Example Usage
+
+        ### ECS Application
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.codedeploy.Application("example", compute_platform="ECS")
+        ```
+
+        ### Lambda Application
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.codedeploy.Application("example", compute_platform="Lambda")
+        ```
+
+        ### Server Application
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.codedeploy.Application("example", compute_platform="Server")
+        ```
 
 
         :param str resource_name: The name of the resource.

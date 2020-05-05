@@ -82,6 +82,47 @@ class Certificate(pulumi.CustomResource):
         It's recommended to specify `create_before_destroy = true` in a [lifecycle](https://www.terraform.io/docs/configuration/resources.html#lifecycle) block to replace a certificate
         which is currently in use (eg, by `lb.Listener`).
 
+        ## Example Usage
+
+        ### Certificate creation
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cert = aws.acm.Certificate("cert",
+            domain_name="example.com",
+            tags={
+                "Environment": "test",
+            },
+            validation_method="DNS")
+        ```
+
+        ### Importing an existing certificate
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_tls as tls
+
+        example_private_key = tls.PrivateKey("examplePrivateKey", algorithm="RSA")
+        example_self_signed_cert = tls.SelfSignedCert("exampleSelfSignedCert",
+            allowed_uses=[
+                "key_encipherment",
+                "digital_signature",
+                "server_auth",
+            ],
+            key_algorithm="RSA",
+            private_key_pem=example_private_key.private_key_pem,
+            subjects=[{
+                "commonName": "example.com",
+                "organization": "ACME Examples, Inc",
+            }],
+            validity_period_hours=12)
+        cert = aws.acm.Certificate("cert",
+            certificate_body=example_self_signed_cert.cert_pem,
+            private_key=example_private_key.private_key_pem)
+        ```
 
 
         :param str resource_name: The name of the resource.

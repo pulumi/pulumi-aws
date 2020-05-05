@@ -40,6 +40,26 @@ def get_rules_packages(opts=None):
     The AWS Inspector Rules Packages data source allows access to the list of AWS
     Inspector Rules Packages which can be used by AWS Inspector within the region
     configured in the provider.
+
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    rules = aws.inspector.get_rules_packages()
+    # e.g. Use in inspector.AssessmentTemplate
+    group = aws.inspector.ResourceGroup("group", tags={
+        "test": "test",
+    })
+    assessment_assessment_target = aws.inspector.AssessmentTarget("assessmentAssessmentTarget", resource_group_arn=group.arn)
+    assessment_assessment_template = aws.inspector.AssessmentTemplate("assessmentAssessmentTemplate",
+        duration="60",
+        rules_package_arns=rules.arns,
+        target_arn=assessment_assessment_target.arn)
+    ```
     """
     __args__ = dict()
 

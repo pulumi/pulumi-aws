@@ -62,6 +62,18 @@ class ServerCertificate(pulumi.CustomResource):
         > **Note:** All arguments including the private key will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_cert = aws.iam.ServerCertificate("testCert",
+            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"),
+            private_key=(lambda path: open(path).read())("test-key.pem"))
+        ```
 
 
         :param str resource_name: The name of the resource.

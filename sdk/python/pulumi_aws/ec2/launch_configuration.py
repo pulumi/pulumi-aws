@@ -120,6 +120,102 @@ class LaunchConfiguration(pulumi.CustomResource):
         """
         Provides a resource to create a new launch configuration, used for autoscaling groups.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ubuntu = aws.get_ami(filters=[
+                {
+                    "name": "name",
+                    "values": ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
+                },
+                {
+                    "name": "virtualization-type",
+                    "values": ["hvm"],
+                },
+            ],
+            most_recent=True,
+            owners=["099720109477"])
+        as_conf = aws.ec2.LaunchConfiguration("asConf",
+            image_id=ubuntu.id,
+            instance_type="t2.micro")
+        ```
+
+        ## Using with AutoScaling Groups
+
+        Launch Configurations cannot be updated after creation with the Amazon
+        Web Service API. In order to update a Launch Configuration, this provider will
+        destroy the existing resource and create a replacement. In order to effectively
+        use a Launch Configuration resource with an [AutoScaling Group resource](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
+        it's recommended to specify `create_before_destroy` in a [lifecycle](https://www.terraform.io/docs/configuration/resources.html#lifecycle) block.
+        Either omit the Launch Configuration `name` attribute, or specify a partial name
+        with `name_prefix`.  Example:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ubuntu = aws.get_ami(filters=[
+                {
+                    "name": "name",
+                    "values": ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
+                },
+                {
+                    "name": "virtualization-type",
+                    "values": ["hvm"],
+                },
+            ],
+            most_recent=True,
+            owners=["099720109477"])
+        as_conf = aws.ec2.LaunchConfiguration("asConf",
+            image_id=ubuntu.id,
+            instance_type="t2.micro",
+            name_prefix="lc-example-")
+        bar = aws.autoscaling.Group("bar",
+            launch_configuration=as_conf.name,
+            max_size=2,
+            min_size=1)
+        ```
+
+        With this setup this provider generates a unique name for your Launch
+        Configuration and can then update the AutoScaling Group without conflict before
+        destroying the previous Launch Configuration.
+
+        ## Using with Spot Instances
+
+        Launch configurations can set the spot instance pricing to be used for the
+        Auto Scaling Group to reserve instances. Simply specifying the `spot_price`
+        parameter will set the price on the Launch Configuration which will attempt to
+        reserve your instances at this price.  See the [AWS Spot Instance
+        documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+        for more information or how to launch [Spot Instances](https://www.terraform.io/docs/providers/aws/r/spot_instance_request.html) with this provider.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ubuntu = aws.get_ami(filters=[
+                {
+                    "name": "name",
+                    "values": ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
+                },
+                {
+                    "name": "virtualization-type",
+                    "values": ["hvm"],
+                },
+            ],
+            most_recent=True,
+            owners=["099720109477"])
+        as_conf = aws.ec2.LaunchConfiguration("asConf",
+            image_id=ubuntu.id,
+            instance_type="m4.large",
+            spot_price="0.001")
+        bar = aws.autoscaling.Group("bar", launch_configuration=as_conf.name)
+        ```
 
         ## Block devices
 

@@ -38,6 +38,24 @@ class AssessmentTemplate(pulumi.CustomResource):
         """
         Provides a Inspector assessment template
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.inspector.AssessmentTemplate("example",
+            duration=3600,
+            rules_package_arns=[
+                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
+                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
+                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
+                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
+            ],
+            target_arn=aws_inspector_assessment_target["example"]["arn"])
+        ```
 
 
         :param str resource_name: The name of the resource.

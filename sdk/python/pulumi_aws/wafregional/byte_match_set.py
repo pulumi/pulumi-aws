@@ -30,6 +30,24 @@ class ByteMatchSet(pulumi.CustomResource):
         """
         Provides a WAF Regional Byte Match Set Resource for use with Application Load Balancer.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        byte_set = aws.wafregional.ByteMatchSet("byteSet", byte_match_tuples=[{
+            "fieldToMatch": {
+                "data": "referer",
+                "type": "HEADER",
+            },
+            "positionalConstraint": "CONTAINS",
+            "targetString": "badrefer1",
+            "textTransformation": "NONE",
+        }])
+        ```
 
 
         :param str resource_name: The name of the resource.

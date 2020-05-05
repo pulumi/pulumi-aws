@@ -69,6 +69,16 @@ def get_user(user_name=None,opts=None):
     IAM user. By using this data source, you can reference IAM user
     properties without having to hard code ARNs or unique IDs as input.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.iam.get_user(user_name="an_example_user_name")
+    ```
 
 
 

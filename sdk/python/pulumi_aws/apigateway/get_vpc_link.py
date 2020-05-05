@@ -74,6 +74,16 @@ def get_vpc_link(name=None,tags=None,opts=None):
     As there is no unique name constraint on API Gateway VPC Links this data source will 
     error if there is more than one match.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    my_api_gateway_vpc_link = aws.apigateway.get_vpc_link(name="my-vpc-link")
+    ```
 
 
 

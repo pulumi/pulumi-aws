@@ -42,6 +42,23 @@ class Member(pulumi.CustomResource):
         """
         Provides a resource to manage a GuardDuty member. To accept invitations in member accounts, see the [`guardduty.InviteAccepter` resource](https://www.terraform.io/docs/providers/aws/r/guardduty_invite_accepter.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        master = aws.guardduty.Detector("master", enable=True)
+        member_detector = aws.guardduty.Detector("memberDetector", enable=True)
+        member_member = aws.guardduty.Member("memberMember",
+            account_id=member_detector.account_id,
+            detector_id=master.id,
+            email="required@example.com",
+            invite=True,
+            invitation_message="please accept guardduty invitation")
+        ```
 
 
         :param str resource_name: The name of the resource.

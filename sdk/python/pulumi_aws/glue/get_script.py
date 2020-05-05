@@ -58,6 +58,191 @@ def get_script(dag_edges=None,dag_nodes=None,language=None,opts=None):
     """
     Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
 
+    ## Example Usage
+
+    ### Generate Python Script
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.glue.get_script(dag_edges=[
+            {
+                "source": "datasource0",
+                "target": "applymapping1",
+            },
+            {
+                "source": "applymapping1",
+                "target": "selectfields2",
+            },
+            {
+                "source": "selectfields2",
+                "target": "resolvechoice3",
+            },
+            {
+                "source": "resolvechoice3",
+                "target": "datasink4",
+            },
+        ],
+        dag_nodes=[
+            {
+                "args": [
+                    {
+                        "name": "database",
+                        "value": f"\"{aws_glue_catalog_database['source']['name']}\"",
+                    },
+                    {
+                        "name": "table_name",
+                        "value": f"\"{aws_glue_catalog_table['source']['name']}\"",
+                    },
+                ],
+                "id": "datasource0",
+                "nodeType": "DataSource",
+            },
+            {
+                "args": [{
+                    "name": "mapping",
+                    "value": "[(\"column1\", \"string\", \"column1\", \"string\")]",
+                }],
+                "id": "applymapping1",
+                "nodeType": "ApplyMapping",
+            },
+            {
+                "args": [{
+                    "name": "paths",
+                    "value": "[\"column1\"]",
+                }],
+                "id": "selectfields2",
+                "nodeType": "SelectFields",
+            },
+            {
+                "args": [
+                    {
+                        "name": "choice",
+                        "value": "\"MATCH_CATALOG\"",
+                    },
+                    {
+                        "name": "database",
+                        "value": f"\"{aws_glue_catalog_database['destination']['name']}\"",
+                    },
+                    {
+                        "name": "table_name",
+                        "value": f"\"{aws_glue_catalog_table['destination']['name']}\"",
+                    },
+                ],
+                "id": "resolvechoice3",
+                "nodeType": "ResolveChoice",
+            },
+            {
+                "args": [
+                    {
+                        "name": "database",
+                        "value": f"\"{aws_glue_catalog_database['destination']['name']}\"",
+                    },
+                    {
+                        "name": "table_name",
+                        "value": f"\"{aws_glue_catalog_table['destination']['name']}\"",
+                    },
+                ],
+                "id": "datasink4",
+                "nodeType": "DataSink",
+            },
+        ],
+        language="PYTHON")
+    pulumi.export("pythonScript", example.python_script)
+    ```
+
+    ### Generate Scala Code
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.glue.get_script(dag_edges=[
+            {
+                "source": "datasource0",
+                "target": "applymapping1",
+            },
+            {
+                "source": "applymapping1",
+                "target": "selectfields2",
+            },
+            {
+                "source": "selectfields2",
+                "target": "resolvechoice3",
+            },
+            {
+                "source": "resolvechoice3",
+                "target": "datasink4",
+            },
+        ],
+        dag_nodes=[
+            {
+                "args": [
+                    {
+                        "name": "database",
+                        "value": f"\"{aws_glue_catalog_database['source']['name']}\"",
+                    },
+                    {
+                        "name": "table_name",
+                        "value": f"\"{aws_glue_catalog_table['source']['name']}\"",
+                    },
+                ],
+                "id": "datasource0",
+                "nodeType": "DataSource",
+            },
+            {
+                "args": [{
+                    "name": "mappings",
+                    "value": "[(\"column1\", \"string\", \"column1\", \"string\")]",
+                }],
+                "id": "applymapping1",
+                "nodeType": "ApplyMapping",
+            },
+            {
+                "args": [{
+                    "name": "paths",
+                    "value": "[\"column1\"]",
+                }],
+                "id": "selectfields2",
+                "nodeType": "SelectFields",
+            },
+            {
+                "args": [
+                    {
+                        "name": "choice",
+                        "value": "\"MATCH_CATALOG\"",
+                    },
+                    {
+                        "name": "database",
+                        "value": f"\"{aws_glue_catalog_database['destination']['name']}\"",
+                    },
+                    {
+                        "name": "table_name",
+                        "value": f"\"{aws_glue_catalog_table['destination']['name']}\"",
+                    },
+                ],
+                "id": "resolvechoice3",
+                "nodeType": "ResolveChoice",
+            },
+            {
+                "args": [
+                    {
+                        "name": "database",
+                        "value": f"\"{aws_glue_catalog_database['destination']['name']}\"",
+                    },
+                    {
+                        "name": "table_name",
+                        "value": f"\"{aws_glue_catalog_table['destination']['name']}\"",
+                    },
+                ],
+                "id": "datasink4",
+                "nodeType": "DataSink",
+            },
+        ],
+        language="SCALA")
+    pulumi.export("scalaCode", example.scala_code)
+    ```
 
 
 

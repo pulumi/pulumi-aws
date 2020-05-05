@@ -24,6 +24,49 @@ class RolePolicyAttachment(pulumi.CustomResource):
 
         > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        role = aws.iam.Role("role", assume_role_policy=\"\"\"    {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Action": "sts:AssumeRole",
+                  "Principal": {
+                    "Service": "ec2.amazonaws.com"
+                  },
+                  "Effect": "Allow",
+                  "Sid": ""
+                }
+              ]
+            }
+
+        \"\"\")
+        policy = aws.iam.Policy("policy",
+            description="A test policy",
+            policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": [
+                "ec2:Describe*"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ]
+        }
+
+        \"\"\")
+        test_attach = aws.iam.RolePolicyAttachment("test-attach",
+            policy_arn=policy.arn,
+            role=role.name)
+        ```
 
 
         :param str resource_name: The name of the resource.

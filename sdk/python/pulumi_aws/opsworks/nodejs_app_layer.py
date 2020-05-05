@@ -99,6 +99,16 @@ class NodejsAppLayer(pulumi.CustomResource):
         """
         Provides an OpsWorks NodeJS application layer resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        app = aws.opsworks.NodejsAppLayer("app", stack_id=aws_opsworks_stack["main"]["id"])
+        ```
 
 
         :param str resource_name: The name of the resource.

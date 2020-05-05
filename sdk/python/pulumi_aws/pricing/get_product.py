@@ -48,6 +48,46 @@ def get_product(filters=None,service_code=None,opts=None):
     Use this data source to get the pricing information of all products in AWS.
     This data source is only available in a us-east-1 or ap-south-1 provider.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.pricing.get_product(filters=[
+            {
+                "field": "instanceType",
+                "value": "c5.xlarge",
+            },
+            {
+                "field": "operatingSystem",
+                "value": "Linux",
+            },
+            {
+                "field": "location",
+                "value": "US East (N. Virginia)",
+            },
+            {
+                "field": "preInstalledSw",
+                "value": "NA",
+            },
+            {
+                "field": "licenseModel",
+                "value": "No License required",
+            },
+            {
+                "field": "tenancy",
+                "value": "Shared",
+            },
+            {
+                "field": "capacitystatus",
+                "value": "Used",
+            },
+        ],
+        service_code="AmazonEC2")
+    ```
 
 
 

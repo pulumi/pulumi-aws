@@ -56,6 +56,20 @@ class ApnsChannel(pulumi.CustomResource):
         > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        app = aws.pinpoint.App("app")
+        apns = aws.pinpoint.ApnsChannel("apns",
+            application_id=app.application_id,
+            certificate=(lambda path: open(path).read())("./certificate.pem"),
+            private_key=(lambda path: open(path).read())("./private_key.key"))
+        ```
 
 
         :param str resource_name: The name of the resource.

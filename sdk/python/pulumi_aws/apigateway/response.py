@@ -34,6 +34,26 @@ class Response(pulumi.CustomResource):
         """
         Provides an API Gateway Gateway Response for a REST API Gateway.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.apigateway.RestApi("main")
+        test = aws.apigateway.Response("test",
+            response_parameters={
+                "gatewayresponse.header.Authorization": "'Basic'",
+            },
+            response_templates={
+                "application/json": "{'message':$$context.error.messageString}",
+            },
+            response_type="UNAUTHORIZED",
+            rest_api_id=main.id,
+            status_code="401")
+        ```
 
 
         :param str resource_name: The name of the resource.

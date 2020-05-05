@@ -22,6 +22,18 @@ class AmiLaunchPermission(pulumi.CustomResource):
         """
         Adds launch permission to Amazon Machine Image (AMI) from another AWS account.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.AmiLaunchPermission("example",
+            account_id="123456789012",
+            image_id="ami-12345678")
+        ```
 
 
         :param str resource_name: The name of the resource.

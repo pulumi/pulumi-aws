@@ -27,6 +27,16 @@ class Analyzer(pulumi.CustomResource):
         """
         Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.accessanalyzer.Analyzer("example", analyzer_name="example")
+        ```
 
 
         :param str resource_name: The name of the resource.

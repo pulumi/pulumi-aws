@@ -43,6 +43,23 @@ class SizeConstraintSet(pulumi.CustomResource):
         """
         Provides a WAF Regional Size Constraint Set Resource for use with Application Load Balancer.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        size_constraint_set = aws.wafregional.SizeConstraintSet("sizeConstraintSet", size_constraints=[{
+            "comparisonOperator": "EQ",
+            "fieldToMatch": {
+                "type": "BODY",
+            },
+            "size": "4096",
+            "textTransformation": "NONE",
+        }])
+        ```
 
 
         :param str resource_name: The name of the resource.

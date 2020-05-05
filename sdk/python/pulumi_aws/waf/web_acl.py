@@ -61,6 +61,61 @@ class WebAcl(pulumi.CustomResource):
         """
         Provides a WAF Web ACL Resource
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ipset = aws.waf.IpSet("ipset", ip_set_descriptors=[{
+            "type": "IPV4",
+            "value": "192.0.7.0/24",
+        }])
+        wafrule = aws.waf.Rule("wafrule",
+            metric_name="tfWAFRule",
+            predicates=[{
+                "dataId": ipset.id,
+                "negated": False,
+                "type": "IPMatch",
+            }])
+        waf_acl = aws.waf.WebAcl("wafAcl",
+            default_action={
+                "type": "ALLOW",
+            },
+            metric_name="tfWebACL",
+            rules=[{
+                "action": {
+                    "type": "BLOCK",
+                },
+                "priority": 1,
+                "ruleId": wafrule.id,
+                "type": "REGULAR",
+            }])
+        ```
+
+        ### Logging
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.waf.WebAcl("example", logging_configuration={
+            "logDestination": aws_kinesis_firehose_delivery_stream["example"]["arn"],
+            "redactedFields": {
+                "fieldToMatch": [
+                    {
+                        "type": "URI",
+                    },
+                    {
+                        "data": "referer",
+                        "type": "HEADER",
+                    },
+                ],
+            },
+        })
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -74,6 +74,49 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
         > **NOTE:** The gateway must have an upload buffer added (e.g. via the [`storagegateway.UploadBuffer`](https://www.terraform.io/docs/providers/aws/r/storagegateway_upload_buffer.html) resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `UPLOAD BUFFER NOT CONFIGURED`.
 
+        ## Example Usage
+
+        ### Create Empty Cached iSCSI Volume
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.storagegateway.CachesIscsiVolume("example",
+            gateway_arn=aws_storagegateway_cache["example"]["gateway_arn"],
+            network_interface_id=aws_instance["example"]["private_ip"],
+            target_name="example",
+            volume_size_in_bytes=5368709120)
+        # 5 GB
+        ```
+
+        ### Create Cached iSCSI Volume From Snapshot
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.storagegateway.CachesIscsiVolume("example",
+            gateway_arn=aws_storagegateway_cache["example"]["gateway_arn"],
+            network_interface_id=aws_instance["example"]["private_ip"],
+            snapshot_id=aws_ebs_snapshot["example"]["id"],
+            target_name="example",
+            volume_size_in_bytes=aws_ebs_snapshot["example"]["volume_size"] * 1024 * 1024 * 1024)
+        ```
+
+        ### Create Cached iSCSI Volume From Source Volume
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.storagegateway.CachesIscsiVolume("example",
+            gateway_arn=aws_storagegateway_cache["example"]["gateway_arn"],
+            network_interface_id=aws_instance["example"]["private_ip"],
+            source_volume_arn=aws_storagegateway_cached_iscsi_volume["existing"]["arn"],
+            target_name="example",
+            volume_size_in_bytes=aws_storagegateway_cached_iscsi_volume["existing"]["volume_size_in_bytes"])
+        ```
 
 
         :param str resource_name: The name of the resource.

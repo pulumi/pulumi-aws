@@ -18,6 +18,16 @@ class ConfigurationSet(pulumi.CustomResource):
         """
         Provides an SES configuration set resource
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ses.ConfigurationSet("test")
+        ```
 
 
         :param str resource_name: The name of the resource.

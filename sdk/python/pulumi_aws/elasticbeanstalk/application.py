@@ -36,6 +36,22 @@ class Application(pulumi.CustomResource):
         This resource creates an application that has one configuration template named
         `default`, and no application versions
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        tftest = aws.elasticbeanstalk.Application("tftest",
+            appversion_lifecycle={
+                "deleteSourceFromS3": True,
+                "maxCount": 128,
+                "serviceRole": aws_iam_role["beanstalk_service"]["arn"],
+            },
+            description="tf-test-desc")
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -62,6 +62,70 @@ class FlowLog(pulumi.CustomResource):
         Provides a VPC/Subnet/ENI Flow Log to capture IP traffic for a specific network
         interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
 
+        ## Example Usage
+
+        ### CloudWatch Logging
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "vpc-flow-logs.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        }
+
+        \"\"\")
+        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
+            iam_role_arn=example_role.arn,
+            log_destination=example_log_group.arn,
+            traffic_type="ALL",
+            vpc_id=aws_vpc["example"]["id"])
+        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
+            policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+                "logs:DescribeLogGroups",
+                "logs:DescribeLogStreams"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ]
+        }
+
+        \"\"\",
+            role=example_role.id)
+        ```
+
+        ### S3 Logging
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_bucket = aws.s3.Bucket("exampleBucket")
+        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
+            log_destination=example_bucket.arn,
+            log_destination_type="s3",
+            traffic_type="ALL",
+            vpc_id=aws_vpc["example"]["id"])
+        ```
 
 
         :param str resource_name: The name of the resource.

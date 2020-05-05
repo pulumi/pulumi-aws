@@ -33,6 +33,16 @@ class ThingType(pulumi.CustomResource):
         """
         Creates and manages an AWS IoT Thing Type.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.iot.ThingType("foo")
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -97,6 +97,42 @@ class Application(pulumi.CustomResource):
         """
         Provides an OpsWorks application resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo_app = aws.opsworks.Application("foo-app",
+            app_sources=[{
+                "revision": "master",
+                "type": "git",
+                "url": "https://github.com/example.git",
+            }],
+            auto_bundle_on_deploy=True,
+            description="This is a Rails application",
+            document_root="public",
+            domains=[
+                "example.com",
+                "sub.example.com",
+            ],
+            enable_ssl=True,
+            environments=[{
+                "key": "key",
+                "secure": False,
+                "value": "value",
+            }],
+            rails_env="staging",
+            short_name="foobar",
+            ssl_configurations=[{
+                "certificate": (lambda path: open(path).read())("./foobar.crt"),
+                "privateKey": (lambda path: open(path).read())("./foobar.key"),
+            }],
+            stack_id=aws_opsworks_stack["main"]["id"],
+            type="rails")
+        ```
 
 
         :param str resource_name: The name of the resource.

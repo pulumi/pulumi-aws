@@ -62,6 +62,18 @@ def get_patch_baseline(default_baseline=None,name_prefix=None,operating_system=N
     """
     Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    centos = aws.ssm.get_patch_baseline(name_prefix="AWS-",
+        operating_system="CENTOS",
+        owner="AWS")
+    ```
 
 
 

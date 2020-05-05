@@ -74,7 +74,43 @@ class SecurityGroupRule(pulumi.CustomResource):
 
         > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
 
+        ## Example Usage
 
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.SecurityGroupRule("example",
+            type="ingress",
+            from_port=0,
+            to_port=65535,
+            protocol="tcp",
+            cidr_blocks=aws_vpc["example"]["cidr_block"],
+            security_group_id="sg-123456")
+        ```
+
+        ## Usage with prefix list IDs
+
+        Prefix list IDs are manged by AWS internally. Prefix list IDs
+        are associated with a prefix list name, or service name, that is linked to a specific region.
+        Prefix list IDs are exported on VPC Endpoints, so you can use this format:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # ...
+        my_endpoint = aws.ec2.VpcEndpoint("myEndpoint")
+        allow_all = aws.ec2.SecurityGroupRule("allowAll",
+            from_port=0,
+            prefix_list_ids=[my_endpoint.prefix_list_id],
+            protocol="-1",
+            security_group_id="sg-123456",
+            to_port=0,
+            type="egress")
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

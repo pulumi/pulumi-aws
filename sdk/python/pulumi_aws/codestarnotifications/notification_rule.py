@@ -51,6 +51,35 @@ class NotificationRule(pulumi.CustomResource):
         """
         Provides a CodeStar Notifications Rule.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        code = aws.codecommit.Repository("code", repository_name="example-code-repo")
+        notif = aws.sns.Topic("notif")
+        notif_access = aws.iam.get_policy_document(statement=[{
+            "actions": ["sns:Publish"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["codestar-notifications.amazonaws.com"],
+            }],
+            "resources": [notif.arn],
+        }])
+        default = aws.sns.TopicPolicy("default",
+            arn=notif.arn,
+            policy=notif_access.json)
+        commits = aws.codestarnotifications.NotificationRule("commits",
+            detail_type="BASIC",
+            event_type_ids=["codecommit-repository-comments-on-commits"],
+            resource=code.arn,
+            target=[{
+                "address": notif.arn,
+            }])
+        ```
 
 
         :param str resource_name: The name of the resource.

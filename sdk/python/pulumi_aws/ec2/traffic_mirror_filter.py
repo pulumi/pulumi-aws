@@ -27,6 +27,18 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         Provides an Traffic mirror filter.  
         Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.ec2.TrafficMirrorFilter("foo",
+            description="traffic mirror filter - example",
+            network_services=["amazon-dns"])
+        ```
 
 
         :param str resource_name: The name of the resource.

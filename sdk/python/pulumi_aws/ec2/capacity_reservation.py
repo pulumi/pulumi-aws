@@ -58,6 +58,20 @@ class CapacityReservation(pulumi.CustomResource):
         """
         Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.ec2.CapacityReservation("default",
+            availability_zone="eu-west-1a",
+            instance_count=1,
+            instance_platform="Linux/UNIX",
+            instance_type="t2.micro")
+        ```
 
 
         :param str resource_name: The name of the resource.

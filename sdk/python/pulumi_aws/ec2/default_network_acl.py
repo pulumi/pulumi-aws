@@ -91,6 +91,73 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         For more information about Network ACLs, see the AWS Documentation on
         [Network ACLs][aws-network-acls].
 
+        ## Basic Example Usage, with default rules
+
+        The following config gives the Default Network ACL the same rules that AWS
+        includes, but pulls the resource under management by this provider. This means that
+        any ACL rules added or changed will be detected as drift.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
+        default = aws.ec2.DefaultNetworkAcl("default",
+            default_network_acl_id=mainvpc.default_network_acl_id,
+            ingress=[{
+                "protocol": -1,
+                "ruleNo": 100,
+                "action": "allow",
+                "cidrBlock": mainvpc.cidr_block,
+                "fromPort": 0,
+                "toPort": 0,
+            }],
+            egress=[{
+                "protocol": -1,
+                "ruleNo": 100,
+                "action": "allow",
+                "cidrBlock": "0.0.0.0/0",
+                "fromPort": 0,
+                "toPort": 0,
+            }])
+        ```
+
+        ## Example config to deny all Egress traffic, allowing Ingress
+
+        The following denies all Egress traffic by omitting any `egress` rules, while
+        including the default `ingress` rule to allow all traffic.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
+        default = aws.ec2.DefaultNetworkAcl("default",
+            default_network_acl_id=mainvpc.default_network_acl_id,
+            ingress=[{
+                "protocol": -1,
+                "ruleNo": 100,
+                "action": "allow",
+                "cidrBlock": mainvpc.cidr_block,
+                "fromPort": 0,
+                "toPort": 0,
+            }])
+        ```
+
+        ## Example config to deny all traffic to any Subnet in the Default Network ACL
+
+        This config denies all traffic in the Default ACL. This can be useful if you
+        want a locked down default to force all resources in the VPC to assign a
+        non-default ACL.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
+        default = aws.ec2.DefaultNetworkAcl("default", default_network_acl_id=mainvpc.default_network_acl_id)
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_network_acl_id: The Network ACL ID to manage. This

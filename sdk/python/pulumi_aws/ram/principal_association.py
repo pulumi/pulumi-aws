@@ -32,6 +32,30 @@ class PrincipalAssociation(pulumi.CustomResource):
         - Organization and Organizational Unit principals cannot be used.
         - For AWS Account ID principals, a resource share invitation is sent and must be accepted before resources become available. See the [`ram.ResourceShareAccepter` resource](https://www.terraform.io/docs/providers/aws/r/ram_resource_share_accepter.html) to accept these invitations.
 
+        ## Example Usage
+
+        ### AWS Account ID
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_resource_share = aws.ram.ResourceShare("exampleResourceShare", allow_external_principals=True)
+        example_principal_association = aws.ram.PrincipalAssociation("examplePrincipalAssociation",
+            principal="111111111111",
+            resource_share_arn=example_resource_share.arn)
+        ```
+
+        ### AWS Organization
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ram.PrincipalAssociation("example",
+            principal=aws_organizations_organization["example"]["arn"],
+            resource_share_arn=aws_ram_resource_share["example"]["arn"])
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -22,6 +22,16 @@ class EmailIdentity(pulumi.CustomResource):
         """
         Provides an SES email identity resource
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ses.EmailIdentity("example", email="email@example.com")
+        ```
 
 
         :param str resource_name: The name of the resource.

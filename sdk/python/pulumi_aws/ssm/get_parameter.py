@@ -56,6 +56,16 @@ def get_parameter(name=None,with_decryption=None,opts=None):
     """
     Provides an SSM Parameter data source.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.ssm.get_parameter(name="foo")
+    ```
 
 
 

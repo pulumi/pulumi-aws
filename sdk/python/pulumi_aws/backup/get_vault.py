@@ -64,6 +64,16 @@ def get_vault(name=None,tags=None,opts=None):
     """
     Use this data source to get information on an existing backup vault.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.backup.get_vault(name="example_backup_vault")
+    ```
 
 
 

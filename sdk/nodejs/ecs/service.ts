@@ -15,6 +15,33 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const mongo = new aws.ecs.Service("mongo", {
+ *     cluster: aws_ecs_cluster.foo.id,
+ *     taskDefinition: aws_ecs_task_definition.mongo.arn,
+ *     desiredCount: 3,
+ *     iamRole: aws_iam_role.foo.arn,
+ *     ordered_placement_strategy: [{
+ *         type: "binpack",
+ *         field: "cpu",
+ *     }],
+ *     load_balancer: [{
+ *         targetGroupArn: aws_lb_target_group.foo.arn,
+ *         containerName: "mongo",
+ *         containerPort: 8080,
+ *     }],
+ *     placement_constraints: [{
+ *         type: "memberOf",
+ *         expression: "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
+ *     }],
+ * });
+ * ```
+ * 
  * ### Ignoring Changes to Desired Count
  * 
  * ```typescript

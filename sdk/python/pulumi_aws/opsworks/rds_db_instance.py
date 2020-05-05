@@ -33,6 +33,20 @@ class RdsDbInstance(pulumi.CustomResource):
         > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        my_instance = aws.opsworks.RdsDbInstance("myInstance",
+            db_password="somePass",
+            db_user="someUser",
+            rds_db_instance_arn=aws_db_instance["my_instance"]["arn"],
+            stack_id=aws_opsworks_stack["my_stack"]["id"])
+        ```
 
 
         :param str resource_name: The name of the resource.

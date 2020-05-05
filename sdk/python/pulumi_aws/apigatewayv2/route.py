@@ -62,6 +62,18 @@ class Route(pulumi.CustomResource):
         Manages an Amazon API Gateway Version 2 route.
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 
+        ## Example Usage
+
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigatewayv2.Route("example",
+            api_id=aws_apigatewayv2_api["example"]["id"],
+            route_key="$$default")
+        ```
 
 
         :param str resource_name: The name of the resource.

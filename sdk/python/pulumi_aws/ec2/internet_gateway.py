@@ -26,6 +26,20 @@ class InternetGateway(pulumi.CustomResource):
         """
         Provides a resource to create a VPC Internet Gateway.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        gw = aws.ec2.InternetGateway("gw",
+            tags={
+                "Name": "main",
+            },
+            vpc_id=aws_vpc["main"]["id"])
+        ```
 
 
         :param str resource_name: The name of the resource.

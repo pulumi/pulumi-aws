@@ -154,6 +154,31 @@ class ClusterInstance(pulumi.CustomResource):
 
         > **NOTE:** Deletion Protection from the RDS service can only be enabled at the cluster level, not for individual cluster instances. You can still add the [`protect` CustomResourceOption](https://www.pulumi.com/docs/intro/concepts/programming-model/#protect) to this resource configuration if you desire protection from accidental deletion.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.rds.Cluster("default",
+            availability_zones=[
+                "us-west-2a",
+                "us-west-2b",
+                "us-west-2c",
+            ],
+            cluster_identifier="aurora-cluster-demo",
+            database_name="mydb",
+            master_password="barbut8chars",
+            master_username="foo")
+        cluster_instances = []
+        for range in [{"value": i} for i in range(0, 2)]:
+            cluster_instances.append(aws.rds.ClusterInstance(f"clusterInstances-{range['value']}",
+                cluster_identifier=default.id,
+                identifier=f"aurora-cluster-demo-{range['value']}",
+                instance_class="db.r4.large"))
+        ```
 
 
         :param str resource_name: The name of the resource.

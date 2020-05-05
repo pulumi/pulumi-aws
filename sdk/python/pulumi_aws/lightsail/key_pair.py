@@ -58,6 +58,34 @@ class KeyPair(pulumi.CustomResource):
 
         > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
 
+        ## Example Usage, creating a new Key Pair
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Create a new Lightsail Key Pair
+        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair")
+        ```
+
+        ## Create new Key Pair, encrypting the private key with a PGP Key
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair", pgp_key="keybase:keybaseusername")
+        ```
+
+        ## Import an existing public key
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair", public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Lightsail Key Pair. If omitted, a unique

@@ -62,6 +62,19 @@ class InstanceGroup(pulumi.CustomResource):
         web interface. Instance Groups are destroyed when the EMR Cluster is destroyed.
         this provider will resize any Instance Group to zero when destroying the resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        task = aws.emr.InstanceGroup("task",
+            cluster_id=aws_emr_cluster["tf-test-cluster"]["id"],
+            instance_count=1,
+            instance_type="m5.xlarge")
+        ```
 
 
         :param str resource_name: The name of the resource.

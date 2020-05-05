@@ -32,6 +32,28 @@ class BasePathMapping(pulumi.CustomResource):
         with a deployed API so that its methods can be called via the
         custom domain name.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+            rest_api=aws_api_gateway_rest_api["MyDemoAPI"]["id"],
+            stage_name="live")
+        example_domain_name = aws.apigateway.DomainName("exampleDomainName",
+            certificate_body=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
+            certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
+            certificate_name="example-api",
+            certificate_private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"),
+            domain_name="example.com")
+        test = aws.apigateway.BasePathMapping("test",
+            rest_api=aws_api_gateway_rest_api["MyDemoAPI"]["id"],
+            domain_name=example_domain_name.domain_name,
+            stage_name=example_deployment.stage_name)
+        ```
 
 
         :param str resource_name: The name of the resource.

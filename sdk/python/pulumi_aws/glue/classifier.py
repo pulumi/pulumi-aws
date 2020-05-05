@@ -52,6 +52,61 @@ class Classifier(pulumi.CustomResource):
 
         > **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
 
+        ## Example Usage
+
+        ### Csv Classifier
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Classifier("example", csv_classifier={
+            "allowSingleColumn": False,
+            "containsHeader": "PRESENT",
+            "delimiter": ",",
+            "disableValueTrimming": False,
+            "header": [
+                "example1",
+                "example2",
+            ],
+            "quoteSymbol": "'",
+        })
+        ```
+
+        ### Grok Classifier
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Classifier("example", grok_classifier={
+            "classification": "example",
+            "grokPattern": "example",
+        })
+        ```
+
+        ### JSON Classifier
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Classifier("example", json_classifier={
+            "jsonPath": "example",
+        })
+        ```
+
+        ### XML Classifier
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Classifier("example", xml_classifier={
+            "classification": "example",
+            "rowTag": "example",
+        })
+        ```
 
 
         :param str resource_name: The name of the resource.

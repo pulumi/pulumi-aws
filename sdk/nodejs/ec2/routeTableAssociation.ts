@@ -10,6 +10,19 @@ import * as utilities from "../utilities";
  * Provides a resource to create an association between a route table and a subnet or a route table and an
  * internet gateway or virtual private gateway.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const routeTableAssociation = new aws.ec2.RouteTableAssociation("routeTableAssociation", {
+ *     subnetId: aws_subnet.foo.id,
+ *     routeTableId: aws_route_table.bar.id,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route_table_association.html.markdown.
  */

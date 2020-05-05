@@ -134,6 +134,57 @@ class LoadBalancer(pulumi.CustomResource):
         instances in conjunction with a ELB Attachment resources. Doing so will cause a
         conflict and will overwrite attachments.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Create a new load balancer
+        bar = aws.elb.LoadBalancer("bar",
+            access_logs={
+                "bucket": "foo",
+                "bucketPrefix": "bar",
+                "interval": 60,
+            },
+            availability_zones=[
+                "us-west-2a",
+                "us-west-2b",
+                "us-west-2c",
+            ],
+            connection_draining=True,
+            connection_draining_timeout=400,
+            cross_zone_load_balancing=True,
+            health_check={
+                "healthyThreshold": 2,
+                "interval": 30,
+                "target": "HTTP:8000/",
+                "timeout": 3,
+                "unhealthyThreshold": 2,
+            },
+            idle_timeout=400,
+            instances=[aws_instance["foo"]["id"]],
+            listeners=[
+                {
+                    "instancePort": 8000,
+                    "instanceProtocol": "http",
+                    "lbPort": 80,
+                    "lbProtocol": "http",
+                },
+                {
+                    "instancePort": 8000,
+                    "instanceProtocol": "http",
+                    "lbPort": 443,
+                    "lbProtocol": "https",
+                    "sslCertificateId": "arn:aws:iam::123456789012:server-certificate/certName",
+                },
+            ],
+            tags={
+                "Name": "foobar-elb",
+            })
+        ```
 
         ## Note on ECDSA Key Algorithm
 

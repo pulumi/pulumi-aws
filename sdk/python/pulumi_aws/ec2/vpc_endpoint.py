@@ -93,6 +93,70 @@ class VpcEndpoint(pulumi.CustomResource):
         Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
         Doing so will cause a conflict of associations and will overwrite the association.
 
+        ## Example Usage
+
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        s3 = aws.ec2.VpcEndpoint("s3",
+            service_name="com.amazonaws.us-west-2.s3",
+            vpc_id=aws_vpc["main"]["id"])
+        ```
+
+        ### Basic w/ Tags
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        s3 = aws.ec2.VpcEndpoint("s3",
+            service_name="com.amazonaws.us-west-2.s3",
+            tags={
+                "Environment": "test",
+            },
+            vpc_id=aws_vpc["main"]["id"])
+        ```
+
+        ### Interface Endpoint Type
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ec2 = aws.ec2.VpcEndpoint("ec2",
+            private_dns_enabled=True,
+            security_group_ids=[aws_security_group["sg1"]["id"]],
+            service_name="com.amazonaws.us-west-2.ec2",
+            vpc_endpoint_type="Interface",
+            vpc_id=aws_vpc["main"]["id"])
+        ```
+
+        ### Non-AWS Service
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ptfe_service_vpc_endpoint = aws.ec2.VpcEndpoint("ptfeServiceVpcEndpoint",
+            private_dns_enabled=False,
+            security_group_ids=[aws_security_group["ptfe_service"]["id"]],
+            service_name=var["ptfe_service"],
+            subnet_ids=[local["subnet_ids"]],
+            vpc_endpoint_type="Interface",
+            vpc_id=var["vpc_id"])
+        internal = aws.route53.get_zone(name="vpc.internal.",
+            private_zone=True,
+            vpc_id=var["vpc_id"])
+        ptfe_service_record = aws.route53.Record("ptfeServiceRecord",
+            name=f"ptfe.{internal.name}",
+            records=[ptfe_service_vpc_endpoint.dns_entries[0]["dns_name"]],
+            ttl="300",
+            type="CNAME",
+            zone_id=internal.zone_id)
+        ```
 
 
         :param str resource_name: The name of the resource.

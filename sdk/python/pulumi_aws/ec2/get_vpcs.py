@@ -49,6 +49,19 @@ def get_vpcs(filters=None,tags=None,opts=None):
 
     The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo_vpcs = aws.ec2.get_vpcs(tags={
+        "service": "production",
+    })
+    pulumi.export("foo", foo_vpcs.ids)
+    ```
 
 
 

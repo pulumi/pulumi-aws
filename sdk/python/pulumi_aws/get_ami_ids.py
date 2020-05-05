@@ -56,6 +56,20 @@ def get_ami_ids(executable_users=None,filters=None,name_regex=None,owners=None,s
     """
     Use this data source to get a list of AMI IDs matching the specified criteria.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    ubuntu = aws.get_ami_ids(filters=[{
+            "name": "name",
+            "values": ["ubuntu/images/ubuntu-*-*-amd64-server-*"],
+        }],
+        owners=["099720109477"])
+    ```
 
 
 

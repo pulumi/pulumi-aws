@@ -44,6 +44,24 @@ class LicenseConfiguration(pulumi.CustomResource):
 
         > **Note:** Removing the `license_count` attribute is not supported by the License Manager API - recreate the resource instead.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.licensemanager.LicenseConfiguration("example",
+            description="Example",
+            license_count=10,
+            license_count_hard_limit=True,
+            license_counting_type="Socket",
+            license_rules=["#minimumSockets=2"],
+            tags={
+                "foo": "barr",
+            })
+        ```
 
         ## Rules
 

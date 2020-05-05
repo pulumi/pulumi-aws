@@ -76,6 +76,17 @@ def get_service(cluster_arn=None,service_name=None,opts=None):
     The ECS Service data source allows access to details of a specific
     Service within a AWS ECS Cluster.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ecs.get_service(cluster_arn=data["ecs.Cluster"]["example"]["arn"],
+        service_name="example")
+    ```
 
 
 

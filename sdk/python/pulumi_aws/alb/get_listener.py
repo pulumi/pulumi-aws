@@ -66,6 +66,21 @@ def get_listener(arn=None,load_balancer_arn=None,port=None,opts=None):
     input variable and needs to know the LB it is attached to, or other
     information specific to the listener in question.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    listener_arn = config.require_object("listenerArn")
+    listener = aws.lb.get_listener(arn=listener_arn)
+    selected = aws.lb.get_load_balancer(name="default-public")
+    selected443 = aws.lb.get_listener(load_balancer_arn=selected.arn,
+        port=443)
+    ```
 
 
 

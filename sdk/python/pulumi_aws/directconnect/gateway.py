@@ -26,6 +26,16 @@ class Gateway(pulumi.CustomResource):
         """
         Provides a Direct Connect Gateway.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.directconnect.Gateway("example", amazon_side_asn="64512")
+        ```
 
 
         :param str resource_name: The name of the resource.

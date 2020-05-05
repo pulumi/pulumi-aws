@@ -89,6 +89,95 @@ class Record(pulumi.CustomResource):
         """
         Provides a Route53 record resource.
 
+        ## Example Usage
+
+        ### Simple routing policy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        www = aws.route53.Record("www",
+            name="www.example.com",
+            records=[aws_eip["lb"]["public_ip"]],
+            ttl="300",
+            type="A",
+            zone_id=aws_route53_zone["primary"]["zone_id"])
+        ```
+
+        ### Weighted routing policy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        www_dev = aws.route53.Record("www-dev",
+            name="www",
+            records=["dev.example.com"],
+            set_identifier="dev",
+            ttl="5",
+            type="CNAME",
+            weighted_routing_policies=[{
+                "weight": 10,
+            }],
+            zone_id=aws_route53_zone["primary"]["zone_id"])
+        www_live = aws.route53.Record("www-live",
+            name="www",
+            records=["live.example.com"],
+            set_identifier="live",
+            ttl="5",
+            type="CNAME",
+            weighted_routing_policies=[{
+                "weight": 90,
+            }],
+            zone_id=aws_route53_zone["primary"]["zone_id"])
+        ```
+
+        ### Alias record
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.elb.LoadBalancer("main",
+            availability_zones=["us-east-1c"],
+            listeners=[{
+                "instancePort": 80,
+                "instanceProtocol": "http",
+                "lbPort": 80,
+                "lbProtocol": "http",
+            }])
+        www = aws.route53.Record("www",
+            aliases=[{
+                "evaluateTargetHealth": True,
+                "name": main.dns_name,
+                "zoneId": main.zone_id,
+            }],
+            name="example.com",
+            type="A",
+            zone_id=aws_route53_zone["primary"]["zone_id"])
+        ```
+
+        ### NS and SOA Record Management
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_zone = aws.route53.Zone("exampleZone")
+        example_record = aws.route53.Record("exampleRecord",
+            allow_overwrite=True,
+            name="test.example.com",
+            records=[
+                example_zone.name_servers[0],
+                example_zone.name_servers[1],
+                example_zone.name_servers[2],
+                example_zone.name_servers[3],
+            ],
+            ttl=30,
+            type="NS",
+            zone_id=example_zone.zone_id)
+        ```
 
 
         :param str resource_name: The name of the resource.

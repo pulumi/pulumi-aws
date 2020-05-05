@@ -22,6 +22,19 @@ class ResourceGroup(pulumi.CustomResource):
         """
         Provides an Amazon Inspector resource group resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.inspector.ResourceGroup("example", tags={
+            "Env": "bar",
+            "Name": "foo",
+        })
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -59,6 +59,16 @@ def get_alias(name=None,opts=None):
     By using this data source, you can reference key alias
     without having to hard code the ARN as input.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    s3 = aws.kms.get_alias(name="alias/aws/s3")
+    ```
 
 
 

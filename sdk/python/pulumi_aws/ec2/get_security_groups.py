@@ -56,6 +56,19 @@ def get_security_groups(filters=None,tags=None,opts=None):
     Use this data source to get IDs and VPC membership of Security Groups that are created
     outside of this provider.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.ec2.get_security_groups(tags={
+        "Application": "k8s",
+        "Environment": "dev",
+    })
+    ```
 
 
 

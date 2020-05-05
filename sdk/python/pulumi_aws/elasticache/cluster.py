@@ -157,6 +157,45 @@ class Cluster(pulumi.CustomResource):
         change immediately. Using `apply_immediately` can result in a brief downtime as the server reboots.
         See the AWS Docs on [Modifying an ElastiCache Cache Cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Clusters.Modify.html) for more information.
 
+        ## Example Usage
+
+        ### Memcached Cluster
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.elasticache.Cluster("example",
+            engine="memcached",
+            node_type="cache.m4.large",
+            num_cache_nodes=2,
+            parameter_group_name="default.memcached1.4",
+            port=11211)
+        ```
+
+        ### Redis Instance
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.elasticache.Cluster("example",
+            engine="redis",
+            engine_version="3.2.10",
+            node_type="cache.m4.large",
+            num_cache_nodes=1,
+            parameter_group_name="default.redis3.2",
+            port=6379)
+        ```
+
+        ### Redis Cluster Mode Disabled Read Replica Instance
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        replica = aws.elasticache.Cluster("replica", replication_group_id=aws_elasticache_replication_group["example"]["id"])
+        ```
 
 
         :param str resource_name: The name of the resource.

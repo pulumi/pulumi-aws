@@ -40,6 +40,21 @@ class Configuration(pulumi.CustomResource):
 
         > **NOTE:** The API does not support deleting MSK configurations. Removing this resource will only remove the this provider state for it.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.msk.Configuration("example",
+            kafka_versions=["2.1.0"],
+            server_properties=\"\"\"auto.create.topics.enable = true
+        delete.topic.enable = true
+
+        \"\"\")
+        ```
 
 
         :param str resource_name: The name of the resource.

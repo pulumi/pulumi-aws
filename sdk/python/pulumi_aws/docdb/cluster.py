@@ -147,6 +147,23 @@ class Cluster(pulumi.CustomResource):
         > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        docdb = aws.docdb.Cluster("docdb",
+            backup_retention_period=5,
+            cluster_identifier="my-docdb-cluster",
+            engine="docdb",
+            master_password="mustbeeightchars",
+            master_username="foo",
+            preferred_backup_window="07:00-09:00",
+            skip_final_snapshot=True)
+        ```
 
 
         :param str resource_name: The name of the resource.

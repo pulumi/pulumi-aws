@@ -61,6 +61,19 @@ class TopicSubscription(pulumi.CustomResource):
 
         > **NOTE:** If SNS topic and SQS queue are in different AWS accounts and different AWS regions it is important to recognize that the subscription needs to be initiated from the account with the SQS queue but in the region of the SNS topic.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        user_updates_sqs_target = aws.sns.TopicSubscription("userUpdatesSqsTarget",
+            endpoint="arn:aws:sqs:us-west-2:432981146916:queue-too",
+            protocol="sqs",
+            topic="arn:aws:sns:us-west-2:432981146916:user-updates-topic")
+        ```
 
 
         :param str resource_name: The name of the resource.

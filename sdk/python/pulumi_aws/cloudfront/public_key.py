@@ -36,6 +36,18 @@ class PublicKey(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, comment=None, encoded_key=None, name=None, name_prefix=None, __props__=None, __name__=None, __opts__=None):
         """
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.PublicKey("example",
+            comment="test public key",
+            encoded_key=(lambda path: open(path).read())("public_key.pem"))
+        ```
 
 
         :param str resource_name: The name of the resource.
