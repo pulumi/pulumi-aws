@@ -67,7 +67,7 @@ class Grant(pulumi.CustomResource):
         import pulumi_aws as aws
 
         key = aws.kms.Key("key")
-        role = aws.iam.Role("role", assume_role_policy="""{
+        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -81,7 +81,7 @@ class Grant(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         grant = aws.kms.Grant("grant",
             constraints=[{
                 "encryptionContextEquals": {

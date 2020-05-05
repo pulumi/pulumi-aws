@@ -54,7 +54,7 @@ class Vault(pulumi.CustomResource):
 
         sns.Topic = aws.sns.Topic("awsSnsTopic")
         my_archive = aws.glacier.Vault("myArchive",
-            access_policy="""{
+            access_policy=\"\"\"{
             "Version":"2012-10-17",
             "Statement":[
                {
@@ -70,7 +70,7 @@ class Vault(pulumi.CustomResource):
             ]
         }
 
-        """,
+        \"\"\",
             notifications=[{
                 "events": [
                     "ArchiveRetrievalCompleted",

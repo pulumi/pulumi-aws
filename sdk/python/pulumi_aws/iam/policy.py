@@ -50,7 +50,7 @@ class Policy(pulumi.CustomResource):
         policy = aws.iam.Policy("policy",
             description="My test policy",
             path="/",
-            policy="""{
+            policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -63,7 +63,7 @@ class Policy(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         ```
 
 

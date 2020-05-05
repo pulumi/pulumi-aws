@@ -58,7 +58,7 @@ class Activation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_role = aws.iam.Role("testRole", assume_role_policy="""  {
+        test_role = aws.iam.Role("testRole", assume_role_policy=\"\"\"  {
             "Version": "2012-10-17",
             "Statement": {
               "Effect": "Allow",
@@ -67,7 +67,7 @@ class Activation(pulumi.CustomResource):
             }
           }
 
-        """)
+        \"\"\")
         test_attach = aws.iam.RolePolicyAttachment("testAttach",
             policy_arn="arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
             role=test_role.name)

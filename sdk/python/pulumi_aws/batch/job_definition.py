@@ -61,7 +61,7 @@ class JobDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.batch.JobDefinition("test",
-            container_properties="""{
+            container_properties=\"\"\"{
         	"command": ["ls", "-la"],
         	"image": "busybox",
         	"memory": 1024,
@@ -93,7 +93,7 @@ class JobDefinition(pulumi.CustomResource):
             ]
         }
 
-        """,
+        \"\"\",
             type="container")
         ```
 

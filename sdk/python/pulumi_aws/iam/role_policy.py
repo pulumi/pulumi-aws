@@ -40,7 +40,7 @@ class RolePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_role = aws.iam.Role("testRole", assume_role_policy="""{
+        test_role = aws.iam.Role("testRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -53,10 +53,10 @@ class RolePolicy(pulumi.CustomResource):
             }
           ]
         }
-        """)
+        \"\"\")
         test_policy = aws.iam.RolePolicy("testPolicy",
             role=test_role.id,
-            policy="""{
+            policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -68,7 +68,7 @@ class RolePolicy(pulumi.CustomResource):
             }
           ]
         }
-        """)
+        \"\"\")
         ```
 
 

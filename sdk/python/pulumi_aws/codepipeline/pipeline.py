@@ -73,7 +73,7 @@ class Pipeline(pulumi.CustomResource):
         import pulumi_aws as aws
 
         codepipeline_bucket = aws.s3.Bucket("codepipelineBucket", acl="private")
-        codepipeline_role = aws.iam.Role("codepipelineRole", assume_role_policy="""{
+        codepipeline_role = aws.iam.Role("codepipelineRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -86,9 +86,9 @@ class Pipeline(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         codepipeline_policy = aws.iam.RolePolicy("codepipelinePolicy",
-            policy=pulumi.Output.all(codepipeline_bucket.arn, codepipeline_bucket.arn).apply(lambda codepipelineBucketArn, codepipelineBucketArn1: f"""{{
+            policy=pulumi.Output.all(codepipeline_bucket.arn, codepipeline_bucket.arn).apply(lambda codepipelineBucketArn, codepipelineBucketArn1: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -115,7 +115,7 @@ class Pipeline(pulumi.CustomResource):
           ]
         }}
 
-        """),
+        \"\"\"),
             role=codepipeline_role.id)
         s3kmskey = aws.kms.get_alias(name="alias/myKmsKey")
         codepipeline = aws.codepipeline.Pipeline("codepipeline",

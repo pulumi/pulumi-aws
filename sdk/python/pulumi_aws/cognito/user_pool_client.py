@@ -121,7 +121,7 @@ class UserPoolClient(pulumi.CustomResource):
         current = aws.get_caller_identity()
         test_user_pool = aws.cognito.UserPool("testUserPool")
         test_app = aws.pinpoint.App("testApp")
-        test_role = aws.iam.Role("testRole", assume_role_policy="""{
+        test_role = aws.iam.Role("testRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -135,9 +135,9 @@ class UserPoolClient(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         test_role_policy = aws.iam.RolePolicy("testRolePolicy",
-            policy=test_app.application_id.apply(lambda application_id: f"""{{
+            policy=test_app.application_id.apply(lambda application_id: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -151,7 +151,7 @@ class UserPoolClient(pulumi.CustomResource):
           ]
         }}
 
-        """),
+        \"\"\"),
             role=test_role.id)
         test_user_pool_client = aws.cognito.UserPoolClient("testUserPoolClient",
             analytics_configuration={

@@ -35,7 +35,7 @@ class ContainerPolicy(pulumi.CustomResource):
         example_container = aws.mediastore.Container("exampleContainer")
         example_container_policy = aws.mediastore.ContainerPolicy("exampleContainerPolicy",
             container_name=example_container.name,
-            policy=example_container.name.apply(lambda name: f"""{{
+            policy=example_container.name.apply(lambda name: f\"\"\"{{
         	"Version": "2012-10-17",
         	"Statement": [{{
         		"Sid": "MediaStoreFullAccess",
@@ -49,7 +49,7 @@ class ContainerPolicy(pulumi.CustomResource):
         	}}]
         }}
 
-        """))
+        \"\"\"))
         ```
 
 

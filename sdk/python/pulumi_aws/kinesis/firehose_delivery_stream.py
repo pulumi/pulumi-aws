@@ -244,7 +244,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bucket = aws.s3.Bucket("bucket", acl="private")
-        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy="""{
+        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -258,8 +258,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
           ]
         }
 
-        """)
-        lambda_iam = aws.iam.Role("lambdaIam", assume_role_policy="""{
+        \"\"\")
+        lambda_iam = aws.iam.Role("lambdaIam", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -273,7 +273,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         lambda_processor = aws.lambda_.Function("lambdaProcessor",
             code=pulumi.FileArchive("lambda.zip"),
             handler="exports.handler",
@@ -304,7 +304,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bucket = aws.s3.Bucket("bucket", acl="private")
-        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy="""{
+        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -318,7 +318,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
             destination="s3",
             s3_configuration={

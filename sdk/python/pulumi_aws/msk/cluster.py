@@ -143,7 +143,7 @@ class Cluster(pulumi.CustomResource):
         kms = aws.kms.Key("kms", description="example")
         test = aws.cloudwatch.LogGroup("test")
         bucket = aws.s3.Bucket("bucket", acl="private")
-        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy="""{
+        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=\"\"\"{
         "Version": "2012-10-17",
         "Statement": [
           {
@@ -156,7 +156,7 @@ class Cluster(pulumi.CustomResource):
           }
           ]
         }
-        """)
+        \"\"\")
         test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
             destination="s3",
             s3_configuration={

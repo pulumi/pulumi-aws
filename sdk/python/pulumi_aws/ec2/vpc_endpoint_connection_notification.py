@@ -47,7 +47,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        topic = aws.sns.Topic("topic", policy="""{
+        topic = aws.sns.Topic("topic", policy=\"\"\"{
             "Version":"2012-10-17",
             "Statement":[{
                 "Effect": "Allow",
@@ -59,7 +59,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
             }]
         }
 
-        """)
+        \"\"\")
         foo_vpc_endpoint_service = aws.ec2.VpcEndpointService("fooVpcEndpointService",
             acceptance_required=False,
             network_load_balancer_arns=[aws_lb["test"]["arn"]])

@@ -53,7 +53,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
             supported_login_providers={
                 "graph.facebook.com": "7346241598935555",
             })
-        authenticated_role = aws.iam.Role("authenticatedRole", assume_role_policy=main_identity_pool.id.apply(lambda id: f"""{{
+        authenticated_role = aws.iam.Role("authenticatedRole", assume_role_policy=main_identity_pool.id.apply(lambda id: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -74,9 +74,9 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
           ]
         }}
 
-        """))
+        \"\"\"))
         authenticated_role_policy = aws.iam.RolePolicy("authenticatedRolePolicy",
-            policy="""{
+            policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -93,7 +93,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
           ]
         }
 
-        """,
+        \"\"\",
             role=authenticated_role.id)
         main_identity_pool_role_attachment = aws.cognito.IdentityPoolRoleAttachment("mainIdentityPoolRoleAttachment",
             identity_pool_id=main_identity_pool.id,

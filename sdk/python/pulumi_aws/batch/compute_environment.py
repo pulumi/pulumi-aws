@@ -88,7 +88,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ecs_instance_role_role = aws.iam.Role("ecsInstanceRoleRole", assume_role_policy="""{
+        ecs_instance_role_role = aws.iam.Role("ecsInstanceRoleRole", assume_role_policy=\"\"\"{
             "Version": "2012-10-17",
             "Statement": [
         	{
@@ -101,12 +101,12 @@ class ComputeEnvironment(pulumi.CustomResource):
             ]
         }
 
-        """)
+        \"\"\")
         ecs_instance_role_role_policy_attachment = aws.iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment",
             policy_arn="arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
             role=ecs_instance_role_role.name)
         ecs_instance_role_instance_profile = aws.iam.InstanceProfile("ecsInstanceRoleInstanceProfile", role=ecs_instance_role_role.name)
-        aws_batch_service_role_role = aws.iam.Role("awsBatchServiceRoleRole", assume_role_policy="""{
+        aws_batch_service_role_role = aws.iam.Role("awsBatchServiceRoleRole", assume_role_policy=\"\"\"{
             "Version": "2012-10-17",
             "Statement": [
         	{
@@ -119,7 +119,7 @@ class ComputeEnvironment(pulumi.CustomResource):
             ]
         }
 
-        """)
+        \"\"\")
         aws_batch_service_role_role_policy_attachment = aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment",
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
             role=aws_batch_service_role_role.name)

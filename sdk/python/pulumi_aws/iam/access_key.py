@@ -72,7 +72,7 @@ class AccessKey(pulumi.CustomResource):
             pgp_key="keybase:some_person_that_exists",
             user=lb_user.name)
         lb_ro = aws.iam.UserPolicy("lbRo",
-            policy="""{
+            policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -85,7 +85,7 @@ class AccessKey(pulumi.CustomResource):
           ]
         }
 
-        """,
+        \"\"\",
             user=lb_user.name)
         pulumi.export("secret", lb_access_key.encrypted_secret)
         ```

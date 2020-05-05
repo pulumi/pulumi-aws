@@ -99,7 +99,7 @@ class EventTarget(pulumi.CustomResource):
 
         console = aws.cloudwatch.EventRule("console",
             description="Capture all EC2 scaling events",
-            event_pattern="""{
+            event_pattern=\"\"\"{
           "source": [
             "aws.autoscaling"
           ],
@@ -111,7 +111,7 @@ class EventTarget(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         test_stream = aws.kinesis.Stream("testStream", shard_count=1)
         yada = aws.cloudwatch.EventTarget("yada",
             arn=test_stream.arn,
@@ -142,7 +142,7 @@ class EventTarget(pulumi.CustomResource):
             }],
         }])
         stop_instance = aws.ssm.Document("stopInstance",
-            content="""  {
+            content=\"\"\"  {
             "schemaVersion": "1.2",
             "description": "Stop an instance",
             "parameters": {
@@ -160,7 +160,7 @@ class EventTarget(pulumi.CustomResource):
             }
           }
 
-        """,
+        \"\"\",
             document_type="Command")
         ssm_lifecycle_policy_document = stop_instance.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[
             {

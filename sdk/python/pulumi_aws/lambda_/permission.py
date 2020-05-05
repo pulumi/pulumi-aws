@@ -68,7 +68,7 @@ class Permission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy="""{
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -82,7 +82,7 @@ class Permission(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         test_lambda = aws.lambda_.Function("testLambda",
             code=pulumi.FileArchive("lambdatest.zip"),
             handler="exports.handler",
@@ -107,7 +107,7 @@ class Permission(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default_topic = aws.sns.Topic("defaultTopic")
-        default_role = aws.iam.Role("defaultRole", assume_role_policy="""{
+        default_role = aws.iam.Role("defaultRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -121,7 +121,7 @@ class Permission(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         func = aws.lambda_.Function("func",
             code=pulumi.FileArchive("lambdatest.zip"),
             handler="exports.handler",

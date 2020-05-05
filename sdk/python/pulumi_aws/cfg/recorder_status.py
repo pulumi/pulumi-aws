@@ -33,7 +33,7 @@ class RecorderStatus(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo_recorder_status = aws.cfg.RecorderStatus("fooRecorderStatus", is_enabled=True)
-        role = aws.iam.Role("role", assume_role_policy="""{
+        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -47,7 +47,7 @@ class RecorderStatus(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         role_policy_attachment = aws.iam.RolePolicyAttachment("rolePolicyAttachment",
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRole",
             role=role.name)
@@ -55,7 +55,7 @@ class RecorderStatus(pulumi.CustomResource):
         foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket.bucket)
         foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
         role_policy = aws.iam.RolePolicy("rolePolicy",
-            policy=pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: f"""{{
+            policy=pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -71,7 +71,7 @@ class RecorderStatus(pulumi.CustomResource):
           ]
         }}
 
-        """),
+        \"\"\"),
             role=role.id)
         ```
 

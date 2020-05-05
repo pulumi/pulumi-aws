@@ -43,7 +43,7 @@ class GroupPolicy(pulumi.CustomResource):
         my_developers = aws.iam.Group("myDevelopers", path="/users/")
         my_developer_policy = aws.iam.GroupPolicy("myDeveloperPolicy",
             group=my_developers.id,
-            policy="""{
+            policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -56,7 +56,7 @@ class GroupPolicy(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         ```
 
 

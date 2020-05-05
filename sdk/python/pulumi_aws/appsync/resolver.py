@@ -62,7 +62,7 @@ class Resolver(pulumi.CustomResource):
 
         test_graph_ql_api = aws.appsync.GraphQLApi("testGraphQLApi",
             authentication_type="API_KEY",
-            schema="""type Mutation {
+            schema=\"\"\"type Mutation {
         	putPost(id: ID!, title: String!): Post
         }
 
@@ -80,7 +80,7 @@ class Resolver(pulumi.CustomResource):
         	mutation: Mutation
         }
 
-        """)
+        \"\"\")
         test_data_source = aws.appsync.DataSource("testDataSource",
             api_id=test_graph_ql_api.id,
             http_config={
@@ -92,7 +92,7 @@ class Resolver(pulumi.CustomResource):
             api_id=test_graph_ql_api.id,
             data_source=test_data_source.name,
             field="singlePost",
-            request_template="""{
+            request_template=\"\"\"{
             "version": "2018-05-29",
             "method": "GET",
             "resourcePath": "/",
@@ -101,14 +101,14 @@ class Resolver(pulumi.CustomResource):
             }
         }
 
-        """,
-            response_template="""#if($$ctx.result.statusCode == 200)
+        \"\"\",
+            response_template=\"\"\"#if($$ctx.result.statusCode == 200)
             $$ctx.result.body
         #else
             $$utils.appendError($$ctx.result.body, $$ctx.result.statusCode)
         #end
 
-        """,
+        \"\"\",
             type="Query")
         # PIPELINE type resolver
         mutation_pipeline_test = aws.appsync.Resolver("mutationPipelineTest",

@@ -43,7 +43,7 @@ class UserGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main_user_pool = aws.cognito.UserPool("mainUserPool")
-        group_role = aws.iam.Role("groupRole", assume_role_policy="""{
+        group_role = aws.iam.Role("groupRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -65,7 +65,7 @@ class UserGroup(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         main_user_group = aws.cognito.UserGroup("mainUserGroup",
             description="Managed by Pulumi",
             precedence=42,

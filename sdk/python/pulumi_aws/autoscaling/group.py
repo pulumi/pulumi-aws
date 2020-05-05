@@ -223,11 +223,11 @@ class Group(pulumi.CustomResource):
                 "heartbeatTimeout": 2000,
                 "lifecycleTransition": "autoscaling:EC2_INSTANCE_LAUNCHING",
                 "name": "foobar",
-                "notificationMetadata": """{
+                "notificationMetadata": \"\"\"{
           "foo": "bar"
         }
 
-        """,
+        \"\"\",
                 "notificationTargetArn": "arn:aws:sqs:us-east-1:444455556666:queue1*",
                 "roleArn": "arn:aws:iam::123456789012:role/S3Access",
             }],

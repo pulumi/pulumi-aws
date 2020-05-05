@@ -81,7 +81,7 @@ class DataSource(pulumi.CustomResource):
             hash_key="UserId",
             read_capacity=1,
             write_capacity=1)
-        example_role = aws.iam.Role("exampleRole", assume_role_policy="""{
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -94,9 +94,9 @@ class DataSource(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            policy=example_table.arn.apply(lambda arn: f"""{{
+            policy=example_table.arn.apply(lambda arn: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -111,7 +111,7 @@ class DataSource(pulumi.CustomResource):
           ]
         }}
 
-        """),
+        \"\"\"),
             role=example_role.id)
         example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
         example_data_source = aws.appsync.DataSource("exampleDataSource",

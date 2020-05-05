@@ -116,7 +116,7 @@ class Document(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.ssm.Document("foo",
-            content="""  {
+            content=\"\"\"  {
             "schemaVersion": "1.2",
             "description": "Check ip configuration of a Linux instance.",
             "parameters": {
@@ -134,7 +134,7 @@ class Document(pulumi.CustomResource):
             }
           }
 
-        """,
+        \"\"\",
             document_type="Command")
         ```
 

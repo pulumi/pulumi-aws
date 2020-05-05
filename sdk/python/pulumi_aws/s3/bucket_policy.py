@@ -33,7 +33,7 @@ class BucketPolicy(pulumi.CustomResource):
         bucket = aws.s3.Bucket("bucket")
         bucket_policy = aws.s3.BucketPolicy("bucketPolicy",
             bucket=bucket.id,
-            policy="""{
+            policy=\"\"\"{
           "Version": "2012-10-17",
           "Id": "MYBUCKETPOLICY",
           "Statement": [
@@ -50,7 +50,7 @@ class BucketPolicy(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         ```
 
 

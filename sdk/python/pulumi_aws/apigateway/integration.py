@@ -112,11 +112,11 @@ class Integration(pulumi.CustomResource):
                 "integration.request.header.X-Authorization": "'static'",
             },
             request_templates={
-                "application/xml": """{
+                "application/xml": \"\"\"{
            "body" : $$input.json('$$')
         }
 
-        """,
+        \"\"\",
             },
             resource_id=my_demo_resource.id,
             rest_api=my_demo_api.id,
@@ -164,9 +164,9 @@ class Integration(pulumi.CustomResource):
             },
             request_templates={
                 "application/json": "",
-                "application/xml": """#set($$inputRoot = $$input.path('$$'))
+                "application/xml": \"\"\"#set($$inputRoot = $$input.path('$$'))
         { }
-        """,
+        \"\"\",
             },
             resource_id=test_resource.id,
             rest_api=test_rest_api.id,

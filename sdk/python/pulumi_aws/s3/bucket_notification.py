@@ -59,7 +59,7 @@ class BucketNotification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bucket = aws.s3.Bucket("bucket")
-        topic = aws.sns.Topic("topic", policy=bucket.arn.apply(lambda arn: f"""{{
+        topic = aws.sns.Topic("topic", policy=bucket.arn.apply(lambda arn: f\"\"\"{{
             "Version":"2012-10-17",
             "Statement":[{{
                 "Effect": "Allow",
@@ -72,7 +72,7 @@ class BucketNotification(pulumi.CustomResource):
             }}]
         }}
 
-        """))
+        \"\"\"))
         bucket_notification = aws.s3.BucketNotification("bucketNotification",
             bucket=bucket.id,
             topics=[{
@@ -89,7 +89,7 @@ class BucketNotification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bucket = aws.s3.Bucket("bucket")
-        queue = aws.sqs.Queue("queue", policy=bucket.arn.apply(lambda arn: f"""{{
+        queue = aws.sqs.Queue("queue", policy=bucket.arn.apply(lambda arn: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -104,7 +104,7 @@ class BucketNotification(pulumi.CustomResource):
           ]
         }}
 
-        """))
+        \"\"\"))
         bucket_notification = aws.s3.BucketNotification("bucketNotification",
             bucket=bucket.id,
             queues=[{
@@ -120,7 +120,7 @@ class BucketNotification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy="""{
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -132,7 +132,7 @@ class BucketNotification(pulumi.CustomResource):
             }
           ]
         }
-        """)
+        \"\"\")
         func = aws.lambda_.Function("func",
             code=pulumi.FileArchive("your-function.zip"),
             role=iam_for_lambda.arn,
@@ -160,7 +160,7 @@ class BucketNotification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy="""{
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -172,7 +172,7 @@ class BucketNotification(pulumi.CustomResource):
             }
           ]
         }
-        """)
+        \"\"\")
         func1 = aws.lambda_.Function("func1",
             code=pulumi.FileArchive("your-function1.zip"),
             role=iam_for_lambda.arn,
@@ -218,7 +218,7 @@ class BucketNotification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bucket = aws.s3.Bucket("bucket")
-        queue = aws.sqs.Queue("queue", policy=bucket.arn.apply(lambda arn: f"""{{
+        queue = aws.sqs.Queue("queue", policy=bucket.arn.apply(lambda arn: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -233,7 +233,7 @@ class BucketNotification(pulumi.CustomResource):
           ]
         }}
 
-        """))
+        \"\"\"))
         bucket_notification = aws.s3.BucketNotification("bucketNotification",
             bucket=bucket.id,
             queues=[

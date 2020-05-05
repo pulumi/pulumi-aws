@@ -49,9 +49,9 @@ class ThreatIntelSet(pulumi.CustomResource):
         my_threat_intel_set_bucket_object = aws.s3.BucketObject("myThreatIntelSetBucketObject",
             acl="public-read",
             bucket=bucket.id,
-            content="""10.0.0.0/8
+            content=\"\"\"10.0.0.0/8
 
-        """,
+        \"\"\",
             key="MyThreatIntelSet")
         my_threat_intel_set_threat_intel_set = aws.guardduty.ThreatIntelSet("myThreatIntelSetThreatIntelSet",
             activate=True,

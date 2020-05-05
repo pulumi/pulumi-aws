@@ -182,7 +182,7 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_bucket = aws.s3.Bucket("exampleBucket", acl="private")
-        example_role = aws.iam.Role("exampleRole", assume_role_policy="""{
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -195,9 +195,9 @@ class Project(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            policy=pulumi.Output.all(example_bucket.arn, example_bucket.arn).apply(lambda exampleBucketArn, exampleBucketArn1: f"""{{
+            policy=pulumi.Output.all(example_bucket.arn, example_bucket.arn).apply(lambda exampleBucketArn, exampleBucketArn1: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -255,7 +255,7 @@ class Project(pulumi.CustomResource):
           ]
         }}
 
-        """),
+        \"\"\"),
             role=example_role.name)
         example_project = aws.codebuild.Project("exampleProject",
             artifacts={

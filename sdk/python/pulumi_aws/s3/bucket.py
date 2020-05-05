@@ -225,7 +225,7 @@ class Bucket(pulumi.CustomResource):
             website={
                 "website": "error.html",
                 "website": "index.html",
-                "website": """[{
+                "website": \"\"\"[{
             "Condition": {
                 "KeyPrefixEquals": "docs/"
             },
@@ -234,7 +234,7 @@ class Bucket(pulumi.CustomResource):
             }
         }]
 
-        """,
+        \"\"\",
             })
         ```
 
@@ -358,7 +358,7 @@ class Bucket(pulumi.CustomResource):
         import pulumi_pulumi as pulumi
 
         central = pulumi.providers.Aws("central", region="eu-central-1")
-        replication_role = aws.iam.Role("replicationRole", assume_role_policy="""{
+        replication_role = aws.iam.Role("replicationRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -372,7 +372,7 @@ class Bucket(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         destination = aws.s3.Bucket("destination",
             region="eu-west-1",
             versioning={
@@ -396,7 +396,7 @@ class Bucket(pulumi.CustomResource):
             versioning={
                 "enabled": True,
             })
-        replication_policy = aws.iam.Policy("replicationPolicy", policy=pulumi.Output.all(bucket.arn, bucket.arn, destination.arn).apply(lambda bucketArn, bucketArn1, destinationArn: f"""{{
+        replication_policy = aws.iam.Policy("replicationPolicy", policy=pulumi.Output.all(bucket.arn, bucket.arn, destination.arn).apply(lambda bucketArn, bucketArn1, destinationArn: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -430,7 +430,7 @@ class Bucket(pulumi.CustomResource):
           ]
         }}
 
-        """))
+        \"\"\"))
         replication_role_policy_attachment = aws.iam.RolePolicyAttachment("replicationRolePolicyAttachment",
             policy_arn=replication_policy.arn,
             role=replication_role.name)

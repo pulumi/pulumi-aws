@@ -56,7 +56,7 @@ class InstanceProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         role = aws.iam.Role("role",
-            assume_role_policy="""{
+            assume_role_policy=\"\"\"{
             "Version": "2012-10-17",
             "Statement": [
                 {
@@ -70,7 +70,7 @@ class InstanceProfile(pulumi.CustomResource):
             ]
         }
 
-        """,
+        \"\"\",
             path="/")
         test_profile = aws.iam.InstanceProfile("testProfile", role=role.name)
         ```

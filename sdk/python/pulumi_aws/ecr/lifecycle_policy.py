@@ -40,7 +40,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         foo = aws.ecr.Repository("foo")
         foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
-            policy="""{
+            policy=\"\"\"{
             "rules": [
                 {
                     "rulePriority": 1,
@@ -58,7 +58,7 @@ class LifecyclePolicy(pulumi.CustomResource):
             ]
         }
 
-        """,
+        \"\"\",
             repository=foo.name)
         ```
 
@@ -70,7 +70,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         foo = aws.ecr.Repository("foo")
         foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
-            policy="""{
+            policy=\"\"\"{
             "rules": [
                 {
                     "rulePriority": 1,
@@ -88,7 +88,7 @@ class LifecyclePolicy(pulumi.CustomResource):
             ]
         }
 
-        """,
+        \"\"\",
             repository=foo.name)
         ```
 

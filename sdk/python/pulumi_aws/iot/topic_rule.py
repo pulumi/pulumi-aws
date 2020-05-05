@@ -56,7 +56,7 @@ class TopicRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         mytopic = aws.sns.Topic("mytopic")
-        role = aws.iam.Role("role", assume_role_policy="""{
+        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -69,7 +69,7 @@ class TopicRule(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         rule = aws.iot.TopicRule("rule",
             description="Example rule",
             enabled=True,
@@ -81,7 +81,7 @@ class TopicRule(pulumi.CustomResource):
             sql="SELECT * FROM 'topic/test'",
             sql_version="2016-03-23")
         iam_policy_for_lambda = aws.iam.RolePolicy("iamPolicyForLambda",
-            policy=mytopic.arn.apply(lambda arn: f"""{{
+            policy=mytopic.arn.apply(lambda arn: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -94,7 +94,7 @@ class TopicRule(pulumi.CustomResource):
           ]
         }}
 
-        """),
+        \"\"\"),
             role=role.id)
         ```
 

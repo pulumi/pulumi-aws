@@ -71,7 +71,7 @@ class FlowLog(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_role = aws.iam.Role("exampleRole", assume_role_policy="""{
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -85,14 +85,14 @@ class FlowLog(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
             iam_role_arn=example_role.arn,
             log_destination=example_log_group.arn,
             traffic_type="ALL",
             vpc_id=aws_vpc["example"]["id"])
         example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            policy="""{
+            policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -109,7 +109,7 @@ class FlowLog(pulumi.CustomResource):
           ]
         }
 
-        """,
+        \"\"\",
             role=example_role.id)
         ```
 

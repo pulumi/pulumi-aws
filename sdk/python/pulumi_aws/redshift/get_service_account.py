@@ -55,7 +55,7 @@ def get_service_account(region=None,opts=None):
     main = aws.redshift.get_service_account()
     bucket = aws.s3.Bucket("bucket",
         force_destroy=True,
-        policy=f"""{{
+        policy=f\"\"\"{{
     	"Version": "2008-10-17",
     	"Statement": [
     		{{
@@ -79,7 +79,7 @@ def get_service_account(region=None,opts=None):
     	]
     }}
 
-    """)
+    \"\"\")
     ```
 
 

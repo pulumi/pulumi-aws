@@ -50,7 +50,7 @@ def get_billing_service_account(opts=None):
     main = aws.get_billing_service_account()
     billing_logs = aws.s3.Bucket("billingLogs",
         acl="private",
-        policy=f"""{{
+        policy=f\"\"\"{{
       "Id": "Policy",
       "Version": "2012-10-17",
       "Statement": [
@@ -81,7 +81,7 @@ def get_billing_service_account(opts=None):
       ]
     }}
 
-    """)
+    \"\"\")
     ```
     """
     __args__ = dict()

@@ -35,7 +35,7 @@ class Dashboard(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.cloudwatch.Dashboard("main",
-            dashboard_body=""" {
+            dashboard_body=\"\"\" {
            "widgets": [
                {
                   "type":"metric",
@@ -71,7 +71,7 @@ class Dashboard(pulumi.CustomResource):
            ]
          }
          
-        """,
+        \"\"\",
             dashboard_name="my-dashboard")
         ```
 

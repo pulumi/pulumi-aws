@@ -62,7 +62,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        organization_role = aws.iam.Role("organizationRole", assume_role_policy="""{
+        organization_role = aws.iam.Role("organizationRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -76,7 +76,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         organization_configuration_aggregator = aws.cfg.ConfigurationAggregator("organizationConfigurationAggregator", organization_aggregation_source={
             "allRegions": True,
             "roleArn": organization_role.arn,

@@ -77,11 +77,11 @@ class MethodSettings(pulumi.CustomResource):
         test_integration = aws.apigateway.Integration("testIntegration",
             http_method=test_method.http_method,
             request_templates={
-                "application/xml": """{
+                "application/xml": \"\"\"{
            "body" : $$input.json('$$')
         }
 
-        """,
+        \"\"\",
             },
             resource_id=test_resource.id,
             rest_api=test_rest_api.id,

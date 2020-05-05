@@ -42,7 +42,7 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.organizations.Policy("example", content="""{
+        example = aws.organizations.Policy("example", content=\"\"\"{
           "Version": "2012-10-17",
           "Statement": {
             "Effect": "Allow",
@@ -51,7 +51,7 @@ class Policy(pulumi.CustomResource):
           }
         }
 
-        """)
+        \"\"\")
         ```
 
 

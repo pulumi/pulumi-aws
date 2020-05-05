@@ -87,7 +87,7 @@ class Stack(pulumi.CustomResource):
             parameters={
                 "VPCCidr": "10.0.0.0/16",
             },
-            template_body="""{
+            template_body=\"\"\"{
           "Parameters" : {
             "VPCCidr" : {
               "Type" : "String",
@@ -108,7 +108,7 @@ class Stack(pulumi.CustomResource):
           }
         }
 
-        """)
+        \"\"\")
         ```
 
 

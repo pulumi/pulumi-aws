@@ -52,7 +52,7 @@ class TableItem(pulumi.CustomResource):
             write_capacity=10)
         example_table_item = aws.dynamodb.TableItem("exampleTableItem",
             hash_key=example_table.hash_key,
-            item="""{
+            item=\"\"\"{
           "exampleHashKey": {"S": "something"},
           "one": {"N": "11111"},
           "two": {"N": "22222"},
@@ -60,7 +60,7 @@ class TableItem(pulumi.CustomResource):
           "four": {"N": "44444"}
         }
 
-        """,
+        \"\"\",
             table_name=example_table.name)
         ```
 

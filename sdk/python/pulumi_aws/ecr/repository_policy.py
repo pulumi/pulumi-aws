@@ -38,7 +38,7 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         foo = aws.ecr.Repository("foo")
         foopolicy = aws.ecr.RepositoryPolicy("foopolicy",
-            policy="""{
+            policy=\"\"\"{
             "Version": "2008-10-17",
             "Statement": [
                 {
@@ -65,7 +65,7 @@ class RepositoryPolicy(pulumi.CustomResource):
             ]
         }
 
-        """,
+        \"\"\",
             repository=foo.name)
         ```
 

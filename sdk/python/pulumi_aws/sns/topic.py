@@ -111,7 +111,7 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates", delivery_policy="""{
+        user_updates = aws.sns.Topic("userUpdates", delivery_policy=\"\"\"{
           "http": {
             "defaultHealthyRetryPolicy": {
               "minDelayTarget": 20,
@@ -129,7 +129,7 @@ class Topic(pulumi.CustomResource):
           }
         }
 
-        """)
+        \"\"\")
         ```
 
         ## Example with Server-side encryption (SSE)

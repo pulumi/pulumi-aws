@@ -60,7 +60,7 @@ class Function(pulumi.CustomResource):
 
         test_graph_ql_api = aws.appsync.GraphQLApi("testGraphQLApi",
             authentication_type="API_KEY",
-            schema="""type Mutation {
+            schema=\"\"\"type Mutation {
             putPost(id: ID!, title: String!): Post
         }
 
@@ -78,7 +78,7 @@ class Function(pulumi.CustomResource):
             mutation: Mutation
         }
 
-        """)
+        \"\"\")
         test_data_source = aws.appsync.DataSource("testDataSource",
             api_id=test_graph_ql_api.id,
             http_config={
@@ -89,7 +89,7 @@ class Function(pulumi.CustomResource):
             api_id=test_graph_ql_api.id,
             data_source=test_data_source.name,
             name="tf_example",
-            request_mapping_template="""{
+            request_mapping_template=\"\"\"{
             "version": "2018-05-29",
             "method": "GET",
             "resourcePath": "/",
@@ -98,14 +98,14 @@ class Function(pulumi.CustomResource):
             }
         }
 
-        """,
-            response_mapping_template="""#if($$ctx.result.statusCode == 200)
+        \"\"\",
+            response_mapping_template=\"\"\"#if($$ctx.result.statusCode == 200)
             $$ctx.result.body
         #else
             $$utils.appendError($$ctx.result.body, $$ctx.result.statusCode)
         #end
 
-        """)
+        \"\"\")
         ```
 
 

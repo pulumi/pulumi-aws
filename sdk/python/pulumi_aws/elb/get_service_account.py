@@ -55,7 +55,7 @@ def get_service_account(region=None,opts=None):
     main = aws.elb.get_service_account()
     elb_logs = aws.s3.Bucket("elbLogs",
         acl="private",
-        policy=f"""{{
+        policy=f\"\"\"{{
       "Id": "Policy",
       "Version": "2012-10-17",
       "Statement": [
@@ -74,7 +74,7 @@ def get_service_account(region=None,opts=None):
       ]
     }}
 
-    """)
+    \"\"\")
     bar = aws.elb.LoadBalancer("bar",
         access_logs={
             "bucket": elb_logs.bucket,

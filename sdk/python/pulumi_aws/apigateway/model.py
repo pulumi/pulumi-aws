@@ -47,11 +47,11 @@ class Model(pulumi.CustomResource):
             content_type="application/json",
             description="a JSON schema",
             rest_api=my_demo_api.id,
-            schema="""{
+            schema=\"\"\"{
           "type": "object"
         }
 
-        """)
+        \"\"\")
         ```
 
 

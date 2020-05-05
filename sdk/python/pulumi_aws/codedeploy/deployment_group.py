@@ -149,7 +149,7 @@ class DeploymentGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_role = aws.iam.Role("exampleRole", assume_role_policy="""{
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -163,7 +163,7 @@ class DeploymentGroup(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         a_ws_code_deploy_role = aws.iam.RolePolicyAttachment("aWSCodeDeployRole",
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
             role=example_role.name)

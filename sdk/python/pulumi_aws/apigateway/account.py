@@ -37,7 +37,7 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        cloudwatch_role = aws.iam.Role("cloudwatchRole", assume_role_policy="""{
+        cloudwatch_role = aws.iam.Role("cloudwatchRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -51,10 +51,10 @@ class Account(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         demo = aws.apigateway.Account("demo", cloudwatch_role_arn=cloudwatch_role.arn)
         cloudwatch_role_policy = aws.iam.RolePolicy("cloudwatchRolePolicy",
-            policy="""{
+            policy=\"\"\"{
             "Version": "2012-10-17",
             "Statement": [
                 {
@@ -73,7 +73,7 @@ class Account(pulumi.CustomResource):
             ]
         }
 
-        """,
+        \"\"\",
             role=cloudwatch_role.id)
         ```
 

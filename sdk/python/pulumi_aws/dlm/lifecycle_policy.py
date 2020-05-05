@@ -62,7 +62,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dlm_lifecycle_role = aws.iam.Role("dlmLifecycleRole", assume_role_policy="""{
+        dlm_lifecycle_role = aws.iam.Role("dlmLifecycleRole", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -76,9 +76,9 @@ class LifecyclePolicy(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         dlm_lifecycle = aws.iam.RolePolicy("dlmLifecycle",
-            policy="""{
+            policy=\"\"\"{
            "Version": "2012-10-17",
            "Statement": [
               {
@@ -101,7 +101,7 @@ class LifecyclePolicy(pulumi.CustomResource):
            ]
         }
 
-        """,
+        \"\"\",
             role=dlm_lifecycle_role.id)
         example = aws.dlm.LifecyclePolicy("example",
             description="example DLM lifecycle policy",

@@ -63,13 +63,13 @@ class EventRule(pulumi.CustomResource):
 
         console = aws.cloudwatch.EventRule("console",
             description="Capture each AWS Console Sign In",
-            event_pattern="""{
+            event_pattern=\"\"\"{
           "detail-type": [
             "AWS Console Sign In via CloudTrail"
           ]
         }
 
-        """)
+        \"\"\")
         aws_logins = aws.sns.Topic("awsLogins")
         sns = aws.cloudwatch.EventTarget("sns",
             arn=aws_logins.arn,

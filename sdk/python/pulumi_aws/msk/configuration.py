@@ -50,10 +50,10 @@ class Configuration(pulumi.CustomResource):
 
         example = aws.msk.Configuration("example",
             kafka_versions=["2.1.0"],
-            server_properties="""auto.create.topics.enable = true
+            server_properties=\"\"\"auto.create.topics.enable = true
         delete.topic.enable = true
 
-        """)
+        \"\"\")
         ```
 
 

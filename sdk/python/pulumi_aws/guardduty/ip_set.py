@@ -49,9 +49,9 @@ class IPSet(pulumi.CustomResource):
         my_ip_set_bucket_object = aws.s3.BucketObject("myIPSetBucketObject",
             acl="public-read",
             bucket=bucket.id,
-            content="""10.0.0.0/8
+            content=\"\"\"10.0.0.0/8
 
-        """,
+        \"\"\",
             key="MyIPSet")
         my_ip_set_ip_set = aws.guardduty.IPSet("myIPSetIPSet",
             activate=True,

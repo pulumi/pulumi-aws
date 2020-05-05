@@ -40,7 +40,7 @@ class UserPolicy(pulumi.CustomResource):
 
         lb_user = aws.iam.User("lbUser", path="/system/")
         lb_ro = aws.iam.UserPolicy("lbRo",
-            policy="""{
+            policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -53,7 +53,7 @@ class UserPolicy(pulumi.CustomResource):
           ]
         }
 
-        """,
+        \"\"\",
             user=lb_user.name)
         lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
         ```

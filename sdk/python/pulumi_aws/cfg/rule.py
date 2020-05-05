@@ -85,7 +85,7 @@ class Rule(pulumi.CustomResource):
             "owner": "AWS",
             "sourceIdentifier": "S3_BUCKET_VERSIONING_ENABLED",
         })
-        role = aws.iam.Role("role", assume_role_policy="""{
+        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -99,10 +99,10 @@ class Rule(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         foo = aws.cfg.Recorder("foo", role_arn=role.arn)
         role_policy = aws.iam.RolePolicy("rolePolicy",
-            policy="""{
+            policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
           	{
@@ -114,7 +114,7 @@ class Rule(pulumi.CustomResource):
           ]
         }
 
-        """,
+        \"\"\",
             role=role.id)
         ```
 

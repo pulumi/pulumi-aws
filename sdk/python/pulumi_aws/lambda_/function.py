@@ -163,7 +163,7 @@ class Function(pulumi.CustomResource):
         lambda_logging = aws.iam.Policy("lambdaLogging",
             description="IAM policy for logging from a lambda",
             path="/",
-            policy="""{
+            policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -178,7 +178,7 @@ class Function(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         lambda_logs = aws.iam.RolePolicyAttachment("lambdaLogs",
             policy_arn=lambda_logging.arn,
             role=aws_iam_role["iam_for_lambda"]["name"])

@@ -32,7 +32,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        role = aws.iam.Role("role", assume_role_policy="""    {
+        role = aws.iam.Role("role", assume_role_policy=\"\"\"    {
               "Version": "2012-10-17",
               "Statement": [
                 {
@@ -46,10 +46,10 @@ class RolePolicyAttachment(pulumi.CustomResource):
               ]
             }
 
-        """)
+        \"\"\")
         policy = aws.iam.Policy("policy",
             description="A test policy",
-            policy="""{
+            policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -62,7 +62,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
           ]
         }
 
-        """)
+        \"\"\")
         test_attach = aws.iam.RolePolicyAttachment("test-attach",
             policy_arn=policy.arn,
             role=role.name)

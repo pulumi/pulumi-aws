@@ -215,14 +215,14 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         cluster = aws.emr.Cluster("cluster",
-            additional_info="""{
+            additional_info=\"\"\"{
           "instanceAwsClientConfiguration": {
             "proxyPort": 8099,
             "proxyHost": "myproxy.example.com"
           }
         }
 
-        """,
+        \"\"\",
             applications=["Spark"],
             bootstrap_actions=[{
                 "args": [
@@ -232,7 +232,7 @@ class Cluster(pulumi.CustomResource):
                 "name": "runif",
                 "path": "s3://elasticmapreduce/bootstrap-actions/run-if",
             }],
-            configurations_json="""  [
+            configurations_json=\"\"\"  [
             {
               "Classification": "hadoop-env",
               "Configurations": [
@@ -259,9 +259,9 @@ class Cluster(pulumi.CustomResource):
             }
           ]
 
-        """,
+        \"\"\",
             core_instance_group={
-                "autoscalingPolicy": """{
+                "autoscalingPolicy": \"\"\"{
         "Constraints": {
           "MinCapacity": 1,
           "MaxCapacity": 2
@@ -293,7 +293,7 @@ class Cluster(pulumi.CustomResource):
         ]
         }
 
-        """,
+        \"\"\",
                 "bidPrice": "0.30",
                 "ebsConfig": [{
                     "size": "40",
@@ -389,7 +389,7 @@ class Cluster(pulumi.CustomResource):
                 "name": "emr_test",
             })
         # IAM role for EMR Service
-        iam_emr_service_role = aws.iam.Role("iamEmrServiceRole", assume_role_policy="""{
+        iam_emr_service_role = aws.iam.Role("iamEmrServiceRole", assume_role_policy=\"\"\"{
           "Version": "2008-10-17",
           "Statement": [
             {
@@ -402,9 +402,9 @@ class Cluster(pulumi.CustomResource):
             }
           ]
         }
-        """)
+        \"\"\")
         # IAM Role for EC2 Instance Profile
-        iam_emr_profile_role = aws.iam.Role("iamEmrProfileRole", assume_role_policy="""{
+        iam_emr_profile_role = aws.iam.Role("iamEmrProfileRole", assume_role_policy=\"\"\"{
           "Version": "2008-10-17",
           "Statement": [
             {
@@ -417,7 +417,7 @@ class Cluster(pulumi.CustomResource):
             }
           ]
         }
-        """)
+        \"\"\")
         emr_profile = aws.iam.InstanceProfile("emrProfile", roles=[iam_emr_profile_role.name])
         cluster = aws.emr.Cluster("cluster",
             release_label="emr-4.6.0",
@@ -445,7 +445,7 @@ class Cluster(pulumi.CustomResource):
                     "echo running on master node",
                 ],
             }],
-            configurations_json="""  [
+            configurations_json=\"\"\"  [
             {
               "Classification": "hadoop-env",
               "Configurations": [
@@ -471,7 +471,7 @@ class Cluster(pulumi.CustomResource):
               "Properties": {}
             }
           ]
-        """,
+        \"\"\",
             service_role=iam_emr_service_role.arn)
         allow_access = aws.ec2.SecurityGroup("allowAccess",
             description="Allow inbound traffic",
@@ -504,7 +504,7 @@ class Cluster(pulumi.CustomResource):
         ###
         iam_emr_service_policy = aws.iam.RolePolicy("iamEmrServicePolicy",
             role=iam_emr_service_role.id,
-            policy="""{
+            policy=\"\"\"{
             "Version": "2012-10-17",
             "Statement": [{
                 "Effect": "Allow",
@@ -566,10 +566,10 @@ class Cluster(pulumi.CustomResource):
                 ]
             }]
         }
-        """)
+        \"\"\")
         iam_emr_profile_policy = aws.iam.RolePolicy("iamEmrProfilePolicy",
             role=iam_emr_profile_role.id,
-            policy="""{
+            policy=\"\"\"{
             "Version": "2012-10-17",
             "Statement": [{
                 "Effect": "Allow",
@@ -600,7 +600,7 @@ class Cluster(pulumi.CustomResource):
                 ]
             }]
         }
-        """)
+        \"\"\")
         ```
 
         :param str resource_name: The name of the resource.

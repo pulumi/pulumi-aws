@@ -108,7 +108,7 @@ class Trail(pulumi.CustomResource):
         current = aws.get_caller_identity()
         foo = aws.s3.Bucket("foo",
             force_destroy=True,
-            policy=f"""{{
+            policy=f\"\"\"{{
             "Version": "2012-10-17",
             "Statement": [
                 {{
@@ -137,7 +137,7 @@ class Trail(pulumi.CustomResource):
             ]
         }}
 
-        """)
+        \"\"\")
         foobar = aws.cloudtrail.Trail("foobar",
             include_global_service_events=False,
             s3_bucket_name=foo.id,

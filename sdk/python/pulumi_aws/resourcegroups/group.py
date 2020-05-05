@@ -46,7 +46,7 @@ class Group(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.resourcegroups.Group("test", resource_query={
-            "query": """{
+            "query": \"\"\"{
           "ResourceTypeFilters": [
             "AWS::EC2::Instance"
           ],
@@ -58,7 +58,7 @@ class Group(pulumi.CustomResource):
           ]
         }
 
-        """,
+        \"\"\",
         })
         ```
 

@@ -36,7 +36,7 @@ class SshKey(pulumi.CustomResource):
             tags={
                 "NAME": "tf-acc-test-transfer-server",
             })
-        foo_role = aws.iam.Role("fooRole", assume_role_policy="""{
+        foo_role = aws.iam.Role("fooRole", assume_role_policy=\"\"\"{
         	"Version": "2012-10-17",
         	"Statement": [
         		{
@@ -49,9 +49,9 @@ class SshKey(pulumi.CustomResource):
         	]
         }
 
-        """)
+        \"\"\")
         foo_role_policy = aws.iam.RolePolicy("fooRolePolicy",
-            policy="""{
+            policy=\"\"\"{
         	"Version": "2012-10-17",
         	"Statement": [
         		{
@@ -65,7 +65,7 @@ class SshKey(pulumi.CustomResource):
         	]
         }
 
-        """,
+        \"\"\",
             role=foo_role.id)
         foo_user = aws.transfer.User("fooUser",
             role=foo_role.arn,

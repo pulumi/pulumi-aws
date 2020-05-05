@@ -158,7 +158,7 @@ class Domain(pulumi.CustomResource):
             domain = "tf-test"
         current_region = aws.get_region()
         current_caller_identity = aws.get_caller_identity()
-        example = aws.elasticsearch.Domain("example", access_policies=f"""{{
+        example = aws.elasticsearch.Domain("example", access_policies=f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -173,7 +173,7 @@ class Domain(pulumi.CustomResource):
           ]
         }}
 
-        """)
+        \"\"\")
         ```
 
         ### Log Publishing to CloudWatch Logs
@@ -184,7 +184,7 @@ class Domain(pulumi.CustomResource):
 
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
         example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
-            policy_document="""{
+            policy_document=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -202,7 +202,7 @@ class Domain(pulumi.CustomResource):
           ]
         }
 
-        """,
+        \"\"\",
             policy_name="example")
         example_domain = aws.elasticsearch.Domain("exampleDomain", log_publishing_options=[{
             "cloudwatchLogGroupArn": example_log_group.arn,
@@ -241,7 +241,7 @@ class Domain(pulumi.CustomResource):
             vpc_id=selected_vpc.id)
         es_service_linked_role = aws.iam.ServiceLinkedRole("esServiceLinkedRole", aws_service_name="es.amazonaws.com")
         es_domain = aws.elasticsearch.Domain("esDomain",
-            access_policies=f"""{{
+            access_policies=f\"\"\"{{
         	"Version": "2012-10-17",
         	"Statement": [
         		{{
@@ -253,7 +253,7 @@ class Domain(pulumi.CustomResource):
         	]
         }}
 
-        """,
+        \"\"\",
             advanced_options={
                 "rest.action.multi.allow_explicit_index": "true",
             },
