@@ -140,7 +140,7 @@ export class Document extends pulumi.CustomResource {
     /**
      * Additional Permissions to attach to the document. See Permissions below for details.
      */
-    public readonly permissions!: pulumi.Output<outputs.ssm.DocumentPermissions | undefined>;
+    public readonly permissions!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
      */
@@ -294,7 +294,7 @@ export interface DocumentState {
     /**
      * Additional Permissions to attach to the document. See Permissions below for details.
      */
-    readonly permissions?: pulumi.Input<inputs.ssm.DocumentPermissions>;
+    readonly permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
      */
@@ -344,7 +344,7 @@ export interface DocumentArgs {
     /**
      * Additional Permissions to attach to the document. See Permissions below for details.
      */
-    readonly permissions?: pulumi.Input<inputs.ssm.DocumentPermissions>;
+    readonly permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags to assign to the object.
      */

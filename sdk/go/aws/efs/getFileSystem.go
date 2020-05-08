@@ -46,8 +46,10 @@ type LookupFileSystemResult struct {
 	PerformanceMode string `pulumi:"performanceMode"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system.
 	// * `tags` -A map of tags to assign to the file system.
-	ProvisionedThroughputInMibps float64                `pulumi:"provisionedThroughputInMibps"`
-	Tags                         map[string]interface{} `pulumi:"tags"`
+	ProvisionedThroughputInMibps float64 `pulumi:"provisionedThroughputInMibps"`
+	// The current byte count used by the file system.
+	SizeInBytes int                    `pulumi:"sizeInBytes"`
+	Tags        map[string]interface{} `pulumi:"tags"`
 	// Throughput mode for the file system.
 	ThroughputMode string `pulumi:"throughputMode"`
 }

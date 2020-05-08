@@ -13,7 +13,7 @@ class GetFileSystemResult:
     """
     A collection of values returned by getFileSystem.
     """
-    def __init__(__self__, arn=None, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, id=None, kms_key_id=None, lifecycle_policy=None, performance_mode=None, provisioned_throughput_in_mibps=None, tags=None, throughput_mode=None):
+    def __init__(__self__, arn=None, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, id=None, kms_key_id=None, lifecycle_policy=None, performance_mode=None, provisioned_throughput_in_mibps=None, size_in_bytes=None, tags=None, throughput_mode=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -69,6 +69,12 @@ class GetFileSystemResult:
         The throughput, measured in MiB/s, that you want to provision for the file system.
         * `tags` -A map of tags to assign to the file system.
         """
+        if size_in_bytes and not isinstance(size_in_bytes, float):
+            raise TypeError("Expected argument 'size_in_bytes' to be a float")
+        __self__.size_in_bytes = size_in_bytes
+        """
+        The current byte count used by the file system.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -94,6 +100,7 @@ class AwaitableGetFileSystemResult(GetFileSystemResult):
             lifecycle_policy=self.lifecycle_policy,
             performance_mode=self.performance_mode,
             provisioned_throughput_in_mibps=self.provisioned_throughput_in_mibps,
+            size_in_bytes=self.size_in_bytes,
             tags=self.tags,
             throughput_mode=self.throughput_mode)
 
@@ -144,5 +151,6 @@ def get_file_system(creation_token=None,file_system_id=None,tags=None,opts=None)
         lifecycle_policy=__ret__.get('lifecyclePolicy'),
         performance_mode=__ret__.get('performanceMode'),
         provisioned_throughput_in_mibps=__ret__.get('provisionedThroughputInMibps'),
+        size_in_bytes=__ret__.get('sizeInBytes'),
         tags=__ret__.get('tags'),
         throughput_mode=__ret__.get('throughputMode'))

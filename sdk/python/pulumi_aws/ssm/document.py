@@ -75,9 +75,6 @@ class Document(pulumi.CustomResource):
     permissions: pulumi.Output[dict]
     """
     Additional Permissions to attach to the document. See Permissions below for details.
-
-      * `account_ids` (`str`)
-      * `type` (`str`)
     """
     platform_types: pulumi.Output[list]
     """
@@ -165,11 +162,6 @@ class Document(pulumi.CustomResource):
           * `key` (`pulumi.Input[str]`) - The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
           * `name` (`pulumi.Input[str]`) - The name of the document attachment file
           * `values` (`pulumi.Input[list]`) - The value describing the location of an attachment to a document
-
-        The **permissions** object supports the following:
-
-          * `account_ids` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -258,11 +250,6 @@ class Document(pulumi.CustomResource):
           * `default_value` (`pulumi.Input[str]`)
           * `description` (`pulumi.Input[str]`) - The description of the document.
           * `name` (`pulumi.Input[str]`) - The name of the document.
-          * `type` (`pulumi.Input[str]`)
-
-        The **permissions** object supports the following:
-
-          * `account_ids` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

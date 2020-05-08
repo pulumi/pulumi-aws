@@ -126,7 +126,7 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
     /**
      * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
      */
-    public readonly roles!: pulumi.Output<outputs.cognito.IdentityPoolRoleAttachmentRoles>;
+    public readonly roles!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a IdentityPoolRoleAttachment resource with the given unique name, arguments, and options.
@@ -181,7 +181,7 @@ export interface IdentityPoolRoleAttachmentState {
     /**
      * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
      */
-    readonly roles?: pulumi.Input<inputs.cognito.IdentityPoolRoleAttachmentRoles>;
+    readonly roles?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -199,5 +199,5 @@ export interface IdentityPoolRoleAttachmentArgs {
     /**
      * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
      */
-    readonly roles: pulumi.Input<inputs.cognito.IdentityPoolRoleAttachmentRoles>;
+    readonly roles: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

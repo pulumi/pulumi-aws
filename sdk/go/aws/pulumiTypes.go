@@ -1324,6 +1324,7 @@ type ProviderEndpoint struct {
 	Kinesis                *string `pulumi:"kinesis"`
 	KinesisAnalytics       *string `pulumi:"kinesisAnalytics"`
 	Kinesisanalytics       *string `pulumi:"kinesisanalytics"`
+	Kinesisanalyticsv2     *string `pulumi:"kinesisanalyticsv2"`
 	Kinesisvideo           *string `pulumi:"kinesisvideo"`
 	Kms                    *string `pulumi:"kms"`
 	Lakeformation          *string `pulumi:"lakeformation"`
@@ -1474,6 +1475,7 @@ type ProviderEndpointArgs struct {
 	Kinesis                pulumi.StringPtrInput `pulumi:"kinesis"`
 	KinesisAnalytics       pulumi.StringPtrInput `pulumi:"kinesisAnalytics"`
 	Kinesisanalytics       pulumi.StringPtrInput `pulumi:"kinesisanalytics"`
+	Kinesisanalyticsv2     pulumi.StringPtrInput `pulumi:"kinesisanalyticsv2"`
 	Kinesisvideo           pulumi.StringPtrInput `pulumi:"kinesisvideo"`
 	Kms                    pulumi.StringPtrInput `pulumi:"kms"`
 	Lakeformation          pulumi.StringPtrInput `pulumi:"lakeformation"`
@@ -1886,6 +1888,10 @@ func (o ProviderEndpointOutput) KinesisAnalytics() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Kinesisanalytics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Kinesisanalytics }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Kinesisanalyticsv2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Kinesisanalyticsv2 }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Kinesisvideo() pulumi.StringPtrOutput {

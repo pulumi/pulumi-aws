@@ -15,10 +15,58 @@ namespace Pulumi.Aws.Workspaces
     public partial class Directory : Pulumi.CustomResource
     {
         /// <summary>
+        /// The directory alias.
+        /// </summary>
+        [Output("alias")]
+        public Output<string> Alias { get; private set; } = null!;
+
+        /// <summary>
+        /// The user name for the service account.
+        /// </summary>
+        [Output("customerUserName")]
+        public Output<string> CustomerUserName { get; private set; } = null!;
+
+        /// <summary>
         /// The directory identifier for registration in WorkSpaces service.
         /// </summary>
         [Output("directoryId")]
         public Output<string> DirectoryId { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the directory.
+        /// </summary>
+        [Output("directoryName")]
+        public Output<string> DirectoryName { get; private set; } = null!;
+
+        /// <summary>
+        /// The directory type.
+        /// </summary>
+        [Output("directoryType")]
+        public Output<string> DirectoryType { get; private set; } = null!;
+
+        /// <summary>
+        /// The IP addresses of the DNS servers for the directory.
+        /// </summary>
+        [Output("dnsIpAddresses")]
+        public Output<ImmutableArray<string>> DnsIpAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+        /// </summary>
+        [Output("iamRoleId")]
+        public Output<string> IamRoleId { get; private set; } = null!;
+
+        /// <summary>
+        /// The identifiers of the IP access control groups associated with the directory.
+        /// </summary>
+        [Output("ipGroupIds")]
+        public Output<ImmutableArray<string>> IpGroupIds { get; private set; } = null!;
+
+        /// <summary>
+        /// The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+        /// </summary>
+        [Output("registrationCode")]
+        public Output<string> RegistrationCode { get; private set; } = null!;
 
         /// <summary>
         /// The permissions to enable or disable self-service capabilities.
@@ -37,6 +85,12 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The identifier of the security group that is assigned to new WorkSpaces.
+        /// </summary>
+        [Output("workspaceSecurityGroupId")]
+        public Output<string> WorkspaceSecurityGroupId { get; private set; } = null!;
 
 
         /// <summary>
@@ -128,10 +182,70 @@ namespace Pulumi.Aws.Workspaces
     public sealed class DirectoryState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The directory alias.
+        /// </summary>
+        [Input("alias")]
+        public Input<string>? Alias { get; set; }
+
+        /// <summary>
+        /// The user name for the service account.
+        /// </summary>
+        [Input("customerUserName")]
+        public Input<string>? CustomerUserName { get; set; }
+
+        /// <summary>
         /// The directory identifier for registration in WorkSpaces service.
         /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
+
+        /// <summary>
+        /// The name of the directory.
+        /// </summary>
+        [Input("directoryName")]
+        public Input<string>? DirectoryName { get; set; }
+
+        /// <summary>
+        /// The directory type.
+        /// </summary>
+        [Input("directoryType")]
+        public Input<string>? DirectoryType { get; set; }
+
+        [Input("dnsIpAddresses")]
+        private InputList<string>? _dnsIpAddresses;
+
+        /// <summary>
+        /// The IP addresses of the DNS servers for the directory.
+        /// </summary>
+        public InputList<string> DnsIpAddresses
+        {
+            get => _dnsIpAddresses ?? (_dnsIpAddresses = new InputList<string>());
+            set => _dnsIpAddresses = value;
+        }
+
+        /// <summary>
+        /// The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+        /// </summary>
+        [Input("iamRoleId")]
+        public Input<string>? IamRoleId { get; set; }
+
+        [Input("ipGroupIds")]
+        private InputList<string>? _ipGroupIds;
+
+        /// <summary>
+        /// The identifiers of the IP access control groups associated with the directory.
+        /// </summary>
+        public InputList<string> IpGroupIds
+        {
+            get => _ipGroupIds ?? (_ipGroupIds = new InputList<string>());
+            set => _ipGroupIds = value;
+        }
+
+        /// <summary>
+        /// The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+        /// </summary>
+        [Input("registrationCode")]
+        public Input<string>? RegistrationCode { get; set; }
 
         /// <summary>
         /// The permissions to enable or disable self-service capabilities.
@@ -162,6 +276,12 @@ namespace Pulumi.Aws.Workspaces
             get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The identifier of the security group that is assigned to new WorkSpaces.
+        /// </summary>
+        [Input("workspaceSecurityGroupId")]
+        public Input<string>? WorkspaceSecurityGroupId { get; set; }
 
         public DirectoryState()
         {

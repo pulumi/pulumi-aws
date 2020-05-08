@@ -6,6 +6,54 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
+ * 
+ * ## Example Usage
+ * 
+ * ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.s3.Bucket("example", {});
+ * const analytics = new aws.s3.Bucket("analytics", {});
+ * const example-entire-bucket = new aws.s3.AnalyticsConfiguration("example-entire-bucket", {
+ *     bucket: example.bucket,
+ *     storage_class_analysis: {
+ *         data_export: {
+ *             destination: {
+ *                 s3_bucket_destination: {
+ *                     bucketArn: analytics.arn,
+ *                 },
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ * 
+ * ### Add analytics configuration with S3 bucket object filter
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.s3.Bucket("example", {});
+ * const example-filtered = new aws.s3.AnalyticsConfiguration("example-filtered", {
+ *     bucket: example.bucket,
+ *     filter: {
+ *         prefix: "documents/",
+ *         tags: {
+ *             priority: "high",
+ *             "class": "blue",
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_analysis_configuration.html.markdown.
+ */
 export class AnalyticsConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing AnalyticsConfiguration resource's state with the given name, ID, and optional extra
@@ -33,9 +81,21 @@ export class AnalyticsConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === AnalyticsConfiguration.__pulumiType;
     }
 
+    /**
+     * The name of the bucket this analytics configuration is associated with.
+     */
     public readonly bucket!: pulumi.Output<string>;
+    /**
+     * Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+     */
     public readonly filter!: pulumi.Output<outputs.s3.AnalyticsConfigurationFilter | undefined>;
+    /**
+     * Unique identifier of the analytics configuration for the bucket.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Configuration for the analytics data export (documented below).
+     */
     public readonly storageClassAnalysis!: pulumi.Output<outputs.s3.AnalyticsConfigurationStorageClassAnalysis | undefined>;
 
     /**
@@ -79,9 +139,21 @@ export class AnalyticsConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AnalyticsConfiguration resources.
  */
 export interface AnalyticsConfigurationState {
+    /**
+     * The name of the bucket this analytics configuration is associated with.
+     */
     readonly bucket?: pulumi.Input<string>;
+    /**
+     * Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+     */
     readonly filter?: pulumi.Input<inputs.s3.AnalyticsConfigurationFilter>;
+    /**
+     * Unique identifier of the analytics configuration for the bucket.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Configuration for the analytics data export (documented below).
+     */
     readonly storageClassAnalysis?: pulumi.Input<inputs.s3.AnalyticsConfigurationStorageClassAnalysis>;
 }
 
@@ -89,8 +161,20 @@ export interface AnalyticsConfigurationState {
  * The set of arguments for constructing a AnalyticsConfiguration resource.
  */
 export interface AnalyticsConfigurationArgs {
+    /**
+     * The name of the bucket this analytics configuration is associated with.
+     */
     readonly bucket: pulumi.Input<string>;
+    /**
+     * Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+     */
     readonly filter?: pulumi.Input<inputs.s3.AnalyticsConfigurationFilter>;
+    /**
+     * Unique identifier of the analytics configuration for the bucket.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Configuration for the analytics data export (documented below).
+     */
     readonly storageClassAnalysis?: pulumi.Input<inputs.s3.AnalyticsConfigurationStorageClassAnalysis>;
 }

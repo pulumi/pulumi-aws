@@ -237,6 +237,9 @@ namespace Pulumi.Aws.Inputs
         [Input("kinesisanalytics")]
         public Input<string>? Kinesisanalytics { get; set; }
 
+        [Input("kinesisanalyticsv2")]
+        public Input<string>? Kinesisanalyticsv2 { get; set; }
+
         [Input("kinesisvideo")]
         public Input<string>? Kinesisvideo { get; set; }
 

@@ -360,8 +360,10 @@ func (o AccessPointVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 type AnalyticsConfigurationFilter struct {
-	Prefix *string                `pulumi:"prefix"`
-	Tags   map[string]interface{} `pulumi:"tags"`
+	// Object prefix for filtering.
+	Prefix *string `pulumi:"prefix"`
+	// Set of object tags for filtering.
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // AnalyticsConfigurationFilterInput is an input type that accepts AnalyticsConfigurationFilterArgs and AnalyticsConfigurationFilterOutput values.
@@ -377,8 +379,10 @@ type AnalyticsConfigurationFilterInput interface {
 }
 
 type AnalyticsConfigurationFilterArgs struct {
+	// Object prefix for filtering.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	Tags   pulumi.MapInput       `pulumi:"tags"`
+	// Set of object tags for filtering.
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 func (AnalyticsConfigurationFilterArgs) ElementType() reflect.Type {
@@ -458,10 +462,13 @@ func (o AnalyticsConfigurationFilterOutput) ToAnalyticsConfigurationFilterPtrOut
 		return &v
 	}).(AnalyticsConfigurationFilterPtrOutput)
 }
+
+// Object prefix for filtering.
 func (o AnalyticsConfigurationFilterOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsConfigurationFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
+// Set of object tags for filtering.
 func (o AnalyticsConfigurationFilterOutput) Tags() pulumi.MapOutput {
 	return o.ApplyT(func(v AnalyticsConfigurationFilter) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
 }
@@ -484,6 +491,7 @@ func (o AnalyticsConfigurationFilterPtrOutput) Elem() AnalyticsConfigurationFilt
 	return o.ApplyT(func(v *AnalyticsConfigurationFilter) AnalyticsConfigurationFilter { return *v }).(AnalyticsConfigurationFilterOutput)
 }
 
+// Object prefix for filtering.
 func (o AnalyticsConfigurationFilterPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsConfigurationFilter) *string {
 		if v == nil {
@@ -493,6 +501,7 @@ func (o AnalyticsConfigurationFilterPtrOutput) Prefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Set of object tags for filtering.
 func (o AnalyticsConfigurationFilterPtrOutput) Tags() pulumi.MapOutput {
 	return o.ApplyT(func(v *AnalyticsConfigurationFilter) map[string]interface{} {
 		if v == nil {
@@ -503,6 +512,7 @@ func (o AnalyticsConfigurationFilterPtrOutput) Tags() pulumi.MapOutput {
 }
 
 type AnalyticsConfigurationStorageClassAnalysis struct {
+	// Data export configuration (documented below).
 	DataExport AnalyticsConfigurationStorageClassAnalysisDataExport `pulumi:"dataExport"`
 }
 
@@ -519,6 +529,7 @@ type AnalyticsConfigurationStorageClassAnalysisInput interface {
 }
 
 type AnalyticsConfigurationStorageClassAnalysisArgs struct {
+	// Data export configuration (documented below).
 	DataExport AnalyticsConfigurationStorageClassAnalysisDataExportInput `pulumi:"dataExport"`
 }
 
@@ -599,6 +610,8 @@ func (o AnalyticsConfigurationStorageClassAnalysisOutput) ToAnalyticsConfigurati
 		return &v
 	}).(AnalyticsConfigurationStorageClassAnalysisPtrOutput)
 }
+
+// Data export configuration (documented below).
 func (o AnalyticsConfigurationStorageClassAnalysisOutput) DataExport() AnalyticsConfigurationStorageClassAnalysisDataExportOutput {
 	return o.ApplyT(func(v AnalyticsConfigurationStorageClassAnalysis) AnalyticsConfigurationStorageClassAnalysisDataExport {
 		return v.DataExport
@@ -625,6 +638,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisPtrOutput) Elem() AnalyticsCon
 	}).(AnalyticsConfigurationStorageClassAnalysisOutput)
 }
 
+// Data export configuration (documented below).
 func (o AnalyticsConfigurationStorageClassAnalysisPtrOutput) DataExport() AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput {
 	return o.ApplyT(func(v *AnalyticsConfigurationStorageClassAnalysis) *AnalyticsConfigurationStorageClassAnalysisDataExport {
 		if v == nil {
@@ -635,8 +649,10 @@ func (o AnalyticsConfigurationStorageClassAnalysisPtrOutput) DataExport() Analyt
 }
 
 type AnalyticsConfigurationStorageClassAnalysisDataExport struct {
-	Destination         AnalyticsConfigurationStorageClassAnalysisDataExportDestination `pulumi:"destination"`
-	OutputSchemaVersion *string                                                         `pulumi:"outputSchemaVersion"`
+	// Specifies the destination for the exported analytics data (documented below).
+	Destination AnalyticsConfigurationStorageClassAnalysisDataExportDestination `pulumi:"destination"`
+	// The schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
+	OutputSchemaVersion *string `pulumi:"outputSchemaVersion"`
 }
 
 // AnalyticsConfigurationStorageClassAnalysisDataExportInput is an input type that accepts AnalyticsConfigurationStorageClassAnalysisDataExportArgs and AnalyticsConfigurationStorageClassAnalysisDataExportOutput values.
@@ -652,8 +668,10 @@ type AnalyticsConfigurationStorageClassAnalysisDataExportInput interface {
 }
 
 type AnalyticsConfigurationStorageClassAnalysisDataExportArgs struct {
-	Destination         AnalyticsConfigurationStorageClassAnalysisDataExportDestinationInput `pulumi:"destination"`
-	OutputSchemaVersion pulumi.StringPtrInput                                                `pulumi:"outputSchemaVersion"`
+	// Specifies the destination for the exported analytics data (documented below).
+	Destination AnalyticsConfigurationStorageClassAnalysisDataExportDestinationInput `pulumi:"destination"`
+	// The schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
+	OutputSchemaVersion pulumi.StringPtrInput `pulumi:"outputSchemaVersion"`
 }
 
 func (AnalyticsConfigurationStorageClassAnalysisDataExportArgs) ElementType() reflect.Type {
@@ -733,12 +751,15 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportOutput) ToAnalyticsC
 		return &v
 	}).(AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput)
 }
+
+// Specifies the destination for the exported analytics data (documented below).
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportOutput) Destination() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput {
 	return o.ApplyT(func(v AnalyticsConfigurationStorageClassAnalysisDataExport) AnalyticsConfigurationStorageClassAnalysisDataExportDestination {
 		return v.Destination
 	}).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput)
 }
 
+// The schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportOutput) OutputSchemaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsConfigurationStorageClassAnalysisDataExport) *string { return v.OutputSchemaVersion }).(pulumi.StringPtrOutput)
 }
@@ -763,6 +784,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput) Elem() An
 	}).(AnalyticsConfigurationStorageClassAnalysisDataExportOutput)
 }
 
+// Specifies the destination for the exported analytics data (documented below).
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput) Destination() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput {
 	return o.ApplyT(func(v *AnalyticsConfigurationStorageClassAnalysisDataExport) *AnalyticsConfigurationStorageClassAnalysisDataExportDestination {
 		if v == nil {
@@ -772,6 +794,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput) Destinati
 	}).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput)
 }
 
+// The schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput) OutputSchemaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsConfigurationStorageClassAnalysisDataExport) *string {
 		if v == nil {
@@ -782,6 +805,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput) OutputSch
 }
 
 type AnalyticsConfigurationStorageClassAnalysisDataExportDestination struct {
+	// Analytics data export currently only supports an S3 bucket destination (documented below).
 	S3BucketDestination AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination `pulumi:"s3BucketDestination"`
 }
 
@@ -798,6 +822,7 @@ type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationInput interf
 }
 
 type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs struct {
+	// Analytics data export currently only supports an S3 bucket destination (documented below).
 	S3BucketDestination AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationInput `pulumi:"s3BucketDestination"`
 }
 
@@ -878,6 +903,8 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput) T
 		return &v
 	}).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput)
 }
+
+// Analytics data export currently only supports an S3 bucket destination (documented below).
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput) S3BucketDestination() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput {
 	return o.ApplyT(func(v AnalyticsConfigurationStorageClassAnalysisDataExportDestination) AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination {
 		return v.S3BucketDestination
@@ -904,6 +931,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput
 	}).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput)
 }
 
+// Analytics data export currently only supports an S3 bucket destination (documented below).
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput) S3BucketDestination() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput {
 	return o.ApplyT(func(v *AnalyticsConfigurationStorageClassAnalysisDataExportDestination) *AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination {
 		if v == nil {
@@ -914,10 +942,14 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput
 }
 
 type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination struct {
+	// The account ID that owns the destination bucket.
 	BucketAccountId *string `pulumi:"bucketAccountId"`
-	BucketArn       string  `pulumi:"bucketArn"`
-	Format          *string `pulumi:"format"`
-	Prefix          *string `pulumi:"prefix"`
+	// The ARN of the destination bucket.
+	BucketArn string `pulumi:"bucketArn"`
+	// The output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
+	Format *string `pulumi:"format"`
+	// Object prefix for filtering.
+	Prefix *string `pulumi:"prefix"`
 }
 
 // AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationInput is an input type that accepts AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs and AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput values.
@@ -933,10 +965,14 @@ type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDest
 }
 
 type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs struct {
+	// The account ID that owns the destination bucket.
 	BucketAccountId pulumi.StringPtrInput `pulumi:"bucketAccountId"`
-	BucketArn       pulumi.StringInput    `pulumi:"bucketArn"`
-	Format          pulumi.StringPtrInput `pulumi:"format"`
-	Prefix          pulumi.StringPtrInput `pulumi:"prefix"`
+	// The ARN of the destination bucket.
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// The output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// Object prefix for filtering.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
 func (AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs) ElementType() reflect.Type {
@@ -1016,24 +1052,29 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketD
 		return &v
 	}).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput)
 }
+
+// The account ID that owns the destination bucket.
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput) BucketAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination) *string {
 		return v.BucketAccountId
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the destination bucket.
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination) string {
 		return v.BucketArn
 	}).(pulumi.StringOutput)
 }
 
+// The output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination) *string {
 		return v.Format
 	}).(pulumi.StringPtrOutput)
 }
 
+// Object prefix for filtering.
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination) *string {
 		return v.Prefix
@@ -1060,6 +1101,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketD
 	}).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput)
 }
 
+// The account ID that owns the destination bucket.
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput) BucketAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination) *string {
 		if v == nil {
@@ -1069,6 +1111,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketD
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the destination bucket.
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination) *string {
 		if v == nil {
@@ -1078,6 +1121,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketD
 	}).(pulumi.StringPtrOutput)
 }
 
+// The output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination) *string {
 		if v == nil {
@@ -1087,6 +1131,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketD
 	}).(pulumi.StringPtrOutput)
 }
 
+// Object prefix for filtering.
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination) *string {
 		if v == nil {

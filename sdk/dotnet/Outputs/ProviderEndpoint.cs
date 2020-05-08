@@ -88,6 +88,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Kinesis;
         public readonly string? KinesisAnalytics;
         public readonly string? Kinesisanalytics;
+        public readonly string? Kinesisanalyticsv2;
         public readonly string? Kinesisvideo;
         public readonly string? Kms;
         public readonly string? Lakeformation;
@@ -301,6 +302,8 @@ namespace Pulumi.Aws.Outputs
 
             string? kinesisanalytics,
 
+            string? kinesisanalyticsv2,
+
             string? kinesisvideo,
 
             string? kms,
@@ -496,6 +499,7 @@ namespace Pulumi.Aws.Outputs
             Kinesis = kinesis;
             KinesisAnalytics = kinesisAnalytics;
             Kinesisanalytics = kinesisanalytics;
+            Kinesisanalyticsv2 = kinesisanalyticsv2;
             Kinesisvideo = kinesisvideo;
             Kms = kms;
             Lakeformation = lakeformation;

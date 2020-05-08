@@ -11,8 +11,10 @@ import {RestApi} from "./restApi";
 /**
  * Provides an API Gateway REST Deployment.
  * 
- * > **Note:** Depends on having `aws.apigateway.Integration` inside your rest api (which in turn depends on `aws.apigateway.Method`). To avoid race conditions
- * you might need to add an explicit `dependsOn = ["${aws_api_gateway_integration.name}"]`.
+ * > **Note:** This resource depends on having at least one `aws.apigateway.Integration` created in the REST API, which 
+ * itself has other dependencies. To avoid race conditions when all resources are being created together, you need to add 
+ * implicit resource references via the `triggers` argument or explicit resource references using the 
+ * [resource `dependsOn` meta-argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson).
  * 
  * ## Example Usage
  * 
@@ -87,7 +89,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The execution ARN to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
+     * The execution ARN to be used in `lambdaPermission` resource's `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
@@ -109,6 +111,10 @@ export class Deployment extends pulumi.CustomResource {
      * The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
      */
     public readonly stageName!: pulumi.Output<string | undefined>;
+    /**
+     * A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     */
+    public readonly triggers!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map that defines variables for the stage
      */
@@ -133,6 +139,7 @@ export class Deployment extends pulumi.CustomResource {
             inputs["restApi"] = state ? state.restApi : undefined;
             inputs["stageDescription"] = state ? state.stageDescription : undefined;
             inputs["stageName"] = state ? state.stageName : undefined;
+            inputs["triggers"] = state ? state.triggers : undefined;
             inputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
@@ -143,6 +150,7 @@ export class Deployment extends pulumi.CustomResource {
             inputs["restApi"] = args ? args.restApi : undefined;
             inputs["stageDescription"] = args ? args.stageDescription : undefined;
             inputs["stageName"] = args ? args.stageName : undefined;
+            inputs["triggers"] = args ? args.triggers : undefined;
             inputs["variables"] = args ? args.variables : undefined;
             inputs["createdDate"] = undefined /*out*/;
             inputs["executionArn"] = undefined /*out*/;
@@ -172,7 +180,7 @@ export interface DeploymentState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The execution ARN to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
+     * The execution ARN to be used in `lambdaPermission` resource's `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
@@ -194,6 +202,10 @@ export interface DeploymentState {
      * The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
      */
     readonly stageName?: pulumi.Input<string>;
+    /**
+     * A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     */
+    readonly triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map that defines variables for the stage
      */
@@ -220,6 +232,10 @@ export interface DeploymentArgs {
      * The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
      */
     readonly stageName?: pulumi.Input<string>;
+    /**
+     * A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     */
+    readonly triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map that defines variables for the stage
      */

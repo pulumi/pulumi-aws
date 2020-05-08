@@ -23,7 +23,11 @@ type Eip struct {
 	// the Elastic IP address is associated with the primary private IP address.
 	AssociateWithPrivateIp pulumi.StringPtrOutput `pulumi:"associateWithPrivateIp"`
 	AssociationId          pulumi.StringOutput    `pulumi:"associationId"`
-	Domain                 pulumi.StringOutput    `pulumi:"domain"`
+	// Customer owned IP.
+	CustomerOwnedIp pulumi.StringOutput `pulumi:"customerOwnedIp"`
+	// The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+	CustomerOwnedIpv4Pool pulumi.StringPtrOutput `pulumi:"customerOwnedIpv4Pool"`
+	Domain                pulumi.StringOutput    `pulumi:"domain"`
 	// EC2 instance ID.
 	Instance pulumi.StringOutput `pulumi:"instance"`
 	// Network interface ID to associate with.
@@ -78,7 +82,11 @@ type eipState struct {
 	// the Elastic IP address is associated with the primary private IP address.
 	AssociateWithPrivateIp *string `pulumi:"associateWithPrivateIp"`
 	AssociationId          *string `pulumi:"associationId"`
-	Domain                 *string `pulumi:"domain"`
+	// Customer owned IP.
+	CustomerOwnedIp *string `pulumi:"customerOwnedIp"`
+	// The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
+	Domain                *string `pulumi:"domain"`
 	// EC2 instance ID.
 	Instance *string `pulumi:"instance"`
 	// Network interface ID to associate with.
@@ -106,7 +114,11 @@ type EipState struct {
 	// the Elastic IP address is associated with the primary private IP address.
 	AssociateWithPrivateIp pulumi.StringPtrInput
 	AssociationId          pulumi.StringPtrInput
-	Domain                 pulumi.StringPtrInput
+	// Customer owned IP.
+	CustomerOwnedIp pulumi.StringPtrInput
+	// The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+	CustomerOwnedIpv4Pool pulumi.StringPtrInput
+	Domain                pulumi.StringPtrInput
 	// EC2 instance ID.
 	Instance pulumi.StringPtrInput
 	// Network interface ID to associate with.
@@ -136,6 +148,8 @@ type eipArgs struct {
 	// associate with the Elastic IP address. If no private IP address is specified,
 	// the Elastic IP address is associated with the primary private IP address.
 	AssociateWithPrivateIp *string `pulumi:"associateWithPrivateIp"`
+	// The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
 	// EC2 instance ID.
 	Instance *string `pulumi:"instance"`
 	// Network interface ID to associate with.
@@ -154,6 +168,8 @@ type EipArgs struct {
 	// associate with the Elastic IP address. If no private IP address is specified,
 	// the Elastic IP address is associated with the primary private IP address.
 	AssociateWithPrivateIp pulumi.StringPtrInput
+	// The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+	CustomerOwnedIpv4Pool pulumi.StringPtrInput
 	// EC2 instance ID.
 	Instance pulumi.StringPtrInput
 	// Network interface ID to associate with.

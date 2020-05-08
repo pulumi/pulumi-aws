@@ -31,9 +31,6 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
     roles: pulumi.Output[dict]
     """
     The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-
-      * `authenticated` (`str`)
-      * `unauthenticated` (`str`)
     """
     def __init__(__self__, resource_name, opts=None, identity_pool_id=None, role_mappings=None, roles=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -131,11 +128,6 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
             * `value` (`pulumi.Input[str]`) - A brief string that the claim must match, for example, "paid" or "yes".
 
           * `type` (`pulumi.Input[str]`) - The role mapping type.
-
-        The **roles** object supports the following:
-
-          * `authenticated` (`pulumi.Input[str]`)
-          * `unauthenticated` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -191,11 +183,6 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
             * `value` (`pulumi.Input[str]`) - A brief string that the claim must match, for example, "paid" or "yes".
 
           * `type` (`pulumi.Input[str]`) - The role mapping type.
-
-        The **roles** object supports the following:
-
-          * `authenticated` (`pulumi.Input[str]`)
-          * `unauthenticated` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

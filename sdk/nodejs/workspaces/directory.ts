@@ -80,9 +80,41 @@ export class Directory extends pulumi.CustomResource {
     }
 
     /**
+     * The directory alias.
+     */
+    public /*out*/ readonly alias!: pulumi.Output<string>;
+    /**
+     * The user name for the service account.
+     */
+    public /*out*/ readonly customerUserName!: pulumi.Output<string>;
+    /**
      * The directory identifier for registration in WorkSpaces service.
      */
     public readonly directoryId!: pulumi.Output<string>;
+    /**
+     * The name of the directory.
+     */
+    public /*out*/ readonly directoryName!: pulumi.Output<string>;
+    /**
+     * The directory type.
+     */
+    public /*out*/ readonly directoryType!: pulumi.Output<string>;
+    /**
+     * The IP addresses of the DNS servers for the directory.
+     */
+    public /*out*/ readonly dnsIpAddresses!: pulumi.Output<string[]>;
+    /**
+     * The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+     */
+    public /*out*/ readonly iamRoleId!: pulumi.Output<string>;
+    /**
+     * The identifiers of the IP access control groups associated with the directory.
+     */
+    public /*out*/ readonly ipGroupIds!: pulumi.Output<string[]>;
+    /**
+     * The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+     */
+    public /*out*/ readonly registrationCode!: pulumi.Output<string>;
     /**
      * The permissions to enable or disable self-service capabilities.
      */
@@ -95,6 +127,10 @@ export class Directory extends pulumi.CustomResource {
      * A map of tags assigned to the WorkSpaces directory.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * The identifier of the security group that is assigned to new WorkSpaces.
+     */
+    public /*out*/ readonly workspaceSecurityGroupId!: pulumi.Output<string>;
 
     /**
      * Create a Directory resource with the given unique name, arguments, and options.
@@ -108,10 +144,19 @@ export class Directory extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as DirectoryState | undefined;
+            inputs["alias"] = state ? state.alias : undefined;
+            inputs["customerUserName"] = state ? state.customerUserName : undefined;
             inputs["directoryId"] = state ? state.directoryId : undefined;
+            inputs["directoryName"] = state ? state.directoryName : undefined;
+            inputs["directoryType"] = state ? state.directoryType : undefined;
+            inputs["dnsIpAddresses"] = state ? state.dnsIpAddresses : undefined;
+            inputs["iamRoleId"] = state ? state.iamRoleId : undefined;
+            inputs["ipGroupIds"] = state ? state.ipGroupIds : undefined;
+            inputs["registrationCode"] = state ? state.registrationCode : undefined;
             inputs["selfServicePermissions"] = state ? state.selfServicePermissions : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["workspaceSecurityGroupId"] = state ? state.workspaceSecurityGroupId : undefined;
         } else {
             const args = argsOrState as DirectoryArgs | undefined;
             if (!args || args.directoryId === undefined) {
@@ -121,6 +166,15 @@ export class Directory extends pulumi.CustomResource {
             inputs["selfServicePermissions"] = args ? args.selfServicePermissions : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["alias"] = undefined /*out*/;
+            inputs["customerUserName"] = undefined /*out*/;
+            inputs["directoryName"] = undefined /*out*/;
+            inputs["directoryType"] = undefined /*out*/;
+            inputs["dnsIpAddresses"] = undefined /*out*/;
+            inputs["iamRoleId"] = undefined /*out*/;
+            inputs["ipGroupIds"] = undefined /*out*/;
+            inputs["registrationCode"] = undefined /*out*/;
+            inputs["workspaceSecurityGroupId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -138,9 +192,41 @@ export class Directory extends pulumi.CustomResource {
  */
 export interface DirectoryState {
     /**
+     * The directory alias.
+     */
+    readonly alias?: pulumi.Input<string>;
+    /**
+     * The user name for the service account.
+     */
+    readonly customerUserName?: pulumi.Input<string>;
+    /**
      * The directory identifier for registration in WorkSpaces service.
      */
     readonly directoryId?: pulumi.Input<string>;
+    /**
+     * The name of the directory.
+     */
+    readonly directoryName?: pulumi.Input<string>;
+    /**
+     * The directory type.
+     */
+    readonly directoryType?: pulumi.Input<string>;
+    /**
+     * The IP addresses of the DNS servers for the directory.
+     */
+    readonly dnsIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+     */
+    readonly iamRoleId?: pulumi.Input<string>;
+    /**
+     * The identifiers of the IP access control groups associated with the directory.
+     */
+    readonly ipGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+     */
+    readonly registrationCode?: pulumi.Input<string>;
     /**
      * The permissions to enable or disable self-service capabilities.
      */
@@ -153,6 +239,10 @@ export interface DirectoryState {
      * A map of tags assigned to the WorkSpaces directory.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The identifier of the security group that is assigned to new WorkSpaces.
+     */
+    readonly workspaceSecurityGroupId?: pulumi.Input<string>;
 }
 
 /**

@@ -93,6 +93,10 @@ export interface GetFileSystemResult {
      * * `tags` -A map of tags to assign to the file system.
      */
     readonly provisionedThroughputInMibps: number;
+    /**
+     * The current byte count used by the file system.
+     */
+    readonly sizeInBytes: number;
     readonly tags: {[key: string]: any};
     /**
      * Throughput mode for the file system.

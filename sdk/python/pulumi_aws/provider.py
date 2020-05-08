@@ -122,6 +122,7 @@ class Provider(pulumi.ProviderResource):
           * `kinesis` (`pulumi.Input[str]`)
           * `kinesisAnalytics` (`pulumi.Input[str]`)
           * `kinesisanalytics` (`pulumi.Input[str]`)
+          * `kinesisanalyticsv2` (`pulumi.Input[str]`)
           * `kinesisvideo` (`pulumi.Input[str]`)
           * `kms` (`pulumi.Input[str]`)
           * `lakeformation` (`pulumi.Input[str]`)

@@ -198,6 +198,7 @@ class LaunchTemplate(pulumi.CustomResource):
       * `availability_zone` (`str`) - The Availability Zone for the instance.
       * `group_name` (`str`) - The name of the placement group for the instance.
       * `host_id` (`str`) - The ID of the Dedicated Host for the instance.
+      * `partitionNumber` (`float`) - The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
       * `spreadDomain` (`str`) - Reserved for future use.
       * `tenancy` (`str`) - The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
     """
@@ -377,6 +378,7 @@ class LaunchTemplate(pulumi.CustomResource):
           * `availability_zone` (`pulumi.Input[str]`) - The Availability Zone for the instance.
           * `group_name` (`pulumi.Input[str]`) - The name of the placement group for the instance.
           * `host_id` (`pulumi.Input[str]`) - The ID of the Dedicated Host for the instance.
+          * `partitionNumber` (`pulumi.Input[float]`) - The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
           * `spreadDomain` (`pulumi.Input[str]`) - Reserved for future use.
           * `tenancy` (`pulumi.Input[str]`) - The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
 
@@ -593,6 +595,7 @@ class LaunchTemplate(pulumi.CustomResource):
           * `availability_zone` (`pulumi.Input[str]`) - The Availability Zone for the instance.
           * `group_name` (`pulumi.Input[str]`) - The name of the placement group for the instance.
           * `host_id` (`pulumi.Input[str]`) - The ID of the Dedicated Host for the instance.
+          * `partitionNumber` (`pulumi.Input[float]`) - The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
           * `spreadDomain` (`pulumi.Input[str]`) - Reserved for future use.
           * `tenancy` (`pulumi.Input[str]`) - The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
 

@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Ssm
         /// Additional Permissions to attach to the document. See Permissions below for details.
         /// </summary>
         [Output("permissions")]
-        public Output<Outputs.DocumentPermissions?> Permissions { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Permissions { get; private set; } = null!;
 
         /// <summary>
         /// A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
@@ -229,11 +229,17 @@ namespace Pulumi.Aws.Ssm
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("permissions")]
+        private InputMap<string>? _permissions;
+
         /// <summary>
         /// Additional Permissions to attach to the document. See Permissions below for details.
         /// </summary>
-        [Input("permissions")]
-        public Input<Inputs.DocumentPermissionsArgs>? Permissions { get; set; }
+        public InputMap<string> Permissions
+        {
+            get => _permissions ?? (_permissions = new InputMap<string>());
+            set => _permissions = value;
+        }
 
         [Input("tags")]
         private InputMap<object>? _tags;
@@ -353,11 +359,17 @@ namespace Pulumi.Aws.Ssm
             set => _parameters = value;
         }
 
+        [Input("permissions")]
+        private InputMap<string>? _permissions;
+
         /// <summary>
         /// Additional Permissions to attach to the document. See Permissions below for details.
         /// </summary>
-        [Input("permissions")]
-        public Input<Inputs.DocumentPermissionsGetArgs>? Permissions { get; set; }
+        public InputMap<string> Permissions
+        {
+            get => _permissions ?? (_permissions = new InputMap<string>());
+            set => _permissions = value;
+        }
 
         [Input("platformTypes")]
         private InputList<string>? _platformTypes;

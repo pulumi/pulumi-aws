@@ -625,7 +625,7 @@ export namespace alb {
          */
         httpRequestMethod?: outputs.alb.ListenerRuleConditionHttpRequestMethod;
         /**
-         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern: outputs.alb.ListenerRuleConditionPathPattern;
         /**
@@ -1566,7 +1566,7 @@ export namespace applicationloadbalancing {
          */
         httpRequestMethod?: outputs.applicationloadbalancing.ListenerRuleConditionHttpRequestMethod;
         /**
-         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern: outputs.applicationloadbalancing.ListenerRuleConditionPathPattern;
         /**
@@ -4419,11 +4419,6 @@ export namespace cognito {
         value: string;
     }
 
-    export interface IdentityPoolRoleAttachmentRoles {
-        authenticated?: string;
-        unauthenticated?: string;
-    }
-
     export interface ResourceServerScope {
         /**
          * The scope description.
@@ -5628,6 +5623,32 @@ export namespace ec2 {
         totalTargetCapacity: number;
     }
 
+    export interface GetCoipPoolFilter {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         * A COIP Pool will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
+    export interface GetCoipPoolsFilter {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         * A COIP Pool will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
     export interface GetCustomerGatewayFilter {
         name: string;
         values: string[];
@@ -5956,6 +5977,7 @@ export namespace ec2 {
         availabilityZone: string;
         groupName: string;
         hostId: string;
+        partitionNumber: number;
         spreadDomain: string;
         tenancy: string;
     }
@@ -5966,6 +5988,58 @@ export namespace ec2 {
          * A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
          */
         tags: {[key: string]: any};
+    }
+
+    export interface GetLocalGatewayFilter {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         * A Local Gateway will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
+    export interface GetLocalGatewayRouteTableFilter {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         * A local gateway route table will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
+    export interface GetLocalGatewayRouteTablesFilter {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         * A Local Gateway Route Table will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
+    export interface GetLocalGatewaysFilter {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         * A Local Gateway will be selected if any one of the given values matches.
+         */
+        values: string[];
     }
 
     export interface GetNatGatewayFilter {
@@ -6702,6 +6776,10 @@ export namespace ec2 {
          * The ID of the Dedicated Host for the instance.
          */
         hostId?: string;
+        /**
+         * The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+         */
+        partitionNumber?: number;
         /**
          * Reserved for future use.
          */
@@ -8561,7 +8639,7 @@ export namespace elasticloadbalancingv2 {
          */
         httpRequestMethod?: outputs.elasticloadbalancingv2.ListenerRuleConditionHttpRequestMethod;
         /**
-         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern: outputs.elasticloadbalancingv2.ListenerRuleConditionPathPattern;
         /**
@@ -12215,7 +12293,7 @@ export namespace lb {
          */
         httpRequestMethod?: outputs.lb.ListenerRuleConditionHttpRequestMethod;
         /**
-         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern: outputs.lb.ListenerRuleConditionPathPattern;
         /**
@@ -13715,27 +13793,57 @@ export namespace s3 {
     }
 
     export interface AnalyticsConfigurationFilter {
+        /**
+         * Object prefix for filtering.
+         */
         prefix?: string;
+        /**
+         * Set of object tags for filtering.
+         */
         tags?: {[key: string]: any};
     }
 
     export interface AnalyticsConfigurationStorageClassAnalysis {
+        /**
+         * Data export configuration (documented below).
+         */
         dataExport: outputs.s3.AnalyticsConfigurationStorageClassAnalysisDataExport;
     }
 
     export interface AnalyticsConfigurationStorageClassAnalysisDataExport {
+        /**
+         * Specifies the destination for the exported analytics data (documented below).
+         */
         destination: outputs.s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestination;
+        /**
+         * The schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
+         */
         outputSchemaVersion?: string;
     }
 
     export interface AnalyticsConfigurationStorageClassAnalysisDataExportDestination {
+        /**
+         * Analytics data export currently only supports an S3 bucket destination (documented below).
+         */
         s3BucketDestination: outputs.s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination;
     }
 
     export interface AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination {
+        /**
+         * The account ID that owns the destination bucket.
+         */
         bucketAccountId?: string;
+        /**
+         * The ARN of the destination bucket.
+         */
         bucketArn: string;
+        /**
+         * The output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
+         */
         format?: string;
+        /**
+         * Object prefix for filtering.
+         */
         prefix?: string;
     }
 
@@ -14563,11 +14671,6 @@ export namespace ssm {
         type?: string;
     }
 
-    export interface DocumentPermissions {
-        accountIds: string;
-        type: string;
-    }
-
     export interface MaintenanceWindowTargetTarget {
         key: string;
         values: string[];
@@ -14978,7 +15081,7 @@ export namespace waf {
          * Set this to `false` if you want to allow, block, or count requests
          * based on the settings in the specified [wafByteMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set.html), [wafIpset](https://www.terraform.io/docs/providers/aws/r/waf_ipset.html), [aws.waf.SizeConstraintSet](https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set.html), [aws.waf.SqlInjectionMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_sql_injection_match_set.html) or [aws.waf.XssMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_xss_match_set.html).
          * For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
-         * If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
+         * If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses except `192.0.2.44`.
          */
         negated: boolean;
         /**

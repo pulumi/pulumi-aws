@@ -94,6 +94,10 @@ namespace Pulumi.Aws.Ebs
         public readonly string KmsKeyId;
         public readonly bool? MostRecent;
         /// <summary>
+        /// (Optional) Specifies whether Amazon EBS Multi-Attach is enabled.
+        /// </summary>
+        public readonly bool MultiAttachEnabled;
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the Outpost.
         /// </summary>
         public readonly string OutpostArn;
@@ -136,6 +140,8 @@ namespace Pulumi.Aws.Ebs
 
             bool? mostRecent,
 
+            bool multiAttachEnabled,
+
             string outpostArn,
 
             int size,
@@ -156,6 +162,7 @@ namespace Pulumi.Aws.Ebs
             Iops = iops;
             KmsKeyId = kmsKeyId;
             MostRecent = mostRecent;
+            MultiAttachEnabled = multiAttachEnabled;
             OutpostArn = outpostArn;
             Size = size;
             SnapshotId = snapshotId;

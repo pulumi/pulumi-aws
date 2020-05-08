@@ -180,6 +180,7 @@ namespace Pulumi.Aws
                 public string? Kinesis { get; set; } = null!;
                 public string? KinesisAnalytics { get; set; } = null!;
                 public string? Kinesisanalytics { get; set; } = null!;
+                public string? Kinesisanalyticsv2 { get; set; } = null!;
                 public string? Kinesisvideo { get; set; } = null!;
                 public string? Kms { get; set; } = null!;
                 public string? Lakeformation { get; set; } = null!;

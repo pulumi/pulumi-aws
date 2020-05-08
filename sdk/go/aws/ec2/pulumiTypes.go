@@ -6562,6 +6562,8 @@ type LaunchTemplatePlacement struct {
 	GroupName *string `pulumi:"groupName"`
 	// The ID of the Dedicated Host for the instance.
 	HostId *string `pulumi:"hostId"`
+	// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+	PartitionNumber *int `pulumi:"partitionNumber"`
 	// Reserved for future use.
 	SpreadDomain *string `pulumi:"spreadDomain"`
 	// The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
@@ -6589,6 +6591,8 @@ type LaunchTemplatePlacementArgs struct {
 	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
 	// The ID of the Dedicated Host for the instance.
 	HostId pulumi.StringPtrInput `pulumi:"hostId"`
+	// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+	PartitionNumber pulumi.IntPtrInput `pulumi:"partitionNumber"`
 	// Reserved for future use.
 	SpreadDomain pulumi.StringPtrInput `pulumi:"spreadDomain"`
 	// The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
@@ -6693,6 +6697,11 @@ func (o LaunchTemplatePlacementOutput) HostId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.HostId }).(pulumi.StringPtrOutput)
 }
 
+// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+func (o LaunchTemplatePlacementOutput) PartitionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *int { return v.PartitionNumber }).(pulumi.IntPtrOutput)
+}
+
 // Reserved for future use.
 func (o LaunchTemplatePlacementOutput) SpreadDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.SpreadDomain }).(pulumi.StringPtrOutput)
@@ -6759,6 +6768,16 @@ func (o LaunchTemplatePlacementPtrOutput) HostId() pulumi.StringPtrOutput {
 		}
 		return v.HostId
 	}).(pulumi.StringPtrOutput)
+}
+
+// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+func (o LaunchTemplatePlacementPtrOutput) PartitionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionNumber
+	}).(pulumi.IntPtrOutput)
 }
 
 // Reserved for future use.
@@ -11611,6 +11630,234 @@ func (o VpnConnectionVgwTelemetryArrayOutput) Index(i pulumi.IntInput) VpnConnec
 	}).(VpnConnectionVgwTelemetryOutput)
 }
 
+type GetCoipPoolFilter struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A COIP Pool will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetCoipPoolFilterInput is an input type that accepts GetCoipPoolFilterArgs and GetCoipPoolFilterOutput values.
+// You can construct a concrete instance of `GetCoipPoolFilterInput` via:
+//
+// 		 GetCoipPoolFilterArgs{...}
+//
+type GetCoipPoolFilterInput interface {
+	pulumi.Input
+
+	ToGetCoipPoolFilterOutput() GetCoipPoolFilterOutput
+	ToGetCoipPoolFilterOutputWithContext(context.Context) GetCoipPoolFilterOutput
+}
+
+type GetCoipPoolFilterArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A COIP Pool will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCoipPoolFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoipPoolFilter)(nil)).Elem()
+}
+
+func (i GetCoipPoolFilterArgs) ToGetCoipPoolFilterOutput() GetCoipPoolFilterOutput {
+	return i.ToGetCoipPoolFilterOutputWithContext(context.Background())
+}
+
+func (i GetCoipPoolFilterArgs) ToGetCoipPoolFilterOutputWithContext(ctx context.Context) GetCoipPoolFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoipPoolFilterOutput)
+}
+
+// GetCoipPoolFilterArrayInput is an input type that accepts GetCoipPoolFilterArray and GetCoipPoolFilterArrayOutput values.
+// You can construct a concrete instance of `GetCoipPoolFilterArrayInput` via:
+//
+// 		 GetCoipPoolFilterArray{ GetCoipPoolFilterArgs{...} }
+//
+type GetCoipPoolFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetCoipPoolFilterArrayOutput() GetCoipPoolFilterArrayOutput
+	ToGetCoipPoolFilterArrayOutputWithContext(context.Context) GetCoipPoolFilterArrayOutput
+}
+
+type GetCoipPoolFilterArray []GetCoipPoolFilterInput
+
+func (GetCoipPoolFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoipPoolFilter)(nil)).Elem()
+}
+
+func (i GetCoipPoolFilterArray) ToGetCoipPoolFilterArrayOutput() GetCoipPoolFilterArrayOutput {
+	return i.ToGetCoipPoolFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoipPoolFilterArray) ToGetCoipPoolFilterArrayOutputWithContext(ctx context.Context) GetCoipPoolFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoipPoolFilterArrayOutput)
+}
+
+type GetCoipPoolFilterOutput struct{ *pulumi.OutputState }
+
+func (GetCoipPoolFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoipPoolFilter)(nil)).Elem()
+}
+
+func (o GetCoipPoolFilterOutput) ToGetCoipPoolFilterOutput() GetCoipPoolFilterOutput {
+	return o
+}
+
+func (o GetCoipPoolFilterOutput) ToGetCoipPoolFilterOutputWithContext(ctx context.Context) GetCoipPoolFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+func (o GetCoipPoolFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoipPoolFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A COIP Pool will be selected if any one of the given values matches.
+func (o GetCoipPoolFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoipPoolFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCoipPoolFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoipPoolFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoipPoolFilter)(nil)).Elem()
+}
+
+func (o GetCoipPoolFilterArrayOutput) ToGetCoipPoolFilterArrayOutput() GetCoipPoolFilterArrayOutput {
+	return o
+}
+
+func (o GetCoipPoolFilterArrayOutput) ToGetCoipPoolFilterArrayOutputWithContext(ctx context.Context) GetCoipPoolFilterArrayOutput {
+	return o
+}
+
+func (o GetCoipPoolFilterArrayOutput) Index(i pulumi.IntInput) GetCoipPoolFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoipPoolFilter {
+		return vs[0].([]GetCoipPoolFilter)[vs[1].(int)]
+	}).(GetCoipPoolFilterOutput)
+}
+
+type GetCoipPoolsFilter struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A COIP Pool will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetCoipPoolsFilterInput is an input type that accepts GetCoipPoolsFilterArgs and GetCoipPoolsFilterOutput values.
+// You can construct a concrete instance of `GetCoipPoolsFilterInput` via:
+//
+// 		 GetCoipPoolsFilterArgs{...}
+//
+type GetCoipPoolsFilterInput interface {
+	pulumi.Input
+
+	ToGetCoipPoolsFilterOutput() GetCoipPoolsFilterOutput
+	ToGetCoipPoolsFilterOutputWithContext(context.Context) GetCoipPoolsFilterOutput
+}
+
+type GetCoipPoolsFilterArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A COIP Pool will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetCoipPoolsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoipPoolsFilter)(nil)).Elem()
+}
+
+func (i GetCoipPoolsFilterArgs) ToGetCoipPoolsFilterOutput() GetCoipPoolsFilterOutput {
+	return i.ToGetCoipPoolsFilterOutputWithContext(context.Background())
+}
+
+func (i GetCoipPoolsFilterArgs) ToGetCoipPoolsFilterOutputWithContext(ctx context.Context) GetCoipPoolsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoipPoolsFilterOutput)
+}
+
+// GetCoipPoolsFilterArrayInput is an input type that accepts GetCoipPoolsFilterArray and GetCoipPoolsFilterArrayOutput values.
+// You can construct a concrete instance of `GetCoipPoolsFilterArrayInput` via:
+//
+// 		 GetCoipPoolsFilterArray{ GetCoipPoolsFilterArgs{...} }
+//
+type GetCoipPoolsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetCoipPoolsFilterArrayOutput() GetCoipPoolsFilterArrayOutput
+	ToGetCoipPoolsFilterArrayOutputWithContext(context.Context) GetCoipPoolsFilterArrayOutput
+}
+
+type GetCoipPoolsFilterArray []GetCoipPoolsFilterInput
+
+func (GetCoipPoolsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoipPoolsFilter)(nil)).Elem()
+}
+
+func (i GetCoipPoolsFilterArray) ToGetCoipPoolsFilterArrayOutput() GetCoipPoolsFilterArrayOutput {
+	return i.ToGetCoipPoolsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoipPoolsFilterArray) ToGetCoipPoolsFilterArrayOutputWithContext(ctx context.Context) GetCoipPoolsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoipPoolsFilterArrayOutput)
+}
+
+type GetCoipPoolsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetCoipPoolsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoipPoolsFilter)(nil)).Elem()
+}
+
+func (o GetCoipPoolsFilterOutput) ToGetCoipPoolsFilterOutput() GetCoipPoolsFilterOutput {
+	return o
+}
+
+func (o GetCoipPoolsFilterOutput) ToGetCoipPoolsFilterOutputWithContext(ctx context.Context) GetCoipPoolsFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+func (o GetCoipPoolsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoipPoolsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A COIP Pool will be selected if any one of the given values matches.
+func (o GetCoipPoolsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoipPoolsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetCoipPoolsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoipPoolsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoipPoolsFilter)(nil)).Elem()
+}
+
+func (o GetCoipPoolsFilterArrayOutput) ToGetCoipPoolsFilterArrayOutput() GetCoipPoolsFilterArrayOutput {
+	return o
+}
+
+func (o GetCoipPoolsFilterArrayOutput) ToGetCoipPoolsFilterArrayOutputWithContext(ctx context.Context) GetCoipPoolsFilterArrayOutput {
+	return o
+}
+
+func (o GetCoipPoolsFilterArrayOutput) Index(i pulumi.IntInput) GetCoipPoolsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoipPoolsFilter {
+		return vs[0].([]GetCoipPoolsFilter)[vs[1].(int)]
+	}).(GetCoipPoolsFilterOutput)
+}
+
 type GetCustomerGatewayFilter struct {
 	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
@@ -14759,6 +15006,7 @@ type GetLaunchTemplatePlacement struct {
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	GroupName        string `pulumi:"groupName"`
 	HostId           string `pulumi:"hostId"`
+	PartitionNumber  int    `pulumi:"partitionNumber"`
 	SpreadDomain     string `pulumi:"spreadDomain"`
 	Tenancy          string `pulumi:"tenancy"`
 }
@@ -14780,6 +15028,7 @@ type GetLaunchTemplatePlacementArgs struct {
 	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
 	GroupName        pulumi.StringInput `pulumi:"groupName"`
 	HostId           pulumi.StringInput `pulumi:"hostId"`
+	PartitionNumber  pulumi.IntInput    `pulumi:"partitionNumber"`
 	SpreadDomain     pulumi.StringInput `pulumi:"spreadDomain"`
 	Tenancy          pulumi.StringInput `pulumi:"tenancy"`
 }
@@ -14850,6 +15099,10 @@ func (o GetLaunchTemplatePlacementOutput) GroupName() pulumi.StringOutput {
 
 func (o GetLaunchTemplatePlacementOutput) HostId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchTemplatePlacement) string { return v.HostId }).(pulumi.StringOutput)
+}
+
+func (o GetLaunchTemplatePlacementOutput) PartitionNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplatePlacement) int { return v.PartitionNumber }).(pulumi.IntOutput)
 }
 
 func (o GetLaunchTemplatePlacementOutput) SpreadDomain() pulumi.StringOutput {
@@ -14983,6 +15236,462 @@ func (o GetLaunchTemplateTagSpecificationArrayOutput) Index(i pulumi.IntInput) G
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateTagSpecification {
 		return vs[0].([]GetLaunchTemplateTagSpecification)[vs[1].(int)]
 	}).(GetLaunchTemplateTagSpecificationOutput)
+}
+
+type GetLocalGatewayFilter struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Local Gateway will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetLocalGatewayFilterInput is an input type that accepts GetLocalGatewayFilterArgs and GetLocalGatewayFilterOutput values.
+// You can construct a concrete instance of `GetLocalGatewayFilterInput` via:
+//
+// 		 GetLocalGatewayFilterArgs{...}
+//
+type GetLocalGatewayFilterInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayFilterOutput() GetLocalGatewayFilterOutput
+	ToGetLocalGatewayFilterOutputWithContext(context.Context) GetLocalGatewayFilterOutput
+}
+
+type GetLocalGatewayFilterArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Local Gateway will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetLocalGatewayFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayFilterArgs) ToGetLocalGatewayFilterOutput() GetLocalGatewayFilterOutput {
+	return i.ToGetLocalGatewayFilterOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayFilterArgs) ToGetLocalGatewayFilterOutputWithContext(ctx context.Context) GetLocalGatewayFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayFilterOutput)
+}
+
+// GetLocalGatewayFilterArrayInput is an input type that accepts GetLocalGatewayFilterArray and GetLocalGatewayFilterArrayOutput values.
+// You can construct a concrete instance of `GetLocalGatewayFilterArrayInput` via:
+//
+// 		 GetLocalGatewayFilterArray{ GetLocalGatewayFilterArgs{...} }
+//
+type GetLocalGatewayFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayFilterArrayOutput() GetLocalGatewayFilterArrayOutput
+	ToGetLocalGatewayFilterArrayOutputWithContext(context.Context) GetLocalGatewayFilterArrayOutput
+}
+
+type GetLocalGatewayFilterArray []GetLocalGatewayFilterInput
+
+func (GetLocalGatewayFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayFilterArray) ToGetLocalGatewayFilterArrayOutput() GetLocalGatewayFilterArrayOutput {
+	return i.ToGetLocalGatewayFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayFilterArray) ToGetLocalGatewayFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayFilterArrayOutput)
+}
+
+type GetLocalGatewayFilterOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayFilterOutput) ToGetLocalGatewayFilterOutput() GetLocalGatewayFilterOutput {
+	return o
+}
+
+func (o GetLocalGatewayFilterOutput) ToGetLocalGatewayFilterOutputWithContext(ctx context.Context) GetLocalGatewayFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
+func (o GetLocalGatewayFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A Local Gateway will be selected if any one of the given values matches.
+func (o GetLocalGatewayFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocalGatewayFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetLocalGatewayFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayFilterArrayOutput) ToGetLocalGatewayFilterArrayOutput() GetLocalGatewayFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayFilterArrayOutput) ToGetLocalGatewayFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetLocalGatewayFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocalGatewayFilter {
+		return vs[0].([]GetLocalGatewayFilter)[vs[1].(int)]
+	}).(GetLocalGatewayFilterOutput)
+}
+
+type GetLocalGatewayRouteTableFilter struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A local gateway route table will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetLocalGatewayRouteTableFilterInput is an input type that accepts GetLocalGatewayRouteTableFilterArgs and GetLocalGatewayRouteTableFilterOutput values.
+// You can construct a concrete instance of `GetLocalGatewayRouteTableFilterInput` via:
+//
+// 		 GetLocalGatewayRouteTableFilterArgs{...}
+//
+type GetLocalGatewayRouteTableFilterInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayRouteTableFilterOutput() GetLocalGatewayRouteTableFilterOutput
+	ToGetLocalGatewayRouteTableFilterOutputWithContext(context.Context) GetLocalGatewayRouteTableFilterOutput
+}
+
+type GetLocalGatewayRouteTableFilterArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A local gateway route table will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetLocalGatewayRouteTableFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayRouteTableFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayRouteTableFilterArgs) ToGetLocalGatewayRouteTableFilterOutput() GetLocalGatewayRouteTableFilterOutput {
+	return i.ToGetLocalGatewayRouteTableFilterOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayRouteTableFilterArgs) ToGetLocalGatewayRouteTableFilterOutputWithContext(ctx context.Context) GetLocalGatewayRouteTableFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayRouteTableFilterOutput)
+}
+
+// GetLocalGatewayRouteTableFilterArrayInput is an input type that accepts GetLocalGatewayRouteTableFilterArray and GetLocalGatewayRouteTableFilterArrayOutput values.
+// You can construct a concrete instance of `GetLocalGatewayRouteTableFilterArrayInput` via:
+//
+// 		 GetLocalGatewayRouteTableFilterArray{ GetLocalGatewayRouteTableFilterArgs{...} }
+//
+type GetLocalGatewayRouteTableFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayRouteTableFilterArrayOutput() GetLocalGatewayRouteTableFilterArrayOutput
+	ToGetLocalGatewayRouteTableFilterArrayOutputWithContext(context.Context) GetLocalGatewayRouteTableFilterArrayOutput
+}
+
+type GetLocalGatewayRouteTableFilterArray []GetLocalGatewayRouteTableFilterInput
+
+func (GetLocalGatewayRouteTableFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayRouteTableFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayRouteTableFilterArray) ToGetLocalGatewayRouteTableFilterArrayOutput() GetLocalGatewayRouteTableFilterArrayOutput {
+	return i.ToGetLocalGatewayRouteTableFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayRouteTableFilterArray) ToGetLocalGatewayRouteTableFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayRouteTableFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayRouteTableFilterArrayOutput)
+}
+
+type GetLocalGatewayRouteTableFilterOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayRouteTableFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayRouteTableFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayRouteTableFilterOutput) ToGetLocalGatewayRouteTableFilterOutput() GetLocalGatewayRouteTableFilterOutput {
+	return o
+}
+
+func (o GetLocalGatewayRouteTableFilterOutput) ToGetLocalGatewayRouteTableFilterOutputWithContext(ctx context.Context) GetLocalGatewayRouteTableFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
+func (o GetLocalGatewayRouteTableFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayRouteTableFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A local gateway route table will be selected if any one of the given values matches.
+func (o GetLocalGatewayRouteTableFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocalGatewayRouteTableFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetLocalGatewayRouteTableFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayRouteTableFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayRouteTableFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayRouteTableFilterArrayOutput) ToGetLocalGatewayRouteTableFilterArrayOutput() GetLocalGatewayRouteTableFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayRouteTableFilterArrayOutput) ToGetLocalGatewayRouteTableFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayRouteTableFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayRouteTableFilterArrayOutput) Index(i pulumi.IntInput) GetLocalGatewayRouteTableFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocalGatewayRouteTableFilter {
+		return vs[0].([]GetLocalGatewayRouteTableFilter)[vs[1].(int)]
+	}).(GetLocalGatewayRouteTableFilterOutput)
+}
+
+type GetLocalGatewayRouteTablesFilter struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Local Gateway Route Table will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetLocalGatewayRouteTablesFilterInput is an input type that accepts GetLocalGatewayRouteTablesFilterArgs and GetLocalGatewayRouteTablesFilterOutput values.
+// You can construct a concrete instance of `GetLocalGatewayRouteTablesFilterInput` via:
+//
+// 		 GetLocalGatewayRouteTablesFilterArgs{...}
+//
+type GetLocalGatewayRouteTablesFilterInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayRouteTablesFilterOutput() GetLocalGatewayRouteTablesFilterOutput
+	ToGetLocalGatewayRouteTablesFilterOutputWithContext(context.Context) GetLocalGatewayRouteTablesFilterOutput
+}
+
+type GetLocalGatewayRouteTablesFilterArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Local Gateway Route Table will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetLocalGatewayRouteTablesFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayRouteTablesFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayRouteTablesFilterArgs) ToGetLocalGatewayRouteTablesFilterOutput() GetLocalGatewayRouteTablesFilterOutput {
+	return i.ToGetLocalGatewayRouteTablesFilterOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayRouteTablesFilterArgs) ToGetLocalGatewayRouteTablesFilterOutputWithContext(ctx context.Context) GetLocalGatewayRouteTablesFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayRouteTablesFilterOutput)
+}
+
+// GetLocalGatewayRouteTablesFilterArrayInput is an input type that accepts GetLocalGatewayRouteTablesFilterArray and GetLocalGatewayRouteTablesFilterArrayOutput values.
+// You can construct a concrete instance of `GetLocalGatewayRouteTablesFilterArrayInput` via:
+//
+// 		 GetLocalGatewayRouteTablesFilterArray{ GetLocalGatewayRouteTablesFilterArgs{...} }
+//
+type GetLocalGatewayRouteTablesFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayRouteTablesFilterArrayOutput() GetLocalGatewayRouteTablesFilterArrayOutput
+	ToGetLocalGatewayRouteTablesFilterArrayOutputWithContext(context.Context) GetLocalGatewayRouteTablesFilterArrayOutput
+}
+
+type GetLocalGatewayRouteTablesFilterArray []GetLocalGatewayRouteTablesFilterInput
+
+func (GetLocalGatewayRouteTablesFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayRouteTablesFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayRouteTablesFilterArray) ToGetLocalGatewayRouteTablesFilterArrayOutput() GetLocalGatewayRouteTablesFilterArrayOutput {
+	return i.ToGetLocalGatewayRouteTablesFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayRouteTablesFilterArray) ToGetLocalGatewayRouteTablesFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayRouteTablesFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayRouteTablesFilterArrayOutput)
+}
+
+type GetLocalGatewayRouteTablesFilterOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayRouteTablesFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayRouteTablesFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayRouteTablesFilterOutput) ToGetLocalGatewayRouteTablesFilterOutput() GetLocalGatewayRouteTablesFilterOutput {
+	return o
+}
+
+func (o GetLocalGatewayRouteTablesFilterOutput) ToGetLocalGatewayRouteTablesFilterOutputWithContext(ctx context.Context) GetLocalGatewayRouteTablesFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
+func (o GetLocalGatewayRouteTablesFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayRouteTablesFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A Local Gateway Route Table will be selected if any one of the given values matches.
+func (o GetLocalGatewayRouteTablesFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocalGatewayRouteTablesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetLocalGatewayRouteTablesFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayRouteTablesFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayRouteTablesFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayRouteTablesFilterArrayOutput) ToGetLocalGatewayRouteTablesFilterArrayOutput() GetLocalGatewayRouteTablesFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayRouteTablesFilterArrayOutput) ToGetLocalGatewayRouteTablesFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayRouteTablesFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayRouteTablesFilterArrayOutput) Index(i pulumi.IntInput) GetLocalGatewayRouteTablesFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocalGatewayRouteTablesFilter {
+		return vs[0].([]GetLocalGatewayRouteTablesFilter)[vs[1].(int)]
+	}).(GetLocalGatewayRouteTablesFilterOutput)
+}
+
+type GetLocalGatewaysFilter struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Local Gateway will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetLocalGatewaysFilterInput is an input type that accepts GetLocalGatewaysFilterArgs and GetLocalGatewaysFilterOutput values.
+// You can construct a concrete instance of `GetLocalGatewaysFilterInput` via:
+//
+// 		 GetLocalGatewaysFilterArgs{...}
+//
+type GetLocalGatewaysFilterInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewaysFilterOutput() GetLocalGatewaysFilterOutput
+	ToGetLocalGatewaysFilterOutputWithContext(context.Context) GetLocalGatewaysFilterOutput
+}
+
+type GetLocalGatewaysFilterArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Local Gateway will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetLocalGatewaysFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewaysFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewaysFilterArgs) ToGetLocalGatewaysFilterOutput() GetLocalGatewaysFilterOutput {
+	return i.ToGetLocalGatewaysFilterOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewaysFilterArgs) ToGetLocalGatewaysFilterOutputWithContext(ctx context.Context) GetLocalGatewaysFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewaysFilterOutput)
+}
+
+// GetLocalGatewaysFilterArrayInput is an input type that accepts GetLocalGatewaysFilterArray and GetLocalGatewaysFilterArrayOutput values.
+// You can construct a concrete instance of `GetLocalGatewaysFilterArrayInput` via:
+//
+// 		 GetLocalGatewaysFilterArray{ GetLocalGatewaysFilterArgs{...} }
+//
+type GetLocalGatewaysFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewaysFilterArrayOutput() GetLocalGatewaysFilterArrayOutput
+	ToGetLocalGatewaysFilterArrayOutputWithContext(context.Context) GetLocalGatewaysFilterArrayOutput
+}
+
+type GetLocalGatewaysFilterArray []GetLocalGatewaysFilterInput
+
+func (GetLocalGatewaysFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewaysFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewaysFilterArray) ToGetLocalGatewaysFilterArrayOutput() GetLocalGatewaysFilterArrayOutput {
+	return i.ToGetLocalGatewaysFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewaysFilterArray) ToGetLocalGatewaysFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewaysFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewaysFilterArrayOutput)
+}
+
+type GetLocalGatewaysFilterOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewaysFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewaysFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewaysFilterOutput) ToGetLocalGatewaysFilterOutput() GetLocalGatewaysFilterOutput {
+	return o
+}
+
+func (o GetLocalGatewaysFilterOutput) ToGetLocalGatewaysFilterOutputWithContext(ctx context.Context) GetLocalGatewaysFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
+func (o GetLocalGatewaysFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewaysFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A Local Gateway will be selected if any one of the given values matches.
+func (o GetLocalGatewaysFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocalGatewaysFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetLocalGatewaysFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewaysFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewaysFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewaysFilterArrayOutput) ToGetLocalGatewaysFilterArrayOutput() GetLocalGatewaysFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewaysFilterArrayOutput) ToGetLocalGatewaysFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewaysFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewaysFilterArrayOutput) Index(i pulumi.IntInput) GetLocalGatewaysFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocalGatewaysFilter {
+		return vs[0].([]GetLocalGatewaysFilter)[vs[1].(int)]
+	}).(GetLocalGatewaysFilterOutput)
 }
 
 type GetNatGatewayFilter struct {
@@ -17821,6 +18530,10 @@ func init() {
 	pulumi.RegisterOutputType(VpnConnectionRouteTypeArrayOutput{})
 	pulumi.RegisterOutputType(VpnConnectionVgwTelemetryOutput{})
 	pulumi.RegisterOutputType(VpnConnectionVgwTelemetryArrayOutput{})
+	pulumi.RegisterOutputType(GetCoipPoolFilterOutput{})
+	pulumi.RegisterOutputType(GetCoipPoolFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetCoipPoolsFilterOutput{})
+	pulumi.RegisterOutputType(GetCoipPoolsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetCustomerGatewayFilterOutput{})
 	pulumi.RegisterOutputType(GetCustomerGatewayFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceCreditSpecificationOutput{})
@@ -17879,6 +18592,14 @@ func init() {
 	pulumi.RegisterOutputType(GetLaunchTemplatePlacementArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateTagSpecificationOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateTagSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayFilterOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayRouteTableFilterOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayRouteTableFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayRouteTablesFilterOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayRouteTablesFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewaysFilterOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewaysFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetNatGatewayFilterOutput{})
 	pulumi.RegisterOutputType(GetNatGatewayFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkAclsFilterOutput{})

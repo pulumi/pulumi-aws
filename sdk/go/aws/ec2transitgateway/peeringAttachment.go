@@ -15,7 +15,7 @@ import (
 type PeeringAttachment struct {
 	pulumi.CustomResourceState
 
-	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
 	PeerAccountId pulumi.StringOutput `pulumi:"peerAccountId"`
 	// Region of EC2 Transit Gateway to peer with.
 	PeerRegion pulumi.StringOutput `pulumi:"peerRegion"`
@@ -64,7 +64,7 @@ func GetPeeringAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PeeringAttachment resources.
 type peeringAttachmentState struct {
-	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
 	PeerAccountId *string `pulumi:"peerAccountId"`
 	// Region of EC2 Transit Gateway to peer with.
 	PeerRegion *string `pulumi:"peerRegion"`
@@ -77,7 +77,7 @@ type peeringAttachmentState struct {
 }
 
 type PeeringAttachmentState struct {
-	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
 	PeerAccountId pulumi.StringPtrInput
 	// Region of EC2 Transit Gateway to peer with.
 	PeerRegion pulumi.StringPtrInput
@@ -94,7 +94,7 @@ func (PeeringAttachmentState) ElementType() reflect.Type {
 }
 
 type peeringAttachmentArgs struct {
-	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
 	PeerAccountId *string `pulumi:"peerAccountId"`
 	// Region of EC2 Transit Gateway to peer with.
 	PeerRegion string `pulumi:"peerRegion"`
@@ -108,7 +108,7 @@ type peeringAttachmentArgs struct {
 
 // The set of arguments for constructing a PeeringAttachment resource.
 type PeeringAttachmentArgs struct {
-	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
 	PeerAccountId pulumi.StringPtrInput
 	// Region of EC2 Transit Gateway to peer with.
 	PeerRegion pulumi.StringInput

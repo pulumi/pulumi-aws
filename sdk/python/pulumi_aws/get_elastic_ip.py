@@ -13,12 +13,24 @@ class GetElasticIpResult:
     """
     A collection of values returned by getElasticIp.
     """
-    def __init__(__self__, association_id=None, domain=None, filters=None, id=None, instance_id=None, network_interface_id=None, network_interface_owner_id=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, public_ipv4_pool=None, tags=None):
+    def __init__(__self__, association_id=None, customer_owned_ip=None, customer_owned_ipv4_pool=None, domain=None, filters=None, id=None, instance_id=None, network_interface_id=None, network_interface_owner_id=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, public_ipv4_pool=None, tags=None):
         if association_id and not isinstance(association_id, str):
             raise TypeError("Expected argument 'association_id' to be a str")
         __self__.association_id = association_id
         """
         The ID representing the association of the address with an instance in a VPC.
+        """
+        if customer_owned_ip and not isinstance(customer_owned_ip, str):
+            raise TypeError("Expected argument 'customer_owned_ip' to be a str")
+        __self__.customer_owned_ip = customer_owned_ip
+        """
+        Customer Owned IP.
+        """
+        if customer_owned_ipv4_pool and not isinstance(customer_owned_ipv4_pool, str):
+            raise TypeError("Expected argument 'customer_owned_ipv4_pool' to be a str")
+        __self__.customer_owned_ipv4_pool = customer_owned_ipv4_pool
+        """
+        The ID of a Customer Owned IP Pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
         """
         if domain and not isinstance(domain, str):
             raise TypeError("Expected argument 'domain' to be a str")
@@ -96,6 +108,8 @@ class AwaitableGetElasticIpResult(GetElasticIpResult):
             yield self
         return GetElasticIpResult(
             association_id=self.association_id,
+            customer_owned_ip=self.customer_owned_ip,
+            customer_owned_ipv4_pool=self.customer_owned_ipv4_pool,
             domain=self.domain,
             filters=self.filters,
             id=self.id,
@@ -183,6 +197,8 @@ def get_elastic_ip(filters=None,id=None,public_ip=None,tags=None,opts=None):
 
     return AwaitableGetElasticIpResult(
         association_id=__ret__.get('associationId'),
+        customer_owned_ip=__ret__.get('customerOwnedIp'),
+        customer_owned_ipv4_pool=__ret__.get('customerOwnedIpv4Pool'),
         domain=__ret__.get('domain'),
         filters=__ret__.get('filters'),
         id=__ret__.get('id'),

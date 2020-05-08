@@ -14,7 +14,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
     """
     The account(s) to aggregate config data from as documented below.
 
-      * `account_ids` (`list`) - List of 12-digit account IDs of the account(s) being aggregated.
+      * `accountIds` (`list`) - List of 12-digit account IDs of the account(s) being aggregated.
       * `allRegions` (`bool`) - If true, aggregate existing AWS Config regions and future regions.
       * `regions` (`list`) - List of source regions being aggregated.
     """
@@ -96,7 +96,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
 
         The **account_aggregation_source** object supports the following:
 
-          * `account_ids` (`pulumi.Input[list]`) - List of 12-digit account IDs of the account(s) being aggregated.
+          * `accountIds` (`pulumi.Input[list]`) - List of 12-digit account IDs of the account(s) being aggregated.
           * `allRegions` (`pulumi.Input[bool]`) - If true, aggregate existing AWS Config regions and future regions.
           * `regions` (`pulumi.Input[list]`) - List of source regions being aggregated.
 
@@ -151,7 +151,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
 
         The **account_aggregation_source** object supports the following:
 
-          * `account_ids` (`pulumi.Input[list]`) - List of 12-digit account IDs of the account(s) being aggregated.
+          * `accountIds` (`pulumi.Input[list]`) - List of 12-digit account IDs of the account(s) being aggregated.
           * `allRegions` (`pulumi.Input[bool]`) - If true, aggregate existing AWS Config regions and future regions.
           * `regions` (`pulumi.Input[list]`) - List of source regions being aggregated.
 

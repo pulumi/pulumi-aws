@@ -64,6 +64,14 @@ export class Eip extends pulumi.CustomResource {
      */
     public readonly associateWithPrivateIp!: pulumi.Output<string | undefined>;
     public /*out*/ readonly associationId!: pulumi.Output<string>;
+    /**
+     * Customer owned IP.
+     */
+    public /*out*/ readonly customerOwnedIp!: pulumi.Output<string>;
+    /**
+     * The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+     */
+    public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
     public /*out*/ readonly domain!: pulumi.Output<string>;
     /**
      * EC2 instance ID.
@@ -117,6 +125,8 @@ export class Eip extends pulumi.CustomResource {
             inputs["allocationId"] = state ? state.allocationId : undefined;
             inputs["associateWithPrivateIp"] = state ? state.associateWithPrivateIp : undefined;
             inputs["associationId"] = state ? state.associationId : undefined;
+            inputs["customerOwnedIp"] = state ? state.customerOwnedIp : undefined;
+            inputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
             inputs["domain"] = state ? state.domain : undefined;
             inputs["instance"] = state ? state.instance : undefined;
             inputs["networkInterface"] = state ? state.networkInterface : undefined;
@@ -130,6 +140,7 @@ export class Eip extends pulumi.CustomResource {
         } else {
             const args = argsOrState as EipArgs | undefined;
             inputs["associateWithPrivateIp"] = args ? args.associateWithPrivateIp : undefined;
+            inputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
             inputs["instance"] = args ? args.instance : undefined;
             inputs["networkInterface"] = args ? args.networkInterface : undefined;
             inputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
@@ -137,6 +148,7 @@ export class Eip extends pulumi.CustomResource {
             inputs["vpc"] = args ? args.vpc : undefined;
             inputs["allocationId"] = undefined /*out*/;
             inputs["associationId"] = undefined /*out*/;
+            inputs["customerOwnedIp"] = undefined /*out*/;
             inputs["domain"] = undefined /*out*/;
             inputs["privateDns"] = undefined /*out*/;
             inputs["privateIp"] = undefined /*out*/;
@@ -166,6 +178,14 @@ export interface EipState {
      */
     readonly associateWithPrivateIp?: pulumi.Input<string>;
     readonly associationId?: pulumi.Input<string>;
+    /**
+     * Customer owned IP.
+     */
+    readonly customerOwnedIp?: pulumi.Input<string>;
+    /**
+     * The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+     */
+    readonly customerOwnedIpv4Pool?: pulumi.Input<string>;
     readonly domain?: pulumi.Input<string>;
     /**
      * EC2 instance ID.
@@ -215,6 +235,10 @@ export interface EipArgs {
      * the Elastic IP address is associated with the primary private IP address.
      */
     readonly associateWithPrivateIp?: pulumi.Input<string>;
+    /**
+     * The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+     */
+    readonly customerOwnedIpv4Pool?: pulumi.Input<string>;
     /**
      * EC2 instance ID.
      */

@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Cognito
         /// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
         /// </summary>
         [Output("roles")]
-        public Output<Outputs.IdentityPoolRoleAttachmentRoles> Roles { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Roles { get; private set; } = null!;
 
 
         /// <summary>
@@ -96,11 +96,17 @@ namespace Pulumi.Aws.Cognito
             set => _roleMappings = value;
         }
 
+        [Input("roles", required: true)]
+        private InputMap<string>? _roles;
+
         /// <summary>
         /// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
         /// </summary>
-        [Input("roles", required: true)]
-        public Input<Inputs.IdentityPoolRoleAttachmentRolesArgs> Roles { get; set; } = null!;
+        public InputMap<string> Roles
+        {
+            get => _roles ?? (_roles = new InputMap<string>());
+            set => _roles = value;
+        }
 
         public IdentityPoolRoleAttachmentArgs()
         {
@@ -127,11 +133,17 @@ namespace Pulumi.Aws.Cognito
             set => _roleMappings = value;
         }
 
+        [Input("roles")]
+        private InputMap<string>? _roles;
+
         /// <summary>
         /// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
         /// </summary>
-        [Input("roles")]
-        public Input<Inputs.IdentityPoolRoleAttachmentRolesGetArgs>? Roles { get; set; }
+        public InputMap<string> Roles
+        {
+            get => _roles ?? (_roles = new InputMap<string>());
+            set => _roles = value;
+        }
 
         public IdentityPoolRoleAttachmentState()
         {

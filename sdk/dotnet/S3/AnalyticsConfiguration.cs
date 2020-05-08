@@ -9,17 +9,32 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
+    /// <summary>
+    /// Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
+    /// </summary>
     public partial class AnalyticsConfiguration : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the bucket this analytics configuration is associated with.
+        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
+        /// <summary>
+        /// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        /// </summary>
         [Output("filter")]
         public Output<Outputs.AnalyticsConfigurationFilter?> Filter { get; private set; } = null!;
 
+        /// <summary>
+        /// Unique identifier of the analytics configuration for the bucket.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration for the analytics data export (documented below).
+        /// </summary>
         [Output("storageClassAnalysis")]
         public Output<Outputs.AnalyticsConfigurationStorageClassAnalysis?> StorageClassAnalysis { get; private set; } = null!;
 
@@ -69,15 +84,27 @@ namespace Pulumi.Aws.S3
 
     public sealed class AnalyticsConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the bucket this analytics configuration is associated with.
+        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        /// </summary>
         [Input("filter")]
         public Input<Inputs.AnalyticsConfigurationFilterArgs>? Filter { get; set; }
 
+        /// <summary>
+        /// Unique identifier of the analytics configuration for the bucket.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Configuration for the analytics data export (documented below).
+        /// </summary>
         [Input("storageClassAnalysis")]
         public Input<Inputs.AnalyticsConfigurationStorageClassAnalysisArgs>? StorageClassAnalysis { get; set; }
 
@@ -88,15 +115,27 @@ namespace Pulumi.Aws.S3
 
     public sealed class AnalyticsConfigurationState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the bucket this analytics configuration is associated with.
+        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
+        /// <summary>
+        /// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        /// </summary>
         [Input("filter")]
         public Input<Inputs.AnalyticsConfigurationFilterGetArgs>? Filter { get; set; }
 
+        /// <summary>
+        /// Unique identifier of the analytics configuration for the bucket.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Configuration for the analytics data export (documented below).
+        /// </summary>
         [Input("storageClassAnalysis")]
         public Input<Inputs.AnalyticsConfigurationStorageClassAnalysisGetArgs>? StorageClassAnalysis { get; set; }
 

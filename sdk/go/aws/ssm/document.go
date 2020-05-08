@@ -58,7 +58,7 @@ type Document struct {
 	// The parameters that are available to this document.
 	Parameters DocumentParameterArrayOutput `pulumi:"parameters"`
 	// Additional Permissions to attach to the document. See Permissions below for details.
-	Permissions DocumentPermissionsPtrOutput `pulumi:"permissions"`
+	Permissions pulumi.StringMapOutput `pulumi:"permissions"`
 	// A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
 	PlatformTypes pulumi.StringArrayOutput `pulumi:"platformTypes"`
 	// The schema version of the document.
@@ -133,7 +133,7 @@ type documentState struct {
 	// The parameters that are available to this document.
 	Parameters []DocumentParameter `pulumi:"parameters"`
 	// Additional Permissions to attach to the document. See Permissions below for details.
-	Permissions *DocumentPermissions `pulumi:"permissions"`
+	Permissions map[string]string `pulumi:"permissions"`
 	// A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
 	PlatformTypes []string `pulumi:"platformTypes"`
 	// The schema version of the document.
@@ -175,7 +175,7 @@ type DocumentState struct {
 	// The parameters that are available to this document.
 	Parameters DocumentParameterArrayInput
 	// Additional Permissions to attach to the document. See Permissions below for details.
-	Permissions DocumentPermissionsPtrInput
+	Permissions pulumi.StringMapInput
 	// A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
 	PlatformTypes pulumi.StringArrayInput
 	// The schema version of the document.
@@ -204,7 +204,7 @@ type documentArgs struct {
 	// The name of the document.
 	Name *string `pulumi:"name"`
 	// Additional Permissions to attach to the document. See Permissions below for details.
-	Permissions *DocumentPermissions `pulumi:"permissions"`
+	Permissions map[string]string `pulumi:"permissions"`
 	// A map of tags to assign to the object.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
@@ -224,7 +224,7 @@ type DocumentArgs struct {
 	// The name of the document.
 	Name pulumi.StringPtrInput
 	// Additional Permissions to attach to the document. See Permissions below for details.
-	Permissions DocumentPermissionsPtrInput
+	Permissions pulumi.StringMapInput
 	// A map of tags to assign to the object.
 	Tags pulumi.MapInput
 	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)

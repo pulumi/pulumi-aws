@@ -21,6 +21,8 @@ from .eip import *
 from .eip_association import *
 from .fleet import *
 from .flow_log import *
+from .get_coip_pool import *
+from .get_coip_pools import *
 from .get_customer_gateway import *
 from .get_instance import *
 from .get_instance_type_offering import *
@@ -29,6 +31,10 @@ from .get_instances import *
 from .get_internet_gateway import *
 from .get_launch_configuration import *
 from .get_launch_template import *
+from .get_local_gateway import *
+from .get_local_gateway_route_table import *
+from .get_local_gateway_route_tables import *
+from .get_local_gateways import *
 from .get_nat_gateway import *
 from .get_network_acls import *
 from .get_network_interface import *
@@ -76,6 +82,7 @@ from .traffic_mirror_filter import *
 from .traffic_mirror_filter_rule import *
 from .traffic_mirror_session import *
 from .traffic_mirror_target import *
+from .transit_gateway_peering_attachment_accepter import *
 from .volume_attachment import *
 from .vpc import *
 from .vpc_dhcp_options import *

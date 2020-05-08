@@ -12,8 +12,10 @@ namespace Pulumi.Aws.ApiGateway
     /// <summary>
     /// Provides an API Gateway REST Deployment.
     /// 
-    /// &gt; **Note:** Depends on having `aws.apigateway.Integration` inside your rest api (which in turn depends on `aws.apigateway.Method`). To avoid race conditions
-    /// you might need to add an explicit `depends_on = ["${aws_api_gateway_integration.name}"]`.
+    /// &gt; **Note:** This resource depends on having at least one `aws.apigateway.Integration` created in the REST API, which 
+    /// itself has other dependencies. To avoid race conditions when all resources are being created together, you need to add 
+    /// implicit resource references via the `triggers` argument or explicit resource references using the 
+    /// [resource `dependsOn` meta-argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson).
     /// </summary>
     public partial class Deployment : Pulumi.CustomResource
     {
@@ -30,7 +32,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The execution ARN to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
+        /// The execution ARN to be used in `lambda_permission` resource's `source_arn`
         /// when allowing API Gateway to invoke a Lambda function,
         /// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         /// </summary>
@@ -61,6 +63,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Output("stageName")]
         public Output<string?> StageName { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        /// </summary>
+        [Output("triggers")]
+        public Output<ImmutableDictionary<string, string>?> Triggers { get; private set; } = null!;
 
         /// <summary>
         /// A map that defines variables for the stage
@@ -138,6 +146,18 @@ namespace Pulumi.Aws.ApiGateway
         [Input("stageName")]
         public Input<string>? StageName { get; set; }
 
+        [Input("triggers")]
+        private InputMap<string>? _triggers;
+
+        /// <summary>
+        /// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        /// </summary>
+        public InputMap<string> Triggers
+        {
+            get => _triggers ?? (_triggers = new InputMap<string>());
+            set => _triggers = value;
+        }
+
         [Input("variables")]
         private InputMap<string>? _variables;
 
@@ -170,7 +190,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The execution ARN to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
+        /// The execution ARN to be used in `lambda_permission` resource's `source_arn`
         /// when allowing API Gateway to invoke a Lambda function,
         /// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         /// </summary>
@@ -201,6 +221,18 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }
+
+        [Input("triggers")]
+        private InputMap<string>? _triggers;
+
+        /// <summary>
+        /// A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        /// </summary>
+        public InputMap<string> Triggers
+        {
+            get => _triggers ?? (_triggers = new InputMap<string>());
+            set => _triggers = value;
+        }
 
         [Input("variables")]
         private InputMap<string>? _variables;

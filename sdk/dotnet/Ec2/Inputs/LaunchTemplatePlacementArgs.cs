@@ -37,6 +37,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? HostId { get; set; }
 
         /// <summary>
+        /// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+        /// </summary>
+        [Input("partitionNumber")]
+        public Input<int>? PartitionNumber { get; set; }
+
+        /// <summary>
         /// Reserved for future use.
         /// </summary>
         [Input("spreadDomain")]

@@ -32,6 +32,18 @@ namespace Pulumi.Aws.Ec2
         [Output("associationId")]
         public Output<string> AssociationId { get; private set; } = null!;
 
+        /// <summary>
+        /// Customer owned IP.
+        /// </summary>
+        [Output("customerOwnedIp")]
+        public Output<string> CustomerOwnedIp { get; private set; } = null!;
+
+        /// <summary>
+        /// The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+        /// </summary>
+        [Output("customerOwnedIpv4Pool")]
+        public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
+
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
 
@@ -144,6 +156,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? AssociateWithPrivateIp { get; set; }
 
         /// <summary>
+        /// The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+        /// </summary>
+        [Input("customerOwnedIpv4Pool")]
+        public Input<string>? CustomerOwnedIpv4Pool { get; set; }
+
+        /// <summary>
         /// EC2 instance ID.
         /// </summary>
         [Input("instance")]
@@ -199,6 +217,18 @@ namespace Pulumi.Aws.Ec2
 
         [Input("associationId")]
         public Input<string>? AssociationId { get; set; }
+
+        /// <summary>
+        /// Customer owned IP.
+        /// </summary>
+        [Input("customerOwnedIp")]
+        public Input<string>? CustomerOwnedIp { get; set; }
+
+        /// <summary>
+        /// The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+        /// </summary>
+        [Input("customerOwnedIpv4Pool")]
+        public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
         [Input("domain")]
         public Input<string>? Domain { get; set; }

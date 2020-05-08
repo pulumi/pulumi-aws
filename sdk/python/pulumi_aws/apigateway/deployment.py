@@ -20,7 +20,7 @@ class Deployment(pulumi.CustomResource):
     """
     execution_arn: pulumi.Output[str]
     """
-    The execution ARN to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
+    The execution ARN to be used in `lambda_permission` resource's `source_arn`
     when allowing API Gateway to invoke a Lambda function,
     e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
     """
@@ -41,16 +41,22 @@ class Deployment(pulumi.CustomResource):
     """
     The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
     """
+    triggers: pulumi.Output[dict]
+    """
+    A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+    """
     variables: pulumi.Output[dict]
     """
     A map that defines variables for the stage
     """
-    def __init__(__self__, resource_name, opts=None, description=None, rest_api=None, stage_description=None, stage_name=None, variables=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, rest_api=None, stage_description=None, stage_name=None, triggers=None, variables=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an API Gateway REST Deployment.
 
-        > **Note:** Depends on having `apigateway.Integration` inside your rest api (which in turn depends on `apigateway.Method`). To avoid race conditions
-        you might need to add an explicit `depends_on = ["${aws_api_gateway_integration.name}"]`.
+        > **Note:** This resource depends on having at least one `apigateway.Integration` created in the REST API, which 
+        itself has other dependencies. To avoid race conditions when all resources are being created together, you need to add 
+        implicit resource references via the `triggers` argument or explicit resource references using the 
+        [resource `dependsOn` meta-argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson).
 
         ## Example Usage
 
@@ -90,6 +96,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[dict] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] stage_description: The description of the stage
         :param pulumi.Input[str] stage_name: The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
+        :param pulumi.Input[dict] triggers: A map of arbitrary keys and values that, when changed, will trigger a redeployment.
         :param pulumi.Input[dict] variables: A map that defines variables for the stage
         """
         if __name__ is not None:
@@ -115,6 +122,7 @@ class Deployment(pulumi.CustomResource):
             __props__['rest_api'] = rest_api
             __props__['stage_description'] = stage_description
             __props__['stage_name'] = stage_name
+            __props__['triggers'] = triggers
             __props__['variables'] = variables
             __props__['created_date'] = None
             __props__['execution_arn'] = None
@@ -126,7 +134,7 @@ class Deployment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, created_date=None, description=None, execution_arn=None, invoke_url=None, rest_api=None, stage_description=None, stage_name=None, variables=None):
+    def get(resource_name, id, opts=None, created_date=None, description=None, execution_arn=None, invoke_url=None, rest_api=None, stage_description=None, stage_name=None, triggers=None, variables=None):
         """
         Get an existing Deployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -136,7 +144,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_date: The creation date of the deployment
         :param pulumi.Input[str] description: The description of the deployment
-        :param pulumi.Input[str] execution_arn: The execution ARN to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
+        :param pulumi.Input[str] execution_arn: The execution ARN to be used in `lambda_permission` resource's `source_arn`
                when allowing API Gateway to invoke a Lambda function,
                e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         :param pulumi.Input[str] invoke_url: The URL to invoke the API pointing to the stage,
@@ -144,6 +152,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[dict] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] stage_description: The description of the stage
         :param pulumi.Input[str] stage_name: The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
+        :param pulumi.Input[dict] triggers: A map of arbitrary keys and values that, when changed, will trigger a redeployment.
         :param pulumi.Input[dict] variables: A map that defines variables for the stage
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -157,6 +166,7 @@ class Deployment(pulumi.CustomResource):
         __props__["rest_api"] = rest_api
         __props__["stage_description"] = stage_description
         __props__["stage_name"] = stage_name
+        __props__["triggers"] = triggers
         __props__["variables"] = variables
         return Deployment(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

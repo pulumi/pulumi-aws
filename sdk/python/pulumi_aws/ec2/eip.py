@@ -18,6 +18,14 @@ class Eip(pulumi.CustomResource):
     the Elastic IP address is associated with the primary private IP address.
     """
     association_id: pulumi.Output[str]
+    customer_owned_ip: pulumi.Output[str]
+    """
+    Customer owned IP.
+    """
+    customer_owned_ipv4_pool: pulumi.Output[str]
+    """
+    The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+    """
     domain: pulumi.Output[str]
     instance: pulumi.Output[str]
     """
@@ -55,7 +63,7 @@ class Eip(pulumi.CustomResource):
     """
     Boolean if the EIP is in a VPC or not.
     """
-    def __init__(__self__, resource_name, opts=None, associate_with_private_ip=None, instance=None, network_interface=None, public_ipv4_pool=None, tags=None, vpc=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, associate_with_private_ip=None, customer_owned_ipv4_pool=None, instance=None, network_interface=None, public_ipv4_pool=None, tags=None, vpc=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Elastic IP resource.
 
@@ -82,6 +90,7 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[str] associate_with_private_ip: A user specified primary or secondary private IP address to
                associate with the Elastic IP address. If no private IP address is specified,
                the Elastic IP address is associated with the primary private IP address.
+        :param pulumi.Input[str] customer_owned_ipv4_pool: The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
         :param pulumi.Input[str] instance: EC2 instance ID.
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
         :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
@@ -106,6 +115,7 @@ class Eip(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['associate_with_private_ip'] = associate_with_private_ip
+            __props__['customer_owned_ipv4_pool'] = customer_owned_ipv4_pool
             __props__['instance'] = instance
             __props__['network_interface'] = network_interface
             __props__['public_ipv4_pool'] = public_ipv4_pool
@@ -113,6 +123,7 @@ class Eip(pulumi.CustomResource):
             __props__['vpc'] = vpc
             __props__['allocation_id'] = None
             __props__['association_id'] = None
+            __props__['customer_owned_ip'] = None
             __props__['domain'] = None
             __props__['private_dns'] = None
             __props__['private_ip'] = None
@@ -125,7 +136,7 @@ class Eip(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allocation_id=None, associate_with_private_ip=None, association_id=None, domain=None, instance=None, network_interface=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, public_ipv4_pool=None, tags=None, vpc=None):
+    def get(resource_name, id, opts=None, allocation_id=None, associate_with_private_ip=None, association_id=None, customer_owned_ip=None, customer_owned_ipv4_pool=None, domain=None, instance=None, network_interface=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, public_ipv4_pool=None, tags=None, vpc=None):
         """
         Get an existing Eip resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -136,6 +147,8 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[str] associate_with_private_ip: A user specified primary or secondary private IP address to
                associate with the Elastic IP address. If no private IP address is specified,
                the Elastic IP address is associated with the primary private IP address.
+        :param pulumi.Input[str] customer_owned_ip: Customer owned IP.
+        :param pulumi.Input[str] customer_owned_ipv4_pool: The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
         :param pulumi.Input[str] instance: EC2 instance ID.
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
         :param pulumi.Input[str] private_dns: The Private DNS associated with the Elastic IP address (if in VPC).
@@ -153,6 +166,8 @@ class Eip(pulumi.CustomResource):
         __props__["allocation_id"] = allocation_id
         __props__["associate_with_private_ip"] = associate_with_private_ip
         __props__["association_id"] = association_id
+        __props__["customer_owned_ip"] = customer_owned_ip
+        __props__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
         __props__["domain"] = domain
         __props__["instance"] = instance
         __props__["network_interface"] = network_interface

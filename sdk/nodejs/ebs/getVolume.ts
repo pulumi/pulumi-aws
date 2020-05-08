@@ -99,6 +99,10 @@ export interface GetVolumeResult {
     readonly kmsKeyId: string;
     readonly mostRecent?: boolean;
     /**
+     * (Optional) Specifies whether Amazon EBS Multi-Attach is enabled.
+     */
+    readonly multiAttachEnabled: boolean;
+    /**
      * The Amazon Resource Name (ARN) of the Outpost.
      */
     readonly outpostArn: string;

@@ -45,6 +45,12 @@ namespace Pulumi.Aws.Ebs
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+        /// </summary>
+        [Output("multiAttachEnabled")]
+        public Output<bool?> MultiAttachEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the Outpost.
         /// </summary>
         [Output("outpostArn")]
@@ -145,6 +151,12 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
+        /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+        /// </summary>
+        [Input("multiAttachEnabled")]
+        public Input<bool>? MultiAttachEnabled { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the Outpost.
         /// </summary>
         [Input("outpostArn")]
@@ -216,6 +228,12 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+        /// </summary>
+        [Input("multiAttachEnabled")]
+        public Input<bool>? MultiAttachEnabled { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Outpost.

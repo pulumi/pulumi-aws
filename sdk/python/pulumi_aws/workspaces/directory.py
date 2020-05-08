@@ -10,9 +10,41 @@ from typing import Union
 from .. import utilities, tables
 
 class Directory(pulumi.CustomResource):
+    alias: pulumi.Output[str]
+    """
+    The directory alias.
+    """
+    customer_user_name: pulumi.Output[str]
+    """
+    The user name for the service account.
+    """
     directory_id: pulumi.Output[str]
     """
     The directory identifier for registration in WorkSpaces service.
+    """
+    directory_name: pulumi.Output[str]
+    """
+    The name of the directory.
+    """
+    directory_type: pulumi.Output[str]
+    """
+    The directory type.
+    """
+    dns_ip_addresses: pulumi.Output[list]
+    """
+    The IP addresses of the DNS servers for the directory.
+    """
+    iam_role_id: pulumi.Output[str]
+    """
+    The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+    """
+    ip_group_ids: pulumi.Output[list]
+    """
+    The identifiers of the IP access control groups associated with the directory.
+    """
+    registration_code: pulumi.Output[str]
+    """
+    The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
     """
     self_service_permissions: pulumi.Output[dict]
     """
@@ -31,6 +63,10 @@ class Directory(pulumi.CustomResource):
     tags: pulumi.Output[dict]
     """
     A map of tags assigned to the WorkSpaces directory.
+    """
+    workspace_security_group_id: pulumi.Output[str]
+    """
+    The identifier of the security group that is assigned to new WorkSpaces.
     """
     def __init__(__self__, resource_name, opts=None, directory_id=None, self_service_permissions=None, subnet_ids=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -110,6 +146,15 @@ class Directory(pulumi.CustomResource):
             __props__['self_service_permissions'] = self_service_permissions
             __props__['subnet_ids'] = subnet_ids
             __props__['tags'] = tags
+            __props__['alias'] = None
+            __props__['customer_user_name'] = None
+            __props__['directory_name'] = None
+            __props__['directory_type'] = None
+            __props__['dns_ip_addresses'] = None
+            __props__['iam_role_id'] = None
+            __props__['ip_group_ids'] = None
+            __props__['registration_code'] = None
+            __props__['workspace_security_group_id'] = None
         super(Directory, __self__).__init__(
             'aws:workspaces/directory:Directory',
             resource_name,
@@ -117,7 +162,7 @@ class Directory(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, directory_id=None, self_service_permissions=None, subnet_ids=None, tags=None):
+    def get(resource_name, id, opts=None, alias=None, customer_user_name=None, directory_id=None, directory_name=None, directory_type=None, dns_ip_addresses=None, iam_role_id=None, ip_group_ids=None, registration_code=None, self_service_permissions=None, subnet_ids=None, tags=None, workspace_security_group_id=None):
         """
         Get an existing Directory resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -125,10 +170,19 @@ class Directory(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] alias: The directory alias.
+        :param pulumi.Input[str] customer_user_name: The user name for the service account.
         :param pulumi.Input[str] directory_id: The directory identifier for registration in WorkSpaces service.
+        :param pulumi.Input[str] directory_name: The name of the directory.
+        :param pulumi.Input[str] directory_type: The directory type.
+        :param pulumi.Input[list] dns_ip_addresses: The IP addresses of the DNS servers for the directory.
+        :param pulumi.Input[str] iam_role_id: The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+        :param pulumi.Input[list] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
+        :param pulumi.Input[str] registration_code: The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
         :param pulumi.Input[dict] self_service_permissions: The permissions to enable or disable self-service capabilities.
         :param pulumi.Input[list] subnet_ids: The identifiers of the subnets where the directory resides.
         :param pulumi.Input[dict] tags: A map of tags assigned to the WorkSpaces directory.
+        :param pulumi.Input[str] workspace_security_group_id: The identifier of the security group that is assigned to new WorkSpaces.
 
         The **self_service_permissions** object supports the following:
 
@@ -142,10 +196,19 @@ class Directory(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["alias"] = alias
+        __props__["customer_user_name"] = customer_user_name
         __props__["directory_id"] = directory_id
+        __props__["directory_name"] = directory_name
+        __props__["directory_type"] = directory_type
+        __props__["dns_ip_addresses"] = dns_ip_addresses
+        __props__["iam_role_id"] = iam_role_id
+        __props__["ip_group_ids"] = ip_group_ids
+        __props__["registration_code"] = registration_code
         __props__["self_service_permissions"] = self_service_permissions
         __props__["subnet_ids"] = subnet_ids
         __props__["tags"] = tags
+        __props__["workspace_security_group_id"] = workspace_security_group_id
         return Directory(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

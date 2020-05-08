@@ -33,6 +33,10 @@ type GetElasticIpArgs struct {
 type GetElasticIpResult struct {
 	// The ID representing the association of the address with an instance in a VPC.
 	AssociationId string `pulumi:"associationId"`
+	// Customer Owned IP.
+	CustomerOwnedIp string `pulumi:"customerOwnedIp"`
+	// The ID of a Customer Owned IP Pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+	CustomerOwnedIpv4Pool string `pulumi:"customerOwnedIpv4Pool"`
 	// Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
 	Domain  string               `pulumi:"domain"`
 	Filters []GetElasticIpFilter `pulumi:"filters"`

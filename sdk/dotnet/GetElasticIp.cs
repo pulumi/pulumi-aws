@@ -74,6 +74,14 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string AssociationId;
         /// <summary>
+        /// Customer Owned IP.
+        /// </summary>
+        public readonly string CustomerOwnedIp;
+        /// <summary>
+        /// The ID of a Customer Owned IP Pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+        /// </summary>
+        public readonly string CustomerOwnedIpv4Pool;
+        /// <summary>
         /// Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
         /// </summary>
         public readonly string Domain;
@@ -123,6 +131,10 @@ namespace Pulumi.Aws
         private GetElasticIpResult(
             string associationId,
 
+            string customerOwnedIp,
+
+            string customerOwnedIpv4Pool,
+
             string domain,
 
             ImmutableArray<Outputs.GetElasticIpFilterResult> filters,
@@ -148,6 +160,8 @@ namespace Pulumi.Aws
             ImmutableDictionary<string, object> tags)
         {
             AssociationId = associationId;
+            CustomerOwnedIp = customerOwnedIp;
+            CustomerOwnedIpv4Pool = customerOwnedIpv4Pool;
             Domain = domain;
             Filters = filters;
             Id = id;

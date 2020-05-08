@@ -22,12 +22,16 @@ class Deployment(pulumi.CustomResource):
     """
     The description for the deployment resource.
     """
-    def __init__(__self__, resource_name, opts=None, api_id=None, description=None, __props__=None, __name__=None, __opts__=None):
+    triggers: pulumi.Output[dict]
+    """
+    A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+    """
+    def __init__(__self__, resource_name, opts=None, api_id=None, description=None, triggers=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Amazon API Gateway Version 2 deployment.
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 
-        > **Note:** Creating a deployment for an API requires at least one `apigatewayv2.Route` resource associated with that API.
+        > **Note:** Creating a deployment for an API requires at least one `apigatewayv2.Route` resource associated with that API. To avoid race conditions when all resources are being created together, you need to add implicit resource references via the `triggers` argument or explicit resource references using the [resource `dependsOn` meta-argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson).
 
         ## Example Usage
 
@@ -47,6 +51,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API identifier.
         :param pulumi.Input[str] description: The description for the deployment resource.
+        :param pulumi.Input[dict] triggers: A map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -69,6 +74,7 @@ class Deployment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
             __props__['description'] = description
+            __props__['triggers'] = triggers
             __props__['auto_deployed'] = None
         super(Deployment, __self__).__init__(
             'aws:apigatewayv2/deployment:Deployment',
@@ -77,7 +83,7 @@ class Deployment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, api_id=None, auto_deployed=None, description=None):
+    def get(resource_name, id, opts=None, api_id=None, auto_deployed=None, description=None, triggers=None):
         """
         Get an existing Deployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -88,6 +94,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] api_id: The API identifier.
         :param pulumi.Input[bool] auto_deployed: Whether the deployment was automatically released.
         :param pulumi.Input[str] description: The description for the deployment resource.
+        :param pulumi.Input[dict] triggers: A map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -96,6 +103,7 @@ class Deployment(pulumi.CustomResource):
         __props__["api_id"] = api_id
         __props__["auto_deployed"] = auto_deployed
         __props__["description"] = description
+        __props__["triggers"] = triggers
         return Deployment(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -110,6 +110,14 @@ export interface GetElasticIpResult {
      */
     readonly associationId: string;
     /**
+     * Customer Owned IP.
+     */
+    readonly customerOwnedIp: string;
+    /**
+     * The ID of a Customer Owned IP Pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
+     */
+    readonly customerOwnedIpv4Pool: string;
+    /**
      * Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
      */
     readonly domain: string;

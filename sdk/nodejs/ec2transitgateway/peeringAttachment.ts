@@ -4,6 +4,40 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an EC2 Transit Gateway Peering Attachment.
+ * For examples of custom route table association and propagation, see the [EC2 Transit Gateway Networking Examples Guide](https://docs.aws.amazon.com/vpc/latest/tgw/TGW_Scenarios.html).
+ * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const local = new aws.Provider("local", {region: "us-east-1"});
+ * const peer = new aws.Provider("peer", {region: "us-west-2"});
+ * const peerRegion = aws.getRegion({});
+ * const localTransitGateway = new aws.ec2transitgateway.TransitGateway("localTransitGateway", {tags: {
+ *     Name: "Local TGW",
+ * }});
+ * const peerTransitGateway = new aws.ec2transitgateway.TransitGateway("peerTransitGateway", {tags: {
+ *     Name: "Peer TGW",
+ * }});
+ * const example = new aws.ec2transitgateway.PeeringAttachment("example", {
+ *     peerAccountId: peerTransitGateway.ownerId,
+ *     peerRegion: peerRegion.then(peerRegion => peerRegion.name),
+ *     peerTransitGatewayId: peerTransitGateway.id,
+ *     transitGatewayId: localTransitGateway.id,
+ *     tags: {
+ *         Name: "TGW Peering Requestor",
+ *     },
+ * });
+ * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_peering_attachment.html.markdown.
+ */
 export class PeeringAttachment extends pulumi.CustomResource {
     /**
      * Get an existing PeeringAttachment resource's state with the given name, ID, and optional extra
@@ -32,7 +66,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
      */
     public readonly peerAccountId!: pulumi.Output<string>;
     /**
@@ -102,7 +136,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
  */
 export interface PeeringAttachmentState {
     /**
-     * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
      */
     readonly peerAccountId?: pulumi.Input<string>;
     /**
@@ -128,7 +162,7 @@ export interface PeeringAttachmentState {
  */
 export interface PeeringAttachmentArgs {
     /**
-     * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
+     * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
      */
     readonly peerAccountId?: pulumi.Input<string>;
     /**

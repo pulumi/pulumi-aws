@@ -88,6 +88,10 @@ namespace Pulumi.Aws.Efs
         /// * `tags` -A map of tags to assign to the file system.
         /// </summary>
         public readonly double ProvisionedThroughputInMibps;
+        /// <summary>
+        /// The current byte count used by the file system.
+        /// </summary>
+        public readonly int SizeInBytes;
         public readonly ImmutableDictionary<string, object> Tags;
         /// <summary>
         /// Throughput mode for the file system.
@@ -116,6 +120,8 @@ namespace Pulumi.Aws.Efs
 
             double provisionedThroughputInMibps,
 
+            int sizeInBytes,
+
             ImmutableDictionary<string, object> tags,
 
             string throughputMode)
@@ -130,6 +136,7 @@ namespace Pulumi.Aws.Efs
             LifecyclePolicy = lifecyclePolicy;
             PerformanceMode = performanceMode;
             ProvisionedThroughputInMibps = provisionedThroughputInMibps;
+            SizeInBytes = sizeInBytes;
             Tags = tags;
             ThroughputMode = throughputMode;
         }

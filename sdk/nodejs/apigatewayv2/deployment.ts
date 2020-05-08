@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
  * Manages an Amazon API Gateway Version 2 deployment.
  * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
  * 
- * > **Note:** Creating a deployment for an API requires at least one `aws.apigatewayv2.Route` resource associated with that API.
+ * > **Note:** Creating a deployment for an API requires at least one `aws.apigatewayv2.Route` resource associated with that API. To avoid race conditions when all resources are being created together, you need to add implicit resource references via the `triggers` argument or explicit resource references using the [resource `dependsOn` meta-argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson).
  * 
  * ## Example Usage
  * 
@@ -67,6 +67,10 @@ export class Deployment extends pulumi.CustomResource {
      * The description for the deployment resource.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     */
+    public readonly triggers!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -83,6 +87,7 @@ export class Deployment extends pulumi.CustomResource {
             inputs["apiId"] = state ? state.apiId : undefined;
             inputs["autoDeployed"] = state ? state.autoDeployed : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["triggers"] = state ? state.triggers : undefined;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
             if (!args || args.apiId === undefined) {
@@ -90,6 +95,7 @@ export class Deployment extends pulumi.CustomResource {
             }
             inputs["apiId"] = args ? args.apiId : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["triggers"] = args ? args.triggers : undefined;
             inputs["autoDeployed"] = undefined /*out*/;
         }
         if (!opts) {
@@ -119,6 +125,10 @@ export interface DeploymentState {
      * The description for the deployment resource.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     */
+    readonly triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -133,4 +143,8 @@ export interface DeploymentArgs {
      * The description for the deployment resource.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * A map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     */
+    readonly triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -11,31 +11,103 @@ from .. import utilities, tables
 
 class AnalyticsConfiguration(pulumi.CustomResource):
     bucket: pulumi.Output[str]
+    """
+    The name of the bucket this analytics configuration is associated with.
+    """
     filter: pulumi.Output[dict]
+    """
+    Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+
+      * `prefix` (`str`) - Object prefix for filtering.
+      * `tags` (`dict`) - Set of object tags for filtering.
+    """
     name: pulumi.Output[str]
+    """
+    Unique identifier of the analytics configuration for the bucket.
+    """
     storage_class_analysis: pulumi.Output[dict]
+    """
+    Configuration for the analytics data export (documented below).
+
+      * `dataExport` (`dict`) - Data export configuration (documented below).
+        * `destination` (`dict`) - Specifies the destination for the exported analytics data (documented below).
+          * `s3BucketDestination` (`dict`) - Analytics data export currently only supports an S3 bucket destination (documented below).
+            * `bucketAccountId` (`str`) - The account ID that owns the destination bucket.
+            * `bucketArn` (`str`) - The ARN of the destination bucket.
+            * `format` (`str`) - The output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
+            * `prefix` (`str`) - Object prefix for filtering.
+
+        * `outputSchemaVersion` (`str`) - The schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
+    """
     def __init__(__self__, resource_name, opts=None, bucket=None, filter=None, name=None, storage_class_analysis=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a AnalyticsConfiguration resource with the given unique name, props, and options.
+        Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
+
+        ## Example Usage
+
+        ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.Bucket("example")
+        analytics = aws.s3.Bucket("analytics")
+        example_entire_bucket = aws.s3.AnalyticsConfiguration("example-entire-bucket",
+            bucket=example.bucket,
+            storage_class_analysis={
+                "data_export": {
+                    "destination": {
+                        "s3_bucket_destination": {
+                            "bucketArn": analytics.arn,
+                        },
+                    },
+                },
+            })
+        ```
+
+        ### Add analytics configuration with S3 bucket object filter
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.Bucket("example")
+        example_filtered = aws.s3.AnalyticsConfiguration("example-filtered",
+            bucket=example.bucket,
+            filter={
+                "prefix": "documents/",
+                "tags": {
+                    "priority": "high",
+                    "class": "blue",
+                },
+            })
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bucket: The name of the bucket this analytics configuration is associated with.
+        :param pulumi.Input[dict] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        :param pulumi.Input[str] name: Unique identifier of the analytics configuration for the bucket.
+        :param pulumi.Input[dict] storage_class_analysis: Configuration for the analytics data export (documented below).
 
         The **filter** object supports the following:
 
-          * `prefix` (`pulumi.Input[str]`)
-          * `tags` (`pulumi.Input[dict]`)
+          * `prefix` (`pulumi.Input[str]`) - Object prefix for filtering.
+          * `tags` (`pulumi.Input[dict]`) - Set of object tags for filtering.
 
         The **storage_class_analysis** object supports the following:
 
-          * `dataExport` (`pulumi.Input[dict]`)
-            * `destination` (`pulumi.Input[dict]`)
-              * `s3BucketDestination` (`pulumi.Input[dict]`)
-                * `bucketAccountId` (`pulumi.Input[str]`)
-                * `bucketArn` (`pulumi.Input[str]`)
-                * `format` (`pulumi.Input[str]`)
-                * `prefix` (`pulumi.Input[str]`)
+          * `dataExport` (`pulumi.Input[dict]`) - Data export configuration (documented below).
+            * `destination` (`pulumi.Input[dict]`) - Specifies the destination for the exported analytics data (documented below).
+              * `s3BucketDestination` (`pulumi.Input[dict]`) - Analytics data export currently only supports an S3 bucket destination (documented below).
+                * `bucketAccountId` (`pulumi.Input[str]`) - The account ID that owns the destination bucket.
+                * `bucketArn` (`pulumi.Input[str]`) - The ARN of the destination bucket.
+                * `format` (`pulumi.Input[str]`) - The output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
+                * `prefix` (`pulumi.Input[str]`) - Object prefix for filtering.
 
-            * `outputSchemaVersion` (`pulumi.Input[str]`)
+            * `outputSchemaVersion` (`pulumi.Input[str]`) - The schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,23 +147,27 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bucket: The name of the bucket this analytics configuration is associated with.
+        :param pulumi.Input[dict] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        :param pulumi.Input[str] name: Unique identifier of the analytics configuration for the bucket.
+        :param pulumi.Input[dict] storage_class_analysis: Configuration for the analytics data export (documented below).
 
         The **filter** object supports the following:
 
-          * `prefix` (`pulumi.Input[str]`)
-          * `tags` (`pulumi.Input[dict]`)
+          * `prefix` (`pulumi.Input[str]`) - Object prefix for filtering.
+          * `tags` (`pulumi.Input[dict]`) - Set of object tags for filtering.
 
         The **storage_class_analysis** object supports the following:
 
-          * `dataExport` (`pulumi.Input[dict]`)
-            * `destination` (`pulumi.Input[dict]`)
-              * `s3BucketDestination` (`pulumi.Input[dict]`)
-                * `bucketAccountId` (`pulumi.Input[str]`)
-                * `bucketArn` (`pulumi.Input[str]`)
-                * `format` (`pulumi.Input[str]`)
-                * `prefix` (`pulumi.Input[str]`)
+          * `dataExport` (`pulumi.Input[dict]`) - Data export configuration (documented below).
+            * `destination` (`pulumi.Input[dict]`) - Specifies the destination for the exported analytics data (documented below).
+              * `s3BucketDestination` (`pulumi.Input[dict]`) - Analytics data export currently only supports an S3 bucket destination (documented below).
+                * `bucketAccountId` (`pulumi.Input[str]`) - The account ID that owns the destination bucket.
+                * `bucketArn` (`pulumi.Input[str]`) - The ARN of the destination bucket.
+                * `format` (`pulumi.Input[str]`) - The output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
+                * `prefix` (`pulumi.Input[str]`) - Object prefix for filtering.
 
-            * `outputSchemaVersion` (`pulumi.Input[str]`)
+            * `outputSchemaVersion` (`pulumi.Input[str]`) - The schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

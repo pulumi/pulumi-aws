@@ -47,6 +47,8 @@ type LookupVolumeResult struct {
 	// The ARN for the KMS encryption key.
 	KmsKeyId   string `pulumi:"kmsKeyId"`
 	MostRecent *bool  `pulumi:"mostRecent"`
+	// (Optional) Specifies whether Amazon EBS Multi-Attach is enabled.
+	MultiAttachEnabled bool `pulumi:"multiAttachEnabled"`
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn string `pulumi:"outpostArn"`
 	// The size of the drive in GiBs.

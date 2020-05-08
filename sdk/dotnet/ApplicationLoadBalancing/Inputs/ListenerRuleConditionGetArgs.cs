@@ -37,7 +37,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
         public Input<Inputs.ListenerRuleConditionHttpRequestMethodGetArgs>? HttpRequestMethod { get; set; }
 
         /// <summary>
-        /// Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+        /// Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
         /// </summary>
         [Input("pathPattern")]
         public Input<Inputs.ListenerRuleConditionPathPatternGetArgs>? PathPattern { get; set; }

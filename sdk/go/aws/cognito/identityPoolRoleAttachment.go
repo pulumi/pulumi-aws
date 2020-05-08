@@ -19,7 +19,7 @@ type IdentityPoolRoleAttachment struct {
 	// A List of Role Mapping.
 	RoleMappings IdentityPoolRoleAttachmentRoleMappingArrayOutput `pulumi:"roleMappings"`
 	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-	Roles IdentityPoolRoleAttachmentRolesOutput `pulumi:"roles"`
+	Roles pulumi.StringMapOutput `pulumi:"roles"`
 }
 
 // NewIdentityPoolRoleAttachment registers a new resource with the given unique name, arguments, and options.
@@ -61,7 +61,7 @@ type identityPoolRoleAttachmentState struct {
 	// A List of Role Mapping.
 	RoleMappings []IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
 	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-	Roles *IdentityPoolRoleAttachmentRoles `pulumi:"roles"`
+	Roles map[string]string `pulumi:"roles"`
 }
 
 type IdentityPoolRoleAttachmentState struct {
@@ -70,7 +70,7 @@ type IdentityPoolRoleAttachmentState struct {
 	// A List of Role Mapping.
 	RoleMappings IdentityPoolRoleAttachmentRoleMappingArrayInput
 	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-	Roles IdentityPoolRoleAttachmentRolesPtrInput
+	Roles pulumi.StringMapInput
 }
 
 func (IdentityPoolRoleAttachmentState) ElementType() reflect.Type {
@@ -83,7 +83,7 @@ type identityPoolRoleAttachmentArgs struct {
 	// A List of Role Mapping.
 	RoleMappings []IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
 	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-	Roles IdentityPoolRoleAttachmentRoles `pulumi:"roles"`
+	Roles map[string]string `pulumi:"roles"`
 }
 
 // The set of arguments for constructing a IdentityPoolRoleAttachment resource.
@@ -93,7 +93,7 @@ type IdentityPoolRoleAttachmentArgs struct {
 	// A List of Role Mapping.
 	RoleMappings IdentityPoolRoleAttachmentRoleMappingArrayInput
 	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-	Roles IdentityPoolRoleAttachmentRolesInput
+	Roles pulumi.StringMapInput
 }
 
 func (IdentityPoolRoleAttachmentArgs) ElementType() reflect.Type {

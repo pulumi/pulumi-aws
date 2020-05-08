@@ -13,7 +13,7 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, arn=None, availability_zone=None, encrypted=None, filters=None, id=None, iops=None, kms_key_id=None, most_recent=None, outpost_arn=None, size=None, snapshot_id=None, tags=None, volume_id=None, volume_type=None):
+    def __init__(__self__, arn=None, availability_zone=None, encrypted=None, filters=None, id=None, iops=None, kms_key_id=None, most_recent=None, multi_attach_enabled=None, outpost_arn=None, size=None, snapshot_id=None, tags=None, volume_id=None, volume_type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -56,6 +56,12 @@ class GetVolumeResult:
         if most_recent and not isinstance(most_recent, bool):
             raise TypeError("Expected argument 'most_recent' to be a bool")
         __self__.most_recent = most_recent
+        if multi_attach_enabled and not isinstance(multi_attach_enabled, bool):
+            raise TypeError("Expected argument 'multi_attach_enabled' to be a bool")
+        __self__.multi_attach_enabled = multi_attach_enabled
+        """
+        (Optional) Specifies whether Amazon EBS Multi-Attach is enabled.
+        """
         if outpost_arn and not isinstance(outpost_arn, str):
             raise TypeError("Expected argument 'outpost_arn' to be a str")
         __self__.outpost_arn = outpost_arn
@@ -106,6 +112,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             iops=self.iops,
             kms_key_id=self.kms_key_id,
             most_recent=self.most_recent,
+            multi_attach_enabled=self.multi_attach_enabled,
             outpost_arn=self.outpost_arn,
             size=self.size,
             snapshot_id=self.snapshot_id,
@@ -174,6 +181,7 @@ def get_volume(filters=None,most_recent=None,tags=None,opts=None):
         iops=__ret__.get('iops'),
         kms_key_id=__ret__.get('kmsKeyId'),
         most_recent=__ret__.get('mostRecent'),
+        multi_attach_enabled=__ret__.get('multiAttachEnabled'),
         outpost_arn=__ret__.get('outpostArn'),
         size=__ret__.get('size'),
         snapshot_id=__ret__.get('snapshotId'),
