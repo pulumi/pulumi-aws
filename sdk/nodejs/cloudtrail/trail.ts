@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * ### Data Event Logging
+ * ### Logging All Lambda Function Invocations
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -72,6 +72,47 @@ import * as utilities from "../utilities";
  *         dataResources: [{
  *             type: "AWS::Lambda::Function",
  *             values: ["arn:aws:lambda"],
+ *         }],
+ *         includeManagementEvents: true,
+ *         readWriteType: "All",
+ *     }],
+ * });
+ * ```
+ * 
+ * ### Logging All S3 Bucket Object Events
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.cloudtrail.Trail("example", {
+ *     eventSelectors: [{
+ *         dataResources: [{
+ *             type: "AWS::S3::Object",
+ *             values: ["arn:aws:s3:::"],
+ *         }],
+ *         includeManagementEvents: true,
+ *         readWriteType: "All",
+ *     }],
+ * });
+ * ```
+ * 
+ * ### Logging Individual S3 Bucket Events
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const importantBucket = pulumi.output(aws.s3.getBucket({
+ *     bucket: "important-bucket",
+ * }, { async: true }));
+ * const example = new aws.cloudtrail.Trail("example", {
+ *     eventSelectors: [{
+ *         dataResources: [{
+ *             type: "AWS::S3::Object",
+ *             // Make sure to append a trailing '/' to your ARN if you want
+ *             // to monitor all objects in a bucket.
+ *             values: [pulumi.interpolate`${important_bucket.arn}/`],
  *         }],
  *         includeManagementEvents: true,
  *         readWriteType: "All",
