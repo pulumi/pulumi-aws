@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to pulumi-terraform-bridge v2.3.0
+* Upgrade to pulumi-terraform-bridge v2.3.1
 * Upgrade to v2.61.0 of the AWS Terraform Provider  
   ** Please Note: **
   * `aws.ssm.Document` `permissions` has changed to be a map

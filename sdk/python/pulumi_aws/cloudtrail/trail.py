@@ -144,7 +144,7 @@ class Trail(pulumi.CustomResource):
             s3_key_prefix="prefix")
         ```
 
-        ### Data Event Logging
+        ### Logging All Lambda Function Invocations
 
         ```python
         import pulumi
@@ -154,6 +154,39 @@ class Trail(pulumi.CustomResource):
             "dataResource": [{
                 "type": "AWS::Lambda::Function",
                 "values": ["arn:aws:lambda"],
+            }],
+            "includeManagementEvents": True,
+            "readWriteType": "All",
+        }])
+        ```
+
+        ### Logging All S3 Bucket Object Events
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudtrail.Trail("example", event_selectors=[{
+            "dataResource": [{
+                "type": "AWS::S3::Object",
+                "values": ["arn:aws:s3:::"],
+            }],
+            "includeManagementEvents": True,
+            "readWriteType": "All",
+        }])
+        ```
+
+        ### Logging Individual S3 Bucket Events
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        important_bucket = aws.s3.get_bucket(bucket="important-bucket")
+        example = aws.cloudtrail.Trail("example", event_selectors=[{
+            "dataResource": [{
+                "type": "AWS::S3::Object",
+                "values": [f"{important_bucket.arn}/"],
             }],
             "includeManagementEvents": True,
             "readWriteType": "All",
