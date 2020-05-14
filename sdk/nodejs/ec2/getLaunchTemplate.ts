@@ -8,26 +8,26 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a Launch Template.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultLaunchTemplate = pulumi.output(aws.ec2.getLaunchTemplate({
  *     name: "my-launch-template",
  * }, { async: true }));
  * ```
- * 
+ *
  * ### Filter
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = pulumi.output(aws.ec2.getLaunchTemplate({
  *     filters: [{
  *         name: "launch-template-name",
@@ -35,8 +35,6 @@ import * as utilities from "../utilities";
  *     }],
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_template.html.markdown.
  */
 export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> {
     args = args || {};

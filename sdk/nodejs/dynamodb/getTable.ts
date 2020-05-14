@@ -8,21 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a DynamoDB table.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const tableName = pulumi.output(aws.dynamodb.getTable({
  *     name: "tableName",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dynamodb_table.html.markdown.
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
     if (!opts) {

@@ -6,21 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a Service Quotas Service.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = pulumi.output(aws.servicequotas.getService({
  *     serviceName: "Amazon Virtual Private Cloud (Amazon VPC)",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/servicequotas_service.html.markdown.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     if (!opts) {

@@ -6,21 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EC2 Transit Gateway Route Table.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ec2transitgateway.RouteTable("example", {
  *     transitGatewayId: aws_ec2_transit_gateway_example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_route_table.html.markdown.
  */
 export class RouteTable extends pulumi.CustomResource {
     /**

@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Gamelift Game Session Queue resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.gamelift.GameSessionQueue("test", {
  *     destinations: [
  *         aws_gamelift_fleet_us_west_2_fleet.arn,
@@ -34,8 +34,6 @@ import * as utilities from "../utilities";
  *     timeoutInSeconds: 60,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_game_session_queue.html.markdown.
  */
 export class GameSessionQueue extends pulumi.CustomResource {
     /**

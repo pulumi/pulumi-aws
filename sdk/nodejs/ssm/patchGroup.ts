@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Patch Group resource
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const production = new aws.ssm.PatchBaseline("production", {
  *     approvedPatches: ["KB123456"],
  * });
@@ -25,8 +25,6 @@ import * as utilities from "../utilities";
  *     patchGroup: "patch-group-name",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_patch_group.html.markdown.
  */
 export class PatchGroup extends pulumi.CustomResource {
     /**

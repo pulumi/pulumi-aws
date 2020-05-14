@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Route53 health check.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Connectivity and HTTP Status Code Check
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.route53.HealthCheck("example", {
  *     failureThreshold: 5,
  *     fqdn: "example.com",
@@ -27,13 +27,13 @@ import * as utilities from "../utilities";
  *     type: "HTTP",
  * });
  * ```
- * 
+ *
  * ### Connectivity and String Matching Check
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.route53.HealthCheck("example", {
  *     failureThreshold: 5,
  *     fqdn: "example.com",
@@ -44,13 +44,13 @@ import * as utilities from "../utilities";
  *     type: "HTTPS_STR_MATCH",
  * });
  * ```
- * 
+ *
  * ### Aggregate Check
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const parent = new aws.route53.HealthCheck("parent", {
  *     childHealthThreshold: 1,
  *     childHealthchecks: [aws_route53_health_check_child.id],
@@ -60,13 +60,13 @@ import * as utilities from "../utilities";
  *     type: "CALCULATED",
  * });
  * ```
- * 
+ *
  * ### CloudWatch Alarm Check
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
  *     alarmDescription: "This metric monitors ec2 cpu utilization",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
@@ -84,8 +84,6 @@ import * as utilities from "../utilities";
  *     type: "CLOUDWATCH_METRIC",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_health_check.html.markdown.
  */
 export class HealthCheck extends pulumi.CustomResource {
     /**

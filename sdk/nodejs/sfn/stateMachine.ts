@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Step Function State Machine resource
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const sfnStateMachine = new aws.sfn.StateMachine("sfnStateMachine", {
  *     definition: pulumi.interpolate`{
  *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
@@ -31,8 +31,6 @@ import * as utilities from "../utilities";
  *     roleArn: aws_iam_role_iam_for_sfn.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sfn_state_machine.html.markdown.
  */
 export class StateMachine extends pulumi.CustomResource {
     /**

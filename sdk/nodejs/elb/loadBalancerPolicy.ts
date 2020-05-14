@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a load balancer policy, which can be attached to an ELB listener or backend server.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const wuTang = new aws.elb.LoadBalancer("wu-tang", {
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [{
@@ -84,8 +84,6 @@ import * as utilities from "../utilities";
  *     policyNames: [wu_tang_ssl.policyName],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/load_balancer_policy.html.markdown.
  */
 export class LoadBalancerPolicy extends pulumi.CustomResource {
     /**

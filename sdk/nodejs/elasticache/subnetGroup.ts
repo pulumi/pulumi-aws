@@ -8,19 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an ElastiCache Subnet Group resource.
- * 
+ *
  * > **NOTE:** ElastiCache Subnet Groups are only for use when working with an
  * ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
  * ElastiCache Security Group resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const fooVpc = new aws.ec2.Vpc("foo", {
  *     cidrBlock: "10.0.0.0/16",
  *     tags: {
@@ -39,8 +39,6 @@ import * as utilities from "../utilities";
  *     subnetIds: [fooSubnet.id],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_subnet_group.html.markdown.
  */
 export class SubnetGroup extends pulumi.CustomResource {
     /**

@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DMS (Data Migration Service) endpoint resource. DMS endpoints can be created, updated, deleted, and imported.
- * 
+ *
  * > **Note:** All arguments including the password will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Create a new endpoint
  * const test = new aws.dms.Endpoint("test", {
  *     certificateArn: "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012",
@@ -39,8 +39,6 @@ import * as utilities from "../utilities";
  *     username: "test",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_endpoint.html.markdown.
  */
 export class Endpoint extends pulumi.CustomResource {
     /**

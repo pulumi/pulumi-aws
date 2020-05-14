@@ -6,21 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Step Functions Activity data source
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const sfnActivity = pulumi.output(aws.sfn.getActivity({
  *     name: "my-activity",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_activity.html.markdown.
  */
 export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityResult> {
     args = args || {};

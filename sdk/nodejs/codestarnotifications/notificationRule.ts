@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodeStar Notifications Rule.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const code = new aws.codecommit.Repository("code", {repositoryName: "example-code-repo"});
  * const notif = new aws.sns.Topic("notif", {});
  * const notifAccess = aws.iam.getPolicyDocument({
@@ -42,8 +42,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codestarnotifications_notification_rule.markdown.
  */
 export class NotificationRule extends pulumi.CustomResource {
     /**

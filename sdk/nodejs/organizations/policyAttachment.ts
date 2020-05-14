@@ -8,46 +8,44 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Organization Account
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const account = new aws.organizations.PolicyAttachment("account", {
  *     policyId: aws_organizations_policy_example.id,
  *     targetId: "123456789012",
  * });
  * ```
- * 
+ *
  * ### Organization Root
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const root = new aws.organizations.PolicyAttachment("root", {
  *     policyId: aws_organizations_policy_example.id,
  *     targetId: aws_organizations_organization_example.roots.0.id,
  * });
  * ```
- * 
+ *
  * ### Organization Unit
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const unit = new aws.organizations.PolicyAttachment("unit", {
  *     policyId: aws_organizations_policy_example.id,
  *     targetId: aws_organizations_organizational_unit_example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_policy_attachment.html.markdown.
  */
 export class PolicyAttachment extends pulumi.CustomResource {
     /**

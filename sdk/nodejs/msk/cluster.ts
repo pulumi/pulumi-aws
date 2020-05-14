@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages AWS Managed Streaming for Kafka cluster
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const vpc = new aws.ec2.Vpc("vpc", {cidrBlock: "192.168.0.0/22"});
  * const azs = aws.getAvailabilityZones({
  *     state: "available",
@@ -116,8 +116,6 @@ import * as utilities from "../utilities";
  * export const bootstrapBrokers = example.bootstrapBrokers;
  * export const bootstrapBrokersTls = example.bootstrapBrokersTls;
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/msk_cluster.html.markdown.
  */
 export class Cluster extends pulumi.CustomResource {
     /**

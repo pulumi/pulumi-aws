@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an IoT role alias.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const role = new aws.iam.Role("role", {
  *     policy: `{
  *   "Version": "2012-10-17",
@@ -33,8 +33,6 @@ import * as utilities from "../utilities";
  *     roleArn: role.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_role_alias.html.markdown.
  */
 export class RoleAlias extends pulumi.CustomResource {
     /**

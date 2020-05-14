@@ -8,22 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks custom layer resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const custlayer = new aws.opsworks.CustomLayer("custlayer", {
  *     shortName: "awesome",
  *     stackId: aws_opsworks_stack_main.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_custom_layer.html.markdown.
  */
 export class CustomLayer extends pulumi.CustomResource {
     /**

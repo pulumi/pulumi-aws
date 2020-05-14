@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Maintenance Window Task resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Automation Tasks
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ssm.MaintenanceWindowTask("example", {
  *     maxConcurrency: "2",
  *     maxErrors: "1",
@@ -40,13 +40,13 @@ import * as utilities from "../utilities";
  *     windowId: aws_ssm_maintenance_window_example.id,
  * });
  * ```
- * 
+ *
  * ### Lambda Tasks
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ssm.MaintenanceWindowTask("example", {
  *     maxConcurrency: "2",
  *     maxErrors: "1",
@@ -67,13 +67,13 @@ import * as utilities from "../utilities";
  *     windowId: aws_ssm_maintenance_window_example.id,
  * });
  * ```
- * 
+ *
  * ### Run Command Tasks
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ssm.MaintenanceWindowTask("example", {
  *     maxConcurrency: "2",
  *     maxErrors: "1",
@@ -105,13 +105,13 @@ import * as utilities from "../utilities";
  *     windowId: aws_ssm_maintenance_window_example.id,
  * });
  * ```
- * 
+ *
  * ### Step Function Tasks
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ssm.MaintenanceWindowTask("example", {
  *     maxConcurrency: "2",
  *     maxErrors: "1",
@@ -132,8 +132,6 @@ import * as utilities from "../utilities";
  *     windowId: aws_ssm_maintenance_window_example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window_task.html.markdown.
  */
 export class MaintenanceWindowTask extends pulumi.CustomResource {
     /**
@@ -298,7 +296,6 @@ export interface MaintenanceWindowTaskState {
     readonly description?: pulumi.Input<string>;
     /**
      * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
-     * 
      * @deprecated use 'task_invocation_parameters' argument instead
      */
     readonly loggingInfo?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskLoggingInfo>;
@@ -336,7 +333,6 @@ export interface MaintenanceWindowTaskState {
     readonly taskInvocationParameters?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskInvocationParameters>;
     /**
      * A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
-     * 
      * @deprecated use 'task_invocation_parameters' argument instead
      */
     readonly taskParameters?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskParameter>[]>;
@@ -360,7 +356,6 @@ export interface MaintenanceWindowTaskArgs {
     readonly description?: pulumi.Input<string>;
     /**
      * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
-     * 
      * @deprecated use 'task_invocation_parameters' argument instead
      */
     readonly loggingInfo?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskLoggingInfo>;
@@ -398,7 +393,6 @@ export interface MaintenanceWindowTaskArgs {
     readonly taskInvocationParameters?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskInvocationParameters>;
     /**
      * A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
-     * 
      * @deprecated use 'task_invocation_parameters' argument instead
      */
     readonly taskParameters?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskParameter>[]>;

@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage EC2 Fleets.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ec2.Fleet("example", {
  *     launchTemplateConfig: {
  *         launchTemplateSpecification: {
@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_fleet.html.markdown.
  */
 export class Fleet extends pulumi.CustomResource {
     /**

@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleDomainIdentity = new aws.ses.DomainIdentity("example", {
  *     domain: "example.com",
  * });
@@ -38,8 +38,6 @@ import * as utilities from "../utilities";
  *     policy: examplePolicyDocument.json,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_identity_policy.html.markdown.
  */
 export class IdentityPolicy extends pulumi.CustomResource {
     /**

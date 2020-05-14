@@ -6,19 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES configuration set resource
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.ses.ConfigurationSet("test", {});
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_configuration_set.markdown.
  */
 export class ConfigurationSet extends pulumi.CustomResource {
     /**

@@ -8,21 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an Elasticsearch Domain
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myDomain = pulumi.output(aws.elasticsearch.getDomain({
  *     domainName: "my-domain-name",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticsearch_domain.html.markdown.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
     if (!opts) {

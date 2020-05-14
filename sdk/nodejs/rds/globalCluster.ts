@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a RDS Global Cluster, which is an Aurora global database spread across multiple regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
- * 
+ *
  * More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const primary = new aws.Provider("primary", {
  *     region: "us-east-2",
  * });
@@ -47,8 +47,6 @@ import * as utilities from "../utilities";
  *     clusterIdentifier: secondaryCluster.id,
  * }, { provider: secondary });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_global_cluster.html.markdown.
  */
 export class GlobalCluster extends pulumi.CustomResource {
     /**

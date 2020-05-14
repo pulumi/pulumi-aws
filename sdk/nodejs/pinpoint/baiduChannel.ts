@@ -8,19 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Pinpoint Baidu Channel resource.
- * 
+ *
  * > **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const app = new aws.pinpoint.App("app", {});
  * const channel = new aws.pinpoint.BaiduChannel("channel", {
  *     apiKey: "",
@@ -28,8 +28,6 @@ import * as utilities from "../utilities";
  *     secretKey: "",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_baidu_channel.markdown.
  */
 export class BaiduChannel extends pulumi.CustomResource {
     /**

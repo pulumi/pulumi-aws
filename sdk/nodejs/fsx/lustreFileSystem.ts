@@ -6,23 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a FSx Lustre File System. See the [FSx Lustre Guide](https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html) for more information.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.fsx.LustreFileSystem("example", {
  *     importPath: pulumi.interpolate`s3://${aws_s3_bucket_example.bucket}`,
  *     storageCapacity: 1200,
  *     subnetIds: aws_subnet_example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/fsx_lustre_file_system.html.markdown.
  */
 export class LustreFileSystem extends pulumi.CustomResource {
     /**

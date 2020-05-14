@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
  * Provides an ElastiCache Replication Group resource.
  * For working with Memcached or single primary Redis instances (Cluster Mode Disabled), see the
  * [`aws.elasticache.Cluster` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_cluster.html).
- * 
+ *
  * > **Note:** When you change an attribute, such as `engineVersion`, by
  * default the ElastiCache API applies it in the next maintenance window. Because
  * of this, this provider may report a difference in its planning phase because the
@@ -18,15 +18,15 @@ import * as utilities from "../utilities";
  * `applyImmediately` flag to instruct the service to apply the change
  * immediately. Using `applyImmediately` can result in a brief downtime as
  * servers reboots.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Redis Cluster Mode Disabled
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.elasticache.ReplicationGroup("example", {
  *     automaticFailoverEnabled: true,
  *     availabilityZones: [
@@ -40,13 +40,13 @@ import * as utilities from "../utilities";
  *     replicationGroupDescription: "test description",
  * });
  * ```
- * 
+ *
  * ### Redis Cluster Mode Enabled
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const baz = new aws.elasticache.ReplicationGroup("baz", {
  *     automaticFailoverEnabled: true,
  *     clusterMode: {
@@ -59,8 +59,6 @@ import * as utilities from "../utilities";
  *     replicationGroupDescription: "test description",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_replication_group.html.markdown.
  */
 export class ReplicationGroup extends pulumi.CustomResource {
     /**

@@ -9,26 +9,24 @@ import * as utilities from "../utilities";
 /**
  * The VPN Gateway data source provides details about
  * a specific VPN gateway.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const selected = pulumi.output(aws.ec2.getVpnGateway({
  *     filters: [{
  *         name: "tag:Name",
  *         values: ["vpn-gw"],
  *     }],
  * }, { async: true }));
- * 
+ *
  * export const vpnGatewayId = selected.id!;
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpn_gateway.html.markdown.
  */
 export function getVpnGateway(args?: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
     args = args || {};

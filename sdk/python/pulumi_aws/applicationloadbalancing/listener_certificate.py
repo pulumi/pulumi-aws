@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("aws.applicationloadbalancing.ListenerCertificate has been deprecated in favour of aws.alb.ListenerCertificate", DeprecationWarning)
+warnings.warn("aws.applicationloadbalancing.ListenerCertificate has been deprecated in favor of aws.alb.ListenerCertificate", DeprecationWarning)
 class ListenerCertificate(pulumi.CustomResource):
     certificate_arn: pulumi.Output[str]
     """
@@ -19,7 +19,7 @@ class ListenerCertificate(pulumi.CustomResource):
     """
     The ARN of the listener to which to attach the certificate.
     """
-    warnings.warn("aws.applicationloadbalancing.ListenerCertificate has been deprecated in favour of aws.alb.ListenerCertificate", DeprecationWarning)
+    warnings.warn("aws.applicationloadbalancing.ListenerCertificate has been deprecated in favor of aws.alb.ListenerCertificate", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, certificate_arn=None, listener_arn=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Load Balancer Listener Certificate resource.
@@ -45,14 +45,12 @@ class ListenerCertificate(pulumi.CustomResource):
         ```
 
 
-        Deprecated: aws.applicationloadbalancing.ListenerCertificate has been deprecated in favour of aws.alb.ListenerCertificate
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_arn: The ARN of the certificate to attach to the listener.
         :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the certificate.
         """
-        pulumi.log.warn("ListenerCertificate is deprecated: aws.applicationloadbalancing.ListenerCertificate has been deprecated in favour of aws.alb.ListenerCertificate")
+        pulumi.log.warn("ListenerCertificate is deprecated: aws.applicationloadbalancing.ListenerCertificate has been deprecated in favor of aws.alb.ListenerCertificate")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

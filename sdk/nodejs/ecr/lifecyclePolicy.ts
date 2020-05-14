@@ -8,19 +8,19 @@ import {LifecyclePolicyDocument} from "./lifecyclePolicyDocument";
 
 /**
  * Manages an ECR repository lifecycle policy.
- * 
+ *
  * > **NOTE:** Only one `aws.ecr.LifecyclePolicy` resource can be used with the same ECR repository. To apply multiple rules, they must be combined in the `policy` JSON.
- * 
+ *
  * > **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Policy on untagged image
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.ecr.Repository("foo", {});
  * const foopolicy = new aws.ecr.LifecyclePolicy("foopolicy", {
  *     policy: `{
@@ -44,13 +44,13 @@ import {LifecyclePolicyDocument} from "./lifecyclePolicyDocument";
  *     repository: foo.name,
  * });
  * ```
- * 
+ *
  * ### Policy on tagged image
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.ecr.Repository("foo", {});
  * const foopolicy = new aws.ecr.LifecyclePolicy("foopolicy", {
  *     policy: `{
@@ -74,8 +74,6 @@ import {LifecyclePolicyDocument} from "./lifecyclePolicyDocument";
  *     repository: foo.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_lifecycle_policy.html.markdown.
  */
 export class LifecyclePolicy extends pulumi.CustomResource {
     /**

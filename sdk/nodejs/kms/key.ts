@@ -8,22 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a KMS customer master key.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const key = new aws.kms.Key("a", {
  *     deletionWindowInDays: 10,
  *     description: "KMS key 1",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_key.html.markdown.
  */
 export class Key extends pulumi.CustomResource {
     /**

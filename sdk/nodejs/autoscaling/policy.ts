@@ -8,21 +8,21 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AutoScaling Scaling Policy resource.
- * 
+ *
  * > **NOTE:** You may want to omit `desiredCapacity` attribute from attached `aws.autoscaling.Group`
  * when using autoscaling policies. It's good practice to pick either
  * [manual](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-manual-scaling.html)
  * or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
  * (policy-based) scaling.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bar = new aws.autoscaling.Group("bar", {
  *     availabilityZones: ["us-east-1a"],
  *     forceDelete: true,
@@ -39,8 +39,6 @@ import * as utilities from "../utilities";
  *     scalingAdjustment: 4,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_policy.html.markdown.
  */
 export class Policy extends pulumi.CustomResource {
     /**

@@ -9,15 +9,15 @@ import * as utilities from "../utilities";
 /**
  * The VPC Endpoint Service data source details about a specific service that
  * can be specified when creating a VPC endpoint within the region configured in the provider.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### AWS Service
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Declare the data source
  * const s3 = pulumi.output(aws.ec2.getVpcEndpointService({
  *     service: "s3",
@@ -32,24 +32,24 @@ import * as utilities from "../utilities";
  *     vpcId: foo.id,
  * });
  * ```
- * 
+ *
  * ### Non-AWS Service
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const custome = pulumi.output(aws.ec2.getVpcEndpointService({
  *     serviceName: "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8",
  * }, { async: true }));
  * ```
- * 
+ *
  * ### Filter
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = pulumi.output(aws.ec2.getVpcEndpointService({
  *     filters: [{
  *         name: "service-name",
@@ -57,8 +57,6 @@ import * as utilities from "../utilities";
  *     }],
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint_service.html.markdown.
  */
 export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointServiceResult> {
     args = args || {};

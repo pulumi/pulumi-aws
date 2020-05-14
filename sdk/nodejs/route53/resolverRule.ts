@@ -8,27 +8,27 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Route53 Resolver rule.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### System rule
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const sys = new aws.route53.ResolverRule("sys", {
  *     domainName: "subdomain.example.com",
  *     ruleType: "SYSTEM",
  * });
  * ```
- * 
+ *
  * ### Forward rule
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const fwd = new aws.route53.ResolverRule("fwd", {
  *     domainName: "example.com",
  *     resolverEndpointId: aws_route53_resolver_endpoint_foo.id,
@@ -41,8 +41,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_rule.html.markdown.
  */
 export class ResolverRule extends pulumi.CustomResource {
     /**

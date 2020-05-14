@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the [`aws.elb.Attachment` resource](https://www.terraform.io/docs/providers/aws/r/elb_attachment.html).
- * 
+ *
  * > **Note:** `aws.alb.TargetGroupAttachment` is known as `aws.lb.TargetGroupAttachment`. The functionality is identical.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testTargetGroup = new aws.lb.TargetGroup("test", {});
  * const testInstance = new aws.ec2.Instance("test", {});
  * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("test", {
@@ -27,13 +27,13 @@ import * as utilities from "../utilities";
  *     targetId: testInstance.id,
  * });
  * ```
- * 
+ *
  * ## Usage with lambda
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testTargetGroup = new aws.lb.TargetGroup("test", {
  *     targetType: "lambda",
  * });
@@ -49,10 +49,8 @@ import * as utilities from "../utilities";
  *     targetId: testFunction.arn,
  * }, { dependsOn: [withLb] });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group_attachment.html.markdown.
  */
-/** @deprecated aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favour of aws.alb.TargetGroupAttachment */
+/** @deprecated aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favor of aws.alb.TargetGroupAttachment */
 export class TargetGroupAttachment extends pulumi.CustomResource {
     /**
      * Get an existing TargetGroupAttachment resource's state with the given name, ID, and optional extra
@@ -63,7 +61,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TargetGroupAttachmentState, opts?: pulumi.CustomResourceOptions): TargetGroupAttachment {
-        pulumi.log.warn("TargetGroupAttachment is deprecated: aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favour of aws.alb.TargetGroupAttachment")
+        pulumi.log.warn("TargetGroupAttachment is deprecated: aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favor of aws.alb.TargetGroupAttachment")
         return new TargetGroupAttachment(name, <any>state, { ...opts, id: id });
     }
 
@@ -105,11 +103,11 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favour of aws.alb.TargetGroupAttachment */
+    /** @deprecated aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favor of aws.alb.TargetGroupAttachment */
     constructor(name: string, args: TargetGroupAttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favour of aws.alb.TargetGroupAttachment */
+    /** @deprecated aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favor of aws.alb.TargetGroupAttachment */
     constructor(name: string, argsOrState?: TargetGroupAttachmentArgs | TargetGroupAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("TargetGroupAttachment is deprecated: aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favour of aws.alb.TargetGroupAttachment")
+        pulumi.log.warn("TargetGroupAttachment is deprecated: aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favor of aws.alb.TargetGroupAttachment")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as TargetGroupAttachmentState | undefined;

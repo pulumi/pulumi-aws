@@ -10,32 +10,30 @@ import * as utilities from "../utilities";
  * Provides information about a "classic" Elastic Load Balancer (ELB).
  * See [LB Data Source](https://www.terraform.io/docs/providers/aws/d/lb.html) if you are looking for "v2"
  * Application Load Balancer (ALB) or Network Load Balancer (NLB).
- * 
+ *
  * This data source can prove useful when a module accepts an LB as an input
  * variable and needs to, for example, determine the security groups associated
  * with it, etc.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const lbName = config.get("lbName") || "";
- * 
+ *
  * const test = pulumi.output(aws.elb.getLoadBalancer({
  *     name: lbName,
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb.html.markdown.
  */
-/** @deprecated aws.elasticloadbalancing.getLoadBalancer has been deprecated in favour of aws.elb.getLoadBalancer */
+/** @deprecated aws.elasticloadbalancing.getLoadBalancer has been deprecated in favor of aws.elb.getLoadBalancer */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
-    pulumi.log.warn("getLoadBalancer is deprecated: aws.elasticloadbalancing.getLoadBalancer has been deprecated in favour of aws.elb.getLoadBalancer")
+    pulumi.log.warn("getLoadBalancer is deprecated: aws.elasticloadbalancing.getLoadBalancer has been deprecated in favor of aws.elb.getLoadBalancer")
     if (!opts) {
         opts = {}
     }

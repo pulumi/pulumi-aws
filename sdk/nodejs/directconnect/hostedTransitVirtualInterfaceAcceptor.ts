@@ -7,17 +7,17 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage the accepter's side of a Direct Connect hosted transit virtual interface.
  * This resource accepts ownership of a transit virtual interface created by another AWS account.
- * 
+ *
  * > **NOTE:** AWS allows a Direct Connect hosted transit virtual interface to be deleted from either the allocator's or accepter's side. However, this provider only allows the Direct Connect hosted transit virtual interface to be deleted from the allocator's side by removing the corresponding `aws.directconnect.HostedTransitVirtualInterface` resource from your configuration. Removing a `aws.directconnect.HostedTransitVirtualInterfaceAcceptor` resource from your configuration will remove it from your statefile and management, **but will not delete the Direct Connect virtual interface.**
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const accepter = new aws.Provider("accepter", {});
  * const accepterCallerIdentity = pulumi.output(aws.getCallerIdentity({ provider: accepter, async: true }));
  * // Accepter's side of the VIF.
@@ -40,8 +40,6 @@ import * as utilities from "../utilities";
  *     virtualInterfaceId: creator.id,
  * }, { provider: accepter });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_hosted_transit_virtual_interface_accepter.html.markdown.
  */
 export class HostedTransitVirtualInterfaceAcceptor extends pulumi.CustomResource {
     /**

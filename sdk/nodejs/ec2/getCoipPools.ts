@@ -8,21 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const fooCoipPools = pulumi.output(aws.ec2.getCoipPools({ async: true }));
- * 
+ *
  * export const foo = fooCoipPools.ids;
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_coip_pools.html.markdown.
  */
 export function getCoipPools(args?: GetCoipPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetCoipPoolsResult> {
     args = args || {};

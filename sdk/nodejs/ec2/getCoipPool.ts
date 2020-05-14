@@ -8,28 +8,26 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific EC2 Customer-Owned IP Pool.
- * 
+ *
  * This data source can prove useful when a module accepts a coip pool id as
  * an input variable and needs to, for example, determine the CIDR block of that
  * COIP Pool.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const coipPoolId = config.require("coipPoolId");
- * 
+ *
  * const selected = pulumi.output(aws.ec2.getCoipPool({
  *     id: coipPoolId,
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_coip_pool.html.markdown.
  */
 export function getCoipPool(args?: GetCoipPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetCoipPoolResult> {
     args = args || {};

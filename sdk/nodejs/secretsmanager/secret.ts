@@ -8,24 +8,24 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage AWS Secrets Manager secret metadata. To manage a secret value, see the [`aws.secretsmanager.SecretVersion` resource](https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret_version.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.secretsmanager.Secret("example", {});
  * ```
- * 
+ *
  * ### Rotation Configuration
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const rotationExample = new aws.secretsmanager.Secret("rotation-example", {
  *     rotationLambdaArn: aws_lambda_function_example.arn,
  *     rotationRules: {
@@ -33,8 +33,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/secretsmanager_secret.html.markdown.
  */
 export class Secret extends pulumi.CustomResource {
     /**

@@ -11,33 +11,33 @@ import {EngineType} from "./engineType";
 
 /**
  * Manages a [RDS Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html). To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the [`aws.rds.ClusterInstance` resource](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html). To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the [`aws.rds.Instance` resource](https://www.terraform.io/docs/providers/aws/r/db_instance.html).
- * 
+ *
  * For information on the difference between the available Aurora MySQL engines
  * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
  * in the Amazon RDS User Guide.
- * 
+ *
  * Changes to a RDS Cluster can occur when you manually change a
  * parameter, such as `port`, and are reflected in the next maintenance
  * window. Because of this, this provider may report a difference in its planning
  * phase because a modification has not yet taken place. You can use the
  * `applyImmediately` flag to instruct the service to apply the change immediately
  * (see documentation below).
- * 
+ *
  * > **Note:** using `applyImmediately` can result in a
  * brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html)
  * for more information.
- * 
+ *
  * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Aurora MySQL 2.x (MySQL 5.7)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultCluster = new aws.rds.Cluster("default", {
  *     availabilityZones: [
  *         "us-west-2a",
@@ -54,13 +54,13 @@ import {EngineType} from "./engineType";
  *     preferredBackupWindow: "07:00-09:00",
  * });
  * ```
- * 
+ *
  * ### Aurora MySQL 1.x (MySQL 5.6)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultCluster = new aws.rds.Cluster("default", {
  *     availabilityZones: [
  *         "us-west-2a",
@@ -75,13 +75,13 @@ import {EngineType} from "./engineType";
  *     preferredBackupWindow: "07:00-09:00",
  * });
  * ```
- * 
+ *
  * ### Aurora with PostgreSQL engine
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const postgresql = new aws.rds.Cluster("postgresql", {
  *     availabilityZones: [
  *         "us-west-2a",
@@ -97,13 +97,13 @@ import {EngineType} from "./engineType";
  *     preferredBackupWindow: "07:00-09:00",
  * });
  * ```
- * 
+ *
  * ### Aurora Multi-Master Cluster
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.rds.Cluster("example", {
  *     clusterIdentifier: "example",
  *     dbSubnetGroupName: aws_db_subnet_group_example.name,
@@ -113,8 +113,6 @@ import {EngineType} from "./engineType";
  *     skipFinalSnapshot: true,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster.html.markdown.
  */
 export class Cluster extends pulumi.CustomResource {
     /**

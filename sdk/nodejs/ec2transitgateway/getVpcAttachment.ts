@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Get information on an EC2 Transit Gateway VPC Attachment.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### By Filter
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = pulumi.output(aws.ec2transitgateway.getVpcAttachment({
  *     filters: [{
  *         name: "vpc-id",
@@ -24,19 +24,17 @@ import * as utilities from "../utilities";
  *     }],
  * }, { async: true }));
  * ```
- * 
+ *
  * ### By Identifier
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = pulumi.output(aws.ec2transitgateway.getVpcAttachment({
  *     id: "tgw-attach-12345678",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpc_attachment.html.markdown.
  */
 export function getVpcAttachment(args?: GetVpcAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcAttachmentResult> {
     args = args || {};

@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * `aws.ec2.getSubnetIds` provides a set of ids for a vpcId
- * 
+ *
  * This resource can be useful for getting back a set of subnet ids for a vpc.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleSubnetIds = aws.ec2.getSubnetIds({
  *     vpcId: var.vpc_id,
  * });
@@ -27,8 +27,6 @@ import * as utilities from "../utilities";
  * })));
  * export const subnetCidrBlocks = exampleSubnet.map(s => s.cidrBlock);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet_ids.html.markdown.
  */
 export function getSubnetIds(args: GetSubnetIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetIdsResult> {
     if (!opts) {

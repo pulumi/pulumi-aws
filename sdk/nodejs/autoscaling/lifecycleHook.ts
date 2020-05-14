@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AutoScaling Lifecycle Hook resource.
- * 
+ *
  * > **NOTE:** This provider has two types of ways you can add lifecycle hooks - via
  * the `initialLifecycleHook` attribute from the
  * [`aws.autoscaling.Group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html)
@@ -20,15 +20,15 @@ import * as utilities from "../utilities";
  * `initialLifecycleHook` in
  * [`aws.autoscaling.Group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
  * but take care to not duplicate those hooks with this resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foobarGroup = new aws.autoscaling.Group("foobar", {
  *     availabilityZones: ["us-west-2a"],
  *     healthCheckType: "EC2",
@@ -52,8 +52,6 @@ import * as utilities from "../utilities";
  *     roleArn: "arn:aws:iam::123456789012:role/S3Access",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_lifecycle_hook.html.markdown.
  */
 export class LifecycleHook extends pulumi.CustomResource {
     /**

@@ -6,22 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an AWS Config Aggregate Authorization
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.cfg.AggregateAuthorization("example", {
  *     accountId: "123456789012",
  *     region: "eu-west-2",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_aggregate_authorization.markdown.
  */
 export class AggregateAuthorization extends pulumi.CustomResource {
     /**

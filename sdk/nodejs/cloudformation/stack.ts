@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudFormation Stack resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const network = new aws.cloudformation.Stack("network", {
  *     parameters: {
  *         VPCCidr: "10.0.0.0/16",
@@ -42,8 +42,6 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudformation_stack.html.markdown.
  */
 export class Stack extends pulumi.CustomResource {
     /**

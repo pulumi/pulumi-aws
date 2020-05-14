@@ -12,15 +12,15 @@ import {RoutingRule} from "./routingRules";
 
 /**
  * Provides a S3 bucket resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Private Bucket w/ Tags
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bucket = new aws.s3.Bucket("b", {
  *     acl: "private",
  *     tags: {
@@ -29,14 +29,14 @@ import {RoutingRule} from "./routingRules";
  *     },
  * });
  * ```
- * 
+ *
  * ### Static Website Hosting
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const bucket = new aws.s3.Bucket("b", {
  *     acl: "public-read",
  *     policy: fs.readFileSync("policy.json", "utf-8"),
@@ -55,13 +55,13 @@ import {RoutingRule} from "./routingRules";
  *     },
  * });
  * ```
- * 
+ *
  * ### Using CORS
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bucket = new aws.s3.Bucket("b", {
  *     acl: "public-read",
  *     corsRules: [{
@@ -76,13 +76,13 @@ import {RoutingRule} from "./routingRules";
  *     }],
  * });
  * ```
- * 
+ *
  * ### Using versioning
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bucket = new aws.s3.Bucket("b", {
  *     acl: "private",
  *     versioning: {
@@ -90,13 +90,13 @@ import {RoutingRule} from "./routingRules";
  *     },
  * });
  * ```
- * 
+ *
  * ### Enable Logging
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const logBucket = new aws.s3.Bucket("logBucket", {
  *     acl: "log-delivery-write",
  * });
@@ -108,13 +108,13 @@ import {RoutingRule} from "./routingRules";
  *     }],
  * });
  * ```
- * 
+ *
  * ### Using object lifecycle
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "private",
  *     lifecycleRules: [
@@ -174,13 +174,13 @@ import {RoutingRule} from "./routingRules";
  *     },
  * });
  * ```
- * 
+ *
  * ### Using replication configuration
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const central = new aws.Provider("central", {
  *     region: "eu-central-1",
  * });
@@ -266,13 +266,13 @@ import {RoutingRule} from "./routingRules";
  *     role: replicationRole.name,
  * });
  * ```
- * 
+ *
  * ### Enable Default Server Side Encryption
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mykey = new aws.kms.Key("mykey", {
  *     deletionWindowInDays: 10,
  *     description: "This key is used to encrypt bucket objects",
@@ -288,13 +288,13 @@ import {RoutingRule} from "./routingRules";
  *     },
  * });
  * ```
- * 
+ *
  * ### Using ACL policy grants
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const currentUser = pulumi.output(aws.getCanonicalUserId({ async: true }));
  * const bucket = new aws.s3.Bucket("bucket", {
  *     grants: [
@@ -314,8 +314,6 @@ import {RoutingRule} from "./routingRules";
  *     ],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket.html.markdown.
  */
 export class Bucket extends pulumi.CustomResource {
     /**

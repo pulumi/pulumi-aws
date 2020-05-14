@@ -8,22 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a VPC Endpoint Route Table Association
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ec2.VpcEndpointRouteTableAssociation("example", {
  *     routeTableId: aws_route_table_example.id,
  *     vpcEndpointId: aws_vpc_endpoint_example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_route_table_association.html.markdown.
  */
 export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
     /**

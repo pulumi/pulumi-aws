@@ -10,9 +10,7 @@ import (
 // Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
 // in a given region for the purpose of using in an AWS Route53 Alias.
 //
-//
-//
-// Deprecated: aws.elasticloadbalancing.getHostedZoneId has been deprecated in favour of aws.elb.getHostedZoneId
+// Deprecated: aws.elasticloadbalancing.getHostedZoneId has been deprecated in favor of aws.elb.getHostedZoneId
 func GetHostedZoneId(ctx *pulumi.Context, args *GetHostedZoneIdArgs, opts ...pulumi.InvokeOption) (*GetHostedZoneIdResult, error) {
 	var rv GetHostedZoneIdResult
 	err := ctx.Invoke("aws:elasticloadbalancing/getHostedZoneId:getHostedZoneId", args, &rv, opts...)

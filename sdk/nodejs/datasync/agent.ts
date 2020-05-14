@@ -6,23 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an AWS DataSync Agent deployed on premises.
- * 
+ *
  * > **NOTE:** One of `activationKey` or `ipAddress` must be provided for resource creation (agent activation). Neither is required for resource import. If using `ipAddress`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running. The agent will turn off that HTTP server after activation.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.datasync.Agent("example", {
  *     ipAddress: "1.2.3.4",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_agent.html.markdown.
  */
 export class Agent extends pulumi.CustomResource {
     /**

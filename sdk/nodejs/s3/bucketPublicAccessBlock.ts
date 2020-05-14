@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleBucket = new aws.s3.Bucket("example", {});
  * const exampleBucketPublicAccessBlock = new aws.s3.BucketPublicAccessBlock("example", {
  *     blockPublicAcls: true,
@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  *     bucket: exampleBucket.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_public_access_block.html.markdown.
  */
 export class BucketPublicAccessBlock extends pulumi.CustomResource {
     /**

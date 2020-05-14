@@ -8,21 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create an organizational unit.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.organizations.OrganizationalUnit("example", {
  *     parentId: aws_organizations_organization_example.roots.0.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_organizational_unit.html.markdown.
  */
 export class OrganizationalUnit extends pulumi.CustomResource {
     /**

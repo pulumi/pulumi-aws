@@ -11,15 +11,15 @@ import {Function} from "./function";
 /**
  * Creates a Lambda permission to allow external sources invoking the Lambda function
  * (e.g. CloudWatch Event Rule, SNS or S3).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const iamForLambda = new aws.iam.Role("iamForLambda", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -55,13 +55,13 @@ import {Function} from "./function";
  *     sourceArn: "arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
  * });
  * ```
- * 
+ *
  * ## Usage with SNS
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultTopic = new aws.sns.Topic("default", {});
  * const defaultRole = new aws.iam.Role("default", {
  *     assumeRolePolicy: `{
@@ -97,13 +97,13 @@ import {Function} from "./function";
  *     topic: defaultTopic.arn,
  * });
  * ```
- * 
+ *
  * ## Specify Lambda permissions for API Gateway REST API
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
  * });
@@ -114,8 +114,6 @@ import {Function} from "./function";
  *     sourceArn: pulumi.interpolate`${myDemoAPI.executionArn}/*&#47;*&#47;*`,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_permission.html.markdown.
  */
 export class Permission extends pulumi.CustomResource {
     /**

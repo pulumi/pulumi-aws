@@ -8,20 +8,18 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultSnapshotSchedule = new aws.redshift.SnapshotSchedule("default", {
  *     definitions: ["rate(12 hours)"],
  *     identifier: "tf-redshift-snapshot-schedule",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_snapshot_schedule.html.markdown.
  */
 export class SnapshotSchedule extends pulumi.CustomResource {
     /**

@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource-based access control mechanism for a KMS customer master key.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const key = new aws.kms.Key("a", {});
  * const role = new aws.iam.Role("a", {
  *     assumeRolePolicy: `{
@@ -49,8 +49,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_grant.html.markdown.
  */
 export class Grant extends pulumi.CustomResource {
     /**

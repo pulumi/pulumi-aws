@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favour of aws.elb.LoadBalancerCookieStickinessPolicy", DeprecationWarning)
+warnings.warn("aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favor of aws.elb.LoadBalancerCookieStickinessPolicy", DeprecationWarning)
 class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
     cookie_expiration_period: pulumi.Output[float]
     """
@@ -31,7 +31,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
     """
     The name of the stickiness policy.
     """
-    warnings.warn("aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favour of aws.elb.LoadBalancerCookieStickinessPolicy", DeprecationWarning)
+    warnings.warn("aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favor of aws.elb.LoadBalancerCookieStickinessPolicy", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, cookie_expiration_period=None, lb_port=None, load_balancer=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a load balancer cookie stickiness policy, which allows an ELB to control the sticky session lifetime of the browser.
@@ -59,8 +59,6 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
         ```
 
 
-        Deprecated: aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favour of aws.elb.LoadBalancerCookieStickinessPolicy
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] cookie_expiration_period: The time period after which
@@ -72,7 +70,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
                should be attached.
         :param pulumi.Input[str] name: The name of the stickiness policy.
         """
-        pulumi.log.warn("LoadBalancerCookieStickinessPolicy is deprecated: aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favour of aws.elb.LoadBalancerCookieStickinessPolicy")
+        pulumi.log.warn("LoadBalancerCookieStickinessPolicy is deprecated: aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favor of aws.elb.LoadBalancerCookieStickinessPolicy")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -9,15 +9,15 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get a list of EBS Snapshot IDs matching the specified
  * criteria.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ebsVolumes = pulumi.output(aws.ebs.getSnapshotIds({
  *     filters: [
  *         {
@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  *     owners: ["self"],
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot_ids.html.markdown.
  */
 export function getSnapshotIds(args?: GetSnapshotIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotIdsResult> {
     args = args || {};

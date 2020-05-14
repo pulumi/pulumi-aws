@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mytopic = new aws.sns.Topic("mytopic", {});
  * const role = new aws.iam.Role("role", {
  *     assumeRolePolicy: `{
@@ -59,8 +59,6 @@ import * as utilities from "../utilities";
  *     role: role.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_topic_rule.html.markdown.
  */
 export class TopicRule extends pulumi.CustomResource {
     /**

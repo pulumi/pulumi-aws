@@ -8,40 +8,40 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage the default AWS Network ACL. VPC Only.
- * 
+ *
  * Each VPC created in AWS comes with a Default Network ACL that can be managed, but not
  * destroyed. **This is an advanced resource**, and has special caveats to be aware
  * of when using it. Please read this document in its entirety before using this
  * resource.
- * 
+ *
  * The `aws.ec2.DefaultNetworkAcl` behaves differently from normal resources, in that
  * this provider does not _create_ this resource, but instead attempts to "adopt" it
  * into management. We can do this because each VPC created has a Default Network
  * ACL that cannot be destroyed, and is created with a known set of default rules.
- * 
+ *
  * When this provider first adopts the Default Network ACL, it **immediately removes all
  * rules in the ACL**. It then proceeds to create any rules specified in the
  * configuration. This step is required so that only the rules specified in the
  * configuration are created.
- * 
+ *
  * This resource treats its inline rules as absolute; only the rules defined
  * inline are created, and any additions/removals external to this resource will
  * result in diffs being shown. For these reasons, this resource is incompatible with the
  * `aws.ec2.NetworkAclRule` resource.
- * 
+ *
  * For more information about Network ACLs, see the AWS Documentation on
  * [Network ACLs][aws-network-acls].
- * 
+ *
  * ## Basic Example Usage, with default rules
- * 
+ *
  * The following config gives the Default Network ACL the same rules that AWS
  * includes, but pulls the resource under management by this provider. This means that
  * any ACL rules added or changed will be detected as drift.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mainvpc = new aws.ec2.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
  * const default = new aws.ec2.DefaultNetworkAcl("default", {
  *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
@@ -63,16 +63,16 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ## Example config to deny all Egress traffic, allowing Ingress
- * 
+ *
  * The following denies all Egress traffic by omitting any `egress` rules, while
  * including the default `ingress` rule to allow all traffic.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mainvpc = new aws.ec2.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
  * const default = new aws.ec2.DefaultNetworkAcl("default", {
  *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
@@ -86,17 +86,17 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ## Example config to deny all traffic to any Subnet in the Default Network ACL
- * 
+ *
  * This config denies all traffic in the Default ACL. This can be useful if you
  * want a locked down default to force all resources in the VPC to assign a
  * non-default ACL.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mainvpc = new aws.ec2.Vpc("mainvpc", {
  *     cidrBlock: "10.1.0.0/16",
  * });
@@ -104,8 +104,6 @@ import * as utilities from "../utilities";
  *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_network_acl.html.markdown.
  */
 export class DefaultNetworkAcl extends pulumi.CustomResource {
     /**

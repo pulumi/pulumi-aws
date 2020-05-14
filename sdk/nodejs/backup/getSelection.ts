@@ -8,22 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information on an existing backup selection.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws_backup_plan_example.id.apply(id => aws.backup.getSelection({
  *     planId: id,
  *     selectionId: "selection-id-example",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/backup_selection.html.markdown.
  */
 export function getSelection(args: GetSelectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSelectionResult> {
     if (!opts) {

@@ -10,21 +10,19 @@ import * as utilities from "../utilities";
  * This data source can be used to fetch information about a specific
  * IAM user. By using this data source, you can reference IAM user
  * properties without having to hard code ARNs or unique IDs as input.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = pulumi.output(aws.iam.getUser({
  *     userName: "anExampleUserName",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_user.html.markdown.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     if (!opts) {

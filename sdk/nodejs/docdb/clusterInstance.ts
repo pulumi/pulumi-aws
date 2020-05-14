@@ -7,21 +7,21 @@ import * as utilities from "../utilities";
 /**
  * Provides an DocDB Cluster Resource Instance. A Cluster Instance Resource defines
  * attributes that are specific to a single instance in a [DocDB Cluster](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html).
- * 
+ *
  * You do not designate a primary and subsequent replicas. Instead, you simply add DocDB
  * Instances and DocDB manages the replication. You can use the [count](https://www.terraform.io/docs/configuration/resources.html#count)
  * meta-parameter to make multiple instances and join them all to the same DocDB
  * Cluster, or you may specify different Cluster Instance resources with various
  * `instanceClass` sizes.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultCluster = new aws.docdb.Cluster("default", {
  *     availabilityZones: [
  *         "us-west-2a",
@@ -41,8 +41,6 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster_instance.html.markdown.
  */
 export class ClusterInstance extends pulumi.CustomResource {
     /**

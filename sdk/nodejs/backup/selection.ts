@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages selection conditions for AWS Backup plan resources.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### IAM Role
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleRole = new aws.iam.Role("example", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -40,13 +40,13 @@ import * as utilities from "../utilities";
  *     iamRoleArn: exampleRole.arn,
  * });
  * ```
- * 
+ *
  * ### Selecting Backups By Tag
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.backup.Selection("example", {
  *     iamRoleArn: aws_iam_role_example.arn,
  *     planId: aws_backup_plan_example.id,
@@ -57,13 +57,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ### Selecting Backups By Resource
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.backup.Selection("example", {
  *     iamRoleArn: aws_iam_role_example.arn,
  *     planId: aws_backup_plan_example.id,
@@ -74,8 +74,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_selection.html.markdown.
  */
 export class Selection extends pulumi.CustomResource {
     /**

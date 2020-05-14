@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages the accepter's side of an EC2 Transit Gateway Peering Attachment.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ec2.TransitGatewayPeeringAttachmentAccepter("example", {
  *     tags: {
  *         Name: "Example cross-account attachment",
@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  *     transitGatewayAttachmentId: aws_ec2_transit_gateway_peering_attachment_example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_peering_attachment_accepter.markdown.
  */
 export class TransitGatewayPeeringAttachmentAccepter extends pulumi.CustomResource {
     /**

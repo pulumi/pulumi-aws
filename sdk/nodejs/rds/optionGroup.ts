@@ -8,20 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an RDS DB option group resource. Documentation of the available options for various RDS engines can be found at:
- * 
+ *
  * * [MariaDB Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Options.html)
  * * [Microsoft SQL Server Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.Options.html)
  * * [MySQL Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.Options.html)
  * * [Oracle Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.html)
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.rds.OptionGroup("example", {
  *     engineName: "sqlserver-ee",
  *     majorEngineVersion: "11.00",
@@ -47,8 +47,6 @@ import * as utilities from "../utilities";
  *     optionGroupDescription: "Option Group",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_option_group.html.markdown.
  */
 export class OptionGroup extends pulumi.CustomResource {
     /**

@@ -8,21 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a VPC resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc.html.markdown.
  */
 export class Vpc extends pulumi.CustomResource {
     /**

@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Route 53 Resolver endpoint resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.route53.ResolverEndpoint("foo", {
  *     direction: "INBOUND",
  *     ipAddresses: [
@@ -37,8 +37,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_endpoint.html.markdown.
  */
 export class ResolverEndpoint extends pulumi.CustomResource {
     /**

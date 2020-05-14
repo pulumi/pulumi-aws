@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const fooVpc = new aws.ec2.Vpc("foo", {
  *     cidrBlock: "10.1.0.0/16",
  * });
@@ -46,8 +46,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_subnet_group.html.markdown.
  */
 export class SubnetGroup extends pulumi.CustomResource {
     /**

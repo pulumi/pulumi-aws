@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
  * Provides a Lightsail Instance. Amazon Lightsail is a service to provide easy virtual private servers
  * with custom software already setup. See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail)
  * for more information.
- * 
+ *
  * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Create a new GitLab Lightsail Instance
  * const gitlabTest = new aws.lightsail.Instance("gitlabTest", {
  *     availabilityZone: "us-east-1b",
@@ -30,11 +30,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ## Availability Zones
- * 
+ *
  * Lightsail currently supports the following Availability Zones (e.g. `us-east-1a`):
- * 
+ *
  * - `ap-northeast-1{a,c,d}`
  * - `ap-northeast-2{a,c}`
  * - `ap-south-1{a,b}`
@@ -48,13 +48,13 @@ import * as utilities from "../utilities";
  * - `us-east-1{a,b,c,d,e,f}`
  * - `us-east-2{a,b,c}`
  * - `us-west-2{a,b,c}`
- * 
+ *
  * ## Blueprints
- * 
+ *
  * Lightsail currently supports the following Blueprint IDs:
- * 
+ *
  * ### OS Only
- * 
+ *
  * - `amazonLinux20180302`
  * - `centos7190101`
  * - `debian87`
@@ -63,9 +63,9 @@ import * as utilities from "../utilities";
  * - `opensuse422`
  * - `ubuntu16042`
  * - `ubuntu1804`
- * 
+ *
  * ### Apps and OS
- * 
+ *
  * - `drupal856`
  * - `gitlab11141`
  * - `joomla3811`
@@ -79,15 +79,15 @@ import * as utilities from "../utilities";
  * - `redmine346`
  * - `wordpress498`
  * - `wordpressMultisite498`
- * 
+ *
  * ## Bundles
- * 
+ *
  * Lightsail currently supports the following Bundle IDs (e.g. an instance in `ap-northeast-1` would use `small20`):
- * 
+ *
  * ### Prefix
- * 
+ *
  * A Bundle ID starts with one of the below size prefixes:
- * 
+ *
  * - `nano_`
  * - `micro_`
  * - `small_`
@@ -95,11 +95,11 @@ import * as utilities from "../utilities";
  * - `large_`
  * - `xlarge_`
  * - `2xlarge_`
- * 
+ *
  * ### Suffix
- * 
+ *
  * A Bundle ID ends with one of the following suffixes depending on Availability Zone:
- * 
+ *
  * - ap-northeast-1: `20`
  * - ap-northeast-2: `20`
  * - ap-south-1: `21`
@@ -113,8 +113,6 @@ import * as utilities from "../utilities";
  * - us-east-1: `20`
  * - us-east-2: `20`
  * - us-west-2: `20`
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_instance.html.markdown.
  */
 export class Instance extends pulumi.CustomResource {
     /**

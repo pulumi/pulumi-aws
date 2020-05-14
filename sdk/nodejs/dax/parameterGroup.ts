@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DAX Parameter Group resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.dax.ParameterGroup("example", {
  *     parameters: [
  *         {
@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_parameter_group.html.markdown.
  */
 export class ParameterGroup extends pulumi.CustomResource {
     /**

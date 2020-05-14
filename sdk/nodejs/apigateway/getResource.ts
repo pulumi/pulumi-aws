@@ -9,15 +9,15 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get the id of a Resource in API Gateway. 
  * To fetch the Resource, you must provide the REST API id as well as the full path.  
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myRestApi = pulumi.output(aws.apigateway.getRestApi({
  *     name: "my-rest-api",
  * }, { async: true }));
@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  *     restApiId: myRestApi.id,
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_resource.html.markdown.
  */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
     if (!opts) {

@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### DynamoDB Target
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Crawler("example", {
  *     databaseName: aws_glue_catalog_database_example.name,
  *     dynamodbTargets: [{
@@ -25,13 +25,13 @@ import * as utilities from "../utilities";
  *     role: aws_iam_role_example.arn,
  * });
  * ```
- * 
+ *
  * ### JDBC Target
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Crawler("example", {
  *     databaseName: aws_glue_catalog_database_example.name,
  *     jdbcTargets: [{
@@ -41,13 +41,13 @@ import * as utilities from "../utilities";
  *     role: aws_iam_role_example.arn,
  * });
  * ```
- * 
+ *
  * ### S3 Target
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Crawler("example", {
  *     databaseName: aws_glue_catalog_database_example.name,
  *     role: aws_iam_role_example.arn,
@@ -56,13 +56,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ### Catalog Target
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Crawler("example", {
  *     catalogTargets: [{
  *         databaseName: aws_glue_catalog_database_example.name,
@@ -82,8 +82,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_crawler.html.markdown.
  */
 export class Crawler extends pulumi.CustomResource {
     /**

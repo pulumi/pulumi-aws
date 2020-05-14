@@ -10,15 +10,15 @@ import {PolicyDocument} from "../iam/documents";
 
 /**
  * Manages an AWS Elasticsearch Domain.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.elasticsearch.Domain("example", {
  *     clusterConfig: {
  *         instanceType: "r4.large.elasticsearch",
@@ -32,16 +32,16 @@ import {PolicyDocument} from "../iam/documents";
  *     },
  * });
  * ```
- * 
+ *
  * ### Access Policy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const domain = config.get("domain") || "tf-test";
- * 
+ *
  * const currentRegion = pulumi.output(aws.getRegion({ async: true }));
  * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({ async: true }));
  * const example = new aws.elasticsearch.Domain("example", {
@@ -62,13 +62,13 @@ import {PolicyDocument} from "../iam/documents";
  * `,
  * });
  * ```
- * 
+ *
  * ### Log Publishing to CloudWatch Logs
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {});
  * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("example", {
  *     policyDocument: `{
@@ -98,17 +98,17 @@ import {PolicyDocument} from "../iam/documents";
  *     }],
  * });
  * ```
- * 
+ *
  * ### VPC based ES
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const vpc = config.require("vpc");
  * const domain = config.get("domain") || "tf-test";
- * 
+ *
  * const selectedVpc = pulumi.output(aws.ec2.getVpc({
  *     tags: {
  *         Name: vpc,
@@ -170,8 +170,6 @@ import {PolicyDocument} from "../iam/documents";
  *     },
  * }, { dependsOn: [esServiceLinkedRole] });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticsearch_domain.html.markdown.
  */
 export class Domain extends pulumi.CustomResource {
     /**

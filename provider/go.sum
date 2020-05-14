@@ -725,17 +725,10 @@ github.com/pulumi/pulumi/sdk/v2 v2.0.0 h1:3VMXbEo3bqeaU+YDt8ufVBLD0WhLYE3tG3t/nI
 github.com/pulumi/pulumi/sdk/v2 v2.0.0/go.mod h1:W7k1UDYerc5o97mHnlHHp5iQZKEby+oQrQefWt+2RF4=
 github.com/pulumi/pulumi/sdk/v2 v2.1.1-0.20200501132939-93a7dbe41201/go.mod h1:QNbWpL4gvf3X0lUFT7TXA2Jo1ff/Ti2l97AyFGYwvW4=
 github.com/pulumi/pulumi/sdk/v2 v2.1.1-0.20200505193935-7b446d6c55ad/go.mod h1:QNbWpL4gvf3X0lUFT7TXA2Jo1ff/Ti2l97AyFGYwvW4=
-<<<<<<< HEAD
-github.com/pulumi/pulumi/sdk/v2 v2.1.1-0.20200508232528-aa313aecf8a0 h1:SBAyocmZrsPOkDJjrwTuof8s/qu/kjEN90I2CSup/M4=
-github.com/pulumi/pulumi/sdk/v2 v2.1.1-0.20200508232528-aa313aecf8a0/go.mod h1:QNbWpL4gvf3X0lUFT7TXA2Jo1ff/Ti2l97AyFGYwvW4=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20200519161033-e09c725185dd h1:pohKCuihZ5gko2AJzrZk5ukzNz/M2wbFD6F6OxmDLQI=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20200519161033-e09c725185dd/go.mod h1:EuL0pLOhkuN2hc8cgi5Hn0fAZ7qWSqM/TdfcM2v0X3g=
-=======
 github.com/pulumi/pulumi/sdk/v2 v2.2.1 h1:fNp+69Udcsft3ME+5lKt2IFT3imFAN6D98WiuiAIq/Q=
 github.com/pulumi/pulumi/sdk/v2 v2.2.1/go.mod h1:QNbWpL4gvf3X0lUFT7TXA2Jo1ff/Ti2l97AyFGYwvW4=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20200508114619-becef60175cb h1:r+as9VsPsUHyUf8cv1k1lBma5Zc/NHZHvaav3L381Yg=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20200508114619-becef60175cb/go.mod h1:BM+0tFT7kKZ/XMHa7VpsA0qHnd5fgnst98+/yMHw9TY=
->>>>>>> 681e34794... Upgrade to pulumi-terraform-bridge v2.3.3
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20200519161033-e09c725185dd h1:pohKCuihZ5gko2AJzrZk5ukzNz/M2wbFD6F6OxmDLQI=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20200519161033-e09c725185dd/go.mod h1:EuL0pLOhkuN2hc8cgi5Hn0fAZ7qWSqM/TdfcM2v0X3g=
 github.com/pulumi/tf2pulumi v0.6.1-0.20200501223834-18f6ecca3b82 h1:gl5fVOnqlXMBXlsLsa15Qx65yiIEP5er28JGxIGwC8s=
 github.com/pulumi/tf2pulumi v0.6.1-0.20200501223834-18f6ecca3b82/go.mod h1:x3k7VU4kyHYe5xnPh7T7VN++RtSCFENFSw3zFC3wlvc=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c/go.mod h1:5STLWrekHfjyYwxBRVRXNOSewLJ3PWfDJd1VyTS21fI=

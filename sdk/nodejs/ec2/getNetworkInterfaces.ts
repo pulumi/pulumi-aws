@@ -8,19 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleNetworkInterfaces = pulumi.output(aws.ec2.getNetworkInterfaces({ async: true }));
- * 
+ *
  * export const example = exampleNetworkInterfaces.ids;
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_interfaces.html.markdown.
  */
 export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfacesResult> {
     args = args || {};

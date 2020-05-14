@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
- * 
+ *
  * > **NOTE:** This data source does not apply to snapshots created on DB Instances. 
  * See the [`aws.rds.Snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_snapshot.html) for DB Instance snapshots.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const developmentFinalSnapshot = pulumi.output(aws.rds.getClusterSnapshot({
  *     dbClusterIdentifier: "developmentCluster",
  *     mostRecent: true,
@@ -37,8 +37,6 @@ import * as utilities from "../utilities";
  *     instanceClass: "db.t2.small",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_cluster_snapshot.html.markdown.
  */
 export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSnapshotResult> {
     args = args || {};

@@ -8,21 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a WorkSpaces Bundle.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = pulumi.output(aws.workspaces.getBundle({
  *     bundleId: "wsb-b0s22j3d7",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/workspaces_bundle.html.markdown.
  */
 export function getBundle(args: GetBundleArgs, opts?: pulumi.InvokeOptions): Promise<GetBundleResult> {
     if (!opts) {

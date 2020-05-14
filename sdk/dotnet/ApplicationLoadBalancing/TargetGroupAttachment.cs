@@ -13,12 +13,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the [`aws.elb.Attachment` resource](https://www.terraform.io/docs/providers/aws/r/elb_attachment.html).
     /// 
     /// &gt; **Note:** `aws.alb.TargetGroupAttachment` is known as `aws.lb.TargetGroupAttachment`. The functionality is identical.
-    /// 
-    /// 
-    /// 
-    /// Deprecated: aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favour of aws.alb.TargetGroupAttachment
     /// </summary>
-    [Obsolete(@"aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favour of aws.alb.TargetGroupAttachment")]
+    [Obsolete(@"aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favor of aws.alb.TargetGroupAttachment")]
     public partial class TargetGroupAttachment : Pulumi.CustomResource
     {
         /// <summary>

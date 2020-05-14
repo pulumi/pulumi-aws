@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API-actions-by-function.html#actions-by-function-reusable-delegation-sets) resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.route53.DelegationSet("main", {
  *     referenceName: "DynDNS",
  * });
@@ -25,8 +25,6 @@ import * as utilities from "../utilities";
  *     delegationSetId: main.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_delegation_set.html.markdown.
  */
 export class DelegationSet extends pulumi.CustomResource {
     /**

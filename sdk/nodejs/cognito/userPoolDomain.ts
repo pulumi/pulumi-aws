@@ -8,28 +8,28 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Pool Domain resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Amazon Cognito domain
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.cognito.UserPool("example", {});
  * const main = new aws.cognito.UserPoolDomain("main", {
  *     domain: "example-domain",
  *     userPoolId: example.id,
  * });
  * ```
- * 
+ *
  * ### Custom Cognito domain
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.cognito.UserPool("example", {});
  * const main = new aws.cognito.UserPoolDomain("main", {
  *     certificateArn: aws_acm_certificate_cert.arn,
@@ -37,8 +37,6 @@ import * as utilities from "../utilities";
  *     userPoolId: example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_domain.markdown.
  */
 export class UserPoolDomain extends pulumi.CustomResource {
     /**

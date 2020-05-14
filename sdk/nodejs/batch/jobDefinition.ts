@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Batch Job Definition resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.batch.JobDefinition("test", {
  *     containerProperties: `{
  * 	"command": ["ls", "-la"],
@@ -53,8 +53,6 @@ import * as utilities from "../utilities";
  *     type: "container",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_job_definition.html.markdown.
  */
 export class JobDefinition extends pulumi.CustomResource {
     /**

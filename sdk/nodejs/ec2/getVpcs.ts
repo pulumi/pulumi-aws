@@ -8,27 +8,25 @@ import * as utilities from "../utilities";
 
 /**
  * This resource can be useful for getting back a list of VPC Ids for a region.
- * 
+ *
  * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const fooVpcs = pulumi.output(aws.ec2.getVpcs({
  *     tags: {
  *         service: "production",
  *     },
  * }, { async: true }));
- * 
+ *
  * export const foo = fooVpcs.ids;
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpcs.html.markdown.
  */
 export function getVpcs(args?: GetVpcsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcsResult> {
     args = args || {};

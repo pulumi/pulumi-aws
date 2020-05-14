@@ -13,9 +13,7 @@ import (
 //
 // > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
 //
-//
-//
-// Deprecated: aws.elasticloadbalancingv2.LoadBalancer has been deprecated in favour of aws.lb.LoadBalancer
+// Deprecated: aws.elasticloadbalancingv2.LoadBalancer has been deprecated in favor of aws.lb.LoadBalancer
 type LoadBalancer struct {
 	pulumi.CustomResourceState
 

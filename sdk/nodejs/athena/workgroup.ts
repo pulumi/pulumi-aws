@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Athena Workgroup.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.athena.Workgroup("example", {
  *     configuration: {
  *         enforceWorkgroupConfiguration: true,
@@ -31,8 +31,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_workgroup.html.markdown.
  */
 export class Workgroup extends pulumi.CustomResource {
     /**

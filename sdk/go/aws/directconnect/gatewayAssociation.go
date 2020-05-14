@@ -39,6 +39,8 @@ type GatewayAssociation struct {
 	ProposalId pulumi.StringPtrOutput `pulumi:"proposalId"`
 	// *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
 	// Used for single account Direct Connect gateway associations.
+	//
+	// Deprecated: use 'associated_gateway_id' argument instead
 	VpnGatewayId pulumi.StringPtrOutput `pulumi:"vpnGatewayId"`
 }
 
@@ -94,6 +96,8 @@ type gatewayAssociationState struct {
 	ProposalId *string `pulumi:"proposalId"`
 	// *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
 	// Used for single account Direct Connect gateway associations.
+	//
+	// Deprecated: use 'associated_gateway_id' argument instead
 	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
@@ -119,6 +123,8 @@ type GatewayAssociationState struct {
 	ProposalId pulumi.StringPtrInput
 	// *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
 	// Used for single account Direct Connect gateway associations.
+	//
+	// Deprecated: use 'associated_gateway_id' argument instead
 	VpnGatewayId pulumi.StringPtrInput
 }
 
@@ -142,6 +148,8 @@ type gatewayAssociationArgs struct {
 	ProposalId *string `pulumi:"proposalId"`
 	// *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
 	// Used for single account Direct Connect gateway associations.
+	//
+	// Deprecated: use 'associated_gateway_id' argument instead
 	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
@@ -162,6 +170,8 @@ type GatewayAssociationArgs struct {
 	ProposalId pulumi.StringPtrInput
 	// *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
 	// Used for single account Direct Connect gateway associations.
+	//
+	// Deprecated: use 'associated_gateway_id' argument instead
 	VpnGatewayId pulumi.StringPtrInput
 }
 

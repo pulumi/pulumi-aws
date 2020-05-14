@@ -17,6 +17,8 @@ type Job struct {
 	pulumi.CustomResourceState
 
 	// **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+	//
+	// Deprecated: Please use attribute `max_capacity' instead. This attribute might be removed in future releases.
 	AllocatedCapacity pulumi.IntOutput `pulumi:"allocatedCapacity"`
 	// Amazon Resource Name (ARN) of Glue Job
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -89,6 +91,8 @@ func GetJob(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Job resources.
 type jobState struct {
 	// **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+	//
+	// Deprecated: Please use attribute `max_capacity' instead. This attribute might be removed in future releases.
 	AllocatedCapacity *int `pulumi:"allocatedCapacity"`
 	// Amazon Resource Name (ARN) of Glue Job
 	Arn *string `pulumi:"arn"`
@@ -128,6 +132,8 @@ type jobState struct {
 
 type JobState struct {
 	// **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+	//
+	// Deprecated: Please use attribute `max_capacity' instead. This attribute might be removed in future releases.
 	AllocatedCapacity pulumi.IntPtrInput
 	// Amazon Resource Name (ARN) of Glue Job
 	Arn pulumi.StringPtrInput
@@ -171,6 +177,8 @@ func (JobState) ElementType() reflect.Type {
 
 type jobArgs struct {
 	// **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+	//
+	// Deprecated: Please use attribute `max_capacity' instead. This attribute might be removed in future releases.
 	AllocatedCapacity *int `pulumi:"allocatedCapacity"`
 	// The command of the job. Defined below.
 	Command JobCommand `pulumi:"command"`
@@ -209,6 +217,8 @@ type jobArgs struct {
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
 	// **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+	//
+	// Deprecated: Please use attribute `max_capacity' instead. This attribute might be removed in future releases.
 	AllocatedCapacity pulumi.IntPtrInput
 	// The command of the job. Defined below.
 	Command JobCommandInput

@@ -8,24 +8,24 @@ import * as utilities from "../utilities";
 
 /**
  * > **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
- * 
+ *
  * Provides information about a Load Balancer Listener.
- * 
+ *
  * This data source can prove useful when a module accepts an LB Listener as an
  * input variable and needs to know the LB it is attached to, or other
  * information specific to the listener in question.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const listenerArn = config.require("listenerArn");
- * 
+ *
  * const listener = pulumi.output(aws.lb.getListener({
  *     arn: listenerArn,
  * }, { async: true }));
@@ -37,12 +37,10 @@ import * as utilities from "../utilities";
  *     port: 443,
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_listener.html.markdown.
  */
-/** @deprecated aws.applicationloadbalancing.getListener has been deprecated in favour of aws.alb.getListener */
+/** @deprecated aws.applicationloadbalancing.getListener has been deprecated in favor of aws.alb.getListener */
 export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> {
-    pulumi.log.warn("getListener is deprecated: aws.applicationloadbalancing.getListener has been deprecated in favour of aws.alb.getListener")
+    pulumi.log.warn("getListener is deprecated: aws.applicationloadbalancing.getListener has been deprecated in favor of aws.alb.getListener")
     args = args || {};
     if (!opts) {
         opts = {}

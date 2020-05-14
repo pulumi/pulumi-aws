@@ -9,15 +9,15 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
  * in a given region for the purpose of allowing Redshift to store audit data in S3.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = pulumi.output(aws.redshift.getServiceAccount({ async: true }));
  * const bucket = new aws.s3.Bucket("bucket", {
  *     forceDestroy: true,
@@ -47,8 +47,6 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/redshift_service_account.html.markdown.
  */
 export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> {
     args = args || {};

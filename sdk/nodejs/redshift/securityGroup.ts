@@ -8,23 +8,21 @@ import * as utilities from "../utilities";
 
 /**
  * Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultSecurityGroup = new aws.redshift.SecurityGroup("default", {
  *     ingress: [{
  *         cidr: "10.0.0.0/24",
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_security_group.html.markdown.
  */
 export class SecurityGroup extends pulumi.CustomResource {
     /**

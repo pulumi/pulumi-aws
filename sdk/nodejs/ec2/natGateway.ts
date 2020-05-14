@@ -8,22 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create a VPC NAT Gateway.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const gw = new aws.ec2.NatGateway("gw", {
  *     allocationId: aws_eip_nat.id,
  *     subnetId: aws_subnet_example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/nat_gateway.html.markdown.
  */
 export class NatGateway extends pulumi.CustomResource {
     /**

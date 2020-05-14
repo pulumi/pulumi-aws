@@ -9,18 +9,18 @@ import * as utilities from "../utilities";
 /**
  * Manages an Amazon API Gateway Version 2 domain name.
  * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
- * 
+ *
  * > **Note:** This resource establishes ownership of and the TLS settings for
  * a particular domain name. An API stage can be associated with the domain name using the `aws.apigatewayv2.ApiMapping` resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.apigatewayv2.DomainName("example", {
  *     domainName: "ws-api.example.com",
  *     domainNameConfiguration: {
@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/apigatewayv2_domain_name.html.markdown.
  */
 export class DomainName extends pulumi.CustomResource {
     /**

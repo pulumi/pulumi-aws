@@ -12,15 +12,15 @@ import {InstanceType} from "./instanceType";
 /**
  * Provides an EC2 instance resource. This allows instances to be created, updated,
  * and deleted. Instances also support [provisioning](https://www.terraform.io/docs/provisioners/index.html).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ubuntu = pulumi.output(aws.getAmi({
  *     filters: [
  *         {
@@ -43,8 +43,6 @@ import {InstanceType} from "./instanceType";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/instance.html.markdown.
  */
 export class Instance extends pulumi.CustomResource {
     /**
@@ -541,7 +539,6 @@ export interface InstanceState {
     readonly rootBlockDevice?: pulumi.Input<inputs.ec2.InstanceRootBlockDevice>;
     /**
      * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
-     * 
      * @deprecated Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
      */
     readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -701,7 +698,6 @@ export interface InstanceArgs {
     readonly rootBlockDevice?: pulumi.Input<inputs.ec2.InstanceRootBlockDevice>;
     /**
      * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
-     * 
      * @deprecated Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
      */
     readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;

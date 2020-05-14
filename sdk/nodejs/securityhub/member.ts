@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Security Hub member resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleAccount = new aws.securityhub.Account("example", {});
  * const exampleMember = new aws.securityhub.Member("example", {
  *     accountId: "123456789012",
@@ -22,8 +22,6 @@ import * as utilities from "../utilities";
  *     invite: true,
  * }, { dependsOn: [exampleAccount] });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_member.markdown.
  */
 export class Member extends pulumi.CustomResource {
     /**

@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Amazon Inspector resource group resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.inspector.ResourceGroup("example", {
  *     tags: {
  *         Env: "bar",
@@ -22,8 +22,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/inspector_resource_group.html.markdown.
  */
 export class ResourceGroup extends pulumi.CustomResource {
     /**

@@ -8,22 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### By Transit Gateway and Direct Connect Gateway Identifiers
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = pulumi.all([aws_dx_gateway_example.id, aws_ec2_transit_gateway_example.id]).apply(([aws_dx_gateway_exampleId, aws_ec2_transit_gateway_exampleId]) => aws.ec2transitgateway.getDirectConnectGatewayAttachment({
  *     dxGatewayId: aws_dx_gateway_exampleId,
  *     transitGatewayId: aws_ec2_transit_gateway_exampleId,
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_dx_gateway_attachment.html.markdown.
  */
 export function getDirectConnectGatewayAttachment(args?: GetDirectConnectGatewayAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectConnectGatewayAttachmentResult> {
     args = args || {};

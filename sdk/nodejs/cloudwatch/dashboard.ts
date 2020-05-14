@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudWatch Dashboard resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.cloudwatch.Dashboard("main", {
  *     dashboardBody: ` {
  *    "widgets": [
@@ -55,8 +55,6 @@ import * as utilities from "../utilities";
  *     dashboardName: "my-dashboard",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_dashboard.html.markdown.
  */
 export class Dashboard extends pulumi.CustomResource {
     /**

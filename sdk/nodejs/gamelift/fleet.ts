@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Gamelift Fleet resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.gamelift.Fleet("example", {
  *     buildId: aws_gamelift_build_example.id,
  *     ec2InstanceType: "t2.micro",
@@ -29,8 +29,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_fleet.html.markdown.
  */
 export class Fleet extends pulumi.CustomResource {
     /**

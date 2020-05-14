@@ -13,26 +13,26 @@ import {InstanceType} from "./instanceType";
  * Provides an RDS Cluster Instance Resource. A Cluster Instance Resource defines
  * attributes that are specific to a single instance in a [RDS Cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html),
  * specifically running Amazon Aurora.
- * 
+ *
  * Unlike other RDS resources that support replication, with Amazon Aurora you do
  * not designate a primary and subsequent replicas. Instead, you simply add RDS
  * Instances and Aurora manages the replication. You can use the [count](https://www.terraform.io/docs/configuration/resources.html#count)
  * meta-parameter to make multiple instances and join them all to the same RDS
  * Cluster, or you may specify different Cluster Instance resources with various
  * `instanceClass` sizes.
- * 
+ *
  * For more information on Amazon Aurora, see [Aurora on Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html) in the Amazon RDS User Guide.
- * 
+ *
  * > **NOTE:** Deletion Protection from the RDS service can only be enabled at the cluster level, not for individual cluster instances. You can still add the [`protect` CustomResourceOption](https://www.pulumi.com/docs/intro/concepts/programming-model/#protect) to this resource configuration if you desire protection from accidental deletion.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultCluster = new aws.rds.Cluster("default", {
  *     availabilityZones: [
  *         "us-west-2a",
@@ -53,8 +53,6 @@ import {InstanceType} from "./instanceType";
  *     }));
  * }
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_instance.html.markdown.
  */
 export class ClusterInstance extends pulumi.CustomResource {
     /**

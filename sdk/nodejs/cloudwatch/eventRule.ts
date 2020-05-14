@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudWatch Event Rule resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const console = new aws.cloudwatch.EventRule("console", {
  *     description: "Capture each AWS Console Sign In",
  *     eventPattern: `{
@@ -47,8 +47,6 @@ import * as utilities from "../utilities";
  *     policy: snsTopicPolicy.json,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_event_rule.html.markdown.
  */
 export class EventRule extends pulumi.CustomResource {
     /**

@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Target Group resource for use with Load Balancer resources.
- * 
+ *
  * > **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Instance Target Group
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });
@@ -28,13 +28,13 @@ import * as utilities from "../utilities";
  *     vpcId: main.id,
  * });
  * ```
- * 
+ *
  * ### IP Target Group
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });
@@ -45,19 +45,17 @@ import * as utilities from "../utilities";
  *     vpcId: main.id,
  * });
  * ```
- * 
+ *
  * ### Lambda Target Group
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const lambdaExample = new aws.lb.TargetGroup("lambda-example", {
  *     targetType: "lambda",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group.html.markdown.
  */
 export class TargetGroup extends pulumi.CustomResource {
     /**

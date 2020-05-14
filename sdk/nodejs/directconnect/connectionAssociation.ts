@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Associates a Direct Connect Connection with a LAG.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleConnection = new aws.directconnect.Connection("example", {
  *     bandwidth: "1Gbps",
  *     location: "EqSe2",
@@ -28,8 +28,6 @@ import * as utilities from "../utilities";
  *     lagId: exampleLinkAggregationGroup.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_connection_association.html.markdown.
  */
 export class ConnectionAssociation extends pulumi.CustomResource {
     /**

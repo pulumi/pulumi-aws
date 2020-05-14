@@ -2290,6 +2290,8 @@ func (o ListenerRuleActionRedirectPtrOutput) StatusCode() pulumi.StringPtrOutput
 
 type ListenerRuleCondition struct {
 	// The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
+	//
+	// Deprecated: use 'host_header' or 'path_pattern' attribute instead
 	Field *string `pulumi:"field"`
 	// Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
 	HostHeader *ListenerRuleConditionHostHeader `pulumi:"hostHeader"`
@@ -2304,6 +2306,8 @@ type ListenerRuleCondition struct {
 	// Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
 	SourceIp *ListenerRuleConditionSourceIp `pulumi:"sourceIp"`
 	// List of exactly one pattern to match. Required when `field` is set.
+	//
+	// Deprecated: use 'host_header' or 'path_pattern' attribute instead
 	Values *string `pulumi:"values"`
 }
 
@@ -2321,6 +2325,8 @@ type ListenerRuleConditionInput interface {
 
 type ListenerRuleConditionArgs struct {
 	// The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
+	//
+	// Deprecated: use 'host_header' or 'path_pattern' attribute instead
 	Field pulumi.StringPtrInput `pulumi:"field"`
 	// Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
 	HostHeader ListenerRuleConditionHostHeaderPtrInput `pulumi:"hostHeader"`
@@ -2335,6 +2341,8 @@ type ListenerRuleConditionArgs struct {
 	// Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
 	SourceIp ListenerRuleConditionSourceIpPtrInput `pulumi:"sourceIp"`
 	// List of exactly one pattern to match. Required when `field` is set.
+	//
+	// Deprecated: use 'host_header' or 'path_pattern' attribute instead
 	Values pulumi.StringPtrInput `pulumi:"values"`
 }
 
@@ -2391,6 +2399,8 @@ func (o ListenerRuleConditionOutput) ToListenerRuleConditionOutputWithContext(ct
 }
 
 // The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
+//
+// Deprecated: use 'host_header' or 'path_pattern' attribute instead
 func (o ListenerRuleConditionOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleCondition) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
@@ -2426,6 +2436,8 @@ func (o ListenerRuleConditionOutput) SourceIp() ListenerRuleConditionSourceIpPtr
 }
 
 // List of exactly one pattern to match. Required when `field` is set.
+//
+// Deprecated: use 'host_header' or 'path_pattern' attribute instead
 func (o ListenerRuleConditionOutput) Values() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleCondition) *string { return v.Values }).(pulumi.StringPtrOutput)
 }

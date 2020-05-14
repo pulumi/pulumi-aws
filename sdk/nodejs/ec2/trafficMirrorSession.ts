@@ -9,15 +9,15 @@ import * as utilities from "../utilities";
 /**
  * Provides an Traffic mirror session.  
  * Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const filter = new aws.ec2.TrafficMirrorFilter("filter", {
  *     description: "traffic mirror filter - example",
  *     networkServices: ["amazon-dns"],
@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  *     trafficMirrorTargetId: target.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_traffic_mirror_session.html.markdown.
  */
 export class TrafficMirrorSession extends pulumi.CustomResource {
     /**

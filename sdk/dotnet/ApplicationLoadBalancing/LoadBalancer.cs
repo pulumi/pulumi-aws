@@ -13,12 +13,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// Provides a Load Balancer resource.
     /// 
     /// &gt; **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
-    /// 
-    /// 
-    /// 
-    /// Deprecated: aws.applicationloadbalancing.LoadBalancer has been deprecated in favour of aws.alb.LoadBalancer
     /// </summary>
-    [Obsolete(@"aws.applicationloadbalancing.LoadBalancer has been deprecated in favour of aws.alb.LoadBalancer")]
+    [Obsolete(@"aws.applicationloadbalancing.LoadBalancer has been deprecated in favor of aws.alb.LoadBalancer")]
     public partial class LoadBalancer : Pulumi.CustomResource
     {
         /// <summary>

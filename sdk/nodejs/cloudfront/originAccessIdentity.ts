@@ -8,48 +8,48 @@ import * as utilities from "../utilities";
 
 /**
  * Creates an Amazon CloudFront origin access identity.
- * 
+ *
  * For information about CloudFront distributions, see the
  * [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For more information on generating
  * origin access identities, see
  * [Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content][2].
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const originAccessIdentity = new aws.cloudfront.OriginAccessIdentity("originAccessIdentity", {
  *     comment: "Some comment",
  * });
  * ```
- * 
+ *
  * ## Using With CloudFront
- * 
+ *
  * Normally, when referencing an origin access identity in CloudFront, you need to
  * prefix the ID with the `origin-access-identity/cloudfront/` special path.
  * The `cloudfrontAccessIdentityPath` allows this to be circumvented.
  * The below snippet demonstrates use with the `s3OriginConfig` structure for the
  * [`aws.cloudfront.Distribution`][3] resource:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * ```
- * 
+ *
  * ### Updating your bucket policy
- * 
+ *
  * Note that the AWS API may translate the `s3CanonicalUserId` `CanonicalUser`
  * principal into an `AWS` IAM ARN principal when supplied in an
  * [`aws.s3.Bucket`][4] bucket policy, causing spurious diffs. If
  * you see this behaviour, use the `iamArn` instead:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const s3Policy = pulumi.all([aws_cloudfront_origin_access_identity_origin_access_identity.iamArn, aws_s3_bucket_example.arn, aws_cloudfront_origin_access_identity_origin_access_identity.iamArn, aws_s3_bucket_example.arn]).apply(([aws_cloudfront_origin_access_identity_origin_access_identityIamArn, aws_s3_bucket_exampleArn, aws_cloudfront_origin_access_identity_origin_access_identityIamArn1, aws_s3_bucket_exampleArn1]) => aws.iam.getPolicyDocument({
  *     statements: [
  *         {
@@ -75,13 +75,11 @@ import * as utilities from "../utilities";
  *     policy: s3Policy.json,
  * });
  * ```
- * 
+ *
  * [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
  * [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
  * [3]: https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution.html
  * [4]: https://www.terraform.io/docs/providers/aws/r/s3_bucket.html
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudfront_origin_access_identity.html.markdown.
  */
 export class OriginAccessIdentity extends pulumi.CustomResource {
     /**

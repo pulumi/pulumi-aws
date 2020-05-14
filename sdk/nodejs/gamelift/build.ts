@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Gamelift Build resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.gamelift.Build("test", {
  *     operatingSystem: "WINDOWS_2012",
  *     storage_location: {
@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_build.html.markdown.
  */
 export class Build extends pulumi.CustomResource {
     /**

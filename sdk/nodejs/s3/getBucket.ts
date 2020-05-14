@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific S3 bucket.
- * 
+ *
  * This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
  * Distribution.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Route53 Record
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const selected = pulumi.output(aws.s3.getBucket({
  *     bucket: "bucket.test.com",
  * }, { async: true }));
@@ -36,13 +36,13 @@ import * as utilities from "../utilities";
  *     zoneId: testZone.id,
  * });
  * ```
- * 
+ *
  * ### CloudFront Origin
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const selected = pulumi.output(aws.s3.getBucket({
  *     bucket: "a-test-bucket",
  * }, { async: true }));
@@ -53,8 +53,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket.html.markdown.
  */
 export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> {
     if (!opts) {

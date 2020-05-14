@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Global Accelerator listener.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleAccelerator = new aws.globalaccelerator.Accelerator("example", {
  *     attributes: {
  *         flowLogsEnabled: true,
@@ -36,8 +36,6 @@ import * as utilities from "../utilities";
  *     protocol: "TCP",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_listener.markdown.
  */
 export class Listener extends pulumi.CustomResource {
     /**

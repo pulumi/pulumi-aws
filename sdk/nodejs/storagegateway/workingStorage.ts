@@ -8,24 +8,22 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an AWS Storage Gateway working storage.
- * 
+ *
  * > **NOTE:** The Storage Gateway API provides no method to remove a working storage disk. Destroying this resource does not perform any Storage Gateway actions.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.storagegateway.WorkingStorage("example", {
  *     diskId: aws_storagegateway_local_disk_example.id,
  *     gatewayArn: aws_storagegateway_gateway_example.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_working_storage.html.markdown.
  */
 export class WorkingStorage extends pulumi.CustomResource {
     /**

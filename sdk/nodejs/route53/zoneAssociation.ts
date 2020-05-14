@@ -8,19 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Route53 Hosted Zone VPC association. VPC associations can only be made on private zones.
- * 
+ *
  * > **NOTE:** Unless explicit association ordering is required (e.g. a separate cross-account association authorization), usage of this resource is not recommended. Use the `vpc` configuration blocks available within the [`aws.route53.Zone` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone.html) instead.
- * 
+ *
  * > **NOTE:** This provider provides both this standalone Zone VPC Association resource and exclusive VPC associations defined in-line in the [`aws.route53.Zone` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone.html) via `vpc` configuration blocks. At this time, you cannot use those in-line VPC associations in conjunction with this resource and the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) in the `aws.route53.Zone` resource to manage additional associations via this resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const primary = new aws.ec2.Vpc("primary", {
  *     cidrBlock: "10.6.0.0/16",
  *     enableDnsHostnames: true,
@@ -46,8 +46,6 @@ import * as utilities from "../utilities";
  *     zoneId: example.zoneId,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone_association.html.markdown.
  */
 export class ZoneAssociation extends pulumi.CustomResource {
     /**

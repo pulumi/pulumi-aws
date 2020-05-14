@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Rule Group Resource
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleRule = new aws.waf.Rule("example", {
  *     metricName: "example",
  * });
@@ -31,8 +31,6 @@ import * as utilities from "../utilities";
  *     metricName: "example",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_rule_group.html.markdown.
  */
 export class RuleGroup extends pulumi.CustomResource {
     /**

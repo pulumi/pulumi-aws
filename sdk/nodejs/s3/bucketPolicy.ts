@@ -10,15 +10,15 @@ import {PolicyDocument} from "../iam/documents";
 
 /**
  * Attaches a policy to an S3 bucket resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bucket = new aws.s3.Bucket("b", {});
  * const bucketPolicy = new aws.s3.BucketPolicy("b", {
  *     bucket: bucket.id,
@@ -41,8 +41,6 @@ import {PolicyDocument} from "../iam/documents";
  * `,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_policy.html.markdown.
  */
 export class BucketPolicy extends pulumi.CustomResource {
     /**

@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Redshift event subscription resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultCluster = new aws.redshift.Cluster("default", {
  *     clusterIdentifier: "default",
  *     databaseName: "default",
@@ -38,16 +38,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ## Attributes
- * 
+ *
  * The following additional atttributes are provided:
- * 
+ *
  * * `arn` - Amazon Resource Name (ARN) of the Redshift event notification subscription
  * * `id` - The name of the Redshift event notification subscription
  * * `customerAwsId` - The AWS customer account associated with the Redshift event notification subscription
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_event_subscription.html.markdown.
  */
 export class EventSubscription extends pulumi.CustomResource {
     /**

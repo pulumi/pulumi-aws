@@ -6,28 +6,26 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage the default customer master key (CMK) that your AWS account uses to encrypt EBS volumes.
- * 
+ *
  * Your AWS account has an AWS-managed default CMK that is used for encrypting an EBS volume when no CMK is specified in the API call that creates the volume.
  * By using the `aws.ebs.DefaultKmsKey` resource, you can specify a customer-managed CMK to use in place of the AWS-managed default CMK.
- * 
+ *
  * > **NOTE:** Creating an `aws.ebs.DefaultKmsKey` resource does not enable default EBS encryption. Use the `aws.ebs.EncryptionByDefault` to enable default EBS encryption.
- * 
+ *
  * > **NOTE:** Destroying this resource will reset the default CMK to the account's AWS-managed default CMK for EBS.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ebs.DefaultKmsKey("example", {
  *     keyArn: aws_kms_key_example.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_default_kms_key.html.markdown.
  */
 export class DefaultKmsKey extends pulumi.CustomResource {
     /**
