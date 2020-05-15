@@ -26,6 +26,10 @@ namespace Pulumi.Aws.Iot.Outputs
         /// </summary>
         public readonly string HashKeyValue;
         /// <summary>
+        /// The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
+        /// </summary>
+        public readonly string? Operation;
+        /// <summary>
         /// The action payload.
         /// </summary>
         public readonly string? PayloadField;
@@ -58,6 +62,8 @@ namespace Pulumi.Aws.Iot.Outputs
 
             string hashKeyValue,
 
+            string? operation,
+
             string? payloadField,
 
             string? rangeKeyField,
@@ -73,6 +79,7 @@ namespace Pulumi.Aws.Iot.Outputs
             HashKeyField = hashKeyField;
             HashKeyType = hashKeyType;
             HashKeyValue = hashKeyValue;
+            Operation = operation;
             PayloadField = payloadField;
             RangeKeyField = rangeKeyField;
             RangeKeyType = rangeKeyType;

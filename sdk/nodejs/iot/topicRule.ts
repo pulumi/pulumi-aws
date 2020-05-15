@@ -100,12 +100,15 @@ export class TopicRule extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly dynamodb!: pulumi.Output<outputs.iot.TopicRuleDynamodb | undefined>;
+    public readonly dynamodbv2s!: pulumi.Output<outputs.iot.TopicRuleDynamodbv2[] | undefined>;
     public readonly elasticsearch!: pulumi.Output<outputs.iot.TopicRuleElasticsearch | undefined>;
     /**
      * Specifies whether the rule is enabled.
      */
     public readonly enabled!: pulumi.Output<boolean>;
     public readonly firehose!: pulumi.Output<outputs.iot.TopicRuleFirehose | undefined>;
+    public readonly iotAnalytics!: pulumi.Output<outputs.iot.TopicRuleIotAnalytic[] | undefined>;
+    public readonly iotEvents!: pulumi.Output<outputs.iot.TopicRuleIotEvent[] | undefined>;
     public readonly kinesis!: pulumi.Output<outputs.iot.TopicRuleKinesis | undefined>;
     public readonly lambda!: pulumi.Output<outputs.iot.TopicRuleLambda | undefined>;
     /**
@@ -142,9 +145,12 @@ export class TopicRule extends pulumi.CustomResource {
             inputs["cloudwatchMetric"] = state ? state.cloudwatchMetric : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["dynamodb"] = state ? state.dynamodb : undefined;
+            inputs["dynamodbv2s"] = state ? state.dynamodbv2s : undefined;
             inputs["elasticsearch"] = state ? state.elasticsearch : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["firehose"] = state ? state.firehose : undefined;
+            inputs["iotAnalytics"] = state ? state.iotAnalytics : undefined;
+            inputs["iotEvents"] = state ? state.iotEvents : undefined;
             inputs["kinesis"] = state ? state.kinesis : undefined;
             inputs["lambda"] = state ? state.lambda : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -169,9 +175,12 @@ export class TopicRule extends pulumi.CustomResource {
             inputs["cloudwatchMetric"] = args ? args.cloudwatchMetric : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["dynamodb"] = args ? args.dynamodb : undefined;
+            inputs["dynamodbv2s"] = args ? args.dynamodbv2s : undefined;
             inputs["elasticsearch"] = args ? args.elasticsearch : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["firehose"] = args ? args.firehose : undefined;
+            inputs["iotAnalytics"] = args ? args.iotAnalytics : undefined;
+            inputs["iotEvents"] = args ? args.iotEvents : undefined;
             inputs["kinesis"] = args ? args.kinesis : undefined;
             inputs["lambda"] = args ? args.lambda : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -209,12 +218,15 @@ export interface TopicRuleState {
      */
     readonly description?: pulumi.Input<string>;
     readonly dynamodb?: pulumi.Input<inputs.iot.TopicRuleDynamodb>;
+    readonly dynamodbv2s?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodbv2>[]>;
     readonly elasticsearch?: pulumi.Input<inputs.iot.TopicRuleElasticsearch>;
     /**
      * Specifies whether the rule is enabled.
      */
     readonly enabled?: pulumi.Input<boolean>;
     readonly firehose?: pulumi.Input<inputs.iot.TopicRuleFirehose>;
+    readonly iotAnalytics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotAnalytic>[]>;
+    readonly iotEvents?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotEvent>[]>;
     readonly kinesis?: pulumi.Input<inputs.iot.TopicRuleKinesis>;
     readonly lambda?: pulumi.Input<inputs.iot.TopicRuleLambda>;
     /**
@@ -246,12 +258,15 @@ export interface TopicRuleArgs {
      */
     readonly description?: pulumi.Input<string>;
     readonly dynamodb?: pulumi.Input<inputs.iot.TopicRuleDynamodb>;
+    readonly dynamodbv2s?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodbv2>[]>;
     readonly elasticsearch?: pulumi.Input<inputs.iot.TopicRuleElasticsearch>;
     /**
      * Specifies whether the rule is enabled.
      */
     readonly enabled: pulumi.Input<boolean>;
     readonly firehose?: pulumi.Input<inputs.iot.TopicRuleFirehose>;
+    readonly iotAnalytics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotAnalytic>[]>;
+    readonly iotEvents?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotEvent>[]>;
     readonly kinesis?: pulumi.Input<inputs.iot.TopicRuleKinesis>;
     readonly lambda?: pulumi.Input<inputs.iot.TopicRuleLambda>;
     /**

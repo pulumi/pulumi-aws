@@ -48,6 +48,13 @@ import * as utilities from "../utilities";
  * // UNIT type resolver (default)
  * const testResolver = new aws.appsync.Resolver("test", {
  *     apiId: testGraphQLApi.id,
+ *     cachingConfig: {
+ *         cachingKeys: [
+ *             "$context.identity.sub",
+ *             "$context.arguments.id",
+ *         ],
+ *         ttl: 60,
+ *     },
  *     dataSource: testDataSource.name,
  *     field: "singlePost",
  *     requestTemplate: `{
@@ -123,6 +130,10 @@ export class Resolver extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The CachingConfig.
+     */
+    public readonly cachingConfig!: pulumi.Output<outputs.appsync.ResolverCachingConfig | undefined>;
+    /**
      * The DataSource name.
      */
     public readonly dataSource!: pulumi.Output<string | undefined>;
@@ -135,7 +146,7 @@ export class Resolver extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * The PipelineConfig. A `pipelineConfig` block is documented below.
+     * The PipelineConfig.
      */
     public readonly pipelineConfig!: pulumi.Output<outputs.appsync.ResolverPipelineConfig | undefined>;
     /**
@@ -165,6 +176,7 @@ export class Resolver extends pulumi.CustomResource {
             const state = argsOrState as ResolverState | undefined;
             inputs["apiId"] = state ? state.apiId : undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["cachingConfig"] = state ? state.cachingConfig : undefined;
             inputs["dataSource"] = state ? state.dataSource : undefined;
             inputs["field"] = state ? state.field : undefined;
             inputs["kind"] = state ? state.kind : undefined;
@@ -190,6 +202,7 @@ export class Resolver extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
+            inputs["cachingConfig"] = args ? args.cachingConfig : undefined;
             inputs["dataSource"] = args ? args.dataSource : undefined;
             inputs["field"] = args ? args.field : undefined;
             inputs["kind"] = args ? args.kind : undefined;
@@ -223,6 +236,10 @@ export interface ResolverState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
+     * The CachingConfig.
+     */
+    readonly cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfig>;
+    /**
      * The DataSource name.
      */
     readonly dataSource?: pulumi.Input<string>;
@@ -235,7 +252,7 @@ export interface ResolverState {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * The PipelineConfig. A `pipelineConfig` block is documented below.
+     * The PipelineConfig.
      */
     readonly pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
     /**
@@ -261,6 +278,10 @@ export interface ResolverArgs {
      */
     readonly apiId: pulumi.Input<string>;
     /**
+     * The CachingConfig.
+     */
+    readonly cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfig>;
+    /**
      * The DataSource name.
      */
     readonly dataSource?: pulumi.Input<string>;
@@ -273,7 +294,7 @@ export interface ResolverArgs {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * The PipelineConfig. A `pipelineConfig` block is documented below.
+     * The PipelineConfig.
      */
     readonly pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
     /**

@@ -31,6 +31,12 @@ namespace Pulumi.Aws.Iot.Inputs
         public Input<string> HashKeyValue { get; set; } = null!;
 
         /// <summary>
+        /// The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
+        /// </summary>
+        [Input("operation")]
+        public Input<string>? Operation { get; set; }
+
+        /// <summary>
         /// The action payload.
         /// </summary>
         [Input("payloadField")]

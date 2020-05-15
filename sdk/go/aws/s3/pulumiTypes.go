@@ -1749,7 +1749,7 @@ func (o BucketLifecycleRuleExpirationPtrOutput) ExpiredObjectDeleteMarker() pulu
 }
 
 type BucketLifecycleRuleNoncurrentVersionExpiration struct {
-	// Specifies the number of days an object is noncurrent object versions expire.
+	// Specifies the number of days noncurrent object versions expire.
 	Days *int `pulumi:"days"`
 }
 
@@ -1766,7 +1766,7 @@ type BucketLifecycleRuleNoncurrentVersionExpirationInput interface {
 }
 
 type BucketLifecycleRuleNoncurrentVersionExpirationArgs struct {
-	// Specifies the number of days an object is noncurrent object versions expire.
+	// Specifies the number of days noncurrent object versions expire.
 	Days pulumi.IntPtrInput `pulumi:"days"`
 }
 
@@ -1848,7 +1848,7 @@ func (o BucketLifecycleRuleNoncurrentVersionExpirationOutput) ToBucketLifecycleR
 	}).(BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput)
 }
 
-// Specifies the number of days an object is noncurrent object versions expire.
+// Specifies the number of days noncurrent object versions expire.
 func (o BucketLifecycleRuleNoncurrentVersionExpirationOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleNoncurrentVersionExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
@@ -1873,7 +1873,7 @@ func (o BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput) Elem() BucketLi
 	}).(BucketLifecycleRuleNoncurrentVersionExpirationOutput)
 }
 
-// Specifies the number of days an object is noncurrent object versions expire.
+// Specifies the number of days noncurrent object versions expire.
 func (o BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleRuleNoncurrentVersionExpiration) *int {
 		if v == nil {
@@ -1884,9 +1884,9 @@ func (o BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput) Days() pulumi.I
 }
 
 type BucketLifecycleRuleNoncurrentVersionTransition struct {
-	// Specifies the number of days an object is noncurrent object versions expire.
+	// Specifies the number of days noncurrent object versions transition.
 	Days *int `pulumi:"days"`
-	// Specifies the Amazon S3 storage class to which you want the noncurrent versions object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+	// Specifies the Amazon S3 storage class to which you want the noncurrent object versions to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
 	StorageClass string `pulumi:"storageClass"`
 }
 
@@ -1903,9 +1903,9 @@ type BucketLifecycleRuleNoncurrentVersionTransitionInput interface {
 }
 
 type BucketLifecycleRuleNoncurrentVersionTransitionArgs struct {
-	// Specifies the number of days an object is noncurrent object versions expire.
+	// Specifies the number of days noncurrent object versions transition.
 	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Specifies the Amazon S3 storage class to which you want the noncurrent versions object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+	// Specifies the Amazon S3 storage class to which you want the noncurrent object versions to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
 	StorageClass pulumi.StringInput `pulumi:"storageClass"`
 }
 
@@ -1961,12 +1961,12 @@ func (o BucketLifecycleRuleNoncurrentVersionTransitionOutput) ToBucketLifecycleR
 	return o
 }
 
-// Specifies the number of days an object is noncurrent object versions expire.
+// Specifies the number of days noncurrent object versions transition.
 func (o BucketLifecycleRuleNoncurrentVersionTransitionOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleNoncurrentVersionTransition) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Amazon S3 storage class to which you want the noncurrent versions object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+// Specifies the Amazon S3 storage class to which you want the noncurrent object versions to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
 func (o BucketLifecycleRuleNoncurrentVersionTransitionOutput) StorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleNoncurrentVersionTransition) string { return v.StorageClass }).(pulumi.StringOutput)
 }

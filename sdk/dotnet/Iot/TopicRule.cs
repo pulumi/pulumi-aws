@@ -32,6 +32,9 @@ namespace Pulumi.Aws.Iot
         [Output("dynamodb")]
         public Output<Outputs.TopicRuleDynamodb?> Dynamodb { get; private set; } = null!;
 
+        [Output("dynamodbv2s")]
+        public Output<ImmutableArray<Outputs.TopicRuleDynamodbv2>> Dynamodbv2s { get; private set; } = null!;
+
         [Output("elasticsearch")]
         public Output<Outputs.TopicRuleElasticsearch?> Elasticsearch { get; private set; } = null!;
 
@@ -43,6 +46,12 @@ namespace Pulumi.Aws.Iot
 
         [Output("firehose")]
         public Output<Outputs.TopicRuleFirehose?> Firehose { get; private set; } = null!;
+
+        [Output("iotAnalytics")]
+        public Output<ImmutableArray<Outputs.TopicRuleIotAnalytic>> IotAnalytics { get; private set; } = null!;
+
+        [Output("iotEvents")]
+        public Output<ImmutableArray<Outputs.TopicRuleIotEvent>> IotEvents { get; private set; } = null!;
 
         [Output("kinesis")]
         public Output<Outputs.TopicRuleKinesis?> Kinesis { get; private set; } = null!;
@@ -141,6 +150,14 @@ namespace Pulumi.Aws.Iot
         [Input("dynamodb")]
         public Input<Inputs.TopicRuleDynamodbArgs>? Dynamodb { get; set; }
 
+        [Input("dynamodbv2s")]
+        private InputList<Inputs.TopicRuleDynamodbv2Args>? _dynamodbv2s;
+        public InputList<Inputs.TopicRuleDynamodbv2Args> Dynamodbv2s
+        {
+            get => _dynamodbv2s ?? (_dynamodbv2s = new InputList<Inputs.TopicRuleDynamodbv2Args>());
+            set => _dynamodbv2s = value;
+        }
+
         [Input("elasticsearch")]
         public Input<Inputs.TopicRuleElasticsearchArgs>? Elasticsearch { get; set; }
 
@@ -152,6 +169,22 @@ namespace Pulumi.Aws.Iot
 
         [Input("firehose")]
         public Input<Inputs.TopicRuleFirehoseArgs>? Firehose { get; set; }
+
+        [Input("iotAnalytics")]
+        private InputList<Inputs.TopicRuleIotAnalyticArgs>? _iotAnalytics;
+        public InputList<Inputs.TopicRuleIotAnalyticArgs> IotAnalytics
+        {
+            get => _iotAnalytics ?? (_iotAnalytics = new InputList<Inputs.TopicRuleIotAnalyticArgs>());
+            set => _iotAnalytics = value;
+        }
+
+        [Input("iotEvents")]
+        private InputList<Inputs.TopicRuleIotEventArgs>? _iotEvents;
+        public InputList<Inputs.TopicRuleIotEventArgs> IotEvents
+        {
+            get => _iotEvents ?? (_iotEvents = new InputList<Inputs.TopicRuleIotEventArgs>());
+            set => _iotEvents = value;
+        }
 
         [Input("kinesis")]
         public Input<Inputs.TopicRuleKinesisArgs>? Kinesis { get; set; }
@@ -217,6 +250,14 @@ namespace Pulumi.Aws.Iot
         [Input("dynamodb")]
         public Input<Inputs.TopicRuleDynamodbGetArgs>? Dynamodb { get; set; }
 
+        [Input("dynamodbv2s")]
+        private InputList<Inputs.TopicRuleDynamodbv2GetArgs>? _dynamodbv2s;
+        public InputList<Inputs.TopicRuleDynamodbv2GetArgs> Dynamodbv2s
+        {
+            get => _dynamodbv2s ?? (_dynamodbv2s = new InputList<Inputs.TopicRuleDynamodbv2GetArgs>());
+            set => _dynamodbv2s = value;
+        }
+
         [Input("elasticsearch")]
         public Input<Inputs.TopicRuleElasticsearchGetArgs>? Elasticsearch { get; set; }
 
@@ -228,6 +269,22 @@ namespace Pulumi.Aws.Iot
 
         [Input("firehose")]
         public Input<Inputs.TopicRuleFirehoseGetArgs>? Firehose { get; set; }
+
+        [Input("iotAnalytics")]
+        private InputList<Inputs.TopicRuleIotAnalyticGetArgs>? _iotAnalytics;
+        public InputList<Inputs.TopicRuleIotAnalyticGetArgs> IotAnalytics
+        {
+            get => _iotAnalytics ?? (_iotAnalytics = new InputList<Inputs.TopicRuleIotAnalyticGetArgs>());
+            set => _iotAnalytics = value;
+        }
+
+        [Input("iotEvents")]
+        private InputList<Inputs.TopicRuleIotEventGetArgs>? _iotEvents;
+        public InputList<Inputs.TopicRuleIotEventGetArgs> IotEvents
+        {
+            get => _iotEvents ?? (_iotEvents = new InputList<Inputs.TopicRuleIotEventGetArgs>());
+            set => _iotEvents = value;
+        }
 
         [Input("kinesis")]
         public Input<Inputs.TopicRuleKinesisGetArgs>? Kinesis { get; set; }

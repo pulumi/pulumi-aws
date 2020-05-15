@@ -46,7 +46,7 @@ namespace Pulumi.Aws.DataSync.Outputs
         /// </summary>
         public readonly string? Uid;
         /// <summary>
-        /// Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`. Default: `POINT_IN_TIME_CONSISTENT`.
+        /// Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
         /// </summary>
         public readonly string? VerifyMode;
 

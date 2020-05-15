@@ -37,7 +37,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
         public Input<Inputs.ListenerRuleConditionHttpRequestMethodArgs>? HttpRequestMethod { get; set; }
 
         /// <summary>
-        /// Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+        /// Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query_string` condition.
         /// </summary>
         [Input("pathPattern")]
         public Input<Inputs.ListenerRuleConditionPathPatternArgs>? PathPattern { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
         }
 
         /// <summary>
-        /// Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+        /// Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
         /// </summary>
         [Input("sourceIp")]
         public Input<Inputs.ListenerRuleConditionSourceIpArgs>? SourceIp { get; set; }

@@ -26,7 +26,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly int? GitCloneDepth;
         /// <summary>
-        /// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+        /// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
         /// </summary>
         public readonly Outputs.ProjectSourceGitSubmodulesConfig? GitSubmodulesConfig;
         /// <summary>

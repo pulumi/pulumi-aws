@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Iot.Outputs
     public sealed class TopicRuleRepublish
     {
         /// <summary>
+        /// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0. 
+        /// </summary>
+        public readonly int? Qos;
+        /// <summary>
         /// The ARN of the IAM role that grants access.
         /// </summary>
         public readonly string RoleArn;
@@ -24,10 +28,13 @@ namespace Pulumi.Aws.Iot.Outputs
 
         [OutputConstructor]
         private TopicRuleRepublish(
+            int? qos,
+
             string roleArn,
 
             string topic)
         {
+            Qos = qos;
             RoleArn = roleArn;
             Topic = topic;
         }

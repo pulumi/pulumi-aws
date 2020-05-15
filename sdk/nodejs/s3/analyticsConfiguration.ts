@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_analysis_configuration.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_analytics_configuration.html.markdown.
  */
 export class AnalyticsConfiguration extends pulumi.CustomResource {
     /**

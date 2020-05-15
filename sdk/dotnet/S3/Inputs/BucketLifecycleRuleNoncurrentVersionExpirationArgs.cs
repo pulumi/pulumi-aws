@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketLifecycleRuleNoncurrentVersionExpirationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the number of days an object is noncurrent object versions expire.
+        /// Specifies the number of days noncurrent object versions expire.
         /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }

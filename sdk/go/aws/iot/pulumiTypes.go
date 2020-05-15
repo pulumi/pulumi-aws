@@ -587,6 +587,8 @@ type TopicRuleDynamodb struct {
 	HashKeyType *string `pulumi:"hashKeyType"`
 	// The hash key value.
 	HashKeyValue string `pulumi:"hashKeyValue"`
+	// The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
+	Operation *string `pulumi:"operation"`
 	// The action payload.
 	PayloadField *string `pulumi:"payloadField"`
 	// The range key name.
@@ -620,6 +622,8 @@ type TopicRuleDynamodbArgs struct {
 	HashKeyType pulumi.StringPtrInput `pulumi:"hashKeyType"`
 	// The hash key value.
 	HashKeyValue pulumi.StringInput `pulumi:"hashKeyValue"`
+	// The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
+	Operation pulumi.StringPtrInput `pulumi:"operation"`
 	// The action payload.
 	PayloadField pulumi.StringPtrInput `pulumi:"payloadField"`
 	// The range key name.
@@ -727,6 +731,11 @@ func (o TopicRuleDynamodbOutput) HashKeyValue() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDynamodb) string { return v.HashKeyValue }).(pulumi.StringOutput)
 }
 
+// The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
+func (o TopicRuleDynamodbOutput) Operation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleDynamodb) *string { return v.Operation }).(pulumi.StringPtrOutput)
+}
+
 // The action payload.
 func (o TopicRuleDynamodbOutput) PayloadField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamodb) *string { return v.PayloadField }).(pulumi.StringPtrOutput)
@@ -805,6 +814,16 @@ func (o TopicRuleDynamodbPtrOutput) HashKeyValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
+func (o TopicRuleDynamodbPtrOutput) Operation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operation
+	}).(pulumi.StringPtrOutput)
+}
+
 // The action payload.
 func (o TopicRuleDynamodbPtrOutput) PayloadField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
@@ -858,6 +877,247 @@ func (o TopicRuleDynamodbPtrOutput) RoleArn() pulumi.StringPtrOutput {
 // The name of the DynamoDB table.
 func (o TopicRuleDynamodbPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicRuleDynamodbv2 struct {
+	// Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
+	PutItem *TopicRuleDynamodbv2PutItem `pulumi:"putItem"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// TopicRuleDynamodbv2Input is an input type that accepts TopicRuleDynamodbv2Args and TopicRuleDynamodbv2Output values.
+// You can construct a concrete instance of `TopicRuleDynamodbv2Input` via:
+//
+// 		 TopicRuleDynamodbv2Args{...}
+//
+type TopicRuleDynamodbv2Input interface {
+	pulumi.Input
+
+	ToTopicRuleDynamodbv2Output() TopicRuleDynamodbv2Output
+	ToTopicRuleDynamodbv2OutputWithContext(context.Context) TopicRuleDynamodbv2Output
+}
+
+type TopicRuleDynamodbv2Args struct {
+	// Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
+	PutItem TopicRuleDynamodbv2PutItemPtrInput `pulumi:"putItem"`
+	// The IAM role ARN that allows access to the CloudWatch alarm.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (TopicRuleDynamodbv2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDynamodbv2)(nil)).Elem()
+}
+
+func (i TopicRuleDynamodbv2Args) ToTopicRuleDynamodbv2Output() TopicRuleDynamodbv2Output {
+	return i.ToTopicRuleDynamodbv2OutputWithContext(context.Background())
+}
+
+func (i TopicRuleDynamodbv2Args) ToTopicRuleDynamodbv2OutputWithContext(ctx context.Context) TopicRuleDynamodbv2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDynamodbv2Output)
+}
+
+// TopicRuleDynamodbv2ArrayInput is an input type that accepts TopicRuleDynamodbv2Array and TopicRuleDynamodbv2ArrayOutput values.
+// You can construct a concrete instance of `TopicRuleDynamodbv2ArrayInput` via:
+//
+// 		 TopicRuleDynamodbv2Array{ TopicRuleDynamodbv2Args{...} }
+//
+type TopicRuleDynamodbv2ArrayInput interface {
+	pulumi.Input
+
+	ToTopicRuleDynamodbv2ArrayOutput() TopicRuleDynamodbv2ArrayOutput
+	ToTopicRuleDynamodbv2ArrayOutputWithContext(context.Context) TopicRuleDynamodbv2ArrayOutput
+}
+
+type TopicRuleDynamodbv2Array []TopicRuleDynamodbv2Input
+
+func (TopicRuleDynamodbv2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleDynamodbv2)(nil)).Elem()
+}
+
+func (i TopicRuleDynamodbv2Array) ToTopicRuleDynamodbv2ArrayOutput() TopicRuleDynamodbv2ArrayOutput {
+	return i.ToTopicRuleDynamodbv2ArrayOutputWithContext(context.Background())
+}
+
+func (i TopicRuleDynamodbv2Array) ToTopicRuleDynamodbv2ArrayOutputWithContext(ctx context.Context) TopicRuleDynamodbv2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDynamodbv2ArrayOutput)
+}
+
+type TopicRuleDynamodbv2Output struct{ *pulumi.OutputState }
+
+func (TopicRuleDynamodbv2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDynamodbv2)(nil)).Elem()
+}
+
+func (o TopicRuleDynamodbv2Output) ToTopicRuleDynamodbv2Output() TopicRuleDynamodbv2Output {
+	return o
+}
+
+func (o TopicRuleDynamodbv2Output) ToTopicRuleDynamodbv2OutputWithContext(ctx context.Context) TopicRuleDynamodbv2Output {
+	return o
+}
+
+// Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
+func (o TopicRuleDynamodbv2Output) PutItem() TopicRuleDynamodbv2PutItemPtrOutput {
+	return o.ApplyT(func(v TopicRuleDynamodbv2) *TopicRuleDynamodbv2PutItem { return v.PutItem }).(TopicRuleDynamodbv2PutItemPtrOutput)
+}
+
+// The IAM role ARN that allows access to the CloudWatch alarm.
+func (o TopicRuleDynamodbv2Output) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleDynamodbv2) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type TopicRuleDynamodbv2ArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleDynamodbv2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleDynamodbv2)(nil)).Elem()
+}
+
+func (o TopicRuleDynamodbv2ArrayOutput) ToTopicRuleDynamodbv2ArrayOutput() TopicRuleDynamodbv2ArrayOutput {
+	return o
+}
+
+func (o TopicRuleDynamodbv2ArrayOutput) ToTopicRuleDynamodbv2ArrayOutputWithContext(ctx context.Context) TopicRuleDynamodbv2ArrayOutput {
+	return o
+}
+
+func (o TopicRuleDynamodbv2ArrayOutput) Index(i pulumi.IntInput) TopicRuleDynamodbv2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleDynamodbv2 {
+		return vs[0].([]TopicRuleDynamodbv2)[vs[1].(int)]
+	}).(TopicRuleDynamodbv2Output)
+}
+
+type TopicRuleDynamodbv2PutItem struct {
+	// The name of the DynamoDB table.
+	TableName string `pulumi:"tableName"`
+}
+
+// TopicRuleDynamodbv2PutItemInput is an input type that accepts TopicRuleDynamodbv2PutItemArgs and TopicRuleDynamodbv2PutItemOutput values.
+// You can construct a concrete instance of `TopicRuleDynamodbv2PutItemInput` via:
+//
+// 		 TopicRuleDynamodbv2PutItemArgs{...}
+//
+type TopicRuleDynamodbv2PutItemInput interface {
+	pulumi.Input
+
+	ToTopicRuleDynamodbv2PutItemOutput() TopicRuleDynamodbv2PutItemOutput
+	ToTopicRuleDynamodbv2PutItemOutputWithContext(context.Context) TopicRuleDynamodbv2PutItemOutput
+}
+
+type TopicRuleDynamodbv2PutItemArgs struct {
+	// The name of the DynamoDB table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (TopicRuleDynamodbv2PutItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDynamodbv2PutItem)(nil)).Elem()
+}
+
+func (i TopicRuleDynamodbv2PutItemArgs) ToTopicRuleDynamodbv2PutItemOutput() TopicRuleDynamodbv2PutItemOutput {
+	return i.ToTopicRuleDynamodbv2PutItemOutputWithContext(context.Background())
+}
+
+func (i TopicRuleDynamodbv2PutItemArgs) ToTopicRuleDynamodbv2PutItemOutputWithContext(ctx context.Context) TopicRuleDynamodbv2PutItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDynamodbv2PutItemOutput)
+}
+
+func (i TopicRuleDynamodbv2PutItemArgs) ToTopicRuleDynamodbv2PutItemPtrOutput() TopicRuleDynamodbv2PutItemPtrOutput {
+	return i.ToTopicRuleDynamodbv2PutItemPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleDynamodbv2PutItemArgs) ToTopicRuleDynamodbv2PutItemPtrOutputWithContext(ctx context.Context) TopicRuleDynamodbv2PutItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDynamodbv2PutItemOutput).ToTopicRuleDynamodbv2PutItemPtrOutputWithContext(ctx)
+}
+
+// TopicRuleDynamodbv2PutItemPtrInput is an input type that accepts TopicRuleDynamodbv2PutItemArgs, TopicRuleDynamodbv2PutItemPtr and TopicRuleDynamodbv2PutItemPtrOutput values.
+// You can construct a concrete instance of `TopicRuleDynamodbv2PutItemPtrInput` via:
+//
+// 		 TopicRuleDynamodbv2PutItemArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type TopicRuleDynamodbv2PutItemPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleDynamodbv2PutItemPtrOutput() TopicRuleDynamodbv2PutItemPtrOutput
+	ToTopicRuleDynamodbv2PutItemPtrOutputWithContext(context.Context) TopicRuleDynamodbv2PutItemPtrOutput
+}
+
+type topicRuleDynamodbv2PutItemPtrType TopicRuleDynamodbv2PutItemArgs
+
+func TopicRuleDynamodbv2PutItemPtr(v *TopicRuleDynamodbv2PutItemArgs) TopicRuleDynamodbv2PutItemPtrInput {
+	return (*topicRuleDynamodbv2PutItemPtrType)(v)
+}
+
+func (*topicRuleDynamodbv2PutItemPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleDynamodbv2PutItem)(nil)).Elem()
+}
+
+func (i *topicRuleDynamodbv2PutItemPtrType) ToTopicRuleDynamodbv2PutItemPtrOutput() TopicRuleDynamodbv2PutItemPtrOutput {
+	return i.ToTopicRuleDynamodbv2PutItemPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleDynamodbv2PutItemPtrType) ToTopicRuleDynamodbv2PutItemPtrOutputWithContext(ctx context.Context) TopicRuleDynamodbv2PutItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDynamodbv2PutItemPtrOutput)
+}
+
+type TopicRuleDynamodbv2PutItemOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleDynamodbv2PutItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDynamodbv2PutItem)(nil)).Elem()
+}
+
+func (o TopicRuleDynamodbv2PutItemOutput) ToTopicRuleDynamodbv2PutItemOutput() TopicRuleDynamodbv2PutItemOutput {
+	return o
+}
+
+func (o TopicRuleDynamodbv2PutItemOutput) ToTopicRuleDynamodbv2PutItemOutputWithContext(ctx context.Context) TopicRuleDynamodbv2PutItemOutput {
+	return o
+}
+
+func (o TopicRuleDynamodbv2PutItemOutput) ToTopicRuleDynamodbv2PutItemPtrOutput() TopicRuleDynamodbv2PutItemPtrOutput {
+	return o.ToTopicRuleDynamodbv2PutItemPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleDynamodbv2PutItemOutput) ToTopicRuleDynamodbv2PutItemPtrOutputWithContext(ctx context.Context) TopicRuleDynamodbv2PutItemPtrOutput {
+	return o.ApplyT(func(v TopicRuleDynamodbv2PutItem) *TopicRuleDynamodbv2PutItem {
+		return &v
+	}).(TopicRuleDynamodbv2PutItemPtrOutput)
+}
+
+// The name of the DynamoDB table.
+func (o TopicRuleDynamodbv2PutItemOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleDynamodbv2PutItem) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type TopicRuleDynamodbv2PutItemPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleDynamodbv2PutItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleDynamodbv2PutItem)(nil)).Elem()
+}
+
+func (o TopicRuleDynamodbv2PutItemPtrOutput) ToTopicRuleDynamodbv2PutItemPtrOutput() TopicRuleDynamodbv2PutItemPtrOutput {
+	return o
+}
+
+func (o TopicRuleDynamodbv2PutItemPtrOutput) ToTopicRuleDynamodbv2PutItemPtrOutputWithContext(ctx context.Context) TopicRuleDynamodbv2PutItemPtrOutput {
+	return o
+}
+
+func (o TopicRuleDynamodbv2PutItemPtrOutput) Elem() TopicRuleDynamodbv2PutItemOutput {
+	return o.ApplyT(func(v *TopicRuleDynamodbv2PutItem) TopicRuleDynamodbv2PutItem { return *v }).(TopicRuleDynamodbv2PutItemOutput)
+}
+
+// The name of the DynamoDB table.
+func (o TopicRuleDynamodbv2PutItemPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDynamodbv2PutItem) *string {
 		if v == nil {
 			return nil
 		}
@@ -1245,6 +1505,231 @@ func (o TopicRuleFirehosePtrOutput) Separator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TopicRuleIotAnalytic struct {
+	// Name of AWS IOT Analytics channel.
+	ChannelName string `pulumi:"channelName"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// TopicRuleIotAnalyticInput is an input type that accepts TopicRuleIotAnalyticArgs and TopicRuleIotAnalyticOutput values.
+// You can construct a concrete instance of `TopicRuleIotAnalyticInput` via:
+//
+// 		 TopicRuleIotAnalyticArgs{...}
+//
+type TopicRuleIotAnalyticInput interface {
+	pulumi.Input
+
+	ToTopicRuleIotAnalyticOutput() TopicRuleIotAnalyticOutput
+	ToTopicRuleIotAnalyticOutputWithContext(context.Context) TopicRuleIotAnalyticOutput
+}
+
+type TopicRuleIotAnalyticArgs struct {
+	// Name of AWS IOT Analytics channel.
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (TopicRuleIotAnalyticArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleIotAnalytic)(nil)).Elem()
+}
+
+func (i TopicRuleIotAnalyticArgs) ToTopicRuleIotAnalyticOutput() TopicRuleIotAnalyticOutput {
+	return i.ToTopicRuleIotAnalyticOutputWithContext(context.Background())
+}
+
+func (i TopicRuleIotAnalyticArgs) ToTopicRuleIotAnalyticOutputWithContext(ctx context.Context) TopicRuleIotAnalyticOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleIotAnalyticOutput)
+}
+
+// TopicRuleIotAnalyticArrayInput is an input type that accepts TopicRuleIotAnalyticArray and TopicRuleIotAnalyticArrayOutput values.
+// You can construct a concrete instance of `TopicRuleIotAnalyticArrayInput` via:
+//
+// 		 TopicRuleIotAnalyticArray{ TopicRuleIotAnalyticArgs{...} }
+//
+type TopicRuleIotAnalyticArrayInput interface {
+	pulumi.Input
+
+	ToTopicRuleIotAnalyticArrayOutput() TopicRuleIotAnalyticArrayOutput
+	ToTopicRuleIotAnalyticArrayOutputWithContext(context.Context) TopicRuleIotAnalyticArrayOutput
+}
+
+type TopicRuleIotAnalyticArray []TopicRuleIotAnalyticInput
+
+func (TopicRuleIotAnalyticArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleIotAnalytic)(nil)).Elem()
+}
+
+func (i TopicRuleIotAnalyticArray) ToTopicRuleIotAnalyticArrayOutput() TopicRuleIotAnalyticArrayOutput {
+	return i.ToTopicRuleIotAnalyticArrayOutputWithContext(context.Background())
+}
+
+func (i TopicRuleIotAnalyticArray) ToTopicRuleIotAnalyticArrayOutputWithContext(ctx context.Context) TopicRuleIotAnalyticArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleIotAnalyticArrayOutput)
+}
+
+type TopicRuleIotAnalyticOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleIotAnalyticOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleIotAnalytic)(nil)).Elem()
+}
+
+func (o TopicRuleIotAnalyticOutput) ToTopicRuleIotAnalyticOutput() TopicRuleIotAnalyticOutput {
+	return o
+}
+
+func (o TopicRuleIotAnalyticOutput) ToTopicRuleIotAnalyticOutputWithContext(ctx context.Context) TopicRuleIotAnalyticOutput {
+	return o
+}
+
+// Name of AWS IOT Analytics channel.
+func (o TopicRuleIotAnalyticOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleIotAnalytic) string { return v.ChannelName }).(pulumi.StringOutput)
+}
+
+// The ARN of the IAM role that grants access.
+func (o TopicRuleIotAnalyticOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleIotAnalytic) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type TopicRuleIotAnalyticArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleIotAnalyticArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleIotAnalytic)(nil)).Elem()
+}
+
+func (o TopicRuleIotAnalyticArrayOutput) ToTopicRuleIotAnalyticArrayOutput() TopicRuleIotAnalyticArrayOutput {
+	return o
+}
+
+func (o TopicRuleIotAnalyticArrayOutput) ToTopicRuleIotAnalyticArrayOutputWithContext(ctx context.Context) TopicRuleIotAnalyticArrayOutput {
+	return o
+}
+
+func (o TopicRuleIotAnalyticArrayOutput) Index(i pulumi.IntInput) TopicRuleIotAnalyticOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleIotAnalytic {
+		return vs[0].([]TopicRuleIotAnalytic)[vs[1].(int)]
+	}).(TopicRuleIotAnalyticOutput)
+}
+
+type TopicRuleIotEvent struct {
+	// The name of the AWS IoT Events input.
+	InputName string `pulumi:"inputName"`
+	// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
+	MessageId *string `pulumi:"messageId"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// TopicRuleIotEventInput is an input type that accepts TopicRuleIotEventArgs and TopicRuleIotEventOutput values.
+// You can construct a concrete instance of `TopicRuleIotEventInput` via:
+//
+// 		 TopicRuleIotEventArgs{...}
+//
+type TopicRuleIotEventInput interface {
+	pulumi.Input
+
+	ToTopicRuleIotEventOutput() TopicRuleIotEventOutput
+	ToTopicRuleIotEventOutputWithContext(context.Context) TopicRuleIotEventOutput
+}
+
+type TopicRuleIotEventArgs struct {
+	// The name of the AWS IoT Events input.
+	InputName pulumi.StringInput `pulumi:"inputName"`
+	// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
+	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (TopicRuleIotEventArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleIotEvent)(nil)).Elem()
+}
+
+func (i TopicRuleIotEventArgs) ToTopicRuleIotEventOutput() TopicRuleIotEventOutput {
+	return i.ToTopicRuleIotEventOutputWithContext(context.Background())
+}
+
+func (i TopicRuleIotEventArgs) ToTopicRuleIotEventOutputWithContext(ctx context.Context) TopicRuleIotEventOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleIotEventOutput)
+}
+
+// TopicRuleIotEventArrayInput is an input type that accepts TopicRuleIotEventArray and TopicRuleIotEventArrayOutput values.
+// You can construct a concrete instance of `TopicRuleIotEventArrayInput` via:
+//
+// 		 TopicRuleIotEventArray{ TopicRuleIotEventArgs{...} }
+//
+type TopicRuleIotEventArrayInput interface {
+	pulumi.Input
+
+	ToTopicRuleIotEventArrayOutput() TopicRuleIotEventArrayOutput
+	ToTopicRuleIotEventArrayOutputWithContext(context.Context) TopicRuleIotEventArrayOutput
+}
+
+type TopicRuleIotEventArray []TopicRuleIotEventInput
+
+func (TopicRuleIotEventArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleIotEvent)(nil)).Elem()
+}
+
+func (i TopicRuleIotEventArray) ToTopicRuleIotEventArrayOutput() TopicRuleIotEventArrayOutput {
+	return i.ToTopicRuleIotEventArrayOutputWithContext(context.Background())
+}
+
+func (i TopicRuleIotEventArray) ToTopicRuleIotEventArrayOutputWithContext(ctx context.Context) TopicRuleIotEventArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleIotEventArrayOutput)
+}
+
+type TopicRuleIotEventOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleIotEventOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleIotEvent)(nil)).Elem()
+}
+
+func (o TopicRuleIotEventOutput) ToTopicRuleIotEventOutput() TopicRuleIotEventOutput {
+	return o
+}
+
+func (o TopicRuleIotEventOutput) ToTopicRuleIotEventOutputWithContext(ctx context.Context) TopicRuleIotEventOutput {
+	return o
+}
+
+// The name of the AWS IoT Events input.
+func (o TopicRuleIotEventOutput) InputName() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleIotEvent) string { return v.InputName }).(pulumi.StringOutput)
+}
+
+// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
+func (o TopicRuleIotEventOutput) MessageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleIotEvent) *string { return v.MessageId }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the IAM role that grants access.
+func (o TopicRuleIotEventOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleIotEvent) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type TopicRuleIotEventArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleIotEventArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleIotEvent)(nil)).Elem()
+}
+
+func (o TopicRuleIotEventArrayOutput) ToTopicRuleIotEventArrayOutput() TopicRuleIotEventArrayOutput {
+	return o
+}
+
+func (o TopicRuleIotEventArrayOutput) ToTopicRuleIotEventArrayOutputWithContext(ctx context.Context) TopicRuleIotEventArrayOutput {
+	return o
+}
+
+func (o TopicRuleIotEventArrayOutput) Index(i pulumi.IntInput) TopicRuleIotEventOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleIotEvent {
+		return vs[0].([]TopicRuleIotEvent)[vs[1].(int)]
+	}).(TopicRuleIotEventOutput)
+}
+
 type TopicRuleKinesis struct {
 	// The partition key.
 	PartitionKey *string `pulumi:"partitionKey"`
@@ -1550,6 +2035,8 @@ func (o TopicRuleLambdaPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 }
 
 type TopicRuleRepublish struct {
+	// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+	Qos *int `pulumi:"qos"`
 	// The ARN of the IAM role that grants access.
 	RoleArn string `pulumi:"roleArn"`
 	// The name of the MQTT topic the message should be republished to.
@@ -1569,6 +2056,8 @@ type TopicRuleRepublishInput interface {
 }
 
 type TopicRuleRepublishArgs struct {
+	// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+	Qos pulumi.IntPtrInput `pulumi:"qos"`
 	// The ARN of the IAM role that grants access.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The name of the MQTT topic the message should be republished to.
@@ -1653,6 +2142,11 @@ func (o TopicRuleRepublishOutput) ToTopicRuleRepublishPtrOutputWithContext(ctx c
 	}).(TopicRuleRepublishPtrOutput)
 }
 
+// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+func (o TopicRuleRepublishOutput) Qos() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TopicRuleRepublish) *int { return v.Qos }).(pulumi.IntPtrOutput)
+}
+
 // The ARN of the IAM role that grants access.
 func (o TopicRuleRepublishOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleRepublish) string { return v.RoleArn }).(pulumi.StringOutput)
@@ -1679,6 +2173,16 @@ func (o TopicRuleRepublishPtrOutput) ToTopicRuleRepublishPtrOutputWithContext(ct
 
 func (o TopicRuleRepublishPtrOutput) Elem() TopicRuleRepublishOutput {
 	return o.ApplyT(func(v *TopicRuleRepublish) TopicRuleRepublish { return *v }).(TopicRuleRepublishOutput)
+}
+
+// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+func (o TopicRuleRepublishPtrOutput) Qos() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TopicRuleRepublish) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Qos
+	}).(pulumi.IntPtrOutput)
 }
 
 // The ARN of the IAM role that grants access.
@@ -2223,10 +2727,18 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleCloudwatchMetricPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleDynamodbOutput{})
 	pulumi.RegisterOutputType(TopicRuleDynamodbPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleDynamodbv2Output{})
+	pulumi.RegisterOutputType(TopicRuleDynamodbv2ArrayOutput{})
+	pulumi.RegisterOutputType(TopicRuleDynamodbv2PutItemOutput{})
+	pulumi.RegisterOutputType(TopicRuleDynamodbv2PutItemPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleElasticsearchOutput{})
 	pulumi.RegisterOutputType(TopicRuleElasticsearchPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleFirehoseOutput{})
 	pulumi.RegisterOutputType(TopicRuleFirehosePtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleIotAnalyticOutput{})
+	pulumi.RegisterOutputType(TopicRuleIotAnalyticArrayOutput{})
+	pulumi.RegisterOutputType(TopicRuleIotEventOutput{})
+	pulumi.RegisterOutputType(TopicRuleIotEventArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleKinesisOutput{})
 	pulumi.RegisterOutputType(TopicRuleKinesisPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleLambdaOutput{})

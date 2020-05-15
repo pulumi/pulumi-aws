@@ -122,7 +122,7 @@ class Project(pulumi.CustomResource):
 
       * `buildspec` (`str`) - The build spec declaration to use for this build project's related builds.
       * `gitCloneDepth` (`float`) - Truncate git history to this many commits.
-      * `gitSubmodulesConfig` (`dict`) - Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+      * `gitSubmodulesConfig` (`dict`) - Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
         * `fetchSubmodules` (`bool`) - If set to true, fetches Git submodules for the AWS CodeBuild build project.
 
       * `insecureSsl` (`bool`) - Ignore SSL warnings when connecting to source control.
@@ -145,7 +145,7 @@ class Project(pulumi.CustomResource):
 
       * `buildspec` (`str`) - The build spec declaration to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
       * `gitCloneDepth` (`float`) - Truncate git history to this many commits.
-      * `gitSubmodulesConfig` (`dict`) - Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+      * `gitSubmodulesConfig` (`dict`) - Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
         * `fetchSubmodules` (`bool`) - If set to true, fetches Git submodules for the AWS CodeBuild build project.
 
       * `insecureSsl` (`bool`) - Ignore SSL warnings when connecting to source control.
@@ -442,7 +442,7 @@ class Project(pulumi.CustomResource):
 
           * `buildspec` (`pulumi.Input[str]`) - The build spec declaration to use for this build project's related builds.
           * `gitCloneDepth` (`pulumi.Input[float]`) - Truncate git history to this many commits.
-          * `gitSubmodulesConfig` (`pulumi.Input[dict]`) - Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+          * `gitSubmodulesConfig` (`pulumi.Input[dict]`) - Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
             * `fetchSubmodules` (`pulumi.Input[bool]`) - If set to true, fetches Git submodules for the AWS CodeBuild build project.
 
           * `insecureSsl` (`pulumi.Input[bool]`) - Ignore SSL warnings when connecting to source control.
@@ -459,7 +459,7 @@ class Project(pulumi.CustomResource):
 
           * `buildspec` (`pulumi.Input[str]`) - The build spec declaration to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
           * `gitCloneDepth` (`pulumi.Input[float]`) - Truncate git history to this many commits.
-          * `gitSubmodulesConfig` (`pulumi.Input[dict]`) - Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+          * `gitSubmodulesConfig` (`pulumi.Input[dict]`) - Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
             * `fetchSubmodules` (`pulumi.Input[bool]`) - If set to true, fetches Git submodules for the AWS CodeBuild build project.
 
           * `insecureSsl` (`pulumi.Input[bool]`) - Ignore SSL warnings when connecting to source control.
@@ -620,7 +620,7 @@ class Project(pulumi.CustomResource):
 
           * `buildspec` (`pulumi.Input[str]`) - The build spec declaration to use for this build project's related builds.
           * `gitCloneDepth` (`pulumi.Input[float]`) - Truncate git history to this many commits.
-          * `gitSubmodulesConfig` (`pulumi.Input[dict]`) - Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+          * `gitSubmodulesConfig` (`pulumi.Input[dict]`) - Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
             * `fetchSubmodules` (`pulumi.Input[bool]`) - If set to true, fetches Git submodules for the AWS CodeBuild build project.
 
           * `insecureSsl` (`pulumi.Input[bool]`) - Ignore SSL warnings when connecting to source control.
@@ -637,7 +637,7 @@ class Project(pulumi.CustomResource):
 
           * `buildspec` (`pulumi.Input[str]`) - The build spec declaration to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
           * `gitCloneDepth` (`pulumi.Input[float]`) - Truncate git history to this many commits.
-          * `gitSubmodulesConfig` (`pulumi.Input[dict]`) - Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+          * `gitSubmodulesConfig` (`pulumi.Input[dict]`) - Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
             * `fetchSubmodules` (`pulumi.Input[bool]`) - If set to true, fetches Git submodules for the AWS CodeBuild build project.
 
           * `insecureSsl` (`pulumi.Input[bool]`) - Ignore SSL warnings when connecting to source control.
