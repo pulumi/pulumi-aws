@@ -48,7 +48,7 @@ class NatGateway(pulumi.CustomResource):
 
         gw = aws.ec2.NatGateway("gw",
             allocation_id=aws_eip["nat"]["id"],
-            subnet_id=aws_subnet["public"]["id"])
+            subnet_id=aws_subnet["example"]["id"])
         ```
 
 

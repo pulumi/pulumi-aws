@@ -78,11 +78,11 @@ class Bucket(pulumi.CustomResource):
 
       * `id` (`str`) - Unique identifier for the rule.
       * `noncurrentVersionExpiration` (`dict`) - Specifies when noncurrent object versions expire (documented below).
-        * `days` (`float`) - Specifies the number of days an object is noncurrent object versions expire.
+        * `days` (`float`) - Specifies the number of days noncurrent object versions expire.
 
       * `noncurrentVersionTransitions` (`list`) - Specifies when noncurrent object versions transitions (documented below).
-        * `days` (`float`) - Specifies the number of days an object is noncurrent object versions expire.
-        * `storage_class` (`str`) - Specifies the Amazon S3 storage class to which you want the noncurrent versions object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+        * `days` (`float`) - Specifies the number of days noncurrent object versions transition.
+        * `storage_class` (`str`) - Specifies the Amazon S3 storage class to which you want the noncurrent object versions to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
 
       * `prefix` (`str`) - Object key prefix identifying one or more objects to which the rule applies.
       * `tags` (`dict`) - Specifies object tags key and value.
@@ -534,11 +534,11 @@ class Bucket(pulumi.CustomResource):
 
           * `id` (`pulumi.Input[str]`) - Unique identifier for the rule.
           * `noncurrentVersionExpiration` (`pulumi.Input[dict]`) - Specifies when noncurrent object versions expire (documented below).
-            * `days` (`pulumi.Input[float]`) - Specifies the number of days an object is noncurrent object versions expire.
+            * `days` (`pulumi.Input[float]`) - Specifies the number of days noncurrent object versions expire.
 
           * `noncurrentVersionTransitions` (`pulumi.Input[list]`) - Specifies when noncurrent object versions transitions (documented below).
-            * `days` (`pulumi.Input[float]`) - Specifies the number of days an object is noncurrent object versions expire.
-            * `storage_class` (`pulumi.Input[str]`) - Specifies the Amazon S3 storage class to which you want the noncurrent versions object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+            * `days` (`pulumi.Input[float]`) - Specifies the number of days noncurrent object versions transition.
+            * `storage_class` (`pulumi.Input[str]`) - Specifies the Amazon S3 storage class to which you want the noncurrent object versions to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
 
           * `prefix` (`pulumi.Input[str]`) - Object key prefix identifying one or more objects to which the rule applies.
           * `tags` (`pulumi.Input[dict]`) - Specifies object tags key and value.
@@ -720,11 +720,11 @@ class Bucket(pulumi.CustomResource):
 
           * `id` (`pulumi.Input[str]`) - Unique identifier for the rule.
           * `noncurrentVersionExpiration` (`pulumi.Input[dict]`) - Specifies when noncurrent object versions expire (documented below).
-            * `days` (`pulumi.Input[float]`) - Specifies the number of days an object is noncurrent object versions expire.
+            * `days` (`pulumi.Input[float]`) - Specifies the number of days noncurrent object versions expire.
 
           * `noncurrentVersionTransitions` (`pulumi.Input[list]`) - Specifies when noncurrent object versions transitions (documented below).
-            * `days` (`pulumi.Input[float]`) - Specifies the number of days an object is noncurrent object versions expire.
-            * `storage_class` (`pulumi.Input[str]`) - Specifies the Amazon S3 storage class to which you want the noncurrent versions object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+            * `days` (`pulumi.Input[float]`) - Specifies the number of days noncurrent object versions transition.
+            * `storage_class` (`pulumi.Input[str]`) - Specifies the Amazon S3 storage class to which you want the noncurrent object versions to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
 
           * `prefix` (`pulumi.Input[str]`) - Object key prefix identifying one or more objects to which the rule applies.
           * `tags` (`pulumi.Input[dict]`) - Specifies object tags key and value.

@@ -20,12 +20,15 @@ type TopicRule struct {
 	// The description of the rule.
 	Description   pulumi.StringPtrOutput          `pulumi:"description"`
 	Dynamodb      TopicRuleDynamodbPtrOutput      `pulumi:"dynamodb"`
+	Dynamodbv2s   TopicRuleDynamodbv2ArrayOutput  `pulumi:"dynamodbv2s"`
 	Elasticsearch TopicRuleElasticsearchPtrOutput `pulumi:"elasticsearch"`
 	// Specifies whether the rule is enabled.
-	Enabled  pulumi.BoolOutput          `pulumi:"enabled"`
-	Firehose TopicRuleFirehosePtrOutput `pulumi:"firehose"`
-	Kinesis  TopicRuleKinesisPtrOutput  `pulumi:"kinesis"`
-	Lambda   TopicRuleLambdaPtrOutput   `pulumi:"lambda"`
+	Enabled      pulumi.BoolOutput               `pulumi:"enabled"`
+	Firehose     TopicRuleFirehosePtrOutput      `pulumi:"firehose"`
+	IotAnalytics TopicRuleIotAnalyticArrayOutput `pulumi:"iotAnalytics"`
+	IotEvents    TopicRuleIotEventArrayOutput    `pulumi:"iotEvents"`
+	Kinesis      TopicRuleKinesisPtrOutput       `pulumi:"kinesis"`
+	Lambda       TopicRuleLambdaPtrOutput        `pulumi:"lambda"`
 	// The name of the rule.
 	Name      pulumi.StringOutput         `pulumi:"name"`
 	Republish TopicRuleRepublishPtrOutput `pulumi:"republish"`
@@ -82,12 +85,15 @@ type topicRuleState struct {
 	// The description of the rule.
 	Description   *string                 `pulumi:"description"`
 	Dynamodb      *TopicRuleDynamodb      `pulumi:"dynamodb"`
+	Dynamodbv2s   []TopicRuleDynamodbv2   `pulumi:"dynamodbv2s"`
 	Elasticsearch *TopicRuleElasticsearch `pulumi:"elasticsearch"`
 	// Specifies whether the rule is enabled.
-	Enabled  *bool              `pulumi:"enabled"`
-	Firehose *TopicRuleFirehose `pulumi:"firehose"`
-	Kinesis  *TopicRuleKinesis  `pulumi:"kinesis"`
-	Lambda   *TopicRuleLambda   `pulumi:"lambda"`
+	Enabled      *bool                  `pulumi:"enabled"`
+	Firehose     *TopicRuleFirehose     `pulumi:"firehose"`
+	IotAnalytics []TopicRuleIotAnalytic `pulumi:"iotAnalytics"`
+	IotEvents    []TopicRuleIotEvent    `pulumi:"iotEvents"`
+	Kinesis      *TopicRuleKinesis      `pulumi:"kinesis"`
+	Lambda       *TopicRuleLambda       `pulumi:"lambda"`
 	// The name of the rule.
 	Name      *string             `pulumi:"name"`
 	Republish *TopicRuleRepublish `pulumi:"republish"`
@@ -108,12 +114,15 @@ type TopicRuleState struct {
 	// The description of the rule.
 	Description   pulumi.StringPtrInput
 	Dynamodb      TopicRuleDynamodbPtrInput
+	Dynamodbv2s   TopicRuleDynamodbv2ArrayInput
 	Elasticsearch TopicRuleElasticsearchPtrInput
 	// Specifies whether the rule is enabled.
-	Enabled  pulumi.BoolPtrInput
-	Firehose TopicRuleFirehosePtrInput
-	Kinesis  TopicRuleKinesisPtrInput
-	Lambda   TopicRuleLambdaPtrInput
+	Enabled      pulumi.BoolPtrInput
+	Firehose     TopicRuleFirehosePtrInput
+	IotAnalytics TopicRuleIotAnalyticArrayInput
+	IotEvents    TopicRuleIotEventArrayInput
+	Kinesis      TopicRuleKinesisPtrInput
+	Lambda       TopicRuleLambdaPtrInput
 	// The name of the rule.
 	Name      pulumi.StringPtrInput
 	Republish TopicRuleRepublishPtrInput
@@ -136,12 +145,15 @@ type topicRuleArgs struct {
 	// The description of the rule.
 	Description   *string                 `pulumi:"description"`
 	Dynamodb      *TopicRuleDynamodb      `pulumi:"dynamodb"`
+	Dynamodbv2s   []TopicRuleDynamodbv2   `pulumi:"dynamodbv2s"`
 	Elasticsearch *TopicRuleElasticsearch `pulumi:"elasticsearch"`
 	// Specifies whether the rule is enabled.
-	Enabled  bool               `pulumi:"enabled"`
-	Firehose *TopicRuleFirehose `pulumi:"firehose"`
-	Kinesis  *TopicRuleKinesis  `pulumi:"kinesis"`
-	Lambda   *TopicRuleLambda   `pulumi:"lambda"`
+	Enabled      bool                   `pulumi:"enabled"`
+	Firehose     *TopicRuleFirehose     `pulumi:"firehose"`
+	IotAnalytics []TopicRuleIotAnalytic `pulumi:"iotAnalytics"`
+	IotEvents    []TopicRuleIotEvent    `pulumi:"iotEvents"`
+	Kinesis      *TopicRuleKinesis      `pulumi:"kinesis"`
+	Lambda       *TopicRuleLambda       `pulumi:"lambda"`
 	// The name of the rule.
 	Name      *string             `pulumi:"name"`
 	Republish *TopicRuleRepublish `pulumi:"republish"`
@@ -161,12 +173,15 @@ type TopicRuleArgs struct {
 	// The description of the rule.
 	Description   pulumi.StringPtrInput
 	Dynamodb      TopicRuleDynamodbPtrInput
+	Dynamodbv2s   TopicRuleDynamodbv2ArrayInput
 	Elasticsearch TopicRuleElasticsearchPtrInput
 	// Specifies whether the rule is enabled.
-	Enabled  pulumi.BoolInput
-	Firehose TopicRuleFirehosePtrInput
-	Kinesis  TopicRuleKinesisPtrInput
-	Lambda   TopicRuleLambdaPtrInput
+	Enabled      pulumi.BoolInput
+	Firehose     TopicRuleFirehosePtrInput
+	IotAnalytics TopicRuleIotAnalyticArrayInput
+	IotEvents    TopicRuleIotEventArrayInput
+	Kinesis      TopicRuleKinesisPtrInput
+	Lambda       TopicRuleLambdaPtrInput
 	// The name of the rule.
 	Name      pulumi.StringPtrInput
 	Republish TopicRuleRepublishPtrInput

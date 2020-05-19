@@ -141,6 +141,7 @@ class Provider(pulumi.ProviderResource):
           * `mediastoredata` (`pulumi.Input[str]`)
           * `mq` (`pulumi.Input[str]`)
           * `neptune` (`pulumi.Input[str]`)
+          * `networkmanager` (`pulumi.Input[str]`)
           * `opsworks` (`pulumi.Input[str]`)
           * `organizations` (`pulumi.Input[str]`)
           * `personalize` (`pulumi.Input[str]`)

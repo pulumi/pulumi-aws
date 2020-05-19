@@ -27,6 +27,12 @@ namespace Pulumi.Aws.AppSync
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The CachingConfig.
+        /// </summary>
+        [Output("cachingConfig")]
+        public Output<Outputs.ResolverCachingConfig?> CachingConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The DataSource name.
         /// </summary>
         [Output("dataSource")]
@@ -45,7 +51,7 @@ namespace Pulumi.Aws.AppSync
         public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// The PipelineConfig. A `pipeline_config` block is documented below.
+        /// The PipelineConfig.
         /// </summary>
         [Output("pipelineConfig")]
         public Output<Outputs.ResolverPipelineConfig?> PipelineConfig { get; private set; } = null!;
@@ -121,6 +127,12 @@ namespace Pulumi.Aws.AppSync
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
+        /// The CachingConfig.
+        /// </summary>
+        [Input("cachingConfig")]
+        public Input<Inputs.ResolverCachingConfigArgs>? CachingConfig { get; set; }
+
+        /// <summary>
         /// The DataSource name.
         /// </summary>
         [Input("dataSource")]
@@ -139,7 +151,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// The PipelineConfig. A `pipeline_config` block is documented below.
+        /// The PipelineConfig.
         /// </summary>
         [Input("pipelineConfig")]
         public Input<Inputs.ResolverPipelineConfigArgs>? PipelineConfig { get; set; }
@@ -182,6 +194,12 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// The CachingConfig.
+        /// </summary>
+        [Input("cachingConfig")]
+        public Input<Inputs.ResolverCachingConfigGetArgs>? CachingConfig { get; set; }
+
+        /// <summary>
         /// The DataSource name.
         /// </summary>
         [Input("dataSource")]
@@ -200,7 +218,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// The PipelineConfig. A `pipeline_config` block is documented below.
+        /// The PipelineConfig.
         /// </summary>
         [Input("pipelineConfig")]
         public Input<Inputs.ResolverPipelineConfigGetArgs>? PipelineConfig { get; set; }

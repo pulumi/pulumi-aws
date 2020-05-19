@@ -21,12 +21,15 @@ class TopicRule(pulumi.CustomResource):
     The description of the rule.
     """
     dynamodb: pulumi.Output[dict]
+    dynamodbv2s: pulumi.Output[list]
     elasticsearch: pulumi.Output[dict]
     enabled: pulumi.Output[bool]
     """
     Specifies whether the rule is enabled.
     """
     firehose: pulumi.Output[dict]
+    iot_analytics: pulumi.Output[list]
+    iot_events: pulumi.Output[list]
     kinesis: pulumi.Output[dict]
     lambda_: pulumi.Output[dict]
     name: pulumi.Output[str]
@@ -45,7 +48,7 @@ class TopicRule(pulumi.CustomResource):
     The version of the SQL rules engine to use when evaluating the rule.
     """
     sqs: pulumi.Output[dict]
-    def __init__(__self__, resource_name, opts=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, elasticsearch=None, enabled=None, firehose=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, dynamodbv2s=None, elasticsearch=None, enabled=None, firehose=None, iot_analytics=None, iot_events=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None, __props__=None, __name__=None, __opts__=None):
         """
         ## Example Usage
 
@@ -128,12 +131,20 @@ class TopicRule(pulumi.CustomResource):
           * `hashKeyField` (`pulumi.Input[str]`) - The hash key name.
           * `hashKeyType` (`pulumi.Input[str]`) - The hash key type. Valid values are "STRING" or "NUMBER".
           * `hashKeyValue` (`pulumi.Input[str]`) - The hash key value.
+          * `operation` (`pulumi.Input[str]`) - The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
           * `payloadField` (`pulumi.Input[str]`) - The action payload.
           * `rangeKeyField` (`pulumi.Input[str]`) - The range key name.
           * `rangeKeyType` (`pulumi.Input[str]`) - The range key type. Valid values are "STRING" or "NUMBER".
           * `rangeKeyValue` (`pulumi.Input[str]`) - The range key value.
           * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to the DynamoDB table.
           * `table_name` (`pulumi.Input[str]`) - The name of the DynamoDB table.
+
+        The **dynamodbv2s** object supports the following:
+
+          * `putItem` (`pulumi.Input[dict]`) - Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
+            * `table_name` (`pulumi.Input[str]`) - The name of the DynamoDB table.
+
+          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch alarm.
 
         The **elasticsearch** object supports the following:
 
@@ -149,6 +160,17 @@ class TopicRule(pulumi.CustomResource):
           * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
           * `separator` (`pulumi.Input[str]`) - A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 
+        The **iot_analytics** object supports the following:
+
+          * `channelName` (`pulumi.Input[str]`) - Name of AWS IOT Analytics channel.
+          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
+
+        The **iot_events** object supports the following:
+
+          * `inputName` (`pulumi.Input[str]`) - The name of the AWS IoT Events input.
+          * `messageId` (`pulumi.Input[str]`) - Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector. 
+          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
+
         The **kinesis** object supports the following:
 
           * `partitionKey` (`pulumi.Input[str]`) - The partition key.
@@ -161,6 +183,7 @@ class TopicRule(pulumi.CustomResource):
 
         The **republish** object supports the following:
 
+          * `qos` (`pulumi.Input[float]`) - The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0. 
           * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
           * `topic` (`pulumi.Input[str]`) - The name of the MQTT topic the message should be republished to.
 
@@ -203,11 +226,14 @@ class TopicRule(pulumi.CustomResource):
             __props__['cloudwatch_metric'] = cloudwatch_metric
             __props__['description'] = description
             __props__['dynamodb'] = dynamodb
+            __props__['dynamodbv2s'] = dynamodbv2s
             __props__['elasticsearch'] = elasticsearch
             if enabled is None:
                 raise TypeError("Missing required property 'enabled'")
             __props__['enabled'] = enabled
             __props__['firehose'] = firehose
+            __props__['iot_analytics'] = iot_analytics
+            __props__['iot_events'] = iot_events
             __props__['kinesis'] = kinesis
             __props__['lambda_'] = lambda_
             __props__['name'] = name
@@ -229,7 +255,7 @@ class TopicRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, elasticsearch=None, enabled=None, firehose=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None):
+    def get(resource_name, id, opts=None, arn=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, dynamodbv2s=None, elasticsearch=None, enabled=None, firehose=None, iot_analytics=None, iot_events=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None):
         """
         Get an existing TopicRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -265,12 +291,20 @@ class TopicRule(pulumi.CustomResource):
           * `hashKeyField` (`pulumi.Input[str]`) - The hash key name.
           * `hashKeyType` (`pulumi.Input[str]`) - The hash key type. Valid values are "STRING" or "NUMBER".
           * `hashKeyValue` (`pulumi.Input[str]`) - The hash key value.
+          * `operation` (`pulumi.Input[str]`) - The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
           * `payloadField` (`pulumi.Input[str]`) - The action payload.
           * `rangeKeyField` (`pulumi.Input[str]`) - The range key name.
           * `rangeKeyType` (`pulumi.Input[str]`) - The range key type. Valid values are "STRING" or "NUMBER".
           * `rangeKeyValue` (`pulumi.Input[str]`) - The range key value.
           * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to the DynamoDB table.
           * `table_name` (`pulumi.Input[str]`) - The name of the DynamoDB table.
+
+        The **dynamodbv2s** object supports the following:
+
+          * `putItem` (`pulumi.Input[dict]`) - Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
+            * `table_name` (`pulumi.Input[str]`) - The name of the DynamoDB table.
+
+          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch alarm.
 
         The **elasticsearch** object supports the following:
 
@@ -286,6 +320,17 @@ class TopicRule(pulumi.CustomResource):
           * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
           * `separator` (`pulumi.Input[str]`) - A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 
+        The **iot_analytics** object supports the following:
+
+          * `channelName` (`pulumi.Input[str]`) - Name of AWS IOT Analytics channel.
+          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
+
+        The **iot_events** object supports the following:
+
+          * `inputName` (`pulumi.Input[str]`) - The name of the AWS IoT Events input.
+          * `messageId` (`pulumi.Input[str]`) - Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector. 
+          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
+
         The **kinesis** object supports the following:
 
           * `partitionKey` (`pulumi.Input[str]`) - The partition key.
@@ -298,6 +343,7 @@ class TopicRule(pulumi.CustomResource):
 
         The **republish** object supports the following:
 
+          * `qos` (`pulumi.Input[float]`) - The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0. 
           * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
           * `topic` (`pulumi.Input[str]`) - The name of the MQTT topic the message should be republished to.
 
@@ -328,9 +374,12 @@ class TopicRule(pulumi.CustomResource):
         __props__["cloudwatch_metric"] = cloudwatch_metric
         __props__["description"] = description
         __props__["dynamodb"] = dynamodb
+        __props__["dynamodbv2s"] = dynamodbv2s
         __props__["elasticsearch"] = elasticsearch
         __props__["enabled"] = enabled
         __props__["firehose"] = firehose
+        __props__["iot_analytics"] = iot_analytics
+        __props__["iot_events"] = iot_events
         __props__["kinesis"] = kinesis
         __props__["lambda_"] = lambda_
         __props__["name"] = name

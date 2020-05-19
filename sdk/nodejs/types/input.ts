@@ -181,6 +181,7 @@ export interface ProviderEndpoint {
     mediastoredata?: pulumi.Input<string>;
     mq?: pulumi.Input<string>;
     neptune?: pulumi.Input<string>;
+    networkmanager?: pulumi.Input<string>;
     opsworks?: pulumi.Input<string>;
     organizations?: pulumi.Input<string>;
     personalize?: pulumi.Input<string>;
@@ -684,7 +685,7 @@ export namespace alb {
          */
         httpRequestMethod?: pulumi.Input<inputs.alb.ListenerRuleConditionHttpRequestMethod>;
         /**
-         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition.
          */
         pathPattern?: pulumi.Input<inputs.alb.ListenerRuleConditionPathPattern>;
         /**
@@ -692,7 +693,7 @@ export namespace alb {
          */
         queryStrings?: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleConditionQueryString>[]>;
         /**
-         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
          */
         sourceIp?: pulumi.Input<inputs.alb.ListenerRuleConditionSourceIp>;
         /**
@@ -1538,7 +1539,7 @@ export namespace applicationloadbalancing {
          */
         httpRequestMethod?: pulumi.Input<inputs.applicationloadbalancing.ListenerRuleConditionHttpRequestMethod>;
         /**
-         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition.
          */
         pathPattern?: pulumi.Input<inputs.applicationloadbalancing.ListenerRuleConditionPathPattern>;
         /**
@@ -1546,7 +1547,7 @@ export namespace applicationloadbalancing {
          */
         queryStrings?: pulumi.Input<pulumi.Input<inputs.applicationloadbalancing.ListenerRuleConditionQueryString>[]>;
         /**
-         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
          */
         sourceIp?: pulumi.Input<inputs.applicationloadbalancing.ListenerRuleConditionSourceIp>;
         /**
@@ -2185,6 +2186,17 @@ export namespace appsync {
          * The user pool ID.
          */
         userPoolId: pulumi.Input<string>;
+    }
+
+    export interface ResolverCachingConfig {
+        /**
+         * The list of caching key.
+         */
+        cachingKeys?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The TTL in seconds.
+         */
+        ttl?: pulumi.Input<number>;
     }
 
     export interface ResolverPipelineConfig {
@@ -3747,7 +3759,7 @@ export namespace codebuild {
          */
         gitCloneDepth?: pulumi.Input<number>;
         /**
-         * Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+         * Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
          */
         gitSubmodulesConfig?: pulumi.Input<inputs.codebuild.ProjectSecondarySourceGitSubmodulesConfig>;
         /**
@@ -3804,7 +3816,7 @@ export namespace codebuild {
          */
         gitCloneDepth?: pulumi.Input<number>;
         /**
-         * Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+         * Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
          */
         gitSubmodulesConfig?: pulumi.Input<inputs.codebuild.ProjectSourceGitSubmodulesConfig>;
         /**
@@ -4718,7 +4730,7 @@ export namespace datasync {
          */
         uid?: pulumi.Input<string>;
         /**
-         * Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`. Default: `POINT_IN_TIME_CONSISTENT`.
+         * Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
          */
         verifyMode?: pulumi.Input<string>;
     }
@@ -7926,7 +7938,7 @@ export namespace elasticloadbalancingv2 {
          */
         httpRequestMethod?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleConditionHttpRequestMethod>;
         /**
-         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition.
          */
         pathPattern?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleConditionPathPattern>;
         /**
@@ -7934,7 +7946,7 @@ export namespace elasticloadbalancingv2 {
          */
         queryStrings?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleConditionQueryString>[]>;
         /**
-         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
          */
         sourceIp?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleConditionSourceIp>;
         /**
@@ -9627,6 +9639,10 @@ export namespace iot {
          */
         hashKeyValue: pulumi.Input<string>;
         /**
+         * The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
+         */
+        operation?: pulumi.Input<string>;
+        /**
          * The action payload.
          */
         payloadField?: pulumi.Input<string>;
@@ -9646,6 +9662,24 @@ export namespace iot {
          * The ARN of the IAM role that grants access to the DynamoDB table.
          */
         roleArn: pulumi.Input<string>;
+        /**
+         * The name of the DynamoDB table.
+         */
+        tableName: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleDynamodbv2 {
+        /**
+         * Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
+         */
+        putItem?: pulumi.Input<inputs.iot.TopicRuleDynamodbv2PutItem>;
+        /**
+         * The IAM role ARN that allows access to the CloudWatch alarm.
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleDynamodbv2PutItem {
         /**
          * The name of the DynamoDB table.
          */
@@ -9690,6 +9724,32 @@ export namespace iot {
         separator?: pulumi.Input<string>;
     }
 
+    export interface TopicRuleIotAnalytic {
+        /**
+         * Name of AWS IOT Analytics channel.
+         */
+        channelName: pulumi.Input<string>;
+        /**
+         * The ARN of the IAM role that grants access.
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleIotEvent {
+        /**
+         * The name of the AWS IoT Events input.
+         */
+        inputName: pulumi.Input<string>;
+        /**
+         * Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector. 
+         */
+        messageId?: pulumi.Input<string>;
+        /**
+         * The ARN of the IAM role that grants access.
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
     export interface TopicRuleKinesis {
         /**
          * The partition key.
@@ -9713,6 +9773,10 @@ export namespace iot {
     }
 
     export interface TopicRuleRepublish {
+        /**
+         * The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0. 
+         */
+        qos?: pulumi.Input<number>;
         /**
          * The ARN of the IAM role that grants access.
          */
@@ -11301,7 +11365,7 @@ export namespace lb {
          */
         httpRequestMethod?: pulumi.Input<inputs.lb.ListenerRuleConditionHttpRequestMethod>;
         /**
-         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition.
          */
         pathPattern?: pulumi.Input<inputs.lb.ListenerRuleConditionPathPattern>;
         /**
@@ -11309,7 +11373,7 @@ export namespace lb {
          */
         queryStrings?: pulumi.Input<pulumi.Input<inputs.lb.ListenerRuleConditionQueryString>[]>;
         /**
-         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
          */
         sourceIp?: pulumi.Input<inputs.lb.ListenerRuleConditionSourceIp>;
         /**
@@ -12837,18 +12901,18 @@ export namespace s3 {
 
     export interface BucketLifecycleRuleNoncurrentVersionExpiration {
         /**
-         * Specifies the number of days an object is noncurrent object versions expire.
+         * Specifies the number of days noncurrent object versions expire.
          */
         days?: pulumi.Input<number>;
     }
 
     export interface BucketLifecycleRuleNoncurrentVersionTransition {
         /**
-         * Specifies the number of days an object is noncurrent object versions expire.
+         * Specifies the number of days noncurrent object versions transition.
          */
         days?: pulumi.Input<number>;
         /**
-         * Specifies the Amazon S3 storage class to which you want the noncurrent versions object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+         * Specifies the Amazon S3 storage class to which you want the noncurrent object versions to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
          */
         storageClass: pulumi.Input<string>;
     }
@@ -14523,5 +14587,28 @@ export namespace workspaces {
          * The IP address range, in CIDR notation, e.g. `10.0.0.0/16`
          */
         source: pulumi.Input<string>;
+    }
+
+    export interface WorkspaceWorkspaceProperties {
+        /**
+         * The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
+         */
+        computeTypeName?: pulumi.Input<string>;
+        /**
+         * The size of the root volume.
+         */
+        rootVolumeSizeGib?: pulumi.Input<number>;
+        /**
+         * The size of the root volume. The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+         */
+        runningMode?: pulumi.Input<string>;
+        /**
+         * The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+         */
+        runningModeAutoStopTimeoutInMinutes?: pulumi.Input<number>;
+        /**
+         * The size of the user storage.
+         */
+        userVolumeSizeGib?: pulumi.Input<number>;
     }
 }

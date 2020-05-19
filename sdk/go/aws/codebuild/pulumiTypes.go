@@ -1673,7 +1673,7 @@ type ProjectSecondarySource struct {
 	Buildspec *string `pulumi:"buildspec"`
 	// Truncate git history to this many commits.
 	GitCloneDepth *int `pulumi:"gitCloneDepth"`
-	// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+	// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
 	GitSubmodulesConfig *ProjectSecondarySourceGitSubmodulesConfig `pulumi:"gitSubmodulesConfig"`
 	// Ignore SSL warnings when connecting to source control.
 	InsecureSsl *bool `pulumi:"insecureSsl"`
@@ -1706,7 +1706,7 @@ type ProjectSecondarySourceArgs struct {
 	Buildspec pulumi.StringPtrInput `pulumi:"buildspec"`
 	// Truncate git history to this many commits.
 	GitCloneDepth pulumi.IntPtrInput `pulumi:"gitCloneDepth"`
-	// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+	// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
 	GitSubmodulesConfig ProjectSecondarySourceGitSubmodulesConfigPtrInput `pulumi:"gitSubmodulesConfig"`
 	// Ignore SSL warnings when connecting to source control.
 	InsecureSsl pulumi.BoolPtrInput `pulumi:"insecureSsl"`
@@ -1787,7 +1787,7 @@ func (o ProjectSecondarySourceOutput) GitCloneDepth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) *int { return v.GitCloneDepth }).(pulumi.IntPtrOutput)
 }
 
-// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
 func (o ProjectSecondarySourceOutput) GitSubmodulesConfig() ProjectSecondarySourceGitSubmodulesConfigPtrOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) *ProjectSecondarySourceGitSubmodulesConfig {
 		return v.GitSubmodulesConfig
@@ -2089,7 +2089,7 @@ type ProjectSource struct {
 	Buildspec *string `pulumi:"buildspec"`
 	// Truncate git history to this many commits.
 	GitCloneDepth *int `pulumi:"gitCloneDepth"`
-	// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+	// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
 	GitSubmodulesConfig *ProjectSourceGitSubmodulesConfig `pulumi:"gitSubmodulesConfig"`
 	// Ignore SSL warnings when connecting to source control.
 	InsecureSsl *bool `pulumi:"insecureSsl"`
@@ -2120,7 +2120,7 @@ type ProjectSourceArgs struct {
 	Buildspec pulumi.StringPtrInput `pulumi:"buildspec"`
 	// Truncate git history to this many commits.
 	GitCloneDepth pulumi.IntPtrInput `pulumi:"gitCloneDepth"`
-	// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+	// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
 	GitSubmodulesConfig ProjectSourceGitSubmodulesConfigPtrInput `pulumi:"gitSubmodulesConfig"`
 	// Ignore SSL warnings when connecting to source control.
 	InsecureSsl pulumi.BoolPtrInput `pulumi:"insecureSsl"`
@@ -2225,7 +2225,7 @@ func (o ProjectSourceOutput) GitCloneDepth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProjectSource) *int { return v.GitCloneDepth }).(pulumi.IntPtrOutput)
 }
 
-// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
 func (o ProjectSourceOutput) GitSubmodulesConfig() ProjectSourceGitSubmodulesConfigPtrOutput {
 	return o.ApplyT(func(v ProjectSource) *ProjectSourceGitSubmodulesConfig { return v.GitSubmodulesConfig }).(ProjectSourceGitSubmodulesConfigPtrOutput)
 }
@@ -2298,7 +2298,7 @@ func (o ProjectSourcePtrOutput) GitCloneDepth() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
 func (o ProjectSourcePtrOutput) GitSubmodulesConfig() ProjectSourceGitSubmodulesConfigPtrOutput {
 	return o.ApplyT(func(v *ProjectSource) *ProjectSourceGitSubmodulesConfig {
 		if v == nil {

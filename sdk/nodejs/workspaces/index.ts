@@ -5,3 +5,4 @@
 export * from "./directory";
 export * from "./getBundle";
 export * from "./ipGroup";
+export * from "./workspace";

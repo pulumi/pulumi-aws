@@ -944,6 +944,7 @@
         "workspaces/getBundle.ts",
         "workspaces/index.ts",
         "workspaces/ipGroup.ts",
+        "workspaces/workspace.ts",
         "xray/index.ts",
         "xray/samplingRule.ts"
     ]

@@ -2085,6 +2085,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Workspaces
 			"aws_workspaces_ip_group":  {Tok: awsResource(workspacesMod, "IpGroup")},
 			"aws_workspaces_directory": {Tok: awsResource(workspacesMod, "Directory")},
+			"aws_workspaces_workspace": {Tok: awsResource(workspacesMod, "Workspace")},
 			// Access Analyzer
 			"aws_accessanalyzer_analyzer": {Tok: awsResource(accessAnalyzerMod, "Analyzer")},
 			// CodeStar Notifications

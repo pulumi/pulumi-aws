@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * 
  * const gw = new aws.ec2.NatGateway("gw", {
  *     allocationId: aws_eip_nat.id,
- *     subnetId: aws_subnet_public.id,
+ *     subnetId: aws_subnet_example.id,
  * });
  * ```
  *

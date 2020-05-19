@@ -1636,6 +1636,158 @@ func (o GraphQLApiUserPoolConfigPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ResolverCachingConfig struct {
+	// The list of caching key.
+	CachingKeys []string `pulumi:"cachingKeys"`
+	// The TTL in seconds.
+	Ttl *int `pulumi:"ttl"`
+}
+
+// ResolverCachingConfigInput is an input type that accepts ResolverCachingConfigArgs and ResolverCachingConfigOutput values.
+// You can construct a concrete instance of `ResolverCachingConfigInput` via:
+//
+// 		 ResolverCachingConfigArgs{...}
+//
+type ResolverCachingConfigInput interface {
+	pulumi.Input
+
+	ToResolverCachingConfigOutput() ResolverCachingConfigOutput
+	ToResolverCachingConfigOutputWithContext(context.Context) ResolverCachingConfigOutput
+}
+
+type ResolverCachingConfigArgs struct {
+	// The list of caching key.
+	CachingKeys pulumi.StringArrayInput `pulumi:"cachingKeys"`
+	// The TTL in seconds.
+	Ttl pulumi.IntPtrInput `pulumi:"ttl"`
+}
+
+func (ResolverCachingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverCachingConfig)(nil)).Elem()
+}
+
+func (i ResolverCachingConfigArgs) ToResolverCachingConfigOutput() ResolverCachingConfigOutput {
+	return i.ToResolverCachingConfigOutputWithContext(context.Background())
+}
+
+func (i ResolverCachingConfigArgs) ToResolverCachingConfigOutputWithContext(ctx context.Context) ResolverCachingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverCachingConfigOutput)
+}
+
+func (i ResolverCachingConfigArgs) ToResolverCachingConfigPtrOutput() ResolverCachingConfigPtrOutput {
+	return i.ToResolverCachingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ResolverCachingConfigArgs) ToResolverCachingConfigPtrOutputWithContext(ctx context.Context) ResolverCachingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverCachingConfigOutput).ToResolverCachingConfigPtrOutputWithContext(ctx)
+}
+
+// ResolverCachingConfigPtrInput is an input type that accepts ResolverCachingConfigArgs, ResolverCachingConfigPtr and ResolverCachingConfigPtrOutput values.
+// You can construct a concrete instance of `ResolverCachingConfigPtrInput` via:
+//
+// 		 ResolverCachingConfigArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ResolverCachingConfigPtrInput interface {
+	pulumi.Input
+
+	ToResolverCachingConfigPtrOutput() ResolverCachingConfigPtrOutput
+	ToResolverCachingConfigPtrOutputWithContext(context.Context) ResolverCachingConfigPtrOutput
+}
+
+type resolverCachingConfigPtrType ResolverCachingConfigArgs
+
+func ResolverCachingConfigPtr(v *ResolverCachingConfigArgs) ResolverCachingConfigPtrInput {
+	return (*resolverCachingConfigPtrType)(v)
+}
+
+func (*resolverCachingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverCachingConfig)(nil)).Elem()
+}
+
+func (i *resolverCachingConfigPtrType) ToResolverCachingConfigPtrOutput() ResolverCachingConfigPtrOutput {
+	return i.ToResolverCachingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *resolverCachingConfigPtrType) ToResolverCachingConfigPtrOutputWithContext(ctx context.Context) ResolverCachingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverCachingConfigPtrOutput)
+}
+
+type ResolverCachingConfigOutput struct{ *pulumi.OutputState }
+
+func (ResolverCachingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverCachingConfig)(nil)).Elem()
+}
+
+func (o ResolverCachingConfigOutput) ToResolverCachingConfigOutput() ResolverCachingConfigOutput {
+	return o
+}
+
+func (o ResolverCachingConfigOutput) ToResolverCachingConfigOutputWithContext(ctx context.Context) ResolverCachingConfigOutput {
+	return o
+}
+
+func (o ResolverCachingConfigOutput) ToResolverCachingConfigPtrOutput() ResolverCachingConfigPtrOutput {
+	return o.ToResolverCachingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverCachingConfigOutput) ToResolverCachingConfigPtrOutputWithContext(ctx context.Context) ResolverCachingConfigPtrOutput {
+	return o.ApplyT(func(v ResolverCachingConfig) *ResolverCachingConfig {
+		return &v
+	}).(ResolverCachingConfigPtrOutput)
+}
+
+// The list of caching key.
+func (o ResolverCachingConfigOutput) CachingKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResolverCachingConfig) []string { return v.CachingKeys }).(pulumi.StringArrayOutput)
+}
+
+// The TTL in seconds.
+func (o ResolverCachingConfigOutput) Ttl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResolverCachingConfig) *int { return v.Ttl }).(pulumi.IntPtrOutput)
+}
+
+type ResolverCachingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ResolverCachingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverCachingConfig)(nil)).Elem()
+}
+
+func (o ResolverCachingConfigPtrOutput) ToResolverCachingConfigPtrOutput() ResolverCachingConfigPtrOutput {
+	return o
+}
+
+func (o ResolverCachingConfigPtrOutput) ToResolverCachingConfigPtrOutputWithContext(ctx context.Context) ResolverCachingConfigPtrOutput {
+	return o
+}
+
+func (o ResolverCachingConfigPtrOutput) Elem() ResolverCachingConfigOutput {
+	return o.ApplyT(func(v *ResolverCachingConfig) ResolverCachingConfig { return *v }).(ResolverCachingConfigOutput)
+}
+
+// The list of caching key.
+func (o ResolverCachingConfigPtrOutput) CachingKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResolverCachingConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CachingKeys
+	}).(pulumi.StringArrayOutput)
+}
+
+// The TTL in seconds.
+func (o ResolverCachingConfigPtrOutput) Ttl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResolverCachingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Ttl
+	}).(pulumi.IntPtrOutput)
+}
+
 type ResolverPipelineConfig struct {
 	// The list of Function ID.
 	Functions []string `pulumi:"functions"`
@@ -1790,6 +1942,8 @@ func init() {
 	pulumi.RegisterOutputType(GraphQLApiOpenidConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(GraphQLApiUserPoolConfigOutput{})
 	pulumi.RegisterOutputType(GraphQLApiUserPoolConfigPtrOutput{})
+	pulumi.RegisterOutputType(ResolverCachingConfigOutput{})
+	pulumi.RegisterOutputType(ResolverCachingConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResolverPipelineConfigOutput{})
 	pulumi.RegisterOutputType(ResolverPipelineConfigPtrOutput{})
 }

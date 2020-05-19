@@ -1343,6 +1343,7 @@ type ProviderEndpoint struct {
 	Mediastoredata         *string `pulumi:"mediastoredata"`
 	Mq                     *string `pulumi:"mq"`
 	Neptune                *string `pulumi:"neptune"`
+	Networkmanager         *string `pulumi:"networkmanager"`
 	Opsworks               *string `pulumi:"opsworks"`
 	Organizations          *string `pulumi:"organizations"`
 	Personalize            *string `pulumi:"personalize"`
@@ -1494,6 +1495,7 @@ type ProviderEndpointArgs struct {
 	Mediastoredata         pulumi.StringPtrInput `pulumi:"mediastoredata"`
 	Mq                     pulumi.StringPtrInput `pulumi:"mq"`
 	Neptune                pulumi.StringPtrInput `pulumi:"neptune"`
+	Networkmanager         pulumi.StringPtrInput `pulumi:"networkmanager"`
 	Opsworks               pulumi.StringPtrInput `pulumi:"opsworks"`
 	Organizations          pulumi.StringPtrInput `pulumi:"organizations"`
 	Personalize            pulumi.StringPtrInput `pulumi:"personalize"`
@@ -1964,6 +1966,10 @@ func (o ProviderEndpointOutput) Mq() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Neptune() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Neptune }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Networkmanager() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Networkmanager }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Opsworks() pulumi.StringPtrOutput {

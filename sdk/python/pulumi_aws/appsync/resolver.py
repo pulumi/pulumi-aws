@@ -18,6 +18,13 @@ class Resolver(pulumi.CustomResource):
     """
     The ARN
     """
+    caching_config: pulumi.Output[dict]
+    """
+    The CachingConfig.
+
+      * `cachingKeys` (`list`) - The list of caching key.
+      * `ttl` (`float`) - The TTL in seconds.
+    """
     data_source: pulumi.Output[str]
     """
     The DataSource name.
@@ -32,7 +39,7 @@ class Resolver(pulumi.CustomResource):
     """
     pipeline_config: pulumi.Output[dict]
     """
-    The PipelineConfig. A `pipeline_config` block is documented below.
+    The PipelineConfig.
 
       * `functions` (`list`) - The list of Function ID.
     """
@@ -48,7 +55,7 @@ class Resolver(pulumi.CustomResource):
     """
     The type name from the schema defined in the GraphQL API.
     """
-    def __init__(__self__, resource_name, opts=None, api_id=None, data_source=None, field=None, kind=None, pipeline_config=None, request_template=None, response_template=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_id=None, caching_config=None, data_source=None, field=None, kind=None, pipeline_config=None, request_template=None, response_template=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an AppSync Resolver.
 
@@ -90,6 +97,13 @@ class Resolver(pulumi.CustomResource):
         # UNIT type resolver (default)
         test_resolver = aws.appsync.Resolver("testResolver",
             api_id=test_graph_ql_api.id,
+            caching_config={
+                "cachingKeys": [
+                    "$$context.identity.sub",
+                    "$$context.arguments.id",
+                ],
+                "ttl": 60,
+            },
             data_source=test_data_source.name,
             field="singlePost",
             request_template=\"\"\"{
@@ -131,13 +145,19 @@ class Resolver(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API ID for the GraphQL API.
+        :param pulumi.Input[dict] caching_config: The CachingConfig.
         :param pulumi.Input[str] data_source: The DataSource name.
         :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
         :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
-        :param pulumi.Input[dict] pipeline_config: The PipelineConfig. A `pipeline_config` block is documented below.
+        :param pulumi.Input[dict] pipeline_config: The PipelineConfig.
         :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
         :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
         :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
+
+        The **caching_config** object supports the following:
+
+          * `cachingKeys` (`pulumi.Input[list]`) - The list of caching key.
+          * `ttl` (`pulumi.Input[float]`) - The TTL in seconds.
 
         The **pipeline_config** object supports the following:
 
@@ -163,6 +183,7 @@ class Resolver(pulumi.CustomResource):
             if api_id is None:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
+            __props__['caching_config'] = caching_config
             __props__['data_source'] = data_source
             if field is None:
                 raise TypeError("Missing required property 'field'")
@@ -186,7 +207,7 @@ class Resolver(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, api_id=None, arn=None, data_source=None, field=None, kind=None, pipeline_config=None, request_template=None, response_template=None, type=None):
+    def get(resource_name, id, opts=None, api_id=None, arn=None, caching_config=None, data_source=None, field=None, kind=None, pipeline_config=None, request_template=None, response_template=None, type=None):
         """
         Get an existing Resolver resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -196,13 +217,19 @@ class Resolver(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API ID for the GraphQL API.
         :param pulumi.Input[str] arn: The ARN
+        :param pulumi.Input[dict] caching_config: The CachingConfig.
         :param pulumi.Input[str] data_source: The DataSource name.
         :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
         :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
-        :param pulumi.Input[dict] pipeline_config: The PipelineConfig. A `pipeline_config` block is documented below.
+        :param pulumi.Input[dict] pipeline_config: The PipelineConfig.
         :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
         :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
         :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
+
+        The **caching_config** object supports the following:
+
+          * `cachingKeys` (`pulumi.Input[list]`) - The list of caching key.
+          * `ttl` (`pulumi.Input[float]`) - The TTL in seconds.
 
         The **pipeline_config** object supports the following:
 
@@ -214,6 +241,7 @@ class Resolver(pulumi.CustomResource):
 
         __props__["api_id"] = api_id
         __props__["arn"] = arn
+        __props__["caching_config"] = caching_config
         __props__["data_source"] = data_source
         __props__["field"] = field
         __props__["kind"] = kind
