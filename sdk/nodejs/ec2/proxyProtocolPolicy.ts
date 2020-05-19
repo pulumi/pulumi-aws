@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const lb = new aws.elb.LoadBalancer("lb", {
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [
@@ -42,8 +42,6 @@ import * as utilities from "../utilities";
  *     loadBalancer: lb.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/proxy_protocol_policy.html.markdown.
  */
 export class ProxyProtocolPolicy extends pulumi.CustomResource {
     /**

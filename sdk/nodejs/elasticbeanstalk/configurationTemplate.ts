@@ -10,15 +10,15 @@ import * as utilities from "../utilities";
  * Provides an Elastic Beanstalk Configuration Template, which are associated with
  * a specific application and are used to deploy different versions of the
  * application with the same configuration settings.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const tftest = new aws.elasticbeanstalk.Application("tftest", {
  *     description: "tf-test-desc",
  * });
@@ -27,17 +27,15 @@ import * as utilities from "../utilities";
  *     solutionStackName: "64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4",
  * });
  * ```
- * 
+ *
  * ## Option Settings
- * 
+ *
  * The `setting` field supports the following format:
- * 
+ *
  * * `namespace` - unique namespace identifying the option's associated AWS resource
  * * `name` - name of the configuration option
  * * `value` - value for the configuration option
  * * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_configuration_template.html.markdown.
  */
 export class ConfigurationTemplate extends pulumi.CustomResource {
     /**

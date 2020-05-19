@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an AWS Config Configuration Aggregator
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Account Based Aggregation
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const account = new aws.cfg.ConfigurationAggregator("account", {
  *     accountAggregationSource: {
  *         accountIds: ["123456789012"],
@@ -24,13 +24,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### Organization Based Aggregation
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const organizationRole = new aws.iam.Role("organization", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -58,8 +58,6 @@ import * as utilities from "../utilities";
  *     },
  * }, { dependsOn: [organizationRolePolicyAttachment] });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_aggregator.html.markdown.
  */
 export class ConfigurationAggregator extends pulumi.CustomResource {
     /**

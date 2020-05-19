@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Load Balancer Listener Rule resource.
- * 
+ *
  * > **Note:** `aws.alb.ListenerRule` is known as `aws.lb.ListenerRule`. The functionality is identical.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEnd", {});
  * const frontEndListener = new aws.lb.Listener("frontEnd", {});
  * const static = new aws.lb.ListenerRule("static", {
@@ -117,10 +117,8 @@ import * as utilities from "../utilities";
  *     listenerArn: frontEndListener.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_listener_rule.html.markdown.
  */
-/** @deprecated aws.elasticloadbalancingv2.ListenerRule has been deprecated in favour of aws.lb.ListenerRule */
+/** @deprecated aws.elasticloadbalancingv2.ListenerRule has been deprecated in favor of aws.lb.ListenerRule */
 export class ListenerRule extends pulumi.CustomResource {
     /**
      * Get an existing ListenerRule resource's state with the given name, ID, and optional extra
@@ -131,7 +129,7 @@ export class ListenerRule extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ListenerRuleState, opts?: pulumi.CustomResourceOptions): ListenerRule {
-        pulumi.log.warn("ListenerRule is deprecated: aws.elasticloadbalancingv2.ListenerRule has been deprecated in favour of aws.lb.ListenerRule")
+        pulumi.log.warn("ListenerRule is deprecated: aws.elasticloadbalancingv2.ListenerRule has been deprecated in favor of aws.lb.ListenerRule")
         return new ListenerRule(name, <any>state, { ...opts, id: id });
     }
 
@@ -177,11 +175,11 @@ export class ListenerRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated aws.elasticloadbalancingv2.ListenerRule has been deprecated in favour of aws.lb.ListenerRule */
+    /** @deprecated aws.elasticloadbalancingv2.ListenerRule has been deprecated in favor of aws.lb.ListenerRule */
     constructor(name: string, args: ListenerRuleArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated aws.elasticloadbalancingv2.ListenerRule has been deprecated in favour of aws.lb.ListenerRule */
+    /** @deprecated aws.elasticloadbalancingv2.ListenerRule has been deprecated in favor of aws.lb.ListenerRule */
     constructor(name: string, argsOrState?: ListenerRuleArgs | ListenerRuleState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ListenerRule is deprecated: aws.elasticloadbalancingv2.ListenerRule has been deprecated in favour of aws.lb.ListenerRule")
+        pulumi.log.warn("ListenerRule is deprecated: aws.elasticloadbalancingv2.ListenerRule has been deprecated in favor of aws.lb.ListenerRule")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ListenerRuleState | undefined;

@@ -8,21 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Backup vault resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.backup.Vault("example", {
  *     kmsKeyArn: aws_kms_key_example.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_vault.html.markdown.
  */
 export class Vault extends pulumi.CustomResource {
     /**

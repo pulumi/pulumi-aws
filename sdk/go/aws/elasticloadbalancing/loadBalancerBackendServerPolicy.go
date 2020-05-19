@@ -12,10 +12,7 @@ import (
 
 // Attaches a load balancer policy to an ELB backend server.
 //
-//
-//
-//
-// Deprecated: aws.elasticloadbalancing.LoadBalancerBackendServerPolicy has been deprecated in favour of aws.elb.LoadBalancerBackendServerPolicy
+// Deprecated: aws.elasticloadbalancing.LoadBalancerBackendServerPolicy has been deprecated in favor of aws.elb.LoadBalancerBackendServerPolicy
 type LoadBalancerBackendServerPolicy struct {
 	pulumi.CustomResourceState
 

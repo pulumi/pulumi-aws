@@ -13,12 +13,8 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// Provides a Load Balancer Listener resource.
     /// 
     /// &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
-    /// 
-    /// 
-    /// 
-    /// Deprecated: aws.elasticloadbalancingv2.Listener has been deprecated in favour of aws.lb.Listener
     /// </summary>
-    [Obsolete(@"aws.elasticloadbalancingv2.Listener has been deprecated in favour of aws.lb.Listener")]
+    [Obsolete(@"aws.elasticloadbalancingv2.Listener has been deprecated in favor of aws.lb.Listener")]
     public partial class Listener : Pulumi.CustomResource
     {
         /// <summary>

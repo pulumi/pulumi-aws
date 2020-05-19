@@ -6,21 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Resource for managing QuickSight Group
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.quicksight.Group("example", {
  *     groupName: "tf-example",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/quicksight_group.html.markdown.
  */
 export class Group extends pulumi.CustomResource {
     /**

@@ -8,22 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const example = new aws.worklink.Fleet("example", {});
  * const test = new aws.worklink.WebsiteCertificateAuthorityAssociation("test", {
  *     certificate: fs.readFileSync("certificate.pem", "utf-8"),
  *     fleetArn: aws_worklink_fleet_test.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/worklink_website_certificate_authority_association.html.markdown.
  */
 export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResource {
     /**

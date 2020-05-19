@@ -8,25 +8,25 @@ import * as utilities from "../utilities";
 
 /**
  * Creates an Amazon CloudFront web distribution.
- * 
+ *
  * For information about CloudFront distributions, see the
  * [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For specific information about creating
  * CloudFront web distributions, see the [POST Distribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html) page in the Amazon
  * CloudFront API Reference.
- * 
+ *
  * > **NOTE:** CloudFront distributions take about 15 minutes to a deployed state
  * after creation or modification. During this time, deletes to resources will be
  * blocked. If you need to delete a distribution that is enabled and you do not
  * want to wait, you need to use the `retainOnDelete` flag.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bucket = new aws.s3.Bucket("b", {
  *     acl: "private",
  *     tags: {
@@ -155,8 +155,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudfront_distribution.html.markdown.
  */
 export class Distribution extends pulumi.CustomResource {
     /**

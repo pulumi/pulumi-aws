@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Pinpoint Email Channel resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const app = new aws.pinpoint.App("app", {});
  * const identity = new aws.ses.DomainIdentity("identity", {
  *     domain: "example.com",
@@ -61,8 +61,6 @@ import * as utilities from "../utilities";
  *     role: role.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_email_channel.markdown.
  */
 export class EmailChannel extends pulumi.CustomResource {
     /**

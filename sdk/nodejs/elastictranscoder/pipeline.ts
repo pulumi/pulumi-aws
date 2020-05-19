@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic Transcoder pipeline resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bar = new aws.elastictranscoder.Pipeline("bar", {
  *     contentConfig: {
  *         bucket: aws_s3_bucket_content_bucket.bucket,
@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastictranscoder_pipeline.html.markdown.
  */
 export class Pipeline extends pulumi.CustomResource {
     /**

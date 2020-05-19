@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the default EBS encryption KMS key in the current region.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const current = pulumi.output(aws.ebs.getDefaultKmsKey({ async: true }));
  * const example = new aws.ebs.Volume("example", {
  *     availabilityZone: "us-west-2a",
@@ -22,8 +22,6 @@ import * as utilities from "../utilities";
  *     kmsKeyId: current.keyArn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_default_kms_key.html.markdown.
  */
 export function getDefaultKmsKey(opts?: pulumi.InvokeOptions): Promise<GetDefaultKmsKeyResult> {
     if (!opts) {

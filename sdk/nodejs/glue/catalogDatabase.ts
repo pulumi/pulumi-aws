@@ -6,21 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const awsGlueCatalogDatabase = new aws.glue.CatalogDatabase("aws.glue.CatalogDatabase", {
  *     name: "MyCatalogDatabase",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_catalog_database.html.markdown.
  */
 export class CatalogDatabase extends pulumi.CustomResource {
     /**

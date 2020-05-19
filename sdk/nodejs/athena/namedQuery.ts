@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Athena Named Query resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const hogeBucket = new aws.s3.Bucket("hoge", {});
  * const testKey = new aws.kms.Key("test", {
  *     deletionWindowInDays: 7,
@@ -42,8 +42,6 @@ import * as utilities from "../utilities";
  *     workgroup: testWorkgroup.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_named_query.html.markdown.
  */
 export class NamedQuery extends pulumi.CustomResource {
     /**

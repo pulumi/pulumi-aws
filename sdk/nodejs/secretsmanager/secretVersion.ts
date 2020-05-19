@@ -8,29 +8,29 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage AWS Secrets Manager secret version including its secret value. To manage secret metadata, see the [`aws.secretsmanager.Secret` resource](https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret.html).
- * 
+ *
  * > **NOTE:** If the `AWSCURRENT` staging label is present on this version during resource deletion, that label cannot be removed and will be skipped to prevent errors when fully deleting the secret. That label will leave this secret version active even after the resource is deleted from this provider unless the secret itself is deleted. Move the `AWSCURRENT` staging label before or after deleting this resource from this provider to fully trigger version deprecation if necessary.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Simple String Value
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.secretsmanager.SecretVersion("example", {
  *     secretId: aws_secretsmanager_secret_example.id,
  *     secretString: "example-string-to-protect",
  * });
  * ```
- * 
+ *
  * ### Key-Value Pairs
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * // The map here can come from other supported configurations
  * // like locals, resource attribute, map() built-in, etc.
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *     key1: "value1",
  *     key2: "value2",
  * };
- * 
+ *
  * const exampleSecretVersion = new aws.secretsmanager.SecretVersion("example", {
  *     secretId: aws_secretsmanager_secret_example.id,
  *     secretString: (() => {
@@ -47,8 +47,6 @@ import * as utilities from "../utilities";
  *     })(),
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/secretsmanager_secret_version.html.markdown.
  */
 export class SecretVersion extends pulumi.CustomResource {
     /**

@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodePipeline Webhook.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as github from "@pulumi/github";
- * 
+ *
  * const barPipeline = new aws.codepipeline.Pipeline("bar", {
  *     artifactStores: {
  *         encryptionKey: {
@@ -86,8 +86,6 @@ import * as utilities from "../utilities";
  *     repository: github_repository_repo.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline_webhook.markdown.
  */
 export class Webhook extends pulumi.CustomResource {
     /**

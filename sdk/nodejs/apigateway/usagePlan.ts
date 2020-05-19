@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an API Gateway Usage Plan.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myapi = new aws.apigateway.RestApi("myapi", {});
  * const dev = new aws.apigateway.Deployment("dev", {
  *     restApi: myapi.id,
@@ -50,8 +50,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_usage_plan.html.markdown.
  */
 export class UsagePlan extends pulumi.CustomResource {
     /**

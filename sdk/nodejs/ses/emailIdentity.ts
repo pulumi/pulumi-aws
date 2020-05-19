@@ -6,21 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES email identity resource
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ses.EmailIdentity("example", {
  *     email: "email@example.com",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_email_identity.html.markdown.
  */
 export class EmailIdentity extends pulumi.CustomResource {
     /**

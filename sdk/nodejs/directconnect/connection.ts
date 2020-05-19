@@ -6,22 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Connection of Direct Connect.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const hoge = new aws.directconnect.Connection("hoge", {
  *     bandwidth: "1Gbps",
  *     location: "EqDC2",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_connection.html.markdown.
  */
 export class Connection extends pulumi.CustomResource {
     /**

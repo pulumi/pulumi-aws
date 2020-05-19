@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("aws.elasticloadbalancing.ListenerPolicy has been deprecated in favour of aws.elb.ListenerPolicy", DeprecationWarning)
+warnings.warn("aws.elasticloadbalancing.ListenerPolicy has been deprecated in favor of aws.elb.ListenerPolicy", DeprecationWarning)
 class ListenerPolicy(pulumi.CustomResource):
     load_balancer_name: pulumi.Output[str]
     """
@@ -23,7 +23,7 @@ class ListenerPolicy(pulumi.CustomResource):
     """
     List of Policy Names to apply to the backend server.
     """
-    warnings.warn("aws.elasticloadbalancing.ListenerPolicy has been deprecated in favour of aws.elb.ListenerPolicy", DeprecationWarning)
+    warnings.warn("aws.elasticloadbalancing.ListenerPolicy has been deprecated in favor of aws.elb.ListenerPolicy", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, load_balancer_name=None, load_balancer_port=None, policy_names=None, __props__=None, __name__=None, __opts__=None):
         """
         Attaches a load balancer policy to an ELB Listener.
@@ -103,15 +103,13 @@ class ListenerPolicy(pulumi.CustomResource):
 
         This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
 
-        Deprecated: aws.elasticloadbalancing.ListenerPolicy has been deprecated in favour of aws.elb.ListenerPolicy
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[float] load_balancer_port: The load balancer listener port to apply the policy to.
         :param pulumi.Input[list] policy_names: List of Policy Names to apply to the backend server.
         """
-        pulumi.log.warn("ListenerPolicy is deprecated: aws.elasticloadbalancing.ListenerPolicy has been deprecated in favour of aws.elb.ListenerPolicy")
+        pulumi.log.warn("ListenerPolicy is deprecated: aws.elasticloadbalancing.ListenerPolicy has been deprecated in favor of aws.elb.ListenerPolicy")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

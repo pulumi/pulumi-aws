@@ -104,6 +104,8 @@ type Instance struct {
 	// device of the instance. See Block Devices below for details.
 	RootBlockDevice InstanceRootBlockDeviceOutput `pulumi:"rootBlockDevice"`
 	// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+	//
+	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// Controls if traffic is routed to the instance when
 	// the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -247,6 +249,8 @@ type instanceState struct {
 	// device of the instance. See Block Devices below for details.
 	RootBlockDevice *InstanceRootBlockDevice `pulumi:"rootBlockDevice"`
 	// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+	//
+	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Controls if traffic is routed to the instance when
 	// the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -357,6 +361,8 @@ type InstanceState struct {
 	// device of the instance. See Block Devices below for details.
 	RootBlockDevice InstanceRootBlockDevicePtrInput
 	// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+	//
+	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups pulumi.StringArrayInput
 	// Controls if traffic is routed to the instance when
 	// the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -448,6 +454,8 @@ type instanceArgs struct {
 	// device of the instance. See Block Devices below for details.
 	RootBlockDevice *InstanceRootBlockDevice `pulumi:"rootBlockDevice"`
 	// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+	//
+	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Controls if traffic is routed to the instance when
 	// the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -536,6 +544,8 @@ type InstanceArgs struct {
 	// device of the instance. See Block Devices below for details.
 	RootBlockDevice InstanceRootBlockDevicePtrInput
 	// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+	//
+	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups pulumi.StringArrayInput
 	// Controls if traffic is routed to the instance when
 	// the destination address does not match the instance. Used for NAT or VPNs. Defaults true.

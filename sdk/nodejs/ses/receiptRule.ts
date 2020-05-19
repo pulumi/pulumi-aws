@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES receipt rule resource
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Add a header to the email and store it in S3
  * const store = new aws.ses.ReceiptRule("store", {
  *     addHeaderActions: [{
@@ -34,8 +34,6 @@ import * as utilities from "../utilities";
  *     scanEnabled: true,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_receipt_rule.html.markdown.
  */
 export class ReceiptRule extends pulumi.CustomResource {
     /**

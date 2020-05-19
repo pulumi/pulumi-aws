@@ -9,24 +9,24 @@ import * as utilities from "./utilities";
 /**
  * `aws..getAvailabilityZone` provides details about a specific availability zone (AZ)
  * in the current region.
- * 
+ *
  * This can be used both to validate an availability zone given in a variable
  * and to split the AZ name into its component parts of an AWS region and an
  * AZ identifier letter. The latter may be useful e.g. for implementing a
  * consistent subnet numbering scheme across several regions by mapping both
  * the region and the subnet letter to network numbers.
- * 
+ *
  * This is different from the `aws..getAvailabilityZones` (plural) data source,
  * which provides a list of the available zones.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const regionNumber = config.get("regionNumber") || {
  *     "ap-northeast-1": 5,
@@ -43,7 +43,7 @@ import * as utilities from "./utilities";
  *     e: 5,
  *     f: 6,
  * };
- * 
+ *
  * // Retrieve the AZ where we want to create network resources
  * // This must be in the region selected on the AWS provider.
  * const exampleAvailabilityZone = pulumi.output(aws.getAvailabilityZone({
@@ -65,8 +65,6 @@ import * as utilities from "./utilities";
  *     vpcId: exampleVpc.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zone.html.markdown.
  */
 export function getAvailabilityZone(args?: GetAvailabilityZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityZoneResult> {
     args = args || {};

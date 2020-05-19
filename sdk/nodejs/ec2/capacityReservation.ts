@@ -12,15 +12,15 @@ import {Tenancy} from "./tenancy";
 
 /**
  * Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultCapacityReservation = new aws.ec2.CapacityReservation("default", {
  *     availabilityZone: "eu-west-1a",
  *     instanceCount: 1,
@@ -28,8 +28,6 @@ import {Tenancy} from "./tenancy";
  *     instanceType: "t2.micro",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_capacity_reservation.markdown.
  */
 export class CapacityReservation extends pulumi.CustomResource {
     /**

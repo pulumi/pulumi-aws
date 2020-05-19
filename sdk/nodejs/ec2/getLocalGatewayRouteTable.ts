@@ -8,27 +8,25 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about an EC2 Local Gateway Route Table.
- * 
+ *
  * This data source can prove useful when a module accepts a local gateway route table id as
  * an input variable and needs to, for example, find the associated Outpost or Local Gateway.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const awsEc2LocalGatewayRouteTable = config.require("awsEc2LocalGatewayRouteTable");
- * 
+ *
  * const selected = pulumi.output(aws.ec2.getLocalGatewayRouteTable({
  *     localGatewayRouteTableId: awsEc2LocalGatewayRouteTable,
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_local_gateway_route_table.html.markdown.
  */
 export function getLocalGatewayRouteTable(args?: GetLocalGatewayRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteTableResult> {
     args = args || {};

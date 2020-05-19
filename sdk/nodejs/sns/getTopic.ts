@@ -8,21 +8,19 @@ import * as utilities from "../utilities";
  * Use this data source to get the ARN of a topic in AWS Simple Notification
  * Service (SNS). By using this data source, you can reference SNS topics
  * without having to hard code the ARNs as input.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = pulumi.output(aws.sns.getTopic({
  *     name: "anExampleTopic",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sns_topic.html.markdown.
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
     if (!opts) {

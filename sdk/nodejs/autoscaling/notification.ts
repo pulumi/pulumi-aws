@@ -12,15 +12,15 @@ import {NotificationType} from "./notificationType";
  * Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
  * the `notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
  * Services, and are applied to each AutoScaling Group you supply.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.sns.Topic("example", {});
  * const bar = new aws.autoscaling.Group("bar", {});
  * const foo = new aws.autoscaling.Group("foo", {});
@@ -38,8 +38,6 @@ import {NotificationType} from "./notificationType";
  *     topicArn: example.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_notification.html.markdown.
  */
 export class Notification extends pulumi.CustomResource {
     /**

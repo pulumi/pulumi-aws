@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodePipeline.
- * 
+ *
  * > **NOTE on `aws.codepipeline.Pipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const codepipelineBucket = new aws.s3.Bucket("codepipelineBucket", {
  *     acl: "private",
  * });
@@ -133,8 +133,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline.markdown.
  */
 export class Pipeline extends pulumi.CustomResource {
     /**

@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Global Accelerator endpoint group.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.globalaccelerator.EndpointGroup("example", {
  *     endpointConfigurations: [{
  *         endpointId: aws_lb_example.arn,
@@ -25,8 +25,6 @@ import * as utilities from "../utilities";
  *     listenerArn: aws_globalaccelerator_listener_example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_endpoint_group.html.markdown.
  */
 export class EndpointGroup extends pulumi.CustomResource {
     /**

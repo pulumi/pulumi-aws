@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DMS (Data Migration Service) replication instance resource. DMS replication instances can be created, updated, deleted, and imported.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const dmsAssumeRole = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
@@ -67,8 +67,6 @@ import * as utilities from "../utilities";
  *     vpcSecurityGroupIds: ["sg-12345678"],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_replication_instance.html.markdown.
  */
 export class ReplicationInstance extends pulumi.CustomResource {
     /**

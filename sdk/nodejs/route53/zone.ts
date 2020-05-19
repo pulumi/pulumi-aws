@@ -8,24 +8,24 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Route53 Hosted Zone.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Public Zone
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const primary = new aws.route53.Zone("primary", {});
  * ```
- * 
+ *
  * ### Public Subdomain Zone
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.route53.Zone("main", {});
  * const dev = new aws.route53.Zone("dev", {
  *     tags: {
@@ -45,21 +45,19 @@ import * as utilities from "../utilities";
  *     zoneId: main.zoneId,
  * });
  * ```
- * 
+ *
  * ### Private Zone
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const privateZone = new aws.route53.Zone("private", {
  *     vpcs: [{
  *         vpcId: aws_vpc_example.id,
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone.html.markdown.
  */
 export class Zone extends pulumi.CustomResource {
     /**

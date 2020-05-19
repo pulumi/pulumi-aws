@@ -11,12 +11,8 @@ namespace Pulumi.Aws.ElasticLoadBalancing
 {
     /// <summary>
     /// Provides a load balancer cookie stickiness policy, which allows an ELB to control the sticky session lifetime of the browser.
-    /// 
-    /// 
-    /// 
-    /// Deprecated: aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favour of aws.elb.LoadBalancerCookieStickinessPolicy
     /// </summary>
-    [Obsolete(@"aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favour of aws.elb.LoadBalancerCookieStickinessPolicy")]
+    [Obsolete(@"aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favor of aws.elb.LoadBalancerCookieStickinessPolicy")]
     public partial class LoadBalancerCookieStickinessPolicy : Pulumi.CustomResource
     {
         /// <summary>

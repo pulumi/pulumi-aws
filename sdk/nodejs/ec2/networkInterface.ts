@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic network interface (ENI) resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.ec2.NetworkInterface("test", {
  *     attachments: [{
  *         deviceIndex: 1,
@@ -27,8 +27,6 @@ import * as utilities from "../utilities";
  *     subnetId: aws_subnet_public_a.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_interface.markdown.
  */
 export class NetworkInterface extends pulumi.CustomResource {
     /**

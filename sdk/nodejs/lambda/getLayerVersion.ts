@@ -8,24 +8,22 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a Lambda Layer Version.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const layerName = config.require("layerName");
- * 
+ *
  * const existing = pulumi.output(aws.lambda.getLayerVersion({
  *     layerName: layerName,
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_layer_version.html.markdown.
  */
 export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerVersionResult> {
     if (!opts) {

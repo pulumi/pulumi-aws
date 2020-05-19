@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a SageMaker endpoint configuration resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ec = new aws.sagemaker.EndpointConfiguration("ec", {
  *     productionVariants: [{
  *         initialInstanceCount: 1,
@@ -29,8 +29,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_endpoint_configuration.html.markdown.
  */
 export class EndpointConfiguration extends pulumi.CustomResource {
     /**

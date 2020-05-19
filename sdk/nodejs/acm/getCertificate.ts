@@ -10,23 +10,21 @@ import * as utilities from "../utilities";
  * Use this data source to get the ARN of a certificate in AWS Certificate
  * Manager (ACM), you can reference
  * it by domain without having to hard code the ARNs as input.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Find a RSA 4096 bit certificate
  * const example = pulumi.output(aws.acm.getCertificate({
  *     domain: "tf.example.com",
  *     keyTypes: ["RSA_4096"],
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acm_certificate.html.markdown.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     if (!opts) {

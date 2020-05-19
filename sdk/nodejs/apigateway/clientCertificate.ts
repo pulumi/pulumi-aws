@@ -8,21 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an API Gateway Client Certificate.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const demo = new aws.apigateway.ClientCertificate("demo", {
  *     description: "My client certificate",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_client_certificate.html.markdown.
  */
 export class ClientCertificate extends pulumi.CustomResource {
     /**

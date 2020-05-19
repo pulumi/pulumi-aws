@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a License Manager license configuration resource.
- * 
+ *
  * > **Note:** Removing the `licenseCount` attribute is not supported by the License Manager API - recreate the resource instead.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.licensemanager.LicenseConfiguration("example", {
  *     description: "Example",
  *     licenseCount: 10,
@@ -28,11 +28,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ## Rules
- * 
+ *
  * License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
- * 
+ *
  * * `minimumVcpus` - Resource must have minimum vCPU count in order to use the license. Default: 1
  * * `maximumVcpus` - Resource must have maximum vCPU count in order to use the license. Default: unbounded, limit: 10000
  * * `minimumCores` - Resource must have minimum core count in order to use the license. Default: 1
@@ -40,8 +40,6 @@ import * as utilities from "../utilities";
  * * `minimumSockets` - Resource must have minimum socket count in order to use the license. Default: 1
  * * `maximumSockets` - Resource must have maximum socket count in order to use the license. Default: unbounded, limit: 10000
  * * `allowedTenancy` - Defines where the license can be used. If set, restricts license usage to selected tenancies. Specify a comma delimited list of `EC2-Default`, `EC2-DedicatedHost`, `EC2-DedicatedInstance`
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/licensemanager_license_configuration.markdown.
  */
 export class LicenseConfiguration extends pulumi.CustomResource {
     /**

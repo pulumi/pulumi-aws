@@ -8,19 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudTrail resource.
- * 
+ *
  * > *NOTE:* For a multi-region trail, this resource must be in the home region of the trail.
- * 
+ *
  * > *NOTE:* For an organization trail, this resource must be in the master account of the organization.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const current = pulumi.output(aws.getCallerIdentity({ async: true }));
  * const foo = new aws.s3.Bucket("foo", {
  *     forceDestroy: true,
@@ -60,13 +60,13 @@ import * as utilities from "../utilities";
  *     s3KeyPrefix: "prefix",
  * });
  * ```
- * 
+ *
  * ### Logging All Lambda Function Invocations
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.cloudtrail.Trail("example", {
  *     eventSelectors: [{
  *         dataResources: [{
@@ -78,13 +78,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ### Logging All S3 Bucket Object Events
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.cloudtrail.Trail("example", {
  *     eventSelectors: [{
  *         dataResources: [{
@@ -96,13 +96,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ### Logging Individual S3 Bucket Events
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const importantBucket = pulumi.output(aws.s3.getBucket({
  *     bucket: "important-bucket",
  * }, { async: true }));
@@ -119,8 +119,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudtrail.html.markdown.
  */
 export class Trail extends pulumi.CustomResource {
     /**

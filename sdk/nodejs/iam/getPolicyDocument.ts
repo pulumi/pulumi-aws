@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Generates an IAM policy document in JSON format.
- * 
+ *
  * This is a data source which can be used to construct a JSON representation of
  * an IAM policy document, for use with resources which expect policy documents,
  * such as the `aws.iam.Policy` resource.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const examplePolicyDocument = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [
  *         {
@@ -54,21 +54,21 @@ import * as utilities from "../utilities";
  *     policy: examplePolicyDocument.json,
  * });
  * ```
- * 
+ *
  * Using this data source to generate policy documents is *optional*. It is also
  * valid to use literal JSON strings within your configuration, or to use the
  * `file` interpolation function to read a raw JSON policy document from a file.
- * 
+ *
  * ## Context Variable Interpolation
- * 
+ *
  * The IAM policy document format allows context variables to be interpolated
  * into various strings within a statement. The native IAM policy document format
  * uses `${...}`-style syntax that is in conflict with interpolation
  * syntax, so this data source instead uses `&{...}` syntax for interpolations that
  * should be processed by AWS rather than by this provider.
- * 
+ *
  * ## Wildcard Principal
- * 
+ *
  * In order to define wildcard principal (a.k.a. anonymous user) use `type = "*"` and
  * `identifiers = ["*"]`. In that case the rendered json will contain `"Principal": "*"`.
  * Note, that even though the [IAM Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html)
@@ -76,15 +76,15 @@ import * as utilities from "../utilities";
  * those principals have different behavior for IAM Role Trust Policy. Therefore
  * this provider will normalize the principal field only in above-mentioned case and principals
  * like `type = "AWS"` and `identifiers = ["*"]` will be rendered as `"Principal": {"AWS": "*"}`.
- * 
+ *
  * ## Example with Multiple Principals
- * 
+ *
  * Showing how you can use this as an assume role policy as well as showing how you can specify multiple principal blocks with different types.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const eventStreamBucketRoleAssumeRolePolicy = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
@@ -101,15 +101,15 @@ import * as utilities from "../utilities";
  *     }],
  * }, { async: true }));
  * ```
- * 
+ *
  * ## Example with Source and Override
- * 
+ *
  * Showing how you can use `sourceJson` and `overrideJson`
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const source = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [
  *         {
@@ -159,29 +159,29 @@ import * as utilities from "../utilities";
  *     ],
  * }, { async: true }));
  * ```
- * 
+ *
  * `data.aws_iam_policy_document.source_json_example.json` will evaluate to:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * ```
- * 
+ *
  * `data.aws_iam_policy_document.override_json_example.json` will evaluate to:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * ```
- * 
+ *
  * You can also combine `sourceJson` and `overrideJson` in the same document.
- * 
+ *
  * ## Example without Statement
- * 
+ *
  * Use without a `statement`:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const source = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["ec2:DescribeAccountAttributes"],
@@ -201,14 +201,12 @@ import * as utilities from "../utilities";
  *     sourceJson: source.json,
  * }, { async: true }));
  * ```
- * 
+ *
  * `data.aws_iam_policy_document.politik.json` will evaluate to:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy_document.html.markdown.
  */
 export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDocumentResult> {
     args = args || {};

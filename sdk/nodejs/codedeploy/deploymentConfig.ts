@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodeDeploy deployment config for an application
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Server Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const fooDeploymentConfig = new aws.codedeploy.DeploymentConfig("foo", {
  *     deploymentConfigName: "test-deployment-config",
  *     minimumHealthyHosts: {
@@ -49,13 +49,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ### Lambda Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const fooDeploymentConfig = new aws.codedeploy.DeploymentConfig("foo", {
  *     computePlatform: "Lambda",
  *     deploymentConfigName: "test-deployment-config",
@@ -82,8 +82,6 @@ import * as utilities from "../utilities";
  *     serviceRoleArn: aws_iam_role_foo_role.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codedeploy_deployment_config.html.markdown.
  */
 export class DeploymentConfig extends pulumi.CustomResource {
     /**

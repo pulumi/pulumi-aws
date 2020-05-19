@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Application AutoScaling Policy resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### DynamoDB Table Autoscaling
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const dynamodbTableReadTarget = new aws.appautoscaling.Target("dynamodbTableReadTarget", {
  *     maxCapacity: 100,
  *     minCapacity: 5,
@@ -37,13 +37,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### ECS Service Autoscaling
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ecsTarget = new aws.appautoscaling.Target("ecsTarget", {
  *     maxCapacity: 4,
  *     minCapacity: 1,
@@ -67,26 +67,26 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### Preserve desired count when updating an autoscaled ECS Service
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ecsService = new aws.ecs.Service("ecsService", {
  *     cluster: "clusterName",
  *     desiredCount: 2,
  *     taskDefinition: "taskDefinitionFamily:1",
  * }, { ignoreChanges: ["desiredCount"] });
  * ```
- * 
+ *
  * ### Aurora Read Replica Autoscaling
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const replicasTarget = new aws.appautoscaling.Target("replicas", {
  *     maxCapacity: 15,
  *     minCapacity: 1,
@@ -109,8 +109,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appautoscaling_policy.html.markdown.
  */
 export class Policy extends pulumi.CustomResource {
     /**

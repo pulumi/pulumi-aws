@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Neptune Cluster Parameter Group
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.neptune.ClusterParameterGroup("example", {
  *     description: "neptune cluster parameter group",
  *     family: "neptune1",
@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster_parameter_group.html.markdown.
  */
 export class ClusterParameterGroup extends pulumi.CustomResource {
     /**

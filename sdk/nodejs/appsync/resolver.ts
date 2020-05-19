@@ -8,30 +8,30 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AppSync Resolver.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testGraphQLApi = new aws.appsync.GraphQLApi("test", {
  *     authenticationType: "API_KEY",
  *     schema: `type Mutation {
  * 	putPost(id: ID!, title: String!): Post
  * }
- * 
+ *
  * type Post {
  * 	id: ID!
  * 	title: String!
  * }
- * 
+ *
  * type Query {
  * 	singlePost(id: ID!): Post
  * }
- * 
+ *
  * schema {
  * 	query: Query
  * 	mutation: Mutation
@@ -91,8 +91,6 @@ import * as utilities from "../utilities";
  *     type: "Mutation",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_resolver.html.markdown.
  */
 export class Resolver extends pulumi.CustomResource {
     /**

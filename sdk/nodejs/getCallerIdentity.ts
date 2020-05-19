@@ -9,23 +9,21 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to get the access to the effective Account ID, User ID, and ARN in
  * which this provider is authorized.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const current = pulumi.output(aws.getCallerIdentity({ async: true }));
- * 
+ *
  * export const accountId = current.accountId;
  * export const callerArn = current.arn;
  * export const callerUser = current.userId;
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/caller_identity.html.markdown.
  */
 export function getCallerIdentity(opts?: pulumi.InvokeOptions): Promise<GetCallerIdentityResult> {
     if (!opts) {

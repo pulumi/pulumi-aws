@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SNS topic policy resource
- * 
+ *
  * > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.sns.Topic("test", {});
  * const snsTopicPolicy = test.arn.apply(arn => aws.iam.getPolicyDocument({
  *     policyId: "__default_policy_ID",
@@ -51,8 +51,6 @@ import * as utilities from "../utilities";
  *     policy: snsTopicPolicy.json,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_topic_policy.html.markdown.
  */
 export class TopicPolicy extends pulumi.CustomResource {
     /**

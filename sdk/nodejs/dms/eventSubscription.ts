@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DMS (Data Migration Service) event subscription resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.dms.EventSubscription("example", {
  *     enabled: true,
  *     eventCategories: [
@@ -31,8 +31,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_event_subscription.html.markdown.
  */
 export class EventSubscription extends pulumi.CustomResource {
     /**

@@ -7,15 +7,15 @@ import * as utilities from "../utilities";
 /**
  * Enables AWS Shield Advanced for a specific AWS resource.
  * The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Create protection
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const available = pulumi.output(aws.getAvailabilityZones({ async: true }));
  * const currentRegion = pulumi.output(aws.getRegion({ async: true }));
  * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({ async: true }));
@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  *     resourceArn: pulumi.interpolate`arn:aws:ec2:${currentRegion.name!}:${currentCallerIdentity.accountId}:eip-allocation/${fooEip.id}`,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/shield_protection.html.markdown.
  */
 export class Protection extends pulumi.CustomResource {
     /**

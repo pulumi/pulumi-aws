@@ -8,22 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudWatch Log Stream resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const yada = new aws.cloudwatch.LogGroup("yada", {});
  * const foo = new aws.cloudwatch.LogStream("foo", {
  *     logGroupName: yada.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_stream.html.markdown.
  */
 export class LogStream extends pulumi.CustomResource {
     /**

@@ -8,36 +8,34 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic File System (EFS) resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### EFS File System w/ tags
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.efs.FileSystem("foo", {
  *     tags: {
  *         Name: "MyProduct",
  *     },
  * });
  * ```
- * 
+ *
  * ### Using lifecycle policy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const fooWithLifecylePolicy = new aws.efs.FileSystem("fooWithLifecylePolicy", {
  *     lifecyclePolicy: {
  *         transitionToIa: "AFTER_30_DAYS",
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/efs_file_system.html.markdown.
  */
 export class FileSystem extends pulumi.CustomResource {
     /**

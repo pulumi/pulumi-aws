@@ -13,9 +13,7 @@ import (
 //
 // > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
 //
-//
-//
-// Deprecated: aws.elasticloadbalancingv2.TargetGroup has been deprecated in favour of aws.lb.TargetGroup
+// Deprecated: aws.elasticloadbalancingv2.TargetGroup has been deprecated in favor of aws.lb.TargetGroup
 type TargetGroup struct {
 	pulumi.CustomResourceState
 

@@ -9,22 +9,22 @@ import * as utilities from "../utilities";
 /**
  * This resource represents a successful validation of an ACM certificate in concert
  * with other resources.
- * 
+ *
  * Most commonly, this resource is used together with `aws.route53.Record` and
  * `aws.acm.Certificate` to request a DNS validated certificate,
  * deploy the required validation records and wait for validation to complete.
- * 
+ *
  * > **WARNING:** This resource implements a part of the validation workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
+ *
  * ### DNS Validation with Route 53
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const certCertificate = new aws.acm.Certificate("cert", {
  *     domainName: "example.com",
  *     validationMethod: "DNS",
@@ -49,13 +49,13 @@ import * as utilities from "../utilities";
  *     certificateArn: certCertificateValidation.certificateArn,
  * });
  * ```
- * 
+ *
  * ### Alternative Domains DNS Validation with Route 53
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const certCertificate = new aws.acm.Certificate("cert", {
  *     domainName: "example.com",
  *     subjectAlternativeNames: [
@@ -106,13 +106,13 @@ import * as utilities from "../utilities";
  *     certificateArn: certCertificateValidation.certificateArn,
  * });
  * ```
- * 
+ *
  * ### Email Validation
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const certCertificate = new aws.acm.Certificate("cert", {
  *     domainName: "example.com",
  *     validationMethod: "EMAIL",
@@ -121,8 +121,6 @@ import * as utilities from "../utilities";
  *     certificateArn: certCertificate.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate_validation.html.markdown.
  */
 export class CertificateValidation extends pulumi.CustomResource {
     /**

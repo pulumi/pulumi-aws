@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultCluster = new aws.redshift.Cluster("default", {
  *     clusterIdentifier: "tf-redshift-cluster",
  *     clusterType: "single-node",
@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  *     scheduleIdentifier: defaultSnapshotSchedule.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_snapshot_schedule_association.html.markdown.
  */
 export class SnapshotScheduleAssociation extends pulumi.CustomResource {
     /**

@@ -10,20 +10,20 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides an API Gateway REST Deployment.
- * 
+ *
  * > **Note:** This resource depends on having at least one `aws.apigateway.Integration` created in the REST API, which 
  * itself has other dependencies. To avoid race conditions when all resources are being created together, you need to add 
  * implicit resource references via the `triggers` argument or explicit resource references using the 
  * [resource `dependsOn` meta-argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
  * const myDemoResource = new aws.apigateway.Resource("myDemoResource", {
  *     restApi: myDemoAPI.id,
@@ -50,8 +50,6 @@ import {RestApi} from "./restApi";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_deployment.html.markdown.
  */
 export class Deployment extends pulumi.CustomResource {
     /**

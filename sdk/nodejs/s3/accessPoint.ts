@@ -8,25 +8,25 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage an S3 Access Point.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleBucket = new aws.s3.Bucket("exampleBucket", {});
  * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {bucket: exampleBucket.id});
  * ```
- * 
+ *
  * ### Access Point Restricted to a VPC
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleBucket = new aws.s3.Bucket("exampleBucket", {});
  * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
  * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {
@@ -36,8 +36,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_access_point.html.markdown.
  */
 export class AccessPoint extends pulumi.CustomResource {
     /**

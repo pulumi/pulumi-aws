@@ -6,32 +6,30 @@ import * as utilities from "../utilities";
 
 /**
  * Attaches an EC2 instance to an Elastic Load Balancer (ELB). For attaching resources with Application Load Balancer (ALB) or Network Load Balancer (NLB), see the [`aws.lb.TargetGroupAttachment` resource](https://www.terraform.io/docs/providers/aws/r/lb_target_group_attachment.html).
- * 
+ *
  * > **NOTE on ELB Instances and ELB Attachments:** This provider currently provides
  * both a standalone ELB Attachment resource (describing an instance attached to
  * an ELB), and an Elastic Load Balancer resource with
  * `instances` defined in-line. At this time you cannot use an ELB with in-line
  * instances in conjunction with an ELB Attachment resource. Doing so will cause a
  * conflict and will overwrite attachments.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Create a new load balancer attachment
  * const baz = new aws.elb.Attachment("baz", {
  *     elb: aws_elb_bar.id,
  *     instance: aws_instance_foo.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elb_attachment.html.markdown.
  */
-/** @deprecated aws.elasticloadbalancing.Attachment has been deprecated in favour of aws.elb.Attachment */
+/** @deprecated aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment */
 export class Attachment extends pulumi.CustomResource {
     /**
      * Get an existing Attachment resource's state with the given name, ID, and optional extra
@@ -42,7 +40,7 @@ export class Attachment extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AttachmentState, opts?: pulumi.CustomResourceOptions): Attachment {
-        pulumi.log.warn("Attachment is deprecated: aws.elasticloadbalancing.Attachment has been deprecated in favour of aws.elb.Attachment")
+        pulumi.log.warn("Attachment is deprecated: aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment")
         return new Attachment(name, <any>state, { ...opts, id: id });
     }
 
@@ -76,11 +74,11 @@ export class Attachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated aws.elasticloadbalancing.Attachment has been deprecated in favour of aws.elb.Attachment */
+    /** @deprecated aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment */
     constructor(name: string, args: AttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated aws.elasticloadbalancing.Attachment has been deprecated in favour of aws.elb.Attachment */
+    /** @deprecated aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment */
     constructor(name: string, argsOrState?: AttachmentArgs | AttachmentState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Attachment is deprecated: aws.elasticloadbalancing.Attachment has been deprecated in favour of aws.elb.Attachment")
+        pulumi.log.warn("Attachment is deprecated: aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AttachmentState | undefined;

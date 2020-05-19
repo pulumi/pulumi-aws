@@ -8,22 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES receipt filter resource
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const filter = new aws.ses.ReceiptFilter("filter", {
  *     cidr: "10.10.10.10",
  *     policy: "Block",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_receipt_filter.html.markdown.
  */
 export class ReceiptFilter extends pulumi.CustomResource {
     /**

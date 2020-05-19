@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a FSx Windows File System. See the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html) for more information.
- * 
+ *
  * > **NOTE:** Either the `activeDirectoryId` argument or `selfManagedActiveDirectory` configuration block must be specified.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Using AWS Directory Service
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.fsx.WindowsFileSystem("example", {
  *     activeDirectoryId: aws_directory_service_directory_example.id,
  *     kmsKeyId: aws_kms_key_example.arn,
@@ -27,13 +27,13 @@ import * as utilities from "../utilities";
  *     throughputCapacity: 1024,
  * });
  * ```
- * 
+ *
  * ### Using a Self-Managed Microsoft Active Directory
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.fsx.WindowsFileSystem("example", {
  *     kmsKeyId: aws_kms_key_example.arn,
  *     selfManagedActiveDirectory: {
@@ -50,8 +50,6 @@ import * as utilities from "../utilities";
  *     throughputCapacity: 1024,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/fsx_windows_file_system.html.markdown.
  */
 export class WindowsFileSystem extends pulumi.CustomResource {
     /**

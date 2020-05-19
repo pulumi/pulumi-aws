@@ -8,22 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Pinpoint SMS Channel resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const app = new aws.pinpoint.App("app", {});
  * const sms = new aws.pinpoint.SmsChannel("sms", {
  *     applicationId: app.applicationId,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_sms_channel.markdown.
  */
 export class SmsChannel extends pulumi.CustomResource {
     /**

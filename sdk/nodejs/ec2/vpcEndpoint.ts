@@ -8,34 +8,34 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a VPC Endpoint resource.
- * 
+ *
  * > **NOTE on VPC Endpoints and VPC Endpoint Associations:** This provider provides both standalone VPC Endpoint Associations for
  * Route Tables - (an association between a VPC endpoint and a single `routeTableId`) and
  * Subnets - (an association between a VPC endpoint and a single `subnetId`) and
  * a VPC Endpoint resource with `routeTableIds` and `subnetIds` attributes.
  * Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
  * Doing so will cause a conflict of associations and will overwrite the association.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const s3 = new aws.ec2.VpcEndpoint("s3", {
  *     serviceName: "com.amazonaws.us-west-2.s3",
  *     vpcId: aws_vpc_main.id,
  * });
  * ```
- * 
+ *
  * ### Basic w/ Tags
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const s3 = new aws.ec2.VpcEndpoint("s3", {
  *     serviceName: "com.amazonaws.us-west-2.s3",
  *     tags: {
@@ -44,13 +44,13 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_main.id,
  * });
  * ```
- * 
+ *
  * ### Interface Endpoint Type
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ec2 = new aws.ec2.VpcEndpoint("ec2", {
  *     privateDnsEnabled: true,
  *     securityGroupIds: [aws_security_group_sg1.id],
@@ -59,13 +59,13 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_main.id,
  * });
  * ```
- * 
+ *
  * ### Non-AWS Service
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ptfeServiceVpcEndpoint = new aws.ec2.VpcEndpoint("ptfeService", {
  *     privateDnsEnabled: false,
  *     securityGroupIds: [aws_security_group_ptfe_service.id],
@@ -87,8 +87,6 @@ import * as utilities from "../utilities";
  *     zoneId: internal.zoneId!,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint.html.markdown.
  */
 export class VpcEndpoint extends pulumi.CustomResource {
     /**

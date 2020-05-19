@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Creates a snapshot copy grant that allows AWS Redshift to encrypt copied snapshots with a customer master key from AWS KMS in a destination region.
- * 
+ *
  * Note that the grant must exist in the destination region, and not in the region of the cluster.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testSnapshotCopyGrant = new aws.redshift.SnapshotCopyGrant("test", {
  *     snapshotCopyGrantName: "my-grant",
  * });
@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_snapshot_copy_grant.html.markdown.
  */
 export class SnapshotCopyGrant extends pulumi.CustomResource {
     /**

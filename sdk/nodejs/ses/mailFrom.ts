@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES domain MAIL FROM resource.
- * 
+ *
  * > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the [aws.ses.DomainIdentity resource](https://www.terraform.io/docs/providers/aws/r/ses_domain_identity.html). To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html) for more information.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Example SES Domain Identity
  * const exampleDomainIdentity = new aws.ses.DomainIdentity("example", {
  *     domain: "example.com",
@@ -42,8 +42,6 @@ import * as utilities from "../utilities";
  *     zoneId: aws_route53_zone_example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_mail_from.html.markdown.
  */
 export class MailFrom extends pulumi.CustomResource {
     /**

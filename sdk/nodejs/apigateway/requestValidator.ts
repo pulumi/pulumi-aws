@@ -10,23 +10,21 @@ import {RestApi} from "./restApi";
 
 /**
  * Manages an API Gateway Request Validator.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.apigateway.RequestValidator("example", {
  *     restApi: aws_api_gateway_rest_api_example.id,
  *     validateRequestBody: true,
  *     validateRequestParameters: true,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_request_validator.html.markdown.
  */
 export class RequestValidator extends pulumi.CustomResource {
     /**

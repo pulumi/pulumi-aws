@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Amazon Managed Streaming for Kafka configuration. More information can be found on the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration.html).
- * 
+ *
  * > **NOTE:** The API does not support deleting MSK configurations. Removing this resource will only remove the this provider state for it.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.msk.Configuration("example", {
  *     kafkaVersions: ["2.1.0"],
  *     serverProperties: `auto.create.topics.enable = true
@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/msk_configuration.html.markdown.
  */
 export class Configuration extends pulumi.CustomResource {
     /**

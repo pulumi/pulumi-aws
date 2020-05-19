@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ElasticLoadBalancing
 {
-    [Obsolete(@"aws.elasticloadbalancing.getServiceAccount has been deprecated in favour of aws.elb.getServiceAccount")]
+    [Obsolete(@"aws.elasticloadbalancing.getServiceAccount has been deprecated in favor of aws.elb.getServiceAccount")]
     public static class GetServiceAccount
     {
         /// <summary>
@@ -18,8 +18,6 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         /// 
         /// {{% examples %}}
         /// {{% /examples %}}
-        /// 
-        /// Deprecated: aws.elasticloadbalancing.getServiceAccount has been deprecated in favour of aws.elb.getServiceAccount
         /// </summary>
         public static Task<GetServiceAccountResult> InvokeAsync(GetServiceAccountArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceAccountResult>("aws:elasticloadbalancing/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountArgs(), options.WithVersion());

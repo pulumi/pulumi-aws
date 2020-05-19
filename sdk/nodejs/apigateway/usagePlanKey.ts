@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an API Gateway Usage Plan Key.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.apigateway.RestApi("test", {});
  * const myusageplan = new aws.apigateway.UsagePlan("myusageplan", {
  *     apiStages: [{
@@ -31,8 +31,6 @@ import * as utilities from "../utilities";
  *     usagePlanId: myusageplan.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_usage_plan_key.html.markdown.
  */
 export class UsagePlanKey extends pulumi.CustomResource {
     /**

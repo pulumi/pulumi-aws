@@ -8,30 +8,30 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an MQ Broker Resource. This resources also manages users for the broker.
- * 
+ *
  * For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
- * 
+ *
  * Changes to an MQ Broker can occur when you change a
  * parameter, such as `configuration` or `user`, and are reflected in the next maintenance
  * window. Because of this, this provider may report a difference in its planning
  * phase because a modification has not yet taken place. You can use the
  * `applyImmediately` flag to instruct the service to apply the change immediately
  * (see documentation below).
- * 
+ *
  * > **Note:** using `applyImmediately` can result in a
  * brief downtime as the broker reboots.
- * 
+ *
  * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.mq.Broker("example", {
  *     brokerName: "example",
  *     configuration: {
@@ -48,8 +48,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/mq_broker.html.markdown.
  */
 export class Broker extends pulumi.CustomResource {
     /**

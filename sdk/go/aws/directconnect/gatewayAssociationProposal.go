@@ -27,6 +27,8 @@ type GatewayAssociationProposal struct {
 	// AWS Account identifier of the Direct Connect Gateway's owner.
 	DxGatewayOwnerAccountId pulumi.StringOutput `pulumi:"dxGatewayOwnerAccountId"`
 	// *Deprecated:* Use `associatedGatewayId` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
+	//
+	// Deprecated: use 'associated_gateway_id' argument instead
 	VpnGatewayId pulumi.StringPtrOutput `pulumi:"vpnGatewayId"`
 }
 
@@ -77,6 +79,8 @@ type gatewayAssociationProposalState struct {
 	// AWS Account identifier of the Direct Connect Gateway's owner.
 	DxGatewayOwnerAccountId *string `pulumi:"dxGatewayOwnerAccountId"`
 	// *Deprecated:* Use `associatedGatewayId` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
+	//
+	// Deprecated: use 'associated_gateway_id' argument instead
 	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
@@ -94,6 +98,8 @@ type GatewayAssociationProposalState struct {
 	// AWS Account identifier of the Direct Connect Gateway's owner.
 	DxGatewayOwnerAccountId pulumi.StringPtrInput
 	// *Deprecated:* Use `associatedGatewayId` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
+	//
+	// Deprecated: use 'associated_gateway_id' argument instead
 	VpnGatewayId pulumi.StringPtrInput
 }
 
@@ -111,6 +117,8 @@ type gatewayAssociationProposalArgs struct {
 	// AWS Account identifier of the Direct Connect Gateway's owner.
 	DxGatewayOwnerAccountId string `pulumi:"dxGatewayOwnerAccountId"`
 	// *Deprecated:* Use `associatedGatewayId` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
+	//
+	// Deprecated: use 'associated_gateway_id' argument instead
 	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
@@ -125,6 +133,8 @@ type GatewayAssociationProposalArgs struct {
 	// AWS Account identifier of the Direct Connect Gateway's owner.
 	DxGatewayOwnerAccountId pulumi.StringInput
 	// *Deprecated:* Use `associatedGatewayId` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
+	//
+	// Deprecated: use 'associated_gateway_id' argument instead
 	VpnGatewayId pulumi.StringPtrInput
 }
 

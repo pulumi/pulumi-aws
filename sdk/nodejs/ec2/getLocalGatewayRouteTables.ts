@@ -8,21 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const fooLocalGatewayRouteTable = pulumi.output(aws.ec2.getLocalGatewayRouteTable({ async: true }));
- * 
+ *
  * export const foo = fooLocalGatewayRouteTable.ids;
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_local_gateway_route_tables.html.markdown.
  */
 export function getLocalGatewayRouteTables(args?: GetLocalGatewayRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteTablesResult> {
     args = args || {};

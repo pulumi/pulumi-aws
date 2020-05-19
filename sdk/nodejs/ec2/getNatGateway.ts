@@ -8,24 +8,22 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific Nat Gateway.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const subnetId = config.require("subnetId");
- * 
+ *
  * const defaultNatGateway = aws_subnet_public.id.apply(id => aws.ec2.getNatGateway({
  *     subnetId: id,
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/nat_gateway.html.markdown.
  */
 export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
     args = args || {};

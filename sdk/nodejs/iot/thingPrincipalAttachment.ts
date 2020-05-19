@@ -8,16 +8,16 @@ import {ARN} from "../index";
 
 /**
  * Attaches Principal to AWS IoT Thing.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const example = new aws.iot.Thing("example", {});
  * const cert = new aws.iot.Certificate("cert", {
  *     active: true,
@@ -28,8 +28,6 @@ import {ARN} from "../index";
  *     thing: example.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_thing_principal_attachment.html.markdown.
  */
 export class ThingPrincipalAttachment extends pulumi.CustomResource {
     /**

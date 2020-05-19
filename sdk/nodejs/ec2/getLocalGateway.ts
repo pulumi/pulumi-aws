@@ -8,24 +8,22 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about an EC2 Local Gateway.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const localGatewayId = config.require("localGatewayId");
- * 
+ *
  * const selected = pulumi.output(aws.ec2.getLocalGateway({
  *     id: localGatewayId,
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_local_gateway.html.markdown.
  */
 export function getLocalGateway(args?: GetLocalGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayResult> {
     args = args || {};

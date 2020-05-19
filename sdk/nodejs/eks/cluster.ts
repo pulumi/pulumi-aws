@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EKS Cluster.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Example IAM Role for EKS Cluster
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.iam.Role("example", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -41,16 +41,16 @@ import * as utilities from "../utilities";
  *     role: example.name,
  * });
  * ```
- * 
+ *
  * ### Enabling Control Plane Logging
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const clusterName = config.get("clusterName") || "example";
- * 
+ *
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {
  *     retentionInDays: 7,
  * });
@@ -61,13 +61,13 @@ import * as utilities from "../utilities";
  *     ],
  * }, { dependsOn: [exampleLogGroup] });
  * ```
- * 
+ *
  * ### Enabling IAM Roles for Service Accounts
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleCluster = new aws.eks.Cluster("example", {});
  * const exampleOpenIdConnectProvider = new aws.iam.OpenIdConnectProvider("example", {
  *     clientIdLists: ["sts.amazonaws.com"],
@@ -94,8 +94,6 @@ import * as utilities from "../utilities";
  *     assumeRolePolicy: exampleAssumeRolePolicy.json,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_cluster.html.markdown.
  */
 export class Cluster extends pulumi.CustomResource {
     /**

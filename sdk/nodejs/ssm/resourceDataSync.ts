@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a SSM resource data sync.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const hogeBucket = new aws.s3.Bucket("hoge", {
  *     region: "us-east-1",
  * });
@@ -59,8 +59,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_resource_data_sync.html.markdown.
  */
 export class ResourceDataSync extends pulumi.CustomResource {
     /**

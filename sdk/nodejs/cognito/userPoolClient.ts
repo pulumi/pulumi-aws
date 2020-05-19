@@ -8,27 +8,27 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Pool Client resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Create a basic user pool client
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const pool = new aws.cognito.UserPool("pool", {});
  * const client = new aws.cognito.UserPoolClient("client", {
  *     userPoolId: pool.id,
  * });
  * ```
- * 
+ *
  * ### Create a user pool client with no SRP authentication
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const pool = new aws.cognito.UserPool("pool", {});
  * const client = new aws.cognito.UserPoolClient("client", {
  *     explicitAuthFlows: ["ADMIN_NO_SRP_AUTH"],
@@ -36,13 +36,13 @@ import * as utilities from "../utilities";
  *     userPoolId: pool.id,
  * });
  * ```
- * 
+ *
  * ### Create a user pool client with pinpoint analytics
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const current = pulumi.output(aws.getCallerIdentity({ async: true }));
  * const testUserPool = new aws.cognito.UserPool("test", {});
  * const testApp = new aws.pinpoint.App("test", {});
@@ -89,8 +89,6 @@ import * as utilities from "../utilities";
  *     userPoolId: testUserPool.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_client.markdown.
  */
 export class UserPoolClient extends pulumi.CustomResource {
     /**

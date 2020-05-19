@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DMS (Data Migration Service) replication task resource. DMS replication tasks can be created, updated, deleted, and imported.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Create a new replication task
  * const test = new aws.dms.ReplicationTask("test", {
  *     cdcStartTime: "1.48434688e+09",
@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  *     targetEndpointArn: aws_dms_endpoint_test_dms_target_endpoint_tf.endpointArn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_replication_task.html.markdown.
  */
 export class ReplicationTask extends pulumi.CustomResource {
     /**

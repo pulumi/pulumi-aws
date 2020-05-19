@@ -7,15 +7,15 @@ import * as utilities from "../utilities";
 /**
  * Manages an EC2 Transit Gateway Peering Attachment.
  * For examples of custom route table association and propagation, see the [EC2 Transit Gateway Networking Examples Guide](https://docs.aws.amazon.com/vpc/latest/tgw/TGW_Scenarios.html).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const local = new aws.Provider("local", {region: "us-east-1"});
  * const peer = new aws.Provider("peer", {region: "us-west-2"});
  * const peerRegion = aws.getRegion({});
@@ -35,8 +35,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_peering_attachment.html.markdown.
  */
 export class PeeringAttachment extends pulumi.CustomResource {
     /**

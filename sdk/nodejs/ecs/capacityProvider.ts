@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an ECS cluster capacity provider. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
- * 
+ *
  * > **NOTE:** The AWS API does not currently support deleting ECS cluster capacity providers. Removing this resource will only remove the state for it.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.ecs.CapacityProvider("test", {auto_scaling_group_provider: {
  *     autoScalingGroupArn: aws_autoscaling_group.test.arn,
  *     managedTerminationProtection: "ENABLED",
@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     },
  * }});
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_capacity_provider.html.markdown.
  */
 export class CapacityProvider extends pulumi.CustomResource {
     /**

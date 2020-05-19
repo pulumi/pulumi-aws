@@ -8,22 +8,22 @@ import * as utilities from "../utilities";
 
 /**
  * `aws.ec2.Vpc` provides details about a specific VPC.
- * 
+ *
  * This resource can prove useful when a module accepts a vpc id as
  * an input variable and needs to, for example, determine the CIDR block of that
  * VPC.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const vpcId = config.require("vpcId");
- * 
+ *
  * const selected = pulumi.output(aws.ec2.getVpc({
  *     id: vpcId,
  * }, { async: true }));
@@ -36,8 +36,6 @@ import * as utilities from "../utilities";
  *     vpcId: selected.id!,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc.html.markdown.
  */
 export function getVpc(args?: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcResult> {
     args = args || {};

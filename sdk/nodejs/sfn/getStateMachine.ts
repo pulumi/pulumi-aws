@@ -8,21 +8,19 @@ import * as utilities from "../utilities";
  * Use this data source to get the ARN of a State Machine in AWS Step
  * Function (SFN). By using this data source, you can reference a
  * state machine without having to hard code the ARNs as input.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = pulumi.output(aws.sfn.getStateMachine({
  *     name: "anExampleSfnName",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_state_machine.html.markdown.
  */
 export function getStateMachine(args: GetStateMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineResult> {
     if (!opts) {

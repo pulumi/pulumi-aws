@@ -8,24 +8,22 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about an Elastic File System Mount Target (EFS).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const mountTargetId = config.get("mountTargetId") || "";
- * 
+ *
  * const byId = pulumi.output(aws.efs.getMountTarget({
  *     mountTargetId: mountTargetId,
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_mount_target.html.markdown.
  */
 export function getMountTarget(args: GetMountTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetMountTargetResult> {
     if (!opts) {

@@ -16,9 +16,7 @@ import (
 //
 // > **Note:** `alb.ListenerCertificate` is known as `lb.ListenerCertificate`. The functionality is identical.
 //
-//
-//
-// Deprecated: aws.elasticloadbalancingv2.ListenerCertificate has been deprecated in favour of aws.lb.ListenerCertificate
+// Deprecated: aws.elasticloadbalancingv2.ListenerCertificate has been deprecated in favor of aws.lb.ListenerCertificate
 type ListenerCertificate struct {
 	pulumi.CustomResourceState
 

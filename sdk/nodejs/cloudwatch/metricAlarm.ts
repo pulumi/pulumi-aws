@@ -10,15 +10,15 @@ import {Topic} from "../sns/topic";
 
 /**
  * Provides a CloudWatch Metric Alarm resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
  *     alarmDescription: "This metric monitors ec2 cpu utilization",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
@@ -31,13 +31,13 @@ import {Topic} from "../sns/topic";
  *     threshold: 80,
  * });
  * ```
- * 
+ *
  * ## Example in Conjunction with Scaling Policies
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const batPolicy = new aws.autoscaling.Policy("bat", {
  *     adjustmentType: "ChangeInCapacity",
  *     autoscalingGroupName: aws_autoscaling_group_bar.name,
@@ -59,13 +59,13 @@ import {Topic} from "../sns/topic";
  *     threshold: 80,
  * });
  * ```
- * 
+ *
  * ## Example with an Expression
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
  *     alarmDescription: "Request error rate has exceeded 10%",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
@@ -108,11 +108,11 @@ import {Topic} from "../sns/topic";
  *     threshold: 10,
  * });
  * ```
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const xxAnomalyDetection = new aws.cloudwatch.MetricAlarm("xxAnomalyDetection", {
  *     alarmDescription: "This metric monitors ec2 cpu utilization",
  *     comparisonOperator: "GreaterThanUpperThreshold",
@@ -143,13 +143,13 @@ import {Topic} from "../sns/topic";
  *     thresholdMetricId: "e1",
  * });
  * ```
- * 
+ *
  * ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const xxxNlbHealthyhosts = new aws.cloudwatch.MetricAlarm("xxxNlbHealthyhosts", {
  *     comparisonOperator: "LessThanThreshold",
  *     evaluationPeriods: "1",
@@ -168,11 +168,9 @@ import {Topic} from "../sns/topic";
  *     },
  * });
  * ```
- * 
+ *
  * > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
  * You must choose one or the other
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_metric_alarm.html.markdown.
  */
 export class MetricAlarm extends pulumi.CustomResource {
     /**

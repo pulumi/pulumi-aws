@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * > **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
- * 
+ *
  * The bucket-objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myObjects = pulumi.output(aws.s3.getBucketObjects({
  *     bucket: "ourcorp",
  * }, { async: true }));
@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     }, { async: true })));
  * }
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_objects.html.markdown.
  */
 export function getBucketObjects(args: GetBucketObjectsArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketObjectsResult> {
     if (!opts) {

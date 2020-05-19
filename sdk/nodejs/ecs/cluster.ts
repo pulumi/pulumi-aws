@@ -8,19 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an ECS cluster.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.ecs.Cluster("foo", {});
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_cluster.html.markdown.
  */
 export class Cluster extends pulumi.CustomResource {
     /**

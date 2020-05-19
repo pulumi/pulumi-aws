@@ -152,70 +152,72 @@ type Endpoints struct {
 	Iotevents              *string `pulumi:"iotevents"`
 	Kafka                  *string `pulumi:"kafka"`
 	Kinesis                *string `pulumi:"kinesis"`
-	KinesisAnalytics       *string `pulumi:"kinesisAnalytics"`
-	Kinesisanalytics       *string `pulumi:"kinesisanalytics"`
-	Kinesisanalyticsv2     *string `pulumi:"kinesisanalyticsv2"`
-	Kinesisvideo           *string `pulumi:"kinesisvideo"`
-	Kms                    *string `pulumi:"kms"`
-	Lakeformation          *string `pulumi:"lakeformation"`
-	Lambda                 *string `pulumi:"lambda"`
-	Lexmodels              *string `pulumi:"lexmodels"`
-	Licensemanager         *string `pulumi:"licensemanager"`
-	Lightsail              *string `pulumi:"lightsail"`
-	Macie                  *string `pulumi:"macie"`
-	Managedblockchain      *string `pulumi:"managedblockchain"`
-	Marketplacecatalog     *string `pulumi:"marketplacecatalog"`
-	Mediaconnect           *string `pulumi:"mediaconnect"`
-	Mediaconvert           *string `pulumi:"mediaconvert"`
-	Medialive              *string `pulumi:"medialive"`
-	Mediapackage           *string `pulumi:"mediapackage"`
-	Mediastore             *string `pulumi:"mediastore"`
-	Mediastoredata         *string `pulumi:"mediastoredata"`
-	Mq                     *string `pulumi:"mq"`
-	Neptune                *string `pulumi:"neptune"`
-	Networkmanager         *string `pulumi:"networkmanager"`
-	Opsworks               *string `pulumi:"opsworks"`
-	Organizations          *string `pulumi:"organizations"`
-	Personalize            *string `pulumi:"personalize"`
-	Pinpoint               *string `pulumi:"pinpoint"`
-	Pricing                *string `pulumi:"pricing"`
-	Qldb                   *string `pulumi:"qldb"`
-	Quicksight             *string `pulumi:"quicksight"`
-	R53                    *string `pulumi:"r53"`
-	Ram                    *string `pulumi:"ram"`
-	Rds                    *string `pulumi:"rds"`
-	Redshift               *string `pulumi:"redshift"`
-	Resourcegroups         *string `pulumi:"resourcegroups"`
-	Route53                *string `pulumi:"route53"`
-	Route53domains         *string `pulumi:"route53domains"`
-	Route53resolver        *string `pulumi:"route53resolver"`
-	S3                     *string `pulumi:"s3"`
-	S3control              *string `pulumi:"s3control"`
-	Sagemaker              *string `pulumi:"sagemaker"`
-	Sdb                    *string `pulumi:"sdb"`
-	Secretsmanager         *string `pulumi:"secretsmanager"`
-	Securityhub            *string `pulumi:"securityhub"`
-	Serverlessrepo         *string `pulumi:"serverlessrepo"`
-	Servicecatalog         *string `pulumi:"servicecatalog"`
-	Servicediscovery       *string `pulumi:"servicediscovery"`
-	Servicequotas          *string `pulumi:"servicequotas"`
-	Ses                    *string `pulumi:"ses"`
-	Shield                 *string `pulumi:"shield"`
-	Sns                    *string `pulumi:"sns"`
-	Sqs                    *string `pulumi:"sqs"`
-	Ssm                    *string `pulumi:"ssm"`
-	Stepfunctions          *string `pulumi:"stepfunctions"`
-	Storagegateway         *string `pulumi:"storagegateway"`
-	Sts                    *string `pulumi:"sts"`
-	Swf                    *string `pulumi:"swf"`
-	Transfer               *string `pulumi:"transfer"`
-	Waf                    *string `pulumi:"waf"`
-	Wafregional            *string `pulumi:"wafregional"`
-	Wafv2                  *string `pulumi:"wafv2"`
-	Worklink               *string `pulumi:"worklink"`
-	Workmail               *string `pulumi:"workmail"`
-	Workspaces             *string `pulumi:"workspaces"`
-	Xray                   *string `pulumi:"xray"`
+	// Deprecated: use `endpoints` configuration block `kinesisanalytics` argument instead
+	KinesisAnalytics   *string `pulumi:"kinesisAnalytics"`
+	Kinesisanalytics   *string `pulumi:"kinesisanalytics"`
+	Kinesisanalyticsv2 *string `pulumi:"kinesisanalyticsv2"`
+	Kinesisvideo       *string `pulumi:"kinesisvideo"`
+	Kms                *string `pulumi:"kms"`
+	Lakeformation      *string `pulumi:"lakeformation"`
+	Lambda             *string `pulumi:"lambda"`
+	Lexmodels          *string `pulumi:"lexmodels"`
+	Licensemanager     *string `pulumi:"licensemanager"`
+	Lightsail          *string `pulumi:"lightsail"`
+	Macie              *string `pulumi:"macie"`
+	Managedblockchain  *string `pulumi:"managedblockchain"`
+	Marketplacecatalog *string `pulumi:"marketplacecatalog"`
+	Mediaconnect       *string `pulumi:"mediaconnect"`
+	Mediaconvert       *string `pulumi:"mediaconvert"`
+	Medialive          *string `pulumi:"medialive"`
+	Mediapackage       *string `pulumi:"mediapackage"`
+	Mediastore         *string `pulumi:"mediastore"`
+	Mediastoredata     *string `pulumi:"mediastoredata"`
+	Mq                 *string `pulumi:"mq"`
+	Neptune            *string `pulumi:"neptune"`
+	Networkmanager     *string `pulumi:"networkmanager"`
+	Opsworks           *string `pulumi:"opsworks"`
+	Organizations      *string `pulumi:"organizations"`
+	Personalize        *string `pulumi:"personalize"`
+	Pinpoint           *string `pulumi:"pinpoint"`
+	Pricing            *string `pulumi:"pricing"`
+	Qldb               *string `pulumi:"qldb"`
+	Quicksight         *string `pulumi:"quicksight"`
+	// Deprecated: use `endpoints` configuration block `route53` argument instead
+	R53              *string `pulumi:"r53"`
+	Ram              *string `pulumi:"ram"`
+	Rds              *string `pulumi:"rds"`
+	Redshift         *string `pulumi:"redshift"`
+	Resourcegroups   *string `pulumi:"resourcegroups"`
+	Route53          *string `pulumi:"route53"`
+	Route53domains   *string `pulumi:"route53domains"`
+	Route53resolver  *string `pulumi:"route53resolver"`
+	S3               *string `pulumi:"s3"`
+	S3control        *string `pulumi:"s3control"`
+	Sagemaker        *string `pulumi:"sagemaker"`
+	Sdb              *string `pulumi:"sdb"`
+	Secretsmanager   *string `pulumi:"secretsmanager"`
+	Securityhub      *string `pulumi:"securityhub"`
+	Serverlessrepo   *string `pulumi:"serverlessrepo"`
+	Servicecatalog   *string `pulumi:"servicecatalog"`
+	Servicediscovery *string `pulumi:"servicediscovery"`
+	Servicequotas    *string `pulumi:"servicequotas"`
+	Ses              *string `pulumi:"ses"`
+	Shield           *string `pulumi:"shield"`
+	Sns              *string `pulumi:"sns"`
+	Sqs              *string `pulumi:"sqs"`
+	Ssm              *string `pulumi:"ssm"`
+	Stepfunctions    *string `pulumi:"stepfunctions"`
+	Storagegateway   *string `pulumi:"storagegateway"`
+	Sts              *string `pulumi:"sts"`
+	Swf              *string `pulumi:"swf"`
+	Transfer         *string `pulumi:"transfer"`
+	Waf              *string `pulumi:"waf"`
+	Wafregional      *string `pulumi:"wafregional"`
+	Wafv2            *string `pulumi:"wafv2"`
+	Worklink         *string `pulumi:"worklink"`
+	Workmail         *string `pulumi:"workmail"`
+	Workspaces       *string `pulumi:"workspaces"`
+	Xray             *string `pulumi:"xray"`
 }
 
 // EndpointsInput is an input type that accepts EndpointsArgs and EndpointsOutput values.
@@ -304,70 +306,72 @@ type EndpointsArgs struct {
 	Iotevents              pulumi.StringPtrInput `pulumi:"iotevents"`
 	Kafka                  pulumi.StringPtrInput `pulumi:"kafka"`
 	Kinesis                pulumi.StringPtrInput `pulumi:"kinesis"`
-	KinesisAnalytics       pulumi.StringPtrInput `pulumi:"kinesisAnalytics"`
-	Kinesisanalytics       pulumi.StringPtrInput `pulumi:"kinesisanalytics"`
-	Kinesisanalyticsv2     pulumi.StringPtrInput `pulumi:"kinesisanalyticsv2"`
-	Kinesisvideo           pulumi.StringPtrInput `pulumi:"kinesisvideo"`
-	Kms                    pulumi.StringPtrInput `pulumi:"kms"`
-	Lakeformation          pulumi.StringPtrInput `pulumi:"lakeformation"`
-	Lambda                 pulumi.StringPtrInput `pulumi:"lambda"`
-	Lexmodels              pulumi.StringPtrInput `pulumi:"lexmodels"`
-	Licensemanager         pulumi.StringPtrInput `pulumi:"licensemanager"`
-	Lightsail              pulumi.StringPtrInput `pulumi:"lightsail"`
-	Macie                  pulumi.StringPtrInput `pulumi:"macie"`
-	Managedblockchain      pulumi.StringPtrInput `pulumi:"managedblockchain"`
-	Marketplacecatalog     pulumi.StringPtrInput `pulumi:"marketplacecatalog"`
-	Mediaconnect           pulumi.StringPtrInput `pulumi:"mediaconnect"`
-	Mediaconvert           pulumi.StringPtrInput `pulumi:"mediaconvert"`
-	Medialive              pulumi.StringPtrInput `pulumi:"medialive"`
-	Mediapackage           pulumi.StringPtrInput `pulumi:"mediapackage"`
-	Mediastore             pulumi.StringPtrInput `pulumi:"mediastore"`
-	Mediastoredata         pulumi.StringPtrInput `pulumi:"mediastoredata"`
-	Mq                     pulumi.StringPtrInput `pulumi:"mq"`
-	Neptune                pulumi.StringPtrInput `pulumi:"neptune"`
-	Networkmanager         pulumi.StringPtrInput `pulumi:"networkmanager"`
-	Opsworks               pulumi.StringPtrInput `pulumi:"opsworks"`
-	Organizations          pulumi.StringPtrInput `pulumi:"organizations"`
-	Personalize            pulumi.StringPtrInput `pulumi:"personalize"`
-	Pinpoint               pulumi.StringPtrInput `pulumi:"pinpoint"`
-	Pricing                pulumi.StringPtrInput `pulumi:"pricing"`
-	Qldb                   pulumi.StringPtrInput `pulumi:"qldb"`
-	Quicksight             pulumi.StringPtrInput `pulumi:"quicksight"`
-	R53                    pulumi.StringPtrInput `pulumi:"r53"`
-	Ram                    pulumi.StringPtrInput `pulumi:"ram"`
-	Rds                    pulumi.StringPtrInput `pulumi:"rds"`
-	Redshift               pulumi.StringPtrInput `pulumi:"redshift"`
-	Resourcegroups         pulumi.StringPtrInput `pulumi:"resourcegroups"`
-	Route53                pulumi.StringPtrInput `pulumi:"route53"`
-	Route53domains         pulumi.StringPtrInput `pulumi:"route53domains"`
-	Route53resolver        pulumi.StringPtrInput `pulumi:"route53resolver"`
-	S3                     pulumi.StringPtrInput `pulumi:"s3"`
-	S3control              pulumi.StringPtrInput `pulumi:"s3control"`
-	Sagemaker              pulumi.StringPtrInput `pulumi:"sagemaker"`
-	Sdb                    pulumi.StringPtrInput `pulumi:"sdb"`
-	Secretsmanager         pulumi.StringPtrInput `pulumi:"secretsmanager"`
-	Securityhub            pulumi.StringPtrInput `pulumi:"securityhub"`
-	Serverlessrepo         pulumi.StringPtrInput `pulumi:"serverlessrepo"`
-	Servicecatalog         pulumi.StringPtrInput `pulumi:"servicecatalog"`
-	Servicediscovery       pulumi.StringPtrInput `pulumi:"servicediscovery"`
-	Servicequotas          pulumi.StringPtrInput `pulumi:"servicequotas"`
-	Ses                    pulumi.StringPtrInput `pulumi:"ses"`
-	Shield                 pulumi.StringPtrInput `pulumi:"shield"`
-	Sns                    pulumi.StringPtrInput `pulumi:"sns"`
-	Sqs                    pulumi.StringPtrInput `pulumi:"sqs"`
-	Ssm                    pulumi.StringPtrInput `pulumi:"ssm"`
-	Stepfunctions          pulumi.StringPtrInput `pulumi:"stepfunctions"`
-	Storagegateway         pulumi.StringPtrInput `pulumi:"storagegateway"`
-	Sts                    pulumi.StringPtrInput `pulumi:"sts"`
-	Swf                    pulumi.StringPtrInput `pulumi:"swf"`
-	Transfer               pulumi.StringPtrInput `pulumi:"transfer"`
-	Waf                    pulumi.StringPtrInput `pulumi:"waf"`
-	Wafregional            pulumi.StringPtrInput `pulumi:"wafregional"`
-	Wafv2                  pulumi.StringPtrInput `pulumi:"wafv2"`
-	Worklink               pulumi.StringPtrInput `pulumi:"worklink"`
-	Workmail               pulumi.StringPtrInput `pulumi:"workmail"`
-	Workspaces             pulumi.StringPtrInput `pulumi:"workspaces"`
-	Xray                   pulumi.StringPtrInput `pulumi:"xray"`
+	// Deprecated: use `endpoints` configuration block `kinesisanalytics` argument instead
+	KinesisAnalytics   pulumi.StringPtrInput `pulumi:"kinesisAnalytics"`
+	Kinesisanalytics   pulumi.StringPtrInput `pulumi:"kinesisanalytics"`
+	Kinesisanalyticsv2 pulumi.StringPtrInput `pulumi:"kinesisanalyticsv2"`
+	Kinesisvideo       pulumi.StringPtrInput `pulumi:"kinesisvideo"`
+	Kms                pulumi.StringPtrInput `pulumi:"kms"`
+	Lakeformation      pulumi.StringPtrInput `pulumi:"lakeformation"`
+	Lambda             pulumi.StringPtrInput `pulumi:"lambda"`
+	Lexmodels          pulumi.StringPtrInput `pulumi:"lexmodels"`
+	Licensemanager     pulumi.StringPtrInput `pulumi:"licensemanager"`
+	Lightsail          pulumi.StringPtrInput `pulumi:"lightsail"`
+	Macie              pulumi.StringPtrInput `pulumi:"macie"`
+	Managedblockchain  pulumi.StringPtrInput `pulumi:"managedblockchain"`
+	Marketplacecatalog pulumi.StringPtrInput `pulumi:"marketplacecatalog"`
+	Mediaconnect       pulumi.StringPtrInput `pulumi:"mediaconnect"`
+	Mediaconvert       pulumi.StringPtrInput `pulumi:"mediaconvert"`
+	Medialive          pulumi.StringPtrInput `pulumi:"medialive"`
+	Mediapackage       pulumi.StringPtrInput `pulumi:"mediapackage"`
+	Mediastore         pulumi.StringPtrInput `pulumi:"mediastore"`
+	Mediastoredata     pulumi.StringPtrInput `pulumi:"mediastoredata"`
+	Mq                 pulumi.StringPtrInput `pulumi:"mq"`
+	Neptune            pulumi.StringPtrInput `pulumi:"neptune"`
+	Networkmanager     pulumi.StringPtrInput `pulumi:"networkmanager"`
+	Opsworks           pulumi.StringPtrInput `pulumi:"opsworks"`
+	Organizations      pulumi.StringPtrInput `pulumi:"organizations"`
+	Personalize        pulumi.StringPtrInput `pulumi:"personalize"`
+	Pinpoint           pulumi.StringPtrInput `pulumi:"pinpoint"`
+	Pricing            pulumi.StringPtrInput `pulumi:"pricing"`
+	Qldb               pulumi.StringPtrInput `pulumi:"qldb"`
+	Quicksight         pulumi.StringPtrInput `pulumi:"quicksight"`
+	// Deprecated: use `endpoints` configuration block `route53` argument instead
+	R53              pulumi.StringPtrInput `pulumi:"r53"`
+	Ram              pulumi.StringPtrInput `pulumi:"ram"`
+	Rds              pulumi.StringPtrInput `pulumi:"rds"`
+	Redshift         pulumi.StringPtrInput `pulumi:"redshift"`
+	Resourcegroups   pulumi.StringPtrInput `pulumi:"resourcegroups"`
+	Route53          pulumi.StringPtrInput `pulumi:"route53"`
+	Route53domains   pulumi.StringPtrInput `pulumi:"route53domains"`
+	Route53resolver  pulumi.StringPtrInput `pulumi:"route53resolver"`
+	S3               pulumi.StringPtrInput `pulumi:"s3"`
+	S3control        pulumi.StringPtrInput `pulumi:"s3control"`
+	Sagemaker        pulumi.StringPtrInput `pulumi:"sagemaker"`
+	Sdb              pulumi.StringPtrInput `pulumi:"sdb"`
+	Secretsmanager   pulumi.StringPtrInput `pulumi:"secretsmanager"`
+	Securityhub      pulumi.StringPtrInput `pulumi:"securityhub"`
+	Serverlessrepo   pulumi.StringPtrInput `pulumi:"serverlessrepo"`
+	Servicecatalog   pulumi.StringPtrInput `pulumi:"servicecatalog"`
+	Servicediscovery pulumi.StringPtrInput `pulumi:"servicediscovery"`
+	Servicequotas    pulumi.StringPtrInput `pulumi:"servicequotas"`
+	Ses              pulumi.StringPtrInput `pulumi:"ses"`
+	Shield           pulumi.StringPtrInput `pulumi:"shield"`
+	Sns              pulumi.StringPtrInput `pulumi:"sns"`
+	Sqs              pulumi.StringPtrInput `pulumi:"sqs"`
+	Ssm              pulumi.StringPtrInput `pulumi:"ssm"`
+	Stepfunctions    pulumi.StringPtrInput `pulumi:"stepfunctions"`
+	Storagegateway   pulumi.StringPtrInput `pulumi:"storagegateway"`
+	Sts              pulumi.StringPtrInput `pulumi:"sts"`
+	Swf              pulumi.StringPtrInput `pulumi:"swf"`
+	Transfer         pulumi.StringPtrInput `pulumi:"transfer"`
+	Waf              pulumi.StringPtrInput `pulumi:"waf"`
+	Wafregional      pulumi.StringPtrInput `pulumi:"wafregional"`
+	Wafv2            pulumi.StringPtrInput `pulumi:"wafv2"`
+	Worklink         pulumi.StringPtrInput `pulumi:"worklink"`
+	Workmail         pulumi.StringPtrInput `pulumi:"workmail"`
+	Workspaces       pulumi.StringPtrInput `pulumi:"workspaces"`
+	Xray             pulumi.StringPtrInput `pulumi:"xray"`
 }
 
 func (EndpointsArgs) ElementType() reflect.Type {
@@ -714,6 +718,7 @@ func (o EndpointsOutput) Kinesis() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Kinesis }).(pulumi.StringPtrOutput)
 }
 
+// Deprecated: use `endpoints` configuration block `kinesisanalytics` argument instead
 func (o EndpointsOutput) KinesisAnalytics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.KinesisAnalytics }).(pulumi.StringPtrOutput)
 }
@@ -830,6 +835,7 @@ func (o EndpointsOutput) Quicksight() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Quicksight }).(pulumi.StringPtrOutput)
 }
 
+// Deprecated: use `endpoints` configuration block `route53` argument instead
 func (o EndpointsOutput) R53() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.R53 }).(pulumi.StringPtrOutput)
 }

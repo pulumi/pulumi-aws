@@ -8,24 +8,24 @@ import * as utilities from "../utilities";
 
 /**
  * Creates an Amazon CloudHSM v2 cluster.
- * 
+ *
  * For information about CloudHSM v2, see the
  * [AWS CloudHSM User Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html) and the [Amazon
  * CloudHSM API Reference][2].
- * 
+ *
  * > **NOTE:** CloudHSM can take up to several minutes to be set up.
  * Practically no single attribute can be updated except TAGS.
  * If you need to delete a cluster, you have to remove its HSM modules first.
  * To initialize cluster, you have to add an hsm instance to the cluster then sign CSR and upload it.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const available = pulumi.output(aws.getAvailabilityZones({ async: true }));
  * const cloudhsmV2Vpc = new aws.ec2.Vpc("cloudhsmV2Vpc", {
  *     cidrBlock: "10.0.0.0/16",
@@ -53,8 +53,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudhsm_v2_cluster.html.markdown.
  */
 export class Cluster extends pulumi.CustomResource {
     /**

@@ -6,35 +6,33 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SNS platform application resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Apple Push Notification Service (APNS)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const apnsApplication = new aws.sns.PlatformApplication("apnsApplication", {
  *     platform: "APNS",
  *     platformCredential: "<APNS PRIVATE KEY>",
  *     platformPrincipal: "<APNS CERTIFICATE>",
  * });
  * ```
- * 
+ *
  * ### Google Cloud Messaging (GCM)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const gcmApplication = new aws.sns.PlatformApplication("gcmApplication", {
  *     platform: "GCM",
  *     platformCredential: "<GCM API KEY>",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_platform_application.html.markdown.
  */
 export class PlatformApplication extends pulumi.CustomResource {
     /**

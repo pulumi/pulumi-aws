@@ -10,15 +10,15 @@ import {RecordType} from "./recordType";
 
 /**
  * Provides a Route53 record resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Simple routing policy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const www = new aws.route53.Record("www", {
  *     name: "www.example.com",
  *     records: [aws_eip_lb.publicIp],
@@ -27,13 +27,13 @@ import {RecordType} from "./recordType";
  *     zoneId: aws_route53_zone_primary.zoneId,
  * });
  * ```
- * 
+ *
  * ### Weighted routing policy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const wwwDev = new aws.route53.Record("www-dev", {
  *     name: "www",
  *     records: ["dev.example.com"],
@@ -57,13 +57,13 @@ import {RecordType} from "./recordType";
  *     zoneId: aws_route53_zone_primary.zoneId,
  * });
  * ```
- * 
+ *
  * ### Alias record
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.elb.LoadBalancer("main", {
  *     availabilityZones: ["us-east-1c"],
  *     listeners: [{
@@ -84,13 +84,13 @@ import {RecordType} from "./recordType";
  *     zoneId: aws_route53_zone_primary.zoneId,
  * });
  * ```
- * 
+ *
  * ### NS and SOA Record Management
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleZone = new aws.route53.Zone("example", {});
  * const exampleRecord = new aws.route53.Record("example", {
  *     allowOverwrite: true,
@@ -106,8 +106,6 @@ import {RecordType} from "./recordType";
  *     zoneId: exampleZone.zoneId,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_record.html.markdown.
  */
 export class Record extends pulumi.CustomResource {
     /**

@@ -8,26 +8,26 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AppSync GraphQL API.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### API Key Authentication
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "API_KEY",
  * });
  * ```
- * 
+ *
  * ### AWS Cognito User Pool Authentication
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "AMAZON_COGNITO_USER_POOLS",
  *     userPoolConfig: {
@@ -37,24 +37,24 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### AWS IAM Authentication
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "AWS_IAM",
  * });
  * ```
- * 
+ *
  * ### With Schema
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "AWS_IAM",
  *     schema: `schema {
@@ -66,13 +66,13 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- * 
+ *
  * ### OpenID Connect Authentication
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "OPENID_CONNECT",
  *     openidConnectConfig: {
@@ -80,13 +80,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### With Multiple Authentication Providers
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.appsync.GraphQLApi("example", {
  *     additionalAuthenticationProviders: [{
  *         authenticationType: "AWS_IAM",
@@ -94,13 +94,13 @@ import * as utilities from "../utilities";
  *     authenticationType: "API_KEY",
  * });
  * ```
- * 
+ *
  * ### Enabling Logging
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleRole = new aws.iam.Role("example", {
  *     assumeRolePolicy: `{
  *     "Version": "2012-10-17",
@@ -127,8 +127,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_graphql_api.html.markdown.
  */
 export class GraphQLApi extends pulumi.CustomResource {
     /**

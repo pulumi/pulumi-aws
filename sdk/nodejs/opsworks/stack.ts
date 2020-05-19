@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks stack resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.opsworks.Stack("main", {
  *     customJson: `{
  *  "foobar": {
@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_stack.html.markdown.
  */
 export class Stack extends pulumi.CustomResource {
     /**

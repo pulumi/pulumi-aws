@@ -9,42 +9,42 @@ import * as utilities from "../utilities";
 /**
  * Registers a custom domain name for use with AWS API Gateway. Additional information about this functionality
  * can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
- * 
+ *
  * This resource just establishes ownership of and the TLS settings for
  * a particular domain name. An API can be attached to a particular path
  * under the registered domain name using
  * the `aws.apigateway.BasePathMapping` resource.
- * 
+ *
  * API Gateway domains can be defined as either 'edge-optimized' or 'regional'.  In an edge-optimized configuration,
  * API Gateway internally creates and manages a CloudFront distribution to route requests on the given hostname. In
  * addition to this resource it's necessary to create a DNS record corresponding to the given domain name which is an alias
  * (either Route53 alias or traditional CNAME) to the Cloudfront domain name exported in the `cloudfrontDomainName`
  * attribute.
- * 
+ *
  * In a regional configuration, API Gateway does not create a CloudFront distribution to route requests to the API, though
  * a distribution can be created if needed. In either case, it is necessary to create a DNS record corresponding to the
  * given domain name which is an alias (either Route53 alias or traditional CNAME) to the regional domain name exported in
  * the `regionalDomainName` attribute.
- * 
+ *
  * > **Note:** API Gateway requires the use of AWS Certificate Manager (ACM) certificates instead of Identity and Access Management (IAM) certificates in regions that support ACM. Regions that support ACM can be found in the [Regions and Endpoints Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#acm_region). To import an existing private key and certificate into ACM or request an ACM certificate, see the [`aws.acm.Certificate` resource](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html).
- * 
+ *
  * > **Note:** The `aws.apigateway.DomainName` resource expects dependency on the `aws.acm.CertificateValidation` as 
  * only verified certificates can be used. This can be made either explicitly by adding the 
  * `dependsOn = [aws_acm_certificate_validation.cert]` attribute. Or implicitly by referring certificate ARN 
  * from the validation resource where it will be available after the resource creation: 
  * `regionalCertificateArn = aws_acm_certificate_validation.cert.certificate_arn`.
- * 
+ *
  * > **Note:** All arguments including the private key will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Edge Optimized (ACM Certificate)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleDomainName = new aws.apigateway.DomainName("example", {
  *     certificateArn: aws_acm_certificate_validation_example.certificateArn,
  *     domainName: "api.example.com",
@@ -62,14 +62,14 @@ import * as utilities from "../utilities";
  *     zoneId: aws_route53_zone_example.id,
  * });
  * ```
- * 
+ *
  * ### Edge Optimized (IAM Certificate)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const exampleDomainName = new aws.apigateway.DomainName("example", {
  *     certificateBody: fs.readFileSync(`./example.com/example.crt`, "utf-8"),
  *     certificateChain: fs.readFileSync(`./example.com/ca.crt`, "utf-8"),
@@ -90,13 +90,13 @@ import * as utilities from "../utilities";
  *     zoneId: aws_route53_zone_example.id, // See aws.route53.Zone for how to create this
  * });
  * ```
- * 
+ *
  * ### Regional (ACM Certificate)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleDomainName = new aws.apigateway.DomainName("example", {
  *     domainName: "api.example.com",
  *     endpointConfiguration: {
@@ -117,14 +117,14 @@ import * as utilities from "../utilities";
  *     zoneId: aws_route53_zone_example.id,
  * });
  * ```
- * 
+ *
  * ### Regional (IAM Certificate)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const exampleDomainName = new aws.apigateway.DomainName("example", {
  *     certificateBody: fs.readFileSync(`./example.com/example.crt`, "utf-8"),
  *     certificateChain: fs.readFileSync(`./example.com/ca.crt`, "utf-8"),
@@ -148,8 +148,6 @@ import * as utilities from "../utilities";
  *     zoneId: aws_route53_zone_example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_domain_name.html.markdown.
  */
 export class DomainName extends pulumi.CustomResource {
     /**

@@ -9,22 +9,20 @@ import * as utilities from "../utilities";
 /**
  * Manages an Amazon API Gateway Version 2 route.
  * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.apigatewayv2.Route("example", {
  *     apiId: aws_apigatewayv2_api_example.id,
  *     routeKey: "$default",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/apigatewayv2_route.html.markdown.
  */
 export class Route extends pulumi.CustomResource {
     /**

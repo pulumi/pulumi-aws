@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.ec2.CustomerGateway("main", {
  *     bgpAsn: 65000,
  *     ipAddress: "172.83.124.10",
@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  *     type: "ipsec.1",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/customer_gateway.html.markdown.
  */
 export class CustomerGateway extends pulumi.CustomResource {
     /**

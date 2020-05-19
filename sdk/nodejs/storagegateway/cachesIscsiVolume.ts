@@ -6,19 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an AWS Storage Gateway cached iSCSI volume.
- * 
+ *
  * > **NOTE:** The gateway must have cache added (e.g. via the [`aws.storagegateway.Cache`](https://www.terraform.io/docs/providers/aws/r/storagegateway_cache.html) resource) before creating volumes otherwise the Storage Gateway API will return an error.
- * 
+ *
  * > **NOTE:** The gateway must have an upload buffer added (e.g. via the [`aws.storagegateway.UploadBuffer`](https://www.terraform.io/docs/providers/aws/r/storagegateway_upload_buffer.html) resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `UPLOAD BUFFER NOT CONFIGURED`.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Create Empty Cached iSCSI Volume
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.storagegateway.CachesIscsiVolume("example", {
  *     gatewayArn: aws_storagegateway_cache_example.gatewayArn,
  *     networkInterfaceId: aws_instance_example.privateIp,
@@ -26,13 +26,13 @@ import * as utilities from "../utilities";
  *     volumeSizeInBytes: 5368709120, // 5 GB
  * });
  * ```
- * 
+ *
  * ### Create Cached iSCSI Volume From Snapshot
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.storagegateway.CachesIscsiVolume("example", {
  *     gatewayArn: aws_storagegateway_cache_example.gatewayArn,
  *     networkInterfaceId: aws_instance_example.privateIp,
@@ -41,13 +41,13 @@ import * as utilities from "../utilities";
  *     volumeSizeInBytes: aws_ebs_snapshot_example.volumeSize.apply(volumeSize => (((volumeSize * 1024) * 1024) * 1024)),
  * });
  * ```
- * 
+ *
  * ### Create Cached iSCSI Volume From Source Volume
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.storagegateway.CachesIscsiVolume("example", {
  *     gatewayArn: aws_storagegateway_cache_example.gatewayArn,
  *     networkInterfaceId: aws_instance_example.privateIp,
@@ -56,8 +56,6 @@ import * as utilities from "../utilities";
  *     volumeSizeInBytes: aws_storagegateway_cached_iscsi_volume_existing.volumeSizeInBytes,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_cached_iscsi_volume.html.markdown.
  */
 export class CachesIscsiVolume extends pulumi.CustomResource {
     /**

@@ -8,24 +8,22 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about an Elastic Beanstalk Application.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = pulumi.output(aws.elasticbeanstalk.getApplication({
  *     name: "example",
  * }, { async: true }));
- * 
+ *
  * export const arn = example.arn;
  * export const description = example.description;
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_application.html.markdown.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     if (!opts) {

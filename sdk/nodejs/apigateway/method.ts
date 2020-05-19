@@ -10,15 +10,15 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides a HTTP Method for an API Gateway Resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
  * });
@@ -34,16 +34,16 @@ import {RestApi} from "./restApi";
  *     restApi: myDemoAPI.id,
  * });
  * ```
- * 
+ *
  * ## Usage with Cognito User Pool Authorizer
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const cognitoUserPoolName = config.require("cognitoUserPoolName");
- * 
+ *
  * const thisUserPools = pulumi.output(aws.cognito.getUserPools({
  *     name: cognitoUserPoolName,
  * }, { async: true }));
@@ -69,8 +69,6 @@ import {RestApi} from "./restApi";
  *     restApi: thisRestApi.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method.html.markdown.
  */
 export class Method extends pulumi.CustomResource {
     /**

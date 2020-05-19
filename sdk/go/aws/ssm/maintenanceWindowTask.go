@@ -17,6 +17,8 @@ type MaintenanceWindowTask struct {
 	// The description of the maintenance window task.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
+	//
+	// Deprecated: use 'task_invocation_parameters' argument instead
 	LoggingInfo MaintenanceWindowTaskLoggingInfoPtrOutput `pulumi:"loggingInfo"`
 	// The maximum number of targets this task can be run for in parallel.
 	MaxConcurrency pulumi.StringOutput `pulumi:"maxConcurrency"`
@@ -35,6 +37,8 @@ type MaintenanceWindowTask struct {
 	// The parameters for task execution. This argument is conflict with `taskParameters` and `loggingInfo`.
 	TaskInvocationParameters MaintenanceWindowTaskTaskInvocationParametersPtrOutput `pulumi:"taskInvocationParameters"`
 	// A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
+	//
+	// Deprecated: use 'task_invocation_parameters' argument instead
 	TaskParameters MaintenanceWindowTaskTaskParameterArrayOutput `pulumi:"taskParameters"`
 	// The type of task being registered. The only allowed value is `RUN_COMMAND`.
 	TaskType pulumi.StringOutput `pulumi:"taskType"`
@@ -94,6 +98,8 @@ type maintenanceWindowTaskState struct {
 	// The description of the maintenance window task.
 	Description *string `pulumi:"description"`
 	// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
+	//
+	// Deprecated: use 'task_invocation_parameters' argument instead
 	LoggingInfo *MaintenanceWindowTaskLoggingInfo `pulumi:"loggingInfo"`
 	// The maximum number of targets this task can be run for in parallel.
 	MaxConcurrency *string `pulumi:"maxConcurrency"`
@@ -112,6 +118,8 @@ type maintenanceWindowTaskState struct {
 	// The parameters for task execution. This argument is conflict with `taskParameters` and `loggingInfo`.
 	TaskInvocationParameters *MaintenanceWindowTaskTaskInvocationParameters `pulumi:"taskInvocationParameters"`
 	// A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
+	//
+	// Deprecated: use 'task_invocation_parameters' argument instead
 	TaskParameters []MaintenanceWindowTaskTaskParameter `pulumi:"taskParameters"`
 	// The type of task being registered. The only allowed value is `RUN_COMMAND`.
 	TaskType *string `pulumi:"taskType"`
@@ -123,6 +131,8 @@ type MaintenanceWindowTaskState struct {
 	// The description of the maintenance window task.
 	Description pulumi.StringPtrInput
 	// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
+	//
+	// Deprecated: use 'task_invocation_parameters' argument instead
 	LoggingInfo MaintenanceWindowTaskLoggingInfoPtrInput
 	// The maximum number of targets this task can be run for in parallel.
 	MaxConcurrency pulumi.StringPtrInput
@@ -141,6 +151,8 @@ type MaintenanceWindowTaskState struct {
 	// The parameters for task execution. This argument is conflict with `taskParameters` and `loggingInfo`.
 	TaskInvocationParameters MaintenanceWindowTaskTaskInvocationParametersPtrInput
 	// A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
+	//
+	// Deprecated: use 'task_invocation_parameters' argument instead
 	TaskParameters MaintenanceWindowTaskTaskParameterArrayInput
 	// The type of task being registered. The only allowed value is `RUN_COMMAND`.
 	TaskType pulumi.StringPtrInput
@@ -156,6 +168,8 @@ type maintenanceWindowTaskArgs struct {
 	// The description of the maintenance window task.
 	Description *string `pulumi:"description"`
 	// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
+	//
+	// Deprecated: use 'task_invocation_parameters' argument instead
 	LoggingInfo *MaintenanceWindowTaskLoggingInfo `pulumi:"loggingInfo"`
 	// The maximum number of targets this task can be run for in parallel.
 	MaxConcurrency string `pulumi:"maxConcurrency"`
@@ -174,6 +188,8 @@ type maintenanceWindowTaskArgs struct {
 	// The parameters for task execution. This argument is conflict with `taskParameters` and `loggingInfo`.
 	TaskInvocationParameters *MaintenanceWindowTaskTaskInvocationParameters `pulumi:"taskInvocationParameters"`
 	// A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
+	//
+	// Deprecated: use 'task_invocation_parameters' argument instead
 	TaskParameters []MaintenanceWindowTaskTaskParameter `pulumi:"taskParameters"`
 	// The type of task being registered. The only allowed value is `RUN_COMMAND`.
 	TaskType string `pulumi:"taskType"`
@@ -186,6 +202,8 @@ type MaintenanceWindowTaskArgs struct {
 	// The description of the maintenance window task.
 	Description pulumi.StringPtrInput
 	// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
+	//
+	// Deprecated: use 'task_invocation_parameters' argument instead
 	LoggingInfo MaintenanceWindowTaskLoggingInfoPtrInput
 	// The maximum number of targets this task can be run for in parallel.
 	MaxConcurrency pulumi.StringInput
@@ -204,6 +222,8 @@ type MaintenanceWindowTaskArgs struct {
 	// The parameters for task execution. This argument is conflict with `taskParameters` and `loggingInfo`.
 	TaskInvocationParameters MaintenanceWindowTaskTaskInvocationParametersPtrInput
 	// A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
+	//
+	// Deprecated: use 'task_invocation_parameters' argument instead
 	TaskParameters MaintenanceWindowTaskTaskParameterArrayInput
 	// The type of task being registered. The only allowed value is `RUN_COMMAND`.
 	TaskType pulumi.StringInput

@@ -11,15 +11,15 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides an API Gateway Stage.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testRestApi = new aws.apigateway.RestApi("test", {
  *     description: "This is my API for demonstration purposes",
  * });
@@ -59,16 +59,16 @@ import {RestApi} from "./restApi";
  *     stageName: testStage.stageName,
  * });
  * ```
- * 
+ *
  * ### Managing the API Logging CloudWatch Log Group
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const stageName = config.get("stageName") || "example";
- * 
+ *
  * const exampleRestApi = new aws.apigateway.RestApi("example", {});
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {
  *     retentionInDays: 7,
@@ -77,8 +77,6 @@ import {RestApi} from "./restApi";
  *     name: stageName,
  * }, { dependsOn: [exampleLogGroup] });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_stage.html.markdown.
  */
 export class Stage extends pulumi.CustomResource {
     /**

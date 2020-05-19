@@ -495,6 +495,8 @@ type UserPoolAdminCreateUserConfig struct {
 	// The invite message template structure.
 	InviteMessageTemplate *UserPoolAdminCreateUserConfigInviteMessageTemplate `pulumi:"inviteMessageTemplate"`
 	// **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
+	//
+	// Deprecated: Use password_policy.temporary_password_validity_days instead
 	UnusedAccountValidityDays *int `pulumi:"unusedAccountValidityDays"`
 }
 
@@ -516,6 +518,8 @@ type UserPoolAdminCreateUserConfigArgs struct {
 	// The invite message template structure.
 	InviteMessageTemplate UserPoolAdminCreateUserConfigInviteMessageTemplatePtrInput `pulumi:"inviteMessageTemplate"`
 	// **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
+	//
+	// Deprecated: Use password_policy.temporary_password_validity_days instead
 	UnusedAccountValidityDays pulumi.IntPtrInput `pulumi:"unusedAccountValidityDays"`
 }
 
@@ -610,6 +614,8 @@ func (o UserPoolAdminCreateUserConfigOutput) InviteMessageTemplate() UserPoolAdm
 }
 
 // **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
+//
+// Deprecated: Use password_policy.temporary_password_validity_days instead
 func (o UserPoolAdminCreateUserConfigOutput) UnusedAccountValidityDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserPoolAdminCreateUserConfig) *int { return v.UnusedAccountValidityDays }).(pulumi.IntPtrOutput)
 }
@@ -653,6 +659,8 @@ func (o UserPoolAdminCreateUserConfigPtrOutput) InviteMessageTemplate() UserPool
 }
 
 // **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
+//
+// Deprecated: Use password_policy.temporary_password_validity_days instead
 func (o UserPoolAdminCreateUserConfigPtrOutput) UnusedAccountValidityDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPoolAdminCreateUserConfig) *int {
 		if v == nil {

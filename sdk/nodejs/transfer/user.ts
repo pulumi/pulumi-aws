@@ -8,12 +8,12 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the [`aws.transfer.SshKey` resource](https://www.terraform.io/docs/providers/aws/r/transfer_ssh_key.html).
- * 
- * 
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const fooServer = new aws.transfer.Server("foo", {
  *     identityProviderType: "SERVICE_MANAGED",
  *     tags: {
@@ -58,8 +58,6 @@ import * as utilities from "../utilities";
  *     userName: "tftestuser",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/transfer_user.html.markdown.
  */
 export class User extends pulumi.CustomResource {
     /**

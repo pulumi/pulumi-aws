@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Pinpoint App resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.pinpoint.App("example", {
  *     limits: {
  *         maximumDuration: 600,
@@ -27,8 +27,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_app.markdown.
  */
 export class App extends pulumi.CustomResource {
     /**

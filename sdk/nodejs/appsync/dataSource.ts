@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AppSync DataSource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleTable = new aws.dynamodb.Table("example", {
  *     attributes: [{
  *         name: "UserId",
@@ -71,8 +71,6 @@ import * as utilities from "../utilities";
  *     type: "AMAZON_DYNAMODB",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_datasource.html.markdown.
  */
 export class DataSource extends pulumi.CustomResource {
     /**

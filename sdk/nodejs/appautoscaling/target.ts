@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the [`aws.appautoscaling.Policy` resource](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html).
- * 
+ *
  * > **NOTE:** The [Application Auto Scaling service automatically attempts to manage IAM Service-Linked Roles](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) when registering certain service namespaces for the first time. To manually manage this role, see the [`aws.iam.ServiceLinkedRole` resource](https://www.terraform.io/docs/providers/aws/r/iam_service_linked_role.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### DynamoDB Table Autoscaling
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const dynamodbTableReadTarget = new aws.appautoscaling.Target("dynamodbTableReadTarget", {
  *     maxCapacity: 100,
  *     minCapacity: 5,
@@ -27,13 +27,13 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "dynamodb",
  * });
  * ```
- * 
+ *
  * ### DynamoDB Index Autoscaling
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const dynamodbIndexReadTarget = new aws.appautoscaling.Target("dynamodbIndexReadTarget", {
  *     maxCapacity: 100,
  *     minCapacity: 5,
@@ -42,13 +42,13 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "dynamodb",
  * });
  * ```
- * 
+ *
  * ### ECS Service Autoscaling
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ecsTarget = new aws.appautoscaling.Target("ecsTarget", {
  *     maxCapacity: 4,
  *     minCapacity: 1,
@@ -57,13 +57,13 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "ecs",
  * });
  * ```
- * 
+ *
  * ### Aurora Read Replica Autoscaling
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const replicas = new aws.appautoscaling.Target("replicas", {
  *     maxCapacity: 15,
  *     minCapacity: 1,
@@ -72,8 +72,6 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "rds",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appautoscaling_target.html.markdown.
  */
 export class Target extends pulumi.CustomResource {
     /**

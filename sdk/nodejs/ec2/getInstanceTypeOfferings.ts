@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Information about EC2 Instance Type Offerings.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = pulumi.output(aws.ec2.getInstanceTypeOfferings({
  *     filters: [
  *         {
@@ -34,8 +34,6 @@ import * as utilities from "../utilities";
  *     locationType: "availability-zone-id",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_instance_type_offerings.html.markdown.
  */
 export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingsResult> {
     args = args || {};

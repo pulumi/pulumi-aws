@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a SageMaker model resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const model = new aws.sagemaker.Model("m", {
  *     executionRoleArn: aws_iam_role_foo.arn,
  *     primaryContainer: {
@@ -36,8 +36,6 @@ import * as utilities from "../utilities";
  *     assumeRolePolicy: assumeRole.json,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_model.html.markdown.
  */
 export class Model extends pulumi.CustomResource {
     /**

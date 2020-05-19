@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testRole = new aws.iam.Role("testRole", {
  *     assumeRolePolicy: `  {
  *     "Version": "2012-10-17",
@@ -36,8 +36,6 @@ import * as utilities from "../utilities";
  *     registrationLimit: 5,
  * }, { dependsOn: [testAttach] });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_activation.html.markdown.
  */
 export class Activation extends pulumi.CustomResource {
     /**

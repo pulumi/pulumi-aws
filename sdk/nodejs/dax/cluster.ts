@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DAX Cluster resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bar = new aws.dax.Cluster("bar", {
  *     clusterName: "cluster-example",
  *     iamRoleArn: aws_iam_role_example.arn,
@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  *     replicationFactor: 1,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_cluster.html.markdown.
  */
 export class Cluster extends pulumi.CustomResource {
     /**

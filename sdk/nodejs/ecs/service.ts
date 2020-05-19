@@ -8,19 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * > **Note:** To prevent a race condition during service deletion, make sure to set `dependsOn` to the related `aws.iam.RolePolicy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
- * 
+ *
  * Provides an ECS service - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
- * 
+ *
  * See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mongo = new aws.ecs.Service("mongo", {
  *     cluster: aws_ecs_cluster.foo.id,
  *     taskDefinition: aws_ecs_task_definition.mongo.arn,
@@ -41,33 +41,31 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ### Ignoring Changes to Desired Count
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ecs.Service("example", {
  *     // Example: Create service with 2 instances to start
  *     desiredCount: 2,
  * }, { ignoreChanges: ["desiredCount"] });
  * ```
- * 
+ *
  * ### Daemon Scheduling Strategy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bar = new aws.ecs.Service("bar", {
  *     cluster: aws_ecs_cluster_foo.id,
  *     schedulingStrategy: "DAEMON",
  *     taskDefinition: aws_ecs_task_definition_bar.arn,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_service.html.markdown.
  */
 export class Service extends pulumi.CustomResource {
     /**

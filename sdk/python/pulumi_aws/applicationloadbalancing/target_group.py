@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("aws.applicationloadbalancing.TargetGroup has been deprecated in favour of aws.alb.TargetGroup", DeprecationWarning)
+warnings.warn("aws.applicationloadbalancing.TargetGroup has been deprecated in favor of aws.alb.TargetGroup", DeprecationWarning)
 class TargetGroup(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -94,7 +94,7 @@ class TargetGroup(pulumi.CustomResource):
     """
     The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
     """
-    warnings.warn("aws.applicationloadbalancing.TargetGroup has been deprecated in favour of aws.alb.TargetGroup", DeprecationWarning)
+    warnings.warn("aws.applicationloadbalancing.TargetGroup has been deprecated in favor of aws.alb.TargetGroup", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, deregistration_delay=None, health_check=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, name=None, name_prefix=None, port=None, protocol=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Target Group resource for use with Load Balancer resources.
@@ -140,8 +140,6 @@ class TargetGroup(pulumi.CustomResource):
         ```
 
 
-        Deprecated: aws.applicationloadbalancing.TargetGroup has been deprecated in favour of aws.alb.TargetGroup
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] deregistration_delay: The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
@@ -182,7 +180,7 @@ class TargetGroup(pulumi.CustomResource):
           * `enabled` (`pulumi.Input[bool]`) - Indicates whether  health checks are enabled. Defaults to true.
           * `type` (`pulumi.Input[str]`) - The type of sticky sessions. The only current possible value is `lb_cookie`.
         """
-        pulumi.log.warn("TargetGroup is deprecated: aws.applicationloadbalancing.TargetGroup has been deprecated in favour of aws.alb.TargetGroup")
+        pulumi.log.warn("TargetGroup is deprecated: aws.applicationloadbalancing.TargetGroup has been deprecated in favor of aws.alb.TargetGroup")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
- * 
+ *
  * > **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const cloudwatchRole = new aws.iam.Role("cloudwatch", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -61,8 +61,6 @@ import * as utilities from "../utilities";
  *     role: cloudwatchRole.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_account.html.markdown.
  */
 export class Account extends pulumi.CustomResource {
     /**

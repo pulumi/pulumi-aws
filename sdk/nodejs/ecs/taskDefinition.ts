@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a revision of an ECS task definition to be used in `aws.ecs.Service`.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### With AppMesh Proxy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * from "fs";
- * 
+ *
  * const service = new aws.ecs.TaskDefinition("service", {
  *     family: "service",
  *     containerDefinitions: fs.readFileSync("task-definitions/service.json"),
@@ -34,8 +34,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_task_definition.html.markdown.
  */
 export class TaskDefinition extends pulumi.CustomResource {
     /**

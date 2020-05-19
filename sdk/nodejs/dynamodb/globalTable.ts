@@ -8,19 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Manages [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html). These are layered on top of existing DynamoDB Tables.
- * 
+ *
  * > **NOTE:** To instead manage [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html), use the [`aws.dynamodb.Table` resource](https://www.terraform.io/docs/providers/aws/r/dynamodb_table.html) `replica` configuration block.
- * 
+ *
  * > Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const usEast1 = new aws.Provider("us-east-1", {
  *     region: "us-east-1",
  * });
@@ -60,8 +60,6 @@ import * as utilities from "../utilities";
  *     ],
  * }, { provider: us_east_1, dependsOn: [us_east_1Table, us_west_2Table] });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_global_table.html.markdown.
  */
 export class GlobalTable extends pulumi.CustomResource {
     /**

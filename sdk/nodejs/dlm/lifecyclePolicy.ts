@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const dlmLifecycleRole = new aws.iam.Role("dlmLifecycleRole", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -86,8 +86,6 @@ import * as utilities from "../utilities";
  *     state: "ENABLED",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dlm_lifecycle_policy.markdown.
  */
 export class LifecyclePolicy extends pulumi.CustomResource {
     /**

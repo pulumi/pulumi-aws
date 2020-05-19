@@ -13,12 +13,8 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// Provides a Target Group resource for use with Load Balancer resources.
     /// 
     /// &gt; **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
-    /// 
-    /// 
-    /// 
-    /// Deprecated: aws.elasticloadbalancingv2.TargetGroup has been deprecated in favour of aws.lb.TargetGroup
     /// </summary>
-    [Obsolete(@"aws.elasticloadbalancingv2.TargetGroup has been deprecated in favour of aws.lb.TargetGroup")]
+    [Obsolete(@"aws.elasticloadbalancingv2.TargetGroup has been deprecated in favor of aws.lb.TargetGroup")]
     public partial class TargetGroup : Pulumi.CustomResource
     {
         /// <summary>

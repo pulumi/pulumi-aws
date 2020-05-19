@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a MediaStore Container Policy.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const currentRegion = pulumi.output(aws.getRegion({ async: true }));
  * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({ async: true }));
  * const exampleContainer = new aws.mediastore.Container("example", {});
@@ -36,8 +36,6 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/media_store_container_policy.html.markdown.
  */
 export class ContainerPolicy extends pulumi.CustomResource {
     /**

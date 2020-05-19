@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Amazon API Gateway Version 2 [model](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-models).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.apigatewayv2.Model("example", {
  *     apiId: aws_apigatewayv2_api_example.id,
  *     contentType: "application/json",
@@ -31,8 +31,6 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/apigatewayv2_model.html.markdown.
  */
 export class Model extends pulumi.CustomResource {
     /**

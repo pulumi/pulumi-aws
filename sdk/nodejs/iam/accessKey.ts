@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const lbUser = new aws.iam.User("lb", {
  *     path: "/system/",
  * });
@@ -38,11 +38,9 @@ import * as utilities from "../utilities";
  * `,
  *     user: lbUser.name,
  * });
- * 
+ *
  * export const secret = lbAccessKey.encryptedSecret;
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_access_key.html.markdown.
  */
 export class AccessKey extends pulumi.CustomResource {
     /**
@@ -193,7 +191,6 @@ export interface AccessKeyState {
     /**
      * **DEPRECATED** The secret access key converted into an SES SMTP
      * password by applying [AWS's documented conversion
-     * 
      * @deprecated AWS SigV2 for SES SMTP passwords isy deprecated.
 Use 'ses_smtp_password_v4' for region-specific AWS SigV4 signed SES SMTP password instead.
      */

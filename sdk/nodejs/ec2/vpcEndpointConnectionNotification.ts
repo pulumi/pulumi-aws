@@ -9,15 +9,15 @@ import * as utilities from "../utilities";
 /**
  * Provides a VPC Endpoint connection notification resource.
  * Connection notifications notify subscribers of VPC Endpoint events.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const topic = new aws.sns.Topic("topic", {
  *     policy: `{
  *     "Version":"2012-10-17",
@@ -45,8 +45,6 @@ import * as utilities from "../utilities";
  *     vpcEndpointServiceId: fooVpcEndpointService.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_connection_notification.html.markdown.
  */
 export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
     /**

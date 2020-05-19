@@ -9,15 +9,15 @@ import * as utilities from "../utilities";
 /**
  * The VPC Peering Connection data source provides details about
  * a specific VPC peering connection.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Declare the data source
  * const pc = aws_vpc_foo.id.apply(id => aws.ec2.getVpcPeeringConnection({
  *     peerCidrBlock: "10.0.1.0/22",
@@ -34,8 +34,6 @@ import * as utilities from "../utilities";
  *     vpcPeeringConnectionId: pc.id!,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_peering_connection.html.markdown.
  */
 export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcPeeringConnectionResult> {
     args = args || {};

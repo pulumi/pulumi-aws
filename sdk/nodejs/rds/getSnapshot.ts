@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a DB Snapshot for use when provisioning DB instances
- * 
+ *
  * > **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
  * See the [`aws.rds.ClusterSnapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_cluster_snapshot.html) for DB Cluster snapshots.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const prod = new aws.rds.Instance("prod", {
  *     allocatedStorage: 10,
  *     dbSubnetGroupName: "myDatabaseSubnetGroup",
@@ -42,8 +42,6 @@ import * as utilities from "../utilities";
  *     snapshotIdentifier: latestProdSnapshot.id,
  * }, { ignoreChanges: ["snapshotIdentifier"] });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_snapshot.html.markdown.
  */
 export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     args = args || {};

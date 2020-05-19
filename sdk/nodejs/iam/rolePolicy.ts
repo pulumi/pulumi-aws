@@ -9,15 +9,15 @@ import {Role} from "./role";
 
 /**
  * Provides an IAM role inline policy.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -49,8 +49,6 @@ import {Role} from "./role";
  * `,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role_policy.html.markdown.
  */
 export class RolePolicy extends pulumi.CustomResource {
     /**

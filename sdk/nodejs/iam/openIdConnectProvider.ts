@@ -6,23 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an IAM OpenID Connect provider.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultOpenIdConnectProvider = new aws.iam.OpenIdConnectProvider("default", {
  *     clientIdLists: ["266362248691-342342xasdasdasda-apps.googleusercontent.com"],
  *     thumbprintLists: [],
  *     url: "https://accounts.google.com",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_openid_connect_provider.html.markdown.
  */
 export class OpenIdConnectProvider extends pulumi.CustomResource {
     /**

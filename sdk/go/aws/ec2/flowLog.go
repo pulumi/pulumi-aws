@@ -26,6 +26,8 @@ type FlowLog struct {
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringOutput `pulumi:"logFormat"`
 	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+	//
+	// Deprecated: use 'log_destination' argument instead
 	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
@@ -84,6 +86,8 @@ type flowLogState struct {
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat *string `pulumi:"logFormat"`
 	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+	//
+	// Deprecated: use 'log_destination' argument instead
 	LogGroupName *string `pulumi:"logGroupName"`
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
@@ -112,6 +116,8 @@ type FlowLogState struct {
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringPtrInput
 	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+	//
+	// Deprecated: use 'log_destination' argument instead
 	LogGroupName pulumi.StringPtrInput
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
@@ -144,6 +150,8 @@ type flowLogArgs struct {
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat *string `pulumi:"logFormat"`
 	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+	//
+	// Deprecated: use 'log_destination' argument instead
 	LogGroupName *string `pulumi:"logGroupName"`
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
@@ -173,6 +181,8 @@ type FlowLogArgs struct {
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringPtrInput
 	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+	//
+	// Deprecated: use 'log_destination' argument instead
 	LogGroupName pulumi.StringPtrInput
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow

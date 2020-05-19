@@ -9,8 +9,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-//
-// Deprecated: aws.ses.ConfgurationSet has been deprecated in favour of aws.ses.ConfigurationSet
+// Deprecated: aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet
 type ConfgurationSet struct {
 	pulumi.CustomResourceState
 

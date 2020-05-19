@@ -32,6 +32,9 @@ type AccessKey struct {
 	Secret pulumi.StringOutput `pulumi:"secret"`
 	// **DEPRECATED** The secret access key converted into an SES SMTP
 	// password by applying [AWS's documented conversion
+	//
+	// Deprecated: AWS SigV2 for SES SMTP passwords isy deprecated.
+	// Use 'ses_smtp_password_v4' for region-specific AWS SigV4 signed SES SMTP password instead.
 	SesSmtpPassword pulumi.StringOutput `pulumi:"sesSmtpPassword"`
 	// The secret access key converted into an SES SMTP
 	// password by applying [AWS's documented Sigv4 conversion
@@ -94,6 +97,9 @@ type accessKeyState struct {
 	Secret *string `pulumi:"secret"`
 	// **DEPRECATED** The secret access key converted into an SES SMTP
 	// password by applying [AWS's documented conversion
+	//
+	// Deprecated: AWS SigV2 for SES SMTP passwords isy deprecated.
+	// Use 'ses_smtp_password_v4' for region-specific AWS SigV4 signed SES SMTP password instead.
 	SesSmtpPassword *string `pulumi:"sesSmtpPassword"`
 	// The secret access key converted into an SES SMTP
 	// password by applying [AWS's documented Sigv4 conversion
@@ -126,6 +132,9 @@ type AccessKeyState struct {
 	Secret pulumi.StringPtrInput
 	// **DEPRECATED** The secret access key converted into an SES SMTP
 	// password by applying [AWS's documented conversion
+	//
+	// Deprecated: AWS SigV2 for SES SMTP passwords isy deprecated.
+	// Use 'ses_smtp_password_v4' for region-specific AWS SigV4 signed SES SMTP password instead.
 	SesSmtpPassword pulumi.StringPtrInput
 	// The secret access key converted into an SES SMTP
 	// password by applying [AWS's documented Sigv4 conversion

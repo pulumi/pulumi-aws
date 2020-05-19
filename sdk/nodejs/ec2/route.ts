@@ -8,34 +8,34 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create a routing table entry (a route) in a VPC routing table.
- * 
+ *
  * > **NOTE on Route Tables and Routes:** This provider currently
  * provides both a standalone Route resource and a Route Table resource with routes
  * defined in-line. At this time you cannot use a Route Table with in-line routes
  * in conjunction with any Route resources. Doing so will cause
  * a conflict of rule settings and will overwrite rules.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const route = new aws.ec2.Route("route", {
  *     routeTableId: "rtb-4fbb3ac4",
  *     destinationCidrBlock: "10.0.1.0/22",
  *     vpcPeeringConnectionId: "pcx-45ff3dc1",
  * });
  * ```
- * 
+ *
  * ## Example IPv6 Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const vpc = new aws.ec2.Vpc("vpc", {
  *     assignGeneratedIpv6CidrBlock: true,
  *     cidrBlock: "10.1.0.0/16",
@@ -49,8 +49,6 @@ import * as utilities from "../utilities";
  *     routeTableId: "rtb-4fbb3ac4",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route.html.markdown.
  */
 export class Route extends pulumi.CustomResource {
     /**
