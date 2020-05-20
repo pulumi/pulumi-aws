@@ -42,6 +42,12 @@ To use from Go, use `go get` to grab the latest version of the library
 
     $ go get github.com/pulumi/pulumi-aws/sdk/go/...
 
+### .NET
+
+To use from .NET, install using `dotnet add package`:
+
+    $ dotnet add package Pulumi.Aws
+
 ## Concepts
 
 The `@pulumi/aws` package provides a strongly-typed means to create cloud applications that create and interact closely
@@ -63,12 +69,5 @@ of this underlying capability.
 
 ## Reference
 
-For detailed reference documentation, please visit [the API docs](
-https://pulumi.io/reference/pkg/nodejs/@pulumi/aws/index.html).
-
-## Updating this provider
-
-The AWS Resource Provider for Pulumi is based on the Terraform Provider for
-AWS. Instructions for keeping it up to date are available [here][updating].
-
-[updating]: https://github.com/pulumi/pulumi-terraform/wiki/Updating-Pulumi-Providers-Backed-By-Terraform-Providers
+For further information, please visit [the AWS provider docs](https://www.pulumi.com/docs/intro/cloud-providers/aws)
+or for detailed reference documentation, please visit [the API docs](https://www.pulumi.com/docs/reference/pkg/aws).
