@@ -259,6 +259,10 @@ func TestAccServerlessFunctions(t *testing.T) {
 			Dir:           path.Join(getCwd(t), "serverless_functions"),
 			RunUpdateTest: true,
 			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+				// Since we are relying on the AWS credentials file locally, we need to
+				// force this to be used.
+				os.Setenv("AWS_SDK_LOAD_CONFIG", "1")
+
 				cfg := &aws.Config{
 					Region: aws.String("us-west-2"),
 				}
