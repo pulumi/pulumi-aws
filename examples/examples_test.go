@@ -259,6 +259,10 @@ func TestAccServerlessFunctions(t *testing.T) {
 			Dir:           path.Join(getCwd(t), "serverless_functions"),
 			RunUpdateTest: true,
 			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+				t.Log("Creating AWS client using default credential chain.")
+				t.Logf("AWS_ACCESS_KEY_ID=%q", os.Getenv("AWS_ACCESS_KEY_ID"))
+				t.Logf("AWS_PROFILE=%q", os.Getenv("AWS_PROFILE"))
+
 				cfg := &aws.Config{
 					Region: aws.String("us-west-2"),
 				}
