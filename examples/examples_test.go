@@ -259,9 +259,9 @@ func TestAccServerlessFunctions(t *testing.T) {
 			Dir:           path.Join(getCwd(t), "serverless_functions"),
 			RunUpdateTest: true,
 			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-				t.Log("Creating AWS client using default credential chain.")
-				t.Logf("AWS_ACCESS_KEY_ID=%q", os.Getenv("AWS_ACCESS_KEY_ID"))
-				t.Logf("AWS_PROFILE=%q", os.Getenv("AWS_PROFILE"))
+				// Since we are relying on the AWS credentials file locally, we need to
+				// force this to be used.
+				os.Setenv("AWS_SDK_LOAD_CONFIG", "1")
 
 				cfg := &aws.Config{
 					Region: aws.String("us-west-2"),
