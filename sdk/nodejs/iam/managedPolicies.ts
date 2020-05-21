@@ -201,6 +201,7 @@ export module ManagedPolicies {
     export const AmazonRDSDirectoryServiceAccess: ARN = "arn:aws:iam::aws:policy/service-role/AmazonRDSDirectoryServiceAccess";
     export const AmazonRDSEnhancedMonitoringRole: ARN = "arn:aws:iam::aws:policy/service-role/AmazonRDSEnhancedMonitoringRole";
     export const AmazonRDSFullAccess: ARN = "arn:aws:iam::aws:policy/AmazonRDSFullAccess";
+    export const AmazonRDSDataFullAccess: ARN = "arn:aws:iam::aws:policy/AmazonRDSDataFullAccess";
     export const AmazonRDSReadOnlyAccess: ARN = "arn:aws:iam::aws:policy/AmazonRDSReadOnlyAccess";
     export const AmazonRedshiftFullAccess: ARN = "arn:aws:iam::aws:policy/AmazonRedshiftFullAccess";
     export const AmazonRedshiftReadOnlyAccess: ARN = "arn:aws:iam::aws:policy/AmazonRedshiftReadOnlyAccess";
