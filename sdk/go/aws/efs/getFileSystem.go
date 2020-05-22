@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides information about an Elastic File System (EFS).
+// Provides information about an Elastic File System (EFS) File System.
 func LookupFileSystem(ctx *pulumi.Context, args *LookupFileSystemArgs, opts ...pulumi.InvokeOption) (*LookupFileSystemResult, error) {
 	var rv LookupFileSystemResult
 	err := ctx.Invoke("aws:efs/getFileSystem:getFileSystem", args, &rv, opts...)

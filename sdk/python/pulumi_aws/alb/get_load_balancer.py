@@ -13,7 +13,7 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, dns_name=None, drop_invalid_header_fields=None, enable_deletion_protection=None, id=None, idle_timeout=None, internal=None, load_balancer_type=None, name=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, zone_id=None):
+    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, dns_name=None, drop_invalid_header_fields=None, enable_deletion_protection=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, zone_id=None):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError("Expected argument 'access_logs' to be a dict")
         __self__.access_logs = access_logs
@@ -44,6 +44,9 @@ class GetLoadBalancerResult:
         if internal and not isinstance(internal, bool):
             raise TypeError("Expected argument 'internal' to be a bool")
         __self__.internal = internal
+        if ip_address_type and not isinstance(ip_address_type, str):
+            raise TypeError("Expected argument 'ip_address_type' to be a str")
+        __self__.ip_address_type = ip_address_type
         if load_balancer_type and not isinstance(load_balancer_type, str):
             raise TypeError("Expected argument 'load_balancer_type' to be a str")
         __self__.load_balancer_type = load_balancer_type
@@ -83,6 +86,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             id=self.id,
             idle_timeout=self.idle_timeout,
             internal=self.internal,
+            ip_address_type=self.ip_address_type,
             load_balancer_type=self.load_balancer_type,
             name=self.name,
             security_groups=self.security_groups,
@@ -148,6 +152,7 @@ def get_load_balancer(arn=None,name=None,tags=None,opts=None):
         id=__ret__.get('id'),
         idle_timeout=__ret__.get('idleTimeout'),
         internal=__ret__.get('internal'),
+        ip_address_type=__ret__.get('ipAddressType'),
         load_balancer_type=__ret__.get('loadBalancerType'),
         name=__ret__.get('name'),
         security_groups=__ret__.get('securityGroups'),

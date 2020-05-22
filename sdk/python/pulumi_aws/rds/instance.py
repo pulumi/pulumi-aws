@@ -63,10 +63,9 @@ class Instance(pulumi.CustomResource):
     character_set_name: pulumi.Output[str]
     """
     The character set name to use for DB
-    encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
-    Supported in Amazon
-    RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-    for more information.
+    encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+    Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+    or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
     """
     copy_tags_to_snapshot: pulumi.Output[bool]
     """
@@ -245,7 +244,9 @@ class Instance(pulumi.CustomResource):
     """
     Specifies that this resource is a Replicate
     database, and to use this value as the source database. This correlates to the
-    `identifier` of another Amazon RDS Database to replicate. Note that if you are
+    `identifier` of another Amazon RDS Database to replicate (if replicating within
+    a single region) or ARN of the Amazon RDS Database to replicate (if replicating
+    cross-region). Note that if you are
     creating a cross-region replica of an encrypted database you will also need to
     specify a `kms_key_id`. See [DB Instance Replication][1] and [Working with
     PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
@@ -406,10 +407,9 @@ class Instance(pulumi.CustomResource):
                not overlap with `maintenance_window`.
         :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] character_set_name: The character set name to use for DB
-               encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
-               Supported in Amazon
-               RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-               for more information.
+               encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+               Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+               or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] db_subnet_group_name: Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
                be created in the VPC associated with the DB subnet group. If unspecified, will
@@ -482,7 +482,9 @@ class Instance(pulumi.CustomResource):
                accessible. Default is `false`.
         :param pulumi.Input[str] replicate_source_db: Specifies that this resource is a Replicate
                database, and to use this value as the source database. This correlates to the
-               `identifier` of another Amazon RDS Database to replicate. Note that if you are
+               `identifier` of another Amazon RDS Database to replicate (if replicating within
+               a single region) or ARN of the Amazon RDS Database to replicate (if replicating
+               cross-region). Note that if you are
                creating a cross-region replica of an encrypted database you will also need to
                specify a `kms_key_id`. See [DB Instance Replication][1] and [Working with
                PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
@@ -638,10 +640,9 @@ class Instance(pulumi.CustomResource):
                not overlap with `maintenance_window`.
         :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] character_set_name: The character set name to use for DB
-               encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
-               Supported in Amazon
-               RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-               for more information.
+               encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+               Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+               or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] db_subnet_group_name: Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
                be created in the VPC associated with the DB subnet group. If unspecified, will
@@ -717,7 +718,9 @@ class Instance(pulumi.CustomResource):
                accessible. Default is `false`.
         :param pulumi.Input[str] replicate_source_db: Specifies that this resource is a Replicate
                database, and to use this value as the source database. This correlates to the
-               `identifier` of another Amazon RDS Database to replicate. Note that if you are
+               `identifier` of another Amazon RDS Database to replicate (if replicating within
+               a single region) or ARN of the Amazon RDS Database to replicate (if replicating
+               cross-region). Note that if you are
                creating a cross-region replica of an encrypted database you will also need to
                specify a `kms_key_id`. See [DB Instance Replication][1] and [Working with
                PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)

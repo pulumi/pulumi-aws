@@ -143,6 +143,13 @@ def get_policy_document(override_json=None,policy_id=None,source_json=None,state
                 "identifiers": [var["trusted_role_arn"]],
                 "type": "AWS",
             },
+            {
+                "identifiers": [
+                    f"arn:aws:iam::{var['account_id']}:saml-provider/{var['provider_name']}",
+                    "cognito-identity.amazonaws.com",
+                ],
+                "type": "Federated",
+            },
         ],
     }])
     ```
@@ -280,8 +287,8 @@ def get_policy_document(override_json=None,policy_id=None,source_json=None,state
       * `notPrincipals` (`list`) - Like `principals` except gives resources that
         the statement does *not* apply to.
         * `identifiers` (`list`) - List of identifiers for principals. When `type`
-          is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`.
-        * `type` (`str`) - The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service".
+          is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.
+        * `type` (`str`) - The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".
 
       * `notResources` (`list`) - A list of resource ARNs that this statement
         does *not* apply to. Used to apply a policy statement to all resources
@@ -289,8 +296,8 @@ def get_policy_document(override_json=None,policy_id=None,source_json=None,state
       * `principals` (`list`) - A nested configuration block (described below)
         specifying a resource (or resource pattern) to which this statement applies.
         * `identifiers` (`list`) - List of identifiers for principals. When `type`
-          is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`.
-        * `type` (`str`) - The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service".
+          is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.
+        * `type` (`str`) - The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".
 
       * `resources` (`list`) - A list of resource ARNs that this statement applies
         to. This is required by AWS if used for an IAM policy.

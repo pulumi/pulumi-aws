@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class Connection(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The ARN of the Glue Connection.
+    """
     catalog_id: pulumi.Output[str]
     """
     The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
@@ -123,6 +127,7 @@ class Connection(pulumi.CustomResource):
             __props__['match_criterias'] = match_criterias
             __props__['name'] = name
             __props__['physical_connection_requirements'] = physical_connection_requirements
+            __props__['arn'] = None
         super(Connection, __self__).__init__(
             'aws:glue/connection:Connection',
             resource_name,
@@ -130,7 +135,7 @@ class Connection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, catalog_id=None, connection_properties=None, connection_type=None, description=None, match_criterias=None, name=None, physical_connection_requirements=None):
+    def get(resource_name, id, opts=None, arn=None, catalog_id=None, connection_properties=None, connection_type=None, description=None, match_criterias=None, name=None, physical_connection_requirements=None):
         """
         Get an existing Connection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -138,6 +143,7 @@ class Connection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the Glue Connection.
         :param pulumi.Input[str] catalog_id: The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         :param pulumi.Input[dict] connection_properties: A map of key-value pairs used as parameters for this connection.
         :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`. Defaults to `JBDC`.
@@ -156,6 +162,7 @@ class Connection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["catalog_id"] = catalog_id
         __props__["connection_properties"] = connection_properties
         __props__["connection_type"] = connection_type

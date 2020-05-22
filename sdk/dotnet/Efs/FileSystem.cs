@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Efs
 {
     /// <summary>
-    /// Provides an Elastic File System (EFS) resource.
+    /// Provides an Elastic File System (EFS) File System resource.
     /// </summary>
     public partial class FileSystem : Pulumi.CustomResource
     {

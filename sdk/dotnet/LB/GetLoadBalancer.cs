@@ -71,6 +71,7 @@ namespace Pulumi.Aws.LB
         public readonly string Id;
         public readonly int IdleTimeout;
         public readonly bool Internal;
+        public readonly string IpAddressType;
         public readonly string LoadBalancerType;
         public readonly string Name;
         public readonly ImmutableArray<string> SecurityGroups;
@@ -100,6 +101,8 @@ namespace Pulumi.Aws.LB
 
             bool @internal,
 
+            string ipAddressType,
+
             string loadBalancerType,
 
             string name,
@@ -125,6 +128,7 @@ namespace Pulumi.Aws.LB
             Id = id;
             IdleTimeout = idleTimeout;
             Internal = @internal;
+            IpAddressType = ipAddressType;
             LoadBalancerType = loadBalancerType;
             Name = name;
             SecurityGroups = securityGroups;

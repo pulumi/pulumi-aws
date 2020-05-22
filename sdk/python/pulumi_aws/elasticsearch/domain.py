@@ -268,7 +268,7 @@ class Domain(pulumi.CustomResource):
                 "Domain": "TestDomain",
             },
             vpc_options={
-                "securityGroupIds": [aws_security_group["elasticsearch"]["id"]],
+                "securityGroupIds": [es_security_group.id],
                 "subnetIds": [
                     selected_subnet_ids.ids[0],
                     selected_subnet_ids.ids[1],

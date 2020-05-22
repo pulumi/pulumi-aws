@@ -23,7 +23,7 @@ class Distribution(pulumi.CustomResource):
     """
     arn: pulumi.Output[str]
     """
-    The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+    The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
     """
     caller_reference: pulumi.Output[str]
     """
@@ -871,7 +871,7 @@ class Distribution(pulumi.CustomResource):
                with signed URLs.
         :param pulumi.Input[list] aliases: Extra CNAMEs (alternate domain names), if any, for
                this distribution.
-        :param pulumi.Input[str] arn: The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+        :param pulumi.Input[str] arn: The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
         :param pulumi.Input[str] caller_reference: Internal value used by CloudFront to allow future
                updates to the distribution configuration.
         :param pulumi.Input[str] comment: Any comments you want to include about the

@@ -195,7 +195,7 @@ export class Distribution extends pulumi.CustomResource {
      */
     public readonly aliases!: pulumi.Output<string[] | undefined>;
     /**
-     * The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+     * The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -444,7 +444,7 @@ export interface DistributionState {
      */
     readonly aliases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+     * The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
      */
     readonly arn?: pulumi.Input<string>;
     /**

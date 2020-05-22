@@ -21,7 +21,7 @@ type Activation struct {
 	// UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
 	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
 	// If the current activation has expired.
-	Expired pulumi.StringOutput `pulumi:"expired"`
+	Expired pulumi.BoolOutput `pulumi:"expired"`
 	// The IAM Role to attach to the managed instance.
 	IamRole pulumi.StringOutput `pulumi:"iamRole"`
 	// The default name of the registered managed instance.
@@ -72,7 +72,7 @@ type activationState struct {
 	// UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
 	ExpirationDate *string `pulumi:"expirationDate"`
 	// If the current activation has expired.
-	Expired *string `pulumi:"expired"`
+	Expired *bool `pulumi:"expired"`
 	// The IAM Role to attach to the managed instance.
 	IamRole *string `pulumi:"iamRole"`
 	// The default name of the registered managed instance.
@@ -93,7 +93,7 @@ type ActivationState struct {
 	// UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
 	ExpirationDate pulumi.StringPtrInput
 	// If the current activation has expired.
-	Expired pulumi.StringPtrInput
+	Expired pulumi.BoolPtrInput
 	// The IAM Role to attach to the managed instance.
 	IamRole pulumi.StringPtrInput
 	// The default name of the registered managed instance.

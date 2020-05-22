@@ -70,10 +70,9 @@ type Instance struct {
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringOutput `pulumi:"caCertIdentifier"`
 	// The character set name to use for DB
-	// encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
-	// Supported in Amazon
-	// RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-	// for more information.
+	// encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+	// or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
 	CharacterSetName pulumi.StringOutput `pulumi:"characterSetName"`
 	// Copy all Instance `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
@@ -184,7 +183,9 @@ type Instance struct {
 	Replicas           pulumi.StringArrayOutput `pulumi:"replicas"`
 	// Specifies that this resource is a Replicate
 	// database, and to use this value as the source database. This correlates to the
-	// `identifier` of another Amazon RDS Database to replicate. Note that if you are
+	// `identifier` of another Amazon RDS Database to replicate (if replicating within
+	// a single region) or ARN of the Amazon RDS Database to replicate (if replicating
+	// cross-region). Note that if you are
 	// creating a cross-region replica of an encrypted database you will also need to
 	// specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
 	// PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
@@ -297,10 +298,9 @@ type instanceState struct {
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier *string `pulumi:"caCertIdentifier"`
 	// The character set name to use for DB
-	// encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
-	// Supported in Amazon
-	// RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-	// for more information.
+	// encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+	// or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
 	CharacterSetName *string `pulumi:"characterSetName"`
 	// Copy all Instance `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
@@ -411,7 +411,9 @@ type instanceState struct {
 	Replicas           []string `pulumi:"replicas"`
 	// Specifies that this resource is a Replicate
 	// database, and to use this value as the source database. This correlates to the
-	// `identifier` of another Amazon RDS Database to replicate. Note that if you are
+	// `identifier` of another Amazon RDS Database to replicate (if replicating within
+	// a single region) or ARN of the Amazon RDS Database to replicate (if replicating
+	// cross-region). Note that if you are
 	// creating a cross-region replica of an encrypted database you will also need to
 	// specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
 	// PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
@@ -494,10 +496,9 @@ type InstanceState struct {
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringPtrInput
 	// The character set name to use for DB
-	// encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
-	// Supported in Amazon
-	// RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-	// for more information.
+	// encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+	// or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
 	CharacterSetName pulumi.StringPtrInput
 	// Copy all Instance `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrInput
@@ -608,7 +609,9 @@ type InstanceState struct {
 	Replicas           pulumi.StringArrayInput
 	// Specifies that this resource is a Replicate
 	// database, and to use this value as the source database. This correlates to the
-	// `identifier` of another Amazon RDS Database to replicate. Note that if you are
+	// `identifier` of another Amazon RDS Database to replicate (if replicating within
+	// a single region) or ARN of the Amazon RDS Database to replicate (if replicating
+	// cross-region). Note that if you are
 	// creating a cross-region replica of an encrypted database you will also need to
 	// specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
 	// PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
@@ -691,10 +694,9 @@ type instanceArgs struct {
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier *string `pulumi:"caCertIdentifier"`
 	// The character set name to use for DB
-	// encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
-	// Supported in Amazon
-	// RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-	// for more information.
+	// encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+	// or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
 	CharacterSetName *string `pulumi:"characterSetName"`
 	// Copy all Instance `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
@@ -799,7 +801,9 @@ type instanceArgs struct {
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// Specifies that this resource is a Replicate
 	// database, and to use this value as the source database. This correlates to the
-	// `identifier` of another Amazon RDS Database to replicate. Note that if you are
+	// `identifier` of another Amazon RDS Database to replicate (if replicating within
+	// a single region) or ARN of the Amazon RDS Database to replicate (if replicating
+	// cross-region). Note that if you are
 	// creating a cross-region replica of an encrypted database you will also need to
 	// specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
 	// PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
@@ -875,10 +879,9 @@ type InstanceArgs struct {
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringPtrInput
 	// The character set name to use for DB
-	// encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
-	// Supported in Amazon
-	// RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-	// for more information.
+	// encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+	// or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
 	CharacterSetName pulumi.StringPtrInput
 	// Copy all Instance `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrInput
@@ -983,7 +986,9 @@ type InstanceArgs struct {
 	PubliclyAccessible pulumi.BoolPtrInput
 	// Specifies that this resource is a Replicate
 	// database, and to use this value as the source database. This correlates to the
-	// `identifier` of another Amazon RDS Database to replicate. Note that if you are
+	// `identifier` of another Amazon RDS Database to replicate (if replicating within
+	// a single region) or ARN of the Amazon RDS Database to replicate (if replicating
+	// cross-region). Note that if you are
 	// creating a cross-region replica of an encrypted database you will also need to
 	// specify a `kmsKeyId`. See [DB Instance Replication][1] and [Working with
 	// PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)

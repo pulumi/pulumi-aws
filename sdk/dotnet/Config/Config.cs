@@ -234,6 +234,7 @@ namespace Pulumi.Aws
                 public string? Storagegateway { get; set; } = null!;
                 public string? Sts { get; set; } = null!;
                 public string? Swf { get; set; } = null!;
+                public string? Synthetics { get; set; } = null!;
                 public string? Transfer { get; set; } = null!;
                 public string? Waf { get; set; } = null!;
                 public string? Wafregional { get; set; } = null!;

@@ -176,6 +176,7 @@ class Provider(pulumi.ProviderResource):
           * `storagegateway` (`pulumi.Input[str]`)
           * `sts` (`pulumi.Input[str]`)
           * `swf` (`pulumi.Input[str]`)
+          * `synthetics` (`pulumi.Input[str]`)
           * `transfer` (`pulumi.Input[str]`)
           * `waf` (`pulumi.Input[str]`)
           * `wafregional` (`pulumi.Input[str]`)

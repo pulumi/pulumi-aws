@@ -86,11 +86,11 @@ export interface GetResourceShareResult {
      */
     readonly arn: string;
     readonly filters?: outputs.ram.GetResourceShareFilter[];
-    /**
-     * The Amazon Resource Name (ARN) of the resource share.
-     */
-    readonly id: string;
     readonly name: string;
+    /**
+     * The ID of the AWS account that owns the resource share.
+     */
+    readonly owningAccountId: string;
     readonly resourceOwner: string;
     /**
      * The Status of the RAM share.
@@ -100,4 +100,8 @@ export interface GetResourceShareResult {
      * The Tags attached to the RAM share
      */
     readonly tags: {[key: string]: any};
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

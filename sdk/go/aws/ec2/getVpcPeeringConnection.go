@@ -50,7 +50,7 @@ type LookupVpcPeeringConnectionArgs struct {
 // A collection of values returned by getVpcPeeringConnection.
 type LookupVpcPeeringConnectionResult struct {
 	// A configuration block that describes [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
 	Accepter      map[string]bool                 `pulumi:"accepter"`
 	CidrBlock     string                          `pulumi:"cidrBlock"`
 	Filters       []GetVpcPeeringConnectionFilter `pulumi:"filters"`
@@ -62,7 +62,7 @@ type LookupVpcPeeringConnectionResult struct {
 	PeerVpcId     string                          `pulumi:"peerVpcId"`
 	Region        string                          `pulumi:"region"`
 	// A configuration block that describes [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester map[string]bool        `pulumi:"requester"`
 	Status    string                 `pulumi:"status"`
 	Tags      map[string]interface{} `pulumi:"tags"`

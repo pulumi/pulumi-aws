@@ -399,6 +399,9 @@ namespace Pulumi.Aws.Inputs
         [Input("swf")]
         public Input<string>? Swf { get; set; }
 
+        [Input("synthetics")]
+        public Input<string>? Synthetics { get; set; }
+
         [Input("transfer")]
         public Input<string>? Transfer { get; set; }
 

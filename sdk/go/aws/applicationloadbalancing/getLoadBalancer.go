@@ -46,6 +46,7 @@ type LookupLoadBalancerResult struct {
 	Id               string                         `pulumi:"id"`
 	IdleTimeout      int                            `pulumi:"idleTimeout"`
 	Internal         bool                           `pulumi:"internal"`
+	IpAddressType    string                         `pulumi:"ipAddressType"`
 	LoadBalancerType string                         `pulumi:"loadBalancerType"`
 	Name             string                         `pulumi:"name"`
 	SecurityGroups   []string                       `pulumi:"securityGroups"`

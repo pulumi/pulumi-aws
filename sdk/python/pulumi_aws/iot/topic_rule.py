@@ -48,7 +48,11 @@ class TopicRule(pulumi.CustomResource):
     The version of the SQL rules engine to use when evaluating the rule.
     """
     sqs: pulumi.Output[dict]
-    def __init__(__self__, resource_name, opts=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, dynamodbv2s=None, elasticsearch=None, enabled=None, firehose=None, iot_analytics=None, iot_events=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value map of resource tags
+    """
+    def __init__(__self__, resource_name, opts=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, dynamodbv2s=None, elasticsearch=None, enabled=None, firehose=None, iot_analytics=None, iot_events=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         ## Example Usage
 
@@ -109,6 +113,7 @@ class TopicRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[str] sql: The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
         :param pulumi.Input[str] sql_version: The version of the SQL rules engine to use when evaluating the rule.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
 
         The **cloudwatch_alarm** object supports the following:
 
@@ -247,6 +252,7 @@ class TopicRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sql_version'")
             __props__['sql_version'] = sql_version
             __props__['sqs'] = sqs
+            __props__['tags'] = tags
             __props__['arn'] = None
         super(TopicRule, __self__).__init__(
             'aws:iot/topicRule:TopicRule',
@@ -255,7 +261,7 @@ class TopicRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, dynamodbv2s=None, elasticsearch=None, enabled=None, firehose=None, iot_analytics=None, iot_events=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None):
+    def get(resource_name, id, opts=None, arn=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, dynamodbv2s=None, elasticsearch=None, enabled=None, firehose=None, iot_analytics=None, iot_events=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None, tags=None):
         """
         Get an existing TopicRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -269,6 +275,7 @@ class TopicRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[str] sql: The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
         :param pulumi.Input[str] sql_version: The version of the SQL rules engine to use when evaluating the rule.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
 
         The **cloudwatch_alarm** object supports the following:
 
@@ -389,6 +396,7 @@ class TopicRule(pulumi.CustomResource):
         __props__["sql"] = sql
         __props__["sql_version"] = sql_version
         __props__["sqs"] = sqs
+        __props__["tags"] = tags
         return TopicRule(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

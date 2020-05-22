@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds
 {
     /// <summary>
-    /// Manages a RDS Aurora Cluster Endpoint.
+    /// Manages an RDS Aurora Cluster Endpoint.
     /// You can refer to the [User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster).
     /// </summary>
     public partial class ClusterEndpoint : Pulumi.CustomResource

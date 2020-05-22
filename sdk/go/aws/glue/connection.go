@@ -14,6 +14,8 @@ import (
 type Connection struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the Glue Connection.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// A map of key-value pairs used as parameters for this connection.
@@ -61,6 +63,8 @@ func GetConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connection resources.
 type connectionState struct {
+	// The ARN of the Glue Connection.
+	Arn *string `pulumi:"arn"`
 	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 	CatalogId *string `pulumi:"catalogId"`
 	// A map of key-value pairs used as parameters for this connection.
@@ -78,6 +82,8 @@ type connectionState struct {
 }
 
 type ConnectionState struct {
+	// The ARN of the Glue Connection.
+	Arn pulumi.StringPtrInput
 	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 	CatalogId pulumi.StringPtrInput
 	// A map of key-value pairs used as parameters for this connection.

@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Ssm
         /// If the current activation has expired.
         /// </summary>
         [Output("expired")]
-        public Output<string> Expired { get; private set; } = null!;
+        public Output<bool> Expired { get; private set; } = null!;
 
         /// <summary>
         /// The IAM Role to attach to the managed instance.
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Ssm
         /// If the current activation has expired.
         /// </summary>
         [Input("expired")]
-        public Input<string>? Expired { get; set; }
+        public Input<bool>? Expired { get; set; }
 
         /// <summary>
         /// The IAM Role to attach to the managed instance.

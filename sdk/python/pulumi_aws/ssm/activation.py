@@ -22,7 +22,7 @@ class Activation(pulumi.CustomResource):
     """
     UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
     """
-    expired: pulumi.Output[str]
+    expired: pulumi.Output[bool]
     """
     If the current activation has expired.
     """
@@ -133,7 +133,7 @@ class Activation(pulumi.CustomResource):
         :param pulumi.Input[str] activation_code: The code the system generates when it processes the activation.
         :param pulumi.Input[str] description: The description of the resource that you want to register.
         :param pulumi.Input[str] expiration_date: UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
-        :param pulumi.Input[str] expired: If the current activation has expired.
+        :param pulumi.Input[bool] expired: If the current activation has expired.
         :param pulumi.Input[str] iam_role: The IAM Role to attach to the managed instance.
         :param pulumi.Input[str] name: The default name of the registered managed instance.
         :param pulumi.Input[float] registration_count: The number of managed instances that are currently registered using this activation.

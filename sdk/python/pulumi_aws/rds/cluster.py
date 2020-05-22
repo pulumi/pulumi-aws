@@ -194,7 +194,7 @@ class Cluster(pulumi.CustomResource):
         see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
         in the Amazon RDS User Guide.
 
-        Changes to a RDS Cluster can occur when you manually change a
+        Changes to an RDS Cluster can occur when you manually change a
         parameter, such as `port`, and are reflected in the next maintenance
         window. Because of this, this provider may report a difference in its planning
         phase because a modification has not yet taken place. You can use the

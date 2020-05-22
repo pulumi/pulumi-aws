@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages a RDS database instance snapshot. For managing RDS database cluster snapshots, see the [`rds.ClusterSnapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_cluster_snapshot.html).
+// Manages an RDS database instance snapshot. For managing RDS database cluster snapshots, see the [`rds.ClusterSnapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_cluster_snapshot.html).
 type Snapshot struct {
 	pulumi.CustomResourceState
 

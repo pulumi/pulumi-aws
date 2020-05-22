@@ -31,7 +31,7 @@ type Distribution struct {
 	// Extra CNAMEs (alternate domain names), if any, for
 	// this distribution.
 	Aliases pulumi.StringArrayOutput `pulumi:"aliases"`
-	// The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+	// The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Internal value used by CloudFront to allow future
 	// updates to the distribution configuration.
@@ -167,7 +167,7 @@ type distributionState struct {
 	// Extra CNAMEs (alternate domain names), if any, for
 	// this distribution.
 	Aliases []string `pulumi:"aliases"`
-	// The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+	// The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 	Arn *string `pulumi:"arn"`
 	// Internal value used by CloudFront to allow future
 	// updates to the distribution configuration.
@@ -261,7 +261,7 @@ type DistributionState struct {
 	// Extra CNAMEs (alternate domain names), if any, for
 	// this distribution.
 	Aliases pulumi.StringArrayInput
-	// The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+	// The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 	Arn pulumi.StringPtrInput
 	// Internal value used by CloudFront to allow future
 	// updates to the distribution configuration.

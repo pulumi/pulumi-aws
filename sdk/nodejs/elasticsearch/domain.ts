@@ -162,7 +162,7 @@ import {PolicyDocument} from "../iam/documents";
  *         Domain: "TestDomain",
  *     },
  *     vpcOptions: {
- *         securityGroupIds: [aws_security_group_elasticsearch.id],
+ *         securityGroupIds: [esSecurityGroup.id],
  *         subnetIds: [
  *             selectedSubnetIds.apply(selectedSubnetIds => selectedSubnetIds.ids[0]),
  *             selectedSubnetIds.apply(selectedSubnetIds => selectedSubnetIds.ids[1]),

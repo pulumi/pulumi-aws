@@ -43,6 +43,10 @@ class Document(pulumi.CustomResource):
     """
     The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
     """
+    document_version: pulumi.Output[str]
+    """
+    The document version.
+    """
     hash: pulumi.Output[str]
     """
     The sha1 or sha256 of the document content
@@ -196,6 +200,7 @@ class Document(pulumi.CustomResource):
             __props__['created_date'] = None
             __props__['default_version'] = None
             __props__['description'] = None
+            __props__['document_version'] = None
             __props__['hash'] = None
             __props__['hash_type'] = None
             __props__['latest_version'] = None
@@ -211,7 +216,7 @@ class Document(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, attachments_sources=None, content=None, created_date=None, default_version=None, description=None, document_format=None, document_type=None, hash=None, hash_type=None, latest_version=None, name=None, owner=None, parameters=None, permissions=None, platform_types=None, schema_version=None, status=None, tags=None, target_type=None):
+    def get(resource_name, id, opts=None, arn=None, attachments_sources=None, content=None, created_date=None, default_version=None, description=None, document_format=None, document_type=None, document_version=None, hash=None, hash_type=None, latest_version=None, name=None, owner=None, parameters=None, permissions=None, platform_types=None, schema_version=None, status=None, tags=None, target_type=None):
         """
         Get an existing Document resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -226,6 +231,7 @@ class Document(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the document.
         :param pulumi.Input[str] document_format: The format of the document. Valid document types include: `JSON` and `YAML`
         :param pulumi.Input[str] document_type: The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+        :param pulumi.Input[str] document_version: The document version.
         :param pulumi.Input[str] hash: The sha1 or sha256 of the document content
         :param pulumi.Input[str] hash_type: "Sha1" "Sha256". The hashing algorithm used when hashing the content.
         :param pulumi.Input[str] latest_version: The latest version of the document.
@@ -264,6 +270,7 @@ class Document(pulumi.CustomResource):
         __props__["description"] = description
         __props__["document_format"] = document_format
         __props__["document_type"] = document_type
+        __props__["document_version"] = document_version
         __props__["hash"] = hash
         __props__["hash_type"] = hash_type
         __props__["latest_version"] = latest_version

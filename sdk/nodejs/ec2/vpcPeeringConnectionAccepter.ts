@@ -88,7 +88,7 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
     public /*out*/ readonly acceptStatus!: pulumi.Output<string>;
     /**
      * A configuration block that describes [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
      */
     public readonly accepter!: pulumi.Output<outputs.ec2.VpcPeeringConnectionAccepterAccepter>;
     /**
@@ -109,7 +109,7 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
     public /*out*/ readonly peerVpcId!: pulumi.Output<string>;
     /**
      * A configuration block that describes [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      */
     public readonly requester!: pulumi.Output<outputs.ec2.VpcPeeringConnectionAccepterRequester>;
     /**
@@ -184,7 +184,7 @@ export interface VpcPeeringConnectionAccepterState {
     readonly acceptStatus?: pulumi.Input<string>;
     /**
      * A configuration block that describes [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
      */
     readonly accepter?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterAccepter>;
     /**
@@ -205,7 +205,7 @@ export interface VpcPeeringConnectionAccepterState {
     readonly peerVpcId?: pulumi.Input<string>;
     /**
      * A configuration block that describes [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      */
     readonly requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterRequester>;
     /**
@@ -228,7 +228,7 @@ export interface VpcPeeringConnectionAccepterState {
 export interface VpcPeeringConnectionAccepterArgs {
     /**
      * A configuration block that describes [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
      */
     readonly accepter?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterAccepter>;
     /**
@@ -237,7 +237,7 @@ export interface VpcPeeringConnectionAccepterArgs {
     readonly autoAccept?: pulumi.Input<boolean>;
     /**
      * A configuration block that describes [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      */
     readonly requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterRequester>;
     /**

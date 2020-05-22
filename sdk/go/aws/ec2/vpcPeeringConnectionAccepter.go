@@ -24,7 +24,7 @@ type VpcPeeringConnectionAccepter struct {
 	// The status of the VPC Peering Connection request.
 	AcceptStatus pulumi.StringOutput `pulumi:"acceptStatus"`
 	// A configuration block that describes [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
 	Accepter VpcPeeringConnectionAccepterAccepterOutput `pulumi:"accepter"`
 	// Whether or not to accept the peering request. Defaults to `false`.
 	AutoAccept pulumi.BoolPtrOutput `pulumi:"autoAccept"`
@@ -35,7 +35,7 @@ type VpcPeeringConnectionAccepter struct {
 	// The ID of the requester VPC.
 	PeerVpcId pulumi.StringOutput `pulumi:"peerVpcId"`
 	// A configuration block that describes [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester VpcPeeringConnectionAccepterRequesterOutput `pulumi:"requester"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
@@ -79,7 +79,7 @@ type vpcPeeringConnectionAccepterState struct {
 	// The status of the VPC Peering Connection request.
 	AcceptStatus *string `pulumi:"acceptStatus"`
 	// A configuration block that describes [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
 	Accepter *VpcPeeringConnectionAccepterAccepter `pulumi:"accepter"`
 	// Whether or not to accept the peering request. Defaults to `false`.
 	AutoAccept *bool `pulumi:"autoAccept"`
@@ -90,7 +90,7 @@ type vpcPeeringConnectionAccepterState struct {
 	// The ID of the requester VPC.
 	PeerVpcId *string `pulumi:"peerVpcId"`
 	// A configuration block that describes [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester *VpcPeeringConnectionAccepterRequester `pulumi:"requester"`
 	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -104,7 +104,7 @@ type VpcPeeringConnectionAccepterState struct {
 	// The status of the VPC Peering Connection request.
 	AcceptStatus pulumi.StringPtrInput
 	// A configuration block that describes [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
 	Accepter VpcPeeringConnectionAccepterAccepterPtrInput
 	// Whether or not to accept the peering request. Defaults to `false`.
 	AutoAccept pulumi.BoolPtrInput
@@ -115,7 +115,7 @@ type VpcPeeringConnectionAccepterState struct {
 	// The ID of the requester VPC.
 	PeerVpcId pulumi.StringPtrInput
 	// A configuration block that describes [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester VpcPeeringConnectionAccepterRequesterPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
@@ -131,12 +131,12 @@ func (VpcPeeringConnectionAccepterState) ElementType() reflect.Type {
 
 type vpcPeeringConnectionAccepterArgs struct {
 	// A configuration block that describes [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
 	Accepter *VpcPeeringConnectionAccepterAccepter `pulumi:"accepter"`
 	// Whether or not to accept the peering request. Defaults to `false`.
 	AutoAccept *bool `pulumi:"autoAccept"`
 	// A configuration block that describes [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester *VpcPeeringConnectionAccepterRequester `pulumi:"requester"`
 	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -147,12 +147,12 @@ type vpcPeeringConnectionAccepterArgs struct {
 // The set of arguments for constructing a VpcPeeringConnectionAccepter resource.
 type VpcPeeringConnectionAccepterArgs struct {
 	// A configuration block that describes [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
 	Accepter VpcPeeringConnectionAccepterAccepterPtrInput
 	// Whether or not to accept the peering request. Defaults to `false`.
 	AutoAccept pulumi.BoolPtrInput
 	// A configuration block that describes [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester VpcPeeringConnectionAccepterRequesterPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput

@@ -121,7 +121,7 @@ export interface GetVpcPeeringConnectionArgs {
 export interface GetVpcPeeringConnectionResult {
     /**
      * A configuration block that describes [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
      */
     readonly accepter: {[key: string]: boolean};
     readonly cidrBlock: string;
@@ -135,7 +135,7 @@ export interface GetVpcPeeringConnectionResult {
     readonly region: string;
     /**
      * A configuration block that describes [VPC Peering Connection]
-     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      */
     readonly requester: {[key: string]: boolean};
     readonly status: string;

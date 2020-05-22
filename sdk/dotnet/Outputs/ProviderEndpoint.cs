@@ -142,6 +142,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Storagegateway;
         public readonly string? Sts;
         public readonly string? Swf;
+        public readonly string? Synthetics;
         public readonly string? Transfer;
         public readonly string? Waf;
         public readonly string? Wafregional;
@@ -411,6 +412,8 @@ namespace Pulumi.Aws.Outputs
 
             string? swf,
 
+            string? synthetics,
+
             string? transfer,
 
             string? waf,
@@ -556,6 +559,7 @@ namespace Pulumi.Aws.Outputs
             Storagegateway = storagegateway;
             Sts = sts;
             Swf = swf;
+            Synthetics = synthetics;
             Transfer = transfer;
             Waf = waf;
             Wafregional = wafregional;

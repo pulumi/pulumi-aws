@@ -36,7 +36,7 @@ type VpcPeeringConnection struct {
 	// The status of the VPC Peering Connection request.
 	AcceptStatus pulumi.StringOutput `pulumi:"acceptStatus"`
 	// An optional configuration block that allows for [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
 	// the peering connection (a maximum of one).
 	Accepter VpcPeeringConnectionAccepterTypeOutput `pulumi:"accepter"`
 	// Accept the peering (both VPCs need to be in the same AWS account).
@@ -50,7 +50,7 @@ type VpcPeeringConnection struct {
 	// The ID of the VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId pulumi.StringOutput `pulumi:"peerVpcId"`
 	// A optional configuration block that allows for [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
 	Requester VpcPeeringConnectionRequesterOutput `pulumi:"requester"`
 	// A map of tags to assign to the resource.
@@ -96,7 +96,7 @@ type vpcPeeringConnectionState struct {
 	// The status of the VPC Peering Connection request.
 	AcceptStatus *string `pulumi:"acceptStatus"`
 	// An optional configuration block that allows for [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
 	// the peering connection (a maximum of one).
 	Accepter *VpcPeeringConnectionAccepterType `pulumi:"accepter"`
 	// Accept the peering (both VPCs need to be in the same AWS account).
@@ -110,7 +110,7 @@ type vpcPeeringConnectionState struct {
 	// The ID of the VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId *string `pulumi:"peerVpcId"`
 	// A optional configuration block that allows for [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
 	Requester *VpcPeeringConnectionRequester `pulumi:"requester"`
 	// A map of tags to assign to the resource.
@@ -123,7 +123,7 @@ type VpcPeeringConnectionState struct {
 	// The status of the VPC Peering Connection request.
 	AcceptStatus pulumi.StringPtrInput
 	// An optional configuration block that allows for [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
 	// the peering connection (a maximum of one).
 	Accepter VpcPeeringConnectionAccepterTypePtrInput
 	// Accept the peering (both VPCs need to be in the same AWS account).
@@ -137,7 +137,7 @@ type VpcPeeringConnectionState struct {
 	// The ID of the VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId pulumi.StringPtrInput
 	// A optional configuration block that allows for [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
 	Requester VpcPeeringConnectionRequesterPtrInput
 	// A map of tags to assign to the resource.
@@ -152,7 +152,7 @@ func (VpcPeeringConnectionState) ElementType() reflect.Type {
 
 type vpcPeeringConnectionArgs struct {
 	// An optional configuration block that allows for [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
 	// the peering connection (a maximum of one).
 	Accepter *VpcPeeringConnectionAccepterType `pulumi:"accepter"`
 	// Accept the peering (both VPCs need to be in the same AWS account).
@@ -166,7 +166,7 @@ type vpcPeeringConnectionArgs struct {
 	// The ID of the VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId string `pulumi:"peerVpcId"`
 	// A optional configuration block that allows for [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
 	Requester *VpcPeeringConnectionRequester `pulumi:"requester"`
 	// A map of tags to assign to the resource.
@@ -178,7 +178,7 @@ type vpcPeeringConnectionArgs struct {
 // The set of arguments for constructing a VpcPeeringConnection resource.
 type VpcPeeringConnectionArgs struct {
 	// An optional configuration block that allows for [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
 	// the peering connection (a maximum of one).
 	Accepter VpcPeeringConnectionAccepterTypePtrInput
 	// Accept the peering (both VPCs need to be in the same AWS account).
@@ -192,7 +192,7 @@ type VpcPeeringConnectionArgs struct {
 	// The ID of the VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId pulumi.StringInput
 	// A optional configuration block that allows for [VPC Peering Connection]
-	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
+	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
 	Requester VpcPeeringConnectionRequesterPtrInput
 	// A map of tags to assign to the resource.

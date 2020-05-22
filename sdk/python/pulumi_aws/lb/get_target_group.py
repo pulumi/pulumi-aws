@@ -13,7 +13,7 @@ class GetTargetGroupResult:
     """
     A collection of values returned by getTargetGroup.
     """
-    def __init__(__self__, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, name=None, port=None, protocol=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
+    def __init__(__self__, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, name=None, port=None, protocol=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -35,6 +35,9 @@ class GetTargetGroupResult:
         if lambda_multi_value_headers_enabled and not isinstance(lambda_multi_value_headers_enabled, bool):
             raise TypeError("Expected argument 'lambda_multi_value_headers_enabled' to be a bool")
         __self__.lambda_multi_value_headers_enabled = lambda_multi_value_headers_enabled
+        if load_balancing_algorithm_type and not isinstance(load_balancing_algorithm_type, str):
+            raise TypeError("Expected argument 'load_balancing_algorithm_type' to be a str")
+        __self__.load_balancing_algorithm_type = load_balancing_algorithm_type
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
@@ -74,6 +77,7 @@ class AwaitableGetTargetGroupResult(GetTargetGroupResult):
             health_check=self.health_check,
             id=self.id,
             lambda_multi_value_headers_enabled=self.lambda_multi_value_headers_enabled,
+            load_balancing_algorithm_type=self.load_balancing_algorithm_type,
             name=self.name,
             port=self.port,
             protocol=self.protocol,
@@ -137,6 +141,7 @@ def get_target_group(arn=None,name=None,tags=None,opts=None):
         health_check=__ret__.get('healthCheck'),
         id=__ret__.get('id'),
         lambda_multi_value_headers_enabled=__ret__.get('lambdaMultiValueHeadersEnabled'),
+        load_balancing_algorithm_type=__ret__.get('loadBalancingAlgorithmType'),
         name=__ret__.get('name'),
         port=__ret__.get('port'),
         protocol=__ret__.get('protocol'),

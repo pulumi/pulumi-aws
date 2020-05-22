@@ -29,6 +29,18 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Ignoring Changes to Desired Size
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // ... other configurations ...
+ * const example = new aws.eks.NodeGroup("example", {scaling_config: {
+ *     desiredSize: 2,
+ * }});
+ * ```
+ *
  * ### Example IAM Role for EKS Node Group
  *
  * ```typescript
@@ -103,11 +115,15 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly diskSize!: pulumi.Output<number>;
     /**
+     * Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
+     */
+    public readonly forceUpdateVersion!: pulumi.Output<boolean | undefined>;
+    /**
      * Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
      */
     public readonly instanceTypes!: pulumi.Output<string>;
     /**
-     * Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
+     * Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
      */
     public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -167,6 +183,7 @@ export class NodeGroup extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["clusterName"] = state ? state.clusterName : undefined;
             inputs["diskSize"] = state ? state.diskSize : undefined;
+            inputs["forceUpdateVersion"] = state ? state.forceUpdateVersion : undefined;
             inputs["instanceTypes"] = state ? state.instanceTypes : undefined;
             inputs["labels"] = state ? state.labels : undefined;
             inputs["nodeGroupName"] = state ? state.nodeGroupName : undefined;
@@ -196,6 +213,7 @@ export class NodeGroup extends pulumi.CustomResource {
             inputs["amiType"] = args ? args.amiType : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["diskSize"] = args ? args.diskSize : undefined;
+            inputs["forceUpdateVersion"] = args ? args.forceUpdateVersion : undefined;
             inputs["instanceTypes"] = args ? args.instanceTypes : undefined;
             inputs["labels"] = args ? args.labels : undefined;
             inputs["nodeGroupName"] = args ? args.nodeGroupName : undefined;
@@ -242,11 +260,15 @@ export interface NodeGroupState {
      */
     readonly diskSize?: pulumi.Input<number>;
     /**
+     * Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
+     */
+    readonly forceUpdateVersion?: pulumi.Input<boolean>;
+    /**
      * Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
      */
     readonly instanceTypes?: pulumi.Input<string>;
     /**
-     * Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
+     * Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
      */
     readonly labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -308,11 +330,15 @@ export interface NodeGroupArgs {
      */
     readonly diskSize?: pulumi.Input<number>;
     /**
+     * Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
+     */
+    readonly forceUpdateVersion?: pulumi.Input<boolean>;
+    /**
      * Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
      */
     readonly instanceTypes?: pulumi.Input<string>;
     /**
-     * Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
+     * Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
      */
     readonly labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

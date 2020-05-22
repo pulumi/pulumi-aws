@@ -68,6 +68,7 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         public readonly string Id;
         public readonly bool LambdaMultiValueHeadersEnabled;
+        public readonly string LoadBalancingAlgorithmType;
         public readonly string Name;
         public readonly int Port;
         public readonly string Protocol;
@@ -91,6 +92,8 @@ namespace Pulumi.Aws.Alb
             string id,
 
             bool lambdaMultiValueHeadersEnabled,
+
+            string loadBalancingAlgorithmType,
 
             string name,
 
@@ -116,6 +119,7 @@ namespace Pulumi.Aws.Alb
             HealthCheck = healthCheck;
             Id = id;
             LambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
+            LoadBalancingAlgorithmType = loadBalancingAlgorithmType;
             Name = name;
             Port = port;
             Protocol = protocol;

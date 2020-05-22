@@ -1099,7 +1099,7 @@ func (o RulePredicateArrayOutput) Index(i pulumi.IntInput) RulePredicateOutput {
 type SizeConstraintSetSizeConstraint struct {
 	// The type of comparison you want to perform.
 	// e.g. `EQ`, `NE`, `LT`, `GT`.
-	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-ComparisonOperator) for all supported values.
+	// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
 	ComparisonOperator string `pulumi:"comparisonOperator"`
 	// Specifies where in a web request to look for the size constraint.
 	FieldToMatch SizeConstraintSetSizeConstraintFieldToMatch `pulumi:"fieldToMatch"`
@@ -1130,7 +1130,7 @@ type SizeConstraintSetSizeConstraintInput interface {
 type SizeConstraintSetSizeConstraintArgs struct {
 	// The type of comparison you want to perform.
 	// e.g. `EQ`, `NE`, `LT`, `GT`.
-	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-ComparisonOperator) for all supported values.
+	// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
 	ComparisonOperator pulumi.StringInput `pulumi:"comparisonOperator"`
 	// Specifies where in a web request to look for the size constraint.
 	FieldToMatch SizeConstraintSetSizeConstraintFieldToMatchInput `pulumi:"fieldToMatch"`
@@ -1200,7 +1200,7 @@ func (o SizeConstraintSetSizeConstraintOutput) ToSizeConstraintSetSizeConstraint
 
 // The type of comparison you want to perform.
 // e.g. `EQ`, `NE`, `LT`, `GT`.
-// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-ComparisonOperator) for all supported values.
+// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
 func (o SizeConstraintSetSizeConstraintOutput) ComparisonOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v SizeConstraintSetSizeConstraint) string { return v.ComparisonOperator }).(pulumi.StringOutput)
 }

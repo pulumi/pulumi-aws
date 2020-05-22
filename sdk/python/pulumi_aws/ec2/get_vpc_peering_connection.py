@@ -19,7 +19,7 @@ class GetVpcPeeringConnectionResult:
         __self__.accepter = accepter
         """
         A configuration block that describes [VPC Peering Connection]
-        (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+        (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
         """
         if cidr_block and not isinstance(cidr_block, str):
             raise TypeError("Expected argument 'cidr_block' to be a str")
@@ -53,7 +53,7 @@ class GetVpcPeeringConnectionResult:
         __self__.requester = requester
         """
         A configuration block that describes [VPC Peering Connection]
-        (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+        (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         """
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
