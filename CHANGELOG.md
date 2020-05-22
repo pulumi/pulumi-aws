@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to pulumi-terraform-bridge v2.3.3
+* Add ManagedPolicies.AmazonRDSDataFullAccess
 
 ---
 
