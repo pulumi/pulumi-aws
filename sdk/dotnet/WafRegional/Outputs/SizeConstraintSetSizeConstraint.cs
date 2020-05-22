@@ -16,7 +16,7 @@ namespace Pulumi.Aws.WafRegional.Outputs
         /// <summary>
         /// The type of comparison you want to perform.
         /// e.g. `EQ`, `NE`, `LT`, `GT`.
-        /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-ComparisonOperator) for all supported values.
+        /// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
         /// </summary>
         public readonly string ComparisonOperator;
         /// <summary>

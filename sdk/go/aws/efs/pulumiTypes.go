@@ -10,6 +10,500 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type AccessPointPosixUser struct {
+	// The POSIX group ID used for all file system operations using this access point.
+	Gid int `pulumi:"gid"`
+	// Secondary POSIX group IDs used for all file system operations using this access point.
+	SecondaryGids []int `pulumi:"secondaryGids"`
+	// he POSIX user ID used for all file system operations using this access point.
+	Uid int `pulumi:"uid"`
+}
+
+// AccessPointPosixUserInput is an input type that accepts AccessPointPosixUserArgs and AccessPointPosixUserOutput values.
+// You can construct a concrete instance of `AccessPointPosixUserInput` via:
+//
+// 		 AccessPointPosixUserArgs{...}
+//
+type AccessPointPosixUserInput interface {
+	pulumi.Input
+
+	ToAccessPointPosixUserOutput() AccessPointPosixUserOutput
+	ToAccessPointPosixUserOutputWithContext(context.Context) AccessPointPosixUserOutput
+}
+
+type AccessPointPosixUserArgs struct {
+	// The POSIX group ID used for all file system operations using this access point.
+	Gid pulumi.IntInput `pulumi:"gid"`
+	// Secondary POSIX group IDs used for all file system operations using this access point.
+	SecondaryGids pulumi.IntArrayInput `pulumi:"secondaryGids"`
+	// he POSIX user ID used for all file system operations using this access point.
+	Uid pulumi.IntInput `pulumi:"uid"`
+}
+
+func (AccessPointPosixUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointPosixUser)(nil)).Elem()
+}
+
+func (i AccessPointPosixUserArgs) ToAccessPointPosixUserOutput() AccessPointPosixUserOutput {
+	return i.ToAccessPointPosixUserOutputWithContext(context.Background())
+}
+
+func (i AccessPointPosixUserArgs) ToAccessPointPosixUserOutputWithContext(ctx context.Context) AccessPointPosixUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPosixUserOutput)
+}
+
+func (i AccessPointPosixUserArgs) ToAccessPointPosixUserPtrOutput() AccessPointPosixUserPtrOutput {
+	return i.ToAccessPointPosixUserPtrOutputWithContext(context.Background())
+}
+
+func (i AccessPointPosixUserArgs) ToAccessPointPosixUserPtrOutputWithContext(ctx context.Context) AccessPointPosixUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPosixUserOutput).ToAccessPointPosixUserPtrOutputWithContext(ctx)
+}
+
+// AccessPointPosixUserPtrInput is an input type that accepts AccessPointPosixUserArgs, AccessPointPosixUserPtr and AccessPointPosixUserPtrOutput values.
+// You can construct a concrete instance of `AccessPointPosixUserPtrInput` via:
+//
+// 		 AccessPointPosixUserArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type AccessPointPosixUserPtrInput interface {
+	pulumi.Input
+
+	ToAccessPointPosixUserPtrOutput() AccessPointPosixUserPtrOutput
+	ToAccessPointPosixUserPtrOutputWithContext(context.Context) AccessPointPosixUserPtrOutput
+}
+
+type accessPointPosixUserPtrType AccessPointPosixUserArgs
+
+func AccessPointPosixUserPtr(v *AccessPointPosixUserArgs) AccessPointPosixUserPtrInput {
+	return (*accessPointPosixUserPtrType)(v)
+}
+
+func (*accessPointPosixUserPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointPosixUser)(nil)).Elem()
+}
+
+func (i *accessPointPosixUserPtrType) ToAccessPointPosixUserPtrOutput() AccessPointPosixUserPtrOutput {
+	return i.ToAccessPointPosixUserPtrOutputWithContext(context.Background())
+}
+
+func (i *accessPointPosixUserPtrType) ToAccessPointPosixUserPtrOutputWithContext(ctx context.Context) AccessPointPosixUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPosixUserPtrOutput)
+}
+
+type AccessPointPosixUserOutput struct{ *pulumi.OutputState }
+
+func (AccessPointPosixUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointPosixUser)(nil)).Elem()
+}
+
+func (o AccessPointPosixUserOutput) ToAccessPointPosixUserOutput() AccessPointPosixUserOutput {
+	return o
+}
+
+func (o AccessPointPosixUserOutput) ToAccessPointPosixUserOutputWithContext(ctx context.Context) AccessPointPosixUserOutput {
+	return o
+}
+
+func (o AccessPointPosixUserOutput) ToAccessPointPosixUserPtrOutput() AccessPointPosixUserPtrOutput {
+	return o.ToAccessPointPosixUserPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPointPosixUserOutput) ToAccessPointPosixUserPtrOutputWithContext(ctx context.Context) AccessPointPosixUserPtrOutput {
+	return o.ApplyT(func(v AccessPointPosixUser) *AccessPointPosixUser {
+		return &v
+	}).(AccessPointPosixUserPtrOutput)
+}
+
+// The POSIX group ID used for all file system operations using this access point.
+func (o AccessPointPosixUserOutput) Gid() pulumi.IntOutput {
+	return o.ApplyT(func(v AccessPointPosixUser) int { return v.Gid }).(pulumi.IntOutput)
+}
+
+// Secondary POSIX group IDs used for all file system operations using this access point.
+func (o AccessPointPosixUserOutput) SecondaryGids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v AccessPointPosixUser) []int { return v.SecondaryGids }).(pulumi.IntArrayOutput)
+}
+
+// he POSIX user ID used for all file system operations using this access point.
+func (o AccessPointPosixUserOutput) Uid() pulumi.IntOutput {
+	return o.ApplyT(func(v AccessPointPosixUser) int { return v.Uid }).(pulumi.IntOutput)
+}
+
+type AccessPointPosixUserPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPointPosixUserPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointPosixUser)(nil)).Elem()
+}
+
+func (o AccessPointPosixUserPtrOutput) ToAccessPointPosixUserPtrOutput() AccessPointPosixUserPtrOutput {
+	return o
+}
+
+func (o AccessPointPosixUserPtrOutput) ToAccessPointPosixUserPtrOutputWithContext(ctx context.Context) AccessPointPosixUserPtrOutput {
+	return o
+}
+
+func (o AccessPointPosixUserPtrOutput) Elem() AccessPointPosixUserOutput {
+	return o.ApplyT(func(v *AccessPointPosixUser) AccessPointPosixUser { return *v }).(AccessPointPosixUserOutput)
+}
+
+// The POSIX group ID used for all file system operations using this access point.
+func (o AccessPointPosixUserPtrOutput) Gid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccessPointPosixUser) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Gid
+	}).(pulumi.IntPtrOutput)
+}
+
+// Secondary POSIX group IDs used for all file system operations using this access point.
+func (o AccessPointPosixUserPtrOutput) SecondaryGids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *AccessPointPosixUser) []int {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryGids
+	}).(pulumi.IntArrayOutput)
+}
+
+// he POSIX user ID used for all file system operations using this access point.
+func (o AccessPointPosixUserPtrOutput) Uid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccessPointPosixUser) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Uid
+	}).(pulumi.IntPtrOutput)
+}
+
+type AccessPointRootDirectory struct {
+	// Specifies the POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
+	CreationInfo *AccessPointRootDirectoryCreationInfo `pulumi:"creationInfo"`
+	// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
+	Path *string `pulumi:"path"`
+}
+
+// AccessPointRootDirectoryInput is an input type that accepts AccessPointRootDirectoryArgs and AccessPointRootDirectoryOutput values.
+// You can construct a concrete instance of `AccessPointRootDirectoryInput` via:
+//
+// 		 AccessPointRootDirectoryArgs{...}
+//
+type AccessPointRootDirectoryInput interface {
+	pulumi.Input
+
+	ToAccessPointRootDirectoryOutput() AccessPointRootDirectoryOutput
+	ToAccessPointRootDirectoryOutputWithContext(context.Context) AccessPointRootDirectoryOutput
+}
+
+type AccessPointRootDirectoryArgs struct {
+	// Specifies the POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
+	CreationInfo AccessPointRootDirectoryCreationInfoPtrInput `pulumi:"creationInfo"`
+	// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (AccessPointRootDirectoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointRootDirectory)(nil)).Elem()
+}
+
+func (i AccessPointRootDirectoryArgs) ToAccessPointRootDirectoryOutput() AccessPointRootDirectoryOutput {
+	return i.ToAccessPointRootDirectoryOutputWithContext(context.Background())
+}
+
+func (i AccessPointRootDirectoryArgs) ToAccessPointRootDirectoryOutputWithContext(ctx context.Context) AccessPointRootDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointRootDirectoryOutput)
+}
+
+func (i AccessPointRootDirectoryArgs) ToAccessPointRootDirectoryPtrOutput() AccessPointRootDirectoryPtrOutput {
+	return i.ToAccessPointRootDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (i AccessPointRootDirectoryArgs) ToAccessPointRootDirectoryPtrOutputWithContext(ctx context.Context) AccessPointRootDirectoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointRootDirectoryOutput).ToAccessPointRootDirectoryPtrOutputWithContext(ctx)
+}
+
+// AccessPointRootDirectoryPtrInput is an input type that accepts AccessPointRootDirectoryArgs, AccessPointRootDirectoryPtr and AccessPointRootDirectoryPtrOutput values.
+// You can construct a concrete instance of `AccessPointRootDirectoryPtrInput` via:
+//
+// 		 AccessPointRootDirectoryArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type AccessPointRootDirectoryPtrInput interface {
+	pulumi.Input
+
+	ToAccessPointRootDirectoryPtrOutput() AccessPointRootDirectoryPtrOutput
+	ToAccessPointRootDirectoryPtrOutputWithContext(context.Context) AccessPointRootDirectoryPtrOutput
+}
+
+type accessPointRootDirectoryPtrType AccessPointRootDirectoryArgs
+
+func AccessPointRootDirectoryPtr(v *AccessPointRootDirectoryArgs) AccessPointRootDirectoryPtrInput {
+	return (*accessPointRootDirectoryPtrType)(v)
+}
+
+func (*accessPointRootDirectoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointRootDirectory)(nil)).Elem()
+}
+
+func (i *accessPointRootDirectoryPtrType) ToAccessPointRootDirectoryPtrOutput() AccessPointRootDirectoryPtrOutput {
+	return i.ToAccessPointRootDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (i *accessPointRootDirectoryPtrType) ToAccessPointRootDirectoryPtrOutputWithContext(ctx context.Context) AccessPointRootDirectoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointRootDirectoryPtrOutput)
+}
+
+type AccessPointRootDirectoryOutput struct{ *pulumi.OutputState }
+
+func (AccessPointRootDirectoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointRootDirectory)(nil)).Elem()
+}
+
+func (o AccessPointRootDirectoryOutput) ToAccessPointRootDirectoryOutput() AccessPointRootDirectoryOutput {
+	return o
+}
+
+func (o AccessPointRootDirectoryOutput) ToAccessPointRootDirectoryOutputWithContext(ctx context.Context) AccessPointRootDirectoryOutput {
+	return o
+}
+
+func (o AccessPointRootDirectoryOutput) ToAccessPointRootDirectoryPtrOutput() AccessPointRootDirectoryPtrOutput {
+	return o.ToAccessPointRootDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPointRootDirectoryOutput) ToAccessPointRootDirectoryPtrOutputWithContext(ctx context.Context) AccessPointRootDirectoryPtrOutput {
+	return o.ApplyT(func(v AccessPointRootDirectory) *AccessPointRootDirectory {
+		return &v
+	}).(AccessPointRootDirectoryPtrOutput)
+}
+
+// Specifies the POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
+func (o AccessPointRootDirectoryOutput) CreationInfo() AccessPointRootDirectoryCreationInfoPtrOutput {
+	return o.ApplyT(func(v AccessPointRootDirectory) *AccessPointRootDirectoryCreationInfo { return v.CreationInfo }).(AccessPointRootDirectoryCreationInfoPtrOutput)
+}
+
+// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
+func (o AccessPointRootDirectoryOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPointRootDirectory) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type AccessPointRootDirectoryPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPointRootDirectoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointRootDirectory)(nil)).Elem()
+}
+
+func (o AccessPointRootDirectoryPtrOutput) ToAccessPointRootDirectoryPtrOutput() AccessPointRootDirectoryPtrOutput {
+	return o
+}
+
+func (o AccessPointRootDirectoryPtrOutput) ToAccessPointRootDirectoryPtrOutputWithContext(ctx context.Context) AccessPointRootDirectoryPtrOutput {
+	return o
+}
+
+func (o AccessPointRootDirectoryPtrOutput) Elem() AccessPointRootDirectoryOutput {
+	return o.ApplyT(func(v *AccessPointRootDirectory) AccessPointRootDirectory { return *v }).(AccessPointRootDirectoryOutput)
+}
+
+// Specifies the POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
+func (o AccessPointRootDirectoryPtrOutput) CreationInfo() AccessPointRootDirectoryCreationInfoPtrOutput {
+	return o.ApplyT(func(v *AccessPointRootDirectory) *AccessPointRootDirectoryCreationInfo {
+		if v == nil {
+			return nil
+		}
+		return v.CreationInfo
+	}).(AccessPointRootDirectoryCreationInfoPtrOutput)
+}
+
+// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
+func (o AccessPointRootDirectoryPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPointRootDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessPointRootDirectoryCreationInfo struct {
+	// Specifies the POSIX group ID to apply to the `rootDirectory`.
+	OwnerGid int `pulumi:"ownerGid"`
+	// Specifies the POSIX user ID to apply to the `rootDirectory`.
+	OwnerUid int `pulumi:"ownerUid"`
+	// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+	Permissions string `pulumi:"permissions"`
+}
+
+// AccessPointRootDirectoryCreationInfoInput is an input type that accepts AccessPointRootDirectoryCreationInfoArgs and AccessPointRootDirectoryCreationInfoOutput values.
+// You can construct a concrete instance of `AccessPointRootDirectoryCreationInfoInput` via:
+//
+// 		 AccessPointRootDirectoryCreationInfoArgs{...}
+//
+type AccessPointRootDirectoryCreationInfoInput interface {
+	pulumi.Input
+
+	ToAccessPointRootDirectoryCreationInfoOutput() AccessPointRootDirectoryCreationInfoOutput
+	ToAccessPointRootDirectoryCreationInfoOutputWithContext(context.Context) AccessPointRootDirectoryCreationInfoOutput
+}
+
+type AccessPointRootDirectoryCreationInfoArgs struct {
+	// Specifies the POSIX group ID to apply to the `rootDirectory`.
+	OwnerGid pulumi.IntInput `pulumi:"ownerGid"`
+	// Specifies the POSIX user ID to apply to the `rootDirectory`.
+	OwnerUid pulumi.IntInput `pulumi:"ownerUid"`
+	// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+	Permissions pulumi.StringInput `pulumi:"permissions"`
+}
+
+func (AccessPointRootDirectoryCreationInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointRootDirectoryCreationInfo)(nil)).Elem()
+}
+
+func (i AccessPointRootDirectoryCreationInfoArgs) ToAccessPointRootDirectoryCreationInfoOutput() AccessPointRootDirectoryCreationInfoOutput {
+	return i.ToAccessPointRootDirectoryCreationInfoOutputWithContext(context.Background())
+}
+
+func (i AccessPointRootDirectoryCreationInfoArgs) ToAccessPointRootDirectoryCreationInfoOutputWithContext(ctx context.Context) AccessPointRootDirectoryCreationInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointRootDirectoryCreationInfoOutput)
+}
+
+func (i AccessPointRootDirectoryCreationInfoArgs) ToAccessPointRootDirectoryCreationInfoPtrOutput() AccessPointRootDirectoryCreationInfoPtrOutput {
+	return i.ToAccessPointRootDirectoryCreationInfoPtrOutputWithContext(context.Background())
+}
+
+func (i AccessPointRootDirectoryCreationInfoArgs) ToAccessPointRootDirectoryCreationInfoPtrOutputWithContext(ctx context.Context) AccessPointRootDirectoryCreationInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointRootDirectoryCreationInfoOutput).ToAccessPointRootDirectoryCreationInfoPtrOutputWithContext(ctx)
+}
+
+// AccessPointRootDirectoryCreationInfoPtrInput is an input type that accepts AccessPointRootDirectoryCreationInfoArgs, AccessPointRootDirectoryCreationInfoPtr and AccessPointRootDirectoryCreationInfoPtrOutput values.
+// You can construct a concrete instance of `AccessPointRootDirectoryCreationInfoPtrInput` via:
+//
+// 		 AccessPointRootDirectoryCreationInfoArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type AccessPointRootDirectoryCreationInfoPtrInput interface {
+	pulumi.Input
+
+	ToAccessPointRootDirectoryCreationInfoPtrOutput() AccessPointRootDirectoryCreationInfoPtrOutput
+	ToAccessPointRootDirectoryCreationInfoPtrOutputWithContext(context.Context) AccessPointRootDirectoryCreationInfoPtrOutput
+}
+
+type accessPointRootDirectoryCreationInfoPtrType AccessPointRootDirectoryCreationInfoArgs
+
+func AccessPointRootDirectoryCreationInfoPtr(v *AccessPointRootDirectoryCreationInfoArgs) AccessPointRootDirectoryCreationInfoPtrInput {
+	return (*accessPointRootDirectoryCreationInfoPtrType)(v)
+}
+
+func (*accessPointRootDirectoryCreationInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointRootDirectoryCreationInfo)(nil)).Elem()
+}
+
+func (i *accessPointRootDirectoryCreationInfoPtrType) ToAccessPointRootDirectoryCreationInfoPtrOutput() AccessPointRootDirectoryCreationInfoPtrOutput {
+	return i.ToAccessPointRootDirectoryCreationInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *accessPointRootDirectoryCreationInfoPtrType) ToAccessPointRootDirectoryCreationInfoPtrOutputWithContext(ctx context.Context) AccessPointRootDirectoryCreationInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointRootDirectoryCreationInfoPtrOutput)
+}
+
+type AccessPointRootDirectoryCreationInfoOutput struct{ *pulumi.OutputState }
+
+func (AccessPointRootDirectoryCreationInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointRootDirectoryCreationInfo)(nil)).Elem()
+}
+
+func (o AccessPointRootDirectoryCreationInfoOutput) ToAccessPointRootDirectoryCreationInfoOutput() AccessPointRootDirectoryCreationInfoOutput {
+	return o
+}
+
+func (o AccessPointRootDirectoryCreationInfoOutput) ToAccessPointRootDirectoryCreationInfoOutputWithContext(ctx context.Context) AccessPointRootDirectoryCreationInfoOutput {
+	return o
+}
+
+func (o AccessPointRootDirectoryCreationInfoOutput) ToAccessPointRootDirectoryCreationInfoPtrOutput() AccessPointRootDirectoryCreationInfoPtrOutput {
+	return o.ToAccessPointRootDirectoryCreationInfoPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPointRootDirectoryCreationInfoOutput) ToAccessPointRootDirectoryCreationInfoPtrOutputWithContext(ctx context.Context) AccessPointRootDirectoryCreationInfoPtrOutput {
+	return o.ApplyT(func(v AccessPointRootDirectoryCreationInfo) *AccessPointRootDirectoryCreationInfo {
+		return &v
+	}).(AccessPointRootDirectoryCreationInfoPtrOutput)
+}
+
+// Specifies the POSIX group ID to apply to the `rootDirectory`.
+func (o AccessPointRootDirectoryCreationInfoOutput) OwnerGid() pulumi.IntOutput {
+	return o.ApplyT(func(v AccessPointRootDirectoryCreationInfo) int { return v.OwnerGid }).(pulumi.IntOutput)
+}
+
+// Specifies the POSIX user ID to apply to the `rootDirectory`.
+func (o AccessPointRootDirectoryCreationInfoOutput) OwnerUid() pulumi.IntOutput {
+	return o.ApplyT(func(v AccessPointRootDirectoryCreationInfo) int { return v.OwnerUid }).(pulumi.IntOutput)
+}
+
+// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+func (o AccessPointRootDirectoryCreationInfoOutput) Permissions() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessPointRootDirectoryCreationInfo) string { return v.Permissions }).(pulumi.StringOutput)
+}
+
+type AccessPointRootDirectoryCreationInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPointRootDirectoryCreationInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointRootDirectoryCreationInfo)(nil)).Elem()
+}
+
+func (o AccessPointRootDirectoryCreationInfoPtrOutput) ToAccessPointRootDirectoryCreationInfoPtrOutput() AccessPointRootDirectoryCreationInfoPtrOutput {
+	return o
+}
+
+func (o AccessPointRootDirectoryCreationInfoPtrOutput) ToAccessPointRootDirectoryCreationInfoPtrOutputWithContext(ctx context.Context) AccessPointRootDirectoryCreationInfoPtrOutput {
+	return o
+}
+
+func (o AccessPointRootDirectoryCreationInfoPtrOutput) Elem() AccessPointRootDirectoryCreationInfoOutput {
+	return o.ApplyT(func(v *AccessPointRootDirectoryCreationInfo) AccessPointRootDirectoryCreationInfo { return *v }).(AccessPointRootDirectoryCreationInfoOutput)
+}
+
+// Specifies the POSIX group ID to apply to the `rootDirectory`.
+func (o AccessPointRootDirectoryCreationInfoPtrOutput) OwnerGid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccessPointRootDirectoryCreationInfo) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.OwnerGid
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the POSIX user ID to apply to the `rootDirectory`.
+func (o AccessPointRootDirectoryCreationInfoPtrOutput) OwnerUid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccessPointRootDirectoryCreationInfo) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.OwnerUid
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+func (o AccessPointRootDirectoryCreationInfoPtrOutput) Permissions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPointRootDirectoryCreationInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Permissions
+	}).(pulumi.StringPtrOutput)
+}
+
 type FileSystemLifecyclePolicy struct {
 	// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
 	TransitionToIa string `pulumi:"transitionToIa"`
@@ -143,6 +637,351 @@ func (o FileSystemLifecyclePolicyPtrOutput) TransitionToIa() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetAccessPointPosixUser struct {
+	// Group ID
+	Gid int `pulumi:"gid"`
+	// Secondary group IDs
+	SecondaryGids []int `pulumi:"secondaryGids"`
+	// User Id
+	// * `rootDirectory`- Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
+	Uid int `pulumi:"uid"`
+}
+
+// GetAccessPointPosixUserInput is an input type that accepts GetAccessPointPosixUserArgs and GetAccessPointPosixUserOutput values.
+// You can construct a concrete instance of `GetAccessPointPosixUserInput` via:
+//
+// 		 GetAccessPointPosixUserArgs{...}
+//
+type GetAccessPointPosixUserInput interface {
+	pulumi.Input
+
+	ToGetAccessPointPosixUserOutput() GetAccessPointPosixUserOutput
+	ToGetAccessPointPosixUserOutputWithContext(context.Context) GetAccessPointPosixUserOutput
+}
+
+type GetAccessPointPosixUserArgs struct {
+	// Group ID
+	Gid pulumi.IntInput `pulumi:"gid"`
+	// Secondary group IDs
+	SecondaryGids pulumi.IntArrayInput `pulumi:"secondaryGids"`
+	// User Id
+	// * `rootDirectory`- Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
+	Uid pulumi.IntInput `pulumi:"uid"`
+}
+
+func (GetAccessPointPosixUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointPosixUser)(nil)).Elem()
+}
+
+func (i GetAccessPointPosixUserArgs) ToGetAccessPointPosixUserOutput() GetAccessPointPosixUserOutput {
+	return i.ToGetAccessPointPosixUserOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointPosixUserArgs) ToGetAccessPointPosixUserOutputWithContext(ctx context.Context) GetAccessPointPosixUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointPosixUserOutput)
+}
+
+// GetAccessPointPosixUserArrayInput is an input type that accepts GetAccessPointPosixUserArray and GetAccessPointPosixUserArrayOutput values.
+// You can construct a concrete instance of `GetAccessPointPosixUserArrayInput` via:
+//
+// 		 GetAccessPointPosixUserArray{ GetAccessPointPosixUserArgs{...} }
+//
+type GetAccessPointPosixUserArrayInput interface {
+	pulumi.Input
+
+	ToGetAccessPointPosixUserArrayOutput() GetAccessPointPosixUserArrayOutput
+	ToGetAccessPointPosixUserArrayOutputWithContext(context.Context) GetAccessPointPosixUserArrayOutput
+}
+
+type GetAccessPointPosixUserArray []GetAccessPointPosixUserInput
+
+func (GetAccessPointPosixUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointPosixUser)(nil)).Elem()
+}
+
+func (i GetAccessPointPosixUserArray) ToGetAccessPointPosixUserArrayOutput() GetAccessPointPosixUserArrayOutput {
+	return i.ToGetAccessPointPosixUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointPosixUserArray) ToGetAccessPointPosixUserArrayOutputWithContext(ctx context.Context) GetAccessPointPosixUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointPosixUserArrayOutput)
+}
+
+type GetAccessPointPosixUserOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointPosixUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointPosixUser)(nil)).Elem()
+}
+
+func (o GetAccessPointPosixUserOutput) ToGetAccessPointPosixUserOutput() GetAccessPointPosixUserOutput {
+	return o
+}
+
+func (o GetAccessPointPosixUserOutput) ToGetAccessPointPosixUserOutputWithContext(ctx context.Context) GetAccessPointPosixUserOutput {
+	return o
+}
+
+// Group ID
+func (o GetAccessPointPosixUserOutput) Gid() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAccessPointPosixUser) int { return v.Gid }).(pulumi.IntOutput)
+}
+
+// Secondary group IDs
+func (o GetAccessPointPosixUserOutput) SecondaryGids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v GetAccessPointPosixUser) []int { return v.SecondaryGids }).(pulumi.IntArrayOutput)
+}
+
+// User Id
+// * `rootDirectory`- Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
+func (o GetAccessPointPosixUserOutput) Uid() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAccessPointPosixUser) int { return v.Uid }).(pulumi.IntOutput)
+}
+
+type GetAccessPointPosixUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointPosixUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointPosixUser)(nil)).Elem()
+}
+
+func (o GetAccessPointPosixUserArrayOutput) ToGetAccessPointPosixUserArrayOutput() GetAccessPointPosixUserArrayOutput {
+	return o
+}
+
+func (o GetAccessPointPosixUserArrayOutput) ToGetAccessPointPosixUserArrayOutputWithContext(ctx context.Context) GetAccessPointPosixUserArrayOutput {
+	return o
+}
+
+func (o GetAccessPointPosixUserArrayOutput) Index(i pulumi.IntInput) GetAccessPointPosixUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccessPointPosixUser {
+		return vs[0].([]GetAccessPointPosixUser)[vs[1].(int)]
+	}).(GetAccessPointPosixUserOutput)
+}
+
+type GetAccessPointRootDirectory struct {
+	// Single element list containing information on the creation permissions of the directory
+	CreationInfos []GetAccessPointRootDirectoryCreationInfo `pulumi:"creationInfos"`
+	// Path exposed as the root directory
+	Path string `pulumi:"path"`
+}
+
+// GetAccessPointRootDirectoryInput is an input type that accepts GetAccessPointRootDirectoryArgs and GetAccessPointRootDirectoryOutput values.
+// You can construct a concrete instance of `GetAccessPointRootDirectoryInput` via:
+//
+// 		 GetAccessPointRootDirectoryArgs{...}
+//
+type GetAccessPointRootDirectoryInput interface {
+	pulumi.Input
+
+	ToGetAccessPointRootDirectoryOutput() GetAccessPointRootDirectoryOutput
+	ToGetAccessPointRootDirectoryOutputWithContext(context.Context) GetAccessPointRootDirectoryOutput
+}
+
+type GetAccessPointRootDirectoryArgs struct {
+	// Single element list containing information on the creation permissions of the directory
+	CreationInfos GetAccessPointRootDirectoryCreationInfoArrayInput `pulumi:"creationInfos"`
+	// Path exposed as the root directory
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (GetAccessPointRootDirectoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointRootDirectory)(nil)).Elem()
+}
+
+func (i GetAccessPointRootDirectoryArgs) ToGetAccessPointRootDirectoryOutput() GetAccessPointRootDirectoryOutput {
+	return i.ToGetAccessPointRootDirectoryOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointRootDirectoryArgs) ToGetAccessPointRootDirectoryOutputWithContext(ctx context.Context) GetAccessPointRootDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointRootDirectoryOutput)
+}
+
+// GetAccessPointRootDirectoryArrayInput is an input type that accepts GetAccessPointRootDirectoryArray and GetAccessPointRootDirectoryArrayOutput values.
+// You can construct a concrete instance of `GetAccessPointRootDirectoryArrayInput` via:
+//
+// 		 GetAccessPointRootDirectoryArray{ GetAccessPointRootDirectoryArgs{...} }
+//
+type GetAccessPointRootDirectoryArrayInput interface {
+	pulumi.Input
+
+	ToGetAccessPointRootDirectoryArrayOutput() GetAccessPointRootDirectoryArrayOutput
+	ToGetAccessPointRootDirectoryArrayOutputWithContext(context.Context) GetAccessPointRootDirectoryArrayOutput
+}
+
+type GetAccessPointRootDirectoryArray []GetAccessPointRootDirectoryInput
+
+func (GetAccessPointRootDirectoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointRootDirectory)(nil)).Elem()
+}
+
+func (i GetAccessPointRootDirectoryArray) ToGetAccessPointRootDirectoryArrayOutput() GetAccessPointRootDirectoryArrayOutput {
+	return i.ToGetAccessPointRootDirectoryArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointRootDirectoryArray) ToGetAccessPointRootDirectoryArrayOutputWithContext(ctx context.Context) GetAccessPointRootDirectoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointRootDirectoryArrayOutput)
+}
+
+type GetAccessPointRootDirectoryOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointRootDirectoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointRootDirectory)(nil)).Elem()
+}
+
+func (o GetAccessPointRootDirectoryOutput) ToGetAccessPointRootDirectoryOutput() GetAccessPointRootDirectoryOutput {
+	return o
+}
+
+func (o GetAccessPointRootDirectoryOutput) ToGetAccessPointRootDirectoryOutputWithContext(ctx context.Context) GetAccessPointRootDirectoryOutput {
+	return o
+}
+
+// Single element list containing information on the creation permissions of the directory
+func (o GetAccessPointRootDirectoryOutput) CreationInfos() GetAccessPointRootDirectoryCreationInfoArrayOutput {
+	return o.ApplyT(func(v GetAccessPointRootDirectory) []GetAccessPointRootDirectoryCreationInfo { return v.CreationInfos }).(GetAccessPointRootDirectoryCreationInfoArrayOutput)
+}
+
+// Path exposed as the root directory
+func (o GetAccessPointRootDirectoryOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointRootDirectory) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type GetAccessPointRootDirectoryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointRootDirectoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointRootDirectory)(nil)).Elem()
+}
+
+func (o GetAccessPointRootDirectoryArrayOutput) ToGetAccessPointRootDirectoryArrayOutput() GetAccessPointRootDirectoryArrayOutput {
+	return o
+}
+
+func (o GetAccessPointRootDirectoryArrayOutput) ToGetAccessPointRootDirectoryArrayOutputWithContext(ctx context.Context) GetAccessPointRootDirectoryArrayOutput {
+	return o
+}
+
+func (o GetAccessPointRootDirectoryArrayOutput) Index(i pulumi.IntInput) GetAccessPointRootDirectoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccessPointRootDirectory {
+		return vs[0].([]GetAccessPointRootDirectory)[vs[1].(int)]
+	}).(GetAccessPointRootDirectoryOutput)
+}
+
+type GetAccessPointRootDirectoryCreationInfo struct {
+	// POSIX owner group ID
+	OwnerGid int `pulumi:"ownerGid"`
+	// POSIX owner user ID
+	OwnerUid int `pulumi:"ownerUid"`
+	// POSIX permissions mode
+	Permissions string `pulumi:"permissions"`
+}
+
+// GetAccessPointRootDirectoryCreationInfoInput is an input type that accepts GetAccessPointRootDirectoryCreationInfoArgs and GetAccessPointRootDirectoryCreationInfoOutput values.
+// You can construct a concrete instance of `GetAccessPointRootDirectoryCreationInfoInput` via:
+//
+// 		 GetAccessPointRootDirectoryCreationInfoArgs{...}
+//
+type GetAccessPointRootDirectoryCreationInfoInput interface {
+	pulumi.Input
+
+	ToGetAccessPointRootDirectoryCreationInfoOutput() GetAccessPointRootDirectoryCreationInfoOutput
+	ToGetAccessPointRootDirectoryCreationInfoOutputWithContext(context.Context) GetAccessPointRootDirectoryCreationInfoOutput
+}
+
+type GetAccessPointRootDirectoryCreationInfoArgs struct {
+	// POSIX owner group ID
+	OwnerGid pulumi.IntInput `pulumi:"ownerGid"`
+	// POSIX owner user ID
+	OwnerUid pulumi.IntInput `pulumi:"ownerUid"`
+	// POSIX permissions mode
+	Permissions pulumi.StringInput `pulumi:"permissions"`
+}
+
+func (GetAccessPointRootDirectoryCreationInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointRootDirectoryCreationInfo)(nil)).Elem()
+}
+
+func (i GetAccessPointRootDirectoryCreationInfoArgs) ToGetAccessPointRootDirectoryCreationInfoOutput() GetAccessPointRootDirectoryCreationInfoOutput {
+	return i.ToGetAccessPointRootDirectoryCreationInfoOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointRootDirectoryCreationInfoArgs) ToGetAccessPointRootDirectoryCreationInfoOutputWithContext(ctx context.Context) GetAccessPointRootDirectoryCreationInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointRootDirectoryCreationInfoOutput)
+}
+
+// GetAccessPointRootDirectoryCreationInfoArrayInput is an input type that accepts GetAccessPointRootDirectoryCreationInfoArray and GetAccessPointRootDirectoryCreationInfoArrayOutput values.
+// You can construct a concrete instance of `GetAccessPointRootDirectoryCreationInfoArrayInput` via:
+//
+// 		 GetAccessPointRootDirectoryCreationInfoArray{ GetAccessPointRootDirectoryCreationInfoArgs{...} }
+//
+type GetAccessPointRootDirectoryCreationInfoArrayInput interface {
+	pulumi.Input
+
+	ToGetAccessPointRootDirectoryCreationInfoArrayOutput() GetAccessPointRootDirectoryCreationInfoArrayOutput
+	ToGetAccessPointRootDirectoryCreationInfoArrayOutputWithContext(context.Context) GetAccessPointRootDirectoryCreationInfoArrayOutput
+}
+
+type GetAccessPointRootDirectoryCreationInfoArray []GetAccessPointRootDirectoryCreationInfoInput
+
+func (GetAccessPointRootDirectoryCreationInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointRootDirectoryCreationInfo)(nil)).Elem()
+}
+
+func (i GetAccessPointRootDirectoryCreationInfoArray) ToGetAccessPointRootDirectoryCreationInfoArrayOutput() GetAccessPointRootDirectoryCreationInfoArrayOutput {
+	return i.ToGetAccessPointRootDirectoryCreationInfoArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointRootDirectoryCreationInfoArray) ToGetAccessPointRootDirectoryCreationInfoArrayOutputWithContext(ctx context.Context) GetAccessPointRootDirectoryCreationInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointRootDirectoryCreationInfoArrayOutput)
+}
+
+type GetAccessPointRootDirectoryCreationInfoOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointRootDirectoryCreationInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointRootDirectoryCreationInfo)(nil)).Elem()
+}
+
+func (o GetAccessPointRootDirectoryCreationInfoOutput) ToGetAccessPointRootDirectoryCreationInfoOutput() GetAccessPointRootDirectoryCreationInfoOutput {
+	return o
+}
+
+func (o GetAccessPointRootDirectoryCreationInfoOutput) ToGetAccessPointRootDirectoryCreationInfoOutputWithContext(ctx context.Context) GetAccessPointRootDirectoryCreationInfoOutput {
+	return o
+}
+
+// POSIX owner group ID
+func (o GetAccessPointRootDirectoryCreationInfoOutput) OwnerGid() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAccessPointRootDirectoryCreationInfo) int { return v.OwnerGid }).(pulumi.IntOutput)
+}
+
+// POSIX owner user ID
+func (o GetAccessPointRootDirectoryCreationInfoOutput) OwnerUid() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAccessPointRootDirectoryCreationInfo) int { return v.OwnerUid }).(pulumi.IntOutput)
+}
+
+// POSIX permissions mode
+func (o GetAccessPointRootDirectoryCreationInfoOutput) Permissions() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointRootDirectoryCreationInfo) string { return v.Permissions }).(pulumi.StringOutput)
+}
+
+type GetAccessPointRootDirectoryCreationInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointRootDirectoryCreationInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointRootDirectoryCreationInfo)(nil)).Elem()
+}
+
+func (o GetAccessPointRootDirectoryCreationInfoArrayOutput) ToGetAccessPointRootDirectoryCreationInfoArrayOutput() GetAccessPointRootDirectoryCreationInfoArrayOutput {
+	return o
+}
+
+func (o GetAccessPointRootDirectoryCreationInfoArrayOutput) ToGetAccessPointRootDirectoryCreationInfoArrayOutputWithContext(ctx context.Context) GetAccessPointRootDirectoryCreationInfoArrayOutput {
+	return o
+}
+
+func (o GetAccessPointRootDirectoryCreationInfoArrayOutput) Index(i pulumi.IntInput) GetAccessPointRootDirectoryCreationInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccessPointRootDirectoryCreationInfo {
+		return vs[0].([]GetAccessPointRootDirectoryCreationInfo)[vs[1].(int)]
+	}).(GetAccessPointRootDirectoryCreationInfoOutput)
+}
+
 type GetFileSystemLifecyclePolicy struct {
 	TransitionToIa string `pulumi:"transitionToIa"`
 }
@@ -194,7 +1033,19 @@ func (o GetFileSystemLifecyclePolicyOutput) TransitionToIa() pulumi.StringOutput
 }
 
 func init() {
+	pulumi.RegisterOutputType(AccessPointPosixUserOutput{})
+	pulumi.RegisterOutputType(AccessPointPosixUserPtrOutput{})
+	pulumi.RegisterOutputType(AccessPointRootDirectoryOutput{})
+	pulumi.RegisterOutputType(AccessPointRootDirectoryPtrOutput{})
+	pulumi.RegisterOutputType(AccessPointRootDirectoryCreationInfoOutput{})
+	pulumi.RegisterOutputType(AccessPointRootDirectoryCreationInfoPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyOutput{})
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyPtrOutput{})
+	pulumi.RegisterOutputType(GetAccessPointPosixUserOutput{})
+	pulumi.RegisterOutputType(GetAccessPointPosixUserArrayOutput{})
+	pulumi.RegisterOutputType(GetAccessPointRootDirectoryOutput{})
+	pulumi.RegisterOutputType(GetAccessPointRootDirectoryArrayOutput{})
+	pulumi.RegisterOutputType(GetAccessPointRootDirectoryCreationInfoOutput{})
+	pulumi.RegisterOutputType(GetAccessPointRootDirectoryCreationInfoArrayOutput{})
 	pulumi.RegisterOutputType(GetFileSystemLifecyclePolicyOutput{})
 }

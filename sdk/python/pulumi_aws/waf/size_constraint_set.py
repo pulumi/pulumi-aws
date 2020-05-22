@@ -24,7 +24,7 @@ class SizeConstraintSet(pulumi.CustomResource):
 
       * `comparison_operator` (`str`) - The type of comparison you want to perform.
         e.g. `EQ`, `NE`, `LT`, `GT`.
-        See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-ComparisonOperator) for all supported values.
+        See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
       * `fieldToMatch` (`dict`) - Specifies where in a web request to look for the size constraint.
         * `data` (`str`) - When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
           If `type` is any other value, omit this field.
@@ -74,7 +74,7 @@ class SizeConstraintSet(pulumi.CustomResource):
 
           * `comparison_operator` (`pulumi.Input[str]`) - The type of comparison you want to perform.
             e.g. `EQ`, `NE`, `LT`, `GT`.
-            See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-ComparisonOperator) for all supported values.
+            See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
           * `fieldToMatch` (`pulumi.Input[dict]`) - Specifies where in a web request to look for the size constraint.
             * `data` (`pulumi.Input[str]`) - When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
               If `type` is any other value, omit this field.
@@ -135,7 +135,7 @@ class SizeConstraintSet(pulumi.CustomResource):
 
           * `comparison_operator` (`pulumi.Input[str]`) - The type of comparison you want to perform.
             e.g. `EQ`, `NE`, `LT`, `GT`.
-            See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-ComparisonOperator) for all supported values.
+            See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
           * `fieldToMatch` (`pulumi.Input[dict]`) - Specifies where in a web request to look for the size constraint.
             * `data` (`pulumi.Input[str]`) - When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
               If `type` is any other value, omit this field.

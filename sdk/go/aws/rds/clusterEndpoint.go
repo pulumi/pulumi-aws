@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages a RDS Aurora Cluster Endpoint.
+// Manages an RDS Aurora Cluster Endpoint.
 // You can refer to the [User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster).
 type ClusterEndpoint struct {
 	pulumi.CustomResourceState

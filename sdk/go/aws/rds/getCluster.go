@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides information about a RDS cluster.
+// Provides information about an RDS cluster.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("aws:rds/getCluster:getCluster", args, &rv, opts...)
@@ -28,6 +28,7 @@ type LookupClusterArgs struct {
 type LookupClusterResult struct {
 	Arn                              string   `pulumi:"arn"`
 	AvailabilityZones                []string `pulumi:"availabilityZones"`
+	BacktrackWindow                  int      `pulumi:"backtrackWindow"`
 	BackupRetentionPeriod            int      `pulumi:"backupRetentionPeriod"`
 	ClusterIdentifier                string   `pulumi:"clusterIdentifier"`
 	ClusterMembers                   []string `pulumi:"clusterMembers"`

@@ -17,7 +17,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
     accepter: pulumi.Output[dict]
     """
     A configuration block that describes [VPC Peering Connection]
-    (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+    (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
 
       * `allowClassicLinkToRemoteVpc` (`bool`) - Indicates whether a local ClassicLink connection can communicate
         with the peer VPC over the VPC Peering Connection.
@@ -45,7 +45,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
     requester: pulumi.Output[dict]
     """
     A configuration block that describes [VPC Peering Connection]
-    (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+    (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 
       * `allowClassicLinkToRemoteVpc` (`bool`) - Indicates whether a local ClassicLink connection can communicate
         with the peer VPC over the VPC Peering Connection.
@@ -113,10 +113,10 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] accepter: A configuration block that describes [VPC Peering Connection]
-               (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+               (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
         :param pulumi.Input[bool] auto_accept: Whether or not to accept the peering request. Defaults to `false`.
         :param pulumi.Input[dict] requester: A configuration block that describes [VPC Peering Connection]
-               (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+               (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_peering_connection_id: The VPC Peering Connection ID to manage.
 
@@ -184,13 +184,13 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accept_status: The status of the VPC Peering Connection request.
         :param pulumi.Input[dict] accepter: A configuration block that describes [VPC Peering Connection]
-               (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+               (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
         :param pulumi.Input[bool] auto_accept: Whether or not to accept the peering request. Defaults to `false`.
         :param pulumi.Input[str] peer_owner_id: The AWS account ID of the owner of the requester VPC.
         :param pulumi.Input[str] peer_region: The region of the accepter VPC.
         :param pulumi.Input[str] peer_vpc_id: The ID of the requester VPC.
         :param pulumi.Input[dict] requester: A configuration block that describes [VPC Peering Connection]
-               (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+               (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the accepter VPC.
         :param pulumi.Input[str] vpc_peering_connection_id: The VPC Peering Connection ID to manage.

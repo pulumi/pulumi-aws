@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Provides information about an Elastic File System (EFS).
+ * Provides information about an Elastic File System (EFS) File System.
  *
  * ## Example Usage
  *

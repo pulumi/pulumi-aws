@@ -76,6 +76,12 @@ namespace Pulumi.Aws.Ssm
         public Output<string> DocumentType { get; private set; } = null!;
 
         /// <summary>
+        /// The document version.
+        /// </summary>
+        [Output("documentVersion")]
+        public Output<string> DocumentVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The sha1 or sha256 of the document content
         /// </summary>
         [Output("hash")]
@@ -316,6 +322,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("documentType")]
         public Input<string>? DocumentType { get; set; }
+
+        /// <summary>
+        /// The document version.
+        /// </summary>
+        [Input("documentVersion")]
+        public Input<string>? DocumentVersion { get; set; }
 
         /// <summary>
         /// The sha1 or sha256 of the document content

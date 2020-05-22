@@ -75,10 +75,14 @@ namespace Pulumi.Aws.Ram
         public readonly string Arn;
         public readonly ImmutableArray<Outputs.GetResourceShareFilterResult> Filters;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource share.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        /// <summary>
+        /// The ID of the AWS account that owns the resource share.
+        /// </summary>
+        public readonly string OwningAccountId;
         public readonly string ResourceOwner;
         /// <summary>
         /// The Status of the RAM share.
@@ -99,6 +103,8 @@ namespace Pulumi.Aws.Ram
 
             string name,
 
+            string owningAccountId,
+
             string resourceOwner,
 
             string status,
@@ -109,6 +115,7 @@ namespace Pulumi.Aws.Ram
             Filters = filters;
             Id = id;
             Name = name;
+            OwningAccountId = owningAccountId;
             ResourceOwner = resourceOwner;
             Status = status;
             Tags = tags;

@@ -45,6 +45,8 @@ type Document struct {
 	DocumentFormat pulumi.StringPtrOutput `pulumi:"documentFormat"`
 	// The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
 	DocumentType pulumi.StringOutput `pulumi:"documentType"`
+	// The document version.
+	DocumentVersion pulumi.StringOutput `pulumi:"documentVersion"`
 	// The sha1 or sha256 of the document content
 	Hash pulumi.StringOutput `pulumi:"hash"`
 	// "Sha1" "Sha256". The hashing algorithm used when hashing the content.
@@ -120,6 +122,8 @@ type documentState struct {
 	DocumentFormat *string `pulumi:"documentFormat"`
 	// The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
 	DocumentType *string `pulumi:"documentType"`
+	// The document version.
+	DocumentVersion *string `pulumi:"documentVersion"`
 	// The sha1 or sha256 of the document content
 	Hash *string `pulumi:"hash"`
 	// "Sha1" "Sha256". The hashing algorithm used when hashing the content.
@@ -162,6 +166,8 @@ type DocumentState struct {
 	DocumentFormat pulumi.StringPtrInput
 	// The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
 	DocumentType pulumi.StringPtrInput
+	// The document version.
+	DocumentVersion pulumi.StringPtrInput
 	// The sha1 or sha256 of the document content
 	Hash pulumi.StringPtrInput
 	// "Sha1" "Sha256". The hashing algorithm used when hashing the content.

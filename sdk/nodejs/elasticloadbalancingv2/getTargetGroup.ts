@@ -75,6 +75,7 @@ export interface GetTargetGroupResult {
     readonly deregistrationDelay: number;
     readonly healthCheck: outputs.elasticloadbalancingv2.GetTargetGroupHealthCheck;
     readonly lambdaMultiValueHeadersEnabled: boolean;
+    readonly loadBalancingAlgorithmType: string;
     readonly name: string;
     readonly port: number;
     readonly protocol: string;

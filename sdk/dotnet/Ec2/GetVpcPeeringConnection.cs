@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// A configuration block that describes [VPC Peering Connection]
-        /// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
         /// </summary>
         public readonly ImmutableDictionary<string, bool> Accepter;
         public readonly string CidrBlock;
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string Region;
         /// <summary>
         /// A configuration block that describes [VPC Peering Connection]
-        /// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         /// </summary>
         public readonly ImmutableDictionary<string, bool> Requester;
         public readonly string Status;

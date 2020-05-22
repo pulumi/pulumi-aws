@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Rds
     public static class GetCluster
     {
         /// <summary>
-        /// Provides information about a RDS cluster.
+        /// Provides information about an RDS cluster.
         /// 
         /// {{% examples %}}
         /// {{% /examples %}}
@@ -49,6 +49,7 @@ namespace Pulumi.Aws.Rds
     {
         public readonly string Arn;
         public readonly ImmutableArray<string> AvailabilityZones;
+        public readonly int BacktrackWindow;
         public readonly int BackupRetentionPeriod;
         public readonly string ClusterIdentifier;
         public readonly ImmutableArray<string> ClusterMembers;
@@ -84,6 +85,8 @@ namespace Pulumi.Aws.Rds
             string arn,
 
             ImmutableArray<string> availabilityZones,
+
+            int backtrackWindow,
 
             int backupRetentionPeriod,
 
@@ -139,6 +142,7 @@ namespace Pulumi.Aws.Rds
         {
             Arn = arn;
             AvailabilityZones = availabilityZones;
+            BacktrackWindow = backtrackWindow;
             BackupRetentionPeriod = backupRetentionPeriod;
             ClusterIdentifier = clusterIdentifier;
             ClusterMembers = clusterMembers;

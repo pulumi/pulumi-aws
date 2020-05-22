@@ -13,7 +13,7 @@ class GetResourceShareResult:
     """
     A collection of values returned by getResourceShare.
     """
-    def __init__(__self__, arn=None, filters=None, id=None, name=None, resource_owner=None, status=None, tags=None):
+    def __init__(__self__, arn=None, filters=None, id=None, name=None, owning_account_id=None, resource_owner=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -27,11 +27,17 @@ class GetResourceShareResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        The Amazon Resource Name (ARN) of the resource share.
+        The provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
+        if owning_account_id and not isinstance(owning_account_id, str):
+            raise TypeError("Expected argument 'owning_account_id' to be a str")
+        __self__.owning_account_id = owning_account_id
+        """
+        The ID of the AWS account that owns the resource share.
+        """
         if resource_owner and not isinstance(resource_owner, str):
             raise TypeError("Expected argument 'resource_owner' to be a str")
         __self__.resource_owner = resource_owner
@@ -57,6 +63,7 @@ class AwaitableGetResourceShareResult(GetResourceShareResult):
             filters=self.filters,
             id=self.id,
             name=self.name,
+            owning_account_id=self.owning_account_id,
             resource_owner=self.resource_owner,
             status=self.status,
             tags=self.tags)
@@ -120,6 +127,7 @@ def get_resource_share(filters=None,name=None,resource_owner=None,tags=None,opts
         filters=__ret__.get('filters'),
         id=__ret__.get('id'),
         name=__ret__.get('name'),
+        owning_account_id=__ret__.get('owningAccountId'),
         resource_owner=__ret__.get('resourceOwner'),
         status=__ret__.get('status'),
         tags=__ret__.get('tags'))

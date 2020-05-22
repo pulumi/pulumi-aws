@@ -39,13 +39,19 @@ namespace Pulumi.Aws.Eks
         public Output<int> DiskSize { get; private set; } = null!;
 
         /// <summary>
+        /// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
+        /// </summary>
+        [Output("forceUpdateVersion")]
+        public Output<bool?> ForceUpdateVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
         /// </summary>
         [Output("instanceTypes")]
         public Output<string> InstanceTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
+        /// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         /// </summary>
         [Output("labels")]
         public Output<ImmutableDictionary<string, string>?> Labels { get; private set; } = null!;
@@ -175,6 +181,12 @@ namespace Pulumi.Aws.Eks
         public Input<int>? DiskSize { get; set; }
 
         /// <summary>
+        /// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
+        /// </summary>
+        [Input("forceUpdateVersion")]
+        public Input<bool>? ForceUpdateVersion { get; set; }
+
+        /// <summary>
         /// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
         /// </summary>
         [Input("instanceTypes")]
@@ -184,7 +196,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _labels;
 
         /// <summary>
-        /// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
+        /// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         /// </summary>
         public InputMap<string> Labels
         {
@@ -284,6 +296,12 @@ namespace Pulumi.Aws.Eks
         public Input<int>? DiskSize { get; set; }
 
         /// <summary>
+        /// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
+        /// </summary>
+        [Input("forceUpdateVersion")]
+        public Input<bool>? ForceUpdateVersion { get; set; }
+
+        /// <summary>
         /// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
         /// </summary>
         [Input("instanceTypes")]
@@ -293,7 +311,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _labels;
 
         /// <summary>
-        /// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
+        /// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         /// </summary>
         public InputMap<string> Labels
         {

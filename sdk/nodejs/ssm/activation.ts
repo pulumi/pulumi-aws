@@ -79,7 +79,7 @@ export class Activation extends pulumi.CustomResource {
     /**
      * If the current activation has expired.
      */
-    public /*out*/ readonly expired!: pulumi.Output<string>;
+    public /*out*/ readonly expired!: pulumi.Output<boolean>;
     /**
      * The IAM Role to attach to the managed instance.
      */
@@ -167,7 +167,7 @@ export interface ActivationState {
     /**
      * If the current activation has expired.
      */
-    readonly expired?: pulumi.Input<string>;
+    readonly expired?: pulumi.Input<boolean>;
     /**
      * The IAM Role to attach to the managed instance.
      */

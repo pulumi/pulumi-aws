@@ -216,6 +216,7 @@ export interface ProviderEndpoint {
     storagegateway?: pulumi.Input<string>;
     sts?: pulumi.Input<string>;
     swf?: pulumi.Input<string>;
+    synthetics?: pulumi.Input<string>;
     transfer?: pulumi.Input<string>;
     waf?: pulumi.Input<string>;
     wafregional?: pulumi.Input<string>;
@@ -7307,6 +7308,47 @@ export namespace ecs {
 }
 
 export namespace efs {
+    export interface AccessPointPosixUser {
+        /**
+         * The POSIX group ID used for all file system operations using this access point.
+         */
+        gid: pulumi.Input<number>;
+        /**
+         * Secondary POSIX group IDs used for all file system operations using this access point.
+         */
+        secondaryGids?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * he POSIX user ID used for all file system operations using this access point.
+         */
+        uid: pulumi.Input<number>;
+    }
+
+    export interface AccessPointRootDirectory {
+        /**
+         * Specifies the POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
+         */
+        creationInfo?: pulumi.Input<inputs.efs.AccessPointRootDirectoryCreationInfo>;
+        /**
+         * Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`. 
+         */
+        path?: pulumi.Input<string>;
+    }
+
+    export interface AccessPointRootDirectoryCreationInfo {
+        /**
+         * Specifies the POSIX group ID to apply to the `rootDirectory`.
+         */
+        ownerGid: pulumi.Input<number>;
+        /**
+         * Specifies the POSIX user ID to apply to the `rootDirectory`.
+         */
+        ownerUid: pulumi.Input<number>;
+        /**
+         * Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
+         */
+        permissions: pulumi.Input<string>;
+    }
+
     export interface FileSystemLifecyclePolicy {
         /**
          * Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
@@ -9545,11 +9587,11 @@ export namespace iam {
     export interface GetPolicyDocumentStatementNotPrincipal {
         /**
          * List of identifiers for principals. When `type`
-         * is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`.
+         * is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.
          */
         identifiers: string[];
         /**
-         * The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service".
+         * The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".
          */
         type: string;
     }
@@ -9557,11 +9599,11 @@ export namespace iam {
     export interface GetPolicyDocumentStatementPrincipal {
         /**
          * List of identifiers for principals. When `type`
-         * is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`.
+         * is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.
          */
         identifiers: string[];
         /**
-         * The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service".
+         * The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".
          */
         type: string;
     }
@@ -14046,7 +14088,7 @@ export namespace waf {
         /**
          * The type of comparison you want to perform.
          * e.g. `EQ`, `NE`, `LT`, `GT`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-ComparisonOperator) for all supported values.
+         * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
          */
         comparisonOperator: pulumi.Input<string>;
         /**
@@ -14361,7 +14403,7 @@ export namespace wafregional {
         /**
          * The type of comparison you want to perform.
          * e.g. `EQ`, `NE`, `LT`, `GT`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-ComparisonOperator) for all supported values.
+         * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
          */
         comparisonOperator: pulumi.Input<string>;
         /**
@@ -14523,6 +14565,15 @@ export namespace wafregional {
          * The part of the web request that you want AWS WAF to search for a specified string. e.g. `HEADER` or `METHOD`
          */
         type: pulumi.Input<string>;
+    }
+}
+
+export namespace wafv2 {
+    export interface RegexPatternSetRegularExpression {
+        /**
+         * The string representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
+         */
+        regexString: pulumi.Input<string>;
     }
 }
 

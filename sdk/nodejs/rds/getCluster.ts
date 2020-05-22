@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Provides information about a RDS cluster.
+ * Provides information about an RDS cluster.
  *
  * ## Example Usage
  *
@@ -53,6 +53,7 @@ export interface GetClusterArgs {
 export interface GetClusterResult {
     readonly arn: string;
     readonly availabilityZones: string[];
+    readonly backtrackWindow: number;
     readonly backupRetentionPeriod: number;
     readonly clusterIdentifier: string;
     readonly clusterMembers: string[];

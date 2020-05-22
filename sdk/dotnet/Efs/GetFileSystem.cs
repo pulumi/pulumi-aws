@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Efs
     public static class GetFileSystem
     {
         /// <summary>
-        /// Provides information about an Elastic File System (EFS).
+        /// Provides information about an Elastic File System (EFS) File System.
         /// 
         /// {{% examples %}}
         /// {{% /examples %}}

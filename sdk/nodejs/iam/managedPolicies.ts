@@ -224,6 +224,7 @@ export module ManagedPolicies {
     export const AmazonSSMFullAccess: ARN = "arn:aws:iam::aws:policy/AmazonSSMFullAccess";
     export const AmazonSSMMaintenanceWindowRole: ARN = "arn:aws:iam::aws:policy/service-role/AmazonSSMMaintenanceWindowRole";
     export const AmazonSSMReadOnlyAccess: ARN = "arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess";
+    export const AmazonSSMManagedInstanceCore: ARN = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore";
     export const AmazonVPCFullAccess: ARN = "arn:aws:iam::aws:policy/AmazonVPCFullAccess";
     export const AmazonVPCReadOnlyAccess: ARN = "arn:aws:iam::aws:policy/AmazonVPCReadOnlyAccess";
     export const AmazonWorkMailFullAccess: ARN = "arn:aws:iam::aws:policy/AmazonWorkMailFullAccess";

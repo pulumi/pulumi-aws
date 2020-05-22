@@ -43,6 +43,7 @@ type LookupTargetGroupResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id                             string                   `pulumi:"id"`
 	LambdaMultiValueHeadersEnabled bool                     `pulumi:"lambdaMultiValueHeadersEnabled"`
+	LoadBalancingAlgorithmType     string                   `pulumi:"loadBalancingAlgorithmType"`
 	Name                           string                   `pulumi:"name"`
 	Port                           int                      `pulumi:"port"`
 	Protocol                       string                   `pulumi:"protocol"`

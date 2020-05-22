@@ -97,6 +97,13 @@ import * as utilities from "../utilities";
  *                 identifiers: [varTrustedRoleArn],
  *                 type: "AWS",
  *             },
+ *             {
+ *                 identifiers: [
+ *                     `arn:aws:iam::${var_account_id}:saml-provider/${var_provider_name}`,
+ *                     "cognito-identity.amazonaws.com",
+ *                 ],
+ *                 type: "Federated",
+ *             },
  *         ],
  *     }],
  * }, { async: true }));

@@ -34,10 +34,12 @@ type LookupResourceShareResult struct {
 	// The Amazon Resource Name (ARN) of the resource share.
 	Arn     string                   `pulumi:"arn"`
 	Filters []GetResourceShareFilter `pulumi:"filters"`
-	// The Amazon Resource Name (ARN) of the resource share.
-	Id            string `pulumi:"id"`
-	Name          string `pulumi:"name"`
-	ResourceOwner string `pulumi:"resourceOwner"`
+	// The provider-assigned unique ID for this managed resource.
+	Id   string `pulumi:"id"`
+	Name string `pulumi:"name"`
+	// The ID of the AWS account that owns the resource share.
+	OwningAccountId string `pulumi:"owningAccountId"`
+	ResourceOwner   string `pulumi:"resourceOwner"`
 	// The Status of the RAM share.
 	Status string `pulumi:"status"`
 	// The Tags attached to the RAM share

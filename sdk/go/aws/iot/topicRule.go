@@ -39,6 +39,8 @@ type TopicRule struct {
 	// The version of the SQL rules engine to use when evaluating the rule.
 	SqlVersion pulumi.StringOutput   `pulumi:"sqlVersion"`
 	Sqs        TopicRuleSqsPtrOutput `pulumi:"sqs"`
+	// Key-value map of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewTopicRule registers a new resource with the given unique name, arguments, and options.
@@ -104,6 +106,8 @@ type topicRuleState struct {
 	// The version of the SQL rules engine to use when evaluating the rule.
 	SqlVersion *string       `pulumi:"sqlVersion"`
 	Sqs        *TopicRuleSqs `pulumi:"sqs"`
+	// Key-value map of resource tags
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 type TopicRuleState struct {
@@ -133,6 +137,8 @@ type TopicRuleState struct {
 	// The version of the SQL rules engine to use when evaluating the rule.
 	SqlVersion pulumi.StringPtrInput
 	Sqs        TopicRuleSqsPtrInput
+	// Key-value map of resource tags
+	Tags pulumi.MapInput
 }
 
 func (TopicRuleState) ElementType() reflect.Type {
@@ -164,6 +170,8 @@ type topicRuleArgs struct {
 	// The version of the SQL rules engine to use when evaluating the rule.
 	SqlVersion string        `pulumi:"sqlVersion"`
 	Sqs        *TopicRuleSqs `pulumi:"sqs"`
+	// Key-value map of resource tags
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TopicRule resource.
@@ -192,6 +200,8 @@ type TopicRuleArgs struct {
 	// The version of the SQL rules engine to use when evaluating the rule.
 	SqlVersion pulumi.StringInput
 	Sqs        TopicRuleSqsPtrInput
+	// Key-value map of resource tags
+	Tags pulumi.MapInput
 }
 
 func (TopicRuleArgs) ElementType() reflect.Type {

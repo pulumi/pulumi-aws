@@ -112,6 +112,10 @@ export class Document extends pulumi.CustomResource {
      */
     public readonly documentType!: pulumi.Output<string>;
     /**
+     * The document version.
+     */
+    public /*out*/ readonly documentVersion!: pulumi.Output<string>;
+    /**
      * The sha1 or sha256 of the document content
      */
     public /*out*/ readonly hash!: pulumi.Output<string>;
@@ -180,6 +184,7 @@ export class Document extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["documentFormat"] = state ? state.documentFormat : undefined;
             inputs["documentType"] = state ? state.documentType : undefined;
+            inputs["documentVersion"] = state ? state.documentVersion : undefined;
             inputs["hash"] = state ? state.hash : undefined;
             inputs["hashType"] = state ? state.hashType : undefined;
             inputs["latestVersion"] = state ? state.latestVersion : undefined;
@@ -212,6 +217,7 @@ export class Document extends pulumi.CustomResource {
             inputs["createdDate"] = undefined /*out*/;
             inputs["defaultVersion"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
+            inputs["documentVersion"] = undefined /*out*/;
             inputs["hash"] = undefined /*out*/;
             inputs["hashType"] = undefined /*out*/;
             inputs["latestVersion"] = undefined /*out*/;
@@ -265,6 +271,10 @@ export interface DocumentState {
      * The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
      */
     readonly documentType?: pulumi.Input<string>;
+    /**
+     * The document version.
+     */
+    readonly documentVersion?: pulumi.Input<string>;
     /**
      * The sha1 or sha256 of the document content
      */

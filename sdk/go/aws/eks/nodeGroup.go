@@ -22,9 +22,11 @@ type NodeGroup struct {
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
 	DiskSize pulumi.IntOutput `pulumi:"diskSize"`
+	// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
+	ForceUpdateVersion pulumi.BoolPtrOutput `pulumi:"forceUpdateVersion"`
 	// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
 	InstanceTypes pulumi.StringOutput `pulumi:"instanceTypes"`
-	// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
+	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// Name of the EKS Node Group.
 	NodeGroupName pulumi.StringOutput `pulumi:"nodeGroupName"`
@@ -96,9 +98,11 @@ type nodeGroupState struct {
 	ClusterName *string `pulumi:"clusterName"`
 	// Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
 	DiskSize *int `pulumi:"diskSize"`
+	// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
+	ForceUpdateVersion *bool `pulumi:"forceUpdateVersion"`
 	// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
 	InstanceTypes *string `pulumi:"instanceTypes"`
-	// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
+	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels map[string]string `pulumi:"labels"`
 	// Name of the EKS Node Group.
 	NodeGroupName *string `pulumi:"nodeGroupName"`
@@ -131,9 +135,11 @@ type NodeGroupState struct {
 	ClusterName pulumi.StringPtrInput
 	// Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
 	DiskSize pulumi.IntPtrInput
+	// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
+	ForceUpdateVersion pulumi.BoolPtrInput
 	// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
 	InstanceTypes pulumi.StringPtrInput
-	// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
+	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapInput
 	// Name of the EKS Node Group.
 	NodeGroupName pulumi.StringPtrInput
@@ -168,9 +174,11 @@ type nodeGroupArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
 	DiskSize *int `pulumi:"diskSize"`
+	// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
+	ForceUpdateVersion *bool `pulumi:"forceUpdateVersion"`
 	// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
 	InstanceTypes *string `pulumi:"instanceTypes"`
-	// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
+	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels map[string]string `pulumi:"labels"`
 	// Name of the EKS Node Group.
 	NodeGroupName *string `pulumi:"nodeGroupName"`
@@ -198,9 +206,11 @@ type NodeGroupArgs struct {
 	ClusterName pulumi.StringInput
 	// Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
 	DiskSize pulumi.IntPtrInput
+	// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
+	ForceUpdateVersion pulumi.BoolPtrInput
 	// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
 	InstanceTypes pulumi.StringPtrInput
-	// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
+	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapInput
 	// Name of the EKS Node Group.
 	NodeGroupName pulumi.StringPtrInput

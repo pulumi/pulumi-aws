@@ -15,6 +15,12 @@ namespace Pulumi.Aws.Glue
     public partial class Connection : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the Glue Connection.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         /// </summary>
         [Output("catalogId")]
@@ -163,6 +169,12 @@ namespace Pulumi.Aws.Glue
 
     public sealed class ConnectionState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Glue Connection.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         /// </summary>

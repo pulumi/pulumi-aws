@@ -123,6 +123,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly enableEcsManagedTags!: pulumi.Output<boolean | undefined>;
     /**
+     * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
+     */
+    public readonly forceNewDeployment!: pulumi.Output<boolean | undefined>;
+    /**
      * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
      */
     public readonly healthCheckGracePeriodSeconds!: pulumi.Output<number | undefined>;
@@ -147,12 +151,11 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly networkConfiguration!: pulumi.Output<outputs.ecs.ServiceNetworkConfiguration | undefined>;
     /**
-     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
+     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
      */
     public readonly orderedPlacementStrategies!: pulumi.Output<outputs.ecs.ServiceOrderedPlacementStrategy[] | undefined>;
     /**
-     * rules that are taken into consideration during task placement. Maximum number of
-     * `placementConstraints` is `10`. Defined below.
+     * rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. Defined below.
      */
     public readonly placementConstraints!: pulumi.Output<outputs.ecs.ServicePlacementConstraint[] | undefined>;
     /**
@@ -203,6 +206,7 @@ export class Service extends pulumi.CustomResource {
             inputs["deploymentMinimumHealthyPercent"] = state ? state.deploymentMinimumHealthyPercent : undefined;
             inputs["desiredCount"] = state ? state.desiredCount : undefined;
             inputs["enableEcsManagedTags"] = state ? state.enableEcsManagedTags : undefined;
+            inputs["forceNewDeployment"] = state ? state.forceNewDeployment : undefined;
             inputs["healthCheckGracePeriodSeconds"] = state ? state.healthCheckGracePeriodSeconds : undefined;
             inputs["iamRole"] = state ? state.iamRole : undefined;
             inputs["launchType"] = state ? state.launchType : undefined;
@@ -230,6 +234,7 @@ export class Service extends pulumi.CustomResource {
             inputs["deploymentMinimumHealthyPercent"] = args ? args.deploymentMinimumHealthyPercent : undefined;
             inputs["desiredCount"] = args ? args.desiredCount : undefined;
             inputs["enableEcsManagedTags"] = args ? args.enableEcsManagedTags : undefined;
+            inputs["forceNewDeployment"] = args ? args.forceNewDeployment : undefined;
             inputs["healthCheckGracePeriodSeconds"] = args ? args.healthCheckGracePeriodSeconds : undefined;
             inputs["iamRole"] = args ? args.iamRole : undefined;
             inputs["launchType"] = args ? args.launchType : undefined;
@@ -290,6 +295,10 @@ export interface ServiceState {
      */
     readonly enableEcsManagedTags?: pulumi.Input<boolean>;
     /**
+     * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
+     */
+    readonly forceNewDeployment?: pulumi.Input<boolean>;
+    /**
      * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
      */
     readonly healthCheckGracePeriodSeconds?: pulumi.Input<number>;
@@ -314,12 +323,11 @@ export interface ServiceState {
      */
     readonly networkConfiguration?: pulumi.Input<inputs.ecs.ServiceNetworkConfiguration>;
     /**
-     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
+     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
      */
     readonly orderedPlacementStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceOrderedPlacementStrategy>[]>;
     /**
-     * rules that are taken into consideration during task placement. Maximum number of
-     * `placementConstraints` is `10`. Defined below.
+     * rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. Defined below.
      */
     readonly placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.ServicePlacementConstraint>[]>;
     /**
@@ -385,6 +393,10 @@ export interface ServiceArgs {
      */
     readonly enableEcsManagedTags?: pulumi.Input<boolean>;
     /**
+     * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
+     */
+    readonly forceNewDeployment?: pulumi.Input<boolean>;
+    /**
      * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
      */
     readonly healthCheckGracePeriodSeconds?: pulumi.Input<number>;
@@ -409,12 +421,11 @@ export interface ServiceArgs {
      */
     readonly networkConfiguration?: pulumi.Input<inputs.ecs.ServiceNetworkConfiguration>;
     /**
-     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
+     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. Defined below.
      */
     readonly orderedPlacementStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceOrderedPlacementStrategy>[]>;
     /**
-     * rules that are taken into consideration during task placement. Maximum number of
-     * `placementConstraints` is `10`. Defined below.
+     * rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. Defined below.
      */
     readonly placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.ServicePlacementConstraint>[]>;
     /**

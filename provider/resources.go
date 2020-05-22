@@ -143,6 +143,7 @@ const (
 	swfMod                    = "Swf"                   // Simple Workflow Service (SWF)
 	transferMod               = "Transfer"              // Transfer Service
 	wafMod                    = "Waf"                   // Web Application Firewall (WAF)
+	wafV2Mod                  = "WafV2"                 // Web Application Firewall V2 (WAFV2)
 	wafregionalMod            = "WafRegional"           // Web Application Firewall (WAF) Regional
 	worklinkMod               = "WorkLink"              // Worklink
 	workspacesMod             = "Workspaces"            // Workspaces
@@ -1150,6 +1151,8 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:                 awsResource(efsMod, "MountTarget"),
 				DeleteBeforeReplace: true, // only 1 mount target per AZ.
 			},
+			"aws_efs_access_point":       {Tok: awsResource(efsMod, "AccessPoint")},
+			"aws_efs_file_system_policy": {Tok: awsResource(efsMod, "FileSystemPolicy")},
 			// ECS for Kubernetes
 			"aws_eks_cluster": {
 				Tok: awsResource(eksMod, "Cluster"),
@@ -2036,6 +2039,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_waf_web_acl":                 {Tok: awsResource(wafMod, "WebAcl")},
 			"aws_waf_xss_match_set":           {Tok: awsResource(wafMod, "XssMatchSet")},
 			"aws_waf_sql_injection_match_set": {Tok: awsResource(wafMod, "SqlInjectionMatchSet")},
+			// Web Application Firewall V2 (WAFv2)
+			"aws_wafv2_ip_set":            {Tok: awsResource(wafV2Mod, "IpSet")},
+			"aws_wafv2_regex_pattern_set": {Tok: awsResource(wafV2Mod, "RegexPatternSet")},
 			// Web Application Firewall (WAF) Regional
 			"aws_wafregional_byte_match_set": {
 				Tok: awsResource(wafregionalMod, "ByteMatchSet"),
@@ -2252,6 +2258,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_efs_mount_target": {Tok: awsDataSource(efsMod, "getMountTarget")},
+			"aws_efs_access_point": {Tok: awsDataSource(efsMod, "getAccessPoint")},
 			// ECS for Kubernetes
 			"aws_eks_cluster": {
 				Tok: awsDataSource(eksMod, "getCluster"),
@@ -2403,6 +2410,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_backup_plan":      {Tok: awsDataSource(backupMod, "getPlan")},
 			"aws_backup_selection": {Tok: awsDataSource(backupMod, "getSelection")},
 			"aws_backup_vault":     {Tok: awsDataSource(backupMod, "getVault")},
+			// WAF V2
+			"aws_wafv2_ip_set":            {Tok: awsDataSource(wafV2Mod, "getIpSet")},
+			"aws_wafv2_regex_pattern_set": {Tok: awsDataSource(wafV2Mod, "getRegexPatternSet")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

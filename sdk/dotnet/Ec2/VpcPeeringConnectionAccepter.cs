@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A configuration block that describes [VPC Peering Connection]
-        /// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
         /// </summary>
         [Output("accepter")]
         public Output<Outputs.VpcPeeringConnectionAccepterAccepter> Accepter { get; private set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A configuration block that describes [VPC Peering Connection]
-        /// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         /// </summary>
         [Output("requester")]
         public Output<Outputs.VpcPeeringConnectionAccepterRequester> Requester { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// A configuration block that describes [VPC Peering Connection]
-        /// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
         /// </summary>
         [Input("accepter")]
         public Input<Inputs.VpcPeeringConnectionAccepterAccepterArgs>? Accepter { get; set; }
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A configuration block that describes [VPC Peering Connection]
-        /// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         /// </summary>
         [Input("requester")]
         public Input<Inputs.VpcPeeringConnectionAccepterRequesterArgs>? Requester { get; set; }
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A configuration block that describes [VPC Peering Connection]
-        /// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
         /// </summary>
         [Input("accepter")]
         public Input<Inputs.VpcPeeringConnectionAccepterAccepterGetArgs>? Accepter { get; set; }
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A configuration block that describes [VPC Peering Connection]
-        /// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         /// </summary>
         [Input("requester")]
         public Input<Inputs.VpcPeeringConnectionAccepterRequesterGetArgs>? Requester { get; set; }

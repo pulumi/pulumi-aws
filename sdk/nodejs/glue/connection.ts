@@ -74,6 +74,10 @@ export class Connection extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the Glue Connection.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      */
     public readonly catalogId!: pulumi.Output<string>;
@@ -114,6 +118,7 @@ export class Connection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ConnectionState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["catalogId"] = state ? state.catalogId : undefined;
             inputs["connectionProperties"] = state ? state.connectionProperties : undefined;
             inputs["connectionType"] = state ? state.connectionType : undefined;
@@ -133,6 +138,7 @@ export class Connection extends pulumi.CustomResource {
             inputs["matchCriterias"] = args ? args.matchCriterias : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["physicalConnectionRequirements"] = args ? args.physicalConnectionRequirements : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -149,6 +155,10 @@ export class Connection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Connection resources.
  */
 export interface ConnectionState {
+    /**
+     * The ARN of the Glue Connection.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      */

@@ -57,7 +57,7 @@ class FileSystem(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, creation_token=None, encrypted=None, kms_key_id=None, lifecycle_policy=None, performance_mode=None, provisioned_throughput_in_mibps=None, tags=None, throughput_mode=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides an Elastic File System (EFS) resource.
+        Provides an Elastic File System (EFS) File System resource.
 
         ## Example Usage
 

@@ -9,7 +9,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides an Elastic File System (EFS) resource.
+// Provides an Elastic File System (EFS) File System resource.
 type FileSystem struct {
 	pulumi.CustomResourceState
 

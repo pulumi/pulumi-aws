@@ -111,10 +111,9 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// The character set name to use for DB
-        /// encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
-        /// Supported in Amazon
-        /// RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-        /// for more information.
+        /// encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+        /// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+        /// or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         /// </summary>
         [Output("characterSetName")]
         public Output<string> CharacterSetName { get; private set; } = null!;
@@ -363,7 +362,9 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Specifies that this resource is a Replicate
         /// database, and to use this value as the source database. This correlates to the
-        /// `identifier` of another Amazon RDS Database to replicate. Note that if you are
+        /// `identifier` of another Amazon RDS Database to replicate (if replicating within
+        /// a single region) or ARN of the Amazon RDS Database to replicate (if replicating
+        /// cross-region). Note that if you are
         /// creating a cross-region replica of an encrypted database you will also need to
         /// specify a `kms_key_id`. See [DB Instance Replication][1] and [Working with
         /// PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
@@ -569,10 +570,9 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// The character set name to use for DB
-        /// encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
-        /// Supported in Amazon
-        /// RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-        /// for more information.
+        /// encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+        /// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+        /// or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         /// </summary>
         [Input("characterSetName")]
         public Input<string>? CharacterSetName { get; set; }
@@ -811,7 +811,9 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Specifies that this resource is a Replicate
         /// database, and to use this value as the source database. This correlates to the
-        /// `identifier` of another Amazon RDS Database to replicate. Note that if you are
+        /// `identifier` of another Amazon RDS Database to replicate (if replicating within
+        /// a single region) or ARN of the Amazon RDS Database to replicate (if replicating
+        /// cross-region). Note that if you are
         /// creating a cross-region replica of an encrypted database you will also need to
         /// specify a `kms_key_id`. See [DB Instance Replication][1] and [Working with
         /// PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
@@ -996,10 +998,9 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// The character set name to use for DB
-        /// encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
-        /// Supported in Amazon
-        /// RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-        /// for more information.
+        /// encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+        /// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+        /// or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         /// </summary>
         [Input("characterSetName")]
         public Input<string>? CharacterSetName { get; set; }
@@ -1259,7 +1260,9 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Specifies that this resource is a Replicate
         /// database, and to use this value as the source database. This correlates to the
-        /// `identifier` of another Amazon RDS Database to replicate. Note that if you are
+        /// `identifier` of another Amazon RDS Database to replicate (if replicating within
+        /// a single region) or ARN of the Amazon RDS Database to replicate (if replicating
+        /// cross-region). Note that if you are
         /// creating a cross-region replica of an encrypted database you will also need to
         /// specify a `kms_key_id`. See [DB Instance Replication][1] and [Working with
         /// PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)

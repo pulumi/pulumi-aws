@@ -61,6 +61,12 @@ namespace Pulumi.Aws.Ecs
         public Output<bool?> EnableEcsManagedTags { get; private set; } = null!;
 
         /// <summary>
+        /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+        /// </summary>
+        [Output("forceNewDeployment")]
+        public Output<bool?> ForceNewDeployment { get; private set; } = null!;
+
+        /// <summary>
         /// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         /// </summary>
         [Output("healthCheckGracePeriodSeconds")]
@@ -97,14 +103,13 @@ namespace Pulumi.Aws.Ecs
         public Output<Outputs.ServiceNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
+        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
         /// </summary>
         [Output("orderedPlacementStrategies")]
         public Output<ImmutableArray<Outputs.ServiceOrderedPlacementStrategy>> OrderedPlacementStrategies { get; private set; } = null!;
 
         /// <summary>
-        /// rules that are taken into consideration during task placement. Maximum number of
-        /// `placement_constraints` is `10`. Defined below.
+        /// rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. Defined below.
         /// </summary>
         [Output("placementConstraints")]
         public Output<ImmutableArray<Outputs.ServicePlacementConstraint>> PlacementConstraints { get; private set; } = null!;
@@ -246,6 +251,12 @@ namespace Pulumi.Aws.Ecs
         public Input<bool>? EnableEcsManagedTags { get; set; }
 
         /// <summary>
+        /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+        /// </summary>
+        [Input("forceNewDeployment")]
+        public Input<bool>? ForceNewDeployment { get; set; }
+
+        /// <summary>
         /// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         /// </summary>
         [Input("healthCheckGracePeriodSeconds")]
@@ -291,7 +302,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServiceOrderedPlacementStrategyArgs>? _orderedPlacementStrategies;
 
         /// <summary>
-        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
+        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
         /// </summary>
         public InputList<Inputs.ServiceOrderedPlacementStrategyArgs> OrderedPlacementStrategies
         {
@@ -303,8 +314,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServicePlacementConstraintArgs>? _placementConstraints;
 
         /// <summary>
-        /// rules that are taken into consideration during task placement. Maximum number of
-        /// `placement_constraints` is `10`. Defined below.
+        /// rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. Defined below.
         /// </summary>
         public InputList<Inputs.ServicePlacementConstraintArgs> PlacementConstraints
         {
@@ -416,6 +426,12 @@ namespace Pulumi.Aws.Ecs
         public Input<bool>? EnableEcsManagedTags { get; set; }
 
         /// <summary>
+        /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+        /// </summary>
+        [Input("forceNewDeployment")]
+        public Input<bool>? ForceNewDeployment { get; set; }
+
+        /// <summary>
         /// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         /// </summary>
         [Input("healthCheckGracePeriodSeconds")]
@@ -461,7 +477,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServiceOrderedPlacementStrategyGetArgs>? _orderedPlacementStrategies;
 
         /// <summary>
-        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
+        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
         /// </summary>
         public InputList<Inputs.ServiceOrderedPlacementStrategyGetArgs> OrderedPlacementStrategies
         {
@@ -473,8 +489,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServicePlacementConstraintGetArgs>? _placementConstraints;
 
         /// <summary>
-        /// rules that are taken into consideration during task placement. Maximum number of
-        /// `placement_constraints` is `10`. Defined below.
+        /// rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. Defined below.
         /// </summary>
         public InputList<Inputs.ServicePlacementConstraintGetArgs> PlacementConstraints
         {

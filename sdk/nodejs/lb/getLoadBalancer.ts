@@ -76,6 +76,7 @@ export interface GetLoadBalancerResult {
     readonly enableDeletionProtection: boolean;
     readonly idleTimeout: number;
     readonly internal: boolean;
+    readonly ipAddressType: string;
     readonly loadBalancerType: string;
     readonly name: string;
     readonly securityGroups: string[];
