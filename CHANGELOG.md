@@ -2,12 +2,15 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 2.6.0 (2020-05-22)
 * Upgrade to pulumi-terraform-bridge v2.3.3
 * Add ManagedPolicies.AmazonRDSDataFullAccess
 * Add ManagedPolicies.AmazonSSMManagedInstanceCore
 * Upgrade to v2.63.0 of the AWS Terraform Provider
-
----
 
 ## 2.5.0 (2020-05-19)
 * Upgrade to v2.62.0 of the AWS Terraform Provider
