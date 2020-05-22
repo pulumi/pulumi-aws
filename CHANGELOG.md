@@ -5,6 +5,7 @@ CHANGELOG
 * Upgrade to pulumi-terraform-bridge v2.3.3
 * Add ManagedPolicies.AmazonRDSDataFullAccess
 * Add ManagedPolicies.AmazonSSMManagedInstanceCore
+* Upgrade to v2.63.0 of the AWS Terraform Provider
 
 ---
 
