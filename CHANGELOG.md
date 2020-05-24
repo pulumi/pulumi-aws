@@ -10,6 +10,7 @@ _(none)_
 * Upgrade to pulumi-terraform-bridge v2.3.3
 * Add ManagedPolicies.AmazonRDSDataFullAccess
 * Add ManagedPolicies.AmazonSSMManagedInstanceCore
+* Add ManagedPolicies.AWSCodeDeployRoleForECS
 * Upgrade to v2.63.0 of the AWS Terraform Provider
 
 ## 2.5.0 (2020-05-19)
