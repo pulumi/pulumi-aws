@@ -41,6 +41,7 @@ export module ManagedPolicies {
     export const AWSCodeDeployFullAccess: ARN = "arn:aws:iam::aws:policy/AWSCodeDeployFullAccess";
     export const AWSCodeDeployReadOnlyAccess: ARN = "arn:aws:iam::aws:policy/AWSCodeDeployReadOnlyAccess";
     export const AWSCodeDeployRole: ARN = "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole";
+    export const AWSCodeDeployRoleForECS: ARN = "arn:aws:iam::aws:policy/AWSCodeDeployRoleForECS";
     export const AWSCodePipelineApproverAccess: ARN = "arn:aws:iam::aws:policy/AWSCodePipelineApproverAccess";
     export const AWSCodePipelineCustomActionAccess: ARN = "arn:aws:iam::aws:policy/AWSCodePipelineCustomActionAccess";
     export const AWSCodePipelineFullAccess: ARN = "arn:aws:iam::aws:policy/AWSCodePipelineFullAccess";
