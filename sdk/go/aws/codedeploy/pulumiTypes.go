@@ -1284,9 +1284,7 @@ func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput) Act
 
 // The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `actionOnTimeout`.
 func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput) WaitTimeInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) *int {
-		return v.WaitTimeInMinutes
-	}).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) *int { return v.WaitTimeInMinutes }).(pulumi.IntPtrOutput)
 }
 
 type DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput struct{ *pulumi.OutputState }

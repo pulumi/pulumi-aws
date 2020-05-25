@@ -3353,9 +3353,7 @@ func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput
 
 // Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
 func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) *string {
-		return v.KmsKeyArn
-	}).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 type SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput struct{ *pulumi.OutputState }

@@ -2033,9 +2033,7 @@ func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput) Pr
 
 // Identifies the resource associated with the metric type.
 func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput) ResourceLabel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicyTargetTrackingConfigurationPredefinedMetricSpecification) *string {
-		return v.ResourceLabel
-	}).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyTargetTrackingConfigurationPredefinedMetricSpecification) *string { return v.ResourceLabel }).(pulumi.StringPtrOutput)
 }
 
 type PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput struct{ *pulumi.OutputState }
