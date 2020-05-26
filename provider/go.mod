@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-aws/provider/v2
 
-go 1.13
+go 1.14
 
 require (
 	github.com/hashicorp/aws-sdk-go-base v0.4.0
