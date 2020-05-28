@@ -18,6 +18,27 @@ namespace Pulumi.Aws.ApiGateway
         /// error if there is more than one match.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var myApiGatewayVpcLink = Output.Create(Aws.ApiGateway.GetVpcLink.InvokeAsync(new Aws.ApiGateway.GetVpcLinkArgs
+        ///         {
+        ///             Name = "my-vpc-link",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpcLinkResult> InvokeAsync(GetVpcLinkArgs args, InvokeOptions? options = null)

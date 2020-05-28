@@ -15,6 +15,27 @@ namespace Pulumi.Aws.WafRegional
         /// `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.WafRegional.GetWebAcl.InvokeAsync(new Aws.WafRegional.GetWebAclArgs
+        ///         {
+        ///             Name = "tfWAFRegionalWebACL",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetWebAclResult> InvokeAsync(GetWebAclArgs args, InvokeOptions? options = null)

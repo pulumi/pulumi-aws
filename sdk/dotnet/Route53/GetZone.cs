@@ -17,6 +17,42 @@ namespace Pulumi.Aws.Route53
         /// This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
+        /// 
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var selected = Output.Create(Aws.Route53.GetZone.InvokeAsync(new Aws.Route53.GetZoneArgs
+        ///         {
+        ///             Name = "test.com.",
+        ///             PrivateZone = true,
+        ///         }));
+        ///         var www = new Aws.Route53.Record("www", new Aws.Route53.RecordArgs
+        ///         {
+        ///             Name = selected.Apply(selected =&gt; $"www.{selected.Name}"),
+        ///             Records = 
+        ///             {
+        ///                 "10.0.0.1",
+        ///             },
+        ///             Ttl = "300",
+        ///             Type = "A",
+        ///             ZoneId = selected.Apply(selected =&gt; selected.ZoneId),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetZoneResult> InvokeAsync(GetZoneArgs? args = null, InvokeOptions? options = null)

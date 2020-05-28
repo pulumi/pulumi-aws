@@ -93,11 +93,11 @@ class Directory(pulumi.CustomResource):
             password="#S1ncerely",
             size="Small",
             vpc_settings={
-                "subnetIds": [
+                "subnet_ids": [
                     private_a.id,
                     private_b.id,
                 ],
-                "vpcId": main_vpc.id,
+                "vpc_id": main_vpc.id,
             })
         main_workspaces_directory_directory = aws.workspaces.Directory("mainWorkspaces/directoryDirectory",
             directory_id=main_directory.id,

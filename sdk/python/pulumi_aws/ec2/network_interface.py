@@ -70,7 +70,7 @@ class NetworkInterface(pulumi.CustomResource):
 
         test = aws.ec2.NetworkInterface("test",
             attachments=[{
-                "deviceIndex": 1,
+                "device_index": 1,
                 "instance": aws_instance["test"]["id"],
             }],
             private_ips=["10.0.0.50"],

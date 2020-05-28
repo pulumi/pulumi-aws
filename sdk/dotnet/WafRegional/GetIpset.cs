@@ -15,6 +15,27 @@ namespace Pulumi.Aws.WafRegional
         /// `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.WafRegional.GetIpset.InvokeAsync(new Aws.WafRegional.GetIpsetArgs
+        ///         {
+        ///             Name = "tfWAFRegionalIPSet",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetIpsetResult> InvokeAsync(GetIpsetArgs args, InvokeOptions? options = null)

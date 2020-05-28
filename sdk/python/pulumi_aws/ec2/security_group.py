@@ -114,16 +114,16 @@ class SecurityGroup(pulumi.CustomResource):
             vpc_id=aws_vpc["main"]["id"],
             ingress=[{
                 "description": "TLS from VPC",
-                "fromPort": 443,
-                "toPort": 443,
+                "from_port": 443,
+                "to_port": 443,
                 "protocol": "tcp",
-                "cidrBlocks": aws_vpc["main"]["cidr_block"],
+                "cidr_blocks": aws_vpc["main"]["cidr_block"],
             }],
             egress=[{
-                "fromPort": 0,
-                "toPort": 0,
+                "from_port": 0,
+                "to_port": 0,
                 "protocol": "-1",
-                "cidrBlocks": ["0.0.0.0/0"],
+                "cidr_blocks": ["0.0.0.0/0"],
             }],
             tags={
                 "Name": "allow_tls",

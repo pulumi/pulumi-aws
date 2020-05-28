@@ -13,6 +13,35 @@ namespace Pulumi.Aws.DataSync
     /// Manages an NFS Location within AWS DataSync.
     /// 
     /// &gt; **NOTE:** The DataSync Agents must be available before creating this resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.DataSync.NfsLocation("example", new Aws.DataSync.NfsLocationArgs
+    ///         {
+    ///             OnPremConfig = new Aws.DataSync.Inputs.NfsLocationOnPremConfigArgs
+    ///             {
+    ///                 AgentArns = 
+    ///                 {
+    ///                     aws_datasync_agent.Example.Arn,
+    ///                 },
+    ///             },
+    ///             ServerHostname = "nfs.example.com",
+    ///             Subdirectory = "/exported/path",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class NfsLocation : Pulumi.CustomResource
     {

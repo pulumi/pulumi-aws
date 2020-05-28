@@ -32,6 +32,35 @@ namespace Pulumi.Aws.Ec2
     /// point in time. See the [AWS Spot Instance
     /// documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
     /// for more information.
+    /// 
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Request a spot instance at $0.03
+    ///         var cheapWorker = new Aws.Ec2.SpotInstanceRequest("cheapWorker", new Aws.Ec2.SpotInstanceRequestArgs
+    ///         {
+    ///             Ami = "ami-1234",
+    ///             InstanceType = "c4.xlarge",
+    ///             SpotPrice = "0.03",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "CheapWorker" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SpotInstanceRequest : Pulumi.CustomResource
     {

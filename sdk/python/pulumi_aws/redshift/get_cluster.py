@@ -256,7 +256,7 @@ def get_cluster(cluster_identifier=None,tags=None,opts=None):
             "dataTableColumns": "test-col",
             "dataTableName": "test-table",
             "password": "T3stPass",
-            "roleArn": aws_iam_role["firehose_role"]["arn"],
+            "role_arn": aws_iam_role["firehose_role"]["arn"],
             "username": "testuser",
         },
         s3_configuration={
@@ -264,7 +264,7 @@ def get_cluster(cluster_identifier=None,tags=None,opts=None):
             "bufferInterval": 400,
             "bufferSize": 10,
             "compressionFormat": "GZIP",
-            "roleArn": aws_iam_role["firehose_role"]["arn"],
+            "role_arn": aws_iam_role["firehose_role"]["arn"],
         })
     ```
 

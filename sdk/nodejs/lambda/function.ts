@@ -65,9 +65,7 @@ import {ARN} from "../index";
  * });
  * ```
  *
- * ## CloudWatch Logging and Permissions
- *
- * For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
+ * ### CloudWatch Logging and Permissions
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -13,6 +13,33 @@ namespace Pulumi.Aws.Kinesis
     /// Provides a Kinesis Video Stream resource. Amazon Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), playback, and other processing.
     /// 
     /// For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Kinesis.VideoStream("default", new Aws.Kinesis.VideoStreamArgs
+    ///         {
+    ///             DataRetentionInHours = 1,
+    ///             DeviceName = "kinesis-video-device-name",
+    ///             MediaType = "video/h264",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "kinesis-video-stream" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VideoStream : Pulumi.CustomResource
     {

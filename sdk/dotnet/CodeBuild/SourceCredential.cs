@@ -11,6 +11,51 @@ namespace Pulumi.Aws.CodeBuild
 {
     /// <summary>
     /// Provides a CodeBuild Source Credentials Resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.CodeBuild.SourceCredential("example", new Aws.CodeBuild.SourceCredentialArgs
+    ///         {
+    ///             AuthType = "PERSONAL_ACCESS_TOKEN",
+    ///             ServerType = "GITHUB",
+    ///             Token = "example",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Bitbucket Server Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.CodeBuild.SourceCredential("example", new Aws.CodeBuild.SourceCredentialArgs
+    ///         {
+    ///             AuthType = "BASIC_AUTH",
+    ///             ServerType = "BITBUCKET",
+    ///             Token = "example",
+    ///             UserName = "test-user",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SourceCredential : Pulumi.CustomResource
     {

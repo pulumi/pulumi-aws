@@ -11,6 +11,60 @@ namespace Pulumi.Aws.Route53
 {
     /// <summary>
     /// Provides a Route53 Resolver rule.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### System rule
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var sys = new Aws.Route53.ResolverRule("sys", new Aws.Route53.ResolverRuleArgs
+    ///         {
+    ///             DomainName = "subdomain.example.com",
+    ///             RuleType = "SYSTEM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Forward rule
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fwd = new Aws.Route53.ResolverRule("fwd", new Aws.Route53.ResolverRuleArgs
+    ///         {
+    ///             DomainName = "example.com",
+    ///             ResolverEndpointId = aws_route53_resolver_endpoint.Foo.Id,
+    ///             RuleType = "FORWARD",
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "Prod" },
+    ///             },
+    ///             TargetIps = 
+    ///             {
+    ///                 new Aws.Route53.Inputs.ResolverRuleTargetIpArgs
+    ///                 {
+    ///                     Ip = "123.45.67.89",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ResolverRule : Pulumi.CustomResource
     {

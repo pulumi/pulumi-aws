@@ -53,8 +53,8 @@ class Listener(pulumi.CustomResource):
             accelerator_arn=example_accelerator.id,
             client_affinity="SOURCE_IP",
             port_ranges=[{
-                "fromPort": 80,
-                "toPort": 80,
+                "from_port": 80,
+                "to_port": 80,
             }],
             protocol="TCP")
         ```

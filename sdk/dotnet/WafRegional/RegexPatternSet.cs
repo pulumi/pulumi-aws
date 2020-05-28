@@ -11,6 +11,31 @@ namespace Pulumi.Aws.WafRegional
 {
     /// <summary>
     /// Provides a WAF Regional Regex Pattern Set Resource
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.WafRegional.RegexPatternSet("example", new Aws.WafRegional.RegexPatternSetArgs
+    ///         {
+    ///             RegexPatternStrings = 
+    ///             {
+    ///                 "one",
+    ///                 "two",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class RegexPatternSet : Pulumi.CustomResource
     {

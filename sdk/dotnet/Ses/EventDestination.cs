@@ -11,6 +11,101 @@ namespace Pulumi.Aws.Ses
 {
     /// <summary>
     /// Provides an SES event destination
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### CloudWatch Destination
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cloudwatch = new Aws.Ses.EventDestination("cloudwatch", new Aws.Ses.EventDestinationArgs
+    ///         {
+    ///             CloudwatchDestinations = 
+    ///             {
+    ///                 new Aws.Ses.Inputs.EventDestinationCloudwatchDestinationArgs
+    ///                 {
+    ///                     DefaultValue = "default",
+    ///                     DimensionName = "dimension",
+    ///                     ValueSource = "emailHeader",
+    ///                 },
+    ///             },
+    ///             ConfigurationSetName = aws_ses_configuration_set.Example.Name,
+    ///             Enabled = true,
+    ///             MatchingTypes = 
+    ///             {
+    ///                 "bounce",
+    ///                 "send",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Kinesis Destination
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var kinesis = new Aws.Ses.EventDestination("kinesis", new Aws.Ses.EventDestinationArgs
+    ///         {
+    ///             ConfigurationSetName = aws_ses_configuration_set.Example.Name,
+    ///             Enabled = true,
+    ///             KinesisDestination = new Aws.Ses.Inputs.EventDestinationKinesisDestinationArgs
+    ///             {
+    ///                 RoleArn = aws_iam_role.Example.Arn,
+    ///                 StreamArn = aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///             },
+    ///             MatchingTypes = 
+    ///             {
+    ///                 "bounce",
+    ///                 "send",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### SNS Destination
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var sns = new Aws.Ses.EventDestination("sns", new Aws.Ses.EventDestinationArgs
+    ///         {
+    ///             ConfigurationSetName = aws_ses_configuration_set.Example.Name,
+    ///             Enabled = true,
+    ///             MatchingTypes = 
+    ///             {
+    ///                 "bounce",
+    ///                 "send",
+    ///             },
+    ///             SnsDestination = new Aws.Ses.Inputs.EventDestinationSnsDestinationArgs
+    ///             {
+    ///                 TopicArn = aws_sns_topic.Example.Arn,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class EventDestination : Pulumi.CustomResource
     {

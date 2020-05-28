@@ -309,11 +309,11 @@ class Bucket(pulumi.CustomResource):
                     "transition": [
                         {
                             "days": 30,
-                            "storageClass": "STANDARD_IA",
+                            "storage_class": "STANDARD_IA",
                         },
                         {
                             "days": 60,
-                            "storageClass": "GLACIER",
+                            "storage_class": "GLACIER",
                         },
                     ],
                 },
@@ -336,11 +336,11 @@ class Bucket(pulumi.CustomResource):
                 "noncurrentVersionTransition": [
                     {
                         "days": 30,
-                        "storageClass": "STANDARD_IA",
+                        "storage_class": "STANDARD_IA",
                     },
                     {
                         "days": 60,
-                        "storageClass": "GLACIER",
+                        "storage_class": "GLACIER",
                     },
                 ],
                 "prefix": "config/",
@@ -386,7 +386,7 @@ class Bucket(pulumi.CustomResource):
                 "rules": [{
                     "destination": {
                         "bucket": destination.arn,
-                        "storageClass": "STANDARD",
+                        "storage_class": "STANDARD",
                     },
                     "id": "foobar",
                     "prefix": "foo",
@@ -448,7 +448,7 @@ class Bucket(pulumi.CustomResource):
         mybucket = aws.s3.Bucket("mybucket", server_side_encryption_configuration={
             "rule": {
                 "applyServerSideEncryptionByDefault": {
-                    "kmsMasterKeyId": mykey.arn,
+                    "kms_master_key_id": mykey.arn,
                     "sseAlgorithm": "aws:kms",
                 },
             },

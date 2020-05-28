@@ -13,6 +13,40 @@ namespace Pulumi.Aws.ElastiCache
     /// Provides an ElastiCache parameter group resource.
     /// 
     /// &gt; **NOTE:** Attempting to remove the `reserved-memory` parameter when `family` is set to `redis2.6` or `redis2.8` may show a perpetual difference in this provider due to an Elasticache API limitation. Leave that parameter configured with any value to workaround the issue.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.ElastiCache.ParameterGroup("default", new Aws.ElastiCache.ParameterGroupArgs
+    ///         {
+    ///             Family = "redis2.8",
+    ///             Parameters = 
+    ///             {
+    ///                 new Aws.ElastiCache.Inputs.ParameterGroupParameterArgs
+    ///                 {
+    ///                     Name = "activerehashing",
+    ///                     Value = "yes",
+    ///                 },
+    ///                 new Aws.ElastiCache.Inputs.ParameterGroupParameterArgs
+    ///                 {
+    ///                     Name = "min-slaves-to-write",
+    ///                     Value = "2",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ParameterGroup : Pulumi.CustomResource
     {

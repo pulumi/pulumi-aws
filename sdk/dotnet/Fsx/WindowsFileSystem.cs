@@ -13,6 +13,64 @@ namespace Pulumi.Aws.Fsx
     /// Manages a FSx Windows File System. See the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html) for more information.
     /// 
     /// &gt; **NOTE:** Either the `active_directory_id` argument or `self_managed_active_directory` configuration block must be specified.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Using AWS Directory Service
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Fsx.WindowsFileSystem("example", new Aws.Fsx.WindowsFileSystemArgs
+    ///         {
+    ///             ActiveDirectoryId = aws_directory_service_directory.Example.Id,
+    ///             KmsKeyId = aws_kms_key.Example.Arn,
+    ///             StorageCapacity = 300,
+    ///             SubnetIds = aws_subnet.Example.Id,
+    ///             ThroughputCapacity = 1024,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Using a Self-Managed Microsoft Active Directory
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Fsx.WindowsFileSystem("example", new Aws.Fsx.WindowsFileSystemArgs
+    ///         {
+    ///             KmsKeyId = aws_kms_key.Example.Arn,
+    ///             SelfManagedActiveDirectory = new Aws.Fsx.Inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs
+    ///             {
+    ///                 DnsIps = 
+    ///                 {
+    ///                     "10.0.0.111",
+    ///                     "10.0.0.222",
+    ///                 },
+    ///                 DomainName = "corp.example.com",
+    ///                 Password = "avoid-plaintext-passwords",
+    ///                 Username = "Admin",
+    ///             },
+    ///             StorageCapacity = 300,
+    ///             SubnetIds = aws_subnet.Example.Id,
+    ///             ThroughputCapacity = 1024,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class WindowsFileSystem : Pulumi.CustomResource
     {

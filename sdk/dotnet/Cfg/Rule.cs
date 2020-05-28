@@ -13,6 +13,105 @@ namespace Pulumi.Aws.Cfg
     /// Provides an AWS Config Rule.
     /// 
     /// &gt; **Note:** Config Rule requires an existing [Configuration Recorder](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `depends_on` is recommended (as shown below) to avoid race conditions.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### AWS Managed Rules
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var rule = new Aws.Cfg.Rule("rule", new Aws.Cfg.RuleArgs
+    ///         {
+    ///             Source = new Aws.Cfg.Inputs.RuleSourceArgs
+    ///             {
+    ///                 Owner = "AWS",
+    ///                 SourceIdentifier = "S3_BUCKET_VERSIONING_ENABLED",
+    ///             },
+    ///         });
+    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""config.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///         var foo = new Aws.Cfg.Recorder("foo", new Aws.Cfg.RecorderArgs
+    ///         {
+    ///             RoleArn = role.Arn,
+    ///         });
+    ///         var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Policy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///   	{
+    ///   		""Action"": ""config:Put*"",
+    ///   		""Effect"": ""Allow"",
+    ///   		""Resource"": ""*""
+    /// 
+    ///   	}
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///             Role = role.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Custom Rules
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleRecorder = new Aws.Cfg.Recorder("exampleRecorder", new Aws.Cfg.RecorderArgs
+    ///         {
+    ///         });
+    ///         var exampleFunction = new Aws.Lambda.Function("exampleFunction", new Aws.Lambda.FunctionArgs
+    ///         {
+    ///         });
+    ///         var examplePermission = new Aws.Lambda.Permission("examplePermission", new Aws.Lambda.PermissionArgs
+    ///         {
+    ///             Action = "lambda:InvokeFunction",
+    ///             Function = exampleFunction.Arn,
+    ///             Principal = "config.amazonaws.com",
+    ///         });
+    ///         var exampleRule = new Aws.Cfg.Rule("exampleRule", new Aws.Cfg.RuleArgs
+    ///         {
+    ///             Source = new Aws.Cfg.Inputs.RuleSourceArgs
+    ///             {
+    ///                 Owner = "CUSTOM_LAMBDA",
+    ///                 SourceIdentifier = exampleFunction.Arn,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Rule : Pulumi.CustomResource
     {

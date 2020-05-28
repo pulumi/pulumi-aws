@@ -11,6 +11,83 @@ namespace Pulumi.Aws.Cfg
 {
     /// <summary>
     /// Manages an AWS Config Configuration Aggregator
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Account Based Aggregation
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var account = new Aws.Cfg.ConfigurationAggregator("account", new Aws.Cfg.ConfigurationAggregatorArgs
+    ///         {
+    ///             AccountAggregationSource = new Aws.Cfg.Inputs.ConfigurationAggregatorAccountAggregationSourceArgs
+    ///             {
+    ///                 AccountIds = 
+    ///                 {
+    ///                     "123456789012",
+    ///                 },
+    ///                 Regions = 
+    ///                 {
+    ///                     "us-west-2",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Organization Based Aggregation
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var organizationRole = new Aws.Iam.Role("organizationRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Sid"": """",
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""config.amazonaws.com""
+    ///       },
+    ///       ""Action"": ""sts:AssumeRole""
+    ///     }
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///         var organizationConfigurationAggregator = new Aws.Cfg.ConfigurationAggregator("organizationConfigurationAggregator", new Aws.Cfg.ConfigurationAggregatorArgs
+    ///         {
+    ///             OrganizationAggregationSource = new Aws.Cfg.Inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs
+    ///             {
+    ///                 AllRegions = true,
+    ///                 RoleArn = organizationRole.Arn,
+    ///             },
+    ///         });
+    ///         var organizationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("organizationRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
+    ///             Role = organizationRole.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ConfigurationAggregator : Pulumi.CustomResource
     {

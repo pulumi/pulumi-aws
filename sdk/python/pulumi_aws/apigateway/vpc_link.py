@@ -46,7 +46,7 @@ class VpcLink(pulumi.CustomResource):
             internal=True,
             load_balancer_type="network",
             subnet_mappings=[{
-                "subnetId": "12345",
+                "subnet_id": "12345",
             }])
         example_vpc_link = aws.apigateway.VpcLink("exampleVpcLink",
             description="example description",

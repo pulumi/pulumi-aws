@@ -22,6 +22,38 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// information specific to the listener in question.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var listenerArn = config.RequireObject&lt;dynamic&gt;("listenerArn");
+        ///         var listener = Output.Create(Aws.LB.GetListener.InvokeAsync(new Aws.LB.GetListenerArgs
+        ///         {
+        ///             Arn = listenerArn,
+        ///         }));
+        ///         var selected = Output.Create(Aws.LB.GetLoadBalancer.InvokeAsync(new Aws.LB.GetLoadBalancerArgs
+        ///         {
+        ///             Name = "default-public",
+        ///         }));
+        ///         var selected443 = selected.Apply(selected =&gt; Output.Create(Aws.LB.GetListener.InvokeAsync(new Aws.LB.GetListenerArgs
+        ///         {
+        ///             LoadBalancerArn = selected.Arn,
+        ///             Port = 443,
+        ///         })));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetListenerResult> InvokeAsync(GetListenerArgs? args = null, InvokeOptions? options = null)

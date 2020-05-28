@@ -11,6 +11,27 @@ namespace Pulumi.Aws.OpsWorks
 {
     /// <summary>
     /// Provides an OpsWorks PHP application layer resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var app = new Aws.OpsWorks.PhpAppLayer("app", new Aws.OpsWorks.PhpAppLayerArgs
+    ///         {
+    ///             StackId = aws_opsworks_stack.Main.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class PhpAppLayer : Pulumi.CustomResource
     {

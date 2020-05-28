@@ -9,6 +9,28 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceDiscovery
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.ServiceDiscovery.HttpNamespace("example", new Aws.ServiceDiscovery.HttpNamespaceArgs
+    ///         {
+    ///             Description = "example",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     public partial class HttpNamespace : Pulumi.CustomResource
     {
         /// <summary>

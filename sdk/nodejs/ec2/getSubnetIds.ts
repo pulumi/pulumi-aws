@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleSubnetIds = aws.ec2.getSubnetIds({
- *     vpcId: var.vpc_id,
+ *     vpcId: _var.vpc_id,
  * });
  * const exampleSubnet = exampleSubnetIds.then(exampleSubnetIds => exampleSubnetIds.ids.map((v, k) => [k, v]).map(([, ]) => aws.ec2.getSubnet({
  *     id: __value,

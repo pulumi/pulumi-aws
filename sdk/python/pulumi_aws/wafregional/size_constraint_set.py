@@ -52,7 +52,7 @@ class SizeConstraintSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         size_constraint_set = aws.wafregional.SizeConstraintSet("sizeConstraintSet", size_constraints=[{
-            "comparisonOperator": "EQ",
+            "comparison_operator": "EQ",
             "fieldToMatch": {
                 "type": "BODY",
             },

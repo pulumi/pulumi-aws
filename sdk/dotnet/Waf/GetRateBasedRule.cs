@@ -15,6 +15,27 @@ namespace Pulumi.Aws.Waf
         /// `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Waf.GetRateBasedRule.InvokeAsync(new Aws.Waf.GetRateBasedRuleArgs
+        ///         {
+        ///             Name = "tfWAFRateBasedRule",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRateBasedRuleResult> InvokeAsync(GetRateBasedRuleArgs args, InvokeOptions? options = null)

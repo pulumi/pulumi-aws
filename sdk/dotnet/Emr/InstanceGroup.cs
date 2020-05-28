@@ -16,6 +16,29 @@ namespace Pulumi.Aws.Emr
     /// &gt; **NOTE:** At this time, Instance Groups cannot be destroyed through the API nor
     /// web interface. Instance Groups are destroyed when the EMR Cluster is destroyed.
     /// this provider will resize any Instance Group to zero when destroying the resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var task = new Aws.Emr.InstanceGroup("task", new Aws.Emr.InstanceGroupArgs
+    ///         {
+    ///             ClusterId = aws_emr_cluster.Tf_test_cluster.Id,
+    ///             InstanceCount = 1,
+    ///             InstanceType = "m5.xlarge",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class InstanceGroup : Pulumi.CustomResource
     {

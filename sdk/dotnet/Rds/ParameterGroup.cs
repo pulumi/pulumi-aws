@@ -17,6 +17,40 @@ namespace Pulumi.Aws.Rds
     /// * [MariaDB Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Parameters.html)
     /// * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
     /// * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Rds.ParameterGroup("default", new Aws.Rds.ParameterGroupArgs
+    ///         {
+    ///             Family = "mysql5.6",
+    ///             Parameters = 
+    ///             {
+    ///                 new Aws.Rds.Inputs.ParameterGroupParameterArgs
+    ///                 {
+    ///                     Name = "character_set_server",
+    ///                     Value = "utf8",
+    ///                 },
+    ///                 new Aws.Rds.Inputs.ParameterGroupParameterArgs
+    ///                 {
+    ///                     Name = "character_set_client",
+    ///                     Value = "utf8",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ParameterGroup : Pulumi.CustomResource
     {

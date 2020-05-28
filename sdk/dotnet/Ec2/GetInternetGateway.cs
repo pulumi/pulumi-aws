@@ -15,6 +15,39 @@ namespace Pulumi.Aws.Ec2
         /// `aws.ec2.InternetGateway` provides details about a specific Internet Gateway.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var vpcId = config.RequireObject&lt;dynamic&gt;("vpcId");
+        ///         var @default = Output.Create(Aws.Ec2.GetInternetGateway.InvokeAsync(new Aws.Ec2.GetInternetGatewayArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetInternetGatewayFilterArgs
+        ///                 {
+        ///                     Name = "attachment.vpc-id",
+        ///                     Values = 
+        ///                     {
+        ///                         vpcId,
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetInternetGatewayResult> InvokeAsync(GetInternetGatewayArgs? args = null, InvokeOptions? options = null)

@@ -23,6 +23,38 @@ namespace Pulumi.Aws.AppMesh
     /// * Add a `listener` configuration block to the `spec` argument.
     /// 
     /// The state associated with existing resources will automatically be migrated.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var serviceb = new Aws.AppMesh.VirtualRouter("serviceb", new Aws.AppMesh.VirtualRouterArgs
+    ///         {
+    ///             MeshName = aws_appmesh_mesh.Simple.Id,
+    ///             Spec = new Aws.AppMesh.Inputs.VirtualRouterSpecArgs
+    ///             {
+    ///                 Listener = new Aws.AppMesh.Inputs.VirtualRouterSpecListenerArgs
+    ///                 {
+    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualRouterSpecListenerPortMappingArgs
+    ///                     {
+    ///                         Port = 8080,
+    ///                         Protocol = "http",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VirtualRouter : Pulumi.CustomResource
     {

@@ -40,9 +40,9 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
         wu_tang = aws.elb.LoadBalancer("wu-tang",
             availability_zones=["us-east-1a"],
             listeners=[{
-                "instancePort": 443,
+                "instance_port": 443,
                 "instanceProtocol": "http",
-                "lbPort": 443,
+                "lb_port": 443,
                 "lbProtocol": "https",
                 "sslCertificateId": "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
             }],

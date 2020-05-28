@@ -49,7 +49,7 @@ class NfsLocation(pulumi.CustomResource):
 
         example = aws.datasync.NfsLocation("example",
             on_prem_config={
-                "agentArns": [aws_datasync_agent["example"]["arn"]],
+                "agent_arns": [aws_datasync_agent["example"]["arn"]],
             },
             server_hostname="nfs.example.com",
             subdirectory="/exported/path")

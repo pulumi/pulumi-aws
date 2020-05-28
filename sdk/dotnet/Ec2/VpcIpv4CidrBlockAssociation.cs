@@ -14,6 +14,32 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// When a VPC is created, a primary IPv4 CIDR block for the VPC must be specified.
     /// The `aws.ec2.VpcIpv4CidrBlockAssociation` resource allows further IPv4 CIDR blocks to be added to the VPC.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.0.0.0/16",
+    ///         });
+    ///         var secondaryCidr = new Aws.Ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", new Aws.Ec2.VpcIpv4CidrBlockAssociationArgs
+    ///         {
+    ///             CidrBlock = "172.2.0.0/16",
+    ///             VpcId = main.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VpcIpv4CidrBlockAssociation : Pulumi.CustomResource
     {

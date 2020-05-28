@@ -16,6 +16,83 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// &gt; **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), EC2 subnets and security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ### Lambda Layers
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleLayerVersion = new Aws.Lambda.LayerVersion("exampleLayerVersion", new Aws.Lambda.LayerVersionArgs
+    ///         {
+    ///         });
+    ///         var exampleFunction = new Aws.Lambda.Function("exampleFunction", new Aws.Lambda.FunctionArgs
+    ///         {
+    ///             Layers = 
+    ///             {
+    ///                 exampleLayerVersion.Arn,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### CloudWatch Logging and Permissions
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testLambda = new Aws.Lambda.Function("testLambda", new Aws.Lambda.FunctionArgs
+    ///         {
+    ///         });
+    ///         // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
+    ///         // If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
+    ///         var example = new Aws.CloudWatch.LogGroup("example", new Aws.CloudWatch.LogGroupArgs
+    ///         {
+    ///             RetentionInDays = 14,
+    ///         });
+    ///         // See also the following AWS managed policy: AWSLambdaBasicExecutionRole
+    ///         var lambdaLogging = new Aws.Iam.Policy("lambdaLogging", new Aws.Iam.PolicyArgs
+    ///         {
+    ///             Description = "IAM policy for logging from a lambda",
+    ///             Path = "/",
+    ///             Policy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": [
+    ///         ""logs:CreateLogGroup"",
+    ///         ""logs:CreateLogStream"",
+    ///         ""logs:PutLogEvents""
+    ///       ],
+    ///       ""Resource"": ""arn:aws:logs:*:*:*"",
+    ///       ""Effect"": ""Allow""
+    ///     }
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///         var lambdaLogs = new Aws.Iam.RolePolicyAttachment("lambdaLogs", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = lambdaLogging.Arn,
+    ///             Role = aws_iam_role.Iam_for_lambda.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Specifying the Deployment Package
     /// 

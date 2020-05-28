@@ -11,6 +11,27 @@ namespace Pulumi.Aws.Ses
 {
     /// <summary>
     /// Provides an SES email identity resource
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ses.EmailIdentity("example", new Aws.Ses.EmailIdentityArgs
+    ///         {
+    ///             Email = "email@example.com",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class EmailIdentity : Pulumi.CustomResource
     {

@@ -84,16 +84,16 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
             description="test rule",
             destination_cidr_block="10.0.0.0/8",
             destination_port_range={
-                "fromPort": 22,
-                "toPort": 53,
+                "from_port": 22,
+                "to_port": 53,
             },
             protocol=6,
             rule_action="accept",
             rule_number=1,
             source_cidr_block="10.0.0.0/8",
             source_port_range={
-                "fromPort": 0,
-                "toPort": 10,
+                "from_port": 0,
+                "to_port": 10,
             },
             traffic_direction="ingress",
             traffic_mirror_filter_id=filter.id)

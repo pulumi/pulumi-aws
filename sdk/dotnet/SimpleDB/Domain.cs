@@ -11,6 +11,26 @@ namespace Pulumi.Aws.SimpleDB
 {
     /// <summary>
     /// Provides a SimpleDB domain resource
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var users = new Aws.SimpleDB.Domain("users", new Aws.SimpleDB.DomainArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Domain : Pulumi.CustomResource
     {

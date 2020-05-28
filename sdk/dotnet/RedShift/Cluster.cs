@@ -14,6 +14,32 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
     /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.RedShift.Cluster("default", new Aws.RedShift.ClusterArgs
+    ///         {
+    ///             ClusterIdentifier = "tf-redshift-cluster",
+    ///             ClusterType = "single-node",
+    ///             DatabaseName = "mydb",
+    ///             MasterPassword = "Mustbe8characters",
+    ///             MasterUsername = "foo",
+    ///             NodeType = "dc1.large",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

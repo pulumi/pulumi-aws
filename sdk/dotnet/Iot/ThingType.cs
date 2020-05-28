@@ -11,6 +11,26 @@ namespace Pulumi.Aws.Iot
 {
     /// <summary>
     /// Creates and manages an AWS IoT Thing Type.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Iot.ThingType("foo", new Aws.Iot.ThingTypeArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ThingType : Pulumi.CustomResource
     {

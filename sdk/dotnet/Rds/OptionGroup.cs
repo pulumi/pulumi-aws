@@ -16,6 +16,60 @@ namespace Pulumi.Aws.Rds
     /// * [Microsoft SQL Server Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.Options.html)
     /// * [MySQL Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.Options.html)
     /// * [Oracle Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.html)
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Rds.OptionGroup("example", new Aws.Rds.OptionGroupArgs
+    ///         {
+    ///             EngineName = "sqlserver-ee",
+    ///             MajorEngineVersion = "11.00",
+    ///             Options = 
+    ///             {
+    ///                 new Aws.Rds.Inputs.OptionGroupOptionArgs
+    ///                 {
+    ///                     OptionName = "Timezone",
+    ///                     OptionSettings = 
+    ///                     {
+    ///                         new Aws.Rds.Inputs.OptionGroupOptionOptionSettingArgs
+    ///                         {
+    ///                             Name = "TIME_ZONE",
+    ///                             Value = "UTC",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Aws.Rds.Inputs.OptionGroupOptionArgs
+    ///                 {
+    ///                     OptionName = "SQLSERVER_BACKUP_RESTORE",
+    ///                     OptionSettings = 
+    ///                     {
+    ///                         new Aws.Rds.Inputs.OptionGroupOptionOptionSettingArgs
+    ///                         {
+    ///                             Name = "IAM_ROLE_ARN",
+    ///                             Value = aws_iam_role.Example.Arn,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Aws.Rds.Inputs.OptionGroupOptionArgs
+    ///                 {
+    ///                     OptionName = "TDE",
+    ///                 },
+    ///             },
+    ///             OptionGroupDescription = "Option Group",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class OptionGroup : Pulumi.CustomResource
     {

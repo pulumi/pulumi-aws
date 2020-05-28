@@ -78,7 +78,7 @@ class BucketNotification(pulumi.CustomResource):
             topics=[{
                 "events": ["s3:ObjectCreated:*"],
                 "filterSuffix": ".log",
-                "topicArn": topic.arn,
+                "topic_arn": topic.arn,
             }])
         ```
 
@@ -147,7 +147,7 @@ class BucketNotification(pulumi.CustomResource):
         bucket_notification = aws.s3.BucketNotification("bucketNotification",
             bucket=bucket.id,
             lambda_function=[{
-                "lambdaFunctionArn": func.arn,
+                "lambda_function_arn": func.arn,
                 "events": ["s3:ObjectCreated:*"],
                 "filterPrefix": "AWSLogs/",
                 "filterSuffix": ".log",
@@ -197,13 +197,13 @@ class BucketNotification(pulumi.CustomResource):
             bucket=bucket.id,
             lambda_function=[
                 {
-                    "lambdaFunctionArn": func1.arn,
+                    "lambda_function_arn": func1.arn,
                     "events": ["s3:ObjectCreated:*"],
                     "filterPrefix": "AWSLogs/",
                     "filterSuffix": ".log",
                 },
                 {
-                    "lambdaFunctionArn": func2.arn,
+                    "lambda_function_arn": func2.arn,
                     "events": ["s3:ObjectCreated:*"],
                     "filterPrefix": "OtherLogs/",
                     "filterSuffix": ".log",

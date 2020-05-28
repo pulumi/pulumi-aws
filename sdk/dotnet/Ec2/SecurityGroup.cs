@@ -22,6 +22,79 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
     /// 
     /// &gt; **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var allowTls = new Aws.Ec2.SecurityGroup("allowTls", new Aws.Ec2.SecurityGroupArgs
+    ///         {
+    ///             Description = "Allow TLS inbound traffic",
+    ///             VpcId = aws_vpc.Main.Id,
+    ///             Ingress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SecurityGroupIngressArgs
+    ///                 {
+    ///                     Description = "TLS from VPC",
+    ///                     FromPort = 443,
+    ///                     ToPort = 443,
+    ///                     Protocol = "tcp",
+    ///                     CidrBlocks = aws_vpc.Main.Cidr_block,
+    ///                 },
+    ///             },
+    ///             Egress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SecurityGroupEgressArgs
+    ///                 {
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                     Protocol = "-1",
+    ///                     CidrBlocks = 
+    ///                     {
+    ///                         "0.0.0.0/0",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "allow_tls" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Usage with prefix list IDs
+    /// 
+    /// Prefix list IDs are managed by AWS internally. Prefix list IDs
+    /// are associated with a prefix list name, or service name, that is linked to a specific region.
+    /// Prefix list IDs are exported on VPC Endpoints, so you can use this format:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // ...
+    ///         var myEndpoint = new Aws.Ec2.VpcEndpoint("myEndpoint", new Aws.Ec2.VpcEndpointArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SecurityGroup : Pulumi.CustomResource
     {

@@ -55,7 +55,7 @@ class ZoneAssociation(pulumi.CustomResource):
                 ],
             },
             vpcs=[{
-                "vpcId": primary.id,
+                "vpc_id": primary.id,
             }])
         secondary_zone_association = aws.route53.ZoneAssociation("secondaryZoneAssociation",
             vpc_id=secondary_vpc.id,

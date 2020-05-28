@@ -12,6 +12,30 @@ namespace Pulumi.Aws.DirectConnect
     /// <summary>
     /// Provides a Direct Connect hosted private virtual interface resource. This resource represents the allocator's side of the hosted virtual interface.
     /// A hosted virtual interface is a virtual interface that is owned by another AWS account.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.DirectConnect.HostedPrivateVirtualInterface("foo", new Aws.DirectConnect.HostedPrivateVirtualInterfaceArgs
+    ///         {
+    ///             AddressFamily = "ipv4",
+    ///             BgpAsn = 65352,
+    ///             ConnectionId = "dxcon-zzzzzzzz",
+    ///             Vlan = 4094,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class HostedPrivateVirtualInterface : Pulumi.CustomResource
     {

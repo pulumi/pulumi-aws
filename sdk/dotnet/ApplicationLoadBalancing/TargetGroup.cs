@@ -13,6 +13,78 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// Provides a Target Group resource for use with Load Balancer resources.
     /// 
     /// &gt; **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Instance Target Group
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.0.0.0/16",
+    ///         });
+    ///         var test = new Aws.LB.TargetGroup("test", new Aws.LB.TargetGroupArgs
+    ///         {
+    ///             Port = 80,
+    ///             Protocol = "HTTP",
+    ///             VpcId = main.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### IP Target Group
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.0.0.0/16",
+    ///         });
+    ///         var ip_example = new Aws.LB.TargetGroup("ip-example", new Aws.LB.TargetGroupArgs
+    ///         {
+    ///             Port = 80,
+    ///             Protocol = "HTTP",
+    ///             TargetType = "ip",
+    ///             VpcId = main.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Lambda Target Group
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var lambda_example = new Aws.LB.TargetGroup("lambda-example", new Aws.LB.TargetGroupArgs
+    ///         {
+    ///             TargetType = "lambda",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     [Obsolete(@"aws.applicationloadbalancing.TargetGroup has been deprecated in favor of aws.alb.TargetGroup")]
     public partial class TargetGroup : Pulumi.CustomResource

@@ -79,7 +79,7 @@ class VirtualService(pulumi.CustomResource):
             spec={
                 "provider": {
                     "virtualRouter": {
-                        "virtualRouterName": aws_appmesh_virtual_router["serviceb"]["name"],
+                        "virtual_router_name": aws_appmesh_virtual_router["serviceb"]["name"],
                     },
                 },
             })

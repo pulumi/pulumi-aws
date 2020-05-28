@@ -15,6 +15,27 @@ namespace Pulumi.Aws.Backup
         /// Use this data source to get information on an existing backup plan.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Backup.GetPlan.InvokeAsync(new Aws.Backup.GetPlanArgs
+        ///         {
+        ///             PlanId = "tf_example_backup_plan_id",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPlanResult> InvokeAsync(GetPlanArgs args, InvokeOptions? options = null)

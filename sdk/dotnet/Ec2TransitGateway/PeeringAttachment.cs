@@ -12,6 +12,57 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// <summary>
     /// Manages an EC2 Transit Gateway Peering Attachment.
     /// For examples of custom route table association and propagation, see the [EC2 Transit Gateway Networking Examples Guide](https://docs.aws.amazon.com/vpc/latest/tgw/TGW_Scenarios.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var local = new Aws.Provider("local", new Aws.ProviderArgs
+    ///         {
+    ///             Region = "us-east-1",
+    ///         });
+    ///         var peer = new Aws.Provider("peer", new Aws.ProviderArgs
+    ///         {
+    ///             Region = "us-west-2",
+    ///         });
+    ///         var peerRegion = Output.Create(Aws.GetRegion.InvokeAsync());
+    ///         var localTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("localTransitGateway", new Aws.Ec2TransitGateway.TransitGatewayArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "Local TGW" },
+    ///             },
+    ///         });
+    ///         var peerTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("peerTransitGateway", new Aws.Ec2TransitGateway.TransitGatewayArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "Peer TGW" },
+    ///             },
+    ///         });
+    ///         var example = new Aws.Ec2TransitGateway.PeeringAttachment("example", new Aws.Ec2TransitGateway.PeeringAttachmentArgs
+    ///         {
+    ///             PeerAccountId = peerTransitGateway.OwnerId,
+    ///             PeerRegion = peerRegion.Apply(peerRegion =&gt; peerRegion.Name),
+    ///             PeerTransitGatewayId = peerTransitGateway.Id,
+    ///             TransitGatewayId = localTransitGateway.Id,
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "TGW Peering Requestor" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class PeeringAttachment : Pulumi.CustomResource
     {

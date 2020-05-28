@@ -15,6 +15,27 @@ namespace Pulumi.Aws.WafRegional
         /// `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.WafRegional.GetRule.InvokeAsync(new Aws.WafRegional.GetRuleArgs
+        ///         {
+        ///             Name = "tfWAFRegionalRule",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)

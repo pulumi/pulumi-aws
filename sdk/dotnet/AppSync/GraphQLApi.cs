@@ -11,6 +11,192 @@ namespace Pulumi.Aws.AppSync
 {
     /// <summary>
     /// Provides an AppSync GraphQL API.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### API Key Authentication
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.AppSync.GraphQLApi("example", new Aws.AppSync.GraphQLApiArgs
+    ///         {
+    ///             AuthenticationType = "API_KEY",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### AWS Cognito User Pool Authentication
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.AppSync.GraphQLApi("example", new Aws.AppSync.GraphQLApiArgs
+    ///         {
+    ///             AuthenticationType = "AMAZON_COGNITO_USER_POOLS",
+    ///             UserPoolConfig = new Aws.AppSync.Inputs.GraphQLApiUserPoolConfigArgs
+    ///             {
+    ///                 AwsRegion = data.Aws_region.Current.Name,
+    ///                 DefaultAction = "DENY",
+    ///                 UserPoolId = aws_cognito_user_pool.Example.Id,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### AWS IAM Authentication
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.AppSync.GraphQLApi("example", new Aws.AppSync.GraphQLApiArgs
+    ///         {
+    ///             AuthenticationType = "AWS_IAM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### With Schema
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.AppSync.GraphQLApi("example", new Aws.AppSync.GraphQLApiArgs
+    ///         {
+    ///             AuthenticationType = "AWS_IAM",
+    ///             Schema = @"schema {
+    /// 	query: Query
+    /// }
+    /// type Query {
+    ///   test: Int
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### OpenID Connect Authentication
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.AppSync.GraphQLApi("example", new Aws.AppSync.GraphQLApiArgs
+    ///         {
+    ///             AuthenticationType = "OPENID_CONNECT",
+    ///             OpenidConnectConfig = new Aws.AppSync.Inputs.GraphQLApiOpenidConnectConfigArgs
+    ///             {
+    ///                 Issuer = "https://example.com",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### With Multiple Authentication Providers
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.AppSync.GraphQLApi("example", new Aws.AppSync.GraphQLApiArgs
+    ///         {
+    ///             AdditionalAuthenticationProviders = 
+    ///             {
+    ///                 new Aws.AppSync.Inputs.GraphQLApiAdditionalAuthenticationProviderArgs
+    ///                 {
+    ///                     AuthenticationType = "AWS_IAM",
+    ///                 },
+    ///             },
+    ///             AuthenticationType = "API_KEY",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Enabling Logging
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///     ""Version"": ""2012-10-17"",
+    ///     ""Statement"": [
+    ///         {
+    ///         ""Effect"": ""Allow"",
+    ///         ""Principal"": {
+    ///             ""Service"": ""appsync.amazonaws.com""
+    ///         },
+    ///         ""Action"": ""sts:AssumeRole""
+    ///         }
+    ///     ]
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///         var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
+    ///             Role = exampleRole.Name,
+    ///         });
+    ///         var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new Aws.AppSync.GraphQLApiArgs
+    ///         {
+    ///             LogConfig = new Aws.AppSync.Inputs.GraphQLApiLogConfigArgs
+    ///             {
+    ///                 CloudwatchLogsRoleArn = exampleRole.Arn,
+    ///                 FieldLogLevel = "ERROR",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class GraphQLApi : Pulumi.CustomResource
     {

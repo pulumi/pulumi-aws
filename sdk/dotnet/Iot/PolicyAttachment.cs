@@ -11,6 +11,51 @@ namespace Pulumi.Aws.Iot
 {
     /// <summary>
     /// Provides an IoT policy attachment.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var pubsub = new Aws.Iot.Policy("pubsub", new Aws.Iot.PolicyArgs
+    ///         {
+    ///             Policy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": [
+    ///         ""iot:*""
+    ///       ],
+    ///       ""Effect"": ""Allow"",
+    ///       ""Resource"": ""*""
+    ///     }
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///         var cert = new Aws.Iot.Certificate("cert", new Aws.Iot.CertificateArgs
+    ///         {
+    ///             Active = true,
+    ///             Csr = File.ReadAllText("csr.pem"),
+    ///         });
+    ///         var att = new Aws.Iot.PolicyAttachment("att", new Aws.Iot.PolicyAttachmentArgs
+    ///         {
+    ///             Policy = pubsub.Name,
+    ///             Target = cert.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class PolicyAttachment : Pulumi.CustomResource
     {

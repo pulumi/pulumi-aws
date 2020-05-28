@@ -17,6 +17,27 @@ namespace Pulumi.Aws.Kms
         /// without having to hard code the ARN as input.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var s3 = Output.Create(Aws.Kms.GetAlias.InvokeAsync(new Aws.Kms.GetAliasArgs
+        ///         {
+        ///             Name = "alias/aws/s3",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)

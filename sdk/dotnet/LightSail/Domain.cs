@@ -17,6 +17,25 @@ namespace Pulumi.Aws.LightSail
     /// this parameter to manage the DNS records for that domain.
     /// 
     /// &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+    /// 
+    /// ## Example Usage, creating a new domain
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var domainTest = new Aws.LightSail.Domain("domainTest", new Aws.LightSail.DomainArgs
+    ///         {
+    ///             DomainName = "mydomain.com",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Domain : Pulumi.CustomResource
     {

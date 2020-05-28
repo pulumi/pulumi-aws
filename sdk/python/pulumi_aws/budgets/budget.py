@@ -97,8 +97,8 @@ class Budget(pulumi.CustomResource):
             limit_amount="1200",
             limit_unit="USD",
             notifications=[{
-                "comparisonOperator": "GREATER_THAN",
-                "notificationType": "FORECASTED",
+                "comparison_operator": "GREATER_THAN",
+                "notification_type": "FORECASTED",
                 "subscriberEmailAddresses": ["test@example.com"],
                 "threshold": 100,
                 "thresholdType": "PERCENTAGE",

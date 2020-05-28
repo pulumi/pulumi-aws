@@ -16,6 +16,29 @@ namespace Pulumi.Aws.Rds
     /// * [Importing Amazon S3 Data into an RDS PostgreSQL DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html)
     /// 
     /// &gt; To manage the RDS DB Instance IAM Role for [Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html), see the `aws.rds.Instance` resource `monitoring_role_arn` argument instead.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Rds.RoleAssociation("example", new Aws.Rds.RoleAssociationArgs
+    ///         {
+    ///             DbInstanceIdentifier = aws_db_instance.Example.Id,
+    ///             FeatureName = "S3_INTEGRATION",
+    ///             RoleArn = aws_iam_role.Example.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class RoleAssociation : Pulumi.CustomResource
     {

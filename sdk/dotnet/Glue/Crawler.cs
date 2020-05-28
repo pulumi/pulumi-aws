@@ -11,6 +11,133 @@ namespace Pulumi.Aws.Glue
 {
     /// <summary>
     /// Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### DynamoDB Target
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Crawler("example", new Aws.Glue.CrawlerArgs
+    ///         {
+    ///             DatabaseName = aws_glue_catalog_database.Example.Name,
+    ///             DynamodbTargets = 
+    ///             {
+    ///                 new Aws.Glue.Inputs.CrawlerDynamodbTargetArgs
+    ///                 {
+    ///                     Path = "table-name",
+    ///                 },
+    ///             },
+    ///             Role = aws_iam_role.Example.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### JDBC Target
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Crawler("example", new Aws.Glue.CrawlerArgs
+    ///         {
+    ///             DatabaseName = aws_glue_catalog_database.Example.Name,
+    ///             JdbcTargets = 
+    ///             {
+    ///                 new Aws.Glue.Inputs.CrawlerJdbcTargetArgs
+    ///                 {
+    ///                     ConnectionName = aws_glue_connection.Example.Name,
+    ///                     Path = "database-name/%",
+    ///                 },
+    ///             },
+    ///             Role = aws_iam_role.Example.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### S3 Target
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Crawler("example", new Aws.Glue.CrawlerArgs
+    ///         {
+    ///             DatabaseName = aws_glue_catalog_database.Example.Name,
+    ///             Role = aws_iam_role.Example.Arn,
+    ///             S3Targets = 
+    ///             {
+    ///                 new Aws.Glue.Inputs.CrawlerS3TargetArgs
+    ///                 {
+    ///                     Path = $"s3://{aws_s3_bucket.Example.Bucket}",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Catalog Target
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Crawler("example", new Aws.Glue.CrawlerArgs
+    ///         {
+    ///             CatalogTargets = 
+    ///             {
+    ///                 new Aws.Glue.Inputs.CrawlerCatalogTargetArgs
+    ///                 {
+    ///                     DatabaseName = aws_glue_catalog_database.Example.Name,
+    ///                     Tables = 
+    ///                     {
+    ///                         aws_glue_catalog_table.Example.Name,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Configuration = @"{
+    ///   ""Version"":1.0,
+    ///   ""Grouping"": {
+    ///     ""TableGroupingPolicy"": ""CombineCompatibleSchemas""
+    ///   }
+    /// }
+    /// 
+    /// ",
+    ///             DatabaseName = aws_glue_catalog_database.Example.Name,
+    ///             Role = aws_iam_role.Example.Arn,
+    ///             SchemaChangePolicy = new Aws.Glue.Inputs.CrawlerSchemaChangePolicyArgs
+    ///             {
+    ///                 DeleteBehavior = "LOG",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Crawler : Pulumi.CustomResource
     {

@@ -160,7 +160,7 @@ class Cluster(pulumi.CustomResource):
         test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
             destination="s3",
             s3_configuration={
-                "roleArn": firehose_role.arn,
+                "role_arn": firehose_role.arn,
                 "bucketArn": bucket.arn,
             },
             tags={
@@ -171,14 +171,14 @@ class Cluster(pulumi.CustomResource):
             kafka_version="2.1.0",
             number_of_broker_nodes=3,
             broker_node_group_info={
-                "instanceType": "kafka.m5.large",
+                "instance_type": "kafka.m5.large",
                 "ebsVolumeSize": 1000,
                 "clientSubnets": [
                     subnet_az1.id,
                     subnet_az2.id,
                     subnet_az3.id,
                 ],
-                "securityGroups": [sg.id],
+                "security_groups": [sg.id],
             },
             encryption_info={
                 "encryptionAtRestKmsKeyArn": kms.arn,
@@ -197,7 +197,7 @@ class Cluster(pulumi.CustomResource):
                 "broker_logs": {
                     "cloudwatch_logs": {
                         "enabled": True,
-                        "logGroup": test.name,
+                        "log_group": test.name,
                     },
                     "firehose": {
                         "enabled": True,

@@ -16,6 +16,27 @@ namespace Pulumi.Aws.Iam
         /// for the effective account in which this provider is working.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Aws.Iam.GetAccountAlias.InvokeAsync());
+        ///         this.AccountId = current.Apply(current =&gt; current.AccountAlias);
+        ///     }
+        /// 
+        ///     [Output("accountId")]
+        ///     public Output&lt;string&gt; AccountId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountAliasResult> InvokeAsync(InvokeOptions? options = null)

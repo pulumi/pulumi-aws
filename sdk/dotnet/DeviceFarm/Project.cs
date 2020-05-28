@@ -16,6 +16,25 @@ namespace Pulumi.Aws.DeviceFarm
     /// 
     /// For more information about Device Farm Projects, see the AWS Documentation on
     /// [Device Farm Projects][aws-get-project].
+    /// 
+    /// ## Basic Example Usage
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var awesomeDevices = new Aws.DeviceFarm.Project("awesomeDevices", new Aws.DeviceFarm.ProjectArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Project : Pulumi.CustomResource
     {

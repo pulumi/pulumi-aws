@@ -16,6 +16,127 @@ namespace Pulumi.Aws.CloudFront
     /// [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For more information on generating
     /// origin access identities, see
     /// [Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content][2].
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var originAccessIdentity = new Aws.CloudFront.OriginAccessIdentity("originAccessIdentity", new Aws.CloudFront.OriginAccessIdentityArgs
+    ///         {
+    ///             Comment = "Some comment",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Using With CloudFront
+    /// 
+    /// Normally, when referencing an origin access identity in CloudFront, you need to
+    /// prefix the ID with the `origin-access-identity/cloudfront/` special path.
+    /// The `cloudfront_access_identity_path` allows this to be circumvented.
+    /// The below snippet demonstrates use with the `s3_origin_config` structure for the
+    /// [`aws.cloudfront.Distribution`][3] resource:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Updating your bucket policy
+    /// 
+    /// Note that the AWS API may translate the `s3_canonical_user_id` `CanonicalUser`
+    /// principal into an `AWS` IAM ARN principal when supplied in an
+    /// [`aws.s3.Bucket`][4] bucket policy, causing spurious diffs. If
+    /// you see this behaviour, use the `iam_arn` instead:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var s3Policy = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         {
+    ///             Statements = 
+    ///             {
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 {
+    ///                     Actions = 
+    ///                     {
+    ///                         "s3:GetObject",
+    ///                     },
+    ///                     Principals = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         {
+    ///                             Identifiers = 
+    ///                             {
+    ///                                 aws_cloudfront_origin_access_identity.Origin_access_identity.Iam_arn,
+    ///                             },
+    ///                             Type = "AWS",
+    ///                         },
+    ///                     },
+    ///                     Resources = 
+    ///                     {
+    ///                         $"{aws_s3_bucket.Example.Arn}/*",
+    ///                     },
+    ///                 },
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 {
+    ///                     Actions = 
+    ///                     {
+    ///                         "s3:ListBucket",
+    ///                     },
+    ///                     Principals = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         {
+    ///                             Identifiers = 
+    ///                             {
+    ///                                 aws_cloudfront_origin_access_identity.Origin_access_identity.Iam_arn,
+    ///                             },
+    ///                             Type = "AWS",
+    ///                         },
+    ///                     },
+    ///                     Resources = 
+    ///                     {
+    ///                         aws_s3_bucket.Example.Arn,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }));
+    ///         var example = new Aws.S3.BucketPolicy("example", new Aws.S3.BucketPolicyArgs
+    ///         {
+    ///             Bucket = aws_s3_bucket.Example.Id,
+    ///             Policy = s3Policy.Apply(s3Policy =&gt; s3Policy.Json),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
+    /// [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
+    /// [3]: https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution.html
+    /// [4]: https://www.terraform.io/docs/providers/aws/r/s3_bucket.html
     /// </summary>
     public partial class OriginAccessIdentity : Pulumi.CustomResource
     {

@@ -9,6 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WorkLink
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.WorkLink.Fleet("example", new Aws.WorkLink.FleetArgs
+    ///         {
+    ///         });
+    ///         var test = new Aws.WorkLink.WebsiteCertificateAuthorityAssociation("test", new Aws.WorkLink.WebsiteCertificateAuthorityAssociationArgs
+    ///         {
+    ///             Certificate = File.ReadAllText("certificate.pem"),
+    ///             FleetArn = aws_worklink_fleet.Test.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     public partial class WebsiteCertificateAuthorityAssociation : Pulumi.CustomResource
     {
         /// <summary>

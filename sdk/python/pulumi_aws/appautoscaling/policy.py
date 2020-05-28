@@ -119,12 +119,12 @@ class Policy(pulumi.CustomResource):
             scalable_dimension=ecs_target.scalable_dimension,
             service_namespace=ecs_target.service_namespace,
             step_scaling_policy_configuration={
-                "adjustmentType": "ChangeInCapacity",
+                "adjustment_type": "ChangeInCapacity",
                 "cooldown": 60,
-                "metricAggregationType": "Maximum",
+                "metric_aggregation_type": "Maximum",
                 "stepAdjustment": [{
                     "metricIntervalUpperBound": 0,
-                    "scalingAdjustment": -1,
+                    "scaling_adjustment": -1,
                 }],
             })
         ```

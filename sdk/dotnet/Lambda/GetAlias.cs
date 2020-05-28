@@ -15,6 +15,28 @@ namespace Pulumi.Aws.Lambda
         /// Provides information about a Lambda Alias.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var production = Output.Create(Aws.Lambda.GetAlias.InvokeAsync(new Aws.Lambda.GetAliasArgs
+        ///         {
+        ///             FunctionName = "my-lambda-func",
+        ///             Name = "production",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)

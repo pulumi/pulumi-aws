@@ -21,6 +21,36 @@ namespace Pulumi.Aws.ElastiCache
     /// `apply_immediately` flag to instruct the service to apply the change
     /// immediately. Using `apply_immediately` can result in a brief downtime as
     /// servers reboots.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Redis Cluster Mode Enabled
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var baz = new Aws.ElastiCache.ReplicationGroup("baz", new Aws.ElastiCache.ReplicationGroupArgs
+    ///         {
+    ///             AutomaticFailoverEnabled = true,
+    ///             ClusterMode = new Aws.ElastiCache.Inputs.ReplicationGroupClusterModeArgs
+    ///             {
+    ///                 NumNodeGroups = 2,
+    ///                 ReplicasPerNodeGroup = 1,
+    ///             },
+    ///             NodeType = "cache.t2.small",
+    ///             ParameterGroupName = "default.redis3.2.cluster.on",
+    ///             Port = 6379,
+    ///             ReplicationGroupDescription = "test description",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ReplicationGroup : Pulumi.CustomResource
     {

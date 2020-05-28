@@ -13,6 +13,87 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following shows outputing all network ACL ids in a vpc.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var exampleNetworkAcls = Output.Create(Aws.Ec2.GetNetworkAcls.InvokeAsync(new Aws.Ec2.GetNetworkAclsArgs
+        ///         {
+        ///             VpcId = @var.Vpc_id,
+        ///         }));
+        ///         this.Example = exampleNetworkAcls.Apply(exampleNetworkAcls =&gt; exampleNetworkAcls.Ids);
+        ///     }
+        /// 
+        ///     [Output("example")]
+        ///     public Output&lt;string&gt; Example { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// The following example retrieves a list of all network ACL ids in a VPC with a custom
+        /// tag of `Tier` set to a value of "Private".
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ec2.GetNetworkAcls.InvokeAsync(new Aws.Ec2.GetNetworkAclsArgs
+        ///         {
+        ///             Tags = 
+        ///             {
+        ///                 { "Tier", "Private" },
+        ///             },
+        ///             VpcId = @var.Vpc_id,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// The following example retrieves a network ACL id in a VPC which associated
+        /// with specific subnet.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ec2.GetNetworkAcls.InvokeAsync(new Aws.Ec2.GetNetworkAclsArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetNetworkAclsFilterArgs
+        ///                 {
+        ///                     Name = "association.subnet-id",
+        ///                     Values = 
+        ///                     {
+        ///                         aws_subnet.Test.Id,
+        ///                     },
+        ///                 },
+        ///             },
+        ///             VpcId = @var.Vpc_id,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworkAclsResult> InvokeAsync(GetNetworkAclsArgs? args = null, InvokeOptions? options = null)

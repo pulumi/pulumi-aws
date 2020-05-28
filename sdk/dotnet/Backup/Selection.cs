@@ -11,6 +11,104 @@ namespace Pulumi.Aws.Backup
 {
     /// <summary>
     /// Manages selection conditions for AWS Backup plan resources.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### IAM Role
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": [""sts:AssumeRole""],
+    ///       ""Effect"": ""allow"",
+    ///       ""Principal"": {
+    ///         ""Service"": [""backup.amazonaws.com""]
+    ///       }
+    ///     }
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///         var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
+    ///             Role = exampleRole.Name,
+    ///         });
+    ///         var exampleSelection = new Aws.Backup.Selection("exampleSelection", new Aws.Backup.SelectionArgs
+    ///         {
+    ///             IamRoleArn = exampleRole.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Selecting Backups By Tag
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Backup.Selection("example", new Aws.Backup.SelectionArgs
+    ///         {
+    ///             IamRoleArn = aws_iam_role.Example.Arn,
+    ///             PlanId = aws_backup_plan.Example.Id,
+    ///             SelectionTags = 
+    ///             {
+    ///                 new Aws.Backup.Inputs.SelectionSelectionTagArgs
+    ///                 {
+    ///                     Key = "foo",
+    ///                     Type = "STRINGEQUALS",
+    ///                     Value = "bar",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Selecting Backups By Resource
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Backup.Selection("example", new Aws.Backup.SelectionArgs
+    ///         {
+    ///             IamRoleArn = aws_iam_role.Example.Arn,
+    ///             PlanId = aws_backup_plan.Example.Id,
+    ///             Resources = 
+    ///             {
+    ///                 aws_db_instance.Example.Arn,
+    ///                 aws_ebs_volume.Example.Arn,
+    ///                 aws_efs_file_system.Example.Arn,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Selection : Pulumi.CustomResource
     {

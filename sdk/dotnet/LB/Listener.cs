@@ -13,6 +13,221 @@ namespace Pulumi.Aws.LB
     /// Provides a Load Balancer Listener resource.
     /// 
     /// &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Forward Action
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer", new Aws.LB.LoadBalancerArgs
+    ///         {
+    ///         });
+    ///         var frontEndTargetGroup = new Aws.LB.TargetGroup("frontEndTargetGroup", new Aws.LB.TargetGroupArgs
+    ///         {
+    ///         });
+    ///         var frontEndListener = new Aws.LB.Listener("frontEndListener", new Aws.LB.ListenerArgs
+    ///         {
+    ///             CertificateArn = "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
+    ///             DefaultActions = 
+    ///             {
+    ///                 new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///                 {
+    ///                     TargetGroupArn = frontEndTargetGroup.Arn,
+    ///                     Type = "forward",
+    ///                 },
+    ///             },
+    ///             LoadBalancerArn = frontEndLoadBalancer.Arn,
+    ///             Port = "443",
+    ///             Protocol = "HTTPS",
+    ///             SslPolicy = "ELBSecurityPolicy-2016-08",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Redirect Action
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer", new Aws.LB.LoadBalancerArgs
+    ///         {
+    ///         });
+    ///         var frontEndListener = new Aws.LB.Listener("frontEndListener", new Aws.LB.ListenerArgs
+    ///         {
+    ///             DefaultActions = 
+    ///             {
+    ///                 new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///                 {
+    ///                     Redirect = new Aws.LB.Inputs.ListenerDefaultActionRedirectArgs
+    ///                     {
+    ///                         Port = "443",
+    ///                         Protocol = "HTTPS",
+    ///                         StatusCode = "HTTP_301",
+    ///                     },
+    ///                     Type = "redirect",
+    ///                 },
+    ///             },
+    ///             LoadBalancerArn = frontEndLoadBalancer.Arn,
+    ///             Port = "80",
+    ///             Protocol = "HTTP",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Fixed-response Action
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer", new Aws.LB.LoadBalancerArgs
+    ///         {
+    ///         });
+    ///         var frontEndListener = new Aws.LB.Listener("frontEndListener", new Aws.LB.ListenerArgs
+    ///         {
+    ///             DefaultActions = 
+    ///             {
+    ///                 new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///                 {
+    ///                     FixedResponse = new Aws.LB.Inputs.ListenerDefaultActionFixedResponseArgs
+    ///                     {
+    ///                         ContentType = "text/plain",
+    ///                         MessageBody = "Fixed response content",
+    ///                         StatusCode = "200",
+    ///                     },
+    ///                     Type = "fixed-response",
+    ///                 },
+    ///             },
+    ///             LoadBalancerArn = frontEndLoadBalancer.Arn,
+    ///             Port = "80",
+    ///             Protocol = "HTTP",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Authenticate-cognito Action
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer", new Aws.LB.LoadBalancerArgs
+    ///         {
+    ///         });
+    ///         var frontEndTargetGroup = new Aws.LB.TargetGroup("frontEndTargetGroup", new Aws.LB.TargetGroupArgs
+    ///         {
+    ///         });
+    ///         var pool = new Aws.Cognito.UserPool("pool", new Aws.Cognito.UserPoolArgs
+    ///         {
+    ///         });
+    ///         var client = new Aws.Cognito.UserPoolClient("client", new Aws.Cognito.UserPoolClientArgs
+    ///         {
+    ///         });
+    ///         var domain = new Aws.Cognito.UserPoolDomain("domain", new Aws.Cognito.UserPoolDomainArgs
+    ///         {
+    ///         });
+    ///         var frontEndListener = new Aws.LB.Listener("frontEndListener", new Aws.LB.ListenerArgs
+    ///         {
+    ///             DefaultActions = 
+    ///             {
+    ///                 new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///                 {
+    ///                     AuthenticateCognito = new Aws.LB.Inputs.ListenerDefaultActionAuthenticateCognitoArgs
+    ///                     {
+    ///                         UserPoolArn = pool.Arn,
+    ///                         UserPoolClientId = client.Id,
+    ///                         UserPoolDomain = domain.Domain,
+    ///                     },
+    ///                     Type = "authenticate-cognito",
+    ///                 },
+    ///                 new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///                 {
+    ///                     TargetGroupArn = frontEndTargetGroup.Arn,
+    ///                     Type = "forward",
+    ///                 },
+    ///             },
+    ///             LoadBalancerArn = frontEndLoadBalancer.Arn,
+    ///             Port = "80",
+    ///             Protocol = "HTTP",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Authenticate-oidc Action
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer", new Aws.LB.LoadBalancerArgs
+    ///         {
+    ///         });
+    ///         var frontEndTargetGroup = new Aws.LB.TargetGroup("frontEndTargetGroup", new Aws.LB.TargetGroupArgs
+    ///         {
+    ///         });
+    ///         var frontEndListener = new Aws.LB.Listener("frontEndListener", new Aws.LB.ListenerArgs
+    ///         {
+    ///             DefaultActions = 
+    ///             {
+    ///                 new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///                 {
+    ///                     AuthenticateOidc = new Aws.LB.Inputs.ListenerDefaultActionAuthenticateOidcArgs
+    ///                     {
+    ///                         AuthorizationEndpoint = "https://example.com/authorization_endpoint",
+    ///                         ClientId = "client_id",
+    ///                         ClientSecret = "client_secret",
+    ///                         Issuer = "https://example.com",
+    ///                         TokenEndpoint = "https://example.com/token_endpoint",
+    ///                         UserInfoEndpoint = "https://example.com/user_info_endpoint",
+    ///                     },
+    ///                     Type = "authenticate-oidc",
+    ///                 },
+    ///                 new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///                 {
+    ///                     TargetGroupArn = frontEndTargetGroup.Arn,
+    ///                     Type = "forward",
+    ///                 },
+    ///             },
+    ///             LoadBalancerArn = frontEndLoadBalancer.Arn,
+    ///             Port = "80",
+    ///             Protocol = "HTTP",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Listener : Pulumi.CustomResource
     {

@@ -14,6 +14,33 @@ namespace Pulumi.Aws.Rds
     /// EC2-Classic Platform. For instances inside a VPC, use the
     /// [`aws_db_instance.vpc_security_group_ids`](https://www.terraform.io/docs/providers/aws/r/db_instance.html#vpc_security_group_ids)
     /// attribute instead.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Rds.SecurityGroup("default", new Aws.Rds.SecurityGroupArgs
+    ///         {
+    ///             Ingress = 
+    ///             {
+    ///                 new Aws.Rds.Inputs.SecurityGroupIngressArgs
+    ///                 {
+    ///                     Cidr = "10.0.0.0/24",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SecurityGroup : Pulumi.CustomResource
     {

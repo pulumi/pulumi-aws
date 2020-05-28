@@ -140,7 +140,7 @@ class Crawler(pulumi.CustomResource):
 
         example = aws.glue.Crawler("example",
             catalog_targets=[{
-                "databaseName": aws_glue_catalog_database["example"]["name"],
+                "database_name": aws_glue_catalog_database["example"]["name"],
                 "tables": [aws_glue_catalog_table["example"]["name"]],
             }],
             configuration=\"\"\"{

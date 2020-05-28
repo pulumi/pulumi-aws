@@ -231,8 +231,8 @@ class DeploymentGroup(pulumi.CustomResource):
                 "deploymentType": "BLUE_GREEN",
             },
             ecs_service={
-                "clusterName": aws_ecs_cluster["example"]["name"],
-                "serviceName": aws_ecs_service["example"]["name"],
+                "cluster_name": aws_ecs_cluster["example"]["name"],
+                "service_name": aws_ecs_service["example"]["name"],
             },
             load_balancer_info={
                 "targetGroupPairInfo": {

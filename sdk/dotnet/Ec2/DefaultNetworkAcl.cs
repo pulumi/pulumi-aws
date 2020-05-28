@@ -34,6 +34,122 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// For more information about Network ACLs, see the AWS Documentation on
     /// [Network ACLs][aws-network-acls].
+    /// 
+    /// ## Basic Example Usage, with default rules
+    /// 
+    /// The following config gives the Default Network ACL the same rules that AWS
+    /// includes, but pulls the resource under management by this provider. This means that
+    /// any ACL rules added or changed will be detected as drift.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mainvpc = new Aws.Ec2.Vpc("mainvpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///         });
+    ///         var @default = new Aws.Ec2.DefaultNetworkAcl("default", new Aws.Ec2.DefaultNetworkAclArgs
+    ///         {
+    ///             DefaultNetworkAclId = mainvpc.DefaultNetworkAclId,
+    ///             Ingress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.DefaultNetworkAclIngressArgs
+    ///                 {
+    ///                     Protocol = -1,
+    ///                     RuleNo = 100,
+    ///                     Action = "allow",
+    ///                     CidrBlock = mainvpc.CidrBlock,
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                 },
+    ///             },
+    ///             Egress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.DefaultNetworkAclEgressArgs
+    ///                 {
+    ///                     Protocol = -1,
+    ///                     RuleNo = 100,
+    ///                     Action = "allow",
+    ///                     CidrBlock = "0.0.0.0/0",
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Example config to deny all Egress traffic, allowing Ingress
+    /// 
+    /// The following denies all Egress traffic by omitting any `egress` rules, while
+    /// including the default `ingress` rule to allow all traffic.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mainvpc = new Aws.Ec2.Vpc("mainvpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///         });
+    ///         var @default = new Aws.Ec2.DefaultNetworkAcl("default", new Aws.Ec2.DefaultNetworkAclArgs
+    ///         {
+    ///             DefaultNetworkAclId = mainvpc.DefaultNetworkAclId,
+    ///             Ingress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.DefaultNetworkAclIngressArgs
+    ///                 {
+    ///                     Protocol = -1,
+    ///                     RuleNo = 100,
+    ///                     Action = "allow",
+    ///                     CidrBlock = mainvpc.CidrBlock,
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Example config to deny all traffic to any Subnet in the Default Network ACL
+    /// 
+    /// This config denies all traffic in the Default ACL. This can be useful if you
+    /// want a locked down default to force all resources in the VPC to assign a
+    /// non-default ACL.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mainvpc = new Aws.Ec2.Vpc("mainvpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///         });
+    ///         var @default = new Aws.Ec2.DefaultNetworkAcl("default", new Aws.Ec2.DefaultNetworkAclArgs
+    ///         {
+    ///             DefaultNetworkAclId = mainvpc.DefaultNetworkAclId,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class DefaultNetworkAcl : Pulumi.CustomResource
     {

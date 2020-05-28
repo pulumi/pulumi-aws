@@ -11,6 +11,79 @@ namespace Pulumi.Aws.Eks
 {
     /// <summary>
     /// Manages an EKS Cluster.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Example IAM Role for EKS Cluster
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Iam.Role("example", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""eks.amazonaws.com""
+    ///       },
+    ///       ""Action"": ""sts:AssumeRole""
+    ///     }
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///         var example_AmazonEKSClusterPolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+    ///             Role = example.Name,
+    ///         });
+    ///         var example_AmazonEKSServicePolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSServicePolicy", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy",
+    ///             Role = example.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Enabling Control Plane Logging
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var config = new Config();
+    ///         var clusterName = config.Get("clusterName") ?? "example";
+    ///         var exampleCluster = new Aws.Eks.Cluster("exampleCluster", new Aws.Eks.ClusterArgs
+    ///         {
+    ///             EnabledClusterLogTypes = 
+    ///             {
+    ///                 "api",
+    ///                 "audit",
+    ///             },
+    ///         });
+    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
+    ///         {
+    ///             RetentionInDays = 7,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

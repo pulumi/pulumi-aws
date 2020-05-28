@@ -11,6 +11,66 @@ namespace Pulumi.Aws.Transfer
 {
     /// <summary>
     /// Provides a AWS Transfer Server resource.
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fooRole = new Aws.Iam.Role("fooRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    /// 	""Version"": ""2012-10-17"",
+    /// 	""Statement"": [
+    /// 		{
+    /// 		""Effect"": ""Allow"",
+    /// 		""Principal"": {
+    /// 			""Service"": ""transfer.amazonaws.com""
+    /// 		},
+    /// 		""Action"": ""sts:AssumeRole""
+    /// 		}
+    /// 	]
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///         var fooRolePolicy = new Aws.Iam.RolePolicy("fooRolePolicy", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Policy = @"{
+    /// 	""Version"": ""2012-10-17"",
+    /// 	""Statement"": [
+    /// 		{
+    /// 		""Sid"": ""AllowFullAccesstoCloudWatchLogs"",
+    /// 		""Effect"": ""Allow"",
+    /// 		""Action"": [
+    /// 			""logs:*""
+    /// 		],
+    /// 		""Resource"": ""*""
+    /// 		}
+    /// 	]
+    /// }
+    /// 
+    /// ",
+    ///             Role = fooRole.Id,
+    ///         });
+    ///         var fooServer = new Aws.Transfer.Server("fooServer", new Aws.Transfer.ServerArgs
+    ///         {
+    ///             IdentityProviderType = "SERVICE_MANAGED",
+    ///             LoggingRole = fooRole.Arn,
+    ///             Tags = 
+    ///             {
+    ///                 { "ENV", "test" },
+    ///                 { "NAME", "tf-acc-test-transfer-server" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Server : Pulumi.CustomResource
     {

@@ -20,6 +20,30 @@ namespace Pulumi.Aws.Ec2
     /// The `aws.ec2.DefaultVpc` behaves differently from normal resources, in that
     /// this provider does not _create_ this resource, but instead "adopts" it
     /// into management.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Ec2.DefaultVpc("default", new Aws.Ec2.DefaultVpcArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "Default VPC" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class DefaultVpc : Pulumi.CustomResource
     {

@@ -11,6 +11,27 @@ namespace Pulumi.Aws.Workspaces
 {
     /// <summary>
     /// Provides an IP access control group in AWS WorkSpaces Service
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var contractors = new Aws.Workspaces.IpGroup("contractors", new Aws.Workspaces.IpGroupArgs
+    ///         {
+    ///             Description = "Contractors IP access control group",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class IpGroup : Pulumi.CustomResource
     {

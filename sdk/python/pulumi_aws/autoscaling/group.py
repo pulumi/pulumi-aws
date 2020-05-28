@@ -219,17 +219,17 @@ class Group(pulumi.CustomResource):
             health_check_grace_period=300,
             health_check_type="ELB",
             initial_lifecycle_hooks=[{
-                "defaultResult": "CONTINUE",
-                "heartbeatTimeout": 2000,
-                "lifecycleTransition": "autoscaling:EC2_INSTANCE_LAUNCHING",
+                "default_result": "CONTINUE",
+                "heartbeat_timeout": 2000,
+                "lifecycle_transition": "autoscaling:EC2_INSTANCE_LAUNCHING",
                 "name": "foobar",
-                "notificationMetadata": \"\"\"{
+                "notification_metadata": \"\"\"{
           "foo": "bar"
         }
 
         \"\"\",
-                "notificationTargetArn": "arn:aws:sqs:us-east-1:444455556666:queue1*",
-                "roleArn": "arn:aws:iam::123456789012:role/S3Access",
+                "notification_target_arn": "arn:aws:sqs:us-east-1:444455556666:queue1*",
+                "role_arn": "arn:aws:iam::123456789012:role/S3Access",
             }],
             launch_configuration=aws_launch_configuration["foobar"]["name"],
             max_size=5,
@@ -290,17 +290,17 @@ class Group(pulumi.CustomResource):
             max_size=1,
             min_size=1,
             mixed_instances_policy={
-                "launchTemplate": {
+                "launch_template": {
                     "launchTemplateSpecification": {
                         "launchTemplateId": example_launch_template.id,
                     },
                     "override": [
                         {
-                            "instanceType": "c4.large",
+                            "instance_type": "c4.large",
                             "weightedCapacity": "3",
                         },
                         {
-                            "instanceType": "c3.large",
+                            "instance_type": "c3.large",
                             "weightedCapacity": "2",
                         },
                     ],

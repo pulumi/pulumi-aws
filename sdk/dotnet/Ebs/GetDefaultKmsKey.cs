@@ -15,6 +15,30 @@ namespace Pulumi.Aws.Ebs
         /// Use this data source to get the default EBS encryption KMS key in the current region.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Aws.Ebs.GetDefaultKmsKey.InvokeAsync());
+        ///         var example = new Aws.Ebs.Volume("example", new Aws.Ebs.VolumeArgs
+        ///         {
+        ///             AvailabilityZone = "us-west-2a",
+        ///             Encrypted = true,
+        ///             KmsKeyId = current.Apply(current =&gt; current.KeyArn),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDefaultKmsKeyResult> InvokeAsync(InvokeOptions? options = null)

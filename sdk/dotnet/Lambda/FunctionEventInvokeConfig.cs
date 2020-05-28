@@ -11,6 +11,92 @@ namespace Pulumi.Aws.Lambda
 {
     /// <summary>
     /// Manages an asynchronous invocation configuration for a Lambda Function or Alias. More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Error Handling Configuration
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new Aws.Lambda.FunctionEventInvokeConfigArgs
+    ///         {
+    ///             FunctionName = aws_lambda_alias.Example.Function_name,
+    ///             MaximumEventAgeInSeconds = 60,
+    ///             MaximumRetryAttempts = 0,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Configuration for Alias Name
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new Aws.Lambda.FunctionEventInvokeConfigArgs
+    ///         {
+    ///             FunctionName = aws_lambda_alias.Example.Function_name,
+    ///             Qualifier = aws_lambda_alias.Example.Name,
+    ///         });
+    ///         // ... other configuration ...
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Configuration for Function Latest Unpublished Version
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new Aws.Lambda.FunctionEventInvokeConfigArgs
+    ///         {
+    ///             FunctionName = aws_lambda_function.Example.Function_name,
+    ///             Qualifier = "$LATEST",
+    ///         });
+    ///         // ... other configuration ...
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Configuration for Function Published Version
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new Aws.Lambda.FunctionEventInvokeConfigArgs
+    ///         {
+    ///             FunctionName = aws_lambda_function.Example.Function_name,
+    ///             Qualifier = aws_lambda_function.Example.Version,
+    ///         });
+    ///         // ... other configuration ...
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class FunctionEventInvokeConfig : Pulumi.CustomResource
     {

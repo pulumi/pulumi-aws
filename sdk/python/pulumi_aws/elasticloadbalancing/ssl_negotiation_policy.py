@@ -49,9 +49,9 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         lb = aws.elb.LoadBalancer("lb",
             availability_zones=["us-east-1a"],
             listeners=[{
-                "instancePort": 8000,
+                "instance_port": 8000,
                 "instanceProtocol": "https",
-                "lbPort": 443,
+                "lb_port": 443,
                 "lbProtocol": "https",
                 "sslCertificateId": "arn:aws:iam::123456789012:server-certificate/certName",
             }])

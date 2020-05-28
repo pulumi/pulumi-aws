@@ -19,6 +19,50 @@ namespace Pulumi.Aws.Ec2
         /// VPC that the subnet belongs to.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following example shows how one might accept a subnet id as a variable
+        /// and use this data source to obtain the data necessary to create a security
+        /// group that allows connections from hosts in that subnet.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
+        ///         var selected = Output.Create(Aws.Ec2.GetSubnet.InvokeAsync(new Aws.Ec2.GetSubnetArgs
+        ///         {
+        ///             Id = subnetId,
+        ///         }));
+        ///         var subnet = new Aws.Ec2.SecurityGroup("subnet", new Aws.Ec2.SecurityGroupArgs
+        ///         {
+        ///             Ingress = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.SecurityGroupIngressArgs
+        ///                 {
+        ///                     CidrBlocks = 
+        ///                     {
+        ///                         selected.Apply(selected =&gt; selected.CidrBlock),
+        ///                     },
+        ///                     FromPort = 80,
+        ///                     Protocol = "tcp",
+        ///                     ToPort = 80,
+        ///                 },
+        ///             },
+        ///             VpcId = selected.Apply(selected =&gt; selected.VpcId),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSubnetResult> InvokeAsync(GetSubnetArgs? args = null, InvokeOptions? options = null)

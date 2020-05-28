@@ -15,6 +15,77 @@ namespace Pulumi.Aws.StorageGateway
     /// &gt; **NOTE:** The gateway must have cache added (e.g. via the [`aws.storagegateway.Cache`](https://www.terraform.io/docs/providers/aws/r/storagegateway_cache.html) resource) before creating volumes otherwise the Storage Gateway API will return an error.
     /// 
     /// &gt; **NOTE:** The gateway must have an upload buffer added (e.g. via the [`aws.storagegateway.UploadBuffer`](https://www.terraform.io/docs/providers/aws/r/storagegateway_upload_buffer.html) resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `UPLOAD BUFFER NOT CONFIGURED`.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Create Empty Cached iSCSI Volume
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.StorageGateway.CachesIscsiVolume("example", new Aws.StorageGateway.CachesIscsiVolumeArgs
+    ///         {
+    ///             GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
+    ///             NetworkInterfaceId = aws_instance.Example.Private_ip,
+    ///             TargetName = "example",
+    ///             VolumeSizeInBytes = 5368709120,
+    ///         });
+    ///         // 5 GB
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Create Cached iSCSI Volume From Snapshot
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.StorageGateway.CachesIscsiVolume("example", new Aws.StorageGateway.CachesIscsiVolumeArgs
+    ///         {
+    ///             GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
+    ///             NetworkInterfaceId = aws_instance.Example.Private_ip,
+    ///             SnapshotId = aws_ebs_snapshot.Example.Id,
+    ///             TargetName = "example",
+    ///             VolumeSizeInBytes = aws_ebs_snapshot.Example.Volume_size * 1024 * 1024 * 1024,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Create Cached iSCSI Volume From Source Volume
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.StorageGateway.CachesIscsiVolume("example", new Aws.StorageGateway.CachesIscsiVolumeArgs
+    ///         {
+    ///             GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
+    ///             NetworkInterfaceId = aws_instance.Example.Private_ip,
+    ///             SourceVolumeArn = aws_storagegateway_cached_iscsi_volume.Existing.Arn,
+    ///             TargetName = "example",
+    ///             VolumeSizeInBytes = aws_storagegateway_cached_iscsi_volume.Existing.Volume_size_in_bytes,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class CachesIscsiVolume : Pulumi.CustomResource
     {

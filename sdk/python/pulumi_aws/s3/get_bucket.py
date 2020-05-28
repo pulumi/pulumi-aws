@@ -101,7 +101,7 @@ def get_bucket(bucket=None,opts=None):
     example = aws.route53.Record("example",
         aliases=[{
             "name": selected.website_domain,
-            "zoneId": selected.hosted_zone_id,
+            "zone_id": selected.hosted_zone_id,
         }],
         name="bucket",
         type="A",
@@ -116,7 +116,7 @@ def get_bucket(bucket=None,opts=None):
 
     selected = aws.s3.get_bucket(bucket="a-test-bucket")
     test = aws.cloudfront.Distribution("test", origins=[{
-        "domainName": selected.bucket_domain_name,
+        "domain_name": selected.bucket_domain_name,
         "originId": "s3-selected-bucket",
     }])
     ```

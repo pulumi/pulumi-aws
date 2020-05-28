@@ -13,6 +13,87 @@ namespace Pulumi.Aws.Cfg
     /// Manages status (recording / stopped) of an AWS Config Configuration Recorder.
     /// 
     /// &gt; **Note:** Starting Configuration Recorder requires a [Delivery Channel](https://www.terraform.io/docs/providers/aws/r/config_delivery_channel.html) to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fooRecorderStatus = new Aws.Cfg.RecorderStatus("fooRecorderStatus", new Aws.Cfg.RecorderStatusArgs
+    ///         {
+    ///             IsEnabled = true,
+    ///         });
+    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""config.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///         var rolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("rolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRole",
+    ///             Role = role.Name,
+    ///         });
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("fooDeliveryChannel", new Aws.Cfg.DeliveryChannelArgs
+    ///         {
+    ///             S3BucketName = bucket.BucketName,
+    ///         });
+    ///         var fooRecorder = new Aws.Cfg.Recorder("fooRecorder", new Aws.Cfg.RecorderArgs
+    ///         {
+    ///             RoleArn = role.Arn,
+    ///         });
+    ///         var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Policy = Output.Tuple(bucket.Arn, bucket.Arn).Apply(values =&gt;
+    ///             {
+    ///                 var bucketArn = values.Item1;
+    ///                 var bucketArn1 = values.Item2;
+    ///                 return @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Action"": [
+    ///         ""s3:*""
+    ///       ],
+    ///       ""Effect"": ""Allow"",
+    ///       ""Resource"": [
+    ///         ""{bucketArn}"",
+    ///         ""{bucketArn1}/*""
+    ///       ]
+    ///     }}
+    ///   ]
+    /// }}
+    /// 
+    /// ";
+    ///             }),
+    ///             Role = role.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class RecorderStatus : Pulumi.CustomResource
     {

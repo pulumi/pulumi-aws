@@ -492,7 +492,7 @@ class Distribution(pulumi.CustomResource):
                 },
             ],
             origins=[{
-                "domainName": bucket.bucket_regional_domain_name,
+                "domain_name": bucket.bucket_regional_domain_name,
                 "originId": s3_origin_id,
                 "s3OriginConfig": {
                     "originAccessIdentity": "origin-access-identity/cloudfront/ABCDEFG1234567",

@@ -71,8 +71,8 @@ class ScheduledAction(pulumi.CustomResource):
             resource_id=dynamodb_target.resource_id,
             scalable_dimension=dynamodb_target.scalable_dimension,
             scalable_target_action={
-                "maxCapacity": 200,
-                "minCapacity": 1,
+                "max_capacity": 200,
+                "min_capacity": 1,
             },
             schedule="at(2006-01-02T15:04:05)",
             service_namespace=dynamodb_target.service_namespace)
@@ -94,8 +94,8 @@ class ScheduledAction(pulumi.CustomResource):
             resource_id=ecs_target.resource_id,
             scalable_dimension=ecs_target.scalable_dimension,
             scalable_target_action={
-                "maxCapacity": 10,
-                "minCapacity": 1,
+                "max_capacity": 10,
+                "min_capacity": 1,
             },
             schedule="at(2006-01-02T15:04:05)",
             service_namespace=ecs_target.service_namespace)

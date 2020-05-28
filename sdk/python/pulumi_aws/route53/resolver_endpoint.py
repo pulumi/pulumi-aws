@@ -61,11 +61,11 @@ class ResolverEndpoint(pulumi.CustomResource):
             direction="INBOUND",
             ip_addresses=[
                 {
-                    "subnetId": aws_subnet["sn1"]["id"],
+                    "subnet_id": aws_subnet["sn1"]["id"],
                 },
                 {
                     "ip": "10.0.64.4",
-                    "subnetId": aws_subnet["sn2"]["id"],
+                    "subnet_id": aws_subnet["sn2"]["id"],
                 },
             ],
             security_group_ids=[

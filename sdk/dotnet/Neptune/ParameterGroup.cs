@@ -11,6 +11,35 @@ namespace Pulumi.Aws.Neptune
 {
     /// <summary>
     /// Manages a Neptune Parameter Group
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Neptune.ParameterGroup("example", new Aws.Neptune.ParameterGroupArgs
+    ///         {
+    ///             Family = "neptune1",
+    ///             Parameters = 
+    ///             {
+    ///                 new Aws.Neptune.Inputs.ParameterGroupParameterArgs
+    ///                 {
+    ///                     Name = "neptune_query_timeout",
+    ///                     Value = "25",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ParameterGroup : Pulumi.CustomResource
     {

@@ -11,6 +11,90 @@ namespace Pulumi.Aws.Route53
 {
     /// <summary>
     /// Manages a Route53 Hosted Zone.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Public Zone
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var primary = new Aws.Route53.Zone("primary", new Aws.Route53.ZoneArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Public Subdomain Zone
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var main = new Aws.Route53.Zone("main", new Aws.Route53.ZoneArgs
+    ///         {
+    ///         });
+    ///         var dev = new Aws.Route53.Zone("dev", new Aws.Route53.ZoneArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "dev" },
+    ///             },
+    ///         });
+    ///         var dev_ns = new Aws.Route53.Record("dev-ns", new Aws.Route53.RecordArgs
+    ///         {
+    ///             Name = "dev.example.com",
+    ///             Records = 
+    ///             {
+    ///                 dev.NameServers.Apply(nameServers =&gt; nameServers[0]),
+    ///                 dev.NameServers.Apply(nameServers =&gt; nameServers[1]),
+    ///                 dev.NameServers.Apply(nameServers =&gt; nameServers[2]),
+    ///                 dev.NameServers.Apply(nameServers =&gt; nameServers[3]),
+    ///             },
+    ///             Ttl = "30",
+    ///             Type = "NS",
+    ///             ZoneId = main.ZoneId,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Private Zone
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @private = new Aws.Route53.Zone("private", new Aws.Route53.ZoneArgs
+    ///         {
+    ///             Vpcs = 
+    ///             {
+    ///                 new Aws.Route53.Inputs.ZoneVpcArgs
+    ///                 {
+    ///                     VpcId = aws_vpc.Example.Id,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Zone : Pulumi.CustomResource
     {

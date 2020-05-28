@@ -21,6 +21,29 @@ namespace Pulumi.Aws.Elb
         /// with it, etc.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var lbName = config.Get("lbName") ?? "";
+        ///         var test = Output.Create(Aws.Elb.GetLoadBalancer.InvokeAsync(new Aws.Elb.GetLoadBalancerArgs
+        ///         {
+        ///             Name = lbName,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)

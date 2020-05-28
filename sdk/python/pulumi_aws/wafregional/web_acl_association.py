@@ -51,7 +51,7 @@ class WebAclAssociation(pulumi.CustomResource):
                     "type": "BLOCK",
                 },
                 "priority": 1,
-                "ruleId": foo_rule.id,
+                "rule_id": foo_rule.id,
             }])
         foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.1.0.0/16")
         available = aws.get_availability_zones()
@@ -101,7 +101,7 @@ class WebAclAssociation(pulumi.CustomResource):
                     "type": "BLOCK",
                 },
                 "priority": 1,
-                "ruleId": foo_rule.id,
+                "rule_id": foo_rule.id,
             }])
         test_rest_api = aws.apigateway.RestApi("testRestApi")
         test_resource = aws.apigateway.Resource("testResource",

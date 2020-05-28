@@ -115,7 +115,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getSubnetIds({
- *     vpcId: var.vpc_id,
+ *     vpcId: _var.vpc_id,
  * });
  * const fooLaunchTemplate = new aws.ec2.LaunchTemplate("fooLaunchTemplate", {
  *     imageId: "ami-516b9131",

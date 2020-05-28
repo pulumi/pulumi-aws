@@ -21,6 +21,33 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Copying an AMI can take several minutes. The creation of this resource will
     /// block until the new AMI is available for use on new instances.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ec2.AmiCopy("example", new Aws.Ec2.AmiCopyArgs
+    ///         {
+    ///             Description = "A copy of ami-xxxxxxxx",
+    ///             SourceAmiId = "ami-xxxxxxxx",
+    ///             SourceAmiRegion = "us-west-1",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "HelloWorld" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AmiCopy : Pulumi.CustomResource
     {

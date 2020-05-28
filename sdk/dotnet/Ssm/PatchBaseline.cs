@@ -15,6 +15,30 @@ namespace Pulumi.Aws.Ssm
     /// &gt; **NOTE on Patch Baselines:** The `approved_patches` and `approval_rule` are 
     /// both marked as optional fields, but the Patch Baseline requires that at least one
     /// of them is specified.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var production = new Aws.Ssm.PatchBaseline("production", new Aws.Ssm.PatchBaselineArgs
+    ///         {
+    ///             ApprovedPatches = 
+    ///             {
+    ///                 "KB123456",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class PatchBaseline : Pulumi.CustomResource
     {

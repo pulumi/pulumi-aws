@@ -15,6 +15,103 @@ namespace Pulumi.Aws.Organizations
         /// Get information about the organization that the user's account belongs to
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// 
+        /// {{% example %}}
+        /// ### List all account IDs for the organization
+        /// 
+        /// ```csharp
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Organizations.GetOrganization.InvokeAsync());
+        ///         this.AccountIds = example.Apply(example =&gt; example.Accounts.Select(__item =&gt; __item.Id).ToList());
+        ///     }
+        /// 
+        ///     [Output("accountIds")]
+        ///     public Output&lt;string&gt; AccountIds { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### SNS topic that can be interacted by the organization only
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Organizations.GetOrganization.InvokeAsync());
+        ///         var snsTopic = new Aws.Sns.Topic("snsTopic", new Aws.Sns.TopicArgs
+        ///         {
+        ///         });
+        ///         var snsTopicPolicyPolicyDocument = Output.Tuple(example, snsTopic.Arn).Apply(values =&gt;
+        ///         {
+        ///             var example = values.Item1;
+        ///             var arn = values.Item2;
+        ///             return Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///             {
+        ///                 Statements = 
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+        ///                     {
+        ///                         Actions = 
+        ///                         {
+        ///                             "SNS:Subscribe",
+        ///                             "SNS:Publish",
+        ///                         },
+        ///                         Condition = 
+        ///                         {
+        ///                             
+        ///                             {
+        ///                                 { "test", "StringEquals" },
+        ///                                 { "values", 
+        ///                                 {
+        ///                                     example.Id,
+        ///                                 } },
+        ///                                 { "variable", "aws:PrincipalOrgID" },
+        ///                             },
+        ///                         },
+        ///                         Effect = "Allow",
+        ///                         Principals = 
+        ///                         {
+        ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+        ///                             {
+        ///                                 Identifiers = 
+        ///                                 {
+        ///                                     "*",
+        ///                                 },
+        ///                                 Type = "AWS",
+        ///                             },
+        ///                         },
+        ///                         Resources = 
+        ///                         {
+        ///                             arn,
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             });
+        ///         });
+        ///         var snsTopicPolicyTopicPolicy = new Aws.Sns.TopicPolicy("snsTopicPolicyTopicPolicy", new Aws.Sns.TopicPolicyArgs
+        ///         {
+        ///             Arn = snsTopic.Arn,
+        ///             Policy = snsTopicPolicyPolicyDocument.Apply(snsTopicPolicyPolicyDocument =&gt; snsTopicPolicyPolicyDocument.Json),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOrganizationResult> InvokeAsync(InvokeOptions? options = null)

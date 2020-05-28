@@ -48,9 +48,9 @@ class NamedQuery(pulumi.CustomResource):
             description="Athena KMS Key")
         test_workgroup = aws.athena.Workgroup("testWorkgroup", configuration={
             "resultConfiguration": {
-                "encryptionConfiguration": {
+                "encryption_configuration": {
                     "encryptionOption": "SSE_KMS",
-                    "kmsKeyArn": test_key.arn,
+                    "kms_key_arn": test_key.arn,
                 },
             },
         })

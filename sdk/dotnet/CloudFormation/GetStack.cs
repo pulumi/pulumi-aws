@@ -16,6 +16,37 @@ namespace Pulumi.Aws.CloudFormation
         /// outputs and other useful data including the template body.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var network = Output.Create(Aws.CloudFormation.GetStack.InvokeAsync(new Aws.CloudFormation.GetStackArgs
+        ///         {
+        ///             Name = "my-network-stack",
+        ///         }));
+        ///         var web = new Aws.Ec2.Instance("web", new Aws.Ec2.InstanceArgs
+        ///         {
+        ///             Ami = "ami-abb07bcb",
+        ///             InstanceType = "t1.micro",
+        ///             SubnetId = network.Apply(network =&gt; network.Outputs.SubnetId),
+        ///             Tags = 
+        ///             {
+        ///                 { "Name", "HelloWorld" },
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetStackResult> InvokeAsync(GetStackArgs args, InvokeOptions? options = null)

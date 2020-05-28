@@ -13,6 +13,176 @@ namespace Pulumi.Aws.S3
     /// Manages a S3 Bucket Notification Configuration. For additional information, see the [Configuring S3 Event Notifications section in the Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html).
     /// 
     /// &gt; **NOTE:** S3 Buckets only support a single notification configuration. Declaring multiple `aws.s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration. See the example "Trigger multiple Lambda functions" for an option.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Add notification configuration to SNS Topic
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var topic = new Aws.Sns.Topic("topic", new Aws.Sns.TopicArgs
+    ///         {
+    ///             Policy = bucket.Arn.Apply(arn =&gt; @$"{{
+    ///     ""Version"":""2012-10-17"",
+    ///     ""Statement"":[{{
+    ///         ""Effect"": ""Allow"",
+    ///         ""Principal"": {{""AWS"":""*""}},
+    ///         ""Action"": ""SNS:Publish"",
+    ///         ""Resource"": ""arn:aws:sns:*:*:s3-event-notification-topic"",
+    ///         ""Condition"":{{
+    ///             ""ArnLike"":{{""aws:SourceArn"":""{arn}""}}
+    ///         }}
+    ///     }}]
+    /// }}
+    /// 
+    /// "),
+    ///         });
+    ///         var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new Aws.S3.BucketNotificationArgs
+    ///         {
+    ///             Bucket = bucket.Id,
+    ///             Topics = 
+    ///             {
+    ///                 new Aws.S3.Inputs.BucketNotificationTopicArgs
+    ///                 {
+    ///                     Events = 
+    ///                     {
+    ///                         "s3:ObjectCreated:*",
+    ///                     },
+    ///                     FilterSuffix = ".log",
+    ///                     TopicArn = topic.Arn,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Add notification configuration to SQS Queue
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var queue = new Aws.Sqs.Queue("queue", new Aws.Sqs.QueueArgs
+    ///         {
+    ///             Policy = bucket.Arn.Apply(arn =&gt; @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": ""*"",
+    ///       ""Action"": ""sqs:SendMessage"",
+    /// 	  ""Resource"": ""arn:aws:sqs:*:*:s3-event-notification-queue"",
+    ///       ""Condition"": {{
+    ///         ""ArnEquals"": {{ ""aws:SourceArn"": ""{arn}"" }}
+    ///       }}
+    ///     }}
+    ///   ]
+    /// }}
+    /// 
+    /// "),
+    ///         });
+    ///         var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new Aws.S3.BucketNotificationArgs
+    ///         {
+    ///             Bucket = bucket.Id,
+    ///             Queues = 
+    ///             {
+    ///                 new Aws.S3.Inputs.BucketNotificationQueueArgs
+    ///                 {
+    ///                     Events = 
+    ///                     {
+    ///                         "s3:ObjectCreated:*",
+    ///                     },
+    ///                     FilterSuffix = ".log",
+    ///                     QueueArn = queue.Arn,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Add multiple notification configurations to SQS Queue
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var queue = new Aws.Sqs.Queue("queue", new Aws.Sqs.QueueArgs
+    ///         {
+    ///             Policy = bucket.Arn.Apply(arn =&gt; @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": ""*"",
+    ///       ""Action"": ""sqs:SendMessage"",
+    /// 	  ""Resource"": ""arn:aws:sqs:*:*:s3-event-notification-queue"",
+    ///       ""Condition"": {{
+    ///         ""ArnEquals"": {{ ""aws:SourceArn"": ""{arn}"" }}
+    ///       }}
+    ///     }}
+    ///   ]
+    /// }}
+    /// 
+    /// "),
+    ///         });
+    ///         var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new Aws.S3.BucketNotificationArgs
+    ///         {
+    ///             Bucket = bucket.Id,
+    ///             Queues = 
+    ///             {
+    ///                 new Aws.S3.Inputs.BucketNotificationQueueArgs
+    ///                 {
+    ///                     Events = 
+    ///                     {
+    ///                         "s3:ObjectCreated:*",
+    ///                     },
+    ///                     FilterPrefix = "images/",
+    ///                     Id = "image-upload-event",
+    ///                     QueueArn = queue.Arn,
+    ///                 },
+    ///                 new Aws.S3.Inputs.BucketNotificationQueueArgs
+    ///                 {
+    ///                     Events = 
+    ///                     {
+    ///                         "s3:ObjectCreated:*",
+    ///                     },
+    ///                     FilterPrefix = "videos/",
+    ///                     Id = "video-upload-event",
+    ///                     QueueArn = queue.Arn,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class BucketNotification : Pulumi.CustomResource
     {

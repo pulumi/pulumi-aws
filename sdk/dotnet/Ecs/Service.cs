@@ -15,6 +15,29 @@ namespace Pulumi.Aws.Ecs
     /// Provides an ECS service - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
     /// 
     /// See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Daemon Scheduling Strategy
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var bar = new Aws.Ecs.Service("bar", new Aws.Ecs.ServiceArgs
+    ///         {
+    ///             Cluster = aws_ecs_cluster.Foo.Id,
+    ///             SchedulingStrategy = "DAEMON",
+    ///             TaskDefinition = aws_ecs_task_definition.Bar.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {

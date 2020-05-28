@@ -76,7 +76,7 @@ class Vault(pulumi.CustomResource):
                     "ArchiveRetrievalCompleted",
                     "InventoryRetrievalCompleted",
                 ],
-                "snsTopic": aws_sns_topic.arn,
+                "sns_topic": aws_sns_topic.arn,
             }],
             tags={
                 "Test": "MyArchive",

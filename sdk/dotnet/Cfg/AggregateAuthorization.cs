@@ -11,6 +11,28 @@ namespace Pulumi.Aws.Cfg
 {
     /// <summary>
     /// Manages an AWS Config Aggregate Authorization
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Cfg.AggregateAuthorization("example", new Aws.Cfg.AggregateAuthorizationArgs
+    ///         {
+    ///             AccountId = "123456789012",
+    ///             Region = "eu-west-2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AggregateAuthorization : Pulumi.CustomResource
     {

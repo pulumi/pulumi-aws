@@ -11,6 +11,27 @@ namespace Pulumi.Aws.OpsWorks
 {
     /// <summary>
     /// Provides an OpsWorks Ruby on Rails application layer resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var app = new Aws.OpsWorks.RailsAppLayer("app", new Aws.OpsWorks.RailsAppLayerArgs
+    ///         {
+    ///             StackId = aws_opsworks_stack.Main.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class RailsAppLayer : Pulumi.CustomResource
     {

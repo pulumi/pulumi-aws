@@ -88,11 +88,11 @@ def get_ip_ranges(regions=None,services=None,url=None,opts=None):
         services=["ec2"])
     from_europe = aws.ec2.SecurityGroup("fromEurope",
         ingress=[{
-            "fromPort": "443",
-            "toPort": "443",
+            "from_port": "443",
+            "to_port": "443",
             "protocol": "tcp",
-            "cidrBlocks": european_ec2.cidr_blocks,
-            "ipv6CidrBlocks": european_ec2.ipv6_cidr_blocks,
+            "cidr_blocks": european_ec2.cidr_blocks,
+            "ipv6_cidr_blocks": european_ec2.ipv6_cidr_blocks,
         }],
         tags={
             "CreateDate": european_ec2.create_date,

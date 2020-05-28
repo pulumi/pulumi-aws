@@ -22,6 +22,223 @@ namespace Pulumi.Aws.AppMesh
     /// setting `virtual_service_name` to the name of the service.
     /// 
     /// The state associated with existing resources will automatically be migrated.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new Aws.AppMesh.VirtualNodeArgs
+    ///         {
+    ///             MeshName = aws_appmesh_mesh.Simple.Id,
+    ///             Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
+    ///             {
+    ///                 Backend = 
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "virtualService", 
+    ///                         {
+    ///                             { "virtualServiceName", "servicea.simpleapp.local" },
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///                 Listener = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
+    ///                 {
+    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
+    ///                     {
+    ///                         Port = 8080,
+    ///                         Protocol = "http",
+    ///                     },
+    ///                 },
+    ///                 ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
+    ///                 {
+    ///                     Dns = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryDnsArgs
+    ///                     {
+    ///                         Hostname = "serviceb.simpleapp.local",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### AWS Cloud Map Service Discovery
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.ServiceDiscovery.HttpNamespace("example", new Aws.ServiceDiscovery.HttpNamespaceArgs
+    ///         {
+    ///         });
+    ///         var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new Aws.AppMesh.VirtualNodeArgs
+    ///         {
+    ///             MeshName = aws_appmesh_mesh.Simple.Id,
+    ///             Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
+    ///             {
+    ///                 Backend = 
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "virtualService", 
+    ///                         {
+    ///                             { "virtualServiceName", "servicea.simpleapp.local" },
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///                 Listener = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
+    ///                 {
+    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
+    ///                     {
+    ///                         Port = 8080,
+    ///                         Protocol = "http",
+    ///                     },
+    ///                 },
+    ///                 ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
+    ///                 {
+    ///                     AwsCloudMap = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs
+    ///                     {
+    ///                         Attributes = 
+    ///                         {
+    ///                             { "stack", "blue" },
+    ///                         },
+    ///                         NamespaceName = example.Name,
+    ///                         ServiceName = "serviceb1",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Listener Health Check
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new Aws.AppMesh.VirtualNodeArgs
+    ///         {
+    ///             MeshName = aws_appmesh_mesh.Simple.Id,
+    ///             Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
+    ///             {
+    ///                 Backend = 
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "virtualService", 
+    ///                         {
+    ///                             { "virtualServiceName", "servicea.simpleapp.local" },
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///                 Listener = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
+    ///                 {
+    ///                     HealthCheck = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerHealthCheckArgs
+    ///                     {
+    ///                         HealthyThreshold = 2,
+    ///                         IntervalMillis = 5000,
+    ///                         Path = "/ping",
+    ///                         Protocol = "http",
+    ///                         TimeoutMillis = 2000,
+    ///                         UnhealthyThreshold = 2,
+    ///                     },
+    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
+    ///                     {
+    ///                         Port = 8080,
+    ///                         Protocol = "http",
+    ///                     },
+    ///                 },
+    ///                 ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
+    ///                 {
+    ///                     Dns = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryDnsArgs
+    ///                     {
+    ///                         Hostname = "serviceb.simpleapp.local",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Logging
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new Aws.AppMesh.VirtualNodeArgs
+    ///         {
+    ///             MeshName = aws_appmesh_mesh.Simple.Id,
+    ///             Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
+    ///             {
+    ///                 Backend = 
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "virtualService", 
+    ///                         {
+    ///                             { "virtualServiceName", "servicea.simpleapp.local" },
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///                 Listener = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
+    ///                 {
+    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
+    ///                     {
+    ///                         Port = 8080,
+    ///                         Protocol = "http",
+    ///                     },
+    ///                 },
+    ///                 Logging = new Aws.AppMesh.Inputs.VirtualNodeSpecLoggingArgs
+    ///                 {
+    ///                     AccessLog = new Aws.AppMesh.Inputs.VirtualNodeSpecLoggingAccessLogArgs
+    ///                     {
+    ///                         File = new Aws.AppMesh.Inputs.VirtualNodeSpecLoggingAccessLogFileArgs
+    ///                         {
+    ///                             Path = "/dev/stdout",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
+    ///                 {
+    ///                     Dns = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryDnsArgs
+    ///                     {
+    ///                         Hostname = "serviceb.simpleapp.local",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VirtualNode : Pulumi.CustomResource
     {

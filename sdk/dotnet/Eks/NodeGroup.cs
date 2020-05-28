@@ -11,6 +11,60 @@ namespace Pulumi.Aws.Eks
 {
     /// <summary>
     /// Manages an EKS Node Group, which can provision and optionally update an Auto Scaling Group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Example IAM Role for EKS Node Group
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Iam.Role("example", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "Statement", new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             { "Action", "sts:AssumeRole" },
+    ///                             { "Effect", "Allow" },
+    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 { "Service", "ec2.amazonaws.com" },
+    ///                             } },
+    ///                         },
+    ///                     }
+    ///                  },
+    ///                 { "Version", "2012-10-17" },
+    ///             }),
+    ///         });
+    ///         var example_AmazonEKSWorkerNodePolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
+    ///             Role = example.Name,
+    ///         });
+    ///         var example_AmazonEKSCNIPolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSCNIPolicy", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+    ///             Role = example.Name,
+    ///         });
+    ///         var example_AmazonEC2ContainerRegistryReadOnly = new Aws.Iam.RolePolicyAttachment("example-AmazonEC2ContainerRegistryReadOnly", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
+    ///             Role = example.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class NodeGroup : Pulumi.CustomResource
     {

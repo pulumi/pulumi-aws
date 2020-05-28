@@ -22,6 +22,33 @@ namespace Pulumi.Aws.DocDB
     /// &gt; **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
     /// &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
     /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var docdb = new Aws.DocDB.Cluster("docdb", new Aws.DocDB.ClusterArgs
+    ///         {
+    ///             BackupRetentionPeriod = 5,
+    ///             ClusterIdentifier = "my-docdb-cluster",
+    ///             Engine = "docdb",
+    ///             MasterPassword = "mustbeeightchars",
+    ///             MasterUsername = "foo",
+    ///             PreferredBackupWindow = "07:00-09:00",
+    ///             SkipFinalSnapshot = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

@@ -14,6 +14,31 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// To help you understand the charges for your Spot instances, Amazon EC2 provides a data feed that describes your Spot instance usage and pricing.
     /// This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var defaultBucket = new Aws.S3.Bucket("defaultBucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var defaultSpotDatafeedSubscription = new Aws.Ec2.SpotDatafeedSubscription("defaultSpotDatafeedSubscription", new Aws.Ec2.SpotDatafeedSubscriptionArgs
+    ///         {
+    ///             Bucket = defaultBucket.BucketName,
+    ///             Prefix = "my_subdirectory",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SpotDatafeedSubscription : Pulumi.CustomResource
     {

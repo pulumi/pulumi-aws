@@ -78,9 +78,9 @@ class Connection(pulumi.CustomResource):
                 "USERNAME": "exampleusername",
             },
             physical_connection_requirements={
-                "availabilityZone": aws_subnet["example"]["availability_zone"],
+                "availability_zone": aws_subnet["example"]["availability_zone"],
                 "securityGroupIdList": [aws_security_group["example"]["id"]],
-                "subnetId": aws_subnet["example"]["id"],
+                "subnet_id": aws_subnet["example"]["id"],
             })
         ```
 

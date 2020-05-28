@@ -11,6 +11,32 @@ namespace Pulumi.Aws.GameLift
 {
     /// <summary>
     /// Provides a Gamelift Alias resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.GameLift.Alias("example", new Aws.GameLift.AliasArgs
+    ///         {
+    ///             Description = "Example Description",
+    ///             RoutingStrategy = new Aws.GameLift.Inputs.AliasRoutingStrategyArgs
+    ///             {
+    ///                 Message = "Example Message",
+    ///                 Type = "TERMINAL",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Alias : Pulumi.CustomResource
     {

@@ -74,11 +74,11 @@ class UsagePlan(pulumi.CustomResource):
         my_usage_plan = aws.apigateway.UsagePlan("myUsagePlan",
             api_stages=[
                 {
-                    "apiId": myapi.id,
+                    "api_id": myapi.id,
                     "stage": dev.stage_name,
                 },
                 {
-                    "apiId": myapi.id,
+                    "api_id": myapi.id,
                     "stage": prod.stage_name,
                 },
             ],
@@ -91,7 +91,7 @@ class UsagePlan(pulumi.CustomResource):
             },
             throttle_settings={
                 "burstLimit": 5,
-                "rateLimit": 10,
+                "rate_limit": 10,
             })
         ```
 

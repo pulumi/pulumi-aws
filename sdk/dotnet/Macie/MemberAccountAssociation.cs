@@ -15,6 +15,27 @@ namespace Pulumi.Aws.Macie
     /// Associates an AWS account with Amazon Macie as a member account.
     /// 
     /// &gt; **NOTE:** Before using Amazon Macie for the first time it must be enabled manually. Instructions are [here](https://docs.aws.amazon.com/macie/latest/userguide/macie-setting-up.html#macie-setting-up-enable).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Macie.MemberAccountAssociation("example", new Aws.Macie.MemberAccountAssociationArgs
+    ///         {
+    ///             MemberAccountId = "123456789012",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class MemberAccountAssociation : Pulumi.CustomResource
     {

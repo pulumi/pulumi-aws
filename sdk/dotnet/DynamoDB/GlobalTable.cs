@@ -15,6 +15,77 @@ namespace Pulumi.Aws.DynamoDB
     /// &gt; **NOTE:** To instead manage [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html), use the [`aws.dynamodb.Table` resource](https://www.terraform.io/docs/providers/aws/r/dynamodb_table.html) `replica` configuration block.
     /// 
     /// &gt; Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var us_east_1 = new Aws.Provider("us-east-1", new Aws.ProviderArgs
+    ///         {
+    ///             Region = "us-east-1",
+    ///         });
+    ///         var us_west_2 = new Aws.Provider("us-west-2", new Aws.ProviderArgs
+    ///         {
+    ///             Region = "us-west-2",
+    ///         });
+    ///         var us_east_1Table = new Aws.DynamoDB.Table("us-east-1Table", new Aws.DynamoDB.TableArgs
+    ///         {
+    ///             Attributes = 
+    ///             {
+    ///                 new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///                 {
+    ///                     Name = "myAttribute",
+    ///                     Type = "S",
+    ///                 },
+    ///             },
+    ///             HashKey = "myAttribute",
+    ///             ReadCapacity = 1,
+    ///             StreamEnabled = true,
+    ///             StreamViewType = "NEW_AND_OLD_IMAGES",
+    ///             WriteCapacity = 1,
+    ///         });
+    ///         var us_west_2Table = new Aws.DynamoDB.Table("us-west-2Table", new Aws.DynamoDB.TableArgs
+    ///         {
+    ///             Attributes = 
+    ///             {
+    ///                 new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///                 {
+    ///                     Name = "myAttribute",
+    ///                     Type = "S",
+    ///                 },
+    ///             },
+    ///             HashKey = "myAttribute",
+    ///             ReadCapacity = 1,
+    ///             StreamEnabled = true,
+    ///             StreamViewType = "NEW_AND_OLD_IMAGES",
+    ///             WriteCapacity = 1,
+    ///         });
+    ///         var myTable = new Aws.DynamoDB.GlobalTable("myTable", new Aws.DynamoDB.GlobalTableArgs
+    ///         {
+    ///             Replicas = 
+    ///             {
+    ///                 new Aws.DynamoDB.Inputs.GlobalTableReplicaArgs
+    ///                 {
+    ///                     RegionName = "us-east-1",
+    ///                 },
+    ///                 new Aws.DynamoDB.Inputs.GlobalTableReplicaArgs
+    ///                 {
+    ///                     RegionName = "us-west-2",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class GlobalTable : Pulumi.CustomResource
     {

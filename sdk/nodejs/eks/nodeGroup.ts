@@ -57,15 +57,15 @@ import * as utilities from "../utilities";
  *     }],
  *     Version: "2012-10-17",
  * })});
- * const example-AmazonEKSWorkerNodePolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy", {
+ * const example_AmazonEKSWorkerNodePolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy", {
  *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
  *     role: example.name,
  * });
- * const example-AmazonEKSCNIPolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSCNIPolicy", {
+ * const example_AmazonEKSCNIPolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSCNIPolicy", {
  *     policyArn: "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
  *     role: example.name,
  * });
- * const example-AmazonEC2ContainerRegistryReadOnly = new aws.iam.RolePolicyAttachment("example-AmazonEC2ContainerRegistryReadOnly", {
+ * const example_AmazonEC2ContainerRegistryReadOnly = new aws.iam.RolePolicyAttachment("example-AmazonEC2ContainerRegistryReadOnly", {
  *     policyArn: "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
  *     role: example.name,
  * });

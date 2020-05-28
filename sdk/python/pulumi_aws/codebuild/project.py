@@ -286,7 +286,7 @@ class Project(pulumi.CustomResource):
             },
             logs_config={
                 "cloudwatchLogs": {
-                    "groupName": "log-group",
+                    "group_name": "log-group",
                     "streamName": "log-stream",
                 },
                 "s3Logs": {
@@ -308,7 +308,7 @@ class Project(pulumi.CustomResource):
                 "Environment": "Test",
             },
             vpc_config={
-                "securityGroupIds": [
+                "security_group_ids": [
                     aws_security_group["example1"]["id"],
                     aws_security_group["example2"]["id"],
                 ],
@@ -316,7 +316,7 @@ class Project(pulumi.CustomResource):
                     aws_subnet["example1"]["id"],
                     aws_subnet["example2"]["id"],
                 ],
-                "vpcId": aws_vpc["example"]["id"],
+                "vpc_id": aws_vpc["example"]["id"],
             })
         project_with_cache = aws.codebuild.Project("project-with-cache",
             artifacts={

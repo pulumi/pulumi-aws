@@ -11,6 +11,141 @@ namespace Pulumi.Aws.ApiGateway
 {
     /// <summary>
     /// Provides an HTTP Method Integration for an API Gateway Integration.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new Aws.ApiGateway.RestApiArgs
+    ///         {
+    ///             Description = "This is my API for demonstration purposes",
+    ///         });
+    ///         var myDemoResource = new Aws.ApiGateway.Resource("myDemoResource", new Aws.ApiGateway.ResourceArgs
+    ///         {
+    ///             ParentId = myDemoAPI.RootResourceId,
+    ///             PathPart = "mydemoresource",
+    ///             RestApi = myDemoAPI.Id,
+    ///         });
+    ///         var myDemoMethod = new Aws.ApiGateway.Method("myDemoMethod", new Aws.ApiGateway.MethodArgs
+    ///         {
+    ///             Authorization = "NONE",
+    ///             HttpMethod = "GET",
+    ///             ResourceId = myDemoResource.Id,
+    ///             RestApi = myDemoAPI.Id,
+    ///         });
+    ///         var myDemoIntegration = new Aws.ApiGateway.Integration("myDemoIntegration", new Aws.ApiGateway.IntegrationArgs
+    ///         {
+    ///             CacheKeyParameters = 
+    ///             {
+    ///                 "method.request.path.param",
+    ///             },
+    ///             CacheNamespace = "foobar",
+    ///             HttpMethod = myDemoMethod.HttpMethod,
+    ///             RequestParameters = 
+    ///             {
+    ///                 { "integration.request.header.X-Authorization", "'static'" },
+    ///             },
+    ///             RequestTemplates = 
+    ///             {
+    ///                 { "application/xml", @"{
+    ///    ""body"" : $$input.json('$$')
+    /// }
+    /// 
+    /// " },
+    ///             },
+    ///             ResourceId = myDemoResource.Id,
+    ///             RestApi = myDemoAPI.Id,
+    ///             TimeoutMilliseconds = 29000,
+    ///             Type = "MOCK",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## VPC Link
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var config = new Config();
+    ///         var name = config.RequireObject&lt;dynamic&gt;("name");
+    ///         var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
+    ///         var testLoadBalancer = new Aws.LB.LoadBalancer("testLoadBalancer", new Aws.LB.LoadBalancerArgs
+    ///         {
+    ///             Internal = true,
+    ///             LoadBalancerType = "network",
+    ///             Subnets = 
+    ///             {
+    ///                 subnetId,
+    ///             },
+    ///         });
+    ///         var testVpcLink = new Aws.ApiGateway.VpcLink("testVpcLink", new Aws.ApiGateway.VpcLinkArgs
+    ///         {
+    ///             TargetArn = testLoadBalancer.Arn,
+    ///         });
+    ///         var testRestApi = new Aws.ApiGateway.RestApi("testRestApi", new Aws.ApiGateway.RestApiArgs
+    ///         {
+    ///         });
+    ///         var testResource = new Aws.ApiGateway.Resource("testResource", new Aws.ApiGateway.ResourceArgs
+    ///         {
+    ///             ParentId = testRestApi.RootResourceId,
+    ///             PathPart = "test",
+    ///             RestApi = testRestApi.Id,
+    ///         });
+    ///         var testMethod = new Aws.ApiGateway.Method("testMethod", new Aws.ApiGateway.MethodArgs
+    ///         {
+    ///             Authorization = "NONE",
+    ///             HttpMethod = "GET",
+    ///             RequestModels = 
+    ///             {
+    ///                 { "application/json", "Error" },
+    ///             },
+    ///             ResourceId = testResource.Id,
+    ///             RestApi = testRestApi.Id,
+    ///         });
+    ///         var testIntegration = new Aws.ApiGateway.Integration("testIntegration", new Aws.ApiGateway.IntegrationArgs
+    ///         {
+    ///             ConnectionId = testVpcLink.Id,
+    ///             ConnectionType = "VPC_LINK",
+    ///             ContentHandling = "CONVERT_TO_TEXT",
+    ///             HttpMethod = testMethod.HttpMethod,
+    ///             IntegrationHttpMethod = "GET",
+    ///             PassthroughBehavior = "WHEN_NO_MATCH",
+    ///             RequestParameters = 
+    ///             {
+    ///                 { "integration.request.header.X-Authorization", "'static'" },
+    ///                 { "integration.request.header.X-Foo", "'Bar'" },
+    ///             },
+    ///             RequestTemplates = 
+    ///             {
+    ///                 { "application/json", "" },
+    ///                 { "application/xml", @"#set($$inputRoot = $$input.path('$$'))
+    /// { }
+    /// " },
+    ///             },
+    ///             ResourceId = testResource.Id,
+    ///             RestApi = testRestApi.Id,
+    ///             Type = "HTTP",
+    ///             Uri = "https://www.google.de",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Integration : Pulumi.CustomResource
     {

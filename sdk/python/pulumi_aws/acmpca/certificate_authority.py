@@ -153,7 +153,7 @@ class CertificateAuthority(pulumi.CustomResource):
                     "customCname": "crl.example.com",
                     "enabled": True,
                     "expirationInDays": 7,
-                    "s3BucketName": example_bucket.id,
+                    "s3_bucket_name": example_bucket.id,
                 },
             })
         ```

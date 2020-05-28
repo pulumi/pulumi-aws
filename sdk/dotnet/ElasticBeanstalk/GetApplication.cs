@@ -15,6 +15,33 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// Retrieve information about an Elastic Beanstalk Application.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.ElasticBeanstalk.GetApplication.InvokeAsync(new Aws.ElasticBeanstalk.GetApplicationArgs
+        ///         {
+        ///             Name = "example",
+        ///         }));
+        ///         this.Arn = example.Apply(example =&gt; example.Arn);
+        ///         this.Description = example.Apply(example =&gt; example.Description);
+        ///     }
+        /// 
+        ///     [Output("arn")]
+        ///     public Output&lt;string&gt; Arn { get; set; }
+        ///     [Output("description")]
+        ///     public Output&lt;string&gt; Description { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)

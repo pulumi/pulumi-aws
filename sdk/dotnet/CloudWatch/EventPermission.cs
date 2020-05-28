@@ -11,6 +11,54 @@ namespace Pulumi.Aws.CloudWatch
 {
     /// <summary>
     /// Provides a resource to create a CloudWatch Events permission to support cross-account events in the current account default event bus.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Account Access
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var devAccountAccess = new Aws.CloudWatch.EventPermission("devAccountAccess", new Aws.CloudWatch.EventPermissionArgs
+    ///         {
+    ///             Principal = "123456789012",
+    ///             StatementId = "DevAccountAccess",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Organization Access
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var organizationAccess = new Aws.CloudWatch.EventPermission("organizationAccess", new Aws.CloudWatch.EventPermissionArgs
+    ///         {
+    ///             Condition = new Aws.CloudWatch.Inputs.EventPermissionConditionArgs
+    ///             {
+    ///                 Key = "aws:PrincipalOrgID",
+    ///                 Type = "StringEquals",
+    ///                 Value = aws_organizations_organization.Example.Id,
+    ///             },
+    ///             Principal = "*",
+    ///             StatementId = "OrganizationAccess",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class EventPermission : Pulumi.CustomResource
     {

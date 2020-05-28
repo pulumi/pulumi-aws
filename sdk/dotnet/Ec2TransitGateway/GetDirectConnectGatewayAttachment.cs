@@ -15,6 +15,30 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// 
+        /// {{% example %}}
+        /// ### By Transit Gateway and Direct Connect Gateway Identifiers
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachmentArgs
+        ///         {
+        ///             DxGatewayId = aws_dx_gateway.Example.Id,
+        ///             TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDirectConnectGatewayAttachmentResult> InvokeAsync(GetDirectConnectGatewayAttachmentArgs? args = null, InvokeOptions? options = null)

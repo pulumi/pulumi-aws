@@ -64,11 +64,11 @@ class Workgroup(pulumi.CustomResource):
             "enforceWorkgroupConfiguration": True,
             "publishCloudwatchMetricsEnabled": True,
             "resultConfiguration": {
-                "encryptionConfiguration": {
+                "encryption_configuration": {
                     "encryptionOption": "SSE_KMS",
-                    "kmsKeyArn": aws_kms_key["example"]["arn"],
+                    "kms_key_arn": aws_kms_key["example"]["arn"],
                 },
-                "outputLocation": "s3://{aws_s3_bucket.example.bucket}/output/",
+                "output_location": "s3://{aws_s3_bucket.example.bucket}/output/",
             },
         })
         ```

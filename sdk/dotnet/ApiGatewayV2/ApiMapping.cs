@@ -12,6 +12,29 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// <summary>
     /// Manages an Amazon API Gateway Version 2 API mapping.
     /// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.ApiGatewayV2.ApiMapping("example", new Aws.ApiGatewayV2.ApiMappingArgs
+    ///         {
+    ///             ApiId = aws_apigatewayv2_api.Example.Id,
+    ///             DomainName = aws_apigatewayv2_domain_name.Example.Id,
+    ///             Stage = aws_apigatewayv2_stage.Example.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ApiMapping : Pulumi.CustomResource
     {

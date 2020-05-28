@@ -120,11 +120,11 @@ class WindowsFileSystem(pulumi.CustomResource):
         example = aws.fsx.WindowsFileSystem("example",
             kms_key_id=aws_kms_key["example"]["arn"],
             self_managed_active_directory={
-                "dnsIps": [
+                "dns_ips": [
                     "10.0.0.111",
                     "10.0.0.222",
                 ],
-                "domainName": "corp.example.com",
+                "domain_name": "corp.example.com",
                 "password": "avoid-plaintext-passwords",
                 "username": "Admin",
             },

@@ -105,8 +105,8 @@ class GraphQLApi(pulumi.CustomResource):
             authentication_type="AMAZON_COGNITO_USER_POOLS",
             user_pool_config={
                 "awsRegion": data[".getRegion"]["current"]["name"],
-                "defaultAction": "DENY",
-                "userPoolId": aws_cognito_user_pool["example"]["id"],
+                "default_action": "DENY",
+                "user_pool_id": aws_cognito_user_pool["example"]["id"],
             })
         ```
 
@@ -158,7 +158,7 @@ class GraphQLApi(pulumi.CustomResource):
 
         example = aws.appsync.GraphQLApi("example",
             additional_authentication_providers=[{
-                "authenticationType": "AWS_IAM",
+                "authentication_type": "AWS_IAM",
             }],
             authentication_type="API_KEY")
         ```

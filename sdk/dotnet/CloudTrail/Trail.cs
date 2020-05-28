@@ -15,6 +15,179 @@ namespace Pulumi.Aws.CloudTrail
     /// &gt; *NOTE:* For a multi-region trail, this resource must be in the home region of the trail.
     /// 
     /// &gt; *NOTE:* For an organization trail, this resource must be in the master account of the organization.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
+    ///         var foo = new Aws.S3.Bucket("foo", new Aws.S3.BucketArgs
+    ///         {
+    ///             ForceDestroy = true,
+    ///             Policy = current.Apply(current =&gt; @$"{{
+    ///     ""Version"": ""2012-10-17"",
+    ///     ""Statement"": [
+    ///         {{
+    ///             ""Sid"": ""AWSCloudTrailAclCheck"",
+    ///             ""Effect"": ""Allow"",
+    ///             ""Principal"": {{
+    ///               ""Service"": ""cloudtrail.amazonaws.com""
+    ///             }},
+    ///             ""Action"": ""s3:GetBucketAcl"",
+    ///             ""Resource"": ""arn:aws:s3:::tf-test-trail""
+    ///         }},
+    ///         {{
+    ///             ""Sid"": ""AWSCloudTrailWrite"",
+    ///             ""Effect"": ""Allow"",
+    ///             ""Principal"": {{
+    ///               ""Service"": ""cloudtrail.amazonaws.com""
+    ///             }},
+    ///             ""Action"": ""s3:PutObject"",
+    ///             ""Resource"": ""arn:aws:s3:::tf-test-trail/prefix/AWSLogs/{current.AccountId}/*"",
+    ///             ""Condition"": {{
+    ///                 ""StringEquals"": {{
+    ///                     ""s3:x-amz-acl"": ""bucket-owner-full-control""
+    ///                 }}
+    ///             }}
+    ///         }}
+    ///     ]
+    /// }}
+    /// 
+    /// "),
+    ///         });
+    ///         var foobar = new Aws.CloudTrail.Trail("foobar", new Aws.CloudTrail.TrailArgs
+    ///         {
+    ///             IncludeGlobalServiceEvents = false,
+    ///             S3BucketName = foo.Id,
+    ///             S3KeyPrefix = "prefix",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Logging All Lambda Function Invocations
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.CloudTrail.Trail("example", new Aws.CloudTrail.TrailArgs
+    ///         {
+    ///             EventSelectors = 
+    ///             {
+    ///                 new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
+    ///                 {
+    ///                     DataResource = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "type", "AWS::Lambda::Function" },
+    ///                             { "values", 
+    ///                             {
+    ///                                 "arn:aws:lambda",
+    ///                             } },
+    ///                         },
+    ///                     },
+    ///                     IncludeManagementEvents = true,
+    ///                     ReadWriteType = "All",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Logging All S3 Bucket Object Events
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.CloudTrail.Trail("example", new Aws.CloudTrail.TrailArgs
+    ///         {
+    ///             EventSelectors = 
+    ///             {
+    ///                 new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
+    ///                 {
+    ///                     DataResource = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "type", "AWS::S3::Object" },
+    ///                             { "values", 
+    ///                             {
+    ///                                 "arn:aws:s3:::",
+    ///                             } },
+    ///                         },
+    ///                     },
+    ///                     IncludeManagementEvents = true,
+    ///                     ReadWriteType = "All",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Logging Individual S3 Bucket Events
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var important_bucket = Output.Create(Aws.S3.GetBucket.InvokeAsync(new Aws.S3.GetBucketArgs
+    ///         {
+    ///             Bucket = "important-bucket",
+    ///         }));
+    ///         var example = new Aws.CloudTrail.Trail("example", new Aws.CloudTrail.TrailArgs
+    ///         {
+    ///             EventSelectors = 
+    ///             {
+    ///                 new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
+    ///                 {
+    ///                     DataResource = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "type", "AWS::S3::Object" },
+    ///                             { "values", 
+    ///                             {
+    ///                                 important_bucket.Apply(important_bucket =&gt; $"{important_bucket.Arn}/"),
+    ///                             } },
+    ///                         },
+    ///                     },
+    ///                     IncludeManagementEvents = true,
+    ///                     ReadWriteType = "All",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Trail : Pulumi.CustomResource
     {

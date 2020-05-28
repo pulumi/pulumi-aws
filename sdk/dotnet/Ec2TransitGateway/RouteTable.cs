@@ -11,6 +11,27 @@ namespace Pulumi.Aws.Ec2TransitGateway
 {
     /// <summary>
     /// Manages an EC2 Transit Gateway Route Table.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ec2TransitGateway.RouteTable("example", new Aws.Ec2TransitGateway.RouteTableArgs
+    ///         {
+    ///             TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class RouteTable : Pulumi.CustomResource
     {

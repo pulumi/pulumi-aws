@@ -13,6 +13,28 @@ namespace Pulumi.Aws.SecretsManager
     /// Provides a resource to manage AWS Secrets Manager secret version including its secret value. To manage secret metadata, see the [`aws.secretsmanager.Secret` resource](https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret.html).
     /// 
     /// &gt; **NOTE:** If the `AWSCURRENT` staging label is present on this version during resource deletion, that label cannot be removed and will be skipped to prevent errors when fully deleting the secret. That label will leave this secret version active even after the resource is deleted from this provider unless the secret itself is deleted. Move the `AWSCURRENT` staging label before or after deleting this resource from this provider to fully trigger version deprecation if necessary.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Simple String Value
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.SecretsManager.SecretVersion("example", new Aws.SecretsManager.SecretVersionArgs
+    ///         {
+    ///             SecretId = aws_secretsmanager_secret.Example.Id,
+    ///             SecretString = "example-string-to-protect",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SecretVersion : Pulumi.CustomResource
     {

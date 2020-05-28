@@ -11,6 +11,141 @@ namespace Pulumi.Aws.WafRegional
 {
     /// <summary>
     /// Provides a WAF Regional Web ACL Resource for use with Application Load Balancer.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Regular Rule
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ipset = new Aws.WafRegional.IpSet("ipset", new Aws.WafRegional.IpSetArgs
+    ///         {
+    ///             IpSetDescriptors = 
+    ///             {
+    ///                 new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
+    ///                 {
+    ///                     Type = "IPV4",
+    ///                     Value = "192.0.7.0/24",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var wafrule = new Aws.WafRegional.Rule("wafrule", new Aws.WafRegional.RuleArgs
+    ///         {
+    ///             MetricName = "tfWAFRule",
+    ///             Predicates = 
+    ///             {
+    ///                 new Aws.WafRegional.Inputs.RulePredicateArgs
+    ///                 {
+    ///                     DataId = ipset.Id,
+    ///                     Negated = false,
+    ///                     Type = "IPMatch",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var wafacl = new Aws.WafRegional.WebAcl("wafacl", new Aws.WafRegional.WebAclArgs
+    ///         {
+    ///             DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
+    ///             {
+    ///                 Type = "ALLOW",
+    ///             },
+    ///             MetricName = "tfWebACL",
+    ///             Rules = 
+    ///             {
+    ///                 new Aws.WafRegional.Inputs.WebAclRuleArgs
+    ///                 {
+    ///                     Action = new Aws.WafRegional.Inputs.WebAclRuleActionArgs
+    ///                     {
+    ///                         Type = "BLOCK",
+    ///                     },
+    ///                     Priority = 1,
+    ///                     RuleId = wafrule.Id,
+    ///                     Type = "REGULAR",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Group Rule
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.WafRegional.WebAcl("example", new Aws.WafRegional.WebAclArgs
+    ///         {
+    ///             DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
+    ///             {
+    ///                 Type = "ALLOW",
+    ///             },
+    ///             MetricName = "example",
+    ///             Rules = 
+    ///             {
+    ///                 new Aws.WafRegional.Inputs.WebAclRuleArgs
+    ///                 {
+    ///                     OverrideAction = new Aws.WafRegional.Inputs.WebAclRuleOverrideActionArgs
+    ///                     {
+    ///                         Type = "NONE",
+    ///                     },
+    ///                     Priority = 1,
+    ///                     RuleId = aws_wafregional_rule_group.Example.Id,
+    ///                     Type = "GROUP",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Logging
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.WafRegional.WebAcl("example", new Aws.WafRegional.WebAclArgs
+    ///         {
+    ///             LoggingConfiguration = new Aws.WafRegional.Inputs.WebAclLoggingConfigurationArgs
+    ///             {
+    ///                 LogDestination = aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///                 RedactedFields = new Aws.WafRegional.Inputs.WebAclLoggingConfigurationRedactedFieldsArgs
+    ///                 {
+    ///                     FieldToMatch = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "type", "URI" },
+    ///                         },
+    ///                         
+    ///                         {
+    ///                             { "data", "referer" },
+    ///                             { "type", "HEADER" },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class WebAcl : Pulumi.CustomResource
     {

@@ -109,11 +109,11 @@ class Directory(pulumi.CustomResource):
                 "Project": "foo",
             },
             vpc_settings={
-                "subnetIds": [
+                "subnet_ids": [
                     foo.id,
                     bar_subnet.id,
                 ],
-                "vpcId": main.id,
+                "vpc_id": main.id,
             })
         ```
 
@@ -140,11 +140,11 @@ class Directory(pulumi.CustomResource):
             },
             type="MicrosoftAD",
             vpc_settings={
-                "subnetIds": [
+                "subnet_ids": [
                     foo.id,
                     bar_subnet.id,
                 ],
-                "vpcId": main.id,
+                "vpc_id": main.id,
             })
         ```
 
@@ -167,11 +167,11 @@ class Directory(pulumi.CustomResource):
             connect_settings={
                 "customerDnsIps": ["A.B.C.D"],
                 "customerUsername": "Admin",
-                "subnetIds": [
+                "subnet_ids": [
                     foo.id,
                     bar.id,
                 ],
-                "vpcId": main.id,
+                "vpc_id": main.id,
             },
             password="SuperSecretPassw0rd",
             size="Small",

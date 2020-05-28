@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *         resources: [notif.arn],
  *     }],
  * });
- * const default = new aws.sns.TopicPolicy("default", {
+ * const _default = new aws.sns.TopicPolicy("default", {
  *     arn: notif.arn,
  *     policy: notifAccess.json,
  * });

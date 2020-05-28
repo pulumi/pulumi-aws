@@ -12,6 +12,81 @@ namespace Pulumi.Aws.Sns
     /// <summary>
     /// Provides an SNS topic resource
     /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var userUpdates = new Aws.Sns.Topic("userUpdates", new Aws.Sns.TopicArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Example with Delivery Policy
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var userUpdates = new Aws.Sns.Topic("userUpdates", new Aws.Sns.TopicArgs
+    ///         {
+    ///             DeliveryPolicy = @"{
+    ///   ""http"": {
+    ///     ""defaultHealthyRetryPolicy"": {
+    ///       ""minDelayTarget"": 20,
+    ///       ""maxDelayTarget"": 20,
+    ///       ""numRetries"": 3,
+    ///       ""numMaxDelayRetries"": 0,
+    ///       ""numNoDelayRetries"": 0,
+    ///       ""numMinDelayRetries"": 0,
+    ///       ""backoffFunction"": ""linear""
+    ///     },
+    ///     ""disableSubscriptionOverrides"": false,
+    ///     ""defaultThrottlePolicy"": {
+    ///       ""maxReceivesPerSecond"": 1
+    ///     }
+    ///   }
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Example with Server-side encryption (SSE)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var userUpdates = new Aws.Sns.Topic("userUpdates", new Aws.Sns.TopicArgs
+    ///         {
+    ///             KmsMasterKeyId = "alias/aws/sns",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Message Delivery Status Arguments
     /// 

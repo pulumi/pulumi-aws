@@ -15,6 +15,54 @@ namespace Pulumi.Aws
         /// Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var europeanEc2 = Output.Create(Aws.GetIpRanges.InvokeAsync(new Aws.GetIpRangesArgs
+        ///         {
+        ///             Regions = 
+        ///             {
+        ///                 "eu-west-1",
+        ///                 "eu-central-1",
+        ///             },
+        ///             Services = 
+        ///             {
+        ///                 "ec2",
+        ///             },
+        ///         }));
+        ///         var fromEurope = new Aws.Ec2.SecurityGroup("fromEurope", new Aws.Ec2.SecurityGroupArgs
+        ///         {
+        ///             Ingress = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.SecurityGroupIngressArgs
+        ///                 {
+        ///                     FromPort = "443",
+        ///                     ToPort = "443",
+        ///                     Protocol = "tcp",
+        ///                     CidrBlocks = europeanEc2.Apply(europeanEc2 =&gt; europeanEc2.CidrBlocks),
+        ///                     Ipv6CidrBlocks = europeanEc2.Apply(europeanEc2 =&gt; europeanEc2.Ipv6CidrBlocks),
+        ///                 },
+        ///             },
+        ///             Tags = 
+        ///             {
+        ///                 { "CreateDate", europeanEc2.Apply(europeanEc2 =&gt; europeanEc2.CreateDate) },
+        ///                 { "SyncToken", europeanEc2.Apply(europeanEc2 =&gt; europeanEc2.SyncToken) },
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetIpRangesResult> InvokeAsync(GetIpRangesArgs args, InvokeOptions? options = null)

@@ -11,6 +11,28 @@ namespace Pulumi.Aws.DocDB
 {
     /// <summary>
     /// Manages a DocDB database cluster snapshot for DocDB clusters.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.DocDB.ClusterSnapshot("example", new Aws.DocDB.ClusterSnapshotArgs
+    ///         {
+    ///             DbClusterIdentifier = aws_docdb_cluster.Example.Id,
+    ///             DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ClusterSnapshot : Pulumi.CustomResource
     {

@@ -14,6 +14,36 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
     /// For information about function aliases, see [CreateAlias](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateAlias.html) and [AliasRoutingConfiguration](https://docs.aws.amazon.com/lambda/latest/dg/API_AliasRoutingConfiguration.html) in the API docs.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testAlias = new Aws.Lambda.Alias("testAlias", new Aws.Lambda.AliasArgs
+    ///         {
+    ///             Description = "a sample description",
+    ///             FunctionName = aws_lambda_function.Lambda_function_test.Arn,
+    ///             FunctionVersion = "1",
+    ///             RoutingConfig = new Aws.Lambda.Inputs.AliasRoutingConfigArgs
+    ///             {
+    ///                 AdditionalVersionWeights = 
+    ///                 {
+    ///                     { "2", 0.5 },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Alias : Pulumi.CustomResource
     {

@@ -13,6 +13,26 @@ namespace Pulumi.Aws.ApiGateway
     /// Provides an API Gateway API Key.
     /// 
     /// &gt; **NOTE:** Since the API Gateway usage plans feature was launched on August 11, 2016, usage plans are now **required** to associate an API key with an API stage.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var myDemoApiKey = new Aws.ApiGateway.ApiKey("myDemoApiKey", new Aws.ApiGateway.ApiKeyArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ApiKey : Pulumi.CustomResource
     {

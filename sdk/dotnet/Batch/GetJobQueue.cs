@@ -16,6 +16,27 @@ namespace Pulumi.Aws.Batch
         /// job queue within AWS Batch.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test_queue = Output.Create(Aws.Batch.GetJobQueue.InvokeAsync(new Aws.Batch.GetJobQueueArgs
+        ///         {
+        ///             Name = "tf-test-batch-job-queue",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetJobQueueResult> InvokeAsync(GetJobQueueArgs args, InvokeOptions? options = null)

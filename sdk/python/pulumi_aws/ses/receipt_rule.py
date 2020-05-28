@@ -122,7 +122,7 @@ class ReceiptRule(pulumi.CustomResource):
             recipients=["karen@example.com"],
             rule_set_name="default-rule-set",
             s3_actions=[{
-                "bucketName": "emails",
+                "bucket_name": "emails",
                 "position": 2,
             }],
             scan_enabled=True)
