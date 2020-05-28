@@ -11,6 +11,128 @@ namespace Pulumi.Aws.S3
 {
     /// <summary>
     /// Provides a S3 bucket object resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Encrypting with KMS Key
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var examplekms = new Aws.Kms.Key("examplekms", new Aws.Kms.KeyArgs
+    ///         {
+    ///             DeletionWindowInDays = 7,
+    ///             Description = "KMS key 1",
+    ///         });
+    ///         var examplebucket = new Aws.S3.Bucket("examplebucket", new Aws.S3.BucketArgs
+    ///         {
+    ///             Acl = "private",
+    ///         });
+    ///         var examplebucketObject = new Aws.S3.BucketObject("examplebucketObject", new Aws.S3.BucketObjectArgs
+    ///         {
+    ///             Bucket = examplebucket.Id,
+    ///             Key = "someobject",
+    ///             KmsKeyId = examplekms.Arn,
+    ///             Source = new FileAsset("index.html"),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Server Side Encryption with S3 Default Master Key
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var examplebucket = new Aws.S3.Bucket("examplebucket", new Aws.S3.BucketArgs
+    ///         {
+    ///             Acl = "private",
+    ///         });
+    ///         var examplebucketObject = new Aws.S3.BucketObject("examplebucketObject", new Aws.S3.BucketObjectArgs
+    ///         {
+    ///             Bucket = examplebucket.Id,
+    ///             Key = "someobject",
+    ///             ServerSideEncryption = "aws:kms",
+    ///             Source = new FileAsset("index.html"),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Server Side Encryption with AWS-Managed Key
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var examplebucket = new Aws.S3.Bucket("examplebucket", new Aws.S3.BucketArgs
+    ///         {
+    ///             Acl = "private",
+    ///         });
+    ///         var examplebucketObject = new Aws.S3.BucketObject("examplebucketObject", new Aws.S3.BucketObjectArgs
+    ///         {
+    ///             Bucket = examplebucket.Id,
+    ///             Key = "someobject",
+    ///             ServerSideEncryption = "AES256",
+    ///             Source = new FileAsset("index.html"),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### S3 Object Lock
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var examplebucket = new Aws.S3.Bucket("examplebucket", new Aws.S3.BucketArgs
+    ///         {
+    ///             Acl = "private",
+    ///             ObjectLockConfiguration = new Aws.S3.Inputs.BucketObjectLockConfigurationArgs
+    ///             {
+    ///                 ObjectLockEnabled = "Enabled",
+    ///             },
+    ///             Versioning = new Aws.S3.Inputs.BucketVersioningArgs
+    ///             {
+    ///                 Enabled = true,
+    ///             },
+    ///         });
+    ///         var examplebucketObject = new Aws.S3.BucketObject("examplebucketObject", new Aws.S3.BucketObjectArgs
+    ///         {
+    ///             Bucket = examplebucket.Id,
+    ///             ForceDestroy = true,
+    ///             Key = "someobject",
+    ///             ObjectLockLegalHoldStatus = "ON",
+    ///             ObjectLockMode = "GOVERNANCE",
+    ///             ObjectLockRetainUntilDate = "2021-12-31T23:59:60Z",
+    ///             Source = new FileAsset("important.txt"),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class BucketObject : Pulumi.CustomResource
     {

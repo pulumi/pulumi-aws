@@ -18,6 +18,79 @@ namespace Pulumi.Aws.S3
         /// Distribution.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// 
+        /// {{% example %}}
+        /// ### Route53 Record
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var selected = Output.Create(Aws.S3.GetBucket.InvokeAsync(new Aws.S3.GetBucketArgs
+        ///         {
+        ///             Bucket = "bucket.test.com",
+        ///         }));
+        ///         var testZone = Output.Create(Aws.Route53.GetZone.InvokeAsync(new Aws.Route53.GetZoneArgs
+        ///         {
+        ///             Name = "test.com.",
+        ///         }));
+        ///         var example = new Aws.Route53.Record("example", new Aws.Route53.RecordArgs
+        ///         {
+        ///             Aliases = 
+        ///             {
+        ///                 new Aws.Route53.Inputs.RecordAliasArgs
+        ///                 {
+        ///                     Name = selected.Apply(selected =&gt; selected.WebsiteDomain),
+        ///                     ZoneId = selected.Apply(selected =&gt; selected.HostedZoneId),
+        ///                 },
+        ///             },
+        ///             Name = "bucket",
+        ///             Type = "A",
+        ///             ZoneId = testZone.Apply(testZone =&gt; testZone.Id),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### CloudFront Origin
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var selected = Output.Create(Aws.S3.GetBucket.InvokeAsync(new Aws.S3.GetBucketArgs
+        ///         {
+        ///             Bucket = "a-test-bucket",
+        ///         }));
+        ///         var test = new Aws.CloudFront.Distribution("test", new Aws.CloudFront.DistributionArgs
+        ///         {
+        ///             Origins = 
+        ///             {
+        ///                 new Aws.CloudFront.Inputs.DistributionOriginArgs
+        ///                 {
+        ///                     DomainName = selected.Apply(selected =&gt; selected.BucketDomainName),
+        ///                     OriginId = "s3-selected-bucket",
+        ///                 },
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBucketResult> InvokeAsync(GetBucketArgs args, InvokeOptions? options = null)

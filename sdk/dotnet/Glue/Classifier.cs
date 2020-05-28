@@ -13,6 +13,107 @@ namespace Pulumi.Aws.Glue
     /// Provides a Glue Classifier resource.
     /// 
     /// &gt; **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Csv Classifier
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Classifier("example", new Aws.Glue.ClassifierArgs
+    ///         {
+    ///             CsvClassifier = new Aws.Glue.Inputs.ClassifierCsvClassifierArgs
+    ///             {
+    ///                 AllowSingleColumn = false,
+    ///                 ContainsHeader = "PRESENT",
+    ///                 Delimiter = ",",
+    ///                 DisableValueTrimming = false,
+    ///                 Header = 
+    ///                 {
+    ///                     "example1",
+    ///                     "example2",
+    ///                 },
+    ///                 QuoteSymbol = "'",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Grok Classifier
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Classifier("example", new Aws.Glue.ClassifierArgs
+    ///         {
+    ///             GrokClassifier = new Aws.Glue.Inputs.ClassifierGrokClassifierArgs
+    ///             {
+    ///                 Classification = "example",
+    ///                 GrokPattern = "example",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### JSON Classifier
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Classifier("example", new Aws.Glue.ClassifierArgs
+    ///         {
+    ///             JsonClassifier = new Aws.Glue.Inputs.ClassifierJsonClassifierArgs
+    ///             {
+    ///                 JsonPath = "example",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### XML Classifier
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Classifier("example", new Aws.Glue.ClassifierArgs
+    ///         {
+    ///             XmlClassifier = new Aws.Glue.Inputs.ClassifierXmlClassifierArgs
+    ///             {
+    ///                 Classification = "example",
+    ///                 RowTag = "example",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Classifier : Pulumi.CustomResource
     {

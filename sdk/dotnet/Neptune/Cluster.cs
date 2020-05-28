@@ -19,6 +19,33 @@ namespace Pulumi.Aws.Neptune
     /// phase because a modification has not yet taken place. You can use the
     /// `apply_immediately` flag to instruct the service to apply the change immediately
     /// (see documentation below).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Neptune.Cluster("default", new Aws.Neptune.ClusterArgs
+    ///         {
+    ///             ApplyImmediately = true,
+    ///             BackupRetentionPeriod = 5,
+    ///             ClusterIdentifier = "neptune-cluster-demo",
+    ///             Engine = "neptune",
+    ///             IamDatabaseAuthenticationEnabled = true,
+    ///             PreferredBackupWindow = "07:00-09:00",
+    ///             SkipFinalSnapshot = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

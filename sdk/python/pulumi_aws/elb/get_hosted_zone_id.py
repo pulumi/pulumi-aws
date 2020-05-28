@@ -50,7 +50,7 @@ def get_hosted_zone_id(region=None,opts=None):
         aliases=[{
             "evaluateTargetHealth": True,
             "name": aws_elb["main"]["dns_name"],
-            "zoneId": main.id,
+            "zone_id": main.id,
         }],
         name="example.com",
         type="A",

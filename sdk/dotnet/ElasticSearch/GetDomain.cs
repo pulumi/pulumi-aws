@@ -15,6 +15,27 @@ namespace Pulumi.Aws.ElasticSearch
         /// Use this data source to get information about an Elasticsearch Domain
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var myDomain = Output.Create(Aws.ElasticSearch.GetDomain.InvokeAsync(new Aws.ElasticSearch.GetDomainArgs
+        ///         {
+        ///             DomainName = "my-domain-name",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)

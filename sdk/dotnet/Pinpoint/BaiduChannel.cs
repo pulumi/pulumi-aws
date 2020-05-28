@@ -14,6 +14,33 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// &gt; **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
     /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+    /// 
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var app = new Aws.Pinpoint.App("app", new Aws.Pinpoint.AppArgs
+    ///         {
+    ///         });
+    ///         var channel = new Aws.Pinpoint.BaiduChannel("channel", new Aws.Pinpoint.BaiduChannelArgs
+    ///         {
+    ///             ApiKey = "",
+    ///             ApplicationId = app.ApplicationId,
+    ///             SecretKey = "",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class BaiduChannel : Pulumi.CustomResource
     {

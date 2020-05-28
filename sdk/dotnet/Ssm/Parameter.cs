@@ -11,6 +11,28 @@ namespace Pulumi.Aws.Ssm
 {
     /// <summary>
     /// Provides an SSM Parameter resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Ssm.Parameter("foo", new Aws.Ssm.ParameterArgs
+    ///         {
+    ///             Type = "String",
+    ///             Value = "bar",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Parameter : Pulumi.CustomResource
     {

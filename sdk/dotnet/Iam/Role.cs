@@ -13,6 +13,89 @@ namespace Pulumi.Aws.Iam
     /// Provides an IAM role.
     /// 
     /// &gt; *NOTE:* If policies are attached to the role via the [`aws.iam.PolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html) and you are modifying the role `name` or `path`, the `force_detach_policies` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The [`aws.iam.RolePolicyAttachment` resource (recommended)](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html) does not have this requirement.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testRole = new Aws.Iam.Role("testRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""ec2.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///             Tags = 
+    ///             {
+    ///                 { "tag-key", "tag-value" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Example of Using Data Source for Assume Role Policy
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var instance_assume_role_policy = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         {
+    ///             Statements = 
+    ///             {
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 {
+    ///                     Actions = 
+    ///                     {
+    ///                         "sts:AssumeRole",
+    ///                     },
+    ///                     Principals = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         {
+    ///                             Identifiers = 
+    ///                             {
+    ///                                 "ec2.amazonaws.com",
+    ///                             },
+    ///                             Type = "Service",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }));
+    ///         var instance = new Aws.Iam.Role("instance", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = instance_assume_role_policy.Apply(instance_assume_role_policy =&gt; instance_assume_role_policy.Json),
+    ///             Path = "/system/",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Role : Pulumi.CustomResource
     {

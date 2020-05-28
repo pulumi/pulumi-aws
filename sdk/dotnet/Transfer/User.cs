@@ -11,6 +11,70 @@ namespace Pulumi.Aws.Transfer
 {
     /// <summary>
     /// Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the [`aws.transfer.SshKey` resource](https://www.terraform.io/docs/providers/aws/r/transfer_ssh_key.html).
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fooServer = new Aws.Transfer.Server("fooServer", new Aws.Transfer.ServerArgs
+    ///         {
+    ///             IdentityProviderType = "SERVICE_MANAGED",
+    ///             Tags = 
+    ///             {
+    ///                 { "NAME", "tf-acc-test-transfer-server" },
+    ///             },
+    ///         });
+    ///         var fooRole = new Aws.Iam.Role("fooRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    /// 	""Version"": ""2012-10-17"",
+    /// 	""Statement"": [
+    /// 		{
+    /// 		""Effect"": ""Allow"",
+    /// 		""Principal"": {
+    /// 			""Service"": ""transfer.amazonaws.com""
+    /// 		},
+    /// 		""Action"": ""sts:AssumeRole""
+    /// 		}
+    /// 	]
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///         var fooRolePolicy = new Aws.Iam.RolePolicy("fooRolePolicy", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Policy = @"{
+    /// 	""Version"": ""2012-10-17"",
+    /// 	""Statement"": [
+    /// 		{
+    /// 			""Sid"": ""AllowFullAccesstoS3"",
+    /// 			""Effect"": ""Allow"",
+    /// 			""Action"": [
+    /// 				""s3:*""
+    /// 			],
+    /// 			""Resource"": ""*""
+    /// 		}
+    /// 	]
+    /// }
+    /// 
+    /// ",
+    ///             Role = fooRole.Id,
+    ///         });
+    ///         var fooUser = new Aws.Transfer.User("fooUser", new Aws.Transfer.UserArgs
+    ///         {
+    ///             Role = fooRole.Arn,
+    ///             ServerId = fooServer.Id,
+    ///             UserName = "tftestuser",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class User : Pulumi.CustomResource
     {

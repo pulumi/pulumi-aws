@@ -11,6 +11,30 @@ namespace Pulumi.Aws.Dax
 {
     /// <summary>
     /// Provides a DAX Cluster resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var bar = new Aws.Dax.Cluster("bar", new Aws.Dax.ClusterArgs
+    ///         {
+    ///             ClusterName = "cluster-example",
+    ///             IamRoleArn = data.Aws_iam_role.Example.Arn,
+    ///             NodeType = "dax.r4.large",
+    ///             ReplicationFactor = 1,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

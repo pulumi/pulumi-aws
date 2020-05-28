@@ -128,7 +128,7 @@ class Application(pulumi.CustomResource):
             short_name="foobar",
             ssl_configurations=[{
                 "certificate": (lambda path: open(path).read())("./foobar.crt"),
-                "privateKey": (lambda path: open(path).read())("./foobar.key"),
+                "private_key": (lambda path: open(path).read())("./foobar.key"),
             }],
             stack_id=aws_opsworks_stack["main"]["id"],
             type="rails")

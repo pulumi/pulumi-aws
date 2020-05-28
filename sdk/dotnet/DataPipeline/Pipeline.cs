@@ -11,6 +11,26 @@ namespace Pulumi.Aws.DataPipeline
 {
     /// <summary>
     /// Provides a Data Pipeline resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.DataPipeline.Pipeline("default", new Aws.DataPipeline.PipelineArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Pipeline : Pulumi.CustomResource
     {

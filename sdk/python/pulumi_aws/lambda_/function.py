@@ -147,9 +147,7 @@ class Function(pulumi.CustomResource):
         example_function = aws.lambda_.Function("exampleFunction", layers=[example_layer_version.arn])
         ```
 
-        ## CloudWatch Logging and Permissions
-
-        For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
+        ### CloudWatch Logging and Permissions
 
         ```python
         import pulumi

@@ -11,6 +11,26 @@ namespace Pulumi.Aws.Ses
 {
     /// <summary>
     /// Provides an SES configuration set resource
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new Aws.Ses.ConfigurationSet("test", new Aws.Ses.ConfigurationSetArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ConfigurationSet : Pulumi.CustomResource
     {

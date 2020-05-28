@@ -70,7 +70,7 @@ class ResourceDataSync(pulumi.CustomResource):
 
         \"\"\")
         foo = aws.ssm.ResourceDataSync("foo", s3_destination={
-            "bucketName": hoge_bucket.bucket,
+            "bucket_name": hoge_bucket.bucket,
             "region": hoge_bucket.region,
         })
         ```

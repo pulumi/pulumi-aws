@@ -12,6 +12,105 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
     /// instances to be requested on the Spot market.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Using launch specifications
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Request a Spot fleet
+    ///         var cheapCompute = new Aws.Ec2.SpotFleetRequest("cheapCompute", new Aws.Ec2.SpotFleetRequestArgs
+    ///         {
+    ///             AllocationStrategy = "diversified",
+    ///             IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
+    ///             LaunchSpecifications = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
+    ///                 {
+    ///                     Ami = "ami-1234",
+    ///                     IamInstanceProfileArn = aws_iam_instance_profile.Example.Arn,
+    ///                     InstanceType = "m4.10xlarge",
+    ///                     PlacementTenancy = "dedicated",
+    ///                     SpotPrice = "2.793",
+    ///                 },
+    ///                 new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
+    ///                 {
+    ///                     Ami = "ami-5678",
+    ///                     AvailabilityZone = "us-west-1a",
+    ///                     IamInstanceProfileArn = aws_iam_instance_profile.Example.Arn,
+    ///                     InstanceType = "m4.4xlarge",
+    ///                     KeyName = "my-key",
+    ///                     RootBlockDevice = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "volumeSize", "300" },
+    ///                             { "volumeType", "gp2" },
+    ///                         },
+    ///                     },
+    ///                     SpotPrice = "1.117",
+    ///                     SubnetId = "subnet-1234",
+    ///                     Tags = 
+    ///                     {
+    ///                         { "Name", "spot-fleet-example" },
+    ///                     },
+    ///                     WeightedCapacity = 35,
+    ///                 },
+    ///             },
+    ///             SpotPrice = "0.03",
+    ///             TargetCapacity = 6,
+    ///             ValidUntil = "2019-11-04T20:44:20Z",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Using multiple launch specifications
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Ec2.SpotFleetRequest("foo", new Aws.Ec2.SpotFleetRequestArgs
+    ///         {
+    ///             IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
+    ///             LaunchSpecifications = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
+    ///                 {
+    ///                     Ami = "ami-d06a90b0",
+    ///                     AvailabilityZone = "us-west-2a",
+    ///                     InstanceType = "m1.small",
+    ///                     KeyName = "my-key",
+    ///                 },
+    ///                 new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
+    ///                 {
+    ///                     Ami = "ami-d06a90b0",
+    ///                     AvailabilityZone = "us-west-2a",
+    ///                     InstanceType = "m5.large",
+    ///                     KeyName = "my-key",
+    ///                 },
+    ///             },
+    ///             SpotPrice = "0.005",
+    ///             TargetCapacity = 2,
+    ///             ValidUntil = "2019-11-04T20:44:20Z",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SpotFleetRequest : Pulumi.CustomResource
     {

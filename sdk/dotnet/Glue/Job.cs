@@ -13,6 +13,87 @@ namespace Pulumi.Aws.Glue
     /// Provides a Glue Job resource.
     /// 
     /// &gt; Glue functionality, such as monitoring and logging of jobs, is typically managed with the `default_arguments` argument. See the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the Glue developer guide for additional information.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Python Job
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Job("example", new Aws.Glue.JobArgs
+    ///         {
+    ///             Command = new Aws.Glue.Inputs.JobCommandArgs
+    ///             {
+    ///                 ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.py",
+    ///             },
+    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Scala Job
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Glue.Job("example", new Aws.Glue.JobArgs
+    ///         {
+    ///             Command = new Aws.Glue.Inputs.JobCommandArgs
+    ///             {
+    ///                 ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.scala",
+    ///             },
+    ///             DefaultArguments = 
+    ///             {
+    ///                 { "--job-language", "scala" },
+    ///             },
+    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Enabling CloudWatch Logs and Metrics
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
+    ///         {
+    ///             RetentionInDays = 14,
+    ///         });
+    ///         var exampleJob = new Aws.Glue.Job("exampleJob", new Aws.Glue.JobArgs
+    ///         {
+    ///             DefaultArguments = 
+    ///             {
+    ///                 { "--continuous-log-logGroup", exampleLogGroup.Name },
+    ///                 { "--enable-continuous-cloudwatch-log", "true" },
+    ///                 { "--enable-continuous-log-filter", "true" },
+    ///                 { "--enable-metrics", "" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Job : Pulumi.CustomResource
     {

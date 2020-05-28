@@ -155,9 +155,9 @@ class UserPoolClient(pulumi.CustomResource):
             role=test_role.id)
         test_user_pool_client = aws.cognito.UserPoolClient("testUserPoolClient",
             analytics_configuration={
-                "applicationId": test_app.application_id,
+                "application_id": test_app.application_id,
                 "externalId": "some_id",
-                "roleArn": test_role.arn,
+                "role_arn": test_role.arn,
                 "userDataShared": True,
             },
             user_pool_id=test_user_pool.id)

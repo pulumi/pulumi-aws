@@ -15,6 +15,28 @@ namespace Pulumi.Aws.WafV2
         /// Retrieves the summary of a WAFv2 Regex Pattern Set.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.WafV2.GetRegexPatternSet.InvokeAsync(new Aws.WafV2.GetRegexPatternSetArgs
+        ///         {
+        ///             Name = "some-regex-pattern-set",
+        ///             Scope = "REGIONAL",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRegexPatternSetResult> InvokeAsync(GetRegexPatternSetArgs args, InvokeOptions? options = null)

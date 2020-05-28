@@ -120,7 +120,7 @@ class Pipeline(pulumi.CustomResource):
         s3kmskey = aws.kms.get_alias(name="alias/myKmsKey")
         codepipeline = aws.codepipeline.Pipeline("codepipeline",
             artifact_store={
-                "encryptionKey": {
+                "encryption_key": {
                     "id": s3kmskey.arn,
                     "type": "KMS",
                 },

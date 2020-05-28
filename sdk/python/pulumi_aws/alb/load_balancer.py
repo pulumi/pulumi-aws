@@ -156,12 +156,12 @@ class LoadBalancer(pulumi.CustomResource):
             load_balancer_type="network",
             subnet_mappings=[
                 {
-                    "allocationId": aws_eip["example1"]["id"],
-                    "subnetId": aws_subnet["example1"]["id"],
+                    "allocation_id": aws_eip["example1"]["id"],
+                    "subnet_id": aws_subnet["example1"]["id"],
                 },
                 {
-                    "allocationId": aws_eip["example2"]["id"],
-                    "subnetId": aws_subnet["example2"]["id"],
+                    "allocation_id": aws_eip["example2"]["id"],
+                    "subnet_id": aws_subnet["example2"]["id"],
                 },
             ])
         ```

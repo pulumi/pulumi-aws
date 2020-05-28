@@ -11,6 +11,39 @@ namespace Pulumi.Aws.S3
 {
     /// <summary>
     /// Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Add analytics configuration with S3 bucket object filter
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.S3.Bucket("example", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var example_filtered = new Aws.S3.AnalyticsConfiguration("example-filtered", new Aws.S3.AnalyticsConfigurationArgs
+    ///         {
+    ///             Bucket = example.BucketName,
+    ///             Filter = new Aws.S3.Inputs.AnalyticsConfigurationFilterArgs
+    ///             {
+    ///                 Prefix = "documents/",
+    ///                 Tags = 
+    ///                 {
+    ///                     { "priority", "high" },
+    ///                     { "class", "blue" },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AnalyticsConfiguration : Pulumi.CustomResource
     {

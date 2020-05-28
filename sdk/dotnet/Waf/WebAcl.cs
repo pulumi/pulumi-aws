@@ -11,6 +11,105 @@ namespace Pulumi.Aws.Waf
 {
     /// <summary>
     /// Provides a WAF Web ACL Resource
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ipset = new Aws.Waf.IpSet("ipset", new Aws.Waf.IpSetArgs
+    ///         {
+    ///             IpSetDescriptors = 
+    ///             {
+    ///                 new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
+    ///                 {
+    ///                     Type = "IPV4",
+    ///                     Value = "192.0.7.0/24",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var wafrule = new Aws.Waf.Rule("wafrule", new Aws.Waf.RuleArgs
+    ///         {
+    ///             MetricName = "tfWAFRule",
+    ///             Predicates = 
+    ///             {
+    ///                 new Aws.Waf.Inputs.RulePredicateArgs
+    ///                 {
+    ///                     DataId = ipset.Id,
+    ///                     Negated = false,
+    ///                     Type = "IPMatch",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var wafAcl = new Aws.Waf.WebAcl("wafAcl", new Aws.Waf.WebAclArgs
+    ///         {
+    ///             DefaultAction = new Aws.Waf.Inputs.WebAclDefaultActionArgs
+    ///             {
+    ///                 Type = "ALLOW",
+    ///             },
+    ///             MetricName = "tfWebACL",
+    ///             Rules = 
+    ///             {
+    ///                 new Aws.Waf.Inputs.WebAclRuleArgs
+    ///                 {
+    ///                     Action = new Aws.Waf.Inputs.WebAclRuleActionArgs
+    ///                     {
+    ///                         Type = "BLOCK",
+    ///                     },
+    ///                     Priority = 1,
+    ///                     RuleId = wafrule.Id,
+    ///                     Type = "REGULAR",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Logging
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Waf.WebAcl("example", new Aws.Waf.WebAclArgs
+    ///         {
+    ///             LoggingConfiguration = new Aws.Waf.Inputs.WebAclLoggingConfigurationArgs
+    ///             {
+    ///                 LogDestination = aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///                 RedactedFields = new Aws.Waf.Inputs.WebAclLoggingConfigurationRedactedFieldsArgs
+    ///                 {
+    ///                     FieldToMatch = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "type", "URI" },
+    ///                         },
+    ///                         
+    ///                         {
+    ///                             { "data", "referer" },
+    ///                             { "type", "HEADER" },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class WebAcl : Pulumi.CustomResource
     {

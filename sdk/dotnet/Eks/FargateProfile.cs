@@ -11,6 +11,50 @@ namespace Pulumi.Aws.Eks
 {
     /// <summary>
     /// Manages an EKS Fargate Profile.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Example IAM Role for EKS Fargate Profile
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Iam.Role("example", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "Statement", new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             { "Action", "sts:AssumeRole" },
+    ///                             { "Effect", "Allow" },
+    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 { "Service", "eks-fargate-pods.amazonaws.com" },
+    ///                             } },
+    ///                         },
+    ///                     }
+    ///                  },
+    ///                 { "Version", "2012-10-17" },
+    ///             }),
+    ///         });
+    ///         var example_AmazonEKSFargatePodExecutionRolePolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
+    ///             Role = example.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class FargateProfile : Pulumi.CustomResource
     {

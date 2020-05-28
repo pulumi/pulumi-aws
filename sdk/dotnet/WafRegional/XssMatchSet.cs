@@ -11,6 +11,45 @@ namespace Pulumi.Aws.WafRegional
 {
     /// <summary>
     /// Provides a WAF Regional XSS Match Set Resource for use with Application Load Balancer.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var xssMatchSet = new Aws.WafRegional.XssMatchSet("xssMatchSet", new Aws.WafRegional.XssMatchSetArgs
+    ///         {
+    ///             XssMatchTuples = 
+    ///             {
+    ///                 new Aws.WafRegional.Inputs.XssMatchSetXssMatchTupleArgs
+    ///                 {
+    ///                     FieldToMatch = new Aws.WafRegional.Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs
+    ///                     {
+    ///                         Type = "URI",
+    ///                     },
+    ///                     TextTransformation = "NONE",
+    ///                 },
+    ///                 new Aws.WafRegional.Inputs.XssMatchSetXssMatchTupleArgs
+    ///                 {
+    ///                     FieldToMatch = new Aws.WafRegional.Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs
+    ///                     {
+    ///                         Type = "QUERY_STRING",
+    ///                     },
+    ///                     TextTransformation = "NONE",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class XssMatchSet : Pulumi.CustomResource
     {

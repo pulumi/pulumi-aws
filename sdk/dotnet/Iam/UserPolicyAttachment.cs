@@ -13,6 +13,37 @@ namespace Pulumi.Aws.Iam
     /// Attaches a Managed IAM Policy to an IAM user
     /// 
     /// &gt; **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var user = new Aws.Iam.User("user", new Aws.Iam.UserArgs
+    ///         {
+    ///         });
+    ///         var policy = new Aws.Iam.Policy("policy", new Aws.Iam.PolicyArgs
+    ///         {
+    ///             Description = "A test policy",
+    ///             Policy = "",
+    ///         });
+    ///         // insert policy here
+    ///         var test_attach = new Aws.Iam.UserPolicyAttachment("test-attach", new Aws.Iam.UserPolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = policy.Arn,
+    ///             User = user.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class UserPolicyAttachment : Pulumi.CustomResource
     {

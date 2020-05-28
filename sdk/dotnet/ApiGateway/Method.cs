@@ -11,6 +11,88 @@ namespace Pulumi.Aws.ApiGateway
 {
     /// <summary>
     /// Provides a HTTP Method for an API Gateway Resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new Aws.ApiGateway.RestApiArgs
+    ///         {
+    ///             Description = "This is my API for demonstration purposes",
+    ///         });
+    ///         var myDemoResource = new Aws.ApiGateway.Resource("myDemoResource", new Aws.ApiGateway.ResourceArgs
+    ///         {
+    ///             ParentId = myDemoAPI.RootResourceId,
+    ///             PathPart = "mydemoresource",
+    ///             RestApi = myDemoAPI.Id,
+    ///         });
+    ///         var myDemoMethod = new Aws.ApiGateway.Method("myDemoMethod", new Aws.ApiGateway.MethodArgs
+    ///         {
+    ///             Authorization = "NONE",
+    ///             HttpMethod = "GET",
+    ///             ResourceId = myDemoResource.Id,
+    ///             RestApi = myDemoAPI.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Usage with Cognito User Pool Authorizer
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var config = new Config();
+    ///         var cognitoUserPoolName = config.RequireObject&lt;dynamic&gt;("cognitoUserPoolName");
+    ///         var thisUserPools = Output.Create(Aws.Cognito.GetUserPools.InvokeAsync(new Aws.Cognito.GetUserPoolsArgs
+    ///         {
+    ///             Name = cognitoUserPoolName,
+    ///         }));
+    ///         var thisRestApi = new Aws.ApiGateway.RestApi("thisRestApi", new Aws.ApiGateway.RestApiArgs
+    ///         {
+    ///         });
+    ///         var thisResource = new Aws.ApiGateway.Resource("thisResource", new Aws.ApiGateway.ResourceArgs
+    ///         {
+    ///             ParentId = thisRestApi.RootResourceId,
+    ///             PathPart = "{proxy+}",
+    ///             RestApi = thisRestApi.Id,
+    ///         });
+    ///         var thisAuthorizer = new Aws.ApiGateway.Authorizer("thisAuthorizer", new Aws.ApiGateway.AuthorizerArgs
+    ///         {
+    ///             ProviderArns = thisUserPools.Apply(thisUserPools =&gt; thisUserPools.Arns),
+    ///             RestApi = thisRestApi.Id,
+    ///             Type = "COGNITO_USER_POOLS",
+    ///         });
+    ///         var any = new Aws.ApiGateway.Method("any", new Aws.ApiGateway.MethodArgs
+    ///         {
+    ///             Authorization = "COGNITO_USER_POOLS",
+    ///             AuthorizerId = thisAuthorizer.Id,
+    ///             HttpMethod = "ANY",
+    ///             RequestParameters = 
+    ///             {
+    ///                 { "method.request.path.proxy", true },
+    ///             },
+    ///             ResourceId = thisResource.Id,
+    ///             RestApi = thisRestApi.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Method : Pulumi.CustomResource
     {

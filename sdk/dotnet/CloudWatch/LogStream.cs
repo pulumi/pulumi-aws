@@ -11,6 +11,30 @@ namespace Pulumi.Aws.CloudWatch
 {
     /// <summary>
     /// Provides a CloudWatch Log Stream resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var yada = new Aws.CloudWatch.LogGroup("yada", new Aws.CloudWatch.LogGroupArgs
+    ///         {
+    ///         });
+    ///         var foo = new Aws.CloudWatch.LogStream("foo", new Aws.CloudWatch.LogStreamArgs
+    ///         {
+    ///             LogGroupName = yada.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class LogStream : Pulumi.CustomResource
     {

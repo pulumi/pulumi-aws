@@ -157,7 +157,7 @@ import {Topic} from "../sns/topic";
  *     namespace: "AWS/NetworkELB",
  *     period: "60",
  *     statistic: "Average",
- *     threshold: var.logstash_servers_count,
+ *     threshold: _var.logstash_servers_count,
  *     alarmDescription: "Number of XXXX nodes healthy in Target Group",
  *     actionsEnabled: "true",
  *     alarmActions: [aws_sns_topic.sns.arn],

@@ -40,6 +40,34 @@ namespace Pulumi.Aws.Ec2
     /// defined in-line. At this time you cannot use a Route Table with in-line routes
     /// in conjunction with any Route resources. Doing so will cause
     /// a conflict of rule settings and will overwrite routes.
+    /// 
+    /// 
+    /// ## Example usage with tags
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var defaultRouteTable = new Aws.Ec2.DefaultRouteTable("defaultRouteTable", new Aws.Ec2.DefaultRouteTableArgs
+    ///         {
+    ///             DefaultRouteTableId = aws_vpc.Foo.Default_route_table_id,
+    ///             Routes = 
+    ///             {
+    ///                 ,
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "default table" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class DefaultRouteTable : Pulumi.CustomResource
     {

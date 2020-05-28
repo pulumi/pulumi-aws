@@ -16,6 +16,34 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
     /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new GitLab Lightsail Instance
+    ///         var gitlabTest = new Aws.LightSail.Instance("gitlabTest", new Aws.LightSail.InstanceArgs
+    ///         {
+    ///             AvailabilityZone = "us-east-1b",
+    ///             BlueprintId = "string",
+    ///             BundleId = "string",
+    ///             KeyPairName = "some_key_name",
+    ///             Tags = 
+    ///             {
+    ///                 { "foo", "bar" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Availability Zones
     /// 

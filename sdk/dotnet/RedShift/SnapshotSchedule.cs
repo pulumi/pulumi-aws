@@ -9,6 +9,32 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedShift
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.RedShift.SnapshotSchedule("default", new Aws.RedShift.SnapshotScheduleArgs
+    ///         {
+    ///             Definitions = 
+    ///             {
+    ///                 "rate(12 hours)",
+    ///             },
+    ///             Identifier = "tf-redshift-snapshot-schedule",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     public partial class SnapshotSchedule : Pulumi.CustomResource
     {
         [Output("arn")]

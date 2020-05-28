@@ -18,6 +18,33 @@ namespace Pulumi.Aws.CloudFormation
         ///  &gt; Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs. 
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var subnetId = Output.Create(Aws.CloudFormation.GetExport.InvokeAsync(new Aws.CloudFormation.GetExportArgs
+        ///         {
+        ///             Name = "mySubnetIdExportName",
+        ///         }));
+        ///         var web = new Aws.Ec2.Instance("web", new Aws.Ec2.InstanceArgs
+        ///         {
+        ///             Ami = "ami-abb07bcb",
+        ///             InstanceType = "t1.micro",
+        ///             SubnetId = subnetId.Apply(subnetId =&gt; subnetId.Value),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)

@@ -105,16 +105,16 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultSecurityGroup("default",
             egress=[{
-                "cidrBlocks": ["0.0.0.0/0"],
-                "fromPort": 0,
+                "cidr_blocks": ["0.0.0.0/0"],
+                "from_port": 0,
                 "protocol": "-1",
-                "toPort": 0,
+                "to_port": 0,
             }],
             ingress=[{
-                "fromPort": 0,
+                "from_port": 0,
                 "protocol": -1,
                 "self": True,
-                "toPort": 0,
+                "to_port": 0,
             }],
             vpc_id=mainvpc.id)
         ```
@@ -131,10 +131,10 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultSecurityGroup("default",
             ingress=[{
-                "fromPort": 0,
+                "from_port": 0,
                 "protocol": -1,
                 "self": True,
-                "toPort": 0,
+                "to_port": 0,
             }],
             vpc_id=mainvpc.id)
         ```

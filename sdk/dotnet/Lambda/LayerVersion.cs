@@ -14,6 +14,31 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// For information about Lambda Layers and how to use them, see [AWS Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
     /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var lambdaLayer = new Aws.Lambda.LayerVersion("lambdaLayer", new Aws.Lambda.LayerVersionArgs
+    ///         {
+    ///             CompatibleRuntimes = 
+    ///             {
+    ///                 "nodejs8.10",
+    ///             },
+    ///             Code = new FileArchive("lambda_layer_payload.zip"),
+    ///             LayerName = "lambda_layer_name",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Specifying the Deployment Package
     /// 

@@ -12,6 +12,40 @@ namespace Pulumi.Aws.Shield
     /// <summary>
     /// Enables AWS Shield Advanced for a specific AWS resource.
     /// The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Create protection
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var available = Output.Create(Aws.GetAvailabilityZones.InvokeAsync());
+    ///         var currentRegion = Output.Create(Aws.GetRegion.InvokeAsync());
+    ///         var currentCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
+    ///         var fooEip = new Aws.Ec2.Eip("fooEip", new Aws.Ec2.EipArgs
+    ///         {
+    ///             Vpc = true,
+    ///         });
+    ///         var fooProtection = new Aws.Shield.Protection("fooProtection", new Aws.Shield.ProtectionArgs
+    ///         {
+    ///             ResourceArn = Output.Tuple(currentRegion, currentCallerIdentity, fooEip.Id).Apply(values =&gt;
+    ///             {
+    ///                 var currentRegion = values.Item1;
+    ///                 var currentCallerIdentity = values.Item2;
+    ///                 var id = values.Item3;
+    ///                 return $"arn:aws:ec2:{currentRegion.Name}:{currentCallerIdentity.AccountId}:eip-allocation/{id}";
+    ///             }),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Protection : Pulumi.CustomResource
     {

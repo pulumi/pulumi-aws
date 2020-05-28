@@ -11,6 +11,26 @@ namespace Pulumi.Aws.MediaConvert
 {
     /// <summary>
     /// Provides an AWS Elemental MediaConvert Queue.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new Aws.MediaConvert.Queue("test", new Aws.MediaConvert.QueueArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Queue : Pulumi.CustomResource
     {

@@ -12,6 +12,98 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a VPC/Subnet/ENI Flow Log to capture IP traffic for a specific network
     /// interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### CloudWatch Logging
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
+    ///         {
+    ///         });
+    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Sid"": """",
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""vpc-flow-logs.amazonaws.com""
+    ///       },
+    ///       ""Action"": ""sts:AssumeRole""
+    ///     }
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///         var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new Aws.Ec2.FlowLogArgs
+    ///         {
+    ///             IamRoleArn = exampleRole.Arn,
+    ///             LogDestination = exampleLogGroup.Arn,
+    ///             TrafficType = "ALL",
+    ///             VpcId = aws_vpc.Example.Id,
+    ///         });
+    ///         var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Policy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": [
+    ///         ""logs:CreateLogGroup"",
+    ///         ""logs:CreateLogStream"",
+    ///         ""logs:PutLogEvents"",
+    ///         ""logs:DescribeLogGroups"",
+    ///         ""logs:DescribeLogStreams""
+    ///       ],
+    ///       ""Effect"": ""Allow"",
+    ///       ""Resource"": ""*""
+    ///     }
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///             Role = exampleRole.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### S3 Logging
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new Aws.Ec2.FlowLogArgs
+    ///         {
+    ///             LogDestination = exampleBucket.Arn,
+    ///             LogDestinationType = "s3",
+    ///             TrafficType = "ALL",
+    ///             VpcId = aws_vpc.Example.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class FlowLog : Pulumi.CustomResource
     {

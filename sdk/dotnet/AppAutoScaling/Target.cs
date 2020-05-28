@@ -13,6 +13,100 @@ namespace Pulumi.Aws.AppAutoScaling
     /// Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the [`aws.appautoscaling.Policy` resource](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html).
     /// 
     /// &gt; **NOTE:** The [Application Auto Scaling service automatically attempts to manage IAM Service-Linked Roles](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) when registering certain service namespaces for the first time. To manually manage this role, see the [`aws.iam.ServiceLinkedRole` resource](https://www.terraform.io/docs/providers/aws/r/iam_service_linked_role.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### DynamoDB Table Autoscaling
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dynamodbTableReadTarget = new Aws.AppAutoScaling.Target("dynamodbTableReadTarget", new Aws.AppAutoScaling.TargetArgs
+    ///         {
+    ///             MaxCapacity = 100,
+    ///             MinCapacity = 5,
+    ///             ResourceId = $"table/{aws_dynamodb_table.Example.Name}",
+    ///             ScalableDimension = "dynamodb:table:ReadCapacityUnits",
+    ///             ServiceNamespace = "dynamodb",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### DynamoDB Index Autoscaling
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dynamodbIndexReadTarget = new Aws.AppAutoScaling.Target("dynamodbIndexReadTarget", new Aws.AppAutoScaling.TargetArgs
+    ///         {
+    ///             MaxCapacity = 100,
+    ///             MinCapacity = 5,
+    ///             ResourceId = $"table/{aws_dynamodb_table.Example.Name}/index/{@var.Index_name}",
+    ///             ScalableDimension = "dynamodb:index:ReadCapacityUnits",
+    ///             ServiceNamespace = "dynamodb",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### ECS Service Autoscaling
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ecsTarget = new Aws.AppAutoScaling.Target("ecsTarget", new Aws.AppAutoScaling.TargetArgs
+    ///         {
+    ///             MaxCapacity = 4,
+    ///             MinCapacity = 1,
+    ///             ResourceId = $"service/{aws_ecs_cluster.Example.Name}/{aws_ecs_service.Example.Name}",
+    ///             ScalableDimension = "ecs:service:DesiredCount",
+    ///             ServiceNamespace = "ecs",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Aurora Read Replica Autoscaling
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var replicas = new Aws.AppAutoScaling.Target("replicas", new Aws.AppAutoScaling.TargetArgs
+    ///         {
+    ///             MaxCapacity = 15,
+    ///             MinCapacity = 1,
+    ///             ResourceId = $"cluster:{aws_rds_cluster.Example.Id}",
+    ///             ScalableDimension = "rds:cluster:ReadReplicaCount",
+    ///             ServiceNamespace = "rds",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Target : Pulumi.CustomResource
     {

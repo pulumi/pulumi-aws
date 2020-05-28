@@ -11,6 +11,31 @@ namespace Pulumi.Aws.Dax
 {
     /// <summary>
     /// Provides a DAX Subnet Group resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Dax.SubnetGroup("example", new Aws.Dax.SubnetGroupArgs
+    ///         {
+    ///             SubnetIds = 
+    ///             {
+    ///                 aws_subnet.Example1.Id,
+    ///                 aws_subnet.Example2.Id,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SubnetGroup : Pulumi.CustomResource
     {

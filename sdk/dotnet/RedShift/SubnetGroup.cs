@@ -11,6 +11,59 @@ namespace Pulumi.Aws.RedShift
 {
     /// <summary>
     /// Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fooVpc = new Aws.Ec2.Vpc("fooVpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///         });
+    ///         var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new Aws.Ec2.SubnetArgs
+    ///         {
+    ///             AvailabilityZone = "us-west-2a",
+    ///             CidrBlock = "10.1.1.0/24",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "tf-dbsubnet-test-1" },
+    ///             },
+    ///             VpcId = fooVpc.Id,
+    ///         });
+    ///         var bar = new Aws.Ec2.Subnet("bar", new Aws.Ec2.SubnetArgs
+    ///         {
+    ///             AvailabilityZone = "us-west-2b",
+    ///             CidrBlock = "10.1.2.0/24",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "tf-dbsubnet-test-2" },
+    ///             },
+    ///             VpcId = fooVpc.Id,
+    ///         });
+    ///         var fooSubnetGroup = new Aws.RedShift.SubnetGroup("fooSubnetGroup", new Aws.RedShift.SubnetGroupArgs
+    ///         {
+    ///             SubnetIds = 
+    ///             {
+    ///                 fooSubnet.Id,
+    ///                 bar.Id,
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "Production" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SubnetGroup : Pulumi.CustomResource
     {

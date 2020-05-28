@@ -13,6 +13,30 @@ namespace Pulumi.Aws.Kms
     /// Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases &amp; keys,
     /// but API (hence this provider too) allows you to create as many aliases as
     /// the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var key = new Aws.Kms.Key("key", new Aws.Kms.KeyArgs
+    ///         {
+    ///         });
+    ///         var @alias = new Aws.Kms.Alias("alias", new Aws.Kms.AliasArgs
+    ///         {
+    ///             TargetKeyId = key.KeyId,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Alias : Pulumi.CustomResource
     {

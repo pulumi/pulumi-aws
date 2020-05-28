@@ -13,6 +13,28 @@ namespace Pulumi.Aws.Ram
     /// Manages a Resource Access Manager (RAM) Resource Association.
     /// 
     /// &gt; *NOTE:* Certain AWS resources (e.g. EC2 Subnets) can only be shared in an AWS account that is a member of an AWS Organizations organization with organization-wide Resource Access Manager functionality enabled. See the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) and AWS service specific documentation for additional information.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ram.ResourceAssociation("example", new Aws.Ram.ResourceAssociationArgs
+    ///         {
+    ///             ResourceArn = aws_subnet.Example.Arn,
+    ///             ResourceShareArn = aws_ram_resource_share.Example.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ResourceAssociation : Pulumi.CustomResource
     {

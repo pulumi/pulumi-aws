@@ -13,6 +13,116 @@ namespace Pulumi.Aws.DynamoDB
     /// Provides a DynamoDB table resource
     /// 
     /// &gt; **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `read_capacity` and/or `write_capacity` if there's [autoscaling policy](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html) attached to the table.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var basic_dynamodb_table = new Aws.DynamoDB.Table("basic-dynamodb-table", new Aws.DynamoDB.TableArgs
+    ///         {
+    ///             Attributes = 
+    ///             {
+    ///                 new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///                 {
+    ///                     Name = "UserId",
+    ///                     Type = "S",
+    ///                 },
+    ///                 new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///                 {
+    ///                     Name = "GameTitle",
+    ///                     Type = "S",
+    ///                 },
+    ///                 new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///                 {
+    ///                     Name = "TopScore",
+    ///                     Type = "N",
+    ///                 },
+    ///             },
+    ///             BillingMode = "PROVISIONED",
+    ///             GlobalSecondaryIndexes = 
+    ///             {
+    ///                 new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexArgs
+    ///                 {
+    ///                     HashKey = "GameTitle",
+    ///                     Name = "GameTitleIndex",
+    ///                     NonKeyAttributes = 
+    ///                     {
+    ///                         "UserId",
+    ///                     },
+    ///                     ProjectionType = "INCLUDE",
+    ///                     RangeKey = "TopScore",
+    ///                     ReadCapacity = 10,
+    ///                     WriteCapacity = 10,
+    ///                 },
+    ///             },
+    ///             HashKey = "UserId",
+    ///             RangeKey = "GameTitle",
+    ///             ReadCapacity = 20,
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "production" },
+    ///                 { "Name", "dynamodb-table-1" },
+    ///             },
+    ///             Ttl = new Aws.DynamoDB.Inputs.TableTtlArgs
+    ///             {
+    ///                 AttributeName = "TimeToExist",
+    ///                 Enabled = false,
+    ///             },
+    ///             WriteCapacity = 20,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Global Tables
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.DynamoDB.Table("example", new Aws.DynamoDB.TableArgs
+    ///         {
+    ///             Attributes = 
+    ///             {
+    ///                 new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///                 {
+    ///                     Name = "TestTableHashKey",
+    ///                     Type = "S",
+    ///                 },
+    ///             },
+    ///             BillingMode = "PAY_PER_REQUEST",
+    ///             HashKey = "TestTableHashKey",
+    ///             Replicas = 
+    ///             {
+    ///                 new Aws.DynamoDB.Inputs.TableReplicaArgs
+    ///                 {
+    ///                     RegionName = "us-east-2",
+    ///                 },
+    ///                 new Aws.DynamoDB.Inputs.TableReplicaArgs
+    ///                 {
+    ///                     RegionName = "us-west-2",
+    ///                 },
+    ///             },
+    ///             StreamEnabled = true,
+    ///             StreamViewType = "NEW_AND_OLD_IMAGES",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Table : Pulumi.CustomResource
     {

@@ -12,6 +12,65 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// <summary>
     /// Manages an Amazon API Gateway Version 2 authorizer.
     /// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic WebSocket API
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.ApiGatewayV2.Authorizer("example", new Aws.ApiGatewayV2.AuthorizerArgs
+    ///         {
+    ///             ApiId = aws_apigatewayv2_api.Example.Id,
+    ///             AuthorizerType = "REQUEST",
+    ///             AuthorizerUri = aws_lambda_function.Example.Invoke_arn,
+    ///             IdentitySources = 
+    ///             {
+    ///                 "route.request.header.Auth",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Basic HTTP API
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.ApiGatewayV2.Authorizer("example", new Aws.ApiGatewayV2.AuthorizerArgs
+    ///         {
+    ///             ApiId = aws_apigatewayv2_api.Example.Id,
+    ///             AuthorizerType = "JWT",
+    ///             IdentitySources = 
+    ///             {
+    ///                 "$$request.header.Authorization",
+    ///             },
+    ///             JwtConfiguration = new Aws.ApiGatewayV2.Inputs.AuthorizerJwtConfigurationArgs
+    ///             {
+    ///                 Audience = 
+    ///                 {
+    ///                     "example",
+    ///                 },
+    ///                 Issuer = $"https://{aws_cognito_user_pool.Example.Endpoint}",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Authorizer : Pulumi.CustomResource
     {

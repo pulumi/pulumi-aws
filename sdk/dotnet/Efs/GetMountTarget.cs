@@ -15,6 +15,29 @@ namespace Pulumi.Aws.Efs
         /// Provides information about an Elastic File System Mount Target (EFS).
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var mountTargetId = config.Get("mountTargetId") ?? "";
+        ///         var byId = Output.Create(Aws.Efs.GetMountTarget.InvokeAsync(new Aws.Efs.GetMountTargetArgs
+        ///         {
+        ///             MountTargetId = mountTargetId,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetMountTargetResult> InvokeAsync(GetMountTargetArgs args, InvokeOptions? options = null)

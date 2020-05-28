@@ -15,6 +15,28 @@ namespace Pulumi.Aws.Organizations
         /// Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var org = Output.Create(Aws.Organizations.GetOrganization.InvokeAsync());
+        ///         var ou = org.Apply(org =&gt; Output.Create(Aws.Organizations.GetOrganizationalUnits.InvokeAsync(new Aws.Organizations.GetOrganizationalUnitsArgs
+        ///         {
+        ///             ParentId = org.Roots[0].Id,
+        ///         })));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOrganizationalUnitsResult> InvokeAsync(GetOrganizationalUnitsArgs args, InvokeOptions? options = null)

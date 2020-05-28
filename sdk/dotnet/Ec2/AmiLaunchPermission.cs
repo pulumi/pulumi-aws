@@ -11,6 +11,28 @@ namespace Pulumi.Aws.Ec2
 {
     /// <summary>
     /// Adds launch permission to Amazon Machine Image (AMI) from another AWS account.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ec2.AmiLaunchPermission("example", new Aws.Ec2.AmiLaunchPermissionArgs
+    ///         {
+    ///             AccountId = "123456789012",
+    ///             ImageId = "ami-12345678",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AmiLaunchPermission : Pulumi.CustomResource
     {

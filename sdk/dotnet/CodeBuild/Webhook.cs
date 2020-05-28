@@ -11,6 +11,82 @@ namespace Pulumi.Aws.CodeBuild
 {
     /// <summary>
     /// Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Bitbucket and GitHub
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.CodeBuild.Webhook("example", new Aws.CodeBuild.WebhookArgs
+    ///         {
+    ///             FilterGroups = 
+    ///             {
+    ///                 new Aws.CodeBuild.Inputs.WebhookFilterGroupArgs
+    ///                 {
+    ///                     Filter = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "pattern", "PUSH" },
+    ///                             { "type", "EVENT" },
+    ///                         },
+    ///                         
+    ///                         {
+    ///                             { "pattern", "master" },
+    ///                             { "type", "HEAD_REF" },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ProjectName = aws_codebuild_project.Example.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### GitHub Enterprise
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Github = Pulumi.Github;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleWebhook = new Aws.CodeBuild.Webhook("exampleWebhook", new Aws.CodeBuild.WebhookArgs
+    ///         {
+    ///             ProjectName = aws_codebuild_project.Example.Name,
+    ///         });
+    ///         var exampleRepositoryWebhook = new Github.RepositoryWebhook("exampleRepositoryWebhook", new Github.RepositoryWebhookArgs
+    ///         {
+    ///             Active = true,
+    ///             Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs
+    ///             {
+    ///                 ContentType = "json",
+    ///                 InsecureSsl = false,
+    ///                 Secret = exampleWebhook.Secret,
+    ///                 Url = exampleWebhook.PayloadUrl,
+    ///             },
+    ///             Events = 
+    ///             {
+    ///                 "push",
+    ///             },
+    ///             Repository = github_repository.Example.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Webhook : Pulumi.CustomResource
     {

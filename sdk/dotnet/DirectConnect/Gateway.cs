@@ -11,6 +11,27 @@ namespace Pulumi.Aws.DirectConnect
 {
     /// <summary>
     /// Provides a Direct Connect Gateway.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.DirectConnect.Gateway("example", new Aws.DirectConnect.GatewayArgs
+    ///         {
+    ///             AmazonSideAsn = "64512",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Gateway : Pulumi.CustomResource
     {

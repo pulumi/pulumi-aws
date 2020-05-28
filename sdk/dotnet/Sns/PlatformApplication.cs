@@ -11,6 +11,49 @@ namespace Pulumi.Aws.Sns
 {
     /// <summary>
     /// Provides an SNS platform application resource
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Apple Push Notification Service (APNS)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var apnsApplication = new Aws.Sns.PlatformApplication("apnsApplication", new Aws.Sns.PlatformApplicationArgs
+    ///         {
+    ///             Platform = "APNS",
+    ///             PlatformCredential = "&lt;APNS PRIVATE KEY&gt;",
+    ///             PlatformPrincipal = "&lt;APNS CERTIFICATE&gt;",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Google Cloud Messaging (GCM)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var gcmApplication = new Aws.Sns.PlatformApplication("gcmApplication", new Aws.Sns.PlatformApplicationArgs
+    ///         {
+    ///             Platform = "GCM",
+    ///             PlatformCredential = "&lt;GCM API KEY&gt;",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class PlatformApplication : Pulumi.CustomResource
     {

@@ -14,6 +14,70 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
     /// For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### DynamoDB
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Lambda.EventSourceMapping("example", new Aws.Lambda.EventSourceMappingArgs
+    ///         {
+    ///             EventSourceArn = aws_dynamodb_table.Example.Stream_arn,
+    ///             FunctionName = aws_lambda_function.Example.Arn,
+    ///             StartingPosition = "LATEST",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Kinesis
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Lambda.EventSourceMapping("example", new Aws.Lambda.EventSourceMappingArgs
+    ///         {
+    ///             EventSourceArn = aws_kinesis_stream.Example.Arn,
+    ///             FunctionName = aws_lambda_function.Example.Arn,
+    ///             StartingPosition = "LATEST",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### SQS
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Lambda.EventSourceMapping("example", new Aws.Lambda.EventSourceMappingArgs
+    ///         {
+    ///             EventSourceArn = aws_sqs_queue.Sqs_queue_test.Arn,
+    ///             FunctionName = aws_lambda_function.Example.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class EventSourceMapping : Pulumi.CustomResource
     {

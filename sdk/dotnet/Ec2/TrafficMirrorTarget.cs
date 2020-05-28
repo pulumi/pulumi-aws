@@ -12,6 +12,33 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides an Traffic mirror target.  
     /// Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var nlb = new Aws.Ec2.TrafficMirrorTarget("nlb", new Aws.Ec2.TrafficMirrorTargetArgs
+    ///         {
+    ///             Description = "NLB target",
+    ///             NetworkLoadBalancerArn = aws_lb.Lb.Arn,
+    ///         });
+    ///         var eni = new Aws.Ec2.TrafficMirrorTarget("eni", new Aws.Ec2.TrafficMirrorTargetArgs
+    ///         {
+    ///             Description = "ENI target",
+    ///             NetworkInterfaceId = aws_instance.Test.Primary_network_interface_id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class TrafficMirrorTarget : Pulumi.CustomResource
     {

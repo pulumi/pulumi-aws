@@ -12,6 +12,28 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// <summary>
     /// Manages an Amazon API Gateway Version 2 route.
     /// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.ApiGatewayV2.Route("example", new Aws.ApiGatewayV2.RouteArgs
+    ///         {
+    ///             ApiId = aws_apigatewayv2_api.Example.Id,
+    ///             RouteKey = "$$default",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Route : Pulumi.CustomResource
     {

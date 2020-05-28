@@ -13,6 +13,48 @@ namespace Pulumi.Aws.Ses
     /// Provides an SES domain DKIM generation resource.
     /// 
     /// Domain ownership needs to be confirmed first using [ses_domain_identity Resource](https://www.terraform.io/docs/providers/aws/r/ses_domain_identity.html)
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleDomainIdentity = new Aws.Ses.DomainIdentity("exampleDomainIdentity", new Aws.Ses.DomainIdentityArgs
+    ///         {
+    ///             Domain = "example.com",
+    ///         });
+    ///         var exampleDomainDkim = new Aws.Ses.DomainDkim("exampleDomainDkim", new Aws.Ses.DomainDkimArgs
+    ///         {
+    ///             Domain = exampleDomainIdentity.Domain,
+    ///         });
+    ///         var exampleAmazonsesDkimRecord = new List&lt;Aws.Route53.Record&gt;();
+    ///         for (var rangeIndex = 0; rangeIndex &lt; 3; rangeIndex++)
+    ///         {
+    ///             var range = new { Value = rangeIndex };
+    ///             exampleAmazonsesDkimRecord.Add(new Aws.Route53.Record($"exampleAmazonsesDkimRecord-{range.Value}", new Aws.Route53.RecordArgs
+    ///             {
+    ///                 Name = exampleDomainDkim.DkimTokens[range.Value].Apply(dkimTokens =&gt; $"{dkimTokens}._domainkey.example.com"),
+    ///                 Records = 
+    ///                 {
+    ///                     exampleDomainDkim.DkimTokens[range.Value].Apply(dkimTokens =&gt; $"{dkimTokens}.dkim.amazonses.com"),
+    ///                 },
+    ///                 Ttl = "600",
+    ///                 Type = "CNAME",
+    ///                 ZoneId = "ABCDEFGHIJ123",
+    ///             }));
+    ///         }
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class DomainDkim : Pulumi.CustomResource
     {

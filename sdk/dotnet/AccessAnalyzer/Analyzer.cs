@@ -11,6 +11,27 @@ namespace Pulumi.Aws.AccessAnalyzer
 {
     /// <summary>
     /// Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.AccessAnalyzer.Analyzer("example", new Aws.AccessAnalyzer.AnalyzerArgs
+    ///         {
+    ///             AnalyzerName = "example",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Analyzer : Pulumi.CustomResource
     {

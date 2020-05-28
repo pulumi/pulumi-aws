@@ -117,7 +117,7 @@ class DataSource(pulumi.CustomResource):
         example_data_source = aws.appsync.DataSource("exampleDataSource",
             api_id=example_graph_ql_api.id,
             dynamodb_config={
-                "tableName": example_table.name,
+                "table_name": example_table.name,
             },
             service_role_arn=example_role.arn,
             type="AMAZON_DYNAMODB")

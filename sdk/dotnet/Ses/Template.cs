@@ -11,6 +11,31 @@ namespace Pulumi.Aws.Ses
 {
     /// <summary>
     /// Provides a resource to create a SES template.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var myTemplate = new Aws.Ses.Template("myTemplate", new Aws.Ses.TemplateArgs
+    ///         {
+    ///             Html = "&lt;h1&gt;Hello {{name}},&lt;/h1&gt;&lt;p&gt;Your favorite animal is {{favoriteanimal}}.&lt;/p&gt;",
+    ///             Subject = "Greetings, {{name}}!",
+    ///             Text = @"Hello {{name}},
+    /// Your favorite animal is {{favoriteanimal}}.
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Template : Pulumi.CustomResource
     {

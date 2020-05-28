@@ -17,6 +17,31 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// The requester can use the `aws.ec2transitgateway.VpcAttachment` resource to manage its side of the connection
     /// and the accepter can use the `aws.ec2transitgateway.VpcAttachmentAccepter` resource to "adopt" its side of the
     /// connection into management.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ec2TransitGateway.VpcAttachmentAccepter("example", new Aws.Ec2TransitGateway.VpcAttachmentAccepterArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "Example cross-account attachment" },
+    ///             },
+    ///             TransitGatewayAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VpcAttachmentAccepter : Pulumi.CustomResource
     {

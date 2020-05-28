@@ -56,7 +56,7 @@ class RuleGroup(pulumi.CustomResource):
                     "type": "COUNT",
                 },
                 "priority": 50,
-                "ruleId": example_rule.id,
+                "rule_id": example_rule.id,
             }],
             metric_name="example")
         ```

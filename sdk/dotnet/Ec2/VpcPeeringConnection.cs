@@ -24,6 +24,28 @@ namespace Pulumi.Aws.Ec2
     /// VPC Peering Connections use the `aws.ec2.VpcPeeringConnection` resource to manage the requester's side of the
     /// connection and use the `aws.ec2.VpcPeeringConnectionAccepter` resource to manage the accepter's side of the connection.
     /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Ec2.VpcPeeringConnection("foo", new Aws.Ec2.VpcPeeringConnectionArgs
+    ///         {
+    ///             PeerOwnerId = @var.Peer_owner_id,
+    ///             PeerVpcId = aws_vpc.Bar.Id,
+    ///             VpcId = aws_vpc.Foo.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Notes
     /// 

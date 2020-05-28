@@ -76,11 +76,11 @@ class Service(pulumi.CustomResource):
                     "ttl": 10,
                     "type": "A",
                 }],
-                "namespaceId": example_private_dns_namespace.id,
+                "namespace_id": example_private_dns_namespace.id,
                 "routingPolicy": "MULTIVALUE",
             },
             health_check_custom_config={
-                "failureThreshold": 1,
+                "failure_threshold": 1,
             })
         ```
 

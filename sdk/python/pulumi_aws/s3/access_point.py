@@ -91,7 +91,7 @@ class AccessPoint(pulumi.CustomResource):
         example_access_point = aws.s3.AccessPoint("exampleAccessPoint",
             bucket=example_bucket.id,
             vpc_configuration={
-                "vpcId": example_vpc.id,
+                "vpc_id": example_vpc.id,
             })
         ```
 

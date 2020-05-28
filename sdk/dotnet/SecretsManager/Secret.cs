@@ -11,6 +11,49 @@ namespace Pulumi.Aws.SecretsManager
 {
     /// <summary>
     /// Provides a resource to manage AWS Secrets Manager secret metadata. To manage a secret value, see the [`aws.secretsmanager.SecretVersion` resource](https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret_version.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.SecretsManager.Secret("example", new Aws.SecretsManager.SecretArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Rotation Configuration
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var rotation_example = new Aws.SecretsManager.Secret("rotation-example", new Aws.SecretsManager.SecretArgs
+    ///         {
+    ///             RotationLambdaArn = aws_lambda_function.Example.Arn,
+    ///             RotationRules = new Aws.SecretsManager.Inputs.SecretRotationRulesArgs
+    ///             {
+    ///                 AutomaticallyAfterDays = 7,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Secret : Pulumi.CustomResource
     {

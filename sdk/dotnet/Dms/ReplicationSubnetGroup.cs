@@ -11,6 +11,37 @@ namespace Pulumi.Aws.Dms
 {
     /// <summary>
     /// Provides a DMS (Data Migration Service) replication subnet group resource. DMS replication subnet groups can be created, updated, deleted, and imported.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new replication subnet group
+    ///         var test = new Aws.Dms.ReplicationSubnetGroup("test", new Aws.Dms.ReplicationSubnetGroupArgs
+    ///         {
+    ///             ReplicationSubnetGroupDescription = "Test replication subnet group",
+    ///             ReplicationSubnetGroupId = "test-dms-replication-subnet-group-tf",
+    ///             SubnetIds = 
+    ///             {
+    ///                 "subnet-12345678",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "test" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ReplicationSubnetGroup : Pulumi.CustomResource
     {

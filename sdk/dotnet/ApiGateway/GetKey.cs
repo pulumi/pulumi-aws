@@ -16,6 +16,27 @@ namespace Pulumi.Aws.ApiGateway
         /// example to supply credentials for a dependency microservice.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var myApiKey = Output.Create(Aws.ApiGateway.GetKey.InvokeAsync(new Aws.ApiGateway.GetKeyArgs
+        ///         {
+        ///             Id = "ru3mpjgse6",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)

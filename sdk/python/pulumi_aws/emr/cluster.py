@@ -261,7 +261,7 @@ class Cluster(pulumi.CustomResource):
 
         \"\"\",
             core_instance_group={
-                "autoscalingPolicy": \"\"\"{
+                "autoscaling_policy": \"\"\"{
         "Constraints": {
           "MinCapacity": 1,
           "MaxCapacity": 2
@@ -294,25 +294,25 @@ class Cluster(pulumi.CustomResource):
         }
 
         \"\"\",
-                "bidPrice": "0.30",
+                "bid_price": "0.30",
                 "ebsConfig": [{
                     "size": "40",
                     "type": "gp2",
                     "volumesPerInstance": 1,
                 }],
-                "instanceCount": 1,
-                "instanceType": "c4.large",
+                "instance_count": 1,
+                "instance_type": "c4.large",
             },
             ebs_root_volume_size=100,
             ec2_attributes={
                 "emrManagedMasterSecurityGroup": aws_security_group["sg"]["id"],
                 "emrManagedSlaveSecurityGroup": aws_security_group["sg"]["id"],
                 "instanceProfile": aws_iam_instance_profile["emr_profile"]["arn"],
-                "subnetId": aws_subnet["main"]["id"],
+                "subnet_id": aws_subnet["main"]["id"],
             },
             keep_job_flow_alive_when_no_steps=True,
             master_instance_group={
-                "instanceType": "m4.large",
+                "instance_type": "m4.large",
             },
             release_label="emr-4.6.0",
             service_role=aws_iam_role["iam_emr_service_role"]["arn"],
@@ -357,10 +357,10 @@ class Cluster(pulumi.CustomResource):
         example_cluster = aws.emr.Cluster("exampleCluster",
             core_instance_group={},
             ec2_attributes={
-                "subnetId": example_subnet.id,
+                "subnet_id": example_subnet.id,
             },
             master_instance_group={
-                "instanceCount": 3,
+                "instance_count": 3,
             },
             release_label="emr-5.24.1",
             termination_protection=True)
@@ -423,7 +423,7 @@ class Cluster(pulumi.CustomResource):
             release_label="emr-4.6.0",
             applications=["Spark"],
             ec2_attributes={
-                "subnetId": main_subnet.id,
+                "subnet_id": main_subnet.id,
                 "emrManagedMasterSecurityGroup": aws_security_group["allow_all"]["id"],
                 "emrManagedSlaveSecurityGroup": aws_security_group["allow_all"]["id"],
                 "instanceProfile": emr_profile.arn,
@@ -477,16 +477,16 @@ class Cluster(pulumi.CustomResource):
             description="Allow inbound traffic",
             vpc_id=main_vpc.id,
             ingress=[{
-                "fromPort": 0,
-                "toPort": 0,
+                "from_port": 0,
+                "to_port": 0,
                 "protocol": "-1",
-                "cidrBlocks": main_vpc.cidr_block,
+                "cidr_blocks": main_vpc.cidr_block,
             }],
             egress=[{
-                "fromPort": 0,
-                "toPort": 0,
+                "from_port": 0,
+                "to_port": 0,
                 "protocol": "-1",
-                "cidrBlocks": ["0.0.0.0/0"],
+                "cidr_blocks": ["0.0.0.0/0"],
             }],
             tags={
                 "name": "emr_test",
@@ -495,8 +495,8 @@ class Cluster(pulumi.CustomResource):
         route_table = aws.ec2.RouteTable("routeTable",
             vpc_id=main_vpc.id,
             route=[{
-                "cidrBlock": "0.0.0.0/0",
-                "gatewayId": gw.id,
+                "cidr_block": "0.0.0.0/0",
+                "gateway_id": gw.id,
             }])
         main_route_table_association = aws.ec2.MainRouteTableAssociation("mainRouteTableAssociation",
             vpc_id=main_vpc.id,

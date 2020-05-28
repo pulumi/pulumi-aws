@@ -118,9 +118,9 @@ class Ami(pulumi.CustomResource):
         # already exists with the id "snap-xxxxxxxx".
         example = aws.ec2.Ami("example",
             ebs_block_devices=[{
-                "deviceName": "/dev/xvda",
-                "snapshotId": "snap-xxxxxxxx",
-                "volumeSize": 8,
+                "device_name": "/dev/xvda",
+                "snapshot_id": "snap-xxxxxxxx",
+                "volume_size": 8,
             }],
             root_device_name="/dev/xvda",
             virtualization_type="hvm")

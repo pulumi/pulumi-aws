@@ -17,6 +17,27 @@ namespace Pulumi.Aws.Iam
         /// instance profile properties without having to hard code ARNs as input.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Iam.GetInstanceProfile.InvokeAsync(new Aws.Iam.GetInstanceProfileArgs
+        ///         {
+        ///             Name = "an_example_instance_profile_name",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetInstanceProfileResult> InvokeAsync(GetInstanceProfileArgs args, InvokeOptions? options = null)

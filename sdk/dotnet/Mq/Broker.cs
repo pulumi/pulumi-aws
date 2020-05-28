@@ -26,6 +26,47 @@ namespace Pulumi.Aws.Mq
     /// 
     /// &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
     /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Mq.Broker("example", new Aws.Mq.BrokerArgs
+    ///         {
+    ///             BrokerName = "example",
+    ///             Configuration = new Aws.Mq.Inputs.BrokerConfigurationArgs
+    ///             {
+    ///                 Id = aws_mq_configuration.Test.Id,
+    ///                 Revision = aws_mq_configuration.Test.Latest_revision,
+    ///             },
+    ///             EngineType = "ActiveMQ",
+    ///             EngineVersion = "5.15.0",
+    ///             HostInstanceType = "mq.t2.micro",
+    ///             SecurityGroups = 
+    ///             {
+    ///                 aws_security_group.Test.Id,
+    ///             },
+    ///             Users = 
+    ///             {
+    ///                 new Aws.Mq.Inputs.BrokerUserArgs
+    ///                 {
+    ///                     Password = "MindTheGap",
+    ///                     Username = "ExampleUser",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Broker : Pulumi.CustomResource
     {

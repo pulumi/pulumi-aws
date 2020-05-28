@@ -36,6 +36,92 @@ namespace Pulumi.Aws.Ec2
     /// For more information about Default Security Groups, see the AWS Documentation on
     /// [Default Security Groups][aws-default-security-groups].
     /// 
+    /// ## Basic Example Usage, with default rules
+    /// 
+    /// The following config gives the Default Security Group the same rules that AWS
+    /// provides by default, but pulls the resource under management by this provider. This means that
+    /// any ingress or egress rules added or changed will be detected as drift.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mainvpc = new Aws.Ec2.Vpc("mainvpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///         });
+    ///         var @default = new Aws.Ec2.DefaultSecurityGroup("default", new Aws.Ec2.DefaultSecurityGroupArgs
+    ///         {
+    ///             Egress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.DefaultSecurityGroupEgressArgs
+    ///                 {
+    ///                     CidrBlocks = 
+    ///                     {
+    ///                         "0.0.0.0/0",
+    ///                     },
+    ///                     FromPort = 0,
+    ///                     Protocol = "-1",
+    ///                     ToPort = 0,
+    ///                 },
+    ///             },
+    ///             Ingress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.DefaultSecurityGroupIngressArgs
+    ///                 {
+    ///                     FromPort = 0,
+    ///                     Protocol = -1,
+    ///                     Self = true,
+    ///                     ToPort = 0,
+    ///                 },
+    ///             },
+    ///             VpcId = mainvpc.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Example config to deny all Egress traffic, allowing Ingress
+    /// 
+    /// The following denies all Egress traffic by omitting any `egress` rules, while
+    /// including the default `ingress` rule to allow all traffic.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mainvpc = new Aws.Ec2.Vpc("mainvpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///         });
+    ///         var @default = new Aws.Ec2.DefaultSecurityGroup("default", new Aws.Ec2.DefaultSecurityGroupArgs
+    ///         {
+    ///             Ingress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.DefaultSecurityGroupIngressArgs
+    ///                 {
+    ///                     FromPort = 0,
+    ///                     Protocol = -1,
+    ///                     Self = true,
+    ///                     ToPort = 0,
+    ///                 },
+    ///             },
+    ///             VpcId = mainvpc.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Usage
     /// 
     /// With the exceptions mentioned above, `aws.ec2.DefaultSecurityGroup` should

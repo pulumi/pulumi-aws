@@ -15,6 +15,28 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// Use this data source to get the name of a elastic beanstalk solution stack.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var multiDocker = Output.Create(Aws.ElasticBeanstalk.GetSolutionStack.InvokeAsync(new Aws.ElasticBeanstalk.GetSolutionStackArgs
+        ///         {
+        ///             MostRecent = true,
+        ///             NameRegex = "^64bit Amazon Linux (.*) Multi-container Docker (.*)$$",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSolutionStackResult> InvokeAsync(GetSolutionStackArgs args, InvokeOptions? options = null)

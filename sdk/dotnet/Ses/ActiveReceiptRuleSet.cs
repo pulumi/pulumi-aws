@@ -11,6 +11,27 @@ namespace Pulumi.Aws.Ses
 {
     /// <summary>
     /// Provides a resource to designate the active SES receipt rule set
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var main = new Aws.Ses.ActiveReceiptRuleSet("main", new Aws.Ses.ActiveReceiptRuleSetArgs
+    ///         {
+    ///             RuleSetName = "primary-rules",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ActiveReceiptRuleSet : Pulumi.CustomResource
     {

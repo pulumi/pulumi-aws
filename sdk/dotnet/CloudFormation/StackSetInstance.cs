@@ -15,6 +15,98 @@ namespace Pulumi.Aws.CloudFormation
     /// &gt; **NOTE:** All target accounts must have an IAM Role created that matches the name of the execution role configured in the StackSet (the `execution_role_name` argument in the `aws.cloudformation.StackSet` resource) in a trust relationship with the administrative account or administration IAM Role. The execution role must have appropriate permissions to manage resources defined in the template along with those required for StackSets to operate. See the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html) for more details.
     /// 
     /// &gt; **NOTE:** To retain the Stack during resource destroy, ensure `retain_stack` has been set to `true` in the state first. This must be completed _before_ a deployment that would destroy the resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.CloudFormation.StackSetInstance("example", new Aws.CloudFormation.StackSetInstanceArgs
+    ///         {
+    ///             AccountId = "123456789012",
+    ///             Region = "us-east-1",
+    ///             StackSetName = aws_cloudformation_stack_set.Example.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Example IAM Setup in Target Account
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         {
+    ///             Statements = 
+    ///             {
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 {
+    ///                     Actions = 
+    ///                     {
+    ///                         "sts:AssumeRole",
+    ///                     },
+    ///                     Effect = "Allow",
+    ///                     Principals = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         {
+    ///                             Identifiers = 
+    ///                             {
+    ///                                 aws_iam_role.AWSCloudFormationStackSetAdministrationRole.Arn,
+    ///                             },
+    ///                             Type = "AWS",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }));
+    ///         var aWSCloudFormationStackSetExecutionRole = new Aws.Iam.Role("aWSCloudFormationStackSetExecutionRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.Apply(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy =&gt; aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.Json),
+    ///         });
+    ///         var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         {
+    ///             Statements = 
+    ///             {
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 {
+    ///                     Actions = 
+    ///                     {
+    ///                         "cloudformation:*",
+    ///                         "s3:*",
+    ///                         "sns:*",
+    ///                     },
+    ///                     Effect = "Allow",
+    ///                     Resources = 
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }));
+    ///         var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new Aws.Iam.RolePolicy("aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Policy = aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.Apply(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument =&gt; aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.Json),
+    ///             Role = aWSCloudFormationStackSetExecutionRole.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class StackSetInstance : Pulumi.CustomResource
     {

@@ -11,6 +11,62 @@ namespace Pulumi.Aws.Cognito
 {
     /// <summary>
     /// Provides a Cognito Resource Server.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Create a basic resource server
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var pool = new Aws.Cognito.UserPool("pool", new Aws.Cognito.UserPoolArgs
+    ///         {
+    ///         });
+    ///         var resource = new Aws.Cognito.ResourceServer("resource", new Aws.Cognito.ResourceServerArgs
+    ///         {
+    ///             Identifier = "https://example.com",
+    ///             UserPoolId = pool.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Create a resource server with sample-scope
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var pool = new Aws.Cognito.UserPool("pool", new Aws.Cognito.UserPoolArgs
+    ///         {
+    ///         });
+    ///         var resource = new Aws.Cognito.ResourceServer("resource", new Aws.Cognito.ResourceServerArgs
+    ///         {
+    ///             Identifier = "https://example.com",
+    ///             Scopes = 
+    ///             {
+    ///                 new Aws.Cognito.Inputs.ResourceServerScopeArgs
+    ///                 {
+    ///                     ScopeDescription = "a Sample Scope Description",
+    ///                     ScopeName = "sample-scope",
+    ///                 },
+    ///             },
+    ///             UserPoolId = pool.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ResourceServer : Pulumi.CustomResource
     {

@@ -293,7 +293,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                         "type": "Lambda",
                     }],
                 },
-                "roleArn": firehose_role.arn,
+                "role_arn": firehose_role.arn,
             })
         ```
 
@@ -323,7 +323,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             destination="s3",
             s3_configuration={
                 "bucketArn": bucket.arn,
-                "roleArn": firehose_role.arn,
+                "role_arn": firehose_role.arn,
             })
         ```
 
@@ -348,13 +348,13 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 "dataTableColumns": "test-col",
                 "dataTableName": "test-table",
                 "password": "T3stPass",
-                "roleArn": aws_iam_role["firehose_role"]["arn"],
+                "role_arn": aws_iam_role["firehose_role"]["arn"],
                 "s3BackupConfiguration": {
                     "bucketArn": aws_s3_bucket["bucket"]["arn"],
                     "bufferInterval": 300,
                     "bufferSize": 15,
                     "compressionFormat": "GZIP",
-                    "roleArn": aws_iam_role["firehose_role"]["arn"],
+                    "role_arn": aws_iam_role["firehose_role"]["arn"],
                 },
                 "s3BackupMode": "Enabled",
                 "username": "testuser",
@@ -364,7 +364,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 "bufferInterval": 400,
                 "bufferSize": 10,
                 "compressionFormat": "GZIP",
-                "roleArn": aws_iam_role["firehose_role"]["arn"],
+                "role_arn": aws_iam_role["firehose_role"]["arn"],
             })
         ```
 
@@ -390,7 +390,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                         "type": "Lambda",
                     }],
                 },
-                "roleArn": aws_iam_role["firehose_role"]["arn"],
+                "role_arn": aws_iam_role["firehose_role"]["arn"],
                 "typeName": "test",
             },
             s3_configuration={
@@ -398,7 +398,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 "bufferInterval": 400,
                 "bufferSize": 10,
                 "compressionFormat": "GZIP",
-                "roleArn": aws_iam_role["firehose_role"]["arn"],
+                "role_arn": aws_iam_role["firehose_role"]["arn"],
             })
         ```
 
@@ -415,7 +415,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 "bufferInterval": 400,
                 "bufferSize": 10,
                 "compressionFormat": "GZIP",
-                "roleArn": aws_iam_role["firehose"]["arn"],
+                "role_arn": aws_iam_role["firehose"]["arn"],
             },
             splunk_configuration={
                 "hecAcknowledgmentTimeout": 600,

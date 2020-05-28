@@ -18,6 +18,29 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// `instances` defined in-line. At this time you cannot use an ELB with in-line
     /// instances in conjunction with an ELB Attachment resource. Doing so will cause a
     /// conflict and will overwrite attachments.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new load balancer attachment
+    ///         var baz = new Aws.Elb.Attachment("baz", new Aws.Elb.AttachmentArgs
+    ///         {
+    ///             Elb = aws_elb.Bar.Id,
+    ///             Instance = aws_instance.Foo.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     [Obsolete(@"aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment")]
     public partial class Attachment : Pulumi.CustomResource

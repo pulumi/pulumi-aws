@@ -182,22 +182,22 @@ class SpotFleetRequest(pulumi.CustomResource):
                 {
                     "ami": "ami-1234",
                     "iamInstanceProfileArn": aws_iam_instance_profile["example"]["arn"],
-                    "instanceType": "m4.10xlarge",
-                    "placementTenancy": "dedicated",
-                    "spotPrice": "2.793",
+                    "instance_type": "m4.10xlarge",
+                    "placement_tenancy": "dedicated",
+                    "spot_price": "2.793",
                 },
                 {
                     "ami": "ami-5678",
-                    "availabilityZone": "us-west-1a",
+                    "availability_zone": "us-west-1a",
                     "iamInstanceProfileArn": aws_iam_instance_profile["example"]["arn"],
-                    "instanceType": "m4.4xlarge",
-                    "keyName": "my-key",
-                    "rootBlockDevice": [{
-                        "volumeSize": "300",
+                    "instance_type": "m4.4xlarge",
+                    "key_name": "my-key",
+                    "root_block_device": [{
+                        "volume_size": "300",
                         "volumeType": "gp2",
                     }],
-                    "spotPrice": "1.117",
-                    "subnetId": "subnet-1234",
+                    "spot_price": "1.117",
+                    "subnet_id": "subnet-1234",
                     "tags": {
                         "Name": "spot-fleet-example",
                     },
@@ -244,15 +244,15 @@ class SpotFleetRequest(pulumi.CustomResource):
             launch_specifications=[
                 {
                     "ami": "ami-d06a90b0",
-                    "availabilityZone": "us-west-2a",
-                    "instanceType": "m1.small",
-                    "keyName": "my-key",
+                    "availability_zone": "us-west-2a",
+                    "instance_type": "m1.small",
+                    "key_name": "my-key",
                 },
                 {
                     "ami": "ami-d06a90b0",
-                    "availabilityZone": "us-west-2a",
-                    "instanceType": "m5.large",
-                    "keyName": "my-key",
+                    "availability_zone": "us-west-2a",
+                    "instance_type": "m5.large",
+                    "key_name": "my-key",
                 },
             ],
             spot_price="0.005",
@@ -284,13 +284,13 @@ class SpotFleetRequest(pulumi.CustomResource):
                 },
                 "overrides": [
                     {
-                        "subnetId": data["aws_subnets"]["example"]["ids"],
+                        "subnet_id": data["aws_subnets"]["example"]["ids"],
                     },
                     {
-                        "subnetId": data["aws_subnets"]["example"]["ids"],
+                        "subnet_id": data["aws_subnets"]["example"]["ids"],
                     },
                     {
-                        "subnetId": data["aws_subnets"]["example"]["ids"],
+                        "subnet_id": data["aws_subnets"]["example"]["ids"],
                     },
                 ],
             }])

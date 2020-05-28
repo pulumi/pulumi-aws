@@ -13,6 +13,35 @@ namespace Pulumi.Aws.RedShift
     /// Creates a snapshot copy grant that allows AWS Redshift to encrypt copied snapshots with a customer master key from AWS KMS in a destination region.
     /// 
     /// Note that the grant must exist in the destination region, and not in the region of the cluster.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testSnapshotCopyGrant = new Aws.RedShift.SnapshotCopyGrant("testSnapshotCopyGrant", new Aws.RedShift.SnapshotCopyGrantArgs
+    ///         {
+    ///             SnapshotCopyGrantName = "my-grant",
+    ///         });
+    ///         var testCluster = new Aws.RedShift.Cluster("testCluster", new Aws.RedShift.ClusterArgs
+    ///         {
+    ///             SnapshotCopy = new Aws.RedShift.Inputs.ClusterSnapshotCopyArgs
+    ///             {
+    ///                 DestinationRegion = "us-east-2",
+    ///                 GrantName = testSnapshotCopyGrant.SnapshotCopyGrantName,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SnapshotCopyGrant : Pulumi.CustomResource
     {

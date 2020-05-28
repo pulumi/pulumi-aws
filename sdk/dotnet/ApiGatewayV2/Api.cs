@@ -13,6 +13,47 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// Manages an Amazon API Gateway Version 2 API.
     /// 
     /// &gt; **Note:** Amazon API Gateway Version 2 resources are used for creating and deploying WebSocket and HTTP APIs. To create and deploy REST APIs, use Amazon API Gateway Version 1.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic WebSocket API
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.ApiGatewayV2.Api("example", new Aws.ApiGatewayV2.ApiArgs
+    ///         {
+    ///             ProtocolType = "WEBSOCKET",
+    ///             RouteSelectionExpression = "$$request.body.action",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Basic HTTP API
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.ApiGatewayV2.Api("example", new Aws.ApiGatewayV2.ApiArgs
+    ///         {
+    ///             ProtocolType = "HTTP",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Api : Pulumi.CustomResource
     {

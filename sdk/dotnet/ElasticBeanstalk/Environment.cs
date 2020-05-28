@@ -17,6 +17,31 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// Environments are often things such as `development`, `integration`, or
     /// `production`.
     /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var tftest = new Aws.ElasticBeanstalk.Application("tftest", new Aws.ElasticBeanstalk.ApplicationArgs
+    ///         {
+    ///             Description = "tf-test-desc",
+    ///         });
+    ///         var tfenvtest = new Aws.ElasticBeanstalk.Environment("tfenvtest", new Aws.ElasticBeanstalk.EnvironmentArgs
+    ///         {
+    ///             Application = tftest.Name,
+    ///             SolutionStackName = "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Option Settings
     /// 
@@ -29,6 +54,45 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// * `name` - name of the configuration option
     /// * `value` - value for the configuration option
     /// * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+    /// 
+    /// ### Example With Options
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var tftest = new Aws.ElasticBeanstalk.Application("tftest", new Aws.ElasticBeanstalk.ApplicationArgs
+    ///         {
+    ///             Description = "tf-test-desc",
+    ///         });
+    ///         var tfenvtest = new Aws.ElasticBeanstalk.Environment("tfenvtest", new Aws.ElasticBeanstalk.EnvironmentArgs
+    ///         {
+    ///             Application = tftest.Name,
+    ///             Settings = 
+    ///             {
+    ///                 new Aws.ElasticBeanstalk.Inputs.EnvironmentSettingArgs
+    ///                 {
+    ///                     Name = "VPCId",
+    ///                     Namespace = "aws:ec2:vpc",
+    ///                     Value = "vpc-xxxxxxxx",
+    ///                 },
+    ///                 new Aws.ElasticBeanstalk.Inputs.EnvironmentSettingArgs
+    ///                 {
+    ///                     Name = "Subnets",
+    ///                     Namespace = "aws:ec2:vpc",
+    ///                     Value = "subnet-xxxxxxxx",
+    ///                 },
+    ///             },
+    ///             SolutionStackName = "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Environment : Pulumi.CustomResource
     {

@@ -15,6 +15,27 @@ namespace Pulumi.Aws.Workspaces
         /// Use this data source to get information about a WorkSpaces Bundle.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Workspaces.GetBundle.InvokeAsync(new Aws.Workspaces.GetBundleArgs
+        ///         {
+        ///             BundleId = "wsb-b0s22j3d7",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBundleResult> InvokeAsync(GetBundleArgs args, InvokeOptions? options = null)

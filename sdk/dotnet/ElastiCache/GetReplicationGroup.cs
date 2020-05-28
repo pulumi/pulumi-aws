@@ -15,6 +15,27 @@ namespace Pulumi.Aws.ElastiCache
         /// Use this data source to get information about an Elasticache Replication Group.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var bar = Output.Create(Aws.ElastiCache.GetReplicationGroup.InvokeAsync(new Aws.ElastiCache.GetReplicationGroupArgs
+        ///         {
+        ///             ReplicationGroupId = "example",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetReplicationGroupResult> InvokeAsync(GetReplicationGroupArgs args, InvokeOptions? options = null)

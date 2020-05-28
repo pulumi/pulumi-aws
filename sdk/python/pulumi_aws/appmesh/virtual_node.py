@@ -143,7 +143,7 @@ class VirtualNode(pulumi.CustomResource):
                             "stack": "blue",
                         },
                         "namespaceName": example.name,
-                        "serviceName": "serviceb1",
+                        "service_name": "serviceb1",
                     },
                 },
             })
@@ -164,7 +164,7 @@ class VirtualNode(pulumi.CustomResource):
                     },
                 }],
                 "listener": {
-                    "healthCheck": {
+                    "health_check": {
                         "healthyThreshold": 2,
                         "intervalMillis": 5000,
                         "path": "/ping",

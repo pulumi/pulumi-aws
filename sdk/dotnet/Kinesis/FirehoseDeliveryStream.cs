@@ -13,6 +13,295 @@ namespace Pulumi.Aws.Kinesis
     /// Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 and Amazon Redshift.
     /// 
     /// For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Extended S3 Destination
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         {
+    ///             Acl = "private",
+    ///         });
+    ///         var firehoseRole = new Aws.Iam.Role("firehoseRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""firehose.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///         var lambdaIam = new Aws.Iam.Role("lambdaIam", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""lambda.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///         var lambdaProcessor = new Aws.Lambda.Function("lambdaProcessor", new Aws.Lambda.FunctionArgs
+    ///         {
+    ///             Code = new FileArchive("lambda.zip"),
+    ///             Handler = "exports.handler",
+    ///             Role = lambdaIam.Arn,
+    ///             Runtime = "nodejs8.10",
+    ///         });
+    ///         var extendedS3Stream = new Aws.Kinesis.FirehoseDeliveryStream("extendedS3Stream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+    ///         {
+    ///             Destination = "extended_s3",
+    ///             ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
+    ///             {
+    ///                 BucketArn = bucket.Arn,
+    ///                 ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs
+    ///                 {
+    ///                     Enabled = "true",
+    ///                     Processors = 
+    ///                     {
+    ///                         new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs
+    ///                         {
+    ///                             Parameters = 
+    ///                             {
+    ///                                 new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs
+    ///                                 {
+    ///                                     ParameterName = "LambdaArn",
+    ///                                     ParameterValue = lambdaProcessor.Arn.Apply(arn =&gt; $"{arn}:$$LATEST"),
+    ///                                 },
+    ///                             },
+    ///                             Type = "Lambda",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 RoleArn = firehoseRole.Arn,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### S3 Destination
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         {
+    ///             Acl = "private",
+    ///         });
+    ///         var firehoseRole = new Aws.Iam.Role("firehoseRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""firehose.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///         var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+    ///         {
+    ///             Destination = "s3",
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+    ///             {
+    ///                 BucketArn = bucket.Arn,
+    ///                 RoleArn = firehoseRole.Arn,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Redshift Destination
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testCluster = new Aws.RedShift.Cluster("testCluster", new Aws.RedShift.ClusterArgs
+    ///         {
+    ///             ClusterIdentifier = "tf-redshift-cluster-%d",
+    ///             ClusterType = "single-node",
+    ///             DatabaseName = "test",
+    ///             MasterPassword = "T3stPass",
+    ///             MasterUsername = "testuser",
+    ///             NodeType = "dc1.large",
+    ///         });
+    ///         var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+    ///         {
+    ///             Destination = "redshift",
+    ///             RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
+    ///             {
+    ///                 ClusterJdbcurl = Output.Tuple(testCluster.Endpoint, testCluster.DatabaseName).Apply(values =&gt;
+    ///                 {
+    ///                     var endpoint = values.Item1;
+    ///                     var databaseName = values.Item2;
+    ///                     return $"jdbc:redshift://{endpoint}/{databaseName}";
+    ///                 }),
+    ///                 CopyOptions = "delimiter '|'",
+    ///                 DataTableColumns = "test-col",
+    ///                 DataTableName = "test-table",
+    ///                 Password = "T3stPass",
+    ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
+    ///                 S3BackupConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs
+    ///                 {
+    ///                     BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///                     BufferInterval = 300,
+    ///                     BufferSize = 15,
+    ///                     CompressionFormat = "GZIP",
+    ///                     RoleArn = aws_iam_role.Firehose_role.Arn,
+    ///                 },
+    ///                 S3BackupMode = "Enabled",
+    ///                 Username = "testuser",
+    ///             },
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+    ///             {
+    ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///                 BufferInterval = 400,
+    ///                 BufferSize = 10,
+    ///                 CompressionFormat = "GZIP",
+    ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Elasticsearch Destination
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testCluster = new Aws.ElasticSearch.Domain("testCluster", new Aws.ElasticSearch.DomainArgs
+    ///         {
+    ///         });
+    ///         var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+    ///         {
+    ///             Destination = "elasticsearch",
+    ///             ElasticsearchConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs
+    ///             {
+    ///                 DomainArn = testCluster.Arn,
+    ///                 IndexName = "test",
+    ///                 ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs
+    ///                 {
+    ///                     Enabled = "true",
+    ///                     Processors = 
+    ///                     {
+    ///                         new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs
+    ///                         {
+    ///                             Parameters = 
+    ///                             {
+    ///                                 new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs
+    ///                                 {
+    ///                                     ParameterName = "LambdaArn",
+    ///                                     ParameterValue = $"{aws_lambda_function.Lambda_processor.Arn}:$$LATEST",
+    ///                                 },
+    ///                             },
+    ///                             Type = "Lambda",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
+    ///                 TypeName = "test",
+    ///             },
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+    ///             {
+    ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///                 BufferInterval = 400,
+    ///                 BufferSize = 10,
+    ///                 CompressionFormat = "GZIP",
+    ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Splunk Destination
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+    ///         {
+    ///             Destination = "splunk",
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+    ///             {
+    ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///                 BufferInterval = 400,
+    ///                 BufferSize = 10,
+    ///                 CompressionFormat = "GZIP",
+    ///                 RoleArn = aws_iam_role.Firehose.Arn,
+    ///             },
+    ///             SplunkConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamSplunkConfigurationArgs
+    ///             {
+    ///                 HecAcknowledgmentTimeout = 600,
+    ///                 HecEndpoint = "https://http-inputs-mydomain.splunkcloud.com:443",
+    ///                 HecEndpointType = "Event",
+    ///                 HecToken = "51D4DA16-C61B-4F5F-8EC7-ED4301342A4A",
+    ///                 S3BackupMode = "FailedEventsOnly",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class FirehoseDeliveryStream : Pulumi.CustomResource
     {

@@ -15,6 +15,109 @@ namespace Pulumi.Aws.DirectConnect
     /// To create a cross-account association, create an [`aws.directconnect.GatewayAssociationProposal` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal.html)
     /// in the AWS account that owns the VGW or transit gateway and then accept the proposal in the AWS account that owns the Direct Connect Gateway
     /// by creating an `aws.directconnect.GatewayAssociation` resource with the `proposal_id` and `associated_gateway_owner_account_id` attributes set.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### VPN Gateway Association
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new Aws.DirectConnect.GatewayArgs
+    ///         {
+    ///             AmazonSideAsn = "64512",
+    ///         });
+    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.255.255.0/28",
+    ///         });
+    ///         var exampleVpnGateway = new Aws.Ec2.VpnGateway("exampleVpnGateway", new Aws.Ec2.VpnGatewayArgs
+    ///         {
+    ///             VpcId = exampleVpc.Id,
+    ///         });
+    ///         var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new Aws.DirectConnect.GatewayAssociationArgs
+    ///         {
+    ///             AssociatedGatewayId = exampleVpnGateway.Id,
+    ///             DxGatewayId = exampleGateway.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Transit Gateway Association
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new Aws.DirectConnect.GatewayArgs
+    ///         {
+    ///             AmazonSideAsn = "64512",
+    ///         });
+    ///         var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new Aws.Ec2TransitGateway.TransitGatewayArgs
+    ///         {
+    ///         });
+    ///         var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new Aws.DirectConnect.GatewayAssociationArgs
+    ///         {
+    ///             AllowedPrefixes = 
+    ///             {
+    ///                 "10.255.255.0/30",
+    ///                 "10.255.255.8/30",
+    ///             },
+    ///             AssociatedGatewayId = exampleTransitGateway.Id,
+    ///             DxGatewayId = exampleGateway.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Allowed Prefixes
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new Aws.DirectConnect.GatewayArgs
+    ///         {
+    ///             AmazonSideAsn = "64512",
+    ///         });
+    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.255.255.0/28",
+    ///         });
+    ///         var exampleVpnGateway = new Aws.Ec2.VpnGateway("exampleVpnGateway", new Aws.Ec2.VpnGatewayArgs
+    ///         {
+    ///             VpcId = exampleVpc.Id,
+    ///         });
+    ///         var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new Aws.DirectConnect.GatewayAssociationArgs
+    ///         {
+    ///             AllowedPrefixes = 
+    ///             {
+    ///                 "210.52.109.0/24",
+    ///                 "175.45.176.0/22",
+    ///             },
+    ///             AssociatedGatewayId = exampleVpnGateway.Id,
+    ///             DxGatewayId = exampleGateway.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class GatewayAssociation : Pulumi.CustomResource
     {

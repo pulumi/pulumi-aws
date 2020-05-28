@@ -113,7 +113,7 @@ class ListenerRule(pulumi.CustomResource):
         front_end_listener = aws.lb.Listener("frontEndListener")
         static = aws.lb.ListenerRule("static",
             actions=[{
-                "targetGroupArn": aws_lb_target_group["static"]["arn"],
+                "target_group_arn": aws_lb_target_group["static"]["arn"],
                 "type": "forward",
             }],
             conditions=[
@@ -132,7 +132,7 @@ class ListenerRule(pulumi.CustomResource):
             priority=100)
         host_based_routing = aws.lb.ListenerRule("hostBasedRouting",
             actions=[{
-                "targetGroupArn": aws_lb_target_group["static"]["arn"],
+                "target_group_arn": aws_lb_target_group["static"]["arn"],
                 "type": "forward",
             }],
             conditions=[{
@@ -147,7 +147,7 @@ class ListenerRule(pulumi.CustomResource):
                 "redirect": {
                     "port": "443",
                     "protocol": "HTTPS",
-                    "statusCode": "HTTP_301",
+                    "status_code": "HTTP_301",
                 },
                 "type": "redirect",
             }],
@@ -161,9 +161,9 @@ class ListenerRule(pulumi.CustomResource):
         health_check = aws.lb.ListenerRule("healthCheck",
             actions=[{
                 "fixedResponse": {
-                    "contentType": "text/plain",
+                    "content_type": "text/plain",
                     "messageBody": "HEALTHY",
-                    "statusCode": "200",
+                    "status_code": "200",
                 },
                 "type": "fixed-response",
             }],
@@ -187,8 +187,8 @@ class ListenerRule(pulumi.CustomResource):
                 {
                     "authenticateOidc": {
                         "authorizationEndpoint": "https://example.com/authorization_endpoint",
-                        "clientId": "client_id",
-                        "clientSecret": "client_secret",
+                        "client_id": "client_id",
+                        "client_secret": "client_secret",
                         "issuer": "https://example.com",
                         "tokenEndpoint": "https://example.com/token_endpoint",
                         "userInfoEndpoint": "https://example.com/user_info_endpoint",
@@ -196,7 +196,7 @@ class ListenerRule(pulumi.CustomResource):
                     "type": "authenticate-oidc",
                 },
                 {
-                    "targetGroupArn": aws_lb_target_group["static"]["arn"],
+                    "target_group_arn": aws_lb_target_group["static"]["arn"],
                     "type": "forward",
                 },
             ],

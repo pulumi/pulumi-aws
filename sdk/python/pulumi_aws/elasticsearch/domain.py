@@ -135,11 +135,11 @@ class Domain(pulumi.CustomResource):
 
         example = aws.elasticsearch.Domain("example",
             cluster_config={
-                "clusterConfig": "r4.large.elasticsearch",
+                "cluster_config": "r4.large.elasticsearch",
             },
             elasticsearch_version="1.5",
             snapshot_options={
-                "snapshotOptions": 23,
+                "snapshot_options": 23,
             },
             tags={
                 "Domain": "TestDomain",
@@ -205,7 +205,7 @@ class Domain(pulumi.CustomResource):
         \"\"\",
             policy_name="example")
         example_domain = aws.elasticsearch.Domain("exampleDomain", log_publishing_options=[{
-            "cloudwatchLogGroupArn": example_log_group.arn,
+            "cloudwatch_log_group_arn": example_log_group.arn,
             "logType": "INDEX_SLOW_LOGS",
         }])
         ```
@@ -233,10 +233,10 @@ class Domain(pulumi.CustomResource):
         es_security_group = aws.ec2.SecurityGroup("esSecurityGroup",
             description="Managed by Pulumi",
             ingress=[{
-                "cidrBlocks": [selected_vpc.cidr_block],
-                "fromPort": 443,
+                "cidr_blocks": [selected_vpc.cidr_block],
+                "from_port": 443,
                 "protocol": "tcp",
-                "toPort": 443,
+                "to_port": 443,
             }],
             vpc_id=selected_vpc.id)
         es_service_linked_role = aws.iam.ServiceLinkedRole("esServiceLinkedRole", aws_service_name="es.amazonaws.com")
@@ -258,18 +258,18 @@ class Domain(pulumi.CustomResource):
                 "rest.action.multi.allow_explicit_index": "true",
             },
             cluster_config={
-                "clusterConfig": "m4.large.elasticsearch",
+                "cluster_config": "m4.large.elasticsearch",
             },
             elasticsearch_version="6.3",
             snapshot_options={
-                "snapshotOptions": 23,
+                "snapshot_options": 23,
             },
             tags={
                 "Domain": "TestDomain",
             },
             vpc_options={
-                "securityGroupIds": [es_security_group.id],
-                "subnetIds": [
+                "security_group_ids": [es_security_group.id],
+                "subnet_ids": [
                     selected_subnet_ids.ids[0],
                     selected_subnet_ids.ids[1],
                 ],

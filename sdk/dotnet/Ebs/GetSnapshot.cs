@@ -15,6 +15,50 @@ namespace Pulumi.Aws.Ebs
         /// Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var ebsVolume = Output.Create(Aws.Ebs.GetSnapshot.InvokeAsync(new Aws.Ebs.GetSnapshotArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ebs.Inputs.GetSnapshotFilterArgs
+        ///                 {
+        ///                     Name = "volume-size",
+        ///                     Values = 
+        ///                     {
+        ///                         "40",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Ebs.Inputs.GetSnapshotFilterArgs
+        ///                 {
+        ///                     Name = "tag:Name",
+        ///                     Values = 
+        ///                     {
+        ///                         "Example",
+        ///                     },
+        ///                 },
+        ///             },
+        ///             MostRecent = true,
+        ///             Owners = 
+        ///             {
+        ///                 "self",
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs? args = null, InvokeOptions? options = null)

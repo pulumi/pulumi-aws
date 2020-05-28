@@ -11,6 +11,66 @@ namespace Pulumi.Aws.AppMesh
 {
     /// <summary>
     /// Provides an AWS App Mesh virtual service resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Virtual Node Provider
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var servicea = new Aws.AppMesh.VirtualService("servicea", new Aws.AppMesh.VirtualServiceArgs
+    ///         {
+    ///             MeshName = aws_appmesh_mesh.Simple.Id,
+    ///             Spec = new Aws.AppMesh.Inputs.VirtualServiceSpecArgs
+    ///             {
+    ///                 Provider = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderArgs
+    ///                 {
+    ///                     VirtualNode = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderVirtualNodeArgs
+    ///                     {
+    ///                         VirtualNodeName = aws_appmesh_virtual_node.Serviceb1.Name,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Virtual Router Provider
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var servicea = new Aws.AppMesh.VirtualService("servicea", new Aws.AppMesh.VirtualServiceArgs
+    ///         {
+    ///             MeshName = aws_appmesh_mesh.Simple.Id,
+    ///             Spec = new Aws.AppMesh.Inputs.VirtualServiceSpecArgs
+    ///             {
+    ///                 Provider = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderArgs
+    ///                 {
+    ///                     VirtualRouter = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderVirtualRouterArgs
+    ///                     {
+    ///                         VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VirtualService : Pulumi.CustomResource
     {

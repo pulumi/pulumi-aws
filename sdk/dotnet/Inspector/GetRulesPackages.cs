@@ -17,6 +17,42 @@ namespace Pulumi.Aws.Inspector
         /// configured in the provider.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var rules = Output.Create(Aws.Inspector.GetRulesPackages.InvokeAsync());
+        ///         // e.g. Use in aws.inspector.AssessmentTemplate
+        ///         var @group = new Aws.Inspector.ResourceGroup("group", new Aws.Inspector.ResourceGroupArgs
+        ///         {
+        ///             Tags = 
+        ///             {
+        ///                 { "test", "test" },
+        ///             },
+        ///         });
+        ///         var assessmentAssessmentTarget = new Aws.Inspector.AssessmentTarget("assessmentAssessmentTarget", new Aws.Inspector.AssessmentTargetArgs
+        ///         {
+        ///             ResourceGroupArn = @group.Arn,
+        ///         });
+        ///         var assessmentAssessmentTemplate = new Aws.Inspector.AssessmentTemplate("assessmentAssessmentTemplate", new Aws.Inspector.AssessmentTemplateArgs
+        ///         {
+        ///             Duration = "60",
+        ///             RulesPackageArns = rules.Apply(rules =&gt; rules.Arns),
+        ///             TargetArn = assessmentAssessmentTarget.Arn,
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRulesPackagesResult> InvokeAsync(InvokeOptions? options = null)

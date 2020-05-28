@@ -12,6 +12,144 @@ namespace Pulumi.Aws.Lambda
     /// <summary>
     /// Creates a Lambda permission to allow external sources invoking the Lambda function
     /// (e.g. CloudWatch Event Rule, SNS or S3).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var iamForLambda = new Aws.Iam.Role("iamForLambda", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""lambda.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///         var testLambda = new Aws.Lambda.Function("testLambda", new Aws.Lambda.FunctionArgs
+    ///         {
+    ///             Code = new FileArchive("lambdatest.zip"),
+    ///             Handler = "exports.handler",
+    ///             Role = iamForLambda.Arn,
+    ///             Runtime = "nodejs8.10",
+    ///         });
+    ///         var testAlias = new Aws.Lambda.Alias("testAlias", new Aws.Lambda.AliasArgs
+    ///         {
+    ///             Description = "a sample description",
+    ///             FunctionName = testLambda.Name,
+    ///             FunctionVersion = "$$LATEST",
+    ///         });
+    ///         var allowCloudwatch = new Aws.Lambda.Permission("allowCloudwatch", new Aws.Lambda.PermissionArgs
+    ///         {
+    ///             Action = "lambda:InvokeFunction",
+    ///             Function = testLambda.Name,
+    ///             Principal = "events.amazonaws.com",
+    ///             Qualifier = testAlias.Name,
+    ///             SourceArn = "arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Usage with SNS
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var defaultTopic = new Aws.Sns.Topic("defaultTopic", new Aws.Sns.TopicArgs
+    ///         {
+    ///         });
+    ///         var defaultRole = new Aws.Iam.Role("defaultRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""lambda.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///         var func = new Aws.Lambda.Function("func", new Aws.Lambda.FunctionArgs
+    ///         {
+    ///             Code = new FileArchive("lambdatest.zip"),
+    ///             Handler = "exports.handler",
+    ///             Role = defaultRole.Arn,
+    ///             Runtime = "python2.7",
+    ///         });
+    ///         var withSns = new Aws.Lambda.Permission("withSns", new Aws.Lambda.PermissionArgs
+    ///         {
+    ///             Action = "lambda:InvokeFunction",
+    ///             Function = func.Name,
+    ///             Principal = "sns.amazonaws.com",
+    ///             SourceArn = defaultTopic.Arn,
+    ///         });
+    ///         var lambda = new Aws.Sns.TopicSubscription("lambda", new Aws.Sns.TopicSubscriptionArgs
+    ///         {
+    ///             Endpoint = func.Arn,
+    ///             Protocol = "lambda",
+    ///             Topic = defaultTopic.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Specify Lambda permissions for API Gateway REST API
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new Aws.ApiGateway.RestApiArgs
+    ///         {
+    ///             Description = "This is my API for demonstration purposes",
+    ///         });
+    ///         var lambdaPermission = new Aws.Lambda.Permission("lambdaPermission", new Aws.Lambda.PermissionArgs
+    ///         {
+    ///             Action = "lambda:InvokeFunction",
+    ///             Function = "MyDemoFunction",
+    ///             Principal = "apigateway.amazonaws.com",
+    ///             SourceArn = myDemoAPI.ExecutionArn.Apply(executionArn =&gt; $"{executionArn}/*/*/*"),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Permission : Pulumi.CustomResource
     {

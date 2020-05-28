@@ -61,7 +61,7 @@ class EventDestination(pulumi.CustomResource):
 
         cloudwatch = aws.ses.EventDestination("cloudwatch",
             cloudwatch_destinations=[{
-                "defaultValue": "default",
+                "default_value": "default",
                 "dimensionName": "dimension",
                 "valueSource": "emailHeader",
             }],
@@ -83,8 +83,8 @@ class EventDestination(pulumi.CustomResource):
             configuration_set_name=aws_ses_configuration_set["example"]["name"],
             enabled=True,
             kinesis_destination={
-                "roleArn": aws_iam_role["example"]["arn"],
-                "streamArn": aws_kinesis_firehose_delivery_stream["example"]["arn"],
+                "role_arn": aws_iam_role["example"]["arn"],
+                "stream_arn": aws_kinesis_firehose_delivery_stream["example"]["arn"],
             },
             matching_types=[
                 "bounce",
@@ -106,7 +106,7 @@ class EventDestination(pulumi.CustomResource):
                 "send",
             ],
             sns_destination={
-                "topicArn": aws_sns_topic["example"]["arn"],
+                "topic_arn": aws_sns_topic["example"]["arn"],
             })
         ```
 

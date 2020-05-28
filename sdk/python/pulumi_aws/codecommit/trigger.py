@@ -32,7 +32,7 @@ class Trigger(pulumi.CustomResource):
         test_trigger = aws.codecommit.Trigger("testTrigger",
             repository_name=test_repository.repository_name,
             triggers=[{
-                "destinationArn": aws_sns_topic["test"]["arn"],
+                "destination_arn": aws_sns_topic["test"]["arn"],
                 "events": ["all"],
                 "name": "all",
             }])

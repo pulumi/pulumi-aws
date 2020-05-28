@@ -90,7 +90,7 @@ class WebAcl(pulumi.CustomResource):
                     "type": "BLOCK",
                 },
                 "priority": 1,
-                "ruleId": wafrule.id,
+                "rule_id": wafrule.id,
                 "type": "REGULAR",
             }])
         ```
@@ -102,7 +102,7 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.waf.WebAcl("example", logging_configuration={
-            "logDestination": aws_kinesis_firehose_delivery_stream["example"]["arn"],
+            "log_destination": aws_kinesis_firehose_delivery_stream["example"]["arn"],
             "redactedFields": {
                 "fieldToMatch": [
                     {

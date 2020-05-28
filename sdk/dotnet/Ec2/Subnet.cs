@@ -13,6 +13,57 @@ namespace Pulumi.Aws.Ec2
     /// Provides an VPC subnet resource.
     /// 
     /// &gt; **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), subnets associated with Lambda Functions can take up to 45 minutes to successfully delete.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var main = new Aws.Ec2.Subnet("main", new Aws.Ec2.SubnetArgs
+    ///         {
+    ///             CidrBlock = "10.0.1.0/24",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "Main" },
+    ///             },
+    ///             VpcId = aws_vpc.Main.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Subnets In Secondary VPC CIDR Blocks
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var secondaryCidr = new Aws.Ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", new Aws.Ec2.VpcIpv4CidrBlockAssociationArgs
+    ///         {
+    ///             CidrBlock = "172.2.0.0/16",
+    ///             VpcId = aws_vpc.Main.Id,
+    ///         });
+    ///         var inSecondaryCidr = new Aws.Ec2.Subnet("inSecondaryCidr", new Aws.Ec2.SubnetArgs
+    ///         {
+    ///             CidrBlock = "172.2.0.0/24",
+    ///             VpcId = secondaryCidr.VpcId,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Subnet : Pulumi.CustomResource
     {

@@ -11,6 +11,35 @@ namespace Pulumi.Aws.Neptune
 {
     /// <summary>
     /// Provides an Neptune subnet group resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Neptune.SubnetGroup("default", new Aws.Neptune.SubnetGroupArgs
+    ///         {
+    ///             SubnetIds = 
+    ///             {
+    ///                 aws_subnet.Frontend.Id,
+    ///                 aws_subnet.Backend.Id,
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "My neptune subnet group" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SubnetGroup : Pulumi.CustomResource
     {

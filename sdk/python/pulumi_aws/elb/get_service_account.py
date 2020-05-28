@@ -82,9 +82,9 @@ def get_service_account(region=None,opts=None):
         },
         availability_zones=["us-west-2a"],
         listeners=[{
-            "instancePort": 8000,
+            "instance_port": 8000,
             "instanceProtocol": "http",
-            "lbPort": 80,
+            "lb_port": 80,
             "lbProtocol": "http",
         }])
     ```

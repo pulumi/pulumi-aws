@@ -17,6 +17,74 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **Note:** The CIDR blocks in the arguments `tunnel1_inside_cidr` and `tunnel2_inside_cidr` must have a prefix of /30 and be a part of a specific range.
     /// [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### EC2 Transit Gateway
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new Aws.Ec2TransitGateway.TransitGatewayArgs
+    ///         {
+    ///         });
+    ///         var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new Aws.Ec2.CustomerGatewayArgs
+    ///         {
+    ///             BgpAsn = 65000,
+    ///             IpAddress = "172.0.0.1",
+    ///             Type = "ipsec.1",
+    ///         });
+    ///         var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new Aws.Ec2.VpnConnectionArgs
+    ///         {
+    ///             CustomerGatewayId = exampleCustomerGateway.Id,
+    ///             TransitGatewayId = exampleTransitGateway.Id,
+    ///             Type = exampleCustomerGateway.Type,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Virtual Private Gateway
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var vpc = new Aws.Ec2.Vpc("vpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.0.0.0/16",
+    ///         });
+    ///         var vpnGateway = new Aws.Ec2.VpnGateway("vpnGateway", new Aws.Ec2.VpnGatewayArgs
+    ///         {
+    ///             VpcId = vpc.Id,
+    ///         });
+    ///         var customerGateway = new Aws.Ec2.CustomerGateway("customerGateway", new Aws.Ec2.CustomerGatewayArgs
+    ///         {
+    ///             BgpAsn = 65000,
+    ///             IpAddress = "172.0.0.1",
+    ///             Type = "ipsec.1",
+    ///         });
+    ///         var main = new Aws.Ec2.VpnConnection("main", new Aws.Ec2.VpnConnectionArgs
+    ///         {
+    ///             CustomerGatewayId = customerGateway.Id,
+    ///             StaticRoutesOnly = true,
+    ///             Type = "ipsec.1",
+    ///             VpnGatewayId = vpnGateway.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VpnConnection : Pulumi.CustomResource
     {

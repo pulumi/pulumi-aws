@@ -13,6 +13,38 @@ namespace Pulumi.Aws.LightSail
     /// Provides a static IP address attachment - relationship between a Lightsail static IP &amp; Lightsail instance.
     /// 
     /// &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testStaticIp = new Aws.LightSail.StaticIp("testStaticIp", new Aws.LightSail.StaticIpArgs
+    ///         {
+    ///         });
+    ///         var testInstance = new Aws.LightSail.Instance("testInstance", new Aws.LightSail.InstanceArgs
+    ///         {
+    ///             AvailabilityZone = "us-east-1b",
+    ///             BlueprintId = "string",
+    ///             BundleId = "string",
+    ///             KeyPairName = "some_key_name",
+    ///         });
+    ///         var testStaticIpAttachment = new Aws.LightSail.StaticIpAttachment("testStaticIpAttachment", new Aws.LightSail.StaticIpAttachmentArgs
+    ///         {
+    ///             InstanceName = testInstance.Id,
+    ///             StaticIpName = testStaticIp.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class StaticIpAttachment : Pulumi.CustomResource
     {

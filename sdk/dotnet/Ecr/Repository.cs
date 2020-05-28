@@ -11,6 +11,31 @@ namespace Pulumi.Aws.Ecr
 {
     /// <summary>
     /// Provides an Elastic Container Registry Repository.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Ecr.Repository("foo", new Aws.Ecr.RepositoryArgs
+    ///         {
+    ///             ImageScanningConfiguration = new Aws.Ecr.Inputs.RepositoryImageScanningConfigurationArgs
+    ///             {
+    ///                 ScanOnPush = true,
+    ///             },
+    ///             ImageTagMutability = "MUTABLE",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Repository : Pulumi.CustomResource
     {

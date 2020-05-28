@@ -14,6 +14,47 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// You can simply add neptune instances and Neptune manages the replication. You can use the [count](https://www.terraform.io/docs/configuration/resources.html#count)
     /// meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instance_class` sizes.
+    /// 
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Neptune.Cluster("default", new Aws.Neptune.ClusterArgs
+    ///         {
+    ///             ApplyImmediately = true,
+    ///             BackupRetentionPeriod = 5,
+    ///             ClusterIdentifier = "neptune-cluster-demo",
+    ///             Engine = "neptune",
+    ///             IamDatabaseAuthenticationEnabled = true,
+    ///             PreferredBackupWindow = "07:00-09:00",
+    ///             SkipFinalSnapshot = true,
+    ///         });
+    ///         var example = new List&lt;Aws.Neptune.ClusterInstance&gt;();
+    ///         for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
+    ///         {
+    ///             var range = new { Value = rangeIndex };
+    ///             example.Add(new Aws.Neptune.ClusterInstance($"example-{range.Value}", new Aws.Neptune.ClusterInstanceArgs
+    ///             {
+    ///                 ApplyImmediately = true,
+    ///                 ClusterIdentifier = @default.Id,
+    ///                 Engine = "neptune",
+    ///                 InstanceClass = "db.r4.large",
+    ///             }));
+    ///         }
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ClusterInstance : Pulumi.CustomResource
     {

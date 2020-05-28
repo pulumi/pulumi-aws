@@ -13,6 +13,27 @@ namespace Pulumi.Aws.Kms
     /// Manages a KMS Customer Master Key that uses external key material. To instead manage a KMS Customer Master Key where AWS automatically generates and potentially rotates key material, see the [`aws.kms.Key` resource](https://www.terraform.io/docs/providers/aws/r/kms_key.html).
     /// 
     /// &gt; **Note:** All arguments including the key material will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Kms.ExternalKey("example", new Aws.Kms.ExternalKeyArgs
+    ///         {
+    ///             Description = "KMS EXTERNAL for AMI encryption",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ExternalKey : Pulumi.CustomResource
     {

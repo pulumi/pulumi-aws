@@ -11,6 +11,27 @@ namespace Pulumi.Aws.Iam
 {
     /// <summary>
     /// Provides an [IAM service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var elasticbeanstalk = new Aws.Iam.ServiceLinkedRole("elasticbeanstalk", new Aws.Iam.ServiceLinkedRoleArgs
+    ///         {
+    ///             AwsServiceName = "elasticbeanstalk.amazonaws.com",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ServiceLinkedRole : Pulumi.CustomResource
     {

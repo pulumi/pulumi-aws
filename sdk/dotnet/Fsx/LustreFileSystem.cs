@@ -11,6 +11,29 @@ namespace Pulumi.Aws.Fsx
 {
     /// <summary>
     /// Manages a FSx Lustre File System. See the [FSx Lustre Guide](https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html) for more information.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Fsx.LustreFileSystem("example", new Aws.Fsx.LustreFileSystemArgs
+    ///         {
+    ///             ImportPath = $"s3://{aws_s3_bucket.Example.Bucket}",
+    ///             StorageCapacity = 1200,
+    ///             SubnetIds = aws_subnet.Example.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class LustreFileSystem : Pulumi.CustomResource
     {

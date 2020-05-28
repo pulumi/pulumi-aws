@@ -11,6 +11,37 @@ namespace Pulumi.Aws.Ssm
 {
     /// <summary>
     /// Associates an SSM Document to an instance or EC2 tag.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ssm.Association("example", new Aws.Ssm.AssociationArgs
+    ///         {
+    ///             Targets = 
+    ///             {
+    ///                 new Aws.Ssm.Inputs.AssociationTargetArgs
+    ///                 {
+    ///                     Key = "InstanceIds",
+    ///                     Values = 
+    ///                     {
+    ///                         aws_instance.Example.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Association : Pulumi.CustomResource
     {

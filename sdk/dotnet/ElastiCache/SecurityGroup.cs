@@ -16,6 +16,33 @@ namespace Pulumi.Aws.ElastiCache
     /// &gt; **NOTE:** ElastiCache Security Groups are for use only when working with an
     /// ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
     /// ElastiCache Subnet Group resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var barSecurityGroup = new Aws.Ec2.SecurityGroup("barSecurityGroup", new Aws.Ec2.SecurityGroupArgs
+    ///         {
+    ///         });
+    ///         var barElasticache_securityGroupSecurityGroup = new Aws.ElastiCache.SecurityGroup("barElasticache/securityGroupSecurityGroup", new Aws.ElastiCache.SecurityGroupArgs
+    ///         {
+    ///             SecurityGroupNames = 
+    ///             {
+    ///                 barSecurityGroup.Name,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SecurityGroup : Pulumi.CustomResource
     {

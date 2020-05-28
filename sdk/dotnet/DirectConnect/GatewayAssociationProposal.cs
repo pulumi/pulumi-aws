@@ -11,6 +11,29 @@ namespace Pulumi.Aws.DirectConnect
 {
     /// <summary>
     /// Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the [`aws.directconnect.GatewayAssociation` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.DirectConnect.GatewayAssociationProposal("example", new Aws.DirectConnect.GatewayAssociationProposalArgs
+    ///         {
+    ///             AssociatedGatewayId = aws_vpn_gateway.Example.Id,
+    ///             DxGatewayId = aws_dx_gateway.Example.Id,
+    ///             DxGatewayOwnerAccountId = aws_dx_gateway.Example.Owner_account_id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class GatewayAssociationProposal : Pulumi.CustomResource
     {

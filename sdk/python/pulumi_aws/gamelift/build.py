@@ -55,7 +55,7 @@ class Build(pulumi.CustomResource):
             storage_location={
                 "bucket": aws_s3_bucket["test"]["bucket"],
                 "key": aws_s3_bucket_object["test"]["key"],
-                "roleArn": aws_iam_role["test"]["arn"],
+                "role_arn": aws_iam_role["test"]["arn"],
             })
         ```
 

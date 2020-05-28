@@ -11,6 +11,27 @@ namespace Pulumi.Aws.ApiGateway
 {
     /// <summary>
     /// Provides an API Gateway Client Certificate.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var demo = new Aws.ApiGateway.ClientCertificate("demo", new Aws.ApiGateway.ClientCertificateArgs
+    ///         {
+    ///             Description = "My client certificate",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ClientCertificate : Pulumi.CustomResource
     {

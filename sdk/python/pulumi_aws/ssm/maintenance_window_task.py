@@ -129,7 +129,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             task_arn="AWS-RestartEC2Instance",
             task_invocation_parameters={
                 "automationParameters": {
-                    "documentVersion": "$$LATEST",
+                    "document_version": "$$LATEST",
                     "parameter": [{
                         "name": "InstanceId",
                         "values": [aws_instance["example"]["id"]],
@@ -161,7 +161,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                     "notificationConfig": {
                         "notificationArn": aws_sns_topic["example"]["arn"],
                         "notificationEvents": ["All"],
-                        "notificationType": "Command",
+                        "notification_type": "Command",
                     },
                     "outputS3Bucket": aws_s3_bucket["example"]["bucket"],
                     "outputS3KeyPrefix": "output",
@@ -169,7 +169,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                         "name": "commands",
                         "values": ["date"],
                     }],
-                    "serviceRoleArn": aws_iam_role["example"]["arn"],
+                    "service_role_arn": aws_iam_role["example"]["arn"],
                     "timeoutSeconds": 600,
                 },
             },

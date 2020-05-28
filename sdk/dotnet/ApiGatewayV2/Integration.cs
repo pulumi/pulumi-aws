@@ -12,6 +12,61 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// <summary>
     /// Manages an Amazon API Gateway Version 2 integration.
     /// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.ApiGatewayV2.Integration("example", new Aws.ApiGatewayV2.IntegrationArgs
+    ///         {
+    ///             ApiId = aws_apigatewayv2_api.Example.Id,
+    ///             IntegrationType = "MOCK",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Lambda Integration
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleFunction = new Aws.Lambda.Function("exampleFunction", new Aws.Lambda.FunctionArgs
+    ///         {
+    ///             Code = new FileArchive("example.zip"),
+    ///             Handler = "index.handler",
+    ///             Role = aws_iam_role.Example.Arn,
+    ///             Runtime = "nodejs10.x",
+    ///         });
+    ///         var exampleIntegration = new Aws.ApiGatewayV2.Integration("exampleIntegration", new Aws.ApiGatewayV2.IntegrationArgs
+    ///         {
+    ///             ApiId = aws_apigatewayv2_api.Example.Id,
+    ///             ConnectionType = "INTERNET",
+    ///             ContentHandlingStrategy = "CONVERT_TO_TEXT",
+    ///             Description = "Lambda example",
+    ///             IntegrationMethod = "POST",
+    ///             IntegrationType = "AWS",
+    ///             IntegrationUri = exampleFunction.InvokeArn,
+    ///             PassthroughBehavior = "WHEN_NO_MATCH",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Integration : Pulumi.CustomResource
     {

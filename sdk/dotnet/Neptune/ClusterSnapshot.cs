@@ -11,6 +11,28 @@ namespace Pulumi.Aws.Neptune
 {
     /// <summary>
     /// Manages a Neptune database cluster snapshot.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Neptune.ClusterSnapshot("example", new Aws.Neptune.ClusterSnapshotArgs
+    ///         {
+    ///             DbClusterIdentifier = aws_neptune_cluster.Example.Id,
+    ///             DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ClusterSnapshot : Pulumi.CustomResource
     {

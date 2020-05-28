@@ -15,6 +15,90 @@ namespace Pulumi.Aws.Ecr
     /// &gt; **NOTE:** Only one `aws.ecr.LifecyclePolicy` resource can be used with the same ECR repository. To apply multiple rules, they must be combined in the `policy` JSON.
     /// 
     /// &gt; **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Policy on untagged image
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Ecr.Repository("foo", new Aws.Ecr.RepositoryArgs
+    ///         {
+    ///         });
+    ///         var foopolicy = new Aws.Ecr.LifecyclePolicy("foopolicy", new Aws.Ecr.LifecyclePolicyArgs
+    ///         {
+    ///             Policy = @"{
+    ///     ""rules"": [
+    ///         {
+    ///             ""rulePriority"": 1,
+    ///             ""description"": ""Expire images older than 14 days"",
+    ///             ""selection"": {
+    ///                 ""tagStatus"": ""untagged"",
+    ///                 ""countType"": ""sinceImagePushed"",
+    ///                 ""countUnit"": ""days"",
+    ///                 ""countNumber"": 14
+    ///             },
+    ///             ""action"": {
+    ///                 ""type"": ""expire""
+    ///             }
+    ///         }
+    ///     ]
+    /// }
+    /// 
+    /// ",
+    ///             Repository = foo.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Policy on tagged image
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Ecr.Repository("foo", new Aws.Ecr.RepositoryArgs
+    ///         {
+    ///         });
+    ///         var foopolicy = new Aws.Ecr.LifecyclePolicy("foopolicy", new Aws.Ecr.LifecyclePolicyArgs
+    ///         {
+    ///             Policy = @"{
+    ///     ""rules"": [
+    ///         {
+    ///             ""rulePriority"": 1,
+    ///             ""description"": ""Keep last 30 images"",
+    ///             ""selection"": {
+    ///                 ""tagStatus"": ""tagged"",
+    ///                 ""tagPrefixList"": [""v""],
+    ///                 ""countType"": ""imageCountMoreThan"",
+    ///                 ""countNumber"": 30
+    ///             },
+    ///             ""action"": {
+    ///                 ""type"": ""expire""
+    ///             }
+    ///         }
+    ///     ]
+    /// }
+    /// 
+    /// ",
+    ///             Repository = foo.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class LifecyclePolicy : Pulumi.CustomResource
     {

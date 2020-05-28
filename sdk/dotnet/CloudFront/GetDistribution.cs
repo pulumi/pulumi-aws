@@ -15,6 +15,27 @@ namespace Pulumi.Aws.CloudFront
         /// Use this data source to retrieve information about a CloudFront distribution.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.CloudFront.GetDistribution.InvokeAsync(new Aws.CloudFront.GetDistributionArgs
+        ///         {
+        ///             Id = "EDFDVBD632BHDS5",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDistributionResult> InvokeAsync(GetDistributionArgs args, InvokeOptions? options = null)

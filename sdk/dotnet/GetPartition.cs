@@ -15,6 +15,42 @@ namespace Pulumi.Aws
         /// Use this data source to lookup current AWS partition in which this provider is working
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Aws.GetPartition.InvokeAsync());
+        ///         var s3Policy = current.Apply(current =&gt; Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///         {
+        ///             Statements = 
+        ///             {
+        ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+        ///                 {
+        ///                     Actions = 
+        ///                     {
+        ///                         "s3:ListBucket",
+        ///                     },
+        ///                     Resources = 
+        ///                     {
+        ///                         $"arn:{current.Partition}:s3:::my-bucket",
+        ///                     },
+        ///                     Sid = "1",
+        ///                 },
+        ///             },
+        ///         })));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPartitionResult> InvokeAsync(InvokeOptions? options = null)

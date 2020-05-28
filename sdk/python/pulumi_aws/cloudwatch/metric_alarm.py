@@ -200,7 +200,7 @@ class MetricAlarm(pulumi.CustomResource):
                         "dimensions": {
                             "LoadBalancer": "app/web",
                         },
-                        "metricName": "RequestCount",
+                        "metric_name": "RequestCount",
                         "namespace": "AWS/ApplicationELB",
                         "period": "120",
                         "stat": "Sum",
@@ -213,7 +213,7 @@ class MetricAlarm(pulumi.CustomResource):
                         "dimensions": {
                             "LoadBalancer": "app/web",
                         },
-                        "metricName": "HTTPCode_ELB_5XX_Count",
+                        "metric_name": "HTTPCode_ELB_5XX_Count",
                         "namespace": "AWS/ApplicationELB",
                         "period": "120",
                         "stat": "Sum",
@@ -246,7 +246,7 @@ class MetricAlarm(pulumi.CustomResource):
                         "dimensions": {
                             "InstanceId": "i-abc123",
                         },
-                        "metricName": "CPUUtilization",
+                        "metric_name": "CPUUtilization",
                         "namespace": "AWS/EC2",
                         "period": "120",
                         "stat": "Average",

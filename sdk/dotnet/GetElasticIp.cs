@@ -15,6 +15,105 @@ namespace Pulumi.Aws
         /// `aws.ec2.Eip` provides details about a specific Elastic IP.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// 
+        /// {{% example %}}
+        /// ### Search By Allocation ID (VPC only)
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var byAllocationId = Output.Create(Aws.GetElasticIp.InvokeAsync(new Aws.GetElasticIpArgs
+        ///         {
+        ///             Id = "eipalloc-12345678",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Search By Filters (EC2-Classic or VPC)
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var byFilter = Output.Create(Aws.GetElasticIp.InvokeAsync(new Aws.GetElasticIpArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Inputs.GetElasticIpFilterArgs
+        ///                 {
+        ///                     Name = "tag:Name",
+        ///                     Values = 
+        ///                     {
+        ///                         "exampleNameTagValue",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Search By Public IP (EC2-Classic or VPC)
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var byPublicIp = Output.Create(Aws.GetElasticIp.InvokeAsync(new Aws.GetElasticIpArgs
+        ///         {
+        ///             PublicIp = "1.2.3.4",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Search By Tags (EC2-Classic or VPC)
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var byTags = Output.Create(Aws.GetElasticIp.InvokeAsync(new Aws.GetElasticIpArgs
+        ///         {
+        ///             Tags = 
+        ///             {
+        ///                 { "Name", "exampleNameTagValue" },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetElasticIpResult> InvokeAsync(GetElasticIpArgs? args = null, InvokeOptions? options = null)

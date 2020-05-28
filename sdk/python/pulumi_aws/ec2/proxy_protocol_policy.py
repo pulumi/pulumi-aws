@@ -36,15 +36,15 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
             availability_zones=["us-east-1a"],
             listeners=[
                 {
-                    "instancePort": 25,
+                    "instance_port": 25,
                     "instanceProtocol": "tcp",
-                    "lbPort": 25,
+                    "lb_port": 25,
                     "lbProtocol": "tcp",
                 },
                 {
-                    "instancePort": 587,
+                    "instance_port": 587,
                     "instanceProtocol": "tcp",
-                    "lbPort": 587,
+                    "lb_port": 587,
                     "lbProtocol": "tcp",
                 },
             ])

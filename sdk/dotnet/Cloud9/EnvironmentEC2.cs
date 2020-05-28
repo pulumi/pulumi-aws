@@ -11,6 +11,27 @@ namespace Pulumi.Aws.Cloud9
 {
     /// <summary>
     /// Provides a Cloud9 EC2 Development Environment.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Cloud9.EnvironmentEC2("example", new Aws.Cloud9.EnvironmentEC2Args
+    ///         {
+    ///             InstanceType = "t2.micro",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class EnvironmentEC2 : Pulumi.CustomResource
     {

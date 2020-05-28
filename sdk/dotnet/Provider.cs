@@ -104,7 +104,7 @@ namespace Pulumi.Aws
         /// <summary>
         /// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
         /// </summary>
-        [Input("region", json: true)]
+        [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>

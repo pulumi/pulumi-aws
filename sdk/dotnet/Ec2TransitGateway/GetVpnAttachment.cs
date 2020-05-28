@@ -15,6 +15,61 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Get information on an EC2 Transit Gateway VPN Attachment.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// 
+        /// {{% example %}}
+        /// ### By Transit Gateway and VPN Connection Identifiers
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetVpnAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetVpnAttachmentArgs
+        ///         {
+        ///             TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
+        ///             VpnConnectionId = aws_vpn_connection.Example.Id,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Filter
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.Ec2TransitGateway.GetVpnAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetVpnAttachmentArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2TransitGateway.Inputs.GetVpnAttachmentFilterArgs
+        ///                 {
+        ///                     Name = "resource-id",
+        ///                     Values = 
+        ///                     {
+        ///                         "some-resource",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpnAttachmentResult> InvokeAsync(GetVpnAttachmentArgs? args = null, InvokeOptions? options = null)

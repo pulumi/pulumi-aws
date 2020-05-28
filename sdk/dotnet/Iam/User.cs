@@ -13,6 +13,53 @@ namespace Pulumi.Aws.Iam
     /// Provides an IAM user.
     /// 
     /// &gt; *NOTE:* If policies are attached to the user via the [`aws.iam.PolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html) and you are modifying the user `name` or `path`, the `force_destroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The [`aws.iam.UserPolicyAttachment` resource (recommended)](https://www.terraform.io/docs/providers/aws/r/iam_user_policy_attachment.html) does not have this requirement.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var lbUser = new Aws.Iam.User("lbUser", new Aws.Iam.UserArgs
+    ///         {
+    ///             Path = "/system/",
+    ///             Tags = 
+    ///             {
+    ///                 { "tag-key", "tag-value" },
+    ///             },
+    ///         });
+    ///         var lbAccessKey = new Aws.Iam.AccessKey("lbAccessKey", new Aws.Iam.AccessKeyArgs
+    ///         {
+    ///             User = lbUser.Name,
+    ///         });
+    ///         var lbRo = new Aws.Iam.UserPolicy("lbRo", new Aws.Iam.UserPolicyArgs
+    ///         {
+    ///             Policy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": [
+    ///         ""ec2:Describe*""
+    ///       ],
+    ///       ""Effect"": ""Allow"",
+    ///       ""Resource"": ""*""
+    ///     }
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///             User = lbUser.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class User : Pulumi.CustomResource
     {

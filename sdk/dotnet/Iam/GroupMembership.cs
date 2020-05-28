@@ -18,6 +18,41 @@ namespace Pulumi.Aws.Iam
     /// 
     /// &gt; **Note:** `aws.iam.GroupMembership` will conflict with itself if used more than once with the same group. To non-exclusively manage the users in a group, see the
     /// [`aws.iam.UserGroupMembership` resource][3].
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @group = new Aws.Iam.Group("group", new Aws.Iam.GroupArgs
+    ///         {
+    ///         });
+    ///         var userOne = new Aws.Iam.User("userOne", new Aws.Iam.UserArgs
+    ///         {
+    ///         });
+    ///         var userTwo = new Aws.Iam.User("userTwo", new Aws.Iam.UserArgs
+    ///         {
+    ///         });
+    ///         var team = new Aws.Iam.GroupMembership("team", new Aws.Iam.GroupMembershipArgs
+    ///         {
+    ///             Group = @group.Name,
+    ///             Users = 
+    ///             {
+    ///                 userOne.Name,
+    ///                 userTwo.Name,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class GroupMembership : Pulumi.CustomResource
     {

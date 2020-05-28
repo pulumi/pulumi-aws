@@ -23,8 +23,117 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Basic usage:
     /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fooVpc = new Aws.Ec2.Vpc("fooVpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.0.0.0/16",
+    ///         });
+    ///         var bar = new Aws.Ec2.Vpc("bar", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///         });
+    ///         var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("fooVpcPeeringConnection", new Aws.Ec2.VpcPeeringConnectionArgs
+    ///         {
+    ///             AutoAccept = true,
+    ///             PeerVpcId = bar.Id,
+    ///             VpcId = fooVpc.Id,
+    ///         });
+    ///         var fooPeeringConnectionOptions = new Aws.Ec2.PeeringConnectionOptions("fooPeeringConnectionOptions", new Aws.Ec2.PeeringConnectionOptionsArgs
+    ///         {
+    ///             Accepter = new Aws.Ec2.Inputs.PeeringConnectionOptionsAccepterArgs
+    ///             {
+    ///                 AllowRemoteVpcDnsResolution = true,
+    ///             },
+    ///             Requester = new Aws.Ec2.Inputs.PeeringConnectionOptionsRequesterArgs
+    ///             {
+    ///                 AllowClassicLinkToRemoteVpc = true,
+    ///                 AllowVpcToRemoteClassicLink = true,
+    ///             },
+    ///             VpcPeeringConnectionId = fooVpcPeeringConnection.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// Basic cross-account usage:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var requester = new Aws.Provider("requester", new Aws.ProviderArgs
+    ///         {
+    ///         });
+    ///         var accepter = new Aws.Provider("accepter", new Aws.ProviderArgs
+    ///         {
+    ///         });
+    ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.0.0.0/16",
+    ///             EnableDnsHostnames = true,
+    ///             EnableDnsSupport = true,
+    ///         });
+    ///         var peerVpc = new Aws.Ec2.Vpc("peerVpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///             EnableDnsHostnames = true,
+    ///             EnableDnsSupport = true,
+    ///         });
+    ///         var peerCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
+    ///         // Requester's side of the connection.
+    ///         var peerVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("peerVpcPeeringConnection", new Aws.Ec2.VpcPeeringConnectionArgs
+    ///         {
+    ///             AutoAccept = false,
+    ///             PeerOwnerId = peerCallerIdentity.Apply(peerCallerIdentity =&gt; peerCallerIdentity.AccountId),
+    ///             PeerVpcId = peerVpc.Id,
+    ///             Tags = 
+    ///             {
+    ///                 { "Side", "Requester" },
+    ///             },
+    ///             VpcId = main.Id,
+    ///         });
+    ///         // Accepter's side of the connection.
+    ///         var peerVpcPeeringConnectionAccepter = new Aws.Ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", new Aws.Ec2.VpcPeeringConnectionAccepterArgs
+    ///         {
+    ///             AutoAccept = true,
+    ///             Tags = 
+    ///             {
+    ///                 { "Side", "Accepter" },
+    ///             },
+    ///             VpcPeeringConnectionId = peerVpcPeeringConnection.Id,
+    ///         });
+    ///         var requesterPeeringConnectionOptions = new Aws.Ec2.PeeringConnectionOptions("requesterPeeringConnectionOptions", new Aws.Ec2.PeeringConnectionOptionsArgs
+    ///         {
+    ///             Requester = new Aws.Ec2.Inputs.PeeringConnectionOptionsRequesterArgs
+    ///             {
+    ///                 AllowRemoteVpcDnsResolution = true,
+    ///             },
+    ///             VpcPeeringConnectionId = peerVpcPeeringConnectionAccepter.Id,
+    ///         });
+    ///         var accepterPeeringConnectionOptions = new Aws.Ec2.PeeringConnectionOptions("accepterPeeringConnectionOptions", new Aws.Ec2.PeeringConnectionOptionsArgs
+    ///         {
+    ///             Accepter = new Aws.Ec2.Inputs.PeeringConnectionOptionsAccepterArgs
+    ///             {
+    ///                 AllowRemoteVpcDnsResolution = true,
+    ///             },
+    ///             VpcPeeringConnectionId = peerVpcPeeringConnectionAccepter.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class PeeringConnectionOptions : Pulumi.CustomResource
     {

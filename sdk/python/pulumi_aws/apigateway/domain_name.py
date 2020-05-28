@@ -140,7 +140,7 @@ class DomainName(pulumi.CustomResource):
             aliases=[{
                 "evaluateTargetHealth": True,
                 "name": example_domain_name.cloudfront_domain_name,
-                "zoneId": example_domain_name.cloudfront_zone_id,
+                "zone_id": example_domain_name.cloudfront_zone_id,
             }],
             name=example_domain_name.domain_name,
             type="A",
@@ -165,7 +165,7 @@ class DomainName(pulumi.CustomResource):
             aliases=[{
                 "evaluateTargetHealth": True,
                 "name": example_domain_name.cloudfront_domain_name,
-                "zoneId": example_domain_name.cloudfront_zone_id,
+                "zone_id": example_domain_name.cloudfront_zone_id,
             }],
             name=example_domain_name.domain_name,
             type="A",
@@ -191,7 +191,7 @@ class DomainName(pulumi.CustomResource):
             aliases=[{
                 "evaluateTargetHealth": True,
                 "name": example_domain_name.regional_domain_name,
-                "zoneId": example_domain_name.regional_zone_id,
+                "zone_id": example_domain_name.regional_zone_id,
             }],
             name=example_domain_name.domain_name,
             type="A",
@@ -219,7 +219,7 @@ class DomainName(pulumi.CustomResource):
             aliases=[{
                 "evaluateTargetHealth": True,
                 "name": example_domain_name.regional_domain_name,
-                "zoneId": example_domain_name.regional_zone_id,
+                "zone_id": example_domain_name.regional_zone_id,
             }],
             name=example_domain_name.domain_name,
             type="A",

@@ -68,13 +68,13 @@ class IdentityPool(pulumi.CustomResource):
             allow_unauthenticated_identities=False,
             cognito_identity_providers=[
                 {
-                    "clientId": "6lhlkkfbfb4q5kpp90urffae",
-                    "providerName": "cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ",
+                    "client_id": "6lhlkkfbfb4q5kpp90urffae",
+                    "provider_name": "cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ",
                     "serverSideTokenCheck": False,
                 },
                 {
-                    "clientId": "7kodkvfqfb4qfkp39eurffae",
-                    "providerName": "cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu",
+                    "client_id": "7kodkvfqfb4qfkp39eurffae",
+                    "provider_name": "cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu",
                     "serverSideTokenCheck": False,
                 },
             ],

@@ -11,6 +11,28 @@ namespace Pulumi.Aws.OpsWorks
 {
     /// <summary>
     /// Provides an OpsWorks Ganglia layer resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var monitor = new Aws.OpsWorks.GangliaLayer("monitor", new Aws.OpsWorks.GangliaLayerArgs
+    ///         {
+    ///             Password = "foobarbaz",
+    ///             StackId = aws_opsworks_stack.Main.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class GangliaLayer : Pulumi.CustomResource
     {

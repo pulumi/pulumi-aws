@@ -29,6 +29,125 @@ namespace Pulumi.Aws.Rds
     /// 
     /// &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
     /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Aurora MySQL 2.x (MySQL 5.7)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Rds.Cluster("default", new Aws.Rds.ClusterArgs
+    ///         {
+    ///             AvailabilityZones = 
+    ///             {
+    ///                 "us-west-2a",
+    ///                 "us-west-2b",
+    ///                 "us-west-2c",
+    ///             },
+    ///             BackupRetentionPeriod = 5,
+    ///             ClusterIdentifier = "aurora-cluster-demo",
+    ///             DatabaseName = "mydb",
+    ///             Engine = "aurora-mysql",
+    ///             EngineVersion = "5.7.mysql_aurora.2.03.2",
+    ///             MasterPassword = "bar",
+    ///             MasterUsername = "foo",
+    ///             PreferredBackupWindow = "07:00-09:00",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Aurora MySQL 1.x (MySQL 5.6)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Rds.Cluster("default", new Aws.Rds.ClusterArgs
+    ///         {
+    ///             AvailabilityZones = 
+    ///             {
+    ///                 "us-west-2a",
+    ///                 "us-west-2b",
+    ///                 "us-west-2c",
+    ///             },
+    ///             BackupRetentionPeriod = 5,
+    ///             ClusterIdentifier = "aurora-cluster-demo",
+    ///             DatabaseName = "mydb",
+    ///             MasterPassword = "bar",
+    ///             MasterUsername = "foo",
+    ///             PreferredBackupWindow = "07:00-09:00",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Aurora with PostgreSQL engine
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var postgresql = new Aws.Rds.Cluster("postgresql", new Aws.Rds.ClusterArgs
+    ///         {
+    ///             AvailabilityZones = 
+    ///             {
+    ///                 "us-west-2a",
+    ///                 "us-west-2b",
+    ///                 "us-west-2c",
+    ///             },
+    ///             BackupRetentionPeriod = 5,
+    ///             ClusterIdentifier = "aurora-cluster-demo",
+    ///             DatabaseName = "mydb",
+    ///             Engine = "aurora-postgresql",
+    ///             MasterPassword = "bar",
+    ///             MasterUsername = "foo",
+    ///             PreferredBackupWindow = "07:00-09:00",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Aurora Multi-Master Cluster
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Rds.Cluster("example", new Aws.Rds.ClusterArgs
+    ///         {
+    ///             ClusterIdentifier = "example",
+    ///             DbSubnetGroupName = aws_db_subnet_group.Example.Name,
+    ///             EngineMode = "multimaster",
+    ///             MasterPassword = "barbarbarbar",
+    ///             MasterUsername = "foo",
+    ///             SkipFinalSnapshot = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

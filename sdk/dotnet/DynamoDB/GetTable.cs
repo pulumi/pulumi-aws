@@ -15,6 +15,27 @@ namespace Pulumi.Aws.DynamoDB
         /// Provides information about a DynamoDB table.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var tableName = Output.Create(Aws.DynamoDB.GetTable.InvokeAsync(new Aws.DynamoDB.GetTableArgs
+        ///         {
+        ///             Name = "tableName",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)

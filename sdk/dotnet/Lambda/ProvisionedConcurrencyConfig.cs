@@ -11,6 +11,50 @@ namespace Pulumi.Aws.Lambda
 {
     /// <summary>
     /// Manages a Lambda Provisioned Concurrency Configuration.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Alias Name
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Lambda.ProvisionedConcurrencyConfig("example", new Aws.Lambda.ProvisionedConcurrencyConfigArgs
+    ///         {
+    ///             FunctionName = aws_lambda_alias.Example.Function_name,
+    ///             ProvisionedConcurrentExecutions = 1,
+    ///             Qualifier = aws_lambda_alias.Example.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Function Version
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Lambda.ProvisionedConcurrencyConfig("example", new Aws.Lambda.ProvisionedConcurrencyConfigArgs
+    ///         {
+    ///             FunctionName = aws_lambda_function.Example.Function_name,
+    ///             ProvisionedConcurrentExecutions = 1,
+    ///             Qualifier = aws_lambda_function.Example.Version,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ProvisionedConcurrencyConfig : Pulumi.CustomResource
     {

@@ -56,7 +56,7 @@ class CapacityProvider(pulumi.CustomResource):
                 "maximumScalingStepSize": 1000,
                 "minimumScalingStepSize": 1,
                 "status": "ENABLED",
-                "targetCapacity": 10,
+                "target_capacity": 10,
             },
         })
         ```

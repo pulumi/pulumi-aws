@@ -22,6 +22,103 @@ namespace Pulumi.Aws
         /// &gt; When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// 
+        /// {{% example %}}
+        /// ### By State
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var available = Output.Create(Aws.GetAvailabilityZones.InvokeAsync(new Aws.GetAvailabilityZonesArgs
+        ///         {
+        ///             State = "available",
+        ///         }));
+        ///         var primary = new Aws.Ec2.Subnet("primary", new Aws.Ec2.SubnetArgs
+        ///         {
+        ///             AvailabilityZone = available.Apply(available =&gt; available.Names[0]),
+        ///         });
+        ///         // ...
+        ///         var secondary = new Aws.Ec2.Subnet("secondary", new Aws.Ec2.SubnetArgs
+        ///         {
+        ///             AvailabilityZone = available.Apply(available =&gt; available.Names[1]),
+        ///         });
+        ///         // ...
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### By Filter
+        /// 
+        /// All Local Zones (regardless of opt-in status):
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.GetAvailabilityZones.InvokeAsync(new Aws.GetAvailabilityZonesArgs
+        ///         {
+        ///             AllAvailabilityZones = true,
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Inputs.GetAvailabilityZonesFilterArgs
+        ///                 {
+        ///                     Name = "opt-in-status",
+        ///                     Values = 
+        ///                     {
+        ///                         "not-opted-in",
+        ///                         "opted-in",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// Only Availability Zones (no Local Zones):
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.GetAvailabilityZones.InvokeAsync(new Aws.GetAvailabilityZonesArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Inputs.GetAvailabilityZonesFilterArgs
+        ///                 {
+        ///                     Name = "opt-in-status",
+        ///                     Values = 
+        ///                     {
+        ///                         "opt-in-not-required",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAvailabilityZonesResult> InvokeAsync(GetAvailabilityZonesArgs? args = null, InvokeOptions? options = null)

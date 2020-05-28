@@ -15,6 +15,81 @@ namespace Pulumi.Aws.Iam
     /// !&gt; **WARNING:** The aws.iam.PolicyAttachment resource creates **exclusive** attachments of IAM policies. Across the entire AWS account, all of the users/roles/groups to which a single policy is attached must be declared by a single aws.iam.PolicyAttachment resource. This means that even any users/roles/groups that have the attached policy via any other mechanism (including other resources managed by this provider) will have that attached policy revoked by this resource. Consider `aws.iam.RolePolicyAttachment`, `aws.iam.UserPolicyAttachment`, or `aws.iam.GroupPolicyAttachment` instead. These resources do not enforce exclusive attachment of an IAM policy.
     /// 
     /// &gt; **NOTE:** The usage of this resource conflicts with the `aws.iam.GroupPolicyAttachment`, `aws.iam.RolePolicyAttachment`, and `aws.iam.UserPolicyAttachment` resources and will permanently show a difference if both are defined.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var user = new Aws.Iam.User("user", new Aws.Iam.UserArgs
+    ///         {
+    ///         });
+    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""ec2.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///         var @group = new Aws.Iam.Group("group", new Aws.Iam.GroupArgs
+    ///         {
+    ///         });
+    ///         var policy = new Aws.Iam.Policy("policy", new Aws.Iam.PolicyArgs
+    ///         {
+    ///             Description = "A test policy",
+    ///             Policy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": [
+    ///         ""ec2:Describe*""
+    ///       ],
+    ///       ""Effect"": ""Allow"",
+    ///       ""Resource"": ""*""
+    ///     }
+    ///   ]
+    /// }
+    /// 
+    /// ",
+    ///         });
+    ///         var test_attach = new Aws.Iam.PolicyAttachment("test-attach", new Aws.Iam.PolicyAttachmentArgs
+    ///         {
+    ///             Groups = 
+    ///             {
+    ///                 @group.Name,
+    ///             },
+    ///             PolicyArn = policy.Arn,
+    ///             Roles = 
+    ///             {
+    ///                 role.Name,
+    ///             },
+    ///             Users = 
+    ///             {
+    ///                 user.Name,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class PolicyAttachment : Pulumi.CustomResource
     {

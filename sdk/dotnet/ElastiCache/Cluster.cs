@@ -20,6 +20,74 @@ namespace Pulumi.Aws.ElastiCache
     /// place. You can use the `apply_immediately` flag to instruct the service to apply the
     /// change immediately. Using `apply_immediately` can result in a brief downtime as the server reboots.
     /// See the AWS Docs on [Modifying an ElastiCache Cache Cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Clusters.Modify.html) for more information.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Memcached Cluster
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.ElastiCache.Cluster("example", new Aws.ElastiCache.ClusterArgs
+    ///         {
+    ///             Engine = "memcached",
+    ///             NodeType = "cache.m4.large",
+    ///             NumCacheNodes = 2,
+    ///             ParameterGroupName = "default.memcached1.4",
+    ///             Port = 11211,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Redis Instance
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.ElastiCache.Cluster("example", new Aws.ElastiCache.ClusterArgs
+    ///         {
+    ///             Engine = "redis",
+    ///             EngineVersion = "3.2.10",
+    ///             NodeType = "cache.m4.large",
+    ///             NumCacheNodes = 1,
+    ///             ParameterGroupName = "default.redis3.2",
+    ///             Port = 6379,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Redis Cluster Mode Disabled Read Replica Instance
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var replica = new Aws.ElastiCache.Cluster("replica", new Aws.ElastiCache.ClusterArgs
+    ///         {
+    ///             ReplicationGroupId = aws_elasticache_replication_group.Example.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

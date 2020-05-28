@@ -12,6 +12,42 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides an Traffic mirror session.  
     /// Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var filter = new Aws.Ec2.TrafficMirrorFilter("filter", new Aws.Ec2.TrafficMirrorFilterArgs
+    ///         {
+    ///             Description = "traffic mirror filter - example",
+    ///             NetworkServices = 
+    ///             {
+    ///                 "amazon-dns",
+    ///             },
+    ///         });
+    ///         var target = new Aws.Ec2.TrafficMirrorTarget("target", new Aws.Ec2.TrafficMirrorTargetArgs
+    ///         {
+    ///             NetworkLoadBalancerArn = aws_lb.Lb.Arn,
+    ///         });
+    ///         var session = new Aws.Ec2.TrafficMirrorSession("session", new Aws.Ec2.TrafficMirrorSessionArgs
+    ///         {
+    ///             Description = "traffic mirror session - example",
+    ///             NetworkInterfaceId = aws_instance.Test.Primary_network_interface_id,
+    ///             TrafficMirrorFilterId = filter.Id,
+    ///             TrafficMirrorTargetId = target.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class TrafficMirrorSession : Pulumi.CustomResource
     {

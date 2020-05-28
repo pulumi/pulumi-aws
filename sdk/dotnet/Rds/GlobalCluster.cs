@@ -13,6 +13,53 @@ namespace Pulumi.Aws.Rds
     /// Manages an RDS Global Cluster, which is an Aurora global database spread across multiple regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
     /// 
     /// More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var primary = new Aws.Provider("primary", new Aws.ProviderArgs
+    ///         {
+    ///             Region = "us-east-2",
+    ///         });
+    ///         var secondary = new Aws.Provider("secondary", new Aws.ProviderArgs
+    ///         {
+    ///             Region = "us-west-2",
+    ///         });
+    ///         var example = new Aws.Rds.GlobalCluster("example", new Aws.Rds.GlobalClusterArgs
+    ///         {
+    ///             GlobalClusterIdentifier = "example",
+    ///         });
+    ///         var primaryCluster = new Aws.Rds.Cluster("primaryCluster", new Aws.Rds.ClusterArgs
+    ///         {
+    ///             EngineMode = "global",
+    ///             GlobalClusterIdentifier = example.Id,
+    ///         });
+    ///         var primaryClusterInstance = new Aws.Rds.ClusterInstance("primaryClusterInstance", new Aws.Rds.ClusterInstanceArgs
+    ///         {
+    ///             ClusterIdentifier = primaryCluster.Id,
+    ///         });
+    ///         var secondaryCluster = new Aws.Rds.Cluster("secondaryCluster", new Aws.Rds.ClusterArgs
+    ///         {
+    ///             EngineMode = "global",
+    ///             GlobalClusterIdentifier = example.Id,
+    ///         });
+    ///         var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondaryClusterInstance", new Aws.Rds.ClusterInstanceArgs
+    ///         {
+    ///             ClusterIdentifier = secondaryCluster.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class GlobalCluster : Pulumi.CustomResource
     {

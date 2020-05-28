@@ -27,6 +27,77 @@ namespace Pulumi.Aws.Acm
     /// 
     /// It's recommended to specify `create_before_destroy = true` in a [lifecycle](https://www.terraform.io/docs/configuration/resources.html#lifecycle) block to replace a certificate
     /// which is currently in use (eg, by `aws.lb.Listener`).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Certificate creation
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cert = new Aws.Acm.Certificate("cert", new Aws.Acm.CertificateArgs
+    ///         {
+    ///             DomainName = "example.com",
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "test" },
+    ///             },
+    ///             ValidationMethod = "DNS",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Importing an existing certificate
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Tls = Pulumi.Tls;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var examplePrivateKey = new Tls.PrivateKey("examplePrivateKey", new Tls.PrivateKeyArgs
+    ///         {
+    ///             Algorithm = "RSA",
+    ///         });
+    ///         var exampleSelfSignedCert = new Tls.SelfSignedCert("exampleSelfSignedCert", new Tls.SelfSignedCertArgs
+    ///         {
+    ///             AllowedUses = 
+    ///             {
+    ///                 "key_encipherment",
+    ///                 "digital_signature",
+    ///                 "server_auth",
+    ///             },
+    ///             KeyAlgorithm = "RSA",
+    ///             PrivateKeyPem = examplePrivateKey.PrivateKeyPem,
+    ///             Subjects = 
+    ///             {
+    ///                 new Tls.Inputs.SelfSignedCertSubjectArgs
+    ///                 {
+    ///                     CommonName = "example.com",
+    ///                     Organization = "ACME Examples, Inc",
+    ///                 },
+    ///             },
+    ///             ValidityPeriodHours = 12,
+    ///         });
+    ///         var cert = new Aws.Acm.Certificate("cert", new Aws.Acm.CertificateArgs
+    ///         {
+    ///             CertificateBody = exampleSelfSignedCert.CertPem,
+    ///             PrivateKey = examplePrivateKey.PrivateKeyPem,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {

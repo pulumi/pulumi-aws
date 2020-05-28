@@ -18,6 +18,58 @@ namespace Pulumi.Aws.Ec2
     /// and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
     /// a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
     /// and will overwrite the association.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ec2.VpcEndpointService("example", new Aws.Ec2.VpcEndpointServiceArgs
+    ///         {
+    ///             AcceptanceRequired = false,
+    ///             NetworkLoadBalancerArns = 
+    ///             {
+    ///                 aws_lb.Example.Arn,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Basic w/ Tags
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ec2.VpcEndpointService("example", new Aws.Ec2.VpcEndpointServiceArgs
+    ///         {
+    ///             AcceptanceRequired = false,
+    ///             NetworkLoadBalancerArns = 
+    ///             {
+    ///                 aws_lb.Example.Arn,
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "test" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VpcEndpointService : Pulumi.CustomResource
     {

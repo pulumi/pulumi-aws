@@ -15,6 +15,34 @@ namespace Pulumi.Aws.Mq
         /// Provides information about a MQ Broker.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var brokerId = config.Get("brokerId") ?? "";
+        ///         var brokerName = config.Get("brokerName") ?? "";
+        ///         var byId = Output.Create(Aws.Mq.GetBroker.InvokeAsync(new Aws.Mq.GetBrokerArgs
+        ///         {
+        ///             BrokerId = brokerId,
+        ///         }));
+        ///         var byName = Output.Create(Aws.Mq.GetBroker.InvokeAsync(new Aws.Mq.GetBrokerArgs
+        ///         {
+        ///             BrokerName = brokerName,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBrokerResult> InvokeAsync(GetBrokerArgs? args = null, InvokeOptions? options = null)

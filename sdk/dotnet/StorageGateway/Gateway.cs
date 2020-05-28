@@ -13,6 +13,74 @@ namespace Pulumi.Aws.StorageGateway
     /// Manages an AWS Storage Gateway file, tape, or volume gateway in the provider region.
     /// 
     /// &gt; NOTE: The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### File Gateway
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.StorageGateway.Gateway("example", new Aws.StorageGateway.GatewayArgs
+    ///         {
+    ///             GatewayIpAddress = "1.2.3.4",
+    ///             GatewayName = "example",
+    ///             GatewayTimezone = "GMT",
+    ///             GatewayType = "FILE_S3",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Volume Gateway (Cached)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.StorageGateway.Gateway("example", new Aws.StorageGateway.GatewayArgs
+    ///         {
+    ///             GatewayIpAddress = "1.2.3.4",
+    ///             GatewayName = "example",
+    ///             GatewayTimezone = "GMT",
+    ///             GatewayType = "CACHED",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Volume Gateway (Stored)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.StorageGateway.Gateway("example", new Aws.StorageGateway.GatewayArgs
+    ///         {
+    ///             GatewayIpAddress = "1.2.3.4",
+    ///             GatewayName = "example",
+    ///             GatewayTimezone = "GMT",
+    ///             GatewayType = "STORED",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Gateway : Pulumi.CustomResource
     {

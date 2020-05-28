@@ -108,8 +108,8 @@ class NodeGroup(pulumi.CustomResource):
             subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
             scaling_config={
                 "desiredSize": 1,
-                "maxSize": 1,
-                "minSize": 1,
+                "max_size": 1,
+                "min_size": 1,
             })
         ```
 

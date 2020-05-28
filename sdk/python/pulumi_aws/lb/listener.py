@@ -97,7 +97,7 @@ class Listener(pulumi.CustomResource):
         front_end_listener = aws.lb.Listener("frontEndListener",
             certificate_arn="arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
             default_actions=[{
-                "targetGroupArn": front_end_target_group.arn,
+                "target_group_arn": front_end_target_group.arn,
                 "type": "forward",
             }],
             load_balancer_arn=front_end_load_balancer.arn,
@@ -118,7 +118,7 @@ class Listener(pulumi.CustomResource):
                 "redirect": {
                     "port": "443",
                     "protocol": "HTTPS",
-                    "statusCode": "HTTP_301",
+                    "status_code": "HTTP_301",
                 },
                 "type": "redirect",
             }],
@@ -137,9 +137,9 @@ class Listener(pulumi.CustomResource):
         front_end_listener = aws.lb.Listener("frontEndListener",
             default_actions=[{
                 "fixedResponse": {
-                    "contentType": "text/plain",
+                    "content_type": "text/plain",
                     "messageBody": "Fixed response content",
-                    "statusCode": "200",
+                    "status_code": "200",
                 },
                 "type": "fixed-response",
             }],
@@ -170,7 +170,7 @@ class Listener(pulumi.CustomResource):
                     "type": "authenticate-cognito",
                 },
                 {
-                    "targetGroupArn": front_end_target_group.arn,
+                    "target_group_arn": front_end_target_group.arn,
                     "type": "forward",
                 },
             ],
@@ -192,8 +192,8 @@ class Listener(pulumi.CustomResource):
                 {
                     "authenticateOidc": {
                         "authorizationEndpoint": "https://example.com/authorization_endpoint",
-                        "clientId": "client_id",
-                        "clientSecret": "client_secret",
+                        "client_id": "client_id",
+                        "client_secret": "client_secret",
                         "issuer": "https://example.com",
                         "tokenEndpoint": "https://example.com/token_endpoint",
                         "userInfoEndpoint": "https://example.com/user_info_endpoint",
@@ -201,7 +201,7 @@ class Listener(pulumi.CustomResource):
                     "type": "authenticate-oidc",
                 },
                 {
-                    "targetGroupArn": front_end_target_group.arn,
+                    "target_group_arn": front_end_target_group.arn,
                     "type": "forward",
                 },
             ],

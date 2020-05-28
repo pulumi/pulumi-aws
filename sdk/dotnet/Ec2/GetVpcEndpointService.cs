@@ -16,6 +16,92 @@ namespace Pulumi.Aws.Ec2
         /// can be specified when creating a VPC endpoint within the region configured in the provider.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// 
+        /// {{% example %}}
+        /// ### AWS Service
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var s3 = Output.Create(Aws.Ec2.GetVpcEndpointService.InvokeAsync(new Aws.Ec2.GetVpcEndpointServiceArgs
+        ///         {
+        ///             Service = "s3",
+        ///         }));
+        ///         // Create a VPC
+        ///         var foo = new Aws.Ec2.Vpc("foo", new Aws.Ec2.VpcArgs
+        ///         {
+        ///             CidrBlock = "10.0.0.0/16",
+        ///         });
+        ///         // Create a VPC endpoint
+        ///         var ep = new Aws.Ec2.VpcEndpoint("ep", new Aws.Ec2.VpcEndpointArgs
+        ///         {
+        ///             ServiceName = s3.Apply(s3 =&gt; s3.ServiceName),
+        ///             VpcId = foo.Id,
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Non-AWS Service
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var custome = Output.Create(Aws.Ec2.GetVpcEndpointService.InvokeAsync(new Aws.Ec2.GetVpcEndpointServiceArgs
+        ///         {
+        ///             ServiceName = "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Filter
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.Ec2.GetVpcEndpointService.InvokeAsync(new Aws.Ec2.GetVpcEndpointServiceArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetVpcEndpointServiceFilterArgs
+        ///                 {
+        ///                     Name = "service-name",
+        ///                     Values = 
+        ///                     {
+        ///                         "some-service",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpcEndpointServiceResult> InvokeAsync(GetVpcEndpointServiceArgs? args = null, InvokeOptions? options = null)

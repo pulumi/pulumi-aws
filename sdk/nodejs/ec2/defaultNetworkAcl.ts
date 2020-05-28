@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const mainvpc = new aws.ec2.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
- * const default = new aws.ec2.DefaultNetworkAcl("default", {
+ * const _default = new aws.ec2.DefaultNetworkAcl("default", {
  *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
  *     ingress: [{
  *         protocol: -1,
@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const mainvpc = new aws.ec2.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
- * const default = new aws.ec2.DefaultNetworkAcl("default", {
+ * const _default = new aws.ec2.DefaultNetworkAcl("default", {
  *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
  *     ingress: [{
  *         protocol: -1,

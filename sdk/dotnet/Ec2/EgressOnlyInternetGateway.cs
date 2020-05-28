@@ -14,6 +14,36 @@ namespace Pulumi.Aws.Ec2
     /// An egress-only Internet gateway is used to enable outbound communication
     /// over IPv6 from instances in your VPC to the Internet, and prevents hosts
     /// outside of your VPC from initiating an IPv6 connection with your instance.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             AssignGeneratedIpv6CidrBlock = true,
+    ///             CidrBlock = "10.1.0.0/16",
+    ///         });
+    ///         var exampleEgressOnlyInternetGateway = new Aws.Ec2.EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway", new Aws.Ec2.EgressOnlyInternetGatewayArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "main" },
+    ///             },
+    ///             VpcId = exampleVpc.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class EgressOnlyInternetGateway : Pulumi.CustomResource
     {

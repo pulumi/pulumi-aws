@@ -146,7 +146,7 @@ class LoadBalancer(pulumi.CustomResource):
         bar = aws.elb.LoadBalancer("bar",
             access_logs={
                 "bucket": "foo",
-                "bucketPrefix": "bar",
+                "bucket_prefix": "bar",
                 "interval": 60,
             },
             availability_zones=[
@@ -168,15 +168,15 @@ class LoadBalancer(pulumi.CustomResource):
             instances=[aws_instance["foo"]["id"]],
             listeners=[
                 {
-                    "instancePort": 8000,
+                    "instance_port": 8000,
                     "instanceProtocol": "http",
-                    "lbPort": 80,
+                    "lb_port": 80,
                     "lbProtocol": "http",
                 },
                 {
-                    "instancePort": 8000,
+                    "instance_port": 8000,
                     "instanceProtocol": "http",
-                    "lbPort": 443,
+                    "lb_port": 443,
                     "lbProtocol": "https",
                     "sslCertificateId": "arn:aws:iam::123456789012:server-certificate/certName",
                 },
