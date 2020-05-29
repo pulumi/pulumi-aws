@@ -732,8 +732,8 @@ github.com/pulumi/pulumi/sdk/v2 v2.0.0/go.mod h1:W7k1UDYerc5o97mHnlHHp5iQZKEby+o
 github.com/pulumi/pulumi/sdk/v2 v2.2.2-0.20200519081838-f66100ce28b0/go.mod h1:QNbWpL4gvf3X0lUFT7TXA2Jo1ff/Ti2l97AyFGYwvW4=
 github.com/pulumi/pulumi/sdk/v2 v2.3.0 h1:uvRYCmoHILKlyyIbXa5CcLSKKt9n2s8j+GKTffpXQf4=
 github.com/pulumi/pulumi/sdk/v2 v2.3.0/go.mod h1:cvivzHVRA5Xu3NSE/obmHzO3L693IJSd5QccQuBOMUE=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20200528204419-e94e984a82f6 h1:T/1L3IHZIZY5OMVpHSBSA49zgZcXEI8bMVDNJURynn0=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20200528204419-e94e984a82f6/go.mod h1:7TZq2gjFkrS8OtyoFHHSC+tWSv+ceaDKRHWIFeuUn4o=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20200529091101-bbf96a73210d h1:1Gng3EQ6WzhADd52Atun+foZWpKnIcHZifuJUt4OfbA=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20200529091101-bbf96a73210d/go.mod h1:7TZq2gjFkrS8OtyoFHHSC+tWSv+ceaDKRHWIFeuUn4o=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200519092335-cb56a4dfa88d h1:1JtzB9Gx0YX2UgKKkqJwTgBXxfg2cbLUEqTJKwKBK7s=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200519092335-cb56a4dfa88d/go.mod h1:yv9XozKsue9ZELHQbrBGgIaFtE3OX3Q4m7koTzTqgpE=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c/go.mod h1:5STLWrekHfjyYwxBRVRXNOSewLJ3PWfDJd1VyTS21fI=
