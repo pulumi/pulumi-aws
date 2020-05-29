@@ -11,6 +11,8 @@ import (
 )
 
 type DirectoryConnectSettings struct {
+	// The IP addresses of the AD Connector servers.
+	ConnectIps []string `pulumi:"connectIps"`
 	// The DNS IP addresses of the domain to connect to.
 	CustomerDnsIps []string `pulumi:"customerDnsIps"`
 	// The username corresponding to the password provided.
@@ -34,6 +36,8 @@ type DirectoryConnectSettingsInput interface {
 }
 
 type DirectoryConnectSettingsArgs struct {
+	// The IP addresses of the AD Connector servers.
+	ConnectIps pulumi.StringArrayInput `pulumi:"connectIps"`
 	// The DNS IP addresses of the domain to connect to.
 	CustomerDnsIps pulumi.StringArrayInput `pulumi:"customerDnsIps"`
 	// The username corresponding to the password provided.
@@ -122,6 +126,11 @@ func (o DirectoryConnectSettingsOutput) ToDirectoryConnectSettingsPtrOutputWithC
 	}).(DirectoryConnectSettingsPtrOutput)
 }
 
+// The IP addresses of the AD Connector servers.
+func (o DirectoryConnectSettingsOutput) ConnectIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DirectoryConnectSettings) []string { return v.ConnectIps }).(pulumi.StringArrayOutput)
+}
+
 // The DNS IP addresses of the domain to connect to.
 func (o DirectoryConnectSettingsOutput) CustomerDnsIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DirectoryConnectSettings) []string { return v.CustomerDnsIps }).(pulumi.StringArrayOutput)
@@ -158,6 +167,16 @@ func (o DirectoryConnectSettingsPtrOutput) ToDirectoryConnectSettingsPtrOutputWi
 
 func (o DirectoryConnectSettingsPtrOutput) Elem() DirectoryConnectSettingsOutput {
 	return o.ApplyT(func(v *DirectoryConnectSettings) DirectoryConnectSettings { return *v }).(DirectoryConnectSettingsOutput)
+}
+
+// The IP addresses of the AD Connector servers.
+func (o DirectoryConnectSettingsPtrOutput) ConnectIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DirectoryConnectSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectIps
+	}).(pulumi.StringArrayOutput)
 }
 
 // The DNS IP addresses of the domain to connect to.
@@ -353,6 +372,8 @@ func (o DirectoryVpcSettingsPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 type GetDirectoryConnectSetting struct {
+	// The IP addresses of the AD Connector servers.
+	ConnectIps []string `pulumi:"connectIps"`
 	// The DNS IP addresses of the domain to connect to.
 	CustomerDnsIps []string `pulumi:"customerDnsIps"`
 	// The username corresponding to the password provided.
@@ -376,6 +397,8 @@ type GetDirectoryConnectSettingInput interface {
 }
 
 type GetDirectoryConnectSettingArgs struct {
+	// The IP addresses of the AD Connector servers.
+	ConnectIps pulumi.StringArrayInput `pulumi:"connectIps"`
 	// The DNS IP addresses of the domain to connect to.
 	CustomerDnsIps pulumi.StringArrayInput `pulumi:"customerDnsIps"`
 	// The username corresponding to the password provided.
@@ -436,6 +459,11 @@ func (o GetDirectoryConnectSettingOutput) ToGetDirectoryConnectSettingOutput() G
 
 func (o GetDirectoryConnectSettingOutput) ToGetDirectoryConnectSettingOutputWithContext(ctx context.Context) GetDirectoryConnectSettingOutput {
 	return o
+}
+
+// The IP addresses of the AD Connector servers.
+func (o GetDirectoryConnectSettingOutput) ConnectIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDirectoryConnectSetting) []string { return v.ConnectIps }).(pulumi.StringArrayOutput)
 }
 
 // The DNS IP addresses of the domain to connect to.

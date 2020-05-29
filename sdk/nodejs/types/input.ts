@@ -4770,6 +4770,10 @@ export namespace dax {
 export namespace directoryservice {
     export interface DirectoryConnectSettings {
         /**
+         * The IP addresses of the AD Connector servers.
+         */
+        connectIps?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The DNS IP addresses of the domain to connect to.
          */
         customerDnsIps: pulumi.Input<pulumi.Input<string>[]>;
@@ -7114,7 +7118,7 @@ export namespace ecs {
          */
         base?: pulumi.Input<number>;
         /**
-         * The short name or full Amazon Resource Name (ARN) of the capacity provider.
+         * The short name of the capacity provider.
          */
         capacityProvider: pulumi.Input<string>;
         /**
@@ -9872,6 +9876,21 @@ export namespace iot {
          * Specifies whether to use Base64 encoding.
          */
         useBase64: pulumi.Input<boolean>;
+    }
+
+    export interface TopicRuleStepFunction {
+        /**
+         * The prefix used to generate, along with a UUID, the unique state machine execution name.
+         */
+        executionNamePrefix?: pulumi.Input<string>;
+        /**
+         * The ARN of the IAM role that grants access to start execution of the state machine.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * The name of the Step Functions state machine whose execution will be started.
+         */
+        stateMachineName: pulumi.Input<string>;
     }
 }
 

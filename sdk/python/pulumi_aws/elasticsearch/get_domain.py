@@ -113,8 +113,8 @@ class GetDomainResult:
         """
         Domain in transit encryption related options.
         """
-        if processing and not isinstance(processing, str):
-            raise TypeError("Expected argument 'processing' to be a str")
+        if processing and not isinstance(processing, bool):
+            raise TypeError("Expected argument 'processing' to be a bool")
         __self__.processing = processing
         """
         Status of a configuration change in the domain.

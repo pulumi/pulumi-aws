@@ -196,7 +196,7 @@ namespace Pulumi.Aws.LightSail
         public Output<string> PublicIpAddress { get; private set; } = null!;
 
         [Output("ramSize")]
-        public Output<int> RamSize { get; private set; } = null!;
+        public Output<double> RamSize { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource.
@@ -383,7 +383,7 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? PublicIpAddress { get; set; }
 
         [Input("ramSize")]
-        public Input<int>? RamSize { get; set; }
+        public Input<double>? RamSize { get; set; }
 
         [Input("tags")]
         private InputMap<object>? _tags;

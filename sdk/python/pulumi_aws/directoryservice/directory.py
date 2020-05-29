@@ -22,6 +22,7 @@ class Directory(pulumi.CustomResource):
     """
     Connector related information about the directory. Fields documented below.
 
+      * `connectIps` (`list`) - The IP addresses of the AD Connector servers.
       * `customerDnsIps` (`list`) - The DNS IP addresses of the domain to connect to.
       * `customerUsername` (`str`) - The username corresponding to the password provided.
       * `subnet_ids` (`list`) - The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
@@ -196,6 +197,7 @@ class Directory(pulumi.CustomResource):
 
         The **connect_settings** object supports the following:
 
+          * `connectIps` (`pulumi.Input[list]`) - The IP addresses of the AD Connector servers.
           * `customerDnsIps` (`pulumi.Input[list]`) - The DNS IP addresses of the domain to connect to.
           * `customerUsername` (`pulumi.Input[str]`) - The username corresponding to the password provided.
           * `subnet_ids` (`pulumi.Input[list]`) - The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
@@ -273,6 +275,7 @@ class Directory(pulumi.CustomResource):
 
         The **connect_settings** object supports the following:
 
+          * `connectIps` (`pulumi.Input[list]`) - The IP addresses of the AD Connector servers.
           * `customerDnsIps` (`pulumi.Input[list]`) - The DNS IP addresses of the domain to connect to.
           * `customerUsername` (`pulumi.Input[str]`) - The username corresponding to the password provided.
           * `subnet_ids` (`pulumi.Input[list]`) - The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).

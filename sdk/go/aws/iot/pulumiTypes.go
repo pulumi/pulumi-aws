@@ -2718,6 +2718,123 @@ func (o TopicRuleSqsPtrOutput) UseBase64() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type TopicRuleStepFunction struct {
+	// The prefix used to generate, along with a UUID, the unique state machine execution name.
+	ExecutionNamePrefix *string `pulumi:"executionNamePrefix"`
+	// The ARN of the IAM role that grants access to start execution of the state machine.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the Step Functions state machine whose execution will be started.
+	StateMachineName string `pulumi:"stateMachineName"`
+}
+
+// TopicRuleStepFunctionInput is an input type that accepts TopicRuleStepFunctionArgs and TopicRuleStepFunctionOutput values.
+// You can construct a concrete instance of `TopicRuleStepFunctionInput` via:
+//
+// 		 TopicRuleStepFunctionArgs{...}
+//
+type TopicRuleStepFunctionInput interface {
+	pulumi.Input
+
+	ToTopicRuleStepFunctionOutput() TopicRuleStepFunctionOutput
+	ToTopicRuleStepFunctionOutputWithContext(context.Context) TopicRuleStepFunctionOutput
+}
+
+type TopicRuleStepFunctionArgs struct {
+	// The prefix used to generate, along with a UUID, the unique state machine execution name.
+	ExecutionNamePrefix pulumi.StringPtrInput `pulumi:"executionNamePrefix"`
+	// The ARN of the IAM role that grants access to start execution of the state machine.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the Step Functions state machine whose execution will be started.
+	StateMachineName pulumi.StringInput `pulumi:"stateMachineName"`
+}
+
+func (TopicRuleStepFunctionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleStepFunction)(nil)).Elem()
+}
+
+func (i TopicRuleStepFunctionArgs) ToTopicRuleStepFunctionOutput() TopicRuleStepFunctionOutput {
+	return i.ToTopicRuleStepFunctionOutputWithContext(context.Background())
+}
+
+func (i TopicRuleStepFunctionArgs) ToTopicRuleStepFunctionOutputWithContext(ctx context.Context) TopicRuleStepFunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleStepFunctionOutput)
+}
+
+// TopicRuleStepFunctionArrayInput is an input type that accepts TopicRuleStepFunctionArray and TopicRuleStepFunctionArrayOutput values.
+// You can construct a concrete instance of `TopicRuleStepFunctionArrayInput` via:
+//
+// 		 TopicRuleStepFunctionArray{ TopicRuleStepFunctionArgs{...} }
+//
+type TopicRuleStepFunctionArrayInput interface {
+	pulumi.Input
+
+	ToTopicRuleStepFunctionArrayOutput() TopicRuleStepFunctionArrayOutput
+	ToTopicRuleStepFunctionArrayOutputWithContext(context.Context) TopicRuleStepFunctionArrayOutput
+}
+
+type TopicRuleStepFunctionArray []TopicRuleStepFunctionInput
+
+func (TopicRuleStepFunctionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleStepFunction)(nil)).Elem()
+}
+
+func (i TopicRuleStepFunctionArray) ToTopicRuleStepFunctionArrayOutput() TopicRuleStepFunctionArrayOutput {
+	return i.ToTopicRuleStepFunctionArrayOutputWithContext(context.Background())
+}
+
+func (i TopicRuleStepFunctionArray) ToTopicRuleStepFunctionArrayOutputWithContext(ctx context.Context) TopicRuleStepFunctionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleStepFunctionArrayOutput)
+}
+
+type TopicRuleStepFunctionOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleStepFunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleStepFunction)(nil)).Elem()
+}
+
+func (o TopicRuleStepFunctionOutput) ToTopicRuleStepFunctionOutput() TopicRuleStepFunctionOutput {
+	return o
+}
+
+func (o TopicRuleStepFunctionOutput) ToTopicRuleStepFunctionOutputWithContext(ctx context.Context) TopicRuleStepFunctionOutput {
+	return o
+}
+
+// The prefix used to generate, along with a UUID, the unique state machine execution name.
+func (o TopicRuleStepFunctionOutput) ExecutionNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleStepFunction) *string { return v.ExecutionNamePrefix }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the IAM role that grants access to start execution of the state machine.
+func (o TopicRuleStepFunctionOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleStepFunction) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// The name of the Step Functions state machine whose execution will be started.
+func (o TopicRuleStepFunctionOutput) StateMachineName() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleStepFunction) string { return v.StateMachineName }).(pulumi.StringOutput)
+}
+
+type TopicRuleStepFunctionArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleStepFunctionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleStepFunction)(nil)).Elem()
+}
+
+func (o TopicRuleStepFunctionArrayOutput) ToTopicRuleStepFunctionArrayOutput() TopicRuleStepFunctionArrayOutput {
+	return o
+}
+
+func (o TopicRuleStepFunctionArrayOutput) ToTopicRuleStepFunctionArrayOutputWithContext(ctx context.Context) TopicRuleStepFunctionArrayOutput {
+	return o
+}
+
+func (o TopicRuleStepFunctionArrayOutput) Index(i pulumi.IntInput) TopicRuleStepFunctionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleStepFunction {
+		return vs[0].([]TopicRuleStepFunction)[vs[1].(int)]
+	}).(TopicRuleStepFunctionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ThingTypePropertiesOutput{})
 	pulumi.RegisterOutputType(ThingTypePropertiesPtrOutput{})
@@ -2751,4 +2868,6 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleSnsPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleSqsOutput{})
 	pulumi.RegisterOutputType(TopicRuleSqsPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleStepFunctionOutput{})
+	pulumi.RegisterOutputType(TopicRuleStepFunctionArrayOutput{})
 }

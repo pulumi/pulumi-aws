@@ -31,13 +31,11 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether any cluster modifications
-	// are applied immediately, or during the next maintenance window. Default is
-	// `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
 	ApplyImmediately pulumi.BoolOutput `pulumi:"applyImmediately"`
 	// Amazon Resource Name (ARN) of cluster
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignoreChanges` if necessary.
+	// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next provider update. It is recommended to specify 3 AZs or use [the `ignoreChanges` argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if necessary.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow pulumi.IntPtrOutput `pulumi:"backtrackWindow"`
@@ -63,8 +61,7 @@ type Cluster struct {
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
 	EnableHttpEndpoint pulumi.BoolPtrOutput `pulumi:"enableHttpEndpoint"`
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-	// The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+	// List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 	EnabledCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enabledCloudwatchLogsExports"`
 	// The DNS address of the RDS instance
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
@@ -74,9 +71,7 @@ type Cluster struct {
 	EngineMode pulumi.StringPtrOutput `pulumi:"engineMode"`
 	// The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
-	// The name of your final DB snapshot
-	// when this DB cluster is deleted. If omitted, no final snapshot will be
-	// made.
+	// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
 	// The global cluster identifier specified on [`rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
 	GlobalClusterIdentifier pulumi.StringPtrOutput `pulumi:"globalClusterIdentifier"`
@@ -88,15 +83,13 @@ type Cluster struct {
 	IamRoles pulumi.StringArrayOutput `pulumi:"iamRoles"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	MasterPassword pulumi.StringPtrOutput `pulumi:"masterPassword"`
 	// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
 	MasterUsername pulumi.StringOutput `pulumi:"masterUsername"`
 	// The port on which the DB accepts connections
 	Port pulumi.IntOutput `pulumi:"port"`
-	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-	// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
 	PreferredBackupWindow pulumi.StringOutput `pulumi:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
 	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
@@ -118,8 +111,7 @@ type Cluster struct {
 	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the DB cluster.
 	Tags pulumi.MapOutput `pulumi:"tags"`
-	// List of VPC security groups to associate
-	// with the Cluster
+	// List of VPC security groups to associate with the Cluster
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -151,13 +143,11 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
-	// Specifies whether any cluster modifications
-	// are applied immediately, or during the next maintenance window. Default is
-	// `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
 	// Amazon Resource Name (ARN) of cluster
 	Arn *string `pulumi:"arn"`
-	// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignoreChanges` if necessary.
+	// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next provider update. It is recommended to specify 3 AZs or use [the `ignoreChanges` argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if necessary.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow *int `pulumi:"backtrackWindow"`
@@ -183,8 +173,7 @@ type clusterState struct {
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
 	EnableHttpEndpoint *bool `pulumi:"enableHttpEndpoint"`
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-	// The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+	// List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
 	// The DNS address of the RDS instance
 	Endpoint *string `pulumi:"endpoint"`
@@ -194,9 +183,7 @@ type clusterState struct {
 	EngineMode *string `pulumi:"engineMode"`
 	// The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
 	EngineVersion *string `pulumi:"engineVersion"`
-	// The name of your final DB snapshot
-	// when this DB cluster is deleted. If omitted, no final snapshot will be
-	// made.
+	// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
 	// The global cluster identifier specified on [`rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
 	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
@@ -208,15 +195,13 @@ type clusterState struct {
 	IamRoles []string `pulumi:"iamRoles"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	MasterPassword *string `pulumi:"masterPassword"`
 	// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
 	MasterUsername *string `pulumi:"masterUsername"`
 	// The port on which the DB accepts connections
 	Port *int `pulumi:"port"`
-	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-	// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
@@ -238,19 +223,16 @@ type clusterState struct {
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the DB cluster.
 	Tags map[string]interface{} `pulumi:"tags"`
-	// List of VPC security groups to associate
-	// with the Cluster
+	// List of VPC security groups to associate with the Cluster
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
 type ClusterState struct {
-	// Specifies whether any cluster modifications
-	// are applied immediately, or during the next maintenance window. Default is
-	// `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
 	ApplyImmediately pulumi.BoolPtrInput
 	// Amazon Resource Name (ARN) of cluster
 	Arn pulumi.StringPtrInput
-	// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignoreChanges` if necessary.
+	// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next provider update. It is recommended to specify 3 AZs or use [the `ignoreChanges` argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if necessary.
 	AvailabilityZones pulumi.StringArrayInput
 	// The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow pulumi.IntPtrInput
@@ -276,8 +258,7 @@ type ClusterState struct {
 	DeletionProtection pulumi.BoolPtrInput
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
 	EnableHttpEndpoint pulumi.BoolPtrInput
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-	// The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+	// List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
 	// The DNS address of the RDS instance
 	Endpoint pulumi.StringPtrInput
@@ -287,9 +268,7 @@ type ClusterState struct {
 	EngineMode pulumi.StringPtrInput
 	// The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
 	EngineVersion pulumi.StringPtrInput
-	// The name of your final DB snapshot
-	// when this DB cluster is deleted. If omitted, no final snapshot will be
-	// made.
+	// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
 	// The global cluster identifier specified on [`rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
 	GlobalClusterIdentifier pulumi.StringPtrInput
@@ -301,15 +280,13 @@ type ClusterState struct {
 	IamRoles pulumi.StringArrayInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
-	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	MasterPassword pulumi.StringPtrInput
 	// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
 	MasterUsername pulumi.StringPtrInput
 	// The port on which the DB accepts connections
 	Port pulumi.IntPtrInput
-	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-	// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
 	PreferredBackupWindow pulumi.StringPtrInput
 	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
 	PreferredMaintenanceWindow pulumi.StringPtrInput
@@ -331,8 +308,7 @@ type ClusterState struct {
 	StorageEncrypted pulumi.BoolPtrInput
 	// A map of tags to assign to the DB cluster.
 	Tags pulumi.MapInput
-	// List of VPC security groups to associate
-	// with the Cluster
+	// List of VPC security groups to associate with the Cluster
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
 
@@ -341,11 +317,9 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// Specifies whether any cluster modifications
-	// are applied immediately, or during the next maintenance window. Default is
-	// `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
-	// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignoreChanges` if necessary.
+	// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next provider update. It is recommended to specify 3 AZs or use [the `ignoreChanges` argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if necessary.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow *int `pulumi:"backtrackWindow"`
@@ -369,8 +343,7 @@ type clusterArgs struct {
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
 	EnableHttpEndpoint *bool `pulumi:"enableHttpEndpoint"`
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-	// The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+	// List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
 	// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
 	Engine *string `pulumi:"engine"`
@@ -378,9 +351,7 @@ type clusterArgs struct {
 	EngineMode *string `pulumi:"engineMode"`
 	// The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
 	EngineVersion *string `pulumi:"engineVersion"`
-	// The name of your final DB snapshot
-	// when this DB cluster is deleted. If omitted, no final snapshot will be
-	// made.
+	// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
 	// The global cluster identifier specified on [`rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
 	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
@@ -390,15 +361,13 @@ type clusterArgs struct {
 	IamRoles []string `pulumi:"iamRoles"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	MasterPassword *string `pulumi:"masterPassword"`
 	// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
 	MasterUsername *string `pulumi:"masterUsername"`
 	// The port on which the DB accepts connections
 	Port *int `pulumi:"port"`
-	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-	// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
@@ -417,18 +386,15 @@ type clusterArgs struct {
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the DB cluster.
 	Tags map[string]interface{} `pulumi:"tags"`
-	// List of VPC security groups to associate
-	// with the Cluster
+	// List of VPC security groups to associate with the Cluster
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// Specifies whether any cluster modifications
-	// are applied immediately, or during the next maintenance window. Default is
-	// `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
 	ApplyImmediately pulumi.BoolPtrInput
-	// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignoreChanges` if necessary.
+	// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next provider update. It is recommended to specify 3 AZs or use [the `ignoreChanges` argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if necessary.
 	AvailabilityZones pulumi.StringArrayInput
 	// The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow pulumi.IntPtrInput
@@ -452,8 +418,7 @@ type ClusterArgs struct {
 	DeletionProtection pulumi.BoolPtrInput
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
 	EnableHttpEndpoint pulumi.BoolPtrInput
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-	// The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+	// List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
 	// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
 	Engine pulumi.StringPtrInput
@@ -461,9 +426,7 @@ type ClusterArgs struct {
 	EngineMode pulumi.StringPtrInput
 	// The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
 	EngineVersion pulumi.StringPtrInput
-	// The name of your final DB snapshot
-	// when this DB cluster is deleted. If omitted, no final snapshot will be
-	// made.
+	// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
 	// The global cluster identifier specified on [`rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
 	GlobalClusterIdentifier pulumi.StringPtrInput
@@ -473,15 +436,13 @@ type ClusterArgs struct {
 	IamRoles pulumi.StringArrayInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
-	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	MasterPassword pulumi.StringPtrInput
 	// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
 	MasterUsername pulumi.StringPtrInput
 	// The port on which the DB accepts connections
 	Port pulumi.IntPtrInput
-	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-	// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
 	PreferredBackupWindow pulumi.StringPtrInput
 	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
 	PreferredMaintenanceWindow pulumi.StringPtrInput
@@ -500,8 +461,7 @@ type ClusterArgs struct {
 	StorageEncrypted pulumi.BoolPtrInput
 	// A map of tags to assign to the DB cluster.
 	Tags pulumi.MapInput
-	// List of VPC security groups to associate
-	// with the Cluster
+	// List of VPC security groups to associate with the Cluster
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
 

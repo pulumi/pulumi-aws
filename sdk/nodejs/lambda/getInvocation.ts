@@ -58,7 +58,8 @@ export interface GetInvocationResult {
      */
     readonly result: string;
     /**
-     * This field is set only if result is a map of primitive types, where the map is string keys and string values.
+     * (**DEPRECATED**) This field is set only if result is a map of primitive types, where the map is string keys and string values.
+     * @deprecated use `result` attribute with jsondecode() function
      */
     readonly resultMap: {[key: string]: string};
     /**

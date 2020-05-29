@@ -125,6 +125,7 @@ export class TopicRule extends pulumi.CustomResource {
      */
     public readonly sqlVersion!: pulumi.Output<string>;
     public readonly sqs!: pulumi.Output<outputs.iot.TopicRuleSqs | undefined>;
+    public readonly stepFunctions!: pulumi.Output<outputs.iot.TopicRuleStepFunction[] | undefined>;
     /**
      * Key-value map of resource tags
      */
@@ -162,6 +163,7 @@ export class TopicRule extends pulumi.CustomResource {
             inputs["sql"] = state ? state.sql : undefined;
             inputs["sqlVersion"] = state ? state.sqlVersion : undefined;
             inputs["sqs"] = state ? state.sqs : undefined;
+            inputs["stepFunctions"] = state ? state.stepFunctions : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as TopicRuleArgs | undefined;
@@ -193,6 +195,7 @@ export class TopicRule extends pulumi.CustomResource {
             inputs["sql"] = args ? args.sql : undefined;
             inputs["sqlVersion"] = args ? args.sqlVersion : undefined;
             inputs["sqs"] = args ? args.sqs : undefined;
+            inputs["stepFunctions"] = args ? args.stepFunctions : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
@@ -249,6 +252,7 @@ export interface TopicRuleState {
      */
     readonly sqlVersion?: pulumi.Input<string>;
     readonly sqs?: pulumi.Input<inputs.iot.TopicRuleSqs>;
+    readonly stepFunctions?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleStepFunction>[]>;
     /**
      * Key-value map of resource tags
      */
@@ -293,6 +297,7 @@ export interface TopicRuleArgs {
      */
     readonly sqlVersion: pulumi.Input<string>;
     readonly sqs?: pulumi.Input<inputs.iot.TopicRuleSqs>;
+    readonly stepFunctions?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleStepFunction>[]>;
     /**
      * Key-value map of resource tags
      */

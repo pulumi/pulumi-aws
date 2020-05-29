@@ -158,6 +158,9 @@ namespace Pulumi.Aws.Iot
         [Output("sqs")]
         public Output<Outputs.TopicRuleSqs?> Sqs { get; private set; } = null!;
 
+        [Output("stepFunctions")]
+        public Output<ImmutableArray<Outputs.TopicRuleStepFunction>> StepFunctions { get; private set; } = null!;
+
         /// <summary>
         /// Key-value map of resource tags
         /// </summary>
@@ -297,6 +300,14 @@ namespace Pulumi.Aws.Iot
         [Input("sqs")]
         public Input<Inputs.TopicRuleSqsArgs>? Sqs { get; set; }
 
+        [Input("stepFunctions")]
+        private InputList<Inputs.TopicRuleStepFunctionArgs>? _stepFunctions;
+        public InputList<Inputs.TopicRuleStepFunctionArgs> StepFunctions
+        {
+            get => _stepFunctions ?? (_stepFunctions = new InputList<Inputs.TopicRuleStepFunctionArgs>());
+            set => _stepFunctions = value;
+        }
+
         [Input("tags")]
         private InputMap<object>? _tags;
 
@@ -408,6 +419,14 @@ namespace Pulumi.Aws.Iot
 
         [Input("sqs")]
         public Input<Inputs.TopicRuleSqsGetArgs>? Sqs { get; set; }
+
+        [Input("stepFunctions")]
+        private InputList<Inputs.TopicRuleStepFunctionGetArgs>? _stepFunctions;
+        public InputList<Inputs.TopicRuleStepFunctionGetArgs> StepFunctions
+        {
+            get => _stepFunctions ?? (_stepFunctions = new InputList<Inputs.TopicRuleStepFunctionGetArgs>());
+            set => _stepFunctions = value;
+        }
 
         [Input("tags")]
         private InputMap<object>? _tags;

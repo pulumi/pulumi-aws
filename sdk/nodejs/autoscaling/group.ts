@@ -366,11 +366,11 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly suspendedProcesses!: pulumi.Output<string[] | undefined>;
     /**
-     * A list of tag blocks. Tags documented below.
+     * Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
      */
     public readonly tags!: pulumi.Output<outputs.autoscaling.GroupTag[] | undefined>;
     /**
-     * A list of tag blocks (maps). Tags documented below.
+     * Set of maps containing resource tags. Conflicts with `tag`. Documented below.
      */
     public readonly tagsCollection!: pulumi.Output<{[key: string]: any}[] | undefined>;
     /**
@@ -618,11 +618,11 @@ export interface GroupState {
      */
     readonly suspendedProcesses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of tag blocks. Tags documented below.
+     * Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
      */
     readonly tags?: pulumi.Input<pulumi.Input<inputs.autoscaling.GroupTag>[]>;
     /**
-     * A list of tag blocks (maps). Tags documented below.
+     * Set of maps containing resource tags. Conflicts with `tag`. Documented below.
      */
     readonly tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
     /**
@@ -773,11 +773,11 @@ export interface GroupArgs {
      */
     readonly suspendedProcesses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of tag blocks. Tags documented below.
+     * Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
      */
     readonly tags?: pulumi.Input<pulumi.Input<inputs.autoscaling.GroupTag>[]>;
     /**
-     * A list of tag blocks (maps). Tags documented below.
+     * Set of maps containing resource tags. Conflicts with `tag`. Documented below.
      */
     readonly tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
     /**

@@ -37,8 +37,9 @@ type TopicRule struct {
 	// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
 	Sql pulumi.StringOutput `pulumi:"sql"`
 	// The version of the SQL rules engine to use when evaluating the rule.
-	SqlVersion pulumi.StringOutput   `pulumi:"sqlVersion"`
-	Sqs        TopicRuleSqsPtrOutput `pulumi:"sqs"`
+	SqlVersion    pulumi.StringOutput              `pulumi:"sqlVersion"`
+	Sqs           TopicRuleSqsPtrOutput            `pulumi:"sqs"`
+	StepFunctions TopicRuleStepFunctionArrayOutput `pulumi:"stepFunctions"`
 	// Key-value map of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
@@ -104,8 +105,9 @@ type topicRuleState struct {
 	// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
 	Sql *string `pulumi:"sql"`
 	// The version of the SQL rules engine to use when evaluating the rule.
-	SqlVersion *string       `pulumi:"sqlVersion"`
-	Sqs        *TopicRuleSqs `pulumi:"sqs"`
+	SqlVersion    *string                 `pulumi:"sqlVersion"`
+	Sqs           *TopicRuleSqs           `pulumi:"sqs"`
+	StepFunctions []TopicRuleStepFunction `pulumi:"stepFunctions"`
 	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
@@ -135,8 +137,9 @@ type TopicRuleState struct {
 	// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
 	Sql pulumi.StringPtrInput
 	// The version of the SQL rules engine to use when evaluating the rule.
-	SqlVersion pulumi.StringPtrInput
-	Sqs        TopicRuleSqsPtrInput
+	SqlVersion    pulumi.StringPtrInput
+	Sqs           TopicRuleSqsPtrInput
+	StepFunctions TopicRuleStepFunctionArrayInput
 	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
@@ -168,8 +171,9 @@ type topicRuleArgs struct {
 	// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
 	Sql string `pulumi:"sql"`
 	// The version of the SQL rules engine to use when evaluating the rule.
-	SqlVersion string        `pulumi:"sqlVersion"`
-	Sqs        *TopicRuleSqs `pulumi:"sqs"`
+	SqlVersion    string                  `pulumi:"sqlVersion"`
+	Sqs           *TopicRuleSqs           `pulumi:"sqs"`
+	StepFunctions []TopicRuleStepFunction `pulumi:"stepFunctions"`
 	// Key-value map of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
@@ -198,8 +202,9 @@ type TopicRuleArgs struct {
 	// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
 	Sql pulumi.StringInput
 	// The version of the SQL rules engine to use when evaluating the rule.
-	SqlVersion pulumi.StringInput
-	Sqs        TopicRuleSqsPtrInput
+	SqlVersion    pulumi.StringInput
+	Sqs           TopicRuleSqsPtrInput
+	StepFunctions TopicRuleStepFunctionArrayInput
 	// Key-value map of resource tags
 	Tags pulumi.MapInput
 }
