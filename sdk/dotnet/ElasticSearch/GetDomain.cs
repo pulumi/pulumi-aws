@@ -141,7 +141,7 @@ namespace Pulumi.Aws.ElasticSearch
         /// Status of a configuration change in the domain.
         /// * `snapshot_options` – Domain snapshot related options.
         /// </summary>
-        public readonly string Processing;
+        public readonly bool Processing;
         public readonly ImmutableArray<Outputs.GetDomainSnapshotOptionResult> SnapshotOptions;
         /// <summary>
         /// The tags assigned to the domain.
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.ElasticSearch
 
             ImmutableArray<Outputs.GetDomainNodeToNodeEncryptionResult> nodeToNodeEncryptions,
 
-            string processing,
+            bool processing,
 
             ImmutableArray<Outputs.GetDomainSnapshotOptionResult> snapshotOptions,
 

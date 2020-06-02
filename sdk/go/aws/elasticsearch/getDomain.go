@@ -62,7 +62,7 @@ type LookupDomainResult struct {
 	NodeToNodeEncryptions []GetDomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryptions"`
 	// Status of a configuration change in the domain.
 	// * `snapshotOptions` – Domain snapshot related options.
-	Processing      string                    `pulumi:"processing"`
+	Processing      bool                      `pulumi:"processing"`
 	SnapshotOptions []GetDomainSnapshotOption `pulumi:"snapshotOptions"`
 	// The tags assigned to the domain.
 	Tags map[string]interface{} `pulumi:"tags"`

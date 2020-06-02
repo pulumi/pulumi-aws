@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<int>? Base { get; set; }
 
         /// <summary>
-        /// The short name or full Amazon Resource Name (ARN) of the capacity provider.
+        /// The short name of the capacity provider.
         /// </summary>
         [Input("capacityProvider", required: true)]
         public Input<string> CapacityProvider { get; set; } = null!;

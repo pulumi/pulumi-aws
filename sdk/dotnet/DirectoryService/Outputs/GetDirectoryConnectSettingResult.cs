@@ -14,6 +14,10 @@ namespace Pulumi.Aws.DirectoryService.Outputs
     public sealed class GetDirectoryConnectSettingResult
     {
         /// <summary>
+        /// The IP addresses of the AD Connector servers.
+        /// </summary>
+        public readonly ImmutableArray<string> ConnectIps;
+        /// <summary>
         /// The DNS IP addresses of the domain to connect to.
         /// </summary>
         public readonly ImmutableArray<string> CustomerDnsIps;
@@ -32,6 +36,8 @@ namespace Pulumi.Aws.DirectoryService.Outputs
 
         [OutputConstructor]
         private GetDirectoryConnectSettingResult(
+            ImmutableArray<string> connectIps,
+
             ImmutableArray<string> customerDnsIps,
 
             string customerUsername,
@@ -40,6 +46,7 @@ namespace Pulumi.Aws.DirectoryService.Outputs
 
             string vpcId)
         {
+            ConnectIps = connectIps;
             CustomerDnsIps = customerDnsIps;
             CustomerUsername = customerUsername;
             SubnetIds = subnetIds;

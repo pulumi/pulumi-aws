@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Result;
         /// <summary>
-        /// This field is set only if result is a map of primitive types, where the map is string keys and string values.
+        /// (**DEPRECATED**) This field is set only if result is a map of primitive types, where the map is string keys and string values.
         /// </summary>
         public readonly ImmutableDictionary<string, string> ResultMap;
 

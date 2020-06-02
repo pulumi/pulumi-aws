@@ -9,8 +9,7 @@ import * as utilities from "../utilities";
 import {Function} from "./function";
 
 /**
- * Creates a Lambda permission to allow external sources invoking the Lambda function
- * (e.g. CloudWatch Event Rule, SNS or S3).
+ * Gives an external source (like a CloudWatch Event Rule, SNS, or S3) permission to access the Lambda function.
  *
  * ## Example Usage
  *
@@ -171,12 +170,11 @@ export class Permission extends pulumi.CustomResource {
      */
     public readonly sourceAccount!: pulumi.Output<string | undefined>;
     /**
-     * When granting Amazon S3 or CloudWatch Events permission to
-     * invoke your function, you should specify this field with the Amazon Resource Name (ARN)
-     * for the S3 Bucket or CloudWatch Events Rule as its value.  This ensures that only events
-     * generated from the specified bucket or rule can invoke the function.
-     * API Gateway ARNs have a unique structure described
-     * [here](http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
+     * When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
+     * Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+     * For S3, this should be the ARN of the S3 Bucket.
+     * For CloudWatch Events, this should be the ARN of the CloudWatch Events Rule.
+     * For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
      */
     public readonly sourceArn!: pulumi.Output<string | undefined>;
     /**
@@ -274,12 +272,11 @@ export interface PermissionState {
      */
     readonly sourceAccount?: pulumi.Input<string>;
     /**
-     * When granting Amazon S3 or CloudWatch Events permission to
-     * invoke your function, you should specify this field with the Amazon Resource Name (ARN)
-     * for the S3 Bucket or CloudWatch Events Rule as its value.  This ensures that only events
-     * generated from the specified bucket or rule can invoke the function.
-     * API Gateway ARNs have a unique structure described
-     * [here](http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
+     * When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
+     * Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+     * For S3, this should be the ARN of the S3 Bucket.
+     * For CloudWatch Events, this should be the ARN of the CloudWatch Events Rule.
+     * For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
      */
     readonly sourceArn?: pulumi.Input<string>;
     /**
@@ -325,12 +322,11 @@ export interface PermissionArgs {
      */
     readonly sourceAccount?: pulumi.Input<string>;
     /**
-     * When granting Amazon S3 or CloudWatch Events permission to
-     * invoke your function, you should specify this field with the Amazon Resource Name (ARN)
-     * for the S3 Bucket or CloudWatch Events Rule as its value.  This ensures that only events
-     * generated from the specified bucket or rule can invoke the function.
-     * API Gateway ARNs have a unique structure described
-     * [here](http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
+     * When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
+     * Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
+     * For S3, this should be the ARN of the S3 Bucket.
+     * For CloudWatch Events, this should be the ARN of the CloudWatch Events Rule.
+     * For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
      */
     readonly sourceArn?: pulumi.Input<string>;
     /**

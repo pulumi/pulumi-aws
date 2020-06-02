@@ -148,9 +148,9 @@ type Group struct {
 	// A list of processes to suspend for the AutoScaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your autoscaling group from functioning properly.
 	SuspendedProcesses pulumi.StringArrayOutput `pulumi:"suspendedProcesses"`
-	// A list of tag blocks. Tags documented below.
+	// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
 	Tags GroupTagArrayOutput `pulumi:"tags"`
-	// A list of tag blocks (maps). Tags documented below.
+	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
 	TagsCollection pulumi.MapArrayOutput `pulumi:"tagsCollection"`
 	// A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
 	TargetGroupArns pulumi.StringArrayOutput `pulumi:"targetGroupArns"`
@@ -275,9 +275,9 @@ type groupState struct {
 	// A list of processes to suspend for the AutoScaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your autoscaling group from functioning properly.
 	SuspendedProcesses []string `pulumi:"suspendedProcesses"`
-	// A list of tag blocks. Tags documented below.
+	// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
 	Tags []GroupTag `pulumi:"tags"`
-	// A list of tag blocks (maps). Tags documented below.
+	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
 	TagsCollection []map[string]interface{} `pulumi:"tagsCollection"`
 	// A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
 	TargetGroupArns []string `pulumi:"targetGroupArns"`
@@ -369,9 +369,9 @@ type GroupState struct {
 	// A list of processes to suspend for the AutoScaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your autoscaling group from functioning properly.
 	SuspendedProcesses pulumi.StringArrayInput
-	// A list of tag blocks. Tags documented below.
+	// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
 	Tags GroupTagArrayInput
-	// A list of tag blocks (maps). Tags documented below.
+	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
 	TagsCollection pulumi.MapArrayInput
 	// A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
 	TargetGroupArns pulumi.StringArrayInput
@@ -465,9 +465,9 @@ type groupArgs struct {
 	// A list of processes to suspend for the AutoScaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your autoscaling group from functioning properly.
 	SuspendedProcesses []string `pulumi:"suspendedProcesses"`
-	// A list of tag blocks. Tags documented below.
+	// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
 	Tags []GroupTag `pulumi:"tags"`
-	// A list of tag blocks (maps). Tags documented below.
+	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
 	TagsCollection []map[string]interface{} `pulumi:"tagsCollection"`
 	// A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
 	TargetGroupArns []string `pulumi:"targetGroupArns"`
@@ -558,9 +558,9 @@ type GroupArgs struct {
 	// A list of processes to suspend for the AutoScaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your autoscaling group from functioning properly.
 	SuspendedProcesses pulumi.StringArrayInput
-	// A list of tag blocks. Tags documented below.
+	// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
 	Tags GroupTagArrayInput
-	// A list of tag blocks (maps). Tags documented below.
+	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
 	TagsCollection pulumi.MapArrayInput
 	// A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
 	TargetGroupArns pulumi.StringArrayInput

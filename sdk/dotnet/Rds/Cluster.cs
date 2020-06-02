@@ -152,9 +152,7 @@ namespace Pulumi.Aws.Rds
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether any cluster modifications
-        /// are applied immediately, or during the next maintenance window. Default is
-        /// `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+        /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         /// </summary>
         [Output("applyImmediately")]
         public Output<bool> ApplyImmediately { get; private set; } = null!;
@@ -166,7 +164,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignore_changes` if necessary.
+        /// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next provider update. It is recommended to specify 3 AZs or use [the `ignoreChanges` argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if necessary.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
@@ -244,8 +242,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> EnableHttpEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-        /// The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+        /// List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         /// </summary>
         [Output("enabledCloudwatchLogsExports")]
         public Output<ImmutableArray<string>> EnabledCloudwatchLogsExports { get; private set; } = null!;
@@ -275,9 +272,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The name of your final DB snapshot
-        /// when this DB cluster is deleted. If omitted, no final snapshot will be
-        /// made.
+        /// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         /// </summary>
         [Output("finalSnapshotIdentifier")]
         public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
@@ -313,8 +308,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
         /// </summary>
         [Output("masterPassword")]
         public Output<string?> MasterPassword { get; private set; } = null!;
@@ -332,8 +326,7 @@ namespace Pulumi.Aws.Rds
         public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
-        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-        /// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
         /// </summary>
         [Output("preferredBackupWindow")]
         public Output<string> PreferredBackupWindow { get; private set; } = null!;
@@ -397,8 +390,7 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// List of VPC security groups to associate
-        /// with the Cluster
+        /// List of VPC security groups to associate with the Cluster
         /// </summary>
         [Output("vpcSecurityGroupIds")]
         public Output<ImmutableArray<string>> VpcSecurityGroupIds { get; private set; } = null!;
@@ -450,9 +442,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether any cluster modifications
-        /// are applied immediately, or during the next maintenance window. Default is
-        /// `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+        /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
@@ -461,7 +451,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignore_changes` if necessary.
+        /// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next provider update. It is recommended to specify 3 AZs or use [the `ignoreChanges` argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if necessary.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -545,8 +535,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _enabledCloudwatchLogsExports;
 
         /// <summary>
-        /// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-        /// The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+        /// List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         /// </summary>
         public InputList<string> EnabledCloudwatchLogsExports
         {
@@ -573,9 +562,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The name of your final DB snapshot
-        /// when this DB cluster is deleted. If omitted, no final snapshot will be
-        /// made.
+        /// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         /// </summary>
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
@@ -611,8 +598,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
         /// </summary>
         [Input("masterPassword")]
         public Input<string>? MasterPassword { get; set; }
@@ -630,8 +616,7 @@ namespace Pulumi.Aws.Rds
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-        /// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
         /// </summary>
         [Input("preferredBackupWindow")]
         public Input<string>? PreferredBackupWindow { get; set; }
@@ -697,8 +682,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _vpcSecurityGroupIds;
 
         /// <summary>
-        /// List of VPC security groups to associate
-        /// with the Cluster
+        /// List of VPC security groups to associate with the Cluster
         /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {
@@ -714,9 +698,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ClusterState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether any cluster modifications
-        /// are applied immediately, or during the next maintenance window. Default is
-        /// `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+        /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
@@ -731,7 +713,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignore_changes` if necessary.
+        /// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next provider update. It is recommended to specify 3 AZs or use [the `ignoreChanges` argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) if necessary.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -821,8 +803,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _enabledCloudwatchLogsExports;
 
         /// <summary>
-        /// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-        /// The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
+        /// List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         /// </summary>
         public InputList<string> EnabledCloudwatchLogsExports
         {
@@ -855,9 +836,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The name of your final DB snapshot
-        /// when this DB cluster is deleted. If omitted, no final snapshot will be
-        /// made.
+        /// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         /// </summary>
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
@@ -899,8 +878,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
         /// </summary>
         [Input("masterPassword")]
         public Input<string>? MasterPassword { get; set; }
@@ -918,8 +896,7 @@ namespace Pulumi.Aws.Rds
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-        /// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
         /// </summary>
         [Input("preferredBackupWindow")]
         public Input<string>? PreferredBackupWindow { get; set; }
@@ -992,8 +969,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _vpcSecurityGroupIds;
 
         /// <summary>
-        /// List of VPC security groups to associate
-        /// with the Cluster
+        /// List of VPC security groups to associate with the Cluster
         /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {

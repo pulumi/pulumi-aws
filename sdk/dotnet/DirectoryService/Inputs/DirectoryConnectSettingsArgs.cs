@@ -12,6 +12,18 @@ namespace Pulumi.Aws.DirectoryService.Inputs
 
     public sealed class DirectoryConnectSettingsArgs : Pulumi.ResourceArgs
     {
+        [Input("connectIps")]
+        private InputList<string>? _connectIps;
+
+        /// <summary>
+        /// The IP addresses of the AD Connector servers.
+        /// </summary>
+        public InputList<string> ConnectIps
+        {
+            get => _connectIps ?? (_connectIps = new InputList<string>());
+            set => _connectIps = value;
+        }
+
         [Input("customerDnsIps", required: true)]
         private InputList<string>? _customerDnsIps;
 

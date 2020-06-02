@@ -824,43 +824,43 @@ export namespace apigateway {
         /**
          * Specifies whether the cached responses are encrypted.
          */
-        cacheDataEncrypted?: boolean;
+        cacheDataEncrypted: boolean;
         /**
          * Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
          */
-        cacheTtlInSeconds?: number;
+        cacheTtlInSeconds: number;
         /**
          * Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
          */
-        cachingEnabled?: boolean;
+        cachingEnabled: boolean;
         /**
          * Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
          */
-        dataTraceEnabled?: boolean;
+        dataTraceEnabled: boolean;
         /**
          * Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
          */
-        loggingLevel?: string;
+        loggingLevel: string;
         /**
          * Specifies whether Amazon CloudWatch metrics are enabled for this method.
          */
-        metricsEnabled?: boolean;
+        metricsEnabled: boolean;
         /**
          * Specifies whether authorization is required for a cache invalidation request.
          */
-        requireAuthorizationForCacheControl?: boolean;
+        requireAuthorizationForCacheControl: boolean;
         /**
          * Specifies the throttling burst limit.
          */
-        throttlingBurstLimit?: number;
+        throttlingBurstLimit: number;
         /**
          * Specifies the throttling rate limit.
          */
-        throttlingRateLimit?: number;
+        throttlingRateLimit: number;
         /**
          * Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
          */
-        unauthorizedCacheControlHeaderStrategy?: string;
+        unauthorizedCacheControlHeaderStrategy: string;
     }
 
     export interface RestApiEndpointConfiguration {
@@ -3656,7 +3656,7 @@ export namespace codebuild {
         /**
          * A set of environment variables to make available to builds for this build project.
          */
-        environmentVariables: outputs.codebuild.ProjectEnvironmentEnvironmentVariable[];
+        environmentVariables?: outputs.codebuild.ProjectEnvironmentEnvironmentVariable[];
         /**
          * The Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `nginx:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
          */
@@ -4809,6 +4809,10 @@ export namespace dax {
 export namespace directoryservice {
     export interface DirectoryConnectSettings {
         /**
+         * The IP addresses of the AD Connector servers.
+         */
+        connectIps: string[];
+        /**
          * The DNS IP addresses of the domain to connect to.
          */
         customerDnsIps: string[];
@@ -4838,6 +4842,10 @@ export namespace directoryservice {
     }
 
     export interface GetDirectoryConnectSetting {
+        /**
+         * The IP addresses of the AD Connector servers.
+         */
+        connectIps: string[];
         /**
          * The DNS IP addresses of the domain to connect to.
          */
@@ -7631,7 +7639,7 @@ export namespace ecs {
          */
         base?: number;
         /**
-         * The short name or full Amazon Resource Name (ARN) of the capacity provider.
+         * The short name of the capacity provider.
          */
         capacityProvider: string;
         /**
@@ -10804,6 +10812,21 @@ export namespace iot {
          * Specifies whether to use Base64 encoding.
          */
         useBase64: boolean;
+    }
+
+    export interface TopicRuleStepFunction {
+        /**
+         * The prefix used to generate, along with a UUID, the unique state machine execution name.
+         */
+        executionNamePrefix?: string;
+        /**
+         * The ARN of the IAM role that grants access to start execution of the state machine.
+         */
+        roleArn: string;
+        /**
+         * The name of the Step Functions state machine whose execution will be started.
+         */
+        stateMachineName: string;
     }
 }
 

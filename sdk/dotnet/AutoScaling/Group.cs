@@ -403,13 +403,13 @@ namespace Pulumi.Aws.AutoScaling
         public Output<ImmutableArray<string>> SuspendedProcesses { get; private set; } = null!;
 
         /// <summary>
-        /// A list of tag blocks. Tags documented below.
+        /// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.GroupTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A list of tag blocks (maps). Tags documented below.
+        /// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
         /// </summary>
         [Output("tagsCollection")]
         public Output<ImmutableArray<ImmutableDictionary<string, object>>> TagsCollection { get; private set; } = null!;
@@ -691,7 +691,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<Inputs.GroupTagArgs>? _tags;
 
         /// <summary>
-        /// A list of tag blocks. Tags documented below.
+        /// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
         /// </summary>
         public InputList<Inputs.GroupTagArgs> Tags
         {
@@ -703,7 +703,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<ImmutableDictionary<string, object>>? _tagsCollection;
 
         /// <summary>
-        /// A list of tag blocks (maps). Tags documented below.
+        /// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
         /// </summary>
         public InputList<ImmutableDictionary<string, object>> TagsCollection
         {
@@ -973,7 +973,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<Inputs.GroupTagGetArgs>? _tags;
 
         /// <summary>
-        /// A list of tag blocks. Tags documented below.
+        /// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
         /// </summary>
         public InputList<Inputs.GroupTagGetArgs> Tags
         {
@@ -985,7 +985,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<ImmutableDictionary<string, object>>? _tagsCollection;
 
         /// <summary>
-        /// A list of tag blocks (maps). Tags documented below.
+        /// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
         /// </summary>
         public InputList<ImmutableDictionary<string, object>> TagsCollection
         {

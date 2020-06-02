@@ -39,7 +39,7 @@ class GetInvocationResult:
             raise TypeError("Expected argument 'result_map' to be a dict")
         __self__.result_map = result_map
         """
-        This field is set only if result is a map of primitive types, where the map is string keys and string values.
+        (**DEPRECATED**) This field is set only if result is a map of primitive types, where the map is string keys and string values.
         """
 class AwaitableGetInvocationResult(GetInvocationResult):
     # pylint: disable=using-constant-test

@@ -15,7 +15,7 @@ class Service(pulumi.CustomResource):
     The capacity provider strategy to use for the service. Can be one or more.  Defined below.
 
       * `base` (`float`) - The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-      * `capacityProvider` (`str`) - The short name or full Amazon Resource Name (ARN) of the capacity provider.
+      * `capacityProvider` (`str`) - The short name of the capacity provider.
       * `weight` (`float`) - The relative percentage of the total number of launched tasks that should use the specified capacity provider.
     """
     cluster: pulumi.Output[str]
@@ -226,7 +226,7 @@ class Service(pulumi.CustomResource):
         The **capacity_provider_strategies** object supports the following:
 
           * `base` (`pulumi.Input[float]`) - The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-          * `capacityProvider` (`pulumi.Input[str]`) - The short name or full Amazon Resource Name (ARN) of the capacity provider.
+          * `capacityProvider` (`pulumi.Input[str]`) - The short name of the capacity provider.
           * `weight` (`pulumi.Input[float]`) - The relative percentage of the total number of launched tasks that should use the specified capacity provider.
 
         The **deployment_controller** object supports the following:
@@ -354,7 +354,7 @@ class Service(pulumi.CustomResource):
         The **capacity_provider_strategies** object supports the following:
 
           * `base` (`pulumi.Input[float]`) - The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-          * `capacityProvider` (`pulumi.Input[str]`) - The short name or full Amazon Resource Name (ARN) of the capacity provider.
+          * `capacityProvider` (`pulumi.Input[str]`) - The short name of the capacity provider.
           * `weight` (`pulumi.Input[float]`) - The relative percentage of the total number of launched tasks that should use the specified capacity provider.
 
         The **deployment_controller** object supports the following:

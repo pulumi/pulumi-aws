@@ -603,7 +603,7 @@ func (o ClusterSettingArrayOutput) Index(i pulumi.IntInput) ClusterSettingOutput
 type ServiceCapacityProviderStrategy struct {
 	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
 	Base *int `pulumi:"base"`
-	// The short name or full Amazon Resource Name (ARN) of the capacity provider.
+	// The short name of the capacity provider.
 	CapacityProvider string `pulumi:"capacityProvider"`
 	// The relative percentage of the total number of launched tasks that should use the specified capacity provider.
 	Weight *int `pulumi:"weight"`
@@ -624,7 +624,7 @@ type ServiceCapacityProviderStrategyInput interface {
 type ServiceCapacityProviderStrategyArgs struct {
 	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
 	Base pulumi.IntPtrInput `pulumi:"base"`
-	// The short name or full Amazon Resource Name (ARN) of the capacity provider.
+	// The short name of the capacity provider.
 	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
 	// The relative percentage of the total number of launched tasks that should use the specified capacity provider.
 	Weight pulumi.IntPtrInput `pulumi:"weight"`
@@ -687,7 +687,7 @@ func (o ServiceCapacityProviderStrategyOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceCapacityProviderStrategy) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
 
-// The short name or full Amazon Resource Name (ARN) of the capacity provider.
+// The short name of the capacity provider.
 func (o ServiceCapacityProviderStrategyOutput) CapacityProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceCapacityProviderStrategy) string { return v.CapacityProvider }).(pulumi.StringOutput)
 }

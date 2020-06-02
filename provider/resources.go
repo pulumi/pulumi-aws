@@ -677,7 +677,31 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// CodeBuild
-			"aws_codebuild_project":           {Tok: awsResource(codebuildMod, "Project")},
+			"aws_codebuild_project": {
+				Tok: awsResource(codebuildMod, "Project"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"secondary_sources": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"auth": {
+									Name:        "auths",
+									MaxItemsOne: boolRef(false),
+								},
+							},
+						},
+					},
+					"source": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"auth": {
+									Name:        "auths",
+									MaxItemsOne: boolRef(false),
+								},
+							},
+						},
+					},
+				},
+			},
 			"aws_codebuild_webhook":           {Tok: awsResource(codebuildMod, "Webhook")},
 			"aws_codebuild_source_credential": {Tok: awsResource(codebuildMod, "SourceCredential")},
 			// CodeDeploy

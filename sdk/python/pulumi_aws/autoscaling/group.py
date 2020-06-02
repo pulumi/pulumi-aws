@@ -159,7 +159,7 @@ class Group(pulumi.CustomResource):
     """
     tags: pulumi.Output[list]
     """
-    A list of tag blocks. Tags documented below.
+    Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
 
       * `key` (`str`) - Key
       * `propagateAtLaunch` (`bool`) - Enables propagation of the tag to
@@ -168,7 +168,7 @@ class Group(pulumi.CustomResource):
     """
     tags_collection: pulumi.Output[list]
     """
-    A list of tag blocks (maps). Tags documented below.
+    Set of maps containing resource tags. Conflicts with `tag`. Documented below.
     """
     target_group_arns: pulumi.Output[list]
     """
@@ -416,8 +416,8 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] service_linked_role_arn: The ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[list] suspended_processes: A list of processes to suspend for the AutoScaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your autoscaling group from functioning properly.
-        :param pulumi.Input[list] tags: A list of tag blocks. Tags documented below.
-        :param pulumi.Input[list] tags_collection: A list of tag blocks (maps). Tags documented below.
+        :param pulumi.Input[list] tags: Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
+        :param pulumi.Input[list] tags_collection: Set of maps containing resource tags. Conflicts with `tag`. Documented below.
         :param pulumi.Input[list] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
         :param pulumi.Input[list] termination_policies: A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
         :param pulumi.Input[list] vpc_zone_identifiers: A list of subnet IDs to launch resources in.
@@ -587,8 +587,8 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] service_linked_role_arn: The ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[list] suspended_processes: A list of processes to suspend for the AutoScaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your autoscaling group from functioning properly.
-        :param pulumi.Input[list] tags: A list of tag blocks. Tags documented below.
-        :param pulumi.Input[list] tags_collection: A list of tag blocks (maps). Tags documented below.
+        :param pulumi.Input[list] tags: Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
+        :param pulumi.Input[list] tags_collection: Set of maps containing resource tags. Conflicts with `tag`. Documented below.
         :param pulumi.Input[list] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
         :param pulumi.Input[list] termination_policies: A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
         :param pulumi.Input[list] vpc_zone_identifiers: A list of subnet IDs to launch resources in.

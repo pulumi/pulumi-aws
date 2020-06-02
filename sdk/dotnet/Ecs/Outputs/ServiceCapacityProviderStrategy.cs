@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly int? Base;
         /// <summary>
-        /// The short name or full Amazon Resource Name (ARN) of the capacity provider.
+        /// The short name of the capacity provider.
         /// </summary>
         public readonly string CapacityProvider;
         /// <summary>

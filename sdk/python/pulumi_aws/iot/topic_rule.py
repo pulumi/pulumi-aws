@@ -48,11 +48,12 @@ class TopicRule(pulumi.CustomResource):
     The version of the SQL rules engine to use when evaluating the rule.
     """
     sqs: pulumi.Output[dict]
+    step_functions: pulumi.Output[list]
     tags: pulumi.Output[dict]
     """
     Key-value map of resource tags
     """
-    def __init__(__self__, resource_name, opts=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, dynamodbv2s=None, elasticsearch=None, enabled=None, firehose=None, iot_analytics=None, iot_events=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, dynamodbv2s=None, elasticsearch=None, enabled=None, firehose=None, iot_analytics=None, iot_events=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None, step_functions=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         ## Example Usage
 
@@ -209,6 +210,12 @@ class TopicRule(pulumi.CustomResource):
           * `queue_url` (`pulumi.Input[str]`) - The URL of the Amazon SQS queue.
           * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
           * `useBase64` (`pulumi.Input[bool]`) - Specifies whether to use Base64 encoding.
+
+        The **step_functions** object supports the following:
+
+          * `executionNamePrefix` (`pulumi.Input[str]`) - The prefix used to generate, along with a UUID, the unique state machine execution name.
+          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to start execution of the state machine.
+          * `stateMachineName` (`pulumi.Input[str]`) - The name of the Step Functions state machine whose execution will be started.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -252,6 +259,7 @@ class TopicRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sql_version'")
             __props__['sql_version'] = sql_version
             __props__['sqs'] = sqs
+            __props__['step_functions'] = step_functions
             __props__['tags'] = tags
             __props__['arn'] = None
         super(TopicRule, __self__).__init__(
@@ -261,7 +269,7 @@ class TopicRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, dynamodbv2s=None, elasticsearch=None, enabled=None, firehose=None, iot_analytics=None, iot_events=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None, tags=None):
+    def get(resource_name, id, opts=None, arn=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, dynamodbv2s=None, elasticsearch=None, enabled=None, firehose=None, iot_analytics=None, iot_events=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None, step_functions=None, tags=None):
         """
         Get an existing TopicRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -371,6 +379,12 @@ class TopicRule(pulumi.CustomResource):
           * `queue_url` (`pulumi.Input[str]`) - The URL of the Amazon SQS queue.
           * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
           * `useBase64` (`pulumi.Input[bool]`) - Specifies whether to use Base64 encoding.
+
+        The **step_functions** object supports the following:
+
+          * `executionNamePrefix` (`pulumi.Input[str]`) - The prefix used to generate, along with a UUID, the unique state machine execution name.
+          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to start execution of the state machine.
+          * `stateMachineName` (`pulumi.Input[str]`) - The name of the Step Functions state machine whose execution will be started.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -396,6 +410,7 @@ class TopicRule(pulumi.CustomResource):
         __props__["sql"] = sql
         __props__["sql_version"] = sql_version
         __props__["sqs"] = sqs
+        __props__["step_functions"] = step_functions
         __props__["tags"] = tags
         return TopicRule(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

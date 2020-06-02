@@ -119,7 +119,7 @@ export interface GetDomainResult {
      * Status of a configuration change in the domain.
      * * `snapshotOptions` – Domain snapshot related options.
      */
-    readonly processing: string;
+    readonly processing: boolean;
     readonly snapshotOptions: outputs.elasticsearch.GetDomainSnapshotOption[];
     /**
      * The tags assigned to the domain.

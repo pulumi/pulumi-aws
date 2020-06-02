@@ -126,10 +126,10 @@ type Instance struct {
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName pulumi.StringPtrOutput `pulumi:"keyPairName"`
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
-	Name             pulumi.StringOutput `pulumi:"name"`
-	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
-	PublicIpAddress  pulumi.StringOutput `pulumi:"publicIpAddress"`
-	RamSize          pulumi.IntOutput    `pulumi:"ramSize"`
+	Name             pulumi.StringOutput  `pulumi:"name"`
+	PrivateIpAddress pulumi.StringOutput  `pulumi:"privateIpAddress"`
+	PublicIpAddress  pulumi.StringOutput  `pulumi:"publicIpAddress"`
+	RamSize          pulumi.Float64Output `pulumi:"ramSize"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// launch script to configure server with additional user data
@@ -198,10 +198,10 @@ type instanceState struct {
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName *string `pulumi:"keyPairName"`
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
-	Name             *string `pulumi:"name"`
-	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	PublicIpAddress  *string `pulumi:"publicIpAddress"`
-	RamSize          *int    `pulumi:"ramSize"`
+	Name             *string  `pulumi:"name"`
+	PrivateIpAddress *string  `pulumi:"privateIpAddress"`
+	PublicIpAddress  *string  `pulumi:"publicIpAddress"`
+	RamSize          *float64 `pulumi:"ramSize"`
 	// A map of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// launch script to configure server with additional user data
@@ -237,7 +237,7 @@ type InstanceState struct {
 	Name             pulumi.StringPtrInput
 	PrivateIpAddress pulumi.StringPtrInput
 	PublicIpAddress  pulumi.StringPtrInput
-	RamSize          pulumi.IntPtrInput
+	RamSize          pulumi.Float64PtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.MapInput
 	// launch script to configure server with additional user data
